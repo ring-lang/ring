@@ -113,6 +113,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libringqt.so"
+	 ],
+	 :macosxfiles = [
+		"libringqt.dylib"
 	 ]
 	],
 	[:name = :allegro ,
@@ -133,7 +136,10 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libringallegro.so"
-	 ] 
+	 ],
+	 :macosxfiles = [
+		"libringallegro.dylib"
+	 ]  
 	],
 	[:name = :openssl ,
 	 :title = "RingOpenSSL",
@@ -144,6 +150,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_openssl.so"
+	 ],
+	 :macosxfiles = [
+		"libring_openssl.dylib"
 	 ] 
 	],
 	[:name = :libcurl ,
@@ -155,6 +164,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_libcurl.so"
+	 ],
+	 :macosxfiles = [
+		"libring_libcurl.dylib"
 	 ]
 	],
 	[:name = :mysql ,
@@ -165,6 +177,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_mysql.so"
+	 ],
+	 :macosxfiles = [
+		"libring_mysql.dylib"
 	 ]
 	],
 	[:name = :odbc ,
@@ -174,6 +189,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_odbc.so"
+	 ],
+	 :macosxfiles = [
+		"libring_odbc.dylib"
 	 ] 
 	],
 	[:name = :sqlite ,
@@ -183,7 +201,10 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_sqlite.so"
-	 ] 
+	 ],
+	 :macosxfiles = [
+		"libring_sqlite.dylib"
+	 ]  
 	],
 	[:name = :opengl ,
 	 :title = "RingOpenGL",
@@ -192,7 +213,10 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_opengl21.so"
-	 ] 
+	 ],
+	 :macosxfiles = [
+		"libring_opengl21.dylib"
+	 ]  
 	],
 	[:name = :freeglut ,
 	 :title = "RingFreeGLUT",
@@ -203,6 +227,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_freeglut.so"
+	 ],
+	 :macosxfiles = [
+		"libring_freeglut.dylib"
 	 ] 
 	],
 	[:name = :libzip ,
@@ -212,6 +239,9 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_libzip.so"
+	 ],
+	 :macosxfiles = [
+		"libring_libzip.dylib"
 	 ]
 	],
 	[:name = :consolecolors ,
@@ -221,7 +251,10 @@ aLibsInfo = [
 	 ],
 	 :linuxfiles = [
 		"libring_consolecolors.so"
-	 ] 
+	 ],
+	 :macosxfiles = [
+		"libring_consolecolors.dylib"
+	 ]  
 	],
 	[:name = :cruntime ,
 	 :title = "C Runtime",
@@ -559,5 +592,56 @@ func LinuxDeleteFile cFile
 func LinuxCopyFile cFile 
 	systemSilent("cp " + cFile + " .")
 
+func MacOSXDeleteFolder cFolder
+	LinuxDeleteFolder(cFolder)
+
+func MacOSXDeleteFile cFile 
+	LinuxDeleteFile(cFile)
+
+func MacOSXCopyFile cFile 
+	LinuxCopyFile(cFile)
+
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
+	# Delete Files 
+		MacOSXDeleteFolder(:macosx)
 	CreateOpenFolder(:macosx)
+	cDir = currentdir()
+	CreateOpenFolder(:bin)
+	# copy the executable file 
+		msg("Copy the executable file to target/macosx/bin")
+		MacOSXCopyFile(cBaseFolder+"/"+cFileName)
+	chdir(cDir)
+	CreateOpenFolder(:lib)
+	# Check ring.so
+		if not find(aOptions,"-static")	
+			msg("Copy libring.dylib to target/macosx/lib")	
+			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")
+		ok
+	# Check All Runtime 
+		if find(aOptions,"-allruntime")	
+			msg("Copy all libraries to target/macosx/lib")
+			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")	
+			for aLibrary in aLibsInfo 
+				if not find(aOptions,"-no"+aLibrary[:name])
+					if islist(aLibrary[:macosxfiles])
+						for cLibFile in aLibrary[:macosxfiles]
+							MacOSXCopyFile(exefolder()+"/../lib/"+cLibFile)
+						next
+					ok
+				else 
+					msg("Skip library "+aLibrary[:title])
+				ok
+			next  	
+		else	# No -allruntime
+			for aLibrary in aLibsInfo 
+				if find(aOptions,"-"+aLibrary[:name])
+					msg("Add "+aLibrary[:title]+" to target/macosx/lib")
+					if islist(aLibrary[:macosxfiles])
+						for cLibFile in aLibrary[:macosxfiles]
+							MacOSXCopyFile(exefolder()+"/lib/"+cLibFile)
+						next
+					ok
+				ok
+			next 				
+		ok
+
