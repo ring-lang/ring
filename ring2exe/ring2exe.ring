@@ -86,30 +86,33 @@ aLibsInfo = [
 	[:name = :qt ,
 	 :title = "RingQt",
 	 :windowsfiles = [
-			"Qt5*.dll",
-			"ringqt.dll",
-			"icudt54.dll",
-			"icuin54.dll",
-			"icuuc54.dll",
-			"libEGL.dll",
-			"libstdc++-6.dll",
-			"libwinpthread-1.dll",
-			"libGLESv2.dll",
-			"D3Dcompiler_47.dll"
+		"Qt5*.dll",
+		"ringqt.dll",
+		"icudt54.dll",
+		"icuin54.dll",
+		"icuuc54.dll",
+		"libEGL.dll",
+		"libstdc++-6.dll",
+		"libwinpthread-1.dll",
+		"libGLESv2.dll",
+		"D3Dcompiler_47.dll"
 	 ] ,
 	 :windowsfolders = [
-			:audio,
-			:bearer,
-			:iconengines,
-			:imageformats,
-			:mediaservice,
-			:platforms,
-			:playlistformats,
-			:position,
-			:printsupport,
-			:sensorgestures,
-			:sqldrivers,
-			:translations
+		:audio,
+		:bearer,
+		:iconengines,
+		:imageformats,
+		:mediaservice,
+		:platforms,
+		:playlistformats,
+		:position,
+		:printsupport,
+		:sensorgestures,
+		:sqldrivers,
+		:translations
+	 ],
+	 :linuxfiles = [
+		"libringqt.so"
 	 ]
 	],
 	[:name = :allegro ,
@@ -127,6 +130,9 @@ aLibsInfo = [
 			"vorbis.dll",
 			"vorbisfile.dll",	
 			"zlib.dll"
+	 ],
+	 :linuxfiles = [
+		"libringallegro.so"
 	 ] 
 	],
 	[:name = :openssl ,
@@ -135,6 +141,9 @@ aLibsInfo = [
 			"ring_openssl.dll",
 			"ssleay32.dll",
 			"libeay32.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_openssl.so"
 	 ] 
 	],
 	[:name = :libcurl ,
@@ -143,31 +152,46 @@ aLibsInfo = [
 			"ring_libcurl.dll",
 			"ring_internet.dll",
 			"libcurl.dll"
-	 ] 
+	 ],
+	 :linuxfiles = [
+		"libring_libcurl.so"
+	 ]
 	],
 	[:name = :mysql ,
 	 :title = "RingMySQL",
 	 :windowsfiles = [
 			"ring_mysql.dll",
 			"libmysql.dll"
-	 ] 
+	 ],
+	 :linuxfiles = [
+		"libring_mysql.so"
+	 ]
 	],
 	[:name = :odbc ,
 	 :title = "RingODBC",
 	 :windowsfiles = [
 			"ring_odbc.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_odbc.so"
 	 ] 
 	],
 	[:name = :sqlite ,
 	 :title = "RingSQLite",
 	 :windowsfiles = [
 			"ring_sqlite.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_sqlite.so"
 	 ] 
 	],
 	[:name = :opengl ,
 	 :title = "RingOpenGL",
 	 :windowsfiles = [
 			"ring_opengl*.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_opengl21.so"
 	 ] 
 	],
 	[:name = :freeglut ,
@@ -176,18 +200,27 @@ aLibsInfo = [
 			"ring_freeglut.dll",
 			"freeglut.dll",
 			"glew32.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_freeglut.so"
 	 ] 
 	],
 	[:name = :libzip ,
 	 :title = "RingLibZip",
 	 :windowsfiles = [
 			"ring_libzip.dll"
-	 ] 
+	 ],
+	 :linuxfiles = [
+		"libring_libzip.so"
+	 ]
 	],
 	[:name = :consolecolors ,
 	 :title = "RingConsoleColors",
 	 :windowsfiles = [
 			"ring_consolecolors.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_consolecolors.so"
 	 ] 
 	],
 	[:name = :cruntime ,
