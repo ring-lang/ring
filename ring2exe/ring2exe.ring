@@ -507,7 +507,38 @@ func WindowsCopyFile cFile
 	systemSilent("copy " + cFile)
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
+	# Delete Files 
+		LinuxDeleteFolder(:linux)
 	CreateOpenFolder(:linux)
+	cDir = currentdir()
+	CreateOpenFolder(:bin)
+	# copy the executable file 
+		msg("Copy the executable file to target/linux/bin")
+		LinuxCopyFile(cBaseFolder+"/"+cFileName)
+	chdir(cDir)
+	CreateOpenFolder(:lib)
+	# Check ring.so
+		if not find(aOptions,"-static")	
+			msg("Copy ring.so to target/linux/lib")	
+			LinuxCopyFile(exefolder()+"/../lib/ring.so")
+		ok
+
+
+func LinuxDeleteFolder cFolder
+	systemSilent("rm -r " + cFolder)
+
+func LinuxCopyFolder cFolder
+	cParentFolder = currentdir()
+	CreateOpenFolder(cFolder)
+	systemsilent("cp " + exefolder()+cFolder)
+	chdir(cParentFolder)
+
+func LinuxDeleteFile cFile 
+	systemSilent("rm " + cFile)
+
+func LinuxCopyFile cFile 
+	systemSilent("cp " + cFile)
+
 
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:macosx)
