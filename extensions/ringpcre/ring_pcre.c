@@ -51,7 +51,7 @@ void ring_pcre_match(void *pPointer)
     }
 
     pattern = (PCRE2_SPTR) RING_API_GETSTRING(1);
-    options = 0;//ring_pcre2_parse_options(RING_API_GETLIST(2));
+    options = ring_pcre2_parse_options(RING_API_GETLIST(2));
     subject = (PCRE2_SPTR) RING_API_GETSTRING(3);
     sublen = strlen(RING_API_GETSTRING(3));
 
@@ -96,38 +96,39 @@ void ring_pcre_match(void *pPointer)
     }
 
     RING_API_RETLIST(retval);
-
-    // PCRE2_SPTR tmp_ptr;
-    //
-    // ring_init_pattern_info(code, &pi, &pi_error);
-    //
-    // tmp_ptr = pi.tpl_name;
-    // name_count = pi.name_count;
-    //
-    // for (int i = 0; i < name_count; i++) {
-    //     int n = (tmp_ptr[0] << 8) | tmp_ptr[1];
-    //     printf("(%d) %*s: %.*s\n", n, pi.ne_size - 3, tmp_ptr + 2,
-    //       (int)(ovectorp[2*n+1] - ovectorp[2*n]), subject + ovectorp[2*n]);
-    //     tmp_ptr += pi.ne_size;
-    // }
-
 }
 
-// void ring_init_pattern_info(pcre2_code code, RING_PI *in, int *error)
-// {
-//     int name_count;
-//     if (pcre2_pattern_info(code, PCRE2_INFO_NAMECOUNT, &name_count) != PCRE2_ERROR_NULL) {
-//         if (name_count > 0) {
-//             in->name_count = name_count;
-//
-//             (void)pcre2_pattern_info(code, PCRE2_INFO_NAMETABLE, &(in->tpl_name));
-//
-//             (void)pcre2_pattern_info(code, PCRE2_INFO_NAMEENTRYSIZE, &(in->ne_size));
-//         }
-//     }
-// }
-//
-// int ring_pcre2_parse_options(List *opt_list)
-// {
-//
-// }
+
+int ring_pcre2_explain_option(char* option)
+{
+    switch(*option) {
+        case 'x': return PCRE2_EXTENDED; break;
+        case 'm': return PCRE2_MULTILINE; break;
+        case 'i': return PCRE2_CASELESS; break;
+        case 's': return PCRE2_DOTALL; break;
+        default:
+            // return error
+            return 1;
+    }
+}
+
+int ring_pcre2_parse_options(List *opt_list)
+{
+    int list_size;
+
+    int tmp_options = 0;
+
+    list_size = ring_list_getsize(opt_list);
+
+    for (int i = 1; i <= list_size; i++) {
+        if (ring_list_isstring(opt_list, i)) {
+            tmp_options |= ring_pcre2_explain_option(
+                ring_list_getstring(opt_list, i)
+            );
+        } else {
+            return 1;
+        }
+    }
+
+    return tmp_options;
+}
