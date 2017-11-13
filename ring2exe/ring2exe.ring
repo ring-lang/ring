@@ -519,10 +519,35 @@ func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:lib)
 	# Check ring.so
 		if not find(aOptions,"-static")	
-			msg("Copy ring.so to target/linux/lib")	
+			msg("Copy libring.so to target/linux/lib")	
 			LinuxCopyFile(exefolder()+"/../lib/libring.so")
 		ok
-
+	# Check All Runtime 
+		if find(aOptions,"-allruntime")	
+			msg("Copy all libraries to target/linux/lib")	
+			for aLibrary in aLibsInfo 
+				if not find(aOptions,"-no"+aLibrary[:name])
+					if islist(aLibrary[:linuxfiles])
+						for cLibFile in aLibrary[:linuxfiles]
+							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)
+						next
+					ok
+				else 
+					msg("Skip library "+aLibrary[:title])
+				ok
+			next  	
+		else	# No -allruntime
+			for aLibrary in aLibsInfo 
+				if find(aOptions,"-"+aLibrary[:name])
+					msg("Add "+aLibrary[:title]+" to target/linux/lib")
+					if islist(aLibrary[:linuxfiles])
+						for cLibFile in aLibrary[:linuxfiles]
+							LinuxCopyFile(exefolder()+"/lib/"+cLibFile)
+						next
+					ok
+				ok
+			next 				
+		ok
 
 func LinuxDeleteFolder cFolder
 	systemSilent("rm -r " + cFolder)
