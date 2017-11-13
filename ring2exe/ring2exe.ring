@@ -82,10 +82,10 @@
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
 C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
-aWindowsLibs = [
+aLibsInfo = [
 	[:name = :qt ,
 	 :title = "RingQt",
-	 :files = [
+	 :windowsfiles = [
 			"Qt5*.dll",
 			"ringqt.dll",
 			"icudt54.dll",
@@ -97,7 +97,7 @@ aWindowsLibs = [
 			"libGLESv2.dll",
 			"D3Dcompiler_47.dll"
 	 ] ,
-	 :folders = [
+	 :windowsfolders = [
 			:audio,
 			:bearer,
 			:iconengines,
@@ -114,7 +114,7 @@ aWindowsLibs = [
 	],
 	[:name = :allegro ,
 	 :title = "RingAllegro",
-	 :files = [
+	 :windowsfiles = [
 			"allegro*.dll",
 			"ring_allegro.dll",
 			"FLAC.dll",
@@ -131,7 +131,7 @@ aWindowsLibs = [
 	],
 	[:name = :openssl ,
 	 :title = "RingOpenSSL",
-	 :files = [
+	 :windowsfiles = [
 			"ring_openssl.dll",
 			"ssleay32.dll",
 			"libeay32.dll"
@@ -139,7 +139,7 @@ aWindowsLibs = [
 	],
 	[:name = :libcurl ,
 	 :title = "RingLibCurl",
-	 :files = [
+	 :windowsfiles = [
 			"ring_libcurl.dll",
 			"ring_internet.dll",
 			"libcurl.dll"
@@ -147,32 +147,32 @@ aWindowsLibs = [
 	],
 	[:name = :mysql ,
 	 :title = "RingMySQL",
-	 :files = [
+	 :windowsfiles = [
 			"ring_mysql.dll",
 			"libmysql.dll"
 	 ] 
 	],
 	[:name = :odbc ,
 	 :title = "RingODBC",
-	 :files = [
+	 :windowsfiles = [
 			"ring_odbc.dll"
 	 ] 
 	],
 	[:name = :sqlite ,
 	 :title = "RingSQLite",
-	 :files = [
+	 :windowsfiles = [
 			"ring_sqlite.dll"
 	 ] 
 	],
 	[:name = :opengl ,
 	 :title = "RingOpenGL",
-	 :files = [
+	 :windowsfiles = [
 			"ring_opengl*.dll"
 	 ] 
 	],
 	[:name = :freeglut ,
 	 :title = "RingFreeGLUT",
-	 :files = [
+	 :windowsfiles = [
 			"ring_freeglut.dll",
 			"freeglut.dll",
 			"glew32.dll"
@@ -180,19 +180,19 @@ aWindowsLibs = [
 	],
 	[:name = :libzip ,
 	 :title = "RingLibZip",
-	 :files = [
+	 :windowsfiles = [
 			"ring_libzip.dll"
 	 ] 
 	],
 	[:name = :consolecolors ,
 	 :title = "RingConsoleColors",
-	 :files = [
+	 :windowsfiles = [
 			"ring_consolecolors.dll"
 	 ] 
 	],
 	[:name = :cruntime ,
 	 :title = "C Runtime",
-	 :files = [
+	 :windowsfiles = [
 			"msvc*.dll",
 			"libgcc_s_dw2-1.dll"
 	 ] 
@@ -423,15 +423,15 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/windows")	
-			for aLibrary in aWindowsLibs 
+			for aLibrary in aLibsInfo 
 				if not find(aOptions,"-no"+aLibrary[:name])
-					if islist(aLibrary[:folders])
-						for cLibFolder in aLibrary[:folders]
+					if islist(aLibrary[:windowsfolders])
+						for cLibFolder in aLibrary[:windowsfolders]
 							WindowsCopyFolder(cLibFolder)
 						next
 					ok
-					if islist(aLibrary[:files])
-						for cLibFile in aLibrary[:files]
+					if islist(aLibrary[:windowsfiles])
+						for cLibFile in aLibrary[:windowsfiles]
 							WindowsCopyFile(exefolder()+"\"+cLibFile)
 						next
 					ok
@@ -440,16 +440,16 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 				ok
 			next  	
 		else	# No -allruntime
-			for aLibrary in aWindowsLibs 
+			for aLibrary in aLibsInfo 
 				if find(aOptions,"-"+aLibrary[:name])
 					msg("Add "+aLibrary[:title]+" to target/windows")
-					if islist(aLibrary[:folders])
-						for cLibFolder in aLibrary[:folders]
+					if islist(aLibrary[:windowsfolders])
+						for cLibFolder in aLibrary[:windowsfolders]
 							WindowsCopyFolder(cLibFolder)
 						next
 					ok
-					if islist(aLibrary[:files])
-						for cLibFile in aLibrary[:files]
+					if islist(aLibrary[:windowsfiles])
+						for cLibFile in aLibrary[:windowsfiles]
 							WindowsCopyFile(exefolder()+"\"+cLibFile)
 						next
 					ok
