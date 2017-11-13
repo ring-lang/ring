@@ -424,7 +424,7 @@ func SystemSilent cCmd
 	ok
 
 func Make_Folder cFolder
-	SystemSilent("mkdir " + cFolder)
+	SystemSilent("mkdir -p " + cFolder)
 
 func CreateOpenFolder cFolder
 	Make_Folder(cFolder)
@@ -524,7 +524,8 @@ func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 		ok
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
-			msg("Copy all libraries to target/linux/lib")	
+			msg("Copy all libraries to target/linux/lib")
+			LinuxCopyFile(exefolder()+"/../lib/libring.so")	
 			for aLibrary in aLibsInfo 
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:linuxfiles])
@@ -551,7 +552,6 @@ func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 
 func LinuxDeleteFolder cFolder
 	systemSilent("rm -r " + cFolder)
-
 
 func LinuxDeleteFile cFile 
 	systemSilent("rm " + cFile)
