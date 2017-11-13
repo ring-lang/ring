@@ -527,18 +527,12 @@ func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 func LinuxDeleteFolder cFolder
 	systemSilent("rm -r " + cFolder)
 
-func LinuxCopyFolder cFolder
-	cParentFolder = currentdir()
-	CreateOpenFolder(cFolder)
-	systemsilent("cp " + exefolder()+cFolder)
-	chdir(cParentFolder)
 
 func LinuxDeleteFile cFile 
 	systemSilent("rm " + cFile)
 
 func LinuxCopyFile cFile 
-	systemSilent("cp " + cFile)
-
+	systemSilent("cp " + cFile + " %cd%")
 
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:macosx)
