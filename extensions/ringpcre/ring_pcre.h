@@ -18,6 +18,8 @@ RING_API void ringlib_init(RingState *pRingState);
 
 void ring_pcre_match(void *pPointer);
 
+int ring_pcre2_explain_option(char* option);
+
 int ring_pcre2_parse_options(List *opt_list);
 
 void ring_init_pattern_info(pcre2_code code, RING_PI *in, int *error);
