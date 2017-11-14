@@ -1,4 +1,7 @@
-Load "gameengine.ring"  # Give Control to the Game Engine
+# Just a simple program to test Ring2EXE Tool!
+# Using RingAllegro
+
+load "gameengine.ring"  # Give Control to the Game Engine
 
 func main               # Called by the Game Engine
 
