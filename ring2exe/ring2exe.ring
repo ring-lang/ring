@@ -449,20 +449,6 @@ func ClearTempFiles
 		systemSilent("./cleartemp.sh")
 	ok
 
-func SystemSilent cCmd
-	if isWindows()
-		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
-	else 
-		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
-	ok
-
-func MakeFolder cFolder
-	SystemSilent("mkdir -p " + cFolder)
-
-func CreateOpenFolder cFolder
-	MakeFolder(cFolder)
-	chdir(cFolder)
-
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
 	CreateOpenFolder(:target)
@@ -523,22 +509,6 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 			next 				
 		ok
 
-
-func WindowsDeleteFolder cFolder
-	systemSilent("rd /s /q " + cFolder)
-
-func WindowsCopyFolder cFolder
-	cParentFolder = currentdir()
-	CreateOpenFolder(cFolder)
-	systemsilent("copy " + exefolder()+cFolder)
-	chdir(cParentFolder)
-
-func WindowsDeleteFile cFile 
-	systemSilent("del " + cFile)
-
-func WindowsCopyFile cFile 
-	systemSilent("copy " + cFile)
-
 func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		LinuxDeleteFolder(:linux)
@@ -582,24 +552,6 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 				ok
 			next 				
 		ok
-
-func LinuxDeleteFolder cFolder
-	systemSilent("rm -r " + cFolder)
-
-func LinuxDeleteFile cFile 
-	systemSilent("rm " + cFile)
-
-func LinuxCopyFile cFile 
-	systemSilent("cp " + cFile + " .")
-
-func MacOSXDeleteFolder cFolder
-	LinuxDeleteFolder(cFolder)
-
-func MacOSXDeleteFile cFile 
-	LinuxDeleteFile(cFile)
-
-func MacOSXCopyFile cFile 
-	LinuxCopyFile(cFile)
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -645,3 +597,49 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 			next 				
 		ok
 
+func SystemSilent cCmd
+	if isWindows()
+		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
+	else 
+		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
+	ok
+
+func MakeFolder cFolder
+	SystemSilent("mkdir -p " + cFolder)
+
+func CreateOpenFolder cFolder
+	MakeFolder(cFolder)
+	chdir(cFolder)
+
+func WindowsDeleteFolder cFolder
+	systemSilent("rd /s /q " + cFolder)
+
+func WindowsCopyFolder cFolder
+	cParentFolder = currentdir()
+	CreateOpenFolder(cFolder)
+	systemsilent("copy " + exefolder()+cFolder)
+	chdir(cParentFolder)
+
+func WindowsDeleteFile cFile 
+	systemSilent("del " + cFile)
+
+func WindowsCopyFile cFile 
+	systemSilent("copy " + cFile)
+
+func LinuxDeleteFolder cFolder
+	systemSilent("rm -r " + cFolder)
+
+func LinuxDeleteFile cFile 
+	systemSilent("rm " + cFile)
+
+func LinuxCopyFile cFile 
+	systemSilent("cp " + cFile + " .")
+
+func MacOSXDeleteFolder cFolder
+	LinuxDeleteFolder(cFolder)
+
+func MacOSXDeleteFile cFile 
+	LinuxDeleteFile(cFile)
+
+func MacOSXCopyFile cFile 
+	LinuxCopyFile(cFile)
