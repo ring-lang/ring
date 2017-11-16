@@ -563,6 +563,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		ok
 	cInstallUbuntu = "sudo apt-get install"
 	cInstallFedora = "sudo dnf install"
+	cInstallLibs   = ""
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/linux/lib")
@@ -572,6 +573,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
 							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)					
+							cInstallLibs = InstallLib(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
@@ -587,6 +589,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
 							LinuxCopyFile(exefolder()+"/lib/"+cLibFile)
+							cInstallLibs = InstallLib(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
@@ -596,6 +599,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		ok
 	# Script to install the application 
 	chdir(cDir)
+	cInstallUbuntu += cInstallLibs 
+	cInstallFedora += cInstallLibs
 	if cInstallUbuntu != "sudo apt-get install"
 		write("install_ubuntu.sh",cInstallUbuntu)
 		SystemSilent("chmod +x install_ubuntu.sh")
@@ -604,6 +609,17 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		write("install_fedora.sh",cInstallFedora)	
 		SystemSilent("chmod +x install_fedora.sh")
 	ok
+
+func InstallLib cInstallLib,cLibFile 
+	cCode = "
+		if [ -f lib/#{f1} ];
+		then
+			sudo cp lib/#{f1} /usr/lib
+			sudo cp lib/#{f1} /usr/lib64
+		fi
+	"
+	cCode = SubStr(cCode,"#{f1}",cLibFile)
+	return cInstallLib + cCode
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
