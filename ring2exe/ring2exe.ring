@@ -556,14 +556,15 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		LinuxCopyFile(cBaseFolder+"/"+cFileName)
 	chdir(cDir)
 	CreateOpenFolder(:lib)
+	cInstallUbuntu = "sudo apt-get install"
+	cInstallFedora = "sudo dnf install"
+	cInstallLibs   = ""
 	# Check ring.so
 		if not find(aOptions,"-static")	
 			msg("Copy libring.so to target/linux/lib")	
 			LinuxCopyFile(exefolder()+"/../lib/libring.so")
 		ok
-	cInstallUbuntu = "sudo apt-get install"
-	cInstallFedora = "sudo dnf install"
-	cInstallLibs   = ""
+		cInstallLibs = InstallLibLinux(cInstallLibs,"libring.so")
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/linux/lib")
@@ -573,7 +574,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
 							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)					
-							cInstallLibs = InstallLib(cInstallLibs,cLibFile)
+							cInstallLibs = InstallLibLinux(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
@@ -589,7 +590,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
 							LinuxCopyFile(exefolder()+"/lib/"+cLibFile)
-							cInstallLibs = InstallLib(cInstallLibs,cLibFile)
+							cInstallLibs = InstallLibLinux(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
@@ -599,8 +600,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	cInstallUbuntu += cInstallLibs 
-	cInstallFedora += cInstallLibs
+	cInstallUbuntu += (nl+cInstallLibs)
+	cInstallFedora += (nl+cInstallLibs)
 	if cInstallUbuntu != "sudo apt-get install"
 		write("install_ubuntu.sh",cInstallUbuntu)
 		SystemSilent("chmod +x install_ubuntu.sh")
@@ -610,7 +611,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		SystemSilent("chmod +x install_fedora.sh")
 	ok
 
-func InstallLib cInstallLib,cLibFile 
+func InstallLibLinux cInstallLib,cLibFile 
 	cCode = "
 		if [ -f lib/#{f1} ];
 		then
@@ -619,7 +620,19 @@ func InstallLib cInstallLib,cLibFile
 		fi
 	"
 	cCode = SubStr(cCode,"#{f1}",cLibFile)
+	cCode = RemoveFirstTabs(cCode,2)
 	return cInstallLib + cCode
+
+func RemoveFirstTabs cString,nCount
+	aList = str2list(cString)
+	for item in aList 
+		if left(item,nCount) = Copy(char(9),nCount)
+			if len(item) > nCount
+				item = substr(item,nCount+1)
+			ok
+		ok
+	next
+	return list2str(aList)
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
