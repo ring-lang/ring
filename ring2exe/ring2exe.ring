@@ -117,8 +117,10 @@ aLibsInfo = [
 	 :macosxfiles = [
 		"libringqt.dylib"
 	 ],
-	 :ubuntudep = "qt5-default qtbase5-dev qtmultimedia5-dev libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev",
-	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel",
+	 :ubuntudep = "qt5-default qtbase5-dev qtmultimedia5-dev"+
+		      " libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev",
+	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel "+
+		      "qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel",
 	 :macosxdep = "homebrew/versions/qt55"
 	],
 	[:name = :allegro ,
@@ -143,8 +145,15 @@ aLibsInfo = [
 	 :macosxfiles = [
 		"libringallegro.dylib"
 	 ],
-	 :ubuntudep = "liballegro5-dev liballegro-image5-dev liballegro-ttf5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-dialog5-dev liballegro-physfs5-dev",
-	 :fedoradep = "allegro5 allegro5-devel allegro5-addon-acodec allegro5-addon-acodec-devel allegro5-addon-dialog allegro5-addon-dialog-devel allegro5-addon-image allegro5-addon-image-devel allegro5-addon-physfs allegro5-addon-physfs-devel allegro5-addon-ttf allegro5-addon-ttf-devel",
+	 :ubuntudep = "liballegro5-dev liballegro-image5-dev liballegro-ttf5-dev "+
+		      "liballegro-audio5-dev liballegro-acodec5-dev "+
+                      "liballegro-dialog5-dev liballegro-physfs5-dev",
+	 :fedoradep = "allegro5 allegro5-devel allegro5-addon-acodec "+
+		      "allegro5-addon-acodec-devel allegro5-addon-dialog "+
+		      "allegro5-addon-dialog-devel allegro5-addon-image "+
+		      "allegro5-addon-image-devel allegro5-addon-physfs "+
+		      "allegro5-addon-physfs-devel allegro5-addon-ttf "+
+		      "allegro5-addon-ttf-devel",
 	 :macosxdep = "allegro"
 	],
 	[:name = :openssl ,
