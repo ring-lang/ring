@@ -561,6 +561,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 			msg("Copy libring.so to target/linux/lib")	
 			LinuxCopyFile(exefolder()+"/../lib/libring.so")
 		ok
+	cInstallUbuntu = "sudo apt-get install"
+	cInstallFedora = "sudo dnf install"
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/linux/lib")
@@ -569,9 +571,11 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
-							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)
+							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)					
 						next
 					ok
+					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
+					cInstallFedora += (" " + aLibrary[:fedoradep])
 				else 
 					msg("Skip library "+aLibrary[:title])
 				ok
@@ -585,14 +589,17 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 							LinuxCopyFile(exefolder()+"/lib/"+cLibFile)
 						next
 					ok
+					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
+					cInstallFedora += (" " + aLibrary[:fedoradep])
 				ok
 			next 				
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	cInstallUbuntu = "sudo apt-get install"
-	cInstallFedora = "sudo dnf install"
-
+	write("install_ubuntu.sh",cInstallUbuntu)
+	write("install_fedora.sh",cInstallFedora)
+	SystemSilent("chmod +x install_ubuntu.sh")
+	SystemSilent("chmod +x install_fedora.sh")
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -610,6 +617,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 			msg("Copy libring.dylib to target/macosx/lib")	
 			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")
 		ok
+	cInstallmacosx = "brew install -k"
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/macosx/lib")
@@ -621,6 +629,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 							MacOSXCopyFile(exefolder()+"/../lib/"+cLibFile)
 						next
 					ok
+					cInstallMacOSX += (" " + aLibrary[:macosxdep])
 				else 
 					msg("Skip library "+aLibrary[:title])
 				ok
@@ -634,12 +643,14 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 							MacOSXCopyFile(exefolder()+"/lib/"+cLibFile)
 						next
 					ok
+					cInstallMacOSX += (" " + aLibrary[:macosxdep])
 				ok
 			next 				
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	cInstallmacosx = "brew install -k"
+	write("install.sh",cInstallMacOSX)
+	SystemSilent("chmod +x install.sh")
 
 func SystemSilent cCmd
 	if isWindows()
