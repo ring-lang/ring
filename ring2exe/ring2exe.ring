@@ -374,9 +374,9 @@ func GenerateBatchDynamic cFileName,aOptions
 	return GenerateBatchGeneral([
 		:file = cFileName ,
 		:ringlib = [
-			:windows = "..\lib\ring.lib" ,
-			:linux   = "-L $PWD/../lib -lring",
-			:macosx	 = "$PWD/../lib/libring.dylib"
+			:windows = exefolder() + "..\lib\ring.lib" ,
+			:linux   = "-L "+exefolder()+"/../lib -lring",
+			:macosx	 = exefolder() + "/../lib/libring.dylib"
 		]
 	],aOptions)	
 
@@ -385,9 +385,9 @@ func GenerateBatchStatic cFileName,aOptions
 	return GenerateBatchGeneral([
 		:file = cFileName ,
 		:ringlib = [
-			:windows = "..\lib\ringstatic.lib" ,
-			:linux   = "-L $PWD/../lib -lringstatic",
-			:macosx	 = "-L $PWD/../lib -lringstatic"
+			:windows = exefolder()+"..\lib\ringstatic.lib" ,
+			:linux   = "-L "+exefolder()+"/../lib -lringstatic",
+			:macosx	 = "-L "+exefolder()+"/../lib -lringstatic"
 		]
 	],aOptions)
 
@@ -398,7 +398,7 @@ func GenerateBatchGeneral aPara,aOptions
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			"#{f3}" + nl +
-			'cl #{f1}.c #{f2} #{f4} -I"..\include" -I"../src/" /link #{f5} /OUT:#{f1}.exe' 
+			'cl #{f1}.c #{f2} #{f4} -I"#{f6}..\include" -I"#{f6}../src/" /link #{f5} /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		# Resource File 
@@ -416,18 +416,21 @@ func GenerateBatchGeneral aPara,aOptions
 			else 
 				cCode = substr(cCode,"#{f5}",' /SUBSYSTEM:CONSOLE,"5.01" ')
 			ok
+		cCode = substr(cCode,"#{f6}",exefolder())
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I #{f3}/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:linux])
+		cCode = substr(cCode,"#{f3}",exefolder())
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	# Generate MacOS X Script (CLang C/C++)
-		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I $PWD/../include  '
+		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I #{f3}/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:macosx])
+		cCode = substr(cCode,"#{f3}",exefolder())
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
 	# Return the script/batch file name
