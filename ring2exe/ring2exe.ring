@@ -447,9 +447,9 @@ func GenerateBatchGeneral aPara,aOptions
 func ClearTempFiles
 	msg("Clear Temp. Files...")
 	if isWindows()
-		systemSilent("cleartemp.bat")
+		systemSilent(exefolder()+"/cleartemp.bat")
 	else
-		systemSilent("./cleartemp.sh")
+		systemSilent("./"+exefolder()+"cleartemp.sh")
 	ok
 
 func Distribute cFileName,aOptions
