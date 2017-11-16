@@ -608,7 +608,11 @@ func SystemSilent cCmd
 	ok
 
 func MakeFolder cFolder
-	SystemSilent("mkdir -p " + cFolder)
+	if iswindows()
+		SystemSilent("mkdir " + cFolder)
+	else 
+		SystemSilent("mkdir -p " + cFolder)
+	ok
 
 func CreateOpenFolder cFolder
 	MakeFolder(cFolder)
