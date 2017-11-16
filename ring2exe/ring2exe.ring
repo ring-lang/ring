@@ -449,7 +449,7 @@ func ClearTempFiles
 	if isWindows()
 		systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
 	else
-		systemSilent("./"+exefolder()+"/../ring2exe/cleartemp.sh")
+		systemSilent(exefolder()+"/../ring2exe/cleartemp.sh")
 	ok
 
 func Distribute cFileName,aOptions
