@@ -609,13 +609,13 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	cInstallUbuntu += (nl+cInstallLibs)
-	cInstallFedora += (nl+cInstallLibs)
 	if cInstallUbuntu != "sudo apt-get install"
+		cInstallUbuntu += (nl+cInstallLibs)
 		write("install_ubuntu.sh",cInstallUbuntu)
 		SystemSilent("chmod +x install_ubuntu.sh")
 	ok
 	if cInstallFedora != "sudo dnf install"
+		cInstallFedora += (nl+cInstallLibs)
 		write("install_fedora.sh",cInstallFedora)	
 		SystemSilent("chmod +x install_fedora.sh")
 	ok
@@ -654,12 +654,14 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 		MacOSXCopyFile(cBaseFolder+"/"+cFileName)
 	chdir(cDir)
 	CreateOpenFolder(:lib)
-	# Check ring.so
+	cInstallmacosx = "brew install -k"
+	cInstallLibs   = ""
+	# Check ring.dylib
 		if not find(aOptions,"-static")	
 			msg("Copy libring.dylib to target/macosx/lib")	
 			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")
 		ok
-	cInstallmacosx = "brew install -k"
+		cInstallLibs = InstallLibMacOSX(cInstallLibs,"libring.dylib")
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/macosx/lib")
@@ -669,6 +671,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:macosxfiles])
 						for cLibFile in aLibrary[:macosxfiles]
 							MacOSXCopyFile(exefolder()+"/../lib/"+cLibFile)
+							cInstallLibs = InstallLibMacOSX(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallMacOSX += (" " + aLibrary[:macosxdep])
@@ -683,6 +686,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:macosxfiles])
 						for cLibFile in aLibrary[:macosxfiles]
 							MacOSXCopyFile(exefolder()+"/lib/"+cLibFile)
+							cInstallLibs = InstallLibMacOSX(cInstallLibs,cLibFile)
 						next
 					ok
 					cInstallMacOSX += (" " + aLibrary[:macosxdep])
@@ -692,9 +696,21 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Script to install the application 
 	chdir(cDir)
 	if cInstallmacosx != "brew install -k"
+		cInstallmacosx += (nl+cInstallLibs)
 		write("install.sh",cInstallMacOSX)
 		SystemSilent("chmod +x install.sh")
 	ok
+
+func InstallLibMacOSX cInstallLib,cLibFile 
+	cCode = "
+		if [ -f lib/#{f1} ];
+		then
+			cp lib/#{f1} /usr/local/lib
+		fi
+	"
+	cCode = SubStr(cCode,"#{f1}",cLibFile)
+	cCode = RemoveFirstTabs(cCode,2)
+	return cInstallLib + cCode
 
 func SystemSilent cCmd
 	if isWindows()
