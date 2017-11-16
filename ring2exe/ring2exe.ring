@@ -447,9 +447,9 @@ func GenerateBatchGeneral aPara,aOptions
 func ClearTempFiles
 	msg("Clear Temp. Files...")
 	if isWindows()
-		systemSilent(exefolder()+"/cleartemp.bat")
+		systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
 	else
-		systemSilent("./"+exefolder()+"cleartemp.sh")
+		systemSilent("./"+exefolder()+"/../ring2exe/cleartemp.sh")
 	ok
 
 func Distribute cFileName,aOptions
