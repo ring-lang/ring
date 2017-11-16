@@ -596,10 +596,14 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	write("install_ubuntu.sh",cInstallUbuntu)
-	write("install_fedora.sh",cInstallFedora)
-	SystemSilent("chmod +x install_ubuntu.sh")
-	SystemSilent("chmod +x install_fedora.sh")
+	if cInstallUbuntu != "sudo apt-get install"
+		write("install_ubuntu.sh",cInstallUbuntu)
+		SystemSilent("chmod +x install_ubuntu.sh")
+	ok
+	if cInstallFedora != "sudo dnf install"
+		write("install_fedora.sh",cInstallFedora)	
+		SystemSilent("chmod +x install_fedora.sh")
+	ok
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -649,8 +653,10 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 		ok
 	# Script to install the application 
 	chdir(cDir)
-	write("install.sh",cInstallMacOSX)
-	SystemSilent("chmod +x install.sh")
+	if cInstallmacosx != "brew install -k"
+		write("install.sh",cInstallMacOSX)
+		SystemSilent("chmod +x install.sh")
+	ok
 
 func SystemSilent cCmd
 	if isWindows()
