@@ -116,7 +116,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libringqt.dylib"
-	 ]
+	 ],
+	 :ubuntudep = "qt5-default qtbase5-dev qtmultimedia5-dev libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev",
+	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel",
+	 :macosxdep = "homebrew/versions/qt55"
 	],
 	[:name = :allegro ,
 	 :title = "RingAllegro",
@@ -139,7 +142,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libringallegro.dylib"
-	 ]  
+	 ],
+	 :ubuntudep = "liballegro5-dev liballegro-image5-dev liballegro-ttf5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-dialog5-dev liballegro-physfs5-dev",
+	 :fedoradep = "allegro5 allegro5-devel allegro5-addon-acodec allegro5-addon-acodec-devel allegro5-addon-dialog allegro5-addon-dialog-devel allegro5-addon-image allegro5-addon-image-devel allegro5-addon-physfs allegro5-addon-physfs-devel allegro5-addon-ttf allegro5-addon-ttf-devel",
+	 :macosxdep = "allegro"
 	],
 	[:name = :openssl ,
 	 :title = "RingOpenSSL",
@@ -153,7 +159,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_openssl.dylib"
-	 ] 
+	 ],
+	 :ubuntudep = "libssl-dev",
+	 :fedoradep = "openssl",
+	 :macosxdep = "openssl" 
 	],
 	[:name = :libcurl ,
 	 :title = "RingLibCurl",
@@ -167,7 +176,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_libcurl.dylib"
-	 ]
+	 ],
+	 :ubuntudep = "libcurl4-gnutls-dev",
+	 :fedoradep = "libcurl libcurl-devel",
+	 :macosxdep = ""
 	],
 	[:name = :mysql ,
 	 :title = "RingMySQL",
@@ -180,7 +192,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_mysql.dylib"
-	 ]
+	 ],
+	 :ubuntudep = "libmysqlclient-dev",
+	 :fedoradep = "mysql-devel",
+	 :macosxdep = "mysql-connector-c"
 	],
 	[:name = :odbc ,
 	 :title = "RingODBC",
@@ -192,7 +207,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_odbc.dylib"
-	 ] 
+	 ],
+	 :ubuntudep = "unixodbc unixodbc-dev",
+	 :fedoradep = "unixODBC unixODBC-devel",
+	 :macosxdep = "unixodbc" 
 	],
 	[:name = :sqlite ,
 	 :title = "RingSQLite",
@@ -204,7 +222,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_sqlite.dylib"
-	 ]  
+	 ],
+	 :ubuntudep = "",
+	 :fedoradep = "",
+	 :macosxdep = ""  
 	],
 	[:name = :opengl ,
 	 :title = "RingOpenGL",
@@ -216,7 +237,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_opengl21.dylib"
-	 ]  
+	 ],
+	 :ubuntudep = "mesa-common-dev",
+	 :fedoradep = "mesa-libGLU-devel",
+	 :macosxdep = ""  
 	],
 	[:name = :freeglut ,
 	 :title = "RingFreeGLUT",
@@ -230,7 +254,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_freeglut.dylib"
-	 ] 
+	 ],
+	 :ubuntudep = "freeglut3-dev libglew-dev",
+	 :fedoradep = "freeglut freeglut-devel glew-devel",
+	 :macosxdep = "glew" 
 	],
 	[:name = :libzip ,
 	 :title = "RingLibZip",
@@ -242,7 +269,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_libzip.dylib"
-	 ]
+	 ],
+	 :ubuntudep = "",
+	 :fedoradep = "",
+	 :macosxdep = ""
 	],
 	[:name = :consolecolors ,
 	 :title = "RingConsoleColors",
@@ -254,7 +284,10 @@ aLibsInfo = [
 	 ],
 	 :macosxfiles = [
 		"libring_consolecolors.dylib"
-	 ]  
+	 ],
+	 :ubuntudep = "",
+	 :fedoradep = "",
+	 :macosxdep = ""  
 	],
 	[:name = :cruntime ,
 	 :title = "C Runtime",
@@ -555,6 +588,11 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 				ok
 			next 				
 		ok
+	# Script to install the application 
+	chdir(cDir)
+	cInstallUbuntu = "sudo apt-get install"
+	cInstallFedora = "sudo dnf install"
+
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -599,6 +637,9 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 				ok
 			next 				
 		ok
+	# Script to install the application 
+	chdir(cDir)
+	cInstallmacosx = "brew install -k"
 
 func SystemSilent cCmd
 	if isWindows()
