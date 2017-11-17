@@ -573,6 +573,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	cInstallUbuntu = "sudo apt-get install"
 	cInstallFedora = "sudo dnf install"
 	cInstallLibs   = ""
+	cDebianPackageDependency = ""
 	# Check ring.so
 		if not find(aOptions,"-static")	
 			msg("Copy libring.so to target/linux/lib")	
@@ -593,6 +594,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
 					cInstallFedora += (" " + aLibrary[:fedoradep])
+					if cDebianPackageDependency != "" cDebianPackageDependency += ", "  ok
+					cDebianPackageDependency += (aLibrary[:ubuntudep] + " (>=0) ")			
 				else 
 					msg("Skip library "+aLibrary[:title])
 				ok
@@ -609,6 +612,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
 					cInstallFedora += (" " + aLibrary[:fedoradep])
+					if cDebianPackageDependency != "" cDebianPackageDependency += ", "  ok
+					cDebianPackageDependency += (aLibrary[:ubuntudep] + " (>=0) ")
 				ok
 			next 				
 		ok
@@ -632,33 +637,36 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder("ringapp_1.0-1")
 	cAppFolder = currentdir()
 	CreateOpenFolder("DEBIAN")
-	write("control",RemoveFirstTabs("
+	cControl = RemoveFirstTabs("
 		Package: ringapp
 		Version: 1.0-1
 		Section: base
 		Priority: optional
 		Architecture: i386
-		Depends: unixODBC-dev (>=0) , libmysqlclient-dev (>=0), libcurl4-gnutls-dev (>=0), libssl-dev (>=0) , liballegro5-dev (>=0) , qtbase5-dev (>=0) , qtmobility-dev (>=0) , qtmultimedia5-dev (>=0)
+		Depends: #{f1}
 		Maintainer: Developer Name <youraccount@email.com>
 		Description: Ring Application
-	",2))
-	write("postinst",RemoveFirstTabs("
+	",2)
+	cControl = substr(cControl,"#{f1}",cDebianPackageDependency)
+	write("control",cControl)
+	cPostInst = RemoveFirstTabs("
 		#!/bin/sh
 		cd /usr/local/ringapp/bin
 		./ringapp
 		exit 0
-	",2))
+	",2)
+	write("postinst",cPostInst)
 	SystemSilent("chmod +x postinst")
 	chdir(cAppFolder)
 	CreateOpenFolder("usr")
-	cUsrFolder = currentdir()
-	CreateOpenFolder("bin")
-	chdir(cUsrFolder)
-	CreateOpenFolder("lib")
-	chdir(cUsrFolder)
-	CreateOpenFolder("local")
-	CreateOpenFolder("ringapp")
-	CreateOpenFolder("bin")
+		cUsrFolder = currentdir()
+		CreateOpenFolder("bin")
+		chdir(cUsrFolder)
+		CreateOpenFolder("lib")
+		chdir(cUsrFolder)
+		CreateOpenFolder("local")
+			CreateOpenFolder("ringapp")
+				CreateOpenFolder("bin")
 	chdir(cAppFolder)
 	systemSilent("cp -a ../../dist_using_scripts/lib/. usr/lib/")
 	systemSilent("cp -a ../../dist_using_scripts/bin/. usr/local/ringapp/bin/")
