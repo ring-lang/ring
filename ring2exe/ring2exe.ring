@@ -650,7 +650,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		Architecture: i386
 		Depends: #{f2}
 		Maintainer: Developer Name <youraccount@email.com>
-		Description: Ring Application"+nl,2)	
+		Description: Ring Application",2) + nl
 	cDebianPackageDependency = trim(cDebianPackageDependency)
 	cDebianPackageDependency = substr(cDebianPackageDependency," "," (>=0) ,")
 	cDebianPackageDependency += " (>=0) "
