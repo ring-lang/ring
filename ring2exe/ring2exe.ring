@@ -647,7 +647,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		Version: 1.0-1
 		Section: base
 		Priority: optional
-		Architecture: i386
+		Architecture: amd64
 		Depends: #{f2}
 		Maintainer: Developer Name <youraccount@email.com>
 		Description: Ring Application",2) + nl
