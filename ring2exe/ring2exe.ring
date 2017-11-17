@@ -558,6 +558,11 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		LinuxDeleteFolder(:linux)
 	CreateOpenFolder(:linux)
+	cLinuxDir = currentdir()
+	CreateOpenFolder("dist_using_deb_package")
+	cDebDir = currentdir() 
+	chdir(cLinuxDir)
+	CreateOpenFolder("dist_using_scripts")
 	cDir = currentdir()
 	CreateOpenFolder(:bin)
 	# copy the executable file 
@@ -619,6 +624,43 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		write("install_fedora.sh",cInstallFedora)	
 		SystemSilent("chmod +x install_fedora.sh")
 	ok
+	# Create the debian package 
+	chdir(cDebDir)
+	cAppName = cFileName
+	write("builddeb.sh","dpkg-deb --build ringapp_1.0-1")
+	SystemSilent("chmod +x builddeb.sh")
+	CreateOpenFolder("ringapp_1.0-1")
+	cAppFolder = currentdir()
+	CreateOpenFolder("DEBIAN")
+	write("control",RemoveFirstTabs("
+		Package: ringapp
+		Version: 1.0-1
+		Section: base
+		Priority: optional
+		Architecture: i386
+		Depends: unixODBC-dev (>=0) , libmysqlclient-dev (>=0), libcurl4-gnutls-dev (>=0), libssl-dev (>=0) , liballegro5-dev (>=0) , qtbase5-dev (>=0) , qtmobility-dev (>=0) , qtmultimedia5-dev (>=0)
+		Maintainer: Developer Name <youraccount@email.com>
+		Description: Ring Application
+	",2))
+	write("postinst",RemoveFirstTabs("
+		#!/bin/sh
+		cd /usr/local/ringapp/bin
+		./ringapp
+		exit 0
+	",2))
+	chdir(cAppFolder)
+	CreateOpenFolder("usr")
+	cUsrFolder = currentdir()
+	CreateOpenFolder("bin")
+	chdir(cUsrFolder)
+	CreateOpenFolder("lib")
+	chdir(cUsrFolder)
+	CreateOpenFolder("local")
+	CreateOpenFolder("ringapp")
+	CreateOpenFolder("bin")
+	chdir(cAppFolder)
+	systemSilent("cp -a ../../dist_using_scripts/lib/. /usr/lib/")
+	systemSilent("cp -a ../../dist_using_scripts/bin/. /usr/local/ringapp/bin/")
 
 func InstallLibLinux cInstallLib,cLibFile 
 	cCode = "
