@@ -594,7 +594,9 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
 					cInstallFedora += (" " + aLibrary[:fedoradep])
-					cDebianPackageDependency += (" " + aLibrary[:ubuntudep])			
+					if aLibrary[:ubuntudep] != NULL
+						cDebianPackageDependency += (" " + aLibrary[:ubuntudep])			
+					ok
 				else 
 					msg("Skip library "+aLibrary[:title])
 				ok
@@ -611,7 +613,9 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
 					cInstallFedora += (" " + aLibrary[:fedoradep])					
-					cDebianPackageDependency += (" " + aLibrary[:ubuntudep])
+					if aLibrary[:ubuntudep] != NULL
+						cDebianPackageDependency += (" " + aLibrary[:ubuntudep])			
+					ok
 				ok
 			next 				
 		ok
