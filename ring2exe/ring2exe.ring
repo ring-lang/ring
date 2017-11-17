@@ -628,34 +628,39 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		SystemSilent("chmod +x install_fedora.sh")
 	ok
 	# Create the debian package 
+	msg("Prepare files to create the Debian package")
 	chdir(cDebDir)
-	cAppName = cFileName
-	write("builddeb.sh","dpkg-deb --build ringapp_1.0-1")
+	cAppName = substr(cFileName," ","_")
+	cBuildDeb = "dpkg-deb --build #{f1}_1.0-1"
+	cBuildDeb = substr(cBuildDeb,"#{f1}",cAppName)
+	write("builddeb.sh",cBuildDeb)
 	SystemSilent("chmod +x builddeb.sh")
-	CreateOpenFolder("ringapp_1.0-1")
+	CreateOpenFolder(cAppName+"_1.0-1")
 	cAppFolder = currentdir()
 	CreateOpenFolder("DEBIAN")
 	cControl = RemoveFirstTabs("
-		Package: ringapp
+		Package: #{f1}
 		Version: 1.0-1
 		Section: base
 		Priority: optional
 		Architecture: i386
-		Depends: #{f1}
+		Depends: #{f2}
 		Maintainer: Developer Name <youraccount@email.com>
 		Description: Ring Application
-	",2)
+	",2)	
 	cDebianPackageDependency = trim(cDebianPackageDependency)
 	cDebianPackageDependency = substr(cDebianPackageDependency," "," (>=0) ,")
 	cDebianPackageDependency += " (>=0) "
-	cControl = substr(cControl,"#{f1}",cDebianPackageDependency)
+	cControl = substr(cControl,"#{f1}",cAppName)
+	cControl = substr(cControl,"#{f2}",cDebianPackageDependency)
 	write("control",cControl)
 	cPostInst = RemoveFirstTabs("
 		#!/bin/sh
-		cd /usr/local/ringapp/bin
-		./ringapp
+		cd /usr/local/#{f1}/bin
+		./#{f1}
 		exit 0
 	",2)
+	cPostInst = substr(cPostInst,"#{f1}",cAppName)
 	write("postinst",cPostInst)
 	SystemSilent("chmod +x postinst")
 	chdir(cAppFolder)
@@ -666,11 +671,11 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		CreateOpenFolder("lib")
 		chdir(cUsrFolder)
 		CreateOpenFolder("local")
-			CreateOpenFolder("ringapp")
+			CreateOpenFolder(cAppName)
 				CreateOpenFolder("bin")
 	chdir(cAppFolder)
 	systemSilent("cp -a ../../dist_using_scripts/lib/. usr/lib/")
-	systemSilent("cp -a ../../dist_using_scripts/bin/. usr/local/ringapp/bin/")
+	systemSilent("cp -a ../../dist_using_scripts/bin/. usr/local/"+cAppName+"/bin/")
 
 func InstallLibLinux cInstallLib,cLibFile 
 	cCode = "
