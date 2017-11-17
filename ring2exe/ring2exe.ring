@@ -648,6 +648,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		./ringapp
 		exit 0
 	",2))
+	SystemSilent("chmod +x postinst")
 	chdir(cAppFolder)
 	CreateOpenFolder("usr")
 	cUsrFolder = currentdir()
@@ -659,8 +660,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder("ringapp")
 	CreateOpenFolder("bin")
 	chdir(cAppFolder)
-	systemSilent("cp -a ../../dist_using_scripts/lib/. /usr/lib/")
-	systemSilent("cp -a ../../dist_using_scripts/bin/. /usr/local/ringapp/bin/")
+	systemSilent("cp -a ../../dist_using_scripts/lib/. usr/lib/")
+	systemSilent("cp -a ../../dist_using_scripts/bin/. usr/local/ringapp/bin/")
 
 func InstallLibLinux cInstallLib,cLibFile 
 	cCode = "
