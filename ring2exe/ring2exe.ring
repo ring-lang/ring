@@ -646,8 +646,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		Architecture: i386
 		Depends: #{f2}
 		Maintainer: Developer Name <youraccount@email.com>
-		Description: Ring Application
-	",2)	
+		Description: Ring Application",2)	
 	cDebianPackageDependency = trim(cDebianPackageDependency)
 	cDebianPackageDependency = substr(cDebianPackageDependency," "," (>=0) ,")
 	cDebianPackageDependency += " (>=0) "
@@ -667,6 +666,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder("usr")
 		cUsrFolder = currentdir()
 		CreateOpenFolder("bin")
+		write(cFileName,"/usr/local/"+cAppName+"/bin/"+cFileName+" \$1 \$2 \$3 \$4 \$5 \$6 \$7")
+		systemSilent("chmod +x " + cFileName)
 		chdir(cUsrFolder)
 		CreateOpenFolder("lib")
 		chdir(cUsrFolder)
