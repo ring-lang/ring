@@ -594,8 +594,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
 					cInstallFedora += (" " + aLibrary[:fedoradep])
-					if cDebianPackageDependency != "" cDebianPackageDependency += ", "  ok
-					cDebianPackageDependency += (aLibrary[:ubuntudep] + " (>=0) ")			
+					cDebianPackageDependency += (" " + aLibrary[:ubuntudep])			
 				else 
 					msg("Skip library "+aLibrary[:title])
 				ok
@@ -611,9 +610,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 						next
 					ok
 					cInstallUbuntu += (" " + aLibrary[:ubuntudep])
-					cInstallFedora += (" " + aLibrary[:fedoradep])
-					if cDebianPackageDependency != "" cDebianPackageDependency += ", "  ok
-					cDebianPackageDependency += (aLibrary[:ubuntudep] + " (>=0) ")
+					cInstallFedora += (" " + aLibrary[:fedoradep])					
+					cDebianPackageDependency += (" " + aLibrary[:ubuntudep])
 				ok
 			next 				
 		ok
@@ -647,6 +645,9 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		Maintainer: Developer Name <youraccount@email.com>
 		Description: Ring Application
 	",2)
+	cDebianPackageDependency = trim(cDebianPackageDependency)
+	cDebianPackageDependency = substr(cDebianPackageDependency," "," (>=0) ,")
+	cDebianPackageDependency += " (>=0) "
 	cControl = substr(cControl,"#{f1}",cDebianPackageDependency)
 	write("control",cControl)
 	cPostInst = RemoveFirstTabs("
