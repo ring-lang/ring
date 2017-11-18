@@ -1,4 +1,4 @@
-package com.tutorial.game;
+package com.ringgames.flappybird3000;
 
 import org.libsdl.app.SDLActivity; 
 
