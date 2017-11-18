@@ -1,4 +1,3 @@
-#include "SDL.h"
 #include "ring.h"
 
 int main(int argc, char *argv[])
