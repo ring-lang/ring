@@ -522,6 +522,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/windows")
 		WindowsCopyFile(cBaseFolder+"\"+cFileName+".exe")
+		CheckNoCCompiler(cBaseFolder,cFileName)
 	# Check ring.dll
 		if not find(aOptions,"-static")	
 			msg("Copy ring.dll to target/windows")	
@@ -578,6 +579,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/linux/bin")
 		LinuxCopyFile(cBaseFolder+"/"+cFileName)
+		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
 	CreateOpenFolder(:lib)
 	cInstallUbuntu = "sudo apt-get install"
@@ -724,6 +726,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/macosx/bin")
 		MacOSXCopyFile(cBaseFolder+"/"+cFileName)
+		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
 	CreateOpenFolder(:lib)
 	cInstallmacosx = "brew install -k"
@@ -801,6 +804,41 @@ func DistributeForAndroidQt cBaseFolder,cFileName,aoptions
 	OSCopyFile(cRINGOFile)
 	msg("Rename the object file to ringapp.ringo")
 	OSRenameFile(cFileName+".ringo","ringapp.ringo")
+
+func CheckNoCCompiler cBaseFolder,cFileName 
+	# If we don't have a C compiler 
+	# We copy ring.exe to be app.exe 
+	# Then we change app.ringo to ring.ringo 
+	if isWindows()
+		cExeFile = cBaseFolder+"\"+cFileName+".exe"
+	else 
+		cExeFile = cBaseFolder+"/"+cFileName
+	ok
+	if fexists(cExeFile)
+		msg("Executable file is ready!")
+		return 
+	ok
+	if isWindows()
+		cRingOFile = cBaseFolder+"\"+cFileName+".ringo"
+	else 
+		cRingOFile = cBaseFolder+"/"+cFileName+".ringo"
+	ok
+	if fexists(cRingOFile)
+		msg("No Executable, Looks like we don't have a C Compiler!")
+	else 
+		msg("No Ring Object File!")
+		return
+	ok	
+	msg("Using the Ring Way to create executable file without a C Compiler!")
+	OSCopyFile(exefilename())
+	if isWindows()
+		OSRenameFile("ring.exe",cFileName+".exe")
+		OSCopyFile(cBaseFolder+"\"+cFileName+".ringo")
+	else 
+		OSRenameFile("ring",cFileName)
+		OSCopyFile(cBaseFolder+"/"+cFileName+".ringo")
+	ok
+	OSRenameFile(cFileName+".ringo","ring.ringo")
 
 func SystemSilent cCmd
 	if isWindows()
