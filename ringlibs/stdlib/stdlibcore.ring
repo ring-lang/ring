@@ -713,7 +713,7 @@ Func Readline fp
 */      
 Func IsMainSourceFile
 	if len(sysargv) >= 2
-		if PrevFileName() = sysargv[2]
+		if PrevFileName() = substr(sysargv[2],"ringo","ring")
 			return true
 		ok
 	ok
