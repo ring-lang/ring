@@ -349,15 +349,15 @@ func BuildApp cFileName,aOptions
 		msg("Build the Executable File...")
 		systemSilent(cBatch)
 		msg("End of building script...")
-	# Clear Temp Files 	
-		if not find(aOptions,"-keep")
-			cleartempfiles()
-		ok
 	# Prepare Application for distribution
 		if find(aOptions,"-dist")
 			Distribute(cFile,aOptions)
 		ok
 		msg("End of building process...")
+	# Clear Temp Files 	
+		if not find(aOptions,"-keep")
+			cleartempfiles()
+		ok
 
 func GenerateCFile cFileName,aOptions
 	# Display Message
@@ -497,6 +497,7 @@ func ClearTempFiles
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
 	CreateOpenFolder(:target)
+	cDir = currentdir()
 	if isWindows()
 		DistributeForWindows(cBaseFolder,cFileName,aOptions)
 	but isLinux()
@@ -504,6 +505,14 @@ func Distribute cFileName,aOptions
 	but isMacOSX()
 		DistributeForMacOSX(cBaseFolder,cFileName,aOptions)
 	ok
+	if currentdir() != cDir
+	 	chdir(cDir)
+	ok
+	# Prepare Application for Android (RingQt)
+		if find(aOptions,"-androidqt")
+			DistributeForAndroidQt(cBaseFolder,cFileName,aOptions)
+		ok
+	chdir(cBaseFolder)
 
 func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -774,6 +783,24 @@ func InstallLibMacOSX cInstallLib,cLibFile
 	cCode = RemoveFirstTabs(cCode,2)
 	return cInstallLib + cCode
 
+func DistributeForAndroidQt cBaseFolder,cFileName,aoptions
+	msg("Prepare RingQt project to distribute for Android")
+	# Delete Files 
+		OSDeleteFolder(:android)
+	CreateOpenFolder(:android)
+	CreateOpenFolder(:qtproject)
+	msg("Copy RingQt for Android project files...")
+	OSCopyFile(exefolder() + "../android/ringqt/project/*.*" )
+	OSDeleteFile("project.pro.user")
+	msg("Prepare ringapp.ringo")
+	OSDeleteFile("ringapp.ring")
+	OSDeleteFile("ringapp.ringo")
+	cRINGOFile = cBaseFolder+"/"+cFileName+".ringo"
+	msg("Get the Ring Object File")
+	OSCopyFile(cRINGOFile)
+	msg("Rename the object file to ringapp.ringo")
+	OSRenameFile(cFileName+".ringo","ringapp.ringo")
+
 func SystemSilent cCmd
 	if isWindows()
 		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
@@ -824,3 +851,37 @@ func MacOSXDeleteFile cFile
 
 func MacOSXCopyFile cFile 
 	LinuxCopyFile(cFile)
+
+func OSDeleteFolder cFolder 
+	if isWindows() 
+		WindowsDeleteFolder(cFolder)
+	but isLinux()
+		LinuxDeleteFolder(cFolder)
+	but isMacosx()
+		MacOSXDeleteFolder(cFolder)
+	ok
+
+func OSDeleteFile cFile
+	if isWindows() 
+		WindowsDeleteFile(cFile)
+	but isLinux()
+		LinuxDeleteFile(cFile)
+	but isMacosx()
+		MacOSXDeleteFile(cFile)
+	ok
+
+func OSCopyFile cFile
+	if isWindows()
+		WindowsCopyFile(substr(cFile,"/","\")) 
+	but isLinux()
+		LinuxCopyFile(cFile)
+	but isMacosx()
+		MacOSXCopyFile(cFile)
+	ok
+
+func OSRenameFile cOldFile,cNewFile
+	if isWindows()
+		systemSilent("rename " + cOldFile + " " + cNewFile)
+	but isLinux() or isMacosx()
+		systemSilent("mv " + cOldFile + " " + cNewFile)
+	ok
