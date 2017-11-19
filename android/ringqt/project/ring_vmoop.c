@@ -878,6 +878,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		pString2 = ring_string_new_gc(pVM->pRingState,"get");
 		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,1));
 		/* Check Type */
+		pList2 = NULL ;
 		if ( pVM->nGetSetObjType == RING_OBJTYPE_VARIABLE ) {
 			pList2 = ring_list_getlist((List *) (pVM->pGetSetObject),RING_VAR_VALUE ) ;
 		}
