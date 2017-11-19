@@ -69,6 +69,29 @@ decrease performance, Python syntax (indentation, using self, :, pass & _) is no
 All of these languages are successful languages, and very good for their domains, but what I need 
 is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexible and Fast).
 
+
+.. index:: 
+	pair: Introduction; Ring and other languages
+
+Ring and other languages
+========================
+
+Ring is influenced by (took language ideas from) the next languages
+
+* Lua
+* Python
+* Ruby
+* C
+* C#
+* BASIC
+* QML
+* xBase
+* Supernova
+
+Ring comes with better support for Natural Language Programming and Declarative Programming.
+The innovation comes in supporting these paradigms with new practical techniques on the top of 
+Object-Oriented Programming and Functional Programming.
+
 .. index:: 
 	pair: Introduction ; History
 
