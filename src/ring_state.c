@@ -256,9 +256,9 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 	ring_scanner_runobjfile(pRingState,cFileName);
 }
 
-RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString )
+RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName )
 {
-	ring_scanner_runobjstring(pRingState,cString);
+	ring_scanner_runobjstring(pRingState,cString,cFileName);
 }
 #if RING_TESTUNITS
 
