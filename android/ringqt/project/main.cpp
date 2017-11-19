@@ -54,6 +54,12 @@ extern "C" {
 
 void ringapp_delete_file(QString path,const char *cFile) ;
 
+RING_FUNC(ring_loadlib)
+{
+    // Just a prototype to pass functions calls to loadlib() from Ring Object File
+    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -62,20 +68,20 @@ int main(int argc, char *argv[])
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
 
+    // Delete the application files
+    ringapp_delete_file(path,"ringapp.ringo");
+
     // Copy Ring Object File (ringapp.ringo) from Resources to Temp Folder
     QString path2 ;
     path2 = path+"/ringapp.ringo";
     QFile::copy(":/resources/ringapp",path2);
- 
-	
+ 	
     // Call Ring and run the Application
     RingState *pRingState;
     pRingState = ring_state_new();
+    ring_vm_funcregister("loadlib",ring_loadlib);
     ring_state_runobjectfile(pRingState,"ringapp.ringo");
     ring_state_delete(pRingState);
-
-    // Delete the application files
-    ringapp_delete_file(path,"ringapp.ringo");
 
     return 0;
 
@@ -90,3 +96,5 @@ void ringapp_delete_file(QString path,const char *cFile)
     myfile.setPermissions(QFile::ReadOther | QFile::WriteOther);
     myfile.remove();
 }
+
+
