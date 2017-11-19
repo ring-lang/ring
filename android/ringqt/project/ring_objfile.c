@@ -264,7 +264,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						}
 						ring_list_addpointer_gc(pRingState,pListStack,pList);
 						pList = ring_list_newlist_gc(pRingState,pList);
-						nBraceEnd = 1 ;
+						nBraceEnd++ ;
 						#ifdef DEBUG_OBJFILE
 						puts("Read L ");
 						#endif
@@ -275,7 +275,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 				if ( nBraceEnd ) {
 					pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
 					ring_list_deletelastitem(pListStack);
-					nBraceEnd = 0 ;
+					nBraceEnd-- ;
 					#ifdef DEBUG_OBJFILE
 					puts("Read } ");
 					#endif
@@ -441,7 +441,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						}
 						ring_list_addpointer_gc(pRingState,pListStack,pList);
 						pList = ring_list_newlist_gc(pRingState,pList);
-						nBraceEnd = 1 ;
+						nBraceEnd++ ;
 						#ifdef DEBUG_OBJFILE
 						puts("Read L ");
 						#endif
@@ -452,7 +452,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 				if ( nBraceEnd ) {
 					pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
 					ring_list_deletelastitem(pListStack);
-					nBraceEnd = 0 ;
+					nBraceEnd-- ;
 					#ifdef DEBUG_OBJFILE
 					puts("Read } ");
 					#endif
