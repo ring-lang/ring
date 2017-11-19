@@ -546,6 +546,16 @@ void ring_objfile_updateclassespointers ( RingState *pRingState )
 			}
 		}
 	}
+	/* Update Package Pointers in Packages Classes */
+	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingPackagesMap) ; x++ ) {
+		pList = ring_list_getlist(pRingState->pRingPackagesMap,x);
+		/* Get The Class List */
+		pList2 = ring_list_getlist(pList,2);
+		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
+			pList3 = ring_list_getlist(pList2,x2);
+			ring_list_setpointer_gc(pRingState,pList3,RING_CLASSMAP_POINTERTOPACKAGE,pList);
+		}
+	}
 }
 
 void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize )
