@@ -716,6 +716,10 @@ Func IsMainSourceFile
 		if PrevFileName() = substr(sysargv[2],"ringo","ring")
 			return true
 		ok
+	else    # We are using Ring2EXE and we have executable code 
+		if Prevfilename() = ringvm_fileslist()[1]
+			return true 
+		ok
 	ok
 	return false
 
