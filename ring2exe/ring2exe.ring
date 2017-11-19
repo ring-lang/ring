@@ -389,17 +389,17 @@ func GenerateCFile cFileName,aOptions
 	fputs(fp,cCode)
 	# Add the Object File Content		
 		fputs(fp,cHex)
-	fputs(fp, ", EOF" + char(9) + "};"+
-	"
+	fputs(fp, ", EOF" + char(9) + "};"+substr(
+	'
 
 	RingState *pRingState ;
 	pRingState = ring_state_new();	
 	pRingState->argc = argc;
 	pRingState->argv = argv;
-	ring_state_runobjectstring(pRingState,(char *) bytecode);
+	ring_state_runobjectstring(pRingState,(char *) bytecode,"#{f1}");
 	ring_state_delete(pRingState);
 
-	return 0;" + nl + 
+	return 0;',"#{f1}",cFileName+".ring") + nl + 
 	"}")
 	fclose(fp)	
 	msg("Generation Time : " + ((clock()-nTime)/clockspersecond()) + " seconds...")
