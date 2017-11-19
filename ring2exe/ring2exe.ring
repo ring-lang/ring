@@ -53,6 +53,7 @@
 		-gui        	 : Build GUI Application (Hide the Console Window)
 		-dist	    	 : Prepare application for distribution 
 		-allruntime 	 : Include all libraries in distribution
+		-androidqt	 : Prepare Qt Project to distribute Ring Application for Mobile 
 		-noqt	    	 : Remove RingQt from distribution
 		-noallegro 	 : Remove RingAllegro from distribution
 		-noopenssl  	 : Remove RingOpenSSL from distribution
