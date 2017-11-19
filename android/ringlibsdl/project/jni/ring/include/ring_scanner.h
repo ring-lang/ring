@@ -154,7 +154,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner ) ;
 
 void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
 
-void ring_scanner_runobjstring ( RingState *pRingState,char *cString ) ;
+void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*

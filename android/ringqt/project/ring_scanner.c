@@ -842,13 +842,13 @@ void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName )
 	}
 }
 
-void ring_scanner_runobjstring ( RingState *pRingState,char *cString )
+void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char *cFileName )
 {
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
 	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
-	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,"objectcode");
-	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,"objectcode");
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 	if ( ring_objfile_readstring(pRingState,cString) ) {
 		ring_scanner_runprogram(pRingState);
 	}
