@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     // Copy Ring Object File (ringapp.ringo) from Resources to Temp Folder
     QString path2 ;
     path2 = path+"/ringapp.ringo";
-    QFile::copy(":/resources/ringapp",path2);
+    QFile::copy(":/ringapp.ringo",path2);
  	
     // Call Ring and run the Application
     RingState *pRingState;

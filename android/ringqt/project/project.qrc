@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/resources">
-        <file alias="ringapp">ringapp.ringo</file>
+    <qresource>
+        <file>ringapp.ringo</file>
     </qresource>
 </RCC>
