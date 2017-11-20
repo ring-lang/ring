@@ -60,6 +60,12 @@ RING_FUNC(ring_loadlib)
     // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
 }
 
+RING_FUNC(ring_ismobileqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(1);
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -80,6 +86,7 @@ int main(int argc, char *argv[])
     RingState *pRingState;
     pRingState = ring_state_new();
     ring_vm_funcregister("loadlib",ring_loadlib);
+    ring_vm_funcregister("ismobileqt",ring_ismobileqt);
     ring_state_runobjectfile(pRingState,"ringapp.ringo");
     ring_state_delete(pRingState);
 
