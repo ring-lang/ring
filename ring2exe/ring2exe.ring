@@ -53,7 +53,7 @@
 		-gui        	 : Build GUI Application (Hide the Console Window)
 		-dist	    	 : Prepare application for distribution 
 		-allruntime 	 : Include all libraries in distribution
-		-androidqt	 : Prepare Qt Project to distribute Ring Application for Mobile 
+		-mobileqt	 : Prepare Qt Project to distribute Ring Application for Mobile 
 		-noqt	    	 : Remove RingQt from distribution
 		-noallegro 	 : Remove RingAllegro from distribution
 		-noopenssl  	 : Remove RingOpenSSL from distribution
@@ -509,9 +509,9 @@ func Distribute cFileName,aOptions
 	if currentdir() != cDir
 	 	chdir(cDir)
 	ok
-	# Prepare Application for Android (RingQt)
-		if find(aOptions,"-androidqt")
-			DistributeForAndroidQt(cBaseFolder,cFileName,aOptions)
+	# Prepare Application for Mobile (RingQt)
+		if find(aOptions,"-mobileqt")
+			DistributeForMobileQt(cBaseFolder,cFileName,aOptions)
 		ok
 	chdir(cBaseFolder)
 
@@ -787,13 +787,13 @@ func InstallLibMacOSX cInstallLib,cLibFile
 	cCode = RemoveFirstTabs(cCode,2)
 	return cInstallLib + cCode
 
-func DistributeForAndroidQt cBaseFolder,cFileName,aoptions
-	msg("Prepare RingQt project to distribute for Android")
+func DistributeForMobileQt cBaseFolder,cFileName,aoptions
+	msg("Prepare RingQt project to distribute for Mobile")
 	# Delete Files 
-		OSDeleteFolder(:android)
-	CreateOpenFolder(:android)
+		OSDeleteFolder(:mobile)
+	CreateOpenFolder(:mobile)
 	CreateOpenFolder(:qtproject)
-	msg("Copy RingQt for Android project files...")
+	msg("Copy RingQt for Mobile project files...")
 	OSCopyFile(exefolder() + "../android/ringqt/project/*.*" )
 	OSDeleteFile("project.pro.user")
 	msg("Prepare ringapp.ringo")
