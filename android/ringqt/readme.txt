@@ -52,11 +52,12 @@ Ring For Mobile App Development
 	7.3 : In your Ring application folder (Using the command prompt)
 
 		ring myapp.ring -go -norun
-		rename myapp.ringo ringapp.ringo
 
-	7.4 : Then replace project/ringapp.ringo with your ringapp.ringo file.
+	7.4 : Add your file to the project project/myapp.ringo 
 
-	7.5 : Build and Run your Application using Qt Creator
+	7.5 : Update main.cpp and project.qrc and replace ringapp.ringo with myapp.ringo
+
+	7.6 : Build and Run your Application using Qt Creator
 
 Comments
 
