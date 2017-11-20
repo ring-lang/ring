@@ -802,8 +802,8 @@ func DistributeForAndroidQt cBaseFolder,cFileName,aoptions
 	cRINGOFile = cBaseFolder+"/"+cFileName+".ringo"
 	msg("Get the Ring Object File")
 	OSCopyFile(cRINGOFile)
-	msg("Rename the object file to ringapp.ringo")
-	OSRenameFile(cFileName+".ringo","ringapp.ringo")
+	write("main.cpp",substr(read("main.cpp"),"ringapp.ringo",cFileName+".ringo"))
+	write("project.qrc",substr(read("project.qrc"),"ringapp.ringo",cFileName+".ringo"))
 
 func CheckNoCCompiler cBaseFolder,cFileName 
 	# If we don't have a C compiler 
