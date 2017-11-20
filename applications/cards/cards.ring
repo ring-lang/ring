@@ -7,12 +7,10 @@ app1 = new qApp
 
 if isandroid()
     nScale = 3
-    mypic = new QPixmap(":/resources/cardsimage")
 else
     nScale = 1
-    mypic = new QPixmap("cards.jpg")
 ok
-
+mypic = new QPixmap(AppFile("cards.jpg"))
 mypic2 = mypic.copy(0,(124*4)+1,79,124)
 Player1EatPic = mypic.copy(80,(124*4)+1,79,124)
 Player2EatPic= mypic.copy(160,(124*4)+1,79,124)
