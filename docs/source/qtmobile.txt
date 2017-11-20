@@ -110,11 +110,12 @@ Install Qt for Android
 .. code-block:: none
 
 	ring myapp.ring -go -norun
-	rename myapp.ringo ringapp.ringo
 
-(4) Then replace project/ringapp.ringo with your ringapp.ringo file.
+(4) Add your file to the project project/myapp.ringo 
 
-(5) Build and Run your Application using Qt Creator
+(5) Update main.cpp and project.qrc and replace ringapp.ringo with myapp.ringo
+
+(6) Build and Run your Application using Qt Creator
 
 
 .. image:: ringqtandroid_shot1.png
