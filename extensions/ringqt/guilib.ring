@@ -7,7 +7,7 @@ if iswindows()
 	LoadLib("ringqt.dll")
 but ismacosx()
 	LoadLib("libringqt.dylib")
-else
+but islinux()
 	LoadLib("libringqt.so")
 ok
 
@@ -113,6 +113,19 @@ func InputBoxPass cTitle,cMessage
 		lcheck = exec()
         }
 	if lCheck return oInput.textvalue() ok
+
+func AppFile cFile
+	if isWindows()
+		cFile = substr(cFile,"/","\")
+	but isLinux() or isMacOSX() 
+		cFile = substr(cFile,"\","/")
+	ok
+	if find(cfunctions(),"ismobileqt")
+		if ismobileqt()
+			cFile = ":/"+substr(cFile,"\","/")
+		ok
+	ok
+	return cFile
 
 
 Class GUILib
