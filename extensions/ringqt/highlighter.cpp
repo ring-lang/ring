@@ -123,43 +123,44 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     rule.format = classFormat;
     highlightingRules.append(rule);
 
-    singleLineCommentFormat.setForeground(c3);
-    rule.pattern = QRegExp("//[^\n]*");
-    rule.format = singleLineCommentFormat;
-    highlightingRules.append(rule);
-
-    singleLineCommentFormat.setForeground(c3);
-    rule.pattern = QRegExp("#[^\n]*");
-    rule.format = singleLineCommentFormat;
-    highlightingRules.append(rule);
-	
-    multiLineCommentFormat.setForeground(c3);
-
-    quotationFormat.setForeground(c4);
-    rule.pattern = QRegExp("\"(?:(?!\\/\\/).)+\"");			//QRegExp("\".*\"");
-    rule.pattern.setMinimal(true);
-    rule.format = quotationFormat;
-    highlightingRules.append(rule);
-
-    quotationFormat2.setForeground(c4);
-    rule.pattern = QRegExp("\'(?:(?!\\/\\/).)+\'");			// QRegExp("\'.*\'");
-    rule.pattern.setMinimal(true);
-    rule.format = quotationFormat2;
-    highlightingRules.append(rule);
-
-    quotationFormat3.setForeground(c4);
-    rule.pattern = QRegExp("\`(?:(?!\\/\\/).)+\`");			// QRegExp("\`.*\`");
-    rule.pattern.setMinimal(true);
-    rule.format = quotationFormat3;
-    highlightingRules.append(rule);
-
     functionFormat.setFontItalic(true);
     functionFormat.setForeground(c5);
     rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
     rule.format = functionFormat;
     highlightingRules.append(rule);
 
-    commentStartExpression = QRegExp("/\\*");
+    singleLineCommentFormat.setForeground(c3);
+    rule.pattern = QRegExp("//[^\n]*");
+    rule.format = singleLineCommentFormat;
+    highlightingRules.append(rule);
+
+    rule.pattern = QRegExp("^#+[^\n]*");
+    highlightingRules.append(rule);
+
+    rule.pattern = QRegExp("#+( |-|=)[^\n]*");
+    highlightingRules.append(rule);
+	
+    multiLineCommentFormat.setForeground(c3);
+
+    quotationFormat.setForeground(c4);
+    rule.pattern = QRegExp("\"(?:(?!\\/\\/).)+\"");
+    rule.pattern.setMinimal(true);
+    rule.format = quotationFormat;
+    highlightingRules.append(rule);
+
+    quotationFormat2.setForeground(c4);
+    rule.pattern = QRegExp("\'(?:(?!\\/\\/).)+\'");
+    rule.pattern.setMinimal(true);
+    rule.format = quotationFormat2;
+    highlightingRules.append(rule);
+
+    quotationFormat3.setForeground(c4);
+    rule.pattern = QRegExp("\`(?:(?!\\/\\/).)+\`");
+    rule.pattern.setMinimal(true);
+    rule.format = quotationFormat3;
+    highlightingRules.append(rule);
+
+    commentStartExpression = QRegExp("^/\\*");
     commentEndExpression = QRegExp("\\*/");
 
 }
