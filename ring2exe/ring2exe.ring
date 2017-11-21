@@ -574,7 +574,7 @@ func DistributeForMobileQt cBaseFolder,cFileName,aoptions
 	msg("Copy RingQt for Mobile project files...")
 	OSCopyFile(exefolder() + "../android/ringqt/project/*.*" )
 	OSDeleteFile("project.pro.user")
-	msg("Prepare ringapp.ringo")
+	msg("Prepare the Ring Object (*.ringo) file...")
 	OSDeleteFile("ringapp.ring")
 	OSDeleteFile("ringapp.ringo")
 	cRINGOFile = cBaseFolder+"/"+cFileName+".ringo"
@@ -582,6 +582,34 @@ func DistributeForMobileQt cBaseFolder,cFileName,aoptions
 	OSCopyFile(cRINGOFile)
 	write("main.cpp",substr(read("main.cpp"),"ringapp.ringo",cFileName+".ringo"))
 	write("project.qrc",substr(read("project.qrc"),"ringapp.ringo",cFileName+".ringo"))
+	cResourceFile = cBaseFolder+"/"+"project.qrc"
+	if fexists(cResourceFile)
+		msg("We have Qt Resource File : " + cResourceFile)
+		msg("Copy the resource file to target/mobile/qtproject")
+		OSDeleteFile("project.qrc")
+		OSCopyFile(cResourceFile)
+		msg("Copy files added to the Resource file")
+		cResourceFileContent = read(cResourceFile)
+		aResourceFileContent = str2list(cResourceFileContent)
+		aFiles = []
+		for cItem in aResourceFileContent
+			if substr(cItem,"<file>") and substr(cItem,"</file>")
+				cFile = cItem 
+				cFile = trim(cFile)
+				cFile = substr(cFile,char(9),"")
+				cFile = substr(cFile,"<file>","")
+				cFile = substr(cFile,"</file>","")
+				if right(cFile,5) != "ringo"
+					aFiles + cFile
+				ok
+			ok
+		next
+		for cFile in aFiles 
+			msg("Copy File : " + cFile)
+			OSCopyFile(cBaseFolder+"/"+cFile)
+		next
+	ok
+
 
 func CheckNoCCompiler cBaseFolder,cFileName 
 	# If we don't have a C compiler 
