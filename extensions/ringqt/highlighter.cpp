@@ -54,7 +54,6 @@ Highlighter::Highlighter(QTextDocument *parent)
 
 void Highlighter::highlightBlock(const QString &text)
 {
-
     foreach (const HighlightingRule &rule, highlightingRules) {
         QRegExp expression(rule.pattern);
         int index = expression.indexIn(text);
@@ -64,6 +63,7 @@ void Highlighter::highlightBlock(const QString &text)
             index = expression.indexIn(text, index + length);
         }
     }
+    
     setCurrentBlockState(0);
     int startIndex = 0;
     if (previousBlockState() != 1)
@@ -136,17 +136,20 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     multiLineCommentFormat.setForeground(c3);
 
     quotationFormat.setForeground(c4);
-    rule.pattern = QRegExp("\".*\"");
+    rule.pattern = QRegExp("\"(?:(?!\\/\\/).)+\"");			//QRegExp("\".*\"");
+    rule.pattern.setMinimal(true);
     rule.format = quotationFormat;
     highlightingRules.append(rule);
 
     quotationFormat2.setForeground(c4);
-    rule.pattern = QRegExp("\'.*\'");
+    rule.pattern = QRegExp("\'(?:(?!\\/\\/).)+\'");			// QRegExp("\'.*\'");
+    rule.pattern.setMinimal(true);
     rule.format = quotationFormat2;
     highlightingRules.append(rule);
 
     quotationFormat3.setForeground(c4);
-    rule.pattern = QRegExp("\`.*\`");
+    rule.pattern = QRegExp("\`(?:(?!\\/\\/).)+\`");			// QRegExp("\`.*\`");
+    rule.pattern.setMinimal(true);
     rule.format = quotationFormat3;
     highlightingRules.append(rule);
 
