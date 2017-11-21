@@ -127,6 +127,13 @@ func AppFile cFile
 	ok
 	return cFile
 
+func ismobile
+	if find(cfunctions(),"ismobileqt")
+		if ismobileqt()
+			return True
+		ok
+	ok
+	return False
 
 Class GUILib
 
