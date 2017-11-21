@@ -78,6 +78,8 @@ private:
     QTextCharFormat singleLineCommentFormat;
     QTextCharFormat multiLineCommentFormat;
     QTextCharFormat quotationFormat;
+    QTextCharFormat quotationFormat2;
+    QTextCharFormat quotationFormat3;
     QTextCharFormat functionFormat;
 };
 //! [0]
