@@ -565,7 +565,7 @@ func InstallLibMacOSX cInstallLib,cLibFile
 	cCode = RemoveFirstTabs(cCode,2)
 	return cInstallLib + cCode
 
-func DistributeForMobileQt cBaseFolder,cFileName,aoptions
+func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 	msg("Prepare RingQt project to distribute for Mobile")
 	# Delete Files 
 		OSDeleteFolder(:mobile)
@@ -582,6 +582,9 @@ func DistributeForMobileQt cBaseFolder,cFileName,aoptions
 	OSCopyFile(cRINGOFile)
 	write("main.cpp",substr(read("main.cpp"),"ringapp.ringo",cFileName+".ringo"))
 	write("project.qrc",substr(read("project.qrc"),"ringapp.ringo",cFileName+".ringo"))
+	CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
+
+func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 	cResourceFile = cBaseFolder+"/"+"project.qrc"
 	if fexists(cResourceFile)
 		msg("We have Qt Resource File : " + cResourceFile)
