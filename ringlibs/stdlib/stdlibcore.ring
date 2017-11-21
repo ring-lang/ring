@@ -154,10 +154,10 @@ func JustFilePath cFile
 	for x = len(cfile) to 1 step -1
 		if cfile[x] = "\" or cfile[x] = "/"
 			cfile = left(cfile,x)
-			exit
+			return cFile
 		ok
 	next
-	return cFile 
+	return ""
 
 /*
 	Function Name	: JustFileName
