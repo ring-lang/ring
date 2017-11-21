@@ -155,7 +155,7 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     highlightingRules.append(rule);
 
     quotationFormat3.setForeground(c4);
-    rule.pattern = QRegExp("\`(?:(?!\\/\\/).)+\`");
+    rule.pattern = QRegExp("`(?:(?!\\/\\/).)+`");
     rule.pattern.setMinimal(true);
     rule.format = quotationFormat3;
     highlightingRules.append(rule);
