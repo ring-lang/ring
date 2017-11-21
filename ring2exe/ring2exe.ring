@@ -80,6 +80,8 @@
 		-cruntime	 : Add C Runtime to distribution
 */
 
+load "stdlibcore.ring"
+
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
 C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
@@ -609,7 +611,15 @@ func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 		next
 		for cFile in aFiles 
 			msg("Copy File : " + cFile)
+			cDir = currentdir()
+			cFolder = justfilepath(cFile)
+			if cFolder != ""
+				# Remove last / in the path
+					cFolder = left(cFolder,len(cFolder)-1)
+				createOpenFolder(cFolder)
+			ok
 			OSCopyFile(cBaseFolder+"/"+cFile)
+			chdir(cDir)
 		next
 	ok
 
