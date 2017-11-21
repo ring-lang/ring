@@ -140,6 +140,11 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     rule.format = quotationFormat;
     highlightingRules.append(rule);
 
+    quotationFormat2.setForeground(c4);
+    rule.pattern = QRegExp("\'.*\'");
+    rule.format = quotationFormat2;
+    highlightingRules.append(rule);
+
     functionFormat.setFontItalic(true);
     functionFormat.setForeground(c5);
     rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
