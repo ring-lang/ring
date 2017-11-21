@@ -84,7 +84,7 @@ C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
 C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
 # Load Libraries information
-	eval(read("ring2exe.data"))
+	eval(read(exefolder()+"/../ring2exe/ring2exe.data"))
 
 func Main 
 	aPara = sysargv
