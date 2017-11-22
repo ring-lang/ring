@@ -160,7 +160,7 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     rule.format = quotationFormat3;
     highlightingRules.append(rule);
 
-    commentStartExpression = QRegExp("^/\\*");
+    commentStartExpression = QRegExp("^\\s*/\\*");
     commentEndExpression = QRegExp("\\*/");
 
 }
