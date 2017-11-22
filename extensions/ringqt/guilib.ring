@@ -115,11 +115,7 @@ func InputBoxPass cTitle,cMessage
 	if lCheck return oInput.textvalue() ok
 
 func AppFile cFile
-	if isWindows()
-		cFile = substr(cFile,"/","\")
-	but isLinux() or isMacOSX() 
-		cFile = substr(cFile,"\","/")
-	ok
+	cFile = substr(cFile,"\","/")
 	if find(cfunctions(),"ismobileqt")
 		if ismobileqt()
 			cFile = ":/"+substr(cFile,"\","/")
