@@ -22,42 +22,6 @@ RING_API void ringlib_init(RingState *pRingState)
     ring_vm_funcregister("murmurhash3_x64_128", ring_murmurhash3_x64_128);
 }
 
-int is_bool(int tmp)
-{
-    if (
-        tmp == 1 ||
-        tmp == 0
-    ) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-#define INT2HEX(dest, val) sprintf(dest, "%x", val)
-
-#define LONG2HEX(dest, val) sprintf(dest, "%lx", val)
-
-#define MH_RETURN_INT(ret_val, ret_type) { \
-    if (ret_type) { \
-        char tmp[50]; \
-        INT2HEX(tmp, ret_val); \
-        RING_API_RETSTRING(tmp); return; \
-    } else { \
-        RING_API_RETNUMBER(ret_val); return; \
-    } \
-}
-
-#define MH_RETURN_LONG(ret_val, ret_type) { \
-    if (ret_type) { \
-        char tmp[50]; \
-        LONG2HEX(tmp, ret_val); \
-        RING_API_RETSTRING(tmp); return; \
-    } else { \
-        RING_API_RETNUMBER(ret_val); return; \
-    } \
-}
-
 /* MurmurHash1 functions */
 void ring_murmurhash1(void *pPointer)
 {
