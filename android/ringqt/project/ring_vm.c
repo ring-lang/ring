@@ -947,10 +947,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
 	/* Check removing the new byte code */
-	if ( pVM->nRunCode == 1 ) {
-		pVM->nRetEvalDontDelete = 0 ;
-	}
-	else {
+	if ( pVM->nRunCode != 1 ) {
 		/* We have nested events that call this function */
 		pVM->nRetEvalDontDelete = 1 ;
 	}
