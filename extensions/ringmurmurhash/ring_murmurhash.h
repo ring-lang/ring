@@ -16,3 +16,8 @@ void ring_murmurhash64a(void *pPointer);
 void ring_murmurhash64b(void *pPointer);
 void ring_murmurhash_neutral2(void *pPointer);
 void ring_murmurhash_aligned2(void *pPointer);
+
+/* MurmurHash3 functions */
+void ring_murmurhash3_x86_32(void *pPointer);
+void ring_murmurhash3_x86_128(void *pPointer);
+void ring_murmurhash3_x64_128(void *pPointer);
