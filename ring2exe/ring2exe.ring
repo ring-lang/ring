@@ -585,6 +585,14 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 	write("main.cpp",substr(read("main.cpp"),"ringapp.ringo",cFileName+".ringo"))
 	write("project.qrc",substr(read("project.qrc"),"ringapp.ringo",cFileName+".ringo"))
 	CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
+	cMainFile = cBaseFolder+"/"+"main.cpp"
+	if fexists(cMainFile)
+		msg("We have the Main File : " + cMainFile)
+		msg("Copy the Main file to target/mobile/qtproject")
+		OSDeleteFile("main.cpp")
+		OSCopyFile(cMainFile)
+	ok
+
 
 func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 	cResourceFile = cBaseFolder+"/"+"project.qrc"
