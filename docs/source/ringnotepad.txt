@@ -143,9 +143,8 @@ For Windows users, Ring 1.6 comes with Apache Web server!
 
 We can run any web application from any folder directly without doing any configuration.
 
-.. image:: runwebapp2.png
-	:alt: Ring Notepad - Run Web Application - shot 2
-
+.. image:: runwebapp1.png
+	:alt: Ring Notepad - Run Web Application - shot 1
 
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Creating and running your first game 
