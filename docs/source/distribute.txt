@@ -7,6 +7,14 @@ Distributing Ring Applications
 
 In this chapter we will learn about distributing Ring applications.
 
+The next method is old and was used in Ring 1.5 and previous versions!
+
+Starting from Ring 1.6 we have a nice tool called Ring2EXE
+
+Using Ring2EXE we can distribute applications quickly for Windows, Linux and macOS 
+
+Check the Ring2EXE chapter for more information!
+
 
 .. index:: 
 	pair: Distributing Ring Application; Distributing Applications for Microsoft Windows
