@@ -140,6 +140,10 @@ RingQt comes with the next updates
 
 (4) QCoreApplication class
 
+(5) AppFile() Function
+
+(6) IsMobile() Function
+
 .. index:: 
 	pair: What is new in Ring 1.6?; Better StdLib
 
