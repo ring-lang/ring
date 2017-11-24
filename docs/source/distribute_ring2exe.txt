@@ -541,7 +541,7 @@ From this example, We know that we can use sub folders for images.
 Important Information about Ring2EXE
 ====================================
 
-(1) Using Ring2EXE to prepare distribution will delete all of the files in the old distribution
+* Using Ring2EXE to prepare distribution will delete all of the files in the old distribution
 
 for example, if you have target/windows folder then used
 
@@ -551,11 +551,23 @@ for example, if you have target/windows folder then used
 
 The files in target/windows will be deleted before adding the files again
 
-(2) Ring2EXE is written in Ring, and you can read the source code from
+This is important when you prepare a distribution for Mobile devices
+
+.. code-block:: none
+
+	ring2exe test3.ring -dist -mobileqt
+
+If you modified the resource file : project.qrc or the main file : main.cpp
+
+Don't forget to copy them to the application folder!
+
+So Ring2EXE can use the updated version if you tried the previoud command again!
+
+* Ring2EXE is written in Ring, and you can read the source code from
 
 	https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.ring
 
-(3) The libraries information are stored in a separated file, So this file can be updated in the future
+* The libraries information are stored in a separated file, So this file can be updated in the future
 automatically to support new libraries
 
 	https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.data
