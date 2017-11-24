@@ -18,7 +18,7 @@ Ring 1.6 comes with many new features!
 * Employee Application
 * New Tool: Ring2EXE 
 * Better Ring For Android
-
+* Better Scripts for building Ring
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -70,5 +70,20 @@ Example
 .. code-block:: ring
 
 	ring2exe cards.ring -dist -mobileqt
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Scripts for building Ring
+
+Better Scripts for building Ring
+================================
+
+Ring 1.6 comes with better scripts for building Ring from source code.
+
+The updates are tested on 32bit and 64bit systems on Windows, Linux (Ubuntu,Fedora) and macOS.
+
+The scripts for Windows are updated to find the Visual C/C++ compiler based on your Visual Studio version.
+
+
 
 
