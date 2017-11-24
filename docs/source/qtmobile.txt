@@ -100,7 +100,7 @@ Install Qt for Android
 .. code-block:: ring
 
 	if isandroid()
- 		mypic = new QPixmap(":/resources/cardsimage")
+ 		mypic = new QPixmap(":/cards.jpg")
 	else
     		mypic = new QPixmap("cards.jpg")
 	ok
@@ -192,11 +192,31 @@ Example:
 .. code-block:: ring
 
 	if isandroid()
-	    mypic = new QPixmap(":/resources/cardsimage")
+	    mypic = new QPixmap(":/cards.jpg")
 	else
 	    mypic = new QPixmap("cards.jpg")
 	ok
 
-In the previous example, cards.jpg  is added to the resources then we write the "cardsimage" as alias for "cards.jpg"
+Now RingQt comes with the AppFile() function to determine the file name 
 
+Example:
+
+.. code-block:: ring
+
+	mypic = new QPixmap(AppFile("cards.jpg"))  # Desktop or Android
+
+
+.. index:: 
+	pair: Building RingQt Applications for Mobile; Using Ring2EXE
+
+Using Ring2EXE
+==============
+
+Starting from Ring 1.6 we can use Ring2EXE to quickly prepare Qt project for our application
+
+Example:
+
+.. code-block:: none
+
+	ring2exe myapp.ring -dist -mobileqt
 
