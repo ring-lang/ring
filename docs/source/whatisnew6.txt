@@ -20,6 +20,11 @@ Ring 1.6 comes with many new features!
 * Better Ring For Android
 * Better Scripts for building Ring
 * RingConsoleColors Extension
+* Better Ring Notepad
+* Better RingQt
+* Better StdLib
+* Better RingVM
+* Better RingREPL
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -97,3 +102,86 @@ Using the RingConsoleColors extension we can easily change the colors used in ou
 
 .. image:: consolecolors.png
 	:alt: RingConsoleColors
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+Ring Notepad comes with the next updates
+
+(1) Automatic setting for the Main File when we Run the application (using the Main file buttons).
+
+(2) Main File - Automatic save before running.
+
+(3) When we run GUI application - don't change the focus to the text box used for the input in the Output Window.
+
+(4) A button and option to run web applications
+
+(5) Tools - Operating System - Terminal (Command Prompt) & Files Manager (Explorer).
+
+(6) Support *.sh & *.bat extensions.
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingQt
+
+Better RingQt
+=============
+
+RingQt comes with the next updates
+
+(1) QDockWidget Events
+
+(2) QRegion Class
+
+(3) QAllEvents - getkeytext() Method
+
+(4) QCoreApplication class
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better StdLib
+
+Better StdLib
+=============
+
+StdLib comes with the next updates
+
+(1) Factors() function
+
+(2) Palindrome() function
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingVM
+
+Better RingVM
+=============
+
+RingVM comes with the next updates
+
+(1) Getter Methods - support using many getter methods in Expressions
+
+(2) Support using this & self in setter/getter/normal methods without calling setter/getter methods.
+
+(3) TempName() function is updated
+
+(4) ExeFileName() function is updated
+
+(5) Private Attributes - Check re-usage in the class region (After the keyword private)
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingREPL
+
+Better RingREPL
+===============
+
+RingREPL comes with the next updates
+
+(1) RingREPL will get command line parameters to determine the style.
+
+(2) Set RingREPL Style based on Ring Notepad Style.
+
+
+
