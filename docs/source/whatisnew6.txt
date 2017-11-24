@@ -148,9 +148,9 @@ Better StdLib
 
 StdLib comes with the next updates
 
-(1) Factors() function
+(1) Factors() function is updated
 
-(2) Palindrome() function
+(2) Palindrome() function is updated
 
 
 .. index:: 
@@ -181,7 +181,7 @@ RingREPL comes with the next updates
 
 (1) RingREPL will get command line parameters to determine the style.
 
-(2) Set RingREPL Style based on Ring Notepad Style.
+(2) Setting RingREPL Style based on Ring Notepad Style.
 
 
 
