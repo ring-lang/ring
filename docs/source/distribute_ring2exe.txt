@@ -7,9 +7,9 @@ Distributing Ring Applications using Ring2EXE
 
 In this chapter we will learn about distributing Ring applications.
 
-Starting from Ring 1.6 we have a nice tool called Ring2EXE
+Starting from Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
 
-Using Ring2EXE we can distribute applications quickly for Windows, Linux and macOS 
+Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
 
 
 .. index:: 
@@ -246,3 +246,88 @@ So it's better to use the next command
 .. code-block:: none
 
 	ring2exe test3.ring -dist -gui -qt -cruntime
+
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Distributing Applications for Mobile using RingQt
+
+Distributing Applications for Mobile using RingQt
+=================================================
+
+To prepare a Qt project for your RingQt application (test3.ring) use the "-mobileqt" option
+
+Example :
+
+.. code-block:: none
+
+	ring2exe test3.ring -dist -mobileqt
+
+After executing the previous command, We will have the Qt project in target/mobile/qtproject folder
+
+The main project file will be project.pro which we can open using the Qt Creator IDE.
+
+Also we will have the resource file : project.qrc 
+
+Another important file is our C++ main file : main.cpp
+
+
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Building the Cards Game for Mobile using RingQt
+
+Building the Cards Game for Mobile using RingQt
+===============================================
+
+For a better example, consider building an Android package for the Cards game that comes with the
+
+Ring language in this folder : ring/application/cards
+
+The Cards game folder contains three files
+
+cards.ring : The Game source code
+
+cards.jpg : The image file used by the game
+
+project.qrc : Resource file to be used with the Qt project
+
+The resource file contains the next content
+
+.. code-block:: none
+
+	<RCC>
+    		<qresource>
+        		<file>cards.ringo</file>
+			<file>cards.jpg</file>
+    		</qresource>
+	</RCC>
+
+We have two files in the resource file
+
+The first file is cards.ringo (The Ring Object File) and the second file is cards.jpg (The image file)
+
+As a start, Ring2EXE will generate this resource file in target/mobile/qtproject/project.qrc
+
+But this file will contains only cards.ringo (That Ring2EXE will generate by calling Ring compiler)
+
+We need to update this resource file to add the image file : cards.jpg 
+
+After this update, we copy the resource file to the main application folder
+
+So when we use Ring2EXE again, Our updated resource file will be used!
+
+Now to build the cards game for Mobile
+
+(1) Run the next command
+
+.. code-block:: none
+
+	ring2exe cards.ring -dist -mobileqt
+
+(2) Open target/mobile/qtproject/project.pro using Qt creator
+
+(3) Build and Run using Qt Creator 
+
+
+
+
+
+
+
