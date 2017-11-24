@@ -164,6 +164,12 @@ StdLib comes with the next updates
 
 (2) Palindrome() function is updated
 
+(3) Using stdlibcore.ring we can use the StdLib functions (Without Classes)
+
+    Also this is useful when developing standalone console applications
+
+    Because using stdlib.ring (functions & classes) will load libraries like RingLibCurl, RingOpenSSL, etc.
+
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingVM
