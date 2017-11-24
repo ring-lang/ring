@@ -49,10 +49,11 @@ If you have large project (many *.ring files) it will use only one *.ringo file.
 .. image:: cardsqt.png
 	:alt: Better Ring for Android
 
-To generate the Ring Object File, Use the Ring compiler
+
+To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE
 
 Example 
 
 .. code-block:: ring
 
-	ring cards.ring -go
+	ring2exe cards.ring -dist -mobileqt
