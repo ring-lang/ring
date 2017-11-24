@@ -52,25 +52,19 @@ We have test.ring contains the next code
 
 	see "Hello, World!" + nl
 
-To build th executable file for Windows 
+To build th executable file for Windows, Linux or macOS
 
 .. code-block:: none
 	
 		ring2exe test.ring 
 
-To run the program
+To run the program (Windows)
 
 .. code-block:: none
 
 		test 
 
-To build the executable file for Linux & macOS
-
-.. code-block:: none
-
-		ring2exe test.ring 
-
-To run the program
+To run the program (Linux and macOS)
 
 .. code-block:: none
 
@@ -170,8 +164,10 @@ We use "-dist" option and "-allruntime" to include all libraries
 After executing the previous command
 
 On Windows we will have : target/windows folder
-On Linux we will have : target/linux folder
-On macOS we will have : target/macos folder
+
+On Linux we will have   : target/linux folder
+
+On macOS we will have   : target/macos folder
 
 The previous command will add all of the Ring runtime libraries to our distribution
 
@@ -183,6 +179,14 @@ But we may need only RingAllegro, So it's better to use the next command
 
 This will produce small size distribution and will avoid the runtime files that we don't need!
 
+
+Also we could use the "-gui" option to hide the console window
+
+So it's better to use the next command
+
+.. code-block:: none
+
+	ring2exe test2.ring -dist -gui -allegro -cruntime
 
 .. index:: 
 	pair: Distributing Ring Application using Ring2EXE; Distributing RingAllegro Applications
@@ -220,8 +224,10 @@ We use "-dist" option and "-allruntime" to include all libraries
 After executing the previous command
 
 On Windows we will have : target/windows folder
-On Linux we will have : target/linux folder
-On macOS we will have : target/macos folder
+
+On Linux we will have   : target/linux folder
+
+On macOS we will have   : target/macos folder
 
 The previous command will add all of the Ring runtime libraries to our distribution
 
@@ -232,3 +238,11 @@ But we may need only RingQt, So it's better to use the next command
 	ring2exe test3.ring -dist -qt -cruntime
 
 This will produce small size distribution and will avoid the runtime files that we don't need!
+
+Also we could use the "-gui" option to hide the console window
+
+So it's better to use the next command
+
+.. code-block:: none
+
+	ring2exe test3.ring -dist -gui -qt -cruntime
