@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.6 comes with many new features!
 
 * Ring2EXE 
-
+* Better Ring For Android
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Ring2EXE
@@ -29,3 +29,30 @@ In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
 Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
 
 Read the chapter "Distributing Ring Applications using Ring2EXE" for more information!
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Ring For Android
+
+Better Ring For Android
+=======================
+
+Ring For Android (using RingQt) is updated to use the Ring Object File ( *.ringo ) instead of using
+many source code files ( *.ring )
+
+The next screen shot is an example of building the cards game for Android
+
+We are using cards.ringo instead of cards.ring
+
+If you have large project (many *.ring files) it will use only one *.ringo file.
+
+.. image:: cardsqt.png
+	:alt: Better Ring for Android
+
+To generate the Ring Object File, Use the Ring compiler
+
+Example 
+
+.. code-block:: ring
+
+	ring cards.ring -go
