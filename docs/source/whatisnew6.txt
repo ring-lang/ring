@@ -120,6 +120,16 @@ Ring Notepad comes with the next updates
 
 (4) A button and option to run web applications
 
+.. image:: runwebapp1.png
+	:alt: Ring Notepad - Run Web Application - shot 1
+
+For Windows users, Ring 1.6 comes with Apache Web server!
+
+We can run any web application from any folder directly without doing any configuration.
+
+.. image:: runwebapp2.png
+	:alt: Ring Notepad - Run Web Application - shot 2
+
 (5) Tools - Operating System - Terminal (Command Prompt) & Files Manager (Explorer).
 
 .. image:: rnotetoolsterminal.png
