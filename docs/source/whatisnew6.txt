@@ -160,9 +160,9 @@ Better StdLib
 
 StdLib comes with the next updates
 
-(1) Factors() function is updated
+(1) Factors() function is updated (Return the output instead of printing it)
 
-(2) Palindrome() function is updated
+(2) Palindrome() function is updated (Return the output instead of printing it)
 
 (3) Using stdlibcore.ring we can use the StdLib functions (Without Classes)
 
@@ -183,9 +183,9 @@ RingVM comes with the next updates
 
 (2) Support using this & self in setter/getter/normal methods without calling setter/getter methods.
 
-(3) TempName() function is updated
+(3) TempName() function is updated (Better Code)
 
-(4) ExeFileName() function is updated
+(4) ExeFileName() function is updated (Better Code)
 
 (5) Private Attributes - Support re-usage in the class region (After the keyword private)
 
