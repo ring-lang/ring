@@ -26,6 +26,8 @@ This will set filename.ring as input to the program
 
 The next files will be generated 
 
+.. code-block:: none
+
 		filename.ringo	  	(The Ring Object File - by Ring Compiler)
 		filename.c	  	(The C Source code file
 					 Contains the ringo file content
@@ -44,18 +46,34 @@ The next files will be generated
 Example 
 =======
 
-For Windows 
+We have test.ring contains the next code
+
+.. code-block:: ring
+
+	see "Hello, World!" + nl
+
+To build th executable file for Windows 
 
 .. code-block:: none
 	
 		ring2exe test.ring 
+
+To run the program
+
+.. code-block:: none
+
 		test 
 
-For Linux & MacOS X
+To build the executable file for Linux & macOS
 
 .. code-block:: none
 
 		ring2exe test.ring 
+
+To run the program
+
+.. code-block:: none
+
 		./test
 
 
@@ -98,3 +116,119 @@ Options
 		-consolecolors   : Add RingConsoleColors to distribution
 		-cruntime	 : Add C Runtime to distribution
 
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Building standalone console application
+
+Building standalone console application
+=======================================
+
+Using the "-static" option we can build executable console application
+
+So we don't have to use ring.dll, ring.so or ring.dylib 
+
+This avoid only the need to Ring dynamic link library
+
+If you are using another libraries, You will need to include it with your application. 
+
+.. code-block:: none
+
+		ring2exe test.ring -static
+
+
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Distributing RingAllegro Applications
+
+Distributing RingAllegro Applications
+=====================================
+
+We have test2.ring contains the next code
+
+.. code-block:: ring
+
+
+	# Just a simple program to test Ring2EXE Tool!
+	# Using RingAllegro
+
+	load "gameengine.ring"  # Give Control to the Game Engine
+
+	func main               # Called by the Game Engine
+
+	        oGame = New Game        # Create the Game Object
+        	{
+                	title = "My First Game"
+        	}     
+
+
+To build the executable file and prepare for distributing the Game
+
+We use "-dist" option and "-allruntime" to include all libraries
+
+.. code-block:: none
+
+	ring2exe test2.ring -dist -allruntime
+
+After executing the previous command
+
+On Windows we will have : target/windows folder
+On Linux we will have : target/linux folder
+On macOS we will have : target/macos folder
+
+The previous command will add all of the Ring runtime libraries to our distribution
+
+But we may need only RingAllegro, So it's better to use the next command
+
+.. code-block:: none
+
+	ring2exe test2.ring -dist -allegro -cruntime
+
+This will produce small size distribution and will avoid the runtime files that we don't need!
+
+
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Distributing RingAllegro Applications
+
+Distributing RingQt Applications
+================================
+
+We have test3.ring contains the next code
+
+.. code-block:: ring
+
+	# Just a simple program to test Ring2EXE Tool!
+	# Using RingQt
+
+	load "guilib.ring"
+
+	new qApp {
+		new qWidget() {
+			setwindowtitle("Hello, World!")
+			resize(400,400)
+			show()
+		}
+		exec()
+	}
+
+
+To build the executable file and prepare for distributing the GUI application
+
+We use "-dist" option and "-allruntime" to include all libraries
+
+.. code-block:: none
+
+	ring2exe test3.ring -dist -allruntime
+
+After executing the previous command
+
+On Windows we will have : target/windows folder
+On Linux we will have : target/linux folder
+On macOS we will have : target/macos folder
+
+The previous command will add all of the Ring runtime libraries to our distribution
+
+But we may need only RingQt, So it's better to use the next command
+
+.. code-block:: none
+
+	ring2exe test3.ring -dist -qt -cruntime
+
+This will produce small size distribution and will avoid the runtime files that we don't need!
