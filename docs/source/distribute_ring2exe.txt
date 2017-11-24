@@ -561,7 +561,7 @@ If you modified the resource file : project.qrc or the main file : main.cpp
 
 Don't forget to copy them to the application folder!
 
-So Ring2EXE can use the updated version if you tried the previoud command again!
+So Ring2EXE can use the updated version if you tried the previous command again!
 
 * Ring2EXE is written in Ring, and you can read the source code from
 
