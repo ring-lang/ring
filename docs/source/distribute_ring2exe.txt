@@ -177,7 +177,7 @@ But we may need only RingAllegro, So it's better to use the next command
 
 	ring2exe test2.ring -dist -allegro -cruntime
 
-This will produce small size distribution and will avoid the runtime files that we don't need!
+This will produce smaller size distribution and will avoid the runtime files that we don't need!
 
 
 Also we could use the "-gui" option to hide the console window
@@ -237,7 +237,7 @@ But we may need only RingQt, So it's better to use the next command
 
 	ring2exe test3.ring -dist -qt -cruntime
 
-This will produce small size distribution and will avoid the runtime files that we don't need!
+This will produce smaller size distribution and will avoid the runtime files that we don't need!
 
 Also we could use the "-gui" option to hide the console window
 
