@@ -15,14 +15,27 @@ List of changes and new features
 
 Ring 1.6 comes with many new features!
 
-* Ring2EXE 
+* Employee Application
+* New Tool: Ring2EXE 
 * Better Ring For Android
 
-.. index:: 
-	pair: What is new in Ring 1.6?; Ring2EXE
 
-Ring2EXE
-========
+.. index:: 
+	pair: What is new in Ring 1.6?; Employee Application
+
+Employee Application
+====================
+
+The Employee application by Ahmed Hassouna is added to ring/applications
+
+.. image:: empapp.png
+	:alt: Employee Sample
+
+.. index:: 
+	pair: What is new in Ring 1.6?; New Tool: Ring2EXE
+
+New Tool: Ring2EXE
+==================
 
 In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
 
@@ -57,3 +70,5 @@ Example
 .. code-block:: ring
 
 	ring2exe cards.ring -dist -mobileqt
+
+
