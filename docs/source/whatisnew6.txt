@@ -161,7 +161,7 @@ Better RingVM
 
 RingVM comes with the next updates
 
-(1) Getter Methods - support using many getter methods in Expressions
+(1) Support using many getter methods in Expressions
 
 (2) Support using this & self in setter/getter/normal methods without calling setter/getter methods.
 
@@ -169,7 +169,9 @@ RingVM comes with the next updates
 
 (4) ExeFileName() function is updated
 
-(5) Private Attributes - Check re-usage in the class region (After the keyword private)
+(5) Private Attributes - Support re-usage in the class region (After the keyword private)
+
+(6) Ring API : ring_scanner_runobjstring()
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingREPL
