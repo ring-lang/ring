@@ -122,6 +122,14 @@ Ring Notepad comes with the next updates
 
 (5) Tools - Operating System - Terminal (Command Prompt) & Files Manager (Explorer).
 
+.. image:: rnotetoolsterminal.png
+	:alt: Ring Notepad - Tools - Terminal - shot 1
+
+So we can quickly open the Command Prompt or the Explorer at the application folder.
+
+.. image:: rnotetoolsterminal2.png
+	:alt: Ring Notepad - Tools - Terminal - shot 2
+
 (6) Support *.sh & *.bat extensions.
 
 .. index:: 
