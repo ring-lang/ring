@@ -75,6 +75,7 @@ Contents:
    Syntax Flexibility <syntaxflexibility>
    The Type Hints Library <typehints>
    Distributing Ring Applications <distribute>
+   Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    Command Line Options	<compiler>
    Low Level Functions <lowlevel>
    The Trace Library and the Interactive Debugger <debug>
