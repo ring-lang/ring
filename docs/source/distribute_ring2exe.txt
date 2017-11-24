@@ -418,6 +418,6 @@ on the mobile device
     path3 = path+"/weighthistory.db";
     QFile::copy(":/weighthistory.db",path3);
 
-You will need this update with database files only!
+You will need to do this with database files only!
 
 
