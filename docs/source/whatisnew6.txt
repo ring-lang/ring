@@ -1,0 +1,31 @@
+.. index:: 
+	single: What is new in Ring 1.6?; Introduction
+
+========================
+What is new in Ring 1.6?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.6 release.
+
+.. index:: 
+	pair: What is new in Ring 1.6?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.6 comes with many new features!
+
+* Ring2EXE 
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Ring2EXE
+
+Ring2EXE
+========
+
+In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
+
+Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
+
+Read the chapter "Distributing Ring Applications using Ring2EXE" for more information!
