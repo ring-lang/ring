@@ -74,9 +74,9 @@ Contents:
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
    The Type Hints Library <typehints>
+   Command Line Options	<compiler>
    Distributing Ring Applications <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
-   Command Line Options	<compiler>
    Low Level Functions <lowlevel>
    The Trace Library and the Interactive Debugger <debug>
    Embedding Ring Language in Ring Programs <ringemb>
