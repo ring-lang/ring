@@ -421,3 +421,109 @@ on the mobile device
 You will need to do this with database files only!
 
 
+.. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Building the Form Designer for Mobile using RingQt
+
+Building the Form Designer for Mobile using RingQt
+==================================================
+
+To build the Form Designer application (ring/applications/formdesigner) for Mobile
+
+(1) Run the next command
+
+.. code-block:: none
+
+	ring2exe formdesigner.ring -dist -mobileqt
+
+(2) Open target/mobile/qtproject/project.pro using Qt creator
+
+(3) Build and Run using Qt Creator 
+
+in the folder ring/application/formdesigner You will find the resource file 
+
+It will be used automatically by Ring2EXE 
+
+.. code-block:: none
+
+	<RCC>
+		<qresource>
+			<file>formdesigner.ringo</file>
+			<file>image/allevents.png</file>
+			<file>image/checkbox.png</file>
+			<file>image/close.png</file>
+			<file>image/combobox.bmp</file>
+			<file>image/datepicker.bmp</file>
+			<file>image/dial.png</file>
+			<file>image/formdesigner.png</file>
+			<file>image/frame.png</file>
+			<file>image/grid.bmp</file>
+			<file>image/hyperlink.png</file>
+			<file>image/image.png</file>
+			<file>image/label.png</file>
+			<file>image/layout.png</file>
+			<file>image/lcdnumber.png</file>
+			<file>image/listview.png</file>
+			<file>image/lock.png</file>
+			<file>image/new.png</file>
+			<file>image/open.png</file>
+			<file>image/progressbar.png</file>
+			<file>image/project.png</file>
+			<file>image/pushbutton.png</file>
+			<file>image/radiobutton.png</file>
+			<file>image/save.png</file>
+			<file>image/saveas.png</file>
+			<file>image/select.png</file>
+			<file>image/slider.png</file>
+			<file>image/spinner.bmp</file>
+			<file>image/statusbar.png</file>
+			<file>image/tab.png</file>
+			<file>image/textarea.png</file>
+			<file>image/textfield.png</file>
+			<file>image/timer.png</file>
+			<file>image/toolbar.png</file>
+			<file>image/tree.bmp</file>
+			<file>image/videowidget.png</file>
+			<file>image/webview.png</file>
+		</qresource>
+	</RCC>
+
+As we did in the Cards game, The Form Designer will use the AppFile() function to determine the
+name of the Image files.
+
+The next code from ring/applications/formdesigner/mainwindow/formdesignerview.ring
+
+.. code-block:: ring
+
+	func CreateToolBar
+		aBtns = [
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/new.png"))
+					setclickevent(Method(:NewAction))
+					settooltip("New File")
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/open.png"))
+					setclickevent(Method(:OpenAction))
+					settooltip("Open File")
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/save.png"))
+					setclickevent(Method(:SaveAction))
+					settooltip("Save")
+				 } ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/saveas.png"))
+					setclickevent(Method(:SaveAsAction))
+					settooltip("Save As")
+				 } ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/close.png"))
+					setclickevent(Method(:ExitAction))
+					settooltip("Exit")
+				}
+			]
+
+		tool1 = win.addtoolbar("files")  {
+	  		for x in aBtns { addwidget(x) addseparator() }
+		}
+
