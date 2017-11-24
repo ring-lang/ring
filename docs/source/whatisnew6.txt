@@ -19,6 +19,7 @@ Ring 1.6 comes with many new features!
 * New Tool: Ring2EXE 
 * Better Ring For Android
 * Better Scripts for building Ring
+* RingConsoleColors Extension
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -85,5 +86,14 @@ The updates are tested on 32bit and 64bit systems on Windows, Linux (Ubuntu,Fedo
 The scripts for Windows are updated to find the Visual C/C++ compiler based on your Visual Studio version.
 
 
+.. index:: 
+	pair: What is new in Ring 1.6?; RingConsoleColors Extension
+
+RingConsoleColors Extension
+===========================
+
+Using the RingConsoleColors extension we can easily change the colors used in our console applications
 
 
+.. image:: consolecolors.png
+	:alt: RingConsoleColors
