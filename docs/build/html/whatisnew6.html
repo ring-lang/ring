@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is new in Ring 1.6? &mdash; Ring 1.6 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="next" title="What is new in Ring 1.5?" href="whatisnew5.html" />
+    <link rel="prev" title="Language Design" href="languagedesign.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="whatisnew5.html" title="What is new in Ring 1.5?"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="languagedesign.html" title="Language Design"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-new-in-ring-1-6">
+<span id="index-0"></span><h1>What is new in Ring 1.6?<a class="headerlink" href="#what-is-new-in-ring-1-6" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.6 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.6 comes with many new features!</p>
+<ul class="simple">
+<li>Employee Application</li>
+<li>New Tool: Ring2EXE</li>
+<li>Better Ring For Android</li>
+<li>Better Scripts for building Ring</li>
+<li>RingConsoleColors Extension</li>
+<li>Better Ring Notepad</li>
+<li>Better RingQt</li>
+<li>Better StdLib</li>
+<li>Better RingVM</li>
+<li>Better RingREPL</li>
+</ul>
+</div>
+<div class="section" id="employee-application">
+<span id="index-2"></span><h2>Employee Application<a class="headerlink" href="#employee-application" title="Permalink to this headline">¶</a></h2>
+<p>The Employee application by Ahmed Hassouna is added to ring/applications</p>
+<img alt="Employee Sample" src="_images/empapp.png" />
+</div>
+<div class="section" id="new-tool-ring2exe">
+<span id="index-3"></span><h2>New Tool: Ring2EXE<a class="headerlink" href="#new-tool-ring2exe" title="Permalink to this headline">¶</a></h2>
+<p>In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)</p>
+<p>Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices</p>
+<p>Read the chapter &#8220;Distributing Ring Applications using Ring2EXE&#8221; for more information!</p>
+</div>
+<div class="section" id="better-ring-for-android">
+<span id="index-4"></span><h2>Better Ring For Android<a class="headerlink" href="#better-ring-for-android" title="Permalink to this headline">¶</a></h2>
+<p>Ring For Android (using RingQt) is updated to use the Ring Object File ( <a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo ) instead of using
+many source code files ( <a href="#id3"><span class="problematic" id="id4">*</span></a>.ring )</p>
+<p>The next screen shot is an example of building the cards game for Android</p>
+<p>We are using cards.ringo instead of cards.ring</p>
+<p>If you have large project (many <a href="#id5"><span class="problematic" id="id6">*</span></a>.ring files) it will use only one <a href="#id7"><span class="problematic" id="id8">*</span></a>.ringo file.</p>
+<img alt="Better Ring for Android" src="_images/cardsqt.png" />
+<p>To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE</p>
+<p>Example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-scripts-for-building-ring">
+<span id="index-5"></span><h2>Better Scripts for building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.6 comes with better scripts for building Ring from source code.</p>
+<p>The updates are tested on 32bit and 64bit systems on Windows, Linux (Ubuntu,Fedora) and macOS.</p>
+<p>The scripts for Windows are updated to find the Visual C/C++ compiler based on your Visual Studio version.</p>
+</div>
+<div class="section" id="ringconsolecolors-extension">
+<span id="index-6"></span><h2>RingConsoleColors Extension<a class="headerlink" href="#ringconsolecolors-extension" title="Permalink to this headline">¶</a></h2>
+<p>Using the RingConsoleColors extension we can easily change the colors used in our console applications</p>
+<img alt="RingConsoleColors" src="_images/consolecolors.png" />
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-7"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<p>Ring Notepad comes with the next updates</p>
+<ol class="arabic simple">
+<li>Automatic setting for the Main File when we Run the application (using the Main file buttons).</li>
+<li>Main File - Automatic save before running.</li>
+<li>When we run GUI application - don&#8217;t change the focus to the text box used for the input in the Output Window.</li>
+<li>A button and option to run web applications</li>
+</ol>
+<img alt="Ring Notepad - Run Web Application - shot 1" src="_images/runwebapp1.png" />
+<p>For Windows users, Ring 1.6 comes with Apache Web server!</p>
+<p>We can run any web application from any folder directly without doing any configuration.</p>
+<img alt="Ring Notepad - Run Web Application - shot 2" src="_images/runwebapp2.png" />
+<ol class="arabic simple" start="5">
+<li>Tools - Operating System - Terminal (Command Prompt) &amp; Files Manager (Explorer).</li>
+</ol>
+<img alt="Ring Notepad - Tools - Terminal - shot 1" src="_images/rnotetoolsterminal.png" />
+<p>So we can quickly open the Command Prompt or the Explorer at the application folder.</p>
+<img alt="Ring Notepad - Tools - Terminal - shot 2" src="_images/rnotetoolsterminal2.png" />
+<ol class="arabic simple" start="6">
+<li>Support <a href="#id9"><span class="problematic" id="id10">*</span></a>.sh &amp; <a href="#id11"><span class="problematic" id="id12">*</span></a>.bat extensions.</li>
+</ol>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-8"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>RingQt comes with the next updates</p>
+<ol class="arabic simple">
+<li>QDockWidget Events</li>
+<li>QRegion Class</li>
+<li>QAllEvents - getkeytext() Method</li>
+<li>QCoreApplication class</li>
+<li>AppFile() Function</li>
+<li>IsMobile() Function</li>
+</ol>
+</div>
+<div class="section" id="better-stdlib">
+<span id="index-9"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<p>StdLib comes with the next updates</p>
+<ol class="arabic">
+<li><p class="first">Factors() function is updated (Return the output instead of printing it)</p>
+</li>
+<li><p class="first">Palindrome() function is updated (Return the output instead of printing it)</p>
+</li>
+<li><p class="first">Using stdlibcore.ring we can use the StdLib functions (Without Classes)</p>
+<p>Also this is useful when developing standalone console applications</p>
+<p>Because using stdlib.ring (functions &amp; classes) will load libraries like RingLibCurl, RingOpenSSL, etc.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="better-ringvm">
+<span id="index-10"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
+<p>RingVM comes with the next updates</p>
+<ol class="arabic simple">
+<li>Support using many getter methods in Expressions</li>
+<li>Support using this &amp; self in setter/getter/normal methods without calling setter/getter methods.</li>
+<li>TempName() function is updated (Better Code)</li>
+<li>ExeFileName() function is updated (Better Code)</li>
+<li>Private Attributes - Support re-usage in the class region (After the keyword private)</li>
+<li>Ring API : ring_scanner_runobjstring()</li>
+</ol>
+</div>
+<div class="section" id="better-ringrepl">
+<span id="index-11"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
+<p>RingREPL comes with the next updates</p>
+<ol class="arabic simple">
+<li>RingREPL will get command line parameters to determine the style.</li>
+<li>Setting RingREPL Style based on Ring Notepad Style.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is new in Ring 1.6?</a><ul>
+<li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li><a class="reference internal" href="#employee-application">Employee Application</a></li>
+<li><a class="reference internal" href="#new-tool-ring2exe">New Tool: Ring2EXE</a></li>
+<li><a class="reference internal" href="#better-ring-for-android">Better Ring For Android</a></li>
+<li><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for building Ring</a></li>
+<li><a class="reference internal" href="#ringconsolecolors-extension">RingConsoleColors Extension</a></li>
+<li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li><a class="reference internal" href="#better-ringvm">Better RingVM</a></li>
+<li><a class="reference internal" href="#better-ringrepl">Better RingREPL</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="languagedesign.html"
+                        title="previous chapter">Language Design</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="whatisnew5.html"
+                        title="next chapter">What is new in Ring 1.5?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatisnew6.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="whatisnew5.html" title="What is new in Ring 1.5?"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="languagedesign.html" title="Language Design"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

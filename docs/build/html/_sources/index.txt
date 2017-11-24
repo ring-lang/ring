@@ -14,6 +14,7 @@ Contents:
    Applications developed in little hours <ringapps>
    Introduction <introduction>
    Language Design <languagedesign>
+   What is new in Ring 1.6? <whatisnew6>
    What is new in Ring 1.5? <whatisnew5>
    What is new in Ring 1.4? <whatisnew4>
    What is new in Ring 1.3? <whatisnew3>
@@ -74,8 +75,9 @@ Contents:
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
    The Type Hints Library <typehints>
-   Distributing Ring Applications <distribute>
    Command Line Options	<compiler>
+   Distributing Ring Applications <distribute>
+   Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    Low Level Functions <lowlevel>
    The Trace Library and the Interactive Debugger <debug>
    Embedding Ring Language in Ring Programs <ringemb>

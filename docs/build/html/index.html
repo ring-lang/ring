@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Ring’s documentation! &mdash; Ring 1.5.4 documentation</title>
+    <title>Welcome to Ring’s documentation! &mdash; Ring 1.6 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.5.4',
+        VERSION:     '1.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.5.4 documentation" href="#" />
+    <link rel="top" title="Ring 1.6 documentation" href="#" />
     <link rel="next" title="Applications developed in little hours" href="ringapps.html" /> 
   </head>
   <body role="document">
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="ringapps.html" title="Applications developed in little hours"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">Ring 1.5.4 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">Ring 1.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -70,6 +70,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#ring-and-other-languages">Ring and other languages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#history">History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#license">License</a></li>
@@ -87,6 +88,20 @@
 <li class="toctree-l2"><a class="reference internal" href="languagedesign.html#transparent-implementation">Transparent Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="languagedesign.html#visual-implementation">Visual Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="languagedesign.html#smart-garbage-collector">Smart Garbage Collector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">What is new in Ring 1.6?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#employee-application">Employee Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#new-tool-ring2exe">New Tool: Ring2EXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-ring-for-android">Better Ring For Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-scripts-for-building-ring">Better Scripts for building Ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#ringconsolecolors-extension">RingConsoleColors Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-ring-notepad">Better Ring Notepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-ringvm">Better RingVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew6.html#better-ringrepl">Better RingREPL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">What is new in Ring 1.5?</a><ul>
@@ -935,6 +950,7 @@
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#update-the-android-sdk">Update the Android SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#install-qt-for-android">Install Qt for Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#comments-about-developing-for-android-using-ringqt">Comments about developing for Android using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtmobile.html#using-ring2exe">Using Ring2EXE</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a><ul>
@@ -1009,14 +1025,6 @@
 <li class="toctree-l2"><a class="reference internal" href="typehints.html#rules">Rules</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="distribute.html#distributing-applications-for-microsoft-windows">Distributing Applications for Microsoft Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distribute.html#protecting-the-source-code">Protecting the Source Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distribute.html#creating-windows-installer">Creating Windows Installer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distribute.html#using-c-c-compiler-and-linker">Using C/C++ Compiler and Linker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distribute.html#distributing-applications-and-games-for-mobile">Distributing Applications and Games for Mobile</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="compiler.html#printing-tokens">Printing Tokens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler.html#printing-rules">Printing Rules</a></li>
@@ -1027,6 +1035,29 @@
 <li class="toctree-l2"><a class="reference internal" href="compiler.html#printing-instruction-operation-code">Printing Instruction Operation Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler.html#performance">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compiler.html#generate-object-file">Generate Object File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distribute.html#distributing-applications-for-microsoft-windows">Distributing Applications for Microsoft Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute.html#protecting-the-source-code">Protecting the Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute.html#creating-windows-installer">Creating Windows Installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute.html#using-c-c-compiler-and-linker">Using C/C++ Compiler and Linker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute.html#distributing-applications-and-games-for-mobile">Distributing Applications and Games for Mobile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#using-ring2exe">Using Ring2EXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#how-ring2exe-works">How Ring2EXE works?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#building-standalone-console-application">Building standalone console application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#distributing-ringallegro-applications">Distributing RingAllegro Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#distributing-ringqt-applications">Distributing RingQt Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#distributing-applications-for-mobile-using-ringqt">Distributing Applications for Mobile using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#building-the-cards-game-for-mobile-using-ringqt">Building the Cards Game for Mobile using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#building-the-weight-history-application-for-mobile-using-ringqt">Building the Weight History Application for Mobile using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#building-the-form-designer-for-mobile-using-ringqt">Building the Form Designer for Mobile using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribute_ring2exe.html#important-information-about-ring2exe">Important Information about Ring2EXE</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a><ul>
@@ -1325,6 +1356,7 @@
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qscreen-class">QScreen Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwindow-class">QWindow Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qguiapplication-class">QGuiApplication Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qcoreapplication-class">QCoreApplication Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qtextbrowser-class">QTextBrowser Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qregion-class">QRegion Class</a></li>
 </ul>
@@ -1382,6 +1414,7 @@
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-extend-ringqt-and-add-more-classes">How to extend RingQt and add more classes?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget">How to add Combobox and other elements to the cells of a QTableWidget?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget">How to perform some manipulations on selected cells in QTableWidget?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#which-of-3-coding-styles-are-commonly-used-or-recommended-by-the-community">Which of 3 coding styles are commonly used or recommended by the community?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Language Reference</a><ul>
@@ -1446,7 +1479,7 @@
         <li class="right" >
           <a href="ringapps.html" title="Applications developed in little hours"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">Ring 1.5.4 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">Ring 1.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

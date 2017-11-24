@@ -1,0 +1,217 @@
+.. index:: 
+	single: What is new in Ring 1.6?; Introduction
+
+========================
+What is new in Ring 1.6?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.6 release.
+
+.. index:: 
+	pair: What is new in Ring 1.6?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.6 comes with many new features!
+
+* Employee Application
+* New Tool: Ring2EXE 
+* Better Ring For Android
+* Better Scripts for building Ring
+* RingConsoleColors Extension
+* Better Ring Notepad
+* Better RingQt
+* Better StdLib
+* Better RingVM
+* Better RingREPL
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Employee Application
+
+Employee Application
+====================
+
+The Employee application by Ahmed Hassouna is added to ring/applications
+
+.. image:: empapp.png
+	:alt: Employee Sample
+
+.. index:: 
+	pair: What is new in Ring 1.6?; New Tool: Ring2EXE
+
+New Tool: Ring2EXE
+==================
+
+In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
+
+Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
+
+Read the chapter "Distributing Ring Applications using Ring2EXE" for more information!
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Ring For Android
+
+Better Ring For Android
+=======================
+
+Ring For Android (using RingQt) is updated to use the Ring Object File ( *.ringo ) instead of using
+many source code files ( *.ring )
+
+The next screen shot is an example of building the cards game for Android
+
+We are using cards.ringo instead of cards.ring
+
+If you have large project (many *.ring files) it will use only one *.ringo file.
+
+.. image:: cardsqt.png
+	:alt: Better Ring for Android
+
+
+To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE
+
+Example 
+
+.. code-block:: ring
+
+	ring2exe cards.ring -dist -mobileqt
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Scripts for building Ring
+
+Better Scripts for building Ring
+================================
+
+Ring 1.6 comes with better scripts for building Ring from source code.
+
+The updates are tested on 32bit and 64bit systems on Windows, Linux (Ubuntu,Fedora) and macOS.
+
+The scripts for Windows are updated to find the Visual C/C++ compiler based on your Visual Studio version.
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; RingConsoleColors Extension
+
+RingConsoleColors Extension
+===========================
+
+Using the RingConsoleColors extension we can easily change the colors used in our console applications
+
+
+.. image:: consolecolors.png
+	:alt: RingConsoleColors
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+Ring Notepad comes with the next updates
+
+(1) Automatic setting for the Main File when we Run the application (using the Main file buttons).
+
+(2) Main File - Automatic save before running.
+
+(3) When we run GUI application - don't change the focus to the text box used for the input in the Output Window.
+
+(4) A button and option to run web applications
+
+.. image:: runwebapp1.png
+	:alt: Ring Notepad - Run Web Application - shot 1
+
+For Windows users, Ring 1.6 comes with Apache Web server!
+
+We can run any web application from any folder directly without doing any configuration.
+
+.. image:: runwebapp2.png
+	:alt: Ring Notepad - Run Web Application - shot 2
+
+(5) Tools - Operating System - Terminal (Command Prompt) & Files Manager (Explorer).
+
+.. image:: rnotetoolsterminal.png
+	:alt: Ring Notepad - Tools - Terminal - shot 1
+
+So we can quickly open the Command Prompt or the Explorer at the application folder.
+
+.. image:: rnotetoolsterminal2.png
+	:alt: Ring Notepad - Tools - Terminal - shot 2
+
+(6) Support *.sh & *.bat extensions.
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingQt
+
+Better RingQt
+=============
+
+RingQt comes with the next updates
+
+(1) QDockWidget Events
+
+(2) QRegion Class
+
+(3) QAllEvents - getkeytext() Method
+
+(4) QCoreApplication class
+
+(5) AppFile() Function
+
+(6) IsMobile() Function
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better StdLib
+
+Better StdLib
+=============
+
+StdLib comes with the next updates
+
+(1) Factors() function is updated (Return the output instead of printing it)
+
+(2) Palindrome() function is updated (Return the output instead of printing it)
+
+(3) Using stdlibcore.ring we can use the StdLib functions (Without Classes)
+
+    Also this is useful when developing standalone console applications
+
+    Because using stdlib.ring (functions & classes) will load libraries like RingLibCurl, RingOpenSSL, etc.
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingVM
+
+Better RingVM
+=============
+
+RingVM comes with the next updates
+
+(1) Support using many getter methods in Expressions
+
+(2) Support using this & self in setter/getter/normal methods without calling setter/getter methods.
+
+(3) TempName() function is updated (Better Code)
+
+(4) ExeFileName() function is updated (Better Code)
+
+(5) Private Attributes - Support re-usage in the class region (After the keyword private)
+
+(6) Ring API : ring_scanner_runobjstring()
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Better RingREPL
+
+Better RingREPL
+===============
+
+RingREPL comes with the next updates
+
+(1) RingREPL will get command line parameters to determine the style.
+
+(2) Setting RingREPL Style based on Ring Notepad Style.
+
+
+

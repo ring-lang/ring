@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>RingQt Classes Reference &mdash; Ring 1.5.4 documentation</title>
+    <title>RingQt Classes Reference &mdash; Ring 1.6 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.5.4',
+        VERSION:     '1.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
     <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
     <link rel="prev" title="RingOpenGL (OpenGL 4.6) Functions Reference" href="ringopengl46funcsdoc.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="ringopengl46funcsdoc.html" title="RingOpenGL (OpenGL 4.6) Functions Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -5792,6 +5792,7 @@
 <div class="section" id="qguiapplication-class">
 <span id="index-178"></span><h2>QGuiApplication Class<a class="headerlink" href="#qguiapplication-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QGuiApplication.html">http://doc.qt.io/qt-5/QGuiApplication.html</a></p>
+<p>Parent Class : QCoreApplication</p>
 <p>Parameters : int,char **</p>
 <ul class="simple">
 <li>qreal devicePixelRatio(void)</li>
@@ -5864,8 +5865,54 @@
 <li>const char <a href="#id2225"><span class="problematic" id="id2226">*</span></a>getscreenRemovedEvent(void)</li>
 </ul>
 </div>
+<div class="section" id="qcoreapplication-class">
+<span id="index-179"></span><h2>QCoreApplication Class<a class="headerlink" href="#qcoreapplication-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QCoreApplication.html">http://doc.qt.io/qt-5/QCoreApplication.html</a></p>
+<p>Parent Class : QObject</p>
+<ul class="simple">
+<li>void installNativeEventFilter(QAbstractNativeEventFilter <a href="#id2227"><span class="problematic" id="id2228">*</span></a>filterObj)</li>
+<li>void removeNativeEventFilter(QAbstractNativeEventFilter <a href="#id2229"><span class="problematic" id="id2230">*</span></a>filterObject)</li>
+<li>void quit(void)</li>
+<li>void addLibraryPath(QString path)</li>
+<li>QString applicationDirPath(void)</li>
+<li>QString applicationFilePath(void)</li>
+<li>QString applicationName(void)</li>
+<li>qint64 applicationPid(void)</li>
+<li>QString applicationVersion(void)</li>
+<li>QStringList arguments(void)</li>
+<li>bool closingDown(void)</li>
+<li>QAbstractEventDispatcher * eventDispatcher(void)</li>
+<li>int exec(void)</li>
+<li>void exit(int returnCode)</li>
+<li>bool installTranslator(QTranslator <a href="#id2231"><span class="problematic" id="id2232">*</span></a>translationFile)</li>
+<li>QCoreApplication * instance(void)</li>
+<li>bool isQuitLockEnabled(void)</li>
+<li>QStringList libraryPaths(void)</li>
+<li>QString organizationDomain(void)</li>
+<li>QString organizationName(void)</li>
+<li>void postEvent(QObject <a href="#id2233"><span class="problematic" id="id2234">*</span></a>receiver, QEvent <a href="#id2235"><span class="problematic" id="id2236">*</span></a>event, int priority)</li>
+<li>void processEvents(QEventLoop::ProcessEventsFlags flags)</li>
+<li>void processEvents_2(QEventLoop::ProcessEventsFlags flags, int maxtime)</li>
+<li>void removeLibraryPath(QString path)</li>
+<li>void removePostedEvents(QObject <a href="#id2237"><span class="problematic" id="id2238">*</span></a>receiver, int eventType)</li>
+<li>bool removeTranslator(QTranslator <a href="#id2239"><span class="problematic" id="id2240">*</span></a>translationFile)</li>
+<li>bool sendEvent(QObject <a href="#id2241"><span class="problematic" id="id2242">*</span></a>receiver, QEvent <a href="#id2243"><span class="problematic" id="id2244">*</span></a>event)</li>
+<li>void sendPostedEvents(QObject <a href="#id2245"><span class="problematic" id="id2246">*</span></a>receiver, int event_type)</li>
+<li>void setApplicationName(QString application)</li>
+<li>void setApplicationVersion(QString version)</li>
+<li>void setAttribute(Qt::ApplicationAttribute attribute, bool on)</li>
+<li>void setEventDispatcher(QAbstractEventDispatcher <a href="#id2247"><span class="problematic" id="id2248">*</span></a>eventDispatcher)</li>
+<li>void setLibraryPaths(QStringList paths)</li>
+<li>void setOrganizationDomain(QString orgDomain)</li>
+<li>void setOrganizationName(QString orgName)</li>
+<li>void setQuitLockEnabled(bool enabled)</li>
+<li>bool startingUp(void)</li>
+<li>bool testAttribute(Qt::ApplicationAttribute attribute)</li>
+<li>QString translate(char <a href="#id2249"><span class="problematic" id="id2250">*</span></a>context, char <a href="#id2251"><span class="problematic" id="id2252">*</span></a>sourceText, char <a href="#id2253"><span class="problematic" id="id2254">*</span></a>disambiguation, int n)</li>
+</ul>
+</div>
 <div class="section" id="qtextbrowser-class">
-<span id="index-179"></span><h2>QTextBrowser Class<a class="headerlink" href="#qtextbrowser-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-180"></span><h2>QTextBrowser Class<a class="headerlink" href="#qtextbrowser-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QTextBrowser.html">http://doc.qt.io/qt-5/QTextBrowser.html</a></p>
 <p>Parameters : QWidget *</p>
 <p>Parent Class : QTextEdit</p>
@@ -5884,22 +5931,22 @@
 <li>void setOpenLinks(bool open)</li>
 <li>void setSearchPaths(QStringList paths)</li>
 <li>QUrl source(void)</li>
-<li>void setanchorClickedEvent(const char <a href="#id2227"><span class="problematic" id="id2228">*</span></a>)</li>
-<li>void setbackwardAvailableEvent(const char <a href="#id2229"><span class="problematic" id="id2230">*</span></a>)</li>
-<li>void setforwardAvailableEvent(const char <a href="#id2231"><span class="problematic" id="id2232">*</span></a>)</li>
-<li>void sethighlightedEvent(const char <a href="#id2233"><span class="problematic" id="id2234">*</span></a>)</li>
-<li>void sethistoryChangedEvent(const char <a href="#id2235"><span class="problematic" id="id2236">*</span></a>)</li>
-<li>void setsourceChangedEvent(const char <a href="#id2237"><span class="problematic" id="id2238">*</span></a>)</li>
-<li>const char <a href="#id2239"><span class="problematic" id="id2240">*</span></a>getanchorClickedEvent(void)</li>
-<li>const char <a href="#id2241"><span class="problematic" id="id2242">*</span></a>getbackwardAvailableEvent(void)</li>
-<li>const char <a href="#id2243"><span class="problematic" id="id2244">*</span></a>getforwardAvailableEvent(void)</li>
-<li>const char <a href="#id2245"><span class="problematic" id="id2246">*</span></a>gethighlightedEvent(void)</li>
-<li>const char <a href="#id2247"><span class="problematic" id="id2248">*</span></a>gethistoryChangedEvent(void)</li>
-<li>const char <a href="#id2249"><span class="problematic" id="id2250">*</span></a>getsourceChangedEvent(void)</li>
+<li>void setanchorClickedEvent(const char <a href="#id2255"><span class="problematic" id="id2256">*</span></a>)</li>
+<li>void setbackwardAvailableEvent(const char <a href="#id2257"><span class="problematic" id="id2258">*</span></a>)</li>
+<li>void setforwardAvailableEvent(const char <a href="#id2259"><span class="problematic" id="id2260">*</span></a>)</li>
+<li>void sethighlightedEvent(const char <a href="#id2261"><span class="problematic" id="id2262">*</span></a>)</li>
+<li>void sethistoryChangedEvent(const char <a href="#id2263"><span class="problematic" id="id2264">*</span></a>)</li>
+<li>void setsourceChangedEvent(const char <a href="#id2265"><span class="problematic" id="id2266">*</span></a>)</li>
+<li>const char <a href="#id2267"><span class="problematic" id="id2268">*</span></a>getanchorClickedEvent(void)</li>
+<li>const char <a href="#id2269"><span class="problematic" id="id2270">*</span></a>getbackwardAvailableEvent(void)</li>
+<li>const char <a href="#id2271"><span class="problematic" id="id2272">*</span></a>getforwardAvailableEvent(void)</li>
+<li>const char <a href="#id2273"><span class="problematic" id="id2274">*</span></a>gethighlightedEvent(void)</li>
+<li>const char <a href="#id2275"><span class="problematic" id="id2276">*</span></a>gethistoryChangedEvent(void)</li>
+<li>const char <a href="#id2277"><span class="problematic" id="id2278">*</span></a>getsourceChangedEvent(void)</li>
 </ul>
 </div>
 <div class="section" id="qregion-class">
-<span id="index-180"></span><h2>QRegion Class<a class="headerlink" href="#qregion-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-181"></span><h2>QRegion Class<a class="headerlink" href="#qregion-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QRegion.html">http://doc.qt.io/qt-5/QRegion.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -5914,7 +5961,7 @@
 <li>bool isNull(void)</li>
 <li>int rectCount(void)</li>
 <li>QVector&lt;QRect&gt; rects(void)</li>
-<li>void setRects(QRect <a href="#id2251"><span class="problematic" id="id2252">*</span></a>rects, int number)</li>
+<li>void setRects(QRect <a href="#id2279"><span class="problematic" id="id2280">*</span></a>rects, int number)</li>
 <li>QRegion subtracted(QRegion r)</li>
 <li>void swap(QRegion other)</li>
 <li>void translate(int dx, int dy)</li>
@@ -6115,6 +6162,7 @@
 <li><a class="reference internal" href="#qscreen-class">QScreen Class</a></li>
 <li><a class="reference internal" href="#qwindow-class">QWindow Class</a></li>
 <li><a class="reference internal" href="#qguiapplication-class">QGuiApplication Class</a></li>
+<li><a class="reference internal" href="#qcoreapplication-class">QCoreApplication Class</a></li>
 <li><a class="reference internal" href="#qtextbrowser-class">QTextBrowser Class</a></li>
 <li><a class="reference internal" href="#qregion-class">QRegion Class</a></li>
 </ul>
@@ -6163,7 +6211,7 @@
         <li class="right" >
           <a href="ringopengl46funcsdoc.html" title="RingOpenGL (OpenGL 4.6) Functions Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
