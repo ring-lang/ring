@@ -81,6 +81,12 @@ We provide instructions for building on the next platforms :-
 	
 	cd ../extensions/ringinternet
 	buildvc.bat
+
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	gencode.bat
+	buildvc.bat
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -187,6 +193,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 	cd ../extensions/ringinternet
 	./buildgcc.sh
+
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildgcc.sh
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -280,6 +292,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Build RingInternet
 	
 	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
 	./buildgcc.sh
 	
 ### Generate RingAllegro Source Code and Build 
@@ -376,6 +394,13 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Build RingInternet
 	
 	cd ../extensions/ringinternet
+	./buildclang.sh
+	
+
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
 	./buildclang.sh
 	
 ### Generate RingAllegro Source Code and Build 
