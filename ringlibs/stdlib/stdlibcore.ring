@@ -767,7 +767,7 @@ Func DirExists cDir
 	Parameters	: Directory Name
 */         
 
-Func MakeDir cDir
+Func MakeDir cFolder
 	if iswindows()
 		SystemSilent("mkdir " + cFolder)
 	else 
