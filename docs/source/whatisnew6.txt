@@ -77,6 +77,14 @@ Example
 
 	ring2exe cards.ring -dist -mobileqt
 
+Example (2)
+
+.. code-block:: ring
+
+	ring2exe formdesigner.ring -dist -mobileqt
+
+.. image:: formdesignerandroid.png
+	:alt: Form Designer - Android
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better Scripts for building Ring
