@@ -1314,3 +1314,20 @@ Syntax:
 .. code-block:: ring
 
 	SystemSilent(cCommand)
+
+.. index:: 
+	pair: Stdlib Functions; OSCreateOpenFolder() Function
+
+OSCreateOpenFolder() Function
+=============================
+
+Create folder then change the current folder to this new folder
+
+Syntax:
+
+.. code-block:: ring
+
+	OSCreateOpenFolder(cCommand)
+
+
+
