@@ -24,7 +24,7 @@ Because using stdlib.ring (functions & classes) will load libraries like RingLib
 .. index:: 
 	pair: Stdlib Functions; puts()
 
-puts() function
+Puts() function
 ===============
 
 print the value then print new line (nl)
@@ -46,7 +46,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; print()
 
-print() function
+Print() function
 =================
 
 print string - support \\n,\\t and \\r
@@ -102,7 +102,7 @@ Output:
 .. index:: 
 	pair: Stdlib Functions; getstring()
 
-getstring() function
+GetString() function
 ====================
 
 Get input from the keyboard - return value as string
@@ -115,7 +115,7 @@ Get input from the keyboard - return value as string
 .. index:: 
 	pair: Stdlib Functions; getnumber()
 
-getnumber() function
+GetNumber() function
 ====================
 
 Get input from the keyboard - return value as number
@@ -127,7 +127,7 @@ Get input from the keyboard - return value as number
 .. index:: 
 	pair: Stdlib Functions; apppath()
 
-apppath() function
+AppPath() function
 ==================
 
 Get the path of the application folder
@@ -151,7 +151,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; JustFilePath()
 
-justfilepath() function
+JustFilePath() function
 =======================
 
 Get the path of the file, remove the file name.
@@ -180,7 +180,7 @@ Output:
 .. index:: 
 	pair: Stdlib Functions; JustFileName()
 
-justfilename() function
+JustFileName() function
 =======================
 
 Get the file, remove the file path.
@@ -209,7 +209,7 @@ Output:
 .. index:: 
 	pair: Stdlib Functions; value()
 
-value() function
+Value() function
 ================
 
 create a copy from a list or object
@@ -233,7 +233,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; times()
 
-times() function
+Times() function
 ================
 
 Execute a Function nCount times
@@ -256,7 +256,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; map()
 
-map() function
+Map() function
 ==============
 
 Execute a Function on each list item
@@ -279,7 +279,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; filter()
 
-filter() function
+Filter() function
 =================
 
 Execute a Function on each list item to filter items
@@ -302,7 +302,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; split()
 
-split() function
+Split() function
 ================
 
 Convert string words to list items
@@ -326,7 +326,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; splitmany()
 
-splitmany() function
+SplitMany() function
 ====================
 
 Convert string words to list items. Allow many delimiters.
@@ -350,7 +350,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; newlist()
 
-newlist() function
+NewList() function
 ==================
 
 Create a two dimensional list
@@ -381,7 +381,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; capitalized()
 
-capitalized() function
+Capitalized() function
 ======================
 
 Return a copy of a string with the first letter capitalized
@@ -404,7 +404,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; isspecial()
 
-isspecial() function
+IsSpecial() function
 ====================
 
 Check whether a character is special or not
@@ -428,7 +428,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; isvowel()
 
-isvowel() function
+IsVowel() function
 ==================
 
 Check whether a character is vowel or not
@@ -452,7 +452,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; linecount()
 
-linecount() function
+LineCount() function
 ====================
 
 Return the lines count in a text file.
@@ -475,7 +475,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; factorial()
 
-factorial() function
+Factorial() function
 ====================
 
 Return the factorial of a number
@@ -498,7 +498,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; fibonacci()
 
-fibonacci() function
+Fibonacci() function
 ====================
 
 Return the fibonacci number
@@ -521,7 +521,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; isprime()
 
-isprime() function
+IsPrime() function
 ==================
 
 Check whether a number is prime or not
@@ -545,7 +545,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; sign()
 
-sign() function
+Sign() function
 ===============
 
 Returns an integer value indicating the sign of a number.
@@ -568,7 +568,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; list2file()
 
-list2file() function
+List2File() function
 ====================
 
 Write list items to text file (each item in new line).
@@ -593,7 +593,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; file2list()
 
-file2list() function
+File2List() function
 ====================
 
 Read text file and convert lines to list items
@@ -617,7 +617,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; startswith()
 
-startswith() function
+StartsWith() function
 =====================
 
 Returns true if the given string starts with the specified substring.
@@ -643,7 +643,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; endswith()
 
-endswith() function
+EndsWith() function
 ===================
 
 Returns true if the given string ends with the specified substring.
@@ -668,7 +668,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; gcd()
 
-gcd() function
+GCD() function
 ==============
 
 Finding of the greatest common divisor of two integers.
@@ -692,7 +692,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; lcm()
 
-lcm() function
+LCM() function
 ==============
 
 Compute the least common multiple of two integers.
@@ -715,7 +715,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; sumlist()
 
-sumlist() function
+SumList() function
 ==================
 
 Compute the sum of a list of integers.
@@ -739,7 +739,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; prodlist()
 
-prodlist() function
+ProdList() function
 ===================
 
 Compute the product of a list of integers.
@@ -763,7 +763,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; evenorodd()
 
-evenorodd() function
+EvenOrOdd() function
 ====================
 
 Test whether an integer is even or odd.
@@ -789,7 +789,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; factors()
 
-factors() function
+Factors() function
 ==================
 
 Compute the factors of a positive integer.
@@ -818,7 +818,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; palindrome()
 
-palindrome() function
+Palindrome() function
 =====================
 
 Check if a sequence of characters is a palindrome or not. 
@@ -843,7 +843,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; isleapyear()
 
-isleapyear() function
+IsLeapYear() function
 =====================
 
 Check whether a given year is a leap year in the Gregorian calendar. 
@@ -869,7 +869,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; binarydigits()
 
-binarydigits() function
+BinaryDigits() function
 =======================
 
 Compute the sequence of binary digits for a given non-negative integer. 
@@ -893,7 +893,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; matrixmulti()
 
-matrixmulti() function
+MatrixMulti() function
 ======================
 
 Multiply two matrices together. 
@@ -920,7 +920,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; matrixtrans()
 
-matrixtrans() function
+MatrixTrans() function
 ======================
 
 Transpose an arbitrarily sized rectangular Matrix. 
@@ -945,7 +945,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; dayofweek()
 
-dayofweek() function
+DayOfWeek() function
 ====================
 
 Return the day of the week of given date. (yyyy-mm-dd)
@@ -970,7 +970,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; permutation()
 
-permutation() function
+Permutation() function
 ======================
 
 Generates all permutations of n different numerals.
@@ -1001,7 +1001,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; readline()
 
-readline() function
+ReadLine() function
 ===================
 
 Read line from file
@@ -1028,7 +1028,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; substring()
 
-substring() function
+SubString() function
 ====================
 
 Return a position of a substring starting from a given position in a string.
@@ -1055,7 +1055,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; changestring()
 
-changestring() function
+ChangeString() function
 =======================
 
 Change substring from given position to a given position with another substring.
@@ -1079,7 +1079,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; sleep()
 
-sleep() function
+Sleep() function
 ================
 
 Sleep for the given amount of time.
@@ -1104,7 +1104,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; ismainsourcefile()
 
-ismainsourcefile() function
+IsMainSourceFile() function
 ===========================
 
 Check if the current file is the main source file
@@ -1128,7 +1128,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; direxists()
 
-direxists() function
+DirExists() function
 ====================
 
 Check if directory exists
@@ -1153,7 +1153,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; makedir()
 
-makedir() function
+MakeDir() function
 ==================
 
 Make Directory
@@ -1178,7 +1178,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; FSize()
 
-fsize() function
+Fsize() function
 ================
 
 The function return the file size in bytes.
@@ -1192,7 +1192,7 @@ Syntax:
 .. index:: 
 	pair: Stdlib Functions; TrimAll()
 
-trimall() function
+TrimAll() function
 ==================
 
 Remove all spaces and tabs characters from a string
@@ -1206,7 +1206,7 @@ Syntax:
 .. index:: 
 	pair: Stdlib Functions; TrimLeft()
 
-trimleft() function
+TrimLeft() function
 ===================
 
 Remove all spaces and tabs characters from the left side of a string
@@ -1220,7 +1220,7 @@ Syntax:
 .. index:: 
 	pair: Stdlib Functions; TrimRight()
 
-trimright() function
+TrimRight() function
 ====================
 
 Remove all spaces and tabs characters from the right side of a string
@@ -1234,7 +1234,7 @@ Syntax:
 .. index:: 
 	pair: Stdlib Functions; EpochTime()
 
-epochtime() function
+EpochTime() function
 ====================
 
 Return the Epoch Time
