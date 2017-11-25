@@ -316,7 +316,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							OSCopyFolder(exefolder()+cLibFolder)
+							OSCopyFolder(exefolder(),cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -334,7 +334,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/windows")
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							OSCopyFolder(exefolder()+cLibFolder)
+							OSCopyFolder(exefolder(),cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -702,12 +702,12 @@ func OSRenameFile cOldFile,cNewFile
 		systemSilent("mv " + cOldFile + " " + cNewFile)
 	ok
 
-func OSCopyFolder cFolder
+func OSCopyFolder cParentFolder,cFolder
 	cParentFolder = currentdir()
 	OSCreateOpenFolder(cFolder)
 	if isWindows()
-		systemsilent("copy " + cFolder)
+		systemsilent("copy " + cParentFolder + cFolder)
 	else 
-		systemsilent("cp -R " + cFolder + " ./")
+		systemsilent("cp -R " + cParentFolder + cFolder + " ./")
 	ok
 	chdir(cParentFolder)
