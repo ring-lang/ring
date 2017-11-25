@@ -316,7 +316,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							WindowsCopyFolder(cLibFolder)
+							WindowsCopyFolder(exefolder()+cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -334,7 +334,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/windows")
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							WindowsCopyFolder(cLibFolder)
+							WindowsCopyFolder(exefolder()+cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -672,14 +672,14 @@ func CreateOpenFolder cFolder
 	MakeDir(cFolder)
 	chdir(cFolder)
 
-func WindowsDeleteFolder cFolder
-	systemSilent("rd /s /q " + cFolder)
-
 func WindowsCopyFolder cFolder
 	cParentFolder = currentdir()
 	CreateOpenFolder(cFolder)
-	systemsilent("copy " + exefolder()+cFolder)
+	systemsilent("copy " + cFolder)
 	chdir(cParentFolder)
+
+func WindowsDeleteFolder cFolder
+	systemSilent("rd /s /q " + cFolder)
 
 func WindowsDeleteFile cFile 
 	systemSilent("del " + cFile)
