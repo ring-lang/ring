@@ -701,10 +701,6 @@ func MacOSXDeleteFile cFile
 func MacOSXCopyFile cFile 
 	LinuxCopyFile(cFile)
 
-func OSCreateOpenFolder cFolder
-	MakeDir(cFolder)
-	chdir(cFolder)
-
 func OSDeleteFolder cFolder 
 	if isWindows() 
 		WindowsDeleteFolder(cFolder)
@@ -731,6 +727,10 @@ func OSCopyFile cFile
 	but isMacosx()
 		MacOSXCopyFile(cFile)
 	ok
+
+func OSCreateOpenFolder cFolder
+	MakeDir(cFolder)
+	chdir(cFolder)
 
 func OSRenameFile cOldFile,cNewFile
 	if isWindows()
