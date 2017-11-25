@@ -38,7 +38,7 @@ We provide instructions for building on the next platforms :-
 
 (3) Fedora Linux
 
-(4) MacOS X
+(4) macOS
 
 ## Building using Microsoft Windows 
 
