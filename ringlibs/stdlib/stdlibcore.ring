@@ -1,7 +1,7 @@
 # The Ring Standard Library
 # Common Functions and classes for applications
-# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
-# 2016, CalmoSoft <calmosoft@gmail.com>
+# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2017, CalmoSoft <calmosoft@gmail.com>
 
 Load "stdlib.rh"
 
@@ -934,3 +934,17 @@ func ListAllFiles_Process cPath,aList,cExt
 		ok
 	next
 	return aOutput
+
+/*
+	Function Name	: SystemSilent
+	Usage 		: Execute system command without displaying the output 
+	Parameters   	: Command as String 
+	Output		: None
+*/
+
+func SystemSilent cCmd
+	if isWindows()
+		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
+	else 
+		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
+	ok
