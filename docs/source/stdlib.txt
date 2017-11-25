@@ -1330,4 +1330,30 @@ Syntax:
 	OSCreateOpenFolder(cCommand)
 
 
+.. index:: 
+	pair: Stdlib Functions; OSCopyFolder() Function
+
+OSCopyFolder() Function
+=======================
+
+Copy folder to the current folder 
+
+Parameters : The path to the parent folder and the folder name to copy
+
+Syntax:
+
+.. code-block:: ring
+
+	OSCopyFolder(cParentFolder,cFolderName)
+
+Example
+
+To copy the folder b:\ring\ringlibs\stdlib to the current folder
+
+.. code-block:: ring
+
+	OSCopyFolder("b:\ring\ringlibs\","stdlib")
+
+
+
 
