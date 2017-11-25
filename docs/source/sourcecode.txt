@@ -73,6 +73,14 @@ Build RingInternet
 	cd ../extensions/ringinternet
 	buildvc.bat
 
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	gencode.bat
+	buildvc.bat
+
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
@@ -219,6 +227,14 @@ Build RingInternet
 	
 	cd ../extensions/ringinternet
 	./buildgcc.sh
+
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildgcc.sh
 	
 Generate RingAllegro Source Code and Build
 
@@ -351,6 +367,14 @@ Build RingInternet
 .. code-block:: ring
 	
 	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
 	./buildgcc.sh
 	
 Generate RingAllegro Source Code and Build
@@ -487,6 +511,14 @@ Build RingInternet
 .. code-block:: ring
 	
 	cd ../extensions/ringinternet
+	./buildclang.sh
+
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
 	./buildclang.sh
 	
 Generate RingAllegro Source Code and Build
