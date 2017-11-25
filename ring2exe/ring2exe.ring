@@ -703,11 +703,11 @@ func OSRenameFile cOldFile,cNewFile
 	ok
 
 func OSCopyFolder cParentFolder,cFolder
-	cParentFolder = currentdir()
+	cCurrentFolder = currentdir()
 	OSCreateOpenFolder(cFolder)
 	if isWindows()
 		systemsilent("copy " + cParentFolder + cFolder)
 	else 
 		systemsilent("cp -R " + cParentFolder + cFolder + " ./")
 	ok
-	chdir(cParentFolder)
+	chdir(cCurrentFolder)
