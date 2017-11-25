@@ -18,6 +18,7 @@ Ring 1.6 comes with many new features!
 * Employee Application
 * New Tool: Ring2EXE 
 * Better Ring For Android
+* New Tool : Folder2qrc
 * Better Scripts for building Ring
 * RingConsoleColors Extension
 * Better Ring Notepad
@@ -85,6 +86,33 @@ Example (2)
 
 .. image:: formdesignerandroid.png
 	:alt: Form Designer - Android
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; New Tool: Folder2qrc
+
+New Tool: Folder2qrc
+====================
+
+When we have large RingQt project that contains a lot of images and files, We need to add these files 
+to the resource file ( *.qrc ) when distributing applications for Mobile devices. 
+
+Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It's
+called Folder2qrc.
+
+Example:
+
+.. code-block:: none
+
+	folder2qrc formdesigner.ring
+
+We determine the main source file while we are in the application folder, and Folder2qrc will check all
+of the files in the current folder and sub folders, Then add them to the resource file after the
+mainfile.ringo (In our example this will be formdesigner.ringo)
+
+The output file will be : project.qrc
+
+You can open it and remove the files that you don't need in the resources!
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better Scripts for building Ring
