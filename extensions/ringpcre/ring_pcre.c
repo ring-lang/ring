@@ -31,6 +31,8 @@ void ring_pcre_match(void *pPointer)
     // PCRE2_SIZE start_offset;
     PCRE2_SIZE *ovectorp;
 
+    int is_global = 0;
+
     // PCRE2_SPTR tpl_name;
     // int name_count;
     // int name_size;
@@ -51,7 +53,7 @@ void ring_pcre_match(void *pPointer)
     }
 
     pattern = (PCRE2_SPTR) RING_API_GETSTRING(1);
-    options = ring_pcre2_parse_options(RING_API_GETLIST(2));
+    options = ring_pcre2_parse_options(RING_API_GETLIST(2), &is_global);
     subject = (PCRE2_SPTR) RING_API_GETSTRING(3);
     sublen = strlen(RING_API_GETSTRING(3));
 
@@ -98,10 +100,15 @@ void ring_pcre_match(void *pPointer)
     RING_API_RETLIST(retval);
 }
 
-
 int ring_pcre2_explain_option(char* option)
 {
     switch(*option) {
+        case 'A': return PCRE2_ANCHORED; break;
+        case 'D': return PCRE2_DOLLAR_ENDONLY; break;
+        case 'U': return PCRE2_UNGREEDY; break;
+        case 'u': return PCRE2_UTF; break;
+
+        /* Perl options */
         case 'x': return PCRE2_EXTENDED; break;
         case 'm': return PCRE2_MULTILINE; break;
         case 'i': return PCRE2_CASELESS; break;
@@ -112,7 +119,7 @@ int ring_pcre2_explain_option(char* option)
     }
 }
 
-int ring_pcre2_parse_options(List *opt_list)
+int ring_pcre2_parse_options(List *opt_list, int *is_global)
 {
     int list_size;
 
@@ -122,9 +129,12 @@ int ring_pcre2_parse_options(List *opt_list)
 
     for (int i = 1; i <= list_size; i++) {
         if (ring_list_isstring(opt_list, i)) {
-            tmp_options |= ring_pcre2_explain_option(
-                ring_list_getstring(opt_list, i)
-            );
+            char* option = ring_list_getstring(opt_list, i);
+            if (option != "g") {
+                tmp_options |= ring_pcre2_explain_option(option);
+            } else {
+                is_global = 1;
+            }
         } else {
             return 1;
         }
