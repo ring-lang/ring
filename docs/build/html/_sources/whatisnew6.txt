@@ -77,6 +77,14 @@ Example
 
 	ring2exe cards.ring -dist -mobileqt
 
+Example (2)
+
+.. code-block:: ring
+
+	ring2exe formdesigner.ring -dist -mobileqt
+
+.. image:: formdesignerandroid.png
+	:alt: Form Designer - Android
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better Scripts for building Ring
@@ -180,6 +188,22 @@ StdLib comes with the next updates
 
     Because using stdlib.ring (functions & classes) will load libraries like RingLibCurl, RingOpenSSL, etc.
 
+
+(4) New Functions
+
+* SystemSilent(cCommand) Function : Execute system commands without displaying the output.
+
+* OSCreateOpenFolder(cFolder) : Create folder then change the current folder to this new folder 
+
+* OSCopyFolder(cParentFolder,cFolderNameToCopy) : Copy folder to the current directory
+
+* OSDeleteFolder(cFolder) : Delete Folder
+
+* OSCopyFile(cFileName) : Copy File to the current directory
+
+* OSDeleteFile(cFileName) : Delete File
+
+* OSRenameFile(cOldFileName,cNewFileName) : Rename file 
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingVM

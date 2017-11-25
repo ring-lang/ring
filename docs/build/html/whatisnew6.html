@@ -93,6 +93,11 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
 </pre></div>
 </div>
+<p>Example (2)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">formdesigner</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+</pre></div>
+</div>
+<img alt="Form Designer - Android" src="_images/formdesignerandroid.png" />
 </div>
 <div class="section" id="better-scripts-for-building-ring">
 <span id="index-5"></span><h2>Better Scripts for building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this headline">¶</a></h2>
@@ -152,7 +157,18 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <p>Also this is useful when developing standalone console applications</p>
 <p>Because using stdlib.ring (functions &amp; classes) will load libraries like RingLibCurl, RingOpenSSL, etc.</p>
 </li>
+<li><p class="first">New Functions</p>
+</li>
 </ol>
+<ul class="simple">
+<li>SystemSilent(cCommand) Function : Execute system commands without displaying the output.</li>
+<li>OSCreateOpenFolder(cFolder) : Create folder then change the current folder to this new folder</li>
+<li>OSCopyFolder(cParentFolder,cFolderNameToCopy) : Copy folder to the current directory</li>
+<li>OSDeleteFolder(cFolder) : Delete Folder</li>
+<li>OSCopyFile(cFileName) : Copy File to the current directory</li>
+<li>OSDeleteFile(cFileName) : Delete File</li>
+<li>OSRenameFile(cOldFileName,cNewFileName) : Rename file</li>
+</ul>
 </div>
 <div class="section" id="better-ringvm">
 <span id="index-10"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
