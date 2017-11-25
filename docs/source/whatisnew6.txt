@@ -203,7 +203,7 @@ StdLib comes with the next updates
 
 * OSDeleteFile(cFileName) : Delete File
 
-* OSRenameFile(cOldFileName,cNewFileName)
+* OSRenameFile(cOldFileName,cNewFileName) : Rename file 
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingVM
