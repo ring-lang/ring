@@ -82,9 +82,6 @@
 
 load "stdlibcore.ring"
 
-C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
-C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
-
 # Load Libraries information
 	eval(read(exefolder()+"/../ring2exe/ring2exe.data"))
 
@@ -666,13 +663,6 @@ func CheckNoCCompiler cBaseFolder,cFileName
 		OSCopyFile(cBaseFolder+"/"+cFileName+".ringo")
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
-
-func SystemSilent cCmd
-	if isWindows()
-		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
-	else 
-		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
-	ok
 
 func CreateOpenFolder cFolder
 	MakeDir(cFolder)
