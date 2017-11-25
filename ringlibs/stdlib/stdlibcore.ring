@@ -948,3 +948,69 @@ func SystemSilent cCmd
 	else 
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
+
+
+/*
+	Create folder then change the current folder to this new folder 
+*/
+func OSCreateOpenFolder cFolder
+	MakeDir(cFolder)
+	chdir(cFolder)
+
+/*
+	Copy folder to the current folder 
+	Parameters : The path to the parent folder of the Source  and the folder name
+*/
+
+func OSCopyFolder cParentFolder,cFolder
+	cCurrentFolder = currentdir()
+	OSCreateOpenFolder(cFolder)
+	if isWindows()
+		systemsilent("copy " + cParentFolder + cFolder)
+	else 
+		systemsilent("cp -R " + cParentFolder + cFolder + " ./")
+	ok
+	chdir(cCurrentFolder)
+
+/*
+	Delete Folder in the current Directory
+*/
+
+func OSDeleteFolder cFolder 
+	if isWindows() 
+		systemSilent("rd /s /q " + cFolder)
+	else
+		systemSilent("rm -r " + cFolder)
+	ok
+
+/*
+	Copy File to the current directory
+*/
+func OSCopyFile cFile
+	if isWindows()
+		cFile = substr(cFile,"/","\")
+		systemSilent("copy " + cFile)
+	else 
+		systemSilent("cp " + cFile + " .")
+	ok
+
+/*
+	Delete file 
+*/
+
+func OSDeleteFile cFile
+	if isWindows() 
+		systemSilent("del " + cFile)
+	else 
+		systemSilent("rm " + cFile)
+	ok
+
+/*
+	Rename File 
+*/
+func OSRenameFile cOldFile,cNewFile
+	if isWindows()
+		systemSilent("rename " + cOldFile + " " + cNewFile)
+	but isLinux() or isMacosx()
+		systemSilent("mv " + cOldFile + " " + cNewFile)
+	ok
