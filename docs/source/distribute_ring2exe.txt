@@ -536,6 +536,33 @@ From this example, We know that we can use sub folders for images.
 
 
 .. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Creating the Qt resource file using Folder2qrc
+
+Creating the Qt resource file using Folder2qrc
+==============================================
+
+When we have large RingQt project that contains a lot of images and files, We need to add these files 
+to the resource file ( *.qrc ) when distributing applications for Mobile devices. 
+
+Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It's
+called Folder2qrc.
+
+Example:
+
+.. code-block:: none
+
+	folder2qrc formdesigner.ring
+
+We determine the main source file while we are in the application folder, and Folder2qrc will check all
+of the files in the current folder and sub folders, Then add to them to the resource file after the
+mainfile.ringo (In our example this will be formdesigner.ringo)
+
+The output file will be : project.qrc
+
+You can open it and remove the files that you don't need in the resources!
+
+
+.. index:: 
 	pair: Distributing Ring Application using Ring2EXE; Important Information about Ring2EXE
 
 Important Information about Ring2EXE
