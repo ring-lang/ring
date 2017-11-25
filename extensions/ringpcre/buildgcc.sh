@@ -14,6 +14,8 @@ gcc -c -fpic ring_pcre.c pcre2lib/pcre2_auto_possess.c pcre2lib/pcre2_chartables
      pcre2lib/pcre2_substring.c pcre2lib/pcre2_tables.c pcre2lib/pcre2_ucd.c \
      pcre2lib/pcre2_valid_utf.c pcre2lib/pcre2_xclass.c \
      -DHAVE_CONFIG_H -DPCRE2_CODE_UNIT_WIDTH=8 -g -Wall -I $PWD/../../include -I.
-gcc --shared -o lib/ringpcre2.so *.o
+gcc --shared -o lib/libring_pcre2.so *.o
 
 rm *.o
+
+cp lib/libring_pcre2.so /usr/local/lib/ring/libring_pcre2.so
