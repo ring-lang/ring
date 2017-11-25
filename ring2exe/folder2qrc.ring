@@ -7,16 +7,17 @@ func main
 	aPara = sysargv
 	nParaCount = len(aPara)
 	if (nParaCount > 2) or ( nParaCount = 2 and aPara[1] != "ring" )
-		cFolder  = aPara[nParaCount]
+		cMainFile  = aPara[nParaCount]
 	else 
 		drawline()
 		see "Application : Folder 2 qrc " + nl
 		see "Author      : 2017, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
 		see "Usage       : folder2qrc <MainAppFile.ring>" + nl
 		drawline()
+		bye
 	ok
 	
-	cMainFile 	= substr(sysargv[3],".ring",".ringo")
+	cMainFile 	= substr(cMainFile,".ring",".ringo")
 	cFolder 	= CurrentDir()
 	cOutputFile  	= "project.qrc"
 	see cFolder + nl
