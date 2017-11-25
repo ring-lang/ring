@@ -554,7 +554,7 @@ Example:
 	folder2qrc formdesigner.ring
 
 We determine the main source file while we are in the application folder, and Folder2qrc will check all
-of the files in the current folder and sub folders, Then add to them to the resource file after the
+of the files in the current folder and sub folders, Then add them to the resource file after the
 mainfile.ringo (In our example this will be formdesigner.ringo)
 
 The output file will be : project.qrc
