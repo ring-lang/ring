@@ -768,7 +768,13 @@ Func DirExists cDir
 */         
 
 Func MakeDir cDir
-	system("mkdir " + cDir )
+	if iswindows()
+		SystemSilent("mkdir " + cFolder)
+	else 
+		# -p :  parents, will also create all directories leading up to the given directory that do not exist already. 
+		#       If the given directory already exists, ignore the error.
+		SystemSilent("mkdir -p " + cFolder)
+	ok
 	
 /*
 	Function Name	: sortFirstSecond
