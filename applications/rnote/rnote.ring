@@ -2091,7 +2091,7 @@ Class RNoteController from WindowsControllerParent
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
-			aBackColor = [11,11,11]
+			aBackColor = [33,33,33]
 
 	func pStyleModernBlack2()
 			nDefaultStyle  = STYLECOLOR_MODERNBLACK2
@@ -2099,7 +2099,7 @@ Class RNoteController from WindowsControllerParent
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
-				:ActiveLineBackColor 		= new qcolor() { setrgb(11,11,11,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(33,33,33,255) 	},
 				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
 				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
 				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
