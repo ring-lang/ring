@@ -1301,3 +1301,16 @@ Example:
 
 	see listallfiles("b:/ring/ringlibs/weblib","") # All Files
 
+.. index:: 
+	pair: Stdlib Functions; SystemSilent() Function
+
+SystemSilent() Function
+=======================
+
+We can execute system commands using the SystemSilent() function to avoid displaying the output!
+
+Syntax:
+
+.. code-block:: ring
+
+	SystemSilent(cCommand)
