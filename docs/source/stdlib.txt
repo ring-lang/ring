@@ -1369,4 +1369,37 @@ Syntax:
 
 	OSDeleteFolder(cFolderName)
 
+.. index:: 
+	pair: Stdlib Functions; OSCopyFile() Function
+
+OSCopyFile() Function
+=====================
+
+Copy File to the current directory
+
+Syntax:
+
+.. code-block:: ring
+
+	OSCopyFile(cFileName)
+
+.. index:: 
+	pair: Stdlib Functions; OSDeleteFile() Function
+
+OSDeleteFile() Function
+=======================
+
+Delete File
+
+Syntax:
+
+.. code-block:: ring
+
+	OSDeleteFile(cFileName)
+
+
+
+
+
+
 
