@@ -98,6 +98,10 @@ func Main
 	nParaCount = len(aPara)
 	if (nParaCount > 2) or ( nParaCount = 2 and aPara[1] != "ring" )
 		cFile = aPara[nParaCount]
+		if not fexists(cFile)
+			msg("File " + cFile + " doesn't exist!")
+			bye
+		ok
 		msg("Process File : " + cFile)
 		BuildApp(cFile,aOptions)
 	else 
