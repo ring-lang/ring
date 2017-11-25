@@ -153,7 +153,7 @@ Syntax:
 IsMacOSX() Function
 ===================
 
-We can check if the operating system is Mac OS X or not using the IsMacOSX() function
+We can check if the operating system is macOS or not using the IsMacOSX() function
 
 Syntax:
 
