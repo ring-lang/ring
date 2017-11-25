@@ -298,16 +298,16 @@ func Distribute cFileName,aOptions
 
 func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# Delete Files 
-		WindowsDeleteFolder("windows")
+		OSDeleteFolder("windows")
 	OSCreateOpenFolder(:windows)
 	# copy the executable file 
 		msg("Copy the executable file to target/windows")
-		WindowsCopyFile(cBaseFolder+"\"+cFileName+".exe")
+		OSCopyFile(cBaseFolder+"\"+cFileName+".exe")
 		CheckNoCCompiler(cBaseFolder,cFileName)
 	# Check ring.dll
 		if not find(aOptions,"-static")	
 			msg("Copy ring.dll to target/windows")	
-			WindowsCopyFile(exefolder()+"\ring.dll")
+			OSCopyFile(exefolder()+"\ring.dll")
 		ok
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
@@ -321,7 +321,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							WindowsCopyFile(exefolder()+"\"+cLibFile)
+							OSCopyFile(exefolder()+"\"+cLibFile)
 						next
 					ok
 				else 
@@ -339,7 +339,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							WindowsCopyFile(exefolder()+"\"+cLibFile)
+							OSCopyFile(exefolder()+"\"+cLibFile)
 						next
 					ok
 				ok
@@ -348,7 +348,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 
 func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
-		LinuxDeleteFolder(:linux)
+		OSDeleteFolder(:linux)
 	OSCreateOpenFolder(:linux)
 	cLinuxDir = currentdir()
 	OSCreateOpenFolder("dist_using_deb_package")
@@ -359,7 +359,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	OSCreateOpenFolder(:bin)
 	# copy the executable file 
 		msg("Copy the executable file to target/linux/bin")
-		LinuxCopyFile(cBaseFolder+"/"+cFileName)
+		OSCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
 	OSCreateOpenFolder(:lib)
@@ -370,18 +370,18 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Check ring.so
 		if not find(aOptions,"-static")	
 			msg("Copy libring.so to target/linux/lib")	
-			LinuxCopyFile(exefolder()+"/../lib/libring.so")
+			OSCopyFile(exefolder()+"/../lib/libring.so")
 		ok
 		cInstallLibs = InstallLibLinux(cInstallLibs,"libring.so")
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/linux/lib")
-			LinuxCopyFile(exefolder()+"/../lib/libring.so")	
+			OSCopyFile(exefolder()+"/../lib/libring.so")	
 			for aLibrary in aLibsInfo 
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
-							LinuxCopyFile(exefolder()+"/../lib/"+cLibFile)					
+							OSCopyFile(exefolder()+"/../lib/"+cLibFile)					
 							cInstallLibs = InstallLibLinux(cInstallLibs,cLibFile)
 						next
 					ok
@@ -400,7 +400,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/linux/lib")
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
-							LinuxCopyFile(exefolder()+"/lib/"+cLibFile)
+							OSCopyFile(exefolder()+"/lib/"+cLibFile)
 							cInstallLibs = InstallLibLinux(cInstallLibs,cLibFile)
 						next
 					ok
@@ -500,13 +500,13 @@ func RemoveFirstTabs cString,nCount
 
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
-		MacOSXDeleteFolder(:macosx)
+		OSDeleteFolder(:macosx)
 	OSCreateOpenFolder(:macosx)
 	cDir = currentdir()
 	OSCreateOpenFolder(:bin)
 	# copy the executable file 
 		msg("Copy the executable file to target/macosx/bin")
-		MacOSXCopyFile(cBaseFolder+"/"+cFileName)
+		OSCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
 	OSCreateOpenFolder(:lib)
@@ -515,18 +515,18 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Check ring.dylib
 		if not find(aOptions,"-static")	
 			msg("Copy libring.dylib to target/macosx/lib")	
-			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")
+			OSCopyFile(exefolder()+"/../lib/libring.dylib")
 		ok
 		cInstallLibs = InstallLibMacOSX(cInstallLibs,"libring.dylib")
 	# Check All Runtime 
 		if find(aOptions,"-allruntime")	
 			msg("Copy all libraries to target/macosx/lib")
-			MacOSXCopyFile(exefolder()+"/../lib/libring.dylib")	
+			OSCopyFile(exefolder()+"/../lib/libring.dylib")	
 			for aLibrary in aLibsInfo 
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:macosxfiles])
 						for cLibFile in aLibrary[:macosxfiles]
-							MacOSXCopyFile(exefolder()+"/../lib/"+cLibFile)
+							OSCopyFile(exefolder()+"/../lib/"+cLibFile)
 							cInstallLibs = InstallLibMacOSX(cInstallLibs,cLibFile)
 						next
 					ok
@@ -541,7 +541,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/macosx/lib")
 					if islist(aLibrary[:macosxfiles])
 						for cLibFile in aLibrary[:macosxfiles]
-							MacOSXCopyFile(exefolder()+"/lib/"+cLibFile)
+							OSCopyFile(exefolder()+"/lib/"+cLibFile)
 							cInstallLibs = InstallLibMacOSX(cInstallLibs,cLibFile)
 						next
 					ok
@@ -668,58 +668,27 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
 
-func WindowsDeleteFolder cFolder
-	systemSilent("rd /s /q " + cFolder)
-
-func WindowsDeleteFile cFile 
-	systemSilent("del " + cFile)
-
-func WindowsCopyFile cFile 
-	systemSilent("copy " + cFile)
-
-func LinuxDeleteFolder cFolder
-	systemSilent("rm -r " + cFolder)
-
-func LinuxDeleteFile cFile 
-	systemSilent("rm " + cFile)
-
-func LinuxCopyFile cFile 
-	systemSilent("cp " + cFile + " .")
-
-func MacOSXDeleteFolder cFolder
-	LinuxDeleteFolder(cFolder)
-
-func MacOSXDeleteFile cFile 
-	LinuxDeleteFile(cFile)
-
-func MacOSXCopyFile cFile 
-	LinuxCopyFile(cFile)
 
 func OSDeleteFolder cFolder 
 	if isWindows() 
-		WindowsDeleteFolder(cFolder)
-	but isLinux()
-		LinuxDeleteFolder(cFolder)
-	but isMacosx()
-		MacOSXDeleteFolder(cFolder)
+		systemSilent("rd /s /q " + cFolder)
+	else
+		systemSilent("rm -r " + cFolder)
 	ok
 
 func OSDeleteFile cFile
 	if isWindows() 
-		WindowsDeleteFile(cFile)
-	but isLinux()
-		LinuxDeleteFile(cFile)
-	but isMacosx()
-		MacOSXDeleteFile(cFile)
+		systemSilent("del " + cFile)
+	else 
+		systemSilent("rm " + cFile)
 	ok
 
 func OSCopyFile cFile
 	if isWindows()
-		WindowsCopyFile(substr(cFile,"/","\")) 
-	but isLinux()
-		LinuxCopyFile(cFile)
-	but isMacosx()
-		MacOSXCopyFile(cFile)
+		cFile = substr(cFile,"/","\")
+		systemSilent("copy " + cFile)
+	else 
+		systemSilent("cp " + cFile + " .")
 	ok
 
 func OSCreateOpenFolder cFolder
