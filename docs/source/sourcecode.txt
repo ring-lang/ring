@@ -31,6 +31,13 @@ Build Ring (Compiler/VM)
 	buildvc.bat
 	buildvcw.bat
 
+Build Ring2EXE
+
+.. code-block:: none
+
+	cd ../ring2exe
+	buildring2exe.bat
+
 Build RingODBC
 
 .. code-block:: ring
@@ -171,6 +178,13 @@ Build Ring (Compiler/VM)
 
 	sudo ./buildgcc.sh
 
+Build Ring2EXE
+
+.. code-block:: none
+
+	cd ../ring2exe
+	sudo ./buildring2exe.sh
+
 Build RingODBC
 
 .. code-block:: ring
@@ -296,6 +310,13 @@ Build Ring (Compiler/VM)
 .. code-block:: ring
 
 	sudo ./buildgcc.sh
+
+Build Ring2EXE
+
+.. code-block:: none
+
+	cd ../ring2exe
+	sudo ./buildring2exe.sh
 
 Build RingODBC
 
@@ -425,6 +446,13 @@ Build Ring (Compiler/VM)
 .. code-block:: ring
 
 	./buildclang.sh
+
+Build Ring2EXE
+
+.. code-block:: none
+
+	cd ../ring2exe
+	sudo ./buildring2exe.sh
 
 Build RingODBC
 
