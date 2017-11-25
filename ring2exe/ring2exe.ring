@@ -674,15 +674,8 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
-func MakeFolder cFolder
-	if iswindows()
-		SystemSilent("mkdir " + cFolder)
-	else 
-		SystemSilent("mkdir -p " + cFolder)
-	ok
-
 func CreateOpenFolder cFolder
-	MakeFolder(cFolder)
+	MakeDir(cFolder)
 	chdir(cFolder)
 
 func WindowsDeleteFolder cFolder
