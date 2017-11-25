@@ -1397,7 +1397,19 @@ Syntax:
 
 	OSDeleteFile(cFileName)
 
+.. index:: 
+	pair: Stdlib Functions; OSRenameFile() Function
 
+OSRenameFile() Function
+=======================
+
+Rename File
+
+Syntax:
+
+.. code-block:: ring
+
+	OSRenameFile(cOldFileName,cNewFileName)
 
 
 
