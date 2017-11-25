@@ -1355,5 +1355,18 @@ To copy the folder b:\ring\ringlibs\stdlib to the current folder
 	OSCopyFolder("b:\ring\ringlibs\","stdlib")
 
 
+.. index:: 
+	pair: Stdlib Functions; OSDeleteFolder() Function
+
+OSDeleteFolder() Function
+=========================
+
+Delete Folder in the current Directory
+
+Syntax:
+
+.. code-block:: ring
+
+	OSDeleteFolder(cFolderName)
 
 
