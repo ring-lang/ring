@@ -316,7 +316,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 				if not find(aOptions,"-no"+aLibrary[:name])
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							WindowsCopyFolder(exefolder()+cLibFolder)
+							OSCopyFolder(exefolder()+cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -334,7 +334,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/windows")
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
-							WindowsCopyFolder(exefolder()+cLibFolder)
+							OSCopyFolder(exefolder()+cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
@@ -668,12 +668,6 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
 
-func WindowsCopyFolder cFolder
-	cParentFolder = currentdir()
-	OSCreateOpenFolder(cFolder)
-	systemsilent("copy " + cFolder)
-	chdir(cParentFolder)
-
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
 
@@ -737,4 +731,17 @@ func OSRenameFile cOldFile,cNewFile
 		systemSilent("rename " + cOldFile + " " + cNewFile)
 	but isLinux() or isMacosx()
 		systemSilent("mv " + cOldFile + " " + cNewFile)
+	ok
+
+func OSCopyFolder cFolder
+	if isWindows()
+		cParentFolder = currentdir()
+		OSCreateOpenFolder(cFolder)
+		systemsilent("copy " + cFolder)
+		chdir(cParentFolder)
+	else 
+		cParentFolder = currentdir()
+		OSCreateOpenFolder(cFolder)
+		systemsilent("cp -R " + cFolder + " ./")
+		chdir(cParentFolder)
 	ok
