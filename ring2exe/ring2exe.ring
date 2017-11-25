@@ -278,7 +278,7 @@ func ClearTempFiles
 
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
-	CreateOpenFolder(:target)
+	OSCreateOpenFolder(:target)
 	cDir = currentdir()
 	if isWindows()
 		DistributeForWindows(cBaseFolder,cFileName,aOptions)
@@ -299,7 +299,7 @@ func Distribute cFileName,aOptions
 func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		WindowsDeleteFolder("windows")
-	CreateOpenFolder(:windows)
+	OSCreateOpenFolder(:windows)
 	# copy the executable file 
 		msg("Copy the executable file to target/windows")
 		WindowsCopyFile(cBaseFolder+"\"+cFileName+".exe")
@@ -349,20 +349,20 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		LinuxDeleteFolder(:linux)
-	CreateOpenFolder(:linux)
+	OSCreateOpenFolder(:linux)
 	cLinuxDir = currentdir()
-	CreateOpenFolder("dist_using_deb_package")
+	OSCreateOpenFolder("dist_using_deb_package")
 	cDebDir = currentdir() 
 	chdir(cLinuxDir)
-	CreateOpenFolder("dist_using_scripts")
+	OSCreateOpenFolder("dist_using_scripts")
 	cDir = currentdir()
-	CreateOpenFolder(:bin)
+	OSCreateOpenFolder(:bin)
 	# copy the executable file 
 		msg("Copy the executable file to target/linux/bin")
 		LinuxCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
-	CreateOpenFolder(:lib)
+	OSCreateOpenFolder(:lib)
 	cInstallUbuntu = "sudo apt-get install"
 	cInstallFedora = "sudo dnf install"
 	cInstallLibs   = ""
@@ -432,9 +432,9 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	cBuildDeb = substr(cBuildDeb,"#{f1}",cAppName)
 	write("builddeb.sh",cBuildDeb)
 	SystemSilent("chmod +x builddeb.sh")
-	CreateOpenFolder(cAppName+"_1.0-1")
+	OSCreateOpenFolder(cAppName+"_1.0-1")
 	cAppFolder = currentdir()
-	CreateOpenFolder("DEBIAN")
+	OSCreateOpenFolder("DEBIAN")
 	cControl = RemoveFirstTabs("
 		Package: #{f1}
 		Version: 1.0-1
@@ -460,17 +460,17 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	write("postinst",cPostInst)
 	SystemSilent("chmod +x postinst")
 	chdir(cAppFolder)
-	CreateOpenFolder("usr")
+	OSCreateOpenFolder("usr")
 		cUsrFolder = currentdir()
-		CreateOpenFolder("bin")
+		OSCreateOpenFolder("bin")
 		write(cFileName,"/usr/local/"+cAppName+"/bin/"+cFileName+" \$1 \$2 \$3 \$4 \$5 \$6 \$7")
 		systemSilent("chmod +x " + cFileName)
 		chdir(cUsrFolder)
-		CreateOpenFolder("lib")
+		OSCreateOpenFolder("lib")
 		chdir(cUsrFolder)
-		CreateOpenFolder("local")
-			CreateOpenFolder(cAppName)
-				CreateOpenFolder("bin")
+		OSCreateOpenFolder("local")
+			OSCreateOpenFolder(cAppName)
+				OSCreateOpenFolder("bin")
 	chdir(cAppFolder)
 	systemSilent("cp -a ../../dist_using_scripts/lib/. usr/lib/")
 	systemSilent("cp -a ../../dist_using_scripts/bin/. usr/local/"+cAppName+"/bin/")
@@ -501,15 +501,15 @@ func RemoveFirstTabs cString,nCount
 func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		MacOSXDeleteFolder(:macosx)
-	CreateOpenFolder(:macosx)
+	OSCreateOpenFolder(:macosx)
 	cDir = currentdir()
-	CreateOpenFolder(:bin)
+	OSCreateOpenFolder(:bin)
 	# copy the executable file 
 		msg("Copy the executable file to target/macosx/bin")
 		MacOSXCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
 	chdir(cDir)
-	CreateOpenFolder(:lib)
+	OSCreateOpenFolder(:lib)
 	cInstallmacosx = "brew install -k"
 	cInstallLibs   = ""
 	# Check ring.dylib
@@ -572,8 +572,8 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 	msg("Prepare RingQt project to distribute for Mobile")
 	# Delete Files 
 		OSDeleteFolder(:mobile)
-	CreateOpenFolder(:mobile)
-	CreateOpenFolder(:qtproject)
+	OSCreateOpenFolder(:mobile)
+	OSCreateOpenFolder(:qtproject)
 	msg("Copy RingQt for Mobile project files...")
 	OSCopyFile(exefolder() + "../android/ringqt/project/*.*" )
 	OSDeleteFile("project.pro.user")
@@ -625,7 +625,7 @@ func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 			if cFolder != ""
 				# Remove last / in the path
 					cFolder = left(cFolder,len(cFolder)-1)
-				createOpenFolder(cFolder)
+				OSCreateOpenFolder(cFolder)
 			ok
 			OSCopyFile(cBaseFolder+"/"+cFile)
 			chdir(cDir)
@@ -668,13 +668,9 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
 
-func CreateOpenFolder cFolder
-	MakeDir(cFolder)
-	chdir(cFolder)
-
 func WindowsCopyFolder cFolder
 	cParentFolder = currentdir()
-	CreateOpenFolder(cFolder)
+	OSCreateOpenFolder(cFolder)
 	systemsilent("copy " + cFolder)
 	chdir(cParentFolder)
 
@@ -704,6 +700,10 @@ func MacOSXDeleteFile cFile
 
 func MacOSXCopyFile cFile 
 	LinuxCopyFile(cFile)
+
+func OSCreateOpenFolder cFolder
+	MakeDir(cFolder)
+	chdir(cFolder)
 
 func OSDeleteFolder cFolder 
 	if isWindows() 
