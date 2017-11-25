@@ -12,23 +12,27 @@ func main
 		drawline()
 		see "Application : Folder 2 qrc " + nl
 		see "Author      : 2017, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
-		see "Usage       : folder2qrc <FolderPath>" + nl
+		see "Usage       : folder2qrc <MainAppFile.ring>" + nl
 		drawline()
 	ok
 	
-	cFolder 	= sysargv[3]
+	cMainFile 	= substr(sysargv[3],".ring",".ringo")
+	cFolder 	= CurrentDir()
 	cOutputFile  	= "project.qrc"
 	see cFolder + nl
 	aList = listallfiles(cFolder,"")
 	cText = ""
 	
 	for cFile in aList 
-		if substr(cFile,".git") or substr(cFile,".ring") loop ok
+		if substr(cFile,".git") or substr(cFile,".ring") or
+		   substr(cFile,".qrc") or substr(cFile,".exe")  loop ok
+		cFile = substr(cFile,len(cFolder)+2)
 		see "Add File: " + cFile + nl
 		cText += (char(9)+char(9)+"<file>" + cFile + "</file>"+windowsnl())
 	next 
 	
 	cText = "<RCC>" + windowsnl() + char(9) + "<qresource>" + windowsnl() +
+		char(9)+char(9)+"<file>" + cMainFile + "</file>"+windowsnl()+
 		cText + char(9) + "</qresource>" + windowsnl() +
 		"</RCC>" + windowsnl()
 
