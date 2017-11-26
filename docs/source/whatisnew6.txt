@@ -29,6 +29,7 @@ Ring 1.6 comes with many new features!
 * Using Tab instead of char(9)
 * Using CR as Carriage return
 * Using the ! operator as not
+* Using && and || operators
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -346,3 +347,63 @@ Output
 .. code-block:: none
 
 	True!
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using && and || operators
+
+Using && and || operators
+=========================
+
+In Ring we have the next keywords for the logical operations
+
+* and
+* or
+* not
+
+Now we have also the next operators
+
+* &&
+* ||
+* !
+
+Example:
+
+.. code-block:: ring
+
+	if one() and two()
+		see "Test1 - Fail" + nl
+	else
+		see "Test1 - Pass" + nl
+	ok
+
+	if two() or one()
+		see "Test2 - Pass" + nl
+	else
+		see "Test2 - Fail" + nl
+	ok
+
+	if one() && two()
+		see "Test3 - Fail" + nl
+	else
+		see "Test3 - Pass" + nl
+	ok
+
+	if two() || one()
+		see "Test4 - Pass" + nl
+	else
+		see "Test4 - Fail" + nl
+	ok
+
+	func one return True
+
+	func two return False
+
+Output:
+
+.. code-block:: none
+
+	Test1 - Pass
+	Test2 - Pass
+	Test3 - Pass
+	Test4 - Pass
