@@ -671,6 +671,7 @@ void ring_scanner_operators ( Scanner *pScanner )
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"|");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"~");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"^");
+	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"?");
 	ring_list_genhashtable_gc(pScanner->pRingState,pScanner->Operators);
 }
 
