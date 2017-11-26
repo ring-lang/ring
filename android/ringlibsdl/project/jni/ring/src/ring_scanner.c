@@ -307,6 +307,21 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							nTokenIndex += 100 ;
 						}
 					}
+					/* Check && and || */
+					else if ( strcmp(cStr,"&") == 0 ) {
+						if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"&") == 0 ) {
+							RING_SCANNER_DELETELASTTOKEN ;
+							ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"&&");
+							nTokenIndex += 100 ;
+						}
+					}
+					else if ( strcmp(cStr,"|") == 0 ) {
+						if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"|") == 0 ) {
+							RING_SCANNER_DELETELASTTOKEN ;
+							ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"||");
+							nTokenIndex += 100 ;
+						}
+					}
 					pScanner->nTokenIndex = nTokenIndex ;
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
 				} else {

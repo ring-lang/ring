@@ -20,8 +20,8 @@ int ring_parser_expr ( Parser *pParser )
 		
 		puts("Rule : Expr --> LogicNot");
 		#endif
-		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_iskeyword(pParser,K_OR) ) {
-			if ( ring_parser_iskeyword(pParser,K_AND) ) {
+		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&")  || ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator(pParser,"||") ) {
+			if ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&") ) {
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_JUMPZERO2);
 				pMark = ring_parser_icg_getactiveoperation(pParser);
