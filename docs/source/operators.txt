@@ -172,6 +172,7 @@ list[index]	access list item
 obj.name	using the dot operator to access object members (attributes/methods).
 obj {stmts}	execute statements with direct access to object attributes & methods
 func(para,...)	call function using parameters separated by comma
+? <expr>	Print expression then new line
 ==============	======================================================================
 
 .. index:: 
@@ -213,6 +214,8 @@ lower precedence.
 | and   or   &&	   ||						 |
 +----------------------------------------------------------------+
 | Assignment = += -= \*= /= %=>>= <<= &= ^= \|= 		 |
++----------------------------------------------------------------+
+| ?						 		 |
 +----------------------------------------------------------------+
 
 Example:

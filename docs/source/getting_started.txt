@@ -108,6 +108,39 @@ The previous program can be written in one line.
 	See "What is your name? " give cName see "Hello " + cName
 
 .. index:: 
+	pair: Getting Started - First Style; Using ? to print expression then new line
+
+Using ? to print expression then new line
+=========================================
+
+It's common to print new line after printing an expression, We can use the ? operator to do that!
+
+Example:
+
+.. code-block:: ring
+
+	? "Hello, World!"
+	for x = 1 to 10
+		? x
+	next
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+
+.. index:: 
 	pair: Getting Started - First Style; Writing Comments
 
 Writing Comments

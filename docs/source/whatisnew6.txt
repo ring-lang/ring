@@ -415,7 +415,7 @@ Output:
 Using ? to print expression then new line
 =========================================
 
-It's common to print new line after printing an expression, Now we can use the ? operator for that
+It's common to print new line after printing an expression, We can use the ? operator to do that!
 
 Example:
 
