@@ -275,7 +275,7 @@ Using Tab instead of char(9)
 
 The variable Tab is defined to be used instead of char(9)
 
-Example:
+Example (1):
 
 .. code-block:: ring
 
@@ -291,7 +291,7 @@ Output:
 
 You can change the variable to another value
 
-Example:
+Example (2):
 
 .. code-block:: ring
 
