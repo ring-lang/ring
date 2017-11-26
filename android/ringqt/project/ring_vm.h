@@ -555,7 +555,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_VAR_PVALUETYPE 4
 #define RING_VAR_PRIVATEFLAG 5
 /* Number of global variables defined by the VM like True, False, cErrorMsg */
-#define RING_VM_INTERNALGLOBALSCOUNT 11
+#define RING_VM_INTERNALGLOBALSCOUNT 13
 #define RING_VAR_LISTSIZE 5
 /* Variable Type */
 #define RING_VM_NULL 0
