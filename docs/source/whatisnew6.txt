@@ -28,6 +28,7 @@ Ring 1.6 comes with many new features!
 * Better RingREPL
 * Using Tab instead of char(9)
 * Using CR as Carriage return
+* Using the ! operator as not
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -319,3 +320,29 @@ The next example count from 1 to 10 in the same line during 10 seconds
 
 	load "stdlibcore.ring"
 	for x = 1 to 10 see x sleep(1) see cr next
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using the ! operator as not
+
+Using the ! operator as not
+===========================
+
+We have = and != in the Ring language
+
+But for the logical operators we have and, or & not
+
+Now we can use the ! operator as not
+
+Example:
+
+.. code-block:: ring
+
+	if ! false
+		see "True!" + nl
+	ok
+
+Output
+
+.. code-block:: none
+
+	True!
