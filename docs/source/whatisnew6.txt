@@ -26,6 +26,7 @@ Ring 1.6 comes with many new features!
 * Better StdLib
 * Better RingVM
 * Better RingREPL
+* Using Tab instead of char(9)
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -266,4 +267,42 @@ RingREPL comes with the next updates
 (2) Setting RingREPL Style based on Ring Notepad Style.
 
 
+.. index:: 
+	pair: What is new in Ring 1.6?; Using Tab instead of char(9)
+
+Using Tab instead of char(9)
+============================
+
+The variable Tab is defined to be used instead of char(9)
+
+Example:
+
+.. code-block:: ring
+
+	see :one + nl + tab + :two + nl + tab + tab + :three
+
+Output:
+
+.. code-block:: none
+
+	one
+	        two
+	                three
+
+You can change the variable to another value
+
+Example:
+
+.. code-block:: ring
+
+	tab = "  "
+	see :one + nl + tab + :two + nl + tab + tab + :three
+
+Output:
+
+.. code-block:: none
+
+	one
+	  two
+	    three
 
