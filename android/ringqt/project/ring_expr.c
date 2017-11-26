@@ -81,7 +81,7 @@ int ring_parser_logicnot ( Parser *pParser )
 {
 	int x  ;
 	/* LogicNot --> Not EqualOrNot */
-	if ( ring_parser_iskeyword(pParser,K_NOT) ) {
+	if ( ring_parser_iskeyword(pParser,K_NOT) || ring_parser_isoperator2(pParser,OP_NOT) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		x = ring_parser_equalornot(pParser);
