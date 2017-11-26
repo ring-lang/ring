@@ -67,8 +67,10 @@ Using Ring we can write multi-line literal, see the next example
 
 	    "
 
-Also you can use the nl constant to insert new line
+Also you can use the nl variable to insert new line
 and you can use the + operator to concatenate strings
+
+As we have NL for new lines, we have Tab and CR (Carriage return) too!
 
 .. note:: nl value means a new line and the actual codes that
 	 represent a newline is different between operating systems
