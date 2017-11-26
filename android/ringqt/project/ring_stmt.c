@@ -292,6 +292,27 @@ int ring_parser_stmt ( Parser *pParser )
 		#endif
 		return x ;
 	}
+	/* Statement --> ? Expr */
+	if ( ring_parser_isoperator(pParser,"?") ) {
+		ring_parser_nexttoken(pParser);
+		/* Generate Code */
+		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
+		pParser->nAssignmentFlag = 0 ;
+		x = ring_parser_expr(pParser);
+		pParser->nAssignmentFlag = 1 ;
+		/* Generate Code */
+		ring_parser_icg_newoperation(pParser,ICO_PRINT);
+		/* Print New Line */
+		ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+		ring_parser_icg_newoperand(pParser,"\n");
+		ring_parser_icg_newoperation(pParser,ICO_PRINT);
+		#if RING_PARSERTRACE
+		RING_STATE_CHECKPRINTRULES 
+		
+		puts("Rule : Statement  --> '?' Expr");
+		#endif
+		return x ;
+	}
 	/* Statement --> Give|Get Identifier */
 	if ( ring_parser_iskeyword(pParser,K_GIVE) | ring_parser_iskeyword(pParser,K_GET) ) {
 		ring_parser_nexttoken(pParser);
