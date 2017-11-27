@@ -103,6 +103,8 @@ func Main
 			bye
 		ok
 		msg("Process File : " + cFile)
+		chdir(justfilepath(cFile))
+		cFile = justfilename(cFile)
 		BuildApp(cFile,aOptions)
 	else 
 		drawline()
