@@ -131,7 +131,7 @@ Class RNoteController from WindowsControllerParent
 	oOutputWindow oProcessEditbox oProcessText oProcess
 	aFunctionsPos aClassesPos
 
-	oACTimer			# Auto-Complete Timer 
+	oACTimer=NULL			# Auto-Complete Timer 
 	oCompleter=NULL 		# The completer object
 
 	cFormFile = ""
@@ -1744,17 +1744,27 @@ Class RNoteController from WindowsControllerParent
 					AutoComplete()
 				ok
 			ok
+		else
+			if len(cFileContent) > 3
+				if isObject(oCompleter)
+					if oCompleter.popup().isvisible() = false
+						AutoComplete()
+					ok
+				ok
+				oACTimer.stop()
+			ok
 		ok
 
 	func AutoComplete
 		StatusMessage("Prepare Auto-Complete ... Please Wait!")
 		# Add words in the current file
 			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
-			if len(cFileContent) < 30720  # 30 Kbyte
+			if len(cFileContent) < 102400
 				StatusMessage("Prepare Auto-Complete ... Get File Words!")
 				aList = Split(cFileContent," ")
 				StatusMessage("Prepare Auto-Complete ... Filter!")
-				for x = len(aList) to 1 step -1
+				nMax = len(aList)
+				for x = nMax to 1 step -1
 					if not isalnum(aList[x])
 						del(aList,x)
 					ok
@@ -1773,6 +1783,9 @@ Class RNoteController from WindowsControllerParent
 		textedit1.setCompleter(oCompleter)
 		StatusMessage("Prepare Auto-Complete ... Done!")
 		StatusMessage("Ready...")
+		if isObject(oACTimer)
+			oACTimer.start()
+		ok
 
 	func DisplayFunctionsList
 		oFunctionsList.clear()
