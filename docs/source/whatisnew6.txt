@@ -183,6 +183,11 @@ So we can quickly open the Command Prompt or the Explorer at the application fol
 
 (6) Support *.sh & *.bat extensions.
 
+(7) New Menu: Distribute 
+
+.. image:: rnotedistribute.png
+	:alt: Ring Notepad - Distribute
+
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingQt
 
