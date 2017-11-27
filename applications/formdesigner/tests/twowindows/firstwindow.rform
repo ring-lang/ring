@@ -14,8 +14,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 56 , : y = 81  , 
-		 :width =  277 , :height = 61 , 
+		 :x = 18 , : y = 81  , 
+		 :width =  363 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "#ffff7f" , 
 		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
