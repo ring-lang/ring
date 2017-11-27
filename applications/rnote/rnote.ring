@@ -2536,9 +2536,9 @@ Class RNoteController from WindowsControllerParent
 			on 4	# dist allruntime gui
 				cPara += ",-dist,-allruntime,-gui"
 			on 5	# ringqt
-				cPara += ",-dist,-qt"
+				cPara += ",-dist,-qt,-gui"
 			on 6	# ringallegro 
-				cPara += ",-dist,-allegro"
+				cPara += ",-dist,-allegro,-freeglut,-opengl,-gui"
 			on 7	# qt project
 				cPara += ",-dist,-allruntime,-gui,-mobileqt"
 		off
@@ -2546,5 +2546,5 @@ Class RNoteController from WindowsControllerParent
 		oProcessEditbox.setplaintext("")
 		chdir(JustFilePath(cActiveFileName))
 		oProcess = pRunProcess(cAppToRun,cPara,cpGetProcessData)
-		chdir(exefolder())
 		OSFilesManager()
+		chdir(exefolder())
