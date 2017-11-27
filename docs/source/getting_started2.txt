@@ -24,11 +24,23 @@ Run the program
 ===============
 
 to run the program, save the code in a file, for example : hello.ring
-then from the command line or terminal, run it using the ring interpreter
+then from the command line or terminal, run it using Ring
 
 .. code-block:: ring
 
 	ring hello.ring
+
+.. index:: 
+	pair: Getting Started - Second Style; Create Executable File
+
+Create Executable File
+======================
+
+Using Ring2EXE we can create executable file for our application
+
+.. code-block:: ring
+
+	ring2exe hello.ring -static
 
 .. index:: 
 	pair: Getting Started - Second Style; Not Case-Sensitive
