@@ -146,7 +146,13 @@ func GenerateCFile cFileName,aOptions
 		msg("Generate C source code file...")
 	nTime = clock()
 	# Convert the Ring Object File to Hex.
-		cFile = read(cFileName+".ringo")
+		cRingoFile = cFileName+".ringo"
+		if not fexists(cRingoFile)
+			msg("File " + cRingoFile + " doesn't exist!")
+			msg("Check the source code files for compiler errors")
+			bye
+		ok
+		cFile = read(cRingoFile)
 		cHex  = str2hexCStyle(cFile)
 	fp = fopen(cFileName+".c","w+")
 	# Start writing the C source code - Main Function 
