@@ -44,6 +44,30 @@ Using Ring2EXE we can create executable file for our application
 
 	ring2exe hello.ring -static
 
+The -static option will avoid the need to ring.dll|ring.so|ring.dylib
+
+But since the stdlib.ring load libraries like (LibCurl, OpenSSL, MySQL, etc)
+
+You will need these libraries!
+
+To avoid the need to these libraries (If you don't need stdlib classes)
+
+Use stdlibcore.ring instead of stdlib.ring as in the next example
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	print("Hello World")
+
+Using stdlibcore.ring You can access the stdlib functions but not the stdlib classes.
+
+if you want to use stdlib.ring and distribute your application
+
+.. code-block:: ring
+
+	ring2exe hello.ring -dist -allruntime -noqt -noallegro
+
 .. index:: 
 	pair: Getting Started - Third Style; Not Case-Sensitive
 
@@ -152,3 +176,4 @@ Multi-lines comments are written between /* and */
 	// print("Bye!")
 
 .. note:: Using // to comment a lines of code is just a code style.
+
