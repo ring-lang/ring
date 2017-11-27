@@ -62,13 +62,20 @@
 <div class="section" id="run-the-program">
 <span id="index-2"></span><h2>Run the program<a class="headerlink" href="#run-the-program" title="Permalink to this headline">¶</a></h2>
 <p>to run the program, save the code in a file, for example : hello.ring
-then from the command line or terminal, run it using the ring interpreter</p>
+then from the command line or terminal, run it using Ring</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="create-executable-file">
+<span id="index-3"></span><h2>Create Executable File<a class="headerlink" href="#create-executable-file" title="Permalink to this headline">¶</a></h2>
+<p>Using Ring2EXE we can create executable file for our application</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="not-case-sensitive">
-<span id="index-3"></span><h2>Not Case-Sensitive<a class="headerlink" href="#not-case-sensitive" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Not Case-Sensitive<a class="headerlink" href="#not-case-sensitive" title="Permalink to this headline">¶</a></h2>
 <p>Since the Ring language is not case-sensitive, the same program can
 be written in different styles</p>
 <div class="admonition tip">
@@ -83,7 +90,7 @@ be written in different styles</p>
 </div>
 </div>
 <div class="section" id="multi-line-literals">
-<span id="index-4"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
 <p>Using Ring we can write multi-line literal, see the next example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;</span>
         <span class="n">Hello</span>
@@ -93,8 +100,9 @@ be written in different styles</p>
     <span class="s">&quot;</span>
 </pre></div>
 </div>
-<p>Also you can use the nl constant to insert new line
+<p>Also you can use the nl variable to insert new line
 and you can use the + operator to concatenate strings</p>
+<p>As we have NL for new lines, we have Tab and CR (Carriage return) too!</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">nl value means a new line and the actual codes that
@@ -106,7 +114,7 @@ represent a newline is different between operating systems</p>
 </div>
 </div>
 <div class="section" id="getting-input">
-<span id="index-5"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
 <p>You can get the input from the user using the give command</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;What is your name? &quot;</span>
 <span class="k">Give</span> <span class="n">cName</span>
@@ -115,15 +123,40 @@ represent a newline is different between operating systems</p>
 </div>
 </div>
 <div class="section" id="no-explicit-end-for-statements">
-<span id="index-6"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
 <p>You don&#8217;t need to use &#8216;;&#8217; or press ENTER to separate statements.
 The previous program can be written in one line.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;What is your name? &quot;</span> <span class="k">give</span> <span class="n">cName</span> <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-to-print-expression-then-new-line">
+<span id="index-8"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s common to print new line after printing an expression, We can use the ? operator to do that!</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="o">?</span> <span class="n">x</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
+</div>
 <div class="section" id="writing-comments">
-<span id="index-7"></span><h2>Writing Comments<a class="headerlink" href="#writing-comments" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Writing Comments<a class="headerlink" href="#writing-comments" title="Permalink to this headline">¶</a></h2>
 <p>We can write one line comments and multi-line comments</p>
 <p>The comment starts with # or //</p>
 <p>Multi-lines comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
@@ -158,10 +191,12 @@ The previous program can be written in one line.</p>
 <li><a class="reference internal" href="#">Getting Started - First Style</a><ul>
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li><a class="reference internal" href="#run-the-program">Run the program</a></li>
+<li><a class="reference internal" href="#create-executable-file">Create Executable File</a></li>
 <li><a class="reference internal" href="#not-case-sensitive">Not Case-Sensitive</a></li>
 <li><a class="reference internal" href="#multi-line-literals">Multi-Line literals</a></li>
 <li><a class="reference internal" href="#getting-input">Getting Input</a></li>
 <li><a class="reference internal" href="#no-explicit-end-for-statements">No Explicit End For Statements</a></li>
+<li><a class="reference internal" href="#using-to-print-expression-then-new-line">Using ? to print expression then new line</a></li>
 <li><a class="reference internal" href="#writing-comments">Writing Comments</a></li>
 </ul>
 </li>

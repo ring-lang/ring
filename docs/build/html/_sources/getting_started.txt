@@ -24,11 +24,24 @@ Run the program
 ===============
 
 to run the program, save the code in a file, for example : hello.ring
-then from the command line or terminal, run it using the ring interpreter
+then from the command line or terminal, run it using Ring
 
 .. code-block:: ring
 
 	ring hello.ring
+
+
+.. index:: 
+	pair: Getting Started - First Style; Create Executable File
+
+Create Executable File
+======================
+
+Using Ring2EXE we can create executable file for our application
+
+.. code-block:: ring
+
+	ring2exe hello.ring -static
 
 .. index:: 
 	pair: Getting Started - First Style; Not Case-Sensitive
@@ -67,8 +80,10 @@ Using Ring we can write multi-line literal, see the next example
 
 	    "
 
-Also you can use the nl constant to insert new line
+Also you can use the nl variable to insert new line
 and you can use the + operator to concatenate strings
+
+As we have NL for new lines, we have Tab and CR (Carriage return) too!
 
 .. note:: nl value means a new line and the actual codes that
 	 represent a newline is different between operating systems
@@ -104,6 +119,39 @@ The previous program can be written in one line.
 .. code-block:: ring
 
 	See "What is your name? " give cName see "Hello " + cName
+
+.. index:: 
+	pair: Getting Started - First Style; Using ? to print expression then new line
+
+Using ? to print expression then new line
+=========================================
+
+It's common to print new line after printing an expression, We can use the ? operator to do that!
+
+Example:
+
+.. code-block:: ring
+
+	? "Hello, World!"
+	for x = 1 to 10
+		? x
+	next
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
 
 .. index:: 
 	pair: Getting Started - First Style; Writing Comments

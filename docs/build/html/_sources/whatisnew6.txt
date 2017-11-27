@@ -18,6 +18,7 @@ Ring 1.6 comes with many new features!
 * Employee Application
 * New Tool: Ring2EXE 
 * Better Ring For Android
+* New Tool : Folder2qrc
 * Better Scripts for building Ring
 * RingConsoleColors Extension
 * Better Ring Notepad
@@ -25,6 +26,11 @@ Ring 1.6 comes with many new features!
 * Better StdLib
 * Better RingVM
 * Better RingREPL
+* Using Tab instead of char(9)
+* Using CR as Carriage return
+* Using the ! operator as not
+* Using && and || operators
+* Using ? to print expression then new line
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Employee Application
@@ -85,6 +91,33 @@ Example (2)
 
 .. image:: formdesignerandroid.png
 	:alt: Form Designer - Android
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; New Tool: Folder2qrc
+
+New Tool: Folder2qrc
+====================
+
+When we have large RingQt project that contains a lot of images and files, We need to add these files 
+to the resource file ( *.qrc ) when distributing applications for Mobile devices. 
+
+Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It's
+called Folder2qrc.
+
+Example:
+
+.. code-block:: none
+
+	folder2qrc formdesigner.ring
+
+We determine the main source file while we are in the application folder, and Folder2qrc will check all
+of the files in the current folder and sub folders, Then add them to the resource file after the
+mainfile.ringo (In our example this will be formdesigner.ringo)
+
+The output file will be : project.qrc
+
+You can open it and remove the files that you don't need in the resources!
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better Scripts for building Ring
@@ -149,6 +182,11 @@ So we can quickly open the Command Prompt or the Explorer at the application fol
 	:alt: Ring Notepad - Tools - Terminal - shot 2
 
 (6) Support *.sh & *.bat extensions.
+
+(7) New Menu: Distribute 
+
+.. image:: rnotedistribute.png
+	:alt: Ring Notepad - Distribute
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingQt
@@ -238,4 +276,173 @@ RingREPL comes with the next updates
 (2) Setting RingREPL Style based on Ring Notepad Style.
 
 
+.. index:: 
+	pair: What is new in Ring 1.6?; Using Tab instead of char(9)
 
+Using Tab instead of char(9)
+============================
+
+The variable Tab is defined to be used instead of char(9)
+
+Example (1):
+
+.. code-block:: ring
+
+	see :one + nl + tab + :two + nl + tab + tab + :three
+
+Output:
+
+.. code-block:: none
+
+	one
+	        two
+	                three
+
+You can change the variable to another value
+
+Example (2):
+
+.. code-block:: ring
+
+	tab = "  "
+	see :one + nl + tab + :two + nl + tab + tab + :three
+
+Output:
+
+.. code-block:: none
+
+	one
+	  two
+	    three
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using CR as Carriage return
+
+Using CR as Carriage return
+===========================
+
+The next example count from 1 to 10 in the same line during 10 seconds
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	for x = 1 to 10 see x sleep(1) see cr next
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using the ! operator as not
+
+Using the ! operator as not
+===========================
+
+We have = and != in the Ring language
+
+But for the logical operators we have and, or & not
+
+Now we can use the ! operator as not
+
+Example:
+
+.. code-block:: ring
+
+	if ! false
+		see "True!" + nl
+	ok
+
+Output
+
+.. code-block:: none
+
+	True!
+
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using && and || operators
+
+Using && and || operators
+=========================
+
+In Ring we have the next keywords for the logical operations
+
+* and
+* or
+* not
+
+Now we have also the next operators
+
+* &&
+* ||
+* !
+
+Example:
+
+.. code-block:: ring
+
+	if one() and two()
+		see "Test1 - Fail" + nl
+	else
+		see "Test1 - Pass" + nl
+	ok
+
+	if two() or one()
+		see "Test2 - Pass" + nl
+	else
+		see "Test2 - Fail" + nl
+	ok
+
+	if one() && two()
+		see "Test3 - Fail" + nl
+	else
+		see "Test3 - Pass" + nl
+	ok
+
+	if two() || one()
+		see "Test4 - Pass" + nl
+	else
+		see "Test4 - Fail" + nl
+	ok
+
+	func one return True
+
+	func two return False
+
+Output:
+
+.. code-block:: none
+
+	Test1 - Pass
+	Test2 - Pass
+	Test3 - Pass
+	Test4 - Pass
+
+.. index:: 
+	pair: What is new in Ring 1.6?; Using ? to print expression then new line
+
+Using ? to print expression then new line
+=========================================
+
+It's common to print new line after printing an expression, We can use the ? operator to do that!
+
+Example:
+
+.. code-block:: ring
+
+	? "Hello, World!"
+	for x = 1 to 10
+		? x
+	next
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10

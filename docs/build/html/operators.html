@@ -198,6 +198,39 @@ provided by the Ring language. Assume variable X=True and variable Y=False then:
 </tr>
 </tbody>
 </table>
+<p>Another style</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="38%" />
+<col width="24%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&amp;&amp;</td>
+<td>Logical AND</td>
+<td>x &amp;&amp; y</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>||</td>
+<td>Logical OR</td>
+<td>x || y</td>
+<td>True</td>
+</tr>
+<tr class="row-even"><td>!</td>
+<td>Logical Not</td>
+<td>! x</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="bitwise-operators">
 <span id="index-4"></span><h2>Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Permalink to this headline">¶</a></h2>
@@ -363,6 +396,9 @@ provided by the Ring language.</p>
 <tr class="row-even"><td>func(para,...)</td>
 <td>call function using parameters separated by comma</td>
 </tr>
+<tr class="row-odd"><td>? &lt;expr&gt;</td>
+<td>Print expression then new line</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -401,11 +437,13 @@ lower precedence.</p>
 </tr>
 <tr class="row-even"><td>=  !=</td>
 </tr>
-<tr class="row-odd"><td>not</td>
+<tr class="row-odd"><td>not   !</td>
 </tr>
-<tr class="row-even"><td>and   or</td>
+<tr class="row-even"><td>and   or   &amp;&amp;    ||</td>
 </tr>
 <tr class="row-odd"><td>Assignment = += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</td>
+</tr>
+<tr class="row-even"><td>?</td>
 </tr>
 </tbody>
 </table>

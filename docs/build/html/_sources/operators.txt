@@ -80,6 +80,18 @@ provided by the Ring language. Assume variable X=True and variable Y=False then:
 | not	     |  Logical Not        |	not x    |  False  |
 +------------+---------------------+-------------+---------+
 
+Another style
+
++------------+---------------------+-------------+---------+
+| Operator   | Description         | Example     | Result  |
++============+=====================+=============+=========+
+| &&	     |  Logical AND        |    x && y   |  False  |
++------------+---------------------+-------------+---------+
+| ||         |	Logical OR         |	x || y   |  True   |
++------------+---------------------+-------------+---------+
+| !	     |  Logical Not        |	! x      |  False  |
++------------+---------------------+-------------+---------+
+
 
 .. index:: 
 	pair: Operators; Bitwise Operators
@@ -160,6 +172,7 @@ list[index]	access list item
 obj.name	using the dot operator to access object members (attributes/methods).
 obj {stmts}	execute statements with direct access to object attributes & methods
 func(para,...)	call function using parameters separated by comma
+? <expr>	Print expression then new line
 ==============	======================================================================
 
 .. index:: 
@@ -196,11 +209,13 @@ lower precedence.
 +----------------------------------------------------------------+
 | =  !=								 |
 +----------------------------------------------------------------+
-| not								 |
+| not	!							 |
 +----------------------------------------------------------------+
-| and   or							 |
+| and   or   &&	   ||						 |
 +----------------------------------------------------------------+
 | Assignment = += -= \*= /= %=>>= <<= &= ^= \|= 		 |
++----------------------------------------------------------------+
+| ?						 		 |
 +----------------------------------------------------------------+
 
 Example:

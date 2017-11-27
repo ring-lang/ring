@@ -56,7 +56,13 @@
 in our Ring applications.</p>
 <p>We have the file gamelib.ring that load the DLL library that contains wrappers for the Allegro functions</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;allegro.rh&quot;</span>
-<span class="n">Loadlib</span><span class="p">(</span><span class="s">&quot;ring_allegro.dll&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;ring_allegro.dll&quot;</span><span class="p">)</span>
+<span class="k">but</span> <span class="n">ismacosx</span><span class="p">()</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;libringallegro.dylib&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;libringallegro.so&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <p>The file gamelib.ring uses the Load instruction to execute the file allegro.rh which is a ring source

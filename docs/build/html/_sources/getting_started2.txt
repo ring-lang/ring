@@ -24,11 +24,23 @@ Run the program
 ===============
 
 to run the program, save the code in a file, for example : hello.ring
-then from the command line or terminal, run it using the ring interpreter
+then from the command line or terminal, run it using Ring
 
 .. code-block:: ring
 
 	ring hello.ring
+
+.. index:: 
+	pair: Getting Started - Second Style; Create Executable File
+
+Create Executable File
+======================
+
+Using Ring2EXE we can create executable file for our application
+
+.. code-block:: ring
+
+	ring2exe hello.ring -static
 
 .. index:: 
 	pair: Getting Started - Second Style; Not Case-Sensitive
@@ -67,8 +79,10 @@ Using Ring we can write multi-line literal, see the next example
 
 	    "
 
-Also you can use the nl constant to insert new line
+Also you can use the nl variable to insert new line
 and you can use the + operator to concatenate strings
+
+As we have NL for new lines, we have Tab and CR (Carriage return) too!
 
 .. note:: nl value means a new line and the actual codes that
 	 represent a newline is different between operating systems

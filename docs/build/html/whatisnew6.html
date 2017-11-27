@@ -60,6 +60,7 @@
 <li>Employee Application</li>
 <li>New Tool: Ring2EXE</li>
 <li>Better Ring For Android</li>
+<li>New Tool : Folder2qrc</li>
 <li>Better Scripts for building Ring</li>
 <li>RingConsoleColors Extension</li>
 <li>Better Ring Notepad</li>
@@ -67,6 +68,11 @@
 <li>Better StdLib</li>
 <li>Better RingVM</li>
 <li>Better RingREPL</li>
+<li>Using Tab instead of char(9)</li>
+<li>Using CR as Carriage return</li>
+<li>Using the ! operator as not</li>
+<li>Using &amp;&amp; and || operators</li>
+<li>Using ? to print expression then new line</li>
 </ul>
 </div>
 <div class="section" id="employee-application">
@@ -99,19 +105,35 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 </div>
 <img alt="Form Designer - Android" src="_images/formdesignerandroid.png" />
 </div>
+<div class="section" id="new-tool-folder2qrc">
+<span id="index-5"></span><h2>New Tool: Folder2qrc<a class="headerlink" href="#new-tool-folder2qrc" title="Permalink to this headline">¶</a></h2>
+<p>When we have large RingQt project that contains a lot of images and files, We need to add these files
+to the resource file ( <a href="#id9"><span class="problematic" id="id10">*</span></a>.qrc ) when distributing applications for Mobile devices.</p>
+<p>Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It&#8217;s
+called Folder2qrc.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>folder2qrc formdesigner.ring
+</pre></div>
+</div>
+<p>We determine the main source file while we are in the application folder, and Folder2qrc will check all
+of the files in the current folder and sub folders, Then add them to the resource file after the
+mainfile.ringo (In our example this will be formdesigner.ringo)</p>
+<p>The output file will be : project.qrc</p>
+<p>You can open it and remove the files that you don&#8217;t need in the resources!</p>
+</div>
 <div class="section" id="better-scripts-for-building-ring">
-<span id="index-5"></span><h2>Better Scripts for building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Better Scripts for building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.6 comes with better scripts for building Ring from source code.</p>
 <p>The updates are tested on 32bit and 64bit systems on Windows, Linux (Ubuntu,Fedora) and macOS.</p>
 <p>The scripts for Windows are updated to find the Visual C/C++ compiler based on your Visual Studio version.</p>
 </div>
 <div class="section" id="ringconsolecolors-extension">
-<span id="index-6"></span><h2>RingConsoleColors Extension<a class="headerlink" href="#ringconsolecolors-extension" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>RingConsoleColors Extension<a class="headerlink" href="#ringconsolecolors-extension" title="Permalink to this headline">¶</a></h2>
 <p>Using the RingConsoleColors extension we can easily change the colors used in our console applications</p>
 <img alt="RingConsoleColors" src="_images/consolecolors.png" />
 </div>
 <div class="section" id="better-ring-notepad">
-<span id="index-7"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
 <p>Ring Notepad comes with the next updates</p>
 <ol class="arabic simple">
 <li>Automatic setting for the Main File when we Run the application (using the Main file buttons).</li>
@@ -130,11 +152,13 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <p>So we can quickly open the Command Prompt or the Explorer at the application folder.</p>
 <img alt="Ring Notepad - Tools - Terminal - shot 2" src="_images/rnotetoolsterminal2.png" />
 <ol class="arabic simple" start="6">
-<li>Support <a href="#id9"><span class="problematic" id="id10">*</span></a>.sh &amp; <a href="#id11"><span class="problematic" id="id12">*</span></a>.bat extensions.</li>
+<li>Support <a href="#id11"><span class="problematic" id="id12">*</span></a>.sh &amp; <a href="#id13"><span class="problematic" id="id14">*</span></a>.bat extensions.</li>
+<li>New Menu: Distribute</li>
 </ol>
+<img alt="Ring Notepad - Distribute" src="_images/rnotedistribute.png" />
 </div>
 <div class="section" id="better-ringqt">
-<span id="index-8"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <p>RingQt comes with the next updates</p>
 <ol class="arabic simple">
 <li>QDockWidget Events</li>
@@ -146,7 +170,7 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 </ol>
 </div>
 <div class="section" id="better-stdlib">
-<span id="index-9"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
 <p>StdLib comes with the next updates</p>
 <ol class="arabic">
 <li><p class="first">Factors() function is updated (Return the output instead of printing it)</p>
@@ -171,7 +195,7 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 </ul>
 </div>
 <div class="section" id="better-ringvm">
-<span id="index-10"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
 <p>RingVM comes with the next updates</p>
 <ol class="arabic simple">
 <li>Support using many getter methods in Expressions</li>
@@ -183,12 +207,139 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 </ol>
 </div>
 <div class="section" id="better-ringrepl">
-<span id="index-11"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
 <p>RingREPL comes with the next updates</p>
 <ol class="arabic simple">
 <li>RingREPL will get command line parameters to determine the style.</li>
 <li>Setting RingREPL Style based on Ring Notepad Style.</li>
 </ol>
+</div>
+<div class="section" id="using-tab-instead-of-char-9">
+<span id="index-13"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this headline">¶</a></h2>
+<p>The variable Tab is defined to be used instead of char(9)</p>
+<p>Example (1):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>one
+        two
+                three
+</pre></div>
+</div>
+<p>You can change the variable to another value</p>
+<p>Example (2):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="s">&quot;  &quot;</span>
+<span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>one
+  two
+    three
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-cr-as-carriage-return">
+<span id="index-14"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this headline">¶</a></h2>
+<p>The next example count from 1 to 10 in the same line during 10 seconds</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="n">cr</span> <span class="k">next</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-operator-as-not">
+<span id="index-15"></span><h2>Using the ! operator as not<a class="headerlink" href="#using-the-operator-as-not" title="Permalink to this headline">¶</a></h2>
+<p>We have = and != in the Ring language</p>
+<p>But for the logical operators we have and, or &amp; not</p>
+<p>Now we can use the ! operator as not</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">!</span> <span class="kp">false</span>
+        <span class="k">see</span> <span class="s">&quot;True!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>True!
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-and-operators">
+<span id="index-16"></span><h2>Using &amp;&amp; and || operators<a class="headerlink" href="#using-and-operators" title="Permalink to this headline">¶</a></h2>
+<p>In Ring we have the next keywords for the logical operations</p>
+<ul class="simple">
+<li>and</li>
+<li>or</li>
+<li>not</li>
+</ul>
+<p>Now we have also the next operators</p>
+<ul class="simple">
+<li>&amp;&amp;</li>
+<li>||</li>
+<li>!</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+
+<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+
+<span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+
+<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">one</span> <span class="k">return</span> <span class="kp">True</span>
+
+<span class="k">func</span> <span class="n">two</span> <span class="k">return</span> <span class="kp">False</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Test1 - Pass
+Test2 - Pass
+Test3 - Pass
+Test4 - Pass
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-to-print-expression-then-new-line">
+<span id="index-17"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s common to print new line after printing an expression, We can use the ? operator to do that!</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="o">?</span> <span class="n">x</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -205,6 +356,7 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <li><a class="reference internal" href="#employee-application">Employee Application</a></li>
 <li><a class="reference internal" href="#new-tool-ring2exe">New Tool: Ring2EXE</a></li>
 <li><a class="reference internal" href="#better-ring-for-android">Better Ring For Android</a></li>
+<li><a class="reference internal" href="#new-tool-folder2qrc">New Tool: Folder2qrc</a></li>
 <li><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for building Ring</a></li>
 <li><a class="reference internal" href="#ringconsolecolors-extension">RingConsoleColors Extension</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
@@ -212,6 +364,11 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <li><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
 <li><a class="reference internal" href="#better-ringvm">Better RingVM</a></li>
 <li><a class="reference internal" href="#better-ringrepl">Better RingREPL</a></li>
+<li><a class="reference internal" href="#using-tab-instead-of-char-9">Using Tab instead of char(9)</a></li>
+<li><a class="reference internal" href="#using-cr-as-carriage-return">Using CR as Carriage return</a></li>
+<li><a class="reference internal" href="#using-the-operator-as-not">Using the ! operator as not</a></li>
+<li><a class="reference internal" href="#using-and-operators">Using &amp;&amp; and || operators</a></li>
+<li><a class="reference internal" href="#using-to-print-expression-then-new-line">Using ? to print expression then new line</a></li>
 </ul>
 </li>
 </ul>

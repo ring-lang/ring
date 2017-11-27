@@ -64,13 +64,35 @@
 <div class="section" id="run-the-program">
 <span id="index-2"></span><h2>Run the program<a class="headerlink" href="#run-the-program" title="Permalink to this headline">¶</a></h2>
 <p>to run the program, save the code in a file, for example : hello.ring
-then from the command line or terminal, run it using the ring interpreter</p>
+then from the command line or terminal, run it using Ring</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="create-executable-file">
+<span id="index-3"></span><h2>Create Executable File<a class="headerlink" href="#create-executable-file" title="Permalink to this headline">¶</a></h2>
+<p>Using Ring2EXE we can create executable file for our application</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
+</pre></div>
+</div>
+<p>The -static option will avoid the need to ring.dll|ring.so|ring.dylib</p>
+<p>But since the stdlib.ring load libraries like (LibCurl, OpenSSL, MySQL, etc)</p>
+<p>You will need these libraries!</p>
+<p>To avoid the need to these libraries (If you don&#8217;t need stdlib classes)</p>
+<p>Use stdlibcore.ring instead of stdlib.ring as in the next example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using stdlibcore.ring You can access the stdlib functions but not the stdlib classes.</p>
+<p>if you want to use stdlib.ring and distribute your application</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">allruntime</span> <span class="o">-</span><span class="n">noqt</span> <span class="o">-</span><span class="n">noallegro</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="not-case-sensitive">
-<span id="index-3"></span><h2>Not Case-Sensitive<a class="headerlink" href="#not-case-sensitive" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Not Case-Sensitive<a class="headerlink" href="#not-case-sensitive" title="Permalink to this headline">¶</a></h2>
 <p>Since the Ring language is not case-sensitive, the same program can
 be written in different styles</p>
 <div class="admonition tip">
@@ -87,7 +109,7 @@ be written in different styles</p>
 </div>
 </div>
 <div class="section" id="multi-line-literals">
-<span id="index-4"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
 <p>Using Ring we can write multi-line literal, see the next example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 <span class="n">Print</span><span class="p">(</span><span class="s">&quot;</span>
@@ -106,7 +128,7 @@ and you can use #{variable_name} to insert variables values.</p>
 </div>
 </div>
 <div class="section" id="getting-input">
-<span id="index-5"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
 <p>You can get the input from the user using the getstring() function</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 <span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>
@@ -116,7 +138,7 @@ and you can use #{variable_name} to insert variables values.</p>
 </div>
 </div>
 <div class="section" id="no-explicit-end-for-statements">
-<span id="index-6"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
 <p>You don&#8217;t need to use &#8216;;&#8217; or press ENTER to separate statements.
 The previous program can be written in one line.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
@@ -125,7 +147,7 @@ The previous program can be written in one line.</p>
 </div>
 </div>
 <div class="section" id="writing-comments">
-<span id="index-7"></span><h2>Writing Comments<a class="headerlink" href="#writing-comments" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Writing Comments<a class="headerlink" href="#writing-comments" title="Permalink to this headline">¶</a></h2>
 <p>We can write one line comments and multi-line comments</p>
 <p>The comment starts with # or //</p>
 <p>Multi-lines comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
@@ -162,6 +184,7 @@ The previous program can be written in one line.</p>
 <li><a class="reference internal" href="#">Getting Started - Third Style</a><ul>
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li><a class="reference internal" href="#run-the-program">Run the program</a></li>
+<li><a class="reference internal" href="#create-executable-file">Create Executable File</a></li>
 <li><a class="reference internal" href="#not-case-sensitive">Not Case-Sensitive</a></li>
 <li><a class="reference internal" href="#multi-line-literals">Multi-Line literals</a></li>
 <li><a class="reference internal" href="#getting-input">Getting Input</a></li>

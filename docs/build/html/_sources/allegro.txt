@@ -13,7 +13,13 @@ We have the file gamelib.ring that load the DLL library that contains wrappers f
 .. code-block:: ring
 
 	Load "allegro.rh"
-	Loadlib("ring_allegro.dll")
+	if iswindows()
+		LoadLib("ring_allegro.dll")
+	but ismacosx()
+		LoadLib("libringallegro.dylib")
+	else
+		LoadLib("libringallegro.so")
+	ok
 
 The file gamelib.ring uses the Load instruction to execute the file allegro.rh which is a ring source
 code file contains constants to be used in our programs.
