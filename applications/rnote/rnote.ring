@@ -1738,28 +1738,28 @@ Class RNoteController from WindowsControllerParent
 
 	func AutoCompleteTimer
  		cFileContent = textedit1.toplaintext() # read(cActiveFileName)
-		if len(cFileContent) > 3 and len(cFileContent) < 1024  # 1 Kbyte
-			if isObject(oCompleter)
-				if oCompleter.popup().isvisible() = false
-					AutoComplete()
-				ok
-			ok
+		if len(cFileContent) > 3 and len(cFileContent) < 1024 # 1KByte
+			CallAutoComplete()
 		else
 			if len(cFileContent) > 3
-				if isObject(oCompleter)
-					if oCompleter.popup().isvisible() = false
-						AutoComplete()
-					ok
-				ok
+				CallAutoComplete()
 				oACTimer.stop()
 			ok
 		ok
+
+	func CallAutoComplete
+		if isObject(oCompleter)
+			if oCompleter.popup().isvisible() = false
+				AutoComplete()
+			ok
+		ok
+
 
 	func AutoComplete
 		StatusMessage("Prepare Auto-Complete ... Please Wait!")
 		# Add words in the current file
 			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
-			if len(cFileContent) < 102400
+			if len(cFileContent) < 102400	# 100 KByte
 				StatusMessage("Prepare Auto-Complete ... Get File Words!")
 				aList = Split(cFileContent," ")
 				StatusMessage("Prepare Auto-Complete ... Filter!")
