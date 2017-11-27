@@ -291,6 +291,7 @@ Class RNoteController from WindowsControllerParent
 				subProgram 	= addmenu("Program")
 				subBrowser 	= addmenu("Browser")
 				subTools 	= addmenu("Tools")
+				subDistribute   = addmenu("Distribute")
 				subHelp 	= addmenu("Help")
 				subFile {
 					oAction = new qAction(this.win1) {
@@ -733,6 +734,46 @@ Class RNoteController from WindowsControllerParent
 						}
 						addaction(oAction)
 					}
+				}
+				subDistribute {
+					oAction = new qAction(this.win1) {
+						settext("Generate Ring Object File (*.ringo)")
+						setclickEvent(Method("pDistribute(1)"))
+					}
+					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Build Console Application)")
+						setclickEvent(Method("pDistribute(2)"))
+					}
+					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Distribute Application - Use All Runtime)")
+						setclickEvent(Method("pDistribute(3)"))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Distribute Application - Use All Runtime - Hide Console Window)")
+						setclickEvent(Method("pDistribute(4)"))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Distribute RingQt Application)")
+						setclickEvent(Method("pDistribute(5)"))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Distribute RingAllegro Game)")
+						setclickEvent(Method("pDistribute(6)"))
+					}
+					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						settext("Ring2EXE (Prepare Qt Project) - Distribute for Mobile Devices)")
+						setclickEvent(Method("pDistribute(7)"))
+					}
+					addaction(oAction)
 				}
 				subHelp {
 					subHelpLF = addmenu("Language Reference")
@@ -2472,6 +2513,38 @@ Class RNoteController from WindowsControllerParent
 		system(cCommand)
 
 	func OSFilesManager 
+		if cActiveFileName != Null
+			cStartupFolder = justfilepath(cActiveFileName)
+		ok
 		new QDesktopServices {
 			OpenURL(new qURL("file:///"+this.cStartupFolder))
 		}
+
+	func pDistribute nOption
+		if cActiveFileName = Null return pNofileopened() ok
+		pSave()
+		cAppToRun = exefolder()+"/ring2exe"
+		cPara = cActiveFileName
+		switch nOption
+			on 1	# ringo
+				cAppToRun = exefolder()+"/ring"
+				cPara += ",-go,-norun"
+			on 2	# exe 
+				cPara += ",-static"
+			on 3	# dist allruntime
+				cPara += ",-dist,-allruntime"
+			on 4	# dist allruntime gui
+				cPara += ",-dist,-allruntime,-gui"
+			on 5	# ringqt
+				cPara += ",-dist,-qt"
+			on 6	# ringallegro 
+				cPara += ",-dist,-allegro"
+			on 7	# qt project
+				cPara += ",-dist,-allruntime,-gui,-mobileqt"
+		off
+		oDockOutputWindow { show() raise() }		
+		oProcessEditbox.setplaintext("")
+		chdir(JustFilePath(cActiveFileName))
+		oProcess = pRunProcess(cAppToRun,cPara,cpGetProcessData)
+		chdir(exefolder())
+		OSFilesManager()
