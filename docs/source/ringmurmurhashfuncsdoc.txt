@@ -12,6 +12,8 @@ RingMurmurHash Functions Reference
 
 Murmurhash extension is an extension written to implement a full implementation for the MurmurHash library.
 
+Developer: Hassan Ahmed
+
 .. index:: 
      pair: RingMurmurHash Functions Reference; MurmurHash1 functions
 
