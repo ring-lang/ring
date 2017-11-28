@@ -39,7 +39,9 @@ Ring 1.6 comes with many new features!
 Employee Application
 ====================
 
-The Employee application by Ahmed Hassouna is added to ring/applications
+The Employee application is added to ring/applications
+
+Developer: Ahmed Hassouna 
 
 .. image:: empapp.png
 	:alt: Employee Sample
