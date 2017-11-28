@@ -65,6 +65,7 @@
 		-nofreeglut 	 : Remove RingFreeGLUT from distribution
 		-nolibzip   	 : Remove RingLibZip from distribution
 		-noconsolecolors : Remove RingConsoleColors from distribution
+		-nomurmurhash    : Remove RingMurmurHash from distribution 
 		-nocruntime	 : Remove C Runtime from distribution
 		-qt	    	 : Add RingQt to distribution
 		-allegro 	 : Add RingAllegro to distribution
@@ -77,6 +78,7 @@
 		-freeglut 	 : Add RingFreeGLUT to distribution
 		-libzip   	 : Add RingLibZip to distribution
 		-consolecolors   : Add RingConsoleColors to distribution
+		-murmurhash	 : Add RingMurmurHash to distribution
 		-cruntime	 : Add C Runtime to distribution
 */
 
