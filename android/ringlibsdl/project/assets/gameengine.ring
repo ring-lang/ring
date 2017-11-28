@@ -111,7 +111,9 @@ class game from gamebase
 
 	func startup
 
-		#gl_set_new_display_flags(GL_FULLSCREEN)
+		if GE_FULLSCREEN
+			gl_set_new_display_flags(GL_FULLSCREEN)
+		ok
 
 		display = gl_create_display(screen_w,screen_h)
 		gl_set_window_title(display,title)
