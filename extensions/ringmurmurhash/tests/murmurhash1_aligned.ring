@@ -1,4 +1,4 @@
-LoadLib("libring_murmurhash.so")
+load "murmurhashlib.ring"
 
 key = "Ring Language"
 
