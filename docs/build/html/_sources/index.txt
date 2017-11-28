@@ -87,6 +87,7 @@ Contents:
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
+   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>

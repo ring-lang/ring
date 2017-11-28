@@ -123,6 +123,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 -nofreeglut      : Remove RingFreeGLUT from distribution
 -nolibzip        : Remove RingLibZip from distribution
 -noconsolecolors : Remove RingConsoleColors from distribution
+-nomurmuhash     : Remove RingMurmurHash from distribution
 -nocruntime      : Remove C Runtime from distribution
 -qt              : Add RingQt to distribution
 -allegro         : Add RingAllegro to distribution
@@ -135,6 +136,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 -freeglut        : Add RingFreeGLUT to distribution
 -libzip          : Add RingLibZip to distribution
 -consolecolors   : Add RingConsoleColors to distribution
+-murmurhash      : Add RingMurmurHash to distribution
 -cruntime        : Add C Runtime to distribution
 </pre></div>
 </div>
@@ -422,8 +424,24 @@ name of the Image files.</p>
 </div>
 <p>From this example, We know that we can use sub folders for images.</p>
 </div>
+<div class="section" id="creating-the-qt-resource-file-using-folder2qrc">
+<span id="index-12"></span><h2>Creating the Qt resource file using Folder2qrc<a class="headerlink" href="#creating-the-qt-resource-file-using-folder2qrc" title="Permalink to this headline">¶</a></h2>
+<p>When we have large RingQt project that contains a lot of images and files, We need to add these files
+to the resource file ( <a href="#id5"><span class="problematic" id="id6">*</span></a>.qrc ) when distributing applications for Mobile devices.</p>
+<p>Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It&#8217;s
+called Folder2qrc.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>folder2qrc formdesigner.ring
+</pre></div>
+</div>
+<p>We determine the main source file while we are in the application folder, and Folder2qrc will check all
+of the files in the current folder and sub folders, Then add them to the resource file after the
+mainfile.ringo (In our example this will be formdesigner.ringo)</p>
+<p>The output file will be : project.qrc</p>
+<p>You can open it and remove the files that you don&#8217;t need in the resources!</p>
+</div>
 <div class="section" id="important-information-about-ring2exe">
-<span id="index-12"></span><h2>Important Information about Ring2EXE<a class="headerlink" href="#important-information-about-ring2exe" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Important Information about Ring2EXE<a class="headerlink" href="#important-information-about-ring2exe" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Using Ring2EXE to prepare distribution will delete all of the files in the old distribution</li>
 </ul>
@@ -474,6 +492,7 @@ name of the Image files.</p>
 <li><a class="reference internal" href="#building-the-cards-game-for-mobile-using-ringqt">Building the Cards Game for Mobile using RingQt</a></li>
 <li><a class="reference internal" href="#building-the-weight-history-application-for-mobile-using-ringqt">Building the Weight History Application for Mobile using RingQt</a></li>
 <li><a class="reference internal" href="#building-the-form-designer-for-mobile-using-ringqt">Building the Form Designer for Mobile using RingQt</a></li>
+<li><a class="reference internal" href="#creating-the-qt-resource-file-using-folder2qrc">Creating the Qt resource file using Folder2qrc</a></li>
 <li><a class="reference internal" href="#important-information-about-ring2exe">Important Information about Ring2EXE</a></li>
 </ul>
 </li>

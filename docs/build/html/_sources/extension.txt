@@ -591,11 +591,11 @@ We return the list from the extension function using the RING_API_RETLIST() func
 .. index:: 
 	pair: Extension; Shared Libraries
 
-Dynamic/Shared Libraries (DLL/So) and LoadLib() function
-========================================================
+Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function
+==============================================================
 
 Instead of rebuilding the RingVM after writing new functions using C/C++ and the Ring API, we can create
-a DLL/So file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.
+a DLL/So/Dylib file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.
 
 Dynamic library example in C
 

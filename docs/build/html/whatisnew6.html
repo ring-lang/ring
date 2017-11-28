@@ -63,6 +63,7 @@
 <li>New Tool : Folder2qrc</li>
 <li>Better Scripts for building Ring</li>
 <li>RingConsoleColors Extension</li>
+<li>RingMurmurHash Extension</li>
 <li>Better Ring Notepad</li>
 <li>Better RingQt</li>
 <li>Better StdLib</li>
@@ -77,7 +78,8 @@
 </div>
 <div class="section" id="employee-application">
 <span id="index-2"></span><h2>Employee Application<a class="headerlink" href="#employee-application" title="Permalink to this headline">¶</a></h2>
-<p>The Employee application by Ahmed Hassouna is added to ring/applications</p>
+<p>The Employee application is added to ring/applications</p>
+<p>Developer: Ahmed Hassouna</p>
 <img alt="Employee Sample" src="_images/empapp.png" />
 </div>
 <div class="section" id="new-tool-ring2exe">
@@ -131,9 +133,25 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <span id="index-7"></span><h2>RingConsoleColors Extension<a class="headerlink" href="#ringconsolecolors-extension" title="Permalink to this headline">¶</a></h2>
 <p>Using the RingConsoleColors extension we can easily change the colors used in our console applications</p>
 <img alt="RingConsoleColors" src="_images/consolecolors.png" />
+<p>For more information check the RingConsoleColors chapter in the documentation.</p>
+</div>
+<div class="section" id="ringmurmurhash-extension">
+<span id="index-8"></span><h2>RingMurmurHash Extension<a class="headerlink" href="#ringmurmurhash-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.6 comes with the RingMurmurHash extension!</p>
+<p>Developer: Hassan Ahmed</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;murmurhashlib.ring&quot;
+
+key = &quot;Ring Language&quot;
+
+see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
+see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
+</pre></div>
+</div>
+<p>For more information check the RingMurmurHash chapter in the documentation.</p>
 </div>
 <div class="section" id="better-ring-notepad">
-<span id="index-8"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
 <p>Ring Notepad comes with the next updates</p>
 <ol class="arabic simple">
 <li>Automatic setting for the Main File when we Run the application (using the Main file buttons).</li>
@@ -158,7 +176,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <img alt="Ring Notepad - Distribute" src="_images/rnotedistribute.png" />
 </div>
 <div class="section" id="better-ringqt">
-<span id="index-9"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <p>RingQt comes with the next updates</p>
 <ol class="arabic simple">
 <li>QDockWidget Events</li>
@@ -170,7 +188,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </ol>
 </div>
 <div class="section" id="better-stdlib">
-<span id="index-10"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
 <p>StdLib comes with the next updates</p>
 <ol class="arabic">
 <li><p class="first">Factors() function is updated (Return the output instead of printing it)</p>
@@ -195,7 +213,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </ul>
 </div>
 <div class="section" id="better-ringvm">
-<span id="index-11"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
 <p>RingVM comes with the next updates</p>
 <ol class="arabic simple">
 <li>Support using many getter methods in Expressions</li>
@@ -207,7 +225,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </ol>
 </div>
 <div class="section" id="better-ringrepl">
-<span id="index-12"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
 <p>RingREPL comes with the next updates</p>
 <ol class="arabic simple">
 <li>RingREPL will get command line parameters to determine the style.</li>
@@ -215,7 +233,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </ol>
 </div>
 <div class="section" id="using-tab-instead-of-char-9">
-<span id="index-13"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this headline">¶</a></h2>
 <p>The variable Tab is defined to be used instead of char(9)</p>
 <p>Example (1):</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
@@ -241,7 +259,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </div>
 </div>
 <div class="section" id="using-cr-as-carriage-return">
-<span id="index-14"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this headline">¶</a></h2>
 <p>The next example count from 1 to 10 in the same line during 10 seconds</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="n">cr</span> <span class="k">next</span>
@@ -249,7 +267,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </div>
 </div>
 <div class="section" id="using-the-operator-as-not">
-<span id="index-15"></span><h2>Using the ! operator as not<a class="headerlink" href="#using-the-operator-as-not" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Using the ! operator as not<a class="headerlink" href="#using-the-operator-as-not" title="Permalink to this headline">¶</a></h2>
 <p>We have = and != in the Ring language</p>
 <p>But for the logical operators we have and, or &amp; not</p>
 <p>Now we can use the ! operator as not</p>
@@ -265,7 +283,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 </div>
 </div>
 <div class="section" id="using-and-operators">
-<span id="index-16"></span><h2>Using &amp;&amp; and || operators<a class="headerlink" href="#using-and-operators" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Using &amp;&amp; and || operators<a class="headerlink" href="#using-and-operators" title="Permalink to this headline">¶</a></h2>
 <p>In Ring we have the next keywords for the logical operations</p>
 <ul class="simple">
 <li>and</li>
@@ -317,7 +335,7 @@ Test4 - Pass
 </div>
 </div>
 <div class="section" id="using-to-print-expression-then-new-line">
-<span id="index-17"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
 <p>It&#8217;s common to print new line after printing an expression, We can use the ? operator to do that!</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
@@ -359,6 +377,7 @@ Test4 - Pass
 <li><a class="reference internal" href="#new-tool-folder2qrc">New Tool: Folder2qrc</a></li>
 <li><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for building Ring</a></li>
 <li><a class="reference internal" href="#ringconsolecolors-extension">RingConsoleColors Extension</a></li>
+<li><a class="reference internal" href="#ringmurmurhash-extension">RingMurmurHash Extension</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>

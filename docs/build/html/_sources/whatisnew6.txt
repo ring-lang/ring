@@ -21,6 +21,7 @@ Ring 1.6 comes with many new features!
 * New Tool : Folder2qrc
 * Better Scripts for building Ring
 * RingConsoleColors Extension
+* RingMurmurHash Extension
 * Better Ring Notepad
 * Better RingQt
 * Better StdLib
@@ -38,7 +39,9 @@ Ring 1.6 comes with many new features!
 Employee Application
 ====================
 
-The Employee application by Ahmed Hassouna is added to ring/applications
+The Employee application is added to ring/applications
+
+Developer: Ahmed Hassouna 
 
 .. image:: empapp.png
 	:alt: Employee Sample
@@ -140,10 +143,33 @@ RingConsoleColors Extension
 
 Using the RingConsoleColors extension we can easily change the colors used in our console applications
 
-
 .. image:: consolecolors.png
 	:alt: RingConsoleColors
 
+For more information check the RingConsoleColors chapter in the documentation.
+
+.. index:: 
+	pair: What is new in Ring 1.6?; RingMurmurHash Extension
+
+RingMurmurHash Extension
+========================
+
+Ring 1.6 comes with the RingMurmurHash extension!
+
+Developer: Hassan Ahmed
+
+Example:
+
+.. code-block:: ring
+
+	load "murmurhashlib.ring"
+
+	key = "Ring Language"
+
+	see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
+	see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
+
+For more information check the RingMurmurHash chapter in the documentation.
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better Ring Notepad
