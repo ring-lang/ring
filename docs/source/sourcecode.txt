@@ -73,6 +73,13 @@ Build RingInternet
 	cd ../extensions/ringinternet
 	buildvc.bat
 
+Build RingMurmurHash
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmurmurhash
+	buildvc.bat
+
 Generate RingConsoleColors Source Code and Build
 
 .. code-block:: ring
@@ -228,6 +235,13 @@ Build RingInternet
 	cd ../extensions/ringinternet
 	./buildgcc.sh
 
+Build RingMurmurHash
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmurmurhash
+	./buildgcc.sh
+
 Generate RingConsoleColors Source Code and Build
 
 .. code-block:: ring
@@ -367,6 +381,13 @@ Build RingInternet
 .. code-block:: ring
 	
 	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+Build RingMurmurHash
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmurmurhash
 	./buildgcc.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -511,6 +532,13 @@ Build RingInternet
 .. code-block:: ring
 	
 	cd ../extensions/ringinternet
+	./buildclang.sh
+
+Build RingMurmurHash
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmurmurhash
 	./buildclang.sh
 
 Generate RingConsoleColors Source Code and Build
