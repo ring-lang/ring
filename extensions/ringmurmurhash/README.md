@@ -36,6 +36,8 @@ true will return a **Hex** value, while false will return a integer value.
 
 ##### Example :-
 ```
+load "murmurhashlib.ring"
+
 key = "Ring Language"
 
 see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
