@@ -102,6 +102,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_newvar",ring_vmlib_state_newvar);
 	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
 	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
+	ring_vm_funcregister("ring_state_setvar",ring_vmlib_state_setvar);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1993,4 +1994,36 @@ void ring_vmlib_state_main ( void *pPointer )
 	ring_execute(cStr,0,1,0,0,0,0,0,0,0,argc,argv);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[0]);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[1]);
+}
+
+void ring_vmlib_state_setvar ( void *pPointer )
+{
+	List *pList, *pList2, *pList3  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	pList = ring_state_findvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	/* Check Variable before usage */
+	if ( pList==NULL ) {
+		RING_API_ERROR("Variable doesn't exist!");
+		return ;
+	}
+	if ( RING_API_ISSTRING(3) ) {
+		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+		ring_list_setstring2_gc(pVM->pRingState,pList, RING_VAR_VALUE , RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
+	}
+	else if ( RING_API_ISNUMBER(3) ) {
+		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_NUMBER);
+		ring_list_setdouble_gc(pVM->pRingState,pList, RING_VAR_VALUE ,RING_API_GETNUMBER(3));
+	}
+	else if ( RING_API_ISLIST(3) ) {
+		pList2 = RING_API_GETLIST(3) ;
+		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_LIST);
+		ring_list_setlist_gc(pVM->pRingState,pList, RING_VAR_VALUE);
+		pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
+		ring_list_copy(pList3,pList2);
+	}
 }
