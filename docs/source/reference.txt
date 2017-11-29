@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 197
+Functions Count : 198
 
 .. code-block:: ring
 
@@ -122,7 +122,7 @@ Functions Count : 197
 	nullpointer()  space()  ptrcmp()  ring_state_init() 
 	ring_state_runcode()  ring_state_delete()
 	ring_state_runfile()  ring_state_findvar()  ring_state_newvar() 
-	ring_state_runobjectfile()
+	ring_state_runobjectfile() ring_state_setvar()
 
 .. index:: 
 	pair: Reference; Compiler Errors
