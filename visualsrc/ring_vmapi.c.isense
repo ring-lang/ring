@@ -384,6 +384,11 @@ Type: int
 argc
 Type: char *
 argv[2]
+ring_vmlib_state_setvar
+Type: List *
+pList, *pList2, *pList3
+Type: VM *
+pVM
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
