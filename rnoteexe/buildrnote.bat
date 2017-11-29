@@ -1,6 +1,6 @@
 echo off
 rem call vc.bat
-call ../../src/locatevc.bat
+call ../src/locatevc.bat
 
 cls
 
