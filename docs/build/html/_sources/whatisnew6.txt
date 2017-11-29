@@ -222,17 +222,20 @@ Better RingQt
 
 RingQt comes with the next updates
 
-(1) QDockWidget Events
+(1) QAllEvents - getkeytext() Method
 
-(2) QRegion Class
+(2) QSQLQuery - exec_2() Method
 
-(3) QAllEvents - getkeytext() Method
+(3) QDockWidget Events
 
-(4) QCoreApplication class
+(4) AppFile() Function
 
-(5) AppFile() Function
+(5) IsMobile() Function
 
-(6) IsMobile() Function
+(6) QRegion Class
+
+(7) QCoreApplication class
+
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better StdLib
@@ -288,6 +291,8 @@ RingVM comes with the next updates
 (5) Private Attributes - Support re-usage in the class region (After the keyword private)
 
 (6) Ring API : ring_scanner_runobjstring()
+
+(7) ring_state_setvar() function
 
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingREPL
