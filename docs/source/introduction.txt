@@ -122,6 +122,8 @@ Ring 1.4 is released on June 29, 2017
 
 Ring 1.5 is released on August 21, 2017
 
+Ring 1.6 is released on November 30, 2017
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -222,7 +224,7 @@ The Ring language comes with the next features
 * Support FreeGLUT and OpenGL for 3D Graphics
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
-
+* Comes with Ring2EXE to distribute applications
 
 License
 =======
