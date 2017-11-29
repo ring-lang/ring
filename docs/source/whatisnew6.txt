@@ -289,6 +289,8 @@ RingVM comes with the next updates
 
 (6) Ring API : ring_scanner_runobjstring()
 
+(7) ring_state_setvar() function
+
 .. index:: 
 	pair: What is new in Ring 1.6?; Better RingREPL
 
