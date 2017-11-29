@@ -61174,6 +61174,23 @@ RING_FUNC(ring_QSqlQuery_exec)
 }
 
 
+RING_FUNC(ring_QSqlQuery_exec_2)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->exec());
+}
+
+
 RING_FUNC(ring_QSqlQuery_execBatch)
 {
 	QSqlQuery *pObject ;
@@ -102655,6 +102672,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsqlquery_clear",ring_QSqlQuery_clear);
 	ring_vm_funcregister("qsqlquery_driver",ring_QSqlQuery_driver);
 	ring_vm_funcregister("qsqlquery_exec",ring_QSqlQuery_exec);
+	ring_vm_funcregister("qsqlquery_exec_2",ring_QSqlQuery_exec_2);
 	ring_vm_funcregister("qsqlquery_execbatch",ring_QSqlQuery_execBatch);
 	ring_vm_funcregister("qsqlquery_executedquery",ring_QSqlQuery_executedQuery);
 	ring_vm_funcregister("qsqlquery_finish",ring_QSqlQuery_finish);

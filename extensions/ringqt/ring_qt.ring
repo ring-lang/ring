@@ -10805,6 +10805,9 @@ Class QSqlQuery
 	Func exec P1
 		return QSqlQuery_exec(pObject,P1)
 
+	Func exec_2 
+		return QSqlQuery_exec_2(pObject)
+
 	Func execBatch P1
 		return QSqlQuery_execBatch(pObject,P1)
 
