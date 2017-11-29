@@ -4388,6 +4388,7 @@ Parameters : void
 * void clear(void)
 * QSqlDriver * driver(void)
 * bool exec(QString)
+* bool exec_2(void)
 * bool execBatch(QSqlQuery::BatchExecutionMode mode)
 * QString executedQuery(void)
 * void finish(void)
