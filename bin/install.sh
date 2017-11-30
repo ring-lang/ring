@@ -144,7 +144,7 @@ fi
 
 if [ -f lib/libring_libzip.dylib ];
 then
-cp lib/libring_libzip.dylib /usr/lib
+cp lib/libring_libzip.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_libzip.so ];
@@ -157,7 +157,7 @@ fi
 
 if [ -f lib/libring_freeglut.dylib ];
 then
-cp lib/libring_freeglut.dylib /usr/lib
+cp lib/libring_freeglut.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_freeglut.so ];
@@ -170,7 +170,7 @@ fi
 
 if [ -f lib/libring_opengl11.dylib ];
 then
-cp lib/libring_opengl11.dylib /usr/lib
+cp lib/libring_opengl11.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl11.so ];
@@ -193,7 +193,7 @@ fi
 
 if [ -f lib/libring_opengl13.dylib ];
 then
-cp lib/libring_opengl13.dylib /usr/lib
+cp lib/libring_opengl13.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl13.so ];
@@ -204,7 +204,7 @@ fi
 
 if [ -f lib/libring_opengl14.dylib ];
 then
-cp lib/libring_opengl14.dylib /usr/lib
+cp lib/libring_opengl14.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl14.so ];
@@ -215,7 +215,7 @@ fi
 
 if [ -f lib/libring_opengl15.dylib ];
 then
-cp lib/libring_opengl15.dylib /usr/lib
+cp lib/libring_opengl15.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl15.so ];
@@ -226,7 +226,7 @@ fi
 
 if [ -f lib/libring_opengl20.dylib ];
 then
-cp lib/libring_opengl20.dylib /usr/lib
+cp lib/libring_opengl20.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl20.so ];
@@ -237,7 +237,7 @@ fi
 
 if [ -f lib/libring_opengl21.dylib ];
 then
-cp lib/libring_opengl21.dylib /usr/lib
+cp lib/libring_opengl21.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl21.so ];
@@ -248,7 +248,7 @@ fi
 
 if [ -f lib/libring_opengl30.dylib ];
 then
-cp lib/libring_opengl30.dylib /usr/lib
+cp lib/libring_opengl30.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl30.so ];
@@ -259,7 +259,7 @@ fi
 
 if [ -f lib/libring_opengl31.dylib ];
 then
-cp lib/libring_opengl31.dylib /usr/lib
+cp lib/libring_opengl31.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl31.so ];
@@ -270,7 +270,7 @@ fi
 
 if [ -f lib/libring_opengl32.dylib ];
 then
-cp lib/libring_opengl32.dylib /usr/lib
+cp lib/libring_opengl32.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl32.so ];
@@ -281,7 +281,7 @@ fi
 
 if [ -f lib/libring_opengl33.dylib ];
 then
-cp lib/libring_opengl33.dylib /usr/lib
+cp lib/libring_opengl33.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl33.so ];
@@ -292,7 +292,7 @@ fi
 
 if [ -f lib/libring_opengl40.dylib ];
 then
-cp lib/libring_opengl40.dylib /usr/lib
+cp lib/libring_opengl40.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl40.so ];
@@ -303,7 +303,7 @@ fi
 
 if [ -f lib/libring_opengl41.dylib ];
 then
-cp lib/libring_opengl41.dylib /usr/lib
+cp lib/libring_opengl41.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl41.so ];
@@ -314,7 +314,7 @@ fi
 
 if [ -f lib/libring_opengl42.dylib ];
 then
-cp lib/libring_opengl42.dylib /usr/lib
+cp lib/libring_opengl42.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl42.so ];
@@ -325,7 +325,7 @@ fi
 
 if [ -f lib/libring_opengl43.dylib ];
 then
-cp lib/libring_opengl43.dylib /usr/lib
+cp lib/libring_opengl43.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl43.so ];
@@ -336,7 +336,7 @@ fi
 
 if [ -f lib/libring_opengl44.dylib ];
 then
-cp lib/libring_opengl44.dylib /usr/lib
+cp lib/libring_opengl44.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl44.so ];
@@ -347,7 +347,7 @@ fi
 
 if [ -f lib/libring_opengl45.dylib ];
 then
-cp lib/libring_opengl45.dylib /usr/lib
+cp lib/libring_opengl45.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl45.so ];
@@ -358,7 +358,7 @@ fi
 
 if [ -f lib/libring_opengl46.dylib ];
 then
-cp lib/libring_opengl46.dylib /usr/lib
+cp lib/libring_opengl46.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring_opengl46.so ];
