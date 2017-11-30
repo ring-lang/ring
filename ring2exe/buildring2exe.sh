@@ -2,6 +2,9 @@ ring ring2exe.ring ring2exe.ring
 ring ring2exe.ring folder2qrc.ring 
 ./cleartemp.sh
 
+cp ring2exe $PWD/../bin/ring2exe 
+cp folder2qrc $PWD/../bin/folder2qrc 
+
 if [ -f ../lib/libring.dylib ];
 then
 echo "`pwd`/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring2exe
