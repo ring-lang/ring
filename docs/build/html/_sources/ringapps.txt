@@ -185,6 +185,9 @@ I appreciate your web library."
 " I found the language yesterday, and liked the Qt bindings, as they give a declarative way to create a QtWidgets GUI."
 	, Cochise Cesar
 
+"Ring does look intriguing, and I'll be reading more of the documentation soon"
+	, Jamie Cooper
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
