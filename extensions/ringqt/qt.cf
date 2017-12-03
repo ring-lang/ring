@@ -259,6 +259,8 @@ extern "C" {
 #include "gtextbrowser.h"
 #include "gdockwidget.h"
 #include <QRegion>
+#include <QStackedWidget>
+#include "gstackedwidget.h"
 
 extern "C" {
 
@@ -7874,3 +7876,28 @@ QRegion translated@2(QPoint p)
 QRegion united(QRegion r)
 QRegion united@2(QRect rect)
 QRegion xored(QRegion r)
+
+<class>
+name: QStackedWidget
+para: QWidget *
+parent: QFrame
+codename: GStackedWidget
+passvmpointer
+</class>
+
+int addWidget(QWidget *widget)
+int count(void)
+int currentIndex(void)
+QWidget * currentWidget(void)
+int indexOf(QWidget *widget)
+int insertWidget(int index, QWidget *widget)
+void removeWidget(QWidget *widget)
+QWidget * widget(int index)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+void setwidgetRemovedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *getwidgetRemovedEvent(void)
