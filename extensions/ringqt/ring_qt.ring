@@ -17168,6 +17168,63 @@ Class QRegion
 		pTempObj.pObject = QRegion_xored(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+Class QStackedWidget from QFrame
+
+	pObject
+
+	Func init P1
+		pObject = QStackedWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QStackedWidget_delete(pObject)
+
+	Func addWidget P1
+		return QStackedWidget_addWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func count 
+		return QStackedWidget_count(pObject)
+
+	Func currentIndex 
+		return QStackedWidget_currentIndex(pObject)
+
+	Func currentWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QStackedWidget_currentWidget(pObject)
+		return pTempObj
+
+	Func indexOf P1
+		return QStackedWidget_indexOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertWidget P1,P2
+		return QStackedWidget_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func removeWidget P1
+		return QStackedWidget_removeWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func widget P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QStackedWidget_widget(pObject,P1)
+		return pTempObj
+
+	Func setCurrentIndex P1
+		return QStackedWidget_setCurrentIndex(pObject,P1)
+
+	Func setCurrentWidget P1
+		return QStackedWidget_setCurrentWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setcurrentChangedEvent P1
+		return QStackedWidget_setcurrentChangedEvent(pObject,P1)
+
+	Func setwidgetRemovedEvent P1
+		return QStackedWidget_setwidgetRemovedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QStackedWidget_getcurrentChangedEvent(pObject)
+
+	Func getwidgetRemovedEvent 
+		return QStackedWidget_getwidgetRemovedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

@@ -242,6 +242,8 @@ extern "C" {
 #include "gtextbrowser.h"
 #include "gdockwidget.h"
 #include <QRegion>
+#include <QStackedWidget>
+#include "gstackedwidget.h"
 
 extern "C" {
 
@@ -95035,6 +95037,284 @@ RING_FUNC(ring_QRegion_xored)
 	}
 }
 
+
+RING_FUNC(ring_QStackedWidget_addWidget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget")));
+}
+
+
+RING_FUNC(ring_QStackedWidget_count)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QStackedWidget_currentIndex)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	RING_API_RETNUMBER(pObject->currentIndex());
+}
+
+
+RING_FUNC(ring_QStackedWidget_currentWidget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	RING_API_RETCPOINTER(pObject->currentWidget(),"QWidget");
+}
+
+
+RING_FUNC(ring_QStackedWidget_indexOf)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->indexOf((QWidget *) RING_API_GETCPOINTER(2,"QWidget")));
+}
+
+
+RING_FUNC(ring_QStackedWidget_insertWidget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->insertWidget( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget")));
+}
+
+
+RING_FUNC(ring_QStackedWidget_removeWidget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QStackedWidget_widget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->widget( (int ) RING_API_GETNUMBER(2)),"QWidget");
+}
+
+
+RING_FUNC(ring_QStackedWidget_setCurrentIndex)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCurrentIndex( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QStackedWidget_setCurrentWidget)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCurrentWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QStackedWidget_setcurrentChangedEvent)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QStackedWidget_setwidgetRemovedEvent)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setwidgetRemovedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QStackedWidget_getcurrentChangedEvent)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	RING_API_RETSTRING(pObject->getcurrentChangedEvent());
+}
+
+
+RING_FUNC(ring_QStackedWidget_getwidgetRemovedEvent)
+{
+	GStackedWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"QStackedWidget");
+	RING_API_RETSTRING(pObject->getwidgetRemovedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -97218,6 +97498,21 @@ RING_FUNC(ring_QRegion_new)
 	}
 	QRegion *pObject = new QRegion();
 	RING_API_RETCPOINTER(pObject,"QRegion");
+}
+
+RING_FUNC(ring_QStackedWidget_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GStackedWidget *pObject = new GStackedWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QStackedWidget");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -99661,6 +99956,21 @@ RING_FUNC(ring_QRegion_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QRegion *) RING_API_GETCPOINTER(1,"QRegion");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QStackedWidget_delete)
+{
+	GStackedWidget *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"GStackedWidget");
 		delete pObject ;
 	}
 }
@@ -104336,6 +104646,20 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qregion_united",ring_QRegion_united);
 	ring_vm_funcregister("qregion_united_2",ring_QRegion_united_2);
 	ring_vm_funcregister("qregion_xored",ring_QRegion_xored);
+	ring_vm_funcregister("qstackedwidget_addwidget",ring_QStackedWidget_addWidget);
+	ring_vm_funcregister("qstackedwidget_count",ring_QStackedWidget_count);
+	ring_vm_funcregister("qstackedwidget_currentindex",ring_QStackedWidget_currentIndex);
+	ring_vm_funcregister("qstackedwidget_currentwidget",ring_QStackedWidget_currentWidget);
+	ring_vm_funcregister("qstackedwidget_indexof",ring_QStackedWidget_indexOf);
+	ring_vm_funcregister("qstackedwidget_insertwidget",ring_QStackedWidget_insertWidget);
+	ring_vm_funcregister("qstackedwidget_removewidget",ring_QStackedWidget_removeWidget);
+	ring_vm_funcregister("qstackedwidget_widget",ring_QStackedWidget_widget);
+	ring_vm_funcregister("qstackedwidget_setcurrentindex",ring_QStackedWidget_setCurrentIndex);
+	ring_vm_funcregister("qstackedwidget_setcurrentwidget",ring_QStackedWidget_setCurrentWidget);
+	ring_vm_funcregister("qstackedwidget_setcurrentchangedevent",ring_QStackedWidget_setcurrentChangedEvent);
+	ring_vm_funcregister("qstackedwidget_setwidgetremovedevent",ring_QStackedWidget_setwidgetRemovedEvent);
+	ring_vm_funcregister("qstackedwidget_getcurrentchangedevent",ring_QStackedWidget_getcurrentChangedEvent);
+	ring_vm_funcregister("qstackedwidget_getwidgetremovedevent",ring_QStackedWidget_getwidgetRemovedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -104499,6 +104823,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_new",ring_QGuiApplication_new);
 	ring_vm_funcregister("qtextbrowser_new",ring_QTextBrowser_new);
 	ring_vm_funcregister("qregion_new",ring_QRegion_new);
+	ring_vm_funcregister("qstackedwidget_new",ring_QStackedWidget_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -104662,4 +104987,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_delete",ring_QGuiApplication_delete);
 	ring_vm_funcregister("qtextbrowser_delete",ring_QTextBrowser_delete);
 	ring_vm_funcregister("qregion_delete",ring_QRegion_delete);
+	ring_vm_funcregister("qstackedwidget_delete",ring_QStackedWidget_delete);
 }
