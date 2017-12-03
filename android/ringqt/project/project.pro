@@ -59,6 +59,7 @@ SOURCES +=   \
     gguiapplication.cpp \
     gtextbrowser.cpp \
     gdockwidget.cpp \
+	gstackedwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -106,6 +107,7 @@ HEADERS  += \
     gguiapplication.h \
     gtextbrowser.h \
     gwindow.h \
+	gstackedwidget.h \
     gdockwidget.h 
 
 CONFIG += mobility c++11
