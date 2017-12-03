@@ -7201,3 +7201,33 @@ Parameters : void
 * QRegion united(QRegion r)
 * QRegion united_2(QRect rect)
 * QRegion xored(QRegion r)
+
+.. index::
+	pair: RingQt Classes Reference; QStackedWidget Class
+
+QStackedWidget Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QStackedWidget.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QFrame
+
+* int addWidget(QWidget *widget)
+* int count(void)
+* int currentIndex(void)
+* QWidget * currentWidget(void)
+* int indexOf(QWidget *widget)
+* int insertWidget(int index, QWidget *widget)
+* void removeWidget(QWidget *widget)
+* QWidget * widget(int index)
+* void setCurrentIndex(int index)
+* void setCurrentWidget(QWidget *widget)
+* void setcurrentChangedEvent(const char *)
+* void setwidgetRemovedEvent(const char *)
+* const char *getcurrentChangedEvent(void)
+* const char *getwidgetRemovedEvent(void)
