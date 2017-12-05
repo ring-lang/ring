@@ -26,3 +26,4 @@ Better RingQt
 RingQt comes with the next updates
 
 (1) QStackedWidget Class
+(2) QCalendarWidget Class
