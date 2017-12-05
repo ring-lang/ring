@@ -60,6 +60,7 @@ SOURCES +=   \
     gtextbrowser.cpp \
     gdockwidget.cpp \
 	gstackedwidget.cpp \
+	gcalendarwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -108,6 +109,7 @@ HEADERS  += \
     gtextbrowser.h \
     gwindow.h \
 	gstackedwidget.h \
+	gcalendarwidget.h \
     gdockwidget.h 
 
 CONFIG += mobility c++11

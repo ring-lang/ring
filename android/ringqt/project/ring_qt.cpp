@@ -236,6 +236,8 @@ extern "C" {
 #include <QRegion>
 #include <QStackedWidget>
 #include "gstackedwidget.h"
+#include <QCalendarWidget>
+#include "gcalendarwidget.h"
 
 extern "C" {
 
@@ -93391,6 +93393,923 @@ RING_FUNC(ring_QStackedWidget_getwidgetRemovedEvent)
 	RING_API_RETSTRING(pObject->getwidgetRemovedEvent());
 }
 
+
+RING_FUNC(ring_QCalendarWidget_dateEditAcceptDelay)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->dateEditAcceptDelay());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_dateTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QMap<QDate, QTextCharFormat> *pValue ; 
+		pValue = (QMap<QDate, QTextCharFormat> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMap<QDate, QTextCharFormat>)) ;
+		*pValue = pObject->dateTextFormat();
+		RING_API_RETCPOINTER(pValue,"QMap<QDate, QTextCharFormat>");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_dateTextFormat_2)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QTextCharFormat *pValue ; 
+		pValue = new QTextCharFormat() ;
+		*pValue = pObject->dateTextFormat(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_firstDayOfWeek)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		Qt::DayOfWeek *pValue ; 
+		pValue = (Qt::DayOfWeek *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::DayOfWeek)) ;
+		*pValue = pObject->firstDayOfWeek();
+		RING_API_RETCPOINTER(pValue,"Qt::DayOfWeek");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_headerTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QTextCharFormat *pValue ; 
+		pValue = new QTextCharFormat() ;
+		*pValue = pObject->headerTextFormat();
+		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_horizontalHeaderFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->horizontalHeaderFormat());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_isDateEditEnabled)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->isDateEditEnabled());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_isGridVisible)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->isGridVisible());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_isNavigationBarVisible)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->isNavigationBarVisible());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_maximumDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->maximumDate();
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_minimumDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->minimumDate();
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_monthShown)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->monthShown());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_selectedDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->selectedDate();
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_selectionMode)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->selectionMode());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setDateEditAcceptDelay)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDateEditAcceptDelay( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setDateEditEnabled)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDateEditEnabled( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setDateTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setDateTextFormat(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"),* (QTextCharFormat  *) RING_API_GETCPOINTER(3,"QTextCharFormat"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTextCharFormat"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setFirstDayOfWeek)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setFirstDayOfWeek(* (Qt::DayOfWeek  *) RING_API_GETCPOINTER(2,"Qt::DayOfWeek"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::DayOfWeek"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setHeaderTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setHeaderTextFormat(* (QTextCharFormat  *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setHorizontalHeaderFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHorizontalHeaderFormat( (QCalendarWidget::HorizontalHeaderFormat )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setMaximumDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setMaximumDate(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setMinimumDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setMinimumDate(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setSelectionMode)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSelectionMode( (QCalendarWidget::SelectionMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setVerticalHeaderFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalHeaderFormat( (QCalendarWidget::VerticalHeaderFormat )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setWeekdayTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setWeekdayTextFormat(* (Qt::DayOfWeek  *) RING_API_GETCPOINTER(2,"Qt::DayOfWeek"),* (QTextCharFormat  *) RING_API_GETCPOINTER(3,"QTextCharFormat"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::DayOfWeek"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTextCharFormat"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_verticalHeaderFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->verticalHeaderFormat());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_weekdayTextFormat)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	{
+		QTextCharFormat *pValue ; 
+		pValue = new QTextCharFormat() ;
+		*pValue = pObject->weekdayTextFormat(* (Qt::DayOfWeek  *) RING_API_GETCPOINTER(2,"Qt::DayOfWeek"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::DayOfWeek"));
+		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
+	}
+}
+
+
+RING_FUNC(ring_QCalendarWidget_yearShown)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETNUMBER(pObject->yearShown());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setCurrentPage)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCurrentPage( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setDateRange)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setDateRange(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"),* (QDate  *) RING_API_GETCPOINTER(3,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QDate"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setGridVisible)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setGridVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setNavigationBarVisible)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNavigationBarVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setSelectedDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->setSelectedDate(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showNextMonth)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showNextMonth();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showNextYear)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showNextYear();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showPreviousMonth)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showPreviousMonth();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showPreviousYear)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showPreviousYear();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showSelectedDate)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showSelectedDate();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_showToday)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	pObject->showToday();
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setactivatedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setactivatedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setclickedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setcurrentPageChangedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentPageChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_setselectionChangedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setselectionChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCalendarWidget_getactivatedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETSTRING(pObject->getactivatedEvent());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_getclickedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_getcurrentPageChangedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETSTRING(pObject->getcurrentPageChangedEvent());
+}
+
+
+RING_FUNC(ring_QCalendarWidget_getselectionChangedEvent)
+{
+	GCalendarWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"QCalendarWidget");
+	RING_API_RETSTRING(pObject->getselectionChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -95533,6 +96452,21 @@ RING_FUNC(ring_QStackedWidget_new)
 	}
 	GStackedWidget *pObject = new GStackedWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QStackedWidget");
+}
+
+RING_FUNC(ring_QCalendarWidget_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GCalendarWidget *pObject = new GCalendarWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QCalendarWidget");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -97931,6 +98865,21 @@ RING_FUNC(ring_QStackedWidget_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GStackedWidget *) RING_API_GETCPOINTER(1,"GStackedWidget");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCalendarWidget_delete)
+{
+	GCalendarWidget *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GCalendarWidget *) RING_API_GETCPOINTER(1,"GCalendarWidget");
 		delete pObject ;
 	}
 }
@@ -102520,6 +103469,53 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstackedwidget_setwidgetremovedevent",ring_QStackedWidget_setwidgetRemovedEvent);
 	ring_vm_funcregister("qstackedwidget_getcurrentchangedevent",ring_QStackedWidget_getcurrentChangedEvent);
 	ring_vm_funcregister("qstackedwidget_getwidgetremovedevent",ring_QStackedWidget_getwidgetRemovedEvent);
+	ring_vm_funcregister("qcalendarwidget_dateeditacceptdelay",ring_QCalendarWidget_dateEditAcceptDelay);
+	ring_vm_funcregister("qcalendarwidget_datetextformat",ring_QCalendarWidget_dateTextFormat);
+	ring_vm_funcregister("qcalendarwidget_datetextformat_2",ring_QCalendarWidget_dateTextFormat_2);
+	ring_vm_funcregister("qcalendarwidget_firstdayofweek",ring_QCalendarWidget_firstDayOfWeek);
+	ring_vm_funcregister("qcalendarwidget_headertextformat",ring_QCalendarWidget_headerTextFormat);
+	ring_vm_funcregister("qcalendarwidget_horizontalheaderformat",ring_QCalendarWidget_horizontalHeaderFormat);
+	ring_vm_funcregister("qcalendarwidget_isdateeditenabled",ring_QCalendarWidget_isDateEditEnabled);
+	ring_vm_funcregister("qcalendarwidget_isgridvisible",ring_QCalendarWidget_isGridVisible);
+	ring_vm_funcregister("qcalendarwidget_isnavigationbarvisible",ring_QCalendarWidget_isNavigationBarVisible);
+	ring_vm_funcregister("qcalendarwidget_maximumdate",ring_QCalendarWidget_maximumDate);
+	ring_vm_funcregister("qcalendarwidget_minimumdate",ring_QCalendarWidget_minimumDate);
+	ring_vm_funcregister("qcalendarwidget_monthshown",ring_QCalendarWidget_monthShown);
+	ring_vm_funcregister("qcalendarwidget_selecteddate",ring_QCalendarWidget_selectedDate);
+	ring_vm_funcregister("qcalendarwidget_selectionmode",ring_QCalendarWidget_selectionMode);
+	ring_vm_funcregister("qcalendarwidget_setdateeditacceptdelay",ring_QCalendarWidget_setDateEditAcceptDelay);
+	ring_vm_funcregister("qcalendarwidget_setdateeditenabled",ring_QCalendarWidget_setDateEditEnabled);
+	ring_vm_funcregister("qcalendarwidget_setdatetextformat",ring_QCalendarWidget_setDateTextFormat);
+	ring_vm_funcregister("qcalendarwidget_setfirstdayofweek",ring_QCalendarWidget_setFirstDayOfWeek);
+	ring_vm_funcregister("qcalendarwidget_setheadertextformat",ring_QCalendarWidget_setHeaderTextFormat);
+	ring_vm_funcregister("qcalendarwidget_sethorizontalheaderformat",ring_QCalendarWidget_setHorizontalHeaderFormat);
+	ring_vm_funcregister("qcalendarwidget_setmaximumdate",ring_QCalendarWidget_setMaximumDate);
+	ring_vm_funcregister("qcalendarwidget_setminimumdate",ring_QCalendarWidget_setMinimumDate);
+	ring_vm_funcregister("qcalendarwidget_setselectionmode",ring_QCalendarWidget_setSelectionMode);
+	ring_vm_funcregister("qcalendarwidget_setverticalheaderformat",ring_QCalendarWidget_setVerticalHeaderFormat);
+	ring_vm_funcregister("qcalendarwidget_setweekdaytextformat",ring_QCalendarWidget_setWeekdayTextFormat);
+	ring_vm_funcregister("qcalendarwidget_verticalheaderformat",ring_QCalendarWidget_verticalHeaderFormat);
+	ring_vm_funcregister("qcalendarwidget_weekdaytextformat",ring_QCalendarWidget_weekdayTextFormat);
+	ring_vm_funcregister("qcalendarwidget_yearshown",ring_QCalendarWidget_yearShown);
+	ring_vm_funcregister("qcalendarwidget_setcurrentpage",ring_QCalendarWidget_setCurrentPage);
+	ring_vm_funcregister("qcalendarwidget_setdaterange",ring_QCalendarWidget_setDateRange);
+	ring_vm_funcregister("qcalendarwidget_setgridvisible",ring_QCalendarWidget_setGridVisible);
+	ring_vm_funcregister("qcalendarwidget_setnavigationbarvisible",ring_QCalendarWidget_setNavigationBarVisible);
+	ring_vm_funcregister("qcalendarwidget_setselecteddate",ring_QCalendarWidget_setSelectedDate);
+	ring_vm_funcregister("qcalendarwidget_shownextmonth",ring_QCalendarWidget_showNextMonth);
+	ring_vm_funcregister("qcalendarwidget_shownextyear",ring_QCalendarWidget_showNextYear);
+	ring_vm_funcregister("qcalendarwidget_showpreviousmonth",ring_QCalendarWidget_showPreviousMonth);
+	ring_vm_funcregister("qcalendarwidget_showpreviousyear",ring_QCalendarWidget_showPreviousYear);
+	ring_vm_funcregister("qcalendarwidget_showselecteddate",ring_QCalendarWidget_showSelectedDate);
+	ring_vm_funcregister("qcalendarwidget_showtoday",ring_QCalendarWidget_showToday);
+	ring_vm_funcregister("qcalendarwidget_setactivatedevent",ring_QCalendarWidget_setactivatedEvent);
+	ring_vm_funcregister("qcalendarwidget_setclickedevent",ring_QCalendarWidget_setclickedEvent);
+	ring_vm_funcregister("qcalendarwidget_setcurrentpagechangedevent",ring_QCalendarWidget_setcurrentPageChangedEvent);
+	ring_vm_funcregister("qcalendarwidget_setselectionchangedevent",ring_QCalendarWidget_setselectionChangedEvent);
+	ring_vm_funcregister("qcalendarwidget_getactivatedevent",ring_QCalendarWidget_getactivatedEvent);
+	ring_vm_funcregister("qcalendarwidget_getclickedevent",ring_QCalendarWidget_getclickedEvent);
+	ring_vm_funcregister("qcalendarwidget_getcurrentpagechangedevent",ring_QCalendarWidget_getcurrentPageChangedEvent);
+	ring_vm_funcregister("qcalendarwidget_getselectionchangedevent",ring_QCalendarWidget_getselectionChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -102680,6 +103676,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextbrowser_new",ring_QTextBrowser_new);
 	ring_vm_funcregister("qregion_new",ring_QRegion_new);
 	ring_vm_funcregister("qstackedwidget_new",ring_QStackedWidget_new);
+	ring_vm_funcregister("qcalendarwidget_new",ring_QCalendarWidget_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -102840,4 +103837,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextbrowser_delete",ring_QTextBrowser_delete);
 	ring_vm_funcregister("qregion_delete",ring_QRegion_delete);
 	ring_vm_funcregister("qstackedwidget_delete",ring_QStackedWidget_delete);
+	ring_vm_funcregister("qcalendarwidget_delete",ring_QCalendarWidget_delete);
 }
