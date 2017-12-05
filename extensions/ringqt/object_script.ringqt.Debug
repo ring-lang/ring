@@ -44,6 +44,8 @@ INPUT(
 ./debug\gguiapplication.o
 ./debug\gtextbrowser.o
 ./debug\gdockwidget.o
+./debug\gstackedwidget.o
+./debug\gcalendarwidget.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -89,5 +91,7 @@ INPUT(
 ./debug\moc_gguiapplication.o
 ./debug\moc_gtextbrowser.o
 ./debug\moc_gwindow.o
+./debug\moc_gstackedwidget.o
+./debug\moc_gcalendarwidget.o
 ./debug\moc_gdockwidget.o
 );

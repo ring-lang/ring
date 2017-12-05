@@ -4816,7 +4816,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return QDateTimeEdit_calendarPopup(pObject)
 
 	Func calendarWidget 
-		return QDateTimeEdit_calendarWidget(pObject)
+		pTempObj = new QCalendarWidget
+		pTempObj.pObject = QDateTimeEdit_calendarWidget(pObject)
+		return pTempObj
 
 	Func clearMaximumDate 
 		return QDateTimeEdit_clearMaximumDate(pObject)
@@ -17224,6 +17226,170 @@ Class QStackedWidget from QFrame
 
 	Func getwidgetRemovedEvent 
 		return QStackedWidget_getwidgetRemovedEvent(pObject)
+
+Class QCalendarWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QCalendarWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCalendarWidget_delete(pObject)
+
+	Func dateEditAcceptDelay 
+		return QCalendarWidget_dateEditAcceptDelay(pObject)
+
+	Func dateTextFormat 
+		return QCalendarWidget_dateTextFormat(pObject)
+
+	Func dateTextFormat_2 P1
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QCalendarWidget_dateTextFormat_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func firstDayOfWeek 
+		return QCalendarWidget_firstDayOfWeek(pObject)
+
+	Func headerTextFormat 
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QCalendarWidget_headerTextFormat(pObject)
+		return pTempObj
+
+	Func horizontalHeaderFormat 
+		return QCalendarWidget_horizontalHeaderFormat(pObject)
+
+	Func isDateEditEnabled 
+		return QCalendarWidget_isDateEditEnabled(pObject)
+
+	Func isGridVisible 
+		return QCalendarWidget_isGridVisible(pObject)
+
+	Func isNavigationBarVisible 
+		return QCalendarWidget_isNavigationBarVisible(pObject)
+
+	Func maximumDate 
+		pTempObj = new QDate
+		pTempObj.pObject = QCalendarWidget_maximumDate(pObject)
+		return pTempObj
+
+	Func minimumDate 
+		pTempObj = new QDate
+		pTempObj.pObject = QCalendarWidget_minimumDate(pObject)
+		return pTempObj
+
+	Func monthShown 
+		return QCalendarWidget_monthShown(pObject)
+
+	Func selectedDate 
+		pTempObj = new QDate
+		pTempObj.pObject = QCalendarWidget_selectedDate(pObject)
+		return pTempObj
+
+	Func selectionMode 
+		return QCalendarWidget_selectionMode(pObject)
+
+	Func setDateEditAcceptDelay P1
+		return QCalendarWidget_setDateEditAcceptDelay(pObject,P1)
+
+	Func setDateEditEnabled P1
+		return QCalendarWidget_setDateEditEnabled(pObject,P1)
+
+	Func setDateTextFormat P1,P2
+		return QCalendarWidget_setDateTextFormat(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setFirstDayOfWeek P1
+		return QCalendarWidget_setFirstDayOfWeek(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHeaderTextFormat P1
+		return QCalendarWidget_setHeaderTextFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHorizontalHeaderFormat P1
+		return QCalendarWidget_setHorizontalHeaderFormat(pObject,P1)
+
+	Func setMaximumDate P1
+		return QCalendarWidget_setMaximumDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinimumDate P1
+		return QCalendarWidget_setMinimumDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSelectionMode P1
+		return QCalendarWidget_setSelectionMode(pObject,P1)
+
+	Func setVerticalHeaderFormat P1
+		return QCalendarWidget_setVerticalHeaderFormat(pObject,P1)
+
+	Func setWeekdayTextFormat P1,P2
+		return QCalendarWidget_setWeekdayTextFormat(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func verticalHeaderFormat 
+		return QCalendarWidget_verticalHeaderFormat(pObject)
+
+	Func weekdayTextFormat P1
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QCalendarWidget_weekdayTextFormat(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func yearShown 
+		return QCalendarWidget_yearShown(pObject)
+
+	Func setCurrentPage P1,P2
+		return QCalendarWidget_setCurrentPage(pObject,P1,P2)
+
+	Func setDateRange P1,P2
+		return QCalendarWidget_setDateRange(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setGridVisible P1
+		return QCalendarWidget_setGridVisible(pObject,P1)
+
+	Func setNavigationBarVisible P1
+		return QCalendarWidget_setNavigationBarVisible(pObject,P1)
+
+	Func setSelectedDate P1
+		return QCalendarWidget_setSelectedDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func showNextMonth 
+		return QCalendarWidget_showNextMonth(pObject)
+
+	Func showNextYear 
+		return QCalendarWidget_showNextYear(pObject)
+
+	Func showPreviousMonth 
+		return QCalendarWidget_showPreviousMonth(pObject)
+
+	Func showPreviousYear 
+		return QCalendarWidget_showPreviousYear(pObject)
+
+	Func showSelectedDate 
+		return QCalendarWidget_showSelectedDate(pObject)
+
+	Func showToday 
+		return QCalendarWidget_showToday(pObject)
+
+	Func setactivatedEvent P1
+		return QCalendarWidget_setactivatedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QCalendarWidget_setclickedEvent(pObject,P1)
+
+	Func setcurrentPageChangedEvent P1
+		return QCalendarWidget_setcurrentPageChangedEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QCalendarWidget_setselectionChangedEvent(pObject,P1)
+
+	Func getactivatedEvent 
+		return QCalendarWidget_getactivatedEvent(pObject)
+
+	Func getclickedEvent 
+		return QCalendarWidget_getclickedEvent(pObject)
+
+	Func getcurrentPageChangedEvent 
+		return QCalendarWidget_getcurrentPageChangedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QCalendarWidget_getselectionChangedEvent(pObject)
 
 Class QPixmap2 from QPixmap
 
