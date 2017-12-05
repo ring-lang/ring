@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>RingQt Classes Reference &mdash; Ring 1.6 documentation</title>
+    <title>RingQt Classes Reference &mdash; Ring 1.7 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.6',
+        VERSION:     '1.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
     <link rel="next" title="Frequently Asked Questions (FAQ)" href="faq.html" />
     <link rel="prev" title="RingOpenGL (OpenGL 4.6) Functions Reference" href="ringopengl46funcsdoc.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="ringopengl46funcsdoc.html" title="RingOpenGL (OpenGL 4.6) Functions Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -5974,6 +5974,83 @@
 <li>QRegion xored(QRegion r)</li>
 </ul>
 </div>
+<div class="section" id="qstackedwidget-class">
+<span id="index-182"></span><h2>QStackedWidget Class<a class="headerlink" href="#qstackedwidget-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QStackedWidget.html">http://doc.qt.io/qt-5/QStackedWidget.html</a></p>
+<p>Parameters : QWidget *</p>
+<p>Parent Class : QFrame</p>
+<ul class="simple">
+<li>int addWidget(QWidget <a href="#id2281"><span class="problematic" id="id2282">*</span></a>widget)</li>
+<li>int count(void)</li>
+<li>int currentIndex(void)</li>
+<li>QWidget * currentWidget(void)</li>
+<li>int indexOf(QWidget <a href="#id2283"><span class="problematic" id="id2284">*</span></a>widget)</li>
+<li>int insertWidget(int index, QWidget <a href="#id2285"><span class="problematic" id="id2286">*</span></a>widget)</li>
+<li>void removeWidget(QWidget <a href="#id2287"><span class="problematic" id="id2288">*</span></a>widget)</li>
+<li>QWidget * widget(int index)</li>
+<li>void setCurrentIndex(int index)</li>
+<li>void setCurrentWidget(QWidget <a href="#id2289"><span class="problematic" id="id2290">*</span></a>widget)</li>
+<li>void setcurrentChangedEvent(const char <a href="#id2291"><span class="problematic" id="id2292">*</span></a>)</li>
+<li>void setwidgetRemovedEvent(const char <a href="#id2293"><span class="problematic" id="id2294">*</span></a>)</li>
+<li>const char <a href="#id2295"><span class="problematic" id="id2296">*</span></a>getcurrentChangedEvent(void)</li>
+<li>const char <a href="#id2297"><span class="problematic" id="id2298">*</span></a>getwidgetRemovedEvent(void)</li>
+</ul>
+</div>
+<div class="section" id="qcalendarwidget-class">
+<span id="index-183"></span><h2>QCalendarWidget Class<a class="headerlink" href="#qcalendarwidget-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QCalendarWidget.html">http://doc.qt.io/qt-5/QCalendarWidget.html</a></p>
+<p>Parameters : QWidget *</p>
+<p>Parent Class : QWidget</p>
+<ul class="simple">
+<li>int dateEditAcceptDelay(void)</li>
+<li>QMap&lt;QDate, QTextCharFormat&gt; dateTextFormat(void)</li>
+<li>QTextCharFormat dateTextFormat_2(QDate date)</li>
+<li>Qt::DayOfWeek firstDayOfWeek(void)</li>
+<li>QTextCharFormat headerTextFormat(void)</li>
+<li>QCalendarWidget::HorizontalHeaderFormat horizontalHeaderFormat(void)</li>
+<li>bool isDateEditEnabled(void)</li>
+<li>bool isGridVisible(void)</li>
+<li>bool isNavigationBarVisible(void)</li>
+<li>QDate maximumDate(void)</li>
+<li>QDate minimumDate(void)</li>
+<li>int monthShown(void)</li>
+<li>QDate selectedDate(void)</li>
+<li>QCalendarWidget::SelectionMode selectionMode(void)</li>
+<li>void setDateEditAcceptDelay(int delay)</li>
+<li>void setDateEditEnabled(bool enable)</li>
+<li>void setDateTextFormat(QDate date, QTextCharFormat format)</li>
+<li>void setFirstDayOfWeek(Qt::DayOfWeek dayOfWeek)</li>
+<li>void setHeaderTextFormat(QTextCharFormat format)</li>
+<li>void setHorizontalHeaderFormat(QCalendarWidget::HorizontalHeaderFormat format)</li>
+<li>void setMaximumDate(QDate date)</li>
+<li>void setMinimumDate(QDate date)</li>
+<li>void setSelectionMode(QCalendarWidget::SelectionMode mode)</li>
+<li>void setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat format)</li>
+<li>void setWeekdayTextFormat(Qt::DayOfWeek dayOfWeek, QTextCharFormat format)</li>
+<li>QCalendarWidget::VerticalHeaderFormat verticalHeaderFormat(void)</li>
+<li>QTextCharFormat weekdayTextFormat(Qt::DayOfWeek dayOfWeek)</li>
+<li>int yearShown(void)</li>
+<li>void setCurrentPage(int year, int month)</li>
+<li>void setDateRange(QDate min, QDate max)</li>
+<li>void setGridVisible(bool show)</li>
+<li>void setNavigationBarVisible(bool visible)</li>
+<li>void setSelectedDate(QDate date)</li>
+<li>void showNextMonth(void)</li>
+<li>void showNextYear(void)</li>
+<li>void showPreviousMonth(void)</li>
+<li>void showPreviousYear(void)</li>
+<li>void showSelectedDate(void)</li>
+<li>void showToday(void)</li>
+<li>void setactivatedEvent(const char <a href="#id2299"><span class="problematic" id="id2300">*</span></a>)</li>
+<li>void setclickedEvent(const char <a href="#id2301"><span class="problematic" id="id2302">*</span></a>)</li>
+<li>void setcurrentPageChangedEvent(const char <a href="#id2303"><span class="problematic" id="id2304">*</span></a>)</li>
+<li>void setselectionChangedEvent(const char <a href="#id2305"><span class="problematic" id="id2306">*</span></a>)</li>
+<li>const char <a href="#id2307"><span class="problematic" id="id2308">*</span></a>getactivatedEvent(void)</li>
+<li>const char <a href="#id2309"><span class="problematic" id="id2310">*</span></a>getclickedEvent(void)</li>
+<li>const char <a href="#id2311"><span class="problematic" id="id2312">*</span></a>getcurrentPageChangedEvent(void)</li>
+<li>const char <a href="#id2313"><span class="problematic" id="id2314">*</span></a>getselectionChangedEvent(void)</li>
+</ul>
+</div>
 </div>
 
 
@@ -6166,6 +6243,8 @@
 <li><a class="reference internal" href="#qcoreapplication-class">QCoreApplication Class</a></li>
 <li><a class="reference internal" href="#qtextbrowser-class">QTextBrowser Class</a></li>
 <li><a class="reference internal" href="#qregion-class">QRegion Class</a></li>
+<li><a class="reference internal" href="#qstackedwidget-class">QStackedWidget Class</a></li>
+<li><a class="reference internal" href="#qcalendarwidget-class">QCalendarWidget Class</a></li>
 </ul>
 </li>
 </ul>
@@ -6212,7 +6291,7 @@
         <li class="right" >
           <a href="ringopengl46funcsdoc.html" title="RingOpenGL (OpenGL 4.6) Functions Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
