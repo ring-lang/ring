@@ -264,6 +264,7 @@ extern "C" {
 #include <QCalendarWidget>
 #include "gcalendarwidget.h"
 #include <QOpenGLFunctions>
+#include <QOpenGLContext>
 
 extern "C" {
 
@@ -579,6 +580,7 @@ aEnumTypes + "QCalendarWidget::VerticalHeaderFormat"
 aEnumTypes + "QCalendarWidget::SelectionMode"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeature"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeatures"
+aEnumTypes + "QOpenGLContext::OpenGLModuleType"
 </runcode>
 
 
@@ -8124,3 +8126,43 @@ void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
 bool hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature feature)
 void initializeOpenGLFunctions(void)
 QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)
+
+<class>
+name: QOpenGLContext
+para: QObject *
+parent: QObject
+</class>
+
+bool create(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSet<QByteArray> extensions(void)
+<comment>
+QOpenGLExtraFunctions * extraFunctions(void)
+</comment>
+QSurfaceFormat format(void)
+QOpenGLFunctions * functions(void)
+QFunctionPointer getProcAddress(QByteArray procName)
+QFunctionPointer getProcAddress@2(char *procName)
+bool hasExtension(QByteArray extension)
+bool isOpenGLES(void)
+bool isValid(void)
+bool makeCurrent(QSurface *surface)
+QVariant nativeHandle(void)
+QScreen * screen(void)
+void setFormat(QSurfaceFormat format)
+void setNativeHandle(QVariant handle)
+void setScreen(QScreen *screen)
+void setShareContext(QOpenGLContext *shareContext)
+QOpenGLContext * shareContext(void)
+QOpenGLContextGroup * shareGroup(void)
+QSurface * surface(void)
+void swapBuffers(QSurface *surface)
+QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
+TYPE * versionFunctions@2(void)
+bool areSharing(QOpenGLContext *first, QOpenGLContext *second)
+QOpenGLContext * currentContext(void)
+QOpenGLContext * globalShareContext(void)
+void * openGLModuleHandle(void)
+QOpenGLContext::OpenGLModuleType openGLModuleType(void)
+bool supportsThreadedOpenGL(void)
