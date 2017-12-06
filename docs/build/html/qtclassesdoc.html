@@ -6051,6 +6051,191 @@
 <li>const char <a href="#id2313"><span class="problematic" id="id2314">*</span></a>getselectionChangedEvent(void)</li>
 </ul>
 </div>
+<div class="section" id="qopenglfunctions-class">
+<span id="index-184"></span><h2>QOpenGLFunctions Class<a class="headerlink" href="#qopenglfunctions-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QOpenGLFunctions.html">http://doc.qt.io/qt-5/QOpenGLFunctions.html</a></p>
+<p>Parameters : void</p>
+<ul class="simple">
+<li>void glActiveTexture(GLenum texture)</li>
+<li>void glAttachShader(GLuint program, GLuint shader)</li>
+<li>void glBindAttribLocation(GLuint program, GLuint index, char <a href="#id2315"><span class="problematic" id="id2316">*</span></a>name)</li>
+<li>void glBindBuffer(GLenum target, GLuint buffer)</li>
+<li>void glBindFramebuffer(GLenum target, GLuint framebuffer)</li>
+<li>void glBindRenderbuffer(GLenum target, GLuint renderbuffer)</li>
+<li>void glBindTexture(GLenum target, GLuint texture)</li>
+<li>void glBlendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)</li>
+<li>void glBlendEquation(GLenum mode)</li>
+<li>void glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha)</li>
+<li>void glBlendFunc(GLenum sfactor, GLenum dfactor)</li>
+<li>void glBlendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha)</li>
+<li>void glBufferData(GLenum target, qopengl_GLsizeiptr size, void <a href="#id2317"><span class="problematic" id="id2318">*</span></a>data, GLenum usage)</li>
+<li>void glBufferSubData(GLenum target, qopengl_GLintptr offset, qopengl_GLsizeiptr size, void <a href="#id2319"><span class="problematic" id="id2320">*</span></a>data)</li>
+<li>GLenum glCheckFramebufferStatus(GLenum target)</li>
+<li>void glClear(GLbitfield mask)</li>
+<li>void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)</li>
+<li>void glClearDepthf(GLclampf depth)</li>
+<li>void glClearStencil(GLint s)</li>
+<li>void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)</li>
+<li>void glCompileShader(GLuint shader)</li>
+<li>void glCompressedTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, void <a href="#id2321"><span class="problematic" id="id2322">*</span></a>data)</li>
+<li>void glCompressedTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, void <a href="#id2323"><span class="problematic" id="id2324">*</span></a>data)</li>
+<li>void glCopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)</li>
+<li>void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height)</li>
+<li>GLuint glCreateProgram(void)</li>
+<li>GLuint glCreateShader(GLenum type)</li>
+<li>void glCullFace(GLenum mode)</li>
+<li>void glDeleteBuffers(GLsizei n, GLuint <a href="#id2325"><span class="problematic" id="id2326">*</span></a>buffers)</li>
+<li>void glDeleteFramebuffers(GLsizei n, GLuint <a href="#id2327"><span class="problematic" id="id2328">*</span></a>framebuffers)</li>
+<li>void glDeleteProgram(GLuint program)</li>
+<li>void glDeleteRenderbuffers(GLsizei n, GLuint <a href="#id2329"><span class="problematic" id="id2330">*</span></a>renderbuffers)</li>
+<li>void glDeleteShader(GLuint shader)</li>
+<li>void glDeleteTextures(GLsizei n, GLuint <a href="#id2331"><span class="problematic" id="id2332">*</span></a>textures)</li>
+<li>void glDepthFunc(GLenum func)</li>
+<li>void glDepthMask(GLboolean flag)</li>
+<li>void glDepthRangef(GLclampf zNear, GLclampf zFar)</li>
+<li>void glDetachShader(GLuint program, GLuint shader)</li>
+<li>void glDisable(GLenum cap)</li>
+<li>void glDisableVertexAttribArray(GLuint index)</li>
+<li>void glDrawArrays(GLenum mode, GLint first, GLsizei count)</li>
+<li>void glDrawElements(GLenum mode, GLsizei count, GLenum type, GLvoid <a href="#id2333"><span class="problematic" id="id2334">*</span></a>indices)</li>
+<li>void glEnable(GLenum cap)</li>
+<li>void glEnableVertexAttribArray(GLuint index)</li>
+<li>void glFinish(void)</li>
+<li>void glFlush(void)</li>
+<li>void glFramebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer)</li>
+<li>void glFramebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level)</li>
+<li>void glFrontFace(GLenum mode)</li>
+<li>void glGenBuffers(GLsizei n, GLuint <a href="#id2335"><span class="problematic" id="id2336">*</span></a>buffers)</li>
+<li>void glGenFramebuffers(GLsizei n, GLuint <a href="#id2337"><span class="problematic" id="id2338">*</span></a>framebuffers)</li>
+<li>void glGenRenderbuffers(GLsizei n, GLuint <a href="#id2339"><span class="problematic" id="id2340">*</span></a>renderbuffers)</li>
+<li>void glGenTextures(GLsizei n, GLuint <a href="#id2341"><span class="problematic" id="id2342">*</span></a>textures)</li>
+<li>void glGenerateMipmap(GLenum target)</li>
+<li>void glGetActiveAttrib(GLuint program, GLuint index, GLsizei bufsize, GLsizei <a href="#id2343"><span class="problematic" id="id2344">*</span></a>length, GLint <a href="#id2345"><span class="problematic" id="id2346">*</span></a>size, GLenum <a href="#id2347"><span class="problematic" id="id2348">*</span></a>type, char <a href="#id2349"><span class="problematic" id="id2350">*</span></a>name)</li>
+<li>void glGetActiveUniform(GLuint program, GLuint index, GLsizei bufsize, GLsizei <a href="#id2351"><span class="problematic" id="id2352">*</span></a>length, GLint <a href="#id2353"><span class="problematic" id="id2354">*</span></a>size, GLenum <a href="#id2355"><span class="problematic" id="id2356">*</span></a>type, char <a href="#id2357"><span class="problematic" id="id2358">*</span></a>name)</li>
+<li>void glGetAttachedShaders(GLuint program, GLsizei maxcount, GLsizei <a href="#id2359"><span class="problematic" id="id2360">*</span></a>count, GLuint <a href="#id2361"><span class="problematic" id="id2362">*</span></a>shaders)</li>
+<li>GLint glGetAttribLocation(GLuint program, char <a href="#id2363"><span class="problematic" id="id2364">*</span></a>name)</li>
+<li>void glGetBooleanv(GLenum pname, GLboolean <a href="#id2365"><span class="problematic" id="id2366">*</span></a>params)</li>
+<li>void glGetBufferParameteriv(GLenum target, GLenum pname, GLint <a href="#id2367"><span class="problematic" id="id2368">*</span></a>params)</li>
+<li>GLenum glGetError(void)</li>
+<li>void glGetFloatv(GLenum pname, GLfloat <a href="#id2369"><span class="problematic" id="id2370">*</span></a>params)</li>
+<li>void glGetFramebufferAttachmentParameteriv(GLenum target, GLenum attachment, GLenum pname, GLint <a href="#id2371"><span class="problematic" id="id2372">*</span></a>params)</li>
+<li>void glGetIntegerv(GLenum pname, GLint <a href="#id2373"><span class="problematic" id="id2374">*</span></a>params)</li>
+<li>void glGetProgramInfoLog(GLuint program, GLsizei bufsize, GLsizei <a href="#id2375"><span class="problematic" id="id2376">*</span></a>length, char <a href="#id2377"><span class="problematic" id="id2378">*</span></a>infolog)</li>
+<li>void glGetProgramiv(GLuint program, GLenum pname, GLint <a href="#id2379"><span class="problematic" id="id2380">*</span></a>params)</li>
+<li>void glGetRenderbufferParameteriv(GLenum target, GLenum pname, GLint <a href="#id2381"><span class="problematic" id="id2382">*</span></a>params)</li>
+<li>void glGetShaderInfoLog(GLuint shader, GLsizei bufsize, GLsizei <a href="#id2383"><span class="problematic" id="id2384">*</span></a>length, char <a href="#id2385"><span class="problematic" id="id2386">*</span></a>infolog)</li>
+<li>void glGetShaderPrecisionFormat(GLenum shadertype, GLenum precisiontype, GLint <a href="#id2387"><span class="problematic" id="id2388">*</span></a>range, GLint <a href="#id2389"><span class="problematic" id="id2390">*</span></a>precision)</li>
+<li>void glGetShaderSource(GLuint shader, GLsizei bufsize, GLsizei <a href="#id2391"><span class="problematic" id="id2392">*</span></a>length, char <a href="#id2393"><span class="problematic" id="id2394">*</span></a>source)</li>
+<li>void glGetShaderiv(GLuint shader, GLenum pname, GLint <a href="#id2395"><span class="problematic" id="id2396">*</span></a>params)</li>
+<li>GLubyte * glGetString(GLenum name)</li>
+<li>void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat <a href="#id2397"><span class="problematic" id="id2398">*</span></a>params)</li>
+<li>void glGetTexParameteriv(GLenum target, GLenum pname, GLint <a href="#id2399"><span class="problematic" id="id2400">*</span></a>params)</li>
+<li>GLint glGetUniformLocation(GLuint program, char <a href="#id2401"><span class="problematic" id="id2402">*</span></a>name)</li>
+<li>void glGetUniformfv(GLuint program, GLint location, GLfloat <a href="#id2403"><span class="problematic" id="id2404">*</span></a>params)</li>
+<li>void glGetUniformiv(GLuint program, GLint location, GLint <a href="#id2405"><span class="problematic" id="id2406">*</span></a>params)</li>
+<li>void glGetVertexAttribiv(GLuint index, GLenum pname, GLint <a href="#id2407"><span class="problematic" id="id2408">*</span></a>params)</li>
+<li>void glHint(GLenum target, GLenum mode)</li>
+<li>GLboolean glIsBuffer(GLuint buffer)</li>
+<li>GLboolean glIsEnabled(GLenum cap)</li>
+<li>GLboolean glIsFramebuffer(GLuint framebuffer)</li>
+<li>GLboolean glIsProgram(GLuint program)</li>
+<li>GLboolean glIsRenderbuffer(GLuint renderbuffer)</li>
+<li>GLboolean glIsShader(GLuint shader)</li>
+<li>GLboolean glIsTexture(GLuint texture)</li>
+<li>void glLineWidth(GLfloat width)</li>
+<li>void glLinkProgram(GLuint program)</li>
+<li>void glPixelStorei(GLenum pname, GLint param)</li>
+<li>void glPolygonOffset(GLfloat factor, GLfloat units)</li>
+<li>void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid <a href="#id2409"><span class="problematic" id="id2410">*</span></a>pixels)</li>
+<li>void glReleaseShaderCompiler(void)</li>
+<li>void glRenderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height)</li>
+<li>void glSampleCoverage(GLclampf value, GLboolean invert)</li>
+<li>void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)</li>
+<li>void glShaderBinary(GLint n, GLuint <a href="#id2411"><span class="problematic" id="id2412">*</span></a>shaders, GLenum binaryformat, void <a href="#id2413"><span class="problematic" id="id2414">*</span></a>binary, GLint length)</li>
+<li>void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)</li>
+<li>void glStencilMask(GLuint mask)</li>
+<li>void glStencilMaskSeparate(GLenum face, GLuint mask)</li>
+<li>void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass)</li>
+<li>void glStencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass)</li>
+<li>void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, GLvoid <a href="#id2415"><span class="problematic" id="id2416">*</span></a>pixels)</li>
+<li>void glTexParameterf(GLenum target, GLenum pname, GLfloat param)</li>
+<li>void glTexParameterfv(GLenum target, GLenum pname, GLfloat <a href="#id2417"><span class="problematic" id="id2418">*</span></a>params)</li>
+<li>void glTexParameteri(GLenum target, GLenum pname, GLint param)</li>
+<li>void glTexParameteriv(GLenum target, GLenum pname, GLint <a href="#id2419"><span class="problematic" id="id2420">*</span></a>params)</li>
+<li>void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid <a href="#id2421"><span class="problematic" id="id2422">*</span></a>pixels)</li>
+<li>void glUniform1f(GLint location, GLfloat x)</li>
+<li>void glUniform1fv(GLint location, GLsizei count, GLfloat <a href="#id2423"><span class="problematic" id="id2424">*</span></a>v)</li>
+<li>void glUniform1i(GLint location, GLint x)</li>
+<li>void glUniform1iv(GLint location, GLsizei count, GLint <a href="#id2425"><span class="problematic" id="id2426">*</span></a>v)</li>
+<li>void glUniform2f(GLint location, GLfloat x, GLfloat y)</li>
+<li>void glUniform2fv(GLint location, GLsizei count, GLfloat <a href="#id2427"><span class="problematic" id="id2428">*</span></a>v)</li>
+<li>void glUniform2i(GLint location, GLint x, GLint y)</li>
+<li>void glUniform2iv(GLint location, GLsizei count, GLint <a href="#id2429"><span class="problematic" id="id2430">*</span></a>v)</li>
+<li>void glUniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glUniform3fv(GLint location, GLsizei count, GLfloat <a href="#id2431"><span class="problematic" id="id2432">*</span></a>v)</li>
+<li>void glUniform3i(GLint location, GLint x, GLint y, GLint z)</li>
+<li>void glUniform3iv(GLint location, GLsizei count, GLint <a href="#id2433"><span class="problematic" id="id2434">*</span></a>v)</li>
+<li>void glUniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)</li>
+<li>void glUniform4fv(GLint location, GLsizei count, GLfloat <a href="#id2435"><span class="problematic" id="id2436">*</span></a>v)</li>
+<li>void glUniform4i(GLint location, GLint x, GLint y, GLint z, GLint w)</li>
+<li>void glUniform4iv(GLint location, GLsizei count, GLint <a href="#id2437"><span class="problematic" id="id2438">*</span></a>v)</li>
+<li>void glUniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat <a href="#id2439"><span class="problematic" id="id2440">*</span></a>value)</li>
+<li>void glUniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat <a href="#id2441"><span class="problematic" id="id2442">*</span></a>value)</li>
+<li>void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat <a href="#id2443"><span class="problematic" id="id2444">*</span></a>value)</li>
+<li>void glUseProgram(GLuint program)</li>
+<li>void glValidateProgram(GLuint program)</li>
+<li>void glVertexAttrib1f(GLuint indx, GLfloat x)</li>
+<li>void glVertexAttrib1fv(GLuint indx, GLfloat <a href="#id2445"><span class="problematic" id="id2446">*</span></a>values)</li>
+<li>void glVertexAttrib2f(GLuint indx, GLfloat x, GLfloat y)</li>
+<li>void glVertexAttrib2fv(GLuint indx, GLfloat <a href="#id2447"><span class="problematic" id="id2448">*</span></a>values)</li>
+<li>void glVertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glVertexAttrib3fv(GLuint indx, GLfloat <a href="#id2449"><span class="problematic" id="id2450">*</span></a>values)</li>
+<li>void glVertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w)</li>
+<li>void glVertexAttrib4fv(GLuint indx, GLfloat <a href="#id2451"><span class="problematic" id="id2452">*</span></a>values)</li>
+<li>void glVertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, void <a href="#id2453"><span class="problematic" id="id2454">*</span></a>ptr)</li>
+<li>void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)</li>
+<li>bool hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature feature)</li>
+<li>void initializeOpenGLFunctions(void)</li>
+<li>QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)</li>
+</ul>
+</div>
+<div class="section" id="qopenglcontext-class">
+<span id="index-185"></span><h2>QOpenGLContext Class<a class="headerlink" href="#qopenglcontext-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QOpenGLContext.html">http://doc.qt.io/qt-5/QOpenGLContext.html</a></p>
+<p>Parameters : QObject *</p>
+<p>Parent Class : QObject</p>
+<ul class="simple">
+<li>bool create(void)</li>
+<li>GLuint defaultFramebufferObject(void)</li>
+<li>void doneCurrent(void)</li>
+<li>QSet&lt;QByteArray&gt; extensions(void)</li>
+<li>QOpenGLFunctions * functions(void)</li>
+<li>QFunctionPointer getProcAddress(QByteArray procName)</li>
+<li>QFunctionPointer getProcAddress_2(char <a href="#id2455"><span class="problematic" id="id2456">*</span></a>procName)</li>
+<li>bool hasExtension(QByteArray extension)</li>
+<li>bool isOpenGLES(void)</li>
+<li>bool isValid(void)</li>
+<li>bool makeCurrent(QSurface <a href="#id2457"><span class="problematic" id="id2458">*</span></a>surface)</li>
+<li>QVariant nativeHandle(void)</li>
+<li>QScreen * screen(void)</li>
+<li>void setFormat(QSurfaceFormat format)</li>
+<li>void setNativeHandle(QVariant handle)</li>
+<li>void setScreen(QScreen <a href="#id2459"><span class="problematic" id="id2460">*</span></a>screen)</li>
+<li>void setShareContext(QOpenGLContext <a href="#id2461"><span class="problematic" id="id2462">*</span></a>shareContext)</li>
+<li>QOpenGLContext * shareContext(void)</li>
+<li>QOpenGLContextGroup * shareGroup(void)</li>
+<li>QSurface * surface(void)</li>
+<li>void swapBuffers(QSurface <a href="#id2463"><span class="problematic" id="id2464">*</span></a>surface)</li>
+<li>QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))</li>
+<li>TYPE * versionFunctions_2(void)</li>
+<li>bool areSharing(QOpenGLContext <a href="#id2465"><span class="problematic" id="id2466">*</span></a>first, QOpenGLContext <a href="#id2467"><span class="problematic" id="id2468">*</span></a>second)</li>
+<li>QOpenGLContext * currentContext(void)</li>
+<li>QOpenGLContext * globalShareContext(void)</li>
+<li>void * openGLModuleHandle(void)</li>
+<li>QOpenGLContext::OpenGLModuleType openGLModuleType(void)</li>
+<li>bool supportsThreadedOpenGL(void)</li>
+</ul>
+</div>
 </div>
 
 
@@ -6245,6 +6430,8 @@
 <li><a class="reference internal" href="#qregion-class">QRegion Class</a></li>
 <li><a class="reference internal" href="#qstackedwidget-class">QStackedWidget Class</a></li>
 <li><a class="reference internal" href="#qcalendarwidget-class">QCalendarWidget Class</a></li>
+<li><a class="reference internal" href="#qopenglfunctions-class">QOpenGLFunctions Class</a></li>
+<li><a class="reference internal" href="#qopenglcontext-class">QOpenGLContext Class</a></li>
 </ul>
 </li>
 </ul>
