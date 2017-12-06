@@ -7448,3 +7448,48 @@ Parameters : void
 * bool hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature feature)
 * void initializeOpenGLFunctions(void)
 * QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)
+
+.. index::
+	pair: RingQt Classes Reference; QOpenGLContext Class
+
+QOpenGLContext Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QOpenGLContext.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* bool create(void)
+* GLuint defaultFramebufferObject(void)
+* void doneCurrent(void)
+* QSet<QByteArray> extensions(void)
+* QOpenGLFunctions * functions(void)
+* QFunctionPointer getProcAddress(QByteArray procName)
+* QFunctionPointer getProcAddress_2(char *procName)
+* bool hasExtension(QByteArray extension)
+* bool isOpenGLES(void)
+* bool isValid(void)
+* bool makeCurrent(QSurface *surface)
+* QVariant nativeHandle(void)
+* QScreen * screen(void)
+* void setFormat(QSurfaceFormat format)
+* void setNativeHandle(QVariant handle)
+* void setScreen(QScreen *screen)
+* void setShareContext(QOpenGLContext *shareContext)
+* QOpenGLContext * shareContext(void)
+* QOpenGLContextGroup * shareGroup(void)
+* QSurface * surface(void)
+* void swapBuffers(QSurface *surface)
+* QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
+* TYPE * versionFunctions_2(void)
+* bool areSharing(QOpenGLContext *first, QOpenGLContext *second)
+* QOpenGLContext * currentContext(void)
+* QOpenGLContext * globalShareContext(void)
+* void * openGLModuleHandle(void)
+* QOpenGLContext::OpenGLModuleType openGLModuleType(void)
+* bool supportsThreadedOpenGL(void)
