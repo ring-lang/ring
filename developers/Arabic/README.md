@@ -1,18 +1,22 @@
 ﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
 
-#<div dir="rtl"> تعلم لغة البرمجة رينج </div>
+<div dir="rtl"> # تعلم لغة البرمجة رينج </div>
 
-## دعوة الإنضمام
+
+<div dir="rtl"> ## دعوة الإنضمام </div>
 
 ![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
 
-# الوصف
+<div dir="rtl"> # الوصف </div>
 
+<div dir="rtl">
 أهلا ومرحبا بك فى رحلة لتعلم لغة البرمجة رينج من البداية حتى الإحتراف 
 حيث يكون التعلم من خلال مشاهدة الدروس التعليمية وتطبيقها عمليا 
+</div>
 
-# كيف تبدأ
+<div dir="rtl"> # كيف تبدأ </div>
 
+<div dir="rtl">
 فى البدية قم بعمل 
 
 Fork
@@ -28,5 +32,6 @@ Send Pull Request
 
 لاضافة الدروس التى قمت بها الى المشروع الاساسي هنا
 ولمراجعة العمل الذى قمت  به واستقبال اية ملاحظات
+</div>
 
 
