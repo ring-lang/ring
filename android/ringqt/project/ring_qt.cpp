@@ -35,7 +35,21 @@ extern "C" {
 #include "gheaderview.h"
 #include "gprocess.h"
 #include "codeeditor.h"
-
+#include "highlighter.h"
+#include "gtoolbutton.h"
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gtextbrowser.h"
+#include "gdockwidget.h"
+#include "gstackedwidget.h"
+#include "gcalendarwidget.h"
 
 #include <QApplication>
 #include <QObject>
@@ -193,53 +207,40 @@ extern "C" {
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QCursor>
-#include "highlighter.h"
 #include <QListView>
 #include <QUuid>
 #include <QDesktopServices>
 #include <QToolButton>
-#include "gtoolbutton.h"
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
 #include <QBuffer>
 #include <QBluetoothAddress>
 #include <QBluetoothDeviceDiscoveryAgent>
-#include "gbluetoothdevicediscoveryagent.h"
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothUuid>
 #include <QBluetoothHostInfo>
 #include <QBluetoothLocalDevice>
-#include "gbluetoothlocaldevice.h"
 #include <QBluetoothServer>
-#include "gbluetoothserver.h"
 #include <QBluetoothServiceDiscoveryAgent>
-#include "gbluetoothservicediscoveryagent.h"
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
-#include "gbluetoothsocket.h"
 #include <QBluetoothTransferManager>
-#include "gbluetoothtransfermanager.h"
 #include <QBluetoothTransferReply>
-#include "gbluetoothtransferreply.h"
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
 #include <QDateTime>
 #include <QScreen>
 #include <QWindow>
-#include "gwindow.h"
 #include <QGuiApplication>
-#include "gguiapplication.h"
 #include <QTextBrowser>
-#include "gtextbrowser.h"
-#include "gdockwidget.h"
 #include <QRegion>
 #include <QStackedWidget>
-#include "gstackedwidget.h"
 #include <QCalendarWidget>
-#include "gcalendarwidget.h"
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
+
+
 
 extern "C" {
 
