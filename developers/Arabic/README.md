@@ -1,6 +1,6 @@
 ﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
 
-# تعلم لغة البرمجة رينج 
+#<div dir="rtl"> تعلم لغة البرمجة رينج </div>
 
 ## دعوة الإنضمام
 
