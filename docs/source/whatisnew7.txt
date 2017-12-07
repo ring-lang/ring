@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.7 comes with many new features!
 
+* Better Ring Notepad
 * Better RingQt
 
 .. index:: 
@@ -29,3 +30,13 @@ RingQt comes with the next updates
 (2) QCalendarWidget Class
 (3) QOpenGLFunctions Class
 (4) QOpenGLContext Class
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+Ring Notepad comes with the next updates
+
+(1) Support *.cf extension
