@@ -1,4 +1,4 @@
-# Project : Find palindromic numbert
+# Project : Find palindromic number
 # Date    : 2017/09/14
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
