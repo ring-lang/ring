@@ -289,7 +289,8 @@ Func ParaList cPara
 Func ParaTypeNoName cLine
 	# get the parameter type and name, remove name and keep the type only
 	cLine = trim(cLine)
-	for x = len(cLine) to 1 step -1
+	nMax = len(cLine)
+	for x = nMax to 1 step -1
 		if cLine[x] = "*" or cLine[x] = " "
 			return left(cLine,x)
 		ok
@@ -463,7 +464,8 @@ Func GenFuncCodeCheckParaType aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
@@ -555,7 +557,8 @@ Func GenFuncCodeGetParaValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			if t > 1	# separator between parameters	
 				cCode += ","
 			ok
@@ -591,7 +594,8 @@ Func GenFuncCodeGetIntValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_POINTER
 				if GenPointerType(x) = "int"
@@ -608,7 +612,8 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_UNKNOWN
 				cCode += GenTabs(1) + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
@@ -888,7 +893,8 @@ Func GenMethodCodeCheckParaType aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			t++ # avoid the object pointer
 			switch VarTypeID(x)
@@ -1001,7 +1007,8 @@ Func GenMethodCodeGetParaValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			if t > 1	# separator between parameters	
 				cCode += ","
 			ok
@@ -1191,7 +1198,8 @@ Func GenRingCode aList
 
 Func GenRingCodeParaList aPara
 	cCode = ""
-	for x = 1 to len(aPara)
+	nMax = len(aPara)
+	for x = 1 to nMax
 		if aPara[x] = "void" loop ok
 		if x != 1 cCode += "," ok
 		cCode += "P"+x
@@ -1200,7 +1208,8 @@ Func GenRingCodeParaList aPara
 
 Func GenRingCodeParaListUse aPara
 	cCode = ""
-	for x = 1 to len(aPara)
+	nMax = len(aPara)
+	for x = 1 to nMax
 		if aPara[x] = "void" loop ok
 		if x != 1 cCode += "," ok
 		cValue = "P"+x
