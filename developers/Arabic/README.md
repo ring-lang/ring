@@ -1,20 +1,20 @@
 ﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
 
-<div dir="rtl"> # تعلم لغة البرمجة رينج </div>
+<div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> </div>
 
 
-<div dir="rtl"> ## دعوة الإنضمام </div>
+<div dir="rtl"> <h2> دعوة الإنضمام </h2> </div>
 
 ![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
 
-<div dir="rtl"> # الوصف </div>
+<div dir="rtl"> <h1> الوصف </h1> </div>
 
 <div dir="rtl">
 أهلا ومرحبا بك فى رحلة لتعلم لغة البرمجة رينج من البداية حتى الإحتراف 
 حيث يكون التعلم من خلال مشاهدة الدروس التعليمية وتطبيقها عمليا 
 </div>
 
-<div dir="rtl"> # كيف تبدأ </div>
+<div dir="rtl"> <h1> كيف تبدأ </h1> </div>
 
 <div dir="rtl">
 فى البدية قم بعمل 
