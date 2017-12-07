@@ -1,6 +1,6 @@
 ﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
 
-<div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> </div>
+<div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
 
 لغة البرمجة رينج هى لغة مخصصة للتطبيقات Applications عامة ومتعددة الأغراض General Purpose
 
@@ -25,7 +25,7 @@
 
 اللغة صممت لتكون بسيطة وصغيرة الحجم ومرنة وسريعة وفقا لهذا الترتيب من الأولويات.
 
-
+</div>
 <div dir="rtl"> <h2> دعوة الإنضمام </h2> </div>
 
 ![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
