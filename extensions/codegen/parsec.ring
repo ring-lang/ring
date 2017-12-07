@@ -123,7 +123,9 @@ Func Main
 	aList = str2list(cStr)
 	aData = []
 	lFlag = C_INS_FUNCTION
-	for cLine in aList
+	nMax = len(aList)
+	for t = 1 to nMax 
+		cLine = aList[t]
 		cLine = trim(cLine)
 		nPos = substr(cLine,"#")
 		if nPos > 0  
@@ -246,14 +248,16 @@ Func Main
 
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl + 
-	    "Size : " + len(cCode) + " Bytes" + nl
+	    "Size : " + len(cCode) + " Bytes" + nl	
 	aCode = str2list(cCode)
 	fp = fopen(cFileName,"wb")
-	for cLine in aCode
+	nMax = len(aCode)
+	for t = 1 to nMax 
+		cLine = aCode[t]
 		fwrite(fp,cLine+char(13)+char(10))	
 	next
 	fclose(fp)
-
+	
 Func ThreeParts cLine
 	# Get three parts (output - function name - parameters)
 	nPos1 = substr(cLine,"(")
@@ -319,7 +323,9 @@ Func GenCode aList
 	cCode = ""
 	cCode += GenDLLStart()
 	# Generate Classes List at first
-	for aFunc in aList
+	nMax = len(aList)
+	for t = 1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_CLASS
 			cValue = trim(aFunc[C_INS_CODE])
 			if left(lower(cValue),5) = "name:"
@@ -331,7 +337,9 @@ Func GenCode aList
 	next
 		
 	#
-	for aFunc in aList
+	
+	for t = 1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION
 			if $cClassName = ""
 				cCode += GenFuncCode(aFunc)
@@ -397,7 +405,9 @@ Func GenDLLStart
 Func GenFuncPrototype aList
 	cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
 		"{" + nl
-	for aFunc in aList
+	nMax = len(aList)
+	for t=1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION OR aFunc[C_FUNC_INS] = C_INS_REGISTER
 			if len(aFunc) >= C_CLASS_NAME
 				cClassName = aFunc[C_CLASS_NAME]
@@ -1121,7 +1131,9 @@ Func GenRingCode aList
 	cClassName = ""
 	aClasses = []
 	cCode += GenRingCodeFuncGetObjectPointer()
-	for aFunc in aList
+	nMax = len(aList)
+	for t=1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION or
 		   aFunc[C_FUNC_INS] = C_INS_REGISTER 
 			# Check the start of a New Class
@@ -1236,7 +1248,9 @@ Func GetObjectPointerFromRingObject pObj
 "
 
 Func GenRingCodeNewMethodName cClassName,cMethodName
-	for x in aNewMethodName
+	nMax = len(aNewMethodName)
+	for t=1 to nMax
+		x = aNewMethodName[t]
 		if trim(lower(x[C_NMN_CLASSNAME])) = trim(lower(cClassName)) and
 		   trim(lower(x[C_NMN_METHODNAME])) = trim(lower(cMethodName))
 			return x[C_NMN_NEWMETHODNAME]
