@@ -25,9 +25,6 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include "gwebview.h"
-</filter>
 #include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
@@ -45,7 +42,6 @@ extern "C" {
 #include "gheaderview.h"
 #include "gprocess.h"
 #include "codeeditor.h"
-
 
 #include <QApplication>
 #include <QObject>
@@ -89,9 +85,6 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebView>
-</filter>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -111,9 +104,6 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebSettings>
-</filter>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -211,19 +201,10 @@ extern "C" {
 #include <QCursor>
 #include "highlighter.h"
 #include <QListView>
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-#include <QAxObject>
-#include <QAxBase>
-</filter>
 #include <QUuid>
 #include <QDesktopServices>
 #include <QToolButton>
 #include "gtoolbutton.h"
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QSerialPort>
-#include "gserialport.h"
-#include <QSerialPortInfo>
-</filter>
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
@@ -265,6 +246,20 @@ extern "C" {
 #include "gcalendarwidget.h"
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QWebSettings>
+#include <QWebView>
+#include "gserialport.h"
+#include "gwebview.h"
+</filter>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+#include <QAxObject>
+#include <QAxBase>
+</filter>
 
 extern "C" {
 
@@ -531,9 +526,7 @@ aEnumTypes + "QListView::ViewMode"
 aEnumTypes + "QListView::Flow"
 aEnumTypes + "QAxBase::PropertyBag"
 aEnumTypes + "QToolButton::ToolButtonPopupMode"
-$aMallocClassesList + "QModelIndex"
 aEnumTypes + "QMutex::RecursionMode"
-
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
@@ -581,6 +574,8 @@ aEnumTypes + "QCalendarWidget::SelectionMode"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeature"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeatures"
 aEnumTypes + "QOpenGLContext::OpenGLModuleType"
+
+$aMallocClassesList + "QModelIndex"
 </runcode>
 
 

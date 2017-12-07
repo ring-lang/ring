@@ -18,7 +18,6 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-#include "gwebview.h"
 #include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
@@ -36,7 +35,6 @@ extern "C" {
 #include "gheaderview.h"
 #include "gprocess.h"
 #include "codeeditor.h"
-
 
 #include <QApplication>
 #include <QObject>
@@ -80,7 +78,6 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-#include <QWebView>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -100,7 +97,6 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-#include <QWebSettings>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -198,15 +194,10 @@ extern "C" {
 #include <QCursor>
 #include "highlighter.h"
 #include <QListView>
-#include <QAxObject>
-#include <QAxBase>
 #include <QUuid>
 #include <QDesktopServices>
 #include <QToolButton>
 #include "gtoolbutton.h"
-#include <QSerialPort>
-#include "gserialport.h"
-#include <QSerialPortInfo>
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
@@ -248,6 +239,16 @@ extern "C" {
 #include "gcalendarwidget.h"
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
+
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QWebSettings>
+#include <QWebView>
+#include "gserialport.h"
+#include "gwebview.h"
+
+#include <QAxObject>
+#include <QAxBase>
 
 extern "C" {
 
