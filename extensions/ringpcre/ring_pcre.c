@@ -130,10 +130,10 @@ int ring_pcre2_parse_options(List *opt_list, int *is_global)
     for (int i = 1; i <= list_size; i++) {
         if (ring_list_isstring(opt_list, i)) {
             char* option = ring_list_getstring(opt_list, i);
-            if (option != "g") {
+            if (strcmp("g", option)) {
                 tmp_options |= ring_pcre2_explain_option(option);
             } else {
-                is_global = 1;
+                *is_global = 1;
             }
         } else {
             return 1;

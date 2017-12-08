@@ -20,6 +20,6 @@ void ring_pcre_match(void *pPointer);
 
 int ring_pcre2_explain_option(char* option);
 
-int ring_pcre2_parse_options(List *opt_list, int is_global);
+int ring_pcre2_parse_options(List *opt_list, int *is_global);
 
 void ring_init_pattern_info(pcre2_code code, RING_PI *in, int *error);
