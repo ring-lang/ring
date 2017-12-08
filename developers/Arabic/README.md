@@ -76,8 +76,8 @@
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155396596400345/?fref=mentions" target="_blank">شاهد على الفيس بوك</a>
-			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">شاهد على اليوتيوب</a>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155396596400345/?fref=mentions">شاهد على الفيس بوك</a>
+			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 </table>
