@@ -2,10 +2,10 @@
 
 <div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
 
-<a href="#invitation"> دعوة الإنضمام 	</a> <br/>
-<a href="#description"> مقدمة عن اللغة 	</a> <br/>
-<a href="#howtostart"> كيف تبدأ 		</a> <br/>
-<a href="#lessons"> الدروس التعليمية 		</a> <br/>
+<a href="#invitation" > دعوة الإنضمام 	</a> <br/> <br/>
+<a href="#description"> مقدمة عن اللغة 	</a> <br/> <br/>
+<a href="#howtostart" > كيف تبدأ 		</a> <br/> <br/>
+<a href="#lessons"    > الدروس التعليمية 	</a> <br/>
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
 
