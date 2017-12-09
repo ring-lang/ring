@@ -30,7 +30,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * ringvm_passerror()
 * ringvm_hideerrorMsg()
 * ringvm_callfunc()
-* ring_give()
+* ringvm_give()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1268,12 +1268,12 @@ tools and Interaction debugger too.
 
 
 .. index:: 
-	pair: Low Level Functions; ring_give() function
+	pair: Low Level Functions; ringvm_give() function
 
-ring_give() function
-====================
+ringvm_give() function
+======================
 
-Using the ring_give() function we can redefine the behavior of the Give command
+Using the ringvm_give() function we can redefine the behavior of the Give command
 
 Example:
 
@@ -1282,7 +1282,7 @@ Example:
 	see "Name: " give name
 	see "Hello " + name
 
-	func ring_give
+	func ringvm_give
 		see "Mahmoud" + nl
 		return "Mahmoud"
 

@@ -17,7 +17,7 @@ Ring 1.7 comes with many new features!
 
 * Better Ring Notepad
 * Better RingQt
-* ring_give() function
+* ringvm_give() function
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better RingQt
@@ -44,12 +44,12 @@ Ring Notepad comes with the next updates
 
 
 .. index:: 
-	pair: What is new in Ring 1.7?; ring_give() function
+	pair: What is new in Ring 1.7?; ringvm_give() function
 
-ring_give() function
-====================
+ringvm_give() function
+======================
 
-Using the ring_give() function we can redefine the behavior of the Give command
+Using the ringvm_give() function we can redefine the behavior of the Give command
 
 Example:
 
@@ -58,7 +58,7 @@ Example:
 	see "Name: " give name
 	see "Hello " + name
 
-	func ring_give
+	func ringvm_give
 		see "Mahmoud" + nl
 		return "Mahmoud"
 
