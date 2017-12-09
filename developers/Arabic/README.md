@@ -111,7 +111,7 @@
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155396596400345/?fref=mentions">شاهد على الفيس بوك</a>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155396596400345/?fref=mentions">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -121,7 +121,8 @@
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155399493215345/?fref=mentions">شاهد على الفيس بوك</a>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155399493215345/?fref=mentions">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=2">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 </table>
