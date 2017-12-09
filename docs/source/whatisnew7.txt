@@ -17,6 +17,7 @@ Ring 1.7 comes with many new features!
 
 * Better Ring Notepad
 * Better RingQt
+* ring_give() function
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better RingQt
@@ -40,3 +41,30 @@ Better Ring Notepad
 Ring Notepad comes with the next updates
 
 (1) Support *.cf extension
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ring_give() function
+
+ring_give() function
+====================
+
+Using the ring_give() function we can redefine the behavior of the Give command
+
+Example:
+
+.. code-block:: ring
+
+	see "Name: " give name
+	see "Hello " + name
+
+	func ring_give
+		see "Mahmoud" + nl
+		return "Mahmoud"
+
+Output:
+
+.. code-block:: ring
+
+	Name: Mahmoud
+	Hello Mahmoud
