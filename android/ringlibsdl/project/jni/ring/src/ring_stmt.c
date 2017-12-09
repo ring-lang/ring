@@ -335,7 +335,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Generate code to use the GIVE function */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-			ring_parser_icg_newoperand(pParser,"ring_give");
+			ring_parser_icg_newoperand(pParser,"ringvm_give");
 			ring_parser_icg_newoperation(pParser,ICO_CALL);
 			ring_parser_icg_newoperandint(pParser,0);
 			ring_parser_icg_newoperation(pParser,ICO_NOOP);
