@@ -77,6 +77,7 @@
 <li>ringvm_passerror()</li>
 <li>ringvm_hideerrorMsg()</li>
 <li>ringvm_callfunc()</li>
+<li>ringvm_give()</li>
 </ul>
 <div class="section" id="callgc-function">
 <span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
@@ -1117,6 +1118,24 @@ func PrintLocalsData nScope
 </pre></div>
 </div>
 </div>
+<div class="section" id="ringvm-give-function">
+<span id="index-26"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -1153,6 +1172,7 @@ func PrintLocalsData nScope
 <li><a class="reference internal" href="#ringvm-callfunc">ringvm_callfunc()</a></li>
 <li><a class="reference internal" href="#example-using-the-trace-functions">Example - Using the Trace Functions</a></li>
 <li><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
+<li><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
 </ul>
 </li>
 </ul>
