@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
-/* User Interface */
+/* User Interface - Commands Implementation (Faster) - Because we don't have functions call */
 
 void ring_vm_see ( VM *pVM )
 {
@@ -79,4 +79,25 @@ void ring_vm_give ( VM *pVM )
 			ring_string_set_gc(pVM->pRingState,ring_item_getstring(pItem),cLine);
 		}
 	}
+}
+/* User Interface Functions (Another implementation) - Flexibile (We can replace functions in Ring Code) */
+
+void ring_vmlib_see ( void *pPointer )
+{
+}
+
+void ring_vmlib_give ( void *pPointer )
+{
+	int x  ;
+	char cLine[256]  ;
+	/* Get Input From the User and save it in the variable */
+	fgets(cLine , 256 , stdin );
+	/* Remove New Line */
+	for ( x = 0 ; x <= 255 ; x++ ) {
+		if ( cLine[x] == '\n' ) {
+			cLine[x] = '\0' ;
+			break ;
+		}
+	}
+	RING_API_RETSTRING(cLine);
 }

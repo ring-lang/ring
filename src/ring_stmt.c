@@ -326,11 +326,26 @@ int ring_parser_stmt ( Parser *pParser )
 				return 0 ;
 			}
 			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_GIVE);
 			#if RING_PARSERTRACE
 			RING_STATE_CHECKPRINTRULES 
 			
 			puts("Rule : Statement  --> 'Give' Identifier|ListItem|Object.Attribute");
+			#endif
+			#if RING_USEGIVEFUNCTION
+			/* Generate code to use the GIVE function */
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+			ring_parser_icg_newoperand(pParser,"ring_give");
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,0);
+			#else
+			ring_parser_icg_newoperation(pParser,ICO_GIVE);
 			#endif
 			return 1 ;
 		} else {
