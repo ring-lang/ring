@@ -17,6 +17,7 @@ Ring 1.7 comes with many new features!
 
 * Better Ring Notepad
 * Better RingQt
+* ringvm_see() function
 * ringvm_give() function
 
 .. index:: 
@@ -51,6 +52,8 @@ ringvm_give() function
 
 Using the ringvm_give() function we can redefine the behavior of the Give command
 
+Also we can use ring_give() to have the original behavior
+
 Example:
 
 .. code-block:: ring
@@ -68,3 +71,41 @@ Output:
 
 	Name: Mahmoud
 	Hello Mahmoud
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ringvm_see() function
+
+ringvm_see() function
+=====================
+
+Using the ringvm_see() function we can redefine the behavior of the See command
+
+Also we can use ring_see() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Hello world" + nl
+	see 123 + nl
+	see ["one","two","three"]
+	see new point {x=10 y=20 z=30} 
+
+	func ringvm_see t
+		ring_see("We want to print: ")
+		ring_See(t)
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	We want to print: Hello world
+	We want to print: 123
+	We want to print: one
+	two
+	three
+	We want to print: x: 10.000000
+	y: 20.000000
+	z: 30.000000

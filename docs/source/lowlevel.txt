@@ -30,6 +30,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * ringvm_passerror()
 * ringvm_hideerrorMsg()
 * ringvm_callfunc()
+* ringvm_see()
 * ringvm_give()
 
 .. index:: 
@@ -1266,6 +1267,44 @@ tools and Interaction debugger too.
 			see nl
 		next
 
+
+.. index:: 
+	pair: Low Level Functions; ringvm_see() function
+
+ringvm_see() function
+=====================
+
+Using the ringvm_see() function we can redefine the behavior of the See command
+
+Also we can use ring_see() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Hello world" + nl
+	see 123 + nl
+	see ["one","two","three"]
+	see new point {x=10 y=20 z=30} 
+
+	func ringvm_see t
+		ring_see("We want to print: ")
+		ring_See(t)
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	We want to print: Hello world
+	We want to print: 123
+	We want to print: one
+	two
+	three
+	We want to print: x: 10.000000
+	y: 20.000000
+	z: 30.000000
 
 .. index:: 
 	pair: Low Level Functions; ringvm_give() function
