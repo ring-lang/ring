@@ -219,7 +219,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -278,13 +278,31 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> See|Put Expr */
 	if ( ring_parser_iskeyword(pParser,K_SEE) | ring_parser_iskeyword(pParser,K_PUT) ) {
 		ring_parser_nexttoken(pParser);
-		/* Generate Code */
+		#if RING_USESEEFUNCTION
+		/* Generate code to use the SEE function */
+		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+		ring_parser_icg_newoperand(pParser,"ringvm_see");
+		/* Parameters */
+		nFlag = pParser->nAssignmentFlag ;
+		pParser->nAssignmentFlag = 0 ;
+		x = ring_parser_expr(pParser);
+		pParser->nAssignmentFlag = nFlag ;
+		ring_parser_icg_newoperation(pParser,ICO_CALL);
+		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperation(pParser,ICO_NOOP);
+		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+		#else
+		/*
+		**  Generate code using the SEE Command Instruction 
+		**  Generate Code 
+		*/
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 		pParser->nAssignmentFlag = 0 ;
 		x = ring_parser_expr(pParser);
 		pParser->nAssignmentFlag = 1 ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
+		#endif
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
 		
@@ -344,6 +362,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 			ring_parser_icg_newoperandint(pParser,0);
 			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 			#else
 			ring_parser_icg_newoperation(pParser,ICO_GIVE);
 			#endif
