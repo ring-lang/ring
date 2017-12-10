@@ -84,6 +84,35 @@ void ring_vm_give ( VM *pVM )
 
 void ring_vmlib_see ( void *pPointer )
 {
+	char *cString  ;
+	int x  ;
+	char cStr[100]  ;
+	List *pList  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_ISSTRING(1) ) {
+		cString = RING_API_GETSTRING(1) ;
+		if ( strlen(cString) != (unsigned int) RING_API_GETSTRINGSIZE(1) ) {
+			for ( x = 0 ; x < RING_API_GETSTRINGSIZE(1) ; x++ ) {
+				printf( "%c",cString[x] ) ;
+			}
+		} else {
+			printf( "%s",cString ) ;
+		}
+	}
+	else if ( RING_API_ISNUMBER(1) ) {
+		ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
+		printf( "%s",cStr ) ;
+	}
+	else if ( RING_API_ISLIST(1) ) {
+		pList = RING_API_GETLIST(1);
+		if ( ring_vm_oop_isobject(pList) ) {
+			ring_vm_oop_printobj(pList);
+		} else {
+			ring_list_print(pList);
+		}
+	}
+	fflush(stdout);
 }
 
 void ring_vmlib_give ( void *pPointer )

@@ -17,5 +17,16 @@ pVar
 Type: Item *
 pItem
 ring_vmlib_see
+Type: char *
+cString
+Type: int
+x
+cStr
+Type: List *
+pList
+Type: VM *
+pVM
 ring_vmlib_give
+Type: int
+x
 cLine

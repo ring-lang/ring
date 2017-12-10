@@ -103,9 +103,15 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
 	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
 	ring_vm_funcregister("ring_state_setvar",ring_vmlib_state_setvar);
-	/* Ring See and Give */
+	/*
+	**  Ring See and Give 
+	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
+	**  Also we can use ring_see() and ring_give() to use the original behavior when we redefine it 
+	*/
 	ring_vm_funcregister("ringvm_see",ring_vmlib_see);
 	ring_vm_funcregister("ringvm_give",ring_vmlib_give);
+	ring_vm_funcregister("ring_see",ring_vmlib_see);
+	ring_vm_funcregister("ring_give",ring_vmlib_give);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
