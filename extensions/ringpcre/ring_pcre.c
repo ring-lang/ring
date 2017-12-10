@@ -24,7 +24,7 @@ void ring_pcre_match(void *pPointer)
     int options;
     int err_code;
     PCRE2_SIZE err_offset;
-    pcre2_match_data *pcre_md;
+    pcre2_match_data *pcre2_md;
     int match;
     PCRE2_SPTR subject;
     PCRE2_SIZE sublen;
@@ -64,7 +64,7 @@ void ring_pcre_match(void *pPointer)
         return;
     }
 
-    pcre_md = pcre2_match_data_create_from_pattern(code, NULL);
+    pcre2_md = pcre2_match_data_create_from_pattern(code, NULL);
 
     match = pcre2_match(
         code,
@@ -72,7 +72,7 @@ void ring_pcre_match(void *pPointer)
         sublen,
         0,
         options,
-        pcre_md,
+        pcre2_md,
         NULL
     );
 
@@ -86,7 +86,7 @@ void ring_pcre_match(void *pPointer)
         return;
     }
 
-    ovectorp = pcre2_get_ovector_pointer(pcre_md);
+    ovectorp = pcre2_get_ovector_pointer(pcre2_md);
 
     retval = RING_API_NEWLIST;
     tmp_list = ring_list_newlist_gc(((VM *)pPointer)->pRingState, retval);
@@ -95,6 +95,54 @@ void ring_pcre_match(void *pPointer)
         PCRE2_SPTR substr = subject + ovectorp[i * 2];
         int substr_len = ovectorp[(i * 2) + 1] - ovectorp[i * 2];
         ring_list_addstring2(tmp_list, (char* )substr, substr_len);
+    }
+
+    if (is_global) {
+        for (;;) {
+            int options = 0;
+            PCRE2_SIZE start_offset = ovectorp[1];
+            if (ovectorp[0] == ovectorp[1]) {
+                if (ovectorp[0] == sublen) break;
+            }
+
+            match = pcre2_match(
+                code,
+                subject,
+                sublen,
+                start_offset,
+                options,
+                pcre2_md,
+                NULL
+            );
+
+            if (PCRE2_ERROR_NOMATCH == match) {
+                if (options == 0) break;
+
+                ovectorp[1] = start_offset + 1;
+                if (
+                    start_offset < sublen - 1 &&
+                    subject[start_offset] == '\r' &&
+                    subject[start_offset + 1] == '\n'
+                ) {
+                    ovectorp[1] += 1;
+                }
+                continue;
+            }
+
+            if (match < 0) {
+                pcre2_match_data_free(pcre2_md);
+                pcre2_code_free(code);
+                RING_API_ERROR("#3 Match failed!");
+                return;
+            }
+
+            for (int i = 0; i < match; i++) {
+                PCRE2_SPTR substr = subject + ovectorp[2*i];
+                size_t substr_len = ovectorp[2*i+1] - ovectorp[2*i];
+                ring_list_addstring2(tmp_list, (char* )substr, substr_len);
+            }
+
+        }
     }
 
     RING_API_RETLIST(retval);
