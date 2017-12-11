@@ -595,10 +595,13 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 int ring_scanner_isnumber ( char *cStr )
 {
 	unsigned int x  ;
+	unsigned int x2  ;
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
 		/* Accept _ in the number */
 		if ( (cStr[x] == '_') && (x > 0) && (x < strlen(cStr) - 1) ) {
-			cStr[x] = cStr[x+1] ;
+			for ( x2 = x ; x2 < strlen(cStr) ; x2++ ) {
+				cStr[x2] = cStr[x2+1] ;
+			}
 			x-- ;
 			continue ;
 		}
