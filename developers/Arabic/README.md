@@ -126,6 +126,16 @@
 			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=2">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>3</td>
+		<td>
+			نكمل تعرفنا على الـ Strings ونتحدث عن استخدامها مع ال Binary Data وكذلك استخدامها للتعبير عن ال NULL ثم نتحدث عن النوع الرقمي وكيف يستخدم للتعبير عن الارقام بصورها المختلفة بالاضافة للنوع المنطقى ثم نتعرف على ال List ونري مثال عملي لتطبيق يقبل من المستخدم اى عدد من الارقام ثم يقوم بجمعها عند الطلب
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155404899605345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&index=3&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
