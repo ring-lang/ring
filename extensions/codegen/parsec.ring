@@ -63,30 +63,30 @@ C_TYPE_POINTER 	= 4
 C_TYPE_UNKNOWN 	= 5
 C_TYPE_ENUM	= 6
 
-$cFuncStart = ""
-$aStructFuncs = []
+$cFuncStart 	= ""
+$aStructFuncs 	= []
 
-aNumberTypes = ["int","float","double","bool","unsigned char","size_t",
+aNumberTypes 	= ["int","float","double","bool","unsigned char","size_t",
 "long int","int8_t","int16_t","int32_t","int64_t",
 "uint8_t","uint16_t","uint32_t","uint64_t"]
 
-aEnumTypes = []
+aEnumTypes 	= []
 
-aStringTypes = ["const char *","char const *","char *"]
+aStringTypes 	= ["const char *","char const *","char *"]
 
-aNewMethodName = []	# list store new method name ["class name","method name","new method name"]
-C_NMN_CLASSNAME = 1
-C_NMN_METHODNAME = 2
-C_NMN_NEWMETHODNAME = 3
+aNewMethodName 		= []	# list store new method name ["class name","method name","new method name"]
+C_NMN_CLASSNAME 	= 1
+C_NMN_METHODNAME 	= 2
+C_NMN_NEWMETHODNAME 	= 3
 
-aBeforeReturn = []	# array include arrays ["type","code after calling the method
+aBeforeReturn 	= []	# array include arrays ["type","code after calling the method
 			# Ex: ["QString",".toStdString().c_str()"]
-C_BR_TYPENAME = 1
-C_BR_CODE     = 2
+C_BR_TYPENAME 	= 1
+C_BR_CODE     	= 2
 
-$cClassName = ""
-$cNewPara = ""
-$cClassParent = ""
+$cClassName 	= ""
+$cNewPara 	= ""
+$cClassParent 	= ""
 
 $aClassesList = []
 C_CLASSESLIST_NAME 		= 1
@@ -105,13 +105,13 @@ $lIgnoreCPointerTypeCheck = false
 $aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
 
 # When we define constants 
-	C_CONSTANT_INS		= 1
-	C_CONSTANT_NAME 	= 2
-	C_CONSTANT_TYPE_NUMBER = 1
-	C_CONSTANT_TYPE_STRING = 2
-	C_CONSTANT_TYPE_POINTER = 3
-	$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
-	$cDefaultConstantPointerType = "void"
+	C_CONSTANT_INS			= 1
+	C_CONSTANT_NAME 		= 2
+	C_CONSTANT_TYPE_NUMBER 		= 1
+	C_CONSTANT_TYPE_STRING 		= 2
+	C_CONSTANT_TYPE_POINTER 	= 3
+	$nDefaultConstantType 		= C_CONSTANT_TYPE_NUMBER	
+	$cDefaultConstantPointerType 	= "void"
 
 # Tabs 
 
