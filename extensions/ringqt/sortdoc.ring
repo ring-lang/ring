@@ -35,7 +35,7 @@ if nStart
 	aData + [cClassName,cClassData]
 ok
 
-sort(aData,1)
+aData = sort(aData,1)
 
 remove("qtclassesdoc2.txt")
 fp = fopen("qtclassesdoc2.txt","a+")
