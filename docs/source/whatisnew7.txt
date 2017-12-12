@@ -19,6 +19,7 @@ Ring 1.7 comes with many new features!
 * Better RingQt
 * ringvm_see() function
 * ringvm_give() function
+* Better Documentation
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better RingQt
@@ -109,3 +110,12 @@ Output:
 	We want to print: x: 10.000000
 	y: 20.000000
 	z: 30.000000
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Documentation
+
+Better Documentation
+====================
+
+(1) RingQt Classes Chapter - The classes are sorted.
+
