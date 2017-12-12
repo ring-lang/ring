@@ -18,10 +18,10 @@ SOURCES +=   \
 HEADERS  += \
     gpushbutton.h 
 
-INCLUDEPATH += ../../include
+INCLUDEPATH += ../../../include
 
 win32 {
-	LIBS +=  ../../lib/ring.lib
+	LIBS +=  ../../../lib/ring.lib
 	QT   += axcontainer
 }
 
