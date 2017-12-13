@@ -136,6 +136,16 @@
 			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&index=3&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>4</td>
+		<td>
+			نكمل تعرفنا على انواع المتغيرات الاساسية فى اللغة ونتعرف على التعامل مع ال Date وال Time واستخدام الـ List كـ Hash Table او Dictionary ثم نتعرف على الانواع الاخري كـ Object و ايضا C Object 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155410416740345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=4">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
