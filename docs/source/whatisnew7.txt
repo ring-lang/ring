@@ -19,8 +19,10 @@ Ring 1.7 comes with many new features!
 * Better RingQt
 * ringvm_see() function
 * ringvm_give() function
+* ring_state_new() and ring_state_mainfile() functions
 * Better Documentation
 * Better Ring VM
+
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better RingQt
@@ -111,6 +113,30 @@ Output:
 	We want to print: x: 10.000000
 	y: 20.000000
 	z: 30.000000
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ring_state_new() and ring_state_mainfile() functions
+
+ring_state_new() and ring_state_mainfile() functions
+====================================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Documentation
