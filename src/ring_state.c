@@ -62,6 +62,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->vPoolManager.pCurrentItem = NULL ;
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
+	pRingState->nDontDeleteTheVM = 0 ;
 	return pRingState ;
 }
 

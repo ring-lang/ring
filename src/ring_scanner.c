@@ -164,7 +164,9 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 			}
 			pVM = ring_vm_new(pRingState);
 			ring_vm_start(pRingState,pVM);
-			ring_vm_delete(pVM);
+			if ( ! pRingState->nDontDeleteTheVM ) {
+				ring_vm_delete(pVM);
+			}
 		}
 		#endif
 		/* Display Generated Code */

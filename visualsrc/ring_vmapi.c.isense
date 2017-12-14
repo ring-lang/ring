@@ -390,6 +390,16 @@ Type: List *
 pList, *pList2, *pList3
 Type: VM *
 pVM
+ring_vmlib_state_new
+ring_vmlib_state_mainfile
+Type: RingState *
+pRingState
+Type: char *
+cStr
+Type: int
+argc
+Type: char *
+argv[2]
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
