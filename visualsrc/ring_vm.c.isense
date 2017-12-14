@@ -435,7 +435,7 @@ x,nSP
 ring_vm_callclassinit
 ring_vm_showerrormessage
 Type: int
-x
+x,lFunctionCall
 Type: List *
 pList
 ring_vm_setfilename
