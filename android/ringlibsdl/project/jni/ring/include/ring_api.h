@@ -215,6 +215,10 @@ void ring_vmlib_state_runobjectfile ( void *pPointer ) ;
 void ring_vmlib_state_main ( void *pPointer ) ;
 
 void ring_vmlib_state_setvar ( void *pPointer ) ;
+
+void ring_vmlib_state_new ( void *pPointer ) ;
+
+void ring_vmlib_state_mainfile ( void *pPointer ) ;
 /* Ring See and Give */
 
 void ring_vmlib_see ( void *pPointer ) ;

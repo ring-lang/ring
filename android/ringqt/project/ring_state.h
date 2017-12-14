@@ -31,6 +31,8 @@ typedef struct RingState {
 	unsigned int nGenObj : 1  ;
 	/* set to 1 if we need to display warnings */
 	unsigned int nWarning : 1  ;
+	/* Set to 1 to tell the scanner to don't delete the VM after execution */
+	unsigned int nDontDeleteTheVM : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;
