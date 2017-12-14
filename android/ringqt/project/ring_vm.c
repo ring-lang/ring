@@ -1079,13 +1079,14 @@ void ring_vm_callclassinit ( VM *pVM )
 
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
-	int x  ;
+	int x,lFunctionCall  ;
 	List *pList  ;
 	/* CGI Support */
 	ring_state_cgiheader(pVM->pRingState);
 	/* Print the Error Message */
 	printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
 	/* Print Calling Information */
+	lFunctionCall = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,x);
 		/*
@@ -1116,12 +1117,18 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ) ;
 			/* Called From */
 			printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
+			lFunctionCall = 1 ;
 		}
 		else {
 			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
 		}
 	}
-	printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+	if ( lFunctionCall ) {
+		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+	}
+	else {
+		printf( "in file %s ",pVM->cFileName ) ;
+	}
 }
 
 void ring_vm_setfilename ( VM *pVM )
