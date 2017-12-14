@@ -1293,6 +1293,7 @@ void ring_vmlib_list2str ( void *pPointer )
 	List *pList  ;
 	String *pString  ;
 	int x  ;
+	char cStr[100]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1306,6 +1307,13 @@ void ring_vmlib_list2str ( void *pPointer )
 					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
 				}
 				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
+			}
+			else if ( ring_list_isnumber(pList,x) ) {
+				if ( x != 1 ) {
+					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
+				}
+				ring_vm_numtostring((VM *) pPointer,ring_list_getdouble(pList,x) ,cStr);
+				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,cStr);
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
