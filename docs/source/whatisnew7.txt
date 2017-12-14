@@ -128,3 +128,5 @@ Better Ring VM
 ==============
 
 (1) Better Error Message
+(2) List2Str() function support lists contains numbers
+(3) Correct support for numbers contains _ as separator
