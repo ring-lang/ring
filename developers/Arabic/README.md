@@ -146,6 +146,15 @@
 			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=4">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>5</td>
+		<td>
+			نكمل تعرفنا على الاساسيات واستخدام ال NL وال TAB وال CR ومفهوم ال Expression ثم نتابع ونتعرف على جمل التحكم Control Structures مثل ال if وال for وال while وال do وايضا نتعرف على مفهوم الشرط Condition 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416072305345/">شاهد على الفيس بوك</a> <br />
+		</td>
+	</tr>
 </table>
 
 </div>
