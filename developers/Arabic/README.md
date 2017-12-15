@@ -155,6 +155,16 @@
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416072305345/">شاهد على الفيس بوك</a> <br />
 		</td>
 	</tr>
+	<tr>
+		<td>6</td>
+		<td>
+			نتعرف على الدوال Functions ومفهوم ال Scope وال Pass by value وال Pass by reference وال Deep Copy وتقسيم المشروع لاكثر من ملف من خلال Load 
+			وتم طرح سؤال عن تعليقات بعض المطورين عن اللغة على موقع Quora وتم الرد على هذه التعليقات
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416214840345/">شاهد على الفيس بوك</a> <br />
+		</td>
+	</tr>
 </table>
 
 </div>
