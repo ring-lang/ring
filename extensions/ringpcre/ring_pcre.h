@@ -6,6 +6,8 @@ Hassan Ahmed <hsn@outlook.hu>
 
 #define PCRE2_CODE_UNIT_WIDTH 8
 
+#define RING_PCRE2_VERSION "1.0.0"
+
 #include "pcre2lib/pcre2.h"
 
 typedef struct _ring_pcre2_pattern_info {
