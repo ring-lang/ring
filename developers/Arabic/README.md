@@ -164,6 +164,7 @@
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416214840345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=PB1feNRRfqw&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=6">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
