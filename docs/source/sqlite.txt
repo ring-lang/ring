@@ -98,12 +98,12 @@ The next code create a SQLite database, add new records then display the data.
 	aResult =  sqlite_execute(oSQLite,"select * from COMPANY") 
 	for x in aResult
 		for t in x
-			see t[2] + nl
+			? t[2] + nl
 		next
 	next
-	see copy("*",50)  + nl
+	? copy("*",50) 
 	for x in aResult
-		see x["name"] + nl
+		? x[:name] 
 	next
 	sqlite_close(oSQLite) 
 
