@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Low Level Functions &mdash; Ring 1.6 documentation</title>
+    <title>Low Level Functions &mdash; Ring 1.7 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.6',
+        VERSION:     '1.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
     <link rel="next" title="The Trace Library and the Interactive Debugger" href="debug.html" />
     <link rel="prev" title="Distributing Ring Applications using Ring2EXE" href="distribute_ring2exe.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="distribute_ring2exe.html" title="Distributing Ring Applications using Ring2EXE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -77,6 +77,8 @@
 <li>ringvm_passerror()</li>
 <li>ringvm_hideerrorMsg()</li>
 <li>ringvm_callfunc()</li>
+<li>ringvm_see()</li>
+<li>ringvm_give()</li>
 </ul>
 <div class="section" id="callgc-function">
 <span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
@@ -1117,6 +1119,53 @@ func PrintLocalsData nScope
 </pre></div>
 </div>
 </div>
+<div class="section" id="ringvm-see-function">
+<span id="index-26"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
+<p>Also we can use ring_see() to have the original behavior</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+
+<span class="k">func</span> <span class="n">ringvm_see</span> <span class="n">t</span>
+        <span class="n">ring_see</span><span class="p">(</span><span class="s">&quot;We want to print: &quot;</span><span class="p">)</span>
+        <span class="n">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>We want to print: Hello world
+We want to print: 123
+We want to print: one
+two
+three
+We want to print: x: 10.000000
+y: 20.000000
+z: 30.000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringvm-give-function">
+<span id="index-27"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -1153,6 +1202,8 @@ func PrintLocalsData nScope
 <li><a class="reference internal" href="#ringvm-callfunc">ringvm_callfunc()</a></li>
 <li><a class="reference internal" href="#example-using-the-trace-functions">Example - Using the Trace Functions</a></li>
 <li><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
+<li><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
+<li><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
 </ul>
 </li>
 </ul>
@@ -1199,7 +1250,7 @@ func PrintLocalsData nScope
         <li class="right" >
           <a href="distribute_ring2exe.html" title="Distributing Ring Applications using Ring2EXE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

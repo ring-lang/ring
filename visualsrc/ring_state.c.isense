@@ -42,6 +42,8 @@ Type: char
 lStartup
 Type: PoolManager
 vPoolManager
+Type: unsigned int
+nDontDeleteTheVM : 1
 END:
 Type: RingState
 struct RingState

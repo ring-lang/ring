@@ -63,30 +63,30 @@ C_TYPE_POINTER 	= 4
 C_TYPE_UNKNOWN 	= 5
 C_TYPE_ENUM	= 6
 
-$cFuncStart = ""
-$aStructFuncs = []
+$cFuncStart 	= ""
+$aStructFuncs 	= []
 
-aNumberTypes = ["int","float","double","bool","unsigned char","size_t",
+aNumberTypes 	= ["int","float","double","bool","unsigned char","size_t",
 "long int","int8_t","int16_t","int32_t","int64_t",
 "uint8_t","uint16_t","uint32_t","uint64_t"]
 
-aEnumTypes = []
+aEnumTypes 	= []
 
-aStringTypes = ["const char *","char const *","char *"]
+aStringTypes 	= ["const char *","char const *","char *"]
 
-aNewMethodName = []	# list store new method name ["class name","method name","new method name"]
-C_NMN_CLASSNAME = 1
-C_NMN_METHODNAME = 2
-C_NMN_NEWMETHODNAME = 3
+aNewMethodName 		= []	# list store new method name ["class name","method name","new method name"]
+C_NMN_CLASSNAME 	= 1
+C_NMN_METHODNAME 	= 2
+C_NMN_NEWMETHODNAME 	= 3
 
-aBeforeReturn = []	# array include arrays ["type","code after calling the method
+aBeforeReturn 	= []	# array include arrays ["type","code after calling the method
 			# Ex: ["QString",".toStdString().c_str()"]
-C_BR_TYPENAME = 1
-C_BR_CODE     = 2
+C_BR_TYPENAME 	= 1
+C_BR_CODE     	= 2
 
-$cClassName = ""
-$cNewPara = ""
-$cClassParent = ""
+$cClassName 	= ""
+$cNewPara 	= ""
+$cClassParent 	= ""
 
 $aClassesList = []
 C_CLASSESLIST_NAME 		= 1
@@ -105,13 +105,24 @@ $lIgnoreCPointerTypeCheck = false
 $aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
 
 # When we define constants 
-	C_CONSTANT_INS		= 1
-	C_CONSTANT_NAME 	= 2
-	C_CONSTANT_TYPE_NUMBER = 1
-	C_CONSTANT_TYPE_STRING = 2
-	C_CONSTANT_TYPE_POINTER = 3
-	$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
-	$cDefaultConstantPointerType = "void"
+	C_CONSTANT_INS			= 1
+	C_CONSTANT_NAME 		= 2
+	C_CONSTANT_TYPE_NUMBER 		= 1
+	C_CONSTANT_TYPE_STRING 		= 2
+	C_CONSTANT_TYPE_POINTER 	= 3
+	$nDefaultConstantType 		= C_CONSTANT_TYPE_NUMBER	
+	$cDefaultConstantPointerType 	= "void"
+
+# Tabs 
+
+C_TABS_1 = "	"
+C_TABS_2 = "		"
+
+# nl
+
+if isWindows()
+	nl = Windowsnl()
+ok
 
 Func Main
 	if len(sysargv) < 3
@@ -123,7 +134,9 @@ Func Main
 	aList = str2list(cStr)
 	aData = []
 	lFlag = C_INS_FUNCTION
-	for cLine in aList
+	nMax = len(aList)
+	for t = 1 to nMax 
+		cLine = aList[t]
 		cLine = trim(cLine)
 		nPos = substr(cLine,"#")
 		if nPos > 0  
@@ -247,13 +260,8 @@ Func Main
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl + 
 	    "Size : " + len(cCode) + " Bytes" + nl
-	aCode = str2list(cCode)
-	fp = fopen(cFileName,"wb")
-	for cLine in aCode
-		fwrite(fp,cLine+char(13)+char(10))	
-	next
-	fclose(fp)
-
+	write(cFileName,cCode)
+	
 Func ThreeParts cLine
 	# Get three parts (output - function name - parameters)
 	nPos1 = substr(cLine,"(")
@@ -289,7 +297,8 @@ Func ParaList cPara
 Func ParaTypeNoName cLine
 	# get the parameter type and name, remove name and keep the type only
 	cLine = trim(cLine)
-	for x = len(cLine) to 1 step -1
+	nMax = len(cLine)
+	for x = nMax to 1 step -1
 		if cLine[x] = "*" or cLine[x] = " "
 			return left(cLine,x)
 		ok
@@ -318,7 +327,9 @@ Func GenCode aList
 	cCode = ""
 	cCode += GenDLLStart()
 	# Generate Classes List at first
-	for aFunc in aList
+	nMax = len(aList)
+	for t = 1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_CLASS
 			cValue = trim(aFunc[C_INS_CODE])
 			if left(lower(cValue),5) = "name:"
@@ -330,7 +341,9 @@ Func GenCode aList
 	next
 		
 	#
-	for aFunc in aList
+	
+	for t = 1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION
 			if $cClassName = ""
 				cCode += GenFuncCode(aFunc)
@@ -396,14 +409,16 @@ Func GenDLLStart
 Func GenFuncPrototype aList
 	cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
 		"{" + nl
-	for aFunc in aList
+	nMax = len(aList)
+	for t=1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION OR aFunc[C_FUNC_INS] = C_INS_REGISTER
 			if len(aFunc) >= C_CLASS_NAME
 				cClassName = aFunc[C_CLASS_NAME]
 			else
 				cClassName = $cClassName
 			ok
-			cCode += GenTabs(1) + 'ring_vm_funcregister("' 
+			cCode += C_TABS_1 + 'ring_vm_funcregister("' 
 			cFuncName = aFunc[C_FUNC_NAME]
 			cFuncName = SubStr(cFuncName,"@","_")
 			if cClassName != ""
@@ -418,7 +433,7 @@ Func GenFuncPrototype aList
 		ok
 	next
 	for cFunc in $aStructFuncs
-			cCode += GenTabs(1) + 'ring_vm_funcregister("' + cFunc + '",' +
+			cCode += C_TABS_1 + 'ring_vm_funcregister("' + cFunc + '",' +
 				  "ring_"+cFunc + ");" + nl
 	next
 	cCode += "}" + nl
@@ -439,8 +454,8 @@ Func GenFuncCode aList
 Func GenFuncCodeCheckParaCount aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
-	cCode = GenTabs(1) + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
-		GenTabs(2) +"RING_API_ERROR("
+	cCode = C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+		C_TABS_2 +"RING_API_ERROR("
 	switch nCount
 	on 1 
 		cCode += "RING_API_MISS1PARA"
@@ -454,8 +469,8 @@ Func GenFuncCodeCheckParaCount aList
 		cCode += "RING_API_BADPARACOUNT"
 	off
 	cCode += ");" + nl +
-		GenTabs(2) +"return ;" + nl +
-		GenTabs(1) +"}" + nl
+		C_TABS_2 +"return ;" + nl +
+		C_TABS_1 +"}" + nl
 	return cCode
 
 Func GenFuncCodeCheckParaType aList
@@ -463,36 +478,37 @@ Func GenFuncCodeCheckParaType aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
-				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_ENUM
-				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_STRING
-				cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
 				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
 					# pointer to int, i.e. int *
-					cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-						 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 GenTabs(2) + "return ;" + nl +
-						 GenTabs(1) + "}" + nl
+					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
+						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+						 C_TABS_2 + "return ;" + nl +
+						 C_TABS_1 + "}" + nl
 				else
-					cCode += GenTabs(1) + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
-						 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 GenTabs(2) + "return ;" + nl +
-						 GenTabs(1) + "}" + nl
+					cCode += C_TABS_1 + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
+						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+						 C_TABS_2 + "return ;" + nl +
+						 C_TABS_1 + "}" + nl
 				ok
 			off
 		next
@@ -500,7 +516,7 @@ Func GenFuncCodeCheckParaType aList
 	return cCode
 
 Func GenFuncCodeCallFunc aList
-	cCode = GenTabs(1)
+	cCode = C_TABS_1
 	lRet = true
 	lUNKNOWN = false
 	lRetPointer = false
@@ -518,10 +534,10 @@ Func GenFuncCodeCallFunc aList
 			cCode += "RING_API_RETCPOINTER("
 		on C_TYPE_UNKNOWN
 			cCode += "{" + nl + 
-				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
-				GenTabs(2) + "pValue = (" + aList[C_FUNC_OUTPUT] + 
+				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
+				C_TABS_2 + "pValue = (" + aList[C_FUNC_OUTPUT] + 
 				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
-				GenTabs(2) + "*pValue = " 
+				C_TABS_2 + "*pValue = " 
 			lRet = false
 			lUNKNOWN = true
 	off
@@ -543,8 +559,8 @@ Func GenFuncCodeCallFunc aList
 	cCode +=  ";" + nl
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += GenTabs(2) + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + GenTabs(1) + "}" + nl
+		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+			 '");' + nl + C_TABS_1 + "}" + nl
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
@@ -555,7 +571,8 @@ Func GenFuncCodeGetParaValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			if t > 1	# separator between parameters	
 				cCode += ","
 			ok
@@ -591,11 +608,12 @@ Func GenFuncCodeGetIntValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_POINTER
 				if GenPointerType(x) = "int"
-					cCode += GenTabs(1) + 
+					cCode += C_TABS_1 + 
 					"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
 				ok
 			ok
@@ -608,11 +626,12 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_UNKNOWN
-				cCode += GenTabs(1) + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
-				cCode += GenTabs(2) + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
+				cCode += C_TABS_1 + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
+				cCode += C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
 			ok
 		next
 	ok
@@ -673,15 +692,15 @@ Func GenStruct	aFunc
 	$aStructFuncs + cFuncName
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 			"{" + nl + 
-			GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-			GenTabs(1) + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
+			C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+			C_TABS_1 + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
 			cStruct + ")) ;" + nl +
-			GenTabs(1) + "if (pMyPointer == NULL) " + nl +
-			GenTabs(1) + "{" + nl +
-			GenTabs(2) + "RING_API_ERROR(RING_OOM);" + nl + 
-			GenTabs(2) + "return ;" + nl +
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "RING_API_RETCPOINTER(pMyPointer,"+
+			C_TABS_1 + "if (pMyPointer == NULL) " + nl +
+			C_TABS_1 + "{" + nl +
+			C_TABS_2 + "RING_API_ERROR(RING_OOM);" + nl + 
+			C_TABS_2 + "return ;" + nl +
+			C_TABS_1 + "}" + nl +
+			C_TABS_1 + "RING_API_RETCPOINTER(pMyPointer,"+
 			'"'+cStruct  +'");' + nl +
 			"}" + nl + nl
 	# Generate Functions to Destroy the Struct
@@ -689,18 +708,18 @@ Func GenStruct	aFunc
 	$aStructFuncs + cFuncName
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 			"{" + nl + 
-			GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-			GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
-			GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
-			GenTabs(2) + "return ;" + nl +
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-			GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			GenTabs(2) + "return ;" + nl + 
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+			C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+			C_TABS_1 + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+			C_TABS_2 + "return ;" + nl +
+			C_TABS_1 + "}" + nl +
+			C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+			C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+			C_TABS_2 + "return ;" + nl + 
+			C_TABS_1 + "}" + nl +
+			C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 			'"'+cStruct  +'");' + nl +
-			GenTabs(1) + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +						
+			C_TABS_1 + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +						
 			"}" + nl + nl
 	# We expect the members to be of type (numbers) or (pointers)
 	for x in aStructMembers
@@ -712,40 +731,40 @@ Func GenStruct	aFunc
 			$aStructFuncs + cFuncName
 			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 				"{" + nl + 
-				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-				GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
-				GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
-				GenTabs(2) + "return ;" + nl +
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				GenTabs(1) + "RING_API_RETNUMBER(pMyPointer->"+x+");" + nl +
+				C_TABS_1 + "RING_API_RETNUMBER(pMyPointer->"+x+");" + nl +
 				"}" + nl + nl
 			# Generate Functions to Set Struct Members Value
 			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
 			$aStructFuncs + cFuncName
 			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 				"{" + nl + 
-				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-				GenTabs(1) + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
-				GenTabs(2) +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
-				GenTabs(2) + "return ;" + nl +
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISNUMBER(2) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISNUMBER(2) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				GenTabs(1) + "pMyPointer->"+x+" = "+"RING_API_GETNUMBER(2);" + nl +
+				C_TABS_1 + "pMyPointer->"+x+" = "+"RING_API_GETNUMBER(2);" + nl +
 				"}" + nl + nl
 		else
 			cPointerType = left(cItem,nPointer)
@@ -757,40 +776,40 @@ Func GenStruct	aFunc
 			$aStructFuncs + cFuncName
 			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 				"{" + nl + 
-				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-				GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
-				GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
-				GenTabs(2) + "return ;" + nl +
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				GenTabs(1) + "RING_API_RETCPOINTER(pMyPointer->"+x+',"'+cPointerTypeRet+'"'+");" + nl +
+				C_TABS_1 + "RING_API_RETCPOINTER(pMyPointer->"+x+',"'+cPointerTypeRet+'"'+");" + nl +
 				"}" + nl + nl
 			# Generate Functions to Set Struct Members Value
 			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
 			$aStructFuncs + cFuncName
 			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 				"{" + nl + 
-				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-				GenTabs(1) + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
-				GenTabs(2) +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
-				GenTabs(2) + "return ;" + nl +
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "if ( ! RING_API_ISPOINTER(2) ) { " + nl +
-				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-				GenTabs(2) + "return ;" + nl + 
-				GenTabs(1) + "}" + nl +
-				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISPOINTER(2) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				GenTabs(1) + "pMyPointer->"+x+" = ("+cPointerType+") RING_API_GETCPOINTER(2,"+'"'+cPointerType +'"'+");" + nl +
+				C_TABS_1 + "pMyPointer->"+x+" = ("+cPointerType+") RING_API_GETCPOINTER(2,"+'"'+cPointerType +'"'+");" + nl +
 				"}" + nl + nl			
 		ok
 	next
@@ -808,12 +827,12 @@ Func GenConstant aFunc
 		"{" + nl 
 	switch $nDefaultConstantType
 	on C_CONSTANT_TYPE_NUMBER	
-		cCode += GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl 
+		cCode += C_TABS_1 + "RING_API_RETNUMBER("+cConstant+");" + nl 
 	on C_CONSTANT_TYPE_STRING
-		cCode += GenTabs(1) + "RING_API_RETSTRING("+cConstant+");" + nl 
+		cCode += C_TABS_1 + "RING_API_RETSTRING("+cConstant+");" + nl 
 	on C_CONSTANT_TYPE_POINTER
 		cConstantPointerType = ',"' + $cDefaultConstantPointerType + '"'
-		cCode += GenTabs(1) + "RING_API_RETCPOINTER("+cConstant+cConstantPointerType+");" + nl 
+		cCode += C_TABS_1 + "RING_API_RETCPOINTER("+cConstant+cConstantPointerType+");" + nl 
 	off
 	cCode += "}" + nl + nl
 	return cCode
@@ -837,7 +856,7 @@ Func GenMethodCode aList
 
 Func GenMethodCodeCheckIgnorePointerType
 	if $lIgnoreCPointerTypeCheck	
-		return GenTabs(1) + "RING_API_IGNORECPOINTERTYPE ;" + nl
+		return C_TABS_1 + "RING_API_IGNORECPOINTERTYPE ;" + nl
 	ok
 
 Func GenMethodCodeGetClassCodeName
@@ -855,9 +874,9 @@ Func GenMethodCodeCheckParaCount aList
 
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara) + 1
-	cCode =  GenTabs(1) + cClassCodeName + " *pObject ;" + nl +
-	 	 GenTabs(1) + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
-		 GenTabs(2) +"RING_API_ERROR("
+	cCode =  C_TABS_1 + cClassCodeName + " *pObject ;" + nl +
+	 	 C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+		 C_TABS_2 +"RING_API_ERROR("
 	switch nCount
 	on 1 
 		cCode += "RING_API_MISS1PARA"
@@ -871,54 +890,55 @@ Func GenMethodCodeCheckParaCount aList
 		cCode += "RING_API_BADPARACOUNT"
 	off
 	cCode += ");" + nl +
-		GenTabs(2) +"return ;" + nl +
-		GenTabs(1) +"}" + nl
+		C_TABS_2 +"return ;" + nl +
+		C_TABS_1 +"}" + nl
 	return cCode
 
 Func GenMethodCodeCheckParaType aList
 	cClassCodeName = GenMethodCodeGetClassCodeName()
-	cCode = GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
-			 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			 GenTabs(2) + "return ;" + nl +
-			 GenTabs(1) + "}" + nl +
-			 GenTabs(1) + "pObject = ("+
+	cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
+			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+			 C_TABS_2 + "return ;" + nl +
+			 C_TABS_1 + "}" + nl +
+			 C_TABS_1 + "pObject = ("+
 			 cClassCodeName+" *) RING_API_GETCPOINTER(1," + '"'+
 			 $cClassName+'"' + ");"+nl
 
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			x = aPara[t]
 			t++ # avoid the object pointer
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
-				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_ENUM
-				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_STRING
-				cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 GenTabs(2) + "return ;" + nl +
-					 GenTabs(1) + "}" + nl
+				cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
+					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 C_TABS_2 + "return ;" + nl +
+					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
 				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
 					# pointer to int, i.e. int *
-					cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-						 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 GenTabs(2) + "return ;" + nl +
-						 GenTabs(1) + "}" + nl
+					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
+						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+						 C_TABS_2 + "return ;" + nl +
+						 C_TABS_1 + "}" + nl
 				else
-					cCode += GenTabs(1) + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
-						 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 GenTabs(2) + "return ;" + nl +
-						 GenTabs(1) + "}" + nl
+					cCode += C_TABS_1 + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
+						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+						 C_TABS_2 + "return ;" + nl +
+						 C_TABS_1 + "}" + nl
 				ok
 			off
 			t-- # ignore effect of avoiding the object pointer
@@ -932,7 +952,7 @@ Func GenMethodCodeCallFunc aList
 	if nPos > 0
 		cFuncName = left(cFuncName,nPos-1)
 	ok
-	cCode = GenTabs(1)
+	cCode = C_TABS_1
 	lRet = true
 	lUNKNOWN = false
 	lRetPointer = false
@@ -951,16 +971,16 @@ Func GenMethodCodeCallFunc aList
 		on C_TYPE_UNKNOWN
 			if ( find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0 ) and ( find($aMallocClassesList,aList[C_FUNC_OUTPUT]) = 0 )
 				cCode += "{" + nl + 
-				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
-				GenTabs(2) + "pValue = new " + aList[C_FUNC_OUTPUT] + 
+				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
+				C_TABS_2 + "pValue = new " + aList[C_FUNC_OUTPUT] + 
 				"() ;" + nl +
-				GenTabs(2) + "*pValue = " 
+				C_TABS_2 + "*pValue = " 
 			else
 				cCode += "{" + nl + 
-				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
-				GenTabs(2) + "pValue = (" + aList[C_FUNC_OUTPUT] + 
+				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
+				C_TABS_2 + "pValue = (" + aList[C_FUNC_OUTPUT] + 
 				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
-				GenTabs(2) + "*pValue = " 
+				C_TABS_2 + "*pValue = " 
 			ok
 
 			lRet = false
@@ -989,8 +1009,8 @@ Func GenMethodCodeCallFunc aList
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += GenTabs(2) + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + GenTabs(1) + "}" + nl
+		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+			 '");' + nl + C_TABS_1 + "}" + nl
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
@@ -1001,7 +1021,8 @@ Func GenMethodCodeGetParaValues aList
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
-		for t = 1 to len(aPara)
+		nMax = len(aPara)
+		for t = 1 to nMax
 			if t > 1	# separator between parameters	
 				cCode += ","
 			ok
@@ -1051,14 +1072,14 @@ Func GenNewFuncForClasses aList
 				GenMethodCodeCheckIgnorePointerType() +
 			 	GenFuncCodeCheckParaCount(myList) +
 	 			GenFuncCodeCheckParaType(myList) +
-				GenTabs(1) + cCodeName + " *pObject = " +
+				C_TABS_1 + cCodeName + " *pObject = " +
 				"new " + cCodeName + "(" + 				
 				GenFuncCodeGetParaValues(myList) 
 				if aSub[C_CLASSESLIST_PASSVMPOINTER] 
 					cCode += ", (VM *) pPointer"
 				ok
 				cCode += ");" + nl +
-				GenTabs(1) + "RING_API_RETCPOINTER(pObject,"+
+				C_TABS_1 + "RING_API_RETCPOINTER(pObject,"+
 					'"'+cName+'"' + ");"+ nl +
 			"}" + nl + nl
 	next
@@ -1081,17 +1102,17 @@ Func GenDeleteFuncForClasses aList
 		aList + mylist
 		cCode += "RING_FUNC(" + cFuncName + ")" + nl + 
 			"{" + nl +
-				GenTabs(1) + cCodeName + " *pObject ; " +nl +
-				GenTabs(1) +"if ( RING_API_PARACOUNT != 1 )" + nl +
-    				GenTabs(1) +"{" + nl +
-        			GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA);" + nl +
-        			GenTabs(2) +"return ;" + nl +
-    				GenTabs(1) +"}" + nl +
-    				GenTabs(1) +"if ( RING_API_ISPOINTER(1) )" + nl +
-    				GenTabs(1) +"{" + nl +
-            			GenTabs(2) +'pObject = ('+cCodeName+' *) RING_API_GETCPOINTER(1,"'+cCodeName+'");' + nl +
-            			GenTabs(2) +"delete pObject ;" + nl +
-    				GenTabs(1) +"}" + nl +				
+				C_TABS_1 + cCodeName + " *pObject ; " +nl +
+				C_TABS_1 +"if ( RING_API_PARACOUNT != 1 )" + nl +
+    				C_TABS_1 +"{" + nl +
+        			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA);" + nl +
+        			C_TABS_2 +"return ;" + nl +
+    				C_TABS_1 +"}" + nl +
+    				C_TABS_1 +"if ( RING_API_ISPOINTER(1) )" + nl +
+    				C_TABS_1 +"{" + nl +
+            			C_TABS_2 +'pObject = ('+cCodeName+' *) RING_API_GETCPOINTER(1,"'+cCodeName+'");' + nl +
+            			C_TABS_2 +"delete pObject ;" + nl +
+    				C_TABS_1 +"}" + nl +				
 			"}" + nl + nl
 	next
 	return cCode
@@ -1114,7 +1135,9 @@ Func GenRingCode aList
 	cClassName = ""
 	aClasses = []
 	cCode += GenRingCodeFuncGetObjectPointer()
-	for aFunc in aList
+	nMax = len(aList)
+	for t=1 to nMax 
+		aFunc = aList[t]
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION or
 		   aFunc[C_FUNC_INS] = C_INS_REGISTER 
 			# Check the start of a New Class
@@ -1129,14 +1152,14 @@ Func GenRingCode aList
 						ok
 						if $aClassesList[nIndex][C_CLASSESLIST_NONEW] = false
 						  cCode += nl+nl+
-						  GenTabs(1) + "pObject" + nl + nl +
-						  GenTabs(1) + "Func init " + 
+						  C_TABS_1 + "pObject" + nl + nl +
+						  C_TABS_1 + "Func init " + 
 						  GenRingCodeParaList(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) + nl +
-						  GenTabs(2) + "pObject = " + cClassName + "_new(" + 
+						  C_TABS_2 + "pObject = " + cClassName + "_new(" + 
 						  GenRingCodeParaListUse(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) +")"+nl+
-						  GenTabs(2) + "return self" + nl + nl +
-						  GenTabs(1) + "Func delete" + nl + 
-						  GenTabs(2) + "pObject = " + cClassName+"_delete(pObject)" + nl  					
+						  C_TABS_2 + "return self" + nl + nl +
+						  C_TABS_1 + "Func delete" + nl + 
+						  C_TABS_2 + "pObject = " + cClassName+"_delete(pObject)" + nl  					
 						else
 							del($aClassesList,nIndex)
 						ok
@@ -1153,21 +1176,21 @@ Func GenRingCode aList
 			cMethodName = aFunc[C_FUNC_NAME]
 			cMethodName = GenRingCodeNewMethodName(cClassName,cMethodName)
 			cMethodName = SubStr(cMethodName,"@","_")
-			cCode += nl + GenTabs(1) + "Func " + cMethodName + " "
+			cCode += nl + C_TABS_1 + "Func " + cMethodName + " "
 			aPara = aFunc[C_FUNC_PARA]
 			cCode += GenRingCodeParaList(aPara)
 			
 			lRetObj = false
 			if find($aClassesList,aFunc[C_FUNC_OUTPUT],1) > 0
 				lRetObj = true
-				cCode += nl + GenTabs(2) + "pTempObj = new " + aFunc[C_FUNC_OUTPUT] + nl +
-					 GenTabs(2)+"pTempObj.pObject = "
+				cCode += nl + C_TABS_2 + "pTempObj = new " + aFunc[C_FUNC_OUTPUT] + nl +
+					 C_TABS_2+"pTempObj.pObject = "
 			but find($aClassesList,GenPointerType(aFunc[C_FUNC_OUTPUT]),1) > 0
 				lRetObj = true
-				cCode += nl + GenTabs(2) + "pTempObj = new " + GenPointerType(aFunc[C_FUNC_OUTPUT]) + nl +
-					 GenTabs(2)+"pTempObj.pObject = "
+				cCode += nl + C_TABS_2 + "pTempObj = new " + GenPointerType(aFunc[C_FUNC_OUTPUT]) + nl +
+					 C_TABS_2+"pTempObj.pObject = "
 			else
-				cCode += nl + GenTabs(2) + "return " 
+				cCode += nl + C_TABS_2 + "return " 
 			ok
 			cMethodName = aFunc[C_FUNC_NAME]
 			cMethodName = SubStr(cMethodName,"@","_")
@@ -1183,7 +1206,7 @@ Func GenRingCode aList
 			ok
 			cCode += ")" + nl
 			if lRetObj
-				cCode += GenTabs(2) + "return pTempObj" + nl
+				cCode += C_TABS_2 + "return pTempObj" + nl
 			ok
 		ok
 	next
@@ -1191,7 +1214,8 @@ Func GenRingCode aList
 
 Func GenRingCodeParaList aPara
 	cCode = ""
-	for x = 1 to len(aPara)
+	nMax = len(aPara)
+	for x = 1 to nMax
 		if aPara[x] = "void" loop ok
 		if x != 1 cCode += "," ok
 		cCode += "P"+x
@@ -1200,7 +1224,8 @@ Func GenRingCodeParaList aPara
 
 Func GenRingCodeParaListUse aPara
 	cCode = ""
-	for x = 1 to len(aPara)
+	nMax = len(aPara)
+	for x = 1 to nMax
 		if aPara[x] = "void" loop ok
 		if x != 1 cCode += "," ok
 		cValue = "P"+x
@@ -1227,7 +1252,9 @@ Func GetObjectPointerFromRingObject pObj
 "
 
 Func GenRingCodeNewMethodName cClassName,cMethodName
-	for x in aNewMethodName
+	nMax = len(aNewMethodName)
+	for t=1 to nMax
+		x = aNewMethodName[t]
 		if trim(lower(x[C_NMN_CLASSNAME])) = trim(lower(cClassName)) and
 		   trim(lower(x[C_NMN_METHODNAME])) = trim(lower(cMethodName))
 			return x[C_NMN_NEWMETHODNAME]

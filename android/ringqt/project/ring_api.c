@@ -103,6 +103,17 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
 	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
 	ring_vm_funcregister("ring_state_setvar",ring_vmlib_state_setvar);
+	ring_vm_funcregister("ring_state_new",ring_vmlib_state_new);
+	ring_vm_funcregister("ring_state_mainfile",ring_vmlib_state_mainfile);
+	/*
+	**  Ring See and Give 
+	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
+	**  Also we can use ring_see() and ring_give() to use the original behavior when we redefine it 
+	*/
+	ring_vm_funcregister("ringvm_see",ring_vmlib_see);
+	ring_vm_funcregister("ringvm_give",ring_vmlib_give);
+	ring_vm_funcregister("ring_see",ring_vmlib_see);
+	ring_vm_funcregister("ring_give",ring_vmlib_give);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1284,6 +1295,7 @@ void ring_vmlib_list2str ( void *pPointer )
 	List *pList  ;
 	String *pString  ;
 	int x  ;
+	char cStr[100]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1297,6 +1309,13 @@ void ring_vmlib_list2str ( void *pPointer )
 					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
 				}
 				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
+			}
+			else if ( ring_list_isnumber(pList,x) ) {
+				if ( x != 1 ) {
+					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
+				}
+				ring_vm_numtostring((VM *) pPointer,ring_list_getdouble(pList,x) ,cStr);
+				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,cStr);
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
@@ -2026,4 +2045,40 @@ void ring_vmlib_state_setvar ( void *pPointer )
 		pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
 		ring_list_copy(pList3,pList2);
 	}
+}
+
+void ring_vmlib_state_new ( void *pPointer )
+{
+	RING_API_RETCPOINTER(ring_state_new(),"RINGSTATE");
+}
+
+void ring_vmlib_state_mainfile ( void *pPointer )
+{
+	RingState *pRingState  ;
+	char *cStr  ;
+	int argc  ;
+	char *argv[2]  ;
+	argv[0] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+	argv[1] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	cStr = RING_API_GETSTRING(2);
+	argc = 2 ;
+	strcpy(argv[0],"ring");
+	strcpy(argv[1],cStr);
+	pRingState->argc = argc ;
+	pRingState->argv = argv ;
+	/*
+	**  Don't Delete the VM after execution 
+	**  We may run GUI app from GUI app 
+	**  In this case the caller already called qApp.Exec() 
+	**  Deleting the VM in sub program after execution 
+	**  Will lead to crash when we execute events (like button click) in the sub program 
+	**  So we keep the VM to avoid the Crash 
+	*/
+	pRingState->nDontDeleteTheVM = 1 ;
+	ring_scanner_readfile(pRingState,cStr);
 }

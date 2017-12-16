@@ -307,7 +307,7 @@ The Answer:
 
 * It's Anonymous Functions, i.e. Not Closures.
 
-* Many developers asked about supporting Closures and during language development we may add new features that doesn't go against the language goals or sprite.
+* Many developers asked about supporting Closures and during language development we may add new features that doesn't go against the language goals or spirit.
 
 * You can use classes and objects when you want to merge between the state and functions to provide a clear solution.
 
@@ -321,7 +321,7 @@ The Answer:
 
 * When you think about learning or studying a new language concentrate about (What is new?) and (What is better in this language?) to know when to use it. Don't compare a new language just released little months ago with languages started many years ago and expect to find everything that you used to have.
 
-* Each programming language miss features in other languages. The idea is not the Features. it's the sprite and ability behind all of the features together.
+* Each programming language miss features in other languages. The idea is not the Features. it's the spirit and ability behind all of the features together.
 
 
 
@@ -669,7 +669,7 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	managers helps a lot to achieve this goal. by doing this we have full control.
 
 (11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
-	But It's not the Ring way "Sprite" to do things.
+	But It's not the Ring way "Spirit" to do things.
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring

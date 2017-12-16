@@ -1,0 +1,158 @@
+.. index:: 
+	single: What is new in Ring 1.7?; Introduction
+
+========================
+What is new in Ring 1.7?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.7 release.
+
+.. index:: 
+	pair: What is new in Ring 1.7?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.7 comes with many new features!
+
+* Better Ring Notepad
+* Better RingQt
+* ringvm_see() function
+* ringvm_give() function
+* ring_state_new() and ring_state_mainfile() functions
+* Better Documentation
+* Better Ring VM
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better RingQt
+
+Better RingQt
+=============
+
+RingQt comes with the next updates
+
+(1) QStackedWidget Class
+(2) QCalendarWidget Class
+(3) QOpenGLFunctions Class
+(4) QOpenGLContext Class
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+Ring Notepad comes with the next updates
+
+(1) Support *.cf extension
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ringvm_give() function
+
+ringvm_give() function
+======================
+
+Using the ringvm_give() function we can redefine the behavior of the Give command
+
+Also we can use ring_give() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Name: " give name
+	see "Hello " + name
+
+	func ringvm_give
+		see "Mahmoud" + nl
+		return "Mahmoud"
+
+Output:
+
+.. code-block:: ring
+
+	Name: Mahmoud
+	Hello Mahmoud
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ringvm_see() function
+
+ringvm_see() function
+=====================
+
+Using the ringvm_see() function we can redefine the behavior of the See command
+
+Also we can use ring_see() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Hello world" + nl
+	see 123 + nl
+	see ["one","two","three"]
+	see new point {x=10 y=20 z=30} 
+
+	func ringvm_see t
+		ring_see("We want to print: ")
+		ring_See(t)
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	We want to print: Hello world
+	We want to print: 123
+	We want to print: one
+	two
+	three
+	We want to print: x: 10.000000
+	y: 20.000000
+	z: 30.000000
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ring_state_new() and ring_state_mainfile() functions
+
+ring_state_new() and ring_state_mainfile() functions
+====================================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Documentation
+
+Better Documentation
+====================
+
+(1) RingQt Classes Chapter - The classes are sorted.
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring VM
+
+Better Ring VM
+==============
+
+(1) Better Error Message
+(2) List2Str() function support lists contains numbers
+(3) Correct support for numbers contains _ as separator

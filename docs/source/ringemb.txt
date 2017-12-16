@@ -154,4 +154,55 @@ Example:
 		ring_state_delete(pState)
 
 
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_new() and ring_state_mainfile()
 
+ring_state_new() and ring_state_mainfile()
+==========================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	func main
+		new qApp {
+			win = new qWidget() {
+				setWindowTitle("Test ring_state_mainfile()")
+				resize(400,400) move(100,100)
+				btn = new qPushButton(Win) {
+					settext("test")
+					setclickevent("mytest()")
+				}
+				show()
+			}
+			exec()
+		}
+
+	func mytest
+		pState = ring_state_new()
+		ring_state_mainfile(pState,"runprogram.ring")
+		# Here we don't delete the state if we will run GUI application
+		# So we can run the GUI application events 
+			// ring_state_delete(pState)
+
+If you will use this feature, remember to update the previous example based on your application needs
+
+So you can call ring_state_delete() at some point to avoid the memory leak!
