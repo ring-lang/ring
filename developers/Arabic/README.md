@@ -100,6 +100,7 @@
 
 سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
 
+<center>
 <table>
 	<tr>	
 		<th>رقم المحاضرة</th>
@@ -107,7 +108,7 @@
 		<th>روابط المشاهدة</th>
 	</tr>
 	<tr>
-		<td id="lesson1" style="text-align:center;vertical-align:middle;">1</td>
+		<td id="lesson1">1</td>
 		<td>
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
 		</td>
@@ -117,7 +118,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">2</td>
+		<td>2</td>
 		<td>
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
 		</td>
@@ -127,17 +128,17 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">3</td>
+		<td>3</td>
 		<td>
 			نكمل تعرفنا على الـ Strings ونتحدث عن استخدامها مع ال Binary Data وكذلك استخدامها للتعبير عن ال NULL ثم نتحدث عن النوع الرقمي وكيف يستخدم للتعبير عن الارقام بصورها المختلفة بالاضافة للنوع المنطقى ثم نتعرف على ال List ونري مثال عملي لتطبيق يقبل من المستخدم اى عدد من الارقام ثم يقوم بجمعها عند الطلب
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155404899605345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&index=3&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
-		</td style="text-align:center;vertical-align:middle;">
+		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">4</td>
+		<td>4</td>
 		<td>
 			نكمل تعرفنا على انواع المتغيرات الاساسية فى اللغة ونتعرف على التعامل مع ال Date وال Time واستخدام الـ List كـ Hash Table او Dictionary ثم نتعرف على الانواع الاخري كـ Object و ايضا C Object 
 		</td>
@@ -147,7 +148,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">5</td>
+		<td>5</td>
 		<td>
 			نكمل تعرفنا على الاساسيات واستخدام ال NL وال TAB وال CR ومفهوم ال Expression ثم نتابع ونتعرف على جمل التحكم Control Structures مثل ال if وال for وال while وال do وايضا نتعرف على مفهوم الشرط Condition 
 		</td>
@@ -157,7 +158,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">6</td>
+		<td>6</td>
 		<td>
 			نتعرف على الدوال Functions ومفهوم ال Scope وال Pass by value وال Pass by reference وال Deep Copy وتقسيم المشروع لاكثر من ملف من خلال Load 
 			وتم طرح سؤال عن تعليقات بعض المطورين عن اللغة على موقع Quora وتم الرد على هذه التعليقات
@@ -168,7 +169,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">7</td>
+		<td>7</td>
 		<td>
 			نتعرف على الدوال التى تساعد فى حساب الاداء Performance والدوال التى تختبر انواع المتغيرات Check Type والدوال التى تتاكد من نوع نظام التشغيل ثم الدوال
 			التى تتعامل مع مجموعة من الملفات بالاضافة الى التنقل من مجلد الى اخر ونري كيفية عمل تطبيق يعرض الملفات فى مجلد ثم يسمح للمستخدم باختيار ملف لطباعة محتواه 
@@ -180,7 +181,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">8</td>
+		<td>8</td>
 		<td>
 			نتعرف على الدالة Eval وكيفية استخدامها لتنفيذ كود مكتوب فى عبارة حرفية وقت التشغيل وكيفية استغلال تلك الميزة لعمل RingREPL وندرس ايضا كيفية استخدام Return
 			مع الدالة Eval لارجاع قيمة ونتعلم ايضا تاثير مكان تنفيذ Eval على ال Scope الخاص بالمتغيرات التى ستعرف بداخلها وننبه لاهمية الانتباه لل Security عند استخدام Eval
@@ -191,7 +192,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:center;vertical-align:middle;">9</td>
+		<td>9</td>
 		<td>
 			نتابع رحلتنا فى التعرف على اللغة ونقوم اولا بعمل تعديلات بسيطة على دروس سابقة للتعرف على مفهوم التحقق من المدخلات ثم بعد ذلك نتعرف على دوال خاصة بالامان مثل دوال ال Hash
 			ودوال خاصة بالتشفير Encryption وايضا نتعرف على كيفية تحميل ملفات من الانترنت من خلال Download وارسال ايميل من خلال SendMail ويحتوي الدرس على توضيح لفكرة
@@ -203,5 +204,6 @@
 		</td>
 	</tr>
 </table>
+</center>
 
 </div>
