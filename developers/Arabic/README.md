@@ -100,9 +100,9 @@
 
 سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
 
-<table>
+<table style="text-align:center;vertical-align:middle;">
 	<tr>	
-		<th style="text-align:center">رقم المحاضرة</th>
+		<th>رقم المحاضرة</th>
 		<th>المحتوي</th>
 		<th>روابط المشاهدة</th>
 	</tr>
