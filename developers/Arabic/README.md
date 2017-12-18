@@ -100,13 +100,13 @@
 
 سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
 
-<table style="text-align:center;vertical-align:middle;">
+<table>
 	<tr>	
 		<th>رقم المحاضرة</th>
 		<th>المحتوي</th>
 		<th>روابط المشاهدة</th>
 	</tr>
-	<tr>
+	<tr style="text-align:center;vertical-align:middle;">
 		<td id="lesson1">1</td>
 		<td>
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
@@ -116,7 +116,7 @@
 			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-	<tr>
+	<tr style="text-align:center;vertical-align:middle;">
 		<td>2</td>
 		<td>
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
