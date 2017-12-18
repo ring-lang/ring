@@ -102,7 +102,7 @@
 
 <table>
 	<tr>	
-		<th>رقم المحاضرة</th>
+		<th style="text-align:center">رقم المحاضرة</th>
 		<th>المحتوي</th>
 		<th>روابط المشاهدة</th>
 	</tr>
