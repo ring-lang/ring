@@ -8,6 +8,23 @@ LabelSizeX = 100
 LabelSizeY = 100
 offSetX    = LabelSizeX / 2
 
+colorRed    = new qcolor() { setrgb( 255,0,0,255 ) }
+colorGreen  = new qcolor() { setrgb( 0,255,0,255 ) }
+colorBlue   = new qcolor() { setrgb( 0,0,255,255 ) }
+colorBlack  = new qcolor() { setrgb( 0,0,0,255 ) }
+
+penRed      = new qpen()   { setcolor(colorRed)   setwidth(2) }
+penGreen    = new qpen()   { setcolor(colorGreen) setwidth(2) }
+penBlue     = new qpen()   { setcolor(colorBlue)  setwidth(2) }
+penBlack    = new qpen()   { setcolor(colorBlack) setwidth(2) }
+
+brushRed    = new qbrush() { setstyle(1)  setcolor (colorRed)   }     ### Red
+brushGreen  = new qbrush() { setstyle(1)  setcolor (colorGreen) }     ### Green
+brushBlue   = new qbrush() { setstyle(1)  setcolor (colorBlue)  }     ### Blue
+brushEmpty  = new qbrush() { setstyle(0)  setcolor (colorRed)   }     ### Empty
+
+=======
+
 ###----------------------------------------------------------------------------
 # @section Predefined Colors There are 20 predefined QColors: 
 # Qt::white,     Qt::black,       Qt::red,      Qt::darkRed,    Qt::green, 
@@ -83,6 +100,21 @@ Class ButtonWithRotatedText
         oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.setAttribute(Qt_WA_DeleteOnClose, True)
     return
+    
+    func close()
+            oLabel.close()
+            # oButton.close()
+    return
+
+    ###---------------------------------------
+    ### Call format: setButtonColor("Yellow")                    
+                    
+    func setButtonColor(color)  
+        colorIt = "background-color: "+ color  
+        oButton.setstylesheet(colorIt ) 
+    return
+    
+    ###-------------------------
     
     func close()
             oLabel.close()
