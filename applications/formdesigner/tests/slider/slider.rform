@@ -1,0 +1,57 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 36 , : y = 65  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Slider" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Slider1" , :id = 2 , :classname = "formdesigner_qslider" , :data = [
+		 :x = 46 , : y = 81  , 
+		 :width =  300 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "",
+		 :setactionTriggeredEvent =  "",
+		 :setrangeChangedEvent =  "",
+		 :setsliderMovedEvent =  "",
+		 :setsliderPressedEvent =  "",
+		 :setsliderReleasedEvent =  "",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "Slider2" , :id = 3 , :classname = "formdesigner_qslider" , :data = [
+		 :x = 39 , : y = 142  , 
+		 :width =  65 , :height = 154 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :orientation =  0,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "50",
+		 :setactionTriggeredEvent =  "",
+		 :setrangeChangedEvent =  "",
+		 :setsliderMovedEvent =  "",
+		 :setsliderPressedEvent =  "",
+		 :setsliderReleasedEvent =  "",
+		 :setvalueChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File

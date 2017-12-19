@@ -14,26 +14,26 @@ String *
 ring_string_tolower(x)
 ring_string_toupper(x)
 ring_string_get(x)
-ring_string_new
+ring_string_new_gc
 Type: int
 x
-ring_string_new2
+ring_string_new2_gc
 Type: String *
 pString
 Type: int
 x
-ring_string_delete
+ring_string_delete_gc
 ring_string_size
-ring_string_set
+ring_string_set_gc
 Type: int
 x
-ring_string_set2
+ring_string_set2_gc
 Type: int
 x
-ring_string_add
+ring_string_add_gc
 Type: int
 x
-ring_string_add2
+ring_string_add2_gc
 Type: int
 x
 Type: int
@@ -41,7 +41,7 @@ x2
 Type: char *
 cStr
 ring_string_print
-ring_string_setfromint
+ring_string_setfromint_gc
 cStr[20]
 ring_string_lower
 Type: unsigned int
@@ -55,11 +55,11 @@ x
 ring_string_upper2
 Type: int
 x
-ring_string_find
-ring_string_find2
+ring_string_find_gc
+ring_string_find2_gc
 Type: int
 nPos,x
-ring_string_find3
+ring_string_find3_gc
 Type: int
 nPos,x
 Type: char *
@@ -75,3 +75,14 @@ mystr[nMaxValue]
 x
 Type: String *
 pString
+ring_string_new2
+ring_string_new
+ring_string_add
+ring_string_add2
+ring_string_set
+ring_string_set2
+ring_string_find
+ring_string_find2
+ring_string_find3
+ring_string_delete
+ring_string_setfromint

@@ -1,5 +1,5 @@
-fp = fopen("ptrcmp2.ring","r")
-fp2 = fopen("ptrcmp2.ring","r")
+fp = fopen("scripts/ptrcmp2.ring","r")
+fp2 = fopen("scripts/ptrcmp2.ring","r")
 fp3 = fp
 see fp = fp2
 see nl

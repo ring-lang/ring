@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Distributing Ring Applications &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Distributing Ring Applications using Ring2EXE" href="distribute_ring2exe.html" />
+    <link rel="prev" title="Command Line Options" href="compiler.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="distribute_ring2exe.html" title="Distributing Ring Applications using Ring2EXE"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compiler.html" title="Command Line Options"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="distributing-ring-applications">
+<span id="index-0"></span><h1>Distributing Ring Applications<a class="headerlink" href="#distributing-ring-applications" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about distributing Ring applications.</p>
+<p>The next method is old and was used in Ring 1.5 and previous versions!</p>
+<p>Starting from Ring 1.6 we have a nice tool called Ring2EXE</p>
+<p>Using Ring2EXE we can distribute applications quickly for Windows, Linux and macOS</p>
+<p>Check the Ring2EXE chapter for more information!</p>
+<div class="section" id="distributing-applications-for-microsoft-windows">
+<span id="index-1"></span><h2>Distributing Applications for Microsoft Windows<a class="headerlink" href="#distributing-applications-for-microsoft-windows" title="Permalink to this headline">¶</a></h2>
+<p>Step 1:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Copy c:\ring\bin folder to be for example c:\myapp
+</pre></div>
+</div>
+<p>Step 2:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Rename c:\myapp\ring.exe to c:\myapp\myapp.exe
+</pre></div>
+</div>
+<p>Step 3:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Create a file c:\myapp\ring.ring
+</pre></div>
+</div>
+<p>And write</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;myapp.ring&quot;</span>
+</pre></div>
+</div>
+<p>When you run myapp.exe the file ring.ring will be executed automatically</p>
+<p>So your file myapp.ring will be called and executed</p>
+<p>Or just rename myapp.ring to ring.ring</p>
+<p>It&#8217;s a fast way to distribute applications.</p>
+</div>
+<div class="section" id="protecting-the-source-code">
+<span id="index-2"></span><h2>Protecting the Source Code<a class="headerlink" href="#protecting-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p>Step 1:</p>
+<p>Execute the next command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring myapp.ring -go
+</pre></div>
+</div>
+<p>This will generate one object file (myapp.ringo) from the project files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)</p>
+<p>Step 2:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Rename myapp.ringo to ring.ringo
+</pre></div>
+</div>
+<p>When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.</p>
+</div>
+<div class="section" id="creating-windows-installer">
+<span id="index-3"></span><h2>Creating Windows Installer<a class="headerlink" href="#creating-windows-installer" title="Permalink to this headline">¶</a></h2>
+<p>There are many tools that you can use to distribute your application.</p>
+<p>Check : nullsoft scriptable install system</p>
+<p>URL : <a class="reference external" href="http://nsis.sourceforge.net/Main_Page">http://nsis.sourceforge.net/Main_Page</a></p>
+</div>
+<div class="section" id="using-c-c-compiler-and-linker">
+<span id="index-4"></span><h2>Using C/C++ Compiler and Linker<a class="headerlink" href="#using-c-c-compiler-and-linker" title="Permalink to this headline">¶</a></h2>
+<p>Another method to distribute applications is to use a C/C++ compiler.</p>
+<p>Ring can be embedded in C/C++ projects, We can create executable files using a C/C++ compiler
+by embedding the Ring language in our project.</p>
+<p>Check the &#8220;Embedding Ring Language in C/C++ Programs&#8221; chapter.</p>
+<p>Using this way we will avoid using ring.ring or ring.ringo files.</p>
+</div>
+<div class="section" id="distributing-applications-and-games-for-mobile">
+<span id="index-5"></span><h2>Distributing Applications and Games for Mobile<a class="headerlink" href="#distributing-applications-and-games-for-mobile" title="Permalink to this headline">¶</a></h2>
+<p>Ring can be embedded in a Qt projects or LibSDL projects to build Mobile applications and Games.</p>
+<p>You can build the Qt project or the LibSDL project and get the Android package directly (<a href="#id3"><span class="problematic" id="id4">*</span></a>.apk)</p>
+<p>Check Ring distributions for Mobile development using Qt or LibSDL.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Distributing Ring Applications</a><ul>
+<li><a class="reference internal" href="#distributing-applications-for-microsoft-windows">Distributing Applications for Microsoft Windows</a></li>
+<li><a class="reference internal" href="#protecting-the-source-code">Protecting the Source Code</a></li>
+<li><a class="reference internal" href="#creating-windows-installer">Creating Windows Installer</a></li>
+<li><a class="reference internal" href="#using-c-c-compiler-and-linker">Using C/C++ Compiler and Linker</a></li>
+<li><a class="reference internal" href="#distributing-applications-and-games-for-mobile">Distributing Applications and Games for Mobile</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compiler.html"
+                        title="previous chapter">Command Line Options</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="distribute_ring2exe.html"
+                        title="next chapter">Distributing Ring Applications using Ring2EXE</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/distribute.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="distribute_ring2exe.html" title="Distributing Ring Applications using Ring2EXE"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compiler.html" title="Command Line Options"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

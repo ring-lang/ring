@@ -6,10 +6,9 @@ http://ring-lang.net/
 
 To learn see the chapter 
 	Web Development (CGI Library) 
-	in Ring 1.0 documentation
-	http://ring-lang.sourceforge.net/doc/web.html
+	in Ring documentation
 
-Note: you will need to add .ring as cgi-script in your webserver
+Note: You will need to add .ring as cgi-script in your webserver
 	https://httpd.apache.org/docs/2.2/howto/cgi.html
 
 (1) Library files

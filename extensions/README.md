@@ -2,6 +2,12 @@
 Ring Extensions in C/C++
 =========================
 
+The folder CodeGen contains a tool (Written in Ring)
+to generate C/C++ code that wraps C/C++ functions/classes
+to be used from Ring code.
+
+The folder ringinternet contains functions that uses the LibCurl library  
+
 The folder ringcurl contains the Ring binding to the LibCurl library  
 
 The folder ringopenssl contains the Ring binding to the OpenSSL library  
@@ -12,14 +18,18 @@ The folder ringmysql contains the Ring binding to the MySQL library
 
 The folder ringsqlite contains the Ring binding to the SQLite library  
 
-The folder CodeGen contains a tool (Written in Ring)
-to generate C/C++ code that wraps C/C++ functions/classes
-to be used from Ring code.
+The folder ringqt contains the Ring binding to the Qt framework.
 
 The folder ringallegro contains the Ring binding to the Allegro 
 game programming library.
 
-The folder ringqt contains the Ring binding to the Qt framework.
-
 The folder ringsdl contains the Ring binding to the LibSDL
 game programming library.
+
+The folder ringzip contains functions for *.zip files.
+
+The folder ringfreeglut contains the Ring binding to the FreeGLUT library.
+
+The folder ringopengl contains the Ring binding to the OpenGL library.
+
+The folder ringconsolecolors contains the Ring binding to the ConsoleColors Library

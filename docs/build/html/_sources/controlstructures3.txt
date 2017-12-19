@@ -1,0 +1,293 @@
+.. index:: 
+	single: Control Structures - Third Style; Introduction
+
+================================
+Control Structures - Third Style
+================================
+
+In this chapter we are going to learn about the third style of control structures
+provided by the Ring programming language.
+
+.. index:: 
+	pair: Control Structures - Third Style; Branching
+
+
+Branching
+=========
+
+.. index:: 
+	pair: Control Structures - Third Style; If Statement
+
+* If Statement
+
+Syntax:
+
+.. code-block:: ring
+
+	if Expression {
+		Block of statements
+	elseif Expression
+		Block of statements
+	else
+		Block of statements
+	}
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	print(" 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+	    ")
+
+	nOption = getnumber()
+
+	if nOption = 1	{
+		print("Enter your name : ") 
+		name = getstring() 	
+		print("Hello #{name}\n")
+	elseif nOption = 2 
+		print("Sample : using if statement\n")
+	elseif nOption = 3 
+		bye
+	else 
+		print("bad option...\n")
+	}
+
+.. index:: 
+	pair: Control Structures - Third Style; Switch Statement
+
+* Switch Statement
+
+Syntax:
+
+.. code-block:: ring
+
+	switch Expression {
+	case Expression
+		Block of statements
+	else
+		Block of statements
+	}	
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	print(" 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+ 	      ")
+
+	nOption = GetString()
+
+	switch nOption {
+	case 1 
+		print("Enter your name : ")
+		name = getstring()
+		print("Hello #{name}\n")
+	case 2 
+		print("Sample : using switch statement\n")
+	case 3 
+		Bye
+	else 
+		print("bad option...\n")
+	}
+
+
+.. index:: 
+	pair: Control Structures; Looping
+
+Looping
+=======
+
+.. index:: 
+	pair: Control Structures - Third Style; While Loop
+
+* While Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	while Expression {
+		Block of statements
+	}
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	While True {
+
+		print(" 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+			  ")
+
+		nOption = GetString()
+
+		switch nOption {
+		case 1 
+			print("Enter your name : ")
+			name = getstring()
+			print("Hello #{name}\n")
+		case 2 
+			print("Sample : using switch statement\n")
+		case 3 
+			Bye
+		else 
+			print("bad option...\n")
+		}
+
+	}
+
+.. index:: 
+	pair: Control Structures - Third Style; For Loop
+
+* For Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	for identifier=expression to expression [step expression] {
+		Block of statements
+	}
+
+Example:
+
+.. code-block:: ring
+
+	# print numbers from 1 to 10
+	load "stdlib.ring"
+	for x = 1 to 10	 { 
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	# Dynamic loop
+	print("Start : ") nStart = getnumber()
+	print("End   : ") nEnd = getnumber()
+	print("Step  : ") nStep = getnumber()
+	for x = nStart to nEnd step nStep {
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	# print even numbers from 0 to 10
+	for x = 0 to 10 step 2 {
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	# print even numbers from 10 to 0
+	for x = 10 to 0 step -2 {
+		print("#{x}\n") 
+	}
+
+
+.. index:: 
+	pair: Control Structures - Third Style; For In Loop
+
+* For in Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	for identifier in List/String  [step expression] {
+		Block of statements
+	}
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	for x in aList { print("#{x}\n") }  # print numbers from 1 to 10
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	# print odd items inside the list
+	for x in aList step 2 {
+		print("#{x}\n") 
+	}
+
+When we use (For in) we get items by reference.
+
+This means that we can read/edit items inside the loop.
+	
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	aList = 1:5	# create list contains numbers from 1 to 5
+	# replace list numbers with strings
+	for x in aList {
+		switch x {
+		case 1  x = "one"
+		case 2  x = "two"
+		case 3  x = "three"
+		case 4  x = "four"
+		case 5  x = "five"
+		}
+	}
+	print(aList)	# print the list items
+
+
+.. index:: 
+	pair: Control Structures - Third Style; Exceptions
+
+Exceptions
+==========
+
+.. code-block:: ring
+
+	try {
+		Block of statements
+	catch
+		Block of statements
+	}

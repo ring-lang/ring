@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth
 
 DEPLOYMENT_PLUGIN += qsqlite
 
@@ -42,11 +42,25 @@ SOURCES +=   \
     gallevents.cpp \
     gnetworkaccessmanager.cpp \
     highlighter.cpp \
-	codeeditor.cpp \
+    codeeditor.cpp \
     gthread.cpp \
     gplaintextedit.cpp \
     gheaderview.cpp \
     gprocess.cpp \
+    gtoolbutton.cpp \
+    gbluetoothdevicediscoveryagent.cpp \
+    gbluetoothlocaldevice.cpp \
+    gbluetoothserver.cpp \
+    gbluetoothservicediscoveryagent.cpp \
+    gbluetoothsocket.cpp \
+    gbluetoothtransfermanager.cpp \
+    gbluetoothtransferreply.cpp \
+    gwindow.cpp \
+    gguiapplication.cpp \
+    gtextbrowser.cpp \
+    gdockwidget.cpp \
+	gstackedwidget.cpp \
+	gcalendarwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -78,14 +92,28 @@ HEADERS  += \
     gallevents.h \
     gnetworkaccessmanager.h \
     highlighter.h \
-	codeeditor.h \
+    codeeditor.h \
     gthread.h \
     gplaintextedit.h \
     gheaderview.h \
-    gprocess.h
+    gprocess.h \
+    gtoolbutton.h \
+    gbluetoothdevicediscoveryagent.h \
+    gbluetoothlocaldevice.h \
+    gbluetoothservicediscoveryagent.h \
+    gbluetoothsocket.h \
+    gbluetoothtransfermanager.h \
+    gbluetoothtransferreply.h \
+    gbluetoothserver.h \
+    gguiapplication.h \
+    gtextbrowser.h \
+    gwindow.h \
+	gstackedwidget.h \
+	gcalendarwidget.h \
+    gdockwidget.h 
 
-
-CONFIG += mobility
+CONFIG += mobility c++11
+QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter -std=c++11
 
 RESOURCES = project.qrc
 

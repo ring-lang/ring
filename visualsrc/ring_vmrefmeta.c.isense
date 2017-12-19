@@ -200,10 +200,6 @@ pVM
 Type: char *
 cStr, *cStr2
 ring_vm_refmeta_packagename
-Type: List *
-pList
-Type: char *
-cStr
 Type: VM *
 pVM
 ring_vm_refmeta_ringvmfileslist
@@ -229,3 +225,40 @@ pVM
 ring_vm_refmeta_ringvmcfunctionslist
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmsettrace
+Type: VM *
+pVM
+Type: char *
+cStr
+ring_vm_refmeta_ringvmtracedata
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmtraceevent
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmtracefunc
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmscopescount
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmevalinscope
+Type: VM *
+pVM
+Type: List *
+pActiveMem,*pState
+Type: const char *
+cStr
+Type: int
+nScope,nSize
+ring_vm_refmeta_ringvmpasserror
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmhideerrormsg
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmcallfunc
+Type: VM *
+pVM
+Type: String *
+pString

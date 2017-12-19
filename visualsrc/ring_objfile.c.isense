@@ -1,5 +1,7 @@
 ring_objfile_h
 DEBUG_OBJFILE
+RING_OBJFILE_READFROMFILE
+RING_OBJFILE_READFROMSTRING
 ring_objfile_writefile
 fObj
 Type: char
@@ -14,11 +16,14 @@ cString
 Type: char
 cKey[11]
 ring_objfile_readfile
+ring_objfile_readstring
+ring_objfile_readfromsource
+Type: List *
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
+ring_objfile_processfile
 fObj
 Type: signed char
 c
-Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
 nActiveList,nValue,nBraceEnd
 Type: double
@@ -29,6 +34,23 @@ Type: char
 cKey[11]
 Type: char
 cFileType[100]
+Type: List *
+pList
+ring_objfile_processstring
+Type: signed char
+c
+Type: int
+nActiveList,nValue,nBraceEnd
+Type: double
+dValue
+Type: char *
+cString, *cData
+Type: char
+cKey[11]
+Type: char
+cFileType[100]
+Type: List *
+pList
 ring_objfile_updateclassespointers
 Type: int
 x,x2,x3,x4,lFound
@@ -43,3 +65,13 @@ cClassName[400]
 ring_objfile_xorstring
 Type: int
 x
+ring_objfile_readc
+Type: int
+x
+Type: char *
+cData
+ring_objfile_getc
+Type: char
+c
+Type: char *
+cData

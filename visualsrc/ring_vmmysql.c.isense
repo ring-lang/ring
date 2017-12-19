@@ -1,6 +1,6 @@
 ring_vmmysql_h
 RING_VM_POINTER_MYSQL
-ring_vm_mysql_loadfunctions
+ringlib_init
 ring_vm_mysql_get_client_info
 ring_vm_mysql_init
 Type: MYSQL *

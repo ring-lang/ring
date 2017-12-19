@@ -1,0 +1,367 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 192 , : y = 92  , 
+		 :width =  800 , :height = 553 , 
+		 :title =  "Qt Class Converter for RingQt Code Generator" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Lablel1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 23 , : y = 19  , 
+		 :width =  152 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Qt Class Name",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label2" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 435 , : y = 46  , 
+		 :width =  144 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Class Code Name",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ClassNameLE" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 155 , : y = 15  , 
+		 :width =  223 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "ClassNameLEChangedAction",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "ClassCodeNameLE" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 546 , : y = 44  , 
+		 :width =  225 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "ClassParaL" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 158 , : y = 64  , 
+		 :width =  287 , :height = 19 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,8,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  0
+		]
+	],
+	[ :name = "RBNormal" , :id = 7 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 124 , : y = 93  , 
+		 :width =  111 , :height = 20 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Normal",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  "RBNormalAction"
+		]
+	],
+	[ :name = "RBNoNew" , :id = 8 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 205 , : y = 93  , 
+		 :width =  110 , :height = 20 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "No New",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  "RBNoNewAction"
+		]
+	],
+	[ :name = "RBAbstract" , :id = 9 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 291 , : y = 94  , 
+		 :width =  115 , :height = 20 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Abstract",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  "RBAbstractAction"
+		]
+	],
+	[ :name = "PassVMPointerCB" , :id = 10 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 411 , : y = 94  , 
+		 :width =  138 , :height = 20 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Pass VM Pointer",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "Lablel10" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 433 , : y = 18  , 
+		 :width =  152 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Qt Class Parent",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ClassParentLE" , :id = 12 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 545 , : y = 14  , 
+		 :width =  225 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label12" , :id = 13 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 22 , : y = 47  , 
+		 :width =  144 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Init Method Parameters",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ClassParaLE" , :id = 14 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 161 , : y = 44  , 
+		 :width =  218 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label6" , :id = 15 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 26 , : y = 123  , 
+		 :width =  207 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Enums \ Flags :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "EnumsFlagsTE" , :id = 16 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 42 , : y = 150  , 
+		 :width =  254 , :height = 58 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "FunctionsTEChangedAction",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label16" , :id = 17 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 27 , : y = 213  , 
+		 :width =  207 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Public Functions \ Slots :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "FunctionsTE" , :id = 18 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 41 , : y = 240  , 
+		 :width =  254 , :height = 134 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "FunctionsTEChangedAction",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label18" , :id = 19 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 26 , : y = 379  , 
+		 :width =  207 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Signals :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label9" , :id = 20 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 402 , : y = 126  , 
+		 :width =  240 , :height = 21 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Output compatible with qt.cf file :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "QtcfOutputTE" , :id = 21 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 416 , : y = 146  , 
+		 :width =  343 , :height = 170 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label22" , :id = 22 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 402 , : y = 324  , 
+		 :width =  240 , :height = 21 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Output compatible with qtevents.ring file :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "QtEventsOutputTE" , :id = 23 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 416 , : y = 344  , 
+		 :width =  343 , :height = 170 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label11" , :id = 24 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 52 , : y = 90  , 
+		 :width =  61 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Class Type :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ConvertBtn" , :id = 25 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 319 , : y = 450  , 
+		 :width =  75 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Convert",
+		 :BtnImage =  "",
+		 :setClickEvent =  "ConvertBtnAction"
+		]
+	],
+	[ :name = "SignalsTE" , :id = 26 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 41 , : y = 406  , 
+		 :width =  254 , :height = 109 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "SignalsTEChangedAction",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label122" , :id = 27 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 705 , : y = 530  , 
+		 :width =  88 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "By: Majdi Sobain",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,26 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 100 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "DateTime" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Datetimeedit1" , :id = 2 , :classname = "formdesigner_qdatetimeedit" , :data = [
+		 :x = 36 , : y = 50  , 
+		 :width =  221 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  
+		]
+	]
+]
+# End Form Designer File

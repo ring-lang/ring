@@ -290,3 +290,36 @@ QAbstractItemView_MultiSelection = 2
 QAbstractItemView_NoSelection = 0
 
 Qt_WA_TransparentForMouseEvents = 51
+
+QItemSelectionModel_NoUpdate = 0
+QItemSelectionModel_Clear = 1
+QItemSelectionModel_Select = 2
+QItemSelectionModel_Deselect = 4
+QItemSelectionModel_Toggle = 8
+QItemSelectionModel_Current = dec("10")
+QItemSelectionModel_Rows = dec("20")
+QItemSelectionModel_Columns = dec("40")
+QItemSelectionModel_SelectCurrent = QItemSelectionModel_Select | QItemSelectionModel_Current
+QItemSelectionModel_ToggleCurrent = QItemSelectionModel_Toggle |  QItemSelectionModel_Current
+QItemSelectionModel_ClearAndSelect = QItemSelectionModel_Clear | QItemSelectionModel_Select
+
+QAbstractItemView_NoEditTriggers = 0
+QAbstractItemView_CurrentChanged = 1
+QAbstractItemView_DoubleClicked = 2
+QAbstractItemView_SelectedClicked = 4
+QAbstractItemView_EditKeyPressed = 8
+QAbstractItemView_AnyKeyPressed = 16
+QAbstractItemView_AllEditTriggers = 31
+
+QSizePolicy_GrowFlag 		= 1
+QSizePolicy_ExpandFlag 		= 2
+QSizePolicy_ShrinkFlag 		= 3
+QSizePolicy_IgnoreFlag 		= 8
+QSizePolicy_Fixed		= 0
+QSizePolicy_Minimum		= QSizePolicy_GrowFlag
+QSizePolicy_Maximum		= QSizePolicy_ShrinkFlag
+QSizePolicy_Preferred		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag
+QSizePolicy_Expanding		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag | QSizePolicy_ExpandFlag
+QSizePolicy_MinimumExpanding 	= QSizePolicy_GrowFlag | QSizePolicy_ExpandFlag
+QSizePolicy_Ignored		= QSizePolicy_ShrinkFlag | QSizePolicy_GrowFlag | QSizePolicy_IgnoreFlag
+

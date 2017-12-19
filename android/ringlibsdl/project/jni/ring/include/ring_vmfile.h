@@ -60,9 +60,30 @@ void ring_vm_file_read ( void *pPointer ) ;
 void ring_vm_file_write ( void *pPointer ) ;
 
 void ring_vm_file_fexists ( void *pPointer ) ;
+/* Number & Bytes */
+
+void ring_vm_file_int2bytes ( void *pPointer ) ;
+
+void ring_vm_file_float2bytes ( void *pPointer ) ;
+
+void ring_vm_file_double2bytes ( void *pPointer ) ;
+
+void ring_vm_file_bytes2int ( void *pPointer ) ;
+
+void ring_vm_file_bytes2float ( void *pPointer ) ;
+
+void ring_vm_file_bytes2double ( void *pPointer ) ;
 /* Constants */
 #define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
 #define RING_VM_POINTER_FILE "file"
 #define RING_VM_POINTER_FILEPOS "filepos"
 #define RING_API_BADDIRECTORY "Error, Couldn't open the directory"
+/* Data */
+typedef union Ring_uData {
+	int iNumber  ;
+	float fNumber  ;
+	double dNumber  ;
+	char cBytes[4]  ;
+	char cBytesDouble[8]  ;
+} Ring_uData ;
 #endif

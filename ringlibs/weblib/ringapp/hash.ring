@@ -1,4 +1,6 @@
-﻿Import System.Web
+﻿Load "openssllib.ring"
+
+Import System.Web
 
 Func TestHash
 

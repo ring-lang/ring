@@ -1,4 +1,5 @@
-﻿See "ODBC test 4" + nl
+load "odbclib.ring"
+See "ODBC test 4" + nl
 pODBC = odbc_init()
 See "Connect to database" + nl
 see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl

@@ -1,0 +1,39 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 38 , : y = 77  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Timer" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 59 , : y = 36  , 
+		 :width =  191 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Time : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Timer1" , :id = 3 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 62 , : y = 122  , 
+		 :width =  119 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :Interval =  "1000",
+		 :Timeout =  "DisplayTime"
+		]
+	]
+]
+# End Form Designer File

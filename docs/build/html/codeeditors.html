@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Other Code Editors &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Variables" href="variables.html" />
+    <link rel="prev" title="Using Ring Notepad" href="ringnotepad.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="variables.html" title="Variables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ringnotepad.html" title="Using Ring Notepad"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-other-code-editors">
+<span id="index-0"></span><h1>Using Other Code Editors<a class="headerlink" href="#using-other-code-editors" title="Permalink to this headline">¶</a></h1>
+<p>In the Ring/Editor folder you will find extensions for the next editors</p>
+<ul class="simple">
+<li>Notepad++</li>
+<li>Geany</li>
+<li>Atom</li>
+<li>Sublime Text 2</li>
+<li>Visual Studio IDE</li>
+<li>Emacs</li>
+</ul>
+<div class="section" id="using-notepad">
+<span id="index-1"></span><h2>Using Notepad++<a class="headerlink" href="#using-notepad" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/notepad_plus_plus</p>
+<ul class="simple">
+<li>Open Notepad++</li>
+<li>Open the &#8220;Language&#8221; menu</li>
+<li>Select &#8220;Define your language...&#8221;</li>
+<li>Click &#8220;Import...&#8221;</li>
+<li>select <cite>Ring.xml</cite></li>
+<li>Select &#8220;OK&#8221; on the &#8220;Import successful&#8221; dialog and close the &#8220;User Defined Language&#8221; dialog/panel</li>
+<li>You may need to restart notepad++</li>
+</ul>
+<img alt="Using Notepad++" src="_images/editor1.png" />
+</div>
+<div class="section" id="using-geany">
+<span id="index-2"></span><h2>Using Geany<a class="headerlink" href="#using-geany" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/geany</p>
+<ul class="simple">
+<li>Run Geany editor</li>
+<li>Click on &#8220;Tools -&gt; configuration files -&gt; filetypes_extensions.conf&#8221;  menu</li>
+<li>Add this line &#8220;Ring=*.ring;&#8221; without quotes after [Extensions]</li>
+<li>In unbuntu copy file &#8220;filetypes.Ring.conf&#8221; to folder &#8220;/home/USERNAME/filetypes.Ring.conf&#8221;</li>
+<li>You can run your files by pressing F5 button</li>
+</ul>
+<img alt="Using Geany" src="_images/editor2.png" />
+</div>
+<div class="section" id="using-atom">
+<span id="index-3"></span><h2>Using Atom<a class="headerlink" href="#using-atom" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/atom</p>
+<p>Just Copy the folder atom-language-ring to the next path</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&quot;C:\Users\{UserName}\.atom\Packages&quot;
+</pre></div>
+</div>
+<img alt="Using Atom" src="_images/editor3.jpg" />
+</div>
+<div class="section" id="using-sublime-text-2">
+<span id="index-4"></span><h2>Using Sublime Text 2<a class="headerlink" href="#using-sublime-text-2" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/sublime text 2</p>
+<p>In the folder Sublime_Text_2 you will find the next three files</p>
+<p>1 - ring.json-tmlanguage</p>
+<p>2 - ring.sublime-build</p>
+<p>3 - ring.tmlanguage</p>
+<p>Just Copy the files to the next path</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&quot;C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\&quot;
+</pre></div>
+</div>
+<p>The file ring.sublime-build includes the next line</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&quot;cmd&quot;: [&quot;B:\\ring\\bin\\ring.exe&quot;,&quot;$file&quot;],
+</pre></div>
+</div>
+<p>You can modify it according to the ring.exe path in your machine</p>
+<img alt="Using Sublime Text 2" src="_images/editor4.jpg" />
+</div>
+<div class="section" id="using-visual-studio-ide">
+<span id="index-5"></span><h2>Using Visual Studio IDE<a class="headerlink" href="#using-visual-studio-ide" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/visualstudio</p>
+<p>Check the ReadMe file for installation instructions.</p>
+<img alt="Using Visual Studio" src="_images/editor5.png" />
+</div>
+<div class="section" id="using-emacs-editor">
+<span id="index-6"></span><h2>Using Emacs Editor<a class="headerlink" href="#using-emacs-editor" title="Permalink to this headline">¶</a></h2>
+<p>Folder : ring/editor/emacs</p>
+<p>Check the ReadMe file for installation instructions.</p>
+<p>Screen Shot:</p>
+<img alt="Ring mode for Emacs Editor" src="_images/ringemacs.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Other Code Editors</a><ul>
+<li><a class="reference internal" href="#using-notepad">Using Notepad++</a></li>
+<li><a class="reference internal" href="#using-geany">Using Geany</a></li>
+<li><a class="reference internal" href="#using-atom">Using Atom</a></li>
+<li><a class="reference internal" href="#using-sublime-text-2">Using Sublime Text 2</a></li>
+<li><a class="reference internal" href="#using-visual-studio-ide">Using Visual Studio IDE</a></li>
+<li><a class="reference internal" href="#using-emacs-editor">Using Emacs Editor</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ringnotepad.html"
+                        title="previous chapter">Using Ring Notepad</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="variables.html"
+                        title="next chapter">Variables</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/codeeditors.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="variables.html" title="Variables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ringnotepad.html" title="Using Ring Notepad"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

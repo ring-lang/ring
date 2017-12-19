@@ -2,6 +2,8 @@
 # Usage       : Return statistics about the number of applications made by PWCT Students!
 # Author      : Mahmoud Fayed <msfclipper@yahoo.com>
 
+load "internetlib.ring"
+
 Func Main
 	WriteIndex()
 	aList = GetStudents()

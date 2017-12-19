@@ -1,27 +1,32 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
 **  List 
 */
 
-RING_API List * ring_list_new ( int nSize )
+RING_API List * ring_list_new_gc ( void *pState,int nSize )
 {
-	int x  ;
 	List *pList  ;
-	Items *pItems,*pItemsLast  ;
-	pList = (List *) malloc(sizeof(List)) ;
+	pList = (List *) ring_state_malloc(pState,sizeof(List));
 	if ( pList == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
+	return ring_list_new2_gc(pState,pList,nSize) ;
+}
+
+RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
+{
+	int x  ;
+	Items *pItems,*pItemsLast  ;
 	pList->nSize = nSize ;
 	if ( nSize > 0 ) {
-		pItems = ring_items_new();
+		pItems = ring_items_new_gc(pState);
 		pList->pFirst = pItems ;
 		pItemsLast = pItems ;
 		for ( x = 2 ; x <= nSize ; x++ ) {
-			pItems = ring_items_new();
+			pItems = ring_items_new_gc(pState);
 			if ( pItems == NULL ) {
 				printf( "OUT OF MEMEORY \n  " ) ;
 				exit(0);
@@ -42,7 +47,7 @@ RING_API List * ring_list_new ( int nSize )
 	return pList ;
 }
 
-RING_API List * ring_list_delete ( List *pList )
+RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	pItems = pList->pFirst ;
@@ -50,21 +55,21 @@ RING_API List * ring_list_delete ( List *pList )
 	/* Delete Items */
 	while ( pItemsNext != NULL ) {
 		pItemsNext = pItems->pNext ;
-		ring_items_delete(pItems);
+		ring_items_delete_gc(pState,pItems);
 		pItems = pItemsNext ;
 	}
 	/* Free Items Array */
-	ring_list_deletearray(pList);
+	ring_list_deletearray_gc(pState,pList);
 	/* Free HashTable */
 	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
-	free( pList ) ;
+	ring_state_free(pState,pList);
 	pList = NULL ;
 	return pList ;
 }
 
-RING_API void ring_list_copy ( List *pNewList, List *pList )
+RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 {
 	int x  ;
 	List *pNewList2  ;
@@ -79,20 +84,20 @@ RING_API void ring_list_copy ( List *pNewList, List *pList )
 	}
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_isint(pList,x) ) {
-			ring_list_addint(pNewList,ring_list_getint(pList,x));
+			ring_list_addint_gc(pState,pNewList,ring_list_getint(pList,x));
 		}
 		else if ( ring_list_isdouble(pList,x) ) {
-			ring_list_adddouble(pNewList,ring_list_getdouble(pList,x));
+			ring_list_adddouble_gc(pState,pNewList,ring_list_getdouble(pList,x));
 		}
 		else if ( ring_list_isstring(pList,x) ) {
-			ring_list_addstring2(pNewList,ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
+			ring_list_addstring2_gc(pState,pNewList,ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
 		}
 		else if ( ring_list_ispointer(pList,x) ) {
-			ring_list_addpointer(pNewList,ring_list_getpointer(pList,x));
+			ring_list_addpointer_gc(pState,pNewList,ring_list_getpointer(pList,x));
 		}
 		else if ( ring_list_islist(pList,x) ) {
-			pNewList2 = ring_list_newlist(pNewList);
-			ring_list_copy(pNewList2,ring_list_getlist(pList,x));
+			pNewList2 = ring_list_newlist_gc(pState,pNewList);
+			ring_list_copy_gc(pState,pNewList2,ring_list_getlist(pList,x));
 		}
 	}
 }
@@ -145,7 +150,7 @@ RING_API void ring_list_print ( List *pList )
 	}
 }
 
-RING_API void ring_list_deleteallitems ( List *pList )
+RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	pItems = pList->pFirst ;
@@ -156,7 +161,7 @@ RING_API void ring_list_deleteallitems ( List *pList )
 	/* Delete Items */
 	while ( pItemsNext != NULL ) {
 		pItemsNext = pItems->pNext ;
-		ring_items_delete(pItems);
+		ring_items_delete_gc(pState,pItems);
 		pItems = pItemsNext ;
 	}
 	pList->pFirst = NULL ;
@@ -167,11 +172,11 @@ RING_API void ring_list_deleteallitems ( List *pList )
 }
 /* List Items */
 
-RING_API void ring_list_newitem ( List *pList )
+RING_API void ring_list_newitem_gc ( void *pState,List *pList )
 {
 	Items *pItems  ;
 	assert(pList != NULL);
-	pItems = ring_items_new();
+	pItems = ring_items_new_gc(pState);
 	if ( (pList->nSize) > 0 ) {
 		pList->pLast->pNext = pItems ;
 		pItems->pPrev = pList->pLast ;
@@ -268,7 +273,7 @@ RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index )
 	pList->nNextItemAfterLastAccess = index + 1 ;
 }
 
-RING_API void ring_list_deleteitem ( List *pList,int index )
+RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index )
 {
 	int x  ;
 	Items *pItems,*pItemsPrev  ;
@@ -302,7 +307,7 @@ RING_API void ring_list_deleteitem ( List *pList,int index )
 		if ( pItems->pNext != NULL ) {
 			pItems->pNext->pPrev = pItemsPrev ;
 		}
-		ring_items_delete(pItems);
+		ring_items_delete_gc(pState,pItems);
 		pList->nSize = pList->nSize - 1 ;
 	}
 	/* Refresh The Cache */
@@ -354,106 +359,114 @@ RING_API int ring_list_ispointer ( List *pList, int index )
 }
 /* int */
 
-RING_API void ring_list_setint ( List *pList, int index ,int number )
+RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_NUMBER);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_NUMBER);
 	pItem->data.iNumber = number ;
 	pItem->NumberFlag = ITEM_NUMBERFLAG_INT ;
 }
 
-RING_API void ring_list_addint ( List *pList,int x )
+RING_API void ring_list_addint_gc ( void *pState,List *pList,int x )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setint(pList,ring_list_getsize(pList),x);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setint_gc(pState,pList,ring_list_getsize(pList),x);
 }
 /* Pointers */
 
-RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
+RING_API void ring_list_setpointer_gc ( void *pState,List *pList, int index ,void *pValue )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_POINTER);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_POINTER);
 	pItem->data.pPointer = pValue ;
 }
 
-RING_API void ring_list_addpointer ( List *pList,void *pValue )
+RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setpointer(pList,ring_list_getsize(pList),pValue);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setpointer_gc(pState,pList,ring_list_getsize(pList),pValue);
 }
 /* double */
 
-RING_API void ring_list_setdouble ( List *pList, int index ,double number )
+RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,double number )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_NUMBER);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_NUMBER);
 	pItem->data.dNumber = number ;
 	pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 }
 
-RING_API void ring_list_adddouble ( List *pList,double x )
+RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setdouble(pList,ring_list_getsize(pList),x);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setdouble_gc(pState,pList,ring_list_getsize(pList),x);
 }
 /* String */
 
-RING_API void ring_list_setstring ( List *pList, int index ,const char *str )
+RING_API void ring_list_setstring_gc ( void *pState,List *pList, int index ,const char *str )
 {
 	Item *pItem  ;
 	String *pString  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_STRING);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	ring_string_set(pString,str);
+	ring_string_set_gc(pState,pString,str);
 }
 
-RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize )
+RING_API void ring_list_setstring2_gc ( void *pState,List *pList, int index ,const char *str,int nStrSize )
 {
 	Item *pItem  ;
 	String *pString  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_STRING);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	ring_string_set2(pString,str,nStrSize);
+	ring_string_set2_gc(pState,pString,str,nStrSize);
 }
 
-RING_API void ring_list_addstring ( List *pList,const char *str )
+RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setstring(pList,ring_list_getsize(pList),str);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setstring_gc(pState,pList,ring_list_getsize(pList),str);
 }
 
-RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
+RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setstring2(pList,ring_list_getsize(pList),str,nStrSize);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setstring2_gc(pState,pList,ring_list_getsize(pList),str,nStrSize);
 }
 /* List */
 
-RING_API List * ring_list_newlist ( List *pList )
+RING_API List * ring_list_newlist_gc ( void *pState,List *pList )
 {
 	Item *pItem  ;
 	List *pList2  ;
 	assert(pList != NULL);
-	ring_list_newitem(pList);
+	ring_list_newitem_gc(pState,pList);
 	pItem = ring_list_getitem(pList,ring_list_getsize(pList));
-	ring_item_settype(pItem,ITEMTYPE_LIST);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_LIST);
 	pList2 = ring_item_getlist(pItem);
 	return pList2 ;
+}
+
+RING_API void ring_list_setlist_gc ( void *pState,List *pList, int index )
+{
+	Item *pItem  ;
+	assert(pList != NULL);
+	pItem = ring_list_getitem(pList,index);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_LIST);
 }
 
 RING_API List * ring_list_getlist ( List *pList, int index )
@@ -465,30 +478,22 @@ RING_API List * ring_list_getlist ( List *pList, int index )
 	pList2 = ring_item_getlist(pItem);
 	return pList2 ;
 }
-
-RING_API void ring_list_setlist ( List *pList, int index )
-{
-	Item *pItem  ;
-	assert(pList != NULL);
-	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_LIST);
-}
 /* Function Pointers */
 
-RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) )
+RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
 	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_FUNCPOINTER);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_FUNCPOINTER);
 	pItem->data.pFunc = pFunc ;
 }
 
-RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) )
+RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFunc)(void *) )
 {
 	assert(pList != NULL);
-	ring_list_newitem(pList);
-	ring_list_setfuncpointer(pList,ring_list_getsize(pList),pFunc);
+	ring_list_newitem_gc(pState,pList);
+	ring_list_setfuncpointer_gc(pState,pList,ring_list_getsize(pList),pFunc);
 }
 
 RING_API int ring_list_isfuncpointer ( List *pList, int index )
@@ -511,7 +516,7 @@ void ring_list_testfuncpointer ( void *pPointer )
 **  When you insert item, it will be inserted after nPos 
 */
 
-RING_API void ring_list_insertitem ( List *pList,int x )
+RING_API void ring_list_insertitem_gc ( void *pState,List *pList,int x )
 {
 	Items *pItems  ;
 	assert(pList != NULL);
@@ -519,10 +524,10 @@ RING_API void ring_list_insertitem ( List *pList,int x )
 		return ;
 	}
 	else if ( x == ring_list_getsize(pList) ) {
-		ring_list_newitem(pList);
+		ring_list_newitem_gc(pState,pList);
 		return ;
 	}
-	pItems = ring_items_new();
+	pItems = ring_items_new_gc(pState);
 	/* Insert Item at the first of the list */
 	if ( x==0 ) {
 		pItems->pNext = pList->pFirst ;
@@ -541,56 +546,56 @@ RING_API void ring_list_insertitem ( List *pList,int x )
 	pList->nSize = pList->nSize + 1 ;
 }
 
-RING_API void ring_list_insertint ( List *pList,int nPos,int x )
+RING_API void ring_list_insertint_gc ( void *pState,List *pList,int nPos,int x )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setint(pList,nPos+1,x);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setint_gc(pState,pList,nPos+1,x);
 }
 
-RING_API void ring_list_insertdouble ( List *pList,int nPos,double x )
+RING_API void ring_list_insertdouble_gc ( void *pState,List *pList,int nPos,double x )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setdouble(pList,nPos+1,x);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setdouble_gc(pState,pList,nPos+1,x);
 }
 
-RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue )
+RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,int nPos,void *pValue )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setpointer(pList,nPos+1,pValue);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setpointer_gc(pState,pList,nPos+1,pValue);
 }
 
-RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str )
+RING_API void ring_list_insertstring_gc ( void *pState,List *pList,int nPos,const char *str )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setstring(pList,nPos+1,str);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setstring_gc(pState,pList,nPos+1,str);
 }
 
-RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize )
+RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,int nPos,const char *str,int nStrSize )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setstring2(pList,nPos+1,str,nStrSize);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setstring2_gc(pState,pList,nPos+1,str,nStrSize);
 }
 
-RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) )
+RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,int nPos,void (*pFunc)(void *) )
 {
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
-	ring_list_setfuncpointer(pList,nPos+1,pFunc);
+	ring_list_insertitem_gc(pState,pList,nPos);
+	ring_list_setfuncpointer_gc(pState,pList,nPos+1,pFunc);
 }
 
-RING_API List * ring_list_insertlist ( List *pList,int nPos )
+RING_API List * ring_list_insertlist_gc ( void *pState,List *pList,int nPos )
 {
 	Item *pItem  ;
 	List *pList2  ;
 	assert(pList != NULL);
-	ring_list_insertitem(pList,nPos);
+	ring_list_insertitem_gc(pState,pList,nPos);
 	pItem = ring_list_getitem(pList,nPos+1);
-	ring_item_settype(pItem,ITEMTYPE_LIST);
+	ring_item_settype_gc(pState,pItem,ITEMTYPE_LIST);
 	pList2 = ring_item_getlist(pItem);
 	return pList2 ;
 }
@@ -840,14 +845,14 @@ RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,con
 	}
 }
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,int nColumn,const char *cAttribute )
 {
 	int x,y,mid  ;
 	String *midvalue  ;
 	x = left ;
 	y = right ;
 	mid = (x+y)/2 ;
-	midvalue = ring_string_new(ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
+	midvalue = ring_string_new_gc(pState,ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
 	while ( x <= y ) {
 		while ( strcmp(ring_list_getstringcolumn(pList,x,nColumn,cAttribute),ring_string_get(midvalue)) < 0 ) {
 			x++ ;
@@ -861,12 +866,12 @@ RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,con
 			y-- ;
 		}
 	}
-	ring_string_delete(midvalue);
+	ring_string_delete_gc(pState,midvalue);
 	if ( left < y ) {
-		ring_list_sortstr(pList, left, y,nColumn,cAttribute);
+		ring_list_sortstr_gc(pState,pList, left, y,nColumn,cAttribute);
 	}
 	if ( y < right ) {
-		ring_list_sortstr(pList, x, right, nColumn,cAttribute);
+		ring_list_sortstr_gc(pState,pList, x, right, nColumn,cAttribute);
 	}
 }
 
@@ -980,7 +985,7 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
 }
 /* List Items to Array */
 
-RING_API void ring_list_genarray ( List *pList )
+RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 {
 	int x  ;
 	Item **pArray  ;
@@ -988,14 +993,14 @@ RING_API void ring_list_genarray ( List *pList )
 		return ;
 	}
 	if ( pList->pItemsArray != NULL ) {
-		free( pList->pItemsArray ) ;
+		ring_state_free(pState,pList->pItemsArray);
 	}
 	/*
 	**  Here we save the pointer in pArray and not in pList->pItemsArray 
 	**  Because we will fill the array with items pointers using ring_list_getitem() 
 	**  And ring_list_getitem() check for using pList->pItemsArray 
 	*/
-	pArray = (Item **) malloc(ring_list_getsize(pList) * sizeof(Item *)) ;
+	pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
 	if ( pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -1006,39 +1011,39 @@ RING_API void ring_list_genarray ( List *pList )
 	pList->pItemsArray = pArray ;
 }
 
-RING_API void ring_list_deletearray ( List *pList )
+RING_API void ring_list_deletearray_gc ( void *pState,List *pList )
 {
 	if ( pList->pItemsArray != NULL ) {
-		free( pList->pItemsArray ) ;
+		ring_state_free(pState,pList->pItemsArray);
 		pList->pItemsArray = NULL ;
 	}
 }
 /* List Items to HashTable */
 
-RING_API void ring_list_genhashtable ( List *pList )
+RING_API void ring_list_genhashtable_gc ( void *pState,List *pList )
 {
 	int x  ;
 	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
-	pList->pHashTable = ring_hashtable_new();
+	pList->pHashTable = ring_hashtable_new_gc(pState);
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		ring_hashtable_newnumber(pList->pHashTable,ring_list_getstring(pList,x),x);
+		ring_hashtable_newnumber_gc(pState,pList->pHashTable,ring_list_getstring(pList,x),x);
 	}
 }
 
-RING_API void ring_list_genhashtable2 ( List *pList )
+RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
 {
 	int x  ;
 	List *pList2  ;
 	/* This Func. Take list of lists , the first item of the sub list is a string (key) */
 	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
-	pList->pHashTable = ring_hashtable_new();
+	pList->pHashTable = ring_hashtable_new_gc(pState);
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
-		ring_hashtable_newpointer(pList->pHashTable,ring_list_getstring(pList2,1),pList2);
+		ring_hashtable_newpointer_gc(pState,pList->pHashTable,ring_list_getstring(pList2,1),pList2);
 	}
 }
 /* Copy list by reference */
@@ -1063,6 +1068,180 @@ RING_API void ring_list_clear ( List *pList )
 	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
+}
+/* Define functions without State Pointer */
+
+RING_API List * ring_list_new ( int nSize )
+{
+	return ring_list_new_gc(NULL,nSize) ;
+}
+
+RING_API void ring_list_genarray ( List *pList )
+{
+	ring_list_genarray_gc(NULL,pList);
+}
+
+RING_API List * ring_list_delete ( List *pList )
+{
+	return ring_list_delete_gc(NULL,pList) ;
+}
+
+RING_API void ring_list_deletearray ( List *pList )
+{
+	ring_list_deletearray_gc(NULL,pList);
+}
+
+RING_API void ring_list_newitem ( List *pList )
+{
+	ring_list_newitem_gc(NULL,pList);
+}
+
+RING_API void ring_list_deleteitem ( List *pList,int index )
+{
+	ring_list_deleteitem_gc(NULL,pList,index);
+}
+/* int */
+
+RING_API void ring_list_setint ( List *pList, int index ,int number )
+{
+	ring_list_setint_gc(NULL,pList,index,number);
+}
+
+RING_API void ring_list_addint ( List *pList,int x )
+{
+	ring_list_addint_gc(NULL,pList,x);
+}
+/* Pointers */
+
+RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
+{
+	ring_list_setpointer_gc(NULL,pList,index,pValue);
+}
+
+RING_API void ring_list_addpointer ( List *pList,void *pValue )
+{
+	ring_list_addpointer_gc(NULL,pList,pValue);
+}
+/* Function Pointers */
+
+RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) )
+{
+	ring_list_setfuncpointer_gc(NULL,pList,index,pFunc);
+}
+
+RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) )
+{
+	ring_list_addfuncpointer_gc(NULL,pList,pFunc);
+}
+/* double */
+
+RING_API void ring_list_setdouble ( List *pList, int index ,double number )
+{
+	ring_list_setdouble_gc(NULL,pList,index,number);
+}
+
+RING_API void ring_list_adddouble ( List *pList,double x )
+{
+	ring_list_adddouble_gc(NULL,pList,x);
+}
+/* String */
+
+RING_API void ring_list_setstring ( List *pList, int index ,const char *str )
+{
+	ring_list_setstring_gc(NULL,pList,index,str);
+}
+
+RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize )
+{
+	ring_list_setstring2_gc(NULL,pList,index,str,nStrSize);
+}
+
+RING_API void ring_list_addstring ( List *pList,const char *str )
+{
+	ring_list_addstring_gc(NULL,pList,str);
+}
+
+RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
+{
+	ring_list_addstring2_gc(NULL,pList,str,nStrSize);
+}
+/* List */
+
+RING_API List * ring_list_newlist ( List *pList )
+{
+	return ring_list_newlist_gc(NULL,pList) ;
+}
+
+RING_API void ring_list_setlist ( List *pList, int index )
+{
+	ring_list_setlist_gc(NULL,pList,index);
+}
+
+RING_API void ring_list_copy ( List *pNewList, List *pList )
+{
+	ring_list_copy_gc(NULL,pNewList,pList);
+}
+
+RING_API void ring_list_deleteallitems ( List *pList )
+{
+	ring_list_deleteallitems_gc(NULL,pList);
+}
+/* Insert Items */
+
+RING_API void ring_list_insertitem ( List *pList,int x )
+{
+	ring_list_insertitem_gc(NULL,pList,x);
+}
+
+RING_API void ring_list_insertint ( List *pList,int nPos,int x )
+{
+	ring_list_insertint_gc(NULL,pList,nPos,x);
+}
+
+RING_API void ring_list_insertdouble ( List *pList,int nPos,double x )
+{
+	ring_list_insertdouble_gc(NULL,pList,nPos,x);
+}
+
+RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue )
+{
+	ring_list_insertpointer_gc(NULL,pList,nPos,pValue);
+}
+
+RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str )
+{
+	ring_list_insertstring_gc(NULL,pList,nPos,str);
+}
+
+RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize )
+{
+	ring_list_insertstring2_gc(NULL,pList,nPos,str,nStrSize);
+}
+
+RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) )
+{
+	ring_list_insertfuncpointer_gc(NULL,pList,nPos,pFunc);
+}
+
+RING_API List * ring_list_insertlist ( List *pList,int nPos )
+{
+	return ring_list_insertlist_gc(NULL,pList,nPos) ;
+}
+
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+{
+	ring_list_sortstr_gc(NULL,pList,left,right,nColumn,cAttribute);
+}
+/* List Items to HashTable */
+
+RING_API void ring_list_genhashtable ( List *pList )
+{
+	ring_list_genhashtable_gc(NULL,pList);
+}
+
+RING_API void ring_list_genhashtable2 ( List *pList )
+{
+	ring_list_genhashtable2_gc(NULL,pList);
 }
 /* Test */
 

@@ -1,0 +1,49 @@
+### Murmurhash Extensions :-
+
+#### MurmurHash library :-
+> MurmurHash is a non-cryptographic hash function suitable for general hash-based lookup.  
+> It was created by Austin Appleby in 2008 and is currently hosted on Github along with its test suite named 'SMHasher'.  
+> It also exists in a number of variants,[5] all of which have been released into the public domain.  
+> The name comes from two basic operations, multiply (MU) and rotate (R), used in its inner loop.
+
+Murmurhash extension is an extension written to implement a full implementation for the MurmurHash library.
+
+
+##### Available functions :-
+
+```c
+/* MurmurHash1 functions */
+uint32_t murmurhash1(string key, int seed, [bool return_type]);
+uint32_t murmurhash1_aligned(string key, int seed, [bool return_type]);
+
+/* MurmurHash2 functions */
+uint32_t murmurhash2(string key, int seed, [bool return_type]);
+uint32_t murmurhash2a(string key, int seed, [bool return_type]);
+uint64_t murmurhash64a(string key, int seed, [bool return_type]);
+uint64_t murmurhash64b(string key, int seed, [bool return_type]);
+uint32_t murmurhash_neutral2(string key, int seed, [bool return_type]);
+uint32_t murmurhash_aligned2(string key, int seed, [bool return_type]);
+
+/* MurmurHash3 functions */
+uint32_t murmurhash3_x86_32(string key, int seed, [bool return_type]);
+list murmurhash3_x86_128(string key, int seed, [bool return_type]);
+list murmurhash3_x64_128(string key, int seed, [bool return_type]);
+```
+
+The third *optional* parameter is to set the type of the returned value, this parameter accepts a bool value [ true, false ],
+true will return a **Hex** value, while false will return a integer value.
+
+
+##### Example :-
+```
+load "murmurhashlib.ring"
+
+key = "Ring Language"
+
+see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
+see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
+```
+
+You can check the other examples within the tests folder.
+
+Don't forget to run tests in the tests directory and come back with an unexpected behavior or if in case any problems happened.

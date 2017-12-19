@@ -1,4 +1,7 @@
 # test ringsqlite
+
+load "sqlitelib.ring"
+
 oSQLite = sqlite_init()
 
 sqlite_open(oSQLite,"mytest.db") 

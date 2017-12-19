@@ -43,6 +43,33 @@ func Open_Window cClass
 	}
 
 /*
+	The next function is the same as Open_Window()
+	But takes an extra list that determine the packages 
+	To import before opening the window.
+*/
+
+func Open_WindowInPackages cClass,aPackages
+	cRingQt_ObjName = $RingQt_ObjName	# Save the current Object
+	$RingQt_ObjectID++
+	$RingQt_ObjectsList + [$RingQt_ObjectID,""]	
+	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
+			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+	}
+	for cPackage in aPackages {
+		cCode += "import " + cPackage  + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
+		  $RingQt_ObjName + ".start()"
+	eval(cCode)	
+	if cRingQt_ObjName != NULL {
+		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
+	}
+
+
+/*
 	The next function create new object, add the object to the $RingQt_ObjectsList
 	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
 */
@@ -60,6 +87,64 @@ func Open_WindowNoShow cClass
 	cCode += $RingQt_ObjName + " = new " + cClass 
 	eval(cCode)	
 	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
+
+
+/*
+	The next function create new object, add the object to the $RingQt_ObjectsList
+	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
+	Then call the start() method
+	The function link between the parent window and the child window
+	And define methods automatically to use the windows from each other
+*/
+
+func Open_WindowAndLink cClass,oParent
+	Open_Window(cClass)
+	cClass = lower(cClass)
+	cParentClass = classname(oParent)
+	if  ( right(cClass,10) != "controller" ) or 
+		( right(cParentClass,10) != "controller" )
+		raise("Error in Open_WindowAndLink() the classes names must end with 'controller'")
+	ok
+
+	cClassNameWithoutController = substr(cClass,"controller","")
+	cParentClassNameWithoutController = substr(cParentClass,"controller","")
+	cCode = `
+		# Let the parent know about the child
+		if not isattribute(oParent,"n#{f1}ID")
+			AddAttribute(oParent,"n#{f1}ID")
+		ok
+		oParent.n#{f1}ID = last_windowID()
+		if not ismethod(oParent,"Is#{f1}")
+			AddMethod(oParent,"Is#{f1}", func {
+				return n#{f1}ID
+			})
+		ok
+		if not ismethod(oParent,"#{f1}") 
+			AddMethod(oParent,"#{f1}", func {
+				return GetObjectByID(n#{f1}ID)
+			})
+		ok
+		# Let the child know about the parent
+		if not isattribute(last_window(),"n#{f2}ID")
+			AddAttribute(last_window(),"n#{f2}ID")
+		ok
+		last_window().n#{f2}ID = oParent.ObjectID()
+		if not ismethod(last_window(),"Is#{f2}")
+			AddMethod(last_window(),"Is#{f2}", func {
+				return n#{f2}ID
+			})
+		ok
+		if not ismethod(last_window(),"#{f2}") 
+			AddMethod(last_window(),"#{f2}", func {
+				return GetObjectByID(n#{f2}ID)
+			})
+		ok
+	`
+	cCode = SubStr(cCode,"#{f1}",cClassNameWithoutController)
+	cCode = SubStr(cCode,"#{f2}",cParentClassNameWithoutController)
+	eval(cCode)
+	
+
 
 /*
 	The next function return the last window created
@@ -102,9 +187,7 @@ func Get_Window_Pos nID
 	When you close the window just use Super.Close()
 */
 
-class WindowsControllerBase
-
-	RingQt_nID = $RingQt_ObjectID
+class WindowsControllerBase from ObjectsLibParent
 
 	func Close
 		nPos = Get_Window_Pos(RingQt_nID)
@@ -113,9 +196,11 @@ class WindowsControllerBase
 	func ObjectID
 		return RingQt_nID
 
-	func GetObjectByID nID
-		nPos = Get_Window_Pos(nID)
-		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
+class ObjectsLibParent
+
+	RingQt_nID = $RingQt_ObjectID
+
+	RingQt_nParentID=0		# Parent Object ID 
 
 	func Method cMethod 
 		cMethod = Trim(cMethod)
@@ -125,3 +210,16 @@ class WindowsControllerBase
 		cRingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+RingQt_nID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
 		return cRingQt_objname+"."+cMethod
+
+	func setParentObject oParent
+		RingQt_nParentID = oParent.ObjectID()
+
+	func Parent
+		return GetObjectByID(RingQt_nParentID)
+
+	func IsParent
+		return RingQt_nParentID
+
+	func GetObjectByID nID
+		nPos = Get_Window_Pos(nID)
+		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]

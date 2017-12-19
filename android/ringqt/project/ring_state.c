@@ -15,6 +15,9 @@
 #include <mach-o/dyld.h>
 #endif
 #endif
+/* General Options (Only for ring_state_main()) */
+static int nRingStateDEBUGSEGFAULT  ;
+static int nRingStateCGI  ;
 /* Define Functions */
 #if RING_TESTUNITS
 
@@ -31,7 +34,7 @@ void segfaultaction ( int sig ) ;
 RING_API RingState * ring_state_new ( void )
 {
 	RingState *pRingState  ;
-	pRingState = (RingState *) malloc(sizeof(RingState)) ;
+	pRingState = (RingState *) ring_malloc(sizeof(RingState));
 	if ( pRingState == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -56,29 +59,34 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->argv = NULL ;
 	pRingState->pVM = NULL ;
 	pRingState->lStartup = 0 ;
+	pRingState->vPoolManager.pCurrentItem = NULL ;
+	pRingState->vPoolManager.pBlockStart = NULL ;
+	pRingState->vPoolManager.pBlockEnd = NULL ;
+	pRingState->nDontDeleteTheVM = 0 ;
 	return pRingState ;
 }
 
 RING_API RingState * ring_state_delete ( RingState *pRingState )
 {
 	if ( pRingState->pRingFilesList != NULL ) {
-		pRingState->pRingFilesList = ring_list_delete(pRingState->pRingFilesList);
-		pRingState->pRingFilesStack = ring_list_delete(pRingState->pRingFilesStack);
+		pRingState->pRingFilesList = ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
+		pRingState->pRingFilesStack = ring_list_delete_gc(pRingState,pRingState->pRingFilesStack);
 	}
 	if ( pRingState->pRingGenCode   != NULL ) {
-		pRingState->pRingGenCode = ring_list_delete(pRingState->pRingGenCode);
-		pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
-		pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
-		pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
+		pRingState->pRingGenCode = ring_list_delete_gc(pRingState,pRingState->pRingGenCode);
+		pRingState->pRingFunctionsMap = ring_list_delete_gc(pRingState,pRingState->pRingFunctionsMap);
+		pRingState->pRingClassesMap = ring_list_delete_gc(pRingState,pRingState->pRingClassesMap);
+		pRingState->pRingPackagesMap = ring_list_delete_gc(pRingState,pRingState->pRingPackagesMap);
 		if ( pRingState->pRingCFunctions != NULL ) {
 			/* We check because the execution may end by the compiler error */
-			pRingState->pRingCFunctions = ring_list_delete(pRingState->pRingCFunctions);
+			pRingState->pRingCFunctions = ring_list_delete_gc(pRingState,pRingState->pRingCFunctions);
 		}
 	}
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
-	free( pRingState ) ;
+	ring_poolmanager_delete(pRingState);
+	ring_free(pRingState);
 	return NULL ;
 }
 
@@ -136,7 +144,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 RING_API void ring_state_main ( int argc, char *argv[] )
 {
 	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn  ;
-	const char *cStr  ;
+	char *cStr  ;
 	/* Init Values */
 	nCGI = 0 ;
 	nRun = 1 ;
@@ -150,6 +158,8 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nSRC = 0 ;
 	nGenObj = 0 ;
 	nWarn = 0 ;
+	nRingStateDEBUGSEGFAULT = 0 ;
+	nRingStateCGI = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
 	ring_testallunits();
@@ -158,6 +168,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		for ( x = 1 ; x < argc ; x++ ) {
 			if ( strcmp(argv[x],"-cgi") == 0 ) {
 				nCGI = 1 ;
+				nRingStateCGI = 1 ;
 			}
 			else if ( strcmp(argv[x],"-tokens") == 0 ) {
 				nTokens = 1 ;
@@ -185,6 +196,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			}
 			else if ( strcmp(argv[x],"-w") == 0 ) {
 				nWarn = 1 ;
+				nRingStateDEBUGSEGFAULT = 1 ;
 			}
 			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
@@ -235,20 +247,27 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	#endif
 }
 
-RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName )
+RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
-	ring_scanner_readfile(cFileName,pRingState);
+	ring_scanner_readfile(pRingState,cFileName);
 }
 
-RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
+RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 {
-	ring_scanner_runobjfile(cFileName,pRingState);
+	ring_scanner_runobjfile(pRingState,cFileName);
+}
+
+RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName )
+{
+	ring_scanner_runobjstring(pRingState,cString,cFileName);
 }
 #if RING_TESTUNITS
 
 static void ring_testallunits ( void )
 {
 	/* Test */
+	ring_string_test();
+	ring_list_test();
 	ring_hashtable_test();
 	printf( "end of test \n  " ) ;
 	getchar();
@@ -276,8 +295,13 @@ static void ring_showtime ( void )
 
 void segfaultaction ( int sig )
 {
-	printf( "Content-Type: text/plain\n\n" ) ;
-	printf( "Ring Unexpected Error - Caught segfault : %d ",sig ) ;
+	if ( nRingStateDEBUGSEGFAULT == 1 ) {
+		if ( nRingStateCGI == 1 ) {
+			printf( "Content-Type: text/plain\n\n" ) ;
+		}
+		printf( RING_SEGFAULT ) ;
+		printf( " : %d ",sig ) ;
+	}
 	exit(0);
 }
 
@@ -320,7 +344,7 @@ int ring_fexists ( const char *cFileName )
 int ring_currentdir ( char *cDirPath )
 {
 	int nSize  ;
-	nSize = 200 ;
+	nSize = RING_PATHSIZE ;
 	if ( !GetCurrentDir(cDirPath, nSize) ) {
 		return errno ;
 	}
@@ -331,7 +355,7 @@ int ring_currentdir ( char *cDirPath )
 int ring_exefilename ( char *cDirPath )
 {
 	unsigned int nSize  ;
-	nSize = 200 ;
+	nSize = RING_PATHSIZE ;
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
@@ -339,20 +363,24 @@ int ring_exefilename ( char *cDirPath )
 	/* Mac OS X */
 	_NSGetExecutablePath(cDirPath,&nSize);
 	#elif __linux__
-	readlink("/proc/self/exe",cDirPath,nSize);
+	/* readlink() doesn't null terminate */
+	memset(cDirPath,0,nSize);
+	if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
+		return 0 ;
+	}
 	#endif
-	return 0 ;
+	return 1 ;
 }
 
-void ring_chdir ( const char *cDir )
+int ring_chdir ( const char *cDir )
 {
-	chdir(cDir);
+	return chdir(cDir) ;
 }
 
 void ring_exefolder ( char *cDirPath )
 {
-	char cDir[200]  ;
-	char cDir2[200]  ;
+	char cDir[RING_PATHSIZE]  ;
+	char cDir2[RING_PATHSIZE]  ;
 	int x,x2,nSize  ;
 	ring_exefilename(cDir);
 	nSize = strlen( cDir ) ;
@@ -366,4 +394,45 @@ void ring_exefolder ( char *cDirPath )
 		}
 	}
 	strcpy(cDirPath,cDir2);
+}
+
+void ring_switchtofilefolder ( char *cFileName )
+{
+	char cFileName2[RING_PATHSIZE]  ;
+	strcpy(cFileName2,cFileName);
+	if ( ring_justfilepath(cFileName2) ) {
+		ring_chdir(cFileName2);
+		/* Remove The Path from the file Name - Keep the File Name Only */
+		ring_justfilename(cFileName);
+		return ;
+	}
+}
+
+int ring_justfilepath ( char *cFileName )
+{
+	int x,nSize  ;
+	nSize = strlen( cFileName ) ;
+	for ( x = nSize-1 ; x >= 0 ; x-- ) {
+		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
+			cFileName[x+1] = '\0' ;
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
+
+void ring_justfilename ( char *cFileName )
+{
+	int x,nSize,r  ;
+	nSize = strlen( cFileName ) ;
+	for ( x = nSize-1 ; x >= 0 ; x-- ) {
+		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
+			r = 0 ;
+			for ( x = x+1 ; x <= nSize+1 ; x++ ) {
+				cFileName[r] = cFileName[x] ;
+				r++ ;
+			}
+			break ;
+		}
+	}
 }

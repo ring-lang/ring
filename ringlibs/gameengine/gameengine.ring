@@ -2,12 +2,7 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-if isandroid()
-	eval('load "gl_libsdl.ring"')
-else
-	eval('load "gl_allegro.ring"')
-ok 
-
+load "gl.ring"
 load "gameengine.rh"
 
 oresources = new resources
@@ -116,7 +111,9 @@ class game from gamebase
 
 	func startup
 
-		#gl_set_new_display_flags(GL_FULLSCREEN)
+		if GE_FULLSCREEN
+			gl_set_new_display_flags(GL_FULLSCREEN)
+		ok
 
 		display = gl_create_display(screen_w,screen_h)
 		gl_set_window_title(display,title)

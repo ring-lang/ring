@@ -1,0 +1,234 @@
+.. index:: 
+	single: Functions - Second Style; Introduction
+
+=========================
+Functions  - Second Style
+=========================
+
+In this chapter we are going to learn about the next topics :-
+
+* Define functions
+
+* Call functions
+
+* Declare parameters
+
+* Send parameters
+
+* Main Function
+
+* Variables Scope
+
+* Return Value
+
+* Recursion
+
+.. index:: 
+	pair: Functions - Second Style; Define Functions
+
+
+Define Functions
+================
+
+To define new function 
+
+Syntax:
+
+.. code-block:: ring
+
+	def <function_name> [parameters]
+		Block of statements
+	[end]
+
+.. note:: the keyword 'end' is optional.
+
+
+Example:
+
+.. code-block:: ring
+
+	def hello
+		put "Hello from function" + nl
+	end
+
+
+.. index:: 
+	pair: Functions - Second Style; Call Functions
+
+Call Functions
+==============
+
+To call function without parameters, we type the function name then ()
+
+.. tip:: We can call the function before the function definition and the function code.
+
+Example:
+
+.. code-block:: ring
+
+	hello()
+
+	def hello
+		put "Hello from function" + nl
+	end
+
+
+Example:
+
+.. code-block:: ring
+
+	first()  second()
+
+	def first   put "message from the first function" + nl
+
+	def second  put "message from the second function" + nl
+
+.. index:: 
+	pair: Functions - Second Style; Declare parameters
+
+Declare parameters
+==================
+
+To declare the function parameters, after the function name type the list of parameters as a group
+of identifiers separated by comma.
+
+Example:
+
+.. code-block:: ring
+
+	def sum x,y
+		put x+y+nl
+	end
+
+.. index:: 
+	pair: Functions - Second Style; Send Parameters
+
+Send Parameters
+===============
+
+To send parameters to function, type the parameters inside () after the function name
+
+Syntax:
+
+.. code-block:: ring
+
+	funcname(parameters)
+
+Example:
+
+.. code-block:: ring
+
+	/* output
+	** 8
+	** 3000
+	*/
+
+	sum(3,5) sum(1000,2000)
+
+	def sum x,y put x+y+nl
+
+.. index:: 
+	pair: Functions - Second Style; Main Function
+
+Main Function
+=============
+
+Using the Ring programming language, the Main Function is optional, 
+when it's defined, it will be executed after the end of other statements.
+
+if no other statements comes alone, the main function will be the first `entry point <http://en.wikipedia.org/wiki/Entry_point>`_ 
+
+Example:
+
+.. code-block:: ring
+
+	# this program will print the hello world message first then execute the main function
+
+	put "Hello World!" + nl
+
+	def main
+		put "Message from the main function" + nl
+	end
+
+.. index:: 
+	pair: Functions - Second Style; Variables Scope
+
+Variables Scope
+===============
+
+The Ring programming language uses `lexical scoping <http://en.wikipedia.org/wiki/Scope_%28computer_science%29#Lexical_scope_vs._dynamic_scope>`_ to
+determine the scope of a variable.
+ 
+Variables defined inside functions (including function parameters) are local variables.
+Variables defined outside functions (before any function) are global variables.
+
+Inside any function we can access the variables defined inside this function beside the global variables.
+
+Example:
+
+.. code-block:: ring
+
+	# the program will print numbers from 10 to 1
+
+	x = 10 				# x is a global variable.
+
+	def main
+		for t = 1 to 10		# t is a local variable
+			mycounter()	# call function
+		end
+	end
+
+	def mycounter
+		put x + nl		# print the global variable value
+		x--			# decrement
+	end
+
+.. note:: Using the main function before the for loop declare the t variable as a local variable,
+	  It's recommended to use the main functions instead of typing the instructions directly to set the scope
+	  of the new variables to local.
+
+.. index:: 
+	pair: Functions - Second Style; Return Value
+
+Return Value
+============
+
+The function can return a value using the Return command.
+
+Syntax:
+
+.. code-block:: ring
+
+	Return [Expression]
+
+.. tip:: the Expression after the return command is optional and we can use the return command
+	 to end the function execution without returning any value.
+	 
+.. note:: if the function doesn't return explicit value, it will return NULL (empty string = "" ).
+
+Example:
+
+.. code-block:: ring
+
+	if novalue() = NULL	
+		put "the function doesn't return a value" + nl
+	end
+
+	def novalue
+
+.. index:: 
+	pair: Functions - Second Style; Recursion
+
+Recursion
+=========
+
+The Ring programming language support `Recursion <http://en.wikipedia.org/wiki/Recursion_%28computer_science%29>`_
+and the function can call itself using different parameters.
+
+Example:
+
+.. code-block:: ring
+
+	put fact(5)  	# output = 120
+
+	def fact x if x = 0 return 1 else return x * fact(x-1) end

@@ -18,16 +18,16 @@ void ring_vm_string_assignment ( VM *pVM )
 	String *cStr1  ;
 	char *newstr  ;
 	if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new(RING_VM_STACK_READC);
+		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
 		if ( ring_string_size(cStr1) == 1 ) {
 			newstr = (char *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			newstr[0] = ring_string_get(cStr1)[0] ;
-			ring_string_delete(cStr1);
+			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		} else {
-			ring_string_delete(cStr1);
+			ring_string_delete_gc(pVM->pRingState,cStr1);
 			ring_vm_error(pVM,RING_VM_ERROR_VALUEMORETHANONECHAR);
 			return ;
 		}

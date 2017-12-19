@@ -1,0 +1,145 @@
+.. index:: 
+	single: The Type Hints Library; Introduction to the Type Hints Library
+
+======================================
+Introduction to the Type Hints Library
+======================================
+
+In this chapter we will learn about the Type Hints Library
+
+
+.. index:: 
+	pair: The Type Hints Library; Why Type Hints?
+
+Why Type Hints?
+===============
+
+Using this library we can add the type information to the source code which will be 
+very useful for tools like
+
+* Code Editors 
+* Static-Analysis
+
+.. note:: Ring is a dynamic language, No type checking will be done by the compiler.
+
+.. index:: 
+	pair: The Type Hints Library; Example
+
+Example
+=======
+
+The next example will use the Type Hints library
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	see sum(3,4) + nl ;
+	see sayHello("Mahmoud");
+
+	int func sum(int x,int y) {
+		return x+y ;
+	}
+
+	string func sayHello(string name) {
+		return "Hello " + name ;
+	}
+
+.. index:: 
+	pair: The Type Hints Library; User Types
+
+User Types
+==========
+
+The Type Hints library is very powerful and will support user types (Classes) automatically
+
+Example:
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	import mypackage 
+
+	test()  { main([:one,:two,:three]) }
+
+	myclass func test() {
+		see "Testing User Types!" + nl
+		return new myclass
+	}
+
+	package mypackage {
+		public class myclass {
+			public static void func main(list args) {
+				see "welcome" + nl
+				see args
+			}
+		}
+	}
+
+.. index:: 
+	pair: The Type Hints Library; Using Types inside Code
+
+Using Types inside Code
+=======================
+
+Also you can use the types inside the code (not only the function prototype)
+
+Example:
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	int 	sum = sum(3,4)
+	string 	msg = sayHello("Mahmoud")
+
+	see "Sum = " + sum + nl + msg + nl
+
+
+	int func sum(int x,int y) {
+		return x+y ;
+	}
+
+	string func sayHello(string name) {
+		return "Hello " + name ;
+	}
+
+.. index:: 
+	pair: The Type Hints Library; Rules
+
+Rules
+=====
+
+* To use the types in the function prototype you must use '(' and ')' around parameters
+* To use the types in the function code, You must set the variable value (Assignment).
+
+The next types are defined by the library
+
+.. code-block:: ring
+
+	# Low Level Types
+	char 		 
+	unsigned 	 
+	signed 		 
+	int 		 
+	short 		 
+	long 		 
+	float 		 
+	double 		 
+	void 		 
+
+	# High Level Types 
+	string 		 
+	list 		 
+	number 		 
+	object		 
+
+	# Other
+	public		 
+	static		 
+	abstract	 
+	protected	 
+	override	 
+
+

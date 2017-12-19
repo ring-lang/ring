@@ -7,24 +7,13 @@
 
 class WindowsControllerParent from WindowsControllerBase
 
-	RingQt_nParentID=0		# Parent Object ID 
-
 	func Start		
 		oView.win.Show()
-
-	func setParentObject oParent
-		RingQt_nParentID = oParent.ObjectID()
-
-	func Parent
-		return GetObjectByID(RingQt_nParentID)
-
-	func IsParent
-		return RingQt_nParentID
 
 	func CloseAction
 		oView.Close()
 		Super.Close()
 
-class WindowsViewParent
+class WindowsViewParent from ObjectsLibParent
 	func Close
 		win.close()

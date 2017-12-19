@@ -1,0 +1,1 @@
+load "/../ringlibs/naturallib/naturallib.ring"

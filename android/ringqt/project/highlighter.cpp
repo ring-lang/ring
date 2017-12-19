@@ -46,14 +46,51 @@
 
 #include "highlighter.h"
 
-//! [0]
 Highlighter::Highlighter(QTextDocument *parent)
     : QSyntaxHighlighter(parent)
 {
-    HighlightingRule rule;
+    setColors(Qt::darkBlue,Qt::darkMagenta,Qt::red,Qt::darkGreen,Qt::blue);
+}
 
-    keywordFormat.setForeground(Qt::darkBlue);
-    keywordFormat.setFontWeight(QFont::Bold);
+void Highlighter::highlightBlock(const QString &text)
+{
+    foreach (const HighlightingRule &rule, highlightingRules) {
+        QRegExp expression(rule.pattern);
+        int index = expression.indexIn(text);
+        while (index >= 0) {
+            int length = expression.matchedLength();
+            setFormat(index, length, rule.format);
+            index = expression.indexIn(text, index + length);
+        }
+    }
+    
+    setCurrentBlockState(0);
+    int startIndex = 0;
+    if (previousBlockState() != 1)
+        startIndex = commentStartExpression.indexIn(text);
+
+    while (startIndex >= 0) {
+        int endIndex = commentEndExpression.indexIn(text, startIndex);
+        int commentLength;
+        if (endIndex == -1) {
+            setCurrentBlockState(1);
+            commentLength = text.length() - startIndex;
+        } else {
+            commentLength = endIndex - startIndex
+                            + commentEndExpression.matchedLength();
+        }
+        setFormat(startIndex, commentLength, multiLineCommentFormat);
+        startIndex = commentStartExpression.indexIn(text, startIndex + commentLength);
+    }
+}
+
+void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
+
+    HighlightingRule rule;
+    highlightingRules.remove(0,highlightingRules.count());
+    keywordFormat.setForeground(c1);
+    if (this->nKeywordsBold)
+	    keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
     keywordPatterns << "\\bagain\\b" << "\\band\\b" << "\\bbut\\b"
                     << "\\bbye\\b" << "\\bcall\\b" << "\\bcase\\b"
@@ -69,6 +106,7 @@ Highlighter::Highlighter(QTextDocument *parent)
 					<< "\\bpackage\\b" << "\\bprivate\\b" << "\\bput\\b"
 					<< "\\breturn\\b" << "\\bsee\\b" << "\\bstep\\b"
 					<< "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
+					<< "\\bendfunc\\b" << "\\bendclass\\b" << "\\bendpackage\\b"
 					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b"
 					<< "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
                     
@@ -76,88 +114,57 @@ Highlighter::Highlighter(QTextDocument *parent)
         rule.pattern = QRegExp(pattern,Qt::CaseInsensitive);   
         rule.format = keywordFormat;
         highlightingRules.append(rule);
-//! [0] //! [1]
     }
-//! [1]
 
-//! [2]
-    classFormat.setFontWeight(QFont::Bold);
-    classFormat.setForeground(Qt::darkMagenta);
+    if (this->nKeywordsBold)
+    	classFormat.setFontWeight(QFont::Bold);
+    classFormat.setForeground(c2);
     rule.pattern = QRegExp("\\bQ[A-Za-z]+\\b");
     rule.format = classFormat;
     highlightingRules.append(rule);
-//! [2]
 
-//! [3]
-    singleLineCommentFormat.setForeground(Qt::red);
+    functionFormat.setFontItalic(true);
+    functionFormat.setForeground(c5);
+    rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
+    rule.format = functionFormat;
+    highlightingRules.append(rule);
+
+    singleLineCommentFormat.setForeground(c3);
     rule.pattern = QRegExp("//[^\n]*");
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
-	singleLineCommentFormat.setForeground(Qt::red);
-    rule.pattern = QRegExp("#[^\n]*");
-    rule.format = singleLineCommentFormat;
+    rule.pattern = QRegExp("^#+[^\n]*");
+    highlightingRules.append(rule);
+
+    rule.pattern = QRegExp("#+( |-|=)[^\n]*");
     highlightingRules.append(rule);
 	
-    multiLineCommentFormat.setForeground(Qt::red);
-//! [3]
+    multiLineCommentFormat.setForeground(c3);
 
-//! [4]
-    quotationFormat.setForeground(Qt::darkGreen);
-    rule.pattern = QRegExp("\".*\"");
+    quotationFormat.setForeground(c4);
+    rule.pattern = QRegExp("\"(?:(?!\\/\\/).)+\"");
+    rule.pattern.setMinimal(true);
     rule.format = quotationFormat;
     highlightingRules.append(rule);
-//! [4]
 
-//! [5]
-    functionFormat.setFontItalic(true);
-    functionFormat.setForeground(Qt::blue);
-    rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
-    rule.format = functionFormat;
+    quotationFormat2.setForeground(c4);
+    rule.pattern = QRegExp("\'(?:(?!\\/\\/).)+\'");
+    rule.pattern.setMinimal(true);
+    rule.format = quotationFormat2;
     highlightingRules.append(rule);
-//! [5]
 
-//! [6]
-    commentStartExpression = QRegExp("/\\*");
+    quotationFormat3.setForeground(c4);
+    rule.pattern = QRegExp("`(?:(?!\\/\\/).)+`");
+    rule.pattern.setMinimal(true);
+    rule.format = quotationFormat3;
+    highlightingRules.append(rule);
+
+    commentStartExpression = QRegExp("^\\s*/\\*");
     commentEndExpression = QRegExp("\\*/");
+
 }
-//! [6]
 
-//! [7]
-void Highlighter::highlightBlock(const QString &text)
-{
-    foreach (const HighlightingRule &rule, highlightingRules) {
-        QRegExp expression(rule.pattern);
-        int index = expression.indexIn(text);
-        while (index >= 0) {
-            int length = expression.matchedLength();
-            setFormat(index, length, rule.format);
-            index = expression.indexIn(text, index + length);
-        }
-    }
-//! [7] //! [8]
-    setCurrentBlockState(0);
-//! [8]
-
-//! [9]
-    int startIndex = 0;
-    if (previousBlockState() != 1)
-        startIndex = commentStartExpression.indexIn(text);
-
-//! [9] //! [10]
-    while (startIndex >= 0) {
-//! [10] //! [11]
-        int endIndex = commentEndExpression.indexIn(text, startIndex);
-        int commentLength;
-        if (endIndex == -1) {
-            setCurrentBlockState(1);
-            commentLength = text.length() - startIndex;
-        } else {
-            commentLength = endIndex - startIndex
-                            + commentEndExpression.matchedLength();
-        }
-        setFormat(startIndex, commentLength, multiLineCommentFormat);
-        startIndex = commentStartExpression.indexIn(text, startIndex + commentLength);
-    }
+void Highlighter::setKeywordsBold(int nStatus) {
+	this->nKeywordsBold = nStatus;
 }
-//! [11]

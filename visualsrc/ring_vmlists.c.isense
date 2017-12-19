@@ -47,5 +47,8 @@ Type: List *
 pList
 Type: Item *
 pItem
-Type: String *
-pString,*pString2
+Type: const char *
+cStr2
+ring_vm_strcmpnotcasesensitive
+Type: int
+nNum1

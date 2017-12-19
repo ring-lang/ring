@@ -482,4 +482,5 @@ Func std_download cURL
 Func std_sendemail cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent
 	sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 
-
+Func std_swap aList,nItem1,nItem2
+	swap(aList,nItem1,nItem2)

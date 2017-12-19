@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -44,6 +44,21 @@ SOURCES +=   \
     gplaintextedit.cpp \
     gheaderview.cpp \
     gprocess.cpp \
+    gtoolbutton.cpp \
+    gserialport.cpp \
+    gbluetoothdevicediscoveryagent.cpp \
+    gbluetoothlocaldevice.cpp \
+    gbluetoothserver.cpp \
+    gbluetoothservicediscoveryagent.cpp \
+    gbluetoothsocket.cpp \
+    gbluetoothtransfermanager.cpp \
+    gbluetoothtransferreply.cpp \
+    gwindow.cpp \
+    gguiapplication.cpp \
+    gtextbrowser.cpp \
+    gdockwidget.cpp \
+    gstackedwidget.cpp \
+    gcalendarwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -78,12 +93,28 @@ HEADERS  += \
     gthread.h \
     gplaintextedit.h \
     gprocess.h  \
-    gheaderview.h 
+    gtoolbutton.h \
+    gheaderview.h \
+    gserialport.h \
+    gbluetoothdevicediscoveryagent.h \
+    gbluetoothlocaldevice.h \
+    gbluetoothservicediscoveryagent.h \
+    gbluetoothsocket.h \
+    gbluetoothtransfermanager.h \
+    gbluetoothtransferreply.h \
+    gbluetoothserver.h \
+    gguiapplication.h \
+    gtextbrowser.h \
+    gwindow.h \
+    gstackedwidget.h \
+    gcalendarwidget.h \
+    gdockwidget.h
 
 INCLUDEPATH += ../../include
 
 win32 {
 	LIBS +=  ../../lib/ring.lib
+	QT   += axcontainer
 }
 
 macx {
@@ -99,4 +130,4 @@ CONFIG += release
 
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-DEPLOYMENT_PLUGIN += qsqlite
+DEPLOYMENT_PLUGIN += qsqlite qsqlmysql qsqlodbc qsqppsql

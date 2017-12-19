@@ -4,13 +4,14 @@
 */
 #include "ring.h"
 #include "sqlite3.h"
+#include "ring_vmsqlite.h"
 /* Data */
 typedef struct ring_sqlite {
 	sqlite3 *db  ;
 } ring_sqlite ;
 /* Functions */
 
-void ring_vm_sqlite_loadfunctions ( RingState *pRingState )
+RING_API void ringlib_init ( RingState *pRingState )
 {
 	ring_vm_funcregister("sqlite_init",ring_vm_sqlite_init);
 	ring_vm_funcregister("sqlite_close",ring_vm_sqlite_close);

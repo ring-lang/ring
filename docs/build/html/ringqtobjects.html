@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Objects Library for RingQt Application &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Using the Form Designer" href="formdesigner.html" />
+    <link rel="prev" title="Building RingQt Applications for Mobile" href="qtmobile.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="qtmobile.html" title="Building RingQt Applications for Mobile"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="objects-library-for-ringqt-application">
+<span id="index-0"></span><h1>Objects Library for RingQt Application<a class="headerlink" href="#objects-library-for-ringqt-application" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the objects library for RingQt applications.</p>
+<p>Ring comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.</p>
+<p>The Objects Library is designed to be used with the MVC Design Pattern.</p>
+<p>The Objects Library is merged in RingQt so you can use it directly when you use RingQt</p>
+<div class="section" id="library-usage">
+<span id="index-1"></span><h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Use the Open_Window(cWindowControllerClassName) function to open new Windows</li>
+<li>Create at least Two Classes for each window, The Controller Class and the View Class</li>
+<li>Create each controller class from the WindowsControllerParent Class</li>
+<li>Create each view class from the WindowsViewParent Class</li>
+<li>Use the Last_Window() function to get the object of the last window created (The Controller object).</li>
+<li>When you call a sub window, use the SetParentObject() method and pass the self object.</li>
+<li>In the View Class, To determine the event method use the Method(cMethodName) function.</li>
+<li>The Method(cMethodName) function determine the method in the controller class that will be executed.</li>
+<li>Each controller class contains by default the CloseAction() method that you can call to close the window.</li>
+<li>You don&#8217;t need to call the Show() Method for each window, When you use Open_Window() It will be called.</li>
+<li>In the view class, Define the GUI window object as an attribute called win.</li>
+<li>You can use Open_WindowNoShow() to avoid displaying the window.</li>
+<li>You can use Open_WindowAndLink() to quickly get methods to access the windows.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will create two types of windows.</p>
+<ul class="simple">
+<li>Main Window contains a button. When the user click on the button a sub window will be opened.</li>
+<li>The User Can click on the button many times to open many sub windows.</li>
+<li>Each Sub Window contains Two buttons.</li>
+<li>The first button in the sub window change the Main and the Sub Windows Titles.</li>
+<li>The second button in the sub window close the Sub Window.</li>
+</ul>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
+        <span class="k">func</span> <span class="n">SubWindowAction</span>
+                <span class="n">Open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                <span class="n">Last_Window</span><span class="p">().</span><span class="n">SetParentObject</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
+        <span class="k">func</span> <span class="n">SetMainWindowTitleAction</span>
+                <span class="n">Parent</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">btnMsg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>The next screen shot after creating three sub windows.</p>
+<img alt="Objects Library Example - Shot 1" src="_images/objectslib1.png" />
+<p>The next screen shot after clicking on the button in each sub window.</p>
+<img alt="Objects Library Example - Shot 2" src="_images/objectslib2.png" />
+</div>
+<div class="section" id="open-windowandlink-function">
+<span id="index-3"></span><h2>Open_WindowAndLink() Function<a class="headerlink" href="#open-windowandlink-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Open_WindowAndLink() function to connect between the application
+windows, pass messages (call methods) between the objects.</p>
+<p>This function uses Meta-programming to define dynamic methods in the
+Caller Class to use the dynamic objects of other windows that we create.</p>
+<p>Example : (Uses the Form Designer)</p>
+<p>First Window</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring</a></li>
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring</a></li>
+</ol>
+<p>Second Window</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring</a></li>
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring</a></li>
+</ol>
+<p>In the next code for example (from FirstWindowController.ring)</p>
+<p>The Open_WindowAndLink() will create an object from the SecondWindowController Class</p>
+<p>Then will add the Method : SecondWindow(), IsSecondWindow() Methods
+to the FirstWindowController Class</p>
+<p>Also will add the Method : FirstWindow(), IsFirstWindow() Methods
+to the SecondWindowController Class</p>
+<p>So the SendMessage() method in FirstWindowController class can
+use the SecondWindow() method to access the object.</p>
+<p>This is more simple than using Last_Window(), Parent() and
+SetParentObject() methods.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">firstwindowController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
+
+    <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">firstwindowView</span>
+
+    <span class="k">func</span> <span class="n">OpenSecondWindow</span>
+        <span class="n">Open_WindowAndLink</span><span class="p">(:</span><span class="n">SecondWindowController</span><span class="p">,</span><span class="n">self</span><span class="p">)</span>
+
+    <span class="k">func</span> <span class="n">SendMessage</span>
+        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
+            <span class="n">SecondWindow</span><span class="p">().</span><span class="n">setMessage</span><span class="p">(</span><span class="s">&quot;Message from the first window&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+    <span class="k">func</span> <span class="n">setMessage</span> <span class="n">cMessage</span>
+        <span class="n">oView</span><span class="p">.</span><span class="n">Label1</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-windowinpackages-function">
+<span id="index-4"></span><h2>Open_WindowInPackages() Function<a class="headerlink" href="#open-windowinpackages-function" title="Permalink to this headline">¶</a></h2>
+<p>The Open_WindowInPackages() function is the same as Open_Window()
+but takes an extra list that determine the packages
+to import before opening the window.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next example from the Form Designer source code, Open the Window Flags window
+using the open_windowInPackages() function.</p>
+<p>We determine the class name &#8220;WindowFlagsController&#8221; and the packages name.</p>
+<p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(:</span><span class="n">WindowFlagsController</span><span class="p">,</span><span class="o">[</span>
+        <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
+        <span class="s">&quot;System.GUI&quot;</span>
+<span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objects-library-source-code">
+<span id="index-5"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this headline">¶</a></h2>
+<p>The library source code is very simple, You can check the source code files</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/objects.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/objects.ring</a></li>
+<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/subwindows.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/subwindows.ring</a></li>
+</ul>
+<span class="target" id="index-6"></span></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Objects Library for RingQt Application</a><ul>
+<li><a class="reference internal" href="#library-usage">Library Usage</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#open-windowandlink-function">Open_WindowAndLink() Function</a></li>
+<li><a class="reference internal" href="#open-windowinpackages-function">Open_WindowInPackages() Function</a></li>
+<li><a class="reference internal" href="#objects-library-source-code">Objects Library Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="qtmobile.html"
+                        title="previous chapter">Building RingQt Applications for Mobile</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="formdesigner.html"
+                        title="next chapter">Using the Form Designer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringqtobjects.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="qtmobile.html" title="Building RingQt Applications for Mobile"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

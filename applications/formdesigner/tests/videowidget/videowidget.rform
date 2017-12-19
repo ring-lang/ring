@@ -1,0 +1,39 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 63 , : y = 87  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Video Widget" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "VideoWidget1" , :id = 2 , :classname = "formdesigner_qvideowidget" , :data = [
+		 :x = 12 , : y = 38  , 
+		 :width =  371 , :height = 305 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :Videofile =  "test.avi"
+		]
+	],
+	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 14 , : y = 5  , 
+		 :width =  100 , :height = 29 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Play",
+		 :BtnImage =  "",
+		 :setClickEvent =  "PlayVideo"
+		]
+	]
+]
+# End Form Designer File

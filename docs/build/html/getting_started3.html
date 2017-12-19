@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started - Third Style &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Using Ring Notepad" href="ringnotepad.html" />
+    <link rel="prev" title="Getting Started - Second Style" href="getting_started2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringnotepad.html" title="Using Ring Notepad"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting_started2.html" title="Getting Started - Second Style"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-third-style">
+<span id="index-0"></span><h1>Getting Started - Third Style<a class="headerlink" href="#getting-started-third-style" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hello-world">
+<span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<p>The next program prints the Hello World message on the screen (std-out).</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-program">
+<span id="index-2"></span><h2>Run the program<a class="headerlink" href="#run-the-program" title="Permalink to this headline">¶</a></h2>
+<p>to run the program, save the code in a file, for example : hello.ring
+then from the command line or terminal, run it using Ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-executable-file">
+<span id="index-3"></span><h2>Create Executable File<a class="headerlink" href="#create-executable-file" title="Permalink to this headline">¶</a></h2>
+<p>Using Ring2EXE we can create executable file for our application</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
+</pre></div>
+</div>
+<p>The -static option will avoid the need to ring.dll|ring.so|ring.dylib</p>
+<p>But since the stdlib.ring load libraries like (LibCurl, OpenSSL, MySQL, etc)</p>
+<p>You will need these libraries!</p>
+<p>To avoid the need to these libraries (If you don&#8217;t need stdlib classes)</p>
+<p>Use stdlibcore.ring instead of stdlib.ring as in the next example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using stdlibcore.ring You can access the stdlib functions but not the stdlib classes.</p>
+<p>if you want to use stdlib.ring and distribute your application</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">allruntime</span> <span class="o">-</span><span class="n">noqt</span> <span class="o">-</span><span class="n">noallegro</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="not-case-sensitive">
+<span id="index-4"></span><h2>Not Case-Sensitive<a class="headerlink" href="#not-case-sensitive" title="Permalink to this headline">¶</a></h2>
+<p>Since the Ring language is not case-sensitive, the same program can
+be written in different styles</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">It&#8217;s better to select one style and use it in all of the program source code</p>
+</div>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">LOAD</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">PRINT</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-line-literals">
+<span id="index-5"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
+<p>Using Ring we can write multi-line literal, see the next example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Hello</span>
+        <span class="n">Welcome</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">programming</span> <span class="n">language</span>
+        <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+
+    <span class="s">&quot;)</span>
+</pre></div>
+</div>
+<p>Also you can use the \n to insert new line
+and you can use #{variable_name} to insert variables values.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span> <span class="s">&quot;Hello</span><span class="se">\n</span><span class="s">Welcome to the Ring programming language</span><span class="se">\n</span><span class="s">How are you?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-input">
+<span id="index-6"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
+<p>You can get the input from the user using the getstring() function</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>
+<span class="n">cName</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="no-explicit-end-for-statements">
+<span id="index-7"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
+<p>You don&#8217;t need to use &#8216;;&#8217; or press ENTER to separate statements.
+The previous program can be written in one line.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span> <span class="n">cName</span><span class="o">=</span><span class="n">getstring</span><span class="p">()</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-comments">
+<span id="index-8"></span><h2>Writing Comments<a class="headerlink" href="#writing-comments" title="Permalink to this headline">¶</a></h2>
+<p>We can write one line comments and multi-line comments</p>
+<p>The comment starts with # or //</p>
+<p>Multi-lines comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">/*</span>
+        <span class="n">Program</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">My</span> <span class="n">first</span> <span class="n">program</span> <span class="n">using</span> <span class="n">Ring</span>
+        <span class="n">Date</span>         <span class="p">:</span> <span class="mf">2016.09.09</span>
+        <span class="n">Author</span>       <span class="p">:</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
+<span class="o">*/</span>
+
+<span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>    <span class="c"># print message on screen</span>
+<span class="n">cName</span><span class="o">=</span><span class="n">GetString</span><span class="p">()</span>               <span class="c"># get input from the user</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>         <span class="c"># say hello!</span>
+
+<span class="o">//</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Bye!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using // to comment a lines of code is just a code style.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started - Third Style</a><ul>
+<li><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li><a class="reference internal" href="#run-the-program">Run the program</a></li>
+<li><a class="reference internal" href="#create-executable-file">Create Executable File</a></li>
+<li><a class="reference internal" href="#not-case-sensitive">Not Case-Sensitive</a></li>
+<li><a class="reference internal" href="#multi-line-literals">Multi-Line literals</a></li>
+<li><a class="reference internal" href="#getting-input">Getting Input</a></li>
+<li><a class="reference internal" href="#no-explicit-end-for-statements">No Explicit End For Statements</a></li>
+<li><a class="reference internal" href="#writing-comments">Writing Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started2.html"
+                        title="previous chapter">Getting Started - Second Style</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringnotepad.html"
+                        title="next chapter">Using Ring Notepad</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting_started3.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringnotepad.html" title="Using Ring Notepad"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting_started2.html" title="Getting Started - Second Style"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

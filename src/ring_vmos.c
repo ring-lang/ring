@@ -111,26 +111,27 @@ void ring_vm_os_windowsnl ( void *pPointer )
 
 void ring_vm_os_currentdir ( void *pPointer )
 {
-	char cDirPath[200]  ;
+	char cDirPath[RING_PATHSIZE]  ;
 	ring_currentdir(cDirPath);
 	RING_API_RETSTRING(cDirPath);
 }
 
 void ring_vm_os_exefilename ( void *pPointer )
 {
-	char cDirPath[200]  ;
-	ring_exefilename(cDirPath);
-	RING_API_RETSTRING(cDirPath);
+	char cDirPath[RING_PATHSIZE]  ;
+	if ( ring_exefilename(cDirPath) ) {
+		RING_API_RETSTRING(cDirPath);
+	}
 }
 
 void ring_vm_os_chdir ( void *pPointer )
 {
-	ring_chdir(RING_API_GETSTRING(1));
+	RING_API_RETNUMBER(ring_chdir(RING_API_GETSTRING(1)));
 }
 
 void ring_vm_os_exefolder ( void *pPointer )
 {
-	char cDirPath[200]  ;
+	char cDirPath[RING_PATHSIZE]  ;
 	ring_exefolder(cDirPath);
 	RING_API_RETSTRING(cDirPath);
 }

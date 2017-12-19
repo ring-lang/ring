@@ -21,7 +21,7 @@ struct ring_odbc *
 Type: ring_odbc
 Mark: ->
 ring_odbc *
-ring_vm_odbc_loadfunctions
+ringlib_init
 ring_vm_odbc_init
 Type: SQLRETURN
 ret
@@ -88,7 +88,7 @@ pODBC
 ring_vm_odbc_getdata
 Type: ring_odbc *
 pODBC
-Type: SQLINTEGER
+Type: SQLLEN
 indicator
 Type: SQLUSMALLINT
 i

@@ -1,0 +1,238 @@
+.. index:: 
+	single: The Trace Library and the Interactive Debugger; Introduction
+
+==============================================
+The Trace Library and the Interactive Debugger
+==============================================
+
+In this chapter we will learn about the Trace Library and the Interactive Debugger
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Loading the Trace library
+
+Loading the Trace library
+=========================
+
+To start using the Trace library, We must load it first!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Trace All Events
+
+Trace All Events
+================
+
+The next example demonstrates the Trace library usage to trace all events.
+
+.. code-block:: ring
+
+	# Trace All Events
+	trace(:AllEvents)
+
+	see "Hello, world!" + nl
+	see "Welcome" + nl
+	see "How are you?" +nl
+
+	mytest()
+
+	new myclass { mymethod() }
+
+	func mytest
+		see "Message from mytest" + nl
+
+	class myclass
+		func mymethod
+			see "Message from mymethod" + nl
+
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Trace control flow between functions
+
+Trace control flow between functions
+====================================
+
+The next example demonstrates the Trace library usage 
+to trace the control flow between functions.
+
+.. code-block:: ring
+
+	Trace(:Functions)
+
+	test1()
+
+	func test1
+		see :test1 + nl
+		test2()
+
+	func test2
+		see :test2 + nl
+		see test3() + nl
+
+	func test3
+		see :test3 + nl
+		return "test 3 output" 
+	
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Pass Error
+
+Pass Error
+==========
+
+The next example demonstrates the Trace library usage 
+to pass an error!
+
+.. code-block:: ring
+
+	Trace(:PassError)
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		test2()	# Runtime Error!
+		see "We can continue!"
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Interactive Debugger
+
+Interactive Debugger
+====================
+
+The next example demonstrates the Trace library usage 
+to use the Interactive Debugger
+
+.. code-block:: ring
+
+	Trace(:Debugger)
+
+	test1()
+	see "good bye!" + nl
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		test2()	# Runtime Error!
+		see "After Error!" +nl
+		see "t = " see t see nl
+		see "x = " see x see nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Execute Program Line by Line
+
+Execute Program Line by Line
+============================
+
+The next example demonstrates the Trace library usage 
+to execute the program line by line!
+
+.. code-block:: ring
+
+	Trace(:LineByLine)
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		test2()
+		see "After Error!" +nl
+		see "t = " + t + nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; BreakPoint
+	
+BreakPoint
+==========
+
+The next example demonstrates the Trace library usage 
+to stop at a breakpoint!
+
+.. code-block:: ring
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Disable BreakPoints
+
+Disable BreakPoints
+===================
+
+The next example demonstrates the Trace library usage 
+and how to disable the Breakpoints!
+
+.. code-block:: ring
+
+	NoBreakPoints()
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Using the Interactive Debugger
+		
+Using the Interactive Debugger
+==============================
+
+The next example uses a Breakpoint to open the Interactive Debugger!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+
+
+Screen Shots:
+
+We have the Interactive Debugger at the Breakpoint!
+
+.. image:: debugshot1.png
+	:alt: Interactive Debugger
+
+We can print the variables values
+
+.. image:: debugshot2.png
+	:alt: Interactive Debugger
+
+We can change the variables values then continue execution
+
+.. image:: debugshot3.png
+	:alt: Interactive Debugger
+
+We can run the Interactive Debugger in the Output Window
+
+.. image:: debugshot4.png
+	:alt: Interactive Debugger
+

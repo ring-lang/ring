@@ -1,0 +1,1 @@
+load "/../extensions/ringopengl/opengl33/opengl33lib.ring"

@@ -1,3 +1,5 @@
+load "internetlib.ring"
+
 See "Send email..." + nl
 sendemail("smtp://smtp.gmail.com:587",
         "email@gmail.com",

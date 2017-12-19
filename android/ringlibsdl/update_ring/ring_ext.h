@@ -7,12 +7,7 @@
 #define RING_VM_MATH 1
 #define RING_VM_FILE 1
 #define RING_VM_OS 1
-#define RING_VM_MYSQL 0
-#define RING_VM_ODBC 0
-#define RING_VM_OPENSSL 0
-#define RING_VM_CURL 0
 #define RING_VM_DLL 1
-#define RING_VM_SQLITE 0
 /* Compiler - Scanner - Reading Files Functions */
 #include "SDL.h"
 #define RING_FILE            SDL_RWops *

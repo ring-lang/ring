@@ -1,0 +1,1 @@
+%cd%/../../../bin/ring.exe prepare.ring

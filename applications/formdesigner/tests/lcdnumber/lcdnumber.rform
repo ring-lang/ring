@@ -1,0 +1,47 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 100 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "LCD Number" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "LCDNumber1" , :id = 2 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 37 , : y = 42  , 
+		 :width =  215 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :display =  1543
+		]
+	],
+	[ :name = "LCDNumber2" , :id = 3 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 27 , : y = 148  , 
+		 :width =  219 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :display =  12
+		]
+	],
+	[ :name = "LCDNumber3" , :id = 4 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 43 , : y = 234  , 
+		 :width =  212 , :height = 58 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :display =  40
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is new in Ring 1.2? &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="What is new in Ring 1.1?" href="whatisnew.html" />
+    <link rel="prev" title="What is new in Ring 1.3?" href="whatisnew3.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="whatisnew.html" title="What is new in Ring 1.1?"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew3.html" title="What is new in Ring 1.3?"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-new-in-ring-1-2">
+<span id="index-0"></span><h1>What is new in Ring 1.2?<a class="headerlink" href="#what-is-new-in-ring-1-2" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.2 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2  comes with many new features</p>
+<ul class="simple">
+<li>New Functions</li>
+<li>Better Functions</li>
+<li>Better Ring Notepad</li>
+<li>Better RingQt</li>
+<li>Objects Library for RingQt</li>
+<li>RingLibCurl</li>
+<li>Better Call Command</li>
+<li>Using NULL instead of NULLPointer()</li>
+<li>Display Warnings Option</li>
+<li>Better Quality</li>
+</ul>
+</div>
+<div class="section" id="new-functions">
+<span id="index-2"></span><h2>New Functions<a class="headerlink" href="#new-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>PtrCmp() Function is a new function that compare between C pointers like the GUI objects.</li>
+<li>PrevFileName() Function is added to return the previous active source file name.</li>
+<li>RingVM_CFunctionsList() Function is added to return a list of functions written in C.</li>
+<li>RingVM_FunctionsList() Function is added to return a list of functions written in Ring.</li>
+<li>RingVM_ClassesList() Function is added to return a list of Classes.</li>
+<li>RingVM_PackagesList() Function is added to return a list of Packages.</li>
+<li>RingVM_MemoryList() Function is added to return a list of Memory Scopes and Variables.</li>
+<li>RingVM_CallList() Function is added to return a list of the functions call list.</li>
+<li>RingVM_FilesList() Function is added to return a list of the Ring Files.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fp</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">0</span>
+</pre></div>
+</div>
+<p>Also we can compare between them using the &#8216;=&#8217; operator</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp2.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp2.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fp</span>
+<span class="k">see</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fp2</span>
+<span class="k">see</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fp3</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">IsMainSourceFile</span>
+        <span class="k">if</span> <span class="n">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="kp">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-functions">
+<span id="index-3"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this headline">¶</a></h2>
+<p>The find() function is updated to support searching in lists using C pointers like GUI
+Objects.</p>
+<p>The type() function is updated to display the C pointers types (like the GUI Object Class
+Name).</p>
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-4"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<p>The Ring Notepad will save the current line number of opened files to be restored when
+we switch between files.</p>
+<p>Also Ring Notepad will ask the user to save the file if the file content is changed when
+the user switch between files.</p>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-5"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>RingQt classes are updated to include methods to get events (The code that will be executed
+when an event is fired). This is necessary to enable/disable events for some time or to
+get the events information.</p>
+<p>For example the next code disable an event then call a method then enable the event again.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cEvent</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">getCurrentItemChangedEvent</span><span class="p">()</span>
+<span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">setCurrentItemChangedEvent</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">FindValueAction</span><span class="p">()</span>       <span class="c"># Call Method while an event is disabled</span>
+<span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">setCurrentItemChangedEvent</span><span class="p">(</span><span class="n">cEvent</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also the QAllEvents class is updated where we can set the output from the event function
+to be true or false using a new method added to the class called setEventOutput.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="n">MyApp</span> <span class="o">=</span> <span class="k">New</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">370</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+                                <span class="n">lineedit1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlineedit</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                        <span class="n">setinputmask</span><span class="p">(</span><span class="s">&quot;9999;_&quot;</span><span class="p">)</span>
+                                        <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qallevents</span><span class="p">(</span><span class="n">lineedit1</span><span class="p">)</span>
+                                        <span class="n">oFilter</span><span class="p">.</span><span class="n">setfocusoutEvent</span><span class="p">(</span><span class="s">&quot;pMove()&quot;</span><span class="p">)</span>
+                                        <span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
+                                <span class="p">}</span>
+                                <span class="n">lineedit2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlineedit</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                <span class="p">}</span>
+                                <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">pMove</span>
+           <span class="n">win</span><span class="p">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;xxxx&quot;</span><span class="p">)</span>
+           <span class="n">oFilter</span><span class="p">.</span><span class="n">setEventOutput</span><span class="p">(</span><span class="kp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objects-library-for-ringqt">
+<span id="index-6"></span><h2>Objects Library for RingQt<a class="headerlink" href="#objects-library-for-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2 comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.</p>
+<p>The Objects Library is designed to be used with the MVC Design Pattern.</p>
+<p>The Objects Library is merged in RingQt so you can use it directly when you use RingQt</p>
+<p>Example :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
+        <span class="k">func</span> <span class="n">SubWindowAction</span>
+                <span class="n">Open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                <span class="n">Last_Window</span><span class="p">().</span><span class="n">SetParentObject</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
+        <span class="k">func</span> <span class="n">SetMainWindowTitleAction</span>
+                <span class="n">Parent</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">btnMsg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringlibcurl">
+<span id="index-7"></span><h2>RingLibCurl<a class="headerlink" href="#ringlibcurl" title="Permalink to this headline">¶</a></h2>
+<p>The LibCurl library is used starting from Ring 1.0 for the Download() and SendEmail()
+functions implementation. In Ring 1.2 more functions are added to provide a powerful
+library (RingLibCurl) around LibCurl.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">cPostThis</span> <span class="o">=</span> <span class="s">&quot;page=4&amp;Number1=4&amp;Number2=5&quot;</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://localhost/ringapp/index.ring?page=3&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="n">cPostThis</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-call-command">
+<span id="index-8"></span><h2>Better Call Command<a class="headerlink" href="#better-call-command" title="Permalink to this headline">¶</a></h2>
+<p>The Call command is updated to support calling functions from object attributes also (not
+only variables).</p>
+<p>For example the next code from the Stars Fighter Game</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cFunc</span> <span class="o">=</span> <span class="n">oself</span><span class="p">.</span><span class="n">keypress</span>
+<span class="k">call</span> <span class="n">cFunc</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Can be written in one line</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">call</span> <span class="n">oself</span><span class="p">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-null-instead-of-nullpointer">
+<span id="index-9"></span><h2>Using NULL instead of NULLPointer()<a class="headerlink" href="#using-null-instead-of-nullpointer" title="Permalink to this headline">¶</a></h2>
+<p>We can pass NULL to functions instead of using NULLPointer()</p>
+<p>For example the next code from RingLibSDL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">SDL_ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">NULLPointer</span><span class="p">(),</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Can be written as in the next line</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">SDL_ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-warnings-option">
+<span id="index-10"></span><h2>Display Warnings Option<a class="headerlink" href="#display-warnings-option" title="Permalink to this headline">¶</a></h2>
+<p>In Ring 1.2 the Ring compiler is updated to include the Display Warnings option (-w)</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+</pre></div>
+</div>
+<p>compiling the program using the Display Warnings option will display the file duplication
+warning, While without that option the error will pass silent.</p>
+<p>This is a warning (not an error) because in large projects you may use the same file
+more than one time. For example it&#8217;s common to start each file with the next code. where
+the function IsMainSourceFile() is part from the stdlib.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">if</span> <span class="n">IsMainSourceFile</span><span class="p">()</span>
+        <span class="o">//</span> <span class="n">Testing</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-quality">
+<span id="index-11"></span><h2>Better Quality<a class="headerlink" href="#better-quality" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
+in practical projects. Some functions are optimized to be faster like the SubStr() function.
+Also the documentation is more better.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is new in Ring 1.2?</a><ul>
+<li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li><a class="reference internal" href="#new-functions">New Functions</a></li>
+<li><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li><a class="reference internal" href="#objects-library-for-ringqt">Objects Library for RingQt</a></li>
+<li><a class="reference internal" href="#ringlibcurl">RingLibCurl</a></li>
+<li><a class="reference internal" href="#better-call-command">Better Call Command</a></li>
+<li><a class="reference internal" href="#using-null-instead-of-nullpointer">Using NULL instead of NULLPointer()</a></li>
+<li><a class="reference internal" href="#display-warnings-option">Display Warnings Option</a></li>
+<li><a class="reference internal" href="#better-quality">Better Quality</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whatisnew3.html"
+                        title="previous chapter">What is new in Ring 1.3?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="whatisnew.html"
+                        title="next chapter">What is new in Ring 1.1?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatisnew2.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="whatisnew.html" title="What is new in Ring 1.1?"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew3.html" title="What is new in Ring 1.3?"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

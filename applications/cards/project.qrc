@@ -1,0 +1,6 @@
+<RCC>
+    <qresource>
+        <file>cards.ringo</file>
+		<file>cards.jpg</file>
+    </qresource>
+</RCC>

@@ -59,12 +59,6 @@ void ring_vm_jumpfor ( VM *pVM )
 			ring_vm_jump(pVM);
 		}
 	}
-	/*
-	**  We free the stack to avoid pVM->nFuncSP > pVM->nSP when pVM->nSP == 0 
-	**  This solve a bug that lead to crash! 
-	**  See tests\forincrash.ring 
-	*/
-	ring_vm_freestack(pVM);
 }
 
 void ring_vm_jumpone ( VM *pVM )

@@ -72,6 +72,9 @@ K_PUT
 K_GET
 K_CASE
 K_DEF
+K_ENDFUNC
+K_ENDCLASS
+K_ENDPACKAGE
 K_CHANGERINGKEYWORD
 K_CHANGERINGIOPERATOR
 K_LOADSYNTAX
@@ -140,6 +143,8 @@ nCont,nRunVM,nFreeFilesList
 cStartup
 Type: int
 x,nSize
+Type: char
+cFileName2[200]
 ring_scanner_readchar
 Type: char
 cStr[2]
@@ -161,6 +166,8 @@ cStr[5]
 ring_scanner_isnumber
 Type: unsigned int
 x
+Type: unsigned int
+x2
 ring_scanner_checklasttoken
 ring_scanner_isoperator
 Type: int
@@ -201,6 +208,7 @@ Type: RingState *
 pRingState
 ring_scanner_getkeywordtext
 ring_scanner_runobjfile
+ring_scanner_runobjstring
 ring_scanner_runprogram
 Type: VM *
 pVM

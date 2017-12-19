@@ -40,6 +40,10 @@ Type: struct VM *
 pVM
 Type: char
 lStartup
+Type: PoolManager
+vPoolManager
+Type: unsigned int
+nDontDeleteTheVM : 1
 END:
 Type: RingState
 struct RingState
@@ -53,6 +57,10 @@ RING_STATE_CHECKPRINTRULES
 RING_VERSION
 GetCurrentDir
 GetCurrentDir
+Type: static int
+nRingStateDEBUGSEGFAULT
+Type: static int
+nRingStateCGI
 ring_state_new
 Type: RingState *
 pRingState
@@ -76,10 +84,11 @@ pList
 ring_state_main
 Type: int
 x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn
-Type: const char *
+Type: char *
 cStr
 ring_state_runfile
 ring_state_runobjectfile
+ring_state_runobjectstring
 ring_testallunits
 ring_showtime
 Type: time_t
@@ -109,8 +118,17 @@ nSize
 ring_chdir
 ring_exefolder
 Type: char
-cDir[200]
+cDir[RING_PATHSIZE]
 Type: char
-cDir2[200]
+cDir2[RING_PATHSIZE]
 Type: int
 x,x2,nSize
+ring_switchtofilefolder
+Type: char
+cFileName2[RING_PATHSIZE]
+ring_justfilepath
+Type: int
+x,nSize
+ring_justfilename
+Type: int
+x,nSize,r

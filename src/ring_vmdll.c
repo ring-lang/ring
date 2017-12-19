@@ -26,18 +26,20 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		cDLL = RING_API_GETSTRING(1);
 		handle = LoadDLL(cDLL);
 		if ( handle == NULL ) {
-			RING_API_ERROR("Runtime Error in loading the dynamic library!");
+			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
+			RING_API_ERROR(RING_VM_ERROR_LIBLOADERROR);
 			return ;
 		}
 		pFunc = (loadlibfuncptr) GetDLLFunc(handle, "ringlib_init") ;
 		if ( pFunc == NULL ) {
+			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR("The dynamic library doesn't contain the ringlib_init() function!");
 			return ;
 		}
-		ring_list_deletearray(pRingState->pRingCFunctions);
+		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		(*pFunc)(pRingState) ;
-		ring_list_genarray(pRingState->pRingCFunctions);
-		ring_list_genhashtable2(pRingState->pRingCFunctions);
+		ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+		ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
 		RING_API_RETCPOINTER(handle,"DLL");
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

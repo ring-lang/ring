@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>System Functions &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Eval() and Debugging" href="evaldebug.html" />
+    <link rel="prev" title="Files" href="files.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="system-functions">
+<span id="index-0"></span><h1>System Functions<a class="headerlink" href="#system-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the system functions</p>
+<ul class="simple">
+<li>System()</li>
+<li>SysGet()</li>
+<li>IsMSDOS()</li>
+<li>IsWindows()</li>
+<li>IsWindows64()</li>
+<li>IsUnix()</li>
+<li>IsMacOSX()</li>
+<li>IsLinux()</li>
+<li>IsFreeBSD()</li>
+<li>IsAndroid()</li>
+<li>Windowsnl()</li>
+<li>Get Command Line Arguments</li>
+<li>Get Active Source File Name</li>
+<li>CurrentDir()</li>
+<li>ExeFileName()</li>
+<li>ChDir()</li>
+<li>ExeFolder()</li>
+<li>Version()</li>
+<li>Shutdown()</li>
+</ul>
+<div class="section" id="system-function">
+<span id="index-1"></span><h2>System() Function<a class="headerlink" href="#system-function" title="Permalink to this headline">¶</a></h2>
+<p>We can execute system commands using the system() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>     <span class="c"># Run myapp.exe</span>
+<span class="n">System</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>            <span class="c"># print list of files</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sysget-function">
+<span id="index-2"></span><h2>SysGet() Function<a class="headerlink" href="#sysget-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get environment variables using the Get() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SysGet</span><span class="p">(</span><span class="n">cVariable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">sysget</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span>              <span class="c"># print system path information</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismsdos-function">
+<span id="index-3"></span><h2>IsMSDOS() Function<a class="headerlink" href="#ismsdos-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is MSDOS or not using the IsMSDOS() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">MS</span><span class="o">-</span><span class="n">DOS</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows-function">
+<span id="index-4"></span><h2>IsWindows() Function<a class="headerlink" href="#iswindows-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows or not using the IsWindows() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsWindows</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows64-function">
+<span id="index-5"></span><h2>IsWindows64() Function<a class="headerlink" href="#iswindows64-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows 64bit or not using the IsWindows64() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsWindows64</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows64</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isunix-function">
+<span id="index-6"></span><h2>IsUnix() Function<a class="headerlink" href="#isunix-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Unix or not using the IsUnix() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsUnix</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Unix</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismacosx-function">
+<span id="index-7"></span><h2>IsMacOSX() Function<a class="headerlink" href="#ismacosx-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is macOS or not using the IsMacOSX() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsMacOSX</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="islinux-function">
+<span id="index-8"></span><h2>IsLinux() Function<a class="headerlink" href="#islinux-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Linux or not using the IsLinux() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsLinux</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isfreebsd-function">
+<span id="index-9"></span><h2>IsFreeBSD() Function<a class="headerlink" href="#isfreebsd-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is FreeBSD or not using the IsFreeBSD() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsFreeBSD</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">FreeBSD</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isandroid-function">
+<span id="index-10"></span><h2>IsAndroid() Function<a class="headerlink" href="#isandroid-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Android or not using the IsAndroid() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsAndroid</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Android</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="index-11"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;IsMSDOS()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismsdos</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows64() --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsUnix()      --&gt; &quot;</span> <span class="o">+</span> <span class="n">isunix</span><span class="p">()</span>      <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsMacOSX()    --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismacosx</span><span class="p">()</span>    <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsLinux()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">islinux</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsFreeBSD()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isfreebsd</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsAndroid()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isandroid</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsWindows</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">1</span>
+<span class="n">IsWindows64</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsUnix</span><span class="p">()</span>      <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsMacOSX</span><span class="p">()</span>    <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsLinux</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsFreeBSD</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsAndroid</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="windowsnl-function">
+<span id="index-12"></span><h2>Windowsnl() Function<a class="headerlink" href="#windowsnl-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the windows new line string using the Windowsnl() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">WindowsNL</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">(),</span><span class="n">nl</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">str2list</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="c"># to do - list items processing using &quot;for in&quot;</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nl</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">())</span>
+<span class="k">ok</span>
+
+<span class="n">write</span><span class="p">(</span><span class="s">&quot;ouput.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-command-line-arguments">
+<span id="index-13"></span><h2>Get Command Line Arguments<a class="headerlink" href="#get-command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>We can get the command line arguments passed to the ring script using the sysargv variable.</p>
+<p>The sysargv variable is a list contains the command line parameters.</p>
+<p>Example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Command Line Parameters&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sysargv</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="k">return</span> <span class="k">ok</span>
+<span class="n">nStart</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">nEnd</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">:</span><span class="o">\</span><span class="n">mahmoud</span><span class="o">\</span><span class="n">apps</span><span class="o">\</span><span class="n">ring</span><span class="o">&gt;</span><span class="n">ring</span> <span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span> <span class="mi">1</span> <span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="n">Command</span> <span class="n">Line</span> <span class="n">Parameters</span>
+<span class="n">Size</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">ring</span>
+<span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span>
+<span class="mi">1</span>
+<span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-active-source-file-name">
+<span id="index-14"></span><h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
+<p>We can get the active source file name (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) using the filename() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">active</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Active Source File Name : &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Active</span> <span class="n">Source</span> <span class="n">File</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">tests</span><span class="o">\</span><span class="n">filename</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">filename</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m the main program file!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="c"># we can run tests here!</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m a sub file in a program&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prevfilename-function">
+<span id="index-15"></span><h2>PrevFileName() Function<a class="headerlink" href="#prevfilename-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the PrevFileName() function we can get the previous active source file name.</p>
+<p>The previous file would be the file of the caller function, Or the file of the function
+that we called before calling PrevFileName().</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">prevfilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">IsMainSourceFile</span>
+        <span class="k">if</span> <span class="n">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="kp">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="currentdir-function">
+<span id="index-16"></span><h2>CurrentDir() Function<a class="headerlink" href="#currentdir-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the path of the current directory</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">CurrenDir</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">currect</span> <span class="n">directory</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exefilename-function">
+<span id="index-17"></span><h2>ExeFileName() Function<a class="headerlink" href="#exefilename-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring executable file name</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">exefilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chdir-function">
+<span id="index-18"></span><h2>ChDir() Function<a class="headerlink" href="#chdir-function" title="Permalink to this headline">¶</a></h2>
+<p>Change the current directory</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ChDir</span><span class="p">(</span><span class="n">cNewPath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exefolder-function">
+<span id="index-19"></span><h2>ExeFolder() Function<a class="headerlink" href="#exefolder-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring executable file path</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">exefolder</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="version-function">
+<span id="index-20"></span><h2>Version() Function<a class="headerlink" href="#version-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring version</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mf">1.7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shutdown-function">
+<span id="index-21"></span><h2>Shutdown() Function<a class="headerlink" href="#shutdown-function" title="Permalink to this headline">¶</a></h2>
+<p>Close the application</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">application</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">System Functions</a><ul>
+<li><a class="reference internal" href="#system-function">System() Function</a></li>
+<li><a class="reference internal" href="#sysget-function">SysGet() Function</a></li>
+<li><a class="reference internal" href="#ismsdos-function">IsMSDOS() Function</a></li>
+<li><a class="reference internal" href="#iswindows-function">IsWindows() Function</a></li>
+<li><a class="reference internal" href="#iswindows64-function">IsWindows64() Function</a></li>
+<li><a class="reference internal" href="#isunix-function">IsUnix() Function</a></li>
+<li><a class="reference internal" href="#ismacosx-function">IsMacOSX() Function</a></li>
+<li><a class="reference internal" href="#islinux-function">IsLinux() Function</a></li>
+<li><a class="reference internal" href="#isfreebsd-function">IsFreeBSD() Function</a></li>
+<li><a class="reference internal" href="#isandroid-function">IsAndroid() Function</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#windowsnl-function">Windowsnl() Function</a></li>
+<li><a class="reference internal" href="#get-command-line-arguments">Get Command Line Arguments</a></li>
+<li><a class="reference internal" href="#get-active-source-file-name">Get Active Source File Name</a></li>
+<li><a class="reference internal" href="#prevfilename-function">PrevFileName() Function</a></li>
+<li><a class="reference internal" href="#currentdir-function">CurrentDir() Function</a></li>
+<li><a class="reference internal" href="#exefilename-function">ExeFileName() Function</a></li>
+<li><a class="reference internal" href="#chdir-function">ChDir() Function</a></li>
+<li><a class="reference internal" href="#exefolder-function">ExeFolder() Function</a></li>
+<li><a class="reference internal" href="#version-function">Version() Function</a></li>
+<li><a class="reference internal" href="#shutdown-function">Shutdown() Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="files.html"
+                        title="previous chapter">Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="evaldebug.html"
+                        title="next chapter">Eval() and Debugging</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/systemfunc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

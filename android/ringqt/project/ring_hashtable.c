@@ -2,10 +2,10 @@
 #include "ring.h"
 /* Functions */
 
-HashTable * ring_hashtable_new ( void )
+HashTable * ring_hashtable_new_gc ( void *pState )
 {
 	HashTable *pHashTable  ;
-	pHashTable = (HashTable *) malloc(sizeof(HashTable)) ;
+	pHashTable = (HashTable *) ring_state_malloc(pState,sizeof(HashTable));
 	if ( pHashTable == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -13,7 +13,7 @@ HashTable * ring_hashtable_new ( void )
 	pHashTable->nItems = 0 ;
 	pHashTable->nLinkedLists = 10 ;
 	pHashTable->nRebuildSize = 7 ;
-	pHashTable->pArray = (HashItem **) calloc(pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -29,13 +29,13 @@ unsigned int ring_hashtable_hashkey ( HashTable *pHashTable,const char *cKey )
 	return nIndex ;
 }
 
-HashItem * ring_hashtable_newitem ( HashTable *pHashTable,const char *cKey )
+HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const char *cKey )
 {
 	unsigned int nIndex  ;
 	HashItem *pItem  ;
 	nIndex = ring_hashtable_hashkey(pHashTable,cKey);
 	if ( pHashTable->pArray[nIndex]   == NULL ) {
-		pHashTable->pArray[nIndex] = (HashItem *) malloc(sizeof(HashItem)) ;
+		pHashTable->pArray[nIndex] = (HashItem *) ring_state_malloc(pState,sizeof(HashItem));
 		pItem = pHashTable->pArray[nIndex] ;
 	}
 	else {
@@ -44,7 +44,7 @@ HashItem * ring_hashtable_newitem ( HashTable *pHashTable,const char *cKey )
 		while ( pItem->pNext != NULL ) {
 			pItem = pItem->pNext ;
 		}
-		pItem->pNext = (HashItem *) malloc(sizeof(HashItem)) ;
+		pItem->pNext = (HashItem *) ring_state_malloc(pState,sizeof(HashItem));
 		pItem = pItem->pNext ;
 	}
 	if ( pItem == NULL ) {
@@ -61,24 +61,24 @@ HashItem * ring_hashtable_newitem ( HashTable *pHashTable,const char *cKey )
 	return pItem ;
 }
 
-void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x )
+void ring_hashtable_newnumber_gc ( void *pState,HashTable *pHashTable,const char *cKey,int x )
 {
 	HashItem *pItem  ;
-	pItem = ring_hashtable_newitem(pHashTable,cKey);
+	pItem = ring_hashtable_newitem_gc(pState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_NUMBER ;
 	pItem->HashValue.nIndex = x ;
 	/* Check Rebuilding the HashTable */
-	ring_hashtable_rebuild(pHashTable);
+	ring_hashtable_rebuild_gc(pState,pHashTable);
 }
 
-void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x )
+void ring_hashtable_newpointer_gc ( void *pState,HashTable *pHashTable,const char *cKey,void *x )
 {
 	HashItem *pItem  ;
-	pItem = ring_hashtable_newitem(pHashTable,cKey);
+	pItem = ring_hashtable_newitem_gc(pState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_POINTER ;
 	pItem->HashValue.pValue = x ;
 	/* Check Rebuilding the HashTable */
-	ring_hashtable_rebuild(pHashTable);
+	ring_hashtable_rebuild_gc(pState,pHashTable);
 }
 
 HashItem * ring_hashtable_finditem ( HashTable *pHashTable,const char *cKey )
@@ -117,7 +117,7 @@ void * ring_hashtable_findpointer ( HashTable *pHashTable,const char *cKey )
 	return NULL ;
 }
 
-void ring_hashtable_deleteitem ( HashTable *pHashTable,const char *cKey )
+void ring_hashtable_deleteitem_gc ( void *pState,HashTable *pHashTable,const char *cKey )
 {
 	int nIndex  ;
 	HashItem *pItem, *pPrevItem  ;
@@ -133,8 +133,8 @@ void ring_hashtable_deleteitem ( HashTable *pHashTable,const char *cKey )
 			else {
 				pPrevItem->pNext = pItem->pNext ;
 			}
-			free( pItem->cKey ) ;
-			free( pItem ) ;
+			ring_state_free(pState,pItem->cKey);
+			ring_state_free(pState,pItem);
 			return ;
 		}
 		pPrevItem = pItem ;
@@ -142,7 +142,7 @@ void ring_hashtable_deleteitem ( HashTable *pHashTable,const char *cKey )
 	}
 }
 
-HashTable * ring_hashtable_delete ( HashTable *pHashTable )
+HashTable * ring_hashtable_delete_gc ( void *pState,HashTable *pHashTable )
 {
 	int x  ;
 	HashItem *pItem,*pItem2  ;
@@ -153,17 +153,17 @@ HashTable * ring_hashtable_delete ( HashTable *pHashTable )
 		pItem = pHashTable->pArray[x] ;
 		while ( pItem != NULL ) {
 			pItem2 = pItem->pNext ;
-			free( pItem->cKey ) ;
-			free( pItem ) ;
+			ring_state_free(pState,pItem->cKey);
+			ring_state_free(pState,pItem);
 			pItem = pItem2 ;
 		}
 	}
-	free( pHashTable->pArray ) ;
-	free( pHashTable ) ;
+	ring_state_free(pState,pHashTable->pArray);
+	ring_state_free(pState,pHashTable);
 	return NULL ;
 }
 
-void ring_hashtable_rebuild ( HashTable *pHashTable )
+void ring_hashtable_rebuild_gc ( void *pState,HashTable *pHashTable )
 {
 	HashItem **pArray  ;
 	int nLinkedLists,x  ;
@@ -175,7 +175,7 @@ void ring_hashtable_rebuild ( HashTable *pHashTable )
 	nLinkedLists = pHashTable->nLinkedLists ;
 	pHashTable->nRebuildSize *= 10 ;
 	pHashTable->nLinkedLists *= 10 ;
-	pHashTable->pArray = (HashItem **) calloc(pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -191,12 +191,12 @@ void ring_hashtable_rebuild ( HashTable *pHashTable )
 				ring_hashtable_newpointer(pHashTable,pItem->cKey,pItem->HashValue.pValue);
 			}
 			pItem2 = pItem->pNext ;
-			free( pItem->cKey ) ;
-			free( pItem ) ;
+			ring_state_free(pState,pItem->cKey);
+			ring_state_free(pState,pItem);
 			pItem = pItem2 ;
 		}
 	}
-	free( pArray ) ;
+	ring_state_free(pState,pArray);
 }
 
 void ring_hashtable_print ( HashTable *pHashTable )
@@ -252,4 +252,40 @@ void ring_hashtable_test ( void )
 	ring_hashtable_delete(pHashTable);
 	puts("\nEnd of HashTable Test ");
 	exit(0);
+}
+/* Functions without the State pointer */
+
+HashTable * ring_hashtable_new ( void )
+{
+	return ring_hashtable_new_gc(NULL) ;
+}
+
+HashItem * ring_hashtable_newitem ( HashTable *pHashTable,const char *cKey )
+{
+	return ring_hashtable_newitem_gc(NULL,pHashTable,cKey) ;
+}
+
+void ring_hashtable_deleteitem ( HashTable *pHashTable,const char *cKey )
+{
+	ring_hashtable_deleteitem_gc(NULL,pHashTable,cKey);
+}
+
+HashTable * ring_hashtable_delete ( HashTable *pHashTable )
+{
+	return ring_hashtable_delete_gc(NULL,pHashTable) ;
+}
+
+void ring_hashtable_rebuild ( HashTable *pHashTable )
+{
+	ring_hashtable_rebuild_gc(NULL,pHashTable);
+}
+
+void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x )
+{
+	ring_hashtable_newnumber_gc(NULL,pHashTable,cKey,x);
+}
+
+void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x )
+{
+	ring_hashtable_newpointer_gc(NULL,pHashTable,cKey,x);
 }

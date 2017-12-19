@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_api_h
 #define ring_api_h
 /*
@@ -22,7 +22,7 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 
 RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType ) ;
 
-void ring_vm_api_setcpointernull ( void *pPointer,int x ) ;
+RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x ) ;
 
 void ring_vm_extension ( RingState *pRingState ) ;
 
@@ -43,6 +43,8 @@ RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x ) ;
 
 RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const char *cType ) ;
+
+RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType ) ;
 /*
 **  Library 
 **  General 
@@ -93,6 +95,10 @@ void ring_vmlib_clockspersecond ( void *pPointer ) ;
 void ring_vmlib_prevfilename ( void *pPointer ) ;
 
 int ring_vmlib_adddays_isleapyear ( int nYear ) ;
+
+void ring_vmlib_swap ( void *pPointer ) ;
+
+void ring_vmlib_shutdown ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;
@@ -123,6 +129,8 @@ void ring_vmlib_hex2str ( void *pPointer ) ;
 void ring_vmlib_str2list ( void *pPointer ) ;
 
 void ring_vmlib_list2str ( void *pPointer ) ;
+
+void ring_vmlib_str2hexcstyle ( void *pPointer ) ;
 /* String */
 
 void ring_vmlib_left ( void *pPointer ) ;
@@ -188,6 +196,34 @@ void ring_vmlib_nullpointer ( void *pPointer ) ;
 void ring_vmlib_space ( void *pPointer ) ;
 
 void ring_vmlib_ptrcmp ( void *pPointer ) ;
+/* Ring State */
+
+void ring_vmlib_state_init ( void *pPointer ) ;
+
+void ring_vmlib_state_runcode ( void *pPointer ) ;
+
+void ring_vmlib_state_delete ( void *pPointer ) ;
+
+void ring_vmlib_state_runfile ( void *pPointer ) ;
+
+void ring_vmlib_state_findvar ( void *pPointer ) ;
+
+void ring_vmlib_state_newvar ( void *pPointer ) ;
+
+void ring_vmlib_state_runobjectfile ( void *pPointer ) ;
+
+void ring_vmlib_state_main ( void *pPointer ) ;
+
+void ring_vmlib_state_setvar ( void *pPointer ) ;
+
+void ring_vmlib_state_new ( void *pPointer ) ;
+
+void ring_vmlib_state_mainfile ( void *pPointer ) ;
+/* Ring See and Give */
+
+void ring_vmlib_see ( void *pPointer ) ;
+
+void ring_vmlib_give ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

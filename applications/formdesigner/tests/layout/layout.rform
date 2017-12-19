@@ -1,0 +1,76 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 100 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Layout" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 43 , : y = 26  , 
+		 :width =  66 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Button1",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 122 , : y = 16  , 
+		 :width =  56 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Button2",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 113 , : y = 90  , 
+		 :width =  83 , :height = 55 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Button3",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 51 , : y = 97  , 
+		 :width =  45 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Button4",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Layout1" , :id = 6 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 233 , : y = 35  , 
+		 :width =  78 , :height = 70 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Button1,Button2,Button3,Button4"
+		]
+	]
+]
+# End Form Designer File

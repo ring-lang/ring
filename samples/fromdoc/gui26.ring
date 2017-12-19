@@ -1,6 +1,6 @@
 Load "guilib.ring"
 
-New qApp {
+MyApp = New qApp {
 
         win1 = new qMainWindow() {
 

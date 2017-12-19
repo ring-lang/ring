@@ -1,0 +1,1 @@
+load "/../extensions/ringsqlite/sqlitelib.ring"

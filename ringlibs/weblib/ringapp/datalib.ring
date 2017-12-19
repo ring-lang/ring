@@ -1,3 +1,5 @@
+Load "mysqllib.ring"
+
 Import System.Web
 
 Class Database
@@ -10,7 +12,9 @@ Class Database
 	Func Connect
 
 		con = mysql_init() 
-		mysql_connect(con, cServer, cUserName, cPassWord,cDatabase)
+		if not mysql_connect(con, cServer, cUserName, cPassWord,cDatabase)
+			raise("Error (DataLib-1) : Can't connect to the database server!")
+		ok
 
 	Func Disconnect
 

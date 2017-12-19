@@ -1,0 +1,123 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 30 , : y = 14  , 
+		 :width =  400 , :height = 468 , 
+		 :title =  "Using Tabs" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Tab1" , :id = 2 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 16 , : y = 14  , 
+		 :width =  355 , :height = 241 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :PagesCount =  "4",
+		 :PagesTitles =  ""
+		]
+	],
+	[ :name = "Tab2" , :id = 3 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 16 , : y = 270  , 
+		 :width =  344 , :height = 157 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :PagesCount =  "3",
+		 :PagesTitles =  ""
+		]
+	],
+	[ :name = "Button5" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 107 , : y = 92  , 
+		 :width =  137 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab1Page1"  ,
+		 :text =  "One",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button6" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 57 , : y = 57  , 
+		 :width =  197 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab1Page2"  ,
+		 :text =  "Two",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button7" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 56 , : y = 58  , 
+		 :width =  196 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab1Page3"  ,
+		 :text =  "Three",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button8" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 73 , : y = 58  , 
+		 :width =  182 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab1Page4"  ,
+		 :text =  "Four",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button10" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 104 , : y = 47  , 
+		 :width =  119 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab2Page1"  ,
+		 :text =  "One",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button11" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 95 , : y = 44  , 
+		 :width =  121 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab2Page2"  ,
+		 :text =  "Two",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button12" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 98 , : y = 45  , 
+		 :width =  144 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab2Page3"  ,
+		 :text =  "Three",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	]
+]
+# End Form Designer File

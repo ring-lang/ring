@@ -5,6 +5,8 @@ cd ..
 
 copy lib\*.dll bin
 copy libdepwin\allegro\bin\*.dll bin
+copy libdepwin\freeglut\bin\*.dll bin
+copy libdepwin\glew\bin\Release\Win32\*.dll bin
 copy libdepwin\libcurl\bin\*.dll bin
 copy libdepwin\mysql\lib\*.dll bin
 copy libdepwin\openssl\bin\*.dll bin

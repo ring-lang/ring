@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is new in Ring 1.1? &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Building From Source Code" href="sourcecode.html" />
+    <link rel="prev" title="What is new in Ring 1.2?" href="whatisnew2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sourcecode.html" title="Building From Source Code"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew2.html" title="What is new in Ring 1.2?"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-new-in-ring-1-1">
+<span id="index-0"></span><h1>What is new in Ring 1.1?<a class="headerlink" href="#what-is-new-in-ring-1-1" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.1 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.1  comes with many new features</p>
+<ul class="simple">
+<li>Better Natural Language Programming Support</li>
+<li>Generate/Execute Ring Object Files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo)</li>
+<li>Syntax Flexibility and different styles for I/O and Control Structures</li>
+<li>New Functions and Changes</li>
+<li>StdLib functions and classes written in Ring</li>
+<li>RingLibSDL</li>
+<li>Demo Project - Game Engine for 2D Games</li>
+<li>RingSQLite</li>
+<li>Better Code Generator for Extensions</li>
+<li>Using Self.Attribute in the Class Region to define new attributes</li>
+<li>Using This.Attribute in nested Braces inside the Class Methods</li>
+<li>Better Documentation</li>
+</ul>
+</div>
+<div class="section" id="better-natural-language-programming-support">
+<span id="index-2"></span><h2>Better Natural Language Programming Support<a class="headerlink" href="#better-natural-language-programming-support" title="Permalink to this headline">¶</a></h2>
+<p>Ring is an innovative language because of it&#8217;s compact syntax, smart implementation (small, transparent &amp; visual)
+and it&#8217;s ability to create declarative and natural domain specific languages in a fraction of time.</p>
+<p>This release add support for calling methods when an expression is evaluated</p>
+<p>check this example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Natural Code</span>
+<span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+        <span class="n">Accept</span> <span class="mi">2</span> <span class="n">numbers</span> <span class="n">then</span> <span class="n">print</span> <span class="n">the</span> <span class="n">sum</span>
+<span class="p">}</span>
+
+<span class="c"># Natural Code Implementation</span>
+<span class="k">class</span> <span class="n">program</span>
+        <span class="c"># Keywords</span>
+                <span class="n">Accept</span><span class="o">=</span><span class="mi">0</span> <span class="n">numbers</span><span class="o">=</span><span class="mi">0</span> <span class="n">then</span><span class="o">=</span><span class="mi">0</span> <span class="n">print</span><span class="o">=</span><span class="mi">0</span> <span class="n">the</span><span class="o">=</span><span class="mi">0</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="c"># Execution</span>
+        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">x</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">func</span> <span class="n">getnumbers</span>
+                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">value</span>
+                        <span class="k">see</span> <span class="s">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
+                        <span class="n">aNumbers</span> <span class="o">+</span> <span class="n">nNumber</span>
+                <span class="k">next</span>
+        <span class="k">func</span> <span class="n">getsum</span>
+                <span class="n">nSUm</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k">next</span>
+                <span class="k">see</span> <span class="s">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
+        <span class="n">private</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=[]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span><span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span><span class="mi">4</span>
+<span class="n">The</span> <span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>for more information see the &#8220;Natural Language Programming&#8221; chapter.</p>
+</div>
+<div class="section" id="generate-execute-ring-object-files-ringo">
+<span id="index-3"></span><h2>Generate/Execute Ring Object Files (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo)<a class="headerlink" href="#generate-execute-ring-object-files-ringo" title="Permalink to this headline">¶</a></h2>
+<p>This feature enable you to distribute your applications without distributing
+the source code. Also it makes application distribution a simple process where
+you get one Ring object file for the complete project (many source code files).
+Also using Ring object file remove the loading time required for compiling the application.</p>
+<p>Check the &#8220;command line options&#8221; chapter to know more about this feature.</p>
+</div>
+<div class="section" id="syntax-flexibility-and-different-styles-for-i-o-and-control-structures">
+<span id="index-4"></span><h2>Syntax Flexibility and different styles for I/O and Control Structures<a class="headerlink" href="#syntax-flexibility-and-different-styles-for-i-o-and-control-structures" title="Permalink to this headline">¶</a></h2>
+<p>Programmers are sensitive to the programming language syntax. Great programmers know how to work
+using many different styles but each programmer may have his/her favorite style.</p>
+<p>Each programming language comes with a style that you may like or not. Ring is just one of these
+languages, but as a response to many programmers asking for a better syntax we decided to provide
+more options.</p>
+<p>Also some of these features are very necessary for Natural Language Programming.</p>
+<p>Example :</p>
+<p>We have two commands to change language keywords and operators.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingOperator</span> <span class="o">+</span> <span class="n">plus</span>
+<span class="k">ChangeRingKeyword</span> <span class="k">see</span> <span class="n">print</span>
+
+<span class="n">Print</span> <span class="mi">5</span> <span class="n">plus</span> <span class="mi">5</span>
+
+<span class="k">ChangeRingOperator</span> <span class="n">plus</span> <span class="o">+</span>
+<span class="k">ChangeRingKeyword</span> <span class="n">print</span> <span class="k">see</span>
+</pre></div>
+</div>
+<p>We have new styles (Optional) for Input/Output.</p>
+<p>Example :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;What is your name? &quot;</span>
+<span class="k">Get</span> <span class="n">cName</span>
+<span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+</pre></div>
+</div>
+<p>Example :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>    <span class="c"># print message on screen</span>
+<span class="n">cName</span><span class="o">=</span><span class="n">GetString</span><span class="p">()</span>               <span class="c"># get input from the user</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>         <span class="c"># say hello!</span>
+</pre></div>
+</div>
+<p>We have new styles (optional) for control structures.</p>
+<p>Example :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+
+        <span class="k">Put</span> <span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+
+            <span class="s">&quot; Get nOption</span>
+
+        <span class="k">Switch</span> <span class="n">nOption</span>
+        <span class="k">Case</span> <span class="mi">1</span>
+                <span class="k">Put</span> <span class="s">&quot;Enter your name : &quot;</span>
+                <span class="k">Get</span> <span class="n">name</span>
+                <span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">Case</span> <span class="mi">2</span>
+                <span class="k">Put</span> <span class="s">&quot;Sample : using while loop&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">Case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">Else</span>
+                <span class="k">Put</span> <span class="s">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">End</span>
+<span class="k">End</span>
+</pre></div>
+</div>
+<p>Example :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
+
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+
+                  <span class="s">&quot;)</span>
+
+        <span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
+
+        <span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">2</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">else</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Check the next chapters:-</p>
+<ul class="simple">
+<li>Getting Started - Second Style</li>
+<li>Getting Started - Third Style</li>
+<li>Control Structures - Second Style - May looks like Lua and Ruby</li>
+<li>Control Structures - Third Style - May looks like C (uses braces)</li>
+<li>Syntax Flexibility</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All of these styles are provided automatically by the compiler at the same time, It&#8217;s better to select one style for the same project (you can create your style as a mix from these styles) for example you can use Put/Get and Braces.</p>
+</div>
+</div>
+<div class="section" id="new-functions-and-changes">
+<span id="index-5"></span><h2>New Functions and Changes<a class="headerlink" href="#new-functions-and-changes" title="Permalink to this headline">¶</a></h2>
+<p>Changed:</p>
+<ul class="simple">
+<li>get() function : changed to sysget()</li>
+<li>sort() function : can now work on list of objects</li>
+<li>find() function : can now work on list of objects</li>
+</ul>
+<p>Added:</p>
+<ul class="simple">
+<li>clockspersecond()</li>
+<li>CurrentDir()</li>
+<li>ExeFileName()</li>
+<li>ChDir()</li>
+<li>ExeFolder()</li>
+<li>varptr()</li>
+<li>space()</li>
+<li>nullpointer()</li>
+<li>object2pointer()</li>
+<li>pointer2object()</li>
+</ul>
+<p>Check the next chapters</p>
+<ul class="simple">
+<li>System Functions</li>
+<li>Object Oriented Programming (OOP)</li>
+<li>Low Level Functions</li>
+</ul>
+</div>
+<div class="section" id="stdlib-functions-and-classes-written-in-ring">
+<span id="index-6"></span><h2>StdLib functions and classes written in Ring<a class="headerlink" href="#stdlib-functions-and-classes-written-in-ring" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.1 comes with a library called StdLib, it&#8217;s written in Ring by the help of Ring Team</p>
+<p>The library provide a useful group of new functions and classes</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Times()&quot;</span><span class="p">)</span>
+<span class="n">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Map()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Filter()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span> <span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="kp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="kp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">See</span> <span class="s">&quot;Testing the String Class&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">upper</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">lower</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
+<span class="n">oList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">oStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Stack</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">oQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Queue</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">ohashtable</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">hashtable</span>
+<span class="k">See</span> <span class="s">&quot;Test the hashtable Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">ohashtable</span> <span class="p">{</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">,</span><span class="s">&quot;Cairo&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">,</span><span class="s">&quot;Riyadh&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;KSA&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">NL</span>
+        <span class="n">print</span><span class="p">()</span>
+        <span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">))</span>
+        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">print</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">otree</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">tree</span>
+<span class="k">See</span> <span class="s">&quot;Test the tree Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">otree</span> <span class="p">{</span>
+        <span class="n">set</span><span class="p">(</span><span class="s">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c"># set the root node value</span>
+        <span class="k">see</span> <span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.1&quot;</span><span class="p">)</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.2&quot;</span><span class="p">)</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.3&quot;</span><span class="p">)</span>
+                <span class="k">see</span> <span class="n">children</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">children</span>
+        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;2.3.3&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oTree</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Check the next chapters:</p>
+<ul class="simple">
+<li>StdLib Functions</li>
+<li>StdLib Classes</li>
+</ul>
+</div>
+<div class="section" id="ringlibsdl">
+<span id="index-7"></span><h2>RingLibSDL<a class="headerlink" href="#ringlibsdl" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.0 provided RingAllegro to be able to create games using the Allegro game programming library</p>
+<p>Now Ring 1.1 provide RingLibSDL also so we can have the choice between Allegro or LibSDL</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;libsdl.ring&quot;</span>
+
+<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="n">SDL_Quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>See the RingLibSDL Chapter.</p>
+</div>
+<div class="section" id="demo-project-game-engine-for-2d-games">
+<span id="index-8"></span><h2>Demo Project - Game Engine for 2D Games<a class="headerlink" href="#demo-project-game-engine-for-2d-games" title="Permalink to this headline">¶</a></h2>
+<p>In practice we would create a game engine in a language like C/C++ to get the best performance
+then provide Ring classes to use the engine.</p>
+<p>But many 2D Games are simple and creating a game engine in Ring will be fast enough in many cases</p>
+<p>Also this would be a good demo project to learn about the language concepts where we build things
+using Object Oriented Programming (OOP) then access the power that we have using declarative programming
+using nested structures or using natural programming.</p>
+<p>In this project we selected the first way (declarative programming using nested structures)</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
+
+<span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
+
+        <span class="n">oGame</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Game</span>        <span class="c"># Create the Game Object</span>
+        <span class="p">{</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;My First Game&quot;</span>
+                <span class="n">text</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">50</span>
+                        <span class="n">animate</span> <span class="o">=</span> <span class="kp">false</span>
+                        <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;fonts/pirulen.ttf&quot;</span>
+                        <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;game development using ring is very fun!&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>      <span class="c"># Color = black</span>
+                <span class="p">}</span>
+                <span class="n">text</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">150</span>
+                        <span class="c"># Animation Part ======================================</span>
+                        <span class="n">animate</span> <span class="o">=</span> <span class="kp">true</span>                          <span class="c"># Use Animation</span>
+                        <span class="n">direction</span> <span class="o">=</span> <span class="n">GE_DIRECTION_INCVERTICAL</span>    <span class="c"># Increase y</span>
+                        <span class="n">point</span> <span class="o">=</span> <span class="mi">400</span>             <span class="c"># Continue until y=400</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="mi">3</span>               <span class="c"># Each time y+= 3</span>
+                        <span class="c">#======================================================</span>
+                        <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;fonts/pirulen.ttf&quot;</span>
+                        <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;welcome to the real world!&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>    <span class="c"># Color = Blue</span>
+                <span class="p">}</span>
+                <span class="n">Sound</span> <span class="p">{</span>                                 <span class="c"># Play Sound</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;sound/music1.wav&quot;</span>       <span class="c"># Sound File Name</span>
+                <span class="p">}</span>
+        <span class="p">}</span>                                       <span class="c"># Start the Events Loop</span>
+</pre></div>
+</div>
+<p>See the &#8220;Demo Project - Game Engine for 2D Games&#8221; chapter.</p>
+</div>
+<div class="section" id="ringsqlite">
+<span id="index-9"></span><h2>RingSQLite<a class="headerlink" href="#ringsqlite" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.0 provided support for ODBC to use any database and provided native support for MySQL.</p>
+<p>Now Ring 1.1 provide native support for SQLite database too.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
+
+<span class="n">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;mytest.db&quot;</span><span class="p">)</span>
+
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;SALARY         REAL );&quot;</span>
+
+<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
+
+<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+
+<span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
+                <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">next</span>
+<span class="k">next</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="s">&quot;name&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+<span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-code-generator-for-extensions">
+<span id="index-10"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<p>We are using the code generator (written in Ring) every day to add new libraries to Ring.</p>
+<p>The generator is used to create RingQt and RingAllegro</p>
+<p>Also in Ring 1.1 it&#8217;s used to create RingLibSDL.</p>
+<p>more features are added like</p>
+<ul class="simple">
+<li>Set/Get structure members (numbers &amp; pointers)</li>
+<li>Using constants</li>
+<li>Better Generated Code</li>
+</ul>
+<p>See the Code Generator chapter.</p>
+</div>
+<div class="section" id="using-self-attribute-in-the-class-region-to-define-new-attributes">
+<span id="index-11"></span><h2>Using Self.Attribute in the Class Region to define new attributes<a class="headerlink" href="#using-self-attribute-in-the-class-region-to-define-new-attributes" title="Permalink to this headline">¶</a></h2>
+<p>We can use Self.Attribute in the Class Region (after the class name and before any methods)
+to define new attributes.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Person</span>
+        <span class="n">name</span>            <span class="c"># Define name as attribute if it&#39;s not a global variable</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+
+<span class="k">class</span> <span class="n">person2</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span>       <span class="c"># Must Define the attribute</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">address</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">phone</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-this-attribute-in-nested-braces-inside-the-class-methods">
+<span id="index-12"></span><h2>Using This.Attribute in nested Braces inside the Class Methods<a class="headerlink" href="#using-this-attribute-in-nested-braces-inside-the-class-methods" title="Permalink to this headline">¶</a></h2>
+<p>We can use nested braces {} while we are inside methods to access another objects, In this case
+the current object scope will be changed while we are inside the brace and Self will point to the object
+that we access using braces {}. In this case we can use This.Attribute and This.Method() to access the object
+that will be created from the current class.</p>
+<p>Check the Object Oriented Programming chapter for more information.</p>
+<p>Also Check the Weight History Application in GUI Development using RingQt chapter.</p>
+</div>
+<div class="section" id="better-documentation">
+<span id="index-13"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.1 documentation (800 pages) is better than Ring 1.0 documentation (340 pages)</p>
+<p>Many chapters are added for providing better information about the language like</p>
+<ul class="simple">
+<li>Language Reference</li>
+<li>Scope Rules</li>
+<li>FAQ</li>
+</ul>
+<p>And more!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is new in Ring 1.1?</a><ul>
+<li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li><a class="reference internal" href="#better-natural-language-programming-support">Better Natural Language Programming Support</a></li>
+<li><a class="reference internal" href="#generate-execute-ring-object-files-ringo">Generate/Execute Ring Object Files (*.ringo)</a></li>
+<li><a class="reference internal" href="#syntax-flexibility-and-different-styles-for-i-o-and-control-structures">Syntax Flexibility and different styles for I/O and Control Structures</a></li>
+<li><a class="reference internal" href="#new-functions-and-changes">New Functions and Changes</a></li>
+<li><a class="reference internal" href="#stdlib-functions-and-classes-written-in-ring">StdLib functions and classes written in Ring</a></li>
+<li><a class="reference internal" href="#ringlibsdl">RingLibSDL</a></li>
+<li><a class="reference internal" href="#demo-project-game-engine-for-2d-games">Demo Project - Game Engine for 2D Games</a></li>
+<li><a class="reference internal" href="#ringsqlite">RingSQLite</a></li>
+<li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
+<li><a class="reference internal" href="#using-self-attribute-in-the-class-region-to-define-new-attributes">Using Self.Attribute in the Class Region to define new attributes</a></li>
+<li><a class="reference internal" href="#using-this-attribute-in-nested-braces-inside-the-class-methods">Using This.Attribute in nested Braces inside the Class Methods</a></li>
+<li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whatisnew2.html"
+                        title="previous chapter">What is new in Ring 1.2?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sourcecode.html"
+                        title="next chapter">Building From Source Code</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatisnew.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sourcecode.html" title="Building From Source Code"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew2.html" title="What is new in Ring 1.2?"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

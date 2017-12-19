@@ -1,0 +1,1 @@
+load "/../ringlibs/stdlib/stdlibcore.ring"

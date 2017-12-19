@@ -1,0 +1,28 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 111 , : y = 91  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "The Second Window" , 
+		 :backcolor =  "#00007f" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 56 , : y = 81  , 
+		 :width =  277 , :height = 61 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffff7f" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Close Window",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseWindow"
+		]
+	]
+]
+# End Form Designer File

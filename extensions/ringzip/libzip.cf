@@ -1,0 +1,92 @@
+<ignorecpointertype>
+
+<code>
+/*
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+*/
+
+#include "zip.h"
+
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "zip.c"
+
+typedef struct zip_t ZIP_T ;
+
+struct buffer_t {
+    char *data;
+    size_t size;
+};
+
+static size_t on_extract(void *arg, unsigned long long offset, const void *data,size_t size) {
+    struct buffer_t *buf = (struct buffer_t *) arg;
+    buf->data = realloc(buf->data, buf->size + size + 1);
+    assert(NULL != buf->data);
+
+    memcpy(&(buf->data[buf->size]), data, size);
+    buf->size += size;
+    buf->data[buf->size] = 0;
+
+    return size;
+}
+
+void zip_extract_file(const char *cZIPFile,const char *cFile) {
+    struct buffer_t buf = {0};
+
+    struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+    assert(zip != NULL);
+
+    assert(0 == zip_entry_open(zip, cFile));
+    assert(0 == zip_entry_extract(zip, on_extract, &buf));
+
+    assert(0 == zip_entry_close(zip));
+    free(buf.data);
+    buf.data = NULL;
+    buf.size = 0;
+
+    zip_close(zip);
+}
+
+int on_extract_entry(const char *filename, void *arg) {
+        return 0;
+}
+
+void zip_extract_allfiles(const char *cFile, const char *cFolder) {
+	int arg = 2;
+	zip_extract(cFile,cFolder, on_extract_entry, &arg);
+}
+
+ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
+	return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
+}
+
+int zip_filescount(ZIP_T *pZip) {
+	return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
+}
+
+const char *zip_getfilenamebyindex(ZIP_T *pZip,int index) {
+	mz_zip_archive_file_stat info;
+	if (!mz_zip_reader_file_stat((mz_zip_archive *) pZip, index-1, &info)) {
+            // Cannot get information about zip archive;
+            return NULL;
+    }	
+    return info.m_filename ;
+}
+
+</code>
+
+ZIP_T *zip_openfile(const char *, const char *)
+int zip_entry_open(ZIP_T*, const char *)
+int zip_entry_write(ZIP_T*, const char *,int)
+int zip_entry_fwrite(ZIP_T*, const char *)
+int zip_entry_read(ZIP_T*, void *, size_t *)
+int zip_entry_fread(ZIP_T*, const char *cFile)
+int zip_entry_close(ZIP_T*)
+void zip_extract_file(const char *cZIPFile,const char *cFile)
+void zip_extract_allfiles(const char *cFile, const char *cFolder)
+void zip_close(ZIP_T*)
+int zip_filescount(ZIP_T *)
+const char *zip_getfilenamebyindex(ZIP_T *pZip,int index)

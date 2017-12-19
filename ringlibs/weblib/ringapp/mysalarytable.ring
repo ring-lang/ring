@@ -1,9 +1,14 @@
-﻿#!b:\mahmoud\apps\ring\ring.exe -cgi 
+#!ring -cgi
+
 Load "weblib.ring"
 Load "datalib.ring"
+
 website = "mysalarytable.ring"
+
 Import System.Web
+
 New salaryController { Routing() }
+
 Class SalaryModel from ModelBase
 Class SalaryController From ControllerBase
 Class SalaryView From ViewBase

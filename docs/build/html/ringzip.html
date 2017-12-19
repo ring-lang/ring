@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using RingZip &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" />
+    <link rel="prev" title="Using RingLibCurl" href="libcurl.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="libcurl.html" title="Using RingLibCurl"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-ringzip">
+<span id="index-0"></span><h1>Using RingZip<a class="headerlink" href="#using-ringzip" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using RingZip</p>
+<div class="section" id="create-zip-file">
+<span id="index-1"></span><h2>Create Zip File<a class="headerlink" href="#create-zip-file" title="Permalink to this headline">¶</a></h2>
+<p>Example : Create myfile.zip contains 4 files</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;zip.c&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;zip.h&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;miniz.h&quot;</span><span class="p">)</span>
+<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extract-zip-file">
+<span id="index-2"></span><h2>Extract Zip File<a class="headerlink" href="#extract-zip-file" title="Permalink to this headline">¶</a></h2>
+<p>Example : Extract myfile.zip to myfolder folder.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">zip_extract_allfiles</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s">&quot;myfolder&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-files-in-zip-file">
+<span id="index-3"></span><h2>Print Files in Zip file<a class="headerlink" href="#print-files-in-zip-file" title="Permalink to this headline">¶</a></h2>
+<p>Example : Print file names in the myfile.zip</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+       <span class="k">see</span> <span class="n">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ringzip-classes">
+<span id="index-4"></span><h2>Using RingZip Classes<a class="headerlink" href="#using-ringzip-classes" title="Permalink to this headline">¶</a></h2>
+<p>The RingZip library comes with two classes. The Zip class and the ZipEntry class.</p>
+<p>Example (1):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">Zip</span> <span class="p">{</span>
+        <span class="n">setFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">open</span><span class="p">(</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">newEntry</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">open</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+                <span class="n">writefile</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+                <span class="n">close</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">Zip</span> <span class="p">{</span>
+        <span class="n">SetFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">Open</span><span class="p">(</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;zip.c&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;zip.h&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;miniz.h&quot;</span><span class="p">)</span>
+        <span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (3):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">zip</span> <span class="p">{</span>
+        <span class="n">SetFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">ExtractAllFiles</span><span class="p">(</span><span class="s">&quot;myfolder&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (4):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">Zip</span> <span class="p">{</span>
+        <span class="n">SetFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">Open</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">FilesCount</span><span class="p">()</span>
+        <span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (5):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">Zip</span> <span class="p">{</span>
+        <span class="n">SetFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">Open</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">filescount</span><span class="p">()</span>
+                <span class="k">See</span> <span class="n">GetFileNameByIndex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">next</span>
+        <span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zip-class-reference">
+<span id="index-5"></span><h2>Zip Class Reference<a class="headerlink" href="#zip-class-reference" title="Permalink to this headline">¶</a></h2>
+<p>Methods:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Description/Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>SetFileName(cName)</td>
+<td>Set the Zip file name</td>
+</tr>
+<tr class="row-odd"><td>GetFileName()</td>
+<td>Return the Zip file name</td>
+</tr>
+<tr class="row-even"><td>Open(cMode)</td>
+<td>Open File, cMode = &#8220;a&#8221;, &#8220;w&#8221; or &#8220;r&#8221;</td>
+</tr>
+<tr class="row-odd"><td>Close()</td>
+<td>Close the Zip File</td>
+</tr>
+<tr class="row-even"><td>AddFile(cFileName)</td>
+<td>Add file to the Zip file</td>
+</tr>
+<tr class="row-odd"><td>ExtractAllFiles(cFolder)</td>
+<td>Extract all files from the Zip file</td>
+</tr>
+<tr class="row-even"><td>FilesCount()</td>
+<td>Return files count in the Zip file</td>
+</tr>
+<tr class="row-odd"><td>GetFileNameByIndex(nIndex)</td>
+<td>Return file name in the Zip file by file index</td>
+</tr>
+<tr class="row-even"><td>NewEntry()</td>
+<td>Create new ZipEntry object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="zipentry-class-reference">
+<span id="index-6"></span><h2>ZipEntry Class Reference<a class="headerlink" href="#zipentry-class-reference" title="Permalink to this headline">¶</a></h2>
+<p>Methods:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Description/Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Open(cFileName)</td>
+<td>Open new Entry</td>
+</tr>
+<tr class="row-odd"><td>WriteFile(cFileName)</td>
+<td>Write File to the Entry</td>
+</tr>
+<tr class="row-even"><td>WriteString(cString)</td>
+<td>Write String to the Entry</td>
+</tr>
+<tr class="row-odd"><td>Close()</td>
+<td>Close the Entry</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using RingZip</a><ul>
+<li><a class="reference internal" href="#create-zip-file">Create Zip File</a></li>
+<li><a class="reference internal" href="#extract-zip-file">Extract Zip File</a></li>
+<li><a class="reference internal" href="#print-files-in-zip-file">Print Files in Zip file</a></li>
+<li><a class="reference internal" href="#using-ringzip-classes">Using RingZip Classes</a></li>
+<li><a class="reference internal" href="#zip-class-reference">Zip Class Reference</a></li>
+<li><a class="reference internal" href="#zipentry-class-reference">ZipEntry Class Reference</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="libcurl.html"
+                        title="previous chapter">Using RingLibCurl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="allegro.html"
+                        title="next chapter">Graphics and 2D Games programming using RingAllegro</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringzip.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="libcurl.html" title="Using RingLibCurl"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

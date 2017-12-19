@@ -49,3 +49,6 @@ GE_MOUSE_Y = 2
 
 # Android
 GE_AC_BACK = GL_AC_BACK
+
+# Full Screen 
+GE_FULLSCREEN = FALSE

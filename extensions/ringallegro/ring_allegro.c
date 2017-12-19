@@ -1,11 +1,5 @@
 #include "ring.h"
 
-#ifdef _WIN32
-#define RING_DLL __declspec(dllexport)
-#else
-#define RING_DLL extern
-#endif
-
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define ALLEGRO_NO_MAGIC_MAIN
@@ -26,7 +20,7 @@
 RING_FUNC(ring_al_new_allegro_event)
 {
 	ALLEGRO_EVENT *pMyPointer ;
-	pMyPointer = (ALLEGRO_EVENT *) malloc(sizeof(ALLEGRO_EVENT)) ;
+	pMyPointer = (ALLEGRO_EVENT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_EVENT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -47,7 +41,7 @@ RING_FUNC(ring_al_destroy_allegro_event)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
-	free(pMyPointer) ;
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 }
 
 RING_FUNC(ring_al_get_allegro_event_type)
@@ -189,7 +183,7 @@ RING_FUNC(ring_al_set_allegro_event_mouse_y)
 RING_FUNC(ring_al_new_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
-	pMyPointer = (ALLEGRO_TIMEOUT *) malloc(sizeof(ALLEGRO_TIMEOUT)) ;
+	pMyPointer = (ALLEGRO_TIMEOUT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_TIMEOUT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -210,13 +204,13 @@ RING_FUNC(ring_al_destroy_allegro_timeout)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_TIMEOUT");
-	free(pMyPointer) ;
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 }
 
 RING_FUNC(ring_al_new_allegro_sample_id)
 {
 	ALLEGRO_SAMPLE_ID *pMyPointer ;
-	pMyPointer = (ALLEGRO_SAMPLE_ID *) malloc(sizeof(ALLEGRO_SAMPLE_ID)) ;
+	pMyPointer = (ALLEGRO_SAMPLE_ID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_SAMPLE_ID)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -237,13 +231,13 @@ RING_FUNC(ring_al_destroy_allegro_sample_id)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_ID");
-	free(pMyPointer) ;
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 }
 
 RING_FUNC(ring_al_new_allegro_color)
 {
 	ALLEGRO_COLOR *pMyPointer ;
-	pMyPointer = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+	pMyPointer = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -264,7 +258,7 @@ RING_FUNC(ring_al_destroy_allegro_color)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_COLOR");
-	free(pMyPointer) ;
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 }
 
 RING_FUNC(ring_al_exit)
@@ -491,7 +485,7 @@ RING_FUNC(ring_al_get_first_config_section)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_first_config_section((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),(ALLEGRO_CONFIG_SECTION *) RING_API_GETCPOINTER(2,"ALLEGRO_CONFIG_SECTION")));
+	RING_API_RETSTRING(al_get_first_config_section((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),(ALLEGRO_CONFIG_SECTION **) RING_API_GETCPOINTER2POINTER(2,"ALLEGRO_CONFIG_SECTION")));
 }
 
 
@@ -505,7 +499,7 @@ RING_FUNC(ring_al_get_next_config_section)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_next_config_section((ALLEGRO_CONFIG_SECTION *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG_SECTION")));
+	RING_API_RETSTRING(al_get_next_config_section((ALLEGRO_CONFIG_SECTION **) RING_API_GETCPOINTER2POINTER(1,"ALLEGRO_CONFIG_SECTION")));
 }
 
 
@@ -527,7 +521,7 @@ RING_FUNC(ring_al_get_first_config_entry)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_first_config_entry((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),RING_API_GETSTRING(2),(ALLEGRO_CONFIG_ENTRY *) RING_API_GETCPOINTER(3,"ALLEGRO_CONFIG_ENTRY")));
+	RING_API_RETSTRING(al_get_first_config_entry((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),RING_API_GETSTRING(2),(ALLEGRO_CONFIG_ENTRY **) RING_API_GETCPOINTER2POINTER(3,"ALLEGRO_CONFIG_ENTRY")));
 }
 
 
@@ -541,7 +535,7 @@ RING_FUNC(ring_al_get_next_config_entry)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_next_config_entry((ALLEGRO_CONFIG_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG_ENTRY")));
+	RING_API_RETSTRING(al_get_next_config_entry((ALLEGRO_CONFIG_ENTRY **) RING_API_GETCPOINTER2POINTER(1,"ALLEGRO_CONFIG_ENTRY")));
 }
 
 
@@ -1470,7 +1464,7 @@ RING_FUNC(ring_al_get_event_source_data)
 	}
 	{
 		intptr_t *pValue ; 
-		pValue = (intptr_t *) malloc(sizeof(intptr_t)) ;
+		pValue = (intptr_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(intptr_t)) ;
 		*pValue = al_get_event_source_data((ALLEGRO_EVENT_SOURCE *) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT_SOURCE"));
 		RING_API_RETCPOINTER(pValue,"intptr_t");
 	}
@@ -1489,7 +1483,7 @@ RING_FUNC(ring_al_set_event_source_data)
 	}
 	al_set_event_source_data((ALLEGRO_EVENT_SOURCE *) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT_SOURCE"),* (intptr_t  *) RING_API_GETCPOINTER(2,"intptr_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"intptr_t"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"intptr_t"));
 }
 
 
@@ -1913,7 +1907,7 @@ RING_FUNC(ring_al_fgets)
 	}
 	RING_API_RETSTRING(al_fgets((ALLEGRO_FILE *) RING_API_GETCPOINTER(1,"ALLEGRO_FILE"),* (char * const  *) RING_API_GETCPOINTER(2,"char * const"), (size_t ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1981,7 +1975,7 @@ RING_FUNC(ring_al_make_temp_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_make_temp_file(RING_API_GETSTRING(1),(ALLEGRO_PATH *) RING_API_GETCPOINTER(2,"ALLEGRO_PATH")),"ALLEGRO_FILE");
+	RING_API_RETCPOINTER(al_make_temp_file(RING_API_GETSTRING(1),(ALLEGRO_PATH **) RING_API_GETCPOINTER2POINTER(2,"ALLEGRO_PATH")),"ALLEGRO_FILE");
 }
 
 
@@ -2133,7 +2127,7 @@ RING_FUNC(ring_al_get_fs_entry_atime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) malloc(sizeof(time_t)) ;
+		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_atime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
 		RING_API_RETCPOINTER(pValue,"time_t");
 	}
@@ -2152,7 +2146,7 @@ RING_FUNC(ring_al_get_fs_entry_ctime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) malloc(sizeof(time_t)) ;
+		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_ctime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
 		RING_API_RETCPOINTER(pValue,"time_t");
 	}
@@ -2171,7 +2165,7 @@ RING_FUNC(ring_al_get_fs_entry_mtime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) malloc(sizeof(time_t)) ;
+		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_mtime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
 		RING_API_RETCPOINTER(pValue,"time_t");
 	}
@@ -2190,7 +2184,7 @@ RING_FUNC(ring_al_get_fs_entry_size)
 	}
 	{
 		off_t *pValue ; 
-		pValue = (off_t *) malloc(sizeof(off_t)) ;
+		pValue = (off_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(off_t)) ;
 		*pValue = al_get_fs_entry_size((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
 		RING_API_RETCPOINTER(pValue,"off_t");
 	}
@@ -2723,7 +2717,7 @@ RING_FUNC(ring_al_map_rgb)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -2750,7 +2744,7 @@ RING_FUNC(ring_al_map_rgb_f)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -2781,7 +2775,7 @@ RING_FUNC(ring_al_map_rgba)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3), (unsigned char ) RING_API_GETNUMBER(4));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -2812,7 +2806,7 @@ RING_FUNC(ring_al_map_rgba_f)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -2839,7 +2833,7 @@ RING_FUNC(ring_al_unmap_rgb)
 	}
 	al_unmap_rgb(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(3,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(4,"unsigned char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -2863,7 +2857,7 @@ RING_FUNC(ring_al_unmap_rgb_f)
 	}
 	al_unmap_rgb_f(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -2891,7 +2885,7 @@ RING_FUNC(ring_al_unmap_rgba)
 	}
 	al_unmap_rgba(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(3,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(4,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(5,"unsigned char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -2919,7 +2913,7 @@ RING_FUNC(ring_al_unmap_rgba_f)
 	}
 	al_unmap_rgba_f(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"),(float *) RING_API_GETCPOINTER(5,"float"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3239,7 +3233,7 @@ RING_FUNC(ring_al_get_pixel)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_get_pixel((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -3310,7 +3304,7 @@ RING_FUNC(ring_al_clear_to_color)
 	}
 	al_clear_to_color(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3364,7 +3358,7 @@ RING_FUNC(ring_al_draw_tinted_bitmap)
 	}
 	al_draw_tinted_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3450,7 +3444,7 @@ RING_FUNC(ring_al_draw_tinted_bitmap_region)
 	}
 	al_draw_tinted_bitmap_region((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3470,7 +3464,7 @@ RING_FUNC(ring_al_draw_pixel)
 	}
 	al_draw_pixel( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -3548,7 +3542,7 @@ RING_FUNC(ring_al_draw_tinted_rotated_bitmap)
 	}
 	al_draw_tinted_rotated_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (int ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3642,7 +3636,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_rotated_bitmap)
 	}
 	al_draw_tinted_scaled_rotated_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (int ) RING_API_GETNUMBER(10));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3706,7 +3700,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_rotated_bitmap_region)
 	}
 	al_draw_tinted_scaled_rotated_bitmap_region((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (float ) RING_API_GETNUMBER(10), (float ) RING_API_GETNUMBER(11), (float ) RING_API_GETNUMBER(12), (float ) RING_API_GETNUMBER(13), (int ) RING_API_GETNUMBER(14));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -3808,7 +3802,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_bitmap)
 	}
 	al_draw_tinted_scaled_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (float ) RING_API_GETNUMBER(10), (int ) RING_API_GETNUMBER(11));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3838,7 +3832,7 @@ RING_FUNC(ring_al_put_pixel)
 	}
 	al_put_pixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -3858,7 +3852,7 @@ RING_FUNC(ring_al_put_blended_pixel)
 	}
 	al_put_blended_pixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -4099,7 +4093,7 @@ RING_FUNC(ring_al_convert_mask_to_alpha)
 	}
 	al_convert_mask_to_alpha((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -4771,7 +4765,7 @@ RING_FUNC(ring_al_get_mouse_num_axes)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_mouse_num_axes();
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -4786,7 +4780,7 @@ RING_FUNC(ring_al_get_mouse_num_buttons)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_mouse_num_buttons();
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -4987,7 +4981,7 @@ RING_FUNC(ring_al_set_system_mouse_cursor)
 	}
 	RING_API_RETNUMBER(al_set_system_mouse_cursor((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"),* (ALLEGRO_SYSTEM_MOUSE_CURSOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR"));
 }
 
 
@@ -5417,7 +5411,7 @@ RING_FUNC(ring_al_path_cstr)
 	}
 	RING_API_RETSTRING(al_path_cstr((ALLEGRO_PATH *) RING_API_GETCPOINTER(1,"ALLEGRO_PATH"),* (char  *) RING_API_GETCPOINTER(2,"char")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -5607,7 +5601,7 @@ RING_FUNC(ring_al_get_system_config)
 }
 
 void *al_func_thread(ALLEGRO_THREAD *thread, void *pPointer)
-{  
+{
 	List *pList;
 	VM *pVM;
 	const char *cStr;
@@ -5686,7 +5680,7 @@ RING_FUNC(ring_al_join_thread)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	al_join_thread((ALLEGRO_THREAD *) RING_API_GETCPOINTER(1,"ALLEGRO_THREAD"),(void *) RING_API_GETCPOINTER(2,"void"));
+	al_join_thread((ALLEGRO_THREAD *) RING_API_GETCPOINTER(1,"ALLEGRO_THREAD"),(void **) RING_API_GETCPOINTER2POINTER(2,"void"));
 }
 
 
@@ -6802,7 +6796,7 @@ RING_FUNC(ring_al_ustr_vappendf)
 	}
 	RING_API_RETNUMBER(al_ustr_vappendf((ALLEGRO_USTR *) RING_API_GETCPOINTER(1,"ALLEGRO_USTR"),RING_API_GETSTRING(2),* (va_list  *) RING_API_GETCPOINTER(3,"va_list")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"va_list"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"va_list"));
 }
 
 
@@ -7494,7 +7488,7 @@ RING_FUNC(ring_al_utf8_encode)
 	}
 	RING_API_RETNUMBER(al_utf8_encode(* (char  *) RING_API_GETCPOINTER(1,"char"), (int32_t ) RING_API_GETNUMBER(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"char"));
 }
 
 
@@ -7524,7 +7518,7 @@ RING_FUNC(ring_al_get_d3d_device)
 	}
 	{
 		LPDIRECT3DDEVICE9 *pValue ; 
-		pValue = (LPDIRECT3DDEVICE9 *) malloc(sizeof(LPDIRECT3DDEVICE9)) ;
+		pValue = (LPDIRECT3DDEVICE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DDEVICE9)) ;
 		*pValue = al_get_d3d_device((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"));
 		RING_API_RETCPOINTER(pValue,"LPDIRECT3DDEVICE9");
 	}
@@ -7543,7 +7537,7 @@ RING_FUNC(ring_al_get_d3d_system_texture)
 	}
 	{
 		LPDIRECT3DTEXTURE9 *pValue ; 
-		pValue = (LPDIRECT3DTEXTURE9 *) malloc(sizeof(LPDIRECT3DTEXTURE9)) ;
+		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_system_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
 		RING_API_RETCPOINTER(pValue,"LPDIRECT3DTEXTURE9");
 	}
@@ -7562,7 +7556,7 @@ RING_FUNC(ring_al_get_d3d_video_texture)
 	}
 	{
 		LPDIRECT3DTEXTURE9 *pValue ; 
-		pValue = (LPDIRECT3DTEXTURE9 *) malloc(sizeof(LPDIRECT3DTEXTURE9)) ;
+		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_video_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
 		RING_API_RETCPOINTER(pValue,"LPDIRECT3DTEXTURE9");
 	}
@@ -7661,12 +7655,7 @@ RING_FUNC(ring_al_get_opengl_texture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		GLuint *pValue ; 
-		pValue = (GLuint *) malloc(sizeof(GLuint)) ;
-		*pValue = al_get_opengl_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"GLuint");
-	}
+	RING_API_RETNUMBER(al_get_opengl_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP")));
 }
 
 
@@ -7728,12 +7717,7 @@ RING_FUNC(ring_al_get_opengl_fbo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		GLuint *pValue ; 
-		pValue = (GLuint *) malloc(sizeof(GLuint)) ;
-		*pValue = al_get_opengl_fbo((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"GLuint");
-	}
+	RING_API_RETNUMBER(al_get_opengl_fbo((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP")));
 }
 
 
@@ -7861,7 +7845,7 @@ RING_FUNC(ring_al_get_audio_depth_size)
 	}
 	RING_API_RETNUMBER(al_get_audio_depth_size(* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_DEPTH")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_DEPTH"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_DEPTH"));
 }
 
 
@@ -7873,7 +7857,7 @@ RING_FUNC(ring_al_get_channel_count)
 	}
 	RING_API_RETNUMBER(al_get_channel_count(* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(1,"ALLEGRO_CHANNEL_CONF")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"ALLEGRO_CHANNEL_CONF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_CHANNEL_CONF"));
 }
 
 
@@ -7885,11 +7869,11 @@ RING_FUNC(ring_al_create_voice)
 	}
 	RING_API_RETCPOINTER(al_create_voice(* (unsigned int  *) RING_API_GETCPOINTER(1,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_VOICE");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
 }
 
 
@@ -7987,7 +7971,7 @@ RING_FUNC(ring_al_get_voice_frequency)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_voice_frequency((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8006,7 +7990,7 @@ RING_FUNC(ring_al_get_voice_channels)
 	}
 	{
 		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) malloc(sizeof(ALLEGRO_CHANNEL_CONF)) ;
+		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
 		*pValue = al_get_voice_channels((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
 	}
@@ -8025,7 +8009,7 @@ RING_FUNC(ring_al_get_voice_depth)
 	}
 	{
 		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) malloc(sizeof(ALLEGRO_AUDIO_DEPTH)) ;
+		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
 		*pValue = al_get_voice_depth((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
 	}
@@ -8076,7 +8060,7 @@ RING_FUNC(ring_al_get_voice_position)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8095,7 +8079,7 @@ RING_FUNC(ring_al_set_voice_position)
 	}
 	RING_API_RETNUMBER(al_set_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 }
 
 
@@ -8115,13 +8099,13 @@ RING_FUNC(ring_al_create_sample)
 	}
 	RING_API_RETCPOINTER(al_create_sample((void *) RING_API_GETCPOINTER(1,"void"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"), (bool ) RING_API_GETNUMBER(6)),"ALLEGRO_SAMPLE");
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
 }
 
 
@@ -8209,7 +8193,7 @@ RING_FUNC(ring_al_get_sample_channels)
 	}
 	{
 		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) malloc(sizeof(ALLEGRO_CHANNEL_CONF)) ;
+		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
 		*pValue = al_get_sample_channels((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
 	}
@@ -8228,7 +8212,7 @@ RING_FUNC(ring_al_get_sample_depth)
 	}
 	{
 		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) malloc(sizeof(ALLEGRO_AUDIO_DEPTH)) ;
+		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
 		*pValue = al_get_sample_depth((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
 	}
@@ -8247,7 +8231,7 @@ RING_FUNC(ring_al_get_sample_frequency)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_sample_frequency((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8266,7 +8250,7 @@ RING_FUNC(ring_al_get_sample_length)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_sample_length((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8355,7 +8339,7 @@ RING_FUNC(ring_al_get_sample_instance_channels)
 	}
 	{
 		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) malloc(sizeof(ALLEGRO_CHANNEL_CONF)) ;
+		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
 		*pValue = al_get_sample_instance_channels((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
 	}
@@ -8374,7 +8358,7 @@ RING_FUNC(ring_al_get_sample_instance_depth)
 	}
 	{
 		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) malloc(sizeof(ALLEGRO_AUDIO_DEPTH)) ;
+		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
 		*pValue = al_get_sample_instance_depth((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
 	}
@@ -8393,7 +8377,7 @@ RING_FUNC(ring_al_get_sample_instance_frequency)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_sample_instance_frequency((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8412,7 +8396,7 @@ RING_FUNC(ring_al_get_sample_instance_length)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8431,7 +8415,7 @@ RING_FUNC(ring_al_set_sample_instance_length)
 	}
 	RING_API_RETNUMBER(al_set_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 }
 
 
@@ -8447,7 +8431,7 @@ RING_FUNC(ring_al_get_sample_instance_position)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8466,7 +8450,7 @@ RING_FUNC(ring_al_set_sample_instance_position)
 	}
 	RING_API_RETNUMBER(al_set_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 }
 
 
@@ -8592,7 +8576,7 @@ RING_FUNC(ring_al_get_sample_instance_playmode)
 	}
 	{
 		ALLEGRO_PLAYMODE *pValue ; 
-		pValue = (ALLEGRO_PLAYMODE *) malloc(sizeof(ALLEGRO_PLAYMODE)) ;
+		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_sample_instance_playmode((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_PLAYMODE");
 	}
@@ -8611,7 +8595,7 @@ RING_FUNC(ring_al_set_sample_instance_playmode)
 	}
 	RING_API_RETNUMBER(al_set_sample_instance_playmode((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (ALLEGRO_PLAYMODE  *) RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
 }
 
 
@@ -8715,11 +8699,11 @@ RING_FUNC(ring_al_create_mixer)
 	}
 	RING_API_RETCPOINTER(al_create_mixer(* (unsigned int  *) RING_API_GETCPOINTER(1,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_MIXER");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
 }
 
 
@@ -8837,7 +8821,7 @@ RING_FUNC(ring_al_get_mixer_frequency)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -8856,7 +8840,7 @@ RING_FUNC(ring_al_set_mixer_frequency)
 	}
 	RING_API_RETNUMBER(al_set_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 }
 
 
@@ -8872,7 +8856,7 @@ RING_FUNC(ring_al_get_mixer_channels)
 	}
 	{
 		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) malloc(sizeof(ALLEGRO_CHANNEL_CONF)) ;
+		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
 		*pValue = al_get_mixer_channels((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
 	}
@@ -8891,7 +8875,7 @@ RING_FUNC(ring_al_get_mixer_depth)
 	}
 	{
 		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) malloc(sizeof(ALLEGRO_AUDIO_DEPTH)) ;
+		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
 		*pValue = al_get_mixer_depth((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
 	}
@@ -8942,7 +8926,7 @@ RING_FUNC(ring_al_get_mixer_quality)
 	}
 	{
 		ALLEGRO_MIXER_QUALITY *pValue ; 
-		pValue = (ALLEGRO_MIXER_QUALITY *) malloc(sizeof(ALLEGRO_MIXER_QUALITY)) ;
+		pValue = (ALLEGRO_MIXER_QUALITY *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_MIXER_QUALITY)) ;
 		*pValue = al_get_mixer_quality((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_MIXER_QUALITY");
 	}
@@ -8961,7 +8945,7 @@ RING_FUNC(ring_al_set_mixer_quality)
 	}
 	RING_API_RETNUMBER(al_set_mixer_quality((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"),* (ALLEGRO_MIXER_QUALITY  *) RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY"));
 }
 
 
@@ -9037,13 +9021,13 @@ RING_FUNC(ring_al_create_audio_stream)
 	}
 	RING_API_RETCPOINTER(al_create_audio_stream( (size_t ) RING_API_GETNUMBER(1),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_AUDIO_STREAM");
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
 }
 
 
@@ -9115,7 +9099,7 @@ RING_FUNC(ring_al_get_audio_stream_frequency)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_audio_stream_frequency((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -9134,7 +9118,7 @@ RING_FUNC(ring_al_get_audio_stream_channels)
 	}
 	{
 		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) malloc(sizeof(ALLEGRO_CHANNEL_CONF)) ;
+		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
 		*pValue = al_get_audio_stream_channels((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
 	}
@@ -9153,7 +9137,7 @@ RING_FUNC(ring_al_get_audio_stream_depth)
 	}
 	{
 		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) malloc(sizeof(ALLEGRO_AUDIO_DEPTH)) ;
+		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
 		*pValue = al_get_audio_stream_depth((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
 	}
@@ -9172,7 +9156,7 @@ RING_FUNC(ring_al_get_audio_stream_length)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_audio_stream_length((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -9319,7 +9303,7 @@ RING_FUNC(ring_al_get_audio_stream_playmode)
 	}
 	{
 		ALLEGRO_PLAYMODE *pValue ; 
-		pValue = (ALLEGRO_PLAYMODE *) malloc(sizeof(ALLEGRO_PLAYMODE)) ;
+		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_audio_stream_playmode((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_PLAYMODE");
 	}
@@ -9338,7 +9322,7 @@ RING_FUNC(ring_al_set_audio_stream_playmode)
 	}
 	RING_API_RETNUMBER(al_set_audio_stream_playmode((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"),* (ALLEGRO_PLAYMODE  *) RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
 }
 
 
@@ -9414,7 +9398,7 @@ RING_FUNC(ring_al_get_audio_stream_fragments)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -9433,7 +9417,7 @@ RING_FUNC(ring_al_get_available_audio_stream_fragments)
 	}
 	{
 		unsigned int *pValue ; 
-		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = al_get_available_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
 		RING_API_RETCPOINTER(pValue,"unsigned int");
 	}
@@ -9556,7 +9540,7 @@ RING_FUNC(ring_al_load_audio_stream)
 	}
 	RING_API_RETCPOINTER(al_load_audio_stream(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int")),"ALLEGRO_AUDIO_STREAM");
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
 }
 
 
@@ -9580,7 +9564,7 @@ RING_FUNC(ring_al_load_audio_stream_f)
 	}
 	RING_API_RETCPOINTER(al_load_audio_stream_f((ALLEGRO_FILE *) RING_API_GETCPOINTER(1,"ALLEGRO_FILE"),RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3),* (unsigned int  *) RING_API_GETCPOINTER(4,"unsigned int")),"ALLEGRO_AUDIO_STREAM");
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"unsigned int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"unsigned int"));
 }
 
 
@@ -9668,7 +9652,7 @@ RING_FUNC(ring_al_color_cmyk)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_cmyk( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -9733,7 +9717,7 @@ RING_FUNC(ring_al_color_hsl)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsl( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -9794,7 +9778,7 @@ RING_FUNC(ring_al_color_hsv)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -9847,7 +9831,7 @@ RING_FUNC(ring_al_color_html)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_html(RING_API_GETSTRING(1));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -9918,7 +9902,7 @@ RING_FUNC(ring_al_color_name)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_name(RING_API_GETSTRING(1));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -10133,7 +10117,7 @@ RING_FUNC(ring_al_color_yuv)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) malloc(sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_yuv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
 	}
@@ -10346,7 +10330,7 @@ RING_FUNC(ring_al_draw_text)
 	}
 	al_draw_text((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),RING_API_GETSTRING(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10378,7 +10362,7 @@ RING_FUNC(ring_al_draw_ustr)
 	}
 	al_draw_ustr((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),(ALLEGRO_USTR *) RING_API_GETCPOINTER(6,"ALLEGRO_USTR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10418,7 +10402,7 @@ RING_FUNC(ring_al_draw_justified_text)
 	}
 	al_draw_justified_text((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),RING_API_GETSTRING(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10458,7 +10442,7 @@ RING_FUNC(ring_al_draw_justified_ustr)
 	}
 	al_draw_justified_ustr((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),(ALLEGRO_USTR *) RING_API_GETCPOINTER(8,"ALLEGRO_USTR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10564,7 +10548,7 @@ RING_FUNC(ring_al_grab_font_from_bitmap)
 	}
 	RING_API_RETCPOINTER(al_grab_font_from_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(2),* (const int  *) RING_API_GETCPOINTER(3,"const int")),"ALLEGRO_FONT");
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"int"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"int"));
 }
 
 
@@ -11066,7 +11050,7 @@ RING_FUNC(ring_al_draw_line)
 	}
 	al_draw_line( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11106,7 +11090,7 @@ RING_FUNC(ring_al_draw_triangle)
 	}
 	al_draw_triangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11142,7 +11126,7 @@ RING_FUNC(ring_al_draw_filled_triangle)
 	}
 	al_draw_filled_triangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11174,7 +11158,7 @@ RING_FUNC(ring_al_draw_rectangle)
 	}
 	al_draw_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11202,7 +11186,7 @@ RING_FUNC(ring_al_draw_filled_rectangle)
 	}
 	al_draw_filled_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11242,7 +11226,7 @@ RING_FUNC(ring_al_draw_rounded_rectangle)
 	}
 	al_draw_rounded_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11278,7 +11262,7 @@ RING_FUNC(ring_al_draw_filled_rounded_rectangle)
 	}
 	al_draw_filled_rounded_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11364,7 +11348,7 @@ RING_FUNC(ring_al_draw_pieslice)
 	}
 	al_draw_pieslice( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11396,7 +11380,7 @@ RING_FUNC(ring_al_draw_filled_pieslice)
 	}
 	al_draw_filled_pieslice( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11428,7 +11412,7 @@ RING_FUNC(ring_al_draw_ellipse)
 	}
 	al_draw_ellipse( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11456,7 +11440,7 @@ RING_FUNC(ring_al_draw_filled_ellipse)
 	}
 	al_draw_filled_ellipse( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11484,7 +11468,7 @@ RING_FUNC(ring_al_draw_circle)
 	}
 	al_draw_circle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 }
 
 
@@ -11508,7 +11492,7 @@ RING_FUNC(ring_al_draw_filled_circle)
 	}
 	al_draw_filled_circle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 }
 
 
@@ -11544,7 +11528,7 @@ RING_FUNC(ring_al_draw_arc)
 	}
 	al_draw_arc( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11584,7 +11568,7 @@ RING_FUNC(ring_al_draw_elliptical_arc)
 	}
 	al_draw_elliptical_arc( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11646,7 +11630,7 @@ RING_FUNC(ring_al_draw_ribbon)
 	}
 	al_draw_ribbon((float *) RING_API_GETCPOINTER(1,"float"), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -11750,7 +11734,7 @@ RING_FUNC(ring_al_destroy_vertex_decl)
 	al_destroy_vertex_decl((ALLEGRO_VERTEX_DECL *) RING_API_GETCPOINTER(1,"ALLEGRO_VERTEX_DECL"));
 }
 
-RING_DLL void ringlib_init(RingState *pRingState)
+RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
 	ring_vm_funcregister("al_run_main",ring_al_run_main);

@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Building From Source Code &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="How to contribute?" href="contribute.html" />
+    <link rel="prev" title="What is new in Ring 1.1?" href="whatisnew.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="contribute.html" title="How to contribute?"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew.html" title="What is new in Ring 1.1?"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-from-source-code">
+<span id="index-0"></span><h1>Building From Source Code<a class="headerlink" href="#building-from-source-code" title="Permalink to this headline">¶</a></h1>
+<p>The Ring programming language is a free open source product (MIT License).</p>
+<p>You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).</p>
+<p>The next steps explains building using scripts.</p>
+<div class="section" id="building-using-microsoft-windows">
+<span id="index-1"></span><h2>Building using Microsoft Windows<a class="headerlink" href="#building-using-microsoft-windows" title="Permalink to this headline">¶</a></h2>
+<p>Get the source code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ring</span><span class="o">-</span><span class="n">lang</span><span class="o">/</span><span class="n">ring</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Build Ring (Compiler/VM)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ring</span><span class="o">/</span><span class="n">src</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvcw</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build Ring2EXE</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd ../ring2exe
+buildring2exe.bat
+</pre></div>
+</div>
+<p>Build RingODBC</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringodbc</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build RingMySQL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmysql</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build RingSQLite</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringsqlite</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build RingOpenSSL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopenssl</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build RingInternet</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringinternet</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Build RingMurmurHash</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmurmurhash</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingConsoleColors Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringconsolecolors</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingAllegro Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringallegro</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingLibCurl Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringcurl</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingZip Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingFreeGLUT Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Generate RingOpenGL Source Code and Build</p>
+<p>The ringopengl folder contains many sub folders for different OpenGL versions</p>
+<p>Starting from OpenGL 1.1 to OpenGL 4.6</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopengl</span><span class="o">/</span><span class="n">opengl21</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Install Qt 5.5 : <a class="reference external" href="https://download.qt.io/archive/qt/5.5/5.5.1/">https://download.qt.io/archive/qt/5.5/5.5.1/</a></p>
+<p>Generate RingQt Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringqt</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildmingw32</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">bin</span>
+<span class="n">install</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Add Ring/bin to System path</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Hit</span> <span class="s">&quot;windows key&quot;</span><span class="p">.</span>
+<span class="n">Type</span> <span class="s">&quot;Edit the System environment variables&quot;</span>
+<span class="n">Select</span> <span class="s">&quot;Advanced&quot;</span> <span class="n">tab</span><span class="p">.</span>
+<span class="n">Click</span> <span class="k">on</span> <span class="s">&quot;Enviroment Variables...&quot;</span>
+<span class="n">Double</span> <span class="n">click</span> <span class="k">on</span> <span class="s">&quot;Path&quot;</span>
+<span class="n">Add</span> <span class="n">at</span> <span class="n">the</span> <span class="k">end</span> <span class="n">the</span> <span class="k">new</span> <span class="n">path</span> <span class="n">separated</span> <span class="n">by</span> <span class="n">semicolon</span><span class="p">.</span>
+    <span class="p">;</span><span class="n">C</span><span class="p">:</span><span class="o">\</span><span class="n">Ring</span><span class="o">\</span><span class="n">Bin</span>
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">applications</span><span class="o">/</span><span class="n">rnote</span>
+<span class="n">ring</span> <span class="n">rnote</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-using-ubuntu-linux">
+<span id="index-2"></span><h2>Building using Ubuntu Linux<a class="headerlink" href="#building-using-ubuntu-linux" title="Permalink to this headline">¶</a></h2>
+<p>Get the source code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ring</span><span class="o">-</span><span class="n">lang</span><span class="o">/</span><span class="n">ring</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Install Libraries</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ring</span><span class="o">/</span><span class="n">src</span>
+<span class="p">.</span><span class="o">/</span><span class="n">installdep</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring (Compiler/VM)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring2EXE</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd ../ring2exe
+sudo ./buildring2exe.sh
+</pre></div>
+</div>
+<p>Build RingODBC</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringodbc</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMySQL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmysql</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingSQLite</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringsqlite</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingOpenSSL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopenssl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingInternet</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringinternet</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMurmurHash</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmurmurhash</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingConsoleColors Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringconsolecolors</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingAllegro Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringallegro</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingLibCurl Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringcurl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingZip Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingFreeGLUT Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingOpenGL Source Code and Build</p>
+<p>The ringopengl folder contains many sub folders for different OpenGL versions</p>
+<p>Starting from OpenGL 1.1 to OpenGL 4.6</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopengl</span><span class="o">/</span><span class="n">opengl21</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingQt Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringqt</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">bin</span>
+<span class="n">sudo</span> <span class="p">.</span><span class="o">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">applications</span><span class="o">/</span><span class="n">rnote</span>
+<span class="n">ring</span> <span class="n">rnote</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-using-fedora-linux">
+<span id="index-3"></span><h2>Building using Fedora Linux<a class="headerlink" href="#building-using-fedora-linux" title="Permalink to this headline">¶</a></h2>
+<p>Get the source code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ring</span><span class="o">-</span><span class="n">lang</span><span class="o">/</span><span class="n">ring</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Install Libraries</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ring</span><span class="o">/</span><span class="n">src</span>
+<span class="p">.</span><span class="o">/</span><span class="n">installdepfedora</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring (Compiler/VM)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring2EXE</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd ../ring2exe
+sudo ./buildring2exe.sh
+</pre></div>
+</div>
+<p>Build RingODBC</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringodbc</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMySQL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmysql</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgccfedora</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingSQLite</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringsqlite</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingOpenSSL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopenssl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingInternet</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringinternet</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMurmurHash</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmurmurhash</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingConsoleColors Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringconsolecolors</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingAllegro Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringallegro</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingLibCurl Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringcurl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingZip Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingFreeGLUT Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingOpenGL Source Code and Build</p>
+<p>The ringopengl folder contains many sub folders for different OpenGL versions</p>
+<p>Starting from OpenGL 1.1 to OpenGL 4.6</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopengl</span><span class="o">/</span><span class="n">opengl21</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingQt Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringqt</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgccfedora</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">bin</span>
+<span class="n">sudo</span> <span class="p">.</span><span class="o">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">applications</span><span class="o">/</span><span class="n">rnote</span>
+<span class="n">ring</span> <span class="n">rnote</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-using-macos-x">
+<span id="index-4"></span><h2>Building using MacOS X<a class="headerlink" href="#building-using-macos-x" title="Permalink to this headline">¶</a></h2>
+<p>Get the source code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ring</span><span class="o">-</span><span class="n">lang</span><span class="o">/</span><span class="n">ring</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Install homebrew (follow the directions on homebrew&#8217;s homepage).
+Install Libraries</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ring</span><span class="o">/</span><span class="n">src</span>
+<span class="p">.</span><span class="o">/</span><span class="n">installdepmac</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring (Compiler/VM)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build Ring2EXE</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd ../ring2exe
+sudo ./buildring2exe.sh
+</pre></div>
+</div>
+<p>Build RingODBC</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringodbc</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMySQL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmysql</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingSQLite</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringsqlite</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingOpenSSL</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopenssl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingInternet</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringinternet</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Build RingMurmurHash</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringmurmurhash</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingConsoleColors Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringconsolecolors</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingAllegro Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringallegro</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingLibCurl Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringcurl</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingZip Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingFreeGLUT Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingOpenGL Source Code and Build</p>
+<p>The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringopengl</span><span class="o">/</span><span class="n">opengl21</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingQt Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringqt</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">bin</span>
+<span class="n">sudo</span> <span class="p">.</span><span class="o">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">applications</span><span class="o">/</span><span class="n">rnote</span>
+<span class="n">sudo</span> <span class="n">ring</span> <span class="n">rnote</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-using-cmake">
+<span id="index-5"></span><h2>Building using CMake<a class="headerlink" href="#building-using-cmake" title="Permalink to this headline">¶</a></h2>
+<p>Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="p">.</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Building From Source Code</a><ul>
+<li><a class="reference internal" href="#building-using-microsoft-windows">Building using Microsoft Windows</a></li>
+<li><a class="reference internal" href="#building-using-ubuntu-linux">Building using Ubuntu Linux</a></li>
+<li><a class="reference internal" href="#building-using-fedora-linux">Building using Fedora Linux</a></li>
+<li><a class="reference internal" href="#building-using-macos-x">Building using MacOS X</a></li>
+<li><a class="reference internal" href="#building-using-cmake">Building using CMake</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whatisnew.html"
+                        title="previous chapter">What is new in Ring 1.1?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="contribute.html"
+                        title="next chapter">How to contribute?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sourcecode.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="contribute.html" title="How to contribute?"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="whatisnew.html" title="What is new in Ring 1.1?"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,3 +1,5 @@
+load "odbclib.ring"
+
 See "ODBC Test - Restore image from the database" + nl
 pODBC = odbc_init()
 See "Connect to database" + nl

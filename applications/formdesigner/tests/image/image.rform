@@ -1,0 +1,27 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 10 , : y = 53  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Image" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 47 , : y = 93  , 
+		 :width =  296 , :height = 158 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "thering.jpg"
+		]
+	]
+]
+# End Form Designer File

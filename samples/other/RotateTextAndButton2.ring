@@ -23,6 +23,8 @@ brushGreen  = new qbrush() { setstyle(1)  setcolor (colorGreen) }     ### Green
 brushBlue   = new qbrush() { setstyle(1)  setcolor (colorBlue)  }     ### Blue
 brushEmpty  = new qbrush() { setstyle(0)  setcolor (colorRed)   }     ### Empty
 
+=======
+
 ###----------------------------------------------------------------------------
 # @section Predefined Colors There are 20 predefined QColors: 
 # Qt::white,     Qt::black,       Qt::red,      Qt::darkRed,    Qt::green, 
@@ -98,6 +100,21 @@ Class ButtonWithRotatedText
         oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.setAttribute(Qt_WA_DeleteOnClose, True)
     return
+    
+    func close()
+            oLabel.close()
+            # oButton.close()
+    return
+
+    ###---------------------------------------
+    ### Call format: setButtonColor("Yellow")                    
+                    
+    func setButtonColor(color)  
+        colorIt = "background-color: "+ color  
+        oButton.setstylesheet(colorIt ) 
+    return
+    
+    ###-------------------------
     
     func close()
             oLabel.close()

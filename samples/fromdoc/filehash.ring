@@ -1,4 +1,6 @@
-cStr = read("myapp.exe")
+load "openssllib.ring"
+
+cStr = read("filehash.ring")
 see "Size : " + len(cStr) + nl +
     "md5 : " + md5(cStr) + nl +
     "sha1 : " + sha1(cStr) + nl +

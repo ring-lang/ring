@@ -1,5 +1,7 @@
 del IGNORE
 cd ..
 cd src
-call buildvccomplete.bat
+call buildvc.bat
+pause
+call buildvcw.bat
 pause

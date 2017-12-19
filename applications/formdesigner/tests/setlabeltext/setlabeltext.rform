@@ -1,0 +1,64 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 60 , : y = 80  , 
+		 :width =  400 , :height = 380 , 
+		 :title =  "Set Label Text" , 
+		 :backcolor =  "#ffffff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 43 , : y = 33  , 
+		 :width =  295 , :height = 98 , 
+		 :textcolor =  "#00007f" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,24,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Welcome",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 18 , : y = 176  , 
+		 :width =  105 , :height = 77 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#00ff7f" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "ONE",
+		 :BtnImage =  "",
+		 :setClickEvent =  "one"
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 146 , : y = 175  , 
+		 :width =  105 , :height = 77 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#00ff7f" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "TWO",
+		 :BtnImage =  "",
+		 :setClickEvent =  "two"
+		]
+	],
+	[ :name = "Button4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 271 , : y = 174  , 
+		 :width =  105 , :height = 77 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#00ff7f" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "THREE",
+		 :BtnImage =  "",
+		 :setClickEvent =  "three"
+		]
+	]
+]
+# End Form Designer File

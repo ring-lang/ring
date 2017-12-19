@@ -1,0 +1,61 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 25 , : y = 74  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Tab Inside Tab" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Tab1" , :id = 2 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 5 , : y = 32  , 
+		 :width =  374 , :height = 309 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :PagesCount =  "7",
+		 :PagesTitles =  ""
+		]
+	],
+	[ :name = "Tab2" , :id = 3 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 16 , : y = 31  , 
+		 :width =  340 , :height = 222 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab1Page1"  ,
+		 :PagesCount =  "5",
+		 :PagesTitles =  ""
+		]
+	],
+	[ :name = "Tab3" , :id = 4 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 23 , : y = 38  , 
+		 :width =  285 , :height = 138 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab2Page1"  ,
+		 :PagesCount =  "3",
+		 :PagesTitles =  ""
+		]
+	],
+	[ :name = "Tab4" , :id = 5 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 33 , : y = 25  , 
+		 :width =  224 , :height = 77 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "Tab3Page1"  ,
+		 :PagesCount =  "2",
+		 :PagesTitles =  ""
+		]
+	]
+]
+# End Form Designer File

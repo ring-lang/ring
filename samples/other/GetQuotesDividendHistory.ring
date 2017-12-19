@@ -1,5 +1,5 @@
 #!c:\RING\bin\ring.exe -cgi
-
+load "internetlib.ring"
 /*
  +--------------------------------------------------------------------------
  +        Program Name : GetQuotesDividendHistory.ring

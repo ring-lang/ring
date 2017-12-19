@@ -6,6 +6,8 @@
 **  Stack Size 
 */
 #define RING_VM_STACK_SIZE 256
+#define RING_VM_STACK_CHECKOVERFLOW 253
+#define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
 #define RING_VM_BC_ITEMS_COUNT 16
 typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
@@ -51,7 +53,7 @@ typedef struct VM {
 	int nActiveScopeID  ;
 	int nActiveCatch  ;
 	char nInsideBraceFlag  ;
-	char nCheckNULLVar  ;
+	char nInClassRegion  ;
 	List *aActivePackage  ;
 	char nPrivateFlag  ;
 	char nGetSetProperty  ;
@@ -90,6 +92,14 @@ typedef struct VM {
 	char nActiveError  ;
 	List *aDynamicSelfItems  ;
 	String *pPackageName  ;
+	char lTrace  ;
+	String *pTrace  ;
+	char lTraceActive  ;
+	char nTraceEvent  ;
+	List *pTraceData  ;
+	char nEvalInScope  ;
+	char lPassError  ;
+	char lHideErrorMsg  ;
 } VM ;
 /*
 **  Functions 
@@ -127,6 +137,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr ) ;
 void ring_vm_init ( RingState *pRingState ) ;
 
 void ring_vm_printstack ( VM *pVM ) ;
+
+RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr ) ;
 /* Stack and Variables */
 
 void ring_vm_pushv ( VM *pVM ) ;
@@ -156,6 +168,12 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 ) ;
 void ring_vm_assignmentpointer ( VM *pVM ) ;
 
 void ring_vm_freeloadaddressscope ( VM *pVM ) ;
+
+void ring_vm_setfilename ( VM *pVM ) ;
+
+void ring_vm_loadaddressfirst ( VM *pVM ) ;
+
+void ring_vm_endfuncexec ( VM *pVM ) ;
 /* Compare */
 
 void ring_vm_equal ( VM *pVM ) ;
@@ -213,7 +231,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr ) ;
 
 void ring_vm_newvar ( VM *pVM,const char *cStr ) ;
 
-List * ring_vm_newvar2 ( const char *cStr,List *pParent ) ;
+List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent ) ;
 
 void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x ) ;
 
@@ -258,6 +276,8 @@ void ring_vm_listpushv ( VM *pVM ) ;
 void ring_vm_listassignment ( VM *pVM ) ;
 
 void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr ) ;
+
+int ring_vm_strcmpnotcasesensitive ( const char *cStr1,const char *cStr2 ) ;
 /* Functions */
 
 int ring_vm_loadfunc ( VM *pVM ) ;
@@ -265,6 +285,8 @@ int ring_vm_loadfunc ( VM *pVM ) ;
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance ) ;
 
 void ring_vm_call ( VM *pVM ) ;
+
+void ring_vm_call2 ( VM *pVM ) ;
 
 void ring_vm_return ( VM *pVM ) ;
 
@@ -293,6 +315,8 @@ void ring_vm_anonymous ( VM *pVM ) ;
 int ring_vm_isstackpointertoobjstate ( VM *pVM ) ;
 
 void ring_vm_retitemref ( VM *pVM ) ;
+
+void ring_vm_callclassinit ( VM *pVM ) ;
 /* User Interface */
 
 void ring_vm_see ( VM *pVM ) ;
@@ -393,7 +417,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM ) ;
 
 int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr ) ;
 
-void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer ) ;
+void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContainer ) ;
 
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
@@ -442,7 +466,7 @@ void ring_vm_savestate ( VM *pVM,List *pList ) ;
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 
-void ring_vm_backstate ( int x,List *pList ) ;
+void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
 
 void ring_vm_savestate2 ( VM *pVM,List *pList ) ;
 
@@ -480,6 +504,12 @@ RING_API void ring_vm_mutexunlock ( VM *pVM ) ;
 RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
 
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
+/* Trace */
+
+void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
+/* Fast Function Call for Extensions (Without Eval) */
+
+RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 /*
 **  Macro 
 **  Stack 
@@ -525,7 +555,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VAR_PVALUETYPE 4
 #define RING_VAR_PRIVATEFLAG 5
 /* Number of global variables defined by the VM like True, False, cErrorMsg */
-#define RING_VM_INTERNALGLOBALSCOUNT 11
+#define RING_VM_INTERNALGLOBALSCOUNT 14
 #define RING_VAR_LISTSIZE 5
 /* Variable Type */
 #define RING_VM_NULL 0
@@ -545,7 +575,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x]->data.dNumber
 #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nSize
 #define RING_VM_IR_OPCODE pVM->pByteCodeIR->aData[0]->data.iNumber
-#define RING_VM_IR_SETCVALUE(x,y) ring_string_set(pVM->pByteCodeIR->aData[x]->data.pString,y)
+#define RING_VM_IR_SETCVALUE(x,y) ring_string_set_gc(pVM->pRingState,pVM->pByteCodeIR->aData[x]->data.pString,y)
 #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
 #define RING_VM_IR_LIST pVM->pByteCodeIR->pList
 #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
@@ -565,11 +595,12 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_FUNCCL_TEMPMEM 5
 #define RING_FUNCCL_FILENAME 6
 #define RING_FUNCCL_METHODORFUNC 7
-#define RING_FUNCCL_CALLERPC 8
-#define RING_FUNCCL_FUNCEXE 9
-#define RING_FUNCCL_LISTSTART 10
-#define RING_FUNCCL_NESTEDLISTS 11
-#define RING_FUNCCL_STATE 12
+#define RING_FUNCCL_LINENUMBER 8
+#define RING_FUNCCL_CALLERPC 9
+#define RING_FUNCCL_FUNCEXE 10
+#define RING_FUNCCL_LISTSTART 11
+#define RING_FUNCCL_NESTEDLISTS 12
+#define RING_FUNCCL_STATE 13
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
 #define RING_FUNCMAP_NAME 1
 #define RING_FUNCMAP_PC 2
@@ -640,6 +671,13 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 /* Temp Object */
 #define RING_TEMP_OBJECT "ring_temp_object"
 #define RING_TEMP_VARIABLE "ring_sys_temp"
+/* Trace */
+#define RING_VM_TRACEEVENT_NEWLINE 1
+#define RING_VM_TRACEEVENT_NEWFUNC 2
+#define RING_VM_TRACEEVENT_RETURN 3
+#define RING_VM_TRACEEVENT_ERROR 4
+#define RING_VM_TRACEEVENT_BEFORECFUNC 5
+#define RING_VM_TRACEEVENT_AFTERCFUNC 6
 /* Runtime Error Messages */
 #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Cann't divide by zero !"
 #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range) !"
@@ -677,6 +715,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 #define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
 #define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
+#define RING_VM_ERROR_BADCOMMAND "Error (R37) : Sorry, The command is not supported in this context"
+#define RING_VM_ERROR_LIBLOADERROR "Error (R38) : Runtime Error in loading the dynamic library!"
+#define RING_VM_ERROR_TEMPFILENAME "Error (R39) : Error occurred creating unique filename."
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
 /* Variables Location */

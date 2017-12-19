@@ -1,3 +1,5 @@
+load "mysqllib.ring"
+
 func main
 
         con = mysql_init()

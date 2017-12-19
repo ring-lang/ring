@@ -1,15 +1,11 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include <QApplication>
-#include <QFile>
-
-#include "QFile"
-#include "QTextStream"
-
 #include <QStandardPaths>
-#include <QUrl>
-
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
+#include <QUrl>
 
 // Load Ring
 
@@ -58,6 +54,18 @@ extern "C" {
 
 void ringapp_delete_file(QString path,const char *cFile) ;
 
+RING_FUNC(ring_loadlib)
+{
+    // Just a prototype to pass functions calls to loadlib() from Ring Object File
+    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
+}
+
+RING_FUNC(ring_ismobileqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(1);
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -66,58 +74,21 @@ int main(int argc, char *argv[])
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
 
-    // Copy Files from Resources to Temp Folder
-
-    // Add test.ring
-    QString path2 ;
-    path2 = path+"/test.ring";
-    QFile::copy(":/resources/myfile4",path2);
-
-    // Add ring_qt.ring
-    QString path3 ;
-    path3 = path+"/ring_qt.ring";
-    QFile::copy(":/resources/myfile5",path3);
-
-    // Add qt.rh
-    QString path4 ;
-    path4 = path+"/qt.rh";
-    QFile::copy(":/resources/myfile6",path4);
-
-    // Add guilib.ring
-    QString path5 ;
-    path5 = path+"/guilib.ring";
-    QFile::copy(":/resources/myfile7",path5);
-
-
-    // Call Ring and run the Application
-
-    RingState *pRingState;
-
-    pRingState = ring_state_init();
-
-    char** files;
-    files = (char **) malloc(2 * sizeof(char*));
-    for (size_t i = 0; i < 2; i += 1)
-        files[i] = (char *) malloc(255 * sizeof(char));
-    strcpy(files[0],"ring");
-    strcpy(files[1],path2.toStdString().c_str());
-
-    ring_state_main(2,files);
-
-    // Free Memory 
-
-    ring_state_delete(pRingState);
-
-    free(files[1]);
-    free(files[0]);
-    free(files);
-
     // Delete the application files
+    ringapp_delete_file(path,"ringapp.ringo");
 
-    ringapp_delete_file(path,"test.ring");
-    ringapp_delete_file(path,"ring_qt.ring");
-    ringapp_delete_file(path,"qt.rh");
-    ringapp_delete_file(path,"guilib.ring");
+    // Copy Ring Object File (ringapp.ringo) from Resources to Temp Folder
+    QString path2 ;
+    path2 = path+"/ringapp.ringo";
+    QFile::copy(":/ringapp.ringo",path2);
+ 	
+    // Call Ring and run the Application
+    RingState *pRingState;
+    pRingState = ring_state_new();
+    ring_vm_funcregister("loadlib",ring_loadlib);
+    ring_vm_funcregister("ismobileqt",ring_ismobileqt);
+    ring_state_runobjectfile(pRingState,"ringapp.ringo");
+    ring_state_delete(pRingState);
 
     return 0;
 
@@ -132,3 +103,5 @@ void ringapp_delete_file(QString path,const char *cFile)
     myfile.setPermissions(QFile::ReadOther | QFile::WriteOther);
     myfile.remove();
 }
+
+

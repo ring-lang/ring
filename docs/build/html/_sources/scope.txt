@@ -1,0 +1,965 @@
+.. index:: 
+	single: Scope Rules; Introduction
+
+========================================
+Scope Rules for Variables and Attributes
+========================================
+
+In this chapter we will learn about scope rules and how Ring find variables.
+
+Also we will learn about conflicts and how to solve/avoid them.
+
+The next information are important once you start developing large applications using Ring
+
+These application may uses 
+
+* Global variables (Try to avoid them)
+
+* Classes (Object-Oriented)
+
+* braces { } to access objects
+
+* Declarative Programming
+
+* Natural Programming
+
+.. index:: 
+	pair: Scope Rules; Three Scopes
+
+Three Scopes 
+============
+
+In Ring we have three scopes :-
+
+(1) Public/Global Scope - Each variable you define in the statements part (before functions and classes)
+
+(2) Object Scope - When you are inside an object (Inside class method or using { } to access the object )
+
+(3) Local Scope - Related to functions and methods
+
+.. index:: 
+	pair: Scope Rules; Defining Variables and Variables Access
+
+Defining Variables and Variables Access
+=======================================
+
+(1) Ring uses lexical scoping, i.e. the scope of the variable is based on where we defined the variable.
+
+(2) Inside braces {  } when you access an object, You will change the current active object scope to this object scope but you still can access the global scope and the local scope.
+
+(3) After the 'Class' keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.
+
+In this region (class region - after the class name and before methods) we have
+
+	* Global Scope ----> The Global Scope
+	* Object Scope ----> The Object Scope
+	* Local Scope  ----> The Object Scope
+
+.. note:: Since the local scope in the class region point also to the object scope in this region, we can use nested braces and still have access to the object scope of the class through the local scope.
+
+.. tip :: You can create windows and controls as attibutes by defining them in this region.
+	
+.. tip :: In the class region if you created objects and used braces {} to access them then using self.attribute inside braces will use the class (not the object that you access) because you have access to the class through the local scope.
+
+(4) Function Parameters are automatically defined in the local scope.
+
+.. index:: 
+	pair: Scope Rules; How Ring find the Variable?
+
+How Ring find the variable?
+===========================
+
+1 - Search First in the Local Scope 
+
+if not found !
+
+2 - Search in the Object Scope 
+
+if not found !
+
+3 - Search in the public scope
+
+if not found ----> Runtime Error
+
+if found  ----> Check if we can do optimization to avoid 
+searching next time (Cache / Pointers for performance).
+
+.. index:: 
+	pair: Scope Rules; Using Object.Attribute
+
+Using Object.Attribute
+======================
+
+When we use object.attribute the search will be in the object attributes only.
+
+I.e. no search will be done in the local scope or in the global scope for the object attribute.
+
+.. note:: Using self.attribute will search for the first self before searching for attributes.
+
+
+.. index:: 
+	pair: Scope Rules; The Self Object
+
+The Self Object
+===============
+
+The self object is a reference to the current object that we can use from the class methods.
+
+When we are inside class method and use Self we mean the object that will be created from this class.
+
+Inside the class methods if we used Braces { } this will change the current object scope and self will
+be changed also inside braces to reference the object that we access using Braces.
+
+Inside the Class Region (after the class name and before any method) we have access to the object through
+the object scope and the local scope also. In this region using Self will always be a reference to the class object.
+if we used Braces to change the object scope then used Self inside Braces, Also self will be a reference to the class object (not the object that
+we already access using braces) because in the class region we have :-
+
+* Global Scope ---> Global Scope
+* Object Scope ---> Object Scope
+* Local Scope  ---> Object Scope
+
+And using Braces changes the object scope only (not the local scope) and when Ring search for variables
+it will search in the Local Scope first so it will find self in the class that we are inside.
+
+.. index:: 
+	pair: Scope Rules; Conflict between Global Variables and Class Attributes
+
+How Ring Define Variables and Attributes
+========================================
+
+Ring will use the variable name in the Assignment operation
+
+1 - Search using the variable name
+
+2 - If not found ---> Avoid the runtime error and define the variable in the current scope
+
+3 - If found ---> Use the variable and don't define anything in the current scope
+
+* In the global region (before any function or class) the current scope is the global scope.
+
+* In the class region (after the class name and before any method) the current scope is the object attributes.
+
+* In Functions and methods the current scope is the local scope.
+
+
+Conflict between Global Variables and Class Attributes
+======================================================
+
+Look at this example:
+
+.. code-block:: ring
+
+	name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		name
+		address 
+		phone
+
+In the previous example we have a global variable called 'name'
+inside the class person.
+
+when we use the variable 'name', Ring will start the search operation and 
+will try to find it.
+
+if found ---> Use it
+
+if not found ---> Define new attribute
+
+But the variable name is a global variable, so it will be found and used!
+
+We will not have the attribute name! added to the object. 
+
+Solution (1) - Use the Main Function 
+
+.. code-block:: ring
+
+	func main
+		name = "test"
+		o1 = new person
+		see o1
+
+	class person
+		name
+		address 
+		phone
+
+Solution (2) - Use special mark for global variable names like $
+
+.. code-block:: ring
+
+	$name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		name
+		address 
+		phone
+
+Solution (3) - Use the AddAttribute() Method
+
+.. code-block:: ring
+
+	name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		AddAttribute(self,"name")
+		address 
+		phone
+
+Solution (4) - Use self before the attribute name
+
+.. code-block:: ring
+
+	name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		self.name
+		address 
+		phone
+
+
+So what is the best solution to this conflict?
+
+1 - Use the $ Mark for global variables 
+
+2 - Optional : Try to avoid global variables and use the Main function 
+
+In practice i do both of them.
+
+The other solution 
+
+* Use self before the attribute name or use AddAttribute()
+
+.. index:: 
+	pair: Scope Rules; Conflict between Class Attributes and Local Variables
+
+Conflict between Class Attributes and Local Variables
+=====================================================
+
+This conflict may happen when we access the object using braces
+
+Example:
+
+.. code-block:: ring
+ 
+	func main
+		name = "nice"
+		o1 = new person {name="mahmoud" address="Egypt"  phone = 000 }
+		see o1
+
+	class person 
+		name
+		address
+		phone
+
+In the previous example we have the local variable name.
+
+The value of this variable will be set to "mahmoud" instead of the object attribute.
+
+Solution (1) : Just use Self 
+
+.. code-block:: ring
+
+	func main
+		name = "nice"
+		o1 = new person {self.name="mahmoud" address="Egypt"  phone = 000 }
+		see o1
+
+	class person 
+		name
+		address
+		phone
+
+Solution (2) : Change the Local variable name 
+
+.. code-block:: ring
+
+	func main
+		cName = "nice"
+		o1 = new person {name="mahmoud" address="Egypt"  phone = 000 }
+		see o1
+
+	class person 
+		name
+		address
+		phone
+
+Solution (3) : Change Braces and use the Dot operator
+
+.. code-block:: ring
+
+	func main
+		name = "nice"
+		o1 = new person 
+		o1.name ="mahmoud" 
+		o1.address ="Egypt"  
+		o1.phone = 000 
+		see o1
+
+	class person 
+		name
+		address
+		phone
+
+
+.. index:: 
+	pair: Scope Rules; Using Braces to access objects inside Class Methods
+
+Using Braces to access objects inside Class Methods
+===================================================
+
+Remember that we have Three scopes (Local Scope, Object Scope and Global Scope) and when we
+are inside a class method, we expect that we have access to the object attributes and methods and
+this is true until we use braces to access another object attributes and methods because in this case
+our object scope will be switched to another object.
+
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl # works fine
+			myobj = new otherclass {
+				see name + nl
+				see x + nl + y + nl # error !
+			}
+
+	class otherclass
+		name = "test"
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+
+	Line 8 Error (R24) : Using uninitialized variable : x
+	In method test() in file methodbraceerror.ring
+	called from line 5  in file methodbraceerror.ring
+
+Now what we will do to solve the previous problem?
+
+Solution (1) : Write the code that access the class attributes outside braces.
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl # works fine
+			myobj = new otherclass {
+				see name + nl
+			}
+			see x + nl + y + nl # Outside braces - works fine
+
+
+	class otherclass
+		name = "test"
+
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+	10
+	20
+
+
+Solution (2) : Don't Use Braces
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl  
+			myobj = new otherclass 
+			see myobj.name
+			see x + nl + y + nl 			
+
+	class otherclass
+		name = "test"
+
+
+Solution (3) : Copy the self object 
+
+We may use this solution if we want to use braces and get access to the class attributes (Just Reading).
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			oSelf = self
+			see x + nl + y + nl  
+			myobj = new otherclass {
+				see name + nl
+				see oself.x + nl + oself.y + nl  
+			}
+
+	class otherclass
+		name = "test"
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+	10
+	20
+
+Now look at this line
+
+.. code-block:: ring
+
+	oself = self
+
+The problem with the previous line is that we will have a new copy from the object
+Because in Ring the assignment operator copy lists and objects by value (not by reference).
+
+When we access the new object attributes (reading) we don't have problems 
+
+But if we modified the object attributes (Then we will modify the copy!).
+
+.. note:: We can use braces again with the copy
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			oSelf = self
+			see x + nl + y + nl  
+			myobj = new otherclass {
+				see name + nl
+				oSelf {
+					see x + nl + y + nl
+				}
+			}
+
+	class otherclass
+		name = "test"
+
+In a GUI application, we may create a class contains the window objects as attributes to be able 
+to access the controls from different methods. Remember the previous information when you try to access
+objects using braces inside methods because in this case you can't access the object attributes directly
+and if you copied the self object you will work on a copy and the new controls that you create will be 
+related to the copy and you can't access them.
+
+
+.. index:: 
+	pair: Scope Rules; Accessing the class attributes from braces inside class methods
+
+
+Accessing the class attributes from braces inside class methods
+===============================================================
+
+We access the class attributes directly from the class methods, also we have the choice to use the Self
+reference before the attribute/method name. Using Braces {} inside class method change the active object
+scope and prevent us from getting direct access to the class attributes. Also using Self will not help because
+the Self reference will be changed to the object that we access using Braces.
+
+In this case if you want to read an attribute you have to copy the Self object before using Braces and
+if you want to modify an attribute you have to the copy from local variable to the object attribute after using
+Braces. 
+
+This case happens when you want to read/modify attribute insead braces. 
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			new QSqlDatabase() {
+				oCon = addDatabase("QSQLITE") {
+					setDatabaseName("weighthistory.db")
+					open()
+				}
+			}	
+			self.oCon = oCon 
+			# some code here 	
+
+In the previous example we want to create the connection object and save it inside the oCon attribute.
+
+The object is an output from the addDatabase() method that we use after accessing the QSQLDatabase() object.
+
+Inside braces we can't use the Self reference to use the object created from the MyApp class, Because
+the Self reference here will be to the object that we access using Braces.
+
+We solved the problem in the previous example by creating a local variable called oCon then after Braces
+we copied that variable to the oCon attribute.
+
+The next code is another solution.
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			oCon = new QSqlDatabase()
+			oCon = oCon.addDatabase("QSQLITE") {
+				setDatabaseName("weighthistory.db")
+				Open()	
+			}
+			# some code here 	
+
+
+The next code is a better solution.
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			new QSqlDatabase() {
+				this.oCon = addDatabase("QSQLITE") {
+					setDatabaseName("weighthistory.db")
+					Open()	
+				}
+			}
+			# some code here 	
+
+.. note:: We used this.attribute to access the class attribute (oCon) while we are inside Braces.
+
+
+.. index:: 
+	pair: Scope Rules; Creating a Class for each Window in GUI applications
+
+Creating a Class for each Window in GUI applications
+====================================================
+
+A good way for creating classes for windows is to define the window directly after the class name
+
+In this area you can use nested braces without problems to define the window and the controls, and
+they will be attributes that you can access from methods.
+
+Example:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	new qApp 
+	{
+		$ObjectName = "oFirstWindow"
+		oFirstWindow = new FirstWindow
+
+		$ObjectName = "oSecondWindow"
+		oSecondWindow = new SecondWindow
+
+		exec()
+	}
+
+	Class FirstWindow
+
+		win = new qWidget() {
+			setgeometry(0,50,300,200)
+			setWindowTitle("First Window")
+			label1 = new qLabel(win)
+			{
+				setgeometry(10,10,300,30)
+				setText("0")
+			}
+			btn1 = new qPushButton(win)
+			{
+				move(100,100)
+				setText("Increment")
+				setClickEvent($ObjectName+".increment()")
+			}
+			show()
+		}	
+
+		Func Increment
+			label1 {
+				setText( "" + ( 0 + text() + 1 ) )
+			}
+
+
+	Class SecondWindow
+
+		win = new qWidget() {
+			setgeometry(400,50,300,200)
+			setWindowTitle("Second Window")
+			label1 = new qLabel(win)
+			{
+				setgeometry(10,10,300,30)
+				setText("0")
+			}
+			btn1 = new qPushButton(win)
+			{
+				move(100,100)
+				setText("Decrement")
+				setClickEvent($ObjectName+".decrement()")
+			}
+			show()
+		}	
+
+		Func Decrement
+			label1 {
+				setText( "" + ( 0 + text() - 1 ) )
+			}
+
+.. index:: 
+	pair: Scope Rules; Conflict between self inside braces and self in the class region
+
+Conflict between self inside braces and self in the class region
+================================================================
+
+In the class region (after the class name and before any methods) we define the attributes.
+
+In this region we have access to the global scope and the local scope will point to the object scope.
+
+Three Scopes
+
+* Global Scope ---> Gloabl Scope
+* Object Scope ---> Object Scope
+* Local Scope  ---> Object Scope
+
+Look at this example
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			name = "Gal" 
+		}
+		aFriends + new Friend { 
+			name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+Output:
+
+.. code-block:: none
+
+	name: NULL
+	name: NULL
+
+The problem in the previous example is that the Class account contains an attribute called "name"
+and the Friend class contains an attribue called "name" also.
+
+If you tried using self.name inside braces you will get the same result!
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			self.name = "Gal" 
+		}
+		aFriends + new Friend { 
+			self.name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+So why using self.name inside braces doesn't solve this conflict?
+
+Because after the class region we have
+
+* global scope ---> global scope
+* object scope ---> object scope (Account Class)
+* local  scope ---> local scope (Account Class)
+
+When we use braces we change the object scope, so we have
+
+* global scope ---> global scope
+* object scope ---> object scope (Friend Class)
+* local  scope ---> local scope (Account Class)
+
+Ring search in the local scope first, so using self.name will use the Account class.
+
+There are many solution
+
+Solution (1) : Access the object through the list
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend
+		aFriends[len(aFriends)] { 
+			aFriends[len(aFriends)].name = "Gal" 
+		}
+		aFriends + new Friend 
+		aFriends[len(aFriends)] { 
+			aFriends[len(aFriends)].name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+Solution (2) : Create Method in the friend class to set the name attribute.
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			setname("Gal")
+		}
+		aFriends + new Friend { 
+			setname("Bert")
+		}
+	
+	Class Friend
+		name
+		func setname cName
+			name = cName
+
+Solution (3) : Create a method in the account class to set the attribute
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		friend("Gal")
+		friend("Bert")
+
+		func friend cName
+			aFriends + new Friend { 
+				name = cName
+			}
+	
+	Class Friend
+		name
+
+Solution (4) : Declarative Programming
+
+.. code-block:: ring
+
+	New Account {
+		name = "mahmoud"
+		friend {
+			name = "Gal"
+		}
+		friend {
+			name = "Bert"
+		}
+		see aFriends
+	}
+
+	Class Account
+		name 
+		aFriends = []
+		friend
+		func getfriend
+			aFriends + new Friend
+			return aFriends[len(aFriends)]
+	
+	Class Friend
+		name
+
+Output:
+
+.. code-block:: none
+
+	name: Gal
+	name: Bert
+
+.. index:: 
+	pair: Scope Rules; Using braces to escape from the current object scope
+
+
+Using braces to escape from the current object scope
+====================================================
+
+Since braces change the current object scope to another object. we can use it to do some work without
+modifying the class attributes and using the same variable names.
+
+.. code-block:: ring
+
+	new point {x=10 y=20 z=30 start() }
+	class point x y z
+		func start
+			see self # print the x y z values (10,20,30)
+			new Local {
+				x = 100
+				y = 200
+				z = 300
+			}
+			see self # print the x y z values (10,20,30)	
+			see x + nl # will print 100
+			see y + nl # will print 200
+			see z + nl # will print 300
+			Self {	# NO Advantage - Search is done in local scope first
+				see x + nl # will print 100
+				see y + nl # will print 200
+				see z + nl # will print 300
+			}
+			see self.x + nl # will print 10
+			see self.y + nl # will print 20
+			see self.z + nl # will print 30
+
+	class Local
+	
+Output:
+
+.. code-block:: none
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	100
+	200
+	300
+	100
+	200
+	300
+	10
+	20
+	30
+	
+.. index:: 
+	pair: Scope Rules; Summary of Scope Rules
+
+
+Summary of Scope Rules
+======================
+
+At first remember that 
+
+1 - Each programming language comes with it's scope rules based on the language goals
+
+2 - Programming in the small is different than Programming in the Large
+
+3 - Some programming language are designed for developing small programs while others are designed for large programs
+
+4 - In programming, If we have access to more than one scope - Then problems may come if we don't manage things correctly
+
+5 - It's always more secure to reduce the number of visible scopes
+
+6 - Some programming languages force you to manage the scope in some way, while others not!
+
+In Ring
+
+1 - Special and *very simple* scope rules that are designed for Flexibility first then Security
+
+2 - Ring is designed to support programming in the small and programming in the large.
+
+3 - The language provide the different programming paradigms that you may select from based on the project size. Errors comes only if you selected a bad paradigm for the target project or you are using the paradigm in a way that is not correct or at least not common.
+
+4 - In Ring you have the choice, you can use global variables or avoid them. you can give them a special $ mark or leave them. you can use object-oriented or stay with procedures. you can use the class region (after the class name and before any method) just for attributes or use it for code too.
+
+5 - Just read the next scope rules and think about them then use them in your favorite way.
+
+Scope Rules:
+
+1 - At any place in our program code we have only at maximum Three Scopes (Local Scope, Object Scope and Global Scope).
+
+2 - When Ring find a variable it will search in the local scope first then in the object scope then in the global scope.
+
+3 - At any time inside procedures or methods you can use braces { } to access an object and change the current object scope.
+
+4 - In the class region (After the class name and before any method) this is a special region where both of the object scope and the local scope point to the object scope. I.e. No local variables where each variable you define in this region will become an attribute.
+
+5 - Before defining any variable (in any scope and in the class region too) a search process will be done to use the variable if it's found.
+
+6 - Functions and Methods parameters are defined automatically as local variables to these functions or methods.
+
+7 - Using Object.Attribute will search in the object attributes only.
+
+8 - Using Self.Attribute will lead to a search for Self first then search in Self Attributes.
+
+9 - The Self reference inside class region (after the class name and before any method) always point to the object scope created from the class.
+
+10- The Self reference inside methods will be changed when we uses Braces to be a reference to the object that we access.
+
+11- Writing variable names directly in the class region (after the class name and before any method) means using them or define then (in order).
+
+12- Using self.attribute in the class region reduce search to the object scope (avoid conflict with global scope).
+
+From these rules you can understand all types of conflicts and why you may have them and how to avoid them
+
+Simple advices to avoid any conflict and use the scope rules in a better way
+
+1 - Try to avoid global variables
+
+2 - Use the Main Function - This will help you to avoid global variables
+
+3 - If you are going to use many global variables use the $ mark before the variable name
+
+4 - In the class region if you don't respect the advice number three ($) then use self.attribute when you define your attributes
+
+5 - You can use object.attribute and object.method() instead of object { attribute } and object { method() } if you don't like changing the object scope.
+
+6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to the object that you access using { } + access to the class attributes
+
+7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes directly but you have access to the local scope before and after using brace { } , if you will read/modify the class attribute from braces then use This.Attribute because using 'This' means (The object created from this class) while using 'Self' means (The object in the current object scope).
+
+
+After understanding all of the previous points, You will master this topic.

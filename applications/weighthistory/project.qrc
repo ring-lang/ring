@@ -1,0 +1,6 @@
+<RCC>
+	<qresource>
+		<file>weighthistory.ringo</file>
+		<file>weighthistory.db</file>
+	</qresource>
+</RCC>

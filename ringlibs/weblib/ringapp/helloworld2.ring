@@ -1,4 +1,4 @@
-#!b:\ring\bin\ring.exe -cgi
+#!ring -cgi
 
 load "weblib.ring"
 

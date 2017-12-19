@@ -42,21 +42,21 @@ HashTable *
 RING_HASHITEMTYPE_NOTYPE
 RING_HASHITEMTYPE_NUMBER
 RING_HASHITEMTYPE_POINTER
-ring_hashtable_new
+ring_hashtable_new_gc
 Type: HashTable *
 pHashTable
 ring_hashtable_hashkey
 Type: unsigned int
 nIndex
-ring_hashtable_newitem
+ring_hashtable_newitem_gc
 Type: unsigned int
 nIndex
 Type: HashItem *
 pItem
-ring_hashtable_newnumber
+ring_hashtable_newnumber_gc
 Type: HashItem *
 pItem
-ring_hashtable_newpointer
+ring_hashtable_newpointer_gc
 Type: HashItem *
 pItem
 ring_hashtable_finditem
@@ -70,17 +70,17 @@ pItem
 ring_hashtable_findpointer
 Type: HashItem *
 pItem
-ring_hashtable_deleteitem
+ring_hashtable_deleteitem_gc
 Type: int
 nIndex
 Type: HashItem *
 pItem, *pPrevItem
-ring_hashtable_delete
+ring_hashtable_delete_gc
 Type: int
 x
 Type: HashItem *
 pItem,*pItem2
-ring_hashtable_rebuild
+ring_hashtable_rebuild_gc
 Type: HashItem **
 pArray
 Type: int
@@ -99,3 +99,10 @@ Type: char
 cStr[20]
 Type: int
 x
+ring_hashtable_new
+ring_hashtable_newitem
+ring_hashtable_deleteitem
+ring_hashtable_delete
+ring_hashtable_rebuild
+ring_hashtable_newnumber
+ring_hashtable_newpointer

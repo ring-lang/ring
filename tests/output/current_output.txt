@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-115
-115
+2
+105
+103
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4814
+Time 3859
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-006AEE58
+02E73DB0
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 11/03/2017
-time: 10:51:57
+date: 11/12/2017
+time: 02:53:22
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -2715,7 +2715,12 @@ B:\ring\tests>call ring scripts/forstyle3.ring
 10
 
 B:\ring\tests>call ring scripts/forinstyle3.ring 
-onetwothreefourfive
+one
+two
+three
+four
+five
+
 B:\ring\tests>call ring scripts/changekeyword.ring 
 welcome
 Welcome
@@ -3181,10 +3186,8 @@ In raise in file scripts/equalobjobj.ring
 B:\ring\tests>call ring scripts/nullpointer.ring 
 
 B:\ring\tests>call ring scripts/ptrcmp2.ring 
+0
 1
-1
-Line 7 Error in parameter, NULL pointer! 
-In fclose in file scripts/ptrcmp2.ring 
 B:\ring\tests>call ring scripts/listandstrconversion.ring 
 Items : 4
 Item : Hello
@@ -3202,3 +3205,185 @@ BEFORE o.what()
 Line 13 Error (R14) : Calling Method without definition !: what 
 In method test() in file scripts/objmethodnobraceerror.ring
 called from line 2  in file scripts/objmethodnobraceerror.ring 
+B:\ring\tests>call ring scripts/retselfbyref.ring 
+x: 15.000000
+x: 20.000000
+x: 20.000000
+
+B:\ring\tests>call ring scripts/passtemplisttoinitmethod.ring  
+1
+2
+3
+4
+1
+1
+2
+3
+1
+3
+one
+two
+three
+2
+one
+three
+two
+three
+two
+one
+one
+two
+nice
+three
+**********
+1
+one
+2
+two
+3
+three
+Search two : 2
+Search 1 : 1
+Egypt
+USA
+KSA
+1
+2
+3
+4
+5
+6
+7
+one
+two
+three
+four
+
+B:\ring\tests>call ring scripts/importinsideif.ring  
+wow
+B:\ring\tests>call ring scripts/liststartinbraces.ring 
+test3
+
+B:\ring\tests>call ring scripts/privateinnew.ring 
+point class
+20
+point class
+10
+point class
+20
+we must get runtime error (using private attribute)!
+
+Line 6 Error (R27) : Using private attribute from outside the class : number 
+in file scripts/privateinnew.ring 
+B:\ring\tests>call ring scripts/numbers2bytes.ring 
+Test Int2Bytes() and Bytes2Int() - Value : 77
+Int Size : 4
+M   
+77
+Test Float2Bytes() and Bytes2Float() - Value 77.12
+Float Size : 4
+q=šB
+77.12
+Test Double2Bytes() and Bytes2Double() - Value 9999977.12345
+Double Size : 8
+jMó#ÍcA
+9999977.12345
+
+B:\ring\tests>call ring scripts/trimerror.ring 
+len of trimed(j) is : 1
+trimed J is : "n"
+len of trimed(j2) is : 0
+trimed J2 is : ""
+len of trimed(j3) is : 5
+trimed J3 is : "Majdi"
+len of trimed(j4) is : 15
+trimed J4 is : "Majdi    Sobain"
+
+B:\ring\tests>call ring scripts/anoninhash.ring 
+wow
+B:\ring\tests>call ring scripts/bracenewinheritance.ring 
+greatwow
+B:\ring\tests>call ring scripts/nestedfunccall.ring 
+
+Line 5 Error (R1) : Cann't divide by zero ! 
+in file scripts/nestedfunccall.ring 
+B:\ring\tests>call ring scripts/classbraces.ring 
+x: 10.000000
+y: 20.000000
+z: 30.000000
+
+B:\ring\tests>call ring scripts/funcbraces.ring 
+hello
+7
+test
+B:\ring\tests>call ring scripts/classbraces2.ring 
+Hello Mahmoud
+
+B:\ring\tests>call ring scripts/classend.ring 
+nice
+name: 10.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+7
+10
+
+B:\ring\tests>call ring scripts/packageend.ring 
+Hello, World
+
+B:\ring\tests>call ring scripts/packagebraces.ring 
+Hello, World
+
+B:\ring\tests>call ring scripts/endfunc.ring 
+welcome
+
+B:\ring\tests>call ring scripts/types.ring 
+7
+B:\ring\tests>call ring scripts/inclassregion1.ring  
+wow
+welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***
+B:\ring\tests>call ring scripts/inclassregion2.ring 
+wownice man! greatnice 
+B:\ring\tests>call ring scripts/inclassregion3.ring 
+wow
+welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***
+B:\ring\tests>call ring scripts/underscoreinnumber.ring 
+NUMBER
+1000001
+
+B:\ring\tests>call ring scripts/underscoreinnumber2.ring 
+
+Line 3 Error (R24) : Using uninitialized variable : 100011_ 
+in file scripts/underscoreinnumber2.ring 
+B:\ring\tests>call ring scripts/fafternumber.ring 
+NUMBER
+STRING
+NUMBER
+
+Line 14 Error (R24) : Using uninitialized variable : 1412f13 
+in file scripts/fafternumber.ring 
+B:\ring\tests>call ring scripts/newtrytest.ring 
+before class
+after test
+after class
+
+B:\ring\tests>call ring scripts/newtrytest2.ring 
+before class
+after test
+after class
+
+B:\ring\tests>call ring scripts/manygetter.ring 
+MahmoudMahmoud
+B:\ring\tests>call ring scripts/nosettergetterinclassmethods.ring 
+amr
+wow
+
+B:\ring\tests>call ring scripts/privateattributereuse.ring 
+120
+Before the runtime error!
+
+Line 3 Error (R27) : Using private attribute from outside the class : salary 
+in file scripts/privateattributereuse.ring 

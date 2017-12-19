@@ -3,6 +3,18 @@ RING_VM_FILE_BUFFERSIZE
 RING_VM_POINTER_FILE
 RING_VM_POINTER_FILEPOS
 RING_API_BADDIRECTORY
+Parent: Ring_uData
+Type: int
+iNumber
+Type: float
+fNumber
+Type: double
+dNumber
+cBytes
+cBytesDouble
+END:
+Type: Ring_uData
+Ring_uData
 ring_vm_file_loadfunctions
 ring_vm_file_fopen
 Type: FILE *
@@ -22,6 +34,10 @@ ring_vm_file_tempfile
 Type: FILE *
 fp
 ring_vm_file_tempname
+_tmpfile
+Type: errno_t
+error
+_tmpfile
 ring_vm_file_fseek
 Type: int
 nResult
@@ -131,3 +147,21 @@ ring_vm_file_write
 Type: FILE *
 fp
 ring_vm_file_fexists
+ring_vm_file_int2bytes
+Type: Ring_uData
+uData
+ring_vm_file_float2bytes
+Type: Ring_uData
+uData
+ring_vm_file_double2bytes
+Type: Ring_uData
+uData
+ring_vm_file_bytes2int
+Type: Ring_uData
+uData
+ring_vm_file_bytes2float
+Type: Ring_uData
+uData
+ring_vm_file_bytes2double
+Type: Ring_uData
+uData

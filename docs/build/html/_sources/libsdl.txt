@@ -1,0 +1,387 @@
+.. index:: 
+	single: RingLibSDL; Introduction
+
+=================
+Using RingLibSDL
+=================
+
+In this chapter we will learn about using RingLibSDL to create games based on the
+LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
+
+.. tip:: RingLibSDL is not distributed with the binary releases for desktop which uses RingAllegro
+
+.. note:: To use RingLibSDL, Check ring/android/ringlibsdl folder.
+
+.. index:: 
+	pair: RingLibSDL; Create Window
+
+Create Window
+=============
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	SDL_Delay(2000)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Display Image
+
+Display Image
+=============
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	bmp = SDL_LoadBMP("hello.bmp")
+	tex = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+	SDL_RenderClear(ren)
+	SDL_RenderCopy2(ren,tex)
+	SDL_RenderPresent(ren)
+	SDL_Delay(2000)
+	SDL_DestroyTexture(tex)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Switch Between Two Images
+
+Switch between two images
+=========================
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	bmp = SDL_LoadBMP("hello.bmp")
+	tex = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+	bmp = SDL_LoadBMP("hello2.bmp")
+	tex2 = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+
+	for x = 1 to 10 showtex(tex) showtex(tex2) next
+
+	SDL_DestroyTexture(tex)
+	SDL_DestroyTexture(tex2)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+	func showtex oTex
+		SDL_RenderClear(ren)
+		SDL_RenderCopy2(ren,oTex)
+		SDL_RenderPresent(ren)
+		SDL_Delay(200)
+
+.. index:: 
+	pair: RingLibSDL; Draw Rectangle
+
+Draw Rectangle
+==============
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	SDL_RenderClear(ren)
+	rect = sdl_new_sdl_rect()
+	sdl_set_sdl_rect_x(rect,10)
+	sdl_set_sdl_rect_y(rect,10)
+	sdl_set_sdl_rect_w(rect,100)
+	sdl_set_sdl_rect_h(rect,100)
+	SDL_SetRenderDrawColor(ren,255,255,255,255)
+	SDL_RenderDrawRect(ren,rect)
+	sdl_destroy_sdl_rect(rect)
+	SDL_RenderPresent(ren)
+	SDL_Delay(2000)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Display PNG Images
+
+Display PNG Images
+==================
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	bmp = IMG_Load("hello3.png")
+	tex = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+	SDL_RenderClear(ren)
+	SDL_RenderCopy2(ren,tex)
+	SDL_RenderPresent(ren)
+	SDL_Delay(2000)
+	SDL_DestroyTexture(tex)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Use TTF Fonts
+
+Use TTF Fonts
+=============
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	SDL_RenderClear(ren)
+
+	TTF_Init()
+	font = TTF_OpenFont("pirulen.ttf", 16)
+	color = sdl_new_sdl_color()
+	sdl_set_sdl_color_r(color,0)
+	sdl_set_sdl_color_g(color,255)
+	sdl_set_sdl_color_b(color,0)
+	text = TTF_RenderText_Solid(font,"Welcome to the Ring language",color)
+	surface = SDL_GetWindowSurface(win)
+	SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+	SDL_UpdateWindowSurface(win)
+	SDL_Delay(2000)
+
+	SDL_Destroy_SDL_Color(color)
+	SDL_FreeSurface(text)
+	TTF_CloseFont(font)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Display Transparent Images
+
+Display Transparent Images
+==========================
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+
+	flags = IMG_INIT_JPG | IMG_INIT_PNG
+	IMG_Init(flags)
+
+	win = SDL_CreateWindow("Hello World!", 100, 100, 800, 600, SDL_WINDOW_SHOWN)
+	ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+
+	bmp = IMG_Load("stars.jpg")
+	tex = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+	SDL_RenderClear(ren)
+	SDL_RenderCopy(ren,tex,nullpointer(),nullpointer())
+	SDL_DestroyTexture(tex)
+
+	bmp = IMG_Load("player.png")
+	# Image - Set Transparent color (white)
+	myformat = sdl_get_sdl_surface_format(bmp)
+	white = SDL_MapRGB(myformat, 255, 255, 255)
+	SDL_SetColorKey(bmp, SDL_True, white)
+
+	tex = SDL_CreateTextureFromSurface(ren,bmp)
+	SDL_FreeSurface(bmp)
+	rect = sdl_new_sdl_rect()
+	sdl_set_sdl_rect_x(rect,0)
+	sdl_set_sdl_rect_y(rect,0)
+	sdl_set_sdl_rect_w(rect,100)
+	sdl_set_sdl_rect_h(rect,100)
+	SDL_RenderCopy(ren,tex,nullpointer(),rect)
+
+	SDL_SetTextureBlendMode(tex,2)
+	SDL_SetTextureAlphaMod(tex,255)
+	sdl_set_sdl_rect_x(rect,200)
+	sdl_set_sdl_rect_y(rect,200)
+	sdl_set_sdl_rect_w(rect,100)
+	sdl_set_sdl_rect_h(rect,100)
+	SDL_RenderCopy(ren,tex,nullpointer(),rect)
+
+	SDL_DestroyTexture(tex)
+	SDL_Destroy_SDL_Rect(rect)
+
+	SDL_RenderPresent(ren)
+	SDL_Delay(2000)
+	SDL_DestroyRenderer(ren)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Close Window Event
+
+Close Window Event
+==================
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+
+	myevent = sdl_new_sdl_event()
+	while true
+		thevent = sdl_pollevent(myevent)
+		switch sdl_get_sdl_event_type(myevent)
+			on sdl_get_sdl_quit()
+				exit
+			on sdl_get_sdl_keydown()
+				Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+				if key = 27 exit ok
+				
+		off
+	end
+
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Mouse Events
+
+Mouse Events
+============
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+
+	win = SDL_CreateWindow("Mouse Events ", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+
+	TTF_Init()
+	font = TTF_OpenFont("pirulen.ttf", 16)
+	color = sdl_new_sdl_color()
+	sdl_set_sdl_color_r(color,0)
+	sdl_set_sdl_color_g(color,255)
+	sdl_set_sdl_color_b(color,0)
+
+	surface = SDL_GetWindowSurface(win)
+
+	myevent = sdl_new_sdl_event()
+	while true
+		cMsg = ""
+		sdl_pollevent(myevent)
+		switch sdl_get_sdl_event_type(myevent)
+			on SDL_QUIT
+				exit
+			on SDL_KEYDOWN
+				Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+				if key = 27 exit ok
+			on SDL_MOUSEBUTTONDOWN
+				if sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_LEFT
+					SDL_SETWINDOWTITLE(win, " Button_Left_Down " )
+				but sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_MIDDLE
+					SDL_SETWINDOWTITLE(win,  " Button_Middle_Down " )
+				but sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_RIGHT
+					SDL_SETWINDOWTITLE(win,  " Button_Right_Down " )
+				ok
+			on SDL_MOUSEMOTION
+				sdl_fillrect(surface,nullpointer(),0)
+				if sdl_get_sdl_event_motion_xrel(myevent) < 0
+					cMsg += " Left "
+				else
+					cMsg += " Right "
+				ok			
+				if sdl_get_sdl_event_motion_yrel(myevent) < 0
+					cMsg += " Up "
+				else
+					cMsg += " Down "
+				ok	
+				cMsg += " x = " + sdl_get_sdl_event_motion_x(myevent)
+				cMsg += " y = " + sdl_get_sdl_event_motion_y(myevent)
+				showmsg(cMsg)	
+		off
+	end
+
+	SDL_Destroy_SDL_Color(Color)
+	TTF_CloseFont(font)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+	func showmsg mymsg
+		text = TTF_RenderText_Solid(font,mymsg,color)
+		SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+		SDL_UpdateWindowSurface(win)
+		SDL_FreeSurface(text)
+
+.. index:: 
+	pair: RingLibSDL; Play Sound
+
+Play Sound
+==========
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT , 2, 10000)
+	Mix_AllocateChannels(4)
+	sound = Mix_LoadWav( "sound.wav" )
+	Mix_VolumeChunk(sound,1)
+	Mix_PlayChannel(1,sound,0)
+
+	myevent = sdl_new_sdl_event()
+	while true
+		thevent = sdl_pollevent(myevent)
+		switch sdl_get_sdl_event_type(myevent)
+			on sdl_get_sdl_quit()
+				exit
+			on sdl_get_sdl_keydown()
+				Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+				if key = 27 exit ok			
+		off
+	end
+
+	Mix_FreeChunk( sound )
+	Mix_CloseAudio()
+	Mix_Quit()
+	SDL_DestroyWindow(win)
+	SDL_Quit()

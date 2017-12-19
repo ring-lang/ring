@@ -1,0 +1,448 @@
+.. index:: 
+	single: Using the Natural Library; Introduction
+
+=========================
+Using the Natural Library
+=========================
+
+In this chapter we will learn how to use the Natural Library to quickly define a language
+that contains a group of commands.
+
+To start using the library, We need to call naturallib.ring
+
+.. code-block:: ring
+
+	load "naturallib.ring"
+
+After loading the library, We can use the NaturalLanguage class that contains the 
+next methods :-
+
+* SetLanguageName(cLanguageName)
+* setCommandsPath(cFolder)
+* SetPackageName(cPackageName)
+* UseCommand(cCommandName)
+* SetOperators(cOperators)
+* RunFile(cFileName)
+* RunString(cString)
+
+.. index:: 
+	pair: Using the Natural Library; Natural Library - Demo Program
+
+Natural Library - Demo Program
+==============================
+
+We will write the natural code in a Text file, for example program.txt
+
+File: program.txt
+
+.. code-block:: none
+
+	Welcome to the Ring programming language!
+	What you are reading now is not comments, I swear!
+
+	After many years of programming I decided to think different about
+	programming and solve the problems in a better way. 
+
+	We are writing commands or code and the Ring language is reading
+	it to understand us! Sure, What you are seeing now is
+	just ***part of the code - Not the Complete Program***
+	You have to write little things before and after this 
+	part to be able to run it!
+
+	It is the natural part of our code where we can write in English, 
+	Arabic or any Natural Language Then we will tell the computer 
+	through the Ring language what must happens! in a way that we can scale 
+	for large frameworks and programs.
+
+	Just imagine what will happens to the world of programming once
+	we create many powerful frameworks using the Ring language that
+	uses this way (Natural Programming).
+
+	For example When we say Hello to the Machine, It can reply! and when we
+	say count from 1 to 5 it will understand us, Also if 
+	we said count from 5 to 1 it will
+	understand us too! You can see the Output window!
+
+	This Goal is not new, but the Ring language comes
+	with an innovative solution to this problem. 	
+
+Output:
+
+.. code-block:: none
+
+	Hello, Sir!
+
+
+	The Numbers!
+
+	1
+
+	2
+
+	3
+
+	4
+
+	5
+
+	I will count Again!
+
+	5
+
+	4
+
+	3
+
+	2
+
+	1
+
+
+To execute the natural code, We have start.ring
+
+In start.ring we define the language and the commands.
+
+File: start.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		RunFile("program.txt")
+	}
+
+
+We defined a language called MyLanguage, We have folder for the language commands.
+
+Each command will define a class that belong to the MyLanguage.Natural package.
+
+We will define two commands, Hello and Count.
+
+So we must have two files for defining the commands in the CurrentDir()+"/../command" folder
+
+File: hello.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeyword([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :hello, 
+		:Function = func {
+			See  "Hello, Sir!" + nl + nl
+		}
+	])
+
+File: count.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordNumberNumber([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :count, 
+		:Function = func {
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
+		}
+	])
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining Commands
+
+Defining Commands
+=================
+
+To define new command we can use the DefineNaturalCommand object
+
+This object provides the next methods :-
+
+* SyntaxIsKeyword(aPara)
+* SyntaxIsKeywordNumber(aPara)
+* SyntaxIsKeywordNumberNumber(aPara)
+* SyntaxIsKeywordNumbers(aPara,nCount)
+* SyntaxIsKeywordString(aPara)
+* SyntaxIsKeywordStringString(aPara)
+* SyntaxIsKeywordStrings(aPara,nCount)
+* SyntaxIsKeywordExpression(aPara)
+* SyntaxIsKeywordExpressionExpression(aPara)
+* SyntaxIsKeywordExpressions(aPara,nCount)
+* SyntaxIsCommand(aPara)
+* SyntaxIsCommandNumber(aPara)
+* SyntaxIsCommandNumberNumber(aPara)
+* SyntaxIsCommandNumbers(aPara,nCount)
+* SyntaxIsCommandString(aPara)
+* SyntaxIsCommandStringString(aPara)
+* SyntaxIsCommandStrings(aPara,nCount)
+* SyntaxIsCommandExpression(aPara)
+* SyntaxIsCommandExpressionExpression(aPara)
+* SyntaxIsCommandExpressions(aPara,nCount)
+
+File: mylanguage.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	MyLanguage = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		setCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		UseCommand(:Print)
+		UseCommand(:IWantWindow)
+		UseCommand(:WindowTitleIs)
+		UseCommand(:IWantButton)
+	}
+
+
+Example (1)
+
+In the next example we will define the Print command.
+
+We will use the SyntaxIsKeywordExpression() Method.
+
+We pass list (as Hash) to the method. We determine the package name, the keyword and
+the function that will be executed.
+
+Inside this function we uses the Expr(nExprNumber) function to get the expression value that the
+user will write after the keyword.
+
+File: print.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordExpression([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :print, 
+		:Function = func {
+			See  Expr(1)  
+		}
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		print "Hello, World!"
+	')
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+
+Example (2)
+
+File: iwantwindow.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			See  "Command: I want window" + nl
+		}
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		i want window
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+
+Example (3)
+
+File: windowtitleis.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommandString([
+		:Package = "MyLanguage.Natural",
+		:Command = "window title is", 
+		:Function = func {
+			See  "Command: Window title is " + Expr(1) + nl
+		}	
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		I want window and the window title is "Hello World"
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: Window title is Hello World
+
+
+.. index:: 
+	pair: Using the Natural Library; Operators
+
+Natural Library - Operators
+===========================
+
+In the next example we uses the Count command without using operators
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello	
+		Count 1 5
+		Count 5 1
+	")
+
+We can add more description
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello, Please 	Count from 1 to 5 then count from 5 to 1
+	")
+
+Also we can use operators like "(" and ")" around the instruction
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage {
+		SetOperators("()")
+		RunString("
+			Here we will play and will try something
+			that looks like Lisp Syntax
+			(count  (count 1 5)  (count 20 15))
+			Just for fun!
+		")
+	}
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining commands using classes
+
+Defining commands using classes
+===============================
+
+This section is related to the implementation details.
+
+When we define new command, Each command is defined by the Natural Library as a class.
+
+We have the choice to define commands using the simple interface provided by the
+DefineNaturalCommand object or by defining new class as in the next examples.
+
+If we used DefineNaturalCommand (More Simple), The class will be defined during the runtime.
+
+File: hello.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Hello
+
+		func AddAttributes_Hello	
+			AddAttribute(self,:hello)
+
+		func GetHello   
+			See  "Hello, Sir!" + nl + nl
+
+
+File: count.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Count
+           
+		func Getcount
+			StartCommand()
+			CommandData()[:name] = :Count
+			CommandData()[:nExpr] = 0
+			CommandData()[:aExpr] = []
+
+		func BraceExprEval_Count nValue
+			if isCommand() and CommandData()[:name] = :Count {
+				if isNumber(nValue) {
+					CommandData()[:nExpr]++     
+					CommandData()[:aExpr] + nValue
+					if CommandData()[:nExpr] = 2 {
+						Count_Execute()
+					}
+				}
+			}
+
+		func AddAttributes_Count	
+			AddAttribute(self,:count)
+	
+		func Count_Execute
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				

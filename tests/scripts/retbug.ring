@@ -1,4 +1,4 @@
-Load "scripts\weblib.ring"
+Load "scripts/weblib.ring"
 
 Import system.web
 

@@ -6,7 +6,7 @@ Ring For Mobile Games Development using RingLibSDL
 
 	* The Android SDK Tools
 		https://developer.android.com/studio/index.html
-	* The Android NDK 
+	* The Android NDK (Tested using android-ndk-r10c)
 		https://developer.android.com/ndk/index.html
 	* Apache Ant v1.8 or later 
 		http://ant.apache.org/bindownload.cgi
@@ -15,9 +15,19 @@ Ring For Mobile Games Development using RingLibSDL
 
 (2) Update the Android SDK to get the API and tools packages required for development
 
+	Tested using Android 4.4.2 (API 19)
 
+(3) In Windows - Define the next Environment Variables based on your system.
 
-(3) Open the project folder : ring/android/ringlibsdl/project
+	JAVA_HOME
+
+		For Example : C:\Program Files (x86)\Java\jdk1.8.0_05
+
+	ANDROID_HOME
+
+		For Example : B:\mahmoud\Tools\Java-Android\adt-bundle-windows-x86-20140702\sdk
+
+(4) Open the project folder : ring/android/ringlibsdl/project
 
 You can add the source code (*.ring) and Images/Sound Files to the assets folder.
 
@@ -28,7 +38,7 @@ The execution starts from the start.ring file
 	load "game2.ring"
 
 
-(4) Building the project
+(5) Building the project
 
 Move to the ring/android/ringlibsdl/project folder 
 

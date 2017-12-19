@@ -1,3 +1,7 @@
+# The Ring Standard Library
+# Web Library
+# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+
 Import System.Web
 
 aPageVars = []
@@ -88,7 +92,10 @@ mergemethods("webpage","newobjectsfunctions")
 loadvars()
 
 Func LoadVars
-
+	if sysget("REQUEST_METHOD") = NULL
+		# The Web Library is not called from Web Application (From the Browser)
+		return 
+	ok
 	New Application
 	{
 	    	if sysget("REQUEST_METHOD") = "GET"
@@ -160,9 +167,13 @@ Func Template cFile,oObject
 			cCode += "cResult += aList[" + len(aList) + "]" + nl
 		ok
 	end
-	oObject {
-		eval(cCode)
-	}
+        if not isnull(oObject)
+                oObject {
+                        eval(cCode)
+                }
+        else
+                eval(cCode)
+        ok
 	return cResult
 
 Func Alert cMessage
@@ -196,6 +207,26 @@ Package System.Web
 		cBody = ""
 
 		lBootstrap = False
+
+		lPrint = True
+		cPrintString = ""
+
+		lContentType = True
+
+		func WebPrint cStr
+			if lPrint
+				see cStr
+			else 
+				cPrintString += cStr
+			ok
+
+		func NoOutput
+			lPrint = False
+			cPrintString = ""
+			lContentType = False 
+
+		func Output 			
+			return cPrintString
 
 		Func DecodeString cStr
 			cStr = cStr + "&" 
@@ -350,14 +381,17 @@ Package System.Web
 			return TabMLString(cStr)
 
 		Func Print
-			See cCookies + cStart + "<html>" + nl +
-			"<header>"+nl+CHAR(9)+scriptlibs()+nl+
-			CHAR(9)+"<title>"+nl+CHAR(9)+Char(9)+Title+nl+Char(9)+"</title>"+nl
+			WebPrint( cCookies + GetHTMLStart() +"<!DOCTYPE html>"+WindowsNL()+
+			nl+'<html lang="en">' + nl +
+			"<head>"+nl+CHAR(9)+scriptlibs()+nl+
+			CHAR(9)+"<title>"+Title+"</title>"+nl+
+			"<meta charset='UTF-8'>" + nl )
 			if cCSS != NULL
-				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
+				WebPrint( Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl )
 			ok
-			see nl+"</header>" + nl +
-			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>"
+			WebPrint( nl+"</head>" + nl +
+			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>" )
+
 
 		Func style cStyle
 			cCSS += cStyle 
@@ -366,6 +400,13 @@ Package System.Web
 
 			cStart = "Content-type: text/html" + nl + nl +
 				   "<meta charset='UTF-8'>" + nl
+
+		Func GetHTMLStart
+			if lContentType 
+				return cStart
+			else 
+				return ""
+			ok
 
 		Private
 
@@ -1594,21 +1635,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			See cCookies + cStart + "<html>" + nl +
-			"<header>"+nl+CHAR(9)+scriptlibs()+nl+
-			CHAR(9)+"<title>"+nl+CHAR(9)+Char(9)+Title+nl+Char(9)+"</title>"+nl
+			WebPrint( cCookies + GetHTMLStart() +"<!DOCTYPE html>" + WindowsNL() +
+			nl+ '<html lang="en">' + nl +
+			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
+			"<meta charset='UTF-8'>" + nl+
+			nl+CHAR(9)+scriptlibs()+nl )			
 			if cCSS != NULL
-				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
+				WebPrint( Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl )
 			ok
-			see nl+"</header>" + nl +
-			"<body"+ cBody + "> " + nl 
+			WebPrint( nl+"</head>" + nl +
+			"<body"+ cBody + "> " + nl )
 			for x in aObjs
-				see x.getdata() + nl
+				WebPrint( x.getdata() + nl )
 			next
-			see nl + "</body>" + nl + "</html>" + nl
+			WebPrint( nl + "</body>" + nl + "</html>" + nl )
+
+
 
 	Class BootStrapWebPage from WebPage
 		lBootStrap = True
+
+	class HtmlPage from WebPage
+		NoOutput()
 
 	Class ObjsBase  From Application
 
@@ -2861,12 +2909,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 			cOutput = TabMLString(cOutput)
 
 	Class Form from ObjsBase 
-		action method
+		action method target
 		Func braceend
 			cOutput += nl+'<form'
 			addattributes()
 			elementattribute(:action)
 			elementattribute(:method)
+			elementattribute(:target)
 			AddStyle()
 			getobjsdata()
 			cOutput += nl+"</form>" + nl

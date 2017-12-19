@@ -1,0 +1,31 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 45 , : y = 89  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Dial Slider" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Dial1" , :id = 2 , :classname = "formdesigner_qdial" , :data = [
+		 :x = 51 , : y = 41  , 
+		 :width =  295 , :height = 253 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "50",
+		 :setvalueChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File

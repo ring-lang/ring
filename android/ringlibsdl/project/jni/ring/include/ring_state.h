@@ -31,6 +31,8 @@ typedef struct RingState {
 	unsigned int nGenObj : 1  ;
 	/* set to 1 if we need to display warnings */
 	unsigned int nWarning : 1  ;
+	/* Set to 1 to tell the scanner to don't delete the VM after execution */
+	unsigned int nDontDeleteTheVM : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;
@@ -38,6 +40,8 @@ typedef struct RingState {
 	struct VM *pVM  ;
 	/* Startup File */
 	char lStartup  ;
+	/* Pool Manager */
+	PoolManager vPoolManager  ;
 } RingState ;
 /* Functions */
 
@@ -59,12 +63,14 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr ) ;
 
 RING_API void ring_state_main ( int argc, char *argv[] ) ;
 
-RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
+RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 
-RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName ) ;
+RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName ) ;
+
+RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-#define RING_VERSION "1.3"
+#define RING_VERSION "1.7"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;
@@ -73,11 +79,17 @@ int ring_currentdir ( char *cDirPath ) ;
 
 int ring_exefilename ( char *cDirPath ) ;
 
-void ring_chdir ( const char *cDir ) ;
+int ring_chdir ( const char *cDir ) ;
 
 void ring_exefolder ( char *cDirPath ) ;
 
 int ring_issourcefile ( const char *cStr ) ;
 
 int ring_isobjectfile ( const char *cStr ) ;
+
+void ring_switchtofilefolder ( char *cFileName ) ;
+
+int ring_justfilepath ( char *cFileName ) ;
+
+void ring_justfilename ( char *cFileName ) ;
 #endif

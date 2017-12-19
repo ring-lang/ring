@@ -14,7 +14,7 @@
 					'<img src="dratif.png">'
 				  ],
 				  [
-					'CalmoSoft',
+					'Gal Zsolt (CalmoSoft)',
 					'calmosoft@gmail.com',
 					'Samples Master',
 					'Active',
@@ -70,11 +70,32 @@
 					'<img src="hany.jpg">'
 				  ],
 				  [
+                    'Amin Najah (Najahdev.com)',
+                    'Najahdev.amine@gmail.com ',
+                    'Marketing',
+                    'Active',
+					'<img src="amine.jpg">'
+                  ],				  
+				  [
+					'Alaa Mohammed Elockle',
+					'Mr.alaaelockle@hotmail.com',
+					'Video Tutorials',
+					'Active',
+					'<img src="alaa.jpg">'
+				  ],
+				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',
-					'Active'
+					'Active',
+					'<img src="majdi.jpg">'
 				  ],
+				  [
+                    'Sara Hamdy Mohamed',
+                    'engsara88@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
 				  [
 					'Amr Essam',
 					'amressam01@gmail.com',
@@ -353,12 +374,6 @@
 					'Active'
 				  ],
 				  [
-					'Alaa Mohammed Elockle',
-					'Mr.alaaelockle@hotmail.com',
-					'Video Tutorials',
-					'Active'
-				  ],
-				  [
 					'Mohamed Elkehlawy Mahmoud',
 					'mohamedelkehlawy@gmail.com',
 					'Arabic Tutorials',
@@ -407,10 +422,573 @@
                     'Active'
                   ],
 				  [
-                    'Kovács Attila ',
+                    'Kovács Attila',
                     'befektabc@gmail.com',
                     'Tester',
                     'Active'
-                  ]
-
+                  ],
+				  [
+                    'Robert Philippe',
+                    'rphilippe777@gmail.com',
+                    'Tester',
+                    'Active'
+                  ],
+				  [
+                    'Mohammed Tantawy',
+                    'mohammedtantawy82@gmail.com ',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mahmood Bakr El-Sedeek',
+                    'maxmedo2020@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Aziza Elhassi',
+                    'azizakhel@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Ali Halawa',
+                    'ahmed.halawa.555@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mahmoud Adel Abd-Elsalam Elbaz',
+                    'm.adel901m@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ayad ameen hama',
+                    'aywan.ayad11@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmad Hamdy Ali',
+                    'ahmady09@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Alaa Abdelsamie',
+                    'mis.alaa.abdelsamie@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Heba Elakhder',
+                    'goodtree212122@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mahmoud Ezat Mohamed EL-Sidek',
+                    'mahmoudezat111@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Shery Rajp',
+                    'shery.rajp1992@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Isam',
+                    'ahmedzeco25@hotmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Tarek Kouskous	',
+                    'dhtarek@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Asmaa Mohamed Elgezawy',
+                    'asma.elgezawy@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Abdelrahman Abdelhameed',
+                    'abdelrahmanabdelhameed3@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Muhammed Khalid',
+                    'ahmedmikkawe2020@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Ait Brahim',
+                    'mohcmpu@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Abdallah Ebrahim Abdallah Muhammed',
+                    'abdalla.mezo@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Amera Hassan',
+                    'hamera55@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Elgendy',
+                    'ahmedelgendy409@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Alsharawy',
+                    'ahmedalsharawy2016@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Islam Fady',
+                    'islamfady40@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Sayed Ragab Mohammed',
+                    'sayed.ragb1@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Andro Nady',
+                    'andro.nady2015@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Sami Mohammed Gonimy',
+                    'mahrmlolo@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Gamal elsayed shabaan negm elden',
+                    'gamalnigmeldin@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mostafa Abd Elazeem',
+                    'mostafa.abdo.ch12@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'mohammed hani elsayed',
+                    'lovemody1995@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Gamal Ahmed Shehata',
+                    'gamal9@live.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Abd El-tawab Sayed',
+                    'mohamed.a.eltawab101@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Saied Mohamed Ahmed',
+                    'bensa3ed.m@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Magdy',
+                    'm.magdy555@hotmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Ali Abd El-Hakeem Mohamed',
+                    'mohamed.scholar6996@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Hany',
+                    'ahmedhanyahya2016@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Esraa Omar abdelhameed',
+                    'esraaomar128@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mahmoud Hamdii Elhamrawy',
+                    'mahmoudhamdii2010@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Peter Tawfik',
+                    'petertawfik14@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Shadi Abo Oun',
+                    'Micro.shadi@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Muhammad Habib	',
+                    'muhammad.habib.dev@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Gamal',
+                    'm.g.t.m.prog@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Mirghani Ali',
+                    'Mohammed2571994@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed abdelbary',
+                    'comodo2010@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Elzemrany',
+                    'ahmedelzemrany93@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'mahmoud mahran',
+                    'msmahran77@hotmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mhd Khir Hammadeh',
+                    'newmhdkh88@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Atef Hakim',
+                    'atefhakim@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],				  
+				  [
+                    'Mamoud kotb abd diab',
+                    'mahmoudhekaya20@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'osama Kamel Abd El-hamed',
+                    'osamakamel906@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed Ibrahim',
+                    'mohamed0500@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Abaza',
+                    'ahmed.a.abaza@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'djouamaa hocine',
+                    'djouamaah@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Maher khayyal',
+                    'maheronknight@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Fayez Elkenawy',
+                    'fayezelkenawy@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Ali',
+                    'ahmedhamam50@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Essam Abdelrahman',
+                    'essam.khaled.mohamed@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'AbdElrahman Mohamed Salah',
+                    'abdomohamed00001@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Hamza Elmouhtadi',
+                    'Hamzaelmouhtadi@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Thana Mohamed',
+                    'thanamohamed915@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Heba Elnabawy elsersy',
+                    'heba.sersy@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Abdallah Massad',
+                    'abdullah.mussad.92@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Yasser Ezzat Ragab',
+                    'yezzat2020@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamd Mahmoud Elsaid Elarousi',
+                    'moh.elarousi@gmail.com ',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Salem',
+                    'ahmedkhozayam@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ameen Ahmed',
+                    'ameenahmed386@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mai mokhtar mostafa',
+                    'Mayebed@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Khaled Hammad',
+                    'askcode@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Osama Reda Elnabwy',
+                    'oelnabwy@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Mohamed magdy ahmed',
+                    'mmagdy436@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Asmaa  Abdelghny Ali',
+                    'asmaa.a.ghny@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ramez Sabry Nageb',
+                    'Ramez_202@hotmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Lobna ahmed',
+                    'lobnaahmedheshmatt@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ehab Mosaad Mohamed',
+                    'ehab192012@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Abdo Kamr',
+                    'abdokamr88@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Abdelrahman Mostafa',
+                    'abdomost777@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Moumen osama alisawe',
+                    'muisawe@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Atya Adel Atya',
+                    'atyaadel992@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Walid Mohammed Kamal',
+                    'walideata@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Mohamed Azzam',
+                    'azzammohamed923@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Eslam Shehata',
+                    'eslamshehata476@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Asmaa Ebrahym',
+                    'asmaaebrahymazyz@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+   				  [
+                    'Islam Hamdy',
+                    'eng.islam.hamdy1992@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+   				  [
+                    'Sharaf Eldin Mohamed',
+                    'sharaf.7abibi@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],				  
+				  [
+                    'Mahmoud Mabrouk	',
+                    'mahmoud27271@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Njlaa Ahmad Emam',
+                    'njlaa.emam@hotmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Hashem Alaya',
+                    'hashemjuve@yahoo.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+  				  [
+                    'Usama Mohammed Kabel',
+                    'eng.usamakabel@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Ahmed Elsayed Mohamed',
+                    'Elsayeda825@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Yaser Ba Matraf',
+                    'yasser.bama733@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Shimoo Ali',
+                    'ashima00100@gmail.com',
+                    'Vision Achiever',
+                    'Active'
+                  ],
+				  [
+                    'Marino Esteban',
+                    'marinoest@gmail.com',
+                    'Tester',
+                    'Active'
+                  ],
+				  [
+                    'John Storm (SienSystem)',
+                    'siensystem@gmail.com',
+                    'Tester/Samples',
+                    'Active'
+                  ],
+				  [
+                    'Hassan Ahmed',
+                    'hsn@outlook.hu',
+                    'Tester/Extensions',
+                    'Active'
+                  ],
+				  [
+                    'Jamie Cooper',
+                    'jalonsolov@gmail.com',
+                    'English Revision',
+                    'Active'
+                  ]					  
 ]

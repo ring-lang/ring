@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functions - First Style &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Functions - Second Style" href="functions2.html" />
+    <link rel="prev" title="Getting Input" href="getinput.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions2.html" title="Functions - Second Style"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functions-first-style">
+<span id="index-0"></span><h1>Functions - First Style<a class="headerlink" href="#functions-first-style" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the next topics :-</p>
+<ul class="simple">
+<li>Define functions</li>
+<li>Call functions</li>
+<li>Declare parameters</li>
+<li>Send parameters</li>
+<li>Main Function</li>
+<li>Variables Scope</li>
+<li>Return Value</li>
+<li>Recursion</li>
+</ul>
+<div class="section" id="define-functions">
+<span id="index-1"></span><h2>Define Functions<a class="headerlink" href="#define-functions" title="Permalink to this headline">¶</a></h2>
+<p>To define new function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="o">&lt;</span><span class="n">function_name</span><span class="o">&gt;</span> <span class="o">[</span><span class="n">parameters</span><span class="o">]</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">No keyword is required to end the function definition.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">hello</span>
+        <span class="k">see</span> <span class="s">&quot;Hello from function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="call-functions">
+<span id="index-2"></span><h2>Call Functions<a class="headerlink" href="#call-functions" title="Permalink to this headline">¶</a></h2>
+<p>To call function without parameters, we type the function name then ()</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">We can call the function before the function definition and the function code.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">hello</span>
+        <span class="k">see</span> <span class="s">&quot;Hello from function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">()</span>  <span class="n">second</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">first</span>   <span class="k">see</span> <span class="s">&quot;message from the first function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">func</span> <span class="n">second</span>  <span class="k">see</span> <span class="s">&quot;message from the second function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="declare-parameters">
+<span id="index-3"></span><h2>Declare parameters<a class="headerlink" href="#declare-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To declare the function parameters, after the function name type the list of parameters as a group
+of identifiers separated by comma.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">sum</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-parameters">
+<span id="index-4"></span><h2>Send Parameters<a class="headerlink" href="#send-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To send parameters to function, type the parameters inside () after the function name</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">funcname</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">output</span>
+<span class="o">**</span> <span class="mi">8</span>
+<span class="o">**</span> <span class="mi">3000</span>
+<span class="o">*/</span>
+
+<span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">sum</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">sum</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="main-function">
+<span id="index-5"></span><h2>Main Function<a class="headerlink" href="#main-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the Ring programming language, the Main Function is optional,
+when it&#8217;s defined, it will be executed after the end of other statements.</p>
+<p>if no other statements comes alone, the main function will be the first <a class="reference external" href="http://en.wikipedia.org/wiki/Entry_point">entry point</a></p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># this program will print the hello world message first then execute the main function</span>
+
+<span class="k">See</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="k">see</span> <span class="s">&quot;Message from the main function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables-scope">
+<span id="index-6"></span><h2>Variables Scope<a class="headerlink" href="#variables-scope" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language uses <a class="reference external" href="http://en.wikipedia.org/wiki/Scope_%28computer_science%29#Lexical_scope_vs._dynamic_scope">lexical scoping</a> to
+determine the scope of a variable.</p>
+<p>Variables defined inside functions (including function parameters) are local variables.
+Variables defined outside functions (before any function) are global variables.</p>
+<p>Inside any function we can access the variables defined inside this function beside the global variables.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># the program will print numbers from 10 to 1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                          <span class="c"># x is a global variable.</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>         <span class="c"># t is a local variable</span>
+                <span class="n">mycounter</span><span class="p">()</span>     <span class="c"># call function</span>
+        <span class="k">next</span>
+
+<span class="k">func</span> <span class="n">mycounter</span>
+
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>              <span class="c"># print the global variable value</span>
+        <span class="n">x</span><span class="o">--</span>                     <span class="c"># decrement</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using the main function before the for loop declare the t variable as a local variable,
+It&#8217;s recommended to use the main functions instead of typing the instructions directly to set the scope
+of the new variables to local.</p>
+</div>
+</div>
+<div class="section" id="return-value">
+<span id="index-7"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>The function can return a value using the Return command.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Return</span> <span class="o">[</span><span class="n">Expression</span><span class="o">]</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">the Expression after the return command is optional and we can use the return command
+to end the function execution without returning any value.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if the function doesn&#8217;t return explicit value, it will return NULL (empty string = &#8220;&#8221; ).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="k">See</span> <span class="s">&quot;the function doesn&#39;t return a value&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">novalue</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recursion">
+<span id="index-8"></span><h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language support <a class="reference external" href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion</a>
+and the function can call itself using different parameters.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c"># output = 120</span>
+
+<span class="k">func</span> <span class="n">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions - First Style</a><ul>
+<li><a class="reference internal" href="#define-functions">Define Functions</a></li>
+<li><a class="reference internal" href="#call-functions">Call Functions</a></li>
+<li><a class="reference internal" href="#declare-parameters">Declare parameters</a></li>
+<li><a class="reference internal" href="#send-parameters">Send Parameters</a></li>
+<li><a class="reference internal" href="#main-function">Main Function</a></li>
+<li><a class="reference internal" href="#variables-scope">Variables Scope</a></li>
+<li><a class="reference internal" href="#return-value">Return Value</a></li>
+<li><a class="reference internal" href="#recursion">Recursion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getinput.html"
+                        title="previous chapter">Getting Input</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions2.html"
+                        title="next chapter">Functions  - Second Style</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions2.html" title="Functions - Second Style"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

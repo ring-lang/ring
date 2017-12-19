@@ -15,8 +15,10 @@ struct Items *
 Type: Items
 Mark: ->
 Items *
-ring_items_new
+ring_items_new_gc
 Type: Items *
 pItems
-ring_items_delete
+ring_items_delete_gc
 ring_items_print
+ring_items_new
+ring_items_delete

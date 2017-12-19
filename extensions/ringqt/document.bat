@@ -1,2 +1,3 @@
 ring gendoc.ring
-copy qtclassesdoc.txt ..\..\docs\source\
+ring sortdoc.ring
+copy qtclassesdoc2.txt ..\..\docs\source\qtclassesdoc.txt

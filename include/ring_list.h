@@ -11,67 +11,72 @@ typedef struct List {
 	struct Item **pItemsArray  ;
 	struct HashTable *pHashTable  ;
 } List ;
-/* Functions */
+/*
+**  Functions 
+**  Main List Functions 
+*/
 
-RING_API List * ring_list_new ( int nSize ) ;
+RING_API List * ring_list_new_gc ( void *pState,int nSize ) ;
 
-RING_API void ring_list_newitem ( List *pList ) ;
+RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize ) ;
+
+RING_API void ring_list_newitem_gc ( void *pState,List *pList ) ;
 
 void ring_list_test ( void ) ;
 
 RING_API Item * ring_list_getitem ( List *pList,int index ) ;
 
-RING_API List * ring_list_delete ( List *pList ) ;
+RING_API List * ring_list_delete_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_deleteitem ( List *pList,int index ) ;
+RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
 RING_API void ring_list_print ( List *pList ) ;
 
 RING_API int ring_list_gettype ( List *pList, int index ) ;
 /* int */
 
-RING_API void ring_list_setint ( List *pList, int index ,int number ) ;
+RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;
 
-RING_API void ring_list_addint ( List *pList,int x ) ;
+RING_API void ring_list_addint_gc ( void *pState,List *pList,int x ) ;
 /* Pointers */
 
-RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
+RING_API void ring_list_setpointer_gc ( void *pState,List *pList, int index ,void *pValue ) ;
 
-RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
+RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue ) ;
 /* Function Pointers */
 
-RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
+RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) ) ;
 
-RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
+RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFunc)(void *) ) ;
 
 RING_API int ring_list_isfuncpointer ( List *pList, int index ) ;
 
 void ring_list_testfuncpointer ( void *pPointer ) ;
 /* double */
 
-RING_API void ring_list_setdouble ( List *pList, int index ,double number ) ;
+RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,double number ) ;
 
-RING_API void ring_list_adddouble ( List *pList,double x ) ;
+RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
 /* String */
 
-RING_API void ring_list_setstring ( List *pList, int index ,const char *str ) ;
+RING_API void ring_list_setstring_gc ( void *pState,List *pList, int index ,const char *str ) ;
 
-RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
+RING_API void ring_list_setstring2_gc ( void *pState,List *pList, int index ,const char *str,int nStrSize ) ;
 
-RING_API void ring_list_addstring ( List *pList,const char *str ) ;
+RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str ) ;
 
-RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
 /* List */
 
-RING_API List * ring_list_newlist ( List *pList ) ;
+RING_API List * ring_list_newlist_gc ( void *pState,List *pList ) ;
+
+RING_API void ring_list_setlist_gc ( void *pState,List *pList, int index ) ;
 
 RING_API List * ring_list_getlist ( List *pList, int index ) ;
 
-RING_API void ring_list_setlist ( List *pList, int index ) ;
-
 RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index ) ;
 
-RING_API void ring_list_copy ( List *pNewList, List *pList ) ;
+RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
 RING_API int ring_list_isnumber ( List *pList, int index ) ;
 
@@ -81,24 +86,24 @@ RING_API int ring_list_islist ( List *pList, int index ) ;
 
 RING_API int ring_list_ispointer ( List *pList, int index ) ;
 
-RING_API void ring_list_deleteallitems ( List *pList ) ;
+RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
 /* Insert Items */
 
-RING_API void ring_list_insertitem ( List *pList,int x ) ;
+RING_API void ring_list_insertitem_gc ( void *pState,List *pList,int x ) ;
 
-RING_API void ring_list_insertint ( List *pList,int nPos,int x ) ;
+RING_API void ring_list_insertint_gc ( void *pState,List *pList,int nPos,int x ) ;
 
-RING_API void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
+RING_API void ring_list_insertdouble_gc ( void *pState,List *pList,int nPos,double x ) ;
 
-RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
+RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,int nPos,void *pValue ) ;
 
-RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
+RING_API void ring_list_insertstring_gc ( void *pState,List *pList,int nPos,const char *str ) ;
 
-RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
+RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,int nPos,const char *str,int nStrSize ) ;
 
-RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
+RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,int nPos,void (*pFunc)(void *) ) ;
 
-RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
+RING_API List * ring_list_insertlist_gc ( void *pState,List *pList,int nPos ) ;
 /* Is item inside list, support nested Lists */
 
 RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
@@ -117,7 +122,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
+RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
 RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,const char *cAttribute ) ;
 
@@ -130,14 +135,14 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,c
 RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
 /* List Items to Array */
 
-RING_API void ring_list_genarray ( List *pList ) ;
+RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_deletearray ( List *pList ) ;
+RING_API void ring_list_deletearray_gc ( void *pState,List *pList ) ;
 /* List Items to HashTable */
 
-RING_API void ring_list_genhashtable ( List *pList ) ;
+RING_API void ring_list_genhashtable_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_genhashtable2 ( List *pList ) ;
+RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList ) ;
 
 RING_API void ring_list_refcopy ( List *pNewList, List *pList ) ;
 
@@ -161,4 +166,80 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 #define ring_list_getsize(x) (x->nSize)
 #define RING_VM_LISTOFOBJS_FINDSTRING 1
 #define RING_VM_LISTOFOBJS_FINDNUMBER 0
+#define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
+/* Define functions without RingState * */
+
+RING_API List * ring_list_new ( int nSize ) ;
+
+RING_API void ring_list_genarray ( List *pList ) ;
+
+RING_API List * ring_list_delete ( List *pList ) ;
+
+RING_API void ring_list_deletearray ( List *pList ) ;
+
+RING_API void ring_list_newitem ( List *pList ) ;
+
+RING_API void ring_list_deleteitem ( List *pList,int index ) ;
+/* int */
+
+RING_API void ring_list_setint ( List *pList, int index ,int number ) ;
+
+RING_API void ring_list_addint ( List *pList,int x ) ;
+/* Pointers */
+
+RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
+
+RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
+/* Function Pointers */
+
+RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
+
+RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
+/* double */
+
+RING_API void ring_list_setdouble ( List *pList, int index ,double number ) ;
+
+RING_API void ring_list_adddouble ( List *pList,double x ) ;
+/* String */
+
+RING_API void ring_list_setstring ( List *pList, int index ,const char *str ) ;
+
+RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
+
+RING_API void ring_list_addstring ( List *pList,const char *str ) ;
+
+RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+/* List */
+
+RING_API List * ring_list_newlist ( List *pList ) ;
+
+RING_API void ring_list_setlist ( List *pList, int index ) ;
+
+RING_API void ring_list_copy ( List *pNewList, List *pList ) ;
+
+RING_API void ring_list_deleteallitems ( List *pList ) ;
+/* Insert Items */
+
+RING_API void ring_list_insertitem ( List *pList,int x ) ;
+
+RING_API void ring_list_insertint ( List *pList,int nPos,int x ) ;
+
+RING_API void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
+
+RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
+
+RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
+
+RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
+
+RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
+
+RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
+
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
+/* List Items to HashTable */
+
+RING_API void ring_list_genhashtable ( List *pList ) ;
+
+RING_API void ring_list_genhashtable2 ( List *pList ) ;
 #endif

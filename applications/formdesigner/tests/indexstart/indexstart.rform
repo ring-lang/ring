@@ -1,0 +1,109 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 23 , : y = 64  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Index Start" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "ListWidget1" , :id = 2 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 8 , : y = 10  , 
+		 :width =  222 , :height = 159 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :cItems =  "one,two,three,four,five",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Combobox1" , :id = 3 , :classname = "formdesigner_qcombobox" , :data = [
+		 :x = 2 , : y = 184  , 
+		 :width =  249 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :cItems =  "one,two,three,four,five",
+		 :cCurrentIndex =  "",
+		 :setactivatedEvent =  "",
+		 :setcurrentIndexChangedEvent =  "",
+		 :seteditTextChangedEvent =  "",
+		 :sethighlightedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 12 , : y = 249  , 
+		 :width =  202 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Selected Item",
+		 :BtnImage =  "",
+		 :setClickEvent =  "getindex"
+		]
+	],
+	[ :name = "LineEdit1" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 5 , : y = 292  , 
+		 :width =  53 , :height = 25 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit2" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 69 , : y = 293  , 
+		 :width =  53 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 11 , : y = 332  , 
+		 :width =  191 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Select First Items",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SelectFirst"
+		]
+	]
+]
+# End Form Designer File

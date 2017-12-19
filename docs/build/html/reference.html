@@ -1,0 +1,1216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Language Reference &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Frequently Asked Questions (FAQ)" href="faq.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Resources"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="faq.html" title="Frequently Asked Questions (FAQ)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="language-reference">
+<span id="index-0"></span><h1>Language Reference<a class="headerlink" href="#language-reference" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about</p>
+<ul class="simple">
+<li>Language keywords</li>
+<li>Language Functions</li>
+<li>Compiler Errors</li>
+<li>Runtime Errors</li>
+<li>Environment Errors</li>
+<li>Language Grammar</li>
+<li>Virtual Machine (VM) Instructions</li>
+</ul>
+<div class="section" id="language-keywords">
+<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this headline">¶</a></h2>
+<p>Keywords Count : 49</p>
+<ul class="simple">
+<li>again</li>
+<li>and</li>
+<li>but</li>
+<li>bye</li>
+<li>call</li>
+<li>case</li>
+<li>catch</li>
+<li>changeringkeyword</li>
+<li>changeringoperator</li>
+<li>class</li>
+<li>def</li>
+<li>do</li>
+<li>done</li>
+<li>else</li>
+<li>elseif</li>
+<li>end</li>
+<li>exit</li>
+<li>for</li>
+<li>from</li>
+<li>func</li>
+<li>get</li>
+<li>give</li>
+<li>if</li>
+<li>import</li>
+<li>in</li>
+<li>load</li>
+<li>loadsyntax</li>
+<li>loop</li>
+<li>new</li>
+<li>next</li>
+<li>not</li>
+<li>off</li>
+<li>ok</li>
+<li>on</li>
+<li>or</li>
+<li>other</li>
+<li>package</li>
+<li>private</li>
+<li>put</li>
+<li>return</li>
+<li>see</li>
+<li>step</li>
+<li>switch</li>
+<li>to</li>
+<li>try</li>
+<li>while</li>
+<li>endfunc</li>
+<li>endclass</li>
+<li>endpackage</li>
+</ul>
+</div>
+<div class="section" id="language-functions">
+<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions Count : 199</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">len</span><span class="p">()</span> <span class="n">add</span><span class="p">()</span> <span class="n">del</span><span class="p">()</span> <span class="n">sysget</span><span class="p">()</span> <span class="n">clock</span><span class="p">()</span> <span class="n">lower</span><span class="p">()</span>
+<span class="n">upper</span><span class="p">()</span> <span class="n">input</span><span class="p">()</span> <span class="n">ascii</span><span class="p">()</span> <span class="n">char</span><span class="p">()</span> <span class="n">date</span><span class="p">()</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">filename</span><span class="p">()</span> <span class="n">getchar</span><span class="p">()</span> <span class="n">system</span><span class="p">()</span> <span class="n">random</span><span class="p">()</span> <span class="n">timelist</span><span class="p">()</span> <span class="n">adddays</span><span class="p">()</span>
+<span class="n">diffdays</span><span class="p">()</span> <span class="n">version</span><span class="p">()</span> <span class="n">clockspersecond</span><span class="p">()</span> <span class="n">prevfilename</span><span class="p">()</span> <span class="n">swap</span><span class="p">()</span> <span class="n">shutdown</span><span class="p">()</span>
+<span class="n">isstring</span><span class="p">()</span> <span class="n">isnumber</span><span class="p">()</span> <span class="n">islist</span><span class="p">()</span> <span class="n">type</span><span class="p">()</span> <span class="n">isnull</span><span class="p">()</span> <span class="n">isobject</span><span class="p">()</span>
+<span class="n">hex</span><span class="p">()</span> <span class="n">dec</span><span class="p">()</span> <span class="n">number</span><span class="p">()</span> <span class="kt">string</span><span class="p">()</span> <span class="n">str2hex</span><span class="p">()</span> <span class="n">hex2str</span><span class="p">()</span>
+<span class="n">str2list</span><span class="p">()</span> <span class="n">list2str</span><span class="p">()</span> <span class="n">str2hexcstyle</span><span class="p">()</span> <span class="n">left</span><span class="p">()</span> <span class="n">right</span><span class="p">()</span> <span class="n">trim</span><span class="p">()</span>
+<span class="n">copy</span><span class="p">()</span> <span class="n">substr</span><span class="p">()</span> <span class="n">lines</span><span class="p">()</span> <span class="n">strcmp</span><span class="p">()</span> <span class="n">eval</span><span class="p">()</span> <span class="n">raise</span><span class="p">()</span>
+<span class="n">assert</span><span class="p">()</span> <span class="n">isalnum</span><span class="p">()</span> <span class="n">isalpha</span><span class="p">()</span> <span class="n">iscntrl</span><span class="p">()</span> <span class="n">isdigit</span><span class="p">()</span> <span class="n">isgraph</span><span class="p">()</span>
+<span class="n">islower</span><span class="p">()</span> <span class="n">isprint</span><span class="p">()</span> <span class="n">ispunct</span><span class="p">()</span> <span class="n">isspace</span><span class="p">()</span> <span class="n">isupper</span><span class="p">()</span> <span class="n">isxdigit</span><span class="p">()</span>
+<span class="n">locals</span><span class="p">()</span> <span class="n">globals</span><span class="p">()</span> <span class="n">functions</span><span class="p">()</span> <span class="n">cfunctions</span><span class="p">()</span> <span class="n">islocal</span><span class="p">()</span> <span class="n">isglobal</span><span class="p">()</span>
+<span class="n">isfunction</span><span class="p">()</span> <span class="n">iscfunction</span><span class="p">()</span> <span class="n">packages</span><span class="p">()</span> <span class="n">ispackage</span><span class="p">()</span> <span class="n">classes</span><span class="p">()</span> <span class="n">isclass</span><span class="p">()</span>
+<span class="n">packageclasses</span><span class="p">()</span> <span class="n">ispackageclass</span><span class="p">()</span> <span class="n">classname</span><span class="p">()</span>
+<span class="n">objectid</span><span class="p">()</span> <span class="n">attributes</span><span class="p">()</span> <span class="n">methods</span><span class="p">()</span>
+<span class="n">isattribute</span><span class="p">()</span> <span class="n">ismethod</span><span class="p">()</span> <span class="n">isprivateattribute</span><span class="p">()</span>
+<span class="n">isprivatemethod</span><span class="p">()</span> <span class="n">addattribute</span><span class="p">()</span> <span class="n">addmethod</span><span class="p">()</span>
+<span class="n">getattribute</span><span class="p">()</span> <span class="n">setattribute</span><span class="p">()</span> <span class="n">mergemethods</span><span class="p">()</span>
+<span class="n">packagename</span><span class="p">()</span> <span class="n">ringvm_fileslist</span><span class="p">()</span> <span class="n">ringvm_calllist</span><span class="p">()</span>
+<span class="n">ringvm_memorylist</span><span class="p">()</span> <span class="n">ringvm_functionslist</span><span class="p">()</span>
+<span class="n">ringvm_classeslist</span><span class="p">()</span> <span class="n">ringvm_packageslist</span><span class="p">()</span>
+<span class="n">ringvm_cfunctionslist</span><span class="p">()</span> <span class="n">ringvm_settrace</span><span class="p">()</span>
+<span class="n">ringvm_tracedata</span><span class="p">()</span> <span class="n">ringvm_traceevent</span><span class="p">()</span> <span class="n">ringvm_tracefunc</span><span class="p">()</span>
+<span class="n">ringvm_scopescount</span><span class="p">()</span> <span class="n">ringvm_evalinscope</span><span class="p">()</span> <span class="n">ringvm_passerror</span><span class="p">()</span>
+<span class="n">ringvm_hideerrormsg</span><span class="p">()</span> <span class="n">ringvm_callfunc</span><span class="p">()</span>
+<span class="kt">list</span><span class="p">()</span> <span class="n">find</span><span class="p">()</span> <span class="n">min</span><span class="p">()</span> <span class="n">max</span><span class="p">()</span>
+<span class="n">insert</span><span class="p">()</span> <span class="n">sort</span><span class="p">()</span> <span class="n">reverse</span><span class="p">()</span> <span class="n">binarysearch</span><span class="p">()</span> <span class="n">sin</span><span class="p">()</span> <span class="n">cos</span><span class="p">()</span>
+<span class="n">tan</span><span class="p">()</span> <span class="n">asin</span><span class="p">()</span> <span class="n">acos</span><span class="p">()</span> <span class="n">atan</span><span class="p">()</span> <span class="n">atan2</span><span class="p">()</span> <span class="n">sinh</span><span class="p">()</span>
+<span class="n">cosh</span><span class="p">()</span> <span class="n">tanh</span><span class="p">()</span> <span class="n">exp</span><span class="p">()</span> <span class="n">log</span><span class="p">()</span> <span class="n">log10</span><span class="p">()</span> <span class="n">ceil</span><span class="p">()</span>
+<span class="n">floor</span><span class="p">()</span> <span class="n">fabs</span><span class="p">()</span> <span class="n">pow</span><span class="p">()</span> <span class="n">sqrt</span><span class="p">()</span> <span class="n">unsigned</span><span class="p">()</span> <span class="n">decimals</span><span class="p">()</span>
+<span class="n">murmur3hash</span><span class="p">()</span> <span class="n">fopen</span><span class="p">()</span> <span class="n">fclose</span><span class="p">()</span> <span class="n">fflush</span><span class="p">()</span> <span class="n">freopen</span><span class="p">()</span> <span class="n">tempfile</span><span class="p">()</span>
+<span class="n">tempname</span><span class="p">()</span> <span class="n">fseek</span><span class="p">()</span> <span class="n">ftell</span><span class="p">()</span> <span class="n">rewind</span><span class="p">()</span> <span class="n">fgetpos</span><span class="p">()</span> <span class="n">fsetpos</span><span class="p">()</span>
+<span class="n">clearerr</span><span class="p">()</span> <span class="n">feof</span><span class="p">()</span> <span class="n">ferror</span><span class="p">()</span> <span class="n">perror</span><span class="p">()</span> <span class="n">rename</span><span class="p">()</span> <span class="n">remove</span><span class="p">()</span>
+<span class="n">fgetc</span><span class="p">()</span> <span class="n">fgets</span><span class="p">()</span> <span class="n">fputc</span><span class="p">()</span> <span class="n">fputs</span><span class="p">()</span> <span class="n">ungetc</span><span class="p">()</span> <span class="n">fread</span><span class="p">()</span>
+<span class="n">fwrite</span><span class="p">()</span> <span class="n">dir</span><span class="p">()</span> <span class="n">read</span><span class="p">()</span> <span class="n">write</span><span class="p">()</span> <span class="n">fexists</span><span class="p">()</span> <span class="n">int2bytes</span><span class="p">()</span>
+<span class="n">float2bytes</span><span class="p">()</span> <span class="n">double2bytes</span><span class="p">()</span> <span class="n">bytes2int</span><span class="p">()</span>
+<span class="n">bytes2float</span><span class="p">()</span> <span class="n">bytes2double</span><span class="p">()</span> <span class="n">ismsdos</span><span class="p">()</span>
+<span class="n">iswindows</span><span class="p">()</span> <span class="n">iswindows64</span><span class="p">()</span> <span class="n">isunix</span><span class="p">()</span>
+<span class="n">ismacosx</span><span class="p">()</span> <span class="n">islinux</span><span class="p">()</span> <span class="n">isfreebsd</span><span class="p">()</span>
+<span class="n">isandroid</span><span class="p">()</span> <span class="n">windowsnl</span><span class="p">()</span> <span class="n">currentdir</span><span class="p">()</span>
+<span class="n">exefilename</span><span class="p">()</span> <span class="n">chdir</span><span class="p">()</span> <span class="n">exefolder</span><span class="p">()</span>
+<span class="n">loadlib</span><span class="p">()</span> <span class="n">closelib</span><span class="p">()</span> <span class="n">callgc</span><span class="p">()</span> <span class="n">varptr</span><span class="p">()</span>
+<span class="n">intvalue</span><span class="p">()</span> <span class="n">object2pointer</span><span class="p">()</span>
+<span class="n">pointer2object</span><span class="p">()</span> <span class="n">nullpointer</span><span class="p">()</span> <span class="n">space</span><span class="p">()</span>
+<span class="n">ptrcmp</span><span class="p">()</span> <span class="n">ring_state_init</span><span class="p">()</span> <span class="n">ring_state_runcode</span><span class="p">()</span>
+<span class="n">ring_state_delete</span><span class="p">()</span> <span class="n">ring_state_runfile</span><span class="p">()</span> <span class="n">ring_state_findvar</span><span class="p">()</span>
+<span class="n">ring_state_newvar</span><span class="p">()</span> <span class="n">ring_state_runobjectfile</span><span class="p">()</span> <span class="n">ring_state_main</span><span class="p">()</span>
+<span class="n">ring_state_setvar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compiler-errors">
+<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Error (C1)  : Error in parameters list, expected identifier</li>
+<li>Error (C2)  : Error in class name</li>
+<li>Error (C3)  : Unclosed control strucutre, &#8216;ok&#8217; is missing</li>
+<li>Error (C4)  : Unclosed control strucutre, &#8216;end&#8217; is missing</li>
+<li>Error (C5)  : Unclosed control strucutre, next is missing</li>
+<li>Error (C6)  : Error in function name</li>
+<li>Error (C7)  : Error in list items</li>
+<li>Error (C8)  : Parentheses &#8216;)&#8217; is missing</li>
+<li>Error (C9)  : Brackets &#8216;]&#8217; is missing</li>
+<li>Error (C10) : Error in parent class name</li>
+<li>Error (C11) : Error in expression operator</li>
+<li>Error (C12) : No class definition</li>
+<li>Error (C13) : Error in variable name</li>
+<li>Error (C14) : Try/Catch miss the Catch keyword!</li>
+<li>Error (C15) : Try/Catch miss the Done keyword!</li>
+<li>Error (C16) : Error in Switch statement expression!</li>
+<li>Error (C17) : Switch statement without OFF</li>
+<li>Error (C18) : Missing closing brace for the block opened!</li>
+<li>Error (C19) : Numeric Overflow!</li>
+<li>Error (C20) : Error in package name</li>
+<li>Error (C21) : Unclosed control strucutre, &#8216;again&#8217; is missing</li>
+<li>Error (C22) : Function redefinition, function is already defined!</li>
+<li>Error (C23) : Using &#8216;(&#8216; after number!</li>
+<li>Error (C24) : The parent class name is identical to the subclass name</li>
+<li>Error (C25) : Trying to access the self reference after the object name&#8221;</li>
+<li>Error (C26) : Class redefinition, class is already defined!</li>
+</ul>
+</div>
+<div class="section" id="runtime-errors">
+<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Error (R1)  : Cann&#8217;t divide by zero !</li>
+<li>Error (R2)  : Array Access (Index out of range) !</li>
+<li>Error (R3)  : Calling Function without definition !</li>
+<li>Error (R4)  : Stack Overflow !</li>
+<li>Error (R5)  : Can&#8217;t access the list item, Object is not list !</li>
+<li>Error (R6)  : Variable is required</li>
+<li>Error (R7)  : Can&#8217;t assign to a string letter more than one character</li>
+<li>Error (R8)  : Variable is not a string</li>
+<li>Error (R9)  : Using exit command outside loops</li>
+<li>Error (R10) : Using exit command with number outside the range</li>
+<li>Error (R11) : error in class name, class not found!</li>
+<li>Error (R12) : error in property name, property not found!</li>
+<li>Error (R13) : Object is required</li>
+<li>Error (R14) : Calling Method without definition !</li>
+<li>Error (R15) : error in parent class name, class not found!</li>
+<li>Error (R16) : Using braces to access unknown object !</li>
+<li>Error (R17) : error, using &#8216;Super&#8217; without parent class!</li>
+<li>Error (R18) : Numeric Overflow!</li>
+<li>Error (R19) : Calling function with less number of parameters!</li>
+<li>Error (R20) : Calling function with extra number of parameters!</li>
+<li>Error (R21) : Using operator with values of incorrect type</li>
+<li>Error (R22) : Using loop command outside loops</li>
+<li>Error (R23) : Using loop command with number outside the range</li>
+<li>Error (R24) : Using uninitialized variable</li>
+<li>Error (R25) : Error in package name, Package not found!</li>
+<li>Error (R26) : Calling private method from outside the class</li>
+<li>Error (R27) : Using private attribute from outside the class</li>
+<li>Error (R28) : Using bad data type as step value</li>
+<li>Error (R29) : Using bad data type in for loop</li>
+<li>Error (R30) : parent class name is identical to child class name</li>
+<li>Error (R31) : Trying to destory the object using the self reference</li>
+<li>Error (R32) : The CALL command expect a variable contains string!</li>
+<li>Error (R33) : Bad decimals number (correct range &gt;= 0 and &lt;=14) !</li>
+<li>Error (R34) : Variable is required for the assignment operation</li>
+<li>Error (R35) : Can&#8217;t create/open the file!</li>
+<li>Error (R36) : The column number is not correct! It&#8217;s greater than the number of columns in the list</li>
+<li>Error (R37) : Sorry, The command is not supported in this context</li>
+<li>Error (R38) : Runtime Error in loading the dynamic library!</li>
+<li>Error (R39) : Error occurred creating unique filename.</li>
+</ul>
+</div>
+<div class="section" id="environment-errors">
+<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Error (E1) : Caught SegFault</li>
+<li>Error (E2) : Out of Memory</li>
+<li>Error (E3) : Deleting scope while no scope!</li>
+<li>Error (E4) : Long VM Instruction!</li>
+</ul>
+</div>
+<div class="section" id="language-grammar">
+<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this headline">¶</a></h2>
+<p>Program &#8212;&gt; {statement}</p>
+<p>Statement &#8212;&gt; &#8216;package&#8217; &lt;Identifier&gt; { &#8216;.&#8217; &lt;Identifier&gt; } [&#8216;{&#8216; {statement} &#8216;}&#8217;] [&#8216;end&#8217;|&#8217;endpackage&#8217;]</p>
+<p>Statement &#8212;&gt; &#8216;class&#8217; &lt;Identifier&gt; [ &#8216;from&#8217;|&#8217;:&#8217;|&#8217;&lt;&#8217; &lt;Identifier&gt; ] [&#8216;{&#8216; {statement} &#8216;}&#8217;][&#8216;end&#8217;|&#8217;endclass&#8217;]</p>
+<p>Statement &#8212;&gt; &#8216;func&#8217;|&#8217;def&#8217; &lt;Identifier&gt; [ParaList] [&#8216;{&#8216; {statement} &#8216;}&#8217;][&#8216;end&#8217;|&#8217;endfunc&#8217;]</p>
+<p>Statement &#8212;&gt; &#8216;import&#8217; &lt;Identifier&gt; { &#8216;.&#8217; &lt;Identifier&gt; }</p>
+<p>Statement &#8212;&gt; &#8216;private&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;load&#8217; &lt;Literal&gt;</p>
+<p>Statement &#8212;&gt; &#8216;loadsyntax&#8217; &lt;Literal&gt;</p>
+<p>Statement &#8212;&gt; &#8216;changeringkeyword&#8217; &lt;OldKeyword&gt; &lt;NewKeyword&gt;</p>
+<p>Statement &#8212;&gt; &#8216;changeringoperator&#8217; &lt;OldOperator&gt; &lt;NewOperator&gt;</p>
+<p>Statement &#8212;&gt; &#8216;see&#8217;|&#8217;put&#8217; &lt;Expr&gt;</p>
+<p>Statement &#8212;&gt; &#8216;give&#8217;|&#8217;get&#8217; &lt;Identifier&gt;</p>
+<p>Statement &#8212;&gt; &#8216;if&#8217; &lt;Expr&gt; [&#8216;{&#8216;] {statement} [ {&#8216;but&#8217;|&#8217;elseif&#8217; &lt;Expr&gt; {Statement} } ] [&#8216;else&#8217; {Statement} ] &#8216;ok&#8217;|&#8217;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;Switch&#8217; &lt;Expr&gt; [&#8216;{&#8216;] { &#8216;on&#8217;|&#8217;case&#8217; &lt;Expr&gt; {statement} } [&#8216;other&#8217; {Statement} ]  &#8216;off&#8217;|&#8217;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;for&#8217; &lt;Identifier&gt; &#8216;=&#8217; &lt;Expr&gt; &#8216;to&#8217; &lt;Expr&gt; [ &#8216;step&#8217; &lt;Expr&gt; ] [&#8216;{&#8216;] {Statement} &#8216;next&#8217;|&#8217;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;for&#8217; &lt;Identifier&gt; &#8216;in&#8217; &lt;Expr&gt;  [ &#8216;step&#8217; &lt;Expr&gt; ] [&#8216;{&#8216;] {statement} &#8216;next&#8217;|&#8217;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;while&#8217; &lt;Expr&gt; [&#8216;{&#8216;] {statement} &#8216;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;do&#8217; {statement} &#8216;again&#8217; &lt;Expr&gt;</p>
+<p>Statement &#8212;&gt; &#8216;try&#8217; {statement} [&#8216;{&#8216;] &#8216;catch&#8217; {statement} &#8216;done&#8217;|&#8217;end&#8217;|&#8217;}&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;return&#8217; &lt;Expr&gt;</p>
+<p>Statement &#8212;&gt; &#8216;bye&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;exit&#8217;</p>
+<p>Statement &#8212;&gt; &#8216;loop&#8217;</p>
+<p>Statement &#8212;&gt; &lt;Expr&gt;</p>
+<p>Statement &#8212;&gt; epslion</p>
+<p>ParaList &#8212;&gt; epslion</p>
+<p>ParaList &#8212;&gt; [&#8216;(&#8216;] &lt;Identifier&gt; [{ &#8216;,&#8217; &lt;Identifier&gt; }] [&#8216;)&#8217;]</p>
+<p>Expr &#8212;&gt; &lt;LogicNot&gt; [{ &#8216;and&#8217;|&#8217;or&#8217; &lt;LogicNot&gt; }]</p>
+<p>LogicNot &#8211;&gt; [&#8216;not&#8217;] &lt;EqualOrNot&gt;</p>
+<p>EqualOrNot &#8211;&gt; [ &#8216;=&#8217;|&#8217;!=&#8217; ] &lt;Compare&gt;</p>
+<p>Compare &#8212;&gt; &lt;BitOrXor&gt; [ { &#8216;&lt;&#8217; | &#8216;&gt;&#8217; | &#8216;&lt;=&#8217; | &#8216;&gt;=&#8217; &lt;BitOrXor&gt; } ]</p>
+<p>BitOrXor &#8212;&gt; &lt;BitAnd&gt; [ { &#8216;|&#8217; | &#8216;^&#8217; &lt;BitAnd&gt; } ]</p>
+<p>BitAnd &#8212;&gt; &lt;BitShift&gt; [ { &#8216;&amp;&#8217; &lt;BitShift&gt; } ]</p>
+<p>BitShift &#8212;&gt; &lt;Arithmetic&gt; [ { &#8216;&lt;&lt;&#8217; | &#8216;&gt;&gt;&#8217; &lt;Arithmetic&gt; } ]</p>
+<p>Arithmetic &#8212;&gt; &lt;Term&gt; [ { &#8216;+&#8217; | &#8216;-&#8216;  &lt;Term&gt;  } ]</p>
+<p>Term &#8212;&gt; &lt;Range&gt; [ { &#8216;*&#8217; | &#8216;/&#8217; | &#8216;%&#8217; &lt;Range&gt; } ]</p>
+<p>Range &#8212;&gt; &lt;Factor&gt; [ &#8216;:&#8217; &lt;Factor&gt; ]</p>
+<p>Factor &#8212;&gt; &lt;Identifier&gt; [ {Mixer} ] [ &#8216;=&#8217; &lt;Expr&gt; ]</p>
+<p>Factor &#8212;&gt; &lt;Number&gt;</p>
+<p>Factor &#8212;&gt; &lt;Literal&gt;</p>
+<p>Factor &#8212;&gt; &#8216;:&#8217; &lt;Identifier&gt;</p>
+<p>Factor &#8212;&gt; &#8216;-&#8216; &lt;Expr&gt;</p>
+<p>Factor &#8212;&gt; &#8216;(&#8216; &lt;Expr&gt; &#8216;)&#8217;</p>
+<p>Factor &#8212;&gt; &lt;List&gt;</p>
+<p>Factor &#8212;&gt; &#8216;new&#8217; &lt;Identifier&gt;</p>
+<p>Factor &#8212;&gt; &lt;AnonymousFunction&gt;</p>
+<p>Factor &#8212;&gt; &#8216;call&#8217; &lt;identifier&gt; { &#8216;.&#8217; &lt;Identifier&gt; } &#8216;(&#8216; &lt;Parameters&gt; &#8216;)&#8217;</p>
+<p>List &#8212;&gt; &#8216;[&#8216; [ &lt;Expr&gt; { &#8216;,&#8217; &lt;Expr&gt; } ] &#8216;]&#8217;</p>
+<p>Mixer &#8212;&gt; { &#8216;.&#8217; &lt;Identifier&gt; }</p>
+<p>Mixer &#8212;&gt; &#8216;[&#8216; &lt;Expr&gt; &#8216;]&#8217;</p>
+<p>Mixer &#8212;&gt; &#8216;(&#8216; [ &lt;Expr&gt; [ { &#8216;,&#8217; &lt;Expr&gt; }] ]  &#8216;)&#8217;</p>
+<p>Mixer &#8212;&gt; &#8216;{&#8216; {Statement} &#8216;}&#8217;</p>
+<p>AnonymousFunction &#8212;&gt; &#8216;func&#8217;|&#8217;def&#8217;| [&lt;ParaList&gt;] &#8216;{&#8216; {Statement} &#8216;}&#8217;</p>
+</div>
+<div class="section" id="virtual-machine-vm-instructions">
+<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Definitions :-</p>
+<ul class="simple">
+<li>VM : Virtual Machine</li>
+<li>Stack : VM Stack</li>
+<li>IR : Instruction Register</li>
+<li>PC : Program Counter</li>
+<li>VP : Variable Pointer</li>
+<li>Stack[nSize] : Last Item in the Stack (Last In - First Out)</li>
+<li>VV : Variable Value (We have a Pointer to a variable, And we access this variable value)</li>
+</ul>
+<p>(Stack and Variables)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PUSHC</li>
+</ul>
+</td>
+<td>Add string from the IR to the stack</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_PUSHN</li>
+</ul>
+</td>
+<td>Add number from the IR to the stack</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PUSHV</li>
+</ul>
+</td>
+<td>Replace VP in the stack[nSize] with the variable value</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_LOADADDRESS</li>
+</ul>
+</td>
+<td>Read variable name from the IR, push VP to the stack</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_ASSIGNMENT</li>
+</ul>
+</td>
+<td>Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_INC</li>
+</ul>
+</td>
+<td>Increment Number in Stack[nSize] by 1</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LOADAPUSHV</li>
+</ul>
+</td>
+<td>The same as ICO_LOADADDRESS then ICO_PUSHV</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_NEWLINE</li>
+</ul>
+</td>
+<td>Store new line number (debug info)</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_FREESTACK</li>
+</ul>
+</td>
+<td>Remove all items from the stack , nSize = 0</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_FILENAME</li>
+</ul>
+</td>
+<td>Store the source code file name (debug info)</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_FREELOADASCOPE</li>
+</ul>
+</td>
+<td>Free the Scope List of the current Expression</td>
+</tr>
+</tbody>
+</table>
+<p>(Jump)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMP</li>
+</ul>
+</td>
+<td>Set PC to new value from the IR</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_JUMPZERO</li>
+</ul>
+</td>
+<td>If Stack[nSize] is a number = 0 then Set PC to new value from the IR</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMPFOR</li>
+</ul>
+</td>
+<td>End of for loop</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_JUMPONE</li>
+</ul>
+</td>
+<td>If Stack[nSize] is a number = 1 then Set PC to new value from the IR</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMPZERO2</li>
+</ul>
+</td>
+<td>As ICO_JUMPZERO but add 1 to the stack (required for many &#8216;AND&#8217; conditions)</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_JUMPONE2</li>
+</ul>
+</td>
+<td>As ICO_JUMPONE but add 1 to the stack (required for many &#8216;OR&#8217; conditions)</td>
+</tr>
+</tbody>
+</table>
+<p>(Compare)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LESSEQUAL</li>
+</ul>
+</td>
+<td>If stack[nSize-1] &lt;= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_EQUAL</li>
+</ul>
+</td>
+<td>If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LESS</li>
+</ul>
+</td>
+<td>If stack[nSize-1] &lt; stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_GREATER</li>
+</ul>
+</td>
+<td>If stack[nSize-1] &gt; stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_GREATEREQUAL</li>
+</ul>
+</td>
+<td>If stack[nSize-1] &gt;= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_NOTEQUAL</li>
+</ul>
+</td>
+<td>If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</td>
+</tr>
+</tbody>
+</table>
+<p>(Math)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_SUM</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_SUB</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_MUL</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_DIV</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_MOD</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_NEG</li>
+</ul>
+</td>
+<td>Stack[nSize] = - Stack[nSize-1]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PLUSPLUS</li>
+</ul>
+</td>
+<td>Stack[nSize] = Stack[nSize] + 1</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_MINUSMINUS</li>
+</ul>
+</td>
+<td>Stack[nSize] = Stack[nSize] - 1</td>
+</tr>
+</tbody>
+</table>
+<p>(Logic)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_AND</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] &amp;&amp; Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_OR</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_NOT</li>
+</ul>
+</td>
+<td>Stack[nSize]   = ! Stack[nSize]</td>
+</tr>
+</tbody>
+</table>
+<p>(Lists)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LISTSTART</li>
+</ul>
+</td>
+<td>Start New List in Temp. Memory</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_LISTITEM</li>
+</ul>
+</td>
+<td>Add List Item</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LISTEND</li>
+</ul>
+</td>
+<td>End List</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_LOADINDEXADDRESS</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]</td>
+</tr>
+</tbody>
+</table>
+<p>(Functions)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LOADFUNC</li>
+</ul>
+</td>
+<td>Find function</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_CALL</li>
+</ul>
+</td>
+<td>Call function</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_RETURN</li>
+</ul>
+</td>
+<td>Return from function</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_RETNULL</li>
+</ul>
+</td>
+<td>Return NULl from function</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_RETFROMEVAL</li>
+</ul>
+</td>
+<td>Return after eval()</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_RETITEMREF</li>
+</ul>
+</td>
+<td>Return the list item reference - not the value</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_NEWFUNC</li>
+</ul>
+</td>
+<td>Start new function</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BLOCKFLAG</li>
+</ul>
+</td>
+<td>Flag to determine where to jump later (after ICO_RETURN)</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_FUNCEXE</li>
+</ul>
+</td>
+<td>Start executing function</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_ENDFUNCEXE</li>
+</ul>
+</td>
+<td>End function execution</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_ANONYMOUS</li>
+</ul>
+</td>
+<td>Anonymous function</td>
+</tr>
+</tbody>
+</table>
+<p>(User Interface)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PRINT</li>
+</ul>
+</td>
+<td>Print value to the standard output</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_GIVE</li>
+</ul>
+</td>
+<td>Get input from the keyboard</td>
+</tr>
+</tbody>
+</table>
+<p>(End Program/Loop)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_BYE</li>
+</ul>
+</td>
+<td>End execution of VM</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_EXITMARK</li>
+</ul>
+</td>
+<td>Place to exit to from a loop</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_POPEXITMARK</li>
+</ul>
+</td>
+<td>Remove exit mark</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_EXIT</li>
+</ul>
+</td>
+<td>Break from one loop or more</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LOOP</li>
+</ul>
+</td>
+<td>Continue to next loop</td>
+</tr>
+</tbody>
+</table>
+<p>(For Better Performance)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PUSHP</li>
+</ul>
+</td>
+<td>Push pointer to the stack</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_INCP</li>
+</ul>
+</td>
+<td>Increment variable value using pointer</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PUSHPV</li>
+</ul>
+</td>
+<td>Push value of variable using variable pointer</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_INCJUMP</li>
+</ul>
+</td>
+<td>Increment then jump</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_INCPJUMP</li>
+</ul>
+</td>
+<td>Increment using pointer then jump</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_JUMPVARLENUM</li>
+</ul>
+</td>
+<td>Jump if variable value is &lt;= numeric value</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMPVARPLENUM</li>
+</ul>
+</td>
+<td>Jump if variable value (using pointer) &lt;= numeric value</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_LOADFUNCP</li>
+</ul>
+</td>
+<td>Push function pointer</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PUSHPLOCAL</li>
+</ul>
+</td>
+<td>Push pointer to local variable</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_INCLPJUMP</li>
+</ul>
+</td>
+<td>Increment value using pointer to local variable then jump</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMPVARLPLENUM</li>
+</ul>
+</td>
+<td>Jump if the variable value (using pointer) &lt;= numeric value</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_INCPJUMPSTEP1</li>
+</ul>
+</td>
+<td>Increment value using variable pointer then jump (for loop step = 1)</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_JUMPVARPLENUMSTEP1</li>
+</ul>
+</td>
+<td>Increment value using variable pointer then jump (for loop step = 1)</td>
+</tr>
+</tbody>
+</table>
+<p>(Try-Catch-Done)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_TRY</li>
+</ul>
+</td>
+<td>Start try region</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_DONE</li>
+</ul>
+</td>
+<td>End try region</td>
+</tr>
+</tbody>
+</table>
+<p>(Duplicate and Range)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_DUPLICATE</li>
+</ul>
+</td>
+<td>Duplicate stack value</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_RANGE</li>
+</ul>
+</td>
+<td>Create list from value to value</td>
+</tr>
+</tbody>
+</table>
+<p>(OOP)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_NEWOBJ</li>
+</ul>
+</td>
+<td>Create new object, get class name from the IR, push object pointer to the stack.</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_SETSCOPE</li>
+</ul>
+</td>
+<td>Called after creating new object, set the active scope to be the object scope.</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LOADSUBADDRESS</li>
+</ul>
+</td>
+<td>Get object attribute, push the pointer to the stack.</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_LOADMETHOD</li>
+</ul>
+</td>
+<td>Find object method</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_AFTERCALLMETHOD</li>
+</ul>
+</td>
+<td>Used after calling a method - normal case</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_AFTERCALLMETHOD2</li>
+</ul>
+</td>
+<td>Used after calling a method - second case</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_NEWCLASS</li>
+</ul>
+</td>
+<td>Start new class region</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BRACESTART</li>
+</ul>
+</td>
+<td>Open brace</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_BRACEEND</li>
+</ul>
+</td>
+<td>End brace</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_IMPORT</li>
+</ul>
+</td>
+<td>Import package</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_PRIVATE</li>
+</ul>
+</td>
+<td>start private attributes region</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_SETPROPERTY</li>
+</ul>
+</td>
+<td>set attribute value - check for setter.</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_CALLCLASSINIT</li>
+</ul>
+</td>
+<td>call call init() method.</td>
+</tr>
+</tbody>
+</table>
+<p>(Other)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_SETREFERENCE</li>
+</ul>
+</td>
+<td>Copy by reference</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_KILLREFERENCE</li>
+</ul>
+</td>
+<td>Remove reference</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_ASSIGNMENTPOINTER</li>
+</ul>
+</td>
+<td>Determine the left side variable</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BEFOREEQUAL</li>
+</ul>
+</td>
+<td>Determine operators like += , -= , ... etc</td>
+</tr>
+</tbody>
+</table>
+<p>(Bitwise Operators)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_BITAND</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] &amp; Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BITOR</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_BITXOR</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BITNOT</li>
+</ul>
+</td>
+<td>Stack[nSize] = ! Stack[nSize]</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_BITSHL</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] &lt;&lt; Stack[nSize] , POP stack[nSize]</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_BITSHR</li>
+</ul>
+</td>
+<td>Stack[nSize-1] = Stack[nSize-1] &gt;&gt; Stack[nSize] , POP stack[nSize]</td>
+</tr>
+</tbody>
+</table>
+<p>(For Step)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_STEPNUMBER</li>
+</ul>
+</td>
+<td>Determine step number in for loop</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_POPSTEP</li>
+</ul>
+</td>
+<td>POP step number from steps stack</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_LOADAFIRST</li>
+</ul>
+</td>
+<td>Load the first address of variable name</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Language Reference</a><ul>
+<li><a class="reference internal" href="#language-keywords">Language Keywords</a></li>
+<li><a class="reference internal" href="#language-functions">Language Functions</a></li>
+<li><a class="reference internal" href="#compiler-errors">Compiler Errors</a></li>
+<li><a class="reference internal" href="#runtime-errors">Runtime Errors</a></li>
+<li><a class="reference internal" href="#environment-errors">Environment Errors</a></li>
+<li><a class="reference internal" href="#language-grammar">Language Grammar</a></li>
+<li><a class="reference internal" href="#virtual-machine-vm-instructions">Virtual Machine (VM) Instructions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="faq.html"
+                        title="previous chapter">Frequently Asked Questions (FAQ)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resources.html"
+                        title="next chapter">Resources</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Resources"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="faq.html" title="Frequently Asked Questions (FAQ)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

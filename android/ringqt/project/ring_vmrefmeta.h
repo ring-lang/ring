@@ -77,4 +77,22 @@ void ring_vm_refmeta_ringvmclasseslist ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmpackageslist ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmsettrace ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmtracedata ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmtraceevent ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmtracefunc ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmscopescount ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmevalinscope ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmpasserror ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmcallfunc ( void *pPointer ) ;
 #endif

@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mathematical Functions &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Files" href="files.html" />
+    <link rel="prev" title="Check Data Type and Conversion" href="checkandconvert.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mathematical-functions">
+<span id="index-0"></span><h1>Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the mathematical functions</p>
+<div class="section" id="list-of-functions">
+<span id="index-1"></span><h2>List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language comes with the next mathematical functions</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sin(x)</td>
+<td>Returns the sine of an angle of x radians</td>
+</tr>
+<tr class="row-odd"><td>cos(x)</td>
+<td>Returns the cosine of an angle of x radians</td>
+</tr>
+<tr class="row-even"><td>tan(x)</td>
+<td>Returns the tangent of an angle of x radians</td>
+</tr>
+<tr class="row-odd"><td>asin(x)</td>
+<td>Returns the principal value of the arc sine of x, expressed in radians</td>
+</tr>
+<tr class="row-even"><td>acos(x)</td>
+<td>Returns the principal value of the arc cosine of x, expressed in radians</td>
+</tr>
+<tr class="row-odd"><td>atan(x)</td>
+<td>Returns the principal value of the arc tangent of x, expressed in radians</td>
+</tr>
+<tr class="row-even"><td>atan2(y,x)</td>
+<td>Returns the principal arc tangent of y/x, in the interval [-pi,+pi] radians</td>
+</tr>
+<tr class="row-odd"><td>sinh(x)</td>
+<td>Returns the hyperbolic sine of x radians</td>
+</tr>
+<tr class="row-even"><td>cosh(x)</td>
+<td>Returns the hyperbolic cosine of x radians</td>
+</tr>
+<tr class="row-odd"><td>tanh(x)</td>
+<td>Returns the hyperbolic tangent of x radians</td>
+</tr>
+<tr class="row-even"><td>exp(x)</td>
+<td>Returns the value of e raised to the xth power</td>
+</tr>
+<tr class="row-odd"><td>log(x)</td>
+<td>Returns the natural logarithm of x</td>
+</tr>
+<tr class="row-even"><td>log10(x)</td>
+<td>Returns the common logarithm (base-10 logarithm) of x</td>
+</tr>
+<tr class="row-odd"><td>ceil(x)</td>
+<td>Returns the smallest integer value greater than or equal to x</td>
+</tr>
+<tr class="row-even"><td>floor(x)</td>
+<td>Returns the largest integer value less than or equal to x</td>
+</tr>
+<tr class="row-odd"><td>fabs(x)</td>
+<td>Returns the absolute value of x.</td>
+</tr>
+<tr class="row-even"><td>pow(x,y)</td>
+<td>Returns x raised to the power of y</td>
+</tr>
+<tr class="row-odd"><td>sqrt(x)</td>
+<td>Returns the square root of x</td>
+</tr>
+<tr class="row-even"><td>random(x)</td>
+<td>Returns a random number in the range [0,x]</td>
+</tr>
+<tr class="row-odd"><td>unsigned(n,n,c)</td>
+<td>Perform operation using unsigned numbers</td>
+</tr>
+<tr class="row-even"><td>decimals(n)</td>
+<td>Determine the decimals digits after the point in float/double numbers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Mathematical Functions&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(0) = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(90) radians = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(90) degree = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Cos(0) = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Cos(90) radians = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Cos(90) degree = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Tan(0) = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Tan(90) radians = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Tan(90) degree = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;asin(0) = &quot;</span> <span class="o">+</span> <span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;acos(0) = &quot;</span> <span class="o">+</span> <span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;atan(0) = &quot;</span> <span class="o">+</span> <span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;atan2(1,1) = &quot;</span> <span class="o">+</span> <span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;sinh(0) = &quot;</span> <span class="o">+</span> <span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;sinh(1) = &quot;</span> <span class="o">+</span> <span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;cosh(0) = &quot;</span> <span class="o">+</span> <span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;cosh(1) = &quot;</span> <span class="o">+</span> <span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;tanh(0) = &quot;</span> <span class="o">+</span> <span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;tanh(1) = &quot;</span> <span class="o">+</span> <span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;exp(0) = &quot;</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;exp(1) = &quot;</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log(1) = &quot;</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log(2) = &quot;</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(1) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(2) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(10) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Ceil(1.12) = &quot;</span> <span class="o">+</span> <span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Ceil(1.72) = &quot;</span> <span class="o">+</span> <span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Floor(1.12) = &quot;</span> <span class="o">+</span> <span class="n">floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Floor(1.72) = &quot;</span> <span class="o">+</span> <span class="n">floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;fabs(1.12) = &quot;</span> <span class="o">+</span> <span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;fabs(1.72) = &quot;</span> <span class="o">+</span> <span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;pow(2,3) = &quot;</span> <span class="o">+</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">see</span> <span class="s">&quot;sqrt(16) = &quot;</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Mathematical</span> <span class="n">Functions</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="mf">0.89</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.45</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">0.00</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.00</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1255.77</span>
+<span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.57</span>
+<span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.79</span>
+<span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.18</span>
+<span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.54</span>
+<span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.76</span>
+<span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.72</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.69</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.12</span>
+<span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.72</span>
+<span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-function">
+<span id="index-3"></span><h2>Random() Function<a class="headerlink" href="#random-function" title="Permalink to this headline">¶</a></h2>
+<p>The Random() function generate a random number and we can set the maximum value (optional).</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Random</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">range</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">20</span>
+        <span class="k">see</span>  <span class="s">&quot;Random number : &quot;</span> <span class="o">+</span> <span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+             <span class="s">&quot;Random number Max (100) : &quot;</span> <span class="o">+</span> <span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">31881</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">80</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">5573</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">63</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">2231</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">43</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12946</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">39</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">22934</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">48</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4690</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">52</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">13196</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">65</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">30390</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">87</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4327</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">77</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12456</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">17</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">28438</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">13</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">30503</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">6</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">31769</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">94</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">8274</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">65</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">14390</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">90</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">28866</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">12</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">24558</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">70</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">29981</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">77</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12847</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">63</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">6632</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unsigned-function">
+<span id="index-4"></span><h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use unsigned numbers using the Unsigned() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">result</span> <span class="n">of</span> <span class="n">cOperator</span> <span class="n">operation</span> <span class="k">on</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">oat_hash</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="c"># Jenkins hash function - https://en.wikipedia.org/wiki/Jenkins_hash_function</span>
+<span class="k">func</span> <span class="n">oat_hash</span> <span class="n">cKey</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cKey</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">ascii</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+        <span class="k">next</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mf">3372029979.00</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decimals-functions">
+<span id="index-5"></span><h2>Decimals() Functions<a class="headerlink" href="#decimals-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can determine the decimals numbers count after the point in float/double numbers using the decimals() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="n">nDecimalsCount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.1234567890123</span>
+<span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">14</span>
+        <span class="n">decimals</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mf">1.1</span>
+<span class="mf">1.12</span>
+<span class="mf">1.123</span>
+<span class="mf">1.1235</span>
+<span class="mf">1.12346</span>
+<span class="mf">1.123457</span>
+<span class="mf">1.1234568</span>
+<span class="mf">1.12345679</span>
+<span class="mf">1.123456789</span>
+<span class="mf">1.1234567890</span>
+<span class="mf">1.12345678901</span>
+<span class="mf">1.123456789012</span>
+<span class="mf">1.1234567890123</span>
+<span class="mf">1.12345678901230</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-in-numbers">
+<span id="index-6"></span><h2>Using _ in numbers<a class="headerlink" href="#using-in-numbers" title="Permalink to this headline">¶</a></h2>
+<p>We can use _ between numbers digits.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="k">see</span> <span class="n">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+<span class="mi">100000001</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-f-after-numbers">
+<span id="index-7"></span><h2>Using f after numbers<a class="headerlink" href="#using-f-after-numbers" title="Permalink to this headline">¶</a></h2>
+<p>We can use the &#8216;f&#8217; letter after numbers.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>x = 19.99f
+see type(x) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mathematical Functions</a><ul>
+<li><a class="reference internal" href="#list-of-functions">List of functions</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#random-function">Random() Function</a></li>
+<li><a class="reference internal" href="#unsigned-function">Unsigned() Function</a></li>
+<li><a class="reference internal" href="#decimals-functions">Decimals() Functions</a></li>
+<li><a class="reference internal" href="#using-in-numbers">Using _ in numbers</a></li>
+<li><a class="reference internal" href="#using-f-after-numbers">Using f after numbers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="checkandconvert.html"
+                        title="previous chapter">Check Data Type and Conversion</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="files.html"
+                        title="next chapter">Files</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mathfunc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

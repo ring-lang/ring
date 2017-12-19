@@ -17,7 +17,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/$(SDL_PATH)/include \
 
 # Add your application source files here...
 LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
-	myhello.c \
+	ringapp.c \
 	$(RING_PATH)/ring_string.c \
 	$(RING_PATH)/ring_list.c \
 	$(RING_PATH)/ring_item.c \

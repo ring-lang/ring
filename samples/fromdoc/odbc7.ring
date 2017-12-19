@@ -1,3 +1,5 @@
+load "odbclib.ring"
+
 See "ODBC Test - Transactions and using Commit and Rollback" + nl
 pODBC = odbc_init()
 See "Connect to database" + nl

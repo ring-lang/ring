@@ -25,9 +25,6 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include "gwebview.h"
-</filter>
 #include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
@@ -45,7 +42,21 @@ extern "C" {
 #include "gheaderview.h"
 #include "gprocess.h"
 #include "codeeditor.h"
-
+#include "highlighter.h"
+#include "gtoolbutton.h"
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gtextbrowser.h"
+#include "gdockwidget.h"
+#include "gstackedwidget.h"
+#include "gcalendarwidget.h"
 
 #include <QApplication>
 #include <QObject>
@@ -89,9 +100,6 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebView>
-</filter>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -111,9 +119,6 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebSettings>
-</filter>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -209,8 +214,57 @@ extern "C" {
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QCursor>
-#include "highlighter.h"
 #include <QListView>
+#include <QUuid>
+#include <QDesktopServices>
+#include <QToolButton>
+#include <QStringRef>
+#include <QMutex>
+#include <QMutexLocker>
+#include <QBuffer>
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothServer>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothServiceInfo>
+#include <QBluetoothSocket>
+#include <QBluetoothTransferManager>
+#include <QBluetoothTransferReply>
+#include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
+#include <QDateTime>
+#include <QScreen>
+#include <QWindow>
+#include <QGuiApplication>
+#include <QTextBrowser>
+#include <QRegion>
+#include <QStackedWidget>
+#include <QCalendarWidget>
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+#include "gserialport.h"
+#include "gwebview.h"
+
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QWebSettings>
+#include <QWebView>
+
+</filter>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+#include <QAxObject>
+#include <QAxBase>
+
+</filter>
 
 extern "C" {
 
@@ -228,8 +282,11 @@ extern "C" {
 
 
 <runcode>
+
 aStringTypes + "QString"
+
 aBeforeReturn + ["QString",".toStdString().c_str()"]
+
 aNewMethodName + ["QWebView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
 aNewMethodName + ["QMediaPlaylist","next","movenext"]
@@ -247,9 +304,12 @@ aNewMethodName + ["QThread","exit","exitfromthread"]
 aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
 aNewMethodName + ["QCamera","load","loadcamera"]
 aNewMethodName + ["QPixmap","load","loadpixmap"]
+aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
+aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
+
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
@@ -473,6 +533,57 @@ aEnumTypes + "QListView::Movement"
 aEnumTypes + "QListView::ResizeMode"
 aEnumTypes + "QListView::ViewMode"
 aEnumTypes + "QListView::Flow"
+aEnumTypes + "QAxBase::PropertyBag"
+aEnumTypes + "QToolButton::ToolButtonPopupMode"
+aEnumTypes + "QMutex::RecursionMode"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::InquiryType"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfiguration"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfigurations"
+aEnumTypes + "QBluetoothDeviceInfo::DataCompleteness"
+aEnumTypes + "QBluetoothDeviceInfo::MajorDeviceClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorAudioVideoClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorComputerClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorHealthClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorImagingClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorMiscellaneousClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorNetworkClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPeripheralClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPhoneClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorToyClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorWearableClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClasses"
+aEnumTypes + "QBluetoothLocalDevice::Error"
+aEnumTypes + "QBluetoothLocalDevice::HostMode"
+aEnumTypes + "QBluetoothLocalDevice::Pairing"
+aEnumTypes + "QBluetoothServer::Error"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::DiscoveryMode"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothServiceInfo::AttributeId"
+aEnumTypes + "QBluetoothServiceInfo::Protocol"
+aEnumTypes + "QBluetoothSocket::SocketError"
+aEnumTypes + "QBluetoothSocket::SocketState"
+aEnumTypes + "QBluetoothTransferReply::TransferError"
+aEnumTypes + "QBluetoothTransferRequest::Attribute"
+aEnumTypes + "QBluetoothUuid::CharacteristicType"
+aEnumTypes + "QBluetoothUuid::DescriptorType"
+aEnumTypes + "QBluetoothUuid::ProtocolUuid"
+aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
+aEnumTypes + "QDockWidget::DockWidgetFeature"
+aEnumTypes + "QDockWidget::DockWidgetFeatures"
+aEnumTypes + "QRegion::RegionType"
+aEnumTypes + "QEventLoop::ProcessEventsFlags"
+aEnumTypes + "Qt::ApplicationAttribute"
+aEnumTypes + "QCalendarWidget::HorizontalHeaderFormat"
+aEnumTypes + "QCalendarWidget::VerticalHeaderFormat"
+aEnumTypes + "QCalendarWidget::SelectionMode"
+aEnumTypes + "QOpenGLFunctions::OpenGLFeature"
+aEnumTypes + "QOpenGLFunctions::OpenGLFeatures"
+aEnumTypes + "QOpenGLContext::OpenGLModuleType"
+
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -480,6 +591,7 @@ $aMallocClassesList + "QModelIndex"
 
 <class>
 name: QApp
+parent: QGuiApplication
 nonew
 </class>
 
@@ -487,8 +599,11 @@ nonew
 void exec(void)
 void quit(void)
 void processEvents(void)
+void styleWindows(void)
+void styleWindowsVista(void)
 void styleFusion(void)
 void styleFusionBlack(void)
+void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 void closeAllWindows(void)
 Qt::KeyboardModifiers keyboardModifiers(void)
 </register>
@@ -502,6 +617,7 @@ RING_FUNC(ring_QApp_quit)
 		return ;
 	}
 	qApp->quit();
+	exit(0);
 }
 
 RING_FUNC(ring_QApp_exec)
@@ -513,8 +629,21 @@ RING_FUNC(ring_QApp_exec)
 	qApp->exec();
 }
 
+RING_FUNC(ring_QApp_styleWindows)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windows"));
+}
+
+RING_FUNC(ring_QApp_styleWindowsVista)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windowsvista"));
+}
+
 RING_FUNC(ring_QApp_styleFusion)
 {
+	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("fusion"));
 }
 
@@ -535,6 +664,43 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 
 	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
 	palette.setColor(QPalette::HighlightedText, Qt::black);
+
+	palette.setColor(QPalette::Disabled, QPalette::Text, Qt::darkGray);
+	palette.setColor(QPalette::Disabled, QPalette::ButtonText, Qt::darkGray);
+
+	qApp->setPalette(palette);
+}
+
+RING_FUNC(ring_QApp_styleFusionCustom)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISPOINTER(2)) || 
+		(! RING_API_ISPOINTER(3)) || (! RING_API_ISPOINTER(4)) || 
+		(! RING_API_ISPOINTER(5)) || (! RING_API_ISPOINTER(6)) ||
+		(! RING_API_ISPOINTER(7)) || (! RING_API_ISPOINTER(8)) ||
+		(! RING_API_ISPOINTER(9)) || (! RING_API_ISPOINTER(10)) ||
+		(! RING_API_ISPOINTER(11)) || (! RING_API_ISPOINTER(12)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, 		* (QColor *) RING_API_GETCPOINTER(1,"QColor") );
+	palette.setColor(QPalette::WindowText, 		* (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+	palette.setColor(QPalette::Base, 		* (QColor *) RING_API_GETCPOINTER(3,"QColor") );
+	palette.setColor(QPalette::AlternateBase, 	* (QColor *) RING_API_GETCPOINTER(4,"QColor") );
+	palette.setColor(QPalette::ToolTipBase, 	* (QColor *) RING_API_GETCPOINTER(5,"QColor") );
+	palette.setColor(QPalette::ToolTipText, 	* (QColor *) RING_API_GETCPOINTER(6,"QColor") );
+	palette.setColor(QPalette::Text,		* (QColor *) RING_API_GETCPOINTER(7,"QColor") );
+	palette.setColor(QPalette::Button, 		* (QColor *) RING_API_GETCPOINTER(8,"QColor") );
+	palette.setColor(QPalette::ButtonText, 		* (QColor *) RING_API_GETCPOINTER(9,"QColor") );
+	palette.setColor(QPalette::BrightText, 		* (QColor *) RING_API_GETCPOINTER(10,"QColor") );
+	palette.setColor(QPalette::Highlight, 		* (QColor *) RING_API_GETCPOINTER(11,"QColor") );
+	palette.setColor(QPalette::HighlightedText, 	* (QColor *) RING_API_GETCPOINTER(12,"QColor") );
 	qApp->setPalette(palette);
 }
 
@@ -566,6 +732,46 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
+</code>
+
+<class>
+name: QDesktopServices
+nonew
+</class>
+
+<register>
+bool openUrl(QUrl)
+void setUrlHandler(QString, QObject *receiver, const char *method)
+void unsetUrlHandler(QString)
+</register>
+
+<code>
+RING_FUNC(ring_QDesktopServices_openUrl)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(QDesktopServices::openUrl(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"))) ;
+}
+RING_FUNC(ring_QDesktopServices_setUrlHandler)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::setUrlHandler(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject *"),RING_API_GETSTRING(3));
+}
+RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::unsetUrlHandler(RING_API_GETSTRING(1));
+}
 </code>
 
 <class>
@@ -651,6 +857,7 @@ QRect frameGeometry(void)
 QSize frameSize(void)
 QRect geometry(void)
 void getContentsMargins(int *left, int *top, int *right, int *bottom)
+QPixmap grab(QRect) 
 void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 void grabKeyboard(void)
 void grabMouse(void)
@@ -788,6 +995,7 @@ int winId(void)
 QWidget *window(void)
 QString windowFilePath(void)
 int windowFlags(void)
+QWindow *windowHandle(void)
 QIcon windowIcon(void)
 QString windowIconText(void)
 int windowModality(void)
@@ -896,6 +1104,40 @@ void setMask(QBitmap)
 void fill(QColor)
 QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 bool load(QString, const char *, Qt::ImageConversionFlags )
+
+qint64 cacheKey(void)
+bool convertFromImage(QImage image, Qt::ImageConversionFlags flags)
+QPixmap copy@2(QRect rectangle)
+QBitmap createHeuristicMask(bool clipTight)
+int depth(void)
+void detach(void)
+qreal devicePixelRatio(void)
+bool hasAlpha(void)
+bool hasAlphaChannel(void)
+bool isNull(void)
+bool isQBitmap(void)
+bool loadFromData(uchar *data, uint len, char *format, Qt::ImageConversionFlags flags)
+bool loadFromData@2(QByteArray data, char *format, Qt::ImageConversionFlags flags)
+QRect rect(void)
+bool save(QString fileName, char *format, int quality)
+bool save@2(QIODevice *device, char *format, int quality)
+QPixmap scaled@2(QSize size, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
+QPixmap scaledToHeight(int height, Qt::TransformationMode mode)
+QPixmap scaledToWidth(int width, Qt::TransformationMode mode)
+void scroll(int dx, int dy, int x, int y, int width, int height, QRegion *exposed)
+void scroll@2(int dx, int dy, QRect rect, QRegion *exposed)
+void setDevicePixelRatio(qreal scaleFactor)
+QSize size(void)
+void swap(QPixmap other)
+QImage toImage(void)
+QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
+QPixmap transformed@2(QMatrix matrix, Qt::TransformationMode mode)
+int defaultDepth(void)
+QPixmap fromImage@2(QImage image, Qt::ImageConversionFlags flags)
+QPixmap fromImageReader(QImageReader *imageReader, Qt::ImageConversionFlags flags)
+QTransform trueMatrix(QTransform matrix, int width, int height)
+QMatrix trueMatrix@2(QMatrix m, int w, int h)
+
 
 <class>
 name: QPixmap2
@@ -1118,13 +1360,17 @@ const char *getundoAvailableEvent(void)
 
 
 <register>
-void cyanline(QTextEdit *pObject)
+void cyanline(void)
 </register>
 
 <code>
 RING_FUNC(ring_QTextEdit_cyanline)
 {
 	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1144,6 +1390,37 @@ RING_FUNC(ring_QTextEdit_cyanline)
 }
 </code>
 
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
 
 <class>
 name: QListWidget
@@ -1647,7 +1924,9 @@ QMenu *addMenu(QString)
 QAction *addSeparator(void)
 void clear(void)
 QAction *defaultAction(void)
-QAction *exec(void)
+QAction *exec(const QPoint &)
+QAction *exec@2(void)
+QAction *exec@3(const QPoint &,QAction *)
 void hideTearOffMenu(void)
 QIcon icon(void)
 QAction *insertMenu(QAction *before, QMenu *menu)
@@ -1768,6 +2047,8 @@ void showMessage(QString , int timeout)
 name: QDockWidget
 para: QWidget *parent,Qt::WindowType flag
 parent: QWidget
+codename: GDockWidget
+passvmpointer
 </class>
 
 int allowedAreas(void)
@@ -1787,6 +2068,18 @@ void dockLocationChanged(Qt::DockWidgetArea area)
 void featuresChanged(QDockWidget::DockWidgetFeature features)
 void topLevelChanged(bool topLevel)
 void visibilityChanged(bool visible)
+
+void setallowedAreasChangedEvent(const char *)
+void setdockLocationChangedEvent(const char *)
+void setfeaturesChangedEvent(const char *)
+void settopLevelChangedEvent(const char *)
+void setvisibilityChangedEvent(const char *)
+
+const char *getallowedAreasChangedEvent(void)
+const char *getdockLocationChangedEvent(void)
+const char *getfeaturesChangedEvent(void)
+const char *gettopLevelChangedEvent(void)
+const char *getvisibilityChangedEvent(void)
 
 <class>
 name: QTabWidget
@@ -3510,6 +3803,15 @@ void setTextModeEnabled(bool enabled)
 void ungetChar(char c)
 int write(const char *data, int maxSize)
 
+
+bool atEnd(void)
+bool canReadLine(void)
+void close(void)
+bool open(QIODevice::OpenMode flags)
+qint64 pos(void)
+bool seek(qint64 pos)
+qint64 size(void)
+
 void setaboutToCloseEvent(const char *)
 void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
@@ -3894,6 +4196,7 @@ void insertImage(QTextImageFormat)
 QTextList *insertList(QTextListFormat)
 QTextTable * insertTable(int rows, int columns, QTextTableFormat)
 void insertText(QString)
+void insertText@2(QString,QTextCharFormat)
 bool isCopyOf(QTextCursor)
 bool isNull(void)
 void joinPreviousEditBlock(void)
@@ -4109,6 +4412,7 @@ void accept(void)
 void ignore(void)
 
 int getKeyCode(void)
+QString getKeyText(void)
 int getModifiers(void)
 int getx(void)
 int gety(void)
@@ -4178,6 +4482,65 @@ const char *getPaintEvent(void)
 void setEventOutput(bool x)
 QObject *getParentObject(void)
 QWidget *getParentWidget(void)
+
+void setKeyPressFunc(const char *cStr)
+void setMouseButtonPressFunc(const char *cStr)
+void setMouseButtonReleaseFunc(const char *cStr)
+void setMouseButtonDblClickFunc(const char *cStr)
+void setMouseMoveFunc(const char *cStr)
+void setCloseFunc(const char *cStr)
+void setContextMenuFunc(const char *cStr)
+void setDragEnterFunc(const char *cStr)
+void setDragLeaveFunc(const char *cStr)
+void setDragMoveFunc(const char *cStr)
+void setDropFunc(const char *cStr)
+void setEnterFunc(const char *cStr)
+void setFocusInFunc(const char *cStr)
+void setFocusOutFunc(const char *cStr)
+void setKeyReleaseFunc(const char *cStr)
+void setLeaveFunc(const char *cStr)
+void setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
+void setNonClientAreaMouseButtonPressFunc(const char *cStr)
+void setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
+void setNonClientAreaMouseMoveFunc(const char *cStr)
+void setMoveFunc(const char *cStr)
+void setResizeFunc(const char *cStr)
+void setWindowActivateFunc(const char *cStr)
+void setWindowBlockedFunc(const char *cStr)
+void setWindowDeactivateFunc(const char *cStr)
+void setWindowStateChangeFunc(const char *cStr)
+void setWindowUnblockedFunc(const char *cStr)
+void setPaintFunc(const char *cStr)
+
+const char *getKeyPressFunc(void)
+const char *getMouseButtonPressFunc(void)
+const char *getMouseButtonReleaseFunc(void)
+const char *getMouseButtonDblClickFunc(void)
+const char *getMouseMoveFunc(void)
+const char *getCloseFunc(void)
+const char *getContextMenuFunc(void)
+const char *getDragEnterFunc(void)
+const char *getDragLeaveFunc(void)
+const char *getDragMoveFunc(void)
+const char *getDropFunc(void)
+const char *getEnterFunc(void)
+const char *getFocusInFunc(void)
+const char *getFocusOutFunc(void)
+const char *getKeyReleaseFunc(void)
+const char *getLeaveFunc(void)
+const char *getNonClientAreaMouseButtonDblClickFunc(void)
+const char *getNonClientAreaMouseButtonPressFunc(void)
+const char *getNonClientAreaMouseButtonReleaseFunc(void)
+const char *getNonClientAreaMouseMoveFunc(void)
+const char *getMoveFunc(void)
+const char *getResizeFunc(void)
+const char *getWindowActivateFunc(void)
+const char *getWindowBlockedFunc(void)
+const char *getWindowDeactivateFunc(void)
+const char *getWindowStateChangeFunc(void)
+const char *getWindowUnblockedFunc(void)
+const char *getPaintFunc(void)
+
 
 <class>
 name: QDesktopWidget
@@ -4579,6 +4942,7 @@ QVariant boundValue(QString)
 void clear(void)
 QSqlDriver * driver(void)
 bool exec(QString)
+bool exec@2(void)
 bool execBatch(QSqlQuery::BatchExecutionMode mode)
 QString executedQuery(void)
 void finish(void)
@@ -4942,13 +5306,14 @@ QImage transformed(QMatrix, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
 
-
 <class>
 name: RingCodeHighlighter
 para: QTextDocument *parent
 codename: Highlighter
 </class>
 
+void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)
+void setKeywordsBold(int nStatus)
 
 <class>
 name: QXmlStreamReader
@@ -5520,7 +5885,7 @@ const char *getundoAvailableEvent(void)
 const char *getupdateRequestEvent(void)
 
 <register>
-void cyanline(QPlainTextEdit *pObject)
+void cyanline(void)
 </register>
 
 <code>
@@ -5546,6 +5911,37 @@ RING_FUNC(ring_QPlainTextEdit_cyanline)
 }
 </code>
 
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
 <class>
 name: CodeEditor
 para: QWidget *
@@ -5555,6 +5951,9 @@ passvmpointer
 
 void setCompleter(QCompleter *c)
 QCompleter *completer(void)
+void setLineNumbersAreaColor(QColor oColor)
+void setLineNumbersAreaBackColor(QColor oColor)
+
 
 <class>
 name: QGridLayout
@@ -6485,6 +6884,13 @@ QBitmap *mask(void)
 QPixmap pixmap(void)
 void setShape(Qt::CursorShape shape)
 Qt::CursorShape shape(void)
+QPoint pos(void)
+QPoint pos@2(QScreen *)
+void setPos(int x, int y)
+void setPos@2(QScreen *screen, int x, int y)
+void setPos@3(QPoint)
+void setPos@4(QScreen *screen, QPoint)
+
 
 <class>
 name: QListView
@@ -6521,3 +6927,1250 @@ int  spacing(void)
 bool  uniformItemSizes(void)
 QListView::ViewMode  viewMode(void)
 bool  wordWrap(void)
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QAxObject
+para: QString
+parent: QAxBase
+</class>
+
+<class>
+name: QAxBase
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+QVariant asVariant(void)
+QString control(void)
+void disableClassInfo(void)
+void disableEventSink(void)
+void disableMetaObject(void)
+QVariant dynamicCall( char *function)
+QVariant dynamicCall@2( char *function,QString)
+QString generateDocumentation(void)
+bool isNull(void)
+QAxObject * querySubObject( char *name)
+bool setControl( QString  )
+QStringList verbs(void)
+
+<comment>
+QAxBase::PropertyBag propertyBag(void)
+void setPropertyBag(QAxBase::PropertyBag bag)
+long queryInterface( QUuid  uuid, void **iface)
+</comment>
+
+</filter>
+
+<class>
+name: QUuid
+para: void
+</class>
+
+QString toString(void) 
+
+
+<class>
+name: QToolButton
+para: QWidget *
+parent: QAbstractButton
+codename: GToolButton
+passvmpointer
+</class>
+
+Qt::ArrowType arrowType(void)
+bool autoRaise(void)
+QAction * defaultAction(void)
+QMenu * menu(void)
+QToolButton::ToolButtonPopupMode popupMode(void)
+void setArrowType(Qt::ArrowType type)
+void setAutoRaise(bool enable)
+void setMenu(QMenu * menu)
+void setPopupMode(QToolButton::ToolButtonPopupMode mode)
+Qt::ToolButtonStyle toolButtonStyle(void)
+void setDefaultAction(QAction * action)
+void setToolButtonStyle(Qt::ToolButtonStyle style)
+void showMenu(void)
+
+void settriggeredEvent(const char *)
+const char *gettriggeredEvent(void)
+
+void setClickEvent(const char *)
+const char *getClickEvent(void)
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QSerialPort
+para: QObject *
+parent: QIODevice
+codename: GSerialPort
+passvmpointer
+</class>
+
+<runcode>
+aEnumTypes + "QSerialPort::BaudRate"
+aEnumTypes + "QSerialPort::DataBits"
+aEnumTypes + "QSerialPort::Direction"
+aEnumTypes + "QSerialPort::Directions"
+aEnumTypes + "QSerialPort::FlowControl"
+aEnumTypes + "QSerialPort::Parity"
+aEnumTypes + "QSerialPort::PinoutSignal"
+aEnumTypes + "QSerialPort::PinoutSignals"
+aEnumTypes + "QSerialPort::SerialPortError"
+aEnumTypes + "QSerialPort::StopBits"
+</runcode>
+
+qint32 baudRate(QSerialPort::Directions directions)
+bool clear(QSerialPort::Directions directions)
+void clearError(void)
+QSerialPort::DataBits dataBits(void)
+QSerialPort::SerialPortError error(void)
+QSerialPort::FlowControl flowControl(void)
+bool flush(void)
+void *handle(void)
+bool isDataTerminalReady(void)
+bool isRequestToSend(void)
+QSerialPort::Parity parity(void)
+QSerialPort::PinoutSignals pinoutSignals(void)
+QString portName(void)
+qint64 readBufferSize(void)
+bool setBaudRate(qint32 baudRate, QSerialPort::Directions directions)
+bool setBreakEnabled(bool set)
+bool setDataBits(QSerialPort::DataBits dataBits)
+bool setDataTerminalReady(bool set)
+bool setFlowControl(QSerialPort::FlowControl flowControl)
+bool setParity(QSerialPort::Parity parity)
+void setPort(QSerialPortInfo serialPortInfo)
+void setPortName(QString name)
+void setReadBufferSize(qint64 size)
+bool setRequestToSend(bool set)
+bool setStopBits(QSerialPort::StopBits stopBits)
+QSerialPort::StopBits stopBits(void)
+
+void setbaudRateChangedEvent(const char *)
+void setbreakEnabledChangedEvent(const char *)
+void setdataBitsChangedEvent(const char *)
+void setdataTerminalReadyChangedEvent(const char *)
+void seterrorEvent(const char *)
+void setflowControlChangedEvent(const char *)
+void setparityChangedEvent(const char *)
+void setrequestToSendChangedEvent(const char *)
+void setstopBitsChangedEvent(const char *)
+
+const char *getbaudRateChangedEvent(void)
+const char *getbreakEnabledChangedEvent(void)
+const char *getdataBitsChangedEvent(void)
+const char *getdataTerminalReadyChangedEvent(void)
+const char *geterrorEvent(void)
+const char *getflowControlChangedEvent(void)
+const char *getparityChangedEvent(void)
+const char *getrequestToSendChangedEvent(void)
+const char *getstopBitsChangedEvent(void)
+
+
+<class>
+name: QSerialPortInfo
+para: void
+</class>
+
+QString description(void)
+bool hasProductIdentifier(void)
+bool hasVendorIdentifier(void)
+bool isBusy(void)
+bool isNull(void)
+QString manufacturer(void)
+QString portName(void)
+quint16 productIdentifier(void)
+void swap(QSerialPortInfo other)
+QString systemLocation(void)
+quint16 vendorIdentifier(void)
+
+</filter>
+
+
+<class>
+name: QStringRef
+para: void
+</class>
+
+
+QStringRef appendTo(QString * string)
+QChar at(int position)
+void clear(void)
+int compare(QString other, Qt::CaseSensitivity cs)
+int compare@2(QStringRef other, Qt::CaseSensitivity cs)
+int compare@3(QLatin1String other, Qt::CaseSensitivity cs)
+QChar * constData(void)
+bool contains(QString str, Qt::CaseSensitivity cs)
+bool contains@2(QChar ch, Qt::CaseSensitivity cs)
+bool contains@3(QStringRef str, Qt::CaseSensitivity cs)
+bool contains@4(QLatin1String str, Qt::CaseSensitivity cs)
+int count(void)
+int count@2(QString str, Qt::CaseSensitivity cs)
+int count@3(QChar ch, Qt::CaseSensitivity cs)
+int count@4(QStringRef str, Qt::CaseSensitivity cs)
+QChar * data(void)
+bool endsWith(QString str, Qt::CaseSensitivity cs)
+bool endsWith@2(QChar ch, Qt::CaseSensitivity cs)
+bool endsWith@3(QLatin1String str, Qt::CaseSensitivity cs)
+bool endsWith@4(QStringRef str, Qt::CaseSensitivity cs)
+int indexOf(QString str, int from, Qt::CaseSensitivity cs)
+int indexOf@2(QLatin1String str, int from, Qt::CaseSensitivity cs)
+int indexOf@3(QChar ch, int from, Qt::CaseSensitivity cs)
+int indexOf@4(QStringRef str, int from, Qt::CaseSensitivity cs)
+bool isEmpty(void)
+bool isNull(void)
+int lastIndexOf(QString str, int from, Qt::CaseSensitivity cs)
+int lastIndexOf@2(QChar ch, int from, Qt::CaseSensitivity cs)
+int lastIndexOf@3(QLatin1String str, int from, Qt::CaseSensitivity cs)
+int lastIndexOf@4(QStringRef str, int from, Qt::CaseSensitivity cs)
+int length(void)
+int localeAwareCompare(QString other)
+int localeAwareCompare@2(QStringRef other)
+int position(void)
+int size(void)
+bool startsWith(QString str, Qt::CaseSensitivity cs)
+bool startsWith@2(QLatin1String str, Qt::CaseSensitivity cs)
+bool startsWith@3(QStringRef str, Qt::CaseSensitivity cs)
+bool startsWith@4(QChar ch, Qt::CaseSensitivity cs)
+QString * string(void)
+QByteArray toLatin1(void)
+QByteArray toLocal8Bit(void)
+QString toString(void)
+QVector<uint> toUcs4(void)
+QByteArray toUtf8(void)
+QChar * unicode(void)
+int compare@4(QStringRef s1, QString s2, Qt::CaseSensitivity cs)
+int compare@5(QStringRef s1, QStringRef s2, Qt::CaseSensitivity cs)
+int compare@6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
+int localeAwareCompare@3(QStringRef s1, QString s2)
+int localeAwareCompare@4(QStringRef s1, QStringRef s2)
+
+<class>
+name: QMutex
+para: QMutex::RecursionMode
+</class>
+
+bool isRecursive(void)
+void lock(void)
+void unlock(void)
+
+<class>
+name: QMutexLocker
+para: QMutex *
+</class>
+
+QMutex * mutex(void)
+void relock(void)
+void unlock(void)
+
+<class>
+name: QBuffer
+para: QObject *
+parent: QIODevice
+</class>
+
+QByteArray buffer(void)
+QByteArray data(void)
+void setBuffer(QByteArray *byteArray)
+void setData(QByteArray data)
+void setData@2(char *data, int size)
+
+<class>
+name: QBluetoothAddress
+para: void
+</class>
+
+void clear(void)
+bool isNull(void)
+QString toString(void)
+quint64 toUInt64(void)
+
+<class>
+name: QBluetoothDeviceDiscoveryAgent
+para: QObject *
+codename: GBluetoothDeviceDiscoveryAgent
+passvmpointer
+</class>
+
+QList<QBluetoothDeviceInfo> discoveredDevices(void)
+QBluetoothDeviceDiscoveryAgent::Error error(void)
+QString errorString(void)
+QBluetoothDeviceDiscoveryAgent::InquiryType inquiryType(void)
+bool isActive(void)
+void setInquiryType(QBluetoothDeviceDiscoveryAgent::InquiryType type)
+void start(void)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void setdeviceDiscoveredEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *getdeviceDiscoveredEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothDeviceInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+<comment>
+QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
+QBluetoothUuid deviceUuid(void)
+</comment>
+bool isCached(void)
+bool isValid(void)
+QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
+quint8 minorDeviceClass(void)
+QString name(void)
+qint16 rssi(void)
+QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
+QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
+QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
+void setCached(bool cached)
+<comment>
+void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
+void setDeviceUuid(QBluetoothUuid uuid)
+</comment>
+void setRssi(qint16 signal)
+void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
+<class>
+name: QBluetoothHostInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+QString name(void)
+void setAddress(QBluetoothAddress address)
+void setName(QString name)
+
+<class>
+name: QBluetoothLocalDevice
+para: QObject *
+codename: GBluetoothLocalDevice
+passvmpointer
+</class>
+
+QBluetoothAddress address(void)
+<comment>
+QList<QBluetoothAddress> connectedDevices(void)
+<comment>
+QBluetoothLocalDevice::HostMode hostMode(void)
+bool isValid(void)
+QString name(void)
+QBluetoothLocalDevice::Pairing pairingStatus(QBluetoothAddress address)
+void powerOn(void)
+void requestPairing(QBluetoothAddress address, QBluetoothLocalDevice::Pairing pairing)
+void setHostMode(QBluetoothLocalDevice::HostMode mode)
+void pairingConfirmation(bool accept)
+QList<QBluetoothHostInfo> allDevices(void)
+
+void setdeviceConnectedEvent(const char *)
+void setdeviceDisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void sethostModeStateChangedEvent(const char *)
+void setpairingDisplayConfirmationEvent(const char *)
+void setpairingDisplayPinCodeEvent(const char *)
+void setpairingFinishedEvent(const char *)
+
+const char *getdeviceConnectedEvent(void)
+const char *getdeviceDisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostModeStateChangedEvent(void)
+const char *getpairingDisplayConfirmationEvent(void)
+const char *getpairingDisplayPinCodeEvent(void)
+const char *getpairingFinishedEvent(void)
+
+<class>
+name: QBluetoothServer
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QObject
+codename: GBluetoothServer
+passvmpointer
+</class>
+
+
+void close(void)
+QBluetoothServer::Error error(void)
+bool hasPendingConnections(void)
+bool isListening(void)
+bool listen(QBluetoothAddress address, quint16 port)
+QBluetoothServiceInfo listen@2(QBluetoothUuid uuid, QString serviceName))
+int maxPendingConnections(void)
+QBluetoothSocket * nextPendingConnection(void)
+QBluetooth::SecurityFlags securityFlags(void)
+QBluetoothAddress serverAddress(void)
+quint16 serverPort(void)
+QBluetoothServiceInfo::Protocol serverType(void)
+void setMaxPendingConnections(int numConnections)
+void setSecurityFlags(QBluetooth::SecurityFlags security)
+
+void seterrorEvent(const char *)
+void setnewConnectionEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getnewConnectionEvent(void)
+
+<class>
+name: QBluetoothServiceDiscoveryAgent
+para: QObject *
+parent: QObject
+codename: GBluetoothServiceDiscoveryAgent
+passvmpointer
+</class>
+
+QList<QBluetoothServiceInfo> discoveredServices(void)
+QBluetoothServiceDiscoveryAgent::Error error(void)
+QString errorString(void)
+bool isActive(void)
+QBluetoothAddress remoteAddress(void)
+bool setRemoteAddress(QBluetoothAddress address)
+void setUuidFilter(QList<QBluetoothUuid> uuids)
+void setUuidFilter@2(QBluetoothUuid uuid)
+QList<QBluetoothUuid> uuidFilter(void)
+void clear(void)
+void start(QBluetoothServiceDiscoveryAgent::DiscoveryMode mode)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void setserviceDiscoveredEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *getserviceDiscoveredEvent(void)
+
+<class>
+name: QBluetoothServiceInfo
+para: void
+</class>
+
+
+
+QVariant attribute(quint16 attributeId)
+QList<quint16> attributes(void)
+bool contains(quint16 attributeId)
+QBluetoothDeviceInfo device(void)
+bool isComplete(void)
+bool isRegistered(void)
+bool isValid(void)
+QBluetoothServiceInfo::Sequence protocolDescriptor(QBluetoothUuid::ProtocolUuid protocol)
+int protocolServiceMultiplexer(void)
+bool registerService(QBluetoothAddress localAdapter))
+void removeAttribute(quint16 attributeId)
+int serverChannel(void)
+quint8 serviceAvailability(void)
+QList<QBluetoothUuid> serviceClassUuids(void)
+QString serviceDescription(void)
+QString serviceName(void)
+QString serviceProvider(void)
+QBluetoothUuid serviceUuid(void)
+void setAttribute(quint16 attributeId, QVariant value)
+void setAttribute@2(quint16 attributeId, QBluetoothUuid value)
+void setAttribute@3(quint16 attributeId, QBluetoothServiceInfo::Sequence value)
+void setDevice(QBluetoothDeviceInfo device)
+void setServiceAvailability(quint8 availability)
+void setServiceDescription(QString description)
+void setServiceName(QString name)
+void setServiceProvider(QString provider)
+void setServiceUuid(QBluetoothUuid uuid)
+bool unregisterService(void)
+
+<class>
+name: QBluetoothSocket
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QIODevice
+codename: GBluetoothSocket
+passvmpointer
+</class>
+
+void abort(void)
+void connectToService(QBluetoothServiceInfo service, QIODevice::OpenMode openMode)
+void connectToService@2(QBluetoothAddress address, QBluetoothUuid uuid, QIODevice::OpenMode openMode)
+void connectToService@3(QBluetoothAddress address, quint16 port, QIODevice::OpenMode openMode)
+void disconnectFromService(void)
+QBluetoothSocket::SocketError error(void)
+QString errorString(void)
+QBluetoothAddress localAddress(void)
+QString localName(void)
+quint16 localPort(void)
+QBluetoothAddress peerAddress(void)
+QString peerName(void)
+quint16 peerPort(void)
+bool setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType, QBluetoothSocket::SocketState socketState, QIODevice::OpenMode openMode)
+int socketDescriptor(void)
+QBluetoothServiceInfo::Protocol socketType(void)
+QBluetoothSocket::SocketState state(void)
+
+void setconnectedEvent(const char *)
+void setdisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void setstateChangedEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *getstateChangedEvent(void)
+
+<class>
+name: QBluetoothTransferManager
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferManager
+passvmpointer
+</class>
+
+
+QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
+void setfinishedEvent(const char *)
+const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothTransferReply
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferReply
+passvmpointer
+abstract
+</class>
+
+QBluetoothTransferManager * manager(void)
+QBluetoothTransferRequest request(void)
+void abort(void)
+
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void settransferProgressEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *gettransferProgressEvent(void)
+
+<class>
+name: QBluetoothTransferRequest
+para: QBluetoothAddress
+</class>
+
+QBluetoothAddress address(void)
+QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
+void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
+
+<class>
+name: QBluetoothUuid
+para: void
+parent: QUuid
+</class>
+
+int minimumSize(void)
+quint16 toUInt16(bool *ok)
+quint32 toUInt32(bool *ok)
+quint128 toUInt128(void)
+<comment>
+QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
+QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
+QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
+QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
+</comment>
+
+<class>
+name: QDateTime
+para: void
+</class>
+
+QDateTime addDays(int ndays)
+QDateTime addMSecs(qint64 msecs)
+QDateTime addMonths(int nmonths)
+QDateTime addSecs(int s)
+QDateTime addYears(int nyears)
+QDate date(void)
+int daysTo(QDateTime other)
+bool isNull(void)
+bool isValid(void)
+qint64 msecsTo(QDateTime other)
+int secsTo(QDateTime other)
+void setDate(QDate date)
+void setMSecsSinceEpoch(qint64 msecs)
+void setTime(QTime time)
+void setTimeSpec(Qt::TimeSpec spec)
+void setTime_t(uint seconds)
+QTime time(void)
+Qt::TimeSpec timeSpec(void)
+QDateTime toLocalTime(void)
+qint64 toMSecsSinceEpoch(void)
+QString toString(QString format)
+QString toString@2(Qt::DateFormat format)
+QDateTime toTimeSpec(Qt::TimeSpec specification)
+uint toTime_t(void)
+QDateTime toUTC(void)
+QDateTime currentDateTime(void)
+QDateTime currentDateTimeUtc(void)
+qint64 currentMSecsSinceEpoch(void)
+QDateTime fromMSecsSinceEpoch(qint64 msecs)
+QDateTime fromString(QString string, Qt::DateFormat format)
+QDateTime fromString@2(QString string, QString format)
+QDateTime fromTime_t(uint seconds)
+
+<class>
+name: QScreen
+abstract
+</class>
+
+int angleBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b)
+QRect availableGeometry(void)
+QSize availableSize(void)
+QRect availableVirtualGeometry(void)
+QSize availableVirtualSize(void)
+int depth(void)
+qreal devicePixelRatio(void)
+QRect geometry(void)
+QPixmap grabWindow(int window, int x, int y, int width, int height)
+QPixmap grabWindow@2(int window)
+QPlatformScreen * handle(void)
+bool isLandscape(Qt::ScreenOrientation o)
+bool isPortrait(Qt::ScreenOrientation o)
+qreal logicalDotsPerInch(void)
+qreal logicalDotsPerInchX(void)
+qreal logicalDotsPerInchY(void)
+QRect mapBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect rect)
+QString name(void)
+Qt::ScreenOrientation nativeOrientation(void)
+Qt::ScreenOrientation orientation(void)
+Qt::ScreenOrientations orientationUpdateMask(void)
+qreal physicalDotsPerInch(void)
+qreal physicalDotsPerInchX(void)
+qreal physicalDotsPerInchY(void)
+QSizeF physicalSize(void)
+Qt::ScreenOrientation primaryOrientation(void)
+qreal refreshRate(void)
+void setOrientationUpdateMask(Qt::ScreenOrientations mask)
+QSize size(void)
+QTransform transformBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect target)
+
+<class>
+name: QWindow
+para: QScreen *
+parent: QObject
+codename: GWindow
+passvmpointer
+</class>
+
+<runcode>
+ aEnumTypes + "QWindow::AncestorMode"
+ aEnumTypes + "QWindow::Visibility"
+</runcode>
+
+QSize baseSize(void)
+Qt::ScreenOrientation contentOrientation(void)
+void create(void)
+QCursor cursor(void)
+void destroy(void)
+qreal devicePixelRatio(void)
+QString filePath(void)
+Qt::WindowFlags flags(void)
+QObject * focusObject(void)
+QRect frameGeometry(void)
+QMargins frameMargins(void)
+QPoint framePosition(void)
+QRect geometry(void)
+int height(void)
+QIcon icon(void)
+bool isActive(void)
+bool isAncestorOf(QWindow *child, QWindow::AncestorMode mode)
+bool isExposed(void)
+bool isModal(void)
+bool isTopLevel(void)
+bool isVisible(void)
+QPoint mapFromGlobal(QPoint pos)
+QPoint mapToGlobal(QPoint pos)
+QRegion mask(void)
+int maximumHeight(void)
+QSize maximumSize(void)
+int maximumWidth(void)
+int minimumHeight(void)
+QSize minimumSize(void)
+int minimumWidth(void)
+Qt::WindowModality modality(void)
+qreal opacity(void)
+QPoint position(void)
+void reportContentOrientationChange(Qt::ScreenOrientation orientation)
+QSurfaceFormat requestedFormat(void)
+void resize(QSize newSize)
+void resize@2(int w, int h)
+QScreen * screen(void)
+void setBaseSize(QSize size)
+void setCursor(QCursor cursor)
+void setFilePath(QString filePath)
+void setFlags(Qt::WindowFlags flags)
+void setFormat(QSurfaceFormat format)
+void setFramePosition(QPoint point)
+void setGeometry(int posx, int posy, int w, int h)
+void setGeometry@2(QRect rect)
+void setIcon(QIcon icon)
+bool setKeyboardGrabEnabled(bool grab)
+void setMask(QRegion region)
+void setMaximumSize(QSize size)
+void setMinimumSize(QSize size)
+void setModality(Qt::WindowModality modality)
+bool setMouseGrabEnabled(bool grab)
+void setOpacity(qreal level)
+void setParent(QWindow *parent)
+void setPosition(QPoint pt)
+void setPosition@2(int posx, int posy)
+void setScreen(QScreen *newScreen)
+void setSizeIncrement(QSize size)
+void setTransientParent(QWindow *parent)
+void setVisibility(QWindow::Visibility v)
+void setWindowState(Qt::WindowState state)
+QSize sizeIncrement(void)
+QString title(void)
+QWindow * transientParent(void)
+Qt::WindowType type(void)
+void unsetCursor(void)
+QWindow::Visibility visibility(void)
+int width(void)
+WId winId(void)
+Qt::WindowState windowState(void)
+int x(void)
+int y(void)
+void alert(int msec)
+bool close(void)
+void hide(void)
+void lower(void)
+void raise(void)
+void requestActivate(void)
+void setHeight(int arg)
+void setMaximumHeight(int h)
+void setMaximumWidth(int w)
+void setMinimumHeight(int h)
+void setMinimumWidth(int w)
+void setTitle(QString )
+void setVisible(bool visible)
+void setWidth(int arg)
+void setX(int arg)
+void setY(int arg)
+void show(void)
+void showFullScreen(void)
+void showMaximized(void)
+void showMinimized(void)
+void showNormal(void)
+QWindow * fromWinId(WId id)
+
+void setactiveChangedEvent(const char *)
+void setcontentOrientationChangedEvent(const char *)
+void setfocusObjectChangedEvent(const char *)
+void setheightChangedEvent(const char *)
+void setmaximumHeightChangedEvent(const char *)
+void setmaximumWidthChangedEvent(const char *)
+void setminimumHeightChangedEvent(const char *)
+void setminimumWidthChangedEvent(const char *)
+void setmodalityChangedEvent(const char *)
+void setopacityChangedEvent(const char *)
+void setscreenChangedEvent(const char *)
+void setvisibilityChangedEvent(const char *)
+void setvisibleChangedEvent(const char *)
+void setwidthChangedEvent(const char *)
+void setwindowStateChangedEvent(const char *)
+void setwindowTitleChangedEvent(const char *)
+void setxChangedEvent(const char *)
+void setyChangedEvent(const char *)
+
+const char *getactiveChangedEvent(void)
+const char *getcontentOrientationChangedEvent(void)
+const char *getfocusObjectChangedEvent(void)
+const char *getheightChangedEvent(void)
+const char *getmaximumHeightChangedEvent(void)
+const char *getmaximumWidthChangedEvent(void)
+const char *getminimumHeightChangedEvent(void)
+const char *getminimumWidthChangedEvent(void)
+const char *getmodalityChangedEvent(void)
+const char *getopacityChangedEvent(void)
+const char *getscreenChangedEvent(void)
+const char *getvisibilityChangedEvent(void)
+const char *getvisibleChangedEvent(void)
+const char *getwidthChangedEvent(void)
+const char *getwindowStateChangedEvent(void)
+const char *getwindowTitleChangedEvent(void)
+const char *getxChangedEvent(void)
+const char *getyChangedEvent(void)
+
+<class>
+name: QGuiApplication
+parent: QCoreApplication
+para: int,char **
+codename: GGuiApplication
+passvmpointer
+</class>
+
+
+qreal devicePixelRatio(void)
+bool isSavingSession(void)
+bool isSessionRestored(void)
+QString sessionId(void)
+QString sessionKey(void)
+QWindowList allWindows(void)
+QString applicationDisplayName(void)
+Qt::ApplicationState applicationState(void)
+void changeOverrideCursor(QCursor cursor)
+QClipboard * clipboard(void)
+bool desktopSettingsAware(void)
+int exec(void)
+QObject * focusObject(void)
+QWindow * focusWindow(void)
+QFont font(void)
+QInputMethod * inputMethod(void)
+bool isLeftToRight(void)
+bool isRightToLeft(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
+Qt::LayoutDirection layoutDirection(void)
+QWindow * modalWindow(void)
+Qt::MouseButtons mouseButtons(void)
+QCursor * overrideCursor(void)
+QPalette palette(void)
+QString platformName(void)
+QPlatformNativeInterface * platformNativeInterface(void)
+QScreen * primaryScreen(void)
+Qt::KeyboardModifiers queryKeyboardModifiers(void)
+bool quitOnLastWindowClosed(void)
+void restoreOverrideCursor(void)
+QList<QScreen *> screens(void)
+void setApplicationDisplayName(QString name)
+void setDesktopSettingsAware(bool on)
+void setFont(QFont font)
+void setLayoutDirection(Qt::LayoutDirection direction)
+void setOverrideCursor(QCursor cursor)
+void setPalette(QPalette pal)
+void setQuitOnLastWindowClosed(bool quit)
+QStyleHints * styleHints(void)
+void sync(void)
+QWindow * topLevelAt(QPoint pos)
+QWindowList topLevelWindows(void)
+void setapplicationDisplayNameChangedEvent(const char *)
+void setapplicationStateChangedEvent(const char *)
+void setcommitDataRequestEvent(const char *)
+void setfocusObjectChangedEvent(const char *)
+void setfocusWindowChangedEvent(const char *)
+void setfontDatabaseChangedEvent(const char *)
+void setlastWindowClosedEvent(const char *)
+void setlayoutDirectionChangedEvent(const char *)
+void setpaletteChangedEvent(const char *)
+void setprimaryScreenChangedEvent(const char *)
+void setsaveStateRequestEvent(const char *)
+void setscreenAddedEvent(const char *)
+void setscreenRemovedEvent(const char *)
+
+const char *getapplicationDisplayNameChangedEvent(void)
+const char *getapplicationStateChangedEvent(void)
+const char *getcommitDataRequestEvent(void)
+const char *getfocusObjectChangedEvent(void)
+const char *getfocusWindowChangedEvent(void)
+const char *getfontDatabaseChangedEvent(void)
+const char *getlastWindowClosedEvent(void)
+const char *getlayoutDirectionChangedEvent(void)
+const char *getpaletteChangedEvent(void)
+const char *getprimaryScreenChangedEvent(void)
+const char *getsaveStateRequestEvent(void)
+const char *getscreenAddedEvent(void)
+const char *getscreenRemovedEvent(void)
+
+<class>
+name: QCoreApplication
+parent: QObject
+nonew
+</class>
+
+void installNativeEventFilter(QAbstractNativeEventFilter *filterObj)
+void removeNativeEventFilter(QAbstractNativeEventFilter *filterObject)
+void quit(void)
+void addLibraryPath(QString path)
+QString applicationDirPath(void)
+QString applicationFilePath(void)
+QString applicationName(void)
+qint64 applicationPid(void)
+QString applicationVersion(void)
+QStringList arguments(void)
+bool closingDown(void)
+QAbstractEventDispatcher * eventDispatcher(void)
+int exec(void)
+void exit(int returnCode)
+bool installTranslator(QTranslator *translationFile)
+QCoreApplication * instance(void)
+bool isQuitLockEnabled(void)
+QStringList libraryPaths(void)
+QString organizationDomain(void)
+QString organizationName(void)
+void postEvent(QObject *receiver, QEvent *event, int priority)
+void processEvents(QEventLoop::ProcessEventsFlags flags)
+void processEvents@2(QEventLoop::ProcessEventsFlags flags, int maxtime)
+void removeLibraryPath(QString path)
+void removePostedEvents(QObject *receiver, int eventType)
+bool removeTranslator(QTranslator *translationFile)
+bool sendEvent(QObject *receiver, QEvent *event)
+void sendPostedEvents(QObject *receiver, int event_type)
+void setApplicationName(QString application)
+void setApplicationVersion(QString version)
+void setAttribute(Qt::ApplicationAttribute attribute, bool on)
+void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
+void setLibraryPaths(QStringList paths)
+void setOrganizationDomain(QString orgDomain)
+void setOrganizationName(QString orgName)
+void setQuitLockEnabled(bool enabled)
+bool startingUp(void)
+bool testAttribute(Qt::ApplicationAttribute attribute)
+QString translate(char *context, char *sourceText, char *disambiguation, int n)
+
+<class>
+name: QTextBrowser
+para: QWidget *
+parent: QTextEdit
+codename: GTextBrowser
+passvmpointer
+</class>
+
+int backwardHistoryCount(void)
+void clearHistory(void)
+int forwardHistoryCount(void)
+QString historyTitle(int i)
+QUrl historyUrl(int i)
+bool isBackwardAvailable(void)
+bool isForwardAvailable(void)
+bool openExternalLinks(void)
+bool openLinks(void)
+QStringList searchPaths(void)
+void setOpenExternalLinks(bool open)
+void setOpenLinks(bool open)
+void setSearchPaths(QStringList paths)
+QUrl source(void)
+
+void setanchorClickedEvent(const char *)
+void setbackwardAvailableEvent(const char *)
+void setforwardAvailableEvent(const char *)
+void sethighlightedEvent(const char *)
+void sethistoryChangedEvent(const char *)
+void setsourceChangedEvent(const char *)
+
+const char *getanchorClickedEvent(void)
+const char *getbackwardAvailableEvent(void)
+const char *getforwardAvailableEvent(void)
+const char *gethighlightedEvent(void)
+const char *gethistoryChangedEvent(void)
+const char *getsourceChangedEvent(void)
+
+<class>
+name: QRegion
+para: void
+</class>
+
+QRect boundingRect(void)
+bool contains(QPoint p)
+bool contains@2(QRect r)
+QRegion intersected(QRegion r)
+QRegion intersected@2(QRect rect)
+bool intersects(QRegion region)
+bool intersects@2(QRect rect)
+bool isEmpty(void)
+bool isNull(void)
+int rectCount(void)
+QVector<QRect> rects(void)
+void setRects(QRect *rects, int number)
+QRegion subtracted(QRegion r)
+void swap(QRegion other)
+void translate(int dx, int dy)
+void translate@2(QPoint point)
+QRegion translated(int dx, int dy)
+QRegion translated@2(QPoint p)
+QRegion united(QRegion r)
+QRegion united@2(QRect rect)
+QRegion xored(QRegion r)
+
+<class>
+name: QStackedWidget
+para: QWidget *
+parent: QFrame
+codename: GStackedWidget
+passvmpointer
+</class>
+
+int addWidget(QWidget *widget)
+int count(void)
+int currentIndex(void)
+QWidget * currentWidget(void)
+int indexOf(QWidget *widget)
+int insertWidget(int index, QWidget *widget)
+void removeWidget(QWidget *widget)
+QWidget * widget(int index)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+void setwidgetRemovedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *getwidgetRemovedEvent(void)
+
+
+<class>
+name: QCalendarWidget
+para: QWidget *
+parent: QWidget
+codename: GCalendarWidget
+passvmpointer
+</class>
+
+int dateEditAcceptDelay(void)
+QMap<QDate, QTextCharFormat> dateTextFormat(void)
+QTextCharFormat dateTextFormat@2(QDate date)
+Qt::DayOfWeek firstDayOfWeek(void)
+QTextCharFormat headerTextFormat(void)
+QCalendarWidget::HorizontalHeaderFormat horizontalHeaderFormat(void)
+bool isDateEditEnabled(void)
+bool isGridVisible(void)
+bool isNavigationBarVisible(void)
+QDate maximumDate(void)
+QDate minimumDate(void)
+int monthShown(void)
+QDate selectedDate(void)
+QCalendarWidget::SelectionMode selectionMode(void)
+void setDateEditAcceptDelay(int delay)
+void setDateEditEnabled(bool enable)
+void setDateTextFormat(QDate date, QTextCharFormat format)
+void setFirstDayOfWeek(Qt::DayOfWeek dayOfWeek)
+void setHeaderTextFormat(QTextCharFormat format)
+void setHorizontalHeaderFormat(QCalendarWidget::HorizontalHeaderFormat format)
+void setMaximumDate(QDate date)
+void setMinimumDate(QDate date)
+void setSelectionMode(QCalendarWidget::SelectionMode mode)
+void setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat format)
+void setWeekdayTextFormat(Qt::DayOfWeek dayOfWeek, QTextCharFormat format)
+QCalendarWidget::VerticalHeaderFormat verticalHeaderFormat(void)
+QTextCharFormat weekdayTextFormat(Qt::DayOfWeek dayOfWeek)
+int yearShown(void)
+void setCurrentPage(int year, int month)
+void setDateRange(QDate min, QDate max)
+void setGridVisible(bool show)
+void setNavigationBarVisible(bool visible)
+void setSelectedDate(QDate date)
+void showNextMonth(void)
+void showNextYear(void)
+void showPreviousMonth(void)
+void showPreviousYear(void)
+void showSelectedDate(void)
+void showToday(void)
+
+void setactivatedEvent(const char *)
+void setclickedEvent(const char *)
+void setcurrentPageChangedEvent(const char *)
+void setselectionChangedEvent(const char *)
+
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getcurrentPageChangedEvent(void)
+const char *getselectionChangedEvent(void)
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QOpenGLFunctions
+para: void
+</class>
+
+void glActiveTexture(GLenum texture)
+void glAttachShader(GLuint program, GLuint shader)
+void glBindAttribLocation(GLuint program, GLuint index, char *name)
+void glBindBuffer(GLenum target, GLuint buffer)
+void glBindFramebuffer(GLenum target, GLuint framebuffer)
+void glBindRenderbuffer(GLenum target, GLuint renderbuffer)
+void glBindTexture(GLenum target, GLuint texture)
+void glBlendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)
+void glBlendEquation(GLenum mode)
+void glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha)
+void glBlendFunc(GLenum sfactor, GLenum dfactor)
+void glBlendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha)
+void glBufferData(GLenum target, qopengl_GLsizeiptr size, void *data, GLenum usage)
+void glBufferSubData(GLenum target, qopengl_GLintptr offset, qopengl_GLsizeiptr size, void *data)
+GLenum glCheckFramebufferStatus(GLenum target)
+void glClear(GLbitfield mask)
+void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)
+void glClearDepthf(GLclampf depth)
+void glClearStencil(GLint s)
+void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)
+void glCompileShader(GLuint shader)
+void glCompressedTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, void *data)
+void glCompressedTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, void *data)
+void glCopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)
+void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height)
+GLuint glCreateProgram(void)
+GLuint glCreateShader(GLenum type)
+void glCullFace(GLenum mode)
+void glDeleteBuffers(GLsizei n, GLuint *buffers)
+void glDeleteFramebuffers(GLsizei n, GLuint *framebuffers)
+void glDeleteProgram(GLuint program)
+void glDeleteRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glDeleteShader(GLuint shader)
+void glDeleteTextures(GLsizei n, GLuint *textures)
+void glDepthFunc(GLenum func)
+void glDepthMask(GLboolean flag)
+void glDepthRangef(GLclampf zNear, GLclampf zFar)
+void glDetachShader(GLuint program, GLuint shader)
+void glDisable(GLenum cap)
+void glDisableVertexAttribArray(GLuint index)
+void glDrawArrays(GLenum mode, GLint first, GLsizei count)
+void glDrawElements(GLenum mode, GLsizei count, GLenum type, GLvoid *indices)
+void glEnable(GLenum cap)
+void glEnableVertexAttribArray(GLuint index)
+void glFinish(void)
+void glFlush(void)
+void glFramebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer)
+void glFramebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level)
+void glFrontFace(GLenum mode)
+void glGenBuffers(GLsizei n, GLuint *buffers)
+void glGenFramebuffers(GLsizei n, GLuint *framebuffers)
+void glGenRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glGenTextures(GLsizei n, GLuint *textures)
+void glGenerateMipmap(GLenum target)
+void glGetActiveAttrib(GLuint program, GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char *name)
+void glGetActiveUniform(GLuint program, GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char *name)
+void glGetAttachedShaders(GLuint program, GLsizei maxcount, GLsizei *count, GLuint *shaders)
+GLint glGetAttribLocation(GLuint program, char *name)
+void glGetBooleanv(GLenum pname, GLboolean *params)
+void glGetBufferParameteriv(GLenum target, GLenum pname, GLint *params)
+GLenum glGetError(void)
+void glGetFloatv(GLenum pname, GLfloat *params)
+void glGetFramebufferAttachmentParameteriv(GLenum target, GLenum attachment, GLenum pname, GLint *params)
+void glGetIntegerv(GLenum pname, GLint *params)
+void glGetProgramInfoLog(GLuint program, GLsizei bufsize, GLsizei *length, char *infolog)
+void glGetProgramiv(GLuint program, GLenum pname, GLint *params)
+void glGetRenderbufferParameteriv(GLenum target, GLenum pname, GLint *params)
+void glGetShaderInfoLog(GLuint shader, GLsizei bufsize, GLsizei *length, char *infolog)
+void glGetShaderPrecisionFormat(GLenum shadertype, GLenum precisiontype, GLint *range, GLint *precision)
+void glGetShaderSource(GLuint shader, GLsizei bufsize, GLsizei *length, char *source)
+void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)
+GLubyte * glGetString(GLenum name)
+void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glGetTexParameteriv(GLenum target, GLenum pname, GLint *params)
+GLint glGetUniformLocation(GLuint program, char *name)
+void glGetUniformfv(GLuint program, GLint location, GLfloat *params)
+void glGetUniformiv(GLuint program, GLint location, GLint *params)
+<comment>
+void glGetVertexAttribPointerv(GLuint index, GLenum pname, void **pointer)
+</comment>
+void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
+void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
+void glHint(GLenum target, GLenum mode)
+GLboolean glIsBuffer(GLuint buffer)
+GLboolean glIsEnabled(GLenum cap)
+GLboolean glIsFramebuffer(GLuint framebuffer)
+GLboolean glIsProgram(GLuint program)
+GLboolean glIsRenderbuffer(GLuint renderbuffer)
+GLboolean glIsShader(GLuint shader)
+GLboolean glIsTexture(GLuint texture)
+void glLineWidth(GLfloat width)
+void glLinkProgram(GLuint program)
+void glPixelStorei(GLenum pname, GLint param)
+void glPolygonOffset(GLfloat factor, GLfloat units)
+void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glReleaseShaderCompiler(void)
+void glRenderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height)
+void glSampleCoverage(GLclampf value, GLboolean invert)
+void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)
+void glShaderBinary(GLint n, GLuint *shaders, GLenum binaryformat, void *binary, GLint length)
+<comment>
+void glShaderSource(GLuint shader, GLsizei count, char **string, GLint *length)\
+</comment>
+void glStencilFunc(GLenum func, GLint ref, GLuint mask)
+void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)
+void glStencilMask(GLuint mask)
+void glStencilMaskSeparate(GLenum face, GLuint mask)
+void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass)
+void glStencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass)
+void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, GLvoid *pixels)
+void glTexParameterf(GLenum target, GLenum pname, GLfloat param)
+void glTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glTexParameteri(GLenum target, GLenum pname, GLint param)
+void glTexParameteriv(GLenum target, GLenum pname, GLint *params)
+void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glUniform1f(GLint location, GLfloat x)
+void glUniform1fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform1i(GLint location, GLint x)
+void glUniform1iv(GLint location, GLsizei count, GLint *v)
+void glUniform2f(GLint location, GLfloat x, GLfloat y)
+void glUniform2fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform2i(GLint location, GLint x, GLint y)
+void glUniform2iv(GLint location, GLsizei count, GLint *v)
+void glUniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z)
+void glUniform3fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform3i(GLint location, GLint x, GLint y, GLint z)
+void glUniform3iv(GLint location, GLsizei count, GLint *v)
+void glUniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void glUniform4fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform4i(GLint location, GLint x, GLint y, GLint z, GLint w)
+void glUniform4iv(GLint location, GLsizei count, GLint *v)
+void glUniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUseProgram(GLuint program)
+void glValidateProgram(GLuint program)
+void glVertexAttrib1f(GLuint indx, GLfloat x)
+void glVertexAttrib1fv(GLuint indx, GLfloat *values)
+void glVertexAttrib2f(GLuint indx, GLfloat x, GLfloat y)
+void glVertexAttrib2fv(GLuint indx, GLfloat *values)
+void glVertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z)
+void glVertexAttrib3fv(GLuint indx, GLfloat *values)
+void glVertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void glVertexAttrib4fv(GLuint indx, GLfloat *values)
+void glVertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, void *ptr)
+void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
+bool hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature feature)
+void initializeOpenGLFunctions(void)
+QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)
+
+<class>
+name: QOpenGLContext
+para: QObject *
+parent: QObject
+</class>
+
+bool create(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSet<QByteArray> extensions(void)
+<comment>
+QOpenGLExtraFunctions * extraFunctions(void)
+</comment>
+QSurfaceFormat format(void)
+QOpenGLFunctions * functions(void)
+QFunctionPointer getProcAddress(QByteArray procName)
+QFunctionPointer getProcAddress@2(char *procName)
+bool hasExtension(QByteArray extension)
+bool isOpenGLES(void)
+bool isValid(void)
+bool makeCurrent(QSurface *surface)
+QVariant nativeHandle(void)
+QScreen * screen(void)
+void setFormat(QSurfaceFormat format)
+void setNativeHandle(QVariant handle)
+void setScreen(QScreen *screen)
+void setShareContext(QOpenGLContext *shareContext)
+QOpenGLContext * shareContext(void)
+QOpenGLContextGroup * shareGroup(void)
+QSurface * surface(void)
+void swapBuffers(QSurface *surface)
+QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
+TYPE * versionFunctions@2(void)
+bool areSharing(QOpenGLContext *first, QOpenGLContext *second)
+QOpenGLContext * currentContext(void)
+QOpenGLContext * globalShareContext(void)
+void * openGLModuleHandle(void)
+QOpenGLContext::OpenGLModuleType openGLModuleType(void)
+bool supportsThreadedOpenGL(void)
+
+</filter>

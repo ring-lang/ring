@@ -1,2 +1,2 @@
-System("myapp.exe")     # Run myapp.exe
-System("ls")            # print list of files
+System(exefolder()+"/ring")     # Run myapp.exe
+

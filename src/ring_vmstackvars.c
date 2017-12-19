@@ -20,7 +20,7 @@ void ring_vm_pushv ( VM *pVM )
 		if ( RING_VM_STACK_ISPOINTER ) {
 			pVar = (List *) RING_VM_STACK_READP ;
 			/* Check NULL Value */
-			if ( pVM->nCheckNULLVar == 0 ) {
+			if ( pVM->nInClassRegion == 0 ) {
 				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
 					if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 						if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
@@ -28,7 +28,7 @@ void ring_vm_pushv ( VM *pVM )
 							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
 								/* Delete the Item from the HashTable */
 								ring_hashtable_deleteitem(pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
-								ring_list_deletelastitem(pVM->pActiveMem);
+								ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
 							}
 							return ;
 						}
@@ -56,7 +56,7 @@ void ring_vm_loadaddress ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 		/* Support for private attributes */
-		ring_list_setint((List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+		ring_list_setint_gc(pVM->pRingState,(List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
 	}
 	/* Don't change instruction if it's LoadAFirst */
 	if ( pVM->nFirstAddress == 1 ) {
@@ -65,23 +65,23 @@ void ring_vm_loadaddress ( VM *pVM )
 	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
 		/* Replace LoadAddress with PUSHP for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHP ;
-		ring_item_setpointer(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
 		/* Replace LoadAddress with PUSHPLOCAL for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
 		ring_vm_newbytecodeitem(pVM,3);
 		ring_vm_newbytecodeitem(pVM,4);
-		ring_item_setpointer(RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
-		ring_item_setint(RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
+		ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
 		#if RING_SHOWICFINAL
 		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
-		ring_list_addpointer(RING_VM_IR_LIST,RING_VM_STACK_READP);
-		ring_list_addint(RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+		ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
+		ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
 		#endif
 	}
 	/* Add Result Scope to aLoadAddressScope Array */
-	ring_list_addint(pVM->aLoadAddressScope,pVM->nVarScope);
+	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,pVM->nVarScope);
 }
 
 void ring_vm_assignment ( VM *pVM )
@@ -102,13 +102,13 @@ void ring_vm_assignment ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_PREVOBJTYPE ==RING_OBJTYPE_VARIABLE ) {
 		if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1 ) ) {
-			cStr1 = ring_string_new2(RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+			cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
 			RING_VM_STACK_POP ;
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			if ( pVM->nBeforeEqual == 0 ) {
-				ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_STRING);
-				ring_list_setstring2(pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));
+				ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
+				ring_list_setstring2_gc(pVM->pRingState,pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));
 			} else {
 				/* Check NULL Variable */
 				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
@@ -117,13 +117,13 @@ void ring_vm_assignment ( VM *pVM )
 				}
 				if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 					pString = ring_list_getstringobject(pVar,RING_VAR_VALUE);
-					ring_string_add2(pString,ring_string_get(cStr1),ring_string_size(cStr1));
+					ring_string_add2_gc(pVM->pRingState,pString,ring_string_get(cStr1),ring_string_size(cStr1));
 				}
 				else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-					ring_list_setdouble(pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) +ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
+					ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) +ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
 				}
 			}
-			ring_string_delete(cStr1);
+			ring_string_delete_gc(pVM->pRingState,cStr1);
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum1 = RING_VM_STACK_READN ;
@@ -131,8 +131,8 @@ void ring_vm_assignment ( VM *pVM )
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			if ( pVM->nBeforeEqual == 0 ) {
-				ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
-				ring_list_setdouble(pVar, RING_VAR_VALUE , nNum1);
+				ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
+				ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , nNum1);
 			} else {
 				/* Check NULL Variable */
 				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
@@ -151,7 +151,7 @@ void ring_vm_assignment ( VM *pVM )
 					pItem = (Item *) RING_VM_STACK_READP ;
 					pVar = ring_item_getlist(pItem);
 				}
-				pList = ring_list_new(0);
+				pList = ring_list_new_gc(pVM->pRingState,0);
 				ring_list_copy(pList,pVar);
 				/*
 				**  We use (Temp) List - to avoid problems when coping from parent list to child list 
@@ -161,14 +161,14 @@ void ring_vm_assignment ( VM *pVM )
 				RING_VM_STACK_POP ;
 				pVar = (List *) RING_VM_STACK_READP ;
 				RING_VM_STACK_POP ;
-				ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_LIST);
-				ring_list_setlist(pVar,RING_VAR_VALUE);
+				ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
+				ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
 				ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
 				/* Update self object pointer */
 				if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
-					ring_vm_oop_updateselfpointer(ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+					ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
 				}
-				ring_list_delete(pList);
+				ring_list_delete_gc(pVM->pRingState,pList);
 			}
 		} else {
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
@@ -191,11 +191,11 @@ void ring_vm_inc ( VM *pVM )
 	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
 		/* Replace ICO_INC with IncP for better performance */
 		RING_VM_IR_OPCODE = ICO_INCP ;
-		ring_item_setpointer(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
 	pVar = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
-	ring_list_setdouble(pVar,RING_VAR_VALUE,ring_list_getdouble(pVar,RING_VAR_VALUE) + 1);
+	ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,ring_list_getdouble(pVar,RING_VAR_VALUE) + 1);
 }
 
 void ring_vm_loadapushv ( VM *pVM )
@@ -207,7 +207,7 @@ void ring_vm_loadapushv ( VM *pVM )
 	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
 		/* Replace LoadAPushV with PUSHPV for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHPV ;
-		ring_item_setpointer(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
 	pVar = (List *) RING_VM_STACK_READP ;
 	if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
@@ -221,25 +221,42 @@ void ring_vm_loadapushv ( VM *pVM )
 void ring_vm_newline ( VM *pVM )
 {
 	pVM->nLineNumber = RING_VM_IR_READI ;
+	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWLINE);
 }
 
 void ring_vm_freestack ( VM *pVM )
 {
+	int nSP  ;
+	List *pList  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* Clear Load Address Result Scope Array */
-	ring_list_deleteallitems(pVM->aLoadAddressScope);
-	/* Don't clear stack if we are in Class Init (using new) */
-	if ( (pVM->nBlockFlag >= 1) ) {
-		if ( ring_list_getsize(pVM->aScopeNewObj) > 0  && (pVM->nInsideBraceFlag==0) ) {
-			return ;
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->aLoadAddressScope);
+	/* In the class region */
+	if ( pVM->nInClassRegion ) {
+		/*
+		**  Description 
+		**  In the class Region we don't free stack to support Object + New Object 
+		**  So we can add objects quickly to lists and access them using braces { } 
+		**  But If we did this only we may get stack overflow if we did some work in the class region like 
+		**  Using Switch (Which use duplication) or calling functions without storing the output using Assignment 
+		**  To solve this situation we Use RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 
+		**  So we can support Object + New Object and avoid Stack Overflow too! 
+		**  This feature is GREAT in the language where we can quickly move applications from 
+		**  Using procedural programming and global variables to Classes and Object Attributes 
+		*/
+		pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
+		nSP = ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
+		if ( pVM->nSP > nSP + RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER ) {
+			pVM->nSP = nSP+RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER ;
 		}
+		return ;
 	}
 	if ( ( ring_list_getsize(pVM->pFuncCallList) == 0 ) && (pVM->nInsideBraceFlag == 0) ) {
 		pVM->nSP = 0 ;
 		pVM->nFuncSP = 0 ;
 		/* Clear General Temp Memory */
-		ring_list_deleteallitems(pVM->pTempMem);
+		ring_list_deleteallitems_gc(pVM->pRingState,pVM->pTempMem);
 	} else {
 		if ( pVM->nInsideBraceFlag == 0 ) {
 			pVM->nSP = pVM->nFuncSP ;
@@ -273,9 +290,9 @@ void ring_vm_setreference ( VM *pVM )
 	/* Reference Counting to Destination before copy from Source */
 	ring_vm_gc_checkupdatereference(pList);
 	/* Copy by reference */
-	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
-	ring_list_setpointer(pList,RING_VAR_VALUE,pPointer);
-	ring_list_setint(pList,RING_VAR_PVALUETYPE,nType);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
+	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
 	/* Reference Counting (To Source After copy to Destination) */
 	ring_vm_gc_checknewreference(pPointer,nType);
 }
@@ -291,19 +308,19 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 	}
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_isint(pList,x) ) {
-			ring_list_addint(pNewList,ring_list_getint(pList,x));
+			ring_list_addint_gc(pVM->pRingState,pNewList,ring_list_getint(pList,x));
 		}
 		else if ( ring_list_isdouble(pList,x) ) {
-			ring_list_adddouble(pNewList,ring_list_getdouble(pList,x));
+			ring_list_adddouble_gc(pVM->pRingState,pNewList,ring_list_getdouble(pList,x));
 		}
 		else if ( ring_list_isstring(pList,x) ) {
-			ring_list_addstring2(pNewList,ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
+			ring_list_addstring2_gc(pVM->pRingState,pNewList,ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
 		}
 		else if ( ring_list_ispointer(pList,x) ) {
-			ring_list_addpointer(pNewList,ring_list_getpointer(pList,x));
+			ring_list_addpointer_gc(pVM->pRingState,pNewList,ring_list_getpointer(pList,x));
 		}
 		else if ( ring_list_islist(pList,x) ) {
-			pNewList2 = ring_list_newlist(pNewList);
+			pNewList2 = ring_list_newlist_gc(pVM->pRingState,pNewList);
 			ring_vm_list_copy(pVM,pNewList2,ring_list_getlist(pList,x));
 		}
 	}
@@ -313,17 +330,17 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 			/* Check value to avoid adding the pointer to the C Pointer list again */
 			if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
 				/* Mark C Pointer List As Copied */
-				ring_list_setint(pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
-				ring_list_setint(pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
+				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
+				ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
 				/* Add the pointer to the C Poiners List */
 				if ( ring_list_findpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER)) == 0 ) {
-					ring_list_addpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER));
+					ring_list_addpointer_gc(pVM->pRingState,pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER));
 				}
 			}
 			else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
 				/* Mark the C Pointer List as Not Copied */
-				ring_list_setint(pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-				ring_list_setint(pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+				ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 			}
 		}
 	}
@@ -348,11 +365,11 @@ void ring_vm_list_simpointercopy ( VM *pVM,List *pList )
 			/* Check value to avoid adding the pointer to the C Pointer list again */
 			if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
 				/* Mark C Pointer List As Copied */
-				ring_list_setint(pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
+				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
 			}
 			else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
 				/* Mark the C Pointer List as Not Copied */
-				ring_list_setint(pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 			}
 		}
 	}
@@ -364,30 +381,31 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 	char cStr[100]  ;
 	if ( ring_list_isdouble(pVar,RING_VAR_VALUE) ) {
 		if ( pVM->nBeforeEqual == 1 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) + nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) + nNum1);
 		} else if ( pVM->nBeforeEqual == 2 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) - nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) - nNum1);
 		} else if ( pVM->nBeforeEqual == 3 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) * nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) * nNum1);
 		} else if ( pVM->nBeforeEqual == 4 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) / nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) / nNum1);
 		} else if ( pVM->nBeforeEqual == 5 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE , fmod(ring_list_getdouble(pVar,RING_VAR_VALUE), nNum1));
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , fmod(ring_list_getdouble(pVar,RING_VAR_VALUE), nNum1));
 		} else if ( pVM->nBeforeEqual == 6 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) & (int) nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) & (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 7 ) {
 			ring_list_setdouble(pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) | (int) nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) | (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 8 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) ^ (int) nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) ^ (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 9 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) << (int) nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) << (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 10 ) {
-			ring_list_setdouble(pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) >> (int) nNum1);
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) >> (int) nNum1);
 		}
 	}
 	else if ( (ring_list_isstring(pVar,RING_VAR_VALUE) == 1) && (pVM->nBeforeEqual == 1) ) {
 		pString = ring_list_getstringobject(pVar,RING_VAR_VALUE);
-		ring_string_add(pString,ring_vm_numtostring(pVM,nNum1,cStr));
+		ring_string_add_gc(pVM->pRingState,pString,ring_vm_numtostring(pVM,nNum1,cStr));
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
@@ -400,30 +418,30 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 )
 	char cStr[100]  ;
 	if ( ring_item_isdouble(pItem) ) {
 		if ( pVM->nBeforeEqual == 1 ) {
-			ring_item_setdouble(pItem ,ring_item_getdouble(pItem) + nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,ring_item_getdouble(pItem) + nNum1);
 		} else if ( pVM->nBeforeEqual == 2 ) {
-			ring_item_setdouble(pItem ,ring_item_getdouble(pItem) - nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,ring_item_getdouble(pItem) - nNum1);
 		} else if ( pVM->nBeforeEqual == 3 ) {
-			ring_item_setdouble(pItem ,ring_item_getdouble(pItem) * nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,ring_item_getdouble(pItem) * nNum1);
 		} else if ( pVM->nBeforeEqual == 4 ) {
-			ring_item_setdouble(pItem ,ring_item_getdouble(pItem) / nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,ring_item_getdouble(pItem) / nNum1);
 		} else if ( pVM->nBeforeEqual == 5 ) {
-			ring_item_setdouble(pItem ,fmod(ring_item_getdouble(pItem) , nNum1));
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,fmod(ring_item_getdouble(pItem) , nNum1));
 		} else if ( pVM->nBeforeEqual == 6 ) {
-			ring_item_setdouble(pItem ,(int) ring_item_getdouble(pItem) & (int) nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) & (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 7 ) {
-			ring_item_setdouble(pItem ,(int) ring_item_getdouble(pItem) | (int) nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) | (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 8 ) {
-			ring_item_setdouble(pItem ,(int) ring_item_getdouble(pItem) ^ (int) nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) ^ (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 9 ) {
-			ring_item_setdouble(pItem ,(int) ring_item_getdouble(pItem) << (int) nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) << (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 10 ) {
-			ring_item_setdouble(pItem ,(int) ring_item_getdouble(pItem) >> (int) nNum1);
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) >> (int) nNum1);
 		}
 	}
 	else if ( (ring_item_isstring(pItem) == 1)  && (pVM->nBeforeEqual == 1) ) {
 		pString = ring_item_getstring(pItem);
-		ring_string_add(pString,ring_vm_numtostring(pVM,nNum1,cStr));
+		ring_string_add_gc(pVM->pRingState,pString,ring_vm_numtostring(pVM,nNum1,cStr));
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
@@ -438,14 +456,14 @@ void ring_vm_plusplus ( VM *pVM )
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pList = (List *) RING_VM_STACK_READP ;
 			if ( ring_list_isdouble(pList,RING_VAR_VALUE) ) {
-				ring_list_setdouble(pList,RING_VAR_VALUE,ring_list_getdouble(pList,RING_VAR_VALUE)+1);
+				ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,ring_list_getdouble(pList,RING_VAR_VALUE)+1);
 				return ;
 			}
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			if ( ring_item_isdouble(pItem) ) {
-				ring_item_setdouble(pItem,ring_item_getdouble(pItem)+1);
+				ring_item_setdouble_gc(pVM->pRingState,pItem,ring_item_getdouble(pItem)+1);
 				return ;
 			}
 		}
@@ -465,14 +483,14 @@ void ring_vm_minusminus ( VM *pVM )
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pList = (List *) RING_VM_STACK_READP ;
 			if ( ring_list_isdouble(pList,RING_VAR_VALUE) ) {
-				ring_list_setdouble(pList,RING_VAR_VALUE,ring_list_getdouble(pList,RING_VAR_VALUE)-1);
+				ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,ring_list_getdouble(pList,RING_VAR_VALUE)-1);
 				return ;
 			}
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			if ( ring_item_isdouble(pItem) ) {
-				ring_item_setdouble(pItem,ring_item_getdouble(pItem)-1);
+				ring_item_setdouble_gc(pVM->pRingState,pItem,ring_item_getdouble(pItem)-1);
 				return ;
 			}
 		}
@@ -529,5 +547,5 @@ void ring_vm_assignmentpointer ( VM *pVM )
 void ring_vm_freeloadaddressscope ( VM *pVM )
 {
 	/* Clear Load Address Result Scope Array */
-	ring_list_deleteallitems(pVM->aLoadAddressScope);
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->aLoadAddressScope);
 }

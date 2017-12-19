@@ -1,0 +1,1 @@
+start ..\..\..\bin\ringw.exe QtClassConverter.ring

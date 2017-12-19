@@ -59,14 +59,27 @@
 #include "codeeditor.h"
 #include "ring.h"
 
+#include <algorithm> 
+
 CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM) , c(0)
 {
     lineNumberArea = new LineNumberArea(this);
-
+    this->areaColor = Qt::black;
+    this->areaBackColor = Qt::cyan;
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(updateLineNumberAreaWidth(int)));
     connect(this, SIGNAL(updateRequest(QRect,int)), this, SLOT(updateLineNumberArea(QRect,int)));
 
     updateLineNumberAreaWidth(0);
+}
+
+void CodeEditor::setLineNumbersAreaColor(QColor oColor) 
+{
+    this->areaColor = oColor;
+}
+
+void CodeEditor::setLineNumbersAreaBackColor(QColor oColor) 
+{
+    this->areaBackColor = oColor;
 }
 
 int CodeEditor::lineNumberAreaWidth()
@@ -122,7 +135,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     font.setPointSize(fontMetrics().height());
     painter.setFont(font);
 
-    painter.fillRect(event->rect(), Qt::cyan);
+    painter.fillRect(event->rect(), this->areaBackColor);
 
 
     QTextBlock block = firstVisibleBlock();
@@ -133,7 +146,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
             QString number = QString::number(blockNumber + 1);
-            painter.setPen(Qt::black);
+            painter.setPen(this->areaColor);
             painter.drawText(0, top, lineNumberArea->width(), bottom-top,
                              Qt::AlignCenter, number);
         }
@@ -197,16 +210,85 @@ void CodeEditor::focusInEvent(QFocusEvent *e)
 
 void CodeEditor::keyPressEvent(QKeyEvent *e)
 {
+
+	QTextCursor cur ;
+	int a ;
+	int p ;
+	int m ;
+	QString str ;
+	QStringList list ;
+	
+	if ( e->key() == Qt::Key_Tab) {
+ 		cur = textCursor();
+		if (strcmp(cur.selectedText().toStdString().c_str(),"") == 0 ) 
+		{
+			cur.insertText("\t");
+			e->accept();
+			return;
+		}
+		blockSignals(true);
+    		a = cur.anchor();
+    		p = cur.position();
+    		cur.setPosition(a);
+    		cur.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor);
+    		a = cur.position();    	
+    		cur.setPosition(a);
+    		cur.setPosition(p, QTextCursor::KeepAnchor);
+    		str = cur.selection().toPlainText();
+	    		list = str.split("\n");
+	    		for (int i = 0; i < list.count(); i++)
+	    			list[i].insert(0,"\t");
+  	  		str=list.join("\n");
+ 	   		cur.removeSelectedText();
+   	 		cur.insertText(str);
+   	 		cur.setPosition(std::min(a,p));
+    			cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
+    			setTextCursor(cur);
+			e->accept();
+			blockSignals(false);
+			return ;		
+	}
+	else if ( e->key() == Qt::Key_Backtab) {
+ 		cur = textCursor();
+		blockSignals(true);
+    		a = cur.anchor();
+    		p = cur.position();
+    		cur.setPosition(a);
+    		cur.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor);
+    		a = cur.position();    	
+    		cur.setPosition(a);
+    		cur.setPosition(p, QTextCursor::KeepAnchor);
+    		str = cur.selection().toPlainText();
+    			list = str.split("\n");
+			m = 0;
+    			for (int i = 0; i < list.count(); i++) {
+				if (list[i][0] == '\t') {
+	   	 			list[i] = list[i].right(list[i].count()-1);
+					m++;
+				}
+			}
+    			str=list.join("\n");
+    			cur.removeSelectedText();
+    			cur.insertText(str);
+    			cur.setPosition(std::min(a,p));
+  			cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
+    			setTextCursor(cur);
+			e->accept();
+			blockSignals(false);
+			return ;
+	}
+
     if (c && c->popup()->isVisible()) {
         // The following keys are forwarded by the completer to the widget
        switch (e->key()) {
        case Qt::Key_Enter:
        case Qt::Key_Return:
-       case Qt::Key_Escape:
-       case Qt::Key_Tab:
+		e->ignore();
+		return; // let the completer do default behavior
+       case Qt::Key_Escape:     
        case Qt::Key_Backtab:
-            e->ignore();
-            return; // let the completer do default behavior
+		c->popup()->hide();
+		return; // let the completer do default behavior
        default:
            break;
        }
@@ -216,7 +298,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     if (!c || !isShortcut) // do not process the shortcut when we have a completer
         GPlainTextEdit::keyPressEvent(e);
 
-const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
+    const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
     if (!c || (ctrlOrShift && e->text().isEmpty()))
         return;
 

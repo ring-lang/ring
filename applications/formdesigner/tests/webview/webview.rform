@@ -1,0 +1,31 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -361 , : y = 85  , 
+		 :width =  822 , :height = 400 , 
+		 :title =  "WebView" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "WebView1" , :id = 2 , :classname = "formdesigner_qwebview" , :data = [
+		 :x = 13 , : y = 17  , 
+		 :width =  793 , :height = 339 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :URL =  "http://www.ring-lang.sf.net",
+		 :setloadProgressEvent  =  "",
+		 :setloadStartedEvent  =  "",
+		 :setselectionChangedEvent  =  "",
+		 :seturlChangedEvent  =  ""
+		]
+	]
+]
+# End Form Designer File

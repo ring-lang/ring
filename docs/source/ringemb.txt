@@ -1,0 +1,208 @@
+.. index:: 
+	single: Embedding Ring in Ring; Embedding Ring in Ring
+
+======================
+Embedding Ring in Ring
+======================
+
+In this chapter we will learn about embedding Ring in Ring programs and applications.
+
+.. index:: 
+	pair: Embedding Ring in Ring; Embedding Ring in Ring without sharing the State
+
+Embedding Ring in Ring without sharing the State
+================================================
+
+From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.
+
+Advantages:
+
+(1) Quick integration for Ring programs and applications together without conflicts.
+
+(2) Execute and run Ring code in safe environments that we can trace.
+
+Example:
+
+.. code-block:: ring
+
+	pState = ring_state_init()
+	ring_state_runcode(pState,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState,"x = 10")
+
+	pState2 = ring_state_init()
+	ring_state_runcode(pState2,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState2,"x = 20")
+
+	ring_state_runcode(pState,"see x +nl")
+	ring_state_runcode(pState2,"see x +nl")
+
+	v1 = ring_state_findvar(pState,"x")
+	v2 = ring_state_findvar(pState2,"x")
+
+	see v1[3] + nl
+	see V2[3] + nl
+
+	ring_state_delete(pState)
+	ring_state_delete(pState2)
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	Hello, World!
+	10
+	20
+	10
+	20
+
+.. index:: 
+	pair: Embedding Ring in Ring; Serial Execution of Programs
+
+Serial Execution of Programs
+============================
+
+We can execute application after another application using ring_state_main()
+
+Example:
+
+.. code-block:: ring
+
+	chdir(exefolder()+"/../applications/formdesigner")
+	ring_state_main('formdesigner.ring')
+	chdir(exefolder()+"/../applications/cards")
+	ring_state_main('cards.ring')
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_setvar()
+
+ring_state_setvar()
+===================
+
+Using ring_state_setvar() we can set variables value
+
+The value could be (String, Number, List or C Pointer)
+
+We need this function to quickly pass lists and C pointers to the Sub Ring Environment
+
+Syntax:
+
+.. code-block:: none
+
+	ring_state_setvar(oState,cVariableName,Value)
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	myapp	= null
+	win	= null
+
+	func main
+		myapp = new qApp {
+			win = new qWidget() {
+				setWindowTitle("Advanced Example on using ring_state_setvar()")
+				move(100,100)
+				resize(600,400)
+				new qPushButton(win) {
+					setText("Test")
+					setClickEvent("Test()")
+				}
+				# We need this because using load 'guilib.ring' in the sub environment
+				# Will create timers by Qt and closing the window will not be enough
+				# To close the application
+				oFilter = new qAllEvents(win)
+				oFilter.setCloseEvent("myapp.quit()")
+				win.installeventfilter(oFilter)
+				show()
+			}
+			exec()
+		}
+
+	func test
+		pState = ring_state_init()
+		ring_state_runcode(pstate,"load 'guilib.ring'")
+		ring_state_runcode(pState,"x = NULL")
+		# Pass String
+			ring_state_setvar(pState,"x","hello")
+			ring_state_runcode(pState,"? x")
+		# Pass Number
+			ring_state_setvar(pState,"x",100)
+			ring_state_runcode(pState,"? x")
+		# Pass List
+			ring_state_setvar(pState,"x",["one","two","three"])
+			ring_state_runcode(pState,"? x")
+		# Pass Object
+		# We can't pass the Ring Object (win)
+		# Because Objects store pointers to the Class Information
+		# And the class is related to the Parent Ring Environment
+		# And the sub Ring environment can't access it
+		# But we can pass C pointers like win.pObject
+			ring_state_setvar(pState,"x",win.pObject)
+		# Now we create the object again but using the same C pointer
+		# So we have access to the Same window in the parent Ring enviroment
+			ring_state_runcode(pState,"
+				new qWidget {
+					pObject = x
+					setwindowtitle('Message from the Sub Ring Environment')
+				}
+			")
+		ring_state_delete(pState)
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_new() and ring_state_mainfile()
+
+ring_state_new() and ring_state_mainfile()
+==========================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	func main
+		new qApp {
+			win = new qWidget() {
+				setWindowTitle("Test ring_state_mainfile()")
+				resize(400,400) move(100,100)
+				btn = new qPushButton(Win) {
+					settext("test")
+					setclickevent("mytest()")
+				}
+				show()
+			}
+			exec()
+		}
+
+	func mytest
+		pState = ring_state_new()
+		ring_state_mainfile(pState,"runprogram.ring")
+		# Here we don't delete the state if we will run GUI application
+		# So we can run the GUI application events 
+			// ring_state_delete(pState)
+
+If you will use this feature, remember to update the previous example based on your application needs
+
+So you can call ring_state_delete() at some point to avoid the memory leak!

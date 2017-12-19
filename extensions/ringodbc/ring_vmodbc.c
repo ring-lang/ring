@@ -8,6 +8,7 @@
 #include <sql.h>
 #include <sqlext.h>
 #include "ring.h"
+#include "ring_vmodbc.h"
 /* Data */
 typedef struct ring_odbc {
 	SQLHENV env  ;
@@ -17,7 +18,7 @@ typedef struct ring_odbc {
 } ring_odbc ;
 /* Functions */
 
-void ring_vm_odbc_loadfunctions ( RingState *pRingState )
+RING_API void ringlib_init ( RingState *pRingState )
 {
 	ring_vm_funcregister("odbc_init",ring_vm_odbc_init);
 	ring_vm_funcregister("odbc_drivers",ring_vm_odbc_drivers);
@@ -79,11 +80,11 @@ void ring_vm_odbc_drivers ( void *pPointer )
 		direction = SQL_FETCH_FIRST ;
 		while ( SQL_SUCCEEDED(SQLDrivers(pODBC->env, direction, driver, sizeof(driver), &driver_ret,attr, sizeof(attr), &attr_ret)) ) {
 			direction = SQL_FETCH_NEXT ;
-			pString = ring_string_new((char *) driver);
-			ring_string_add(pString," - ");
-			ring_string_add(pString, (char *) attr);
-			ring_list_addstring(pList,ring_string_get(pString));
-			ring_string_delete(pString);
+			pString = ring_string_new_gc(((VM *)pPointer)->pRingState,(char *) driver);
+			ring_string_add_gc(((VM *)pPointer)->pRingState,pString," - ");
+			ring_string_add_gc(((VM *)pPointer)->pRingState,pString, (char *) attr);
+			ring_list_addstring_gc(((VM *)pPointer)->pRingState,pList,ring_string_get(pString));
+			ring_string_delete_gc(((VM *)pPointer)->pRingState,pString);
 		}
 		RING_API_RETLIST(pList);
 	} else {
@@ -114,11 +115,11 @@ void ring_vm_odbc_datasources ( void *pPointer )
 		direction = SQL_FETCH_FIRST ;
 		while ( SQL_SUCCEEDED(SQLDataSources(pODBC->env, direction, dsn, sizeof(dsn), &dsn_ret,desc, sizeof(desc), &desc_ret)) ) {
 			direction = SQL_FETCH_NEXT ;
-			pString = ring_string_new((char *) dsn);
-			ring_string_add(pString," - ");
-			ring_string_add(pString, (char *) desc);
-			ring_list_addstring(pList,ring_string_get(pString));
-			ring_string_delete(pString);
+			pString = ring_string_new_gc(((VM *)pPointer)->pRingState,(char *) dsn);
+			ring_string_add_gc(((VM *)pPointer)->pRingState,pString," - ");
+			ring_string_add_gc(((VM *)pPointer)->pRingState,pString, (char *) desc);
+			ring_list_addstring_gc(((VM *)pPointer)->pRingState,pList,ring_string_get(pString));
+			ring_string_delete_gc(((VM *)pPointer)->pRingState,pString);
 		}
 		RING_API_RETLIST(pList);
 	} else {

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using RingLibCurl &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Using RingZip" href="ringzip.html" />
+    <link rel="prev" title="Web Development (CGI Library)" href="web.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringzip.html" title="Using RingZip"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="web.html" title="Web Development (CGI Library)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-ringlibcurl">
+<span id="index-0"></span><h1>Using RingLibCurl<a class="headerlink" href="#using-ringlibcurl" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using RingLibCurl</p>
+<div class="section" id="get-request">
+<span id="index-1"></span><h2>Get Request<a class="headerlink" href="#get-request" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://ring-lang.sf.net&quot;</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="post-request">
+<span id="index-2"></span><h2>Post Request<a class="headerlink" href="#post-request" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">cPostThis</span> <span class="o">=</span> <span class="s">&quot;page=4&amp;Number1=4&amp;Number2=5&quot;</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://localhost/ringapp/index.ring?page=3&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="n">cPostThis</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="facebook-login">
+<span id="index-3"></span><h2>Facebook Login<a class="headerlink" href="#facebook-login" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="k">see</span> <span class="s">&quot;Enter Email : &quot;</span> <span class="k">give</span> <span class="o">$</span><span class="n">login_email</span>
+<span class="k">See</span> <span class="s">&quot;Enter Password : &quot;</span> <span class="k">give</span> <span class="o">$</span><span class="n">login_pass</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="sc">&#39;https://www.facebook.com/login.php&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="sc">&#39;charset_test=j u s t a t e s t&#39;</span><span class="o">+</span>
+<span class="sc">&#39; &amp;email=&#39;</span><span class="o">+</span><span class="n">urlencode</span><span class="p">(</span><span class="o">$</span><span class="n">login_email</span><span class="p">)</span><span class="o">+</span><span class="sc">&#39;&amp;pass=&#39;</span><span class="o">+</span>
+<span class="n">urlencode</span><span class="p">(</span><span class="o">$</span><span class="n">login_pass</span><span class="p">)</span><span class="o">+</span><span class="sc">&#39;&amp;login=Login&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HEADER</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;Mozilla/5.0 (Windows; U;&quot;</span><span class="o">+</span>
+<span class="s">&quot; Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_REFERER</span><span class="p">,</span> <span class="s">&quot;http://www.facebook.com&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kp">FALSE</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_SSL_VERIFYHOST</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span><span class="sc">&#39;Accept-Charset: utf-8&#39;</span><span class="p">)</span>
+<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3&#39;</span><span class="p">)</span>
+<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;Accept: text/xml,application/xml,&#39;</span><span class="o">+</span>
+<span class="sc">&#39;application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
+
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIESESSION</span><span class="p">,</span> <span class="kp">false</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="k">Func</span> <span class="n">URLEncode</span> <span class="n">cStr</span>
+        <span class="n">cOut</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cStr</span>
+                <span class="k">if</span> <span class="n">isalnum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                        <span class="n">cOut</span> <span class="o">+=</span> <span class="n">x</span>
+                <span class="k">but</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>
+                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s">&quot;+&quot;</span>
+                <span class="k">else</span>
+                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s">&quot;%&quot;</span><span class="o">+</span><span class="n">str2hex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="n">cOut</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="save-output-to-string">
+<span id="index-4"></span><h2>Save Output to String<a class="headerlink" href="#save-output-to-string" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://ring-lang.sf.net&quot;</span><span class="p">)</span>
+
+<span class="n">cOutput</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="k">See</span> <span class="s">&quot;Output:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">cOutput</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-stock-data-from-yahoo">
+<span id="index-5"></span><h2>Get Stock Data From Yahoo<a class="headerlink" href="#get-stock-data-from-yahoo" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="sd">### Part 1 --- Get Crumb and Cookie -----------------------------------------</span>
+
+<span class="k">See</span> <span class="s">&quot;Start curl_easy_init(): &quot;</span><span class="o">+</span> <span class="n">nl</span>
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>                     <span class="sd">### &gt;&gt;&gt; HANDLE &gt;&gt;&gt; 01006BD0  CURL  0</span>
+
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span>  <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://finance.yahoo.com/quote/AMZN/history&quot;</span><span class="p">)</span>
+
+        <span class="sd">###  HTML Data &gt;&gt;&gt; STDOUT Window,  Use curl_easy_perform_silent &gt;&gt;&gt; String</span>
+
+<span class="n">cOutput</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>    <span class="sd">### GO Get Data &gt;&gt;&gt; String</span>
+
+
+<span class="sd">###   Extract Crumb from data</span>
+<span class="sd">###  &quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;abcdefghijk&quot;},</span>
+
+<span class="k">if</span> <span class="n">cOutput</span> <span class="o">!=</span> <span class="kp">NULL</span>
+
+        <span class="n">newStr1</span>     <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="n">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="sc">&#39;&quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;&#39;</span> <span class="p">),</span> <span class="mi">48</span> <span class="p">)</span>
+                <span class="n">nPosS</span>   <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="sc">&#39;:&quot;&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="sd">### Start of crumb -2</span>
+                <span class="n">nPosE</span>   <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="sc">&#39;&quot;}&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="sd">### End   of crumb</span>
+                <span class="n">nCount</span>  <span class="o">=</span> <span class="n">nPosE</span> <span class="o">-</span> <span class="n">nPosS</span> <span class="o">-</span><span class="mi">2</span>          <span class="sd">### size  of crumb</span>
+        <span class="n">myCrumb</span>     <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="n">nPosS</span> <span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">nCount</span><span class="p">)</span>
+
+        <span class="k">See</span> <span class="s">&quot;myCrumb.: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s">&quot;|&quot;</span> <span class="o">+</span><span class="n">nl</span>
+
+        <span class="sd">### UniCode &quot;\u002F&quot; replace it with &quot;/&quot;</span>
+                <span class="k">if</span> <span class="n">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s">&quot;\u002F&quot;</span><span class="p">)</span>
+                   <span class="n">myCrumb</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s">&quot;\u002F&quot;</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
+                   <span class="k">See</span> <span class="s">&quot;myCrumb2: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s">&quot;|&quot;</span><span class="o">+</span> <span class="n">nl</span>
+                <span class="k">ok</span>
+
+<span class="k">else</span>
+        <span class="k">See</span> <span class="s">&quot;No Connectivity to Yahoo. Looking for Cookie and Crumb.&quot;</span> <span class="o">+</span><span class="n">nl</span> <span class="o">+</span><span class="n">nl</span>
+<span class="k">ok</span>
+
+
+<span class="sd">### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------</span>
+
+        <span class="sd">### Send URL+Crumb to Yahoo to fetch 1st stock history data,</span>
+
+        <span class="o">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&amp;period2=1498777545&amp;interval=1wk&amp;events=history&amp;crumb=&quot;</span> <span class="o">+</span> <span class="n">myCrumb</span>
+
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="o">$</span><span class="n">url</span><span class="p">);</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+        <span class="k">See</span> <span class="n">cStr</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>  <span class="sd">### REMEMBER to CLOSE  CURL</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">myCrumb</span><span class="p">.:</span> <span class="o">|</span><span class="n">sEEeW97mxvN</span><span class="o">|</span>
+<span class="n">Date</span><span class="p">,</span><span class="n">Open</span><span class="p">,</span><span class="n">High</span><span class="p">,</span><span class="n">Low</span><span class="p">,</span><span class="n">Close</span><span class="p">,</span><span class="n">Adj</span> <span class="n">Close</span><span class="p">,</span><span class="n">Volume</span>
+<span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="mf">110.650002</span><span class="p">,</span><span class="mf">117.480003</span><span class="p">,</span><span class="mf">109.000000</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mi">21000400</span>
+<span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">117.809998</span><span class="p">,</span><span class="mf">124.879997</span><span class="p">,</span><span class="mf">117.320000</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mi">29407300</span>
+<span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="mf">118.379997</span><span class="p">,</span><span class="mf">121.250000</span><span class="p">,</span><span class="mf">105.800003</span><span class="p">,</span><span class="mf">118.870003</span><span class="p">,</span><span class="mf">118.870003</span><span class="p">,</span><span class="mi">74252100</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using RingLibCurl</a><ul>
+<li><a class="reference internal" href="#get-request">Get Request</a></li>
+<li><a class="reference internal" href="#post-request">Post Request</a></li>
+<li><a class="reference internal" href="#facebook-login">Facebook Login</a></li>
+<li><a class="reference internal" href="#save-output-to-string">Save Output to String</a></li>
+<li><a class="reference internal" href="#get-stock-data-from-yahoo">Get Stock Data From Yahoo</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="web.html"
+                        title="previous chapter">Web Development (CGI Library)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringzip.html"
+                        title="next chapter">Using RingZip</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/libcurl.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringzip.html" title="Using RingZip"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="web.html" title="Web Development (CGI Library)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
