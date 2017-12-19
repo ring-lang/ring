@@ -102,14 +102,6 @@ Class ButtonWithRotatedText
             oLabel.close()
     return
 
-    ###---------------------------------------
-    ### Call format: setButtonColor("Yellow")                    
-                    
-    func setButtonColor(color)  
-        colorIt = "background-color: "+ color  
-        oButton.setstylesheet(colorIt ) 
-    return
-    
     ###-------------------------
     
     func setgeometry( x,y,width,height)
