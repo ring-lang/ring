@@ -226,7 +226,18 @@
 			<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td>12</td>
+		<td>
+			نكمل تعرفنا على مفاهيم ال Object Oriented المختلفة مثل الوراثة Inheritance والتركيب Composition وغيرها من مفاهيم ال OOP ثم نتعرف على نقطة من نقاط تميز لغة ال Ring 
+			فى دعم ال Declarative Programming فى صورة ال Nested Stuctures اعتمادا على ال Classes مما يعطى مرونة كبيرة فى اللغة فى عمل لغات متخصصة Domain Specific Languages
+			تشبه فى شكلها العام لغات مثل QML و REBOL 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430935895345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&index=12&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
