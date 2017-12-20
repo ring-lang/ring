@@ -202,6 +202,20 @@
 			<a href="https://www.youtube.com/watch?v=KXLQRHgti3w&index=9&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>10</td>
+		<td>
+			نتعرف على الطرق المختلفة للتعامل مع قواعد البيانات مثل SQLite او MySQL او كيفية استخدام اى قاعدة بيانات من خلال ال ODBC ونري مثال ايضا للتعامل مع ال Access ونشير لسهولة
+			استخدام دوال التعامل مع قواعد البيانات وكيف يمكن ان تستخدم لمعرفة اسماء الجداول واسماء الاعمدة وكيف تتيح عمل Transaction يكتمل ب Commit او يتم الغاءه ب Rollback وايضا
+			نري امكانية تخزين الصور فى قاعدة البيانات ... الشرح يعتمد ان المستمع لديه معرفة مسبقة بقواعد البيانات ومفاهيمها واستخدام SQL وفى حالة عدم توفر تلك المعرفة ستجد الكثير من المصادر بالبحث 
+			فى الانترنت.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430326770345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 </div>
