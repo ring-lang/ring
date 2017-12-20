@@ -215,6 +215,17 @@
 			<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>11</td>
+		<td>
+			نتعرف على مفهوم أنماط البرمجة Programming Paradigm والفكرة الاساسية خلف ال OOP او ال Object Oriented Programming ثم نتعلم كيفية تعريف ال Class فى لغة الرينج وعمل
+			الكائنات منها Objects ونرى اساليب اللغة المتميزة فى تعديل الخصائص واستدعاء الميثود بطرق مرنة تتفوق على بقية اللغات الاخري.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430792185345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 
 </table>
 
