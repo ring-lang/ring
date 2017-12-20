@@ -291,6 +291,7 @@ Also we can write the password and the IV directly using strings
 
 	See "Enter a string : " give cStr
 
+	# Note: Don't use simple password in real applications!
 	cKey = "1234567890@#$%^&"		
 	cIV  = "87654321"			
 
