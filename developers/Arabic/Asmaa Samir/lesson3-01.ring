@@ -5,7 +5,7 @@
 */
 
 /*
-  compiler and version machine are found in exe file called ring.exe
+  compiler and virtual machine are found in exe file called ring.exe
   I can Get this file using exefilename() function
   each app(code)has its .exe file , say my current file will called lesson3-01.exe
   ring.exe will work in case of console(command window) will appear first then app will work after that
