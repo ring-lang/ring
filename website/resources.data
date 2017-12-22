@@ -8,8 +8,12 @@
 					'<img src="analogclock.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Yahoo Stock Data</a>',
 					'<img src="getquotesmac.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener/urlshortenermain.ring" target="_blank">Google URL Shortener</a>',
+					'<img src="urlapp.png" width="40%">'
 				],
 				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe/TicTacToe.ring" target="_blank">TicTacToe</a>',
