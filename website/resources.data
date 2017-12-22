@@ -20,6 +20,10 @@
 					'<img src="winstartupman.jpg" width="40%">'
 				],
 				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer/AA-Video-Music-Player.ring" target="_blank">Video Music Player</a>',
+					'<img src="videomusicplayer.jpg" width="40%">'
+				],
+				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards/cards.ring" target="_blank">The Cards Game</a>',
 					'<img src="cards.png" width="40%">'
 				],
