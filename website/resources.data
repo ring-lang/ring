@@ -4,6 +4,14 @@
 					'<img src="fifteen2.png" width="40%">'
 				],
 				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring" target="_blank">Analog Clock</a>',
+					'<img src="analogclock.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
+					'<img src="getquotesmac.png" width="40%">'
+				],
+				[
 					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring" target="_blank">TicTacToe</a>',
 					'<img src="tictactoe.jpg" width="40%">'
 				],
@@ -20,20 +28,12 @@
 					'<img src="starsfighter.png" width="40%">'
 				],
 				[
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank">Flappy Bird 3000 Game</a>',
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank">Flappy Bird Game</a>',
 					'<img src="flappybird.png" width="40%">'
 				],
 				[
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank">Super Man 2016 Game</a>',
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank">Super Man Game</a>',
 					'<img src="superman.png" width="40%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
-					'<img src="GetQuoteCapture.jpg" width="40%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring" target="_blank">Analog Clock</a>',
-					'<img src="analogclock.png" width="40%">'
 				]
 			    ]
                  ],
