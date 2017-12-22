@@ -238,6 +238,16 @@
 			<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&index=12&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>13</td>
+		<td>
+			نتعرف على مبادىء استخدام ال Natural Programming فى لغة ال Ring وماتشمله اللغة من خصائص متميزة فى هذا الجانب.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155436439115345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
