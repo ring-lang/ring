@@ -12,8 +12,12 @@
 					'<img src="getquotesmac.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring" target="_blank">TicTacToe</a>',
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe/TicTacToe.ring" target="_blank">TicTacToe</a>',
 					'<img src="tictactoe.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d/tictactoe3d.ring" target="_blank">TicTacToe 3D</a>',
+					'<img src="tictactoe3d.png" width="40%">'
 				],
 				[
 					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
