@@ -1,4 +1,5 @@
   aNews = [
+  ["December 21, 2017",'<a href="https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l" target="_blank"> Article : The declarative approach of the Ring programming language</a>'],
   ["November 30, 2017",'<a href="download.html"> Ring 1.6 Released!</a>'],
   ["August 30, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/258HR7K9ehI" target="_blank"> Game : TicTacToe 3D!</a>'],
   ["August 28, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/OJFruu_U6yU" target="_blank"> Google API Shortener Application!</a>'],
