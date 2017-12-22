@@ -86,6 +86,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory/weighthistory.ring" target="_blank">Weight History</a>',
 					'<img src="weighthistory.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d/CalmoSoftFifteenPuzzleGame3D.ring" target="_blank">CalmoSoft Fifteen Puzzle 3D Game</a>',
+					'<img src="fifteen3d.png" width="40%">'
 				]
 			    ]
                  ],
