@@ -24,6 +24,10 @@
 					'<img src="tictactoe3d.png" width="40%">'
 				],
 				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator/calc-gui.ring" target="_blank">Calculator</a>',
+					'<img src="calcapp.jpg" width="40%">'
+				],
+				[
 					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
 					'<img src="numtostr.jpg" width="40%">'
 				],
