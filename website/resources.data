@@ -16,6 +16,14 @@
 					'<img src="urlapp.png" width="40%">'
 				],
 				[
+					'<a href="https://github.com/MajdiSobain/WinStartupManager/blob/master/WinStartupManager.ring" target="_blank">Windows Startup Manager</a>',
+					'<img src="winstartupman.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards/cards.ring" target="_blank">The Cards Game</a>',
+					'<img src="cards.png" width="40%">'
+				],
+				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe/TicTacToe.ring" target="_blank">TicTacToe</a>',
 					'<img src="tictactoe.jpg" width="40%">'
 				],
@@ -25,7 +33,11 @@
 				],
 				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator/calc-gui.ring" target="_blank">Calculator</a>',
-					'<img src="calcapp.jpg" width="40%">'
+					'<img src="newcalc2.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/ringrepl/replw.ring" target="_blank">Ring REPL</a>',
+					'<img src="ringrepl.png" width="40%">'
 				],
 				[
 					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
