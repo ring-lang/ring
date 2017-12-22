@@ -111,10 +111,10 @@ Also we can add objects to the list at any time using the Add() function or the 
 <p>The same is done also if the attribute is a list (not object).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Objects and Lists are treated using the same rules. When you pass them to function they are passed by reference,</p>
-</div>
-<p>when you return them from functions they are returned by value except if it&#8217;s an object attribute where a return by reference
+<p class="last">Objects and Lists are treated using the same rules. When you pass them to function they are passed by reference,
+when you return them from functions they are returned by value except if it&#8217;s an object attribute where a return by reference
 will be done.</p>
+</div>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span>
 <span class="n">myobj</span> <span class="o">=</span> <span class="n">o1</span><span class="p">.</span><span class="n">addobj</span><span class="p">()</span>     <span class="c"># the assignment will create another copy</span>
