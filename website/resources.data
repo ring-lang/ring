@@ -8,7 +8,11 @@
 					'<img src="analogclock.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/formdesigner" target="_blank">Form Designer</a>',
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/rnote/rnote.ring" target="_blank">Ring Notepad</a>',
+					'<img src="ringnotepad.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/formdesigner" target="_blank">Ring Form Designer</a>',
 					'<img src="ringformdesigner.png" width="40%">'
 				],
 				[
