@@ -78,6 +78,14 @@
 				[
 					'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
 					'<img src="werdy.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee/Emp.ring" target="_blank">Employee Data</a>',
+					'<img src="empapp.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory/weighthistory.ring" target="_blank">Weight History</a>',
+					'<img src="weighthistory.png" width="40%">'
 				]
 			    ]
                  ],
