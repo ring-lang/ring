@@ -1,4 +1,4 @@
-﻿aResources = [ ["Samples",[
+﻿aResources = [ ["Samples and Applications",[
 				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring" target="_blank">CalmoSoft Fifteen Puzzle Game</a>',
 					'<img src="fifteen2.png" width="40%">'
