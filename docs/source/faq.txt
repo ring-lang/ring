@@ -22,8 +22,8 @@ the language constructs ready for use to create domain-specific languages in a f
 Take a look at the Supernova programming language, in this language you can type: 
 (I want window and the window title is hello world.) and it will create a GUI window 
 with "Hello, World!" as the window title. When I created Supernova language in 2010, i discovered
-that using the natural code can be (similar to English and without limits and we can use the power of human 
-language in programming) but to implement that you need a new language that has: 
+that using the natural code can be (similar to English and without limits and we can use the power
+of human language in programming) but to implement that you need a new language that has: 
 
 (1) General Purpose 
 
@@ -46,45 +46,48 @@ C language in a certain way to create the Unix Operating System. In other words,
 goal that directs you in each design decision.
 
 You will understand the value of our decisions once you start trying to solve the problem
-that we will use Ring to solve. Could you enable any one in the world without knowledge 
-about computer programming concepts to create very powerful software? In science the answer
-is (Visual Programming) and (Natural Programming). In practical we still away from switching
-to these paradigms without introducing other problems. Ring is designed to solve this problem.
-It's designed to provide Natural Programming in a practical way. And to create a powerful 
-Visual Programming tool. Ring is designed to be a new world of programming after 10 years 
-of research in Visual Programming and Natural Languages.
+that we will use Ring to solve. The questions is: could you enable any one in the world 
+without knowledge about computer programming concepts to create very powerful software?
+Scientifically the answer is (visual Programming) and (natural Programming). 
+In practice we are still away from switching to these paradigms without introducing 
+other problems. Ring is designed to solve this problem.
+It is designed to provide natural programming in a practical way. And to create a powerful 
+visual programming tool. Ring is designed to be a new world of programming after 10 years 
+of research in visual programming and natural languages.
 
-The Ring Programming Language (Compiler+VM) is developed 100% using Visual Programming without
+The Ring Programming Language (Compiler+VM) is developed 100% using visual programming without
 writing a single line of code. I used my tool (Programming Without Coding Technology) to design
-everything and get the C code generated for me. Advantages ? 
+everything and get the C code generated for me. 
 
-(1) More Faster 
+Advantages ? 
+
+(1) Faster 
 
 (2) No Syntax Errors 
 
-(3) Easy to understand and manage the code because the Abstraction level is more higher
+(3) Easy to understand and manage the code because the abstraction level is higher
 
-(4) No Critical Disadvantages because you can control everything as writing your code.
+(4) No critical disadvantages because you can control everything as writing your code.
 
-From my experience in using Visual Programming for 10 years and Natural Programming for 5 years
+Using my experience in using visual programming for 10 years and natural programming for 5 years,
 I designed Ring to move the knowledge to mainstream programmers by providing a practical language 
-that support these ideas.
+that supports these ideas.
 
 
 I agree that each programmer/developer has the freedom to form his opinions about any software
 including programming languages. Ring is not an exception but you may miss the idea behind the 
-language. It's innovative and may help you to think different about how to solve your problems.
-Maybe this is not clear to many programmers because It's practical language and includes many
-features known to programmers and when a programmer look at a language he/she may think that 
+language. It is innovative and may help you to think differently about how to solve your problems.
+Maybe this is not clear to many programmers because It is a practical language and includes many
+features known to programmers and when a programmer looks at the language they maight think that 
 nothing new because it's familiar. I created Ring to solve problems in a different way. Where I
 will start programming just by describing the software using new natural interfaces that I will
 implement later when I move from the design stage to the implementation stage. 
 (I don't determine the time to switch between stages, You are free to use Agile methods). 
-Since Ring is a new language you have 3 options. 
+Since Ring is a new language you have 3 options:
 
-(1) Just don't care.
+(1) To not care at all for now.
 
-(2) Think in the future of the language and help us if you understand the idea and want to contribute.
+(2) Think of the future of the language and help us if you understand the idea and want to contribute.
 
 (3) Wait and come back again in the future to use it. 
 
@@ -93,10 +96,10 @@ Summary:
 * Ring is designed based on a need to develop a new version of the PWCT software. 
 Once we finish PWCT 2.0 we will have good and large software developed using Ring.
 
-* We will push Declarative and Natural paradigms many steps forward. Also in next versions 
-we have a plan to present a new paradigm for Network Programming and Concurrency. We tested this
+* We will push declarative and natural paradigms many steps forward. Also in next versions 
+we have a plan to present a new paradigm for network programming and concurrency. We tested this
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
-in Future releases.
+in future releases.
 
 .. index:: 
 	pair: Frequently Asked Questions; Why Ring is weakly typed?
