@@ -29,20 +29,21 @@ language in programming) but to implement that you need a new language that has:
 
 (2) Practical 
 
-(3) Can create Natural Languages very quickly. 
+(3) Can create natural languages very quickly. 
 
-So we can get a System that can increase ease of use and productivity to the maximum level. 
+So we can get a system that can increase ease of use and productivity to the maximum level. 
 
-Ring is the best language to do that. So I created Ring to achieve this goal.
+So I created Ring because it was the best way to achieve this goal.
 
-Supernova was just a test for the idea. To get a near view about what are the Advantages and
-Disadvantages. After testing the new ideas you provide something practical. So we have Ring 
-after Supernova. A story that maybe similar to having Python after ABC. Python avoid ABC problems
-but bring ABC advantages. Also Ring learn from Ruby and ROR story. The language power could
-appears in Frameworks better than direct usage as a general purpose language. Also Ring comes
-with a clear goal/motivation (Creating a new version of the PWCT Software) something learned
-from designing the C language to create the Unix Operating System. You have a goal that direct
-you in each design decision.
+Supernova was just a test of the idea, it helped getting a better view of the advantages and
+the disadvantages of the idea. And After testing the new ideas you are provided with something
+practical. So now we have Ring after Supernova. A story that is maybe similar to having Python 
+after ABC.Where Python avoids the problems of ABC, but keeps the advantages of ABC. Also, Ring
+learns from Ruby and ROR's story. The language power could appear in frameworks better than the
+direct usage as a general purpose language. Also Ring comes with a clear goal/motivation; 
+(Creating a new version of the PWCT Software) something that was learned from the design the 
+C language in a certain way to create the Unix Operating System. In other words, you have a 
+goal that directs you in each design decision.
 
 You will understand the value of our decisions once you start trying to solve the problem
 that we will use Ring to solve. Could you enable any one in the world without knowledge 
@@ -422,7 +423,7 @@ can define new data types and use them as default types defined by the language
 So We have
 
 * A small and simple language that someone can pick in little days
-* A fast language that provide primitive types (String – Number – List – Object)
+* A fast language that provide primitive types (String Â– Number Â– List Â– Object)
 * A flexible language that can be extended using OOP to add new types according to the application domain
 
 
@@ -1122,7 +1123,7 @@ list + item ---> nothing new will be created but the item will be added to the s
 
 Exception
 
-number + nl —> New String
+number + nl Â—> New String
 
 This exception is added to easily print numbers then new line.
 
