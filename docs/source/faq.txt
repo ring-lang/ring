@@ -12,18 +12,18 @@ Frequently Asked Questions (FAQ)
 Why do we need Yet Another Programming Language (YAPL)?
 =======================================================
 
-The language comes with better support for Natural Language Programming and Declarative
-Programming. The innovation comes in supporting these paradigms with new practical techniques
-on the top of Object-Oriented Programming and Functional Programming. Ring provide the programmers
-with the tools required to build a Natural Language like Supernova or Declarative Language
-like REBOL and QML without the need to know anything about (Compilers and Parsing). You get
+The language comes with better support for natural language programming and declarative
+programming. The innovation comes in supporting these paradigms with new practical techniques
+on the top of object-oriented programming and functional programming. Ring provides the programmers
+with the tools required to build a natural language like Supernova or a declarative language
+like REBOL and QML without the need to know anything about (compilers and parsing). You get
 the language constructs ready for use to create domain-specific languages in a fraction of time.
 
-Check the Supernova programming language, In this language you can type 
+Take a look at the Supernova programming language, in this language you can type: 
 (I want window and the window title is hello world.) and it will create a GUI window 
-with "Hello, World!" as the window title. When I created Supernova language in 2010. I discovered
-that using the Natural Code can be (Like English without limits and we can get the human 
-language power in programming) but to implement that You need a new language that are 
+with "Hello, World!" as the window title. When I created Supernova language in 2010, i discovered
+that using the natural code can be (similar to English and without limits and we can use the power of human 
+language in programming) but to implement that you need a new language that has: 
 
 (1) General Purpose 
 
