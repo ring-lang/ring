@@ -1,4 +1,4 @@
-.. index:: 
+﻿.. index:: 
 	single: Frequently Asked Questions; Introduction
 
 ================================
@@ -426,7 +426,7 @@ can define new data types and use them as default types defined by the language
 So We have
 
 * A small and simple language that someone can pick in little days
-* A fast language that provide primitive types (String  Number  List  Object)
+* A fast language that provide primitive types (String - Number - List - Object)
 * A flexible language that can be extended using OOP to add new types according to the application domain
 
 
@@ -1126,7 +1126,7 @@ list + item ---> nothing new will be created but the item will be added to the s
 
 Exception
 
-number + nl > New String
+number + nl -> New String
 
 This exception is added to easily print numbers then new line.
 
