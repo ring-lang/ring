@@ -91,6 +91,13 @@
 					'<img src="majdi.jpg">'
 				  ],
 				  [
+					'Amr Essam',
+					'amressam01@gmail.com',
+					'Tutorials Master',
+					'Active',
+					'<img src="amr.png">'
+				  ],
+				  [
 					'Rashad Kamsheh',
 					'rashadse@hotmail.com',
 					'English Revision',
@@ -102,13 +109,7 @@
                     'engsara88@yahoo.com',
                     'Vision Achiever',
                     'Active'
-                  ],
-				  [
-					'Amr Essam',
-					'amressam01@gmail.com',
-					'Tutorials Master',
-					'Active'
-				  ],				  
+                  ],				  
 				  [
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
