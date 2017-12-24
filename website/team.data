@@ -27,13 +27,6 @@
 					'Active',
 					'<img src="UmbertoMariani.png">'
 				  ],
-				  [
-                    'Matthias Schuster',
-                    'shalokshalom@protonmail.ch',
-                    'Tester/Marketing',
-                    'Active',
-					'<img src="shalok.jpg">'
-                  ],
   				  [
 					'Ahmed Hassouna',
 					'mr.ahmed_hassouna@yahoo.com',
@@ -111,6 +104,13 @@
 					'Active',
 					'<img src="rashad.jpg">'
 				  ],
+				  [
+                    'Matthias Schuster',
+                    'shalokshalom@protonmail.ch',
+                    'Tester/Marketing',
+                    'Active',
+					'<img src="shalok.jpg">'
+                  ],
 				  [
                     'Sara Hamdy Mohamed',
                     'engsara88@yahoo.com',
