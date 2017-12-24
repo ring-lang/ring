@@ -27,6 +27,13 @@
 					'Active',
 					'<img src="UmbertoMariani.png">'
 				  ],
+				  [
+                    'Matthias Schuster',
+                    'shalokshalom@protonmail.ch',
+                    'Tester/Marketing',
+                    'Active',
+					'<img src="shalok.jpg">'
+                  ],
   				  [
 					'Ahmed Hassouna',
 					'mr.ahmed_hassouna@yahoo.com',
@@ -417,13 +424,7 @@
                     'Tester/Samples',
                     'Active'
                   ],
-		  [
-                    'Matthias Schuster',
-                    'shalokshalom@protonmail.ch',
-                    'Tester',
-                    'Active'
-                  ],
-		  [
+				  [
                     'Ramy Elganzorey',
                     'ramy_mix@live.com',
                     'Video Tutorials',
