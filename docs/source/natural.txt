@@ -19,8 +19,8 @@ This language uses a code that looks similar to Natural Language statements to c
 Now after five years, In the Ring programming language, we can get similar results, but now we have the ability 
 to create/use code similar to Natural language statements in any domain that we like or need.
 
-The Ring programming language comes with the Supernova sprite, but with more generalization and with mix of other languages
-sprites.
+The Ring programming language comes with the Supernova spirit, but with more generalization and with mix of other languages
+spirits.
 
 .. index:: 
 	pair: Natural Language Programming; Example
