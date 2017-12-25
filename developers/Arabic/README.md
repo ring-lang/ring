@@ -248,6 +248,16 @@
 			<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>14</td>
+		<td>
+			نتابع تعرفنا على ال Natural Programming فى اللغة ونري امثلة أكثر تقدما ثم نتعرف على ال Natural Library وكيف انها تسهل العمل فى اللغة.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155441988535345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
