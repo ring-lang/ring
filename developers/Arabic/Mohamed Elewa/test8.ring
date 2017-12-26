@@ -1,5 +1,5 @@
 /*
-	Application	: Variables
+	Application	: Variables (Strings)
 	Author		: Mohamed Elewa
  	Data		: 2017.12.25
 */
@@ -9,7 +9,7 @@
 mystring  = "Welcome to the Ring programing language"
 mystring2 = 'Another string'
 mystring3 = `Another string`
-mystring4 = :Welcome
+mystring4 = :Welcome 			# welcome
 
 mycharacter = "A"
 
@@ -19,4 +19,4 @@ mymlstring = "
 "
 ? mystring		# see .......+ nl
 ? mystring2	? mystring3	? mystring4
-? mycharacter	?mymlstring
+? mycharacter	? mymlstring
