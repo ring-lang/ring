@@ -258,6 +258,24 @@
 			<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>15</td>
+		<td>
+			نتعرف على البرمجة الوظيفية Functional Programming 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449645470345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+		</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>
+			نتعرف على ال Reflection وال Metaprogramming 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+		</td>
+	</tr>
 </table>
 
 </div>
