@@ -610,9 +610,9 @@ Example:
             for Dep=1 to dimList[3]
                     See bList[Col][Row][Dep] See " "
             next
-                See nl
+	    See nl
           next
-              See nl
+            See nl
         next
 
         ###===========================
