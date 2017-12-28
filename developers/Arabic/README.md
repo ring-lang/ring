@@ -265,6 +265,7 @@
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449645470345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+		<a href="https://www.youtube.com/watch?v=AW9aYYARHG0&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=15">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -273,7 +274,8 @@
 			نتعرف على ال Reflection وال Metaprogramming 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 </table>
