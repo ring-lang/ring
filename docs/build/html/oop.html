@@ -412,6 +412,32 @@ and the second represent the second parameter after the operator.</p>
 <span class="n">P1</span><span class="o">+</span><span class="n">P2</span> <span class="p">:</span> <span class="n">X</span> <span class="p">:</span> <span class="mi">30</span> <span class="n">Y</span> <span class="p">:</span> <span class="mi">50</span>
 </pre></div>
 </div>
+<p>The next example from the List class in the stdlib.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">Para</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span>
+        <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                        <span class="k">if</span> <span class="n">isobject</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span><span class="p">.</span><span class="n">vValue</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="n">islist</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s">&quot;len&quot;</span>
+                        <span class="k">return</span> <span class="n">len</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+                <span class="k">on</span> <span class="s">&quot;[]&quot;</span>
+                        <span class="k">return</span> <span class="o">&amp;</span><span class="n">vValue</span><span class="o">[</span><span class="n">para</span><span class="o">]</span>
+        <span class="k">off</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>The &#8220;len&#8221; operator is used with (for in) control structure.</p>
+<p>The &#8220;[]&#8221; operator is used when we try to access the list items, In this case we use the &amp; operator
+to return the item values like strings an numbers by reference, so we can update it when we access the
+items.</p>
 </div>
 <div class="section" id="inheritance">
 <span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
