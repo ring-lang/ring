@@ -519,10 +519,10 @@ Example:
 	    aList["KSA"] + nl		# print Riyadh
 
 .. index:: 
-	pair: Lists; Passing Parameters Arguments Using List
+	pair: Lists; Passing Parameters or Arguments Using List
 
 Passing Parameters or Argumnents Using List
-=============================
+===========================================
 	
 This type of lists is very good for passing parameters to functions
 Where the order of parameters will not be important (we can change the order).
@@ -547,7 +547,7 @@ Example:
 	pair: Lists; Passing Parameters Arguments Using List Array
 
 Passing Parameters or Argumnents Using List Array
-=============================
+=================================================
 	
 Passing Arguments or Parmameters to a Function in an array format
 
@@ -574,9 +574,9 @@ Example:
 	pair: Lists; Create Multi Dimension Array  Using List and Recursion
 
 Creating a Multi-Dimensional Array using  List
-=============================
+==============================================
 	
-A Multi-Dimensional Array of any size can be built using recussion in a  Function
+A Multi-Dimensional Array of any size can be built using recursion in a  Function
 
 Example:
 
