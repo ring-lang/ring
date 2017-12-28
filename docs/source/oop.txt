@@ -436,6 +436,37 @@ Output:
 	P2    : X : 20 Y : 40
 	P1+P2 : X : 30 Y : 50
 
+
+The next example from the List class in the stdlib.ring
+
+.. code-block:: ring
+
+	Func operator cOperator,Para
+		result = new list
+		switch cOperator
+			on "+"
+				if isobject(para)
+					for t in Para.vValue
+						vValue + t
+					next
+				but islist(para)
+					for t in Para
+						vValue + t
+					next
+				ok
+			on "len"
+				return len( vValue )
+			on "[]"
+				return &vValue[para]
+		off
+		return result
+
+The "len" operator is used with (for in) control structure.
+
+An the "[]" operator is used when we try to access the list items, In this case we use the & operator
+to return the item values like strings an numbers by reference, so we can update it when we access the
+items.
+
 .. index:: 
 	pair: Object Oriented Programming; Inheritance
 
