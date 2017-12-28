@@ -519,9 +519,9 @@ Example:
 	    aList["KSA"] + nl		# print Riyadh
 
 .. index:: 
-	pair: Lists; Passing Parameters Using List
+	pair: Lists; Passing Parameters Arguments Using List
 
-Passing Parameters Using List
+Passing Parameters or Argumnents Using List
 =============================
 	
 This type of lists is very good for passing parameters to functions
@@ -543,7 +543,112 @@ Example:
 		    "Password  : " + mypara[:password] + nl +
                     "Server    : " + mypara[:server] + nl +
                     "Port      : " + mypara[:port]
+.. index:: 
+	pair: Lists; Passing Parameters Arguments Using List Array
 
+Passing Parameters or Argumnents Using List Array
+=============================
+	
+Passing Arguments or Parmameters to a Function in an array format
+
+Example:
+
+.. code-block:: ring
+
+     myList = [5,7,3,9]    ### list with args or parms in  an array
+     result = sum(myList)
+     See "Sum result: "+ result +n
+
+     func sum(aList)
+       acc = 0
+       sizeList = len(aList)
+   
+       for i = 1 to sizeList
+          See aList[i] +nl
+          acc = acc + aList[i]
+       next
+     return acc
+     
+     
+.. index:: 
+	pair: Lists; Create Multi Dimension Array  Using List and Recursion
+
+Creating a Multi-Dimensional Array using  List
+=============================
+	
+A Multi-Dimensional Array of any size can be built using recussion in a  Function
+
+Example:
+
+.. code-block:: ring
+
+        ###---------------------------------------------------------
+        ### Create Array -- Dimensions Any Size:  3D, 4D, 5D etc
+
+        dimList = [4,3,4]
+        bList   = createDimList(dimList)
+	
+        ###---------------------------------------------------------
+        ### Populate the arrays using a counter 1 ,  4x4x4 = 256 , 2x3x4x5x6 = 720
+
+        Counter = 1
+
+        for Col=1 to dimList[1]
+          for Row=1 to dimList[2]
+            for Dep=1 to dimList[3]
+                    blist[Col][Row][Dep] = Counter
+                    Counter++
+            next
+          next
+        next
+
+        ###-----------------------------------------------
+        ### Print the array elements in block format
+
+        for Col=1 to dimList[1]
+          for Row=1 to dimList[2]
+            for Dep=1 to dimList[3]
+                    See bList[Col][Row][Dep] See " "
+            next
+                See nl
+          next
+              See nl
+        next
+
+        ###===========================
+        ### FUNCTIONS
+
+        ###-----------------------------------------------------------------------
+        ### Recursive Create a Dimension Array
+        ### Call by passing an array of dimesions: dimList = [2,3,4,5]
+        ### Drop the first entry every iteration call, making newParms
+        ###
+        ### Example:
+        ###    dimList = [4,2,3,2]                <<< Number and size of dimensions in array format
+        ###    bList   = createDimList(dimList)   <<< Call using the array as input
+
+        func createDimList(dimArray)
+
+             sizeList = len(dimArray)
+
+             newParms = []
+             for i = 2 to sizeList
+                Add(newParms, dimArray[i])
+             next
+
+             alist = list(dimArray[1])
+
+             if sizeList = 1
+                return aList
+             ok
+
+             for t in alist
+                 t = createDimList(newParms)
+             next
+
+        return alist
+	
+     
 .. index:: 
 	pair: Lists; Swap Items
 
