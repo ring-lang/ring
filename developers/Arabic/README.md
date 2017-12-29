@@ -278,6 +278,16 @@
 			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>17</td>
+		<td>
+			نتعرف على مجال رؤية المتغيرات Variables Scope
+		</td>
+		<td>
+			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155452486960345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
