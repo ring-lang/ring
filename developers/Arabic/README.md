@@ -288,6 +288,16 @@
 			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>18</td>
+		<td>
+			نتعرف على ال Functions Scope وال Type Hints وال Trace Library
+		</td>
+		<td>
+			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
