@@ -1,30 +1,80 @@
 /*
-**	Application : list reference-version1
-**	Author 	  : Sara Abozeina
-**	Date		  :2017.12.18	
+**	Application:goto  execute lines from goto to end of lines
+**	Author	   :Sara Abozeina
+**	Date       :2017.12.29
 */
+Load "stdlib.ring"
+##Ever execute will execute the all execute with it##
+##the priority of execution depends on the priority of execute##  
+New Executelines{ 
+
+for x=1 to 10
+	?x
+next
 
 
-numbers=[["one",1],["Two",2],["Three",3]]
-?numbers
-?"*********************"
-?numbers["one"]
-?"*********************"
-?numbers[3][2]
-?numbers[3][1]
-?"*********************"
-?numbers[1]
-?numbers[2]
-?"==========================="
+goto
+?"sara"
+theend
+execute
 
-store_books=	[
-			["shelf1" ,"Android books"]	,
-			["shelf2" ,"WEb books"]	         ,
-			["shelf3" ,"Desktop books"]
-	 		]
+for y=11 to 15
+	? y 
+next
 
-? store_books ["shelf1"]
 
-? "------"
-#at index 3
-?find(store_books,"Desktop books",2)
+execute
+?"soooooo"
+execute
+}
+
+
+	#####==========================================#####	
+	#when write execute i call goto & end in any place
+	#####==========================================#####	
+	
+Class Executelines
+	goto=0 theEnd=0 n=0  nStart=0 nEnd=0 execute=0
+	func getexecute
+		open()
+
+	#####==========================================#####	
+	#search in all the file for start and end indexes
+	#####==========================================#####									
+	func open 
+	fp = fopen(self.fileName,"r")
+
+	while not feof(fp)	
+			Lines=Readline(fp)
+			n++
+			alist=str2list(Lines)										
+			for x in alist 
+				x=TrimAll(x)
+				x=lower(x)
+				if x="goto"    nStart=n   ok
+				if x="theend"   nEnd=n   ok
+			next
+				if n=nStart
+					while not feof(fp)
+						Lines=Readline(fp) 
+						n++ 
+						nLines+Lines
+						alist=str2list(Lines)										
+						for x in alist 
+						x=TrimAll(x)
+						x=lower(x)
+						if x="theend"   nEnd=n   ok
+						next   
+						if n=nEnd
+							eval(list2str(nLines))
+							exit 2 
+						ok
+					end
+				ok					
+				
+	end
+
+			fclose(fp)
+private 	
+	filename=filename()
+	alist=[] nLines=[] aindexes=[]
