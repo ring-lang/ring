@@ -138,12 +138,23 @@ func BuildApp cFileName,aOptions
 	# Prepare Application for distribution
 		if find(aOptions,"-dist")
 			Distribute(cFile,aOptions)
+		else 
+			if CheckNoCCompiler(currentdir(),cFile)
+				if not find(aOptions,"-keep")
+					ClearTempFiles(2)
+				ok
+				EndofBuildingMsg()
+				return 
+			ok
 		ok
-		msg("End of building process...")
+		EndofBuildingMsg()
 	# Clear Temp Files 	
 		if not find(aOptions,"-keep")
-			cleartempfiles()
+			cleartempfiles(1)
 		ok
+
+func EndofBuildingMsg
+	msg("End of building process...")
 
 func GenerateCFile cFileName,aOptions
 	# Display Message
@@ -278,12 +289,21 @@ func GenerateBatchGeneral aPara,aOptions
 			return "./"+cMacOSXBatch	
 		ok
 
-func ClearTempFiles
+func ClearTempFiles nPara
 	msg("Clear Temp. Files...")
-	if isWindows()
-		systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
-	else
-		systemSilent(exefolder()+"/../ring2exe/cleartemp.sh")
+	if nPara = 1
+		if isWindows()
+			systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
+		else
+			systemSilent(exefolder()+"/../ring2exe/cleartemp.sh")
+		ok
+	else 
+		# Remove temp files - except *.ringo - required for Ring way for distribution
+		if isWindows()
+			systemSilent(exefolder()+"/../ring2exe/cleartemp2.bat")
+		else
+			systemSilent(exefolder()+"/../ring2exe/cleartemp2.sh")
+		ok
 	ok
 
 func Distribute cFileName,aOptions
@@ -654,7 +674,7 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	ok
 	if fexists(cExeFile)
 		msg("Executable file is ready!")
-		return 
+		return False
 	ok
 	if isWindows()
 		cRingOFile = cBaseFolder+"\"+cFileName+".ringo"
@@ -665,10 +685,14 @@ func CheckNoCCompiler cBaseFolder,cFileName
 		msg("No Executable, Looks like we don't have a C Compiler!")
 	else 
 		msg("No Ring Object File!")
-		return
+		return False
 	ok	
 	msg("Using the Ring Way to create executable file without a C Compiler!")
-	OSCopyFile(exefilename())
+	cRingExeFile = exefolder() + "/ring"
+	if isWindows() 
+		cRingExeFile += ".exe"
+	ok
+	OSCopyFile(cRingExeFile)
 	if isWindows()
 		OSRenameFile("ring.exe",cFileName+".exe")
 		OSCopyFile(cBaseFolder+"\"+cFileName+".ringo")
@@ -677,4 +701,4 @@ func CheckNoCCompiler cBaseFolder,cFileName
 		OSCopyFile(cBaseFolder+"/"+cFileName+".ringo")
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
-
+	return True
