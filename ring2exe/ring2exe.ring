@@ -291,20 +291,17 @@ func GenerateBatchGeneral aPara,aOptions
 
 func ClearTempFiles nPara
 	msg("Clear Temp. Files...")
-	if nPara = 1
-		if isWindows()
-			systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
-		else
-			systemSilent(exefolder()+"/../ring2exe/cleartemp.sh")
-		ok
-	else 
-		# Remove temp files - except *.ringo - required for Ring way for distribution
-		if isWindows()
-			systemSilent(exefolder()+"/../ring2exe/cleartemp2.bat")
-		else
-			systemSilent(exefolder()+"/../ring2exe/cleartemp2.sh")
-		ok
+	cTempFile = "cleartemp"
+	if not nPara = 1
+		# Don't delete *.ringo files (distribution using Ring way)
+		cTempFile += "2"
 	ok
+	if isWindows()
+		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".bat")
+	else
+		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".sh")
+	ok
+
 
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
