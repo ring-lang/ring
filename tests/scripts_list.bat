@@ -258,3 +258,4 @@ call ring scripts/newtrytest2.ring
 call ring scripts/manygetter.ring
 call ring scripts/nosettergetterinclassmethods.ring
 call ring scripts/privateattributereuse.ring
+call ring scripts/listnovar.ring
