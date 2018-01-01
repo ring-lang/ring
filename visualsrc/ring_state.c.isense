@@ -32,6 +32,8 @@ Type: unsigned int
 nGenObj : 1
 Type: unsigned int
 nWarning : 1
+Type: unsigned int
+nDontDeleteTheVM : 1
 Type: int
 argc
 Type: char  **
@@ -42,8 +44,8 @@ Type: char
 lStartup
 Type: PoolManager
 vPoolManager
-Type: unsigned int
-nDontDeleteTheVM : 1
+Type: char
+lNoLineNumber
 END:
 Type: RingState
 struct RingState
