@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 1
-75
-74
+73
+72
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3649
+Time 3691
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00833DB0
+00823978
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 01/01/2018
-time: 18:26:26
+date: 02/01/2018
+time: 02:30:16
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3181,7 +3181,7 @@ B:\ring\tests>call ring scripts/evalbrace.ring
 wow
 B:\ring\tests>call ring scripts/equalobjobj.ring 
 
-Line 4 Object does not support operator overloading 
+Line 13 Object does not support operator overloading 
 In raise in file scripts/equalobjobj.ring 
 B:\ring\tests>call ring scripts/nullpointer.ring 
 
@@ -3398,3 +3398,18 @@ B:\ring\tests>call ring scripts/checknull.ring
 1
 1
 0
+
+B:\ring\tests>call ring scripts/selfaddcrash.ring 
+aitems: List...
+
+aitems: List...
+
+
+
+B:\ring\tests>call ring scripts/errorloc.ring 
+1
+3
+
+Line 5 Error (R34) : Variable is required for the assignment operation 
+In function main() in file scripts/errorloc.ring
+called from line 1  in file scripts/errorloc.ring 
