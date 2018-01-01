@@ -1078,6 +1078,7 @@ void ring_vmlib_type ( void *pPointer )
 
 void ring_vmlib_isnull ( void *pPointer )
 {
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1087,9 +1088,12 @@ void ring_vmlib_isnull ( void *pPointer )
 			RING_API_RETNUMBER(1);
 			return ;
 		}
-		else if ( strcmp(RING_API_GETSTRING(1),"NULL") == 0 ) {
-			RING_API_RETNUMBER(1);
-			return ;
+		else if ( RING_API_GETSTRINGSIZE(1) == 4 ) {
+			cStr = RING_API_GETSTRING(1) ;
+			if ( (cStr[0] == 'n' || cStr[0] == 'N') && (cStr[1] == 'u' || cStr[1] == 'U') && (cStr[2] == 'l' || cStr[2] == 'L') && (cStr[3] == 'l' || cStr[3] == 'L') ) {
+				RING_API_RETNUMBER(1);
+				return ;
+			}
 		}
 	}
 	else if ( RING_API_ISPOINTER(1) ) {
