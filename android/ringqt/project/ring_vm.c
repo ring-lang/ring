@@ -779,7 +779,9 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	aPara[2] = ring_list_getsize(pVM->pClassesMap) ;
 	/* Call Parser */
 	if ( nCont == 1 ) {
+		pVM->pRingState->lNoLineNumber = 1 ;
 		nRunVM = ring_parser_start(pScanner->Tokens,pVM->pRingState);
+		pVM->pRingState->lNoLineNumber = 0 ;
 	} else {
 		ring_vm_error(pVM,"Error in eval!");
 		ring_scanner_delete(pScanner);
