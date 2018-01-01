@@ -17,6 +17,7 @@ Ring 1.7 comes with many new features!
 
 * Better Ring Notepad
 * Better RingQt
+* Better Ring2EXE
 * ringvm_see() function
 * ringvm_give() function
 * ring_state_new() and ring_state_mainfile() functions
@@ -47,6 +48,16 @@ Ring Notepad comes with the next updates
 
 (1) Support *.cf extension
 
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring2EXE
+
+Better Ring2EXE
+===============
+
+Ring2EXE is updated to works as expected when we don't have a C/C++ compiler
+
+Where when we still distribute applications and get (exe file and ringo file) in this case.
 
 .. index:: 
 	pair: What is new in Ring 1.7?; ringvm_give() function
@@ -156,3 +167,4 @@ Better Ring VM
 (1) Better Error Message
 (2) List2Str() function support lists contains numbers
 (3) Correct support for numbers contains _ as separator
+(4) Creating lists without variables (statement --> Expression --> List)
