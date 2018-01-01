@@ -169,3 +169,4 @@ Better Ring VM
 (3) Correct support for numbers contains _ as separator
 (4) Creating lists without variables (statement --> Expression --> List)
 (5) IsNULL() - Not case sensitive - treat Null and null like NULL
+(6) Support adding the Self object to an attribute in this object
