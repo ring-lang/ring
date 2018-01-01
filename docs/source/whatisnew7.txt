@@ -168,3 +168,4 @@ Better Ring VM
 (2) List2Str() function support lists contains numbers
 (3) Correct support for numbers contains _ as separator
 (4) Creating lists without variables (statement --> Expression --> List)
+(5) IsNULL() - Not case sensitive - treat Null and null like NULL
