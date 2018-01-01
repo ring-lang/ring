@@ -214,6 +214,8 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize ) 
 void ring_vm_plusplus ( VM *pVM ) ;
 
 void ring_vm_minusminus ( VM *pVM ) ;
+
+void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 ) ;
 /* Logic */
 
 void ring_vm_and ( VM *pVM ) ;

@@ -479,7 +479,7 @@ void ring_vmlib_len ( void *pPointer )
 
 void ring_vmlib_add ( void *pPointer )
 {
-	List *pList,*pList2, *pList3  ;
+	List *pList,*pList2  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -497,16 +497,8 @@ void ring_vmlib_add ( void *pPointer )
 			RING_API_RETNUMBER(RING_API_GETNUMBER(2));
 		}
 		else if ( RING_API_ISLIST(2) ) {
-			pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-			pList3 = RING_API_GETLIST(2) ;
-			ring_list_copy(pList2,pList3);
-			if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList3) ) {
-				pVM->pBraceObject = pList2 ;
-				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
-			}
-			else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList3) ) {
-				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
-			}
+			pList2 = RING_API_GETLIST(2) ;
+			ring_vm_addlisttolist(((VM *) pPointer),pList2,pList);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
