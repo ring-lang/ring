@@ -260,3 +260,4 @@ call ring scripts/nosettergetterinclassmethods.ring
 call ring scripts/privateattributereuse.ring
 call ring scripts/listnovar.ring
 call ring scripts/checknull.ring
+call ring scripts/selfaddcrash.ring
