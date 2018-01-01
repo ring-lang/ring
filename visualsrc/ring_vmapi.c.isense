@@ -222,6 +222,8 @@ ring_vmlib_type
 Type: List *
 pList
 ring_vmlib_isnull
+Type: char *
+cStr
 ring_vmlib_isobject
 ring_vmlib_hex
 cStr
