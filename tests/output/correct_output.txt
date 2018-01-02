@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-1
-74
-73
+0
+75
+75
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3656
+Time 3628
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-03444780
+007D4E30
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 02/01/2018
-time: 02:29:15
+time: 04:42:40
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3413,3 +3413,5 @@ B:\ring\tests>call ring scripts/errorloc.ring
 Line 5 Error (R34) : Variable is required for the assignment operation 
 In function main() in file scripts/errorloc.ring
 called from line 1  in file scripts/errorloc.ring 
+B:\ring\tests>call ring scripts/rangekeyword.ring 
+True
