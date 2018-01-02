@@ -57,7 +57,8 @@ Better Ring2EXE
 
 Ring2EXE is updated to works as expected when we don't have a C/C++ compiler
 
-Where when we still distribute applications and get (exe file and ringo file) in this case.
+Where we can distribute applications and get (exe file and ringo file) in this case.
+
 
 .. index:: 
 	pair: What is new in Ring 1.7?; ringvm_give() function
