@@ -170,3 +170,4 @@ Better Ring VM
 (4) Creating lists without variables (statement --> Expression --> List)
 (5) IsNULL() - Not case sensitive - treat Null and null like NULL
 (6) Support adding the Self object to an attribute in this object
+(7) Using ':' operator then keyword will create lower case literal 
