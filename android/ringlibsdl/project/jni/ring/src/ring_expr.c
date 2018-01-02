@@ -615,6 +615,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	List *pLoadAPos, *pList, *pMark  ;
 	char lSetProperty,lequal,nBeforeEqual  ;
 	char cFuncName[100]  ;
+	char cKeyword[100]  ;
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
 	*nFlag = 0 ;
 	/* Factor --> Identifier  {mixer} [ '=' Expr ] */
@@ -825,7 +826,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 			if ( ring_parser_isanykeyword(pParser) ) {
-				ring_parser_icg_newoperand(pParser,ring_scanner_getkeywordtext(pParser->TokenText));
+				strcpy(cKeyword,ring_scanner_getkeywordtext(pParser->TokenText));
+				ring_string_lower(cKeyword);
+				ring_parser_icg_newoperand(pParser,cKeyword);
 			}
 			else {
 				ring_parser_icg_newoperand(pParser,pParser->TokenText);
