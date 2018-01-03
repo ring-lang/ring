@@ -72,6 +72,33 @@ The Trace library is updated, In the Debugger at break points we have now the "c
 
 This command will print the functions call stack.
 
+Example:
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	func main
+		? "Hello from main!"
+		test1()
+
+	func test1 
+		? "Hello from test1!"
+		test2()
+
+	func test2 
+		? "Hello from test2!"
+		test3()
+
+	func test3 
+		? "Hello from test3!"
+		breakpoint()
+
+
+.. image:: callstack.png
+	:alt: Call Stack
+
+
 .. index:: 
 	pair: What is new in Ring 1.7?; ringvm_give() function
 
