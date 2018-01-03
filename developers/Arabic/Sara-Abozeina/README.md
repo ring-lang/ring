@@ -1,1 +1,0 @@
-ring course tests
