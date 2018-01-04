@@ -138,7 +138,7 @@ RING_API void ring_list_print ( List *pList )
 		else if ( ring_list_islist(pList,x) ) {
 			pList2 = ring_list_getlist(pList,x) ;
 			if ( ring_vm_oop_isobject(pList2) ) {
-				ring_vm_oop_printobj(pList2);
+				ring_vm_oop_printobj(NULL,pList2);
 			}
 			else {
 				ring_list_print(pList2);
