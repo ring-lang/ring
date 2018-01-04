@@ -212,3 +212,4 @@ Better Ring VM
 (6) Support adding the Self object to an attribute in this object
 (7) Using ':' operator then keyword will create lower case literal 
 (8) Printing objects - respect decimals() function
+(9) When literal is not closed - determine the start of the literal
