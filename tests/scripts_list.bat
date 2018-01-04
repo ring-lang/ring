@@ -264,3 +264,4 @@ call ring scripts/selfaddcrash.ring
 call ring scripts/errorloc.ring
 call ring scripts/rangekeyword.ring
 call ring scripts/objdecimals.ring
+call ring scripts/literror.ring
