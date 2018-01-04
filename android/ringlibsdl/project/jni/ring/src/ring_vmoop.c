@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  pClassesMap ( cClass Name ,  iPC , cParentClass, aMethodsList , nFlagIsParentClassInformation 
 **  pClassesMap ( cClass Name, Pointer to List that represent class inside a Package, Pointer to File 
 **  pFunctionsMap ( Name, PC, FileName, Private Flag ) 
@@ -509,10 +509,11 @@ void ring_vm_oop_aftercallmethod ( VM *pVM )
 	ring_vm_oop_popclasspackage(pVM);
 }
 
-void ring_vm_oop_printobj ( List *pList )
+void ring_vm_oop_printobj ( VM *pVM,List *pList )
 {
 	List *pList2,*pList3  ;
 	int x  ;
+	char cStr[100]  ;
 	pList = ring_list_getlist(pList,2);
 	for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
@@ -521,7 +522,13 @@ void ring_vm_oop_printobj ( List *pList )
 			printf( "%s\n" , ring_list_getstring(pList2,3) ) ;
 		}
 		else if ( ring_list_isnumber(pList2,3) ) {
-			printf( "%f\n" , ring_list_getdouble(pList2,3) ) ;
+			if ( pVM != NULL ) {
+				ring_vm_numtostring(pVM,ring_list_getdouble(pList2,3),cStr);
+				printf( "%s\n" ,cStr ) ;
+			}
+			else {
+				printf( "%f\n" , ring_list_getdouble(pList2,3) ) ;
+			}
 		}
 		else if ( ring_list_islist(pList2,3) ) {
 			pList3 = ring_list_getlist(pList2,3) ;

@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vm_h
 #define ring_vm_h
 /*
@@ -361,7 +361,7 @@ void ring_vm_oop_aftercallmethod ( VM *pVM ) ;
 
 void ring_vm_oop_setscope ( VM *pVM ) ;
 
-void ring_vm_oop_printobj ( List *pList ) ;
+void ring_vm_oop_printobj ( VM *pVM,List *pList ) ;
 
 void ring_vm_oop_parentinit ( VM *pVM,List *pList ) ;
 
