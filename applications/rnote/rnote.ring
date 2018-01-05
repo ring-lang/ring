@@ -113,6 +113,7 @@ Class RNoteController from WindowsControllerParent
 	cReplaceText 	= ""
 
 	lAskToSave 	= false
+	cTextHash	= sha256("")
 
 	# Hash Table contains the File Name and the Line Number
 
@@ -1116,6 +1117,7 @@ Class RNoteController from WindowsControllerParent
 		ok
 		AutoComplete()
 		lAsktoSave = False
+		cTextHash  = sha256(textedit1.toplaintext())
 		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
 		oDockClassesList.setWindowTitle("Classes (Loading...)")
 		DisplayFunctionsList()
@@ -1398,6 +1400,7 @@ Class RNoteController from WindowsControllerParent
 		writefile(cActiveFileName,textedit1.toplaintext())
 		StatusMessage("File : " + cActiveFileName + " saved!")
 		lAskToSave = false
+		cTextHash  = sha256(textedit1.toplaintext())
 		AutoComplete()
 		displayFunctionsList()
 		displayClassesList()
@@ -1418,6 +1421,7 @@ Class RNoteController from WindowsControllerParent
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
 				this.pSetActiveFileName()
 				lAskToSave = false
+				cTextHash  = sha256(textedit1.toplaintext())
 			ok
 		}
 
@@ -1605,7 +1609,7 @@ Class RNoteController from WindowsControllerParent
 
 	func pSaveSettings
 		pSaveSettingsToFile()
-		if lAsktoSave
+		if lAsktoSave and cTextHash != sha256(textedit1.toplaintext())
 			new qmessagebox(win1)
 			{
 				setwindowtitle("Save Changes?")
