@@ -90,7 +90,7 @@ Inside the source code file (*.ring), Add this line
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 
 .. note:: Change the previous line based on the path to ring.exe in your machine
 
@@ -104,7 +104,7 @@ The next program is the Hello World program
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 
 	See "content-type : text/html" +nl+nl+
 	    "Hello World!" + nl
@@ -122,7 +122,7 @@ Example (1) :
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 
 	Load "weblib.ring"
 
@@ -138,7 +138,7 @@ Example (2) :
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 
 	Load "weblib.ring"
 
@@ -180,7 +180,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page
@@ -294,7 +294,7 @@ The Response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page
@@ -362,7 +362,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page 
@@ -396,7 +396,7 @@ The Response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page 
@@ -431,7 +431,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New page 
@@ -462,7 +462,7 @@ The Response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -518,7 +518,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -543,7 +543,7 @@ The Response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -578,7 +578,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -644,7 +644,7 @@ The Ring Code
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -701,7 +701,7 @@ If you want to write html code, use the html() function.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -736,7 +736,7 @@ The Page User Interface
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -770,7 +770,7 @@ The Response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -812,7 +812,7 @@ Random Image
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -865,7 +865,7 @@ We uses listart() and liend() to determine the list item.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -908,7 +908,7 @@ and cellend() functions.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -950,7 +950,7 @@ The function takes the style number as input (range from 1 to 60).
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -991,7 +991,7 @@ templates then using objects (slower).
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1215,7 +1215,7 @@ The next example uses the Bootstrap JavaScript Library when generating the HTML 
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1260,7 +1260,7 @@ Instead of using functions to generate the HTML elements, we will use objects.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1410,7 +1410,7 @@ modify a record.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Import System.Web
@@ -1531,7 +1531,7 @@ Using the created object, we call the routing method.
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1549,7 +1549,7 @@ See the next code for the registration page
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Import System.Web
@@ -1615,7 +1615,7 @@ The Registration response
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1654,7 +1654,7 @@ See the next code for the Login page
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 
@@ -1713,7 +1713,7 @@ The response page
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1743,7 +1743,7 @@ The next code for checking if the user needs to login or not
 
 .. code-block:: ring
 
-	#!c:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"

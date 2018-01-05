@@ -102,7 +102,7 @@ Options FollowSymLinks +ExecCGI
 </pre></div>
 </div>
 <p>Inside the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring), Add this line</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -113,7 +113,7 @@ Options FollowSymLinks +ExecCGI
 <div class="section" id="ring-cgi-hello-world-program">
 <span id="index-2"></span><h2>Ring CGI Hello World Program<a class="headerlink" href="#ring-cgi-hello-world-program" title="Permalink to this headline">¶</a></h2>
 <p>The next program is the Hello World program</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 
 <span class="k">See</span> <span class="s">&quot;content-type : text/html&quot;</span> <span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="n">nl</span><span class="o">+</span>
     <span class="s">&quot;Hello World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -124,7 +124,7 @@ Options FollowSymLinks +ExecCGI
 <span id="index-3"></span><h2>Hello World Program using the Web Library<a class="headerlink" href="#hello-world-program-using-the-web-library" title="Permalink to this headline">¶</a></h2>
 <p>We can use the web library to write CGI Web applications quickly</p>
 <p>Example (1) :</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 
@@ -137,7 +137,7 @@ Options FollowSymLinks +ExecCGI
 </pre></div>
 </div>
 <p>Example (2) :</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 
@@ -173,7 +173,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="http-get-example">
 <span id="index-5"></span><h2>HTTP Get Example<a class="headerlink" href="#http-get-example" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 <span class="k">New</span> <span class="n">Page</span>
@@ -282,7 +282,7 @@ return the page object instead of creating the object using new statement.</p>
 <p>Screen Shot:</p>
 <img alt="HTTP Get" src="_images/ex4.jpg" />
 <p>The Response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 <span class="k">New</span> <span class="n">Page</span>
@@ -342,7 +342,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="http-post-example">
 <span id="index-6"></span><h2>HTTP POST Example<a class="headerlink" href="#http-post-example" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 <span class="k">New</span> <span class="n">Page</span>
@@ -370,7 +370,7 @@ return the page object instead of creating the object using new statement.</p>
 <p>Screen Shot:</p>
 <img alt="HTTP Post" src="_images/ex6.jpg" />
 <p>The Response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 <span class="k">New</span> <span class="n">Page</span>
@@ -397,7 +397,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="upload-files">
 <span id="index-7"></span><h2>Upload Files<a class="headerlink" href="#upload-files" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 <span class="k">New</span> <span class="n">page</span>
@@ -423,7 +423,7 @@ return the page object instead of creating the object using new statement.</p>
 <p>Screen Shot:</p>
 <img alt="Upload File" src="_images/ex8.jpg" />
 <p>The Response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -471,7 +471,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="cookies">
 <span id="index-8"></span><h2>Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -491,7 +491,7 @@ return the page object instead of creating the object using new statement.</p>
 <p>Screen Shot:</p>
 <img alt="Cookies" src="_images/ex10.jpg" />
 <p>The Response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -518,7 +518,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="url-encode">
 <span id="index-9"></span><h2>URL Encode<a class="headerlink" href="#url-encode" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -567,7 +567,7 @@ return the page object instead of creating the object using new statement.</p>
 </pre></div>
 </div>
 <p>The Ring Code</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -615,7 +615,7 @@ return the page object instead of creating the object using new statement.</p>
 <span id="index-11"></span><h2>HTML Special Characters<a class="headerlink" href="#html-special-characters" title="Permalink to this headline">¶</a></h2>
 <p>The text() function display HTML special characters.</p>
 <p>If you want to write html code, use the html() function.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -641,7 +641,7 @@ return the page object instead of creating the object using new statement.</p>
 <div class="section" id="hash-functions">
 <span id="index-12"></span><h2>Hash Functions<a class="headerlink" href="#hash-functions" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -670,7 +670,7 @@ return the page object instead of creating the object using new statement.</p>
 <p>Screen Shot:</p>
 <img alt="Hash Functions" src="_images/ex15.jpg" />
 <p>The Response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -705,7 +705,7 @@ return the page object instead of creating the object using new statement.</p>
 </div>
 <div class="section" id="random-image">
 <span id="index-13"></span><h2>Random Image<a class="headerlink" href="#random-image" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -745,7 +745,7 @@ contains the clicked button number.</p>
 <p>To start the list we uses the ulstart() function.</p>
 <p>To end the list we uses the ulend() function.</p>
 <p>We uses listart() and liend() to determine the list item.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -780,7 +780,7 @@ contains the clicked button number.</p>
 <p>In this example we will learn how to generate HTML tables using the
 tablestart(), tableend(), rowstart(), rowend() ,headerstart(), headerend(), cellstart()
 and cellend() functions.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -812,7 +812,7 @@ and cellend() functions.</p>
 <span id="index-16"></span><h2>Gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">¶</a></h2>
 <p>In this example we will learn how to use the StyleGradient() function.</p>
 <p>The function takes the style number as input (range from 1 to 60).</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -843,7 +843,7 @@ for each element in the page.</p>
 <p>This choice means more beautiful code but slower.</p>
 <p>The fastest method is to print HTML code directly, then using functions then using
 templates then using objects (slower).</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -1048,7 +1048,7 @@ templates then using objects (slower).</p>
 <div class="section" id="using-bootstrap-library-using-functions">
 <span id="index-19"></span><h2>Using Bootstrap Library using Functions<a class="headerlink" href="#using-bootstrap-library-using-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the Bootstrap JavaScript Library when generating the HTML page.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -1083,7 +1083,7 @@ templates then using objects (slower).</p>
 <span id="index-20"></span><h2>Using Bootstrap Library using Objects<a class="headerlink" href="#using-bootstrap-library-using-objects" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the Bootstrap JavaScript Library when generating the HTML page.</p>
 <p>Instead of using functions to generate the HTML elements, we will use objects.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
@@ -1218,7 +1218,7 @@ for translation.</p>
 <p>The method AddFuncScript is used to call the form for adding/modifying record data.</p>
 <p>The method FormViewContent is used to determine the controls in the form when we add or
 modify a record.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
@@ -1325,7 +1325,7 @@ like username &amp; email.</p>
 </div>
 <p>In the file ex25.ring we load ex25_users.ring then create an object from UsersController class.</p>
 <p>Using the created object, we call the routing method.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;ex25_users.ring&quot;</span>
@@ -1338,7 +1338,7 @@ like username &amp; email.</p>
 <p>Screen Shot:</p>
 <img alt="Users Table" src="_images/ex25.jpg" />
 <p>See the next code for the registration page</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
@@ -1398,7 +1398,7 @@ like username &amp; email.</p>
 <p>Screen Shot:</p>
 <img alt="Registration Page" src="_images/ex26.jpg" />
 <p>The Registration response</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;ex25_users.ring&quot;</span>
@@ -1435,7 +1435,7 @@ like username &amp; email.</p>
 </pre></div>
 </div>
 <p>See the next code for the Login page</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 
@@ -1488,7 +1488,7 @@ like username &amp; email.</p>
 <p>Screen Shot:</p>
 <img alt="Login Page" src="_images/ex28.jpg" />
 <p>The response page</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;ex25_users.ring&quot;</span>
@@ -1516,7 +1516,7 @@ like username &amp; email.</p>
 </pre></div>
 </div>
 <p>The next code for checking if the user needs to login or not</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!c:\ring\bin\ring.exe -cgi</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;datalib.ring&quot;</span>
 <span class="k">Load</span> <span class="s">&quot;ex25_users.ring&quot;</span>
