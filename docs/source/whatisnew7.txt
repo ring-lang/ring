@@ -48,7 +48,7 @@ Better Ring Notepad
 Ring Notepad comes with the next updates
 
 (1) Support *.cf extension
-
+(2) Using Hash function (SHA256) for better "Save Changes?" message
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
