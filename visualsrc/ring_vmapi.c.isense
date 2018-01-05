@@ -119,7 +119,7 @@ Type: VM *
 pVM
 ring_vmlib_add
 Type: List *
-pList,*pList2, *pList3
+pList,*pList2
 Type: VM *
 pVM
 ring_vmlib_del
