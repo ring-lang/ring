@@ -323,6 +323,10 @@ List * ring_vm_oop_getobj ( VM *pVM )
 	}
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pVar = (List *) RING_VM_STACK_READP ;
+		if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
+			ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+			return NULL ;
+		}
 		if ( ! ring_list_islist(pVar,RING_VAR_VALUE  ) ) {
 			ring_vm_error(pVM,RING_VM_ERROR_NOTOBJECT);
 			return NULL ;
