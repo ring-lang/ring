@@ -151,9 +151,9 @@ Class RNoteController from WindowsControllerParent
 		this.pCheckCustomColors()
 		this.PrepareAutoComplete()
 		this.win1 = new qMainWindow() {
-			oFilter = new qAllEvents(this.win1)
-			oFilter.setCloseEvent(Method(:pSaveSettingsToFile))
-			installEventFilter(oFilter)
+			this.oFilter = new qAllEvents(this.win1)
+			this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
+			installEventFilter(this.oFilter)
 			setwindowtitle("Ring Notepad")
 			aBtns = [
 					new qtoolbutton(this.win1) {
@@ -1587,6 +1587,9 @@ Class RNoteController from WindowsControllerParent
 			cStartupFolder = cFile
 		ok
 
+	func pRingNotepadXButton
+		pSaveSettings() 
+
 	func pSaveSettingsToFile
 		pSaveCurrentFolder()
 		cSettings = "aTextColor = ["+aTextColor[1]+","+aTextColor[2]+","+aTextColor[3]+"]" + nl +
@@ -1615,7 +1618,7 @@ Class RNoteController from WindowsControllerParent
 				setwindowtitle("Save Changes?")
 				settext("Some changes are not saved!")
 				setInformativeText("Do you want to save your changes?")
-				setstandardbuttons(QMessageBox_Yes | QMessageBox_No | QMessageBox_Cancel)
+				setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
 				result = exec()
 				this.win1 {
 				if result = QMessageBox_Yes
@@ -1646,9 +1649,8 @@ Class RNoteController from WindowsControllerParent
 		pSelectStyleColor2(nDefaultStyle)
 
 	func pQuit
-		if pSaveSettings()
-			myapp.quit()
-		ok
+		pSaveSettings()
+		myapp.quit()
 
 	func pOpenCHM
 		new QDesktopServices {
