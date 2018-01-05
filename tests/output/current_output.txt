@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3633
+Time 3747
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -813,7 +813,7 @@ link: Object...
 more...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -826,7 +826,7 @@ phone: 123456
 link: Object...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1433,7 +1433,7 @@ link: Object...
 more...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1453,7 +1453,7 @@ link: Object...
 more...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1473,7 +1473,7 @@ link: Object...
 more...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1738,7 +1738,7 @@ link: Object...
 more...
 49000
 salary: 49000
-tlist: List...
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-008E3C20
+031D3C20
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 05/01/2018
-time: 03:17:10
+time: 06:31:39
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3400,9 +3400,9 @@ B:\ring\tests>call ring scripts/checknull.ring
 0
 
 B:\ring\tests>call ring scripts/selfaddcrash.ring 
-aitems: List...
+aitems: [This Attribute Contains A List]
 
-aitems: List...
+aitems: [This Attribute Contains A List]
 
 
 
@@ -3429,3 +3429,7 @@ Hello
 
 Line 4 Error (R24) : Using uninitialized variable : noobject 
 in file scripts/noobject.ring 
+B:\ring\tests>call ring scripts/objcontainslist.ring 
+mylist: [This Attribute Contains A List]
+name: Test
+
