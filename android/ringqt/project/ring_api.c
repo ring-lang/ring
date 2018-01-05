@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Support for C Functions */
 
@@ -489,16 +489,16 @@ void ring_vmlib_add ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( RING_API_ISSTRING(2) ) {
-			ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
+			ring_list_addstring2_gc(pVM->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 			RING_API_RETSTRING2(RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 		}
 		else if ( RING_API_ISNUMBER(2) ) {
-			ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETNUMBER(2));
+			ring_list_adddouble_gc(pVM->pRingState,pList,RING_API_GETNUMBER(2));
 			RING_API_RETNUMBER(RING_API_GETNUMBER(2));
 		}
 		else if ( RING_API_ISLIST(2) ) {
 			pList2 = RING_API_GETLIST(2) ;
-			ring_vm_addlisttolist(((VM *) pPointer),pList2,pList);
+			ring_vm_addlisttolist(pVM,pList2,pList);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
