@@ -540,7 +540,7 @@ void ring_vm_oop_printobj ( VM *pVM,List *pList )
 				printf( "Object...\n" ) ;
 			}
 			else {
-				printf( "List...\n" ) ;
+				printf( "[This Attribute Contains A List]\n" ) ;
 			}
 		}
 	}
