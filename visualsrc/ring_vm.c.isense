@@ -184,6 +184,12 @@ Type: char
 lPassError
 Type: char
 lHideErrorMsg
+Type: List *
+aGlobalScopes
+Type: int
+nActiveGlobalScope
+Type: List *
+aActiveGlobalScopes
 END:
 Type: VM
 struct VM

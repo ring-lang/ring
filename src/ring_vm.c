@@ -189,6 +189,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lPassError = 0 ;
 	/* Hide Error message - don't display it in ring_vm_error() */
 	pVM->lHideErrorMsg = 0 ;
+	/* Custom Global Scopes (using load package) */
+	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
+	pVM->nActiveGlobalScope = 0 ;
+	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	return pVM ;
 }
 
@@ -239,6 +243,9 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
 	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
+	/* Custom Global Scope (using Load Package) */
+	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
+	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
