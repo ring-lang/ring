@@ -101,7 +101,6 @@ typedef struct VM {
 	char lPassError  ;
 	char lHideErrorMsg  ;
 	List *aGlobalScopes  ;
-	int nActiveGlobalScope  ;
 	List *aActiveGlobalScopes  ;
 } VM ;
 /*

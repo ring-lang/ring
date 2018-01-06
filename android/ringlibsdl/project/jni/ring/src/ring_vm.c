@@ -191,7 +191,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lHideErrorMsg = 0 ;
 	/* Custom Global Scopes (using load package) */
 	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
-	pVM->nActiveGlobalScope = 0 ;
 	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	return pVM ;
 }
