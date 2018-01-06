@@ -267,3 +267,4 @@ call ring scripts/objdecimals.ring
 call ring scripts/literror.ring
 call ring scripts/noobject.ring
 call ring scripts/objcontainslist.ring
+call ring scripts/loadpackage.ring
