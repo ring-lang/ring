@@ -336,9 +336,8 @@ void ring_vm_newglobalscope ( VM *pVM )
 
 void ring_vm_endglobalscope ( VM *pVM )
 {
-	pVM->nActiveGlobalScope-- ;
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
-	if ( pVM->nActiveGlobalScope == 0 ) {
+	if ( ring_list_getsize(pVM->aActiveGlobalScopes) == 0 ) {
 		pVM->pActiveMem = ring_list_getlist(pVM->pMem,1);
 	}
 	else {
