@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_codegen_h
 #define ring_codegen_h
 /*
@@ -126,7 +126,10 @@ typedef enum IC_OPERATIONS {
 	/* Anonymous Functions */
 	ICO_ANONYMOUS ,
 	/* Class Init */
-	ICO_CALLCLASSINIT 
+	ICO_CALLCLASSINIT ,
+	/* Custom Global Scope */
+	ICO_NEWGLOBALSCOPE ,
+	ICO_ENDGLOBALSCOPE 
 } IC_OPERATIONS ;
 /*
 **  Functions 

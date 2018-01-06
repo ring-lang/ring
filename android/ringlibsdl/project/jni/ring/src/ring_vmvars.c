@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Variables 
@@ -324,4 +324,13 @@ void ring_vm_deletescope ( VM *pVM )
 	/* Delete Local Scope information */
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeID,ring_list_getsize(pVM->aScopeID));
 	pVM->nActiveScopeID = ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)) ;
+}
+/* Custom Global Scope */
+
+void ring_vm_newglobalscope ( VM *pVM )
+{
+}
+
+void ring_vm_endglobalscope ( VM *pVM )
+{
 }
