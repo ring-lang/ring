@@ -262,7 +262,7 @@
 <p>Statement &#8212;&gt; &#8216;func&#8217;|&#8217;def&#8217; &lt;Identifier&gt; [ParaList] [&#8216;{&#8216; {statement} &#8216;}&#8217;][&#8216;end&#8217;|&#8217;endfunc&#8217;]</p>
 <p>Statement &#8212;&gt; &#8216;import&#8217; &lt;Identifier&gt; { &#8216;.&#8217; &lt;Identifier&gt; }</p>
 <p>Statement &#8212;&gt; &#8216;private&#8217;</p>
-<p>Statement &#8212;&gt; &#8216;load&#8217; &lt;Literal&gt;</p>
+<p>Statement &#8212;&gt; &#8216;load&#8217; [&#8216;package&#8217;] &lt;Literal&gt;</p>
 <p>Statement &#8212;&gt; &#8216;loadsyntax&#8217; &lt;Literal&gt;</p>
 <p>Statement &#8212;&gt; &#8216;changeringkeyword&#8217; &lt;OldKeyword&gt; &lt;NewKeyword&gt;</p>
 <p>Statement &#8212;&gt; &#8216;changeringoperator&#8217; &lt;OldOperator&gt; &lt;NewOperator&gt;</p>
@@ -1137,6 +1137,32 @@
 </ul>
 </td>
 <td>Load the first address of variable name</td>
+</tr>
+</tbody>
+</table>
+<p>(Custom Global Scope)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><ul class="first last simple">
+<li>ICO_NEWGLOBALSCOPE</li>
+</ul>
+</td>
+<td>Start new custom global scope - used by &#8216;load package&#8217; command</td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li>ICO_ENDGLOBALSCOPE</li>
+</ul>
+</td>
+<td>End of custom global scope - used by &#8216;load package&#8217; command</td>
 </tr>
 </tbody>
 </table>

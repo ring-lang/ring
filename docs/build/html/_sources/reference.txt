@@ -239,7 +239,7 @@ Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
 Statement ---> 'private'
 
-Statement ---> 'load' <Literal>
+Statement ---> 'load' ['package'] <Literal>
 
 Statement ---> 'loadsyntax' <Literal>
 
@@ -558,3 +558,13 @@ Operation			Description
 * ICO_POPSTEP		POP step number from steps stack
 * ICO_LOADAFIRST	Load the first address of variable name 
 =======================	============================================================================
+
+(Custom Global Scope)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
+* ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
+=======================	============================================================================
+
