@@ -329,8 +329,19 @@ void ring_vm_deletescope ( VM *pVM )
 
 void ring_vm_newglobalscope ( VM *pVM )
 {
+	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
+	pVM->nActiveGlobalScope ++ ;
+	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
 }
 
 void ring_vm_endglobalscope ( VM *pVM )
 {
+	pVM->nActiveGlobalScope-- ;
+	ring_list_deletelastitem_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
+	if ( pVM->nActiveGlobalScope == 0 ) {
+		pVM->pActiveMem = ring_list_getlist(pVM->pMem,1);
+	}
+	else {
+		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
+	}
 }

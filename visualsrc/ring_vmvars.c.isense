@@ -40,4 +40,4 @@ Type: List *
 pList, *pList2
 ring_vm_deletescope
 ring_vm_newglobalscope
-ring_vm_newglobalscope
+ring_vm_endglobalscope
