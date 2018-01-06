@@ -1125,19 +1125,9 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 
 void ring_vm_setfilename ( VM *pVM )
 {
-	List *pList  ;
-	void *pScope  ;
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
-	/* Check Custom Global Scope */
-	if ( ring_list_getsize(pVM->aActiveGlobalScopes) > 0 ) {
-		if ( ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) == 0 ) {
-			pList = ring_list_newlist_gc(pVM->pRingState,pVM->aFileGlobalScope);
-			ring_list_addstring_gc(pVM->pRingState,pList,pVM->cFileName);
-			pScope = ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
-			ring_list_addpointer_gc(pVM->pRingState,pList,pScope);
-		}
-	}
+	ring_vm_savefileglobalscope(pVM);
 }
 
 void ring_vm_loadaddressfirst ( VM *pVM )

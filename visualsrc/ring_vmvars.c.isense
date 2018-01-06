@@ -46,3 +46,4 @@ Type: int
 nPos
 Type: List *
 pList
+ring_vm_savefileglobalscope
