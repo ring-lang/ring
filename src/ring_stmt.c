@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Grammar */
 
@@ -219,7 +219,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -227,10 +227,15 @@ int ring_parser_stmt ( Parser *pParser )
 	char cFileName[RING_PATHSIZE]  ;
 	char cCurrentDir[RING_PATHSIZE]  ;
 	nPerformanceLocations = 0 ;
+	nLoadPackage = 0 ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
 		ring_parser_nexttoken(pParser);
+		if ( ring_parser_iskeyword(pParser,K_PACKAGE) ) {
+			ring_parser_nexttoken(pParser);
+			nLoadPackage = 1 ;
+		}
 		if ( ring_parser_isliteral(pParser) ) {
 			/* Check File in the Ring/bin folder */
 			strcpy(cFileName,pParser->TokenText);
@@ -244,6 +249,10 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
 			ring_parser_icg_newoperand(pParser,cFileName);
+			/* Load Package - New Global Scope */
+			if ( nLoadPackage ) {
+				ring_parser_icg_newoperation(pParser,ICO_NEWGLOBALSCOPE);
+			}
 			ring_parser_icg_newoperation(pParser,ICO_BLOCKFLAG);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE
@@ -270,6 +279,10 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+			/* Load Package - End Global Scope */
+			if ( nLoadPackage ) {
+				ring_parser_icg_newoperation(pParser,ICO_ENDGLOBALSCOPE);
+			}
 			ring_parser_nexttoken(pParser);
 			return x ;
 		}
