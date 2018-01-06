@@ -192,6 +192,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Custom Global Scopes (using load package) */
 	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aFileGlobalScope = ring_list_new_gc(pVM->pRingState,0);
 	return pVM ;
 }
 
@@ -245,6 +246,7 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Custom Global Scope (using Load Package) */
 	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
 	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
+	pVM->aFileGlobalScope = ring_list_delete_gc(pVM->pRingState,pVM->aFileGlobalScope);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -1123,8 +1125,19 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 
 void ring_vm_setfilename ( VM *pVM )
 {
+	List *pList  ;
+	void *pScope  ;
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
+	/* Check Custom Global Scope */
+	if ( ring_list_getsize(pVM->aActiveGlobalScopes) > 0 ) {
+		if ( ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) == 0 ) {
+			pList = ring_list_newlist_gc(pVM->pRingState,pVM->aFileGlobalScope);
+			ring_list_addstring_gc(pVM->pRingState,pList,pVM->cFileName);
+			pScope = ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
+			ring_list_addpointer_gc(pVM->pRingState,pList,pScope);
+		}
+	}
 }
 
 void ring_vm_loadaddressfirst ( VM *pVM )

@@ -186,10 +186,10 @@ Type: char
 lHideErrorMsg
 Type: List *
 aGlobalScopes
-Type: int
-nActiveGlobalScope
 Type: List *
 aActiveGlobalScopes
+Type: List *
+aFileGlobalScope
 END:
 Type: VM
 struct VM
@@ -443,6 +443,10 @@ x,lFunctionCall
 Type: List *
 pList
 ring_vm_setfilename
+Type: List *
+pList
+Type: void *
+pScope
 ring_vm_loadaddressfirst
 ring_vm_endfuncexec
 ring_vm_addglobalvariables
