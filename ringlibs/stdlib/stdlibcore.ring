@@ -86,6 +86,13 @@ Func _Print2Str vValue,nScope
 							cVar = "aList[nPos][3]"
 						ok
 					ok
+				else 
+					aMem = ringvm_memorylist()
+					aList = aMem[1]
+					nPos = find(aList,lower(cVar),1)
+					if nPos 
+						cVar = "aList[nPos][3]"
+					ok
 				ok
 				cCode = "cString += " + cVar				
 				eval(cCode)
