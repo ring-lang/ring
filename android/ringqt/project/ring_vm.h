@@ -524,6 +524,8 @@ void ring_vm_newglobalscope ( VM *pVM ) ;
 void ring_vm_endglobalscope ( VM *pVM ) ;
 
 List * ring_vm_getglobalscope ( VM *pVM ) ;
+
+void ring_vm_savefileglobalscope ( VM *pVM ) ;
 /*
 **  Macro 
 **  Stack 
