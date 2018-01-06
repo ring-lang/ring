@@ -330,7 +330,6 @@ void ring_vm_deletescope ( VM *pVM )
 void ring_vm_newglobalscope ( VM *pVM )
 {
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
-	pVM->nActiveGlobalScope ++ ;
 	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
 }
 
