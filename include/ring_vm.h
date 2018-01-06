@@ -514,6 +514,11 @@ void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
 /* Fast Function Call for Extensions (Without Eval) */
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
+/* Custom Global Scope */
+
+void ring_vm_newglobalscope ( VM *pVM ) ;
+
+void ring_vm_endglobalscope ( VM *pVM ) ;
 /*
 **  Macro 
 **  Stack 

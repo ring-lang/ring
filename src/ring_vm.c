@@ -671,6 +671,13 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_LOADAFIRST :
 			ring_vm_loadaddressfirst(pVM);
 			break ;
+		/* Custom Global Scope */
+		case ICO_NEWGLOBALSCOPE :
+			ring_vm_newglobalscope(pVM);
+			break ;
+		case ICO_ENDGLOBALSCOPE :
+			ring_vm_endglobalscope(pVM);
+			break ;
 	}
 }
 
