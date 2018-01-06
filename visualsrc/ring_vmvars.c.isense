@@ -47,3 +47,7 @@ nPos
 Type: List *
 pList
 ring_vm_savefileglobalscope
+Type: List *
+pList
+Type: void *
+pScope

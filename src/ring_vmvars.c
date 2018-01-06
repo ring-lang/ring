@@ -331,6 +331,7 @@ void ring_vm_newglobalscope ( VM *pVM )
 {
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
 	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
+	ring_vm_addglobalvariables(pVM);
 }
 
 void ring_vm_endglobalscope ( VM *pVM )
