@@ -41,3 +41,8 @@ pList, *pList2
 ring_vm_deletescope
 ring_vm_newglobalscope
 ring_vm_endglobalscope
+ring_vm_getglobalscope
+Type: int
+nPos
+Type: List *
+pList
