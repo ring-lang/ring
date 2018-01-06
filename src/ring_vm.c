@@ -9,7 +9,6 @@ VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
-	List *pList  ;
 	pVM = (VM *) ring_state_malloc(pRingState,sizeof(VM));
 	if ( pVM == NULL ) {
 		printf( RING_OOM ) ;
@@ -36,32 +35,8 @@ VM * ring_vm_new ( RingState *pRingState )
 		pVM->aStack[x].nObjectType = 0 ;
 		pVM->aStack[x].NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	}
-	/*
-	**  Add Variables 
-	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
-	*/
-	ring_vm_addnewnumbervar(pVM,"true",1);
-	ring_vm_addnewnumbervar(pVM,"false",0);
-	ring_vm_addnewstringvar(pVM,"nl","\n");
-	ring_vm_addnewstringvar(pVM,"null","");
-	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
-	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
-	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
-	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
-	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
-	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
-	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
-	ring_vm_addnewpointervar(pVM,"this",NULL,0);
-	ring_vm_addnewstringvar(pVM,"tab","\t");
-	ring_vm_addnewstringvar(pVM,"cr","\r");
-	/* Add Command Line Parameters */
-	pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
-	pList = ring_list_getlist(pList,RING_VAR_VALUE);
-	for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
-		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
-	}
+	/* Add Variables */
+	ring_vm_addglobalvariables(pVM);
 	/* Lists */
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
@@ -1150,6 +1125,38 @@ void ring_vm_endfuncexec ( VM *pVM )
 {
 	if ( pVM->nFuncExecute > 0 ) {
 		pVM->nFuncExecute-- ;
+	}
+}
+
+void ring_vm_addglobalvariables ( VM *pVM )
+{
+	List *pList  ;
+	int x  ;
+	/*
+	**  Add Variables 
+	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
+	*/
+	ring_vm_addnewnumbervar(pVM,"true",1);
+	ring_vm_addnewnumbervar(pVM,"false",0);
+	ring_vm_addnewstringvar(pVM,"nl","\n");
+	ring_vm_addnewstringvar(pVM,"null","");
+	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
+	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
+	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
+	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
+	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
+	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
+	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
+	ring_vm_addnewpointervar(pVM,"this",NULL,0);
+	ring_vm_addnewstringvar(pVM,"tab","\t");
+	ring_vm_addnewstringvar(pVM,"cr","\r");
+	/* Add Command Line Parameters */
+	pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
+	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+	pList = ring_list_getlist(pList,RING_VAR_VALUE);
+	for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
+		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
 	}
 }
 /* Threads */
