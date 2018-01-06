@@ -58,7 +58,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				if ( pVM->nGetSetProperty == 1 ) {
 					continue ;
 				}
-				pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
+				pList = ring_vm_getglobalscope(pVM);
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
 				/* Search Using Linear Search */
@@ -342,4 +342,19 @@ void ring_vm_endglobalscope ( VM *pVM )
 	else {
 		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
 	}
+}
+
+List * ring_vm_getglobalscope ( VM *pVM )
+{
+	int nPos  ;
+	List *pList  ;
+	nPos = ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) ;
+	if ( nPos == 0 ) {
+		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
+	}
+	else {
+		pList = ring_list_getlist(pVM->aFileGlobalScope,nPos);
+		pList = (List *) ring_list_getpointer(pList,2);
+	}
+	return pList ;
 }

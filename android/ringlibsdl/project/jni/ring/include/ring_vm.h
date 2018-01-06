@@ -522,6 +522,8 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 void ring_vm_newglobalscope ( VM *pVM ) ;
 
 void ring_vm_endglobalscope ( VM *pVM ) ;
+
+List * ring_vm_getglobalscope ( VM *pVM ) ;
 /*
 **  Macro 
 **  Stack 
