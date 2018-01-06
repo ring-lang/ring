@@ -102,6 +102,7 @@ typedef struct VM {
 	char lHideErrorMsg  ;
 	List *aGlobalScopes  ;
 	List *aActiveGlobalScopes  ;
+	List *aFileGlobalScope  ;
 } VM ;
 /*
 **  Functions 
