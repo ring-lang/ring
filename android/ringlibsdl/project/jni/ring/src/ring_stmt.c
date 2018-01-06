@@ -246,13 +246,15 @@ int ring_parser_stmt ( Parser *pParser )
 					strcpy(cFileName,pParser->TokenText);
 				}
 			}
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
-			ring_parser_icg_newoperand(pParser,cFileName);
-			/* Load Package - New Global Scope */
+			/*
+			**  Generate Code 
+			**  Load Package - New Global Scope 
+			*/
 			if ( nLoadPackage ) {
 				ring_parser_icg_newoperation(pParser,ICO_NEWGLOBALSCOPE);
 			}
+			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
+			ring_parser_icg_newoperand(pParser,cFileName);
 			ring_parser_icg_newoperation(pParser,ICO_BLOCKFLAG);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE

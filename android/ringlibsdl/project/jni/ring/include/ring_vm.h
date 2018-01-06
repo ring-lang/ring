@@ -100,6 +100,9 @@ typedef struct VM {
 	char nEvalInScope  ;
 	char lPassError  ;
 	char lHideErrorMsg  ;
+	List *aGlobalScopes  ;
+	int nActiveGlobalScope  ;
+	List *aActiveGlobalScopes  ;
 } VM ;
 /*
 **  Functions 
