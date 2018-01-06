@@ -572,16 +572,16 @@ Func Binarydigits a
 */     
 
 Func Matrixmulti A, B
-     n = len(A)
-     C = newlist(n,n)
-     for i = 1 to n
-         for j = 1 to n
-             for k = 1 to n
-                 C[i][k] += A[i][j] * B[j][k]  
-             next
-         next
-     next
-	 return C
+	n = len(A)
+	C = newlist(n,n)
+	for i = 1 to n
+		for j = 1 to n
+			for k = 1 to n
+				C[i][k] += A[i][j] * B[j][k]  
+			next
+		next
+	next
+	return C
      
 /*
 	Function Name	: Matrixtrans
@@ -591,15 +591,15 @@ Func Matrixmulti A, B
 */     
 
 Func Matrixtrans matrix
-	 rows = len(matrix)
-	 cols = len(matrix[1])	 
-     transpose = newlist(cols,rows)
-     for i = 1 to cols
-         for j = 1 to rows
-             transpose[i][j] = matrix[j][i]             
-         next         
-     next
-     return transpose
+	rows = len(matrix)
+	cols = len(matrix[1])	
+	transpose = newlist(cols,rows)
+	for i = 1 to cols
+		for j = 1 to rows
+			transpose[i][j] = matrix[j][i]             
+		next         
+	next
+	return transpose
 	 
 /*
 	Function Name	: Dayofweek
@@ -785,7 +785,6 @@ Func MakeDir cFolder
 
 Func sortFirstSecond aList, ind
         aList = sort(aList,ind)
-
         for n=1 to len(alist)-1
              for m=n to len(aList)-1 
                    if ind = 1 nr = 2 else nr = 1 ok
