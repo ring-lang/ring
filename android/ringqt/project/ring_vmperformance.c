@@ -286,6 +286,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(6));
 	ring_vm_saveloadaddressscope(pVM);
