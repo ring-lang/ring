@@ -263,6 +263,7 @@ RING_FUNCCL_PC
 RING_FUNCCL_SP
 RING_FUNCCL_TEMPMEM
 RING_FUNCCL_FILENAME
+RING_FUNCCL_FILENAME
 RING_FUNCCL_METHODORFUNC
 RING_FUNCCL_LINENUMBER
 RING_FUNCCL_CALLERPC
@@ -443,10 +444,6 @@ x,lFunctionCall
 Type: List *
 pList
 ring_vm_setfilename
-Type: List *
-pList
-Type: void *
-pScope
 ring_vm_loadaddressfirst
 ring_vm_endfuncexec
 ring_vm_addglobalvariables
