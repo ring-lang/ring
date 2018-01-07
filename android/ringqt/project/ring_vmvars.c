@@ -382,3 +382,20 @@ void ring_vm_savefileglobalscope ( VM *pVM )
 		}
 	}
 }
+
+const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
+{
+	List *pList  ;
+	int x  ;
+	/* Check Calling from function */
+	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+			pList = ring_list_getlist(pVM->pFuncCallList,x);
+			/* Be sure that the function is already called using ICO_CALL */
+			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
+				return ring_list_getstring(pList,RING_FUNCCL_FILENAME) ;
+			}
+		}
+	}
+	return NULL ;
+}
