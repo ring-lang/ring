@@ -349,7 +349,15 @@ List * ring_vm_getglobalscope ( VM *pVM )
 {
 	int nPos  ;
 	List *pList  ;
-	nPos = ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) ;
+	const char *cFile  ;
+	/* File Name */
+	if ( pVM->nFuncExecute2 > 0 ) {
+		cFile = pVM->cPrevFileName ;
+	}
+	else {
+		cFile = pVM->cFileName ;
+	}
+	nPos = ring_list_findstring(pVM->aFileGlobalScope,cFile,1) ;
 	if ( nPos == 0 ) {
 		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
