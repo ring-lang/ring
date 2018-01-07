@@ -386,17 +386,23 @@ void ring_vm_savefileglobalscope ( VM *pVM )
 const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
 {
 	List *pList  ;
-	int x  ;
+	int x,lInsideFunctionCall  ;
 	const char *cFile  ;
 	cFile = pVM->cFileName ;
+	lInsideFunctionCall = 0 ;
 	/* Check Calling from function */
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
-				cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
-				break ;
+				if ( lInsideFunctionCall == 1 ) {
+					cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+					break ;
+				}
+			}
+			else {
+				lInsideFunctionCall = 1 ;
 			}
 		}
 	}

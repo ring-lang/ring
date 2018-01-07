@@ -57,6 +57,6 @@ ring_vm_filenameforcurrentfunction
 Type: List *
 pList
 Type: int
-x
+x,lInsideFunctionCall
 Type: const char *
 cFile
