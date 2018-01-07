@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* For Better Performance */
 
@@ -284,6 +284,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
 	ring_list_newlist_gc(pVM->pRingState,pList);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
+	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(6));
