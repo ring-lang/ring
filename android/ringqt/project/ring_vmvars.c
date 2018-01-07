@@ -352,7 +352,7 @@ List * ring_vm_getglobalscope ( VM *pVM )
 	const char *cFile  ;
 	/* File Name */
 	if ( pVM->nFuncExecute2 > 0 ) {
-		cFile = pVM->cPrevFileName ;
+		cFile = ring_vm_filenameforcurrentfunction(pVM) ;
 	}
 	else {
 		cFile = pVM->cFileName ;
@@ -393,9 +393,9 @@ const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
-				return ring_list_getstring(pList,RING_FUNCCL_FILENAME) ;
+				return (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
 			}
 		}
 	}
-	return NULL ;
+	return pVM->cPrevFileName ;
 }

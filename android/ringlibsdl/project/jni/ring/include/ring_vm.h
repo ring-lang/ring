@@ -612,7 +612,7 @@ const char * ring_vm_filenameforcurrentfunction ( VM *pVM ) ;
 #define RING_FUNCCL_SP 4
 #define RING_FUNCCL_TEMPMEM 5
 #define RING_FUNCCL_FILENAME 6
-#define RING_FUNCCL_FILENAME 6
+#define RING_FUNCCL_NEWFILENAME 6
 #define RING_FUNCCL_METHODORFUNC 8
 #define RING_FUNCCL_LINENUMBER 9
 #define RING_FUNCCL_CALLERPC 10
