@@ -387,15 +387,18 @@ const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
 {
 	List *pList  ;
 	int x  ;
+	const char *cFile  ;
+	cFile = pVM->cFileName ;
 	/* Check Calling from function */
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
-				return (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+				cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+				break ;
 			}
 		}
 	}
-	return pVM->cPrevFileName ;
+	return cFile ;
 }
