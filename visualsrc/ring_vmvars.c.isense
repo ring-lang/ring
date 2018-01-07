@@ -46,6 +46,8 @@ Type: int
 nPos
 Type: List *
 pList
+Type: const char *
+cFile
 ring_vm_savefileglobalscope
 Type: List *
 pList
