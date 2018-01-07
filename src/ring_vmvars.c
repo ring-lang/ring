@@ -332,10 +332,6 @@ void ring_vm_newglobalscope ( VM *pVM )
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
 	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
 	ring_vm_addglobalvariables(pVM);
-	/* Save Local Scope Information */
-	pVM->nScopeID++ ;
-	ring_list_addint_gc(pVM->pRingState,pVM->aScopeID,pVM->nScopeID);
-	pVM->nActiveScopeID = pVM->nScopeID ;
 }
 
 void ring_vm_endglobalscope ( VM *pVM )
