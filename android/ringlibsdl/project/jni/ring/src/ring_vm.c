@@ -1106,7 +1106,12 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			/* Adding () */
 			printf( "() in file " ) ;
 			/* File Name */
-			printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ) ;
+			if ( lFunctionCall == 1 ) {
+				printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ) ;
+			}
+			else {
+				printf( "%s",pVM->cFileName ) ;
+			}
 			/* Called From */
 			printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
 			lFunctionCall = 1 ;
