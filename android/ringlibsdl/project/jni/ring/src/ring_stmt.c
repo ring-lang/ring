@@ -98,6 +98,9 @@ int ring_parser_class ( Parser *pParser )
 			/* Create label to be used by Private */
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
 			pParser->nPrivateFlag = 0 ;
+			/* Generate Code - Set The File Name */
+			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
+			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			/* Support using { } around the class code and using 'end' after the content */
 			return ring_parser_bracesandend(pParser,1,K_ENDCLASS) ;
 		} else {

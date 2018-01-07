@@ -193,6 +193,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	pVM->aFileGlobalScope = ring_list_new_gc(pVM->pRingState,0);
+	pVM->cFileNameInClassRegion = NULL ;
 	return pVM ;
 }
 
@@ -1073,6 +1074,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
 	int x,lFunctionCall  ;
 	List *pList  ;
+	const char *cFile  ;
 	/* CGI Support */
 	ring_state_cgiheader(pVM->pRingState);
 	/* Print the Error Message */
@@ -1107,11 +1109,15 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			printf( "() in file " ) ;
 			/* File Name */
 			if ( lFunctionCall == 1 ) {
-				printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ) ;
+				cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
 			}
 			else {
-				printf( "%s",pVM->cFileName ) ;
+				cFile = pVM->cFileName ;
 			}
+			if ( pVM->nInClassRegion ) {
+				cFile = pVM->cFileNameInClassRegion ;
+			}
+			printf( "%s",cFile ) ;
 			/* Called From */
 			printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
 			lFunctionCall = 1 ;
@@ -1130,6 +1136,14 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 
 void ring_vm_setfilename ( VM *pVM )
 {
+	if ( pVM->nInClassRegion ) {
+		/*
+		**  We are using special attribute for this region to avoid save/restore file name 
+		**  If we used pVM->cFileName we could get problem in finding classes and packages 
+		*/
+		pVM->cFileNameInClassRegion = RING_VM_IR_READC ;
+		return ;
+	}
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
 	ring_vm_savefileglobalscope(pVM);
