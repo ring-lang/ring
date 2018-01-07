@@ -94,6 +94,12 @@ loadvars()
 Func GetaPageVars
 	return aPageVars 
 
+Func Gethtmlcssattributes
+	return htmlcssattributes
+
+Func GetaObjsAttributes
+	return aObjsAttributes
+
 Func LoadVars
 	if sysget("REQUEST_METHOD") = NULL
 		# The Web Library is not called from Web Application (From the Browser)
