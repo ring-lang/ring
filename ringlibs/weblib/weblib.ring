@@ -91,6 +91,9 @@ mergemethods("webpage","newobjectsfunctions")
 
 loadvars()
 
+Func GetaPageVars
+	return aPageVars 
+
 Func LoadVars
 	if sysget("REQUEST_METHOD") = NULL
 		# The Web Library is not called from Web Application (From the Browser)
