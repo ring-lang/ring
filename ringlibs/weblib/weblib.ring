@@ -2,6 +2,8 @@
 # Web Library
 # 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
+load "stdlibcore.ring"
+
 Import System.Web
 
 aPageVars = []
@@ -191,16 +193,18 @@ Func Alert cMessage
 		script( "document.onready = function() { alert(" +'"' + cMessage + '"' + ") }" )
 	}
 
-func HTML2PDF cStr
+func HTML2PDF filepath,filefolder,cStr
 
-	cFileName = "temp/"+tempname()
+	cTempName = JustFileName(tempname())
+	cFileName = filepath+cTempName
 	cHTML = cFileName + ".html"
 	cPDF =  cFileName + ".pdf"
 	write(cHTML,cStr)
 	system("wkhtmltopdf " + cHTML + " " + cPDF)
 	New Page 
 	{  
-		script(scriptredirection(cPDF))  
+		text(cPDF)
+		script(scriptredirection(filefolder+cTempName+".pdf"))  
 	}
 
 
@@ -1628,8 +1632,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		Func BraceEnd			
 
 	Class HTML2PDF from page
+		filepath filefolder
 		Func BraceEnd
-			HTML2PDF(cOutput)
+			HTML2PDF(filepath,filefolder,cOutput)
 
 	Class BootStrapPage from Page
 		lBootstrap = True

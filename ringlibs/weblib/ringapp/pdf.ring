@@ -4,6 +4,8 @@ func testpdf
 
 	New HTML2PDF
 	{
+		filepath  = cPDFPath
+		filefolder = cPDFFolder
 		divstart([ :style = stylebackcolor("purple") + stylecolor("white")  + styleheight("30px") + styletextcenter()])
 			text("PDF File")
 		divend()
@@ -24,9 +26,9 @@ func testpdf
 		if len(aList) > 0
 			nIndex = random(len(aList)) 
 			if nindex = 0 nIndex = 1 ok
-			cItem = "upload/" + aList[nIndex][1]
+			cItem = cUploadPath + aList[nIndex][1]
 			newline()
-			image( [ :url = "http://localhost/ringapp/" + cItem , :alt = :image  ] )
+			image( [ :url = cItem , :alt = :image  ] )
 		ok
 	}
 

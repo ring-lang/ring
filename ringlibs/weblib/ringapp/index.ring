@@ -27,6 +27,10 @@ website = "index.ring"
 cUploadPath = exefolder() + "../ringlibs/weblib/ringapp/upload/"
 cUploadFolder = "/upload/"
 
+cPDFPath = exefolder() + "../ringlibs/weblib/ringapp/temp/"
+cPDFFolder = "/temp/"
+
+
 Func Main
 
 		if aPageVars["page"] = NULL
