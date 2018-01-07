@@ -190,6 +190,8 @@ Type: List *
 aActiveGlobalScopes
 Type: List *
 aFileGlobalScope
+Type: char *
+cFileNameInClassRegion
 END:
 Type: VM
 struct VM
@@ -443,6 +445,8 @@ Type: int
 x,lFunctionCall
 Type: List *
 pList
+Type: const char *
+cFile
 ring_vm_setfilename
 ring_vm_loadaddressfirst
 ring_vm_endfuncexec

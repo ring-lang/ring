@@ -352,16 +352,34 @@ List * ring_vm_getglobalscope ( VM *pVM )
 	const char *cFile  ;
 	/* File Name */
 	if ( pVM->nFuncExecute2 > 0 ) {
+		/*
+		**  We are calling a function (loaded bu not called) - cFileName is update in Load! 
+		**  We can't use the cFileName here 
+		*/
 		cFile = ring_vm_filenameforcurrentfunction(pVM) ;
 	}
 	else {
+		/* Here we can use cFileName directly */
 		cFile = pVM->cFileName ;
+	}
+	if ( pVM->nInClassRegion ) {
+		/*
+		**  We are in the class region, after the class name 
+		**  Here we have a special attribute for the file name 
+		**  This sepcial attribute to avoid conflicts with finding classes in pacakges 
+		*/
+		cFile = pVM->cFileNameInClassRegion ;
 	}
 	nPos = ring_list_findstring(pVM->aFileGlobalScope,cFile,1) ;
 	if ( nPos == 0 ) {
+		/*
+		**  We will use the normal global scope 
+		**  We don't have custom global scope 
+		*/
 		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
 	else {
+		/* We have a custom global scope and we will use it */
 		pList = ring_list_getlist(pVM->aFileGlobalScope,nPos);
 		pList = (List *) ring_list_getpointer(pList,2);
 	}
