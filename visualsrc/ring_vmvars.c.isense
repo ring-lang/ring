@@ -56,3 +56,5 @@ pScope
 ring_vm_filenameforcurrentfunction
 Type: List *
 pList
+Type: int
+x
