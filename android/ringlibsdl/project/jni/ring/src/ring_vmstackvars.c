@@ -188,7 +188,7 @@ void ring_vm_inc ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		/* Replace ICO_INC with IncP for better performance */
 		RING_VM_IR_OPCODE = ICO_INCP ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -204,7 +204,7 @@ void ring_vm_loadapushv ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		/* Replace LoadAPushV with PUSHPV for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHPV ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
