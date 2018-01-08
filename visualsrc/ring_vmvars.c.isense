@@ -60,3 +60,4 @@ Type: List *
 pList
 Type: void *
 pScope
+ring_vm_setglobalscope

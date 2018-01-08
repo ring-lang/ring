@@ -192,6 +192,8 @@ Type: List *
 aFileGlobalScope
 Type: char *
 cFileNameInClassRegion
+Type: int
+nCurrentGlobalScope
 END:
 Type: VM
 struct VM

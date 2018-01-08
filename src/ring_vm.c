@@ -194,6 +194,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
 	pVM->aFileGlobalScope = ring_list_new_gc(pVM->pRingState,0);
 	pVM->cFileNameInClassRegion = NULL ;
+	pVM->nCurrentGlobalScope = 0 ;
 	return pVM ;
 }
 
