@@ -41,13 +41,10 @@ pList, *pList2
 ring_vm_deletescope
 ring_vm_newglobalscope
 ring_vm_endglobalscope
+ring_vm_setglobalscope
 ring_vm_getglobalscope
-Type: int
-nPos
 Type: List *
 pList
-Type: const char *
-cFile
 ring_vm_filenameforcurrentfunction
 Type: List *
 pList
@@ -55,9 +52,3 @@ Type: int
 x,lInsideFunctionCall
 Type: const char *
 cFile
-ring_vm_savefileglobalscope
-Type: List *
-pList
-Type: void *
-pScope
-ring_vm_setglobalscope
