@@ -353,7 +353,7 @@ List * ring_vm_getglobalscope ( VM *pVM )
 	/* File Name */
 	if ( pVM->nFuncExecute2 > 0 ) {
 		/*
-		**  We are calling a function (loaded bu not called) - cFileName is update in Load! 
+		**  We are calling a function (loaded but not called) - cFileName is update in Load! 
 		**  We can't use the cFileName here 
 		*/
 		cFile = ring_vm_filenameforcurrentfunction(pVM) ;
