@@ -425,7 +425,6 @@ return the page object instead of creating the object using new statement.</p>
 <p>The Response</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">Load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
 <span class="n">cUploadPath</span> <span class="o">=</span> <span class="s">&quot;C:/Apache2.2/htdocs/ringapp/upload/&quot;</span>
@@ -453,13 +452,13 @@ return the page object instead of creating the object using new statement.</p>
 <span class="k">Func</span> <span class="n">getuploadedfile</span> <span class="n">oObj</span><span class="p">,</span><span class="n">cFile</span>
         <span class="c"># here we use object.property</span>
         <span class="c"># instead of object { } to avoid executing braceend method</span>
-        <span class="n">cFileName</span> <span class="o">=</span> <span class="n">cUploadPath</span> <span class="o">+</span> <span class="n">JustFileName</span><span class="p">(</span><span class="n">oObj</span><span class="p">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">,</span><span class="n">cFile</span><span class="p">))</span>
+        <span class="n">cFileName</span> <span class="o">=</span> <span class="n">cUploadPath</span> <span class="o">+</span> <span class="n">oObj</span><span class="p">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">,</span><span class="n">cFile</span><span class="p">)</span>
         <span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">aPageVars</span><span class="o">[</span><span class="n">cFile</span><span class="o">]</span><span class="p">)</span>
         <span class="n">system</span><span class="p">(</span><span class="s">&quot;chmod a+x &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="p">)</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">text</span><span class="p">(</span> <span class="s">&quot;File &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="o">+</span> <span class="s">&quot; Uploaded ...&quot;</span> <span class="p">)</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
-        <span class="n">imageURL</span> <span class="o">=</span> <span class="n">cUploadFolder</span> <span class="o">+</span> <span class="n">JustFileName</span><span class="p">(</span><span class="n">oObj</span><span class="p">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">,</span><span class="n">cFile</span><span class="p">))</span>
+        <span class="n">imageURL</span> <span class="o">=</span> <span class="n">cUploadFolder</span> <span class="o">+</span> <span class="n">oObj</span><span class="p">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">,</span><span class="n">cFile</span><span class="p">)</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">link</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="n">imageURL</span><span class="p">,</span> <span class="p">:</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Download&quot;</span> <span class="o">]</span><span class="p">)</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
         <span class="n">oObj</span><span class="p">.</span><span class="n">image</span><span class="p">(</span> <span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="n">imageURL</span> <span class="p">,</span> <span class="p">:</span><span class="n">alt</span> <span class="o">=</span> <span class="p">:</span><span class="n">image</span>  <span class="o">]</span> <span class="p">)</span>
