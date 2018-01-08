@@ -1,7 +1,7 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-1
-74
+0
+73
 73
 
 B:\ring\tests>call ring scripts/s60.ring 
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3739
+Time 3911
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-032E29B0
+034F2B40
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 09/01/2018
-time: 00:37:51
+time: 00:59:36
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3445,3 +3445,5 @@ B:\ring\tests>call ring scripts/testfnicr.ring
 
 Line 4 Error (R1) : Cann't divide by zero ! 
 in file scripts/filenameinclassregion.ring 
+B:\ring\tests>call ring scripts/testfnicr2.ring 
+scripts/filenameinclassregion2.ring
