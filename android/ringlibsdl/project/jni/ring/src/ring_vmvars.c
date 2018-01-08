@@ -386,21 +386,6 @@ List * ring_vm_getglobalscope ( VM *pVM )
 	return pList ;
 }
 
-void ring_vm_savefileglobalscope ( VM *pVM )
-{
-	List *pList  ;
-	void *pScope  ;
-	/* Check Custom Global Scope */
-	if ( ring_list_getsize(pVM->aActiveGlobalScopes) > 0 ) {
-		if ( ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) == 0 ) {
-			pList = ring_list_newlist_gc(pVM->pRingState,pVM->aFileGlobalScope);
-			ring_list_addstring_gc(pVM->pRingState,pList,pVM->cFileName);
-			pScope = ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
-			ring_list_addpointer_gc(pVM->pRingState,pList,pScope);
-		}
-	}
-}
-
 const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
 {
 	List *pList  ;
@@ -425,4 +410,23 @@ const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
 		}
 	}
 	return cFile ;
+}
+
+void ring_vm_savefileglobalscope ( VM *pVM )
+{
+	List *pList  ;
+	void *pScope  ;
+	/* Check Custom Global Scope */
+	if ( ring_list_getsize(pVM->aActiveGlobalScopes) > 0 ) {
+		if ( ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) == 0 ) {
+			pList = ring_list_newlist_gc(pVM->pRingState,pVM->aFileGlobalScope);
+			ring_list_addstring_gc(pVM->pRingState,pList,pVM->cFileName);
+			pScope = ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
+			ring_list_addpointer_gc(pVM->pRingState,pList,pScope);
+		}
+	}
+}
+
+void ring_vm_setglobalscope ( VM *pVM )
+{
 }

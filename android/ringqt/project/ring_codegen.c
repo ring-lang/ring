@@ -19,7 +19,7 @@ const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","
 
 "BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
 
-"INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit","NewGlobalScope","EndGlobalScope"} ;
+"INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit","NewGlobalScope","EndGlobalScope","SetGlobalScope"} ;
 /*
 **  Functions 
 **  Generate Intermediate Code 

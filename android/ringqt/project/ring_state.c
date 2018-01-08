@@ -64,6 +64,9 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->vPoolManager.pBlockEnd = NULL ;
 	pRingState->nDontDeleteTheVM = 0 ;
 	pRingState->lNoLineNumber = 0 ;
+	pRingState->nCustomGlobalScopeCounter = 0 ;
+	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
+	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	return pRingState ;
 }
 
@@ -87,6 +90,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 		ring_vm_delete(pRingState->pVM);
 	}
 	ring_poolmanager_delete(pRingState);
+	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
 	ring_free(pRingState);
 	return NULL ;
 }
