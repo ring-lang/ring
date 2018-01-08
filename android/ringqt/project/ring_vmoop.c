@@ -132,6 +132,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Save the Object Pointer and Type */
 				ring_list_addpointer_gc(pVM->pRingState,pList4,RING_VM_STACK_READP);
 				ring_list_addint_gc(pVM->pRingState,pList4,RING_VM_STACK_OBJTYPE);
+				/* Save Current Global Scope */
+				ring_list_addint_gc(pVM->pRingState,pList4,pVM->nCurrentGlobalScope);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -285,6 +287,8 @@ void ring_vm_oop_setscope ( VM *pVM )
 	/* Restore the Object Pointer and The Object Type */
 	RING_VM_STACK_SETPVALUE(ring_list_getpointer(pList,13));
 	RING_VM_STACK_OBJTYPE = ring_list_getint(pList,14) ;
+	/* Restore current Global Scope */
+	pVM->nCurrentGlobalScope = ring_list_getint(pList,15);
 	/* After init methods */
 	ring_vm_oop_aftercallmethod(pVM);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
