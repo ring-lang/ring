@@ -1150,7 +1150,6 @@ void ring_vm_setfilename ( VM *pVM )
 	}
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
-	ring_vm_savefileglobalscope(pVM);
 }
 
 void ring_vm_loadaddressfirst ( VM *pVM )

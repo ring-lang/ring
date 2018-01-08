@@ -345,89 +345,19 @@ void ring_vm_endglobalscope ( VM *pVM )
 	}
 }
 
-List * ring_vm_getglobalscope ( VM *pVM )
-{
-	int nPos  ;
-	List *pList  ;
-	const char *cFile  ;
-	/* File Name */
-	if ( pVM->nFuncExecute2 > 0 ) {
-		/*
-		**  We are calling a function (loaded but not called) - cFileName is update in Load! 
-		**  We can't use the cFileName here 
-		*/
-		cFile = ring_vm_filenameforcurrentfunction(pVM) ;
-	}
-	else {
-		/* Here we can use cFileName directly */
-		cFile = pVM->cFileName ;
-	}
-	if ( pVM->nInClassRegion ) {
-		/*
-		**  We are in the class region, after the class name 
-		**  Here we have a special attribute for the file name 
-		**  This sepcial attribute to avoid conflicts with finding classes in pacakges 
-		*/
-		cFile = pVM->cFileNameInClassRegion ;
-	}
-	nPos = ring_list_findstring(pVM->aFileGlobalScope,cFile,1) ;
-	if ( nPos == 0 ) {
-		/*
-		**  We will use the normal global scope 
-		**  We don't have custom global scope 
-		*/
-		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
-	}
-	else {
-		/* We have a custom global scope and we will use it */
-		pList = ring_list_getlist(pVM->aFileGlobalScope,nPos);
-		pList = (List *) ring_list_getpointer(pList,2);
-	}
-	return pList ;
-}
-
-const char * ring_vm_filenameforcurrentfunction ( VM *pVM )
-{
-	List *pList  ;
-	int x,lInsideFunctionCall  ;
-	const char *cFile  ;
-	cFile = pVM->cFileName ;
-	lInsideFunctionCall = 0 ;
-	/* Check Calling from function */
-	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-			pList = ring_list_getlist(pVM->pFuncCallList,x);
-			/* Be sure that the function is already called using ICO_CALL */
-			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
-				if ( lInsideFunctionCall == 1 ) {
-					cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
-					break ;
-				}
-			}
-			else {
-				lInsideFunctionCall = 1 ;
-			}
-		}
-	}
-	return cFile ;
-}
-
-void ring_vm_savefileglobalscope ( VM *pVM )
-{
-	List *pList  ;
-	void *pScope  ;
-	/* Check Custom Global Scope */
-	if ( ring_list_getsize(pVM->aActiveGlobalScopes) > 0 ) {
-		if ( ring_list_findstring(pVM->aFileGlobalScope,pVM->cFileName,1) == 0 ) {
-			pList = ring_list_newlist_gc(pVM->pRingState,pVM->aFileGlobalScope);
-			ring_list_addstring_gc(pVM->pRingState,pList,pVM->cFileName);
-			pScope = ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
-			ring_list_addpointer_gc(pVM->pRingState,pList,pScope);
-		}
-	}
-}
-
 void ring_vm_setglobalscope ( VM *pVM )
 {
 	pVM->nCurrentGlobalScope = RING_VM_IR_READI ;
+}
+
+List * ring_vm_getglobalscope ( VM *pVM )
+{
+	List *pList  ;
+	if ( pVM->nCurrentGlobalScope == 0 ) {
+		pList = ring_list_getlist(pVM->pMem,1);
+	}
+	else {
+		pList = ring_list_getlist(pVM->aGlobalScopes,pVM->nCurrentGlobalScope);
+	}
+	return pList ;
 }
