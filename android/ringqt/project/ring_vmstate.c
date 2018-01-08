@@ -127,11 +127,12 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nCallClassInit = ring_list_getint(pList,36) ;
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,37) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,38),pVM->pLoadAddressScope);
+	/* We restore the global scope befor the This variable, because This use global scope */
+	pVM->nCurrentGlobalScope = ring_list_getint(pList,41) ;
 	/* Restore This variable */
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,39));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,40));
-	pVM->nCurrentGlobalScope = ring_list_getint(pList,41) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
@@ -221,6 +222,8 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pVM->pGetSetObject = (void *) ring_list_getpointer(pList,x+25) ;
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,x+26) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,x+27),pVM->pLoadAddressScope);
+	/* Restore global scope, Must be before this because this depend on it */
+	pVM->nCurrentGlobalScope = ring_list_getint(pList,x+30) ;
 	/* Restore This variable */
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));
@@ -229,7 +232,6 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
 		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
 	}
-	pVM->nCurrentGlobalScope = ring_list_getint(pList,x+30) ;
 }
 /* Return to a Specific position in the array, delete all items after that position */
 
