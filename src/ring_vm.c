@@ -709,7 +709,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			RING_VM_STACK_POP ;
 			if ( ring_vm_oop_isobject(pList) ) {
 				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
-					ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cStr);
+					ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cStr);
 					ring_vm_runcode(pVM,"braceerror()");
 					pVM->nActiveError = 0 ;
 					return ;

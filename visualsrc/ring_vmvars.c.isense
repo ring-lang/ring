@@ -45,10 +45,3 @@ ring_vm_setglobalscope
 ring_vm_getglobalscope
 Type: List *
 pList
-ring_vm_filenameforcurrentfunction
-Type: List *
-pList
-Type: int
-x,lInsideFunctionCall
-Type: const char *
-cFile

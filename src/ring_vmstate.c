@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Save/Restore State - Used by Try/Catch/Done & Loop/Exit */
 
@@ -45,7 +45,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aLoadAddressScope);
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pLoadAddressScope));
 	/* Save This variable */
-	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
@@ -128,7 +128,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,37) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,38),pVM->pLoadAddressScope);
 	/* Restore This variable */
-	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,39));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,40));
 	pVM->nCurrentGlobalScope = ring_list_getint(pList,41) ;
@@ -176,7 +176,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aLoadAddressScope);
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pLoadAddressScope));
 	/* Save This variable */
-	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
@@ -222,7 +222,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,x+26) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,x+27),pVM->pLoadAddressScope);
 	/* Restore This variable */
-	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,x+29));
 	/* Update Self Object if we are inside braces */
