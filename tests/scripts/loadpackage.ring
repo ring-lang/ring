@@ -1,6 +1,6 @@
 x = 100
 ? "Hello, World!"
-load package "testloadpackage.ring"
+load package "scripts/testloadpackage.ring"
 
 ? x
 test()
