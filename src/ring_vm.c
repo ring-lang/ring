@@ -687,6 +687,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_ENDGLOBALSCOPE :
 			ring_vm_endglobalscope(pVM);
 			break ;
+		case ICO_SETGLOBALSCOPE :
+			ring_vm_setglobalscope(pVM);
+			break ;
 	}
 }
 

@@ -46,6 +46,10 @@ Type: PoolManager
 vPoolManager
 Type: char
 lNoLineNumber
+Type: int
+nCustomGlobalScopeCounter
+Type: List *
+aCustomGlobalScopeStack
 END:
 Type: RingState
 struct RingState

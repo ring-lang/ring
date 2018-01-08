@@ -48,11 +48,6 @@ Type: List *
 pList
 Type: const char *
 cFile
-ring_vm_savefileglobalscope
-Type: List *
-pList
-Type: void *
-pScope
 ring_vm_filenameforcurrentfunction
 Type: List *
 pList
@@ -60,3 +55,8 @@ Type: int
 x,lInsideFunctionCall
 Type: const char *
 cFile
+ring_vm_savefileglobalscope
+Type: List *
+pList
+Type: void *
+pScope
