@@ -104,6 +104,7 @@ typedef struct VM {
 	List *aActiveGlobalScopes  ;
 	List *aFileGlobalScope  ;
 	char *cFileNameInClassRegion  ;
+	int nCurrentGlobalScope  ;
 } VM ;
 /*
 **  Functions 

@@ -429,4 +429,5 @@ void ring_vm_savefileglobalscope ( VM *pVM )
 
 void ring_vm_setglobalscope ( VM *pVM )
 {
+	pVM->nCurrentGlobalScope = RING_VM_IR_READI ;
 }
