@@ -659,6 +659,10 @@ void ring_vmlib_filename ( void *pPointer )
 	int nPos  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
+	if ( pVM->nInClassRegion ) {
+		RING_API_RETSTRING(pVM->cFileNameInClassRegion);
+		return ;
+	}
 	if ( (pVM->nFuncExecute2 > 0) && (ring_list_getsize(pVM->pFuncCallList)>0) ) {
 		/*
 		**  Here we have Load Function Instruction - But Still the function is not called 

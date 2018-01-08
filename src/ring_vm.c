@@ -1116,10 +1116,12 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 				cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
 			}
 			else {
-				cFile = pVM->cFileName ;
-			}
-			if ( pVM->nInClassRegion ) {
-				cFile = pVM->cFileNameInClassRegion ;
+				if ( pVM->nInClassRegion ) {
+					cFile = pVM->cFileNameInClassRegion ;
+				}
+				else {
+					cFile = pVM->cFileName ;
+				}
 			}
 			printf( "%s",cFile ) ;
 			/* Called From */
