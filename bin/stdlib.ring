@@ -1,1 +1,2 @@
-load "/../ringlibs/stdlib/stdlib.ring"
+# Load the library in custom global scope 
+	load package "/../ringlibs/stdlib/stdlib.ring"
