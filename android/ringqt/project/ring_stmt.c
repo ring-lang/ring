@@ -295,6 +295,9 @@ int ring_parser_stmt ( Parser *pParser )
 			if ( nLoadPackage ) {
 				ring_parser_icg_newoperation(pParser,ICO_ENDGLOBALSCOPE);
 				ring_list_deletelastitem_gc(pParser->pRingState,pParser->pRingState->aCustomGlobalScopeStack);
+				/* Set Global Scope */
+				ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
+				ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->aCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->aCustomGlobalScopeStack)));
 			}
 			/* Set Active File */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
