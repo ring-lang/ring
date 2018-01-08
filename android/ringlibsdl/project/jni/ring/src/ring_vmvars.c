@@ -94,7 +94,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	**  Now We have the variable List 
 	**  The Scope of the search result 
 	*/
-	if ( ( x == 1 ) && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( x == 1 ) && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		x = RING_VARSCOPE_GLOBAL ;
 	}
 	else if ( (x == 1) && (pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))) ) {
@@ -146,7 +146,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		/* Check Setter/Getter for Public Attributes */
 		if ( pVM->nGetSetProperty == 1 ) {
 			/* Avoid executing Setter/Getter when we use self.attribute and this.attribute */
-			pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+			pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 			if ( pThis != NULL ) {
 				if ( ring_list_getpointer(pThis,RING_VAR_VALUE ) == pVM->pGetSetObject ) {
 					return 1 ;
