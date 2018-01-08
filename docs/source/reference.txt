@@ -566,5 +566,6 @@ Operation			Description
 =======================	============================================================================
 * ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
 * ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
+* ICO_SETGLOBALSCOPE	Set the current global scope 
 =======================	============================================================================
 
