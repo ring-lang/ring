@@ -48,6 +48,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -130,6 +131,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,39));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,40));
+	pVM->nCurrentGlobalScope = ring_list_getint(pList,41) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
@@ -177,6 +179,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
 	pVM->nInClassRegion = 0 ;
 	pVM->pAssignment = NULL ;
 	pVM->nNOAssignment = 0 ;
@@ -226,6 +229,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
 		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
 	}
+	pVM->nCurrentGlobalScope = ring_list_getint(pList,x+30) ;
 }
 /* Return to a Specific position in the array, delete all items after that position */
 
