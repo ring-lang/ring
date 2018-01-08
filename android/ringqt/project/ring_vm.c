@@ -1134,7 +1134,13 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 	}
 	else {
-		printf( "in file %s ",pVM->cFileName ) ;
+		if ( pVM->nInClassRegion ) {
+			cFile = pVM->cFileNameInClassRegion ;
+		}
+		else {
+			cFile = pVM->cFileName ;
+		}
+		printf( "in file %s ",cFile ) ;
 	}
 }
 
