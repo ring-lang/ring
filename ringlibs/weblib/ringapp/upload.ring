@@ -1,7 +1,5 @@
 ﻿Import System.Web
 
-load "stdlibcore.ring"
-
 Func TestUpload
 	New page 
 	{
@@ -47,13 +45,13 @@ Func TestUploadResponse
 
 Func getuploadedfile oObj,cFile
 	# here we use object.property instead of object { } to avoid executing braceend method
-	cFileName = cUploadPath + justfilename(oObj.getfilename(aPageVars,cFile))
+	cFileName = cUploadPath + oObj.getfilename(aPageVars,cFile)
 	write(cFileName,aPageVars[cFile])
 	system("chmod a+x "+cFileName)
 	oObj.newline() 
 	oObj.text( "File "+cFileName+ " Uploaded ..." ) 
 	oObj.newline()
-	imageURL = cUploadFolder+justfilename(oObj.getfilename(aPageVars,cFile))
+	imageURL = cUploadFolder + oObj.getfilename(aPageVars,cFile)
 	oObj.link([ :url = imageURL, :title = "Download" ]) 
 	oObj.newline()
 	oObj.image( [ :url = imageURL , :alt = :image  ] )

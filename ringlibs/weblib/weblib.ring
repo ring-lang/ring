@@ -2,8 +2,6 @@
 # Web Library
 # 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "stdlibcore.ring"
-
 Import System.Web
 
 aPageVars = []
@@ -195,7 +193,7 @@ Func Alert cMessage
 
 func HTML2PDF filepath,filefolder,cStr
 
-	cTempName = JustFileName(tempname())
+	cTempName = WL_JustFileName(tempname())
 	cFileName = filepath+cTempName
 	cHTML = cFileName + ".html"
 	cPDF =  cFileName + ".pdf"
@@ -207,6 +205,14 @@ func HTML2PDF filepath,filefolder,cStr
 		script(scriptredirection(filefolder+cTempName+".pdf"))  
 	}
 
+func WL_JustFileName cFile
+	for x = len(cfile) to 1 step -1
+		if cfile[x] = "\" or cfile[x] = "/"
+			cfile = substr(cfile,x+1)
+			exit
+		ok
+	next
+	return cFile 
 
 Package System.Web
 			
@@ -337,7 +343,7 @@ Package System.Web
 			for x in aArray
 				if len(x) >= 3
 					if x[1] = cVar
-						return x[3]
+						return WL_justfilename(x[3])
 					ok
 				ok
 			next
