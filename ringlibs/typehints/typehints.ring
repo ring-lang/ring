@@ -34,9 +34,7 @@ override	= :override
 TypeHints_Packages = Packages()
 for TypeHints_Package in TypeHints_Packages {
 	ccode = "import " + TypeHints_Package
-	see ccode + nl
 	eval(ccode)
-	see :after + nl
 }
 
 TypeHints_Classes = Classes()
