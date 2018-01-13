@@ -320,7 +320,16 @@
 			<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson2">2</td>
+		<td>
+			نتعرف على كيفية التعامل مع ال Textbox او LineEdit وعمل تطبيق يطلب من المستخدم الاسم ثم الترحيب به
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155490450300345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 
 </div>
 
