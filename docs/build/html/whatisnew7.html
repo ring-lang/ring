@@ -57,89 +57,20 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.7 comes with many new features!</p>
 <ul class="simple">
-<li>Better Ring Notepad</li>
-<li>Better RingQt</li>
-<li>Better Ring2EXE</li>
-<li>Better Trace Library</li>
 <li>ringvm_see() function</li>
 <li>ringvm_give() function</li>
 <li>ring_state_new() and ring_state_mainfile() functions</li>
 <li>New Command: Load Package</li>
+<li>Better Trace Library</li>
+<li>Better Ring Notepad</li>
+<li>Better RingQt</li>
+<li>Better Ring2EXE</li>
 <li>Better Documentation</li>
 <li>Better Ring VM</li>
 </ul>
 </div>
-<div class="section" id="better-ringqt">
-<span id="index-2"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
-<p>RingQt comes with the next updates</p>
-<ol class="arabic simple">
-<li>QStackedWidget Class</li>
-<li>QCalendarWidget Class</li>
-<li>QOpenGLFunctions Class</li>
-<li>QOpenGLContext Class</li>
-</ol>
-</div>
-<div class="section" id="better-ring-notepad">
-<span id="index-3"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
-<p>Ring Notepad comes with the next updates</p>
-<ol class="arabic simple">
-<li>Support <a href="#id1"><span class="problematic" id="id2">*</span></a>.cf extension</li>
-<li>Using Hash function (SHA256) for better &#8220;Save Changes?&#8221; message</li>
-<li>Ring Notepad - X Button - Ask for saving changes?</li>
-</ol>
-</div>
-<div class="section" id="better-ring2exe">
-<span id="index-4"></span><h2>Better Ring2EXE<a class="headerlink" href="#better-ring2exe" title="Permalink to this headline">¶</a></h2>
-<p>Ring2EXE is updated to works as expected when we don&#8217;t have a C/C++ compiler</p>
-<p>Where we can distribute applications and get (exe file and ringo file) in this case.</p>
-</div>
-<div class="section" id="better-trace-library">
-<span id="index-5"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Permalink to this headline">¶</a></h2>
-<p>The Trace library is updated, In the Debugger at break points we have now the &#8220;callstack&#8221; command</p>
-<p>This command will print the functions call stack.</p>
-<p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
-
-<span class="k">func</span> <span class="n">main</span>
-        <span class="o">?</span> <span class="s">&quot;Hello from main!&quot;</span>
-        <span class="n">test1</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">test1</span>
-        <span class="o">?</span> <span class="s">&quot;Hello from test1!&quot;</span>
-        <span class="n">test2</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">test2</span>
-        <span class="o">?</span> <span class="s">&quot;Hello from test2!&quot;</span>
-        <span class="n">test3</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">test3</span>
-        <span class="o">?</span> <span class="s">&quot;Hello from test3!&quot;</span>
-        <span class="n">breakpoint</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="Call Stack" src="_images/callstack.png" />
-</div>
-<div class="section" id="ringvm-give-function">
-<span id="index-6"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
-<p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
-<p>Also we can use ring_give() to have the original behavior</p>
-<p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
-<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
-
-<span class="k">func</span> <span class="n">ringvm_give</span>
-        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
-<span class="n">Hello</span> <span class="n">Mahmoud</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="ringvm-see-function">
-<span id="index-7"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
@@ -167,8 +98,27 @@ z: 30.000000
 </pre></div>
 </div>
 </div>
+<div class="section" id="ringvm-give-function">
+<span id="index-3"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
+<p>Also we can use ring_give() to have the original behavior</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="ring-state-new-and-ring-state-mainfile-functions">
-<span id="index-8"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this headline">¶</a></h2>
 <p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
 <p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
 <p>This is important when we run GUI programs from GUI programs</p>
@@ -179,11 +129,11 @@ z: 30.000000
 <p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
 </div>
 <div class="section" id="new-command-load-package">
-<span id="index-9"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this headline">¶</a></h2>
 <p>Using the &#8216;load&#8217; command we can use many ring source files in the same project</p>
 <p>But all of these files will share the same global scope</p>
 <p>Now we have the &#8220;Load Package&#8221; command too</p>
-<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ring file) in new global scope</p>
+<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring file) in new global scope</p>
 <p>This is very useful to create libraries that avoid conflicts in global variables</p>
 <p>Example:</p>
 <p>File: loadpackage.ring</p>
@@ -214,6 +164,56 @@ Hello from testloadpackage.ring
 1000
 </pre></div>
 </div>
+</div>
+<div class="section" id="better-trace-library">
+<span id="index-6"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Permalink to this headline">¶</a></h2>
+<p>The Trace library is updated, In the Debugger at break points we have now the &#8220;callstack&#8221; command</p>
+<p>This command will print the functions call stack.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from main!&quot;</span>
+        <span class="n">test1</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test1!&quot;</span>
+        <span class="n">test2</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test2!&quot;</span>
+        <span class="n">test3</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test3</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test3!&quot;</span>
+        <span class="n">breakpoint</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="Call Stack" src="_images/callstack.png" />
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-7"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<p>Ring Notepad comes with the next updates</p>
+<ol class="arabic simple">
+<li>Support <a href="#id3"><span class="problematic" id="id4">*</span></a>.cf extension</li>
+<li>Using Hash function (SHA256) for better &#8220;Save Changes?&#8221; message</li>
+<li>Ring Notepad - X Button - Ask for saving changes?</li>
+</ol>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-8"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>RingQt comes with the next updates</p>
+<ol class="arabic simple">
+<li>QStackedWidget Class</li>
+<li>QCalendarWidget Class</li>
+<li>QOpenGLFunctions Class</li>
+<li>QOpenGLContext Class</li>
+</ol>
+</div>
+<div class="section" id="better-ring2exe">
+<span id="index-9"></span><h2>Better Ring2EXE<a class="headerlink" href="#better-ring2exe" title="Permalink to this headline">¶</a></h2>
+<p>Ring2EXE is updated to works as expected when we don&#8217;t have a C/C++ compiler</p>
+<p>Where we can distribute applications and get (exe file and ringo file) in this case.</p>
 </div>
 <div class="section" id="better-documentation">
 <span id="index-10"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
@@ -248,14 +248,14 @@ Hello from testloadpackage.ring
   <ul>
 <li><a class="reference internal" href="#">What is new in Ring 1.7?</a><ul>
 <li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
-<li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
-<li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
-<li><a class="reference internal" href="#better-ring2exe">Better Ring2EXE</a></li>
-<li><a class="reference internal" href="#better-trace-library">Better Trace Library</a></li>
-<li><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
 <li><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
+<li><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
 <li><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile-functions">ring_state_new() and ring_state_mainfile() functions</a></li>
 <li><a class="reference internal" href="#new-command-load-package">New Command: Load Package</a></li>
+<li><a class="reference internal" href="#better-trace-library">Better Trace Library</a></li>
+<li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li><a class="reference internal" href="#better-ring2exe">Better Ring2EXE</a></li>
 <li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li><a class="reference internal" href="#better-ring-vm">Better Ring VM</a></li>
 </ul>
