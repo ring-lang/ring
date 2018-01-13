@@ -15,15 +15,70 @@ List of changes and new features
 
 Ring 1.7 comes with many new features!
 
+* New Command: Load Package
 * ringvm_see() and ringvm_give() functions
 * ring_state_new() and ring_state_mainfile() functions
-* New Command: Load Package
 * Better Trace Library
 * Better Ring Notepad
 * Better RingQt
 * Better Ring2EXE
 * Better Documentation
 * Better Ring VM
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; New Command: Load Package
+
+New Command: Load Package
+=========================
+
+Using the 'load' command we can use many ring source files in the same project
+
+But all of these files will share the same global scope 
+
+Now we have the "Load Package" command too
+
+Using "Load Package" we can load a library (*.ring file) in new global scope
+
+This is very useful to create libraries that avoid conflicts in global variables
+
+Example:
+
+File: loadpackage.ring
+
+.. code-block:: ring
+
+	x = 100
+	? "Hello, World!"
+	load package "testloadpackage.ring"
+
+	? x
+	test()
+
+File: testloadpackage.ring
+
+.. code-block:: ring
+
+	? "Hello from testloadpackage.ring"
+
+	x = 1000
+
+	test()
+
+	func test
+		? x
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	Hello from testloadpackage.ring
+	1000
+	100
+	1000
+
+
 
 .. index:: 
 	pair: What is new in Ring 1.7?; ringvm_see() and ringvm_give() functions
@@ -106,60 +161,6 @@ So the sub program, will not stop and will return to the Main program
 Here deleting the State of the sub programs will lead to a problem when we run the sub program events
 
 So keeping the state is important for sub GUI programs hosted in GUI programs.
-
-
-.. index:: 
-	pair: What is new in Ring 1.7?; New Command: Load Package
-
-New Command: Load Package
-=========================
-
-Using the 'load' command we can use many ring source files in the same project
-
-But all of these files will share the same global scope 
-
-Now we have the "Load Package" command too
-
-Using "Load Package" we can load a library (*.ring file) in new global scope
-
-This is very useful to create libraries that avoid conflicts in global variables
-
-Example:
-
-File: loadpackage.ring
-
-.. code-block:: ring
-
-	x = 100
-	? "Hello, World!"
-	load package "testloadpackage.ring"
-
-	? x
-	test()
-
-File: testloadpackage.ring
-
-.. code-block:: ring
-
-	? "Hello from testloadpackage.ring"
-
-	x = 1000
-
-	test()
-
-	func test
-		? x
-
-Output:
-
-.. code-block:: none
-
-	Hello, World!
-	Hello from testloadpackage.ring
-	1000
-	100
-	1000
-
 
 
 .. index:: 

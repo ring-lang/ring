@@ -57,9 +57,9 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.7 comes with many new features!</p>
 <ul class="simple">
+<li>New Command: Load Package</li>
 <li>ringvm_see() and ringvm_give() functions</li>
 <li>ring_state_new() and ring_state_mainfile() functions</li>
-<li>New Command: Load Package</li>
 <li>Better Trace Library</li>
 <li>Better Ring Notepad</li>
 <li>Better RingQt</li>
@@ -68,8 +68,45 @@
 <li>Better Ring VM</li>
 </ul>
 </div>
+<div class="section" id="new-command-load-package">
+<span id="index-2"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this headline">¶</a></h2>
+<p>Using the &#8216;load&#8217; command we can use many ring source files in the same project</p>
+<p>But all of these files will share the same global scope</p>
+<p>Now we have the &#8220;Load Package&#8221; command too</p>
+<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring file) in new global scope</p>
+<p>This is very useful to create libraries that avoid conflicts in global variables</p>
+<p>Example:</p>
+<p>File: loadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
+
+<span class="o">?</span> <span class="n">x</span>
+<span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>File: testloadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">test</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+Hello from testloadpackage.ring
+1000
+100
+1000
+</pre></div>
+</div>
+</div>
 <div class="section" id="ringvm-see-and-ringvm-give-functions">
-<span id="index-2"></span><h2>ringvm_see() and ringvm_give() functions<a class="headerlink" href="#ringvm-see-and-ringvm-give-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>ringvm_see() and ringvm_give() functions<a class="headerlink" href="#ringvm-see-and-ringvm-give-functions" title="Permalink to this headline">¶</a></h2>
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
@@ -114,7 +151,7 @@ z: 30.000000
 </div>
 </div>
 <div class="section" id="ring-state-new-and-ring-state-mainfile-functions">
-<span id="index-3"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this headline">¶</a></h2>
 <p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
 <p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
 <p>This is important when we run GUI programs from GUI programs</p>
@@ -123,43 +160,6 @@ z: 30.000000
 <p>So the sub program, will not stop and will return to the Main program</p>
 <p>Here deleting the State of the sub programs will lead to a problem when we run the sub program events</p>
 <p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
-</div>
-<div class="section" id="new-command-load-package">
-<span id="index-4"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this headline">¶</a></h2>
-<p>Using the &#8216;load&#8217; command we can use many ring source files in the same project</p>
-<p>But all of these files will share the same global scope</p>
-<p>Now we have the &#8220;Load Package&#8221; command too</p>
-<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring file) in new global scope</p>
-<p>This is very useful to create libraries that avoid conflicts in global variables</p>
-<p>Example:</p>
-<p>File: loadpackage.ring</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
-<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
-
-<span class="o">?</span> <span class="n">x</span>
-<span class="n">test</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>File: testloadpackage.ring</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
-
-<span class="n">test</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">test</span>
-        <span class="o">?</span> <span class="n">x</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
-Hello from testloadpackage.ring
-1000
-100
-1000
-</pre></div>
-</div>
 </div>
 <div class="section" id="better-trace-library">
 <span id="index-5"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Permalink to this headline">¶</a></h2>
@@ -244,9 +244,9 @@ Hello from testloadpackage.ring
   <ul>
 <li><a class="reference internal" href="#">What is new in Ring 1.7?</a><ul>
 <li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li><a class="reference internal" href="#new-command-load-package">New Command: Load Package</a></li>
 <li><a class="reference internal" href="#ringvm-see-and-ringvm-give-functions">ringvm_see() and ringvm_give() functions</a></li>
 <li><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile-functions">ring_state_new() and ring_state_mainfile() functions</a></li>
-<li><a class="reference internal" href="#new-command-load-package">New Command: Load Package</a></li>
 <li><a class="reference internal" href="#better-trace-library">Better Trace Library</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
