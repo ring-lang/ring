@@ -15,8 +15,7 @@ List of changes and new features
 
 Ring 1.7 comes with many new features!
 
-* ringvm_see() function
-* ringvm_give() function
+* ringvm_see() and ringvm_give() functions
 * ring_state_new() and ring_state_mainfile() functions
 * New Command: Load Package
 * Better Trace Library
@@ -27,10 +26,10 @@ Ring 1.7 comes with many new features!
 * Better Ring VM
 
 .. index:: 
-	pair: What is new in Ring 1.7?; ringvm_see() function
+	pair: What is new in Ring 1.7?; ringvm_see() and ringvm_give() functions
 
-ringvm_see() function
-=====================
+ringvm_see() and ringvm_give() functions
+========================================
 
 Using the ringvm_see() function we can redefine the behavior of the See command
 
@@ -63,12 +62,6 @@ Output:
 	We want to print: x: 10.000000
 	y: 20.000000
 	z: 30.000000
-
-.. index:: 
-	pair: What is new in Ring 1.7?; ringvm_give() function
-
-ringvm_give() function
-======================
 
 Using the ringvm_give() function we can redefine the behavior of the Give command
 
