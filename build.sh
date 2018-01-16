@@ -3,7 +3,7 @@
 ####################################
 ##      Set global variables      ##
 ####################################
-VERSION=1.5.4
+VERSION=1.7
 BASE_DIR="/usr/local/lib/ring"
 LIB_DIR="$BASE_DIR/lib/"
 EXT_DIR="$BASE_DIR/extensions/"

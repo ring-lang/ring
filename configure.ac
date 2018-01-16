@@ -1,9 +1,9 @@
-dnl Ring 1.6
+dnl Ring 1.7
 
 dnl initializing the autoconf tool
-AC_INIT([ring], [1.6])
+AC_INIT([ring], [1.7])
 
-RING_VERSION="1.6"
+RING_VERSION="1.7"
 RING_SRC_DIR="src/"
 RING_INCLUDE_DIR="include/"
 RING_EXT_DIR="extension/"
