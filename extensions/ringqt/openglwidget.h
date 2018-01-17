@@ -22,10 +22,16 @@ public:
     VM *pVM;
     List *pParaList;
     char cInitEvent[100];
+    char cPaintEvent[100];
+    char cResizeEvent[100];
     void geteventparameters(void) ;
     void setInitEvent(const char *cStr);
     const char *getInitEvent(void);
-	
+    void setPaintEvent(const char *cStr);
+    const char *getPaintEvent(void);
+    void setResizeEvent(const char *cStr);
+    const char *getResizeEvent(void);
+		
 protected:
     void initializeGL();
     void paintGL();
