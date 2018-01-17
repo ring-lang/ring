@@ -105138,6 +105138,11 @@ RING_FUNC(ring_QOpenGLContext_supportsThreadedOpenGL)
 	RING_API_RETNUMBER(pObject->supportsThreadedOpenGL());
 }
 
+RING_FUNC(ring_QOpenGLContext_opengl32)
+{
+	QOpenGLFunctions_3_2_Core *f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
+	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
+}
 
 RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glActiveTexture)
 {
@@ -123388,6 +123393,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglcontext_openglmodulehandle",ring_QOpenGLContext_openGLModuleHandle);
 	ring_vm_funcregister("qopenglcontext_openglmoduletype",ring_QOpenGLContext_openGLModuleType);
 	ring_vm_funcregister("qopenglcontext_supportsthreadedopengl",ring_QOpenGLContext_supportsThreadedOpenGL);
+	ring_vm_funcregister("qopenglcontext_opengl32",ring_QOpenGLContext_opengl32);
 	ring_vm_funcregister("qopenglfunctions_3_2_core_glactivetexture",ring_QOpenGLFunctions_3_2_Core_glActiveTexture);
 	ring_vm_funcregister("qopenglfunctions_3_2_core_glattachshader",ring_QOpenGLFunctions_3_2_Core_glAttachShader);
 	ring_vm_funcregister("qopenglfunctions_3_2_core_glbeginconditionalrender",ring_QOpenGLFunctions_3_2_Core_glBeginConditionalRender);

@@ -9077,6 +9077,18 @@ void * openGLModuleHandle(void)
 QOpenGLContext::OpenGLModuleType openGLModuleType(void)
 bool supportsThreadedOpenGL(void)
 
+<register>
+QOpenGLFunctions_3_2_Core *opengl32(void)
+<register>
+
+<code>
+RING_FUNC(ring_QOpenGLContext_opengl32)
+{
+	QOpenGLFunctions_3_2_Core *f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
+	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
+}
+</code>
+
 <class>
 name: QOpenGLFunctions_3_2_Core
 para: void

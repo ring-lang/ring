@@ -18814,6 +18814,11 @@ Class QOpenGLContext from QObject
 	Func supportsThreadedOpenGL 
 		return QOpenGLContext_supportsThreadedOpenGL(pObject)
 
+	Func opengl32 
+		pTempObj = new QOpenGLFunctions_3_2_Core
+		pTempObj.pObject = QOpenGLContext_opengl32(pObject)
+		return pTempObj
+
 Class QOpenGLFunctions_3_2_Core
 
 	pObject
