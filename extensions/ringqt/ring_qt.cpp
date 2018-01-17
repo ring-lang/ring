@@ -2881,36 +2881,6 @@ RING_FUNC(ring_get_gl_edge_flag_array_pointer)
 	RING_API_RETNUMBER(GL_EDGE_FLAG_ARRAY_POINTER);
 }
 
-RING_FUNC(ring_get_gl_color_index1_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX1_EXT);
-}
-
-RING_FUNC(ring_get_gl_color_index2_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX2_EXT);
-}
-
-RING_FUNC(ring_get_gl_color_index4_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX4_EXT);
-}
-
-RING_FUNC(ring_get_gl_color_index8_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX8_EXT);
-}
-
-RING_FUNC(ring_get_gl_color_index12_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX12_EXT);
-}
-
-RING_FUNC(ring_get_gl_color_index16_ext)
-{
-	RING_API_RETNUMBER(GL_COLOR_INDEX16_EXT);
-}
-
 RING_FUNC(ring_get_gl_eval_bit)
 {
 	RING_API_RETNUMBER(GL_EVAL_BIT);
@@ -124562,12 +124532,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("get_gl_index_array_pointer",ring_get_gl_index_array_pointer);
 	ring_vm_funcregister("get_gl_texture_coord_array_pointer",ring_get_gl_texture_coord_array_pointer);
 	ring_vm_funcregister("get_gl_edge_flag_array_pointer",ring_get_gl_edge_flag_array_pointer);
-	ring_vm_funcregister("get_gl_color_index1_ext",ring_get_gl_color_index1_ext);
-	ring_vm_funcregister("get_gl_color_index2_ext",ring_get_gl_color_index2_ext);
-	ring_vm_funcregister("get_gl_color_index4_ext",ring_get_gl_color_index4_ext);
-	ring_vm_funcregister("get_gl_color_index8_ext",ring_get_gl_color_index8_ext);
-	ring_vm_funcregister("get_gl_color_index12_ext",ring_get_gl_color_index12_ext);
-	ring_vm_funcregister("get_gl_color_index16_ext",ring_get_gl_color_index16_ext);
 	ring_vm_funcregister("get_gl_eval_bit",ring_get_gl_eval_bit);
 	ring_vm_funcregister("get_gl_list_bit",ring_get_gl_list_bit);
 	ring_vm_funcregister("get_gl_texture_bit",ring_get_gl_texture_bit);
