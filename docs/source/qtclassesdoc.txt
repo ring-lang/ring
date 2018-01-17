@@ -3771,6 +3771,7 @@ Parent Class : QObject
 * void * openGLModuleHandle(void)
 * QOpenGLContext::OpenGLModuleType openGLModuleType(void)
 * bool supportsThreadedOpenGL(void)
+
 .. index::
 	pair: RingQt Classes Reference; QOpenGLFunctions Class
 
@@ -5458,6 +5459,52 @@ Parameters : void
 * int localeAwareCompare_3(QStringRef s1, QString s2)
 * int localeAwareCompare_4(QStringRef s1, QStringRef s2)
 
+.. index::
+	pair: RingQt Classes Reference; QSurfaceFormat Class
+
+QSurfaceFormat Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSurfaceFormat.html
+
+
+Parameters : void
+
+* int alphaBufferSize(void)
+* int blueBufferSize(void)
+* int greenBufferSize(void)
+* bool hasAlpha(void)
+* int majorVersion(void)
+* int minorVersion(void)
+* QSurfaceFormat::FormatOptions options(void)
+* QSurfaceFormat::OpenGLContextProfile profile(void)
+* int redBufferSize(void)
+* QSurfaceFormat::RenderableType renderableType(void)
+* int samples(void)
+* void setAlphaBufferSize(int size)
+* void setBlueBufferSize(int size)
+* void setGreenBufferSize(int size)
+* void setMajorVersion(int major)
+* void setMinorVersion(int minor)
+* void setOption(QSurfaceFormat::FormatOption option, bool on)
+* void setOptions(QSurfaceFormat::FormatOptions options)
+* void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+* void setRedBufferSize(int size)
+* void setRenderableType(QSurfaceFormat::RenderableType type)
+* void setSamples(int numSamples)
+* void setStencilBufferSize(int size)
+* void setStereo(bool enable)
+* void setSwapBehavior(QSurfaceFormat::SwapBehavior behavior)
+* void setSwapInterval(int interval)
+* void setVersion(int major, int minor)
+* int stencilBufferSize(void)
+* bool stereo(void)
+* QSurfaceFormat::SwapBehavior swapBehavior(void)
+* int swapInterval(void)
+* bool testOption(QSurfaceFormat::FormatOption option)
+* QSurfaceFormat defaultFormat(void)
+* void setDefaultFormat(QSurfaceFormat format)
 .. index::
 	pair: RingQt Classes Reference; QSystemTrayIcon Class
 
