@@ -19740,6 +19740,38 @@ Class QOpenGLWidget from QWidget
 	Func getResizeEvent 
 		return QOpenGLWidget_getResizeEvent(pObject)
 
+Class QOpenGLVersionProfile
+
+	pObject
+
+	Func init 
+		pObject = QOpenGLVersionProfile_new()
+		return self
+
+	Func delete
+		pObject = QOpenGLVersionProfile_delete(pObject)
+
+	Func hasProfiles 
+		return QOpenGLVersionProfile_hasProfiles(pObject)
+
+	Func isLegacyVersion 
+		return QOpenGLVersionProfile_isLegacyVersion(pObject)
+
+	Func isValid 
+		return QOpenGLVersionProfile_isValid(pObject)
+
+	Func profile 
+		return QOpenGLVersionProfile_profile(pObject)
+
+	Func setProfile P1
+		return QOpenGLVersionProfile_setProfile(pObject,P1)
+
+	Func setVersion P1,P2
+		return QOpenGLVersionProfile_setVersion(pObject,P1,P2)
+
+	Func version 
+		return QOpenGLVersionProfile_version(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

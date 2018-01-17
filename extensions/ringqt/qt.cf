@@ -249,6 +249,7 @@ extern "C" {
 #include <QOpenGLContext>
 #include <QSurfaceFormat>
 #include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -9427,3 +9428,16 @@ void setPaintEvent(const char *cStr)
 const char *getPaintEvent(void)
 void setResizeEvent(const char *cStr)
 const char *getResizeEvent(void)
+
+<class>
+name: QOpenGLVersionProfile
+para: void
+</class>
+
+bool hasProfiles(void)
+bool isLegacyVersion(void)
+bool isValid(void)
+QSurfaceFormat::OpenGLContextProfile profile(void)
+void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+void setVersion(int majorVersion, int minorVersion)
+QPair<int, int> version(void)
