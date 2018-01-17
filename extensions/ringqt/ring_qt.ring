@@ -16334,7 +16334,9 @@ Class QWindow from QObject
 		return QWindow_reportContentOrientationChange(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func requestedFormat 
-		return QWindow_requestedFormat(pObject)
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QWindow_requestedFormat(pObject)
+		return pTempObj
 
 	Func resize P1
 		return QWindow_resize(pObject,GetObjectPointerFromRingObject(P1))
@@ -17855,7 +17857,9 @@ Class QOpenGLContext from QObject
 		return QOpenGLContext_extensions(pObject)
 
 	Func format 
-		return QOpenGLContext_format(pObject)
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QOpenGLContext_format(pObject)
+		return pTempObj
 
 	Func functions 
 		pTempObj = new QOpenGLFunctions
@@ -17943,6 +17947,127 @@ Class QOpenGLContext from QObject
 
 	Func supportsThreadedOpenGL 
 		return QOpenGLContext_supportsThreadedOpenGL(pObject)
+
+Class QSurfaceFormat
+
+	pObject
+
+	Func init 
+		pObject = QSurfaceFormat_new()
+		return self
+
+	Func delete
+		pObject = QSurfaceFormat_delete(pObject)
+
+	Func alphaBufferSize 
+		return QSurfaceFormat_alphaBufferSize(pObject)
+
+	Func blueBufferSize 
+		return QSurfaceFormat_blueBufferSize(pObject)
+
+	Func depthBufferSize 
+		return QSurfaceFormat_depthBufferSize(pObject)
+
+	Func greenBufferSize 
+		return QSurfaceFormat_greenBufferSize(pObject)
+
+	Func hasAlpha 
+		return QSurfaceFormat_hasAlpha(pObject)
+
+	Func majorVersion 
+		return QSurfaceFormat_majorVersion(pObject)
+
+	Func minorVersion 
+		return QSurfaceFormat_minorVersion(pObject)
+
+	Func options 
+		return QSurfaceFormat_options(pObject)
+
+	Func profile 
+		return QSurfaceFormat_profile(pObject)
+
+	Func redBufferSize 
+		return QSurfaceFormat_redBufferSize(pObject)
+
+	Func renderableType 
+		return QSurfaceFormat_renderableType(pObject)
+
+	Func samples 
+		return QSurfaceFormat_samples(pObject)
+
+	Func setAlphaBufferSize P1
+		return QSurfaceFormat_setAlphaBufferSize(pObject,P1)
+
+	Func setBlueBufferSize P1
+		return QSurfaceFormat_setBlueBufferSize(pObject,P1)
+
+	Func setDepthBufferSize P1
+		return QSurfaceFormat_setDepthBufferSize(pObject,P1)
+
+	Func setGreenBufferSize P1
+		return QSurfaceFormat_setGreenBufferSize(pObject,P1)
+
+	Func setMajorVersion P1
+		return QSurfaceFormat_setMajorVersion(pObject,P1)
+
+	Func setMinorVersion P1
+		return QSurfaceFormat_setMinorVersion(pObject,P1)
+
+	Func setOption P1,P2
+		return QSurfaceFormat_setOption(pObject,P1,P2)
+
+	Func setOptions P1
+		return QSurfaceFormat_setOptions(pObject,P1)
+
+	Func setProfile P1
+		return QSurfaceFormat_setProfile(pObject,P1)
+
+	Func setRedBufferSize P1
+		return QSurfaceFormat_setRedBufferSize(pObject,P1)
+
+	Func setRenderableType P1
+		return QSurfaceFormat_setRenderableType(pObject,P1)
+
+	Func setSamples P1
+		return QSurfaceFormat_setSamples(pObject,P1)
+
+	Func setStencilBufferSize P1
+		return QSurfaceFormat_setStencilBufferSize(pObject,P1)
+
+	Func setStereo P1
+		return QSurfaceFormat_setStereo(pObject,P1)
+
+	Func setSwapBehavior P1
+		return QSurfaceFormat_setSwapBehavior(pObject,P1)
+
+	Func setSwapInterval P1
+		return QSurfaceFormat_setSwapInterval(pObject,P1)
+
+	Func setVersion P1,P2
+		return QSurfaceFormat_setVersion(pObject,P1,P2)
+
+	Func stencilBufferSize 
+		return QSurfaceFormat_stencilBufferSize(pObject)
+
+	Func stereo 
+		return QSurfaceFormat_stereo(pObject)
+
+	Func swapBehavior 
+		return QSurfaceFormat_swapBehavior(pObject)
+
+	Func swapInterval 
+		return QSurfaceFormat_swapInterval(pObject)
+
+	Func testOption P1
+		return QSurfaceFormat_testOption(pObject,P1)
+
+	Func defaultFormat 
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QSurfaceFormat_defaultFormat(pObject)
+		return pTempObj
+
+	Func setDefaultFormat P1
+		return QSurfaceFormat_setDefaultFormat(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QPixmap2 from QPixmap
 

@@ -5,7 +5,7 @@
 <ignorecpointertype>
 
 <code>
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -246,6 +246,7 @@ extern "C" {
 #include <QCalendarWidget>
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
+#include <QSurfaceFormat>
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -583,6 +584,12 @@ aEnumTypes + "QCalendarWidget::SelectionMode"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeature"
 aEnumTypes + "QOpenGLFunctions::OpenGLFeatures"
 aEnumTypes + "QOpenGLContext::OpenGLModuleType"
+aEnumTypes + "QSurfaceFormat::ColorSpace"
+aEnumTypes + "QSurfaceFormat::FormatOption"
+aEnumTypes + "QSurfaceFormat::FormatOptions"
+aEnumTypes + "QSurfaceFormat::OpenGLContextProfile"
+aEnumTypes + "QSurfaceFormat::RenderableType"
+aEnumTypes + "QSurfaceFormat::SwapBehavior"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -8174,3 +8181,51 @@ QOpenGLContext::OpenGLModuleType openGLModuleType(void)
 bool supportsThreadedOpenGL(void)
 
 </filter>
+
+<class>
+name: QSurfaceFormat
+para: void
+</class>
+
+int alphaBufferSize(void)
+int blueBufferSize(void)
+<comment>
+QSurfaceFormat::ColorSpace colorSpace(void)
+</comment>
+int depthBufferSize(void)
+int greenBufferSize(void)
+bool hasAlpha(void)
+int majorVersion(void)
+int minorVersion(void)
+QSurfaceFormat::FormatOptions options(void)
+QSurfaceFormat::OpenGLContextProfile profile(void)
+int redBufferSize(void)
+QSurfaceFormat::RenderableType renderableType(void)
+int samples(void)
+void setAlphaBufferSize(int size)
+void setBlueBufferSize(int size)
+<comment>
+void setColorSpace(QSurfaceFormat::ColorSpace colorSpace)
+</comment>
+void setDepthBufferSize(int size)
+void setGreenBufferSize(int size)
+void setMajorVersion(int major)
+void setMinorVersion(int minor)
+void setOption(QSurfaceFormat::FormatOption option, bool on)
+void setOptions(QSurfaceFormat::FormatOptions options)
+void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+void setRedBufferSize(int size)
+void setRenderableType(QSurfaceFormat::RenderableType type)
+void setSamples(int numSamples)
+void setStencilBufferSize(int size)
+void setStereo(bool enable)
+void setSwapBehavior(QSurfaceFormat::SwapBehavior behavior)
+void setSwapInterval(int interval)
+void setVersion(int major, int minor)
+int stencilBufferSize(void)
+bool stereo(void)
+QSurfaceFormat::SwapBehavior swapBehavior(void)
+int swapInterval(void)
+bool testOption(QSurfaceFormat::FormatOption option)
+QSurfaceFormat defaultFormat(void)
+void setDefaultFormat(QSurfaceFormat format)
