@@ -235,7 +235,7 @@ Class GameLogic from GraphicsAppBase
 
 class GameOver
 
-	font bitmap
+	font bitmap lNewWindow = False
 
 	func loadresources
 		font = al_load_ttf_font("font/pirulen.ttf",54,0 )
@@ -259,8 +259,13 @@ class GameOver
 			drawScene()
 			al_flip_display()
 			al_rest(0.3)
- 			newdisplay = al_create_display(SCREEN_W,SCREEN_H)
-			al_set_window_title(newdisplay,TITLE)
+			
+			if this.lNewWindow
+ 				newdisplay = al_create_display(SCREEN_W,SCREEN_H)
+				al_set_window_title(newdisplay,TITLE)
+			else 
+				this.set2DMODE()
+			ok
  			al_clear_to_color(al_map_rgb(255,255,255))
 			al_draw_bitmap(this.bitmap,200,50,1)
 			al_draw_text(this.font,
@@ -268,9 +273,18 @@ class GameOver
 				 ALLEGRO_ALIGN_LEFT,cMsg)
 			al_flip_display()
 			al_rest(2)
-			al_destroy_display(newdisplay)
+			if this.lNewWindow
+				al_destroy_display(newdisplay)
+			ok
 			al_set_target_backbuffer(display)
 		}
+
+	func set2DMode
+		glMatrixMode(GL_PROJECTION)
+		glPopMatrix()
+		glMatrixMode(GL_MODELVIEW)
+		glLoadIdentity()
+		glDisable(GL_CULL_FACE) 
 
 class GameCube
 
