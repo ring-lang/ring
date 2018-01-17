@@ -61,6 +61,7 @@ SOURCES +=   \
     gdockwidget.cpp \
 	gstackedwidget.cpp \
 	gcalendarwidget.cpp \
+	openglwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -110,7 +111,8 @@ HEADERS  += \
     gwindow.h \
 	gstackedwidget.h \
 	gcalendarwidget.h \
-    gdockwidget.h 
+    gdockwidget.h \
+	openglwidget.h
 
 CONFIG += mobility c++11
 QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter -std=c++11
