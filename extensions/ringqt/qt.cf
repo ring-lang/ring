@@ -57,6 +57,7 @@ extern "C" {
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
+#include "openglwidget.h"
 
 #include <QApplication>
 #include <QObject>
@@ -8229,3 +8230,19 @@ int swapInterval(void)
 bool testOption(QSurfaceFormat::FormatOption option)
 QSurfaceFormat defaultFormat(void)
 void setDefaultFormat(QSurfaceFormat format)
+
+<class>
+name: QOpenGLWidget
+para: QWidget *
+parent: QWidget
+codename: OpenGLWidget
+passvmpointer
+</class>
+
+void geteventparameters(void) 
+void setInitEvent(const char *cStr)
+const char *getInitEvent(void)
+void setPaintEvent(const char *cStr)
+const char *getPaintEvent(void)
+void setResizeEvent(const char *cStr)
+const char *getResizeEvent(void)

@@ -18069,6 +18069,38 @@ Class QSurfaceFormat
 	Func setDefaultFormat P1
 		return QSurfaceFormat_setDefaultFormat(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QOpenGLWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLWidget_delete(pObject)
+
+	Func geteventparameters 
+		return QOpenGLWidget_geteventparameters(pObject)
+
+	Func setInitEvent P1
+		return QOpenGLWidget_setInitEvent(pObject,P1)
+
+	Func getInitEvent 
+		return QOpenGLWidget_getInitEvent(pObject)
+
+	Func setPaintEvent P1
+		return QOpenGLWidget_setPaintEvent(pObject,P1)
+
+	Func getPaintEvent 
+		return QOpenGLWidget_getPaintEvent(pObject)
+
+	Func setResizeEvent P1
+		return QOpenGLWidget_setResizeEvent(pObject,P1)
+
+	Func getResizeEvent 
+		return QOpenGLWidget_getResizeEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

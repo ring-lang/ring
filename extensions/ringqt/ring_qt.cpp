@@ -50,6 +50,7 @@ extern "C" {
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
+#include "openglwidget.h"
 
 #include <QApplication>
 #include <QObject>
@@ -100942,6 +100943,137 @@ RING_FUNC(ring_QSurfaceFormat_setDefaultFormat)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSurfaceFormat"));
 }
 
+
+RING_FUNC(ring_QOpenGLWidget_geteventparameters)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	pObject->geteventparameters();
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_setInitEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setInitEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_getInitEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	RING_API_RETSTRING(pObject->getInitEvent());
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_setPaintEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPaintEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_getPaintEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	RING_API_RETSTRING(pObject->getPaintEvent());
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_setResizeEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setResizeEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QOpenGLWidget_getResizeEvent)
+{
+	OpenGLWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"QOpenGLWidget");
+	RING_API_RETSTRING(pObject->getResizeEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -103192,6 +103324,21 @@ RING_FUNC(ring_QSurfaceFormat_new)
 	}
 	QSurfaceFormat *pObject = new QSurfaceFormat();
 	RING_API_RETCPOINTER(pObject,"QSurfaceFormat");
+}
+
+RING_FUNC(ring_QOpenGLWidget_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	OpenGLWidget *pObject = new OpenGLWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QOpenGLWidget");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -105710,6 +105857,21 @@ RING_FUNC(ring_QSurfaceFormat_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QSurfaceFormat *) RING_API_GETCPOINTER(1,"QSurfaceFormat");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QOpenGLWidget_delete)
+{
+	OpenGLWidget *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (OpenGLWidget *) RING_API_GETCPOINTER(1,"OpenGLWidget");
 		delete pObject ;
 	}
 }
@@ -110655,6 +110817,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsurfaceformat_testoption",ring_QSurfaceFormat_testOption);
 	ring_vm_funcregister("qsurfaceformat_defaultformat",ring_QSurfaceFormat_defaultFormat);
 	ring_vm_funcregister("qsurfaceformat_setdefaultformat",ring_QSurfaceFormat_setDefaultFormat);
+	ring_vm_funcregister("qopenglwidget_geteventparameters",ring_QOpenGLWidget_geteventparameters);
+	ring_vm_funcregister("qopenglwidget_setinitevent",ring_QOpenGLWidget_setInitEvent);
+	ring_vm_funcregister("qopenglwidget_getinitevent",ring_QOpenGLWidget_getInitEvent);
+	ring_vm_funcregister("qopenglwidget_setpaintevent",ring_QOpenGLWidget_setPaintEvent);
+	ring_vm_funcregister("qopenglwidget_getpaintevent",ring_QOpenGLWidget_getPaintEvent);
+	ring_vm_funcregister("qopenglwidget_setresizeevent",ring_QOpenGLWidget_setResizeEvent);
+	ring_vm_funcregister("qopenglwidget_getresizeevent",ring_QOpenGLWidget_getResizeEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -110823,6 +110992,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglfunctions_new",ring_QOpenGLFunctions_new);
 	ring_vm_funcregister("qopenglcontext_new",ring_QOpenGLContext_new);
 	ring_vm_funcregister("qsurfaceformat_new",ring_QSurfaceFormat_new);
+	ring_vm_funcregister("qopenglwidget_new",ring_QOpenGLWidget_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -110991,4 +111161,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglfunctions_delete",ring_QOpenGLFunctions_delete);
 	ring_vm_funcregister("qopenglcontext_delete",ring_QOpenGLContext_delete);
 	ring_vm_funcregister("qsurfaceformat_delete",ring_QSurfaceFormat_delete);
+	ring_vm_funcregister("qopenglwidget_delete",ring_QOpenGLWidget_delete);
 }
