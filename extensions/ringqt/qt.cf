@@ -9375,8 +9375,6 @@ void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean norm
 void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
 void glWaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout)
 
-</filter>
-
 <class>
 name: QSurfaceFormat
 para: void
@@ -9453,3 +9451,5 @@ QSurfaceFormat::OpenGLContextProfile profile(void)
 void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
 void setVersion(int majorVersion, int minorVersion)
 QPair<int, int> version(void)
+
+</filter>
