@@ -226,6 +226,8 @@ RingQt comes with the next updates
 (4) QOpenGLContext Class
 (5) QSurfaceFormat Class
 (6) QOpenGLWidget Class
+(7) QOpenGLVersionProfile
+(8) QOpenGLFunctions_3_2_Core
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
