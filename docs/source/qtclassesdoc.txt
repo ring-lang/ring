@@ -3927,6 +3927,28 @@ Parameters : void
 * QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)
 
 .. index::
+	pair: RingQt Classes Reference; QOpenGLWidget Class
+
+QOpenGLWidget Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QOpenGLWidget.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void geteventparameters(void)
+* void setInitEvent(const char *cStr)
+* const char *getInitEvent(void)
+* void setPaintEvent(const char *cStr)
+* const char *getPaintEvent(void)
+* void setResizeEvent(const char *cStr)
+* const char *getResizeEvent(void)
+.. index::
 	pair: RingQt Classes Reference; QPainter Class
 
 QPainter Class
@@ -5505,6 +5527,7 @@ Parameters : void
 * bool testOption(QSurfaceFormat::FormatOption option)
 * QSurfaceFormat defaultFormat(void)
 * void setDefaultFormat(QSurfaceFormat format)
+
 .. index::
 	pair: RingQt Classes Reference; QSystemTrayIcon Class
 
