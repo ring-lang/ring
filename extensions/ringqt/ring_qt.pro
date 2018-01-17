@@ -59,7 +59,6 @@ SOURCES +=   \
     gdockwidget.cpp \
     gstackedwidget.cpp \
     gcalendarwidget.cpp \
-    openglwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -109,7 +108,6 @@ HEADERS  += \
     gwindow.h \
     gstackedwidget.h \
     gcalendarwidget.h \
-    openglwidget.h \
     gdockwidget.h
 
 INCLUDEPATH += ../../include
@@ -117,10 +115,14 @@ INCLUDEPATH += ../../include
 win32 {
 	LIBS +=  ../../lib/ring.lib
 	QT   += axcontainer
+	SOURCES += openglwidget.cpp
+	HEADERS += openglwidget.h 
 }
 
 macx {
 	LIBS +=  ../../lib/libring.dylib
+	SOURCES += openglwidget.cpp
+	HEADERS += openglwidget.h 
 }
 
 unix:!macx {
