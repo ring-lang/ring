@@ -59,6 +59,7 @@ SOURCES +=   \
     gdockwidget.cpp \
     gstackedwidget.cpp \
     gcalendarwidget.cpp \
+    openglwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -108,6 +109,7 @@ HEADERS  += \
     gwindow.h \
     gstackedwidget.h \
     gcalendarwidget.h \
+    openglwidget.h \
     gdockwidget.h
 
 INCLUDEPATH += ../../include
