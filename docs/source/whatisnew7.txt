@@ -224,6 +224,7 @@ RingQt comes with the next updates
 (2) QCalendarWidget Class
 (3) QOpenGLFunctions Class
 (4) QOpenGLContext Class
+(5) QSurfaceFormat Class
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
