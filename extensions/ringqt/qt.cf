@@ -57,7 +57,9 @@ extern "C" {
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
 #include "openglwidget.h"
+</filter>
 
 #include <QApplication>
 #include <QObject>
