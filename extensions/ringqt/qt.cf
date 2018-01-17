@@ -7991,6 +7991,29 @@ name: QOpenGLFunctions
 para: void
 </class>
 
+<runcode>
+aNumberTypes + "GLint"
+aNumberTypes + "GLuint"
+aNumberTypes + "unsigned"
+aNumberTypes + "GLboolean"
+aNumberTypes + "GLdouble"
+aNumberTypes + "GLfloat"
+aNumberTypes + "GLchar"
+aNumberTypes + "GLsizeiptr"
+aNumberTypes + "GLintptr"
+aNumberTypes + "GLbyte"
+aNumberTypes + "GLshort"
+aNumberTypes + "GLubyte"
+aNumberTypes + "GLushort"
+aNumberTypes + "GLulong"
+aNumberTypes + "GLclampd"
+
+aEnumTypes + "GLbitfield"
+aEnumTypes + "GLenum"
+aEnumTypes + "GLsizei"
+aEnumTypes + "GLclampf"
+</runcode>
+
 void glActiveTexture(GLenum texture)
 void glAttachShader(GLuint program, GLuint shader)
 void glBindAttribLocation(GLuint program, GLuint index, char *name)
