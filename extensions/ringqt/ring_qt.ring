@@ -18814,6 +18814,779 @@ Class QOpenGLContext from QObject
 	Func supportsThreadedOpenGL 
 		return QOpenGLContext_supportsThreadedOpenGL(pObject)
 
+Class QOpenGLFunctions_3_2_Core
+
+	pObject
+
+	Func init 
+		pObject = QOpenGLFunctions_3_2_Core_new()
+		return self
+
+	Func delete
+		pObject = QOpenGLFunctions_3_2_Core_delete(pObject)
+
+	Func glActiveTexture P1
+		return QOpenGLFunctions_3_2_Core_glActiveTexture(pObject,P1)
+
+	Func glAttachShader P1,P2
+		return QOpenGLFunctions_3_2_Core_glAttachShader(pObject,P1,P2)
+
+	Func glBeginConditionalRender P1,P2
+		return QOpenGLFunctions_3_2_Core_glBeginConditionalRender(pObject,P1,P2)
+
+	Func glBeginQuery P1,P2
+		return QOpenGLFunctions_3_2_Core_glBeginQuery(pObject,P1,P2)
+
+	Func glBeginTransformFeedback P1
+		return QOpenGLFunctions_3_2_Core_glBeginTransformFeedback(pObject,P1)
+
+	Func glBindAttribLocation P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glBindAttribLocation(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glBindBuffer P1,P2
+		return QOpenGLFunctions_3_2_Core_glBindBuffer(pObject,P1,P2)
+
+	Func glBindBufferBase P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glBindBufferBase(pObject,P1,P2,P3)
+
+	Func glBindBufferRange P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glBindBufferRange(pObject,P1,P2,P3,P4,P5)
+
+	Func glBindFragDataLocation P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glBindFragDataLocation(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glBindFramebuffer P1,P2
+		return QOpenGLFunctions_3_2_Core_glBindFramebuffer(pObject,P1,P2)
+
+	Func glBindRenderbuffer P1,P2
+		return QOpenGLFunctions_3_2_Core_glBindRenderbuffer(pObject,P1,P2)
+
+	Func glBindTexture P1,P2
+		return QOpenGLFunctions_3_2_Core_glBindTexture(pObject,P1,P2)
+
+	Func glBindVertexArray P1
+		return QOpenGLFunctions_3_2_Core_glBindVertexArray(pObject,P1)
+
+	Func glBlendColor P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glBlendColor(pObject,P1,P2,P3,P4)
+
+	Func glBlendEquation P1
+		return QOpenGLFunctions_3_2_Core_glBlendEquation(pObject,P1)
+
+	Func glBlendEquationSeparate P1,P2
+		return QOpenGLFunctions_3_2_Core_glBlendEquationSeparate(pObject,P1,P2)
+
+	Func glBlendFunc P1,P2
+		return QOpenGLFunctions_3_2_Core_glBlendFunc(pObject,P1,P2)
+
+	Func glBlendFuncSeparate P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glBlendFuncSeparate(pObject,P1,P2,P3,P4)
+
+	Func glBlitFramebuffer P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
+		return QOpenGLFunctions_3_2_Core_glBlitFramebuffer(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10)
+
+	Func glBufferData P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glBufferData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func glBufferSubData P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glBufferSubData(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glCheckFramebufferStatus P1
+		return QOpenGLFunctions_3_2_Core_glCheckFramebufferStatus(pObject,P1)
+
+	Func glClampColor P1,P2
+		return QOpenGLFunctions_3_2_Core_glClampColor(pObject,P1,P2)
+
+	Func glClear P1
+		return QOpenGLFunctions_3_2_Core_glClear(pObject,P1)
+
+	Func glClearBufferfi P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glClearBufferfi(pObject,P1,P2,P3,P4)
+
+	Func glClearBufferfv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glClearBufferfv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glClearBufferiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glClearBufferiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glClearBufferuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glClearBufferuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glClearColor P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glClearColor(pObject,P1,P2,P3,P4)
+
+	Func glClearDepth P1
+		return QOpenGLFunctions_3_2_Core_glClearDepth(pObject,P1)
+
+	Func glClearStencil P1
+		return QOpenGLFunctions_3_2_Core_glClearStencil(pObject,P1)
+
+	Func glClientWaitSync P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glClientWaitSync(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func glColorMask P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glColorMask(pObject,P1,P2,P3,P4)
+
+	Func glColorMaski P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glColorMaski(pObject,P1,P2,P3,P4,P5)
+
+	Func glCompileShader P1
+		return QOpenGLFunctions_3_2_Core_glCompileShader(pObject,P1)
+
+	Func glCompressedTexImage1D P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glCompressedTexImage1D(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
+
+	Func glCompressedTexImage2D P1,P2,P3,P4,P5,P6,P7,P8
+		return QOpenGLFunctions_3_2_Core_glCompressedTexImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,GetObjectPointerFromRingObject(P8))
+
+	Func glCompressedTexImage3D P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QOpenGLFunctions_3_2_Core_glCompressedTexImage3D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,GetObjectPointerFromRingObject(P9))
+
+	Func glCompressedTexSubImage1D P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glCompressedTexSubImage1D(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
+
+	Func glCompressedTexSubImage2D P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QOpenGLFunctions_3_2_Core_glCompressedTexSubImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,GetObjectPointerFromRingObject(P9))
+
+	Func glCompressedTexSubImage3D P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
+		return QOpenGLFunctions_3_2_Core_glCompressedTexSubImage3D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,GetObjectPointerFromRingObject(P11))
+
+	Func glCopyBufferSubData P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glCopyBufferSubData(pObject,P1,P2,P3,P4,P5)
+
+	Func glCopyTexImage1D P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glCopyTexImage1D(pObject,P1,P2,P3,P4,P5,P6,P7)
+
+	Func glCopyTexImage2D P1,P2,P3,P4,P5,P6,P7,P8
+		return QOpenGLFunctions_3_2_Core_glCopyTexImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,P8)
+
+	Func glCopyTexSubImage1D P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glCopyTexSubImage1D(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func glCopyTexSubImage2D P1,P2,P3,P4,P5,P6,P7,P8
+		return QOpenGLFunctions_3_2_Core_glCopyTexSubImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,P8)
+
+	Func glCopyTexSubImage3D P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QOpenGLFunctions_3_2_Core_glCopyTexSubImage3D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9)
+
+	Func glCreateProgram 
+		return QOpenGLFunctions_3_2_Core_glCreateProgram(pObject)
+
+	Func glCreateShader P1
+		return QOpenGLFunctions_3_2_Core_glCreateShader(pObject,P1)
+
+	Func glCullFace P1
+		return QOpenGLFunctions_3_2_Core_glCullFace(pObject,P1)
+
+	Func glDeleteBuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteBuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDeleteFramebuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteFramebuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDeleteProgram P1
+		return QOpenGLFunctions_3_2_Core_glDeleteProgram(pObject,P1)
+
+	Func glDeleteQueries P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteQueries(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDeleteRenderbuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteRenderbuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDeleteShader P1
+		return QOpenGLFunctions_3_2_Core_glDeleteShader(pObject,P1)
+
+	Func glDeleteSync P1
+		return QOpenGLFunctions_3_2_Core_glDeleteSync(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func glDeleteTextures P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteTextures(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDeleteVertexArrays P1,P2
+		return QOpenGLFunctions_3_2_Core_glDeleteVertexArrays(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDepthFunc P1
+		return QOpenGLFunctions_3_2_Core_glDepthFunc(pObject,P1)
+
+	Func glDepthMask P1
+		return QOpenGLFunctions_3_2_Core_glDepthMask(pObject,P1)
+
+	Func glDepthRange P1,P2
+		return QOpenGLFunctions_3_2_Core_glDepthRange(pObject,P1,P2)
+
+	Func glDetachShader P1,P2
+		return QOpenGLFunctions_3_2_Core_glDetachShader(pObject,P1,P2)
+
+	Func glDisable P1
+		return QOpenGLFunctions_3_2_Core_glDisable(pObject,P1)
+
+	Func glDisableVertexAttribArray P1
+		return QOpenGLFunctions_3_2_Core_glDisableVertexAttribArray(pObject,P1)
+
+	Func glDisablei P1,P2
+		return QOpenGLFunctions_3_2_Core_glDisablei(pObject,P1,P2)
+
+	Func glDrawArrays P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glDrawArrays(pObject,P1,P2,P3)
+
+	Func glDrawArraysInstanced P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glDrawArraysInstanced(pObject,P1,P2,P3,P4)
+
+	Func glDrawBuffer P1
+		return QOpenGLFunctions_3_2_Core_glDrawBuffer(pObject,P1)
+
+	Func glDrawBuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glDrawBuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glDrawElements P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glDrawElements(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glDrawElementsBaseVertex P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glDrawElementsBaseVertex(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),P5)
+
+	Func glDrawElementsInstanced P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glDrawElementsInstanced(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),P5)
+
+	Func glDrawElementsInstancedBaseVertex P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glDrawElementsInstancedBaseVertex(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),P5,P6)
+
+	Func glDrawRangeElements P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glDrawRangeElements(pObject,P1,P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+
+	Func glDrawRangeElementsBaseVertex P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glDrawRangeElementsBaseVertex(pObject,P1,P2,P3,P4,P5,GetObjectPointerFromRingObject(P6),P7)
+
+	Func glEnable P1
+		return QOpenGLFunctions_3_2_Core_glEnable(pObject,P1)
+
+	Func glEnableVertexAttribArray P1
+		return QOpenGLFunctions_3_2_Core_glEnableVertexAttribArray(pObject,P1)
+
+	Func glEnablei P1,P2
+		return QOpenGLFunctions_3_2_Core_glEnablei(pObject,P1,P2)
+
+	Func glEndConditionalRender 
+		return QOpenGLFunctions_3_2_Core_glEndConditionalRender(pObject)
+
+	Func glEndQuery P1
+		return QOpenGLFunctions_3_2_Core_glEndQuery(pObject,P1)
+
+	Func glEndTransformFeedback 
+		return QOpenGLFunctions_3_2_Core_glEndTransformFeedback(pObject)
+
+	Func glFenceSync P1,P2
+		return QOpenGLFunctions_3_2_Core_glFenceSync(pObject,P1,P2)
+
+	Func glFinish 
+		return QOpenGLFunctions_3_2_Core_glFinish(pObject)
+
+	Func glFlush 
+		return QOpenGLFunctions_3_2_Core_glFlush(pObject)
+
+	Func glFlushMappedBufferRange P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glFlushMappedBufferRange(pObject,P1,P2,P3)
+
+	Func glFramebufferRenderbuffer P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glFramebufferRenderbuffer(pObject,P1,P2,P3,P4)
+
+	Func glFramebufferTexture P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glFramebufferTexture(pObject,P1,P2,P3,P4)
+
+	Func glFramebufferTexture1D P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glFramebufferTexture1D(pObject,P1,P2,P3,P4,P5)
+
+	Func glFramebufferTexture2D P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glFramebufferTexture2D(pObject,P1,P2,P3,P4,P5)
+
+	Func glFramebufferTexture3D P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glFramebufferTexture3D(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func glFramebufferTextureLayer P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glFramebufferTextureLayer(pObject,P1,P2,P3,P4,P5)
+
+	Func glFrontFace P1
+		return QOpenGLFunctions_3_2_Core_glFrontFace(pObject,P1)
+
+	Func glGenBuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenBuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenFramebuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenFramebuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenQueries P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenQueries(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenRenderbuffers P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenRenderbuffers(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenTextures P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenTextures(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenVertexArrays P1,P2
+		return QOpenGLFunctions_3_2_Core_glGenVertexArrays(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGenerateMipmap P1
+		return QOpenGLFunctions_3_2_Core_glGenerateMipmap(pObject,P1)
+
+	Func glGetActiveAttrib P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glGetActiveAttrib(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+
+	Func glGetActiveUniform P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glGetActiveUniform(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+
+	Func glGetActiveUniformBlockName P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockName(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func glGetActiveUniformBlockiv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockiv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glGetActiveUniformName P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glGetActiveUniformName(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func glGetActiveUniformsiv P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glGetActiveUniformsiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4,GetObjectPointerFromRingObject(P5))
+
+	Func glGetAttachedShaders P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetAttachedShaders(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func glGetAttribLocation P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetAttribLocation(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetBooleani_v P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetBooleani_v(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetBooleanv P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetBooleanv(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetBufferParameteri64v P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetBufferParameteri64v(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetBufferParameteriv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetBufferParameteriv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetBufferSubData P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetBufferSubData(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glGetCompressedTexImage P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetCompressedTexImage(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetDoublev P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetDoublev(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetError 
+		return QOpenGLFunctions_3_2_Core_glGetError(pObject)
+
+	Func glGetFloatv P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetFloatv(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetFragDataLocation P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetFragDataLocation(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetFramebufferAttachmentParameteriv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetFramebufferAttachmentParameteriv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glGetInteger64i_v P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetInteger64i_v(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetInteger64v P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetInteger64v(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetIntegeri_v P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetIntegeri_v(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetIntegerv P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetIntegerv(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetMultisamplefv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetMultisamplefv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetProgramInfoLog P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetProgramInfoLog(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func glGetProgramiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetProgramiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetQueryObjectiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetQueryObjectiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetQueryObjectuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetQueryObjectuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetQueryiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetQueryiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetRenderbufferParameteriv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetRenderbufferParameteriv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetShaderInfoLog P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetShaderInfoLog(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func glGetShaderSource P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetShaderSource(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func glGetShaderiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetShaderiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetString P1
+		return QOpenGLFunctions_3_2_Core_glGetString(pObject,P1)
+
+	Func glGetStringi P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetStringi(pObject,P1,P2)
+
+	Func glGetSynciv P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glGetSynciv(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func glGetTexImage P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glGetTexImage(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+
+	Func glGetTexLevelParameterfv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetTexLevelParameterfv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glGetTexLevelParameteriv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glGetTexLevelParameteriv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glGetTexParameterIiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetTexParameterIiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetTexParameterIuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetTexParameterIuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetTexParameterfv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetTexParameterfv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetTexParameteriv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetTexParameteriv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetTransformFeedbackVarying P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glGetTransformFeedbackVarying(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+
+	Func glGetUniformBlockIndex P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetUniformBlockIndex(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetUniformLocation P1,P2
+		return QOpenGLFunctions_3_2_Core_glGetUniformLocation(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glGetUniformfv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetUniformfv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetUniformiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetUniformiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetUniformuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetUniformuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetVertexAttribIiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetVertexAttribIiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetVertexAttribIuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetVertexAttribIuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetVertexAttribdv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetVertexAttribdv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetVertexAttribfv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetVertexAttribfv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glGetVertexAttribiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glGetVertexAttribiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glHint P1,P2
+		return QOpenGLFunctions_3_2_Core_glHint(pObject,P1,P2)
+
+	Func glIndexub P1
+		return QOpenGLFunctions_3_2_Core_glIndexub(pObject,P1)
+
+	Func glIndexubv P1
+		return QOpenGLFunctions_3_2_Core_glIndexubv(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func glIsBuffer P1
+		return QOpenGLFunctions_3_2_Core_glIsBuffer(pObject,P1)
+
+	Func glIsEnabled P1
+		return QOpenGLFunctions_3_2_Core_glIsEnabled(pObject,P1)
+
+	Func glIsEnabledi P1,P2
+		return QOpenGLFunctions_3_2_Core_glIsEnabledi(pObject,P1,P2)
+
+	Func glIsFramebuffer P1
+		return QOpenGLFunctions_3_2_Core_glIsFramebuffer(pObject,P1)
+
+	Func glIsProgram P1
+		return QOpenGLFunctions_3_2_Core_glIsProgram(pObject,P1)
+
+	Func glIsQuery P1
+		return QOpenGLFunctions_3_2_Core_glIsQuery(pObject,P1)
+
+	Func glIsRenderbuffer P1
+		return QOpenGLFunctions_3_2_Core_glIsRenderbuffer(pObject,P1)
+
+	Func glIsShader P1
+		return QOpenGLFunctions_3_2_Core_glIsShader(pObject,P1)
+
+	Func glIsSync P1
+		return QOpenGLFunctions_3_2_Core_glIsSync(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func glIsTexture P1
+		return QOpenGLFunctions_3_2_Core_glIsTexture(pObject,P1)
+
+	Func glIsVertexArray P1
+		return QOpenGLFunctions_3_2_Core_glIsVertexArray(pObject,P1)
+
+	Func glLineWidth P1
+		return QOpenGLFunctions_3_2_Core_glLineWidth(pObject,P1)
+
+	Func glLinkProgram P1
+		return QOpenGLFunctions_3_2_Core_glLinkProgram(pObject,P1)
+
+	Func glLogicOp P1
+		return QOpenGLFunctions_3_2_Core_glLogicOp(pObject,P1)
+
+	Func glMapBuffer P1,P2
+		return QOpenGLFunctions_3_2_Core_glMapBuffer(pObject,P1,P2)
+
+	Func glMapBufferRange P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glMapBufferRange(pObject,P1,P2,P3,P4)
+
+	Func glMultiDrawArrays P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glMultiDrawArrays(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
+
+	Func glPixelStoref P1,P2
+		return QOpenGLFunctions_3_2_Core_glPixelStoref(pObject,P1,P2)
+
+	Func glPixelStorei P1,P2
+		return QOpenGLFunctions_3_2_Core_glPixelStorei(pObject,P1,P2)
+
+	Func glPointParameterf P1,P2
+		return QOpenGLFunctions_3_2_Core_glPointParameterf(pObject,P1,P2)
+
+	Func glPointParameterfv P1,P2
+		return QOpenGLFunctions_3_2_Core_glPointParameterfv(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glPointParameteri P1,P2
+		return QOpenGLFunctions_3_2_Core_glPointParameteri(pObject,P1,P2)
+
+	Func glPointParameteriv P1,P2
+		return QOpenGLFunctions_3_2_Core_glPointParameteriv(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func glPointSize P1
+		return QOpenGLFunctions_3_2_Core_glPointSize(pObject,P1)
+
+	Func glPolygonMode P1,P2
+		return QOpenGLFunctions_3_2_Core_glPolygonMode(pObject,P1,P2)
+
+	Func glPolygonOffset P1,P2
+		return QOpenGLFunctions_3_2_Core_glPolygonOffset(pObject,P1,P2)
+
+	Func glPrimitiveRestartIndex P1
+		return QOpenGLFunctions_3_2_Core_glPrimitiveRestartIndex(pObject,P1)
+
+	Func glProvokingVertex P1
+		return QOpenGLFunctions_3_2_Core_glProvokingVertex(pObject,P1)
+
+	Func glReadBuffer P1
+		return QOpenGLFunctions_3_2_Core_glReadBuffer(pObject,P1)
+
+	Func glReadPixels P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glReadPixels(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
+
+	Func glRenderbufferStorage P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glRenderbufferStorage(pObject,P1,P2,P3,P4)
+
+	Func glRenderbufferStorageMultisample P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glRenderbufferStorageMultisample(pObject,P1,P2,P3,P4,P5)
+
+	Func glSampleCoverage P1,P2
+		return QOpenGLFunctions_3_2_Core_glSampleCoverage(pObject,P1,P2)
+
+	Func glSampleMaski P1,P2
+		return QOpenGLFunctions_3_2_Core_glSampleMaski(pObject,P1,P2)
+
+	Func glScissor P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glScissor(pObject,P1,P2,P3,P4)
+
+	Func glStencilFunc P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glStencilFunc(pObject,P1,P2,P3)
+
+	Func glStencilFuncSeparate P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glStencilFuncSeparate(pObject,P1,P2,P3,P4)
+
+	Func glStencilMask P1
+		return QOpenGLFunctions_3_2_Core_glStencilMask(pObject,P1)
+
+	Func glStencilMaskSeparate P1,P2
+		return QOpenGLFunctions_3_2_Core_glStencilMaskSeparate(pObject,P1,P2)
+
+	Func glStencilOp P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glStencilOp(pObject,P1,P2,P3)
+
+	Func glStencilOpSeparate P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glStencilOpSeparate(pObject,P1,P2,P3,P4)
+
+	Func glTexBuffer P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexBuffer(pObject,P1,P2,P3)
+
+	Func glTexImage1D P1,P2,P3,P4,P5,P6,P7,P8
+		return QOpenGLFunctions_3_2_Core_glTexImage1D(pObject,P1,P2,P3,P4,P5,P6,P7,GetObjectPointerFromRingObject(P8))
+
+	Func glTexImage2D P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QOpenGLFunctions_3_2_Core_glTexImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,GetObjectPointerFromRingObject(P9))
+
+	Func glTexImage2DMultisample P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glTexImage2DMultisample(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func glTexImage3D P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
+		return QOpenGLFunctions_3_2_Core_glTexImage3D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9,GetObjectPointerFromRingObject(P10))
+
+	Func glTexImage3DMultisample P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glTexImage3DMultisample(pObject,P1,P2,P3,P4,P5,P6,P7)
+
+	Func glTexParameterIiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameterIiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glTexParameterIuiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameterIuiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glTexParameterf P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameterf(pObject,P1,P2,P3)
+
+	Func glTexParameterfv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameterfv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glTexParameteri P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameteri(pObject,P1,P2,P3)
+
+	Func glTexParameteriv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glTexParameteriv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glTexSubImage1D P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLFunctions_3_2_Core_glTexSubImage1D(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
+
+	Func glTexSubImage2D P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QOpenGLFunctions_3_2_Core_glTexSubImage2D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,GetObjectPointerFromRingObject(P9))
+
+	Func glTexSubImage3D P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
+		return QOpenGLFunctions_3_2_Core_glTexSubImage3D(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,GetObjectPointerFromRingObject(P11))
+
+	Func glUniform1f P1,P2
+		return QOpenGLFunctions_3_2_Core_glUniform1f(pObject,P1,P2)
+
+	Func glUniform1fv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform1fv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform1i P1,P2
+		return QOpenGLFunctions_3_2_Core_glUniform1i(pObject,P1,P2)
+
+	Func glUniform1iv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform1iv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform1ui P1,P2
+		return QOpenGLFunctions_3_2_Core_glUniform1ui(pObject,P1,P2)
+
+	Func glUniform1uiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform1uiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform2f P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2f(pObject,P1,P2,P3)
+
+	Func glUniform2fv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2fv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform2i P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2i(pObject,P1,P2,P3)
+
+	Func glUniform2iv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2iv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform2ui P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2ui(pObject,P1,P2,P3)
+
+	Func glUniform2uiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform2uiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform3f P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniform3f(pObject,P1,P2,P3,P4)
+
+	Func glUniform3fv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform3fv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform3i P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniform3i(pObject,P1,P2,P3,P4)
+
+	Func glUniform3iv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform3iv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform3ui P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniform3ui(pObject,P1,P2,P3,P4)
+
+	Func glUniform3uiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform3uiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform4f P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glUniform4f(pObject,P1,P2,P3,P4,P5)
+
+	Func glUniform4fv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform4fv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform4i P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glUniform4i(pObject,P1,P2,P3,P4,P5)
+
+	Func glUniform4iv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform4iv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniform4ui P1,P2,P3,P4,P5
+		return QOpenGLFunctions_3_2_Core_glUniform4ui(pObject,P1,P2,P3,P4,P5)
+
+	Func glUniform4uiv P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniform4uiv(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func glUniformBlockBinding P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glUniformBlockBinding(pObject,P1,P2,P3)
+
+	Func glUniformMatrix2fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix2fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix2x3fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix2x3fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix2x4fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix2x4fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix3fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix3fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix3x2fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix3x2fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix3x4fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix3x4fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix4fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix4fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix4x2fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix4x2fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUniformMatrix4x3fv P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glUniformMatrix4x3fv(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func glUnmapBuffer P1
+		return QOpenGLFunctions_3_2_Core_glUnmapBuffer(pObject,P1)
+
+	Func glUseProgram P1
+		return QOpenGLFunctions_3_2_Core_glUseProgram(pObject,P1)
+
+	Func glValidateProgram P1
+		return QOpenGLFunctions_3_2_Core_glValidateProgram(pObject,P1)
+
+	Func glVertexAttribPointer P1,P2,P3,P4,P5,P6
+		return QOpenGLFunctions_3_2_Core_glVertexAttribPointer(pObject,P1,P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+
+	Func glViewport P1,P2,P3,P4
+		return QOpenGLFunctions_3_2_Core_glViewport(pObject,P1,P2,P3,P4)
+
+	Func glWaitSync P1,P2,P3
+		return QOpenGLFunctions_3_2_Core_glWaitSync(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
 Class QSurfaceFormat
 
 	pObject

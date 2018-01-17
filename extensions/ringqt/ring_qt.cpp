@@ -241,6 +241,7 @@ extern "C" {
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
 #include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
 
 
 #include "gserialport.h"
@@ -105137,6 +105138,7531 @@ RING_FUNC(ring_QOpenGLContext_supportsThreadedOpenGL)
 }
 
 
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glActiveTexture)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glActiveTexture( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glAttachShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glAttachShader( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBeginConditionalRender)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBeginConditionalRender( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBeginQuery)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBeginQuery( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBeginTransformFeedback)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBeginTransformFeedback( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindAttribLocation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindAttribLocation( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLchar *) RING_API_GETCPOINTER(4,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindBuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindBufferBase)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindBufferBase( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindBufferRange)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindBufferRange( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLintptr ) RING_API_GETNUMBER(5), (GLsizeiptr ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindFragDataLocation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindFragDataLocation( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLchar *) RING_API_GETCPOINTER(4,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindFramebuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindFramebuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindRenderbuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindRenderbuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindTexture)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindTexture( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBindVertexArray)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBindVertexArray( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlendColor)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlendColor( (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlendEquation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlendEquation( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlendEquationSeparate)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlendEquationSeparate( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlendFunc)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlendFunc( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlendFuncSeparate)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlendFuncSeparate( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBlitFramebuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 11 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBlitFramebuffer( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8), (GLint ) RING_API_GETNUMBER(9), (GLbitfield )  (int) RING_API_GETNUMBER(10), (GLenum )  (int) RING_API_GETNUMBER(11));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBufferData)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBufferData( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizeiptr ) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"), (GLenum )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glBufferSubData)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glBufferSubData( (GLenum )  (int) RING_API_GETNUMBER(2), (GLintptr ) RING_API_GETNUMBER(3), (GLsizeiptr ) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCheckFramebufferStatus)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glCheckFramebufferStatus( (GLenum )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClampColor)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClampColor( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClear)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClear( (GLbitfield )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearBufferfi)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearBufferfi( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearBufferfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearBufferfv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearBufferiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearBufferiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearBufferuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearBufferuiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearColor)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearColor( (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearDepth)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearDepth( (GLdouble ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClearStencil)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glClearStencil( (GLint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glClientWaitSync)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glClientWaitSync(* (GLsync  *) RING_API_GETCPOINTER(2,"GLsync"), (GLbitfield )  (int) RING_API_GETNUMBER(3),* (GLuint64  *) RING_API_GETCPOINTER(4,"GLuint64")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"GLsync"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"GLuint64"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glColorMask)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glColorMask( (GLboolean ) RING_API_GETNUMBER(2), (GLboolean ) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4), (GLboolean ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glColorMaski)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glColorMaski( (GLuint ) RING_API_GETNUMBER(2), (GLboolean ) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4), (GLboolean ) RING_API_GETNUMBER(5), (GLboolean ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompileShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompileShader( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7),(GLvoid *) RING_API_GETCPOINTER(8,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8),(GLvoid *) RING_API_GETCPOINTER(9,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexImage3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9),(GLvoid *) RING_API_GETCPOINTER(10,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexSubImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7),(GLvoid *) RING_API_GETCPOINTER(8,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexSubImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLenum )  (int) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9),(GLvoid *) RING_API_GETCPOINTER(10,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(12) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCompressedTexSubImage3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9), (GLenum )  (int) RING_API_GETNUMBER(10), (GLsizei )  (int) RING_API_GETNUMBER(11),(GLvoid *) RING_API_GETCPOINTER(12,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyBufferSubData)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyBufferSubData( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLintptr ) RING_API_GETNUMBER(4), (GLintptr ) RING_API_GETNUMBER(5), (GLsizeiptr ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyTexImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyTexImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyTexImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyTexImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8), (GLint ) RING_API_GETNUMBER(9));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyTexSubImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyTexSubImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCopyTexSubImage3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9), (GLsizei )  (int) RING_API_GETNUMBER(10));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCreateProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	RING_API_RETNUMBER(pObject->glCreateProgram());
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCreateShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glCreateShader( (GLenum )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glCullFace)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glCullFace( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteBuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteBuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteFramebuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteFramebuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteProgram( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteQueries)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteQueries( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteRenderbuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteRenderbuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteShader( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteSync)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	pObject->glDeleteSync(* (GLsync  *) RING_API_GETCPOINTER(2,"GLsync"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"GLsync"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteTextures)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteTextures( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDeleteVertexArrays)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDeleteVertexArrays( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDepthFunc)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDepthFunc( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDepthMask)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDepthMask( (GLboolean ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDepthRange)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDepthRange( (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDetachShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDetachShader( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDisable)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDisable( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDisableVertexAttribArray)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDisableVertexAttribArray( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDisablei)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDisablei( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawArrays)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawArrays( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawArraysInstanced)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawArraysInstanced( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawBuffer( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawBuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawBuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLenum *) RING_API_GETCPOINTER(3,"GLenum"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawElements)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawElements( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawElementsBaseVertex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawElementsBaseVertex( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"), (GLint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawElementsInstanced)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawElementsInstanced( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"), (GLsizei )  (int) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawElementsInstancedBaseVertex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawElementsInstancedBaseVertex( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawRangeElements)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawRangeElements( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6),(GLvoid *) RING_API_GETCPOINTER(7,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glDrawRangeElementsBaseVertex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glDrawRangeElementsBaseVertex( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6),(GLvoid *) RING_API_GETCPOINTER(7,"GLvoid"), (GLint ) RING_API_GETNUMBER(8));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEnable)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glEnable( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEnableVertexAttribArray)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glEnableVertexAttribArray( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEnablei)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glEnablei( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEndConditionalRender)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	pObject->glEndConditionalRender();
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEndQuery)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glEndQuery( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glEndTransformFeedback)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	pObject->glEndTransformFeedback();
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFenceSync)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		GLsync *pValue ; 
+		pValue = (GLsync *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(GLsync)) ;
+		*pValue = pObject->glFenceSync( (GLenum )  (int) RING_API_GETNUMBER(2), (GLbitfield )  (int) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"GLsync");
+	}
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFinish)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	pObject->glFinish();
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFlush)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	pObject->glFlush();
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFlushMappedBufferRange)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFlushMappedBufferRange( (GLenum )  (int) RING_API_GETNUMBER(2), (GLintptr ) RING_API_GETNUMBER(3), (GLsizeiptr ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferRenderbuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferRenderbuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferTexture( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferTexture1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferTexture2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferTexture3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFramebufferTextureLayer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFramebufferTextureLayer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glFrontFace)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glFrontFace( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenBuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenBuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenFramebuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenFramebuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenQueries)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenQueries( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenRenderbuffers)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenRenderbuffers( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenTextures)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenTextures( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenVertexArrays)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenVertexArrays( (GLsizei )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGenerateMipmap)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGenerateMipmap( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveAttrib)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveAttrib( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLint *) RING_API_GETCPOINTER(6,"GLint"),(GLenum *) RING_API_GETCPOINTER(7,"GLenum"),(GLchar *) RING_API_GETCPOINTER(8,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveUniform)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveUniform( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLint *) RING_API_GETCPOINTER(6,"GLint"),(GLenum *) RING_API_GETCPOINTER(7,"GLenum"),(GLchar *) RING_API_GETCPOINTER(8,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockName)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveUniformBlockName( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(6,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveUniformBlockiv( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLint *) RING_API_GETCPOINTER(5,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformName)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveUniformName( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(6,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformsiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetActiveUniformsiv( (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"), (GLenum )  (int) RING_API_GETNUMBER(5),(GLint *) RING_API_GETCPOINTER(6,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetAttachedShaders)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetAttachedShaders( (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLuint *) RING_API_GETCPOINTER(5,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetAttribLocation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glGetAttribLocation( (GLuint ) RING_API_GETNUMBER(2),(GLchar *) RING_API_GETCPOINTER(3,"GLchar")));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetBooleani_v)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetBooleani_v( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLboolean *) RING_API_GETCPOINTER(4,"GLboolean"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetBooleanv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetBooleanv( (GLenum )  (int) RING_API_GETNUMBER(2),(GLboolean *) RING_API_GETCPOINTER(3,"GLboolean"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetBufferParameteri64v)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetBufferParameteri64v( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint64 *) RING_API_GETCPOINTER(4,"GLint64"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetBufferParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetBufferParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetBufferSubData)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetBufferSubData( (GLenum )  (int) RING_API_GETNUMBER(2), (GLintptr ) RING_API_GETNUMBER(3), (GLsizeiptr ) RING_API_GETNUMBER(4),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetCompressedTexImage)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetCompressedTexImage( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetDoublev)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetDoublev( (GLenum )  (int) RING_API_GETNUMBER(2),(GLdouble *) RING_API_GETCPOINTER(3,"GLdouble"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetError)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	RING_API_RETNUMBER(pObject->glGetError());
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetFloatv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetFloatv( (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetFragDataLocation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glGetFragDataLocation( (GLuint ) RING_API_GETNUMBER(2),(GLchar *) RING_API_GETCPOINTER(3,"GLchar")));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetFramebufferAttachmentParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetFramebufferAttachmentParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLint *) RING_API_GETCPOINTER(5,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetInteger64i_v)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetInteger64i_v( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLint64 *) RING_API_GETCPOINTER(4,"GLint64"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetInteger64v)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetInteger64v( (GLenum )  (int) RING_API_GETNUMBER(2),(GLint64 *) RING_API_GETCPOINTER(3,"GLint64"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetIntegeri_v)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetIntegeri_v( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetIntegerv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetIntegerv( (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetMultisamplefv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetMultisamplefv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetProgramInfoLog)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetProgramInfoLog( (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(5,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetProgramiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetProgramiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetQueryObjectiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetQueryObjectiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetQueryObjectuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetQueryObjectuiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetQueryiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetQueryiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetRenderbufferParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetRenderbufferParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetShaderInfoLog)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetShaderInfoLog( (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(5,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetShaderSource)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetShaderSource( (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(5,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetShaderiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetShaderiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetString)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->glGetString( (GLenum )  (int) RING_API_GETNUMBER(2)),"GLubyte");
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetStringi)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->glGetStringi( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3)),"GLubyte");
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetSynciv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetSynciv(* (GLsync  *) RING_API_GETCPOINTER(2,"GLsync"), (GLenum )  (int) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLint *) RING_API_GETCPOINTER(6,"GLint"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"GLsync"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexImage)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexImage( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5),(GLvoid *) RING_API_GETCPOINTER(6,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexLevelParameterfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexLevelParameterfv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexLevelParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexLevelParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(GLint *) RING_API_GETCPOINTER(5,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexParameterIiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexParameterIiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexParameterIuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexParameterIuiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexParameterfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexParameterfv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTexParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTexParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetTransformFeedbackVarying)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetTransformFeedbackVarying( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4),(GLsizei *) RING_API_GETCPOINTER(5,"GLsizei"),(GLsizei *) RING_API_GETCPOINTER(6,"GLsizei"),(GLenum *) RING_API_GETCPOINTER(7,"GLenum"),(GLchar *) RING_API_GETCPOINTER(8,"GLchar"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetUniformBlockIndex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glGetUniformBlockIndex( (GLuint ) RING_API_GETNUMBER(2),(GLchar *) RING_API_GETCPOINTER(3,"GLchar")));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetUniformLocation)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glGetUniformLocation( (GLuint ) RING_API_GETNUMBER(2),(GLchar *) RING_API_GETCPOINTER(3,"GLchar")));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetUniformfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetUniformfv( (GLuint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetUniformiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetUniformiv( (GLuint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetUniformuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetUniformuiv( (GLuint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribIiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetVertexAttribIiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribIuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetVertexAttribIuiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribdv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetVertexAttribdv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLdouble *) RING_API_GETCPOINTER(4,"GLdouble"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetVertexAttribfv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glGetVertexAttribiv( (GLuint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glHint)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glHint( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIndexub)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glIndexub( (GLubyte ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIndexubv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glIndexubv((GLubyte *) RING_API_GETCPOINTER(2,"GLubyte"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsBuffer( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsEnabled)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsEnabled( (GLenum )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsEnabledi)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsEnabledi( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsFramebuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsFramebuffer( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsProgram( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsQuery)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsQuery( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsRenderbuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsRenderbuffer( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsShader)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsShader( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsSync)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	RING_API_RETNUMBER(pObject->glIsSync(* (GLsync  *) RING_API_GETCPOINTER(2,"GLsync")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"GLsync"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsTexture)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsTexture( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glIsVertexArray)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glIsVertexArray( (GLuint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glLineWidth)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glLineWidth( (GLfloat ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glLinkProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glLinkProgram( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glLogicOp)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glLogicOp( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glMapBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->glMapBuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3)),"GLvoid");
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glMapBufferRange)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->glMapBufferRange( (GLenum )  (int) RING_API_GETNUMBER(2), (GLintptr ) RING_API_GETNUMBER(3), (GLsizeiptr ) RING_API_GETNUMBER(4), (GLbitfield )  (int) RING_API_GETNUMBER(5)),"GLvoid");
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glMultiDrawArrays)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glMultiDrawArrays( (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"), (GLsizei )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPixelStoref)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPixelStoref( (GLenum )  (int) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPixelStorei)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPixelStorei( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPointParameterf)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPointParameterf( (GLenum )  (int) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPointParameterfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPointParameterfv( (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPointParameteri)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPointParameteri( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPointParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPointParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPointSize)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPointSize( (GLfloat ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPolygonMode)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPolygonMode( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPolygonOffset)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPolygonOffset( (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glPrimitiveRestartIndex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glPrimitiveRestartIndex( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glProvokingVertex)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glProvokingVertex( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glReadBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glReadBuffer( (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glReadPixels)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glReadPixels( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6), (GLenum )  (int) RING_API_GETNUMBER(7),(GLvoid *) RING_API_GETCPOINTER(8,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glRenderbufferStorage)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glRenderbufferStorage( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glRenderbufferStorageMultisample)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glRenderbufferStorageMultisample( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glSampleCoverage)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glSampleCoverage( (GLfloat ) RING_API_GETNUMBER(2), (GLboolean ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glSampleMaski)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glSampleMaski( (GLuint ) RING_API_GETNUMBER(2), (GLbitfield )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glScissor)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glScissor( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilFunc)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilFunc( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilFuncSeparate)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilFuncSeparate( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilMask)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilMask( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilMaskSeparate)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilMaskSeparate( (GLenum )  (int) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilOp)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilOp( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glStencilOpSeparate)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glStencilOpSeparate( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexBuffer( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLenum )  (int) RING_API_GETNUMBER(7), (GLenum )  (int) RING_API_GETNUMBER(8),(GLvoid *) RING_API_GETCPOINTER(9,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLenum )  (int) RING_API_GETNUMBER(8), (GLenum )  (int) RING_API_GETNUMBER(9),(GLvoid *) RING_API_GETCPOINTER(10,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexImage2DMultisample)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexImage2DMultisample( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLboolean ) RING_API_GETNUMBER(7));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexImage3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 11 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexImage3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8), (GLenum )  (int) RING_API_GETNUMBER(9), (GLenum )  (int) RING_API_GETNUMBER(10),(GLvoid *) RING_API_GETCPOINTER(11,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexImage3DMultisample)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexImage3DMultisample( (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLboolean ) RING_API_GETNUMBER(8));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameterIiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameterIiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameterIuiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameterIuiv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameterf)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameterf( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameterfv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameterfv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameteri)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameteri( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexParameteriv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexParameteriv( (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexSubImage1D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexSubImage1D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6), (GLenum )  (int) RING_API_GETNUMBER(7),(GLvoid *) RING_API_GETCPOINTER(8,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexSubImage2D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexSubImage2D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLenum )  (int) RING_API_GETNUMBER(8), (GLenum )  (int) RING_API_GETNUMBER(9),(GLvoid *) RING_API_GETCPOINTER(10,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glTexSubImage3D)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(12) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glTexSubImage3D( (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9), (GLenum )  (int) RING_API_GETNUMBER(10), (GLenum )  (int) RING_API_GETNUMBER(11),(GLvoid *) RING_API_GETCPOINTER(12,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1f)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1f( (GLint ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1i)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1i( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1iv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1iv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1ui)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1ui( (GLint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform1uiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform1uiv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2f)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2f( (GLint ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2i)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2i( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2iv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2iv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2ui)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2ui( (GLint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform2uiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform2uiv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3f)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3f( (GLint ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3i)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3i( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3iv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3iv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3ui)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3ui( (GLint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform3uiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform3uiv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4f)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4f( (GLint ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5), (GLfloat ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4i)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4i( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4iv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4iv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4ui)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4ui( (GLint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4), (GLuint ) RING_API_GETNUMBER(5), (GLuint ) RING_API_GETNUMBER(6));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniform4uiv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniform4uiv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformBlockBinding)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformBlockBinding( (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix2fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2x3fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix2x3fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2x4fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix2x4fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix3fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3x2fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix3x2fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3x4fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix3x4fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix4fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4x2fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix4x2fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4x3fv)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUniformMatrix4x3fv( (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLboolean ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUnmapBuffer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->glUnmapBuffer( (GLenum )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glUseProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glUseProgram( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glValidateProgram)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glValidateProgram( (GLuint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glVertexAttribPointer)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glVertexAttribPointer( (GLuint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4), (GLboolean ) RING_API_GETNUMBER(5), (GLsizei )  (int) RING_API_GETNUMBER(6),(GLvoid *) RING_API_GETCPOINTER(7,"GLvoid"));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glViewport)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glViewport( (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLsizei )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_glWaitSync)
+{
+	QOpenGLFunctions_3_2_Core *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->glWaitSync(* (GLsync  *) RING_API_GETCPOINTER(2,"GLsync"), (GLbitfield )  (int) RING_API_GETNUMBER(3),* (GLuint64  *) RING_API_GETCPOINTER(4,"GLuint64"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"GLsync"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"GLuint64"));
+}
+
+
 RING_FUNC(ring_QSurfaceFormat_alphaBufferSize)
 {
 	QSurfaceFormat *pObject ;
@@ -108207,6 +115733,17 @@ RING_FUNC(ring_QOpenGLContext_new)
 	RING_API_RETCPOINTER(pObject,"QOpenGLContext");
 }
 
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QOpenGLFunctions_3_2_Core *pObject = new QOpenGLFunctions_3_2_Core();
+	RING_API_RETCPOINTER(pObject,"QOpenGLFunctions_3_2_Core");
+}
+
 RING_FUNC(ring_QSurfaceFormat_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -110734,6 +118271,21 @@ RING_FUNC(ring_QOpenGLContext_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QOpenGLContext *) RING_API_GETCPOINTER(1,"QOpenGLContext");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QOpenGLFunctions_3_2_Core_delete)
+{
+	QOpenGLFunctions_3_2_Core *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QOpenGLFunctions_3_2_Core *) RING_API_GETCPOINTER(1,"QOpenGLFunctions_3_2_Core");
 		delete pObject ;
 	}
 }
@@ -115673,6 +123225,260 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglcontext_openglmodulehandle",ring_QOpenGLContext_openGLModuleHandle);
 	ring_vm_funcregister("qopenglcontext_openglmoduletype",ring_QOpenGLContext_openGLModuleType);
 	ring_vm_funcregister("qopenglcontext_supportsthreadedopengl",ring_QOpenGLContext_supportsThreadedOpenGL);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glactivetexture",ring_QOpenGLFunctions_3_2_Core_glActiveTexture);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glattachshader",ring_QOpenGLFunctions_3_2_Core_glAttachShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbeginconditionalrender",ring_QOpenGLFunctions_3_2_Core_glBeginConditionalRender);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbeginquery",ring_QOpenGLFunctions_3_2_Core_glBeginQuery);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbegintransformfeedback",ring_QOpenGLFunctions_3_2_Core_glBeginTransformFeedback);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindattriblocation",ring_QOpenGLFunctions_3_2_Core_glBindAttribLocation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindbuffer",ring_QOpenGLFunctions_3_2_Core_glBindBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindbufferbase",ring_QOpenGLFunctions_3_2_Core_glBindBufferBase);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindbufferrange",ring_QOpenGLFunctions_3_2_Core_glBindBufferRange);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindfragdatalocation",ring_QOpenGLFunctions_3_2_Core_glBindFragDataLocation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindframebuffer",ring_QOpenGLFunctions_3_2_Core_glBindFramebuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindrenderbuffer",ring_QOpenGLFunctions_3_2_Core_glBindRenderbuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindtexture",ring_QOpenGLFunctions_3_2_Core_glBindTexture);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbindvertexarray",ring_QOpenGLFunctions_3_2_Core_glBindVertexArray);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblendcolor",ring_QOpenGLFunctions_3_2_Core_glBlendColor);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblendequation",ring_QOpenGLFunctions_3_2_Core_glBlendEquation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblendequationseparate",ring_QOpenGLFunctions_3_2_Core_glBlendEquationSeparate);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblendfunc",ring_QOpenGLFunctions_3_2_Core_glBlendFunc);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblendfuncseparate",ring_QOpenGLFunctions_3_2_Core_glBlendFuncSeparate);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glblitframebuffer",ring_QOpenGLFunctions_3_2_Core_glBlitFramebuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbufferdata",ring_QOpenGLFunctions_3_2_Core_glBufferData);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glbuffersubdata",ring_QOpenGLFunctions_3_2_Core_glBufferSubData);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcheckframebufferstatus",ring_QOpenGLFunctions_3_2_Core_glCheckFramebufferStatus);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclampcolor",ring_QOpenGLFunctions_3_2_Core_glClampColor);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclear",ring_QOpenGLFunctions_3_2_Core_glClear);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearbufferfi",ring_QOpenGLFunctions_3_2_Core_glClearBufferfi);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearbufferfv",ring_QOpenGLFunctions_3_2_Core_glClearBufferfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearbufferiv",ring_QOpenGLFunctions_3_2_Core_glClearBufferiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearbufferuiv",ring_QOpenGLFunctions_3_2_Core_glClearBufferuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearcolor",ring_QOpenGLFunctions_3_2_Core_glClearColor);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcleardepth",ring_QOpenGLFunctions_3_2_Core_glClearDepth);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclearstencil",ring_QOpenGLFunctions_3_2_Core_glClearStencil);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glclientwaitsync",ring_QOpenGLFunctions_3_2_Core_glClientWaitSync);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcolormask",ring_QOpenGLFunctions_3_2_Core_glColorMask);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcolormaski",ring_QOpenGLFunctions_3_2_Core_glColorMaski);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompileshader",ring_QOpenGLFunctions_3_2_Core_glCompileShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedteximage1d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedteximage2d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedteximage3d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexImage3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedtexsubimage1d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedtexsubimage2d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcompressedtexsubimage3d",ring_QOpenGLFunctions_3_2_Core_glCompressedTexSubImage3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopybuffersubdata",ring_QOpenGLFunctions_3_2_Core_glCopyBufferSubData);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopyteximage1d",ring_QOpenGLFunctions_3_2_Core_glCopyTexImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopyteximage2d",ring_QOpenGLFunctions_3_2_Core_glCopyTexImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopytexsubimage1d",ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopytexsubimage2d",ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcopytexsubimage3d",ring_QOpenGLFunctions_3_2_Core_glCopyTexSubImage3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcreateprogram",ring_QOpenGLFunctions_3_2_Core_glCreateProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcreateshader",ring_QOpenGLFunctions_3_2_Core_glCreateShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glcullface",ring_QOpenGLFunctions_3_2_Core_glCullFace);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeletebuffers",ring_QOpenGLFunctions_3_2_Core_glDeleteBuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeleteframebuffers",ring_QOpenGLFunctions_3_2_Core_glDeleteFramebuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeleteprogram",ring_QOpenGLFunctions_3_2_Core_glDeleteProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeletequeries",ring_QOpenGLFunctions_3_2_Core_glDeleteQueries);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeleterenderbuffers",ring_QOpenGLFunctions_3_2_Core_glDeleteRenderbuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeleteshader",ring_QOpenGLFunctions_3_2_Core_glDeleteShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeletesync",ring_QOpenGLFunctions_3_2_Core_glDeleteSync);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeletetextures",ring_QOpenGLFunctions_3_2_Core_glDeleteTextures);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldeletevertexarrays",ring_QOpenGLFunctions_3_2_Core_glDeleteVertexArrays);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldepthfunc",ring_QOpenGLFunctions_3_2_Core_glDepthFunc);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldepthmask",ring_QOpenGLFunctions_3_2_Core_glDepthMask);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldepthrange",ring_QOpenGLFunctions_3_2_Core_glDepthRange);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldetachshader",ring_QOpenGLFunctions_3_2_Core_glDetachShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldisable",ring_QOpenGLFunctions_3_2_Core_glDisable);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldisablevertexattribarray",ring_QOpenGLFunctions_3_2_Core_glDisableVertexAttribArray);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldisablei",ring_QOpenGLFunctions_3_2_Core_glDisablei);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawarrays",ring_QOpenGLFunctions_3_2_Core_glDrawArrays);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawarraysinstanced",ring_QOpenGLFunctions_3_2_Core_glDrawArraysInstanced);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawbuffer",ring_QOpenGLFunctions_3_2_Core_glDrawBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawbuffers",ring_QOpenGLFunctions_3_2_Core_glDrawBuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawelements",ring_QOpenGLFunctions_3_2_Core_glDrawElements);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawelementsbasevertex",ring_QOpenGLFunctions_3_2_Core_glDrawElementsBaseVertex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawelementsinstanced",ring_QOpenGLFunctions_3_2_Core_glDrawElementsInstanced);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawelementsinstancedbasevertex",ring_QOpenGLFunctions_3_2_Core_glDrawElementsInstancedBaseVertex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawrangeelements",ring_QOpenGLFunctions_3_2_Core_glDrawRangeElements);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gldrawrangeelementsbasevertex",ring_QOpenGLFunctions_3_2_Core_glDrawRangeElementsBaseVertex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glenable",ring_QOpenGLFunctions_3_2_Core_glEnable);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glenablevertexattribarray",ring_QOpenGLFunctions_3_2_Core_glEnableVertexAttribArray);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glenablei",ring_QOpenGLFunctions_3_2_Core_glEnablei);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glendconditionalrender",ring_QOpenGLFunctions_3_2_Core_glEndConditionalRender);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glendquery",ring_QOpenGLFunctions_3_2_Core_glEndQuery);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glendtransformfeedback",ring_QOpenGLFunctions_3_2_Core_glEndTransformFeedback);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glfencesync",ring_QOpenGLFunctions_3_2_Core_glFenceSync);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glfinish",ring_QOpenGLFunctions_3_2_Core_glFinish);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glflush",ring_QOpenGLFunctions_3_2_Core_glFlush);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glflushmappedbufferrange",ring_QOpenGLFunctions_3_2_Core_glFlushMappedBufferRange);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebufferrenderbuffer",ring_QOpenGLFunctions_3_2_Core_glFramebufferRenderbuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebuffertexture",ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebuffertexture1d",ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebuffertexture2d",ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebuffertexture3d",ring_QOpenGLFunctions_3_2_Core_glFramebufferTexture3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glframebuffertexturelayer",ring_QOpenGLFunctions_3_2_Core_glFramebufferTextureLayer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glfrontface",ring_QOpenGLFunctions_3_2_Core_glFrontFace);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgenbuffers",ring_QOpenGLFunctions_3_2_Core_glGenBuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgenframebuffers",ring_QOpenGLFunctions_3_2_Core_glGenFramebuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgenqueries",ring_QOpenGLFunctions_3_2_Core_glGenQueries);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgenrenderbuffers",ring_QOpenGLFunctions_3_2_Core_glGenRenderbuffers);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgentextures",ring_QOpenGLFunctions_3_2_Core_glGenTextures);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgenvertexarrays",ring_QOpenGLFunctions_3_2_Core_glGenVertexArrays);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgeneratemipmap",ring_QOpenGLFunctions_3_2_Core_glGenerateMipmap);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveattrib",ring_QOpenGLFunctions_3_2_Core_glGetActiveAttrib);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveuniform",ring_QOpenGLFunctions_3_2_Core_glGetActiveUniform);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveuniformblockname",ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockName);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveuniformblockiv",ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformBlockiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveuniformname",ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformName);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetactiveuniformsiv",ring_QOpenGLFunctions_3_2_Core_glGetActiveUniformsiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetattachedshaders",ring_QOpenGLFunctions_3_2_Core_glGetAttachedShaders);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetattriblocation",ring_QOpenGLFunctions_3_2_Core_glGetAttribLocation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetbooleani_v",ring_QOpenGLFunctions_3_2_Core_glGetBooleani_v);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetbooleanv",ring_QOpenGLFunctions_3_2_Core_glGetBooleanv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetbufferparameteri64v",ring_QOpenGLFunctions_3_2_Core_glGetBufferParameteri64v);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetbufferparameteriv",ring_QOpenGLFunctions_3_2_Core_glGetBufferParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetbuffersubdata",ring_QOpenGLFunctions_3_2_Core_glGetBufferSubData);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetcompressedteximage",ring_QOpenGLFunctions_3_2_Core_glGetCompressedTexImage);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetdoublev",ring_QOpenGLFunctions_3_2_Core_glGetDoublev);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgeterror",ring_QOpenGLFunctions_3_2_Core_glGetError);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetfloatv",ring_QOpenGLFunctions_3_2_Core_glGetFloatv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetfragdatalocation",ring_QOpenGLFunctions_3_2_Core_glGetFragDataLocation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetframebufferattachmentparameteriv",ring_QOpenGLFunctions_3_2_Core_glGetFramebufferAttachmentParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetinteger64i_v",ring_QOpenGLFunctions_3_2_Core_glGetInteger64i_v);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetinteger64v",ring_QOpenGLFunctions_3_2_Core_glGetInteger64v);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetintegeri_v",ring_QOpenGLFunctions_3_2_Core_glGetIntegeri_v);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetintegerv",ring_QOpenGLFunctions_3_2_Core_glGetIntegerv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetmultisamplefv",ring_QOpenGLFunctions_3_2_Core_glGetMultisamplefv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetprograminfolog",ring_QOpenGLFunctions_3_2_Core_glGetProgramInfoLog);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetprogramiv",ring_QOpenGLFunctions_3_2_Core_glGetProgramiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetqueryobjectiv",ring_QOpenGLFunctions_3_2_Core_glGetQueryObjectiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetqueryobjectuiv",ring_QOpenGLFunctions_3_2_Core_glGetQueryObjectuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetqueryiv",ring_QOpenGLFunctions_3_2_Core_glGetQueryiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetrenderbufferparameteriv",ring_QOpenGLFunctions_3_2_Core_glGetRenderbufferParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetshaderinfolog",ring_QOpenGLFunctions_3_2_Core_glGetShaderInfoLog);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetshadersource",ring_QOpenGLFunctions_3_2_Core_glGetShaderSource);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetshaderiv",ring_QOpenGLFunctions_3_2_Core_glGetShaderiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetstring",ring_QOpenGLFunctions_3_2_Core_glGetString);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetstringi",ring_QOpenGLFunctions_3_2_Core_glGetStringi);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetsynciv",ring_QOpenGLFunctions_3_2_Core_glGetSynciv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetteximage",ring_QOpenGLFunctions_3_2_Core_glGetTexImage);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexlevelparameterfv",ring_QOpenGLFunctions_3_2_Core_glGetTexLevelParameterfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexlevelparameteriv",ring_QOpenGLFunctions_3_2_Core_glGetTexLevelParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexparameteriiv",ring_QOpenGLFunctions_3_2_Core_glGetTexParameterIiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexparameteriuiv",ring_QOpenGLFunctions_3_2_Core_glGetTexParameterIuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexparameterfv",ring_QOpenGLFunctions_3_2_Core_glGetTexParameterfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettexparameteriv",ring_QOpenGLFunctions_3_2_Core_glGetTexParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgettransformfeedbackvarying",ring_QOpenGLFunctions_3_2_Core_glGetTransformFeedbackVarying);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetuniformblockindex",ring_QOpenGLFunctions_3_2_Core_glGetUniformBlockIndex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetuniformlocation",ring_QOpenGLFunctions_3_2_Core_glGetUniformLocation);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetuniformfv",ring_QOpenGLFunctions_3_2_Core_glGetUniformfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetuniformiv",ring_QOpenGLFunctions_3_2_Core_glGetUniformiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetuniformuiv",ring_QOpenGLFunctions_3_2_Core_glGetUniformuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetvertexattribiiv",ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribIiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetvertexattribiuiv",ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribIuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetvertexattribdv",ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribdv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetvertexattribfv",ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glgetvertexattribiv",ring_QOpenGLFunctions_3_2_Core_glGetVertexAttribiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glhint",ring_QOpenGLFunctions_3_2_Core_glHint);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glindexub",ring_QOpenGLFunctions_3_2_Core_glIndexub);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glindexubv",ring_QOpenGLFunctions_3_2_Core_glIndexubv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisbuffer",ring_QOpenGLFunctions_3_2_Core_glIsBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisenabled",ring_QOpenGLFunctions_3_2_Core_glIsEnabled);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisenabledi",ring_QOpenGLFunctions_3_2_Core_glIsEnabledi);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisframebuffer",ring_QOpenGLFunctions_3_2_Core_glIsFramebuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisprogram",ring_QOpenGLFunctions_3_2_Core_glIsProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisquery",ring_QOpenGLFunctions_3_2_Core_glIsQuery);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisrenderbuffer",ring_QOpenGLFunctions_3_2_Core_glIsRenderbuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisshader",ring_QOpenGLFunctions_3_2_Core_glIsShader);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glissync",ring_QOpenGLFunctions_3_2_Core_glIsSync);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glistexture",ring_QOpenGLFunctions_3_2_Core_glIsTexture);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glisvertexarray",ring_QOpenGLFunctions_3_2_Core_glIsVertexArray);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gllinewidth",ring_QOpenGLFunctions_3_2_Core_glLineWidth);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gllinkprogram",ring_QOpenGLFunctions_3_2_Core_glLinkProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gllogicop",ring_QOpenGLFunctions_3_2_Core_glLogicOp);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glmapbuffer",ring_QOpenGLFunctions_3_2_Core_glMapBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glmapbufferrange",ring_QOpenGLFunctions_3_2_Core_glMapBufferRange);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glmultidrawarrays",ring_QOpenGLFunctions_3_2_Core_glMultiDrawArrays);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpixelstoref",ring_QOpenGLFunctions_3_2_Core_glPixelStoref);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpixelstorei",ring_QOpenGLFunctions_3_2_Core_glPixelStorei);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpointparameterf",ring_QOpenGLFunctions_3_2_Core_glPointParameterf);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpointparameterfv",ring_QOpenGLFunctions_3_2_Core_glPointParameterfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpointparameteri",ring_QOpenGLFunctions_3_2_Core_glPointParameteri);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpointparameteriv",ring_QOpenGLFunctions_3_2_Core_glPointParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpointsize",ring_QOpenGLFunctions_3_2_Core_glPointSize);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpolygonmode",ring_QOpenGLFunctions_3_2_Core_glPolygonMode);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glpolygonoffset",ring_QOpenGLFunctions_3_2_Core_glPolygonOffset);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glprimitiverestartindex",ring_QOpenGLFunctions_3_2_Core_glPrimitiveRestartIndex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glprovokingvertex",ring_QOpenGLFunctions_3_2_Core_glProvokingVertex);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glreadbuffer",ring_QOpenGLFunctions_3_2_Core_glReadBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glreadpixels",ring_QOpenGLFunctions_3_2_Core_glReadPixels);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glrenderbufferstorage",ring_QOpenGLFunctions_3_2_Core_glRenderbufferStorage);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glrenderbufferstoragemultisample",ring_QOpenGLFunctions_3_2_Core_glRenderbufferStorageMultisample);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glsamplecoverage",ring_QOpenGLFunctions_3_2_Core_glSampleCoverage);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glsamplemaski",ring_QOpenGLFunctions_3_2_Core_glSampleMaski);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glscissor",ring_QOpenGLFunctions_3_2_Core_glScissor);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilfunc",ring_QOpenGLFunctions_3_2_Core_glStencilFunc);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilfuncseparate",ring_QOpenGLFunctions_3_2_Core_glStencilFuncSeparate);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilmask",ring_QOpenGLFunctions_3_2_Core_glStencilMask);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilmaskseparate",ring_QOpenGLFunctions_3_2_Core_glStencilMaskSeparate);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilop",ring_QOpenGLFunctions_3_2_Core_glStencilOp);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glstencilopseparate",ring_QOpenGLFunctions_3_2_Core_glStencilOpSeparate);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexbuffer",ring_QOpenGLFunctions_3_2_Core_glTexBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glteximage1d",ring_QOpenGLFunctions_3_2_Core_glTexImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glteximage2d",ring_QOpenGLFunctions_3_2_Core_glTexImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glteximage2dmultisample",ring_QOpenGLFunctions_3_2_Core_glTexImage2DMultisample);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glteximage3d",ring_QOpenGLFunctions_3_2_Core_glTexImage3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glteximage3dmultisample",ring_QOpenGLFunctions_3_2_Core_glTexImage3DMultisample);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameteriiv",ring_QOpenGLFunctions_3_2_Core_glTexParameterIiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameteriuiv",ring_QOpenGLFunctions_3_2_Core_glTexParameterIuiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameterf",ring_QOpenGLFunctions_3_2_Core_glTexParameterf);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameterfv",ring_QOpenGLFunctions_3_2_Core_glTexParameterfv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameteri",ring_QOpenGLFunctions_3_2_Core_glTexParameteri);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexparameteriv",ring_QOpenGLFunctions_3_2_Core_glTexParameteriv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexsubimage1d",ring_QOpenGLFunctions_3_2_Core_glTexSubImage1D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexsubimage2d",ring_QOpenGLFunctions_3_2_Core_glTexSubImage2D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gltexsubimage3d",ring_QOpenGLFunctions_3_2_Core_glTexSubImage3D);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1f",ring_QOpenGLFunctions_3_2_Core_glUniform1f);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1fv",ring_QOpenGLFunctions_3_2_Core_glUniform1fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1i",ring_QOpenGLFunctions_3_2_Core_glUniform1i);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1iv",ring_QOpenGLFunctions_3_2_Core_glUniform1iv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1ui",ring_QOpenGLFunctions_3_2_Core_glUniform1ui);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform1uiv",ring_QOpenGLFunctions_3_2_Core_glUniform1uiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2f",ring_QOpenGLFunctions_3_2_Core_glUniform2f);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2fv",ring_QOpenGLFunctions_3_2_Core_glUniform2fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2i",ring_QOpenGLFunctions_3_2_Core_glUniform2i);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2iv",ring_QOpenGLFunctions_3_2_Core_glUniform2iv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2ui",ring_QOpenGLFunctions_3_2_Core_glUniform2ui);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform2uiv",ring_QOpenGLFunctions_3_2_Core_glUniform2uiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3f",ring_QOpenGLFunctions_3_2_Core_glUniform3f);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3fv",ring_QOpenGLFunctions_3_2_Core_glUniform3fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3i",ring_QOpenGLFunctions_3_2_Core_glUniform3i);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3iv",ring_QOpenGLFunctions_3_2_Core_glUniform3iv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3ui",ring_QOpenGLFunctions_3_2_Core_glUniform3ui);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform3uiv",ring_QOpenGLFunctions_3_2_Core_glUniform3uiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4f",ring_QOpenGLFunctions_3_2_Core_glUniform4f);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4fv",ring_QOpenGLFunctions_3_2_Core_glUniform4fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4i",ring_QOpenGLFunctions_3_2_Core_glUniform4i);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4iv",ring_QOpenGLFunctions_3_2_Core_glUniform4iv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4ui",ring_QOpenGLFunctions_3_2_Core_glUniform4ui);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniform4uiv",ring_QOpenGLFunctions_3_2_Core_glUniform4uiv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformblockbinding",ring_QOpenGLFunctions_3_2_Core_glUniformBlockBinding);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix2fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix2x3fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2x3fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix2x4fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix2x4fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix3fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix3x2fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3x2fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix3x4fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix3x4fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix4fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix4x2fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4x2fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluniformmatrix4x3fv",ring_QOpenGLFunctions_3_2_Core_glUniformMatrix4x3fv);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glunmapbuffer",ring_QOpenGLFunctions_3_2_Core_glUnmapBuffer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_gluseprogram",ring_QOpenGLFunctions_3_2_Core_glUseProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glvalidateprogram",ring_QOpenGLFunctions_3_2_Core_glValidateProgram);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glvertexattribpointer",ring_QOpenGLFunctions_3_2_Core_glVertexAttribPointer);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glviewport",ring_QOpenGLFunctions_3_2_Core_glViewport);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_glwaitsync",ring_QOpenGLFunctions_3_2_Core_glWaitSync);
 	ring_vm_funcregister("qsurfaceformat_alphabuffersize",ring_QSurfaceFormat_alphaBufferSize);
 	ring_vm_funcregister("qsurfaceformat_bluebuffersize",ring_QSurfaceFormat_blueBufferSize);
 	ring_vm_funcregister("qsurfaceformat_depthbuffersize",ring_QSurfaceFormat_depthBufferSize);
@@ -115883,6 +123689,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcalendarwidget_new",ring_QCalendarWidget_new);
 	ring_vm_funcregister("qopenglfunctions_new",ring_QOpenGLFunctions_new);
 	ring_vm_funcregister("qopenglcontext_new",ring_QOpenGLContext_new);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_new",ring_QOpenGLFunctions_3_2_Core_new);
 	ring_vm_funcregister("qsurfaceformat_new",ring_QSurfaceFormat_new);
 	ring_vm_funcregister("qopenglwidget_new",ring_QOpenGLWidget_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
@@ -116052,6 +123859,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcalendarwidget_delete",ring_QCalendarWidget_delete);
 	ring_vm_funcregister("qopenglfunctions_delete",ring_QOpenGLFunctions_delete);
 	ring_vm_funcregister("qopenglcontext_delete",ring_QOpenGLContext_delete);
+	ring_vm_funcregister("qopenglfunctions_3_2_core_delete",ring_QOpenGLFunctions_3_2_Core_delete);
 	ring_vm_funcregister("qsurfaceformat_delete",ring_QSurfaceFormat_delete);
 	ring_vm_funcregister("qopenglwidget_delete",ring_QOpenGLWidget_delete);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
