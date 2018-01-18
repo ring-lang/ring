@@ -107076,23 +107076,6 @@ RING_FUNC(ring_QOpenGLTexture_isCreated)
 }
 
 
-RING_FUNC(ring_QOpenGLTexture_isFixedSamplePositions)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	RING_API_RETNUMBER(pObject->isFixedSamplePositions());
-}
-
-
 RING_FUNC(ring_QOpenGLTexture_isStorageAllocated)
 {
 	QOpenGLTexture *pObject ;
@@ -118485,7 +118468,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopengltexture_isbound",ring_QOpenGLTexture_isBound);
 	ring_vm_funcregister("qopengltexture_isbound_2",ring_QOpenGLTexture_isBound_2);
 	ring_vm_funcregister("qopengltexture_iscreated",ring_QOpenGLTexture_isCreated);
-	ring_vm_funcregister("qopengltexture_isfixedsamplepositions",ring_QOpenGLTexture_isFixedSamplePositions);
 	ring_vm_funcregister("qopengltexture_isstorageallocated",ring_QOpenGLTexture_isStorageAllocated);
 	ring_vm_funcregister("qopengltexture_istextureview",ring_QOpenGLTexture_isTextureView);
 	ring_vm_funcregister("qopengltexture_layers",ring_QOpenGLTexture_layers);
