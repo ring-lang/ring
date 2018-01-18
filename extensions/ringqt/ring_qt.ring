@@ -19771,6 +19771,71 @@ Class QOpenGLVersionProfile
 	Func version 
 		return QOpenGLVersionProfile_version(pObject)
 
+Class QVector2D
+
+	pObject
+
+	Func init P1,P2
+		pObject = QVector2D_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QVector2D_delete(pObject)
+
+	Func distanceToLine P1,P2
+		return QVector2D_distanceToLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func distanceToPoint P1
+		return QVector2D_distanceToPoint(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNull 
+		return QVector2D_isNull(pObject)
+
+	Func length 
+		return QVector2D_length(pObject)
+
+	Func lengthSquared 
+		return QVector2D_lengthSquared(pObject)
+
+	Func normalize 
+		return QVector2D_normalize(pObject)
+
+	Func normalized 
+		pTempObj = new QVector2D
+		pTempObj.pObject = QVector2D_normalized(pObject)
+		return pTempObj
+
+	Func setX P1
+		return QVector2D_setX(pObject,P1)
+
+	Func setY P1
+		return QVector2D_setY(pObject,P1)
+
+	Func toPoint 
+		pTempObj = new QPoint
+		pTempObj.pObject = QVector2D_toPoint(pObject)
+		return pTempObj
+
+	Func toPointF 
+		pTempObj = new QPointF
+		pTempObj.pObject = QVector2D_toPointF(pObject)
+		return pTempObj
+
+	Func toVector3D 
+		return QVector2D_toVector3D(pObject)
+
+	Func toVector4D 
+		return QVector2D_toVector4D(pObject)
+
+	Func x 
+		return QVector2D_x(pObject)
+
+	Func y 
+		return QVector2D_y(pObject)
+
+	Func dotProduct P1,P2
+		return QVector2D_dotProduct(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
 Class QPixmap2 from QPixmap
 
 	pObject

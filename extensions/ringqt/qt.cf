@@ -252,6 +252,10 @@ extern "C" {
 #include <QSurfaceFormat>
 #include <QOpenGLFunctions_3_2_Core>
 #include <QOpenGLVersionProfile>
+#include <QVector2D>
+#include <QVector3D>
+#include <QVector4D>
+
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -9449,3 +9453,25 @@ void setVersion(int majorVersion, int minorVersion)
 QPair<int, int> version(void)
 
 </filter>
+
+<class>
+name: QVector2D
+para: float,float
+</class>
+
+float distanceToLine(QVector2D point, QVector2D direction)
+float distanceToPoint(QVector2D point)
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QVector2D normalized(void)
+void setX(float x)
+void setY(float y)
+QPoint toPoint(void)
+QPointF toPointF(void)
+QVector3D toVector3D(void)
+QVector4D toVector4D(void)
+float x(void)
+float y(void)
+float dotProduct(QVector2D v1, QVector2D v2)
