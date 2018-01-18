@@ -3250,6 +3250,58 @@ Parent Class : QWidget
 * bool unifiedTitleAndToolBarOnMac(void)
 
 .. index::
+	pair: RingQt Classes Reference; QMatrix4x4 Class
+
+QMatrix4x4 Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMatrix4x4.html
+
+
+Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
+
+* QVector4D column(int index)
+* qreal * constData(void)
+* qreal * data_2(void)
+* qreal determinant(void)
+* void fill(qreal value)
+* void flipCoordinates(void)
+* void frustum(qreal left, qreal right, qreal bottom, qreal top, qreal nearPlane, qreal farPlane)
+* QMatrix4x4 inverted(bool * invertible)
+* bool isIdentity(void)
+* void lookAt(QVector3D eye, QVector3D center, QVector3D up)
+* QPoint map(QPoint point)
+* QPointF map_2(QPointF point)
+* QVector3D map_3(QVector3D point)
+* QVector4D map_4(QVector4D point)
+* QRect mapRect(QRect rect)
+* QRectF mapRect_2(QRectF rect)
+* QVector3D mapVector(QVector3D vector)
+* QMatrix3x3 normalMatrix(void)
+* void optimize(void)
+* void ortho(qreal left, qreal right, qreal bottom, qreal top, qreal nearPlane, qreal farPlane)
+* void ortho_2(QRect rect)
+* void ortho_3(QRectF rect)
+* void perspective(qreal angle, qreal aspect, qreal nearPlane, qreal farPlane)
+* void rotate(qreal angle, QVector3D vector)
+* void rotate_2(QQuaternion quaternion)
+* void rotate_3(qreal angle, qreal x, qreal y, qreal z)
+* QVector4D row(int index)
+* void scale(QVector3D vector)
+* void scale_2(qreal x, qreal y)
+* void scale_3(qreal x, qreal y, qreal z)
+* void scale_4(qreal factor)
+* void setColumn(int index, QVector4D value)
+* void setRow(int index, QVector4D value)
+* void setToIdentity(void)
+* QMatrix toAffine(void)
+* QTransform toTransform_2(qreal distanceToPlane)
+* void translate(QVector3D vector)
+* void translate_2(qreal x, qreal y)
+* void translate_3(qreal x, qreal y, qreal z)
+* QMatrix4x4 transposed(void)
+.. index::
 	pair: RingQt Classes Reference; QMdiArea Class
 
 QMdiArea Class
@@ -4883,6 +4935,7 @@ Parameters : float,float,float,float
 * QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 * QQuaternion rotationTo(QVector3D from, QVector3D to)
 * QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+
 .. index::
 	pair: RingQt Classes Reference; QRadioButton Class
 

@@ -220,18 +220,19 @@ Better RingQt
 
 The next classes are added to RingQt
 
-(1)  QStackedWidget Class
-(2)  QCalendarWidget Class
-(3)  QOpenGLFunctions Class
-(4)  QOpenGLContext Class
-(5)  QSurfaceFormat Class
-(6)  QOpenGLWidget Class
+(1)  QStackedWidget
+(2)  QCalendarWidget
+(3)  QOpenGLFunctions
+(4)  QOpenGLContext
+(5)  QSurfaceFormat
+(6)  QOpenGLWidget
 (7)  QOpenGLVersionProfile
 (8)  QOpenGLFunctions_3_2_Core
 (9)  QVector2D
 (10) QVector3D
 (11) QVector4D
 (12) QQuaternion
+(13) QMatrix4x4
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
