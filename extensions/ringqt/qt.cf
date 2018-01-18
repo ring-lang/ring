@@ -10076,7 +10076,9 @@ bool isAutoMipMapGenerationEnabled(void)
 bool isBound(void)
 bool isBound@2(uint unit)
 bool isCreated(void)
+<comment>
 bool isFixedSamplePositions(void)
+</comment>
 bool isStorageAllocated(void)
 bool isTextureView(void)
 int layers(void)

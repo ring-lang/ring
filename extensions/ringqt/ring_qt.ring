@@ -21203,9 +21203,6 @@ Class QOpenGLTexture
 	Func isCreated 
 		return QOpenGLTexture_isCreated(pObject)
 
-	Func isFixedSamplePositions 
-		return QOpenGLTexture_isFixedSamplePositions(pObject)
-
 	Func isStorageAllocated 
 		return QOpenGLTexture_isStorageAllocated(pObject)
 
