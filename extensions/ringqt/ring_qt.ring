@@ -20493,7 +20493,7 @@ Class QOpenGLTimerQuery
 	Func destroy 
 		return QOpenGLTimerQuery_destroy(pObject)
 
-	Func end 
+	Func endtimer 
 		return QOpenGLTimerQuery_end(pObject)
 
 	Func isCreated 
