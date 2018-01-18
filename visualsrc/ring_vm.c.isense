@@ -188,12 +188,10 @@ Type: List *
 aGlobalScopes
 Type: List *
 aActiveGlobalScopes
-Type: List *
-aFileGlobalScope
-Type: char *
-cFileNameInClassRegion
 Type: int
 nCurrentGlobalScope
+Type: char *
+cFileNameInClassRegion
 END:
 Type: VM
 struct VM
