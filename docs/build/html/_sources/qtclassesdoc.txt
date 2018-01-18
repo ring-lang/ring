@@ -4280,6 +4280,15 @@ Parent Class : QWidget
 * const char *getPaintEvent(void)
 * void setResizeEvent(const char *cStr)
 * const char *getResizeEvent(void)
+* QOpenGLContext * context(void)
+* GLuint defaultFramebufferObject(void)
+* void doneCurrent(void)
+* QSurfaceFormat format(void)
+* QImage grabFramebuffer(void)
+* bool isValid(void)
+* void makeCurrent(void)
+* void setFormat(QSurfaceFormat format)
+* QOpenGLWidget::UpdateBehavior updateBehavior(void)
 
 .. index::
 	pair: RingQt Classes Reference; QPainter Class
