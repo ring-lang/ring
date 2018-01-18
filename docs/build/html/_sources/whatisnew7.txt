@@ -233,6 +233,16 @@ The next classes are added to RingQt
 (11) QVector4D
 (12) QQuaternion
 (13) QMatrix4x4
+(14) QOpenGLPaintDevice
+(15) QPaintDevice
+(16) QOpenGLTimerQuery
+(17) QOpenGLDebugLogger
+(18) QOpenGLFramebufferObject
+(19) QOpenGLVertexArrayObject
+(20) QOpenGLBuffer
+(21) QOpenGLShaderProgram
+(22) QOpenGLShader
+(23) QOpenGLTexture
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
