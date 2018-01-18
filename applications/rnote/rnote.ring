@@ -1421,7 +1421,7 @@ Class RNoteController from WindowsControllerParent
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
 				this.pSetActiveFileName()
 				lAskToSave = false
-				cTextHash  = sha256(textedit1.toplaintext())
+				cTextHash  = sha256(this.textedit1.toplaintext())
 			ok
 		}
 
