@@ -19918,11 +19918,6 @@ Class QVector3D
 		pTempObj.pObject = QVector3D_normalized(pObject)
 		return pTempObj
 
-	Func project P1,P2,P3
-		pTempObj = new QVector3D
-		pTempObj.pObject = QVector3D_project(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
 	Func setX P1
 		return QVector3D_setX(pObject,P1)
 
@@ -19950,11 +19945,6 @@ Class QVector3D
 	Func toVector4D 
 		pTempObj = new QVector4D
 		pTempObj.pObject = QVector3D_toVector4D(pObject)
-		return pTempObj
-
-	Func unproject P1,P2,P3
-		pTempObj = new QVector3D
-		pTempObj.pObject = QVector3D_unproject(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 	Func x 
@@ -20080,28 +20070,6 @@ Class QQuaternion
 	Func delete
 		pObject = QQuaternion_delete(pObject)
 
-	Func conjugated 
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_conjugated(pObject)
-		return pTempObj
-
-	Func getAxes P1,P2,P3
-		return QQuaternion_getAxes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func getAxisAndAngle P1,P2,P3,P4
-		return QQuaternion_getAxisAndAngle(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func getAxisAndAngle_2 P1,P2
-		return QQuaternion_getAxisAndAngle_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func getEulerAngles P1,P2,P3
-		return QQuaternion_getEulerAngles(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func inverted 
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_inverted(pObject)
-		return pTempObj
-
 	Func isIdentity 
 		return QQuaternion_isIdentity(pObject)
 
@@ -20148,14 +20116,6 @@ Class QQuaternion
 	Func setZ P1
 		return QQuaternion_setZ(pObject,P1)
 
-	Func toEulerAngles 
-		pTempObj = new QVector3D
-		pTempObj.pObject = QQuaternion_toEulerAngles(pObject)
-		return pTempObj
-
-	Func toRotationMatrix 
-		return QQuaternion_toRotationMatrix(pObject)
-
 	Func toVector4D 
 		pTempObj = new QVector4D
 		pTempObj.pObject = QQuaternion_toVector4D(pObject)
@@ -20175,14 +20135,6 @@ Class QQuaternion
 	Func z 
 		return QQuaternion_z(pObject)
 
-	Func dotProduct P1,P2
-		return QQuaternion_dotProduct(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func fromAxes P1,P2,P3
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_fromAxes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
 	Func fromAxisAndAngle P1,P2
 		pTempObj = new QQuaternion
 		pTempObj.pObject = QQuaternion_fromAxisAndAngle(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -20193,34 +20145,9 @@ Class QQuaternion
 		pTempObj.pObject = QQuaternion_fromAxisAndAngle_2(pObject,P1,P2,P3,P4)
 		return pTempObj
 
-	Func fromDirection P1,P2
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_fromDirection(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-		return pTempObj
-
-	Func fromEulerAngles P1,P2,P3
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_fromEulerAngles(pObject,P1,P2,P3)
-		return pTempObj
-
-	Func fromEulerAngles_2 P1
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_fromEulerAngles_2(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func fromRotationMatrix P1
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_fromRotationMatrix(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
 	Func nlerp P1,P2,P3
 		pTempObj = new QQuaternion
 		pTempObj.pObject = QQuaternion_nlerp(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
-		return pTempObj
-
-	Func rotationTo P1,P2
-		pTempObj = new QQuaternion
-		pTempObj.pObject = QQuaternion_rotationTo(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 	Func slerp P1,P2,P3
@@ -20613,11 +20540,6 @@ Class QOpenGLFramebufferObject
 	Func texture 
 		return QOpenGLFramebufferObject_texture(pObject)
 
-	Func toImage P1
-		pTempObj = new QImage
-		pTempObj.pObject = QOpenGLFramebufferObject_toImage(pObject,P1)
-		return pTempObj
-
 	Func toImage_2 
 		pTempObj = new QImage
 		pTempObj.pObject = QOpenGLFramebufferObject_toImage_2(pObject)
@@ -20699,9 +20621,6 @@ Class QOpenGLBuffer
 	Func map P1
 		return QOpenGLBuffer_map(pObject,P1)
 
-	Func mapRange P1,P2,P3
-		return QOpenGLBuffer_mapRange(pObject,P1,P2,P3)
-
 	Func read P1,P2,P3
 		return QOpenGLBuffer_read(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
 
@@ -20775,9 +20694,6 @@ Class QOpenGLShaderProgram
 
 	Func bindAttributeLocation_3 P1,P2
 		return QOpenGLShaderProgram_bindAttributeLocation_3(pObject,P1,P2)
-
-	Func create 
-		return QOpenGLShaderProgram_create(pObject)
 
 	Func defaultInnerTessellationLevels 
 		return QOpenGLShaderProgram_defaultInnerTessellationLevels(pObject)
@@ -21223,9 +21139,6 @@ Class QOpenGLTexture
 	Func allocateStorage 
 		return QOpenGLTexture_allocateStorage(pObject)
 
-	Func allocateStorage_2 P1,P2
-		return QOpenGLTexture_allocateStorage_2(pObject,P1,P2)
-
 	Func bind 
 		return QOpenGLTexture_bind(pObject)
 
@@ -21245,12 +21158,6 @@ Class QOpenGLTexture
 
 	Func borderColor_4 P1
 		return QOpenGLTexture_borderColor_4(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func comparisonFunction 
-		return QOpenGLTexture_comparisonFunction(pObject)
-
-	Func comparisonMode 
-		return QOpenGLTexture_comparisonMode(pObject)
 
 	Func create 
 		return QOpenGLTexture_create(pObject)
@@ -21347,9 +21254,6 @@ Class QOpenGLTexture
 	Func release_2 P1,P2
 		return QOpenGLTexture_release_2(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-	Func samples 
-		return QOpenGLTexture_samples(pObject)
-
 	Func setAutoMipMapGenerationEnabled P1
 		return QOpenGLTexture_setAutoMipMapGenerationEnabled(pObject,P1)
 
@@ -21361,12 +21265,6 @@ Class QOpenGLTexture
 
 	Func setBorderColor_4 P1,P2,P3,P4
 		return QOpenGLTexture_setBorderColor_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func setComparisonFunction P1
-		return QOpenGLTexture_setComparisonFunction(pObject,P1)
-
-	Func setComparisonMode P1
-		return QOpenGLTexture_setComparisonMode(pObject,P1)
 
 	Func setCompressedData P1,P2,P3,P4,P5,P6
 		return QOpenGLTexture_setCompressedData(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
@@ -21397,9 +21295,6 @@ Class QOpenGLTexture
 
 	Func setDepthStencilMode P1
 		return QOpenGLTexture_setDepthStencilMode(pObject,P1)
-
-	Func setFixedSamplePositions P1
-		return QOpenGLTexture_setFixedSamplePositions(pObject,P1)
 
 	Func setFormat P1
 		return QOpenGLTexture_setFormat(pObject,P1)
@@ -21443,9 +21338,6 @@ Class QOpenGLTexture
 	Func setMipMaxLevel P1
 		return QOpenGLTexture_setMipMaxLevel(pObject,P1)
 
-	Func setSamples P1
-		return QOpenGLTexture_setSamples(pObject,P1)
-
 	Func setSize P1,P2,P3
 		return QOpenGLTexture_setSize(pObject,P1,P2,P3)
 
@@ -21463,9 +21355,6 @@ Class QOpenGLTexture
 
 	Func swizzleMask P1
 		return QOpenGLTexture_swizzleMask(pObject,P1)
-
-	Func target 
-		return QOpenGLTexture_target(pObject)
 
 	Func textureId 
 		return QOpenGLTexture_textureId(pObject)

@@ -9546,7 +9546,9 @@ float length(void)
 float lengthSquared(void)
 void normalize(void)
 QVector3D normalized(void)
+<comment>
 QVector3D project(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+</comment>
 void setX(float x)
 void setY(float y)
 void setZ(float z)
@@ -9554,7 +9556,9 @@ QPoint toPoint(void)
 QPointF toPointF(void)
 QVector2D toVector2D(void)
 QVector4D toVector4D(void)
+<comment>
 QVector3D unproject(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+</comment>
 float x(void)
 float y(void)
 float z(void)
@@ -9594,12 +9598,14 @@ name: QQuaternion
 para: float,float,float,float
 </class>
 
+<comment>
 QQuaternion conjugated(void)
 void getAxes(QVector3D *xAxis, QVector3D *yAxis, QVector3D *zAxis)
 void getAxisAndAngle(float *x, float *y, float *z, float *angle)
 void getAxisAndAngle@2(QVector3D *axis, float *angle)
 void getEulerAngles(float *pitch, float *yaw, float *roll)
 QQuaternion inverted(void)
+</comment>
 bool isIdentity(void)
 bool isNull(void)
 float length(void)
@@ -9614,23 +9620,27 @@ void setVector@2(float x, float y, float z)
 void setX(float x)
 void setY(float y)
 void setZ(float z)
+<comment>
 QVector3D toEulerAngles(void)
 QMatrix3x3 toRotationMatrix(void)
+</comment>
 QVector4D toVector4D(void)
 QVector3D vector(void)
 float x(void)
 float y(void)
 float z(void)
+<comment>
 float dotProduct(QQuaternion q1, QQuaternion q2)
 QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
-QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
-QQuaternion fromAxisAndAngle@2(float x, float y, float z, float angle)
 QQuaternion fromDirection(QVector3D direction, QVector3D up)
 QQuaternion fromEulerAngles(float pitch, float yaw, float roll)
 QQuaternion fromEulerAngles@2(QVector3D eulerAngles)
 QQuaternion fromRotationMatrix(QMatrix3x3 rot3x3)
-QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 QQuaternion rotationTo(QVector3D from, QVector3D to)
+</comment>
+QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+QQuaternion fromAxisAndAngle@2(float x, float y, float z, float angle)
+QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
 
 <class>
@@ -9792,11 +9802,11 @@ GLuint texture(void)
 <comment>
 QVector<GLuint> textures(void)
 </comment>
-QImage toImage(bool flipped)
-QImage toImage@2(void)
 <comment>
+QImage toImage(bool flipped)
 QImage toImage@3(bool flipped, int colorQOpenGLFramebufferObject::AttachmentIndex)
 </comment>
+QImage toImage@2(void)
 int width(void)
 bool bindDefault(void)
 <comment>
@@ -9833,7 +9843,9 @@ bool create(void)
 void destroy(void)
 bool isCreated(void)
 void * map(QOpenGLBuffer::Access access)
+<comment>
 void * mapRange(int offset, int count, QOpenGLBuffer::RangeAccessFlags access)
+</comment>
 bool read(int offset, void *data, int count)
 void release(void)
 void setUsagePattern(QOpenGLBuffer::UsagePattern value)
@@ -9867,7 +9879,9 @@ bool bind(void)
 void bindAttributeLocation(char *name, int location)
 void bindAttributeLocation@2(QByteArray name, int location)
 void bindAttributeLocation@3(QString name, int location)
+<comment>
 bool create(void)
+</comment>
 QVector<float> defaultInnerTessellationLevels(void)
 QVector<float> defaultOuterTessellationLevels(void)
 void disableAttributeArray(int location)
@@ -10035,15 +10049,19 @@ para: QOpenGLTexture::Target
 </class>
 
 void allocateStorage(void)
+<comment>
 void allocateStorage@2(QOpenGLTexture::PixelFormat pixelFormat, QOpenGLTexture::PixelType pixelType)
+</comment>
 void bind(void)
 void bind@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
 QColor borderColor(void)
 void borderColor@2(float *border)
 void borderColor@3(int *border)
 void borderColor@4(unsigned int *border)
+<comment>
 QOpenGLTexture::ComparisonFunction comparisonFunction(void)
 QOpenGLTexture::ComparisonMode comparisonMode(void)
+</comment>
 bool create(void)
 QOpenGLTexture * createTextureView(QOpenGLTexture::Target target, QOpenGLTexture::TextureFormat viewFormat, int minimumMipmapLevel, int maximumMipmapLevel, int minimumLayer, int maximumLayer)
 int depth(void)
@@ -10081,7 +10099,9 @@ int mipLevels(void)
 int mipMaxLevel(void)
 void release(void)
 void release@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+<comment>
 int samples(void)
+</comment>
 void setAutoMipMapGenerationEnabled(bool enabled)
 void setBorderColor(QColor color)
 <comment>
@@ -10089,8 +10109,10 @@ void setBorderColor@2(float r, float g, float b, float a)
 </comment>
 void setBorderColor@3(int r, int g, int b, int a)
 void setBorderColor@4(uint r, uint g, uint b, uint a)
+<comment>
 void setComparisonFunction(QOpenGLTexture::ComparisonFunction function)
 void setComparisonMode(QOpenGLTexture::ComparisonMode mode)
+</comment>
 void setCompressedData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
 <comment>
 void setCompressedData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
@@ -10107,7 +10129,9 @@ void setData@4(int mipLevel, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTe
 void setData@5(QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
 void setData@6(QImage image, QOpenGLTexture::MipMapGeneration genMipMaps)
 void setDepthStencilMode(QOpenGLTexture::DepthStencilMode mode)
+<comment>
 void setFixedSamplePositions(bool fixed)
+</comment>
 void setFormat(QOpenGLTexture::TextureFormat format)
 void setLayers(int layers)
 void setLevelOfDetailRange(float min, float max)
@@ -10122,14 +10146,18 @@ void setMipBaseLevel(int baseLevel)
 void setMipLevelRange(int baseLevel, int maxLevel)
 void setMipLevels(int levels)
 void setMipMaxLevel(int maxLevel)
+<comment>
 void setSamples(int samples)
+</comment>
 void setSize(int width, int height, int depth)
 void setSwizzleMask(QOpenGLTexture::SwizzleComponent component, QOpenGLTexture::SwizzleValue value)
 void setSwizzleMask@2(QOpenGLTexture::SwizzleValue r, QOpenGLTexture::SwizzleValue g, QOpenGLTexture::SwizzleValue b, QOpenGLTexture::SwizzleValue a)
 void setWrapMode(QOpenGLTexture::WrapMode mode)
 void setWrapMode@2(QOpenGLTexture::CoordinateDirection direction, QOpenGLTexture::WrapMode mode)
 QOpenGLTexture::SwizzleValue swizzleMask(QOpenGLTexture::SwizzleComponent component)
+<comment>
 QOpenGLTexture::Target target(void)
+</comment>
 GLuint textureId(void)
 int width(void)
 QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
