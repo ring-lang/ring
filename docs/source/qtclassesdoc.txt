@@ -4555,8 +4555,6 @@ Parameters : QOpenGLTexture::Target
 * bool isBound(void)
 * bool isBound_2(uint unit)
 * bool isCreated(void)
-* bool isFixedSamplePositions(void)
-* bool isStorageAllocated(void)
 * bool isTextureView(void)
 * int layers(void)
 * QPair<float, float> levelOfDetailRange(void)
