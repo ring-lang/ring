@@ -19822,7 +19822,9 @@ Class QVector2D
 		return pTempObj
 
 	Func toVector3D 
-		return QVector2D_toVector3D(pObject)
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector2D_toVector3D(pObject)
+		return pTempObj
 
 	Func toVector4D 
 		return QVector2D_toVector4D(pObject)
@@ -19835,6 +19837,110 @@ Class QVector2D
 
 	Func dotProduct P1,P2
 		return QVector2D_dotProduct(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+Class QVector3D
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QVector3D_new(P1,P2,P3)
+		return self
+
+	Func delete
+		pObject = QVector3D_delete(pObject)
+
+	Func distanceToLine P1,P2
+		return QVector3D_distanceToLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func distanceToPlane P1,P2
+		return QVector3D_distanceToPlane(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func distanceToPlane_2 P1,P2,P3
+		return QVector3D_distanceToPlane_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func distanceToPoint P1
+		return QVector3D_distanceToPoint(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNull 
+		return QVector3D_isNull(pObject)
+
+	Func length 
+		return QVector3D_length(pObject)
+
+	Func lengthSquared 
+		return QVector3D_lengthSquared(pObject)
+
+	Func normalize 
+		return QVector3D_normalize(pObject)
+
+	Func normalized 
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_normalized(pObject)
+		return pTempObj
+
+	Func project P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_project(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func setX P1
+		return QVector3D_setX(pObject,P1)
+
+	Func setY P1
+		return QVector3D_setY(pObject,P1)
+
+	Func setZ P1
+		return QVector3D_setZ(pObject,P1)
+
+	Func toPoint 
+		pTempObj = new QPoint
+		pTempObj.pObject = QVector3D_toPoint(pObject)
+		return pTempObj
+
+	Func toPointF 
+		pTempObj = new QPointF
+		pTempObj.pObject = QVector3D_toPointF(pObject)
+		return pTempObj
+
+	Func toVector2D 
+		pTempObj = new QVector2D
+		pTempObj.pObject = QVector3D_toVector2D(pObject)
+		return pTempObj
+
+	Func toVector4D 
+		return QVector3D_toVector4D(pObject)
+
+	Func unproject P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_unproject(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func x 
+		return QVector3D_x(pObject)
+
+	Func y 
+		return QVector3D_y(pObject)
+
+	Func z 
+		return QVector3D_z(pObject)
+
+	Func crossProduct P1,P2
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_crossProduct(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func dotProduct P1,P2
+		return QVector3D_dotProduct(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func normal P1,P2
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_normal(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func normal_2 P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_normal_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 Class QPixmap2 from QPixmap
 
