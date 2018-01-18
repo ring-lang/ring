@@ -1134,7 +1134,7 @@ Func GenRingCode aList
 	if len($aClassesList) = 0 return cCode Ok	# if no classes then Avoid generating code 
 	cClassName = ""
 	aClasses = []
-	cCode = cCode + GenRingCodeFuncGetObjectPointer()
+	cCode += GenRingCodeFuncGetObjectPointer()
 	nMax = len(aList)
 	for t=1 to nMax 
 		aFunc = aList[t]
