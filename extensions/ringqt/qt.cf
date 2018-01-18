@@ -600,6 +600,7 @@ aEnumTypes + "QSurfaceFormat::FormatOptions"
 aEnumTypes + "QSurfaceFormat::OpenGLContextProfile"
 aEnumTypes + "QSurfaceFormat::RenderableType"
 aEnumTypes + "QSurfaceFormat::SwapBehavior"
+aEnumTypes + "QOpenGLWidget::UpdateBehavior"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -9440,6 +9441,21 @@ const char *getPaintEvent(void)
 void setResizeEvent(const char *cStr)
 const char *getResizeEvent(void)
 
+QOpenGLContext * context(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSurfaceFormat format(void)
+QImage grabFramebuffer(void)
+bool isValid(void)
+void makeCurrent(void)
+void setFormat(QSurfaceFormat format)
+<comment>
+void setTextureFormat(GLenum texFormat)
+GLenum textureFormat(void)
+</comment>
+void setUpdateBehavior(QOpenGLWidget::UpdateBehavior updateBehavior)
+QOpenGLWidget::UpdateBehavior updateBehavior(void)
+
 <class>
 name: QOpenGLVersionProfile
 para: void
@@ -9582,7 +9598,6 @@ QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
 name: QMatrix4x4
 para: qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
 </class>
-
 
 QVector4D column(int index)
 qreal * constData(void)

@@ -19739,6 +19739,42 @@ Class QOpenGLWidget from QWidget
 	Func getResizeEvent 
 		return QOpenGLWidget_getResizeEvent(pObject)
 
+	Func context 
+		pTempObj = new QOpenGLContext
+		pTempObj.pObject = QOpenGLWidget_context(pObject)
+		return pTempObj
+
+	Func defaultFramebufferObject 
+		return QOpenGLWidget_defaultFramebufferObject(pObject)
+
+	Func doneCurrent 
+		return QOpenGLWidget_doneCurrent(pObject)
+
+	Func format 
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QOpenGLWidget_format(pObject)
+		return pTempObj
+
+	Func grabFramebuffer 
+		pTempObj = new QImage
+		pTempObj.pObject = QOpenGLWidget_grabFramebuffer(pObject)
+		return pTempObj
+
+	Func isValid 
+		return QOpenGLWidget_isValid(pObject)
+
+	Func makeCurrent 
+		return QOpenGLWidget_makeCurrent(pObject)
+
+	Func setFormat P1
+		return QOpenGLWidget_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUpdateBehavior P1
+		return QOpenGLWidget_setUpdateBehavior(pObject,P1)
+
+	Func updateBehavior 
+		return QOpenGLWidget_updateBehavior(pObject)
+
 Class QOpenGLVersionProfile
 
 	pObject
