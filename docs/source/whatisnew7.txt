@@ -230,6 +230,7 @@ RingQt comes with the next updates
 (8)  QOpenGLFunctions_3_2_Core
 (9)  QVector2D
 (10) QVector3D
+(11) QVector4D
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE

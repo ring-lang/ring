@@ -7227,6 +7227,39 @@ Parameters : float,float,float
 * float dotProduct(QVector3D v1, QVector3D v2)
 * QVector3D normal(QVector3D v1, QVector3D v2)
 * QVector3D normal_2(QVector3D v1, QVector3D v2, QVector3D v3)
+
+.. index::
+	pair: RingQt Classes Reference; QVector4D Class
+
+QVector4D Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVector4D.html
+
+
+Parameters : float,float,float,float
+
+* bool isNull(void)
+* float length(void)
+* float lengthSquared(void)
+* void normalize(void)
+* QVector4D normalized(void)
+* void setW(float w)
+* void setX(float x)
+* void setY(float y)
+* void setZ(float z)
+* QPoint toPoint(void)
+* QPointF toPointF(void)
+* QVector2D toVector2D(void)
+* QVector2D toVector2DAffine(void)
+* QVector3D toVector3D(void)
+* QVector3D toVector3DAffine(void)
+* float w(void)
+* float x(void)
+* float y(void)
+* float z(void)
+* float dotProduct(QVector4D v1, QVector4D v2)
 .. index::
 	pair: RingQt Classes Reference; QVideoWidget Class
 
