@@ -99121,34 +99121,6 @@ RING_FUNC(ring_QVector3D_normalized)
 }
 
 
-RING_FUNC(ring_QVector3D_project)
-{
-	QVector3D *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QVector3D *) RING_API_GETCPOINTER(1,"QVector3D");
-	{
-		QVector3D *pValue ; 
-		pValue = new QVector3D() ;
-		*pValue = pObject->project(* (QMatrix4x4  *) RING_API_GETCPOINTER(2,"QMatrix4x4"),* (QMatrix4x4  *) RING_API_GETCPOINTER(3,"QMatrix4x4"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix4x4"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QMatrix4x4"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
-		RING_API_RETCPOINTER(pValue,"QVector3D");
-	}
-}
-
-
 RING_FUNC(ring_QVector3D_setX)
 {
 	QVector3D *pObject ;
@@ -99296,34 +99268,6 @@ RING_FUNC(ring_QVector3D_toVector4D)
 		pValue = new QVector4D() ;
 		*pValue = pObject->toVector4D();
 		RING_API_RETCPOINTER(pValue,"QVector4D");
-	}
-}
-
-
-RING_FUNC(ring_QVector3D_unproject)
-{
-	QVector3D *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QVector3D *) RING_API_GETCPOINTER(1,"QVector3D");
-	{
-		QVector3D *pValue ; 
-		pValue = new QVector3D() ;
-		*pValue = pObject->unproject(* (QMatrix4x4  *) RING_API_GETCPOINTER(2,"QMatrix4x4"),* (QMatrix4x4  *) RING_API_GETCPOINTER(3,"QMatrix4x4"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix4x4"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QMatrix4x4"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
-		RING_API_RETCPOINTER(pValue,"QVector3D");
 	}
 }
 
@@ -99875,166 +99819,6 @@ RING_FUNC(ring_QVector4D_dotProduct)
 }
 
 
-RING_FUNC(ring_QQuaternion_conjugated)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->conjugated();
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_getAxes)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->getAxes((QVector3D *) RING_API_GETCPOINTER(2,"QVector3D"),(QVector3D *) RING_API_GETCPOINTER(3,"QVector3D"),(QVector3D *) RING_API_GETCPOINTER(4,"QVector3D"));
-}
-
-
-RING_FUNC(ring_QQuaternion_getAxisAndAngle)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->getAxisAndAngle((float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"),(float *) RING_API_GETCPOINTER(5,"float"));
-}
-
-
-RING_FUNC(ring_QQuaternion_getAxisAndAngle_2)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->getAxisAndAngle((QVector3D *) RING_API_GETCPOINTER(2,"QVector3D"),(float *) RING_API_GETCPOINTER(3,"float"));
-}
-
-
-RING_FUNC(ring_QQuaternion_getEulerAngles)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->getEulerAngles((float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"));
-}
-
-
-RING_FUNC(ring_QQuaternion_inverted)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->inverted();
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
 RING_FUNC(ring_QQuaternion_isIdentity)
 {
 	QQuaternion *pObject ;
@@ -100315,50 +100099,6 @@ RING_FUNC(ring_QQuaternion_setZ)
 }
 
 
-RING_FUNC(ring_QQuaternion_toEulerAngles)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QVector3D *pValue ; 
-		pValue = new QVector3D() ;
-		*pValue = pObject->toEulerAngles();
-		RING_API_RETCPOINTER(pValue,"QVector3D");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_toRotationMatrix)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QMatrix3x3 *pValue ; 
-		pValue = (QMatrix3x3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMatrix3x3)) ;
-		*pValue = pObject->toRotationMatrix();
-		RING_API_RETCPOINTER(pValue,"QMatrix3x3");
-	}
-}
-
-
 RING_FUNC(ring_QQuaternion_toVector4D)
 {
 	QQuaternion *pObject ;
@@ -100454,55 +100194,6 @@ RING_FUNC(ring_QQuaternion_z)
 }
 
 
-RING_FUNC(ring_QQuaternion_dotProduct)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	RING_API_RETNUMBER(pObject->dotProduct(* (QQuaternion  *) RING_API_GETCPOINTER(2,"QQuaternion"),* (QQuaternion  *) RING_API_GETCPOINTER(3,"QQuaternion")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QQuaternion"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QQuaternion"));
-}
-
-
-RING_FUNC(ring_QQuaternion_fromAxes)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->fromAxes(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(4,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVector3D"));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
 RING_FUNC(ring_QQuaternion_fromAxisAndAngle)
 {
 	QQuaternion *pObject ;
@@ -100569,114 +100260,6 @@ RING_FUNC(ring_QQuaternion_fromAxisAndAngle_2)
 }
 
 
-RING_FUNC(ring_QQuaternion_fromDirection)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->fromDirection(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_fromEulerAngles)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->fromEulerAngles( (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_fromEulerAngles_2)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->fromEulerAngles(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_fromRotationMatrix)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->fromRotationMatrix(* (QMatrix3x3  *) RING_API_GETCPOINTER(2,"QMatrix3x3"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix3x3"));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
 RING_FUNC(ring_QQuaternion_nlerp)
 {
 	QQuaternion *pObject ;
@@ -100702,32 +100285,6 @@ RING_FUNC(ring_QQuaternion_nlerp)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QQuaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QQuaternion"));
-		RING_API_RETCPOINTER(pValue,"QQuaternion");
-	}
-}
-
-
-RING_FUNC(ring_QQuaternion_rotationTo)
-{
-	QQuaternion *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
-	{
-		QQuaternion *pValue ; 
-		pValue = new QQuaternion() ;
-		*pValue = pObject->rotationTo(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
 		RING_API_RETCPOINTER(pValue,"QQuaternion");
 	}
 }
@@ -102852,32 +102409,6 @@ RING_FUNC(ring_QOpenGLFramebufferObject_texture)
 }
 
 
-RING_FUNC(ring_QOpenGLFramebufferObject_toImage)
-{
-	QOpenGLFramebufferObject *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLFramebufferObject *) RING_API_GETCPOINTER(1,"QOpenGLFramebufferObject");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QImage *pValue ; 
-		pValue = new QImage() ;
-		*pValue = pObject->toImage( (bool ) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"QImage");
-	}
-}
-
-
 RING_FUNC(ring_QOpenGLFramebufferObject_toImage_2)
 {
 	QOpenGLFramebufferObject *pObject ;
@@ -103229,35 +102760,6 @@ RING_FUNC(ring_QOpenGLBuffer_map)
 		return ;
 	}
 	RING_API_RETCPOINTER(pObject->map( (QOpenGLBuffer::Access )  (int) RING_API_GETNUMBER(2)),"void");
-}
-
-
-RING_FUNC(ring_QOpenGLBuffer_mapRange)
-{
-	QOpenGLBuffer *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLBuffer *) RING_API_GETCPOINTER(1,"QOpenGLBuffer");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETCPOINTER(pObject->mapRange( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (QOpenGLBuffer::RangeAccessFlags )  (int) RING_API_GETNUMBER(4)),"void");
 }
 
 
@@ -103713,23 +103215,6 @@ RING_FUNC(ring_QOpenGLShaderProgram_bindAttributeLocation_3)
 		return ;
 	}
 	pObject->bindAttributeLocation(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
-}
-
-
-RING_FUNC(ring_QOpenGLShaderProgram_create)
-{
-	QOpenGLShaderProgram *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLShaderProgram *) RING_API_GETCPOINTER(1,"QOpenGLShaderProgram");
-	RING_API_RETNUMBER(pObject->create());
 }
 
 
@@ -107193,31 +106678,6 @@ RING_FUNC(ring_QOpenGLTexture_allocateStorage)
 }
 
 
-RING_FUNC(ring_QOpenGLTexture_allocateStorage_2)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->allocateStorage( (QOpenGLTexture::PixelFormat )  (int) RING_API_GETNUMBER(2), (QOpenGLTexture::PixelType )  (int) RING_API_GETNUMBER(3));
-}
-
-
 RING_FUNC(ring_QOpenGLTexture_bind)
 {
 	QOpenGLTexture *pObject ;
@@ -107341,40 +106801,6 @@ RING_FUNC(ring_QOpenGLTexture_borderColor_4)
 		return ;
 	}
 	pObject->borderColor((unsigned int *) RING_API_GETCPOINTER(2,"unsigned int"));
-}
-
-
-RING_FUNC(ring_QOpenGLTexture_comparisonFunction)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	RING_API_RETNUMBER(pObject->comparisonFunction());
-}
-
-
-RING_FUNC(ring_QOpenGLTexture_comparisonMode)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	RING_API_RETNUMBER(pObject->comparisonMode());
 }
 
 
@@ -107950,23 +107376,6 @@ RING_FUNC(ring_QOpenGLTexture_release_2)
 }
 
 
-RING_FUNC(ring_QOpenGLTexture_samples)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	RING_API_RETNUMBER(pObject->samples());
-}
-
-
 RING_FUNC(ring_QOpenGLTexture_setAutoMipMapGenerationEnabled)
 {
 	QOpenGLTexture *pObject ;
@@ -108062,48 +107471,6 @@ RING_FUNC(ring_QOpenGLTexture_setBorderColor_4)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"uint"));
-}
-
-
-RING_FUNC(ring_QOpenGLTexture_setComparisonFunction)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setComparisonFunction( (QOpenGLTexture::ComparisonFunction )  (int) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QOpenGLTexture_setComparisonMode)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setComparisonMode( (QOpenGLTexture::ComparisonMode )  (int) RING_API_GETNUMBER(2));
 }
 
 
@@ -108447,27 +107814,6 @@ RING_FUNC(ring_QOpenGLTexture_setDepthStencilMode)
 }
 
 
-RING_FUNC(ring_QOpenGLTexture_setFixedSamplePositions)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setFixedSamplePositions( (bool ) RING_API_GETNUMBER(2));
-}
-
-
 RING_FUNC(ring_QOpenGLTexture_setFormat)
 {
 	QOpenGLTexture *pObject ;
@@ -108774,27 +108120,6 @@ RING_FUNC(ring_QOpenGLTexture_setMipMaxLevel)
 }
 
 
-RING_FUNC(ring_QOpenGLTexture_setSamples)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setSamples( (int ) RING_API_GETNUMBER(2));
-}
-
-
 RING_FUNC(ring_QOpenGLTexture_setSize)
 {
 	QOpenGLTexture *pObject ;
@@ -108946,23 +108271,6 @@ RING_FUNC(ring_QOpenGLTexture_swizzleMask)
 		return ;
 	}
 	RING_API_RETNUMBER(pObject->swizzleMask( (QOpenGLTexture::SwizzleComponent )  (int) RING_API_GETNUMBER(2)));
-}
-
-
-RING_FUNC(ring_QOpenGLTexture_target)
-{
-	QOpenGLTexture *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QOpenGLTexture *) RING_API_GETCPOINTER(1,"QOpenGLTexture");
-	RING_API_RETNUMBER(pObject->target());
 }
 
 
@@ -118819,7 +118127,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector3d_lengthsquared",ring_QVector3D_lengthSquared);
 	ring_vm_funcregister("qvector3d_normalize",ring_QVector3D_normalize);
 	ring_vm_funcregister("qvector3d_normalized",ring_QVector3D_normalized);
-	ring_vm_funcregister("qvector3d_project",ring_QVector3D_project);
 	ring_vm_funcregister("qvector3d_setx",ring_QVector3D_setX);
 	ring_vm_funcregister("qvector3d_sety",ring_QVector3D_setY);
 	ring_vm_funcregister("qvector3d_setz",ring_QVector3D_setZ);
@@ -118827,7 +118134,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector3d_topointf",ring_QVector3D_toPointF);
 	ring_vm_funcregister("qvector3d_tovector2d",ring_QVector3D_toVector2D);
 	ring_vm_funcregister("qvector3d_tovector4d",ring_QVector3D_toVector4D);
-	ring_vm_funcregister("qvector3d_unproject",ring_QVector3D_unproject);
 	ring_vm_funcregister("qvector3d_x",ring_QVector3D_x);
 	ring_vm_funcregister("qvector3d_y",ring_QVector3D_y);
 	ring_vm_funcregister("qvector3d_z",ring_QVector3D_z);
@@ -118855,12 +118161,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector4d_y",ring_QVector4D_y);
 	ring_vm_funcregister("qvector4d_z",ring_QVector4D_z);
 	ring_vm_funcregister("qvector4d_dotproduct",ring_QVector4D_dotProduct);
-	ring_vm_funcregister("qquaternion_conjugated",ring_QQuaternion_conjugated);
-	ring_vm_funcregister("qquaternion_getaxes",ring_QQuaternion_getAxes);
-	ring_vm_funcregister("qquaternion_getaxisandangle",ring_QQuaternion_getAxisAndAngle);
-	ring_vm_funcregister("qquaternion_getaxisandangle_2",ring_QQuaternion_getAxisAndAngle_2);
-	ring_vm_funcregister("qquaternion_geteulerangles",ring_QQuaternion_getEulerAngles);
-	ring_vm_funcregister("qquaternion_inverted",ring_QQuaternion_inverted);
 	ring_vm_funcregister("qquaternion_isidentity",ring_QQuaternion_isIdentity);
 	ring_vm_funcregister("qquaternion_isnull",ring_QQuaternion_isNull);
 	ring_vm_funcregister("qquaternion_length",ring_QQuaternion_length);
@@ -118875,23 +118175,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qquaternion_setx",ring_QQuaternion_setX);
 	ring_vm_funcregister("qquaternion_sety",ring_QQuaternion_setY);
 	ring_vm_funcregister("qquaternion_setz",ring_QQuaternion_setZ);
-	ring_vm_funcregister("qquaternion_toeulerangles",ring_QQuaternion_toEulerAngles);
-	ring_vm_funcregister("qquaternion_torotationmatrix",ring_QQuaternion_toRotationMatrix);
 	ring_vm_funcregister("qquaternion_tovector4d",ring_QQuaternion_toVector4D);
 	ring_vm_funcregister("qquaternion_vector",ring_QQuaternion_vector);
 	ring_vm_funcregister("qquaternion_x",ring_QQuaternion_x);
 	ring_vm_funcregister("qquaternion_y",ring_QQuaternion_y);
 	ring_vm_funcregister("qquaternion_z",ring_QQuaternion_z);
-	ring_vm_funcregister("qquaternion_dotproduct",ring_QQuaternion_dotProduct);
-	ring_vm_funcregister("qquaternion_fromaxes",ring_QQuaternion_fromAxes);
 	ring_vm_funcregister("qquaternion_fromaxisandangle",ring_QQuaternion_fromAxisAndAngle);
 	ring_vm_funcregister("qquaternion_fromaxisandangle_2",ring_QQuaternion_fromAxisAndAngle_2);
-	ring_vm_funcregister("qquaternion_fromdirection",ring_QQuaternion_fromDirection);
-	ring_vm_funcregister("qquaternion_fromeulerangles",ring_QQuaternion_fromEulerAngles);
-	ring_vm_funcregister("qquaternion_fromeulerangles_2",ring_QQuaternion_fromEulerAngles_2);
-	ring_vm_funcregister("qquaternion_fromrotationmatrix",ring_QQuaternion_fromRotationMatrix);
 	ring_vm_funcregister("qquaternion_nlerp",ring_QQuaternion_nlerp);
-	ring_vm_funcregister("qquaternion_rotationto",ring_QQuaternion_rotationTo);
 	ring_vm_funcregister("qquaternion_slerp",ring_QQuaternion_slerp);
 	ring_vm_funcregister("qmatrix4x4_column",ring_QMatrix4x4_column);
 	ring_vm_funcregister("qmatrix4x4_constdata",ring_QMatrix4x4_constData);
@@ -118994,7 +118285,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglframebufferobject_setattachment",ring_QOpenGLFramebufferObject_setAttachment);
 	ring_vm_funcregister("qopenglframebufferobject_size",ring_QOpenGLFramebufferObject_size);
 	ring_vm_funcregister("qopenglframebufferobject_texture",ring_QOpenGLFramebufferObject_texture);
-	ring_vm_funcregister("qopenglframebufferobject_toimage",ring_QOpenGLFramebufferObject_toImage);
 	ring_vm_funcregister("qopenglframebufferobject_toimage_2",ring_QOpenGLFramebufferObject_toImage_2);
 	ring_vm_funcregister("qopenglframebufferobject_width",ring_QOpenGLFramebufferObject_width);
 	ring_vm_funcregister("qopenglframebufferobject_binddefault",ring_QOpenGLFramebufferObject_bindDefault);
@@ -119014,7 +118304,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglbuffer_destroy",ring_QOpenGLBuffer_destroy);
 	ring_vm_funcregister("qopenglbuffer_iscreated",ring_QOpenGLBuffer_isCreated);
 	ring_vm_funcregister("qopenglbuffer_map",ring_QOpenGLBuffer_map);
-	ring_vm_funcregister("qopenglbuffer_maprange",ring_QOpenGLBuffer_mapRange);
 	ring_vm_funcregister("qopenglbuffer_read",ring_QOpenGLBuffer_read);
 	ring_vm_funcregister("qopenglbuffer_release",ring_QOpenGLBuffer_release);
 	ring_vm_funcregister("qopenglbuffer_setusagepattern",ring_QOpenGLBuffer_setUsagePattern);
@@ -119036,7 +118325,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglshaderprogram_bindattributelocation",ring_QOpenGLShaderProgram_bindAttributeLocation);
 	ring_vm_funcregister("qopenglshaderprogram_bindattributelocation_2",ring_QOpenGLShaderProgram_bindAttributeLocation_2);
 	ring_vm_funcregister("qopenglshaderprogram_bindattributelocation_3",ring_QOpenGLShaderProgram_bindAttributeLocation_3);
-	ring_vm_funcregister("qopenglshaderprogram_create",ring_QOpenGLShaderProgram_create);
 	ring_vm_funcregister("qopenglshaderprogram_defaultinnertessellationlevels",ring_QOpenGLShaderProgram_defaultInnerTessellationLevels);
 	ring_vm_funcregister("qopenglshaderprogram_defaultoutertessellationlevels",ring_QOpenGLShaderProgram_defaultOuterTessellationLevels);
 	ring_vm_funcregister("qopenglshaderprogram_disableattributearray",ring_QOpenGLShaderProgram_disableAttributeArray);
@@ -119177,15 +118465,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopenglshader_sourcecode",ring_QOpenGLShader_sourceCode);
 	ring_vm_funcregister("qopenglshader_hasopenglshaders",ring_QOpenGLShader_hasOpenGLShaders);
 	ring_vm_funcregister("qopengltexture_allocatestorage",ring_QOpenGLTexture_allocateStorage);
-	ring_vm_funcregister("qopengltexture_allocatestorage_2",ring_QOpenGLTexture_allocateStorage_2);
 	ring_vm_funcregister("qopengltexture_bind",ring_QOpenGLTexture_bind);
 	ring_vm_funcregister("qopengltexture_bind_2",ring_QOpenGLTexture_bind_2);
 	ring_vm_funcregister("qopengltexture_bordercolor",ring_QOpenGLTexture_borderColor);
 	ring_vm_funcregister("qopengltexture_bordercolor_2",ring_QOpenGLTexture_borderColor_2);
 	ring_vm_funcregister("qopengltexture_bordercolor_3",ring_QOpenGLTexture_borderColor_3);
 	ring_vm_funcregister("qopengltexture_bordercolor_4",ring_QOpenGLTexture_borderColor_4);
-	ring_vm_funcregister("qopengltexture_comparisonfunction",ring_QOpenGLTexture_comparisonFunction);
-	ring_vm_funcregister("qopengltexture_comparisonmode",ring_QOpenGLTexture_comparisonMode);
 	ring_vm_funcregister("qopengltexture_create",ring_QOpenGLTexture_create);
 	ring_vm_funcregister("qopengltexture_createtextureview",ring_QOpenGLTexture_createTextureView);
 	ring_vm_funcregister("qopengltexture_depth",ring_QOpenGLTexture_depth);
@@ -119217,13 +118502,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopengltexture_mipmaxlevel",ring_QOpenGLTexture_mipMaxLevel);
 	ring_vm_funcregister("qopengltexture_release",ring_QOpenGLTexture_release);
 	ring_vm_funcregister("qopengltexture_release_2",ring_QOpenGLTexture_release_2);
-	ring_vm_funcregister("qopengltexture_samples",ring_QOpenGLTexture_samples);
 	ring_vm_funcregister("qopengltexture_setautomipmapgenerationenabled",ring_QOpenGLTexture_setAutoMipMapGenerationEnabled);
 	ring_vm_funcregister("qopengltexture_setbordercolor",ring_QOpenGLTexture_setBorderColor);
 	ring_vm_funcregister("qopengltexture_setbordercolor_3",ring_QOpenGLTexture_setBorderColor_3);
 	ring_vm_funcregister("qopengltexture_setbordercolor_4",ring_QOpenGLTexture_setBorderColor_4);
-	ring_vm_funcregister("qopengltexture_setcomparisonfunction",ring_QOpenGLTexture_setComparisonFunction);
-	ring_vm_funcregister("qopengltexture_setcomparisonmode",ring_QOpenGLTexture_setComparisonMode);
 	ring_vm_funcregister("qopengltexture_setcompresseddata",ring_QOpenGLTexture_setCompressedData);
 	ring_vm_funcregister("qopengltexture_setcompresseddata_3",ring_QOpenGLTexture_setCompressedData_3);
 	ring_vm_funcregister("qopengltexture_setcompresseddata_4",ring_QOpenGLTexture_setCompressedData_4);
@@ -119234,7 +118516,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopengltexture_setdata_5",ring_QOpenGLTexture_setData_5);
 	ring_vm_funcregister("qopengltexture_setdata_6",ring_QOpenGLTexture_setData_6);
 	ring_vm_funcregister("qopengltexture_setdepthstencilmode",ring_QOpenGLTexture_setDepthStencilMode);
-	ring_vm_funcregister("qopengltexture_setfixedsamplepositions",ring_QOpenGLTexture_setFixedSamplePositions);
 	ring_vm_funcregister("qopengltexture_setformat",ring_QOpenGLTexture_setFormat);
 	ring_vm_funcregister("qopengltexture_setlayers",ring_QOpenGLTexture_setLayers);
 	ring_vm_funcregister("qopengltexture_setlevelofdetailrange",ring_QOpenGLTexture_setLevelOfDetailRange);
@@ -119249,14 +118530,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qopengltexture_setmiplevelrange",ring_QOpenGLTexture_setMipLevelRange);
 	ring_vm_funcregister("qopengltexture_setmiplevels",ring_QOpenGLTexture_setMipLevels);
 	ring_vm_funcregister("qopengltexture_setmipmaxlevel",ring_QOpenGLTexture_setMipMaxLevel);
-	ring_vm_funcregister("qopengltexture_setsamples",ring_QOpenGLTexture_setSamples);
 	ring_vm_funcregister("qopengltexture_setsize",ring_QOpenGLTexture_setSize);
 	ring_vm_funcregister("qopengltexture_setswizzlemask",ring_QOpenGLTexture_setSwizzleMask);
 	ring_vm_funcregister("qopengltexture_setswizzlemask_2",ring_QOpenGLTexture_setSwizzleMask_2);
 	ring_vm_funcregister("qopengltexture_setwrapmode",ring_QOpenGLTexture_setWrapMode);
 	ring_vm_funcregister("qopengltexture_setwrapmode_2",ring_QOpenGLTexture_setWrapMode_2);
 	ring_vm_funcregister("qopengltexture_swizzlemask",ring_QOpenGLTexture_swizzleMask);
-	ring_vm_funcregister("qopengltexture_target",ring_QOpenGLTexture_target);
 	ring_vm_funcregister("qopengltexture_textureid",ring_QOpenGLTexture_textureId);
 	ring_vm_funcregister("qopengltexture_width",ring_QOpenGLTexture_width);
 	ring_vm_funcregister("qopengltexture_wrapmode",ring_QOpenGLTexture_wrapMode);
