@@ -257,6 +257,16 @@ extern "C" {
 #include <QVector4D>
 #include <QQuaternion>
 #include <QMatrix4x4>
+#include <QOpenGLPaintDevice>
+#include <QPaintDevice>
+#include <QOpenGLTimerQuery>
+#include <QOpenGLDebugLogger>
+#include <QOpenGLFramebufferObject>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLShader>
+#include <QOpenGLTexture>
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -601,6 +611,34 @@ aEnumTypes + "QSurfaceFormat::OpenGLContextProfile"
 aEnumTypes + "QSurfaceFormat::RenderableType"
 aEnumTypes + "QSurfaceFormat::SwapBehavior"
 aEnumTypes + "QOpenGLWidget::UpdateBehavior"
+aEnumTypes + "QOpenGLTexture::BindingTarget"
+aEnumTypes + "QOpenGLTexture::ComparisonFunction"
+aEnumTypes + "QOpenGLTexture::ComparisonMode"
+aEnumTypes + "QOpenGLTexture::CoordinateDirection"
+aEnumTypes + "QOpenGLTexture::CubeMapFace"
+aEnumTypes + "QOpenGLTexture::DepthStencilMode"
+aEnumTypes + "QOpenGLTexture::Feature"
+aEnumTypes + "QOpenGLTexture::Features"
+aEnumTypes + "QOpenGLTexture::Filter"
+aEnumTypes + "QOpenGLTexture::MipMapGeneration"
+aEnumTypes + "QOpenGLTexture::PixelFormat"
+aEnumTypes + "QOpenGLTexture::PixelType"
+aEnumTypes + "QOpenGLTexture::SwizzleComponent"
+aEnumTypes + "QOpenGLTexture::SwizzleValue"
+aEnumTypes + "QOpenGLTexture::Target"
+aEnumTypes + "QOpenGLTexture::TextureFormat"
+aEnumTypes + "QOpenGLTexture::TextureUnitReset"
+aEnumTypes + "QOpenGLTexture::WrapMode"
+aEnumTypes + "QPaintDevice::PaintDeviceMetric"
+aEnumTypes + "QOpenGLDebugLogger::LoggingMode"
+aEnumTypes + "QOpenGLFramebufferObject::Attachment"
+aEnumTypes + "QOpenGLBuffer::Access"
+aEnumTypes + "QOpenGLBuffer::RangeAccessFlag"
+aEnumTypes + "QOpenGLBuffer::RangeAccessFlags"
+aEnumTypes + "QOpenGLBuffer::Type"
+aEnumTypes + "QOpenGLBuffer::UsagePattern"
+aEnumTypes + "QOpenGLShader::ShaderType"
+aEnumTypes + "QOpenGLShader::ShaderTypeBit"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -9647,3 +9685,455 @@ void translate(QVector3D vector)
 void translate@2(qreal x, qreal y)
 void translate@3(qreal x, qreal y, qreal z)
 QMatrix4x4 transposed(void)
+
+<class>
+name: QOpenGLPaintDevice
+para: void
+parent: QPaintDevice
+</class>
+
+
+QOpenGLContext * context(void)
+qreal dotsPerMeterX(void)
+qreal dotsPerMeterY(void)
+void ensureActiveTarget(void)
+bool paintFlipped(void)
+void setDevicePixelRatio(qreal devicePixelRatio)
+void setDotsPerMeterX(qreal dpmx)
+void setDotsPerMeterY(qreal dpmy)
+void setPaintFlipped(bool flipped)
+void setSize(QSize size)
+QSize size(void)
+
+<class>
+name: QPaintDevice
+nonew
+</class>
+
+int colorCount(void)
+int depth(void)
+int devicePixelRatio(void)
+<comment>
+qreal devicePixelRatioF(void)
+</comment>
+int height(void)
+int heightMM(void)
+int logicalDpiX(void)
+int logicalDpiY(void)
+QPaintEngine * paintEngine(void)
+bool paintingActive(void)
+int physicalDpiX(void)
+int physicalDpiY(void)
+int width(void)
+int widthMM(void)
+
+<class>
+name: QOpenGLTimerQuery
+para: QObject *
+</class>
+
+void begin(void)
+bool create(void)
+void destroy(void)
+void end(void)
+bool isCreated(void)
+bool isResultAvailable(void)
+GLuint objectId(void)
+void recordTimestamp(void)
+GLuint64 waitForResult(void)
+GLuint64 waitForTimestamp(void)
+
+<class>
+name: QOpenGLDebugLogger
+para: QObject *
+</class>
+
+void disableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void disableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+void enableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void enableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+bool initialize(void)
+bool isLogging(void)
+QList<QOpenGLDebugMessage> loggedMessages(void)
+QOpenGLDebugLogger::LoggingMode loggingMode(void)
+qint64 maximumMessageLength(void)
+void popGroup(void)
+void pushGroup(QString name, GLuint id, QOpenGLDebugMessage::Source source)
+void logMessage(QOpenGLDebugMessage debugMessage)
+void startLogging(QOpenGLDebugLogger::LoggingMode loggingMode)
+void stopLogging(void)
+
+<class>
+name: QOpenGLFramebufferObject
+para: int,int,GLenum
+</class>
+
+<comment>
+void addColorAttachment(QSize size, GLenum internalFormat)
+void addColorAttachment@2(int width, int height, GLenum internalFormat)
+</comment>
+QOpenGLFramebufferObject::Attachment attachment(void)
+bool bind(void)
+QOpenGLFramebufferObjectFormat format(void)
+GLuint handle(void)
+int height(void)
+bool isBound(void)
+bool isValid(void)
+bool release(void)
+void setAttachment(QOpenGLFramebufferObject::Attachment attachment)
+QSize size(void)
+<comment>
+QVector<QSize> sizes(void)
+GLuint takeTexture(void)
+GLuint takeTexture@2(int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+GLuint texture(void)
+<comment>
+QVector<GLuint> textures(void)
+</comment>
+QImage toImage(bool flipped)
+QImage toImage@2(void)
+<comment>
+QImage toImage@3(bool flipped, int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+int width(void)
+bool bindDefault(void)
+<comment>
+void blitFramebuffer(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex, QOpenGLFramebufferObject::FramebufferRestorePolicy restorePolicy)
+void blitFramebuffer@2(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex)
+void blitFramebuffer@3(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter)
+void blitFramebuffer@4(QOpenGLFramebufferObject *target, QOpenGLFramebufferObject *source, GLbitfield buffers, GLenum filter)
+</comment>
+bool hasOpenGLFramebufferBlit(void)
+bool hasOpenGLFramebufferObjects(void)
+
+<class>
+name: QOpenGLVertexArrayObject
+para: QObject *
+</class>
+
+void bind(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+GLuint objectId(void)
+void release(void)
+
+<class>
+name: QOpenGLBuffer
+para: void
+</class>
+
+void allocate(void *data, int count)
+void allocate@2(int count)
+bool bind(void)
+GLuint bufferId(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+void * map(QOpenGLBuffer::Access access)
+void * mapRange(int offset, int count, QOpenGLBuffer::RangeAccessFlags access)
+bool read(int offset, void *data, int count)
+void release(void)
+void setUsagePattern(QOpenGLBuffer::UsagePattern value)
+int size(void)
+QOpenGLBuffer::Type type(void)
+bool unmap(void)
+QOpenGLBuffer::UsagePattern usagePattern(void)
+void write(int offset, void *data, int count)
+void release@2(QOpenGLBuffer::Type type)
+
+<class>
+name: QOpenGLShaderProgram
+para: QObject *
+</class>
+
+<comment>
+bool addCacheableShaderFromSourceCode(QOpenGLShader::ShaderType type, char *source)
+bool addCacheableShaderFromSourceCode@2(QOpenGLShader::ShaderType type, QByteArray source)
+bool addCacheableShaderFromSourceCode@3(QOpenGLShader::ShaderType type, QString source)
+bool addCacheableShaderFromSourceFile(QOpenGLShader::ShaderType type, QString fileName)
+</comment>
+bool addShader(QOpenGLShader *shader)
+bool addShaderFromSourceCode(QOpenGLShader::ShaderType type, char *source)
+bool addShaderFromSourceCode@2(QOpenGLShader::ShaderType type, QByteArray source)
+bool addShaderFromSourceCode@3(QOpenGLShader::ShaderType type, QString source)
+bool addShaderFromSourceFile(QOpenGLShader::ShaderType type, QString fileName)
+int attributeLocation(char *name)
+int attributeLocation@2(QByteArray name)
+int attributeLocation@3(QString name)
+bool bind(void)
+void bindAttributeLocation(char *name, int location)
+void bindAttributeLocation@2(QByteArray name, int location)
+void bindAttributeLocation@3(QString name, int location)
+bool create(void)
+QVector<float> defaultInnerTessellationLevels(void)
+QVector<float> defaultOuterTessellationLevels(void)
+void disableAttributeArray(int location)
+void disableAttributeArray@2(char *name)
+void enableAttributeArray(int location)
+void enableAttributeArray@2(char *name)
+bool isLinked(void)
+bool link(void)
+QString log(void)
+int maxGeometryOutputVertices(void)
+int patchVertexCount(void)
+GLuint programId(void)
+void release(void)
+void removeAllShaders(void)
+void removeShader(QOpenGLShader *shader)
+void setAttributeArray(int location, GLfloat *values, int tupleSize, int stride)
+void setAttributeArray@2(int location, QVector2D *values, int stride)
+void setAttributeArray@3(int location, QVector3D *values, int stride)
+void setAttributeArray@4(int location, QVector4D *values, int stride)
+void setAttributeArray@5(int location, GLenum type, void *values, int tupleSize, int stride)
+void setAttributeArray@6(char *name, GLfloat *values, int tupleSize, int stride)
+void setAttributeArray@7(char *name, QVector2D *values, int stride)
+void setAttributeArray@8(char *name, QVector3D *values, int stride)
+void setAttributeArray@9(char *name, QVector4D *values, int stride)
+void setAttributeArray@10(char *name, GLenum type, void *values, int tupleSize, int stride)
+void setAttributeBuffer(int location, GLenum type, int offset, int tupleSize, int stride)
+void setAttributeBuffer@2(char *name, GLenum type, int offset, int tupleSize, int stride)
+void setAttributeValue(int location, GLfloat value)
+void setAttributeValue@2(int location, GLfloat x, GLfloat y)
+void setAttributeValue@3(int location, GLfloat x, GLfloat y, GLfloat z)
+void setAttributeValue@4(int location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setAttributeValue@5(int location, QVector2D value)
+void setAttributeValue@6(int location, QVector3D value)
+void setAttributeValue@7(int location, QVector4D value)
+void setAttributeValue@8(int location, QColor value)
+void setAttributeValue@9(int location, GLfloat *values, int columns, int rows)
+void setAttributeValue@10(char *name, GLfloat value)
+void setAttributeValue@11(char *name, GLfloat x, GLfloat y)
+void setAttributeValue@12(char *name, GLfloat x, GLfloat y, GLfloat z)
+void setAttributeValue@13(char *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setAttributeValue@14(char *name, QVector2D value)
+void setAttributeValue@15(char *name, QVector3D value)
+void setAttributeValue@16(char *name, QVector4D value)
+<comment>
+void setAttributeValue@17(char *name, QColor value)
+void setAttributeValue@18(char *name, GLfloat *values, int columns, int rows)
+</comment>
+
+void setDefaultInnerTessellationLevels(QVector<float> levels)
+void setDefaultOuterTessellationLevels(QVector<float> levels)
+void setPatchVertexCount(int count)
+void setUniformValue(int location, GLfloat value)
+void setUniformValue@2(int location, GLint value)
+void setUniformValue@3(char *name, QColor color)
+void setUniformValue@4(char *name, QPoint point)
+void setUniformValue@5(char *name, QPointF point)
+void setUniformValue@6(char *name, QSize size)
+void setUniformValue@7(char *name, QSizeF size)
+void setUniformValue@8(char *name, QMatrix2x2 value)
+void setUniformValue@9(char *name, QMatrix2x3 value)
+void setUniformValue@10(char *name, QMatrix2x4 value)
+void setUniformValue@11(char *name, QMatrix3x2 value)
+void setUniformValue@12(char *name, QMatrix3x3 value)
+void setUniformValue@13(char *name, QMatrix3x4 value)
+void setUniformValue@14(char *name, QMatrix4x2 value)
+void setUniformValue@15(char *name, QMatrix4x3 value)
+void setUniformValue@16(char *name, QMatrix4x4 value)
+<comment>
+void setUniformValue@17(char *name, GLfloat[2][2] value)
+void setUniformValue@18(char *name, GLfloat[3][3] value)
+void setUniformValue@19(char *name, GLfloat[4][4] value)
+</comment>
+void setUniformValue@20(char *name, QTransform value)
+void setUniformValue@21(int location, GLuint value)
+void setUniformValue@22(int location, GLfloat x, GLfloat y)
+void setUniformValue@23(int location, GLfloat x, GLfloat y, GLfloat z)
+void setUniformValue@24(int location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setUniformValue@25(int location, QVector2D value)
+void setUniformValue@26(int location, QVector3D value)
+void setUniformValue@27(int location, QVector4D value)
+void setUniformValue@28(int location, QColor color)
+void setUniformValue@29(int location, QPoint point)
+void setUniformValue@30(int location, QPointF point)
+void setUniformValue@31(int location, QSize size)
+void setUniformValue@32(int location, QSizeF size)
+void setUniformValue@33(int location, QMatrix2x2 value)
+void setUniformValue@34(int location, QMatrix2x3 value)
+void setUniformValue@35(int location, QMatrix2x4 value)
+void setUniformValue@36(int location, QMatrix3x2 value)
+void setUniformValue@37(int location, QMatrix3x3 value)
+void setUniformValue@38(int location, QMatrix3x4 value)
+void setUniformValue@39(int location, QMatrix4x2 value)
+void setUniformValue@40(int location, QMatrix4x3 value)
+void setUniformValue@41(int location, QMatrix4x4 value)
+<comment>
+void setUniformValue@42(int location, GLfloat[2][2] value)
+void setUniformValue@43(int location, GLfloat[3][3] value)
+void setUniformValue@44(int location, GLfloat[4][4] value)
+</comment>
+void setUniformValue@45(int location, QTransform value)
+void setUniformValue@46(char *name, GLfloat value)
+void setUniformValue@47(char *name, GLint value)
+void setUniformValue@48(char *name, GLuint value)
+void setUniformValue@49(char *name, GLfloat x, GLfloat y)
+void setUniformValue@50(char *name, GLfloat x, GLfloat y, GLfloat z)
+void setUniformValue@51(char *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setUniformValue@52(char *name, QVector2D value)
+void setUniformValue@53(char *name, QVector3D value)
+void setUniformValue@54(char *name, QVector4D value)
+void setUniformValueArray(int location, GLfloat *values, int count, int tupleSize)
+void setUniformValueArray@2(int location, GLint *values, int count)
+void setUniformValueArray@3(int location, GLuint *values, int count)
+void setUniformValueArray@4(int location, QVector2D *values, int count)
+void setUniformValueArray@5(int location, QVector3D *values, int count)
+void setUniformValueArray@6(int location, QVector4D *values, int count)
+void setUniformValueArray@7(int location, QMatrix2x2 *values, int count)
+void setUniformValueArray@8(int location, QMatrix2x3 *values, int count)
+void setUniformValueArray@9(int location, QMatrix2x4 *values, int count)
+void setUniformValueArray@10(int location, QMatrix3x2 *values, int count)
+void setUniformValueArray@11(int location, QMatrix3x3 *values, int count)
+void setUniformValueArray@12(int location, QMatrix3x4 *values, int count)
+void setUniformValueArray@13(int location, QMatrix4x2 *values, int count)
+void setUniformValueArray@14(int location, QMatrix4x3 *values, int count)
+void setUniformValueArray@15(int location, QMatrix4x4 *values, int count)
+void setUniformValueArray@16(char *name, GLfloat *values, int count, int tupleSize)
+void setUniformValueArray@17(char *name, GLint *values, int count)
+void setUniformValueArray@18(char *name, GLuint *values, int count)
+void setUniformValueArray@19(char *name, QVector2D *values, int count)
+void setUniformValueArray@20(char *name, QVector3D *values, int count)
+void setUniformValueArray@21(char *name, QVector4D *values, int count)
+void setUniformValueArray@22(char *name, QMatrix2x2 *values, int count)
+void setUniformValueArray@23(char *name, QMatrix2x3 *values, int count)
+void setUniformValueArray@24(char *name, QMatrix2x4 *values, int count)
+void setUniformValueArray@25(char *name, QMatrix3x2 *values, int count)
+void setUniformValueArray@26(char *name, QMatrix3x3 *values, int count)
+void setUniformValueArray@27(char *name, QMatrix3x4 *values, int count)
+void setUniformValueArray@28(char *name, QMatrix4x2 *values, int count)
+void setUniformValueArray@29(char *name, QMatrix4x3 *values, int count)
+void setUniformValueArray@30(char *name, QMatrix4x4 *values, int count)
+QList<QOpenGLShader *> shaders(void)
+int uniformLocation(char *name)
+int uniformLocation@2(QByteArray name)
+int uniformLocation@3(QString name)
+bool hasOpenGLShaderPrograms(QOpenGLContext *context)
+
+<class>
+name: QOpenGLShader
+para: QOpenGLShader::ShaderType,QObject *
+</class>
+
+bool compileSourceCode(char *source)
+bool compileSourceCode@2(QByteArray source)
+bool compileSourceCode@3(QString source)
+bool compileSourceFile(QString fileName)
+bool isCompiled(void)
+QString log(void)
+GLuint shaderId(void)
+QOpenGLShader::ShaderType shaderType(void)
+QByteArray sourceCode(void)
+bool hasOpenGLShaders(QOpenGLShader::ShaderType type, QOpenGLContext *context)
+
+<class>
+name: QOpenGLTexture
+para: QOpenGLTexture::Target
+</class>
+
+void allocateStorage(void)
+void allocateStorage@2(QOpenGLTexture::PixelFormat pixelFormat, QOpenGLTexture::PixelType pixelType)
+void bind(void)
+void bind@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+QColor borderColor(void)
+void borderColor@2(float *border)
+void borderColor@3(int *border)
+void borderColor@4(unsigned int *border)
+QOpenGLTexture::ComparisonFunction comparisonFunction(void)
+QOpenGLTexture::ComparisonMode comparisonMode(void)
+bool create(void)
+QOpenGLTexture * createTextureView(QOpenGLTexture::Target target, QOpenGLTexture::TextureFormat viewFormat, int minimumMipmapLevel, int maximumMipmapLevel, int minimumLayer, int maximumLayer)
+int depth(void)
+QOpenGLTexture::DepthStencilMode depthStencilMode(void)
+void destroy(void)
+int faces(void)
+QOpenGLTexture::TextureFormat format(void)
+void generateMipMaps(void)
+void generateMipMaps@2(int baseLevel, bool resetBaseLevel)
+int height(void)
+bool isAutoMipMapGenerationEnabled(void)
+bool isBound(void)
+bool isBound@2(uint unit)
+bool isCreated(void)
+bool isFixedSamplePositions(void)
+bool isStorageAllocated(void)
+bool isTextureView(void)
+int layers(void)
+QPair<float, float> levelOfDetailRange(void)
+float levelofDetailBias(void)
+QOpenGLTexture::Filter magnificationFilter(void)
+float maximumAnisotropy(void)
+float maximumLevelOfDetail(void)
+int maximumMipLevels(void)
+<comment>
+QPair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> minMagQOpenGLTexture::Filters(void)
+</comment>
+QOpenGLTexture::Filter minificationFilter(void)
+float minimumLevelOfDetail(void)
+int mipBaseLevel(void)
+<comment>
+QPair<int, int> mipLevelRange(void)
+</comment>
+int mipLevels(void)
+int mipMaxLevel(void)
+void release(void)
+void release@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+int samples(void)
+void setAutoMipMapGenerationEnabled(bool enabled)
+void setBorderColor(QColor color)
+<comment>
+void setBorderColor@2(float r, float g, float b, float a)
+</comment>
+void setBorderColor@3(int r, int g, int b, int a)
+void setBorderColor@4(uint r, uint g, uint b, uint a)
+void setComparisonFunction(QOpenGLTexture::ComparisonFunction function)
+void setComparisonMode(QOpenGLTexture::ComparisonMode mode)
+void setCompressedData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setCompressedData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setCompressedData@3(int mipLevel, int layer, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@4(int mipLevel, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@5(int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setData@3(int mipLevel, int layer, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@4(int mipLevel, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@5(QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@6(QImage image, QOpenGLTexture::MipMapGeneration genMipMaps)
+void setDepthStencilMode(QOpenGLTexture::DepthStencilMode mode)
+void setFixedSamplePositions(bool fixed)
+void setFormat(QOpenGLTexture::TextureFormat format)
+void setLayers(int layers)
+void setLevelOfDetailRange(float min, float max)
+void setLevelofDetailBias(float bias)
+void setMagnificationFilter(QOpenGLTexture::Filter filter)
+void setMaximumAnisotropy(float anisotropy)
+void setMaximumLevelOfDetail(float value)
+void setMinMagFilters(QOpenGLTexture::Filter minificationQOpenGLTexture::Filter, QOpenGLTexture::Filter magnificationQOpenGLTexture::Filter)
+void setMinificationFilter(QOpenGLTexture::Filter filter)
+void setMinimumLevelOfDetail(float value)
+void setMipBaseLevel(int baseLevel)
+void setMipLevelRange(int baseLevel, int maxLevel)
+void setMipLevels(int levels)
+void setMipMaxLevel(int maxLevel)
+void setSamples(int samples)
+void setSize(int width, int height, int depth)
+void setSwizzleMask(QOpenGLTexture::SwizzleComponent component, QOpenGLTexture::SwizzleValue value)
+void setSwizzleMask@2(QOpenGLTexture::SwizzleValue r, QOpenGLTexture::SwizzleValue g, QOpenGLTexture::SwizzleValue b, QOpenGLTexture::SwizzleValue a)
+void setWrapMode(QOpenGLTexture::WrapMode mode)
+void setWrapMode@2(QOpenGLTexture::CoordinateDirection direction, QOpenGLTexture::WrapMode mode)
+QOpenGLTexture::SwizzleValue swizzleMask(QOpenGLTexture::SwizzleComponent component)
+QOpenGLTexture::Target target(void)
+GLuint textureId(void)
+int width(void)
+QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
+GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
+<comment>
+GLuint boundTextureId@2(uint unit, QOpenGLTexture::Target target)
+</comment>
+bool hasFeature(QOpenGLTexture::Feature feature)

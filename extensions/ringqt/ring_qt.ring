@@ -7347,7 +7347,9 @@ Class QPainter
 		return QPainter_compositionMode(pObject)
 
 	Func device 
-		return QPainter_device(pObject)
+		pTempObj = new QPaintDevice
+		pTempObj.pObject = QPainter_device(pObject)
+		return pTempObj
 
 	Func deviceTransform 
 		return QPainter_deviceTransform(pObject)
@@ -20382,6 +20384,1103 @@ Class QMatrix4x4
 		pTempObj = new QMatrix4x4
 		pTempObj.pObject = QMatrix4x4_transposed(pObject)
 		return pTempObj
+
+Class QOpenGLPaintDevice from QPaintDevice
+
+	pObject
+
+	Func init 
+		pObject = QOpenGLPaintDevice_new()
+		return self
+
+	Func delete
+		pObject = QOpenGLPaintDevice_delete(pObject)
+
+	Func context 
+		pTempObj = new QOpenGLContext
+		pTempObj.pObject = QOpenGLPaintDevice_context(pObject)
+		return pTempObj
+
+	Func dotsPerMeterX 
+		return QOpenGLPaintDevice_dotsPerMeterX(pObject)
+
+	Func dotsPerMeterY 
+		return QOpenGLPaintDevice_dotsPerMeterY(pObject)
+
+	Func ensureActiveTarget 
+		return QOpenGLPaintDevice_ensureActiveTarget(pObject)
+
+	Func paintFlipped 
+		return QOpenGLPaintDevice_paintFlipped(pObject)
+
+	Func setDevicePixelRatio P1
+		return QOpenGLPaintDevice_setDevicePixelRatio(pObject,P1)
+
+	Func setDotsPerMeterX P1
+		return QOpenGLPaintDevice_setDotsPerMeterX(pObject,P1)
+
+	Func setDotsPerMeterY P1
+		return QOpenGLPaintDevice_setDotsPerMeterY(pObject,P1)
+
+	Func setPaintFlipped P1
+		return QOpenGLPaintDevice_setPaintFlipped(pObject,P1)
+
+	Func setSize P1
+		return QOpenGLPaintDevice_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QOpenGLPaintDevice_size(pObject)
+		return pTempObj
+
+Class QPaintDevice
+	Func colorCount 
+		return QPaintDevice_colorCount()
+
+	Func depth 
+		return QPaintDevice_depth()
+
+	Func devicePixelRatio 
+		return QPaintDevice_devicePixelRatio()
+
+	Func height 
+		return QPaintDevice_height()
+
+	Func heightMM 
+		return QPaintDevice_heightMM()
+
+	Func logicalDpiX 
+		return QPaintDevice_logicalDpiX()
+
+	Func logicalDpiY 
+		return QPaintDevice_logicalDpiY()
+
+	Func paintEngine 
+		return QPaintDevice_paintEngine()
+
+	Func paintingActive 
+		return QPaintDevice_paintingActive()
+
+	Func physicalDpiX 
+		return QPaintDevice_physicalDpiX()
+
+	Func physicalDpiY 
+		return QPaintDevice_physicalDpiY()
+
+	Func width 
+		return QPaintDevice_width()
+
+	Func widthMM 
+		return QPaintDevice_widthMM()
+
+Class QOpenGLTimerQuery
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLTimerQuery_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLTimerQuery_delete(pObject)
+
+	Func begin 
+		return QOpenGLTimerQuery_begin(pObject)
+
+	Func create 
+		return QOpenGLTimerQuery_create(pObject)
+
+	Func destroy 
+		return QOpenGLTimerQuery_destroy(pObject)
+
+	Func end 
+		return QOpenGLTimerQuery_end(pObject)
+
+	Func isCreated 
+		return QOpenGLTimerQuery_isCreated(pObject)
+
+	Func isResultAvailable 
+		return QOpenGLTimerQuery_isResultAvailable(pObject)
+
+	Func objectId 
+		return QOpenGLTimerQuery_objectId(pObject)
+
+	Func recordTimestamp 
+		return QOpenGLTimerQuery_recordTimestamp(pObject)
+
+	Func waitForResult 
+		return QOpenGLTimerQuery_waitForResult(pObject)
+
+	Func waitForTimestamp 
+		return QOpenGLTimerQuery_waitForTimestamp(pObject)
+
+Class QOpenGLDebugLogger
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLDebugLogger_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLDebugLogger_delete(pObject)
+
+	Func disableMessages P1,P2,P3
+		return QOpenGLDebugLogger_disableMessages(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func disableMessages_2 P1,P2,P3
+		return QOpenGLDebugLogger_disableMessages_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func enableMessages P1,P2,P3
+		return QOpenGLDebugLogger_enableMessages(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func enableMessages_2 P1,P2,P3
+		return QOpenGLDebugLogger_enableMessages_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func initialize 
+		return QOpenGLDebugLogger_initialize(pObject)
+
+	Func isLogging 
+		return QOpenGLDebugLogger_isLogging(pObject)
+
+	Func loggedMessages 
+		return QOpenGLDebugLogger_loggedMessages(pObject)
+
+	Func loggingMode 
+		return QOpenGLDebugLogger_loggingMode(pObject)
+
+	Func maximumMessageLength 
+		return QOpenGLDebugLogger_maximumMessageLength(pObject)
+
+	Func popGroup 
+		return QOpenGLDebugLogger_popGroup(pObject)
+
+	Func pushGroup P1,P2,P3
+		return QOpenGLDebugLogger_pushGroup(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func logMessage P1
+		return QOpenGLDebugLogger_logMessage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func startLogging P1
+		return QOpenGLDebugLogger_startLogging(pObject,P1)
+
+	Func stopLogging 
+		return QOpenGLDebugLogger_stopLogging(pObject)
+
+Class QOpenGLFramebufferObject
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QOpenGLFramebufferObject_new(P1,P2,P3)
+		return self
+
+	Func delete
+		pObject = QOpenGLFramebufferObject_delete(pObject)
+
+	Func attachment 
+		return QOpenGLFramebufferObject_attachment(pObject)
+
+	Func bind 
+		return QOpenGLFramebufferObject_bind(pObject)
+
+	Func format 
+		return QOpenGLFramebufferObject_format(pObject)
+
+	Func handle 
+		return QOpenGLFramebufferObject_handle(pObject)
+
+	Func height 
+		return QOpenGLFramebufferObject_height(pObject)
+
+	Func isBound 
+		return QOpenGLFramebufferObject_isBound(pObject)
+
+	Func isValid 
+		return QOpenGLFramebufferObject_isValid(pObject)
+
+	Func release 
+		return QOpenGLFramebufferObject_release(pObject)
+
+	Func setAttachment P1
+		return QOpenGLFramebufferObject_setAttachment(pObject,P1)
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QOpenGLFramebufferObject_size(pObject)
+		return pTempObj
+
+	Func texture 
+		return QOpenGLFramebufferObject_texture(pObject)
+
+	Func toImage P1
+		pTempObj = new QImage
+		pTempObj.pObject = QOpenGLFramebufferObject_toImage(pObject,P1)
+		return pTempObj
+
+	Func toImage_2 
+		pTempObj = new QImage
+		pTempObj.pObject = QOpenGLFramebufferObject_toImage_2(pObject)
+		return pTempObj
+
+	Func width 
+		return QOpenGLFramebufferObject_width(pObject)
+
+	Func bindDefault 
+		return QOpenGLFramebufferObject_bindDefault(pObject)
+
+	Func hasOpenGLFramebufferBlit 
+		return QOpenGLFramebufferObject_hasOpenGLFramebufferBlit(pObject)
+
+	Func hasOpenGLFramebufferObjects 
+		return QOpenGLFramebufferObject_hasOpenGLFramebufferObjects(pObject)
+
+Class QOpenGLVertexArrayObject
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLVertexArrayObject_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLVertexArrayObject_delete(pObject)
+
+	Func bind 
+		return QOpenGLVertexArrayObject_bind(pObject)
+
+	Func create 
+		return QOpenGLVertexArrayObject_create(pObject)
+
+	Func destroy 
+		return QOpenGLVertexArrayObject_destroy(pObject)
+
+	Func isCreated 
+		return QOpenGLVertexArrayObject_isCreated(pObject)
+
+	Func objectId 
+		return QOpenGLVertexArrayObject_objectId(pObject)
+
+	Func release 
+		return QOpenGLVertexArrayObject_release(pObject)
+
+Class QOpenGLBuffer
+
+	pObject
+
+	Func init 
+		pObject = QOpenGLBuffer_new()
+		return self
+
+	Func delete
+		pObject = QOpenGLBuffer_delete(pObject)
+
+	Func allocate P1,P2
+		return QOpenGLBuffer_allocate(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func allocate_2 P1
+		return QOpenGLBuffer_allocate_2(pObject,P1)
+
+	Func bind 
+		return QOpenGLBuffer_bind(pObject)
+
+	Func bufferId 
+		return QOpenGLBuffer_bufferId(pObject)
+
+	Func create 
+		return QOpenGLBuffer_create(pObject)
+
+	Func destroy 
+		return QOpenGLBuffer_destroy(pObject)
+
+	Func isCreated 
+		return QOpenGLBuffer_isCreated(pObject)
+
+	Func map P1
+		return QOpenGLBuffer_map(pObject,P1)
+
+	Func mapRange P1,P2,P3
+		return QOpenGLBuffer_mapRange(pObject,P1,P2,P3)
+
+	Func read P1,P2,P3
+		return QOpenGLBuffer_read(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func release 
+		return QOpenGLBuffer_release(pObject)
+
+	Func setUsagePattern P1
+		return QOpenGLBuffer_setUsagePattern(pObject,P1)
+
+	Func size 
+		return QOpenGLBuffer_size(pObject)
+
+	Func type 
+		return QOpenGLBuffer_type(pObject)
+
+	Func unmap 
+		return QOpenGLBuffer_unmap(pObject)
+
+	Func usagePattern 
+		return QOpenGLBuffer_usagePattern(pObject)
+
+	Func write P1,P2,P3
+		return QOpenGLBuffer_write(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func release_2 P1
+		return QOpenGLBuffer_release_2(pObject,P1)
+
+Class QOpenGLShaderProgram
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLShaderProgram_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLShaderProgram_delete(pObject)
+
+	Func addShader P1
+		return QOpenGLShaderProgram_addShader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addShaderFromSourceCode P1,P2
+		return QOpenGLShaderProgram_addShaderFromSourceCode(pObject,P1,P2)
+
+	Func addShaderFromSourceCode_2 P1,P2
+		return QOpenGLShaderProgram_addShaderFromSourceCode_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addShaderFromSourceCode_3 P1,P2
+		return QOpenGLShaderProgram_addShaderFromSourceCode_3(pObject,P1,P2)
+
+	Func addShaderFromSourceFile P1,P2
+		return QOpenGLShaderProgram_addShaderFromSourceFile(pObject,P1,P2)
+
+	Func attributeLocation P1
+		return QOpenGLShaderProgram_attributeLocation(pObject,P1)
+
+	Func attributeLocation_2 P1
+		return QOpenGLShaderProgram_attributeLocation_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func attributeLocation_3 P1
+		return QOpenGLShaderProgram_attributeLocation_3(pObject,P1)
+
+	Func bind 
+		return QOpenGLShaderProgram_bind(pObject)
+
+	Func bindAttributeLocation P1,P2
+		return QOpenGLShaderProgram_bindAttributeLocation(pObject,P1,P2)
+
+	Func bindAttributeLocation_2 P1,P2
+		return QOpenGLShaderProgram_bindAttributeLocation_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func bindAttributeLocation_3 P1,P2
+		return QOpenGLShaderProgram_bindAttributeLocation_3(pObject,P1,P2)
+
+	Func create 
+		return QOpenGLShaderProgram_create(pObject)
+
+	Func defaultInnerTessellationLevels 
+		return QOpenGLShaderProgram_defaultInnerTessellationLevels(pObject)
+
+	Func defaultOuterTessellationLevels 
+		return QOpenGLShaderProgram_defaultOuterTessellationLevels(pObject)
+
+	Func disableAttributeArray P1
+		return QOpenGLShaderProgram_disableAttributeArray(pObject,P1)
+
+	Func disableAttributeArray_2 P1
+		return QOpenGLShaderProgram_disableAttributeArray_2(pObject,P1)
+
+	Func enableAttributeArray P1
+		return QOpenGLShaderProgram_enableAttributeArray(pObject,P1)
+
+	Func enableAttributeArray_2 P1
+		return QOpenGLShaderProgram_enableAttributeArray_2(pObject,P1)
+
+	Func isLinked 
+		return QOpenGLShaderProgram_isLinked(pObject)
+
+	Func link 
+		return QOpenGLShaderProgram_link(pObject)
+
+	Func log 
+		return QOpenGLShaderProgram_log(pObject)
+
+	Func maxGeometryOutputVertices 
+		return QOpenGLShaderProgram_maxGeometryOutputVertices(pObject)
+
+	Func patchVertexCount 
+		return QOpenGLShaderProgram_patchVertexCount(pObject)
+
+	Func programId 
+		return QOpenGLShaderProgram_programId(pObject)
+
+	Func release 
+		return QOpenGLShaderProgram_release(pObject)
+
+	Func removeAllShaders 
+		return QOpenGLShaderProgram_removeAllShaders(pObject)
+
+	Func removeShader P1
+		return QOpenGLShaderProgram_removeShader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAttributeArray P1,P2,P3,P4
+		return QOpenGLShaderProgram_setAttributeArray(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func setAttributeArray_2 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_2(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_3 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_3(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_4 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_4(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_5 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeArray_5(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4,P5)
+
+	Func setAttributeArray_6 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setAttributeArray_6(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func setAttributeArray_7 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_7(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_8 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_8(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_9 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeArray_9(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setAttributeArray_10 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeArray_10(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4,P5)
+
+	Func setAttributeBuffer P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeBuffer(pObject,P1,P2,P3,P4,P5)
+
+	Func setAttributeBuffer_2 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeBuffer_2(pObject,P1,P2,P3,P4,P5)
+
+	Func setAttributeValue P1,P2
+		return QOpenGLShaderProgram_setAttributeValue(pObject,P1,P2)
+
+	Func setAttributeValue_2 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeValue_2(pObject,P1,P2,P3)
+
+	Func setAttributeValue_3 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setAttributeValue_3(pObject,P1,P2,P3,P4)
+
+	Func setAttributeValue_4 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeValue_4(pObject,P1,P2,P3,P4,P5)
+
+	Func setAttributeValue_5 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_5(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_6 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_6(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_7 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_7(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_8 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_8(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_9 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setAttributeValue_9(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func setAttributeValue_10 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_10(pObject,P1,P2)
+
+	Func setAttributeValue_11 P1,P2,P3
+		return QOpenGLShaderProgram_setAttributeValue_11(pObject,P1,P2,P3)
+
+	Func setAttributeValue_12 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setAttributeValue_12(pObject,P1,P2,P3,P4)
+
+	Func setAttributeValue_13 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setAttributeValue_13(pObject,P1,P2,P3,P4,P5)
+
+	Func setAttributeValue_14 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_14(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_15 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_15(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setAttributeValue_16 P1,P2
+		return QOpenGLShaderProgram_setAttributeValue_16(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setDefaultInnerTessellationLevels P1
+		return QOpenGLShaderProgram_setDefaultInnerTessellationLevels(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDefaultOuterTessellationLevels P1
+		return QOpenGLShaderProgram_setDefaultOuterTessellationLevels(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPatchVertexCount P1
+		return QOpenGLShaderProgram_setPatchVertexCount(pObject,P1)
+
+	Func setUniformValue P1,P2
+		return QOpenGLShaderProgram_setUniformValue(pObject,P1,P2)
+
+	Func setUniformValue_2 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_2(pObject,P1,P2)
+
+	Func setUniformValue_3 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_3(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_4 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_4(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_5 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_5(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_6 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_6(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_7 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_7(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_8 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_8(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_9 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_9(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_10 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_10(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_11 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_11(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_12 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_12(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_13 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_13(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_14 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_14(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_15 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_15(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_16 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_16(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_20 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_20(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_21 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_21(pObject,P1,P2)
+
+	Func setUniformValue_22 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValue_22(pObject,P1,P2,P3)
+
+	Func setUniformValue_23 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setUniformValue_23(pObject,P1,P2,P3,P4)
+
+	Func setUniformValue_24 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setUniformValue_24(pObject,P1,P2,P3,P4,P5)
+
+	Func setUniformValue_25 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_25(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_26 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_26(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_27 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_27(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_28 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_28(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_29 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_29(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_30 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_30(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_31 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_31(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_32 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_32(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_33 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_33(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_34 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_34(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_35 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_35(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_36 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_36(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_37 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_37(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_38 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_38(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_39 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_39(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_40 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_40(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_41 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_41(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_45 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_45(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_46 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_46(pObject,P1,P2)
+
+	Func setUniformValue_47 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_47(pObject,P1,P2)
+
+	Func setUniformValue_48 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_48(pObject,P1,P2)
+
+	Func setUniformValue_49 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValue_49(pObject,P1,P2,P3)
+
+	Func setUniformValue_50 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setUniformValue_50(pObject,P1,P2,P3,P4)
+
+	Func setUniformValue_51 P1,P2,P3,P4,P5
+		return QOpenGLShaderProgram_setUniformValue_51(pObject,P1,P2,P3,P4,P5)
+
+	Func setUniformValue_52 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_52(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_53 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_53(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValue_54 P1,P2
+		return QOpenGLShaderProgram_setUniformValue_54(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setUniformValueArray P1,P2,P3,P4
+		return QOpenGLShaderProgram_setUniformValueArray(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func setUniformValueArray_2 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_2(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_3 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_3(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_4 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_4(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_5 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_5(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_6 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_6(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_7 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_7(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_8 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_8(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_9 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_9(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_10 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_10(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_11 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_11(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_12 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_12(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_13 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_13(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_14 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_14(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_15 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_15(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_16 P1,P2,P3,P4
+		return QOpenGLShaderProgram_setUniformValueArray_16(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func setUniformValueArray_17 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_17(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_18 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_18(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_19 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_19(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_20 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_20(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_21 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_21(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_22 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_22(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_23 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_23(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_24 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_24(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_25 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_25(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_26 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_26(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_27 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_27(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_28 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_28(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_29 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_29(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func setUniformValueArray_30 P1,P2,P3
+		return QOpenGLShaderProgram_setUniformValueArray_30(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func shaders 
+		return QOpenGLShaderProgram_shaders(pObject)
+
+	Func uniformLocation P1
+		return QOpenGLShaderProgram_uniformLocation(pObject,P1)
+
+	Func uniformLocation_2 P1
+		return QOpenGLShaderProgram_uniformLocation_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func uniformLocation_3 P1
+		return QOpenGLShaderProgram_uniformLocation_3(pObject,P1)
+
+	Func hasOpenGLShaderPrograms P1
+		return QOpenGLShaderProgram_hasOpenGLShaderPrograms(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QOpenGLShader
+
+	pObject
+
+	Func init P1,P2
+		pObject = QOpenGLShader_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QOpenGLShader_delete(pObject)
+
+	Func compileSourceCode P1
+		return QOpenGLShader_compileSourceCode(pObject,P1)
+
+	Func compileSourceCode_2 P1
+		return QOpenGLShader_compileSourceCode_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func compileSourceCode_3 P1
+		return QOpenGLShader_compileSourceCode_3(pObject,P1)
+
+	Func compileSourceFile P1
+		return QOpenGLShader_compileSourceFile(pObject,P1)
+
+	Func isCompiled 
+		return QOpenGLShader_isCompiled(pObject)
+
+	Func log 
+		return QOpenGLShader_log(pObject)
+
+	Func shaderId 
+		return QOpenGLShader_shaderId(pObject)
+
+	Func shaderType 
+		return QOpenGLShader_shaderType(pObject)
+
+	Func sourceCode 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QOpenGLShader_sourceCode(pObject)
+		return pTempObj
+
+	Func hasOpenGLShaders P1,P2
+		return QOpenGLShader_hasOpenGLShaders(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class QOpenGLTexture
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLTexture_new(P1)
+		return self
+
+	Func delete
+		pObject = QOpenGLTexture_delete(pObject)
+
+	Func allocateStorage 
+		return QOpenGLTexture_allocateStorage(pObject)
+
+	Func allocateStorage_2 P1,P2
+		return QOpenGLTexture_allocateStorage_2(pObject,P1,P2)
+
+	Func bind 
+		return QOpenGLTexture_bind(pObject)
+
+	Func bind_2 P1,P2
+		return QOpenGLTexture_bind_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QOpenGLTexture_borderColor(pObject)
+		return pTempObj
+
+	Func borderColor_2 P1
+		return QOpenGLTexture_borderColor_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func borderColor_3 P1
+		return QOpenGLTexture_borderColor_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func borderColor_4 P1
+		return QOpenGLTexture_borderColor_4(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func comparisonFunction 
+		return QOpenGLTexture_comparisonFunction(pObject)
+
+	Func comparisonMode 
+		return QOpenGLTexture_comparisonMode(pObject)
+
+	Func create 
+		return QOpenGLTexture_create(pObject)
+
+	Func createTextureView P1,P2,P3,P4,P5,P6
+		pTempObj = new QOpenGLTexture
+		pTempObj.pObject = QOpenGLTexture_createTextureView(pObject,P1,P2,P3,P4,P5,P6)
+		return pTempObj
+
+	Func depth 
+		return QOpenGLTexture_depth(pObject)
+
+	Func depthStencilMode 
+		return QOpenGLTexture_depthStencilMode(pObject)
+
+	Func destroy 
+		return QOpenGLTexture_destroy(pObject)
+
+	Func faces 
+		return QOpenGLTexture_faces(pObject)
+
+	Func format 
+		return QOpenGLTexture_format(pObject)
+
+	Func generateMipMaps 
+		return QOpenGLTexture_generateMipMaps(pObject)
+
+	Func generateMipMaps_2 P1,P2
+		return QOpenGLTexture_generateMipMaps_2(pObject,P1,P2)
+
+	Func height 
+		return QOpenGLTexture_height(pObject)
+
+	Func isAutoMipMapGenerationEnabled 
+		return QOpenGLTexture_isAutoMipMapGenerationEnabled(pObject)
+
+	Func isBound 
+		return QOpenGLTexture_isBound(pObject)
+
+	Func isBound_2 P1
+		return QOpenGLTexture_isBound_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isCreated 
+		return QOpenGLTexture_isCreated(pObject)
+
+	Func isFixedSamplePositions 
+		return QOpenGLTexture_isFixedSamplePositions(pObject)
+
+	Func isStorageAllocated 
+		return QOpenGLTexture_isStorageAllocated(pObject)
+
+	Func isTextureView 
+		return QOpenGLTexture_isTextureView(pObject)
+
+	Func layers 
+		return QOpenGLTexture_layers(pObject)
+
+	Func levelOfDetailRange 
+		return QOpenGLTexture_levelOfDetailRange(pObject)
+
+	Func levelofDetailBias 
+		return QOpenGLTexture_levelofDetailBias(pObject)
+
+	Func magnificationFilter 
+		return QOpenGLTexture_magnificationFilter(pObject)
+
+	Func maximumAnisotropy 
+		return QOpenGLTexture_maximumAnisotropy(pObject)
+
+	Func maximumLevelOfDetail 
+		return QOpenGLTexture_maximumLevelOfDetail(pObject)
+
+	Func maximumMipLevels 
+		return QOpenGLTexture_maximumMipLevels(pObject)
+
+	Func minificationFilter 
+		return QOpenGLTexture_minificationFilter(pObject)
+
+	Func minimumLevelOfDetail 
+		return QOpenGLTexture_minimumLevelOfDetail(pObject)
+
+	Func mipBaseLevel 
+		return QOpenGLTexture_mipBaseLevel(pObject)
+
+	Func mipLevels 
+		return QOpenGLTexture_mipLevels(pObject)
+
+	Func mipMaxLevel 
+		return QOpenGLTexture_mipMaxLevel(pObject)
+
+	Func release 
+		return QOpenGLTexture_release(pObject)
+
+	Func release_2 P1,P2
+		return QOpenGLTexture_release_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func samples 
+		return QOpenGLTexture_samples(pObject)
+
+	Func setAutoMipMapGenerationEnabled P1
+		return QOpenGLTexture_setAutoMipMapGenerationEnabled(pObject,P1)
+
+	Func setBorderColor P1
+		return QOpenGLTexture_setBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBorderColor_3 P1,P2,P3,P4
+		return QOpenGLTexture_setBorderColor_3(pObject,P1,P2,P3,P4)
+
+	Func setBorderColor_4 P1,P2,P3,P4
+		return QOpenGLTexture_setBorderColor_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setComparisonFunction P1
+		return QOpenGLTexture_setComparisonFunction(pObject,P1)
+
+	Func setComparisonMode P1
+		return QOpenGLTexture_setComparisonMode(pObject,P1)
+
+	Func setCompressedData P1,P2,P3,P4,P5,P6
+		return QOpenGLTexture_setCompressedData(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+
+	Func setCompressedData_3 P1,P2,P3,P4,P5
+		return QOpenGLTexture_setCompressedData_3(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func setCompressedData_4 P1,P2,P3,P4
+		return QOpenGLTexture_setCompressedData_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setCompressedData_5 P1,P2,P3
+		return QOpenGLTexture_setCompressedData_5(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func setData P1,P2,P3,P4,P5,P6,P7
+		return QOpenGLTexture_setData(pObject,P1,P2,P3,P4,P5,GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+
+	Func setData_3 P1,P2,P3,P4,P5,P6
+		return QOpenGLTexture_setData_3(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+
+	Func setData_4 P1,P2,P3,P4,P5
+		return QOpenGLTexture_setData_4(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func setData_5 P1,P2,P3,P4
+		return QOpenGLTexture_setData_5(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setData_6 P1,P2
+		return QOpenGLTexture_setData_6(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setDepthStencilMode P1
+		return QOpenGLTexture_setDepthStencilMode(pObject,P1)
+
+	Func setFixedSamplePositions P1
+		return QOpenGLTexture_setFixedSamplePositions(pObject,P1)
+
+	Func setFormat P1
+		return QOpenGLTexture_setFormat(pObject,P1)
+
+	Func setLayers P1
+		return QOpenGLTexture_setLayers(pObject,P1)
+
+	Func setLevelOfDetailRange P1,P2
+		return QOpenGLTexture_setLevelOfDetailRange(pObject,P1,P2)
+
+	Func setLevelofDetailBias P1
+		return QOpenGLTexture_setLevelofDetailBias(pObject,P1)
+
+	Func setMagnificationFilter P1
+		return QOpenGLTexture_setMagnificationFilter(pObject,P1)
+
+	Func setMaximumAnisotropy P1
+		return QOpenGLTexture_setMaximumAnisotropy(pObject,P1)
+
+	Func setMaximumLevelOfDetail P1
+		return QOpenGLTexture_setMaximumLevelOfDetail(pObject,P1)
+
+	Func setMinMagFilters P1,P2
+		return QOpenGLTexture_setMinMagFilters(pObject,P1,P2)
+
+	Func setMinificationFilter P1
+		return QOpenGLTexture_setMinificationFilter(pObject,P1)
+
+	Func setMinimumLevelOfDetail P1
+		return QOpenGLTexture_setMinimumLevelOfDetail(pObject,P1)
+
+	Func setMipBaseLevel P1
+		return QOpenGLTexture_setMipBaseLevel(pObject,P1)
+
+	Func setMipLevelRange P1,P2
+		return QOpenGLTexture_setMipLevelRange(pObject,P1,P2)
+
+	Func setMipLevels P1
+		return QOpenGLTexture_setMipLevels(pObject,P1)
+
+	Func setMipMaxLevel P1
+		return QOpenGLTexture_setMipMaxLevel(pObject,P1)
+
+	Func setSamples P1
+		return QOpenGLTexture_setSamples(pObject,P1)
+
+	Func setSize P1,P2,P3
+		return QOpenGLTexture_setSize(pObject,P1,P2,P3)
+
+	Func setSwizzleMask P1,P2
+		return QOpenGLTexture_setSwizzleMask(pObject,P1,P2)
+
+	Func setSwizzleMask_2 P1,P2,P3,P4
+		return QOpenGLTexture_setSwizzleMask_2(pObject,P1,P2,P3,P4)
+
+	Func setWrapMode P1
+		return QOpenGLTexture_setWrapMode(pObject,P1)
+
+	Func setWrapMode_2 P1,P2
+		return QOpenGLTexture_setWrapMode_2(pObject,P1,P2)
+
+	Func swizzleMask P1
+		return QOpenGLTexture_swizzleMask(pObject,P1)
+
+	Func target 
+		return QOpenGLTexture_target(pObject)
+
+	Func textureId 
+		return QOpenGLTexture_textureId(pObject)
+
+	Func width 
+		return QOpenGLTexture_width(pObject)
+
+	Func wrapMode P1
+		return QOpenGLTexture_wrapMode(pObject,P1)
+
+	Func boundTextureId P1
+		return QOpenGLTexture_boundTextureId(pObject,P1)
+
+	Func hasFeature P1
+		return QOpenGLTexture_hasFeature(pObject,P1)
 
 Class QPixmap2 from QPixmap
 
