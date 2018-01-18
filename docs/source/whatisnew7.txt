@@ -22,6 +22,7 @@ Ring 1.7 comes with many new features!
 * Better Ring Notepad
 * Better RingQt
 * Better Ring2EXE
+* Better RingZip
 * Better Documentation
 * Better Ring VM
 
@@ -254,6 +255,14 @@ Ring2EXE is updated to works as expected when we don't have a C/C++ compiler
 
 Where we can distribute applications and get (exe file and ringo file) in this case.
 
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better RingZip
+
+Better RingZip
+==============
+
+The library is updated to support extracting files contains sub folders!
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Documentation
