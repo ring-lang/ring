@@ -4834,6 +4834,56 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QQuaternion Class
+
+QQuaternion Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQuaternion.html
+
+
+Parameters : float,float,float,float
+
+* QQuaternion conjugated(void)
+* void getAxes(QVector3D *xAxis, QVector3D *yAxis, QVector3D *zAxis)
+* void getAxisAndAngle(float *x, float *y, float *z, float *angle)
+* void getAxisAndAngle_2(QVector3D *axis, float *angle)
+* void getEulerAngles(float *pitch, float *yaw, float *roll)
+* QQuaternion inverted(void)
+* bool isIdentity(void)
+* bool isNull(void)
+* float length(void)
+* float lengthSquared(void)
+* void normalize(void)
+* QQuaternion normalized(void)
+* QVector3D rotatedVector(QVector3D vector)
+* float scalar(void)
+* void setScalar(float scalar)
+* void setVector(QVector3D vector)
+* void setVector_2(float x, float y, float z)
+* void setX(float x)
+* void setY(float y)
+* void setZ(float z)
+* QVector3D toEulerAngles(void)
+* QMatrix3x3 toRotationMatrix(void)
+* QVector4D toVector4D(void)
+* QVector3D vector(void)
+* float x(void)
+* float y(void)
+* float z(void)
+* float dotProduct(QQuaternion q1, QQuaternion q2)
+* QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+* QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+* QQuaternion fromAxisAndAngle_2(float x, float y, float z, float angle)
+* QQuaternion fromDirection(QVector3D direction, QVector3D up)
+* QQuaternion fromEulerAngles(float pitch, float yaw, float roll)
+* QQuaternion fromEulerAngles_2(QVector3D eulerAngles)
+* QQuaternion fromRotationMatrix(QMatrix3x3 rot3x3)
+* QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
+* QQuaternion rotationTo(QVector3D from, QVector3D to)
+* QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+.. index::
 	pair: RingQt Classes Reference; QRadioButton Class
 
 QRadioButton Class
@@ -7260,6 +7310,7 @@ Parameters : float,float,float,float
 * float y(void)
 * float z(void)
 * float dotProduct(QVector4D v1, QVector4D v2)
+
 .. index::
 	pair: RingQt Classes Reference; QVideoWidget Class
 

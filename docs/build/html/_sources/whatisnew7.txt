@@ -218,7 +218,7 @@ Ring Notepad comes with the next updates
 Better RingQt
 =============
 
-RingQt comes with the next updates
+The next classes are added to RingQt
 
 (1)  QStackedWidget Class
 (2)  QCalendarWidget Class
@@ -231,6 +231,7 @@ RingQt comes with the next updates
 (9)  QVector2D
 (10) QVector3D
 (11) QVector4D
+(12) QQuaternion
 
 .. index:: 
 	pair: What is new in Ring 1.7?; Better Ring2EXE
