@@ -245,7 +245,7 @@ extern "C" {
 #include <QVector2D>
 #include <QVector3D>
 #include <QVector4D>
-
+#include <QQuaternion>
 
 
 
@@ -99863,6 +99863,894 @@ RING_FUNC(ring_QVector4D_dotProduct)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector4D"));
 }
 
+
+RING_FUNC(ring_QQuaternion_conjugated)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->conjugated();
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_getAxes)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getAxes((QVector3D *) RING_API_GETCPOINTER(2,"QVector3D"),(QVector3D *) RING_API_GETCPOINTER(3,"QVector3D"),(QVector3D *) RING_API_GETCPOINTER(4,"QVector3D"));
+}
+
+
+RING_FUNC(ring_QQuaternion_getAxisAndAngle)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getAxisAndAngle((float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"),(float *) RING_API_GETCPOINTER(5,"float"));
+}
+
+
+RING_FUNC(ring_QQuaternion_getAxisAndAngle_2)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getAxisAndAngle((QVector3D *) RING_API_GETCPOINTER(2,"QVector3D"),(float *) RING_API_GETCPOINTER(3,"float"));
+}
+
+
+RING_FUNC(ring_QQuaternion_getEulerAngles)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getEulerAngles((float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"));
+}
+
+
+RING_FUNC(ring_QQuaternion_inverted)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->inverted();
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_isIdentity)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->isIdentity());
+}
+
+
+RING_FUNC(ring_QQuaternion_isNull)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QQuaternion_length)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->length());
+}
+
+
+RING_FUNC(ring_QQuaternion_lengthSquared)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->lengthSquared());
+}
+
+
+RING_FUNC(ring_QQuaternion_normalize)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	pObject->normalize();
+}
+
+
+RING_FUNC(ring_QQuaternion_normalized)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->normalized();
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_rotatedVector)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QVector3D *pValue ; 
+		pValue = new QVector3D() ;
+		*pValue = pObject->rotatedVector(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QVector3D");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_scalar)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->scalar());
+}
+
+
+RING_FUNC(ring_QQuaternion_setScalar)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setScalar( (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QQuaternion_setVector)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	pObject->setVector(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+}
+
+
+RING_FUNC(ring_QQuaternion_setVector_2)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVector( (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QQuaternion_setX)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setX( (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QQuaternion_setY)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setY( (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QQuaternion_setZ)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setZ( (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QQuaternion_toEulerAngles)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QVector3D *pValue ; 
+		pValue = new QVector3D() ;
+		*pValue = pObject->toEulerAngles();
+		RING_API_RETCPOINTER(pValue,"QVector3D");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_toRotationMatrix)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QMatrix3x3 *pValue ; 
+		pValue = (QMatrix3x3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMatrix3x3)) ;
+		*pValue = pObject->toRotationMatrix();
+		RING_API_RETCPOINTER(pValue,"QMatrix3x3");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_toVector4D)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QVector4D *pValue ; 
+		pValue = new QVector4D() ;
+		*pValue = pObject->toVector4D();
+		RING_API_RETCPOINTER(pValue,"QVector4D");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_vector)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QVector3D *pValue ; 
+		pValue = new QVector3D() ;
+		*pValue = pObject->vector();
+		RING_API_RETCPOINTER(pValue,"QVector3D");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_x)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->x());
+}
+
+
+RING_FUNC(ring_QQuaternion_y)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->y());
+}
+
+
+RING_FUNC(ring_QQuaternion_z)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->z());
+}
+
+
+RING_FUNC(ring_QQuaternion_dotProduct)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	RING_API_RETNUMBER(pObject->dotProduct(* (QQuaternion  *) RING_API_GETCPOINTER(2,"QQuaternion"),* (QQuaternion  *) RING_API_GETCPOINTER(3,"QQuaternion")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QQuaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QQuaternion"));
+}
+
+
+RING_FUNC(ring_QQuaternion_fromAxes)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromAxes(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(4,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromAxisAndAngle)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromAxisAndAngle(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"), (float ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromAxisAndAngle_2)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromAxisAndAngle( (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromDirection)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromDirection(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromEulerAngles)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromEulerAngles( (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromEulerAngles_2)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromEulerAngles(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_fromRotationMatrix)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->fromRotationMatrix(* (QMatrix3x3  *) RING_API_GETCPOINTER(2,"QMatrix3x3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix3x3"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_nlerp)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->nlerp(* (QQuaternion  *) RING_API_GETCPOINTER(2,"QQuaternion"),* (QQuaternion  *) RING_API_GETCPOINTER(3,"QQuaternion"), (float ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QQuaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QQuaternion"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_rotationTo)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->rotationTo(* (QVector3D  *) RING_API_GETCPOINTER(2,"QVector3D"),* (QVector3D  *) RING_API_GETCPOINTER(3,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVector3D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVector3D"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
+
+RING_FUNC(ring_QQuaternion_slerp)
+{
+	QQuaternion *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QQuaternion *pValue ; 
+		pValue = new QQuaternion() ;
+		*pValue = pObject->slerp(* (QQuaternion  *) RING_API_GETCPOINTER(2,"QQuaternion"),* (QQuaternion  *) RING_API_GETCPOINTER(3,"QQuaternion"), (float ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QQuaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QQuaternion"));
+		RING_API_RETCPOINTER(pValue,"QQuaternion");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -102089,6 +102977,33 @@ RING_FUNC(ring_QVector4D_new)
 	}
 	QVector4D *pObject = new QVector4D( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
 	RING_API_RETCPOINTER(pObject,"QVector4D");
+}
+
+RING_FUNC(ring_QQuaternion_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QQuaternion *pObject = new QQuaternion( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+	RING_API_RETCPOINTER(pObject,"QQuaternion");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -104547,6 +105462,21 @@ RING_FUNC(ring_QVector4D_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QVector4D *) RING_API_GETCPOINTER(1,"QVector4D");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QQuaternion_delete)
+{
+	QQuaternion *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QQuaternion *) RING_API_GETCPOINTER(1,"QQuaternion");
 		delete pObject ;
 	}
 }
@@ -109244,6 +110174,44 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector4d_y",ring_QVector4D_y);
 	ring_vm_funcregister("qvector4d_z",ring_QVector4D_z);
 	ring_vm_funcregister("qvector4d_dotproduct",ring_QVector4D_dotProduct);
+	ring_vm_funcregister("qquaternion_conjugated",ring_QQuaternion_conjugated);
+	ring_vm_funcregister("qquaternion_getaxes",ring_QQuaternion_getAxes);
+	ring_vm_funcregister("qquaternion_getaxisandangle",ring_QQuaternion_getAxisAndAngle);
+	ring_vm_funcregister("qquaternion_getaxisandangle_2",ring_QQuaternion_getAxisAndAngle_2);
+	ring_vm_funcregister("qquaternion_geteulerangles",ring_QQuaternion_getEulerAngles);
+	ring_vm_funcregister("qquaternion_inverted",ring_QQuaternion_inverted);
+	ring_vm_funcregister("qquaternion_isidentity",ring_QQuaternion_isIdentity);
+	ring_vm_funcregister("qquaternion_isnull",ring_QQuaternion_isNull);
+	ring_vm_funcregister("qquaternion_length",ring_QQuaternion_length);
+	ring_vm_funcregister("qquaternion_lengthsquared",ring_QQuaternion_lengthSquared);
+	ring_vm_funcregister("qquaternion_normalize",ring_QQuaternion_normalize);
+	ring_vm_funcregister("qquaternion_normalized",ring_QQuaternion_normalized);
+	ring_vm_funcregister("qquaternion_rotatedvector",ring_QQuaternion_rotatedVector);
+	ring_vm_funcregister("qquaternion_scalar",ring_QQuaternion_scalar);
+	ring_vm_funcregister("qquaternion_setscalar",ring_QQuaternion_setScalar);
+	ring_vm_funcregister("qquaternion_setvector",ring_QQuaternion_setVector);
+	ring_vm_funcregister("qquaternion_setvector_2",ring_QQuaternion_setVector_2);
+	ring_vm_funcregister("qquaternion_setx",ring_QQuaternion_setX);
+	ring_vm_funcregister("qquaternion_sety",ring_QQuaternion_setY);
+	ring_vm_funcregister("qquaternion_setz",ring_QQuaternion_setZ);
+	ring_vm_funcregister("qquaternion_toeulerangles",ring_QQuaternion_toEulerAngles);
+	ring_vm_funcregister("qquaternion_torotationmatrix",ring_QQuaternion_toRotationMatrix);
+	ring_vm_funcregister("qquaternion_tovector4d",ring_QQuaternion_toVector4D);
+	ring_vm_funcregister("qquaternion_vector",ring_QQuaternion_vector);
+	ring_vm_funcregister("qquaternion_x",ring_QQuaternion_x);
+	ring_vm_funcregister("qquaternion_y",ring_QQuaternion_y);
+	ring_vm_funcregister("qquaternion_z",ring_QQuaternion_z);
+	ring_vm_funcregister("qquaternion_dotproduct",ring_QQuaternion_dotProduct);
+	ring_vm_funcregister("qquaternion_fromaxes",ring_QQuaternion_fromAxes);
+	ring_vm_funcregister("qquaternion_fromaxisandangle",ring_QQuaternion_fromAxisAndAngle);
+	ring_vm_funcregister("qquaternion_fromaxisandangle_2",ring_QQuaternion_fromAxisAndAngle_2);
+	ring_vm_funcregister("qquaternion_fromdirection",ring_QQuaternion_fromDirection);
+	ring_vm_funcregister("qquaternion_fromeulerangles",ring_QQuaternion_fromEulerAngles);
+	ring_vm_funcregister("qquaternion_fromeulerangles_2",ring_QQuaternion_fromEulerAngles_2);
+	ring_vm_funcregister("qquaternion_fromrotationmatrix",ring_QQuaternion_fromRotationMatrix);
+	ring_vm_funcregister("qquaternion_nlerp",ring_QQuaternion_nlerp);
+	ring_vm_funcregister("qquaternion_rotationto",ring_QQuaternion_rotationTo);
+	ring_vm_funcregister("qquaternion_slerp",ring_QQuaternion_slerp);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -109408,6 +110376,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector2d_new",ring_QVector2D_new);
 	ring_vm_funcregister("qvector3d_new",ring_QVector3D_new);
 	ring_vm_funcregister("qvector4d_new",ring_QVector4D_new);
+	ring_vm_funcregister("qquaternion_new",ring_QQuaternion_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -109572,6 +110541,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector2d_delete",ring_QVector2D_delete);
 	ring_vm_funcregister("qvector3d_delete",ring_QVector3D_delete);
 	ring_vm_funcregister("qvector4d_delete",ring_QVector4D_delete);
+	ring_vm_funcregister("qquaternion_delete",ring_QQuaternion_delete);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
