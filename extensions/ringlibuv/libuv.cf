@@ -254,3 +254,14 @@ int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
 int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
 int uv_prepare_stop(uv_prepare_t* prepare)
 
+<comment>
+Check handle
+</comment>
+
+<struct>
+uv_check_t
+</struct>
+
+int uv_check_init(uv_loop_t* loop, uv_check_t* check)
+int uv_check_start(uv_check_t* check, uv_check_cb cb)
+int uv_check_stop(uv_check_t* check)
