@@ -3018,6 +3018,398 @@ RING_FUNC(ring_uv_tty_get_winsize)
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
+RING_FUNC(ring_uv_new_uv_udp_t)
+{
+	uv_udp_t *pMyPointer ;
+	pMyPointer = (uv_udp_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_udp_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uv_udp_t");
+}
+
+RING_FUNC(ring_uv_destroy_uv_udp_t)
+{
+	uv_udp_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_t");
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+}
+
+RING_FUNC(ring_uv_get_uv_udp_t_send_queue_size)
+{
+	uv_udp_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_t");
+	RING_API_RETNUMBER(pMyPointer->send_queue_size);
+}
+
+RING_FUNC(ring_uv_set_uv_udp_t_send_queue_size)
+{
+	uv_udp_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_t");
+	pMyPointer->send_queue_size = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_uv_get_uv_udp_t_send_queue_count)
+{
+	uv_udp_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_t");
+	RING_API_RETNUMBER(pMyPointer->send_queue_count);
+}
+
+RING_FUNC(ring_uv_set_uv_udp_t_send_queue_count)
+{
+	uv_udp_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_t");
+	pMyPointer->send_queue_count = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_uv_new_uv_udp_send_t)
+{
+	uv_udp_send_t *pMyPointer ;
+	pMyPointer = (uv_udp_send_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_udp_send_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uv_udp_send_t");
+}
+
+RING_FUNC(ring_uv_destroy_uv_udp_send_t)
+{
+	uv_udp_send_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_udp_send_t");
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+}
+
+RING_FUNC(ring_uv_get_uv_udp_ipv6only)
+{
+	RING_API_RETNUMBER(UV_UDP_IPV6ONLY);
+}
+
+RING_FUNC(ring_uv_get_uv_udp_partial)
+{
+	RING_API_RETNUMBER(UV_UDP_PARTIAL);
+}
+
+RING_FUNC(ring_uv_get_uv_udp_reuseaddr)
+{
+	RING_API_RETNUMBER(UV_UDP_REUSEADDR);
+}
+
+RING_FUNC(ring_uv_get_uv_leave_group)
+{
+	RING_API_RETNUMBER(UV_LEAVE_GROUP);
+}
+
+RING_FUNC(ring_uv_get_uv_join_group)
+{
+	RING_API_RETNUMBER(UV_JOIN_GROUP);
+}
+
+
+RING_FUNC(ring_uv_udp_init)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t")));
+}
+
+
+RING_FUNC(ring_uv_udp_init_ex)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_init_ex((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
+}
+
+
+RING_FUNC(ring_uv_udp_open)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_open((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),* (uv_os_sock_t  *) RING_API_GETCPOINTER(2,"uv_os_sock_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_os_sock_t"));
+}
+
+
+RING_FUNC(ring_uv_udp_bind)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_bind((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),(struct sockaddr *) RING_API_GETCPOINTER(2,"struct sockaddr"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
+}
+
+
+RING_FUNC(ring_uv_udp_getsockname)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_getsockname((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),(struct sockaddr *) RING_API_GETCPOINTER(2,"struct sockaddr"),RING_API_GETINTPOINTER(3)));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_uv_udp_set_membership)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_membership((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),(char *) RING_API_GETCPOINTER(2,"char"),(char *) RING_API_GETCPOINTER(3,"char"), (uv_membership )  (int) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_uv_udp_set_multicast_loop)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_multicast_loop((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_udp_set_multicast_ttl)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_multicast_ttl((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_udp_set_multicast_interface)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_multicast_interface((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),(char *) RING_API_GETCPOINTER(2,"char")));
+}
+
+
+RING_FUNC(ring_uv_udp_set_broadcast)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_broadcast((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_udp_set_ttl)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_set_ttl((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_udp_recv_start)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_recv_start((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),* (uv_alloc_cb  *) RING_API_GETCPOINTER(2,"uv_alloc_cb"),* (uv_udp_recv_cb  *) RING_API_GETCPOINTER(3,"uv_udp_recv_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_alloc_cb"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_udp_recv_cb"));
+}
+
+
+RING_FUNC(ring_uv_udp_recv_stop)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_recv_stop((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
@@ -3112,6 +3504,19 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_tty_set_mode",ring_uv_tty_set_mode);
 	ring_vm_funcregister("uv_tty_reset_mode",ring_uv_tty_reset_mode);
 	ring_vm_funcregister("uv_tty_get_winsize",ring_uv_tty_get_winsize);
+	ring_vm_funcregister("uv_udp_init",ring_uv_udp_init);
+	ring_vm_funcregister("uv_udp_init_ex",ring_uv_udp_init_ex);
+	ring_vm_funcregister("uv_udp_open",ring_uv_udp_open);
+	ring_vm_funcregister("uv_udp_bind",ring_uv_udp_bind);
+	ring_vm_funcregister("uv_udp_getsockname",ring_uv_udp_getsockname);
+	ring_vm_funcregister("uv_udp_set_membership",ring_uv_udp_set_membership);
+	ring_vm_funcregister("uv_udp_set_multicast_loop",ring_uv_udp_set_multicast_loop);
+	ring_vm_funcregister("uv_udp_set_multicast_ttl",ring_uv_udp_set_multicast_ttl);
+	ring_vm_funcregister("uv_udp_set_multicast_interface",ring_uv_udp_set_multicast_interface);
+	ring_vm_funcregister("uv_udp_set_broadcast",ring_uv_udp_set_broadcast);
+	ring_vm_funcregister("uv_udp_set_ttl",ring_uv_udp_set_ttl);
+	ring_vm_funcregister("uv_udp_recv_start",ring_uv_udp_recv_start);
+	ring_vm_funcregister("uv_udp_recv_stop",ring_uv_udp_recv_stop);
 	ring_vm_funcregister("uv_get_uv_e2big",ring_uv_get_uv_e2big);
 	ring_vm_funcregister("uv_get_uv_eacces",ring_uv_get_uv_eacces);
 	ring_vm_funcregister("uv_get_uv_eaddrinuse",ring_uv_get_uv_eaddrinuse);
@@ -3299,4 +3704,17 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_get_uv_tty_mode_normal",ring_uv_get_uv_tty_mode_normal);
 	ring_vm_funcregister("uv_get_uv_tty_mode_raw",ring_uv_get_uv_tty_mode_raw);
 	ring_vm_funcregister("uv_get_uv_tty_mode_io",ring_uv_get_uv_tty_mode_io);
+	ring_vm_funcregister("uv_new_uv_udp_t",ring_uv_new_uv_udp_t);
+	ring_vm_funcregister("uv_destroy_uv_udp_t",ring_uv_destroy_uv_udp_t);
+	ring_vm_funcregister("uv_get_uv_udp_t_send_queue_size",ring_uv_get_uv_udp_t_send_queue_size);
+	ring_vm_funcregister("uv_set_uv_udp_t_send_queue_size",ring_uv_set_uv_udp_t_send_queue_size);
+	ring_vm_funcregister("uv_get_uv_udp_t_send_queue_count",ring_uv_get_uv_udp_t_send_queue_count);
+	ring_vm_funcregister("uv_set_uv_udp_t_send_queue_count",ring_uv_set_uv_udp_t_send_queue_count);
+	ring_vm_funcregister("uv_new_uv_udp_send_t",ring_uv_new_uv_udp_send_t);
+	ring_vm_funcregister("uv_destroy_uv_udp_send_t",ring_uv_destroy_uv_udp_send_t);
+	ring_vm_funcregister("uv_get_uv_udp_ipv6only",ring_uv_get_uv_udp_ipv6only);
+	ring_vm_funcregister("uv_get_uv_udp_partial",ring_uv_get_uv_udp_partial);
+	ring_vm_funcregister("uv_get_uv_udp_reuseaddr",ring_uv_get_uv_udp_reuseaddr);
+	ring_vm_funcregister("uv_get_uv_leave_group",ring_uv_get_uv_leave_group);
+	ring_vm_funcregister("uv_get_uv_join_group",ring_uv_get_uv_join_group);
 }
