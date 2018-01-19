@@ -265,3 +265,15 @@ uv_check_t
 int uv_check_init(uv_loop_t* loop, uv_check_t* check)
 int uv_check_start(uv_check_t* check, uv_check_cb cb)
 int uv_check_stop(uv_check_t* check)
+
+<comment>
+Idle handle
+</comment>
+
+<struct>
+uv_idle_t
+</struct>
+
+int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
+int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
+int uv_idle_stop(uv_idle_t* idle)
