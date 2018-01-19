@@ -191,4 +191,39 @@ uv_handle_type uv_handle_get_type(const uv_handle_t* handle)
 const char* uv_handle_type_name(uv_handle_type type)
 </comment>
 
+<comment>
+Base request
+</comment>
+
+<struct>
+uv_req_t { void *data, type }
+</struct>
+
+<constant>
+UV_UNKNOWN_REQ
+UV_REQ
+UV_CONNECT
+UV_WRITE
+UV_SHUTDOWN
+UV_UDP_SEND
+UV_FS
+UV_WORK
+UV_GETADDRINFO
+UV_GETNAMEINFO
+UV_REQ_TYPE_MAX
+</constant>
+
+<comment>
+UV_REQ_TYPE_PRIVATE
+</comment>
+
+int uv_cancel(uv_req_t* req)
+size_t uv_req_size(uv_req_type type)
+
+<comment>
+void* uv_req_get_data(const uv_req_t* req)
+void* uv_req_set_data(uv_req_t* req, void* data)
+uv_req_type uv_req_get_type(const uv_req_t* req)
+const char* uv_req_type_name(uv_req_type type)
+</comment>
 

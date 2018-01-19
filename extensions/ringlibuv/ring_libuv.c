@@ -1129,6 +1129,182 @@ RING_FUNC(ring_uv_fileno)
 	RING_API_RETNUMBER(uv_fileno((uv_handle_t *) RING_API_GETCPOINTER(1,"uv_handle_t"),(uv_os_fd_t *) RING_API_GETCPOINTER(2,"uv_os_fd_t")));
 }
 
+RING_FUNC(ring_uv_new_uv_req_t)
+{
+	uv_req_t *pMyPointer ;
+	pMyPointer = (uv_req_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_req_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uv_req_t");
+}
+
+RING_FUNC(ring_uv_destroy_uv_req_t)
+{
+	uv_req_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_req_t");
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+}
+
+RING_FUNC(ring_uv_get_uv_req_t_data)
+{
+	uv_req_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_req_t");
+	RING_API_RETCPOINTER(pMyPointer->data,"void");
+}
+
+RING_FUNC(ring_uv_set_uv_req_t_data)
+{
+	uv_req_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_req_t");
+	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void *");
+}
+
+RING_FUNC(ring_uv_get_uv_req_t_type)
+{
+	uv_req_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_req_t");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_uv_set_uv_req_t_type)
+{
+	uv_req_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_req_t");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_uv_get_uv_unknown_req)
+{
+	RING_API_RETNUMBER(UV_UNKNOWN_REQ);
+}
+
+RING_FUNC(ring_uv_get_uv_req)
+{
+	RING_API_RETNUMBER(UV_REQ);
+}
+
+RING_FUNC(ring_uv_get_uv_connect)
+{
+	RING_API_RETNUMBER(UV_CONNECT);
+}
+
+RING_FUNC(ring_uv_get_uv_write)
+{
+	RING_API_RETNUMBER(UV_WRITE);
+}
+
+RING_FUNC(ring_uv_get_uv_shutdown)
+{
+	RING_API_RETNUMBER(UV_SHUTDOWN);
+}
+
+RING_FUNC(ring_uv_get_uv_udp_send)
+{
+	RING_API_RETNUMBER(UV_UDP_SEND);
+}
+
+RING_FUNC(ring_uv_get_uv_fs)
+{
+	RING_API_RETNUMBER(UV_FS);
+}
+
+RING_FUNC(ring_uv_get_uv_work)
+{
+	RING_API_RETNUMBER(UV_WORK);
+}
+
+RING_FUNC(ring_uv_get_uv_getaddrinfo)
+{
+	RING_API_RETNUMBER(UV_GETADDRINFO);
+}
+
+RING_FUNC(ring_uv_get_uv_getnameinfo)
+{
+	RING_API_RETNUMBER(UV_GETNAMEINFO);
+}
+
+RING_FUNC(ring_uv_get_uv_req_type_max)
+{
+	RING_API_RETNUMBER(UV_REQ_TYPE_MAX);
+}
+
+
+RING_FUNC(ring_uv_cancel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_cancel((uv_req_t *) RING_API_GETCPOINTER(1,"uv_req_t")));
+}
+
+
+RING_FUNC(ring_uv_req_size)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_req_size(* (uv_req_type  *) RING_API_GETCPOINTER(1,"uv_req_type")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uv_req_type"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
@@ -1160,6 +1336,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_send_buffer_size",ring_uv_send_buffer_size);
 	ring_vm_funcregister("uv_recv_buffer_size",ring_uv_recv_buffer_size);
 	ring_vm_funcregister("uv_fileno",ring_uv_fileno);
+	ring_vm_funcregister("uv_cancel",ring_uv_cancel);
+	ring_vm_funcregister("uv_req_size",ring_uv_req_size);
 	ring_vm_funcregister("uv_get_uv_e2big",ring_uv_get_uv_e2big);
 	ring_vm_funcregister("uv_get_uv_eacces",ring_uv_get_uv_eacces);
 	ring_vm_funcregister("uv_get_uv_eaddrinuse",ring_uv_get_uv_eaddrinuse);
@@ -1274,4 +1452,21 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_get_uv_signal",ring_uv_get_uv_signal);
 	ring_vm_funcregister("uv_get_uv_file",ring_uv_get_uv_file);
 	ring_vm_funcregister("uv_get_uv_handle_type_max",ring_uv_get_uv_handle_type_max);
+	ring_vm_funcregister("uv_new_uv_req_t",ring_uv_new_uv_req_t);
+	ring_vm_funcregister("uv_destroy_uv_req_t",ring_uv_destroy_uv_req_t);
+	ring_vm_funcregister("uv_get_uv_req_t_data",ring_uv_get_uv_req_t_data);
+	ring_vm_funcregister("uv_set_uv_req_t_data",ring_uv_set_uv_req_t_data);
+	ring_vm_funcregister("uv_get_uv_req_t_type",ring_uv_get_uv_req_t_type);
+	ring_vm_funcregister("uv_set_uv_req_t_type",ring_uv_set_uv_req_t_type);
+	ring_vm_funcregister("uv_get_uv_unknown_req",ring_uv_get_uv_unknown_req);
+	ring_vm_funcregister("uv_get_uv_req",ring_uv_get_uv_req);
+	ring_vm_funcregister("uv_get_uv_connect",ring_uv_get_uv_connect);
+	ring_vm_funcregister("uv_get_uv_write",ring_uv_get_uv_write);
+	ring_vm_funcregister("uv_get_uv_shutdown",ring_uv_get_uv_shutdown);
+	ring_vm_funcregister("uv_get_uv_udp_send",ring_uv_get_uv_udp_send);
+	ring_vm_funcregister("uv_get_uv_fs",ring_uv_get_uv_fs);
+	ring_vm_funcregister("uv_get_uv_work",ring_uv_get_uv_work);
+	ring_vm_funcregister("uv_get_uv_getaddrinfo",ring_uv_get_uv_getaddrinfo);
+	ring_vm_funcregister("uv_get_uv_getnameinfo",ring_uv_get_uv_getnameinfo);
+	ring_vm_funcregister("uv_get_uv_req_type_max",ring_uv_get_uv_req_type_max);
 }
