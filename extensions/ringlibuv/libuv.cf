@@ -744,3 +744,65 @@ int uv_cond_timedwait(uv_cond_t* cond, uv_mutex_t* mutex, uint64_t timeout)
 int uv_barrier_init(uv_barrier_t* barrier, unsigned int count)
 void uv_barrier_destroy(uv_barrier_t* barrier)
 int uv_barrier_wait(uv_barrier_t* barrier)
+
+<comment>
+Miscellaneous utilities
+</comment>
+
+<struct>
+uv_buf_t
+uv_file
+uv_os_sock_t
+uv_os_fd_t
+uv_pid_t
+uv_rusage_t
+uv_cpu_info_t
+uv_interface_address_t
+uv_passwd_t
+</struct>
+
+<constant>
+UV_IF_NAMESIZE
+</constant>
+
+uv_handle_type uv_guess_handle(uv_file file)
+int uv_replace_allocator(uv_malloc_func malloc_func, uv_realloc_func realloc_func, uv_calloc_func calloc_func, uv_free_func free_func)
+uv_buf_t uv_buf_init(char* base, unsigned int len)
+char** uv_setup_args(int argc, char** argv)
+int uv_get_process_title(char* buffer, size_t size)
+int uv_set_process_title(const char* title)
+int uv_resident_set_memory(size_t* rss)
+int uv_uptime(double* uptime)
+int uv_getrusage(uv_rusage_t* rusage)
+uv_pid_t uv_os_getpid(void)
+uv_pid_t uv_os_getppid(void)
+int uv_cpu_info(uv_cpu_info_t** cpu_infos, int* count)
+void uv_free_cpu_info(uv_cpu_info_t* cpu_infos, int count)
+int uv_interface_addresses(uv_interface_address_t** addresses, int* count)
+void uv_free_interface_addresses(uv_interface_address_t* addresses, int count)
+<comment>
+void uv_loadavg(double avg[3])
+</comment>
+int uv_ip4_addr(const char* ip, int port, struct sockaddr_in* addr)
+int uv_ip6_addr(const char* ip, int port, struct sockaddr_in6* addr)
+int uv_ip4_name(const struct sockaddr_in* src, char* dst, size_t size)
+int uv_ip6_name(const struct sockaddr_in6* src, char* dst, size_t size)
+int uv_inet_ntop(int af, const void* src, char* dst, size_t size)
+int uv_inet_pton(int af, const char* src, void* dst)
+int uv_if_indextoname(unsigned int ifindex, char* buffer, size_t* size)
+int uv_if_indextoiid(unsigned int ifindex, char* buffer, size_t* size)
+int uv_exepath(char* buffer, size_t* size)
+int uv_cwd(char* buffer, size_t* size)
+int uv_chdir(const char* dir)
+int uv_os_homedir(char* buffer, size_t* size)
+int uv_os_tmpdir(char* buffer, size_t* size)
+int uv_os_get_passwd(uv_passwd_t* pwd)
+void uv_os_free_passwd(uv_passwd_t* pwd)
+uint64_t uv_get_total_memory(void)
+uint64_t uv_hrtime(void)
+void uv_print_all_handles(uv_loop_t* loop, FILE* stream)
+void uv_print_active_handles(uv_loop_t* loop, FILE* stream)
+int uv_os_getenv(const char* name, char* buffer, size_t* size)
+int uv_os_setenv(const char* name, const char* value)
+int uv_os_unsetenv(const char* name)
+int uv_os_gethostname(char* buffer, size_t* size)
