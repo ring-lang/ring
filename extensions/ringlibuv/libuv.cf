@@ -667,3 +667,17 @@ uv_work_t
 
 int uv_queue_work(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)
 
+<comment>
+DNS utility functions
+</comment>
+
+<struct>
+uv_getaddrinfo_t
+uv_getnameinfo_t
+</struct>
+
+int uv_getaddrinfo(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char* node, const char* service, const struct addrinfo* hints)
+void uv_freeaddrinfo(struct addrinfo* ai)
+int uv_getnameinfo(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, const struct sockaddr* addr, int flags)
+
+
