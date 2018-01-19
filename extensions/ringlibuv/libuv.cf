@@ -103,3 +103,41 @@ UV_VERSION_HEX
 
 unsigned int uv_version(void)
 const char* uv_version_string(void)
+
+<comment>
+Event loop
+</comment>
+
+<struct>
+uv_loop_t { void *data}
+</struct>
+
+<runcode>
+aEnumTypes + "uv_run_mode"
+</runcode>
+
+<constant>
+UV_RUN_DEFAULT
+UV_RUN_ONCE
+UV_RUN_NOWAIT
+</constant>
+
+int uv_loop_init(uv_loop_t* loop)
+int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)
+int uv_loop_close(uv_loop_t* loop)
+uv_loop_t* uv_default_loop(void)
+int uv_run(uv_loop_t* loop, uv_run_mode mode)
+int uv_loop_alive(const uv_loop_t* loop)
+void uv_stop(uv_loop_t* loop)
+size_t uv_loop_size(void)
+int uv_backend_fd(const uv_loop_t* loop)
+int uv_backend_timeout(const uv_loop_t* loop)
+uint64_t uv_now(const uv_loop_t* loop)
+void uv_update_time(uv_loop_t* loop)
+void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
+int uv_loop_fork(uv_loop_t* loop)
+
+<comment>
+void* uv_loop_get_data(const uv_loop_t* loop)
+void* uv_loop_set_data(uv_loop_t* loop, void* data)
+</comment>
