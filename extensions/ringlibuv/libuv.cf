@@ -534,3 +534,125 @@ int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
 int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char* path, unsigned int interval)
 int uv_fs_poll_stop(uv_fs_poll_t* handle)
 int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
+
+<comment>
+File system operations
+</comment>
+
+<struct>
+uv_fs_t
+uv_timespec_t
+uv_stat_t
+</struct>
+
+<runcode>
+aEnumTypes + "uv_fs_type"
+aEnumTypes + "uv_dirent_t"
+</runcode>
+
+<constant>
+UV_FS_UNKNOWN
+UV_FS_CUSTOM
+UV_FS_OPEN
+UV_FS_CLOSE
+UV_FS_READ
+UV_FS_WRITE
+UV_FS_SENDFILE
+UV_FS_STAT
+UV_FS_LSTAT
+UV_FS_FSTAT
+UV_FS_FTRUNCATE
+UV_FS_UTIME
+UV_FS_FUTIME
+UV_FS_ACCESS
+UV_FS_CHMOD
+UV_FS_FCHMOD
+UV_FS_FSYNC
+UV_FS_FDATASYNC
+UV_FS_UNLINK
+UV_FS_RMDIR
+UV_FS_MKDIR
+UV_FS_MKDTEMP
+UV_FS_RENAME
+UV_FS_SCANDIR
+UV_FS_LINK
+UV_FS_SYMLINK
+UV_FS_READLINK
+UV_FS_CHOWN
+UV_FS_FCHOWN
+UV_FS_REALPATH
+UV_FS_COPYFILE
+UV_DIRENT_UNKNOWN
+UV_DIRENT_FILE
+UV_DIRENT_DIR
+UV_DIRENT_LINK
+UV_DIRENT_FIFO
+UV_DIRENT_SOCKET
+UV_DIRENT_CHAR
+UV_DIRENT_BLOCK
+UV_FS_O_APPEND
+UV_FS_O_CREAT
+UV_FS_O_DIRECT
+UV_FS_O_DIRECTORY
+UV_FS_O_DSYNC
+UV_FS_O_EXCL
+UV_FS_O_EXLOCK
+UV_FS_O_NOATIME
+UV_FS_O_NOCTTY
+UV_FS_O_NOFOLLOW
+UV_FS_O_NONBLOCK
+UV_FS_O_RANDOM
+UV_FS_O_RDONLY
+UV_FS_O_RDWR
+UV_FS_O_SEQUENTIAL
+UV_FS_O_SHORT_LIVED
+UV_FS_O_SYMLINK
+UV_FS_O_SYNC
+UV_FS_O_TEMPORARY
+UV_FS_O_TRUNC
+UV_FS_O_WRONLY
+</constant>
+
+void uv_fs_req_cleanup(uv_fs_t* req)
+int uv_fs_close(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_open(uv_loop_t* loop, uv_fs_t* req, const char* path, int flags, int mode, uv_fs_cb cb)
+<comment>
+int uv_fs_read(uv_loop_t* loop, uv_fs_t* req, uv_file file, const uv_buf_t bufs[], unsigned int nbufs, int64_t offset, uv_fs_cb cb)
+<comment>
+int uv_fs_unlink(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+<comment>
+int uv_fs_write(uv_loop_t* loop, uv_fs_t* req, uv_file file, const uv_buf_t bufs[], unsigned int nbufs, int64_t offset, uv_fs_cb cb)
+</comment>
+int uv_fs_mkdir(uv_loop_t* loop, uv_fs_t* req, const char* path, int mode, uv_fs_cb cb)
+int uv_fs_mkdtemp(uv_loop_t* loop, uv_fs_t* req, const char* tpl, uv_fs_cb cb)
+int uv_fs_rmdir(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+int uv_fs_scandir(uv_loop_t* loop, uv_fs_t* req, const char* path, int flags, uv_fs_cb cb)
+int uv_fs_scandir_next(uv_fs_t* req, uv_dirent_t* ent)
+int uv_fs_stat(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+int uv_fs_fstat(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_lstat(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+int uv_fs_rename(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, uv_fs_cb cb)
+int uv_fs_fsync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_fdatasync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_ftruncate(uv_loop_t* loop, uv_fs_t* req, uv_file file, int64_t offset, uv_fs_cb cb)
+int uv_fs_copyfile(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, int flags, uv_fs_cb cb)
+int uv_fs_sendfile(uv_loop_t* loop, uv_fs_t* req, uv_file out_fd, uv_file in_fd, int64_t in_offset, size_t length, uv_fs_cb cb)
+int uv_fs_access(uv_loop_t* loop, uv_fs_t* req, const char* path, int mode, uv_fs_cb cb)
+int uv_fs_chmod(uv_loop_t* loop, uv_fs_t* req, const char* path, int mode, uv_fs_cb cb)
+int uv_fs_fchmod(uv_loop_t* loop, uv_fs_t* req, uv_file file, int mode, uv_fs_cb cb)
+int uv_fs_utime(uv_loop_t* loop, uv_fs_t* req, const char* path, double atime, double mtime, uv_fs_cb cb)
+int uv_fs_futime(uv_loop_t* loop, uv_fs_t* req, uv_file file, double atime, double mtime, uv_fs_cb cb)
+int uv_fs_link(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, uv_fs_cb cb)
+int uv_fs_symlink(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, int flags, uv_fs_cb cb)
+int uv_fs_readlink(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+int uv_fs_realpath(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+int uv_fs_chown(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+int uv_fs_fchown(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+<comment>
+uv_fs_type uv_fs_get_type(const uv_fs_t* req)
+ssize_t uv_fs_get_result(const uv_fs_t* req)
+void* uv_fs_get_ptr(const uv_fs_t* req)
+const char* uv_fs_get_path(const uv_fs_t* req)
+uv_stat_t* uv_fs_get_statbuf(uv_fs_t* req)
+</comment>
+ uv_os_fd_t uv_get_osfhandle(int fd)
