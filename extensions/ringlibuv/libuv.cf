@@ -227,3 +227,19 @@ uv_req_type uv_req_get_type(const uv_req_t* req)
 const char* uv_req_type_name(uv_req_type type)
 </comment>
 
+<comment>
+Timer handle
+</comment>
+
+<struct>
+uv_timer_t
+</struct>
+
+int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
+int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
+int uv_timer_stop(uv_timer_t* handle)
+int uv_timer_again(uv_timer_t* handle)
+void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
+uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
+
+
