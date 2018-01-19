@@ -6,6 +6,52 @@ typedef struct sockaddr_in sockaddr_in ;
 typedef struct sockaddr_in6 sockaddr_in6 ;
 typedef struct sockaddr sockaddr ;
 
+List *aCallBack = NULL;
+VM *pVMLibUV = NULL;
+void uv_connect_callback(uv_connect_t *req, int status)
+{
+	List *pList;
+	int x;
+	for(x = 1 ; x <= ring_list_getsize(aCallBack) ; x++)
+	{
+		pList = ring_list_getlist(aCallBack,x) ;
+		if ( ( ring_list_getpointer(pList,1) == req ) &&
+		     ( strcmp(ring_list_getstring(pList,2) , "connect") == 0 ) )
+		{
+			ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
+			break;
+		}
+	}
+
+}
+RING_FUNC(ring_uv_callback)
+{
+	List *pList;
+	const char *cCallBackType;
+	RING_API_IGNORECPOINTERTYPE;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA) ;
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISSTRING(2)) || (! RING_API_ISSTRING(3)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( aCallBack == NULL )
+	{
+		aCallBack = ring_list_new(0);
+	}
+	cCallBackType = RING_API_GETSTRING(2) ;
+	pList = ring_list_newlist(aCallBack);
+	ring_list_addpointer(pList,RING_API_GETCPOINTER(1,"void"));
+	ring_list_addstring(pList,cCallBackType);
+	ring_list_addstring(pList,RING_API_GETSTRING(3));	
+	pVMLibUV = (VM *) pPointer;
+	if (strcmp(cCallBackType,"connect") == 0)
+	{
+		RING_API_RETCPOINTER(uv_connect_callback,"void");
+	}
+}
 RING_FUNC(ring_uv_new_sockaddr_in)
 {
 	sockaddr_in *pMyPointer ;
@@ -7316,6 +7362,7 @@ RING_FUNC(ring_uv_os_gethostname)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
+	ring_vm_funcregister("uv_callback",ring_uv_callback);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
