@@ -496,3 +496,29 @@ size_t uv_udp_get_send_queue_size(const uv_udp_t* handle)
 size_t uv_udp_get_send_queue_count(const uv_udp_t* handle)
 </comment>
 
+<comment>
+FS Event handle
+</comment>
+
+<struct>
+uv_fs_event_t
+</struct>
+
+<runcode>
+aEnumTypes + "uv_fs_event"
+aEnumTypes + "uv_fs_event_flags"
+</runcode>
+
+<constant>
+UV_RENAME
+UV_CHANGE
+UV_FS_EVENT_WATCH_ENTRY
+UV_FS_EVENT_STAT
+UV_FS_EVENT_RECURSIVE
+</constant>
+
+int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)
+int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char* path, unsigned int flags)
+int uv_fs_event_stop(uv_fs_event_t* handle)
+int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
+
