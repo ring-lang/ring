@@ -5,7 +5,6 @@
 RingLibUV Functions Reference
 =============================
 
-* <nodllstartup>
 * UV_E2BIG
 * UV_EACCES
 * UV_EADDRINUSE
@@ -81,33 +80,14 @@ RingLibUV Functions Reference
 * UV_EOF
 * UV_ENXIO
 * UV_EMLINK
-* const char* uv_strerror(int err)
-* const char* uv_err_name(int err)
-* int uv_translate_sys_error(int sys_errno)
 * UV_VERSION_MAJOR
 * UV_VERSION_MINOR
 * UV_VERSION_PATCH
 * UV_VERSION_IS_RELEASE
 * UV_VERSION_HEX
-* unsigned int uv_version(void)
-* const char* uv_version_string(void)
 * UV_RUN_DEFAULT
 * UV_RUN_ONCE
 * UV_RUN_NOWAIT
-* int uv_loop_init(uv_loop_t* loop)
-* int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)
-* int uv_loop_close(uv_loop_t* loop)
-* uv_loop_t* uv_default_loop(void)
-* int uv_run(uv_loop_t* loop, uv_run_mode mode)
-* int uv_loop_alive(const uv_loop_t* loop)
-* void uv_stop(uv_loop_t* loop)
-* size_t uv_loop_size(void)
-* int uv_backend_fd(const uv_loop_t* loop)
-* int uv_backend_timeout(const uv_loop_t* loop)
-* uint64_t uv_now(const uv_loop_t* loop)
-* void uv_update_time(uv_loop_t* loop)
-* void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
-* int uv_loop_fork(uv_loop_t* loop)
 * UV_UNKNOWN_HANDLE
 * UV_ASYNC
 * UV_CHECK
@@ -127,16 +107,6 @@ RingLibUV Functions Reference
 * UV_SIGNAL
 * UV_FILE
 * UV_HANDLE_TYPE_MAX
-* int uv_is_active(const uv_handle_t* handle)
-* int uv_is_closing(const uv_handle_t* handle)
-* void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
-* void uv_ref(uv_handle_t* handle)
-* void uv_unref(uv_handle_t* handle)
-* int uv_has_ref(const uv_handle_t* handle)
-* size_t uv_handle_size(uv_handle_type type)
-* int uv_send_buffer_size(uv_handle_t* handle, int* value)
-* int uv_recv_buffer_size(uv_handle_t* handle, int* value)
-* int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
 * UV_UNKNOWN_REQ
 * UV_REQ
 * UV_CONNECT
@@ -148,37 +118,10 @@ RingLibUV Functions Reference
 * UV_GETADDRINFO
 * UV_GETNAMEINFO
 * UV_REQ_TYPE_MAX
-* int uv_cancel(uv_req_t* req)
-* size_t uv_req_size(uv_req_type type)
-* int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
-* int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
-* int uv_timer_stop(uv_timer_t* handle)
-* int uv_timer_again(uv_timer_t* handle)
-* void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
-* uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
-* int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
-* int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
-* int uv_prepare_stop(uv_prepare_t* prepare)
-* int uv_check_init(uv_loop_t* loop, uv_check_t* check)
-* int uv_check_start(uv_check_t* check, uv_check_cb cb)
-* int uv_check_stop(uv_check_t* check)
-* int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
-* int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
-* int uv_idle_stop(uv_idle_t* idle)
-* int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
-* int uv_async_send(uv_async_t* async)
 * UV_READABLE
 * UV_WRITABLE
 * UV_DISCONNECT
 * UV_PRIORITIZED
-* int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
-* int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
-* int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
-* int uv_poll_stop(uv_poll_t* poll)
-* int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)
-* int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)
-* int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)
-* int uv_signal_stop(uv_signal_t* signal)
 * UV_PROCESS_SETUID
 * UV_PROCESS_SETGID
 * UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS
@@ -190,74 +133,19 @@ RingLibUV Functions Reference
 * UV_INHERIT_STREAM
 * UV_READABLE_PIPE
 * UV_WRITABLE_PIPE
-* void uv_disable_stdio_inheritance(void)
-* int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)
-* int uv_process_kill(uv_process_t* handle, int signum)
-* int uv_kill(int pid, int signum)
-* int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
-* int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
-* int uv_accept(uv_stream_t* server, uv_stream_t* client)
-* int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
-* int uv_read_stop(uv_stream_t*)
-* int uv_is_writable(const uv_stream_t* handle)
-* int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
-* int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)
-* int uv_tcp_init_ex(uv_loop_t* loop, uv_tcp_t* handle, unsigned int flags)
-* int uv_tcp_open(uv_tcp_t* handle, uv_os_sock_t sock)
-* int uv_tcp_nodelay(uv_tcp_t* handle, int enable)
-* int uv_tcp_keepalive(uv_tcp_t* handle, int enable, unsigned int delay)
-* int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)
-* int uv_tcp_bind(uv_tcp_t* handle, const struct sockaddr* addr, unsigned int flags)
-* int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
-* int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
-* int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, const struct sockaddr* addr, uv_connect_cb cb)
-* int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)
-* int uv_pipe_open(uv_pipe_t* handle, uv_file file)
-* int uv_pipe_bind(uv_pipe_t* handle, const char* name)
-* void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char* name, uv_connect_cb cb)
-* int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)
-* int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)
-* void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
-* int uv_pipe_pending_count(uv_pipe_t* handle)
-* uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
-* int uv_pipe_chmod(uv_pipe_t* handle, int flags)
 * UV_TTY_MODE_NORMAL
 * UV_TTY_MODE_RAW
 * UV_TTY_MODE_IO
-* int uv_tty_init(uv_loop_t* loop, uv_tty_t* handle, uv_file fd, int readable)
-* int uv_tty_set_mode(uv_tty_t* handle, uv_tty_mode_t mode)
-* int uv_tty_reset_mode(void)
-* int uv_tty_get_winsize(uv_tty_t* handle, int* width, int* height)
 * UV_UDP_IPV6ONLY
 * UV_UDP_PARTIAL
 * UV_UDP_REUSEADDR
 * UV_LEAVE_GROUP
 * UV_JOIN_GROUP
-* int uv_udp_init(uv_loop_t* loop, uv_udp_t* handle)
-* int uv_udp_init_ex(uv_loop_t* loop, uv_udp_t* handle, unsigned int flags)
-* int uv_udp_open(uv_udp_t* handle, uv_os_sock_t sock)
-* int uv_udp_bind(uv_udp_t* handle, const struct sockaddr* addr, unsigned int flags)
-* int uv_udp_getsockname(const uv_udp_t* handle, struct sockaddr* name, int* namelen)
-* int uv_udp_set_membership(uv_udp_t* handle, const char* multicast_addr, const char* interface_addr, uv_membership membership)
-* int uv_udp_set_multicast_loop(uv_udp_t* handle, int on)
-* int uv_udp_set_multicast_ttl(uv_udp_t* handle, int ttl)
-* int uv_udp_set_multicast_interface(uv_udp_t* handle, const char* interface_addr)
-* int uv_udp_set_broadcast(uv_udp_t* handle, int on)
-* int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
-* int uv_udp_recv_stop(uv_udp_t* handle)
 * UV_RENAME
 * UV_CHANGE
 * UV_FS_EVENT_WATCH_ENTRY
 * UV_FS_EVENT_STAT
 * UV_FS_EVENT_RECURSIVE
-* int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)
-* int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char* path, unsigned int flags)
-* int uv_fs_event_stop(uv_fs_event_t* handle)
-* int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
-* int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
-* int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char* path, unsigned int interval)
-* int uv_fs_poll_stop(uv_fs_poll_t* handle)
-* int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
 * UV_FS_UNKNOWN
 * UV_FS_CUSTOM
 * UV_FS_OPEN
@@ -318,6 +206,118 @@ RingLibUV Functions Reference
 * UV_FS_O_TEMPORARY
 * UV_FS_O_TRUNC
 * UV_FS_O_WRONLY
+* UV_IF_NAMESIZE
+* const char* uv_strerror(int err)
+* const char* uv_err_name(int err)
+* int uv_translate_sys_error(int sys_errno)
+* unsigned int uv_version(void)
+* const char* uv_version_string(void)
+* int uv_loop_init(uv_loop_t* loop)
+* int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)
+* int uv_loop_close(uv_loop_t* loop)
+* uv_loop_t* uv_default_loop(void)
+* int uv_run(uv_loop_t* loop, uv_run_mode mode)
+* int uv_loop_alive(const uv_loop_t* loop)
+* void uv_stop(uv_loop_t* loop)
+* size_t uv_loop_size(void)
+* int uv_backend_fd(const uv_loop_t* loop)
+* int uv_backend_timeout(const uv_loop_t* loop)
+* uint64_t uv_now(const uv_loop_t* loop)
+* void uv_update_time(uv_loop_t* loop)
+* void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
+* int uv_loop_fork(uv_loop_t* loop)
+* int uv_is_active(const uv_handle_t* handle)
+* int uv_is_closing(const uv_handle_t* handle)
+* void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
+* void uv_ref(uv_handle_t* handle)
+* void uv_unref(uv_handle_t* handle)
+* int uv_has_ref(const uv_handle_t* handle)
+* size_t uv_handle_size(uv_handle_type type)
+* int uv_send_buffer_size(uv_handle_t* handle, int* value)
+* int uv_recv_buffer_size(uv_handle_t* handle, int* value)
+* int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
+* int uv_cancel(uv_req_t* req)
+* size_t uv_req_size(uv_req_type type)
+* int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
+* int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
+* int uv_timer_stop(uv_timer_t* handle)
+* int uv_timer_again(uv_timer_t* handle)
+* void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
+* uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
+* int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
+* int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
+* int uv_prepare_stop(uv_prepare_t* prepare)
+* int uv_check_init(uv_loop_t* loop, uv_check_t* check)
+* int uv_check_start(uv_check_t* check, uv_check_cb cb)
+* int uv_check_stop(uv_check_t* check)
+* int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
+* int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
+* int uv_idle_stop(uv_idle_t* idle)
+* int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
+* int uv_async_send(uv_async_t* async)
+* int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
+* int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
+* int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
+* int uv_poll_stop(uv_poll_t* poll)
+* int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)
+* int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)
+* int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)
+* int uv_signal_stop(uv_signal_t* signal)
+* void uv_disable_stdio_inheritance(void)
+* int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)
+* int uv_process_kill(uv_process_t* handle, int signum)
+* int uv_kill(int pid, int signum)
+* int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
+* int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
+* int uv_accept(uv_stream_t* server, uv_stream_t* client)
+* int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
+* int uv_read_stop(uv_stream_t*)
+* int uv_is_writable(const uv_stream_t* handle)
+* int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
+* int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)
+* int uv_tcp_init_ex(uv_loop_t* loop, uv_tcp_t* handle, unsigned int flags)
+* int uv_tcp_open(uv_tcp_t* handle, uv_os_sock_t sock)
+* int uv_tcp_nodelay(uv_tcp_t* handle, int enable)
+* int uv_tcp_keepalive(uv_tcp_t* handle, int enable, unsigned int delay)
+* int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)
+* int uv_tcp_bind(uv_tcp_t* handle, const struct sockaddr* addr, unsigned int flags)
+* int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, const struct sockaddr* addr, uv_connect_cb cb)
+* int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)
+* int uv_pipe_open(uv_pipe_t* handle, uv_file file)
+* int uv_pipe_bind(uv_pipe_t* handle, const char* name)
+* void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char* name, uv_connect_cb cb)
+* int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)
+* int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)
+* void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
+* int uv_pipe_pending_count(uv_pipe_t* handle)
+* uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
+* int uv_pipe_chmod(uv_pipe_t* handle, int flags)
+* int uv_tty_init(uv_loop_t* loop, uv_tty_t* handle, uv_file fd, int readable)
+* int uv_tty_set_mode(uv_tty_t* handle, uv_tty_mode_t mode)
+* int uv_tty_reset_mode(void)
+* int uv_tty_get_winsize(uv_tty_t* handle, int* width, int* height)
+* int uv_udp_init(uv_loop_t* loop, uv_udp_t* handle)
+* int uv_udp_init_ex(uv_loop_t* loop, uv_udp_t* handle, unsigned int flags)
+* int uv_udp_open(uv_udp_t* handle, uv_os_sock_t sock)
+* int uv_udp_bind(uv_udp_t* handle, const struct sockaddr* addr, unsigned int flags)
+* int uv_udp_getsockname(const uv_udp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_udp_set_membership(uv_udp_t* handle, const char* multicast_addr, const char* interface_addr, uv_membership membership)
+* int uv_udp_set_multicast_loop(uv_udp_t* handle, int on)
+* int uv_udp_set_multicast_ttl(uv_udp_t* handle, int ttl)
+* int uv_udp_set_multicast_interface(uv_udp_t* handle, const char* interface_addr)
+* int uv_udp_set_broadcast(uv_udp_t* handle, int on)
+* int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
+* int uv_udp_recv_stop(uv_udp_t* handle)
+* int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)
+* int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char* path, unsigned int flags)
+* int uv_fs_event_stop(uv_fs_event_t* handle)
+* int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
+* int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
+* int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char* path, unsigned int interval)
+* int uv_fs_poll_stop(uv_fs_poll_t* handle)
+* int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
 * void uv_fs_req_cleanup(uv_fs_t* req)
 * int uv_fs_close(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
 * int uv_fs_open(uv_loop_t* loop, uv_fs_t* req, const char* path, int flags, int mode, uv_fs_cb cb)
@@ -389,7 +389,6 @@ RingLibUV Functions Reference
 * int uv_barrier_init(uv_barrier_t* barrier, unsigned int count)
 * void uv_barrier_destroy(uv_barrier_t* barrier)
 * int uv_barrier_wait(uv_barrier_t* barrier)
-* UV_IF_NAMESIZE
 * uv_handle_type uv_guess_handle(uv_file file)
 * int uv_replace_allocator(uv_malloc_func malloc_func, uv_realloc_func realloc_func, uv_calloc_func calloc_func, uv_free_func free_func)
 * uv_buf_t uv_buf_init(char* base, unsigned int len)
