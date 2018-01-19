@@ -141,3 +141,54 @@ int uv_loop_fork(uv_loop_t* loop)
 void* uv_loop_get_data(const uv_loop_t* loop)
 void* uv_loop_set_data(uv_loop_t* loop, void* data)
 </comment>
+
+<struct>
+uv_handle_t { uv_loop_t *loop, type, void *data }
+</struct>
+
+<runcode>
+aEnumTypes + "uv_handle_type"
+</runcode>
+
+<constant>
+UV_UNKNOWN_HANDLE
+UV_ASYNC
+UV_CHECK
+UV_FS_EVENT
+UV_FS_POLL
+UV_HANDLE
+UV_IDLE
+UV_NAMED_PIPE
+UV_POLL
+UV_PREPARE
+UV_PROCESS
+UV_STREAM
+UV_TCP
+UV_TIMER
+UV_TTY
+UV_UDP
+UV_SIGNAL
+UV_FILE
+UV_HANDLE_TYPE_MAX
+</constant>
+
+int uv_is_active(const uv_handle_t* handle)
+int uv_is_closing(const uv_handle_t* handle)
+void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
+void uv_ref(uv_handle_t* handle)
+void uv_unref(uv_handle_t* handle)
+int uv_has_ref(const uv_handle_t* handle)
+size_t uv_handle_size(uv_handle_type type)
+int uv_send_buffer_size(uv_handle_t* handle, int* value)
+int uv_recv_buffer_size(uv_handle_t* handle, int* value)
+int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
+
+<comment>
+uv_loop_t* uv_handle_get_loop(const uv_handle_t* handle)
+void* uv_handle_get_data(const uv_handle_t* handle)
+void* uv_handle_set_data(uv_handle_t* handle, void* data)
+uv_handle_type uv_handle_get_type(const uv_handle_t* handle)
+const char* uv_handle_type_name(uv_handle_type type)
+</comment>
+
+
