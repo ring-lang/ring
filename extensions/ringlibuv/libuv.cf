@@ -409,3 +409,22 @@ int uv_tcp_bind(uv_tcp_t* handle, const struct sockaddr* addr, unsigned int flag
 int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
 int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
 int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, const struct sockaddr* addr, uv_connect_cb cb)
+
+<comment>
+Pipe handle
+</comment>
+
+<struct>
+uv_pipe_t
+</struct>
+
+int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)
+int uv_pipe_open(uv_pipe_t* handle, uv_file file)
+int uv_pipe_bind(uv_pipe_t* handle, const char* name)
+void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char* name, uv_connect_cb cb)
+int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)
+int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)
+void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
+int uv_pipe_pending_count(uv_pipe_t* handle)
+uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
+int uv_pipe_chmod(uv_pipe_t* handle, int flags)
