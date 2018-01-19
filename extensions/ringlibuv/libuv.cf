@@ -288,3 +288,27 @@ uv_async_t
 
 int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
 int uv_async_send(uv_async_t* async)
+
+<comment>
+Poll handle
+</comment>
+
+<struct>
+uv_poll_t
+</struct>
+
+<runcode>
+aEnumTypes + "uv_poll_event"
+</runcode>
+
+<constant>
+UV_READABLE
+UV_WRITABLE
+UV_DISCONNECT
+UV_PRIORITIZED
+</constant>
+
+int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
+int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
+int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
+int uv_poll_stop(uv_poll_t* poll)
