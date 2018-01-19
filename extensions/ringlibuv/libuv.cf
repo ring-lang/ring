@@ -312,3 +312,17 @@ int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
 int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
 int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
 int uv_poll_stop(uv_poll_t* poll)
+
+<comment>
+Signal handle
+</comment>
+
+<struct>
+uv_signal_t {signum}
+</struct>
+
+int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)
+int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)
+int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)
+int uv_signal_stop(uv_signal_t* signal)
+
