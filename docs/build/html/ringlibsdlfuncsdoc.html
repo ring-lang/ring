@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Ring 1.7 documentation" href="index.html" />
-    <link rel="next" title="RingFreeGLUT Functions Reference" href="ringfreeglutfuncsdoc.html" />
+    <link rel="next" title="RingLibUV Functions Reference" href="ringlibuvfuncsdoc.html" />
     <link rel="prev" title="RingAllegro Functions Reference" href="ringallegrofuncsdoc.html" /> 
   </head>
   <body role="document">
@@ -36,7 +36,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ringfreeglutfuncsdoc.html" title="RingFreeGLUT Functions Reference"
+          <a href="ringlibuvfuncsdoc.html" title="RingLibUV Functions Reference"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="ringallegrofuncsdoc.html" title="RingAllegro Functions Reference"
@@ -53,6 +53,293 @@
   <div class="section" id="ringlibsdl-functions-reference">
 <span id="index-0"></span><h1>RingLibSDL Functions Reference<a class="headerlink" href="#ringlibsdl-functions-reference" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li>MIX_DEFAULT_FORMAT</li>
+<li>SDL_QUIT</li>
+<li>SDL_BUTTON_LEFT</li>
+<li>SDL_BUTTON_MIDDLE</li>
+<li>SDL_BUTTON_RIGHT</li>
+<li>SDL_PRESSED</li>
+<li>SDL_RELEASED</li>
+<li>SDL_APP_TERMINATING</li>
+<li>SDL_APP_LOWMEMORY</li>
+<li>SDL_APP_WILLENTERBACKGROUND</li>
+<li>SDL_APP_DIDENTERBACKGROUND</li>
+<li>SDL_APP_WILLENTERFOREGROUND</li>
+<li>SDL_APP_DIDENTERFOREGROUND</li>
+<li>SDL_WINDOWEVENT</li>
+<li>SDL_SYSWMEVENT</li>
+<li>SDL_KEYDOWN</li>
+<li>SDL_KEYUP</li>
+<li>SDL_TEXTEDITING</li>
+<li>SDL_TEXTINPUT</li>
+<li>SDL_MOUSEMOTION</li>
+<li>SDL_MOUSEBUTTONDOWN</li>
+<li>SDL_MOUSEBUTTONUP</li>
+<li>SDL_MOUSEWHEEL</li>
+<li>SDL_JOYAXISMOTION</li>
+<li>SDL_JOYBALLMOTION</li>
+<li>SDL_JOYHATMOTION</li>
+<li>SDL_JOYBUTTONDOWN</li>
+<li>SDL_JOYBUTTONUP</li>
+<li>SDL_JOYDEVICEADDED</li>
+<li>SDL_JOYDEVICEREMOVED</li>
+<li>SDL_CONTROLLERAXISMOTION</li>
+<li>SDL_CONTROLLERBUTTONDOWN</li>
+<li>SDL_CONTROLLERBUTTONUP</li>
+<li>SDL_CONTROLLERDEVICEADDED</li>
+<li>SDL_CONTROLLERDEVICEREMOVED</li>
+<li>SDL_CONTROLLERDEVICEREMAPPED</li>
+<li>SDL_FINGERDOWN</li>
+<li>SDL_FINGERUP</li>
+<li>SDL_FINGERMOTION</li>
+<li>SDL_DOLLARGESTURE</li>
+<li>SDL_DOLLARRECORD</li>
+<li>SDL_MULTIGESTURE</li>
+<li>SDL_CLIPBOARDUPDATE</li>
+<li>SDL_DROPFILE</li>
+<li>SDL_RENDER_TARGETS_RESET</li>
+<li>SDL_USEREVENT</li>
+<li>SDL_LASTEVENT</li>
+<li>SDL_NET_MAJOR_VERSION</li>
+<li>SDL_NET_MINOR_VERSION</li>
+<li>SDL_NET_PATCHLEVEL</li>
+<li>INADDR_ANY</li>
+<li>INADDR_NONE</li>
+<li>INADDR_BROADCAST</li>
+<li>SDLNET_MAX_UDPCHANNELS</li>
+<li>SDLNET_MAX_UDPADDRESSES</li>
+<li>SDLK_0</li>
+<li>SDLK_1</li>
+<li>SDLK_2</li>
+<li>SDLK_3</li>
+<li>SDLK_4</li>
+<li>SDLK_5</li>
+<li>SDLK_6</li>
+<li>SDLK_7</li>
+<li>SDLK_8</li>
+<li>SDLK_9</li>
+<li>SDLK_a</li>
+<li>SDLK_AC_BACK</li>
+<li>SDLK_AC_BOOKMARKS</li>
+<li>SDLK_AC_FORWARD</li>
+<li>SDLK_AC_HOME</li>
+<li>SDLK_AC_REFRESH</li>
+<li>SDLK_AC_SEARCH</li>
+<li>SDLK_AC_STOP</li>
+<li>SDLK_AGAIN</li>
+<li>SDLK_ALTERASE</li>
+<li>SDLK_QUOTE</li>
+<li>SDLK_APPLICATION</li>
+<li>SDLK_AUDIOMUTE</li>
+<li>SDLK_AUDIONEXT</li>
+<li>SDLK_AUDIOPLAY</li>
+<li>SDLK_AUDIOPREV</li>
+<li>SDLK_BRIGHTNESSDOWN</li>
+<li>SDLK_BRIGHTNESSUP</li>
+<li>SDLK_c</li>
+<li>SDLK_CALCULATOR</li>
+<li>SDLK_CANCEL</li>
+<li>SDLK_CAPSLOCK</li>
+<li>SDLK_CLEAR</li>
+<li>SDLK_CLEARAGAIN</li>
+<li>SDLK_COMMA</li>
+<li>SDLK_COMPUTER</li>
+<li>SDLK_COPY</li>
+<li>SDLK_CRSEL</li>
+<li>SDLK_CURRENCYSUBUNIT</li>
+<li>SDLK_CURRENCYUNIT</li>
+<li>SDLK_CUT</li>
+<li>SDLK_d</li>
+<li>SDLK_DECIMALSEPARATOR</li>
+<li>SDLK_DELETE</li>
+<li>SDLK_DISPLAYSWITCH</li>
+<li>SDLK_DOWN</li>
+<li>SDLK_e</li>
+<li>SDLK_EJECT</li>
+<li>SDLK_END</li>
+<li>SDLK_EQUALS</li>
+<li>SDLK_ESCAPE</li>
+<li>SDLK_EXECUTE</li>
+<li>SDLK_EXSEL</li>
+<li>SDLK_f</li>
+<li>SDLK_F1</li>
+<li>SDLK_F10</li>
+<li>SDLK_F11</li>
+<li>SDLK_F12</li>
+<li>SDLK_F13</li>
+<li>SDLK_F14</li>
+<li>SDLK_F15</li>
+<li>SDLK_F16</li>
+<li>SDLK_F17</li>
+<li>SDLK_F18</li>
+<li>SDLK_F19</li>
+<li>SDLK_F2</li>
+<li>SDLK_F20</li>
+<li>SDLK_F21</li>
+<li>SDLK_F22</li>
+<li>SDLK_F23</li>
+<li>SDLK_F24</li>
+<li>SDLK_F3</li>
+<li>SDLK_F4</li>
+<li>SDLK_F5</li>
+<li>SDLK_F6</li>
+<li>SDLK_F7</li>
+<li>SDLK_F8</li>
+<li>SDLK_F9</li>
+<li>SDLK_FIND</li>
+<li>SDLK_g</li>
+<li>SDLK_BACKQUOTE</li>
+<li>SDLK_h</li>
+<li>SDLK_HELP</li>
+<li>SDLK_HOME</li>
+<li>SDLK_i</li>
+<li>SDLK_INSERT</li>
+<li>SDLK_j</li>
+<li>SDLK_k</li>
+<li>SDLK_KBDILLUMDOWN</li>
+<li>SDLK_KBDILLUMTOGGLE</li>
+<li>SDLK_KBDILLUMUP</li>
+<li>SDLK_KP_0</li>
+<li>SDLK_KP_00</li>
+<li>SDLK_KP_000</li>
+<li>SDLK_KP_1</li>
+<li>SDLK_KP_2</li>
+<li>SDLK_KP_3</li>
+<li>SDLK_KP_4</li>
+<li>SDLK_KP_5</li>
+<li>SDLK_KP_6</li>
+<li>SDLK_KP_7</li>
+<li>SDLK_KP_8</li>
+<li>SDLK_KP_9</li>
+<li>SDLK_KP_A</li>
+<li>SDLK_KP_AMPERSAND</li>
+<li>SDLK_KP_AT</li>
+<li>SDLK_KP_B</li>
+<li>SDLK_KP_BACKSPACE</li>
+<li>SDLK_KP_BINARY</li>
+<li>SDLK_KP_C</li>
+<li>SDLK_KP_CLEAR</li>
+<li>SDLK_KP_CLEARENTRY</li>
+<li>SDLK_KP_COLON</li>
+<li>SDLK_KP_COMMA</li>
+<li>SDLK_KP_D</li>
+<li>SDLK_KP_DBLAMPERSAND</li>
+<li>SDLK_KP_DBLVERTICALBAR</li>
+<li>SDLK_KP_DECIMAL</li>
+<li>SDLK_KP_DIVIDE</li>
+<li>SDLK_KP_E</li>
+<li>SDLK_KP_ENTER</li>
+<li>SDLK_KP_EQUALS</li>
+<li>SDLK_KP_EQUALSAS400</li>
+<li>SDLK_KP_EXCLAM</li>
+<li>SDLK_KP_F</li>
+<li>SDLK_KP_GREATER</li>
+<li>SDLK_KP_HASH</li>
+<li>SDLK_KP_HEXADECIMAL</li>
+<li>SDLK_KP_LEFTBRACE</li>
+<li>SDLK_KP_LEFTPAREN</li>
+<li>SDLK_KP_LESS</li>
+<li>SDLK_KP_MEMADD</li>
+<li>SDLK_KP_MEMCLEAR</li>
+<li>SDLK_KP_MEMDIVIDE</li>
+<li>SDLK_KP_MEMMULTIPLY</li>
+<li>SDLK_KP_MEMRECALL</li>
+<li>SDLK_KP_MEMSTORE</li>
+<li>SDLK_KP_MEMSUBTRACT</li>
+<li>SDLK_KP_MINUS</li>
+<li>SDLK_KP_MULTIPLY</li>
+<li>SDLK_KP_OCTAL</li>
+<li>SDLK_KP_PERCENT</li>
+<li>SDLK_KP_PERIOD</li>
+<li>SDLK_KP_PLUS</li>
+<li>SDLK_KP_PLUSMINUS</li>
+<li>SDLK_KP_POWER</li>
+<li>SDLK_KP_RIGHTBRACE</li>
+<li>SDLK_KP_RIGHTPAREN</li>
+<li>SDLK_KP_SPACE</li>
+<li>SDLK_KP_TAB</li>
+<li>SDLK_KP_VERTICALBAR</li>
+<li>SDLK_KP_XOR</li>
+<li>SDLK_l</li>
+<li>SDLK_LALT</li>
+<li>SDLK_LCTRL</li>
+<li>SDLK_LEFT</li>
+<li>SDLK_LEFTBRACKET</li>
+<li>SDLK_LGUI</li>
+<li>SDLK_LSHIFT</li>
+<li>SDLK_m</li>
+<li>SDLK_MAIL</li>
+<li>SDLK_MEDIASELECT</li>
+<li>SDLK_MENU</li>
+<li>SDLK_MINUS</li>
+<li>SDLK_MODE</li>
+<li>SDLK_MUTE</li>
+<li>SDLK_n</li>
+<li>SDLK_NUMLOCKCLEAR</li>
+<li>SDLK_o</li>
+<li>SDLK_OPER</li>
+<li>SDLK_OUT</li>
+<li>SDLK_p</li>
+<li>SDLK_PAGEDOWN</li>
+<li>SDLK_PAGEUP</li>
+<li>SDLK_PASTE</li>
+<li>SDLK_PAUSE</li>
+<li>SDLK_PERIOD</li>
+<li>SDLK_POWER</li>
+<li>SDLK_PRINTSCREEN</li>
+<li>SDLK_PRIOR</li>
+<li>SDLK_q</li>
+<li>SDLK_r</li>
+<li>SDLK_RALT</li>
+<li>SDLK_RCTRL</li>
+<li>SDLK_RETURN</li>
+<li>SDLK_RETURN2</li>
+<li>SDLK_RGUI</li>
+<li>SDLK_RIGHT</li>
+<li>SDLK_RIGHTBRACKET</li>
+<li>SDLK_RSHIFT</li>
+<li>SDLK_s</li>
+<li>SDLK_SCROLLLOCK</li>
+<li>SDLK_SELECT</li>
+<li>SDLK_SEMICOLON</li>
+<li>SDLK_SEPARATOR</li>
+<li>SDLK_SLASH</li>
+<li>SDLK_SLEEP</li>
+<li>SDLK_SPACE</li>
+<li>SDLK_STOP</li>
+<li>SDLK_SYSREQ</li>
+<li>SDLK_t</li>
+<li>SDLK_TAB</li>
+<li>SDLK_THOUSANDSSEPARATOR</li>
+<li>SDLK_u</li>
+<li>SDLK_UNDO</li>
+<li>SDLK_UNKNOWN</li>
+<li>SDLK_UP</li>
+<li>SDLK_v</li>
+<li>SDLK_VOLUMEDOWN</li>
+<li>SDLK_VOLUMEUP</li>
+<li>SDLK_w</li>
+<li>SDLK_WWW</li>
+<li>SDLK_x</li>
+<li>SDLK_y</li>
+<li>SDLK_z</li>
+<li>SDLK_AMPERSAND</li>
+<li>SDLK_ASTERISK</li>
+<li>SDLK_AT</li>
+<li>SDLK_CARET</li>
+<li>SDLK_COLON</li>
+<li>SDLK_DOLLAR</li>
+<li>SDLK_EXCLAIM</li>
+<li>SDLK_GREATER</li>
+<li>SDLK_HASH</li>
+<li>SDLK_LEFTPAREN</li>
+<li>SDLK_LESS</li>
+<li>SDLK_PERCENT</li>
+<li>SDLK_PLUS</li>
+<li>SDLK_QUESTION</li>
+<li>SDLK_QUOTEDBL</li>
+<li>SDLK_RIGHTPAREN</li>
+<li>SDLK_UNDERSCORE</li>
 <li>void SDL_RenderCopy2(SDL_Renderer <a href="#id1"><span class="problematic" id="id2">*</span></a>,SDL_Texture <a href="#id3"><span class="problematic" id="id4">*</span></a>)</li>
 <li>void SDL_Delay(int)</li>
 <li>void SDL_Init(int)</li>
@@ -617,8 +904,8 @@
   <p class="topless"><a href="ringallegrofuncsdoc.html"
                         title="previous chapter">RingAllegro Functions Reference</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ringfreeglutfuncsdoc.html"
-                        title="next chapter">RingFreeGLUT Functions Reference</a></p>
+  <p class="topless"><a href="ringlibuvfuncsdoc.html"
+                        title="next chapter">RingLibUV Functions Reference</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -650,7 +937,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ringfreeglutfuncsdoc.html" title="RingFreeGLUT Functions Reference"
+          <a href="ringlibuvfuncsdoc.html" title="RingLibUV Functions Reference"
              >next</a> |</li>
         <li class="right" >
           <a href="ringallegrofuncsdoc.html" title="RingAllegro Functions Reference"

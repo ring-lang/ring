@@ -1,0 +1,429 @@
+.. index:: 
+     single: RingLibUV Functions Reference; Introduction
+
+=============================
+RingLibUV Functions Reference
+=============================
+
+* <nodllstartup>
+* UV_E2BIG
+* UV_EACCES
+* UV_EADDRINUSE
+* UV_EADDRNOTAVAIL
+* UV_EAFNOSUPPORT
+* UV_EAGAIN
+* UV_EAI_ADDRFAMILY
+* UV_EAI_AGAIN
+* UV_EAI_BADFLAGS
+* UV_EAI_BADHINTS
+* UV_EAI_CANCELED
+* UV_EAI_FAIL
+* UV_EAI_FAMILY
+* UV_EAI_MEMORY
+* UV_EAI_NODATA
+* UV_EAI_NONAME
+* UV_EAI_OVERFLOW
+* UV_EAI_PROTOCOL
+* UV_EAI_SERVICE
+* UV_EAI_SOCKTYPE
+* UV_EALREADY
+* UV_EBADF
+* UV_EBUSY
+* UV_ECANCELED
+* UV_ECHARSET
+* UV_ECONNABORTED
+* UV_ECONNREFUSED
+* UV_ECONNRESET
+* UV_EDESTADDRREQ
+* UV_EEXIST
+* UV_EFAULT
+* UV_EFBIG
+* UV_EHOSTUNREACH
+* UV_EINTR
+* UV_EINVAL
+* UV_EIO
+* UV_EISCONN
+* UV_EISDIR
+* UV_ELOOP
+* UV_EMFILE
+* UV_EMSGSIZE
+* UV_ENAMETOOLONG
+* UV_ENETDOWN
+* UV_ENETUNREACH
+* UV_ENFILE
+* UV_ENOBUFS
+* UV_ENODEV
+* UV_ENOENT
+* UV_ENOMEM
+* UV_ENONET
+* UV_ENOPROTOOPT
+* UV_ENOSPC
+* UV_ENOSYS
+* UV_ENOTCONN
+* UV_ENOTDIR
+* UV_ENOTEMPTY
+* UV_ENOTSOCK
+* UV_ENOTSUP
+* UV_EPERM
+* UV_EPIPE
+* UV_EPROTO
+* UV_EPROTONOSUPPORT
+* UV_EPROTOTYPE
+* UV_ERANGE
+* UV_EROFS
+* UV_ESHUTDOWN
+* UV_ESPIPE
+* UV_ESRCH
+* UV_ETIMEDOUT
+* UV_ETXTBSY
+* UV_EXDEV
+* UV_UNKNOWN
+* UV_EOF
+* UV_ENXIO
+* UV_EMLINK
+* const char* uv_strerror(int err)
+* const char* uv_err_name(int err)
+* int uv_translate_sys_error(int sys_errno)
+* UV_VERSION_MAJOR
+* UV_VERSION_MINOR
+* UV_VERSION_PATCH
+* UV_VERSION_IS_RELEASE
+* UV_VERSION_HEX
+* unsigned int uv_version(void)
+* const char* uv_version_string(void)
+* UV_RUN_DEFAULT
+* UV_RUN_ONCE
+* UV_RUN_NOWAIT
+* int uv_loop_init(uv_loop_t* loop)
+* int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)
+* int uv_loop_close(uv_loop_t* loop)
+* uv_loop_t* uv_default_loop(void)
+* int uv_run(uv_loop_t* loop, uv_run_mode mode)
+* int uv_loop_alive(const uv_loop_t* loop)
+* void uv_stop(uv_loop_t* loop)
+* size_t uv_loop_size(void)
+* int uv_backend_fd(const uv_loop_t* loop)
+* int uv_backend_timeout(const uv_loop_t* loop)
+* uint64_t uv_now(const uv_loop_t* loop)
+* void uv_update_time(uv_loop_t* loop)
+* void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
+* int uv_loop_fork(uv_loop_t* loop)
+* UV_UNKNOWN_HANDLE
+* UV_ASYNC
+* UV_CHECK
+* UV_FS_EVENT
+* UV_FS_POLL
+* UV_HANDLE
+* UV_IDLE
+* UV_NAMED_PIPE
+* UV_POLL
+* UV_PREPARE
+* UV_PROCESS
+* UV_STREAM
+* UV_TCP
+* UV_TIMER
+* UV_TTY
+* UV_UDP
+* UV_SIGNAL
+* UV_FILE
+* UV_HANDLE_TYPE_MAX
+* int uv_is_active(const uv_handle_t* handle)
+* int uv_is_closing(const uv_handle_t* handle)
+* void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
+* void uv_ref(uv_handle_t* handle)
+* void uv_unref(uv_handle_t* handle)
+* int uv_has_ref(const uv_handle_t* handle)
+* size_t uv_handle_size(uv_handle_type type)
+* int uv_send_buffer_size(uv_handle_t* handle, int* value)
+* int uv_recv_buffer_size(uv_handle_t* handle, int* value)
+* int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)
+* UV_UNKNOWN_REQ
+* UV_REQ
+* UV_CONNECT
+* UV_WRITE
+* UV_SHUTDOWN
+* UV_UDP_SEND
+* UV_FS
+* UV_WORK
+* UV_GETADDRINFO
+* UV_GETNAMEINFO
+* UV_REQ_TYPE_MAX
+* int uv_cancel(uv_req_t* req)
+* size_t uv_req_size(uv_req_type type)
+* int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
+* int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
+* int uv_timer_stop(uv_timer_t* handle)
+* int uv_timer_again(uv_timer_t* handle)
+* void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
+* uint64_t uv_timer_get_repeat(const uv_timer_t* handle)
+* int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
+* int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
+* int uv_prepare_stop(uv_prepare_t* prepare)
+* int uv_check_init(uv_loop_t* loop, uv_check_t* check)
+* int uv_check_start(uv_check_t* check, uv_check_cb cb)
+* int uv_check_stop(uv_check_t* check)
+* int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
+* int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
+* int uv_idle_stop(uv_idle_t* idle)
+* int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
+* int uv_async_send(uv_async_t* async)
+* UV_READABLE
+* UV_WRITABLE
+* UV_DISCONNECT
+* UV_PRIORITIZED
+* int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
+* int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
+* int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
+* int uv_poll_stop(uv_poll_t* poll)
+* int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)
+* int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)
+* int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)
+* int uv_signal_stop(uv_signal_t* signal)
+* UV_PROCESS_SETUID
+* UV_PROCESS_SETGID
+* UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS
+* UV_PROCESS_DETACHED
+* UV_PROCESS_WINDOWS_HIDE
+* UV_IGNORE
+* UV_CREATE_PIPE
+* UV_INHERIT_FD
+* UV_INHERIT_STREAM
+* UV_READABLE_PIPE
+* UV_WRITABLE_PIPE
+* void uv_disable_stdio_inheritance(void)
+* int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)
+* int uv_process_kill(uv_process_t* handle, int signum)
+* int uv_kill(int pid, int signum)
+* int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
+* int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
+* int uv_accept(uv_stream_t* server, uv_stream_t* client)
+* int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
+* int uv_read_stop(uv_stream_t*)
+* int uv_is_writable(const uv_stream_t* handle)
+* int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
+* int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)
+* int uv_tcp_init_ex(uv_loop_t* loop, uv_tcp_t* handle, unsigned int flags)
+* int uv_tcp_open(uv_tcp_t* handle, uv_os_sock_t sock)
+* int uv_tcp_nodelay(uv_tcp_t* handle, int enable)
+* int uv_tcp_keepalive(uv_tcp_t* handle, int enable, unsigned int delay)
+* int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)
+* int uv_tcp_bind(uv_tcp_t* handle, const struct sockaddr* addr, unsigned int flags)
+* int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, const struct sockaddr* addr, uv_connect_cb cb)
+* int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)
+* int uv_pipe_open(uv_pipe_t* handle, uv_file file)
+* int uv_pipe_bind(uv_pipe_t* handle, const char* name)
+* void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char* name, uv_connect_cb cb)
+* int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)
+* int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)
+* void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
+* int uv_pipe_pending_count(uv_pipe_t* handle)
+* uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
+* int uv_pipe_chmod(uv_pipe_t* handle, int flags)
+* UV_TTY_MODE_NORMAL
+* UV_TTY_MODE_RAW
+* UV_TTY_MODE_IO
+* int uv_tty_init(uv_loop_t* loop, uv_tty_t* handle, uv_file fd, int readable)
+* int uv_tty_set_mode(uv_tty_t* handle, uv_tty_mode_t mode)
+* int uv_tty_reset_mode(void)
+* int uv_tty_get_winsize(uv_tty_t* handle, int* width, int* height)
+* UV_UDP_IPV6ONLY
+* UV_UDP_PARTIAL
+* UV_UDP_REUSEADDR
+* UV_LEAVE_GROUP
+* UV_JOIN_GROUP
+* int uv_udp_init(uv_loop_t* loop, uv_udp_t* handle)
+* int uv_udp_init_ex(uv_loop_t* loop, uv_udp_t* handle, unsigned int flags)
+* int uv_udp_open(uv_udp_t* handle, uv_os_sock_t sock)
+* int uv_udp_bind(uv_udp_t* handle, const struct sockaddr* addr, unsigned int flags)
+* int uv_udp_getsockname(const uv_udp_t* handle, struct sockaddr* name, int* namelen)
+* int uv_udp_set_membership(uv_udp_t* handle, const char* multicast_addr, const char* interface_addr, uv_membership membership)
+* int uv_udp_set_multicast_loop(uv_udp_t* handle, int on)
+* int uv_udp_set_multicast_ttl(uv_udp_t* handle, int ttl)
+* int uv_udp_set_multicast_interface(uv_udp_t* handle, const char* interface_addr)
+* int uv_udp_set_broadcast(uv_udp_t* handle, int on)
+* int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
+* int uv_udp_recv_stop(uv_udp_t* handle)
+* UV_RENAME
+* UV_CHANGE
+* UV_FS_EVENT_WATCH_ENTRY
+* UV_FS_EVENT_STAT
+* UV_FS_EVENT_RECURSIVE
+* int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)
+* int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char* path, unsigned int flags)
+* int uv_fs_event_stop(uv_fs_event_t* handle)
+* int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
+* int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
+* int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char* path, unsigned int interval)
+* int uv_fs_poll_stop(uv_fs_poll_t* handle)
+* int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
+* UV_FS_UNKNOWN
+* UV_FS_CUSTOM
+* UV_FS_OPEN
+* UV_FS_CLOSE
+* UV_FS_READ
+* UV_FS_WRITE
+* UV_FS_SENDFILE
+* UV_FS_STAT
+* UV_FS_LSTAT
+* UV_FS_FSTAT
+* UV_FS_FTRUNCATE
+* UV_FS_UTIME
+* UV_FS_FUTIME
+* UV_FS_ACCESS
+* UV_FS_CHMOD
+* UV_FS_FCHMOD
+* UV_FS_FSYNC
+* UV_FS_FDATASYNC
+* UV_FS_UNLINK
+* UV_FS_RMDIR
+* UV_FS_MKDIR
+* UV_FS_MKDTEMP
+* UV_FS_RENAME
+* UV_FS_SCANDIR
+* UV_FS_LINK
+* UV_FS_SYMLINK
+* UV_FS_READLINK
+* UV_FS_CHOWN
+* UV_FS_FCHOWN
+* UV_FS_REALPATH
+* UV_FS_COPYFILE
+* UV_DIRENT_UNKNOWN
+* UV_DIRENT_FILE
+* UV_DIRENT_DIR
+* UV_DIRENT_LINK
+* UV_DIRENT_FIFO
+* UV_DIRENT_SOCKET
+* UV_DIRENT_CHAR
+* UV_DIRENT_BLOCK
+* UV_FS_O_APPEND
+* UV_FS_O_CREAT
+* UV_FS_O_DIRECT
+* UV_FS_O_DIRECTORY
+* UV_FS_O_DSYNC
+* UV_FS_O_EXCL
+* UV_FS_O_EXLOCK
+* UV_FS_O_NOATIME
+* UV_FS_O_NOCTTY
+* UV_FS_O_NOFOLLOW
+* UV_FS_O_NONBLOCK
+* UV_FS_O_RANDOM
+* UV_FS_O_RDONLY
+* UV_FS_O_RDWR
+* UV_FS_O_SEQUENTIAL
+* UV_FS_O_SHORT_LIVED
+* UV_FS_O_SYMLINK
+* UV_FS_O_SYNC
+* UV_FS_O_TEMPORARY
+* UV_FS_O_TRUNC
+* UV_FS_O_WRONLY
+* void uv_fs_req_cleanup(uv_fs_t* req)
+* int uv_fs_close(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+* int uv_fs_open(uv_loop_t* loop, uv_fs_t* req, const char* path, int flags, int mode, uv_fs_cb cb)
+* int uv_fs_mkdtemp(uv_loop_t* loop, uv_fs_t* req, const char* tpl, uv_fs_cb cb)
+* int uv_fs_rmdir(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+* int uv_fs_scandir(uv_loop_t* loop, uv_fs_t* req, const char* path, int flags, uv_fs_cb cb)
+* int uv_fs_scandir_next(uv_fs_t* req, uv_dirent_t* ent)
+* int uv_fs_stat(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+* int uv_fs_fstat(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+* int uv_fs_lstat(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+* int uv_fs_rename(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, uv_fs_cb cb)
+* int uv_fs_fsync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+* int uv_fs_fdatasync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+* int uv_fs_ftruncate(uv_loop_t* loop, uv_fs_t* req, uv_file file, int64_t offset, uv_fs_cb cb)
+* int uv_fs_copyfile(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, int flags, uv_fs_cb cb)
+* int uv_fs_sendfile(uv_loop_t* loop, uv_fs_t* req, uv_file out_fd, uv_file in_fd, int64_t in_offset, size_t length, uv_fs_cb cb)
+* int uv_fs_access(uv_loop_t* loop, uv_fs_t* req, const char* path, int mode, uv_fs_cb cb)
+* int uv_fs_chmod(uv_loop_t* loop, uv_fs_t* req, const char* path, int mode, uv_fs_cb cb)
+* int uv_fs_fchmod(uv_loop_t* loop, uv_fs_t* req, uv_file file, int mode, uv_fs_cb cb)
+* int uv_fs_utime(uv_loop_t* loop, uv_fs_t* req, const char* path, double atime, double mtime, uv_fs_cb cb)
+* int uv_fs_futime(uv_loop_t* loop, uv_fs_t* req, uv_file file, double atime, double mtime, uv_fs_cb cb)
+* int uv_fs_link(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, uv_fs_cb cb)
+* int uv_fs_symlink(uv_loop_t* loop, uv_fs_t* req, const char* path, const char* new_path, int flags, uv_fs_cb cb)
+* int uv_fs_readlink(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+* int uv_fs_realpath(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_fs_cb cb)
+* int uv_fs_chown(uv_loop_t* loop, uv_fs_t* req, const char* path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+* int uv_fs_fchown(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+* int uv_queue_work(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)
+* int uv_getaddrinfo(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char* node, const char* service, const struct addrinfo* hints)
+* void uv_freeaddrinfo(struct addrinfo* ai)
+* int uv_getnameinfo(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, const struct sockaddr* addr, int flags)
+* int uv_dlopen(const char* filename, uv_lib_t* lib)
+* void uv_dlclose(uv_lib_t* lib)
+* int uv_dlsym(uv_lib_t* lib, const char* name, void** ptr)
+* const char* uv_dlerror(const uv_lib_t* lib)
+* int uv_thread_create(uv_thread_t* tid, uv_thread_cb entry, void* arg)
+* uv_thread_t uv_thread_self(void)
+* int uv_thread_join(uv_thread_t *tid)
+* int uv_thread_equal(const uv_thread_t* t1, const uv_thread_t* t2)
+* int uv_key_create(uv_key_t* key)
+* void uv_key_delete(uv_key_t* key)
+* void* uv_key_get(uv_key_t* key)
+* void uv_key_set(uv_key_t* key, void* value)
+* int uv_mutex_init(uv_mutex_t* handle)
+* int uv_mutex_init_recursive(uv_mutex_t* handle)
+* void uv_mutex_destroy(uv_mutex_t* handle)
+* void uv_mutex_lock(uv_mutex_t* handle)
+* int uv_mutex_trylock(uv_mutex_t* handle)
+* void uv_mutex_unlock(uv_mutex_t* handle)
+* int uv_rwlock_init(uv_rwlock_t* rwlock)
+* void uv_rwlock_destroy(uv_rwlock_t* rwlock)
+* void uv_rwlock_rdlock(uv_rwlock_t* rwlock)
+* int uv_rwlock_tryrdlock(uv_rwlock_t* rwlock)
+* void uv_rwlock_rdunlock(uv_rwlock_t* rwlock)
+* void uv_rwlock_wrlock(uv_rwlock_t* rwlock)
+* int uv_rwlock_trywrlock(uv_rwlock_t* rwlock)
+* void uv_rwlock_wrunlock(uv_rwlock_t* rwlock)
+* int uv_sem_init(uv_sem_t* sem, unsigned int value)
+* void uv_sem_destroy(uv_sem_t* sem)
+* void uv_sem_post(uv_sem_t* sem)
+* void uv_sem_wait(uv_sem_t* sem)
+* int uv_sem_trywait(uv_sem_t* sem)
+* int uv_cond_init(uv_cond_t* cond)
+* void uv_cond_destroy(uv_cond_t* cond)
+* void uv_cond_signal(uv_cond_t* cond)
+* void uv_cond_broadcast(uv_cond_t* cond)
+* void uv_cond_wait(uv_cond_t* cond, uv_mutex_t* mutex)
+* int uv_cond_timedwait(uv_cond_t* cond, uv_mutex_t* mutex, uint64_t timeout)
+* int uv_barrier_init(uv_barrier_t* barrier, unsigned int count)
+* void uv_barrier_destroy(uv_barrier_t* barrier)
+* int uv_barrier_wait(uv_barrier_t* barrier)
+* UV_IF_NAMESIZE
+* uv_handle_type uv_guess_handle(uv_file file)
+* int uv_replace_allocator(uv_malloc_func malloc_func, uv_realloc_func realloc_func, uv_calloc_func calloc_func, uv_free_func free_func)
+* uv_buf_t uv_buf_init(char* base, unsigned int len)
+* char** uv_setup_args(int argc, char** argv)
+* int uv_get_process_title(char* buffer, size_t size)
+* int uv_set_process_title(const char* title)
+* int uv_resident_set_memory(size_t* rss)
+* int uv_uptime(double* uptime)
+* int uv_getrusage(uv_rusage_t* rusage)
+* uv_pid_t uv_os_getpid(void)
+* uv_pid_t uv_os_getppid(void)
+* int uv_cpu_info(uv_cpu_info_t** cpu_infos, int* count)
+* void uv_free_cpu_info(uv_cpu_info_t* cpu_infos, int count)
+* int uv_interface_addresses(uv_interface_address_t** addresses, int* count)
+* void uv_free_interface_addresses(uv_interface_address_t* addresses, int count)
+* int uv_ip6_addr(const char* ip, int port, struct sockaddr_in6* addr)
+* int uv_ip4_name(const struct sockaddr_in* src, char* dst, size_t size)
+* int uv_ip6_name(const struct sockaddr_in6* src, char* dst, size_t size)
+* int uv_inet_ntop(int af, const void* src, char* dst, size_t size)
+* int uv_inet_pton(int af, const char* src, void* dst)
+* int uv_if_indextoname(unsigned int ifindex, char* buffer, size_t* size)
+* int uv_if_indextoiid(unsigned int ifindex, char* buffer, size_t* size)
+* int uv_exepath(char* buffer, size_t* size)
+* int uv_cwd(char* buffer, size_t* size)
+* int uv_chdir(const char* dir)
+* int uv_os_homedir(char* buffer, size_t* size)
+* int uv_os_tmpdir(char* buffer, size_t* size)
+* int uv_os_get_passwd(uv_passwd_t* pwd)
+* void uv_os_free_passwd(uv_passwd_t* pwd)
+* uint64_t uv_get_total_memory(void)
+* uint64_t uv_hrtime(void)
+* void uv_print_all_handles(uv_loop_t* loop, FILE* stream)
+* void uv_print_active_handles(uv_loop_t* loop, FILE* stream)
+* int uv_os_getenv(const char* name, char* buffer, size_t* size)
+* int uv_os_setenv(const char* name, const char* value)
+* int uv_os_unsetenv(const char* name)
+* int uv_os_gethostname(char* buffer, size_t* size)

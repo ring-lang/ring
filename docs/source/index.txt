@@ -91,6 +91,7 @@ Contents:
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
+   RingLibUV Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
    RingOpenGL (OpenGL 1.1) Functions Reference <ringopengl11funcsdoc>
    RingOpenGL (OpenGL 1.2) Functions Reference <ringopengl12funcsdoc>
