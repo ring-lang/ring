@@ -2900,6 +2900,124 @@ RING_FUNC(ring_uv_pipe_chmod)
 	RING_API_RETNUMBER(uv_pipe_chmod((uv_pipe_t *) RING_API_GETCPOINTER(1,"uv_pipe_t"), (int ) RING_API_GETNUMBER(2)));
 }
 
+RING_FUNC(ring_uv_new_uv_tty_t)
+{
+	uv_tty_t *pMyPointer ;
+	pMyPointer = (uv_tty_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_tty_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uv_tty_t");
+}
+
+RING_FUNC(ring_uv_destroy_uv_tty_t)
+{
+	uv_tty_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_tty_t");
+	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+}
+
+RING_FUNC(ring_uv_get_uv_tty_mode_normal)
+{
+	RING_API_RETNUMBER(UV_TTY_MODE_NORMAL);
+}
+
+RING_FUNC(ring_uv_get_uv_tty_mode_raw)
+{
+	RING_API_RETNUMBER(UV_TTY_MODE_RAW);
+}
+
+RING_FUNC(ring_uv_get_uv_tty_mode_io)
+{
+	RING_API_RETNUMBER(UV_TTY_MODE_IO);
+}
+
+
+RING_FUNC(ring_uv_tty_init)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_tty_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_tty_t *) RING_API_GETCPOINTER(2,"uv_tty_t"),* (uv_file  *) RING_API_GETCPOINTER(3,"uv_file"), (int ) RING_API_GETNUMBER(4)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_file"));
+}
+
+
+RING_FUNC(ring_uv_tty_set_mode)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_tty_set_mode((uv_tty_t *) RING_API_GETCPOINTER(1,"uv_tty_t"), (uv_tty_mode_t )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_tty_reset_mode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_tty_reset_mode());
+}
+
+
+RING_FUNC(ring_uv_tty_get_winsize)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_tty_get_winsize((uv_tty_t *) RING_API_GETCPOINTER(1,"uv_tty_t"),RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3)));
+	RING_API_ACCEPTINTVALUE(2) ;
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
@@ -2990,6 +3108,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_pipe_pending_count",ring_uv_pipe_pending_count);
 	ring_vm_funcregister("uv_pipe_pending_type",ring_uv_pipe_pending_type);
 	ring_vm_funcregister("uv_pipe_chmod",ring_uv_pipe_chmod);
+	ring_vm_funcregister("uv_tty_init",ring_uv_tty_init);
+	ring_vm_funcregister("uv_tty_set_mode",ring_uv_tty_set_mode);
+	ring_vm_funcregister("uv_tty_reset_mode",ring_uv_tty_reset_mode);
+	ring_vm_funcregister("uv_tty_get_winsize",ring_uv_tty_get_winsize);
 	ring_vm_funcregister("uv_get_uv_e2big",ring_uv_get_uv_e2big);
 	ring_vm_funcregister("uv_get_uv_eacces",ring_uv_get_uv_eacces);
 	ring_vm_funcregister("uv_get_uv_eaddrinuse",ring_uv_get_uv_eaddrinuse);
@@ -3172,4 +3294,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_destroy_uv_tcp_t",ring_uv_destroy_uv_tcp_t);
 	ring_vm_funcregister("uv_new_uv_pipe_t",ring_uv_new_uv_pipe_t);
 	ring_vm_funcregister("uv_destroy_uv_pipe_t",ring_uv_destroy_uv_pipe_t);
+	ring_vm_funcregister("uv_new_uv_tty_t",ring_uv_new_uv_tty_t);
+	ring_vm_funcregister("uv_destroy_uv_tty_t",ring_uv_destroy_uv_tty_t);
+	ring_vm_funcregister("uv_get_uv_tty_mode_normal",ring_uv_get_uv_tty_mode_normal);
+	ring_vm_funcregister("uv_get_uv_tty_mode_raw",ring_uv_get_uv_tty_mode_raw);
+	ring_vm_funcregister("uv_get_uv_tty_mode_io",ring_uv_get_uv_tty_mode_io);
 }

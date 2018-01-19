@@ -428,3 +428,28 @@ void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
 int uv_pipe_pending_count(uv_pipe_t* handle)
 uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)
 int uv_pipe_chmod(uv_pipe_t* handle, int flags)
+
+<comment>
+TTY handle
+</comment>
+
+<struct>
+uv_tty_t
+</struct>
+
+<runcode>
+aEnumTypes + "uv_tty_mode_t"
+</runcode>
+
+<constant>
+UV_TTY_MODE_NORMAL
+UV_TTY_MODE_RAW
+UV_TTY_MODE_IO
+</constant>
+
+int uv_tty_init(uv_loop_t* loop, uv_tty_t* handle, uv_file fd, int readable)
+int uv_tty_set_mode(uv_tty_t* handle, uv_tty_mode_t mode)
+int uv_tty_reset_mode(void)
+int uv_tty_get_winsize(uv_tty_t* handle, int* width, int* height)
+
+
