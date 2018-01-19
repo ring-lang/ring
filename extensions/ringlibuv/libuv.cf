@@ -522,3 +522,15 @@ int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char* path
 int uv_fs_event_stop(uv_fs_event_t* handle)
 int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
 
+<comment>
+FS Poll handle
+</comment>
+
+<struct>
+uv_fs_poll_t
+</struct>
+
+int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
+int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char* path, unsigned int interval)
+int uv_fs_poll_stop(uv_fs_poll_t* handle)
+int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
