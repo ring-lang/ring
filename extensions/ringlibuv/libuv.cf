@@ -277,3 +277,14 @@ uv_idle_t
 int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
 int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
 int uv_idle_stop(uv_idle_t* idle)
+
+<comment>
+Async handle
+</comment>
+
+<struct>
+uv_async_t
+</struct>
+
+int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
+int uv_async_send(uv_async_t* async)
