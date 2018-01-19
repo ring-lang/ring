@@ -655,4 +655,15 @@ void* uv_fs_get_ptr(const uv_fs_t* req)
 const char* uv_fs_get_path(const uv_fs_t* req)
 uv_stat_t* uv_fs_get_statbuf(uv_fs_t* req)
 </comment>
- uv_os_fd_t uv_get_osfhandle(int fd)
+uv_os_fd_t uv_get_osfhandle(int fd)
+
+<comment>
+Thread pool work scheduling
+</comment>
+
+<struct>
+uv_work_t
+</struct>
+
+int uv_queue_work(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)
+
