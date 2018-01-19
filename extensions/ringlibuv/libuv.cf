@@ -390,3 +390,22 @@ int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
 <comment>
 size_t uv_stream_get_write_queue_size(const uv_stream_t* stream)
 </comment>
+
+<comment>
+TCP handle
+</comment>
+
+<struct>
+uv_tcp_t
+</struct>
+
+int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)
+int uv_tcp_init_ex(uv_loop_t* loop, uv_tcp_t* handle, unsigned int flags)
+int uv_tcp_open(uv_tcp_t* handle, uv_os_sock_t sock)
+int uv_tcp_nodelay(uv_tcp_t* handle, int enable)
+int uv_tcp_keepalive(uv_tcp_t* handle, int enable, unsigned int delay)
+int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)
+int uv_tcp_bind(uv_tcp_t* handle, const struct sockaddr* addr, unsigned int flags)
+int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
+int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, const struct sockaddr* addr, uv_connect_cb cb)
