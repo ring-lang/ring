@@ -4226,6 +4226,94 @@ RING_FUNC(ring_uv_fs_open)
 }
 
 
+RING_FUNC(ring_uv_fs_read)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_fs_read((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_fs_t *) RING_API_GETCPOINTER(2,"uv_fs_t"),* (uv_file  *) RING_API_GETCPOINTER(3,"uv_file"),(uv_buf_t *) RING_API_GETCPOINTER(4,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(5,"unsigned int"), (int64_t ) RING_API_GETNUMBER(6),* (uv_fs_cb  *) RING_API_GETCPOINTER(7,"uv_fs_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_file"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"unsigned int"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"uv_fs_cb"));
+}
+
+
+RING_FUNC(ring_uv_fs_unlink)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_fs_unlink((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_fs_t *) RING_API_GETCPOINTER(2,"uv_fs_t"),(char *) RING_API_GETCPOINTER(3,"char"),* (uv_fs_cb  *) RING_API_GETCPOINTER(4,"uv_fs_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"uv_fs_cb"));
+}
+
+
+RING_FUNC(ring_uv_fs_write)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_fs_write((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_fs_t *) RING_API_GETCPOINTER(2,"uv_fs_t"),* (uv_file  *) RING_API_GETCPOINTER(3,"uv_file"),(uv_buf_t *) RING_API_GETCPOINTER(4,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(5,"unsigned int"), (int64_t ) RING_API_GETNUMBER(6),* (uv_fs_cb  *) RING_API_GETCPOINTER(7,"uv_fs_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_file"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"unsigned int"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"uv_fs_cb"));
+}
+
+
 RING_FUNC(ring_uv_fs_mkdir)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
@@ -7026,6 +7114,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_fs_req_cleanup",ring_uv_fs_req_cleanup);
 	ring_vm_funcregister("uv_fs_close",ring_uv_fs_close);
 	ring_vm_funcregister("uv_fs_open",ring_uv_fs_open);
+	ring_vm_funcregister("uv_fs_read",ring_uv_fs_read);
+	ring_vm_funcregister("uv_fs_unlink",ring_uv_fs_unlink);
+	ring_vm_funcregister("uv_fs_write",ring_uv_fs_write);
 	ring_vm_funcregister("uv_fs_mkdir",ring_uv_fs_mkdir);
 	ring_vm_funcregister("uv_fs_mkdtemp",ring_uv_fs_mkdtemp);
 	ring_vm_funcregister("uv_fs_rmdir",ring_uv_fs_rmdir);
