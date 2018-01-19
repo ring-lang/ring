@@ -363,3 +363,30 @@ int uv_kill(int pid, int signum)
 uv_pid_t uv_process_get_pid(const uv_process_t* handle)
 </comment>
 
+<comment>
+Stream handle
+</comment>
+
+<struct>
+uv_stream_t  
+uv_connect_t  
+uv_shutdown_t  
+uv_write_t 
+</struct>
+
+int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
+int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
+int uv_accept(uv_stream_t* server, uv_stream_t* client)
+int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
+int uv_read_stop(uv_stream_t*)
+<comment>
+int uv_write(uv_write_t* req, uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs, uv_write_cb cb)
+int uv_write2(uv_write_t* req, uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs, uv_stream_t* send_handle, uv_write_cb cb)
+int uv_try_write(uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs)
+</comment>
+int uv_is_readable(const uv_stream_t* handle)
+int uv_is_writable(const uv_stream_t* handle)
+int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
+<comment>
+size_t uv_stream_get_write_queue_size(const uv_stream_t* stream)
+</comment>
