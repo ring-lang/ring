@@ -721,7 +721,7 @@ Miscellaneous utilities
 </comment>
 
 <struct>
-uv_buf_t
+uv_buf_t {char *base,len}
 uv_file
 uv_os_sock_t
 uv_os_fd_t
