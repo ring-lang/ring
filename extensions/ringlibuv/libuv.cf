@@ -93,3 +93,13 @@ const char* uv_strerror(int err)
 const char* uv_err_name(int err)
 int uv_translate_sys_error(int sys_errno)
 
+<constant>
+UV_VERSION_MAJOR
+UV_VERSION_MINOR
+UV_VERSION_PATCH
+UV_VERSION_IS_RELEASE
+UV_VERSION_HEX
+</constant>
+
+unsigned int uv_version(void)
+const char* uv_version_string(void)

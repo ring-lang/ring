@@ -419,11 +419,63 @@ RING_FUNC(ring_uv_translate_sys_error)
 	RING_API_RETNUMBER(uv_translate_sys_error( (int ) RING_API_GETNUMBER(1)));
 }
 
+RING_FUNC(ring_uv_get_uv_version_major)
+{
+	RING_API_RETNUMBER(UV_VERSION_MAJOR);
+}
+
+RING_FUNC(ring_uv_get_uv_version_minor)
+{
+	RING_API_RETNUMBER(UV_VERSION_MINOR);
+}
+
+RING_FUNC(ring_uv_get_uv_version_patch)
+{
+	RING_API_RETNUMBER(UV_VERSION_PATCH);
+}
+
+RING_FUNC(ring_uv_get_uv_version_is_release)
+{
+	RING_API_RETNUMBER(UV_VERSION_IS_RELEASE);
+}
+
+RING_FUNC(ring_uv_get_uv_version_hex)
+{
+	RING_API_RETNUMBER(UV_VERSION_HEX);
+}
+
+
+RING_FUNC(ring_uv_version)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		unsigned int *pValue ; 
+		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
+		*pValue = uv_version();
+		RING_API_RETCPOINTER(pValue,"unsigned int");
+	}
+}
+
+
+RING_FUNC(ring_uv_version_string)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uv_version_string(),"char");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
+	ring_vm_funcregister("uv_version",ring_uv_version);
+	ring_vm_funcregister("uv_version_string",ring_uv_version_string);
 	ring_vm_funcregister("uv_get_uv_e2big",ring_uv_get_uv_e2big);
 	ring_vm_funcregister("uv_get_uv_eacces",ring_uv_get_uv_eacces);
 	ring_vm_funcregister("uv_get_uv_eaddrinuse",ring_uv_get_uv_eaddrinuse);
@@ -499,4 +551,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_get_uv_eof",ring_uv_get_uv_eof);
 	ring_vm_funcregister("uv_get_uv_enxio",ring_uv_get_uv_enxio);
 	ring_vm_funcregister("uv_get_uv_emlink",ring_uv_get_uv_emlink);
+	ring_vm_funcregister("uv_get_uv_version_major",ring_uv_get_uv_version_major);
+	ring_vm_funcregister("uv_get_uv_version_minor",ring_uv_get_uv_version_minor);
+	ring_vm_funcregister("uv_get_uv_version_patch",ring_uv_get_uv_version_patch);
+	ring_vm_funcregister("uv_get_uv_version_is_release",ring_uv_get_uv_version_is_release);
+	ring_vm_funcregister("uv_get_uv_version_hex",ring_uv_get_uv_version_hex);
 }
