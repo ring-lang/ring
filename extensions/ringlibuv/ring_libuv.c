@@ -2783,6 +2783,82 @@ RING_FUNC(ring_uv_read_stop)
 }
 
 
+RING_FUNC(ring_uv_write)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_write((uv_write_t *) RING_API_GETCPOINTER(1,"uv_write_t"),(uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(4,"unsigned int"),* (uv_write_cb  *) RING_API_GETCPOINTER(5,"uv_write_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"unsigned int"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"uv_write_cb"));
+}
+
+
+RING_FUNC(ring_uv_write2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_write2((uv_write_t *) RING_API_GETCPOINTER(1,"uv_write_t"),(uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(4,"unsigned int"),(uv_stream_t *) RING_API_GETCPOINTER(5,"uv_stream_t"),* (uv_write_cb  *) RING_API_GETCPOINTER(6,"uv_write_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"unsigned int"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"uv_write_cb"));
+}
+
+
+RING_FUNC(ring_uv_try_write)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_try_write((uv_stream_t *) RING_API_GETCPOINTER(1,"uv_stream_t"),(uv_buf_t *) RING_API_GETCPOINTER(2,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
+}
+
+
 RING_FUNC(ring_uv_is_readable)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -3706,6 +3782,60 @@ RING_FUNC(ring_uv_udp_set_ttl)
 		return ;
 	}
 	RING_API_RETNUMBER(uv_udp_set_ttl((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uv_udp_send)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_send((uv_udp_send_t *) RING_API_GETCPOINTER(1,"uv_udp_send_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(4,"unsigned int"),(struct sockaddr *) RING_API_GETCPOINTER(5,"struct sockaddr"),* (uv_udp_send_cb  *) RING_API_GETCPOINTER(6,"uv_udp_send_cb")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"unsigned int"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"uv_udp_send_cb"));
+}
+
+
+RING_FUNC(ring_uv_udp_try_send)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uv_udp_try_send((uv_udp_t *) RING_API_GETCPOINTER(1,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(2,"uv_buf_t"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int"),(struct sockaddr *) RING_API_GETCPOINTER(4,"struct sockaddr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
 }
 
 
@@ -6840,6 +6970,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_accept",ring_uv_accept);
 	ring_vm_funcregister("uv_read_start",ring_uv_read_start);
 	ring_vm_funcregister("uv_read_stop",ring_uv_read_stop);
+	ring_vm_funcregister("uv_write",ring_uv_write);
+	ring_vm_funcregister("uv_write2",ring_uv_write2);
+	ring_vm_funcregister("uv_try_write",ring_uv_try_write);
 	ring_vm_funcregister("uv_is_readable",ring_uv_is_readable);
 	ring_vm_funcregister("uv_is_writable",ring_uv_is_writable);
 	ring_vm_funcregister("uv_stream_set_blocking",ring_uv_stream_set_blocking);
@@ -6878,6 +7011,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_udp_set_multicast_interface",ring_uv_udp_set_multicast_interface);
 	ring_vm_funcregister("uv_udp_set_broadcast",ring_uv_udp_set_broadcast);
 	ring_vm_funcregister("uv_udp_set_ttl",ring_uv_udp_set_ttl);
+	ring_vm_funcregister("uv_udp_send",ring_uv_udp_send);
+	ring_vm_funcregister("uv_udp_try_send",ring_uv_udp_try_send);
 	ring_vm_funcregister("uv_udp_recv_start",ring_uv_udp_recv_start);
 	ring_vm_funcregister("uv_udp_recv_stop",ring_uv_udp_recv_stop);
 	ring_vm_funcregister("uv_fs_event_init",ring_uv_fs_event_init);

@@ -440,6 +440,9 @@ int uv_write(uv_write_t* req, uv_stream_t* handle, const uv_buf_t bufs[], unsign
 int uv_write2(uv_write_t* req, uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs, uv_stream_t* send_handle, uv_write_cb cb)
 int uv_try_write(uv_stream_t* handle, const uv_buf_t bufs[], unsigned int nbufs)
 </comment>
+int uv_write(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_write_cb cb)
+int uv_write2(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_stream_t* send_handle, uv_write_cb cb)
+int uv_try_write(uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs)
 int uv_is_readable(const uv_stream_t* handle)
 int uv_is_writable(const uv_stream_t* handle)
 int uv_stream_set_blocking(uv_stream_t* handle, int blocking)
@@ -531,6 +534,8 @@ int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
 int uv_udp_send(uv_udp_send_t* req, uv_udp_t* handle, const uv_buf_t bufs[], unsigned int nbufs, const struct sockaddr* addr, uv_udp_send_cb send_cb)
 int uv_udp_try_send(uv_udp_t* handle, const uv_buf_t bufs[], unsigned int nbufs, const struct sockaddr* addr)
 </comment>
+int uv_udp_send(uv_udp_send_t* req, uv_udp_t* handle, uv_buf_t *bufs, unsigned int nbufs, const struct sockaddr* addr, uv_udp_send_cb send_cb)
+int uv_udp_try_send(uv_udp_t* handle, uv_buf_t *bufs, unsigned int nbufs, const struct sockaddr* addr)
 int uv_udp_recv_start(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)
 int uv_udp_recv_stop(uv_udp_t* handle)
 <comment>
