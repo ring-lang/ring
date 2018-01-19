@@ -680,4 +680,16 @@ int uv_getaddrinfo(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb get
 void uv_freeaddrinfo(struct addrinfo* ai)
 int uv_getnameinfo(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, const struct sockaddr* addr, int flags)
 
+<comment>
+Shared library handling
+</comment>
+
+<struct>
+uv_lib_t
+</struct>
+
+int uv_dlopen(const char* filename, uv_lib_t* lib)
+void uv_dlclose(uv_lib_t* lib)
+int uv_dlsym(uv_lib_t* lib, const char* name, void** ptr)
+const char* uv_dlerror(const uv_lib_t* lib)
 
