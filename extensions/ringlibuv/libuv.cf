@@ -520,7 +520,7 @@ uv_write_t
 </struct>
 
 int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
-int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
+int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb *cb)
 int uv_accept(uv_stream_t* server, uv_stream_t* client)
 int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
 int uv_read_stop(uv_stream_t*)
@@ -551,7 +551,7 @@ int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)
 int uv_tcp_bind(uv_tcp_t *handle,sockaddr *addr,unsigned int flags)
 int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
 int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
-int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb cb)
+int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb *cb)
 
 <comment>
 Pipe handle
