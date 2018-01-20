@@ -18,7 +18,7 @@ VM *pVMLibUV = NULL;
 <runcode>
 aNumberTypes + "unsigned int"
 
-# Add Functions CallBack 
+# Add Function CallBack types (To avoid treating it as struct)
 aFunctionCallback + "uv_idle_cb"
 aFunctionCallback + "uv_connection_cb"
 <runcode>
@@ -50,7 +50,6 @@ void uv_idle_callback(uv_idle_t *obj)
 {
 	uv_check_callback(obj,"idle");
 } 
-
 </code>
 
 <register>
@@ -91,10 +90,6 @@ RING_FUNC(ring_uv_callback)
 	}
 }
 </code>
-
-<funcstart>
-uv
-</funcstart>
 
 <struct>
 sockaddr_in

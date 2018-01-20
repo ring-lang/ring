@@ -4,7 +4,7 @@ counter = 0
 idler = NULL 
 
 func main
-	idler = uv_new_uv_idle_t()
+	idler = new_uv_idle_t()
 	uv_idle_init(uv_default_loop(), idler)
 	wait_for_a_while = uv_callback(idler,"idle","wait()")
 	uv_idle_start(idler, wait_for_a_while)
