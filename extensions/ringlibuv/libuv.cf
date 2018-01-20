@@ -446,6 +446,7 @@ int uv_backend_timeout(const uv_loop_t* loop)
 uint64_t uv_now(const uv_loop_t* loop)
 void uv_update_time(uv_loop_t* loop)
 void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
+void uv_walk@2(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)
 int uv_loop_fork(uv_loop_t* loop)
 
 <comment>
@@ -464,6 +465,7 @@ aEnumTypes + "uv_handle_type"
 int uv_is_active(const uv_handle_t* handle)
 int uv_is_closing(const uv_handle_t* handle)
 void uv_close(uv_handle_t* handle, uv_close_cb close_cb)
+void uv_close@2(uv_handle_t* handle, uv_close_cb close_cb)
 void uv_ref(uv_handle_t* handle)
 void uv_unref(uv_handle_t* handle)
 int uv_has_ref(const uv_handle_t* handle)
@@ -566,6 +568,7 @@ uv_async_t
 </struct>
 
 int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
+int uv_async_init@2(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)
 int uv_async_send(uv_async_t* async)
 
 <comment>
@@ -641,6 +644,7 @@ int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
 int uv_listen@2(uv_stream_t* stream, int backlog, uv_connection_cb cb)
 int uv_accept(uv_stream_t* server, uv_stream_t* client)
 int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
+int uv_read_start@2(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
 int uv_read_stop(uv_stream_t*)
 int uv_write(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_write_cb cb)
 int uv_write@2(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_write_cb cb)
@@ -737,8 +741,10 @@ int uv_udp_set_multicast_interface(uv_udp_t* handle, const char * interface_addr
 int uv_udp_set_broadcast(uv_udp_t* handle, int on)
 int uv_udp_set_ttl(uv_udp_t* handle, int ttl)
 int uv_udp_send(uv_udp_send_t* req, uv_udp_t* handle, uv_buf_t *bufs, unsigned int nbufs, sockaddr * addr, uv_udp_send_cb send_cb)
+int uv_udp_send@2(uv_udp_send_t* req, uv_udp_t* handle, uv_buf_t *bufs, unsigned int nbufs, sockaddr * addr, uv_udp_send_cb send_cb)
 int uv_udp_try_send(uv_udp_t* handle, uv_buf_t *bufs, unsigned int nbufs, sockaddr * addr)
 int uv_udp_recv_start(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)
+int uv_udp_recv_start@2(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)
 int uv_udp_recv_stop(uv_udp_t* handle)
 <comment>
 size_t uv_udp_get_send_queue_size(const uv_udp_t* handle)
@@ -774,6 +780,7 @@ uv_fs_poll_t
 
 int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)
 int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char * path, unsigned int interval)
+int uv_fs_poll_start@2(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char * path, unsigned int interval)
 int uv_fs_poll_stop(uv_fs_poll_t* handle)
 int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)
 
