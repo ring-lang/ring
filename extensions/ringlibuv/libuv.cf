@@ -19,8 +19,19 @@ VM *pVMLibUV = NULL;
 aNumberTypes + "unsigned int"
 
 # Add Function CallBack types (To avoid treating it as struct)
+aFunctionCallback + "uv_timer_cb"
+aFunctionCallback + "uv_prepare_cb"
+aFunctionCallback + "uv_check_cb"
 aFunctionCallback + "uv_idle_cb"
+aFunctionCallback + "uv_poll_cb"
+aFunctionCallback + "uv_signal_cb"
+aFunctionCallback + "uv_shutdown_cb"
 aFunctionCallback + "uv_connection_cb"
+aFunctionCallback + "uv_write_cb"
+aFunctionCallback + "uv_connect_cb"
+aFunctionCallback + "uv_fs_event_cb"
+aFunctionCallback + "uv_fs_cb"
+
 <runcode>
 
 <code>
