@@ -6,8 +6,7 @@ idler = NULL
 func main
 	idler = new_uv_idle_t()
 	uv_idle_init(uv_default_loop(), idler)
-	wait_for_a_while = uv_callback(idler,"idle","wait()")
-	uv_idle_start(idler, wait_for_a_while)
+	uv_idle_start(idler, "wait()")
 	? "Idling..."
 	uv_run(uv_default_loop(), UV_RUN_DEFAULT);
 	uv_loop_close(uv_default_loop());
@@ -17,3 +16,4 @@ func wait
 	if counter >= 100000
 		uv_idle_stop(idler)
 	ok
+
