@@ -31,7 +31,7 @@ aFunctionCallback + "uv_write_cb"
 aFunctionCallback + "uv_connect_cb"
 aFunctionCallback + "uv_fs_event_cb"
 aFunctionCallback + "uv_fs_cb"
-
+aFunctionCallback + "uv_thread_cb"
 <runcode>
 
 <code>
@@ -113,6 +113,12 @@ void uv_fs_callback(uv_fs_t *req)
 	uv_checkevent_callback(req,"fs");
 }
 
+void uv_thread_callback(void *obj) 
+{
+	uv_checkevent_callback(obj,"thread");
+}
+
+
 </code>
 
 <register>
@@ -190,6 +196,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"fs") == 0)
 	{
 		RING_API_RETCPOINTER(uv_fs_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"thread") == 0)
+	{
+		RING_API_RETCPOINTER(uv_thread_callback,"void");
 	}
 }
 </code>
@@ -502,6 +512,7 @@ uv_timer_t
 
 int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)
 int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
+int uv_timer_start@2(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)
 int uv_timer_stop(uv_timer_t* handle)
 int uv_timer_again(uv_timer_t* handle)
 void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)
@@ -517,6 +528,7 @@ uv_prepare_t
 
 int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)
 int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)
+int uv_prepare_start@2(uv_prepare_t* prepare, uv_prepare_cb cb)
 int uv_prepare_stop(uv_prepare_t* prepare)
 
 <comment>
@@ -529,6 +541,7 @@ uv_check_t
 
 int uv_check_init(uv_loop_t* loop, uv_check_t* check)
 int uv_check_start(uv_check_t* check, uv_check_cb cb)
+int uv_check_start@2(uv_check_t* check, uv_check_cb cb)
 int uv_check_stop(uv_check_t* check)
 
 <comment>
@@ -541,6 +554,7 @@ uv_idle_t
 
 int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
 int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
+int uv_idle_start@2(uv_idle_t* idle, uv_idle_cb cb)
 int uv_idle_stop(uv_idle_t* idle)
 
 <comment>
@@ -569,6 +583,7 @@ aEnumTypes + "uv_poll_event"
 int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)
 int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)
 int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)
+int uv_poll_start@2(uv_poll_t* handle, int events, uv_poll_cb cb)
 int uv_poll_stop(uv_poll_t* poll)
 
 <comment>
@@ -581,7 +596,9 @@ uv_signal_t {signum}
 
 int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)
 int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)
+int uv_signal_start@2(uv_signal_t* signal, uv_signal_cb cb, int signum)
 int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)
+int uv_signal_start_oneshot@2(uv_signal_t* signal, uv_signal_cb cb, int signum)
 int uv_signal_stop(uv_signal_t* signal)
 
 <comment>
@@ -619,12 +636,16 @@ uv_write_t
 </struct>
 
 int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
+int uv_shutdown@2(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
 int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)
+int uv_listen@2(uv_stream_t* stream, int backlog, uv_connection_cb cb)
 int uv_accept(uv_stream_t* server, uv_stream_t* client)
 int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)
 int uv_read_stop(uv_stream_t*)
 int uv_write(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_write_cb cb)
+int uv_write@2(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_write_cb cb)
 int uv_write2(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_stream_t* send_handle, uv_write_cb cb)
+int uv_write2@2(uv_write_t* req, uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs, uv_stream_t* send_handle, uv_write_cb cb)
 int uv_try_write(uv_stream_t* handle, uv_buf_t *bufs, unsigned int nbufs)
 int uv_is_readable(const uv_stream_t* handle)
 int uv_is_writable(const uv_stream_t* handle)
@@ -651,6 +672,7 @@ int uv_tcp_bind(uv_tcp_t *handle,sockaddr *addr,unsigned int flags)
 int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
 int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)
 int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb cb)
+int uv_tcp_connect@2(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb cb)
 
 <comment>
 Pipe handle
@@ -664,6 +686,7 @@ int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)
 int uv_pipe_open(uv_pipe_t* handle, uv_file file)
 int uv_pipe_bind(uv_pipe_t* handle, const char * name)
 void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char * name, uv_connect_cb cb)
+void uv_pipe_connect@2(uv_connect_t* req, uv_pipe_t* handle, const char * name, uv_connect_cb cb)
 int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)
 int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)
 void uv_pipe_pending_instances(uv_pipe_t* handle, int count)
@@ -737,6 +760,7 @@ aEnumTypes + "uv_fs_event_flags"
 
 int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)
 int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char * path, unsigned int flags)
+int uv_fs_event_start@2(uv_fs_event_t* handle, uv_fs_event_cb cb, const char * path, unsigned int flags)
 int uv_fs_event_stop(uv_fs_event_t* handle)
 int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)
 
@@ -799,6 +823,37 @@ int uv_fs_readlink(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb
 int uv_fs_realpath(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
 int uv_fs_chown(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
 int uv_fs_fchown(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+
+int uv_fs_close@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_open@2(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, int mode, uv_fs_cb cb)
+int uv_fs_read@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t *bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)
+int uv_fs_unlink@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_write@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t *bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)
+int uv_fs_mkdir@2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)
+int uv_fs_mkdtemp@2(uv_loop_t* loop, uv_fs_t* req, const char * tpl, uv_fs_cb cb)
+int uv_fs_rmdir@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_scandir@2(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, uv_fs_cb cb)
+int uv_fs_stat@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_fstat@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_lstat@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_rename@2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)
+int uv_fs_fsync@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_fdatasync@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)
+int uv_fs_ftruncate@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, int64_t offset, uv_fs_cb cb)
+int uv_fs_copyfile@2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)
+int uv_fs_sendfile@2(uv_loop_t* loop, uv_fs_t* req, uv_file out_fd, uv_file in_fd, int64_t in_offset, size_t length, uv_fs_cb cb)
+int uv_fs_access@2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)
+int uv_fs_chmod@2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)
+int uv_fs_fchmod@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, int mode, uv_fs_cb cb)
+int uv_fs_utime@2(uv_loop_t* loop, uv_fs_t* req, const char * path, double atime, double mtime, uv_fs_cb cb)
+int uv_fs_futime@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, double atime, double mtime, uv_fs_cb cb)
+int uv_fs_link@2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)
+int uv_fs_symlink@2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)
+int uv_fs_readlink@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_realpath@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)
+int uv_fs_chown@2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+int uv_fs_fchown@2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)
+
 <comment>
 uv_fs_type uv_fs_get_type(const uv_fs_t* req)
 ssize_t uv_fs_get_result(const uv_fs_t* req)
@@ -817,6 +872,7 @@ uv_work_t
 </struct>
 
 int uv_queue_work(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)
+int uv_queue_work@2(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)
 
 <comment>
 DNS utility functions
@@ -828,8 +884,10 @@ uv_getnameinfo_t
 </struct>
 
 int uv_getaddrinfo(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char * node, const char * service, const struct addrinfo* hints)
+int uv_getaddrinfo@2(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char * node, const char * service, const struct addrinfo* hints)
 void uv_freeaddrinfo(struct addrinfo* ai)
 int uv_getnameinfo(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, sockaddr * addr, int flags)
+int uv_getnameinfo@2(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, sockaddr * addr, int flags)
 
 <comment>
 Shared library handling
@@ -860,6 +918,7 @@ uv_barrier_t
 </struct>
 
 int uv_thread_create(uv_thread_t* tid, uv_thread_cb entry, void* arg)
+int uv_thread_create@2(uv_thread_t* tid, uv_thread_cb entry, void* arg)
 uv_thread_t uv_thread_self(void)
 int uv_thread_join(uv_thread_t *tid)
 int uv_thread_equal(const uv_thread_t* t1, const uv_thread_t* t2)
