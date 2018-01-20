@@ -35,7 +35,7 @@ aFunctionCallback + "uv_fs_cb"
 <runcode>
 
 <code>
-void uv_check_callback(void *pObject,const char *cEvent)
+void uv_checkevent_callback(void *pObject,const char *cEvent)
 {
 	List *pList;
 	int x;
@@ -52,15 +52,67 @@ void uv_check_callback(void *pObject,const char *cEvent)
 }
 
 
-void uv_connect_callback(uv_connect_t *req, int status) 
+void uv_timer_callback(uv_timer_t *handle) 
 {
-	uv_check_callback(req,"connect");
+	uv_checkevent_callback(handle,"timer");
 }
+
+void uv_prepare_callback(uv_prepare_t *handle) 
+{
+	uv_checkevent_callback(handle,"prepare");
+}
+
+void uv_check_callback(uv_check_t *handle) 
+{
+	uv_checkevent_callback(handle,"check");
+}
+
 
 void uv_idle_callback(uv_idle_t *obj)
 {
-	uv_check_callback(obj,"idle");
+	uv_checkevent_callback(obj,"idle");
 } 
+
+void uv_poll_callback(uv_poll_t *obj,int status,int events)
+{
+	uv_checkevent_callback(obj,"poll");
+} 
+
+void uv_signal_callback(uv_signal_t *obj,int signum)
+{
+	uv_checkevent_callback(obj,"signal");
+} 
+
+void uv_shutdown_callback(uv_shutdown_t *obj,int status)
+{
+	uv_checkevent_callback(obj,"shutdown");
+} 
+
+void uv_connection_callback(uv_stream_t *obj,int status)
+{
+	uv_checkevent_callback(obj,"connection");
+} 
+
+void uv_write_callback(uv_write_t *obj,int status)
+{
+	uv_checkevent_callback(obj,"write");
+} 
+
+void uv_connect_callback(uv_connect_t *req, int status) 
+{
+	uv_checkevent_callback(req,"connect");
+}
+
+void uv_fs_event_callback(uv_fs_event_t *req, const char* filename, int events, int status) 
+{
+	uv_checkevent_callback(req,"fs_event");
+}
+
+void uv_fs_callback(uv_fs_t *req) 
+{
+	uv_checkevent_callback(req,"fs");
+}
+
 </code>
 
 <register>
@@ -91,13 +143,53 @@ RING_FUNC(ring_uv_callback)
 	ring_list_addstring(pList,cCallBackType);
 	ring_list_addstring(pList,RING_API_GETSTRING(3));	
 	pVMLibUV = (VM *) pPointer;
-	if (strcmp(cCallBackType,"connect") == 0)
+	if (strcmp(cCallBackType,"timer") == 0)
 	{
-		RING_API_RETCPOINTER(uv_connect_callback,"void");
+		RING_API_RETCPOINTER(uv_timer_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"prepare") == 0)
+	{
+		RING_API_RETCPOINTER(uv_prepare_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"check") == 0)
+	{
+		RING_API_RETCPOINTER(uv_check_callback,"void");
 	}
 	else if (strcmp(cCallBackType,"idle") == 0)
 	{
 		RING_API_RETCPOINTER(uv_idle_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"poll") == 0)
+	{
+		RING_API_RETCPOINTER(uv_poll_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"signal") == 0)
+	{
+		RING_API_RETCPOINTER(uv_signal_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"shutdown") == 0)
+	{
+		RING_API_RETCPOINTER(uv_shutdown_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"connection") == 0)
+	{
+		RING_API_RETCPOINTER(uv_connection_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"write") == 0)
+	{
+		RING_API_RETCPOINTER(uv_write_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"connect") == 0)
+	{
+		RING_API_RETCPOINTER(uv_connect_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"fs_event") == 0)
+	{
+		RING_API_RETCPOINTER(uv_fs_event_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"fs") == 0)
+	{
+		RING_API_RETCPOINTER(uv_fs_callback,"void");
 	}
 }
 </code>
