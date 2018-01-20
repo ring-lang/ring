@@ -17,10 +17,13 @@ VM *pVMLibUV = NULL;
 
 <runcode>
 aNumberTypes + "unsigned int"
+
+# Add Functions CallBack like Enum
+# aEnumTypes + "uv_idle_cb"
 <runcode>
 
 <code>
-void uv_check_callback(void *pObject,int status,const char *cEvent)
+void uv_check_callback(void *pObject,const char *cEvent)
 {
 	List *pList;
 	int x;
@@ -39,8 +42,14 @@ void uv_check_callback(void *pObject,int status,const char *cEvent)
 
 void uv_connect_callback(uv_connect_t *req, int status) 
 {
-	uv_check_callback(req,status,"connect");
+	uv_check_callback(req,"connect");
 }
+
+void uv_idle_callback(uv_idle_t *obj)
+{
+	uv_check_callback(obj,"idle");
+} 
+
 </code>
 
 <register>
@@ -74,6 +83,10 @@ RING_FUNC(ring_uv_callback)
 	if (strcmp(cCallBackType,"connect") == 0)
 	{
 		RING_API_RETCPOINTER(uv_connect_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"idle") == 0)
+	{
+		RING_API_RETCPOINTER(uv_idle_callback,"void");
 	}
 }
 </code>
@@ -428,7 +441,7 @@ uv_idle_t
 </struct>
 
 int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)
-int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)
+int uv_idle_start(uv_idle_t* idle, uv_idle_cb *cb)
 int uv_idle_stop(uv_idle_t* idle)
 
 <comment>
