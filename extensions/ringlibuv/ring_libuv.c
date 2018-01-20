@@ -8,21 +8,26 @@ typedef struct sockaddr sockaddr ;
 
 List *aCallBack = NULL;
 VM *pVMLibUV = NULL;
-void uv_connect_callback(uv_connect_t *req, int status)
+void uv_check_callback(void *pObject,int status,const char *cEvent)
 {
 	List *pList;
 	int x;
 	for(x = 1 ; x <= ring_list_getsize(aCallBack) ; x++)
 	{
 		pList = ring_list_getlist(aCallBack,x) ;
-		if ( ( ring_list_getpointer(pList,1) == req ) &&
-		     ( strcmp(ring_list_getstring(pList,2) , "connect") == 0 ) )
+		if ( ( ring_list_getpointer(pList,1) == pObject ) &&
+		     ( strcmp(ring_list_getstring(pList,2) , cEvent) == 0 ) )
 		{
 			ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 			break;
 		}
 	}
+}
 
+
+void uv_connect_callback(uv_connect_t *req, int status)
+{
+	uv_check_callback(req,status,"connect");
 }
 RING_FUNC(ring_uv_callback)
 {
