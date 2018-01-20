@@ -8,5 +8,11 @@ ok
 Load "ring_libuv.rh"
 
 func uv_idle_start oObj,cFunc
-	uv_idle_start_2(oObj,uv_callback(oObj,"idle",cFunc))
+	return uv_idle_start_2(oObj,uv_callback(oObj,"idle",cFunc))
 
+func uv_listen oObj,nOption,cFunc 
+	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
+
+func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
+	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
+		uv_callback(oSocket,"connect",cFunc) )
