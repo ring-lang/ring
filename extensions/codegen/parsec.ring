@@ -74,6 +74,9 @@ aEnumTypes 	= []
 
 aStringTypes 	= ["const char *","char const *","char *"]
 
+# When we have function callback type we add it to the next list to avoid treating it as struct 
+aFunctionCallback = []
+
 aNewMethodName 		= []	# list store new method name ["class name","method name","new method name"]
 C_NMN_CLASSNAME 	= 1
 C_NMN_METHODNAME 	= 2
@@ -597,7 +600,13 @@ Func GenFuncCodeGetParaValues aList
 					ok
 				ok
 			on C_TYPE_UNKNOWN
-				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
+				if find(aFunctionCallback,trim(x))
+					# Here we avoid the cast 
+					cCode += "RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
+				else 
+					# Struct 
+					cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
+				ok
 			off
 		next
 	ok
