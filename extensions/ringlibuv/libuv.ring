@@ -84,3 +84,9 @@ func uv_udp_send req, handle, bufs, nbufs, addr, cFunc
 	return uv_udp_send_2(req, handle, bufs, nbufs, addr, 
 		uv_callback(req,"udp_send",cFunc))
 
+func uv_udp_recv_start handle, cFunc, cFunc2
+	return uv_udp_recv_start_2(handle,
+		uv_callback(handle,"alloc",cFunc),
+		uv_callback(handle,"udp_recev",cFunc))
+
+

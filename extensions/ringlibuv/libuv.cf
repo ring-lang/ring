@@ -38,6 +38,7 @@ aFunctionCallback + "uv_async_cb"
 aFunctionCallback + "uv_alloc_cb"
 aFunctionCallback + "uv_read_cb"
 aFunctionCallback + "uv_udp_send_cb"
+aFunctionCallback + "uv_udp_recv_cb"
 <runcode>
 
 <code>
@@ -152,6 +153,12 @@ void uv_udp_send_callback(uv_udp_send_t* req, int status)
 	uv_checkevent_callback(req,"udp_send");
 }
 
+void uv_udp_recv_callback(uv_udp_t* handle, ssize_t nread, const uv_buf_t* buf, const struct sockaddr* addr, unsigned flags)
+{
+	uv_checkevent_callback(handle,"udp_recv");
+}
+
+
 </code>
 
 <register>
@@ -257,6 +264,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"udp_send") == 0)
 	{
 		RING_API_RETCPOINTER(uv_udp_send_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"udp_recv") == 0)
+	{
+		RING_API_RETCPOINTER(uv_udp_recv_callback,"void");
 	}
 }
 </code>
