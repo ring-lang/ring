@@ -8,9 +8,6 @@ ok
 
 Load "ring_libuv.rh"
 
-func uv_idle_start oObj,cFunc
-	return uv_idle_start_2(oObj,uv_callback(oObj,"idle",cFunc))
-
 func uv_listen oObj,nOption,cFunc 
 	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
 
@@ -39,3 +36,9 @@ func uv_prepare_start prepare, cFunc
 func uv_check_start check, cFunc
 	return uv_check_start_2(check,
 		uv_callback(check,"check",cFunc))
+
+func uv_idle_start oObj,cFunc
+	return uv_idle_start_2(oObj,
+		uv_callback(oObj,"idle",cFunc))
+
+
