@@ -23,3 +23,6 @@ func uv_walk oloop, cFunc, oArg
 		uv_callback(oLoop,"walk",cFunc),
 		oArg)
 
+func uv_close handle, cFunc
+	return uv_close_2(handle,
+		uv_callback(handle,"close",cFunc))

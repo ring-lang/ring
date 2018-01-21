@@ -94,6 +94,11 @@ void uv_walk_callback(uv_handle_t *handle, void *arg)
 	uv_checkevent_callback(handle,"walk");
 }
 
+void uv_close_callback(uv_handle_t *handle)
+{
+	uv_checkevent_callback(handle,"close");
+}
+
 RING_FUNC(ring_uv_callback)
 {
 	List *pList;
@@ -172,6 +177,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"walk") == 0)
 	{
 		RING_API_RETCPOINTER(uv_walk_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"close") == 0)
+	{
+		RING_API_RETCPOINTER(uv_close_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
