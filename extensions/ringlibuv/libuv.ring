@@ -58,3 +58,7 @@ func uv_signal_start_oneshot signal, cFunc, signum
 	return uv_signal_start_oneshot_2(signal,
 		uv_callback(signal,"signal",cFunc),
 		signum)
+
+func uv_shutdown req, handle, cFunc
+	return uv_shutdown_2(req,handle,
+		uv_callback(req,"shutdown",cFunc))
