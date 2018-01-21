@@ -54,3 +54,7 @@ func uv_signal_start signal, cFunc, signum
 		uv_callback(signal,"signal",cFunc),
 		signum)
 
+func uv_signal_start_oneshot signal, cFunc, signum
+	return uv_signal_start_oneshot_2(signal,
+		uv_callback(signal,"signal",cFunc),
+		signum)
