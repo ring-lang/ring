@@ -17,6 +17,7 @@ VM *pVMLibUV = NULL;
 
 <runcode>
 aNumberTypes + "unsigned int"
+aNumberTypes + "uint64_t"
 
 # Add Function CallBack types (To avoid treating it as struct)
 aFunctionCallback + "uv_timer_cb"

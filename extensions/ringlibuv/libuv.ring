@@ -26,3 +26,8 @@ func uv_walk oloop, cFunc, oArg
 func uv_close handle, cFunc
 	return uv_close_2(handle,
 		uv_callback(handle,"close",cFunc))
+
+func uv_timer_start handle, cFunc, timeout, repeat
+	return uv_timer_start_2(handle,
+		uv_callback(handle,"timer",cFunc),
+		timeout,repeat)
