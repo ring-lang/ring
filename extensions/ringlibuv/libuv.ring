@@ -17,3 +17,9 @@ func uv_listen oObj,nOption,cFunc
 func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
 	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
 		uv_callback(oSocket,"connect",cFunc) )
+
+func uv_walk oloop, cFunc, oArg
+	return uv_walk_2(oLoop,
+		uv_callback(oLoop,"walk",cFunc),
+		oArg)
+
