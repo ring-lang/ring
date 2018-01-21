@@ -89,4 +89,9 @@ func uv_udp_recv_start handle, cFunc, cFunc2
 		uv_callback(handle,"alloc",cFunc),
 		uv_callback(handle,"udp_recev",cFunc))
 
+func uv_fs_event_start handle, cFunc, path, flags
+	return uv_fs_event_start_2(handle,
+		uv_callback(handle,"fs_event",cFunc),
+		path,flags)
+
 
