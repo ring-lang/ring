@@ -74,4 +74,9 @@ func uv_write2 req, handle, bufs, nbufs, send_handle, cFunc
 
 func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
 	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
-		uv_callback(oSocket,"connect",cFunc) )
+		uv_callback(oSocket,"connect",cFunc))
+
+func uv_pipe_connect req, handle, name, cFunc
+	return uv_pipe_connect_2(req,handle,name,
+		uv_callback(req,"connect",cFunc))
+
