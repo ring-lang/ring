@@ -230,6 +230,13 @@ func uv_getnameinfo oLoop, req, cFunc, addr, flags
 		uv_callback(oLoop,"getnameinfo",cFunc),
 		addr, flags)
 
+func uv_thread_create tid, cFunc, arg
+	return uv_thread_create_2(tid,
+		uv_callback(tid,"thread",cFunc), arg)
+
+
+
+
 
 
 
