@@ -215,3 +215,10 @@ func uv_fs_fchown oLoop, req, file, uid, gid, cFunc
 	return uv_fs_fchown_2( oLoop, req, file, uid, gid,
 		uv_callback(oLoop,"fs",cFunc))	
 
+func uv_queue_work oLoop, req, cFunc, cFunc2
+	return uv_queue_work_2(oLoop,req,
+		uv_callback(oLoop,"work",cFunc),
+		uv_callback(oLoop,"after_work",cFunc2))	
+
+
+

@@ -129,6 +129,17 @@ void uv_fs_poll_callback(uv_fs_poll_t* handle, int status, const uv_stat_t* prev
 	uv_checkevent_callback(handle,"fs_poll");
 }
 
+void uv_work_callback(uv_work_t* req)
+{
+	uv_checkevent_callback(req,"work");
+}
+
+void uv_after_work_callback(uv_work_t* req, int status)
+{
+	uv_checkevent_callback(req,"after_work");
+}
+
+
 RING_FUNC(ring_uv_callback)
 {
 	List *pList;
@@ -235,6 +246,14 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"fs_poll") == 0)
 	{
 		RING_API_RETCPOINTER(uv_fs_poll_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"work") == 0)
+	{
+		RING_API_RETCPOINTER(uv_work_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"after_work") == 0)
+	{
+		RING_API_RETCPOINTER(uv_after_work_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
@@ -6787,7 +6806,7 @@ RING_FUNC(ring_uv_queue_work)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_queue_work((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_work_t *) RING_API_GETCPOINTER(2,"uv_work_t"),* (uv_work_cb  *) RING_API_GETCPOINTER(3,"uv_work_cb"),* (uv_after_work_cb  *) RING_API_GETCPOINTER(4,"uv_after_work_cb")));
+	RING_API_RETNUMBER(uv_queue_work((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_work_t *) RING_API_GETCPOINTER(2,"uv_work_t"),RING_API_GETCPOINTER(3,"uv_work_cb"),RING_API_GETCPOINTER(4,"uv_after_work_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_work_cb"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
@@ -6810,7 +6829,7 @@ RING_FUNC(ring_uv_queue_work_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_queue_work((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_work_t *) RING_API_GETCPOINTER(2,"uv_work_t"),* (uv_work_cb  *) RING_API_GETCPOINTER(3,"uv_work_cb"),* (uv_after_work_cb  *) RING_API_GETCPOINTER(4,"uv_after_work_cb")));
+	RING_API_RETNUMBER(uv_queue_work((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_work_t *) RING_API_GETCPOINTER(2,"uv_work_t"),RING_API_GETCPOINTER(3,"uv_work_cb"),RING_API_GETCPOINTER(4,"uv_after_work_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_work_cb"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
