@@ -8,9 +8,6 @@ ok
 
 Load "ring_libuv.rh"
 
-func uv_listen oObj,nOption,cFunc 
-	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
-
 func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
 	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
 		uv_callback(oSocket,"connect",cFunc) )
@@ -62,3 +59,6 @@ func uv_signal_start_oneshot signal, cFunc, signum
 func uv_shutdown req, handle, cFunc
 	return uv_shutdown_2(req,handle,
 		uv_callback(req,"shutdown",cFunc))
+
+func uv_listen oObj,nOption,cFunc 
+	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
