@@ -31,3 +31,7 @@ func uv_timer_start handle, cFunc, timeout, repeat
 	return uv_timer_start_2(handle,
 		uv_callback(handle,"timer",cFunc),
 		timeout,repeat)
+
+func uv_prepare_start prepare, cFunc
+	return uv_prepare_start_2(prepare,
+		uv_callback(prepare,"prepare",cFunc))
