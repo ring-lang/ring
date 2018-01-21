@@ -139,6 +139,15 @@ void uv_after_work_callback(uv_work_t* req, int status)
 	uv_checkevent_callback(req,"after_work");
 }
 
+void uv_getaddrinfo_callback(uv_getaddrinfo_t* req, int status, struct addrinfo* res)
+{
+	uv_checkevent_callback(req,"getaddrinfo");
+}
+
+void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* hostname, const char* service)
+{
+	uv_checkevent_callback(req,"getnameinfo");
+}
 
 RING_FUNC(ring_uv_callback)
 {
@@ -255,6 +264,15 @@ RING_FUNC(ring_uv_callback)
 	{
 		RING_API_RETCPOINTER(uv_after_work_callback,"void");
 	}
+	else if (strcmp(cCallBackType,"getaddrinfo") == 0)
+	{
+		RING_API_RETCPOINTER(uv_getaddrinfo_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"getnameinfo") == 0)
+	{
+		RING_API_RETCPOINTER(uv_getnameinfo_callback,"void");
+	}
+
 }
 RING_FUNC(ring_new_sockaddr_in)
 {
@@ -6918,7 +6936,7 @@ RING_FUNC(ring_uv_getaddrinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_getaddrinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getaddrinfo_t *) RING_API_GETCPOINTER(2,"uv_getaddrinfo_t"),* (uv_getaddrinfo_cb  *) RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"),RING_API_GETSTRING(4),RING_API_GETSTRING(5),(struct addrinfo *) RING_API_GETCPOINTER(6,"struct addrinfo")));
+	RING_API_RETNUMBER(uv_getaddrinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getaddrinfo_t *) RING_API_GETCPOINTER(2,"uv_getaddrinfo_t"),RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"),RING_API_GETSTRING(4),RING_API_GETSTRING(5),(struct addrinfo *) RING_API_GETCPOINTER(6,"struct addrinfo")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"));
 }
@@ -6951,7 +6969,7 @@ RING_FUNC(ring_uv_getaddrinfo_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_getaddrinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getaddrinfo_t *) RING_API_GETCPOINTER(2,"uv_getaddrinfo_t"),* (uv_getaddrinfo_cb  *) RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"),RING_API_GETSTRING(4),RING_API_GETSTRING(5),(struct addrinfo *) RING_API_GETCPOINTER(6,"struct addrinfo")));
+	RING_API_RETNUMBER(uv_getaddrinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getaddrinfo_t *) RING_API_GETCPOINTER(2,"uv_getaddrinfo_t"),RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"),RING_API_GETSTRING(4),RING_API_GETSTRING(5),(struct addrinfo *) RING_API_GETCPOINTER(6,"struct addrinfo")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_getaddrinfo_cb"));
 }
@@ -6995,7 +7013,7 @@ RING_FUNC(ring_uv_getnameinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_getnameinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getnameinfo_t *) RING_API_GETCPOINTER(2,"uv_getnameinfo_t"),* (uv_getnameinfo_cb  *) RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"),(sockaddr *) RING_API_GETCPOINTER(4,"sockaddr"), (int ) RING_API_GETNUMBER(5)));
+	RING_API_RETNUMBER(uv_getnameinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getnameinfo_t *) RING_API_GETCPOINTER(2,"uv_getnameinfo_t"),RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"),(sockaddr *) RING_API_GETCPOINTER(4,"sockaddr"), (int ) RING_API_GETNUMBER(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"));
 }
@@ -7024,7 +7042,7 @@ RING_FUNC(ring_uv_getnameinfo_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_getnameinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getnameinfo_t *) RING_API_GETCPOINTER(2,"uv_getnameinfo_t"),* (uv_getnameinfo_cb  *) RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"),(sockaddr *) RING_API_GETCPOINTER(4,"sockaddr"), (int ) RING_API_GETNUMBER(5)));
+	RING_API_RETNUMBER(uv_getnameinfo((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_getnameinfo_t *) RING_API_GETCPOINTER(2,"uv_getnameinfo_t"),RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"),(sockaddr *) RING_API_GETCPOINTER(4,"sockaddr"), (int ) RING_API_GETNUMBER(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_getnameinfo_cb"));
 }

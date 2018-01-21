@@ -42,6 +42,8 @@ aFunctionCallback + "uv_udp_recv_cb"
 aFunctionCallback + "uv_fs_poll_cb"
 aFunctionCallback + "uv_work_cb"
 aFunctionCallback + "uv_after_work_cb"
+aFunctionCallback + "uv_getaddrinfo_cb"
+aFunctionCallback + "uv_getnameinfo_cb"
 <runcode>
 
 <code>
@@ -176,6 +178,15 @@ void uv_after_work_callback(uv_work_t* req, int status)
 	uv_checkevent_callback(req,"after_work");
 }
 
+void uv_getaddrinfo_callback(uv_getaddrinfo_t* req, int status, struct addrinfo* res)
+{
+	uv_checkevent_callback(req,"getaddrinfo");
+}
+
+void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* hostname, const char* service)
+{
+	uv_checkevent_callback(req,"getnameinfo");
+}
 
 </code>
 
@@ -299,6 +310,15 @@ RING_FUNC(ring_uv_callback)
 	{
 		RING_API_RETCPOINTER(uv_after_work_callback,"void");
 	}
+	else if (strcmp(cCallBackType,"getaddrinfo") == 0)
+	{
+		RING_API_RETCPOINTER(uv_getaddrinfo_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"getnameinfo") == 0)
+	{
+		RING_API_RETCPOINTER(uv_getnameinfo_callback,"void");
+	}
+
 }
 </code>
 

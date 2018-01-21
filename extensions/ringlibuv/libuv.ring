@@ -220,5 +220,16 @@ func uv_queue_work oLoop, req, cFunc, cFunc2
 		uv_callback(oLoop,"work",cFunc),
 		uv_callback(oLoop,"after_work",cFunc2))	
 
+func uv_getaddrinfo oLoop, req, cFunc, node, service, hints
+	return uv_getaddrinfo_2(oLoop,req,
+		uv_callback(oLoop,"getaddrinfo",cFunc),
+		node, service, hints)
+
+func uv_getnameinfo oLoop, req, cFunc, addr, flags
+	return uv_getnameinfo_2(oLoop,req,
+		uv_callback(oLoop,"getnameinfo",cFunc),
+		addr, flags)
+
+
 
 
