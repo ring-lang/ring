@@ -94,4 +94,8 @@ func uv_fs_event_start handle, cFunc, path, flags
 		uv_callback(handle,"fs_event",cFunc),
 		path,flags)
 
+func uv_fs_poll_start handle, cFunc, path, interval	
+	return uv_fs_poll_start_2(handle,
+		uv_callback(handle,"fs_poll",cFunc),
+		path, interval)
 

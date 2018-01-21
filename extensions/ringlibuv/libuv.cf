@@ -39,6 +39,7 @@ aFunctionCallback + "uv_alloc_cb"
 aFunctionCallback + "uv_read_cb"
 aFunctionCallback + "uv_udp_send_cb"
 aFunctionCallback + "uv_udp_recv_cb"
+aFunctionCallback + "uv_fs_poll_cb"
 <runcode>
 
 <code>
@@ -158,6 +159,10 @@ void uv_udp_recv_callback(uv_udp_t* handle, ssize_t nread, const uv_buf_t* buf, 
 	uv_checkevent_callback(handle,"udp_recv");
 }
 
+void uv_fs_poll_callback(uv_fs_poll_t* handle, int status, const uv_stat_t* prev, const uv_stat_t* curr)
+{
+	uv_checkevent_callback(handle,"fs_poll");
+}
 
 </code>
 
@@ -268,6 +273,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"udp_recv") == 0)
 	{
 		RING_API_RETCPOINTER(uv_udp_recv_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"fs_poll") == 0)
+	{
+		RING_API_RETCPOINTER(uv_fs_poll_callback,"void");
 	}
 }
 </code>

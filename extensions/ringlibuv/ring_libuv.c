@@ -124,6 +124,10 @@ void uv_udp_recv_callback(uv_udp_t* handle, ssize_t nread, const uv_buf_t* buf, 
 	uv_checkevent_callback(handle,"udp_recv");
 }
 
+void uv_fs_poll_callback(uv_fs_poll_t* handle, int status, const uv_stat_t* prev, const uv_stat_t* curr)
+{
+	uv_checkevent_callback(handle,"fs_poll");
+}
 
 RING_FUNC(ring_uv_callback)
 {
@@ -227,6 +231,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"udp_recv") == 0)
 	{
 		RING_API_RETCPOINTER(uv_udp_recv_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"fs_poll") == 0)
+	{
+		RING_API_RETCPOINTER(uv_fs_poll_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
@@ -4899,7 +4907,7 @@ RING_FUNC(ring_uv_fs_poll_start)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_fs_poll_start((uv_fs_poll_t *) RING_API_GETCPOINTER(1,"uv_fs_poll_t"),* (uv_fs_poll_cb  *) RING_API_GETCPOINTER(2,"uv_fs_poll_cb"),RING_API_GETSTRING(3), (unsigned int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(uv_fs_poll_start((uv_fs_poll_t *) RING_API_GETCPOINTER(1,"uv_fs_poll_t"),RING_API_GETCPOINTER(2,"uv_fs_poll_cb"),RING_API_GETSTRING(3), (unsigned int ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_fs_poll_cb"));
 }
@@ -4924,7 +4932,7 @@ RING_FUNC(ring_uv_fs_poll_start_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_fs_poll_start((uv_fs_poll_t *) RING_API_GETCPOINTER(1,"uv_fs_poll_t"),* (uv_fs_poll_cb  *) RING_API_GETCPOINTER(2,"uv_fs_poll_cb"),RING_API_GETSTRING(3), (unsigned int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(uv_fs_poll_start((uv_fs_poll_t *) RING_API_GETCPOINTER(1,"uv_fs_poll_t"),RING_API_GETCPOINTER(2,"uv_fs_poll_cb"),RING_API_GETSTRING(3), (unsigned int ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_fs_poll_cb"));
 }
