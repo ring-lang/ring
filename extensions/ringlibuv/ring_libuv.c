@@ -99,6 +99,11 @@ void uv_close_callback(uv_handle_t *handle)
 	uv_checkevent_callback(handle,"close");
 }
 
+void uv_async_callback(uv_async_t *handle)
+{
+	uv_checkevent_callback(handle,"async");
+}
+
 RING_FUNC(ring_uv_callback)
 {
 	List *pList;
@@ -181,6 +186,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"close") == 0)
 	{
 		RING_API_RETCPOINTER(uv_close_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"async") == 0)
+	{
+		RING_API_RETCPOINTER(uv_async_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
@@ -2537,7 +2546,7 @@ RING_FUNC(ring_uv_async_init)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_async_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_async_t *) RING_API_GETCPOINTER(2,"uv_async_t"),* (uv_async_cb  *) RING_API_GETCPOINTER(3,"uv_async_cb")));
+	RING_API_RETNUMBER(uv_async_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_async_t *) RING_API_GETCPOINTER(2,"uv_async_t"),RING_API_GETCPOINTER(3,"uv_async_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_async_cb"));
 }
@@ -2558,7 +2567,7 @@ RING_FUNC(ring_uv_async_init_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_async_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_async_t *) RING_API_GETCPOINTER(2,"uv_async_t"),* (uv_async_cb  *) RING_API_GETCPOINTER(3,"uv_async_cb")));
+	RING_API_RETNUMBER(uv_async_init((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),(uv_async_t *) RING_API_GETCPOINTER(2,"uv_async_t"),RING_API_GETCPOINTER(3,"uv_async_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uv_async_cb"));
 }

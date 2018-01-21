@@ -41,4 +41,6 @@ func uv_idle_start oObj,cFunc
 	return uv_idle_start_2(oObj,
 		uv_callback(oObj,"idle",cFunc))
 
-
+func uv_async_init oloop, async, cFunc
+	return uv_async_init_2(oLoop,async,
+		uv_callback(oLoop,"async",cFunc))

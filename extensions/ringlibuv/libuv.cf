@@ -34,6 +34,7 @@ aFunctionCallback + "uv_fs_event_cb"
 aFunctionCallback + "uv_fs_cb"
 aFunctionCallback + "uv_thread_cb"
 aFunctionCallback + "uv_walk_cb"
+aFunctionCallback + "uv_async_cb"
 <runcode>
 
 <code>
@@ -128,6 +129,11 @@ void uv_close_callback(uv_handle_t *handle)
 	uv_checkevent_callback(handle,"close");
 }
 
+void uv_async_callback(uv_async_t *handle)
+{
+	uv_checkevent_callback(handle,"async");
+}
+
 </code>
 
 <register>
@@ -217,6 +223,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"close") == 0)
 	{
 		RING_API_RETCPOINTER(uv_close_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"async") == 0)
+	{
+		RING_API_RETCPOINTER(uv_async_callback,"void");
 	}
 }
 </code>
