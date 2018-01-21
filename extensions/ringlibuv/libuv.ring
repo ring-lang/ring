@@ -67,3 +67,7 @@ func uv_read_start stream, cFunc, cFunc2
 	return uv_read_start_2(stream,
 		uv_callback(stream,"alloc",cFunc),
 		uv_callback(stream,"read",cFunc2))
+
+func uv_write req, handle, bufs, nbufs, cFunc
+	return uv_write_2(req,handle,bufs,nbufs,
+		uv_callback(req,"write",cFunc))
