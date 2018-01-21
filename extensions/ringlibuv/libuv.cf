@@ -35,6 +35,8 @@ aFunctionCallback + "uv_fs_cb"
 aFunctionCallback + "uv_thread_cb"
 aFunctionCallback + "uv_walk_cb"
 aFunctionCallback + "uv_async_cb"
+aFunctionCallback + "uv_alloc_cb"
+aFunctionCallback + "uv_read_cb"
 <runcode>
 
 <code>
@@ -134,6 +136,16 @@ void uv_async_callback(uv_async_t *handle)
 	uv_checkevent_callback(handle,"async");
 }
 
+void uv_alloc_callback(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf)
+{
+	uv_checkevent_callback(handle,"alloc");
+}
+
+void uv_read_callback(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
+{
+	uv_checkevent_callback(stream,"read");
+}
+
 </code>
 
 <register>
@@ -227,6 +239,14 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"async") == 0)
 	{
 		RING_API_RETCPOINTER(uv_async_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"alloc") == 0)
+	{
+		RING_API_RETCPOINTER(uv_alloc_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"read") == 0)
+	{
+		RING_API_RETCPOINTER(uv_read_callback,"void");
 	}
 }
 </code>

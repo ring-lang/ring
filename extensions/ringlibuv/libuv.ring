@@ -62,3 +62,8 @@ func uv_shutdown req, handle, cFunc
 
 func uv_listen oObj,nOption,cFunc 
 	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
+
+func uv_read_start stream, cFunc, cFunc2
+	return uv_read_start_2(stream,
+		uv_callback(stream,"alloc",cFunc),
+		uv_callback(stream,"read",cFunc2))
