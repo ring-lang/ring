@@ -71,3 +71,8 @@ func uv_read_start stream, cFunc, cFunc2
 func uv_write req, handle, bufs, nbufs, cFunc
 	return uv_write_2(req,handle,bufs,nbufs,
 		uv_callback(req,"write",cFunc))
+
+func uv_write2 req, handle, bufs, nbufs, send_handle, cFunc
+	return uv_write2_2(req,handle,bufs,nbufs,send_handle,
+		uv_callback(req,"write",cFunc))
+
