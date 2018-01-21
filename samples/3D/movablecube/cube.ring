@@ -42,6 +42,7 @@ class GraphicsApp from GraphicsAppBase
 	func destroyResources
 
 		al_destroy_bitmap(bitmap)
+		al_destroy_font(font)
 
 	func drawScene
 
