@@ -24,7 +24,6 @@ void uv_checkevent_callback(void *pObject,const char *cEvent)
 	}
 }
 
-
 void uv_timer_callback(uv_timer_t *handle)
 {
 	uv_checkevent_callback(handle,"timer");
@@ -39,7 +38,6 @@ void uv_check_callback(uv_check_t *handle)
 {
 	uv_checkevent_callback(handle,"check");
 }
-
 
 void uv_idle_callback(uv_idle_t *obj)
 {
@@ -91,6 +89,10 @@ void uv_thread_callback(void *obj)
 	uv_checkevent_callback(obj,"thread");
 }
 
+void uv_walk_callback(uv_handle_t *handle, void *arg)
+{
+	uv_checkevent_callback(handle,"walk");
+}
 
 RING_FUNC(ring_uv_callback)
 {
@@ -166,6 +168,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"thread") == 0)
 	{
 		RING_API_RETCPOINTER(uv_thread_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"walk") == 0)
+	{
+		RING_API_RETCPOINTER(uv_walk_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
@@ -1558,7 +1564,7 @@ RING_FUNC(ring_uv_walk)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uv_walk((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),* (uv_walk_cb  *) RING_API_GETCPOINTER(2,"uv_walk_cb"),(void *) RING_API_GETCPOINTER(3,"void"));
+	uv_walk((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),RING_API_GETCPOINTER(2,"uv_walk_cb"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_walk_cb"));
 }
@@ -1579,7 +1585,7 @@ RING_FUNC(ring_uv_walk_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uv_walk((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),* (uv_walk_cb  *) RING_API_GETCPOINTER(2,"uv_walk_cb"),(void *) RING_API_GETCPOINTER(3,"void"));
+	uv_walk((uv_loop_t *) RING_API_GETCPOINTER(1,"uv_loop_t"),RING_API_GETCPOINTER(2,"uv_walk_cb"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_walk_cb"));
 }

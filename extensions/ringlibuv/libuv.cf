@@ -32,6 +32,7 @@ aFunctionCallback + "uv_connect_cb"
 aFunctionCallback + "uv_fs_event_cb"
 aFunctionCallback + "uv_fs_cb"
 aFunctionCallback + "uv_thread_cb"
+aFunctionCallback + "uv_walk_cb"
 <runcode>
 
 <code>
@@ -51,7 +52,6 @@ void uv_checkevent_callback(void *pObject,const char *cEvent)
 	}
 }
 
-
 void uv_timer_callback(uv_timer_t *handle) 
 {
 	uv_checkevent_callback(handle,"timer");
@@ -66,7 +66,6 @@ void uv_check_callback(uv_check_t *handle)
 {
 	uv_checkevent_callback(handle,"check");
 }
-
 
 void uv_idle_callback(uv_idle_t *obj)
 {
@@ -118,6 +117,10 @@ void uv_thread_callback(void *obj)
 	uv_checkevent_callback(obj,"thread");
 }
 
+void uv_walk_callback(uv_handle_t *handle, void *arg)
+{
+	uv_checkevent_callback(handle,"walk");
+}
 
 </code>
 
@@ -200,6 +203,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"thread") == 0)
 	{
 		RING_API_RETCPOINTER(uv_thread_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"walk") == 0)
+	{
+		RING_API_RETCPOINTER(uv_walk_callback,"void");
 	}
 }
 </code>
