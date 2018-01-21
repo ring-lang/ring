@@ -8,10 +8,6 @@ ok
 
 Load "ring_libuv.rh"
 
-func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
-	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
-		uv_callback(oSocket,"connect",cFunc) )
-
 func uv_walk oloop, cFunc, oArg
 	return uv_walk_2(oLoop,
 		uv_callback(oLoop,"walk",cFunc),
@@ -76,3 +72,6 @@ func uv_write2 req, handle, bufs, nbufs, send_handle, cFunc
 	return uv_write2_2(req,handle,bufs,nbufs,send_handle,
 		uv_callback(req,"write",cFunc))
 
+func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
+	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
+		uv_callback(oSocket,"connect",cFunc) )
