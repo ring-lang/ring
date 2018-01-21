@@ -80,3 +80,7 @@ func uv_pipe_connect req, handle, name, cFunc
 	return uv_pipe_connect_2(req,handle,name,
 		uv_callback(req,"connect",cFunc))
 
+func uv_udp_send req, handle, bufs, nbufs, addr, cFunc
+	return uv_udp_send_2(req, handle, bufs, nbufs, addr, 
+		uv_callback(req,"udp_send",cFunc))
+

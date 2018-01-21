@@ -114,6 +114,11 @@ void uv_read_callback(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 	uv_checkevent_callback(stream,"read");
 }
 
+void uv_udp_send_callback(uv_udp_send_t* req, int status)
+{
+	uv_checkevent_callback(req,"udp_send");
+}
+
 RING_FUNC(ring_uv_callback)
 {
 	List *pList;
@@ -208,6 +213,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"read") == 0)
 	{
 		RING_API_RETCPOINTER(uv_read_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"udp_send") == 0)
+	{
+		RING_API_RETCPOINTER(uv_udp_send_callback,"void");
 	}
 }
 RING_FUNC(ring_new_sockaddr_in)
@@ -4562,7 +4571,7 @@ RING_FUNC(ring_uv_udp_send)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_udp_send((uv_udp_send_t *) RING_API_GETCPOINTER(1,"uv_udp_send_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"), (unsigned int ) RING_API_GETNUMBER(4),(sockaddr *) RING_API_GETCPOINTER(5,"sockaddr"),* (uv_udp_send_cb  *) RING_API_GETCPOINTER(6,"uv_udp_send_cb")));
+	RING_API_RETNUMBER(uv_udp_send((uv_udp_send_t *) RING_API_GETCPOINTER(1,"uv_udp_send_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"), (unsigned int ) RING_API_GETNUMBER(4),(sockaddr *) RING_API_GETCPOINTER(5,"sockaddr"),RING_API_GETCPOINTER(6,"uv_udp_send_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"uv_udp_send_cb"));
 }
@@ -4595,7 +4604,7 @@ RING_FUNC(ring_uv_udp_send_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uv_udp_send((uv_udp_send_t *) RING_API_GETCPOINTER(1,"uv_udp_send_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"), (unsigned int ) RING_API_GETNUMBER(4),(sockaddr *) RING_API_GETCPOINTER(5,"sockaddr"),* (uv_udp_send_cb  *) RING_API_GETCPOINTER(6,"uv_udp_send_cb")));
+	RING_API_RETNUMBER(uv_udp_send((uv_udp_send_t *) RING_API_GETCPOINTER(1,"uv_udp_send_t"),(uv_udp_t *) RING_API_GETCPOINTER(2,"uv_udp_t"),(uv_buf_t *) RING_API_GETCPOINTER(3,"uv_buf_t"), (unsigned int ) RING_API_GETNUMBER(4),(sockaddr *) RING_API_GETCPOINTER(5,"sockaddr"),RING_API_GETCPOINTER(6,"uv_udp_send_cb")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"uv_udp_send_cb"));
 }

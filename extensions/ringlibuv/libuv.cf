@@ -37,6 +37,7 @@ aFunctionCallback + "uv_walk_cb"
 aFunctionCallback + "uv_async_cb"
 aFunctionCallback + "uv_alloc_cb"
 aFunctionCallback + "uv_read_cb"
+aFunctionCallback + "uv_udp_send_cb"
 <runcode>
 
 <code>
@@ -146,6 +147,11 @@ void uv_read_callback(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 	uv_checkevent_callback(stream,"read");
 }
 
+void uv_udp_send_callback(uv_udp_send_t* req, int status)
+{
+	uv_checkevent_callback(req,"udp_send");
+}
+
 </code>
 
 <register>
@@ -247,6 +253,10 @@ RING_FUNC(ring_uv_callback)
 	else if (strcmp(cCallBackType,"read") == 0)
 	{
 		RING_API_RETCPOINTER(uv_read_callback,"void");
+	}
+	else if (strcmp(cCallBackType,"udp_send") == 0)
+	{
+		RING_API_RETCPOINTER(uv_udp_send_callback,"void");
 	}
 }
 </code>
