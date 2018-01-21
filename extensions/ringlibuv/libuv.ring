@@ -48,3 +48,9 @@ func uv_async_init oloop, async, cFunc
 func uv_poll_start handle, events, cFunc
 	return uv_poll_start_2(handle,events,
 		uv_callback(handle,"poll",cFunc))
+
+func uv_signal_start signal, cFunc, signum
+	return uv_signal_start_2(signal,
+		uv_callback(signal,"signal",cFunc),
+		signum)
+
