@@ -99,3 +99,119 @@ func uv_fs_poll_start handle, cFunc, path, interval
 		uv_callback(handle,"fs_poll",cFunc),
 		path, interval)
 
+func uv_fs_close oLoop, req, file, cFunc
+	return uv_fs_close_2(oLoop,req,file,
+		uv_callback(oLoop,"fs",cFunc))
+
+func uv_fs_open oLoop, req, path, flags, mode, cFunc
+	return uv_fs_open_2(oLoop,  req, path, flags, mode,
+		uv_callback(oLoop,"fs",cFunc))
+
+func uv_fs_read oLoop, req, file, bufs, nbufs, offset, cFunc
+	return uv_fs_read_2(oLoop, req, file, bufs, nbufs, offset,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_unlink oLoop,req, path, cFunc
+	return uv_fs_unlink_2(oLoop,req, path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_write oLoop, req, file, bufs,  nbufs, offset, cFunc
+	return uv_fs_write_2( oLoop, req, file, bufs,  nbufs, offset, 
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_mkdir oLoop, req, path, mode, cFunc
+	return uv_fs_mkdir_2( oLoop, req, path, mode,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_mkdtemp oLoop, req, tpl, cFunc
+	return uv_fs_mkdtemp_2( oLoop, req, tpl,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_rmdir oLoop, req, path, cFunc
+	return uv_fs_rmdir_2( oLoop, req, path, 
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_scandir oLoop, req, path, flags, cFunc
+	return uv_fs_scandir_2( oLoop, req, path, flags,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_stat oLoop, req, path, cFunc
+	return uv_fs_stat_2( oLoop, req, path, 
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_fstat oLoop, req, file, cFunc
+	return uv_fs_fstat_2( oLoop, req, file,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_lstat oLoop, req, path, cFunc
+	return uv_fs_lstat_2( oLoop, req, path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_rename oLoop, req, path, new_path, cFunc
+	return uv_fs_rename_2( oLoop, req, path, new_path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_fsync oLoop, req, file, cFunc
+	return uv_fs_fsync_2( oLoop, req, file,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_fdatasync oLoop, req, file, cFunc
+	return uv_fs_fdatasync_2( oLoop, req, file,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_ftruncate oLoop, req, file, offset, cFunc
+	return uv_fs_ftruncate_2( oLoop, req, file, offset,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_copyfile oLoop, req, path, new_path, flags, cFunc
+	return uv_fs_copyfile_2( oLoop, req, path, new_path, flags,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_sendfile oLoop, req, out_fd, in_fd, in_offset, length, cFunc
+	return uv_fs_sendfile_2( oLoop, req, out_fd, in_fd, in_offset, length,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_access oLoop, req, path, mode, cFunc
+	return uv_fs_access_2( oLoop, req, path, mode,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_chmod oLoop, req, path, mode, cFunc
+	return uv_fs_chmod_2( oLoop, req, path, mode,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_fchmod oLoop, req, file, mode, cFunc
+	return uv_fs_fchmod_2( oLoop, req, file, mode,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_utime oLoop, req, path, atime, mtime, cFunc
+	return uv_fs_utime_2( oLoop, req, path, atime, mtime,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_futime oLoop, req, file, atime, mtime, cFunc
+	return uv_fs_futime_2( oLoop, req, file, atime, mtime,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_link oLoop, req, path, new_path, cFunc
+	return uv_fs_link_2( oLoop, req, path, new_path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_symlink oLoop, req, path, new_path, flags, cFunc
+	return uv_fs_symlink_2( oLoop, req, path, new_path, flags,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_readlink oLoop, req, path, cFunc
+	return uv_fs_readlink_2( oLoop, req, path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_realpath oLoop, req, path, cFunc
+	return uv_fs_realpath_2( oLoop, req, path,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_chown oLoop, req, path, uid, gid, cFunc
+	return uv_fs_chown_2( oLoop, req, path, uid, gid,
+		uv_callback(oLoop,"fs",cFunc))	
+
+func uv_fs_fchown oLoop, req, file, uid, gid, cFunc
+	return uv_fs_fchown_2( oLoop, req, file, uid, gid,
+		uv_callback(oLoop,"fs",cFunc))	
+
