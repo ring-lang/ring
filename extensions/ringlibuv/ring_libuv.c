@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include <uv.h>
 #include <ring.h>
 
@@ -170,7 +170,9 @@ RING_FUNC(ring_uv_callback)
 	pList = ring_list_newlist(aCallBack);
 	ring_list_addpointer(pList,RING_API_GETCPOINTER(1,"void"));
 	ring_list_addstring(pList,cCallBackType);
-	ring_list_addstring(pList,RING_API_GETSTRING(3));	
+	ring_list_addstring(pList,RING_API_GETSTRING(3));
+	// Add List for the Event Parameters
+		ring_list_newlist(pList);	
 	pVMLibUV = (VM *) pPointer;
 	if (strcmp(cCallBackType,"timer") == 0)
 	{
