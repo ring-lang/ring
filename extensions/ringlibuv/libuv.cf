@@ -312,7 +312,7 @@ void uv_read_callback(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 		ring_list_deleteallitems(pPara);
 		ring_list_addcpointer(pPara,stream,"uv_stream_t");
 		ring_list_adddouble(pPara,nread);
-		ring_list_addcpointer(pPara,buf,"uv_buf_t");
+		ring_list_addcpointer(pPara,(uv_buf_t *) buf,"uv_buf_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -341,8 +341,8 @@ void uv_udp_recv_callback(uv_udp_t* handle, ssize_t nread, const uv_buf_t* buf, 
 		ring_list_deleteallitems(pPara);
 		ring_list_addcpointer(pPara,handle,"uv_udp_t");
 		ring_list_adddouble(pPara,nread);
-		ring_list_addcpointer(pPara,buf,"uv_buf_t");
-		ring_list_addcpointer(pPara,addr,"sockaddr");
+		ring_list_addcpointer(pPara,(uv_buf_t *) buf,"uv_buf_t");
+		ring_list_addcpointer(pPara,(struct sockaddr *) addr,"sockaddr");
 		ring_list_adddouble(pPara,flags);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
@@ -358,8 +358,8 @@ void uv_fs_poll_callback(uv_fs_poll_t* handle, int status, const uv_stat_t* prev
 		ring_list_deleteallitems(pPara);
 		ring_list_addcpointer(pPara,handle,"uv_fs_poll_t");
 		ring_list_adddouble(pPara,status);
-		ring_list_addcpointer(pPara,prev,"uv_stat_t");
-		ring_list_addcpointer(pPara,curr,"uv_stat_t");
+		ring_list_addcpointer(pPara,(uv_stat_t *) prev,"uv_stat_t");
+		ring_list_addcpointer(pPara,(uv_stat_t *) curr,"uv_stat_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
