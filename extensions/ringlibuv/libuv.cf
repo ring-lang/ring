@@ -21,6 +21,8 @@ VM *pVMLibUV = NULL;
 <runcode>
 aNumberTypes + "unsigned int"
 aNumberTypes + "uint64_t"
+aStringTypes + "char *"
+aStringTypes + "const char *"
 
 # Add Function CallBack types (To avoid treating it as struct)
 aFunctionCallback + "uv_timer_cb"
@@ -421,11 +423,17 @@ void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* host
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
+my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
+  buf->base = malloc(suggested_size);
+  buf->len = suggested_size;
+}
+
 </code>
 
 <register>
 void uv_callback(void *pObject,const char *cEventName,const char *cCode)
-void uv_eventdata(void *pObject,const char *cEventName)
+void uv_eventpara(void *pObject,const char *cEventName)
+void uv_myalloccallback(void)
 </register>
 
 <code>
@@ -557,7 +565,7 @@ RING_FUNC(ring_uv_callback)
 
 }
 
-RING_FUNC(ring_uv_eventdata)
+RING_FUNC(ring_uv_eventpara)
 {
 	int x;
 	List *pList, *pPara;
@@ -581,6 +589,11 @@ RING_FUNC(ring_uv_eventdata)
 	pList = ring_list_getlist(aCallBack,x) ;
 	pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 	RING_API_RETLIST(pPara);
+}
+
+RING_FUNC(ring_uv_myalloccallback)
+{
+	RING_API_RETCPOINTER(my_alloc_cb,"void");
 }
 </code>
 

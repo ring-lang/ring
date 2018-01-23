@@ -382,6 +382,11 @@ void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* host
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
+my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
+buf->base = malloc(suggested_size);
+buf->len = suggested_size;
+}
+
 RING_FUNC(ring_uv_callback)
 {
 	List *pList;
@@ -510,7 +515,7 @@ RING_FUNC(ring_uv_callback)
 
 }
 
-RING_FUNC(ring_uv_eventdata)
+RING_FUNC(ring_uv_eventpara)
 {
 	int x;
 	List *pList, *pPara;
@@ -534,6 +539,11 @@ RING_FUNC(ring_uv_eventdata)
 	pList = ring_list_getlist(aCallBack,x) ;
 	pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 	RING_API_RETLIST(pPara);
+}
+
+RING_FUNC(ring_uv_myalloccallback)
+{
+	RING_API_RETCPOINTER(my_alloc_cb,"void");
 }
 RING_FUNC(ring_new_sockaddr_in)
 {
@@ -9242,7 +9252,8 @@ RING_FUNC(ring_uv_os_gethostname)
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_callback",ring_uv_callback);
-	ring_vm_funcregister("uv_eventdata",ring_uv_eventdata);
+	ring_vm_funcregister("uv_eventpara",ring_uv_eventpara);
+	ring_vm_funcregister("uv_myalloccallback",ring_uv_myalloccallback);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);

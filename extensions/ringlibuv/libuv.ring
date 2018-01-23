@@ -60,8 +60,14 @@ func uv_listen oObj,nOption,cFunc
 	return uv_listen_2(oObj,nOption,uv_callback(oObj,"connect",cFunc))
 
 func uv_read_start stream, cFunc, cFunc2
+	if isstring(cFunc)
+		Alloc = uv_callback(stream,"alloc",cFunc)
+	else
+		Alloc = cFunc	# We expect function pointer (C Pointer)
+	ok
+
 	return uv_read_start_2(stream,
-		uv_callback(stream,"alloc",cFunc),
+		Alloc,
 		uv_callback(stream,"read",cFunc2))
 
 func uv_write req, handle, bufs, nbufs, cFunc
@@ -74,7 +80,7 @@ func uv_write2 req, handle, bufs, nbufs, send_handle, cFunc
 
 func uv_tcp_connect oConnect,oSocket,oAddr,cFunc 
 	return uv_tcp_connect_2(oConnect,oSocket,oAddr,
-		uv_callback(oSocket,"connect",cFunc))
+		uv_callback(oConnect,"connect",cFunc))
 
 func uv_pipe_connect req, handle, name, cFunc
 	return uv_pipe_connect_2(req,handle,name,
