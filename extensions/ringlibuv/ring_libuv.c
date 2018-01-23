@@ -509,6 +509,32 @@ RING_FUNC(ring_uv_callback)
 	}
 
 }
+
+RING_FUNC(ring_uv_eventdata)
+{
+	int x;
+	List *pList, *pPara;
+
+	RING_API_IGNORECPOINTERTYPE;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISSTRING(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if ( aCallBack == NULL )
+	{
+		return;
+	}
+
+	x = uv_checkevent_callback(RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
+	pList = ring_list_getlist(aCallBack,x) ;
+	pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
+	RING_API_RETLIST(pPara);
+}
 RING_FUNC(ring_new_sockaddr_in)
 {
 	sockaddr_in *pMyPointer ;
@@ -9216,6 +9242,7 @@ RING_FUNC(ring_uv_os_gethostname)
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_callback",ring_uv_callback);
+	ring_vm_funcregister("uv_eventdata",ring_uv_eventdata);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
