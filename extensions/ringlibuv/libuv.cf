@@ -434,6 +434,7 @@ my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
 void uv_callback(void *pObject,const char *cEventName,const char *cCode)
 void uv_eventpara(void *pObject,const char *cEventName)
 void uv_myalloccallback(void)
+void uv_pointer2string(void)
 </register>
 
 <code>
@@ -595,6 +596,13 @@ RING_FUNC(ring_uv_myalloccallback)
 {
 	RING_API_RETCPOINTER(my_alloc_cb,"void");
 }
+
+RING_FUNC(ring_uv_pointer2string)
+{
+	RING_API_IGNORECPOINTERTYPE;
+	RING_API_RETSTRING(RING_API_GETCPOINTER(1,"char"));
+}
+
 </code>
 
 <struct>
@@ -1026,7 +1034,7 @@ Stream handle
 
 <struct>
 uv_stream_t  
-uv_connect_t  
+uv_connect_t {uv_stream_t *handle}
 uv_shutdown_t  
 uv_write_t 
 </struct>

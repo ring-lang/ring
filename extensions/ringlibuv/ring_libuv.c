@@ -545,6 +545,13 @@ RING_FUNC(ring_uv_myalloccallback)
 {
 	RING_API_RETCPOINTER(my_alloc_cb,"void");
 }
+
+RING_FUNC(ring_uv_pointer2string)
+{
+	RING_API_IGNORECPOINTERTYPE;
+	RING_API_RETSTRING(RING_API_GETCPOINTER(1,"char"));
+}
+
 RING_FUNC(ring_new_sockaddr_in)
 {
 	sockaddr_in *pMyPointer ;
@@ -3486,6 +3493,40 @@ RING_FUNC(ring_destroy_uv_connect_t)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"uv_connect_t");
 	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+}
+
+RING_FUNC(ring_get_uv_connect_t_handle)
+{
+	uv_connect_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_connect_t");
+	RING_API_RETCPOINTER(pMyPointer->handle,"uv_stream_t");
+}
+
+RING_FUNC(ring_set_uv_connect_t_handle)
+{
+	uv_connect_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_connect_t");
+	pMyPointer->handle = (uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t *");
 }
 
 RING_FUNC(ring_new_uv_shutdown_t)
@@ -9254,6 +9295,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_callback",ring_uv_callback);
 	ring_vm_funcregister("uv_eventpara",ring_uv_eventpara);
 	ring_vm_funcregister("uv_myalloccallback",ring_uv_myalloccallback);
+	ring_vm_funcregister("uv_pointer2string",ring_uv_pointer2string);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
@@ -9792,6 +9834,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("destroy_uv_stream_t",ring_destroy_uv_stream_t);
 	ring_vm_funcregister("new_uv_connect_t",ring_new_uv_connect_t);
 	ring_vm_funcregister("destroy_uv_connect_t",ring_destroy_uv_connect_t);
+	ring_vm_funcregister("get_uv_connect_t_handle",ring_get_uv_connect_t_handle);
+	ring_vm_funcregister("set_uv_connect_t_handle",ring_set_uv_connect_t_handle);
 	ring_vm_funcregister("new_uv_shutdown_t",ring_new_uv_shutdown_t);
 	ring_vm_funcregister("destroy_uv_shutdown_t",ring_destroy_uv_shutdown_t);
 	ring_vm_funcregister("new_uv_write_t",ring_new_uv_write_t);
