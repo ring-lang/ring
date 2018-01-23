@@ -243,7 +243,7 @@ void uv_thread_callback(void *obj)
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 		ring_list_deleteallitems(pPara);
 		ring_list_addcpointer(pPara,obj,"void");
-	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
+	ring_vm_runcodefromthread(pVMLibUV,ring_list_getstring(pList,3));
 }
 
 void uv_walk_callback(uv_handle_t *handle, void *arg)
