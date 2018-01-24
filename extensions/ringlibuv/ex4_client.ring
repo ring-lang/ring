@@ -50,6 +50,5 @@ func echo_read
 	buf   = aPara[3]
 	if nRead > 0
 	        wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
-		? uv_pointer2string(get_uv_buf_t_base(wrbuf),
-					get_uv_buf_t_len(wrbuf))
+		? uv_buf2str(wrbuf)
 	ok

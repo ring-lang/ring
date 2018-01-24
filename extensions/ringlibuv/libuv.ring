@@ -241,8 +241,9 @@ func uv_thread_create tid, cFunc, arg
 		uv_callback(tid,"thread",cFunc), arg)
 
 
-
-
+func uv_buf2str oBuf
+	return uv_pointer2string(get_uv_buf_t_base(oBuf),
+					get_uv_buf_t_len(oBuf))
 
 
 
