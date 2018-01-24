@@ -271,3 +271,4 @@ call ring scripts/loadpackage.ring
 call ring scripts/testfnicr.ring
 call ring scripts/testfnicr2.ring
 call ring scripts/plusequalfunc.ring
+call ring scripts/varptr.ring
