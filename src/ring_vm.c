@@ -866,6 +866,12 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 				case ICO_PUSHPLOCAL :
 					pItem->data.iNumber = ICO_LOADADDRESS ;
 					break ;
+				case ICO_JUMPVARLPLENUM :
+					pItem->data.iNumber = ICO_JUMPVARLENUM ;
+					break ;
+				case ICO_INCLPJUMP :
+					pItem->data.iNumber = ICO_INCJUMP ;
+					break ;
 			}
 		}
 	}
