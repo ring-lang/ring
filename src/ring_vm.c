@@ -860,6 +860,14 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
 		pItem = ring_list_getitem(pIR,x2) ;
 		pByteCode->aData[x2-1] = pItem ;
+		/* Avoid Performance Instuctions (Happens when called from New Thread) */
+		if ( x2 == 1 ) {
+			switch ( pItem->data.iNumber ) {
+				case ICO_PUSHPLOCAL :
+					pItem->data.iNumber = ICO_LOADADDRESS ;
+					break ;
+			}
+		}
 	}
 	/* Clear Other Items */
 	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
