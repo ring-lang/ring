@@ -14,6 +14,8 @@ typedef struct sockaddr sockaddr ;
 List *aCallBack = NULL;
 VM *pVMLibUV = NULL;
 
+uv_mutex_t *pMutexLibUV;
+
 #define RINGLIBUV_EVENTPARA  4
 
 </code>
@@ -235,6 +237,16 @@ void uv_fs_callback(uv_fs_t *req)
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
+void *uv_new_mutex(void)
+{
+	if (pMutexLibUV == NULL)
+	{
+		pMutexLibUV = (uv_mutex_t *) malloc(sizeof(uv_mutex_t));
+		uv_mutex_init(pMutexLibUV);
+	}
+	return pMutexLibUV;
+}
+
 void uv_thread_callback(void *obj) 
 {
 	int x;
@@ -245,6 +257,8 @@ void uv_thread_callback(void *obj)
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 		ring_list_deleteallitems(pPara);
 		ring_list_addcpointer(pPara,obj,"void");
+	ring_vm_mutexfunctions(pVMLibUV,uv_new_mutex,
+                uv_mutex_lock,uv_mutex_unlock,uv_mutex_destroy);
 	ring_vm_runcodefromthread(pVMLibUV,ring_list_getstring(pList,3));
 }
 
