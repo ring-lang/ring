@@ -10,6 +10,7 @@ func main
 	? "Idling..."
 	uv_run(uv_default_loop(), UV_RUN_DEFAULT);
 	uv_loop_close(uv_default_loop());
+	destroy_uv_idle_t(idler)
 
 func wait
 	counter++

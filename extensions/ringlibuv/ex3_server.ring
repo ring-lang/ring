@@ -5,10 +5,10 @@ load "libuv.ring"
 DEFAULT_PORT    = 13370
 DEFAULT_BACKLOG = 1024
 
-addr = new_sockaddr_in()
-server = NULL
-client = NULL
-myloop = NULL
+addr    = new_sockaddr_in()
+server  = NULL
+client  = NULL
+myloop  = NULL
 message = NULL
 
 func main
@@ -23,17 +23,21 @@ func main
         return 1
     ok
     uv_run(myloop, UV_RUN_DEFAULT)
+    destroy_uv_loop_t(myloop)
+    destroy_uv_tcp_t(server)
+    destroy_uv_sockaddr_in(addr)
+
 
 func newconnection
 	? "New Connection"
-	aPara = uv_Eventpara(server,:connect)
+	aPara   = uv_Eventpara(server,:connect)
 	nStatus = aPara[2]
 	if nStatus < 0
 		? "New connection error : " + nStatus 
 		return 
 	ok
 	client = new_uv_tcp_t()
-	uv_tcp_init(myloop, client);
+	uv_tcp_init(myloop, client)
 	if uv_accept(server, client) = 0 
     	    uv_read_start(client, uv_myalloccallback(), "echo_read()")
 	ok
@@ -41,21 +45,18 @@ func newconnection
 func echo_read 
 	aPara = uv_Eventpara(client,:read)
 	nRead = aPara[2]
-	buf = aPara[3]
+	buf   = aPara[3]
 	if nRead > 0
 		req = new_uv_write_t()
-	        wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
-		uv_write(req, client, wrbuf, 1, "echo_write()");
+	        wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
+		uv_write(req, client, wrbuf, 1, "echo_write()")
 		? uv_pointer2string(get_uv_buf_t_base(wrbuf),
 					get_uv_buf_t_len(wrbuf))
-
 		buf = new_uv_buf_t()
 		message = "message from the server to the client"
 		set_uv_buf_t_len(buf,len(message))
 		set_uv_buf_t_base(buf,varptr("message","char *"))
-	
-		uv_write(req, client, buf, 1, "echo_write()");
-
+		uv_write(req, client, buf, 1, "echo_write()")
 	ok
 
 func echo_write
