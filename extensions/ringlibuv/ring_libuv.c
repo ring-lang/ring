@@ -552,6 +552,12 @@ RING_FUNC(ring_uv_pointer2string)
 	RING_API_RETSTRING2(RING_API_GETCPOINTER(1,"char"),RING_API_GETNUMBER(2));
 }
 
+RING_FUNC(ring_uv_free)
+{
+	RING_API_IGNORECPOINTERTYPE;
+	free(RING_API_GETCPOINTER(1,"void"));
+}
+
 RING_FUNC(ring_new_sockaddr_in)
 {
 	sockaddr_in *pMyPointer ;
@@ -9296,6 +9302,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uv_eventpara",ring_uv_eventpara);
 	ring_vm_funcregister("uv_myalloccallback",ring_uv_myalloccallback);
 	ring_vm_funcregister("uv_pointer2string",ring_uv_pointer2string);
+	ring_vm_funcregister("uv_free",ring_uv_free);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);

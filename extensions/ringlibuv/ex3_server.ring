@@ -27,7 +27,6 @@ func main
     destroy_uv_tcp_t(server)
     destroy_uv_sockaddr_in(addr)
 
-
 func newconnection
 	? "New Connection"
 	aPara   = uv_Eventpara(server,:connect)
@@ -60,3 +59,6 @@ func echo_read
 	ok
 
 func echo_write
+	aPara = uv_Eventpara(client,:read)
+	req   = aPara[1]
+	destroy_uv_stream_t(req)

@@ -435,6 +435,7 @@ void uv_callback(void *pObject,const char *cEventName,const char *cCode)
 void uv_eventpara(void *pObject,const char *cEventName)
 void uv_myalloccallback(void)
 void uv_pointer2string(void)
+void uv_free(void)
 </register>
 
 <code>
@@ -601,6 +602,12 @@ RING_FUNC(ring_uv_pointer2string)
 {
 	RING_API_IGNORECPOINTERTYPE;
 	RING_API_RETSTRING2(RING_API_GETCPOINTER(1,"char"),RING_API_GETNUMBER(2));
+}
+
+RING_FUNC(ring_uv_free)
+{
+	RING_API_IGNORECPOINTERTYPE;
+	free(RING_API_GETCPOINTER(1,"void"));
 }
 
 </code>
