@@ -248,5 +248,5 @@ func uv_buf2str oBuf
 func uv_str2buf cStr
 	buf = new_uv_buf_t()
 	set_uv_buf_t_len(buf,len(cStr))
-	set_uv_buf_t_base(buf,varptr("cStr","char *"))
+	set_uv_buf_t_base(buf,varptr(:cStr,"char *"))
 	return buf
