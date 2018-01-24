@@ -9,7 +9,6 @@ addr    = new_sockaddr_in()
 server  = NULL
 client  = NULL
 myloop  = NULL
-message = NULL
 
 func main
     myloop = uv_default_loop()

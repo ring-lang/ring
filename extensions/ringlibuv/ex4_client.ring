@@ -8,7 +8,6 @@ DEFAULT_BACKLOG = 1024
 addr    = new_sockaddr_in()
 connect = NULL
 buffer  = null
-message = null
 socket  = null
 
 func main

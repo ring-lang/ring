@@ -245,5 +245,8 @@ func uv_buf2str oBuf
 	return uv_pointer2string(get_uv_buf_t_base(oBuf),
 					get_uv_buf_t_len(oBuf))
 
-
-
+func uv_str2buf cStr
+	buf = new_uv_buf_t()
+	set_uv_buf_t_len(buf,len(cStr))
+	set_uv_buf_t_base(buf,varptr("cStr","char *"))
+	return buf
