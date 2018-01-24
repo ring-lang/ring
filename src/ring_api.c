@@ -252,7 +252,7 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 )
 {
 	VM *pVM  ;
-	List *pList  ;
+	List *pList, *pActiveMem  ;
 	Item *pItem  ;
 	/*
 	**  Usage 
@@ -260,10 +260,17 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 	**  We need this because some C Functions get int * or double * as parameter 
 	*/
 	pVM = (VM *) pPointer ;
+	/* Set the Active Scope */
+	pActiveMem = pVM->pActiveMem ;
+	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
 	if ( ring_vm_findvar(pVM, cStr ) == 0 ) {
+		/* Restore the Active Scope */
+		pVM->pActiveMem = pActiveMem ;
 		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
 		return NULL ;
 	}
+	/* Restore the Active Scope */
+	pVM->pActiveMem = pActiveMem ;
 	pList = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {

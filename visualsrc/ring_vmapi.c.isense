@@ -84,7 +84,7 @@ ring_vm_api_varptr
 Type: VM *
 pVM
 Type: List *
-pList
+pList, *pActiveMem
 Type: Item *
 pItem
 ring_vm_api_intvalue
