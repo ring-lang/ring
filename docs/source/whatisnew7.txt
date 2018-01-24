@@ -289,3 +289,4 @@ Better Ring VM
 (8) Printing objects - respect decimals() function
 (9) When literal is not closed - determine the start of the literal
 (10) Better message when printing objects contains lists
+(11) VarPtr() - Support getting a pointer to variables in the local scope
