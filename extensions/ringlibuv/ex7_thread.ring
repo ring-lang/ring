@@ -3,19 +3,17 @@ load "libuv.ring"
 ? "Testing RingLibUV - Threads"
 
 func main
-    tracklen = 10
-    hare_id = new_uv_thread_t()
-    tortoise_id = new_uv_thread_t()
-    uv_thread_create(hare_id, "hare()")
-    uv_thread_create(tortoise_id, "tortoise()")
+	one_id = new_uv_thread_t()
+	two_id = new_uv_thread_t()
+	uv_thread_create(one_id, "one()")
+	uv_thread_create(two_id, "two()")
+	uv_thread_join(one_id)
+	uv_thread_join(two_id)
 
-    uv_thread_join(hare_id)
-    uv_thread_join(tortoise_id)
+func one
+	? "Message from the First Thread!"
 
-func hare
-	? "Message from the Hare function!"
-
-func tortoise
-	? "Message from the Tortoise function!"
+func two
+	? "Message from the Second Thread!"
 
     
