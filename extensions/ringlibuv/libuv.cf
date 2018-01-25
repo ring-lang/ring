@@ -437,7 +437,7 @@ void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* host
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
-my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
+void my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
   buf->base = malloc(suggested_size);
   buf->len = suggested_size;
 }
