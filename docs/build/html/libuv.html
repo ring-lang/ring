@@ -186,7 +186,6 @@
 <span class="k">func</span> <span class="n">echo_write</span>
         <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
         <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-        <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -332,7 +331,6 @@ message from the server to the client
         <span class="k">func</span> <span class="n">echo_write</span>
                 <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
                 <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-                <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
