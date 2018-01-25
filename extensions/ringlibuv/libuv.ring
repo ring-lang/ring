@@ -233,6 +233,7 @@ func uv_thread_create tid, cFunc
 
 
 func uv_buf2str oBuf
-	return uv_pointer2string(get_uv_buf_t_base(oBuf),
-					get_uv_buf_t_len(oBuf))
+	oBase = get_uv_buf_t_base(oBuf)
+	nSize = get_uv_buf_t_len(oBuf)
+	return uv_pointer2string(oBase,nSize)
 
