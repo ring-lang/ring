@@ -1,9 +1,9 @@
 if iswindows()
 	LoadLib("ring_uv.dll")
 but ismacosx()
-	LoadLib("libringuv.dylib")
+	LoadLib("libring_uv.dylib")
 but islinux() and not isandroid()
-	LoadLib("libringuv.so")
+	LoadLib("libring_uv.so")
 ok
 
 Load "ring_libuv.rh"
