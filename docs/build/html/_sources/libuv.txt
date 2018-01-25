@@ -302,7 +302,8 @@ Example:
 			client = new_uv_tcp_t()
 			uv_tcp_init(myloop, client)
 			if uv_accept(server, client) = 0 
-					uv_read_start(client, uv_myalloccallback(), Method(:echo_read))
+					uv_read_start(client, uv_myalloccallback(), 
+								Method(:echo_read))
 			ok
 		
 		func echo_read 

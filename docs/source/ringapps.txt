@@ -429,8 +429,8 @@ The next screen shot for the TicTacToe 3D Game
 Screen Shot:
 
 .. image:: tictactoe3d.png
-	:width: 550pt
-	:height: 450pt
+	:width: 450pt
+	:height: 350pt
 	:alt: TicTacToe 3D Game
 
 .. index:: 
@@ -453,6 +453,9 @@ https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programm
 
 * Natural Language Programming : 
 https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi
+
+* The Declarative Approach :
+https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l
 
 * Syntax Flexibility : 
 https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag
@@ -479,3 +482,8 @@ https://github.com/ring-lang/ring/tree/master/applications/formdesigner
 
 .. image:: ringformdesigner.png
 	:alt: Ring Form Designer
+
+We can run the Form Designer as Android application!
+
+.. image:: formdesignerandroid.png
+	:alt: Form Designer - Android

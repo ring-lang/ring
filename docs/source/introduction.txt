@@ -233,6 +233,7 @@ The Ring language comes with the next features
 * Tracing and Debugging
 * Type Hints
 * Comes with Ring2EXE to distribute applications
+* RingLibuv Extension
 
 License
 =======
