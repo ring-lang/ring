@@ -1570,7 +1570,7 @@ Class RNoteController from WindowsControllerParent
 	func pAbout
 		MsgBox("About",
 			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
-			"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")
+			"2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func pSaveCurrentFolder
 		oItem = tree1.currentindex()
