@@ -63,5 +63,4 @@ class MyServer from ObjectControllerParent
 	func echo_write
 		aPara = uv_Eventpara(client,:read)
 		req   = aPara[1]
-		destroy_uv_stream_t(req)
 	
