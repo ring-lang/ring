@@ -366,7 +366,6 @@ Example (Server):
 				return 1
 			ok
 			uv_run(myloop, UV_RUN_DEFAULT)
-			destroy_uv_loop_t(myloop)
 			destroy_uv_tcp_t(server)
 			destroy_uv_sockaddr_in(addr)
 		
