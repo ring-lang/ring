@@ -111,6 +111,12 @@ We provide instructions for building on the next platforms :-
 	gencode.bat
 	buildvc.bat
 
+### Generate RingLibuv Source Code and Build 
+	
+	cd ../extensions/ringlibuv
+	gencode.bat
+	buildvc.bat
+
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
@@ -228,6 +234,24 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingLibuv Source Code and Build 
+
+We will build Libuv first
+
+	cd ../extensions/ringlibuv/libuv
+	sudo apt-get install m4 automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+	
+	cd ..
+	./gencode.sh
+	./buildgcc.sh
+
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
@@ -330,6 +354,24 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingLibuv Source Code and Build 
+
+We will build Libuv first
+
+	cd ../extensions/ringlibuv/libuv
+	sudo dnf install m4 autoconf automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+	
+	cd ..
 	./gencode.sh
 	./buildgcc.sh
 
@@ -438,6 +480,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
+### Generate RingLibuv Source Code and Build 
+	
+	cd ../extensions/ringlibuv
 	./gencode.sh
 	./buildclang.sh
 
