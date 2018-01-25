@@ -126,6 +126,12 @@ buildring2exe.bat
 <span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
 </pre></div>
 </div>
+<p>Generate RingLibuv Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringlibuv</span>
+<span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
+<span class="n">buildvc</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+</div>
 <p>Generate RingFreeGLUT Source Code and Build</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
 <span class="n">gencode</span><span class="p">.</span><span class="n">bat</span>
@@ -242,6 +248,23 @@ sudo ./buildring2exe.sh
 <span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 </div>
+<p>Generate RingLibuv Source Code and Build</p>
+<p>We will build Libuv first</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringlibuv</span><span class="o">/</span><span class="n">libuv</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">m4</span> <span class="n">automake</span>
+<span class="n">sh</span> <span class="n">autogen</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">check</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Then we will build RingLibuv</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
 <p>Generate RingFreeGLUT Source Code and Build</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringfreeglut</span>
 <span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
@@ -343,6 +366,23 @@ sudo ./buildring2exe.sh
 </div>
 <p>Generate RingZip Source Code and Build</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingLibuv Source Code and Build</p>
+<p>We will build Libuv first</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringlibuv</span><span class="o">/</span><span class="n">libuv</span>
+<span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">m4</span> <span class="n">autoconf</span> <span class="n">automake</span>
+<span class="n">sh</span> <span class="n">autogen</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">check</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Then we will build RingLibuv</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span>
 <span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
 <span class="p">.</span><span class="o">/</span><span class="n">buildgcc</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
@@ -449,6 +489,12 @@ sudo ./buildring2exe.sh
 </div>
 <p>Generate RingZip Source Code and Build</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringzip</span>
+<span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Generate RingLibuv Source Code and Build</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">..</span><span class="o">/</span><span class="n">extensions</span><span class="o">/</span><span class="n">ringlibuv</span>
 <span class="p">.</span><span class="o">/</span><span class="n">gencode</span><span class="p">.</span><span class="n">sh</span>
 <span class="p">.</span><span class="o">/</span><span class="n">buildclang</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
