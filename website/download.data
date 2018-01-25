@@ -1,4 +1,20 @@
 ﻿aDownload = [
+		["Ring 1.7 All Platforms",[						
+						 [
+							'Ring 1.7 Documentation (PDF) ',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.pdf/download" target="_blank">Download (18.9 MB)</a>'
+						 ],
+						 [
+							'Ring 1.7 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.chm/download" target="_blank">Download (15.4 MB)</a>'							
+						 ],
+						 [
+							'Ring 1.7 Documentation (HTML)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.zip/download" target="_blank">Download (15.6 MB)</a>'							
+						 ]
+						 
+			]
+		],
 		["Ring 1.6 All Platforms",[
 						 [
 							'Ring 1.6 For Windows (32bit and 64bit)<br>',
