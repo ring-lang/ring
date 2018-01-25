@@ -36,6 +36,4 @@ The folder ringconsolecolors contains the Ring binding to the ConsoleColors Libr
 
 The folder ringmurmurhash contains hash functions
 
-The folder rigpcre contains functions that uses the pcre2 library  
-
 The folder ringlibuv contains the Ring binding to the LibUV library.
