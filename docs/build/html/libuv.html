@@ -76,6 +76,10 @@
         <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Now quitting
+</pre></div>
+</div>
 </div>
 <div class="section" id="the-events-loop">
 <span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this headline">¶</a></h2>
@@ -99,6 +103,10 @@
         <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
                 <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
         <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Idling...
 </pre></div>
 </div>
 </div>
@@ -169,6 +177,14 @@
         <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<p>When we run the client, We will see the message &#8220;New Connection&#8221;</p>
+<p>Then the message &#8220;hello from the client&#8221;</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Server Side
+New Connection
+hello from the client
+</pre></div>
+</div>
 </div>
 <div class="section" id="client-example">
 <span id="index-4"></span><h2>Client Example<a class="headerlink" href="#client-example" title="Permalink to this headline">¶</a></h2>
@@ -226,6 +242,14 @@
                         <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
                 <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
         <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>We will run the client after the server</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Client Side
+Client: Start Connection
+hello from the client
+message from the server to the client
 </pre></div>
 </div>
 </div>
@@ -301,6 +325,14 @@
                 <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<p>When we run the client, We will see the message &#8220;New Connection&#8221;</p>
+<p>Then the message &#8220;hello from the client&#8221;</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Server Side - Using Classes
+New Connection
+hello from the client
+</pre></div>
+</div>
 </div>
 <div class="section" id="client-example-using-classes">
 <span id="index-6"></span><h2>Client Example Using Classes<a class="headerlink" href="#client-example-using-classes" title="Permalink to this headline">¶</a></h2>
@@ -365,6 +397,14 @@
                 <span class="k">ok</span>
 </pre></div>
 </div>
+<p>Output:</p>
+<p>We will run the client after the server</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Client Side - Using Classes
+Client: Start Connection
+hello from the client
+message from the server to the client
+</pre></div>
+</div>
 </div>
 <div class="section" id="threads-example">
 <span id="index-7"></span><h2>Threads Example<a class="headerlink" href="#threads-example" title="Permalink to this headline">¶</a></h2>
@@ -388,6 +428,12 @@
 
 <span class="k">func</span> <span class="n">two</span>
         <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Threads
+Message from the First Thread!
+Message from the Second Thread!
 </pre></div>
 </div>
 </div>
@@ -418,6 +464,12 @@
 
         <span class="k">func</span> <span class="n">Two</span>
                 <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Threads - Using Classes
+Message from the First Thread!
+Message from the Second Thread!
 </pre></div>
 </div>
 </div>

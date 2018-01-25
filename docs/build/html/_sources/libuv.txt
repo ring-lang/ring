@@ -32,6 +32,13 @@ Example:
 		uv_loop_close(myloop)
 		destroy_uv_loop_t(myloop)
 
+Output:
+
+.. code-block:: none
+
+	Now quitting
+
+
 .. index:: 
 	pair: RingLibUV; The Events Loop
 
@@ -62,7 +69,11 @@ Example:
 			uv_idle_stop(idler)
 		ok
 
+Output:
 
+.. code-block:: none
+
+	Idling...
 
 .. index:: 
 	pair: RingLibUV; Server Example
@@ -137,6 +148,17 @@ Example:
 		req   = aPara[1]
 		destroy_uv_stream_t(req)
 
+Output:
+
+When we run the client, We will see the message "New Connection"
+
+Then the message "hello from the client"
+
+.. code-block:: none
+
+	Testing RingLibUV - Server Side
+	New Connection
+	hello from the client
 
 .. index:: 
 	pair: RingLibUV; Client Example
@@ -202,6 +224,16 @@ Example:
 			? uv_buf2str(wrbuf)
 		ok
 
+Output:
+
+We will run the client after the server
+
+.. code-block:: none
+
+	Testing RingLibUV - Client Side
+	Client: Start Connection
+	hello from the client
+	message from the server to the client
 
 .. index:: 
 	pair: RingLibUV; Server Example using Classes
@@ -282,6 +314,19 @@ Example:
 			destroy_uv_stream_t(req)
 	
 
+Output:
+
+When we run the client, We will see the message "New Connection"
+
+Then the message "hello from the client"
+
+.. code-block:: none
+
+	Testing RingLibUV - Server Side - Using Classes
+	New Connection
+	hello from the client
+
+
 .. index:: 
 	pair: RingLibUV; Client Example - Using Classes
 
@@ -350,6 +395,19 @@ Example:
 					wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
 				? uv_buf2str(wrbuf)
 			ok
+
+Output:
+
+We will run the client after the server
+
+.. code-block:: none
+
+	Testing RingLibUV - Client Side - Using Classes
+	Client: Start Connection
+	hello from the client
+	message from the server to the client
+
+
 	
 
 .. index:: 
@@ -382,6 +440,13 @@ Example:
 	func two
 		? "Message from the Second Thread!"
 
+Output:
+
+.. code-block:: none
+
+	Testing RingLibUV - Threads
+	Message from the First Thread!
+	Message from the Second Thread!
     
 
 .. index:: 
@@ -419,3 +484,12 @@ Example:
 		func Two
 			? "Message from the Second Thread!"
 		
+
+Output:
+
+.. code-block:: none
+
+	Testing RingLibUV - Threads - Using Classes
+	Message from the First Thread!
+	Message from the Second Thread!
+
