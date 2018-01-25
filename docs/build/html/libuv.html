@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using RingLibUV &mdash; Ring 1.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="next" title="Demo Project - Game Engine for 2D Games" href="gameengine.html" />
+    <link rel="prev" title="Using RingLibSDL" href="libsdl.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gameengine.html" title="Demo Project - Game Engine for 2D Games"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="libsdl.html" title="Using RingLibSDL"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-ringlibuv">
+<span id="index-0"></span><h1>Using RingLibUV<a class="headerlink" href="#using-ringlibuv" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using RingLibUV</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">RingLibUV is not distributed with the binary releases</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To use RingLibUV, Check ring/extensions/ringlibuv folder.</p>
+</div>
+<div class="section" id="first-application-using-ringlibuv">
+<span id="index-1"></span><h2>First Application using RingLibUV<a class="headerlink" href="#first-application-using-ringlibuv" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">myloop</span> <span class="o">=</span> <span class="n">new_uv_loop_t</span><span class="p">()</span>
+        <span class="n">uv_loop_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Now quitting&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-events-loop">
+<span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">idler</span> <span class="o">=</span> <span class="kp">NULL</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">idler</span> <span class="o">=</span> <span class="n">new_uv_idle_t</span><span class="p">()</span>
+        <span class="n">uv_idle_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
+        <span class="n">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s">&quot;wait()&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Idling...&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">());</span>
+        <span class="n">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">wait</span>
+        <span class="n">counter</span><span class="o">++</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
+                <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+        <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server-example">
+<span id="index-3"></span><h2>Server Example<a class="headerlink" href="#server-example" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Server Side&quot;</span>
+
+<span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+<span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="s">&quot;newconnection()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span>
+                <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">ok</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">newconnection</span>
+        <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s">&quot;echo_read()&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">echo_read</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;echo_write()&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;echo_write()&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">echo_write</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-example">
+<span id="index-4"></span><h2>Client Example<a class="headerlink" href="#client-example" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Client Side&quot;</span>
+
+<span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+<span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">connect</span> <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">buffer</span>  <span class="o">=</span> <span class="kp">null</span>
+<span class="n">socket</span>  <span class="o">=</span> <span class="kp">null</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+        <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="s">&quot;connect()&quot;</span><span class="p">)</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+        <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">connect</span>
+        <span class="o">?</span> <span class="s">&quot;Client: Start Connection&quot;</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="o">?</span> <span class="s">&quot;Error : on_write_end &quot;</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;hello from the client&quot;</span>
+        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+        <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+        <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="s">&quot;on_write_end()&quot;</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">on_write_end</span>
+                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s">&quot;echo_read()&quot;</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">echo_read</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+        <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server-example-using-classes">
+<span id="index-5"></span><h2>Server Example Using Classes<a class="headerlink" href="#server-example-using-classes" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Server Side - Using Classes&quot;</span>
+
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyServer</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MyServer</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
+
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
+
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
+
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">newconnection</span><span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">r</span>
+                        <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+                <span class="k">ok</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">newconnection</span>
+                <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">echo_write</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+                <span class="n">destroy_uv_stream_t</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-example-using-classes">
+<span id="index-6"></span><h2>Client Example Using Classes<a class="headerlink" href="#client-example-using-classes" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Client Side - Using Classes&quot;</span>
+
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyClient</span><span class="p">)</span>
+
+<span class="k">Class</span> <span class="n">MyClient</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
+
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
+
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">buffer</span>  <span class="o">=</span> <span class="kp">null</span>
+        <span class="n">socket</span>  <span class="o">=</span> <span class="kp">null</span>
+
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">connect</span><span class="p">))</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+                <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">connect</span>
+                <span class="o">?</span> <span class="s">&quot;Client: Start Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="o">?</span> <span class="s">&quot;Error : on_write_end &quot;</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;hello from the client&quot;</span>
+                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+                <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">on_write_end</span><span class="p">))</span>
+
+        <span class="k">func</span> <span class="n">on_write_end</span>
+                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
+
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="threads-example">
+<span id="index-7"></span><h2>Threads Example<a class="headerlink" href="#threads-example" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Threads&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+        <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="s">&quot;one()&quot;</span><span class="p">)</span>
+        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="s">&quot;two()&quot;</span><span class="p">)</span>
+        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">one</span>
+        <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
+
+<span class="k">func</span> <span class="n">two</span>
+        <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="threads-example-using-classes">
+<span id="index-8"></span><h2>Threads Example - Using Classes<a class="headerlink" href="#threads-example-using-classes" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Threads - Using Classes&quot;</span>
+
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyThreads</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MyThreads</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
+
+        <span class="k">func</span> <span class="n">Start</span>
+                <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">One</span><span class="p">))</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">Two</span><span class="p">))</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">one</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
+
+        <span class="k">func</span> <span class="n">Two</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using RingLibUV</a><ul>
+<li><a class="reference internal" href="#first-application-using-ringlibuv">First Application using RingLibUV</a></li>
+<li><a class="reference internal" href="#the-events-loop">The Events Loop</a></li>
+<li><a class="reference internal" href="#server-example">Server Example</a></li>
+<li><a class="reference internal" href="#client-example">Client Example</a></li>
+<li><a class="reference internal" href="#server-example-using-classes">Server Example Using Classes</a></li>
+<li><a class="reference internal" href="#client-example-using-classes">Client Example Using Classes</a></li>
+<li><a class="reference internal" href="#threads-example">Threads Example</a></li>
+<li><a class="reference internal" href="#threads-example-using-classes">Threads Example - Using Classes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="libsdl.html"
+                        title="previous chapter">Using RingLibSDL</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gameengine.html"
+                        title="next chapter">Demo Project - Game Engine for 2D Games</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/libuv.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gameengine.html" title="Demo Project - Game Engine for 2D Games"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="libsdl.html" title="Using RingLibSDL"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

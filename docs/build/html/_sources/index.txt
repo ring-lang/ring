@@ -64,6 +64,7 @@ Contents:
    Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
+   Using RinglibUV <libuv>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
