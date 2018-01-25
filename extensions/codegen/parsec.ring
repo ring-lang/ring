@@ -728,7 +728,10 @@ Func GenStruct	aFunc
 			C_TABS_1 + "}" + nl +
 			C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
 			'"'+cStruct  +'");' + nl +
-			C_TABS_1 + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +						
+			C_TABS_1 + "if (pMyPointer != NULL) {" + nl +
+			C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +		
+			C_TABS_2 + "RING_API_SETNULLPOINTER(1);" + nl +
+			C_TABS_1 + "}" + nl +				
 			"}" + nl + nl
 	# We expect the members to be of type (numbers) or (pointers)
 	for x in aStructMembers
