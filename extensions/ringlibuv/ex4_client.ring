@@ -18,7 +18,6 @@ func main
     uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
     uv_tcp_connect(connect,Socket, addr, "connect()")
     uv_run(myloop, UV_RUN_DEFAULT)
-    destroy_uv_loop_t(myloop)
     destroy_uv_tcp_t(socket)
     destroy_uv_connect_t(connect)
 
