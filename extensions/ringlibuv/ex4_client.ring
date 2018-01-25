@@ -1,6 +1,6 @@
 load "libuv.ring"
 
-? "Testing RingLibUV - Client Side"
+? "Testing RingLibuv - Client Side"
 
 DEFAULT_PORT    = 13370
 DEFAULT_BACKLOG = 1024

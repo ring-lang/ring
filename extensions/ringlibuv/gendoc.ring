@@ -4,7 +4,7 @@
 
 #===============================================
 C_OUTPUTFILE = "ringlibuvfuncsdoc.txt"
-C_CHAPTERNAME = "RingLibUV Functions Reference"
+C_CHAPTERNAME = "RingLibuv Functions Reference"
 cFile = read("libuv.cf")
 lStart = True		# False = Classes Doc.   True = Functions Doc.
 funcAfterClass = ""	# Not used

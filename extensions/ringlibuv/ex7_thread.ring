@@ -1,6 +1,6 @@
 load "libuv.ring"
 
-? "Testing RingLibUV - Threads"
+? "Testing RingLibuv - Threads"
 
 func main
 	one_id = new_uv_thread_t()

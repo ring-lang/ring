@@ -1,7 +1,7 @@
 load "libuv.ring"
 load "objectslib.ring"
 
-? "Testing RingLibUV - Server Side - Using Classes"
+? "Testing RingLibuv - Server Side - Using Classes"
 
 open_object(:MyServer)
 

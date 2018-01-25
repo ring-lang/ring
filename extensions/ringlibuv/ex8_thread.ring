@@ -1,7 +1,7 @@
 load "libuv.ring"
 load "objectslib.ring"
 
-? "Testing RingLibUV - Threads - Using Classes"
+? "Testing RingLibuv - Threads - Using Classes"
 
 open_object(:MyThreads)
 
