@@ -41,7 +41,10 @@ RING_FUNC(ring_al_destroy_allegro_event)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_al_get_allegro_event_type)
@@ -204,7 +207,10 @@ RING_FUNC(ring_al_destroy_allegro_timeout)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_TIMEOUT");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_al_new_allegro_sample_id)
@@ -231,7 +237,10 @@ RING_FUNC(ring_al_destroy_allegro_sample_id)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_ID");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_al_new_allegro_color)
@@ -258,7 +267,10 @@ RING_FUNC(ring_al_destroy_allegro_color)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_COLOR");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_al_exit)
