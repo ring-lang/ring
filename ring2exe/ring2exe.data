@@ -240,7 +240,7 @@ aLibsInfo = [
 	 ],
 	 :ubuntudep = "",
 	 :fedoradep = "",
-	 :macosxdep = ""  
+	 :macosxdep = "libuv"  
 	],
 	[:name = :murmurhash ,
 	 :title = "RingMurmurHash",
