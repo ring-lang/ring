@@ -240,7 +240,7 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 	}
 	pList2 = ((VM *) pPointer)->aCPointers ;
 	if ( ring_list_getsize(pList2) > 0 ) {
-		for ( y = 1 ; y <= ring_list_getsize(pList2) ; y++ ) {
+		for ( y = ring_list_getsize(pList2) ; y >= 1 ; y-- ) {
 			if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
 				ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList2,y);
 				ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
