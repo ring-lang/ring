@@ -33,3 +33,9 @@ The folder ringfreeglut contains the Ring binding to the FreeGLUT library.
 The folder ringopengl contains the Ring binding to the OpenGL library.
 
 The folder ringconsolecolors contains the Ring binding to the ConsoleColors Library
+
+The folder ringmurmurhash contains hash functions
+
+The folder rigpcre contains functions that uses the pcre2 library  
+
+The folder ringlibuv contains the Ring binding to the LibUV library.
