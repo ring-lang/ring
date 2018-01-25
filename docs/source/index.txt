@@ -64,7 +64,7 @@ Contents:
    Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
-   Using RinglibUV <libuv>
+   Using Ringlibuv <libuv>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
@@ -92,7 +92,7 @@ Contents:
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
-   RingLibUV Functions Reference <ringlibuvfuncsdoc>
+   RingLibuv Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
    RingOpenGL (OpenGL 1.1) Functions Reference <ringopengl11funcsdoc>
    RingOpenGL (OpenGL 1.2) Functions Reference <ringopengl12funcsdoc>

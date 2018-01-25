@@ -1,20 +1,37 @@
 .. index:: 
-	single: RingLibUV; Introduction
+	single: RingLibuv; Introduction
 
 ===============
-Using RingLibUV
+Using RingLibuv
 ===============
 
-In this chapter we will learn about using RingLibUV
+In this chapter we will learn about using RingLibuv
 
-.. tip:: RingLibUV is not distributed with the binary releases
+.. note:: To use RingLibuv, Check ring/extensions/ringlibuv folder.
 
-.. note:: To use RingLibUV, Check ring/extensions/ringlibuv folder.
+Information from the library website: http://libuv.org/
+
+Libuv is a multi-platform support library with a focus on asynchronous I/O. 
+
+Feature highlights
+
+* Full-featured event loop backed by epoll, kqueue, IOCP, event ports.
+* Asynchronous TCP and UDP sockets
+* Asynchronous DNS resolution
+* Asynchronous file and file system operations
+* File system events
+* ANSI escape code controlled TTY
+* IPC with socket sharing, using Unix domain sockets or named pipes (Windows)
+* Child processes
+* Thread pool
+* Signal handling
+* High resolution clock
+* Threading and synchronization primitives
 
 .. index:: 
-	pair: RingLibUV; First Application using RingLibUV
+	pair: RingLibuv; First Application using RingLibuv
 
-First Application using RingLibUV
+First Application using RingLibuv
 =================================
 
 Example:
@@ -40,7 +57,7 @@ Output:
 
 
 .. index:: 
-	pair: RingLibUV; The Events Loop
+	pair: RingLibuv; The Events Loop
 
 The Events Loop
 ===============
@@ -76,7 +93,7 @@ Output:
 	Idling...
 
 .. index:: 
-	pair: RingLibUV; Server Example
+	pair: RingLibuv; Server Example
 
 Server Example
 ==============
@@ -87,7 +104,7 @@ Example:
 
 	load "libuv.ring"
 
-	? "Testing RingLibUV - Server Side"
+	? "Testing RingLibuv - Server Side"
 
 	DEFAULT_PORT    = 13370
 	DEFAULT_BACKLOG = 1024
@@ -156,12 +173,12 @@ Then the message "hello from the client"
 
 .. code-block:: none
 
-	Testing RingLibUV - Server Side
+	Testing RingLibuv - Server Side
 	New Connection
 	hello from the client
 
 .. index:: 
-	pair: RingLibUV; Client Example
+	pair: RingLibuv; Client Example
 
 Client Example
 ==============
@@ -172,7 +189,7 @@ Example:
 
 	load "libuv.ring"
 
-	? "Testing RingLibUV - Client Side"
+	? "Testing RingLibuv - Client Side"
 
 	DEFAULT_PORT    = 13370
 	DEFAULT_BACKLOG = 1024
@@ -230,13 +247,13 @@ We will run the client after the server
 
 .. code-block:: none
 
-	Testing RingLibUV - Client Side
+	Testing RingLibuv - Client Side
 	Client: Start Connection
 	hello from the client
 	message from the server to the client
 
 .. index:: 
-	pair: RingLibUV; Server Example using Classes
+	pair: RingLibuv; Server Example using Classes
 
 Server Example Using Classes
 ============================
@@ -248,7 +265,7 @@ Example:
 	load "libuv.ring"
 	load "objectslib.ring"
 
-	? "Testing RingLibUV - Server Side - Using Classes"
+	? "Testing RingLibuv - Server Side - Using Classes"
 
 	open_object(:MyServer)
 
@@ -322,13 +339,13 @@ Then the message "hello from the client"
 
 .. code-block:: none
 
-	Testing RingLibUV - Server Side - Using Classes
+	Testing RingLibuv - Server Side - Using Classes
 	New Connection
 	hello from the client
 
 
 .. index:: 
-	pair: RingLibUV; Client Example - Using Classes
+	pair: RingLibuv; Client Example - Using Classes
 
 Client Example Using Classes
 ============================
@@ -340,7 +357,7 @@ Example:
 	load "libuv.ring"
 	load "objectslib.ring"
 
-	? "Testing RingLibUV - Client Side - Using Classes"
+	? "Testing RingLibuv - Client Side - Using Classes"
 
 	open_object(:MyClient)
 
@@ -402,7 +419,7 @@ We will run the client after the server
 
 .. code-block:: none
 
-	Testing RingLibUV - Client Side - Using Classes
+	Testing RingLibuv - Client Side - Using Classes
 	Client: Start Connection
 	hello from the client
 	message from the server to the client
@@ -411,7 +428,7 @@ We will run the client after the server
 	
 
 .. index:: 
-	pair: RingLibUV; Threads Example
+	pair: RingLibuv; Threads Example
 
 Threads Example
 ===============
@@ -422,7 +439,7 @@ Example:
 
 	load "libuv.ring"
 
-	? "Testing RingLibUV - Threads"
+	? "Testing RingLibuv - Threads"
 
 	func main
 		one_id = new_uv_thread_t()
@@ -444,13 +461,13 @@ Output:
 
 .. code-block:: none
 
-	Testing RingLibUV - Threads
+	Testing RingLibuv - Threads
 	Message from the First Thread!
 	Message from the Second Thread!
     
 
 .. index:: 
-	pair: RingLibUV; Threads Example - Using Classes
+	pair: RingLibuv; Threads Example - Using Classes
 
 Threads Example - Using Classes
 ===============================
@@ -462,7 +479,7 @@ Example:
 	load "libuv.ring"
 	load "objectslib.ring"
 
-	? "Testing RingLibUV - Threads - Using Classes"
+	? "Testing RingLibuv - Threads - Using Classes"
 
 	open_object(:MyThreads)
 
@@ -489,7 +506,7 @@ Output:
 
 .. code-block:: none
 
-	Testing RingLibUV - Threads - Using Classes
+	Testing RingLibuv - Threads - Using Classes
 	Message from the First Thread!
 	Message from the Second Thread!
 

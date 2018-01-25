@@ -1,8 +1,8 @@
 .. index:: 
-     single: RingLibUV Functions Reference; Introduction
+     single: RingLibuv Functions Reference; Introduction
 
 =============================
-RingLibUV Functions Reference
+RingLibuv Functions Reference
 =============================
 
 * int uv_loop_init(uv_loop_t* loop)

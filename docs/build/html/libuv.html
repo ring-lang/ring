@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Using RingLibUV &mdash; Ring 1.7 documentation</title>
+    <title>Using RingLibuv &mdash; Ring 1.7 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -51,18 +51,31 @@
           <div class="body" role="main">
             
   <div class="section" id="using-ringlibuv">
-<span id="index-0"></span><h1>Using RingLibUV<a class="headerlink" href="#using-ringlibuv" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will learn about using RingLibUV</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">RingLibUV is not distributed with the binary releases</p>
-</div>
+<span id="index-0"></span><h1>Using RingLibuv<a class="headerlink" href="#using-ringlibuv" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using RingLibuv</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To use RingLibUV, Check ring/extensions/ringlibuv folder.</p>
+<p class="last">To use RingLibuv, Check ring/extensions/ringlibuv folder.</p>
 </div>
+<p>Information from the library website: <a class="reference external" href="http://libuv.org/">http://libuv.org/</a></p>
+<p>Libuv is a multi-platform support library with a focus on asynchronous I/O.</p>
+<p>Feature highlights</p>
+<ul class="simple">
+<li>Full-featured event loop backed by epoll, kqueue, IOCP, event ports.</li>
+<li>Asynchronous TCP and UDP sockets</li>
+<li>Asynchronous DNS resolution</li>
+<li>Asynchronous file and file system operations</li>
+<li>File system events</li>
+<li>ANSI escape code controlled TTY</li>
+<li>IPC with socket sharing, using Unix domain sockets or named pipes (Windows)</li>
+<li>Child processes</li>
+<li>Thread pool</li>
+<li>Signal handling</li>
+<li>High resolution clock</li>
+<li>Threading and synchronization primitives</li>
+</ul>
 <div class="section" id="first-application-using-ringlibuv">
-<span id="index-1"></span><h2>First Application using RingLibUV<a class="headerlink" href="#first-application-using-ringlibuv" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>First Application using RingLibuv<a class="headerlink" href="#first-application-using-ringlibuv" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -115,7 +128,7 @@
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Server Side&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side&quot;</span>
 
 <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
 <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
@@ -180,7 +193,7 @@
 <p>Output:</p>
 <p>When we run the client, We will see the message &#8220;New Connection&#8221;</p>
 <p>Then the message &#8220;hello from the client&#8221;</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Server Side
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Server Side
 New Connection
 hello from the client
 </pre></div>
@@ -191,7 +204,7 @@ hello from the client
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Client Side&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Client Side&quot;</span>
 
 <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
 <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
@@ -246,7 +259,7 @@ hello from the client
 </div>
 <p>Output:</p>
 <p>We will run the client after the server</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Client Side
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Client Side
 Client: Start Connection
 hello from the client
 message from the server to the client
@@ -259,7 +272,7 @@ message from the server to the client
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Server Side - Using Classes&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side - Using Classes&quot;</span>
 
 <span class="n">open_object</span><span class="p">(:</span><span class="n">MyServer</span><span class="p">)</span>
 
@@ -328,7 +341,7 @@ message from the server to the client
 <p>Output:</p>
 <p>When we run the client, We will see the message &#8220;New Connection&#8221;</p>
 <p>Then the message &#8220;hello from the client&#8221;</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Server Side - Using Classes
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Server Side - Using Classes
 New Connection
 hello from the client
 </pre></div>
@@ -340,7 +353,7 @@ hello from the client
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Client Side - Using Classes&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Client Side - Using Classes&quot;</span>
 
 <span class="n">open_object</span><span class="p">(:</span><span class="n">MyClient</span><span class="p">)</span>
 
@@ -399,7 +412,7 @@ hello from the client
 </div>
 <p>Output:</p>
 <p>We will run the client after the server</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Client Side - Using Classes
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Client Side - Using Classes
 Client: Start Connection
 hello from the client
 message from the server to the client
@@ -411,7 +424,7 @@ message from the server to the client
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Threads&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads&quot;</span>
 
 <span class="k">func</span> <span class="n">main</span>
         <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
@@ -431,7 +444,7 @@ message from the server to the client
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Threads
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Threads
 Message from the First Thread!
 Message from the Second Thread!
 </pre></div>
@@ -443,7 +456,7 @@ Message from the Second Thread!
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Testing RingLibUV - Threads - Using Classes&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads - Using Classes&quot;</span>
 
 <span class="n">open_object</span><span class="p">(:</span><span class="n">MyThreads</span><span class="p">)</span>
 
@@ -467,7 +480,7 @@ Message from the Second Thread!
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibUV - Threads - Using Classes
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Threads - Using Classes
 Message from the First Thread!
 Message from the Second Thread!
 </pre></div>
@@ -483,8 +496,8 @@ Message from the Second Thread!
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using RingLibUV</a><ul>
-<li><a class="reference internal" href="#first-application-using-ringlibuv">First Application using RingLibUV</a></li>
+<li><a class="reference internal" href="#">Using RingLibuv</a><ul>
+<li><a class="reference internal" href="#first-application-using-ringlibuv">First Application using RingLibuv</a></li>
 <li><a class="reference internal" href="#the-events-loop">The Events Loop</a></li>
 <li><a class="reference internal" href="#server-example">Server Example</a></li>
 <li><a class="reference internal" href="#client-example">Client Example</a></li>
