@@ -31,7 +31,10 @@ RING_FUNC(ring_destroy_curllist)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"CURLLIST");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_get_curlopt_verbose)

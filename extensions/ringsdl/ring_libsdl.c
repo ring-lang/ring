@@ -3,7 +3,7 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
-#include "SDL_image.h"
+#include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
@@ -35,7 +35,10 @@ RING_FUNC(ring_sdl_destroy_sdl_assert_data)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_assert_data");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_version)
@@ -62,7 +65,10 @@ RING_FUNC(ring_sdl_destroy_sdl_version)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_version_major)
@@ -191,7 +197,10 @@ RING_FUNC(ring_sdl_destroy_sdl_displaymode)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DisplayMode");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_messageboxbuttondata)
@@ -218,7 +227,10 @@ RING_FUNC(ring_sdl_destroy_sdl_messageboxbuttondata)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MessageBoxButtonData");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_messageboxcolor)
@@ -245,7 +257,10 @@ RING_FUNC(ring_sdl_destroy_sdl_messageboxcolor)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MessageBoxColor");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_messageboxcolorscheme)
@@ -272,7 +287,10 @@ RING_FUNC(ring_sdl_destroy_sdl_messageboxcolorscheme)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MessageBoxColorScheme");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_messageboxdata)
@@ -299,7 +317,10 @@ RING_FUNC(ring_sdl_destroy_sdl_messageboxdata)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MessageBoxData");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_rendererinfo)
@@ -326,7 +347,10 @@ RING_FUNC(ring_sdl_destroy_sdl_rendererinfo)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_RendererInfo");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_color)
@@ -353,7 +377,10 @@ RING_FUNC(ring_sdl_destroy_sdl_color)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_color_r)
@@ -482,7 +509,10 @@ RING_FUNC(ring_sdl_destroy_sdl_palette)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Palette");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_pixelformat)
@@ -509,7 +539,10 @@ RING_FUNC(ring_sdl_destroy_sdl_pixelformat)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_PixelFormat");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_point)
@@ -536,7 +569,10 @@ RING_FUNC(ring_sdl_destroy_sdl_point)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Point");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_point_x)
@@ -631,7 +667,10 @@ RING_FUNC(ring_sdl_destroy_sdl_rect)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_rect_x)
@@ -794,7 +833,10 @@ RING_FUNC(ring_sdl_destroy_sdl_surface)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_surface_flags)
@@ -1127,7 +1169,10 @@ RING_FUNC(ring_sdl_destroy_sdl_syswminfo)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_SysWMinfo");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_syswmmsg)
@@ -1154,7 +1199,10 @@ RING_FUNC(ring_sdl_destroy_sdl_syswmmsg)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_SysWMmsg");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_controlleraxisevent)
@@ -1181,7 +1229,10 @@ RING_FUNC(ring_sdl_destroy_sdl_controlleraxisevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_type)
@@ -1378,7 +1429,10 @@ RING_FUNC(ring_sdl_destroy_sdl_controllerbuttonevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerButtonEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_controllerdeviceevent)
@@ -1405,7 +1459,10 @@ RING_FUNC(ring_sdl_destroy_sdl_controllerdeviceevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerDeviceEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_dollargestureevent)
@@ -1432,7 +1489,10 @@ RING_FUNC(ring_sdl_destroy_sdl_dollargestureevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_dollargestureevent_type)
@@ -1731,7 +1791,10 @@ RING_FUNC(ring_sdl_destroy_sdl_dropevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_dropevent_type)
@@ -1860,7 +1923,10 @@ RING_FUNC(ring_sdl_destroy_sdl_event)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Event");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_event_type)
@@ -2329,7 +2395,10 @@ RING_FUNC(ring_sdl_destroy_sdl_touchfingerevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TouchFingerEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_touchfingerevent_type)
@@ -2662,7 +2731,10 @@ RING_FUNC(ring_sdl_destroy_sdl_finger)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Finger");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_joyaxisevent)
@@ -2689,7 +2761,10 @@ RING_FUNC(ring_sdl_destroy_sdl_joyaxisevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_joyaxisevent_type)
@@ -2886,7 +2961,10 @@ RING_FUNC(ring_sdl_destroy_sdl_joyballevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyBallEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_joybuttonevent)
@@ -2913,7 +2991,10 @@ RING_FUNC(ring_sdl_destroy_sdl_joybuttonevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyButtonEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_joydeviceevent)
@@ -2940,7 +3021,10 @@ RING_FUNC(ring_sdl_destroy_sdl_joydeviceevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyDeviceEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_joyhatevent)
@@ -2967,7 +3051,10 @@ RING_FUNC(ring_sdl_destroy_sdl_joyhatevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyHatEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_keyboardevent)
@@ -2994,7 +3081,10 @@ RING_FUNC(ring_sdl_destroy_sdl_keyboardevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_keyboardevent_type)
@@ -3191,7 +3281,10 @@ RING_FUNC(ring_sdl_destroy_sdl_mousebuttonevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseButtonEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_mousebuttonevent_type)
@@ -3524,7 +3617,10 @@ RING_FUNC(ring_sdl_destroy_sdl_mousemotionevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_mousemotionevent_type)
@@ -3857,7 +3953,10 @@ RING_FUNC(ring_sdl_destroy_sdl_mousewheelevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseWheelEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_mousewheelevent_type)
@@ -4088,7 +4187,10 @@ RING_FUNC(ring_sdl_destroy_sdl_multigestureevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MultiGestureEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_quitevent)
@@ -4115,7 +4217,10 @@ RING_FUNC(ring_sdl_destroy_sdl_quitevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_QuitEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_syswmevent)
@@ -4142,7 +4247,10 @@ RING_FUNC(ring_sdl_destroy_sdl_syswmevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_SysWMEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_texteditingevent)
@@ -4169,7 +4277,10 @@ RING_FUNC(ring_sdl_destroy_sdl_texteditingevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_texteditingevent_type)
@@ -4366,7 +4477,10 @@ RING_FUNC(ring_sdl_destroy_sdl_textinputevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextInputEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_textinputevent_type)
@@ -4495,7 +4609,10 @@ RING_FUNC(ring_sdl_destroy_sdl_userevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_UserEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_userevent_type)
@@ -4726,7 +4843,10 @@ RING_FUNC(ring_sdl_destroy_sdl_windowevent)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_sdl_windowevent_type)
@@ -4957,7 +5077,10 @@ RING_FUNC(ring_sdl_destroy_sdl_keysym)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Keysym");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticcondition)
@@ -4984,7 +5107,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticcondition)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticCondition");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticconstant)
@@ -5011,7 +5137,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticconstant)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticConstant");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticcustom)
@@ -5038,7 +5167,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticcustom)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticCustom");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticdirection)
@@ -5065,7 +5197,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticdirection)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticDirection");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticeffect)
@@ -5092,7 +5227,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticeffect)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticEffect");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticleftright)
@@ -5119,7 +5257,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticleftright)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticLeftRight");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticperiodic)
@@ -5146,7 +5287,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticperiodic)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticPeriodic");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_hapticramp)
@@ -5173,7 +5317,10 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticramp)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticRamp");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_audiocvt)
@@ -5200,7 +5347,10 @@ RING_FUNC(ring_sdl_destroy_sdl_audiocvt)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_AudioCVT");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_audiospec)
@@ -5227,7 +5377,10 @@ RING_FUNC(ring_sdl_destroy_sdl_audiospec)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_AudioSpec");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdl_rwops)
@@ -5254,7 +5407,10 @@ RING_FUNC(ring_sdl_destroy_sdl_rwops)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_RWops");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_mix_chunk)
@@ -5281,7 +5437,10 @@ RING_FUNC(ring_sdl_destroy_mix_chunk)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mix_Chunk");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_mix_musictype)
@@ -5308,7 +5467,10 @@ RING_FUNC(ring_sdl_destroy_mix_musictype)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mix_MusicType");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_mix_fading)
@@ -5335,7 +5497,10 @@ RING_FUNC(ring_sdl_destroy_mix_fading)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mix_Fading");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_ipaddress)
@@ -5362,7 +5527,10 @@ RING_FUNC(ring_sdl_destroy_ipaddress)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_ipaddress_host)
@@ -5457,7 +5625,10 @@ RING_FUNC(ring_sdl_destroy_tcpsocket)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"TCPsocket");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_udpsocket)
@@ -5484,7 +5655,10 @@ RING_FUNC(ring_sdl_destroy_udpsocket)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"UDPsocket");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_udppacket)
@@ -5511,7 +5685,10 @@ RING_FUNC(ring_sdl_destroy_udppacket)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_udppacket_channel)
@@ -5708,7 +5885,10 @@ RING_FUNC(ring_sdl_destroy_sdlnet_socketset)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDLNet_SocketSet");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_new_sdlnet_genericsocket)
@@ -5735,7 +5915,10 @@ RING_FUNC(ring_sdl_destroy_sdlnet_genericsocket)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDLNet_GenericSocket");
-	ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
 }
 
 RING_FUNC(ring_sdl_get_mix_default_format)
