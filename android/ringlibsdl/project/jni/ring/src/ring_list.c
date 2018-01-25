@@ -169,6 +169,12 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 	pList->pLastItemLastAccess = NULL ;
 	pList->nSize = 0 ;
 	pList->nNextItemAfterLastAccess = 0 ;
+	/* Free Items Array */
+	ring_list_deletearray_gc(pState,pList);
+	/* Free HashTable */
+	if ( pList->pHashTable != NULL ) {
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
+	}
 }
 /* List Items */
 
