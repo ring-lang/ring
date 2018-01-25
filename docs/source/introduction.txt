@@ -124,6 +124,8 @@ Ring 1.5 is released on August 21, 2017
 
 Ring 1.6 is released on November 30, 2017
 
+Ring 1.7 is released on January 25, 2018
+
 .. index:: 
 	pair: Introduction; Features
 
