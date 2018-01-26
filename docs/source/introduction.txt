@@ -234,6 +234,7 @@ The Ring language comes with the next features
 * Type Hints
 * Comes with Ring2EXE to distribute applications
 * RingLibuv Extension
+* No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 
 License
 =======

@@ -544,3 +544,14 @@ After the second line directly, The list [1,2,3,4,5] will be deleted from the me
 * If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.
 
 
+.. index:: 
+	pair: Language Design; No Global Interpreter (VM) Lock - No GIL
+
+No Global Interpreter (VM) Lock - No GIL
+========================================
+
+When we use threads in Ring applications, We don't have global interpreter (VM) lock (No GIL)
+
+So threads can work in parallel and execute Ring instructions at the same time
+
+This is better for threads and concurrency (More Faster!)
