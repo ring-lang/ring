@@ -192,6 +192,9 @@ I appreciate your web library."
 
 	, Gedalya (YouTube)
 
+"Thank you Mr. Mahmoud for all the wonderful work, whenever I dive in the Source code I see the great effort, further development more excellence, God will reward you with what you wish"
+	, Azzedine Ramal
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
