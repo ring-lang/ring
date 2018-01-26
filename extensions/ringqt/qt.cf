@@ -9742,6 +9742,7 @@ int width(void)
 int widthMM(void)
 
 <filter> (sysget("RINGQT_ANDROID") = "")
+
 <class>
 name: QOpenGLTimerQuery
 para: QObject *
@@ -9757,7 +9758,6 @@ GLuint objectId(void)
 void recordTimestamp(void)
 GLuint64 waitForResult(void)
 GLuint64 waitForTimestamp(void)
-</filter>
 
 <class>
 name: QOpenGLDebugLogger
