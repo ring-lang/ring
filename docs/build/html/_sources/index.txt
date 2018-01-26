@@ -86,10 +86,13 @@ Contents:
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Frequently Asked Questions (FAQ) <faq>
+   Language Reference <reference>
+   RingQt Classes and Methods Reference <qtclassesdoc>
+   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
-   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingLibuv Functions Reference <ringlibuvfuncsdoc>
@@ -112,7 +115,4 @@ Contents:
    RingOpenGL (OpenGL 4.4) Functions Reference <ringopengl44funcsdoc>
    RingOpenGL (OpenGL 4.5) Functions Reference <ringopengl45funcsdoc>
    RingOpenGL (OpenGL 4.6) Functions Reference <ringopengl46funcsdoc>
-   RingQt Classes and Methods Reference <qtclassesdoc>
-   Frequently Asked Questions (FAQ) <faq>
-   Language Reference <reference>
    Resources <resources>

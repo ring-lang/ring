@@ -383,8 +383,13 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </pre></div>
 </div>
 </div>
+<div class="section" id="syntax-flexibility">
+<span id="index-9"></span><h2>Syntax Flexibility<a class="headerlink" href="#syntax-flexibility" title="Permalink to this headline">¶</a></h2>
+<p>Ring comes with many styles for writing your source code!</p>
+<p>Also you can change the language keywords and operators and create your custom style!</p>
+</div>
 <div class="section" id="transparent-implementation">
-<span id="index-9"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
 <p>Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -442,7 +447,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </div>
 </div>
 <div class="section" id="visual-implementation">
-<span id="index-10"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The Ring programming language is designed using the PWCT visual programming tool
 and you will find the visual source of the language in the folder &#8220;visualsrc&#8221; - <a href="#id3"><span class="problematic" id="id4">*</span></a>.ssf
 files and the generated source code (In the C Language) in the  src folder and
@@ -453,7 +458,7 @@ the include folder.</p>
 <img alt="_images/visualsrc2.JPG" src="_images/visualsrc2.JPG" />
 </div>
 <div class="section" id="smart-garbage-collector">
-<span id="index-11"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this headline">¶</a></h2>
 <p>Avoid memory problems :-</p>
 <ul class="simple">
 <li>Invalid Memory Access</li>
@@ -478,6 +483,12 @@ the include folder.</p>
 <li>If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.</li>
 </ul>
 </div>
+<div class="section" id="no-global-interpreter-vm-lock-no-gil">
+<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this headline">¶</a></h2>
+<p>When we use threads in Ring applications, We don&#8217;t have global interpreter (VM) lock (No GIL)</p>
+<p>So threads can work in parallel and execute Ring instructions at the same time</p>
+<p>This is better for threads and concurrency (More Faster!)</p>
+</div>
 </div>
 
 
@@ -497,9 +508,11 @@ the include folder.</p>
 <li><a class="reference internal" href="#compact-syntax">Compact Syntax</a></li>
 <li><a class="reference internal" href="#define-natural-statements">Define Natural Statements</a></li>
 <li><a class="reference internal" href="#define-declarative-languages">Define Declarative Languages</a></li>
+<li><a class="reference internal" href="#syntax-flexibility">Syntax Flexibility</a></li>
 <li><a class="reference internal" href="#transparent-implementation">Transparent Implementation</a></li>
 <li><a class="reference internal" href="#visual-implementation">Visual Implementation</a></li>
 <li><a class="reference internal" href="#smart-garbage-collector">Smart Garbage Collector</a></li>
+<li><a class="reference internal" href="#no-global-interpreter-vm-lock-no-gil">No Global Interpreter (VM) Lock - No GIL</a></li>
 </ul>
 </li>
 </ul>

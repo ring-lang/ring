@@ -426,6 +426,17 @@ The classes that power the declarative interface looks like this
 			getobjsdata()
 			cOutput += nl+"</div>" + nl
 			cOutput = TabMLString(cOutput)
+
+.. index:: 
+	pair: Language Design; Syntax Flexibility
+
+Syntax Flexibility
+==================
+
+Ring comes with many styles for writing your source code!
+
+Also you can change the language keywords and operators and create your custom style!
+
 	 
 .. index:: 
 	pair: Language Design; Transparent Implementation
