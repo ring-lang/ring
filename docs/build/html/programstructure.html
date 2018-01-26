@@ -107,6 +107,43 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="load-package">
+<span id="index-3"></span><h2>Load Package<a class="headerlink" href="#load-package" title="Permalink to this headline">¶</a></h2>
+<p>Using the &#8216;load&#8217; command we can use many ring source files in the same project</p>
+<p>But all of these files will share the same global scope</p>
+<p>We have also the &#8220;Load Package&#8221; command</p>
+<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring file) in new global scope</p>
+<p>This is very useful to create libraries that avoid conflicts in global variables</p>
+<p>Example:</p>
+<p>File: loadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
+
+<span class="o">?</span> <span class="n">x</span>
+<span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>File: testloadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">test</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+Hello from testloadpackage.ring
+1000
+100
+1000
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -120,6 +157,7 @@
 <li><a class="reference internal" href="#">Program Structure</a><ul>
 <li><a class="reference internal" href="#source-code-file-sections">Source Code File Sections</a></li>
 <li><a class="reference internal" href="#using-many-source-code-files">Using Many Source Code Files</a></li>
+<li><a class="reference internal" href="#load-package">Load Package</a></li>
 </ul>
 </li>
 </ul>
