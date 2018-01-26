@@ -645,7 +645,7 @@ $aMallocClassesList + "QModelIndex"
 
 </runcode>
 
-<constant>
+<filter> sysget("RINGQT_ANDROID") = ""
 <constant>
 GL_ZERO
 GL_FALSE
@@ -1508,7 +1508,7 @@ GL_COMPRESSED_SRGB_ALPHA
 GL_COMPRESSED_SLUMINANCE
 GL_COMPRESSED_SLUMINANCE_ALPHA
 </constant>
-</constant>
+</filter>
 
 
 <class>
@@ -9738,6 +9738,7 @@ int physicalDpiY(void)
 int width(void)
 int widthMM(void)
 
+<filter> sysget("RINGQT_ANDROID") = ""
 <class>
 name: QOpenGLTimerQuery
 para: QObject *
@@ -9753,6 +9754,7 @@ GLuint objectId(void)
 void recordTimestamp(void)
 GLuint64 waitForResult(void)
 GLuint64 waitForTimestamp(void)
+</filter>
 
 <class>
 name: QOpenGLDebugLogger
