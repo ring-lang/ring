@@ -238,16 +238,18 @@ extern "C" {
 #include <QRegion>
 #include <QStackedWidget>
 #include <QCalendarWidget>
-#include <QOpenGLFunctions>
-#include <QOpenGLContext>
-#include <QSurfaceFormat>
-#include <QOpenGLFunctions_3_2_Core>
-#include <QOpenGLVersionProfile>
 #include <QVector2D>
 #include <QVector3D>
 #include <QVector4D>
 #include <QQuaternion>
 #include <QMatrix4x4>
+
+
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
 #include <QOpenGLPaintDevice>
 #include <QPaintDevice>
 #include <QOpenGLTimerQuery>

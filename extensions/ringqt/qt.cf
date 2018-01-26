@@ -247,16 +247,19 @@ extern "C" {
 #include <QRegion>
 #include <QStackedWidget>
 #include <QCalendarWidget>
-#include <QOpenGLFunctions>
-#include <QOpenGLContext>
-#include <QSurfaceFormat>
-#include <QOpenGLFunctions_3_2_Core>
-#include <QOpenGLVersionProfile>
 #include <QVector2D>
 #include <QVector3D>
 #include <QVector4D>
 #include <QQuaternion>
 #include <QMatrix4x4>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
 #include <QOpenGLPaintDevice>
 #include <QPaintDevice>
 #include <QOpenGLTimerQuery>
@@ -268,7 +271,6 @@ extern "C" {
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
 
-<filter> (sysget("RINGQT_ANDROID") = "")
 
 #include "gserialport.h"
 #include "gwebview.h"
@@ -9135,7 +9137,6 @@ name: QOpenGLFunctions_3_2_Core
 para: void
 </class>
 
-
 void glActiveTexture(GLenum texture)
 void glAttachShader(GLuint program, GLuint shader)
 void glBeginConditionalRender(GLuint id, GLenum mode)
@@ -9697,6 +9698,8 @@ void translate@2(qreal x, qreal y)
 void translate@3(qreal x, qreal y, qreal z)
 QMatrix4x4 transposed(void)
 
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+
 <class>
 name: QOpenGLPaintDevice
 para: void
@@ -10170,3 +10173,5 @@ GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
 GLuint boundTextureId@2(uint unit, QOpenGLTexture::Target target)
 </comment>
 bool hasFeature(QOpenGLTexture::Feature feature)
+
+</filter>
