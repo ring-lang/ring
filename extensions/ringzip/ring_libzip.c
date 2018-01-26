@@ -32,23 +32,6 @@ buf->data[buf->size] = 0;
 return size;
 }
 
-void zip_extract_file(const char *cZIPFile,const char *cFile) {
-struct buffer_t buf = {0};
-
-struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
-assert(zip != NULL);
-
-assert(0 == zip_entry_open(zip, cFile));
-assert(0 == zip_entry_extract(zip, on_extract, &buf));
-
-assert(0 == zip_entry_close(zip));
-free(buf.data);
-buf.data = NULL;
-buf.size = 0;
-
-zip_close(zip);
-}
-
 int on_extract_entry(const char *filename, void *arg) {
 return 0;
 }
@@ -213,25 +196,6 @@ RING_FUNC(ring_zip_entry_close)
 }
 
 
-RING_FUNC(ring_zip_extract_file)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	zip_extract_file(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-}
-
-
 RING_FUNC(ring_zip_extract_allfiles)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -299,6 +263,42 @@ RING_FUNC(ring_zip_getfilenamebyindex)
 	RING_API_RETSTRING(zip_getfilenamebyindex((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"), (int ) RING_API_GETNUMBER(2)));
 }
 
+RING_FUNC(ring_zip_extract_file)
+{
+const char *cZIPFile;
+const char *cFile;
+struct buffer_t buf = {0};
+
+if ( RING_API_PARACOUNT != 2 ) {
+	RING_API_ERROR(RING_API_MISS2PARA);
+	return ;
+}
+if ( ! RING_API_ISSTRING(1) ) {
+	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+}
+if ( ! RING_API_ISSTRING(2) ) {
+	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+}
+
+cZIPFile = RING_API_GETSTRING(1);
+cFile    = RING_API_GETSTRING(2);
+
+struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+{
+	zip_entry_open(zip, cFile);
+	{
+		zip_entry_extract(zip, on_extract, &buf);
+}
+	zip_entry_close(zip);
+}
+zip_close(zip);
+
+RING_API_RETSTRING2(buf.data,buf.size);
+
+free(buf.data);
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_openfile",ring_zip_openfile);
@@ -308,9 +308,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("zip_entry_read",ring_zip_entry_read);
 	ring_vm_funcregister("zip_entry_fread",ring_zip_entry_fread);
 	ring_vm_funcregister("zip_entry_close",ring_zip_entry_close);
-	ring_vm_funcregister("zip_extract_file",ring_zip_extract_file);
 	ring_vm_funcregister("zip_extract_allfiles",ring_zip_extract_allfiles);
 	ring_vm_funcregister("zip_close",ring_zip_close);
 	ring_vm_funcregister("zip_filescount",ring_zip_filescount);
 	ring_vm_funcregister("zip_getfilenamebyindex",ring_zip_getfilenamebyindex);
+	ring_vm_funcregister("zip_extract_file",ring_zip_extract_file);
 }
