@@ -10,4 +10,6 @@ copy libdepwin\glew\bin\Release\Win32\*.dll bin
 copy libdepwin\libcurl\bin\*.dll bin
 copy libdepwin\mysql\lib\*.dll bin
 copy libdepwin\openssl\bin\*.dll bin
+copy libdepwin\libuv\*.dll bin
+
 copy C:\Qt\Qt5.5.1\5.5\mingw492_32\bin\*.dll bin
