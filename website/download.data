@@ -7,7 +7,11 @@
 						 [
 							'Ring 1.7 For Ubuntu Linux (64bit)<br>',
 							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_Ubuntu.zip/download" target="_blank">Download  (191 MB)</a>'						
-						 ],	
+						 ],
+						 [
+							'Ring 1.7 For Fedora Linux (64bit)<br>',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_Fedora.zip/download" target="_blank">Download  (191 MB)</a>'						
+						 ],						 
 						 [
 							'Ring 1.7 For macOS (64bit)<br>',
 							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_macOS.zip/download" target="_blank">Download  (194 MB)</a>'						
