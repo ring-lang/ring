@@ -12,7 +12,7 @@
 # Lists   ---> a
 
 #=========================================================
-
+load "stdlib.ring"
 aList = []		# to store numbers in it		
 
 While True
@@ -28,7 +28,7 @@ see "
 		on "2" nSum=0 for nNum in aList nSum=nSum+nNum 
 			      next
 			see "Sum = " +nSum
-		on "3" ? "good bye" bye
+		on "3" ? "good bye"  sleep(2) bye
 		other see "Bad option"
 	
 	off
