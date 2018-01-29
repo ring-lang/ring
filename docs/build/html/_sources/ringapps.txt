@@ -196,6 +196,13 @@ I appreciate your web library."
 
 	, Azzedine Ramal
 
+"What a great joy to find this surprisingly genius language !!!. It was a total joy to go through the documentation and look at the samples in Rosetta code.
+Marvelous work. I would even leave my fortune to the development of this language. Keep the good work going and wishing this language will go viral.
+
+ps: Thanks for keeping array index to start with 1. It means a lot."
+
+	, Nehemiah Jacob (Sydney, Australia)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
