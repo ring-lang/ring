@@ -17,3 +17,7 @@ mf.frSetSeparatorTo(" ")
 ?mf.frInt(lnValue)
 
 ?mf.frForceExt("teste", "dbf")
+
+// Format "@L" Added into frTransform() function
+?mf.frTransform("123", "@L 999999")
+?mf.frTransform(123, "@L 999999")
