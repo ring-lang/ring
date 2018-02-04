@@ -1,10 +1,15 @@
 /*
  *	
+ *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
  *	frAddBs()		Adds a backslash (if needed) to a path expression.
  *	frALines()		Creates an Array with the content of the specified string. 
  *	frAllTrim()		Removes all leading and trailing spaces of the specified string. 
  *	frAt()			Searches a character expression for the occurrence of another character expression.
- *	frBetween()		Determines whether the value of an expression is inclusively between the values of two expressions of the same type.
+ *	frAtC()			Searches a character expression for the ocurrence of another character expression without 
+ *				regard for the case of these two expressions.
+ *	frBetween()		Determines whether the value of an expression is inclusively between the values of two 
+ *				expressions of the same type.
+ *	frChr()			Returns the character associated with the specified numeric ANSI code.
  *	frEmpty()		Determines whether an expression evaluates to empty.
  *	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
  *  	frIif()   		Returns one of two values depending on the value of a logical expression.
@@ -47,7 +52,7 @@
 	
 class frFunctions
 
-	_version = "1.0.135"
+	_version = "1.0.136"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -69,6 +74,25 @@ class frFunctions
 	_set_separator 		= _separator
 
 	/*
+	 * Syntax		: lnReturnValue = frAsc(tcExpression)
+	 * Description		: Returns the ANSI value for the leftmost character in a character expression.
+	 * 			:
+	 * Arguments		: <tcExpression>
+	 *			: Specifies the character expression containing the character whose ANSI value frAsc() 
+	 *			: returns. Any characters after the first character in tcExpression are ignored by frAsc().
+	 *			:
+	 * Returns		: <lnReturnValue>
+	 *			: returns the position of the character in the character table of the current code page. 
+	 *			: Every character has a unique ANSI value in the range from 0 to 255.
+	 *			:
+	 * Author		: Jar C 04.02.2018
+	 */
+	 
+	func frAsc(tcExpression) {
+	 	return Ascii(Left(tcExpression, 1))
+	}
+	
+	/*
 	 * Syntax		: lcReturnValue = frAddBs(tcPath)
 	 * Description		: Adds a backslash (if needed) to a path expression.
 	 *			:
@@ -85,8 +109,8 @@ class frFunctions
 	}
 
 	/*
-	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
-	 * Description		: Searches a character expression for the occurrence of another character expression. 
+	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOcurrence)
+	 * Description		: Searches a character expression for the ocurrence of another character expression. 
 	 *			: The search performed by .frAt() is case-sensitive.
 	 *			:
 	 * Arguments   		: <tcToSearch>
@@ -96,28 +120,28 @@ class frFunctions
 	 *			: Specifies the character expression to search for tcToSearch. 
 	 *			:
 	 *			: <tnOccurrence> 
-	 *			: Specifies which occurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
-	 *			: By default, .frAt() searches for the first occurrence of tcToSearch (tnOccurrence = 1). 
+	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
+	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
 	 *			: 
 	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
 	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
-	 *			: expression or field is not found, or if tnOccurrence is greater than the number of times tcToSearch occurs in 
+	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
 	 *			: tcString, .frAt() returns 0.
 	 *			:
 	 * Author	 	: Jar c 19.12.2017
 	 */
 
-	func frAt(tcToSearch, tcString, tnOccurrence) {
+	func frAt(tcToSearch, tcString, tnOcurrence) {
 	
-		tnOcurrence 	= this.frSetIfEmpty(tnOccurrence, 1)
+		tnOcurrence 	= this.frSetIfEmpty(tnOcurrence, 1)
 		lnRet 		= 0
 		lnCounted 	= 0
 		
-		for n = 1 to tnOccurrence {
+		for n = 1 to tnOcurrence {
 			lnRet = SubStr(tcString, tcToSearch)
 			if lnRet > 0 {
 				tcString = SubStr(tcString, lnRet + 1)
-				if n < tnOccurrence {
+				if n < tnOcurrence {
 					lnCounted += lnRet
 				}
 			else
@@ -126,6 +150,54 @@ class frFunctions
 		}
 		
 		return lnCounted + lnRet
+	}
+
+
+	/*
+	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOcurrence)
+	 * Description		: Searches a character expression for the ocurrence of another character expression 
+	 *			: without regard for the case of these two expressions.
+	 *			:
+	 * Arguments   		: <tcToSearch>
+	 *			: Specifies the character expression to search for in tcString.
+	 *			:
+	 *			: <tcString> 
+	 *			: Specifies the character expression to search for tcToSearch. 
+	 *			:
+	 *			: <tnOcurrence> 
+	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
+	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
+	 *			: 
+	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
+	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
+	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
+	 *			: tcString, .frAt() returns 0.
+	 *			:
+	 * Author	 	: Jar c 04.02.2018
+	 */
+
+	func frAtC(tcToSearch, tcString, tnOcurrence) {
+		return this.frAt(Lower(tcToSearch), Lower(tcString), tnOcurrence)
+	}
+
+	/*
+	 * Syntax		: lcReturnValue = frChr(tnExpression)
+	 * Description		: Returns the character associated with the specified numeric ANSI code.
+	 *			:
+	 * Arguments		: <tnExpression>
+	 *			: Specifies a number between 0 and 255 whose equivalent ANSI character frChr() returns.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns a single character corresponding to the numeric position of the character in the
+	 *			: character table of the current code page.
+	 * 			:
+	 * Remarks		: tnExpression must be between 0 and 255
+	 *			:
+	 * Author		: Jar C 02.02.2018
+	 */
+	
+	func frChr(tnExpression) {
+	 	return Char(tnExpression)
 	}
 
 	/*
@@ -804,12 +876,15 @@ class frFunctions
 	 *			:  	@T 			Trims leading and trailing spaces from character values.
 	 *			: 	@B			Left-justifies Numeric data within the display region.
 	 *			: 	@L			Pads numeric and string data with leading zeros.
+	 *			:	@C			Appends CR to positive numeric values to indicate a credit.
+	 *			:	@X			Appends DB to negative numeric values to indicate a debit.
 	 *			:  ---------------------------------------------------------------------------------------
 	 *			: 
-	 * Returns		: 
+	 * Returns		: <tcReturnValue>
 	 *			: 
 	 * Author	 	: Jar C 08.01.2018
-	 *			: Jar U 02.01.2018 Add "@L" function
+	 *			: Jar U 02.02.2018 Added "@L" function
+	 *			: Jar U 04.02.2018 Added "@X" function and some comments.
 	 */
 
 	func frTransform(tuExpression, tcFormatCodes) {
@@ -842,10 +917,12 @@ class frFunctions
 					laPictureCodes = ["9", "X", "!", "x", "A", "a", "#"]
 				
 					if Len(this.frAllTrim(lcFunction, Null)) = 2 {
+						// @!			Converts an entire character string to uppercase.
 						if llOk and Left(lcFunction, 2) = "@!" {
 							llOk = False
 							tcReturnValue = this._process_format_for_string(Upper(tuExpression), lcFormat, laPictureCodes)
 						}
+						// @T 			Trims leading and trailing spaces from character values.
 						if llOk and Left(lcFunction, 2) = "@T" {
 							llOk = False
 								
@@ -858,6 +935,7 @@ class frFunctions
 							lcValue = this.frAllTrim(tuExpression, Null)
 							tcReturnValue = this._process_format_for_string(lcValue, lcFormat, laPictureCodes)
 						}
+						// @L			Pads numeric and string data with leading zeros.
 						if llOk and Left(lcFunction, 2) = "@L" {
 							llOk = False
 							lcValue = this.frAllTrim(tuExpression, Null)
@@ -877,14 +955,14 @@ class frFunctions
 						tuExpression = this._empty_char + tuExpression
 						
 						if Len(this.frAllTrim(lcFunction, Null)) = 2 {
-
+							// @B			Left-justifies Numeric data within the display region.
 							if llOk and Left(lcFunction, 2) = "@B" {
 								llOk = False
 								lcValue = this.frAllTrim(tuExpression, Null)
 								lcValue = this.frPadR(lcValue, 16, Null)
 								tcReturnValue = this._process_format_for_numeric(lcValue, lcFormat, laPictureCodes)
 							}
-							
+							// @C			Appends CR to positive numeric values to indicate a credit.
 							if llOk and Left(lcFunction, 2) = "@C" {
 								llOk = False
 								lcValue = this.frAllTrim(tuExpression, Null)
@@ -894,7 +972,17 @@ class frFunctions
 									tcReturnValue += " CR"
 								}
 							}
-							
+							// @X			Appends DB to negative numeric values to indicate a debit.
+							if llOk and Left(lcFunction, 2) = "@X" {
+								llOk = False
+								lcValue = this.frAllTrim(tuExpression, Null)
+								lcValue = this.frPadL(lcValue, 19, Null)
+								tcReturnValue = this._process_format_for_numeric(lcValue, lcFormat, laPictureCodes)
+								if lnOriginalExpression < 0 {
+									tcReturnValue += " DB"
+								}
+							}
+							// @L			Pads numeric and string data with leading zeros.	
 							if llOk and Left(lcFunction, 2) = "@L" {
 								llOk = False
 								lcValue = this.frAllTrim(tuExpression, Null)
