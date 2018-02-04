@@ -1,0 +1,15 @@
+FoxRing ChangeLog
+
+
+1.0.136 2018.02.04 Jar
+----------------------------------------------------------
+	Added - "@X" format to the frTransform() function
+	Added - frAsc() function
+	Added - frAtC() function
+	Added - frChr() function
+	Fixed - frAt() function
+  Added file ChangeLog.txt to FoxRing directory.
+
+1.0.135  2018.02.01 Jar
+----------------------------------------------------------
+	Added - "@L" format to the frTransform() function.
