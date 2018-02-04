@@ -52,7 +52,7 @@
 	
 class frFunctions
 
-	_version = "1.0.135"
+	_version = "1.0.136"
 
 	_character_type = "C"
 	_numeric_type = "N"	
