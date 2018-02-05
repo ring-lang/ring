@@ -203,6 +203,10 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 
 	, Nehemiah Jacob (Sydney, Australia)
 
+"I find it very interesting. Especially the fact that it is cross platform makes it something to keep an eye on."
+
+	, Boudewijn Lutgerink 
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
