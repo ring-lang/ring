@@ -25,7 +25,6 @@ class GraphicsApp from GraphicsAppBase
 	TITLE = "Camera"
 
 	bitmap texture font
-	bitmap2 texture2
 
 	// angle of rotation for the camera direction
 		angle=0.0
@@ -38,23 +37,24 @@ class GraphicsApp from GraphicsAppBase
 
 	fraction = 0.1
 
+	SetCamera()
 
+	func SetCamera
+		angle = 0.5
+		lx = sin(angle)
+		lz = -cos(angle)
 
 	func loadresources
 
-		bitmap = al_load_bitmap("n1.jpg")
+		bitmap = al_load_bitmap("cube.jpg")
 		texture = al_get_opengl_texture(bitmap)
 		font = al_load_ttf_font("pirulen.ttf",54,0 )
-		bitmap2 = al_load_bitmap("sky3.jpg")
-		texture2 = al_get_opengl_texture(bitmap2)
-
 
 	func destroyResources
 
 		al_destroy_bitmap(bitmap)
 		al_destroy_font(font)
 		al_destroy_bitmap(bitmap2)
-
 
 	func drawScene
 
@@ -92,22 +92,15 @@ class GraphicsApp from GraphicsAppBase
                         x+lx, 1.0,  z+lz,
                         0.0, 1.0,  0.0)
 
-		glBindTexture(GL_TEXTURE_2D, texture2)
-
 	     	glColor4f(1, 1, 1,1)
 	        glBegin(GL_QUADS)
-		glTexCoord2f(0.0, 1.0)  
-			glVertex3f(-100.0, 0.0, -100.0)
-		glTexCoord2f(0.0, 1.0)  
-			glVertex3f(-100.0, 0.0,  100.0)
-		glTexCoord2f(1.0, 0.0)  
-			glVertex3f( 100.0, 0.0,  100.0)
-		glTexCoord2f(1.0, 0.0)  
-			glVertex3f( 100.0, 0.0, -100.0)
+		glVertex3f(-100.0, 0.0, -100.0)
+		glVertex3f(-100.0, 0.0,  100.0)
+		glVertex3f( 100.0, 0.0,  100.0)
+		glVertex3f( 100.0, 0.0, -100.0)
 	        glEnd()
 
 		glBindTexture(GL_TEXTURE_2D, texture)
-
 
 		 for i = -3 to 2
 	                for  j=-3 to 2
@@ -131,22 +124,22 @@ class GraphicsApp from GraphicsAppBase
 		ok
 
 	func moveup
-			x += lx * fraction
-                        z += lz * fraction
+		x += lx * fraction
+		z += lz * fraction
 
 	func movedown
-			x -= lx * fraction
-                        z -= lz * fraction
+		x -= lx * fraction
+		z -= lz * fraction
 
 	func moveleft 
-			angle -= 0.01
-                        lx = sin(angle)
-                        lz = -cos(angle)
+		angle -= 0.01
+		lx = sin(angle)
+		lz = -cos(angle)
 
 	func moveright 
-			angle += 0.01
-                        lx = sin(angle)
-                        lz = -cos(angle)
+		angle += 0.01
+		lx = sin(angle)
+		lz = -cos(angle)
 
 	func drawsphere
 		gl_quad_obj=gluNewQuadric();
@@ -191,7 +184,7 @@ class GraphicsApp from GraphicsAppBase
 
 	func drawcube2
 
-		 //Multi-colored side - FRONT
+		  //Multi-colored side - FRONT
 		  glBegin(GL_POLYGON)
 		
 		  glColor3f( 1.0, 0.0, 0.0 )     glVertex3f(  0.5, -0.5, -0.5 )      # P1 is red
@@ -312,8 +305,6 @@ class GraphicsApp from GraphicsAppBase
 		glLoadIdentity()
 		glDisable(GL_CULL_FACE) 
 
-
-	//func glTexCoord2f a,b
 
 class GraphicsAppBase
 
