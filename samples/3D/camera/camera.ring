@@ -22,7 +22,7 @@ func main
 
 class GraphicsApp from GraphicsAppBase
 
-	TITLE = "Camera"
+	TITLE = "The Camera Sample"
 
 	bitmap texture font
 
@@ -115,7 +115,6 @@ class GraphicsApp from GraphicsAppBase
 	
 		glflush()
 
-
 		# Respond to Keyboard
 			if key[key_left]
 				moveleft()
@@ -179,14 +178,6 @@ class GraphicsApp from GraphicsAppBase
 			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 		glEnd()
-
-	func set2DMode
-		glMatrixMode(GL_PROJECTION)
-		glPopMatrix()
-		glMatrixMode(GL_MODELVIEW)
-		glLoadIdentity()
-		glDisable(GL_CULL_FACE) 
-
 
 class GraphicsAppBase
 
