@@ -54,7 +54,6 @@ class GraphicsApp from GraphicsAppBase
 
 		al_destroy_bitmap(bitmap)
 		al_destroy_font(font)
-		al_destroy_bitmap(bitmap2)
 
 	func drawScene
 
@@ -82,7 +81,6 @@ class GraphicsApp from GraphicsAppBase
 		glDepthFunc(GL_LEQUAL)
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
-
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 		al_clear_to_color(al_map_rgb(255,255,255))
 
@@ -92,37 +90,43 @@ class GraphicsApp from GraphicsAppBase
                         x+lx, 1.0,  z+lz,
                         0.0, 1.0,  0.0)
 
-	     	glColor4f(1, 1, 1,1)
-	        glBegin(GL_QUADS)
-		glVertex3f(-100.0, 0.0, -100.0)
-		glVertex3f(-100.0, 0.0,  100.0)
-		glVertex3f( 100.0, 0.0,  100.0)
-		glVertex3f( 100.0, 0.0, -100.0)
-	        glEnd()
+		# Draw Ground
+		     	glColor4f(1, 1, 1,1)
+		        glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		        glEnd()
 
-		glBindTexture(GL_TEXTURE_2D, texture)
 
-		 for i = -3 to 2
-	                for  j=-3 to 2
-	                        glPushMatrix()
-	                        glTranslatef(i*10.0,0,j * 10.0)
-	                        drawCube()
-	                        glPopMatrix()
-	                next
-	        next
-
+		# Draw Cubes 
+	
+			glBindTexture(GL_TEXTURE_2D, texture)
+	
+			 for i = -3 to 2
+		                for  j=-3 to 2
+		                        glPushMatrix()
+		                        glTranslatef(i*10.0,0,j * 10.0)
+		                        drawCube()
+		                        glPopMatrix()
+		                next
+		        next
+	
 		glflush()
 
-		if key[key_left]
-			moveleft()
-		but key[key_right]
-			moveright()
-		but key[key_up]
-			moveup()
-		but key[key_down]
-			movedown()
-		ok
 
+		# Respond to Keyboard
+			if key[key_left]
+				moveleft()
+			but key[key_right]
+				moveright()
+			but key[key_up]
+				moveup()
+			but key[key_down]
+				movedown()
+			ok
+	
 	func moveup
 		x += lx * fraction
 		z += lz * fraction
@@ -140,11 +144,6 @@ class GraphicsApp from GraphicsAppBase
 		angle += 0.01
 		lx = sin(angle)
 		lz = -cos(angle)
-
-	func drawsphere
-		gl_quad_obj=gluNewQuadric();
-		gluQuadricTexture(gl_quad_obj, GL_TRUE);
-		gluSphere(gl_quad_obj,1.0f,4,4);
 
 	func drawcube
 
@@ -180,123 +179,6 @@ class GraphicsApp from GraphicsAppBase
 			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 		glEnd()
-
-
-	func drawcube2
-
-		  //Multi-colored side - FRONT
-		  glBegin(GL_POLYGON)
-		
-		  glColor3f( 1.0, 0.0, 0.0 )     glVertex3f(  0.5, -0.5, -0.5 )      # P1 is red
-		  glColor3f( 0.0, 1.0, 0.0 )     glVertex3f(  0.5,  0.5, -0.5 )      # P2 is green
-		  glColor3f( 0.0, 0.0, 1.0 )     glVertex3f( -0.5,  0.5, -0.5 )      # P3 is blue
-		  glColor3f( 1.0, 0.0, 1.0 )     glVertex3f( -0.5, -0.5, -0.5 )      # P4 is purple
-		
-		  glEnd()
-		
-		  // White side - BACK
-		  glBegin(GL_POLYGON)
-		  glColor3f(   1.0,  1.0, 1.0 )
-		  glVertex3f(  0.5, -0.5, 0.5 )
-		  glVertex3f(  0.5,  0.5, 0.5 )
-		  glVertex3f( -0.5,  0.5, 0.5 )
-		  glVertex3f( -0.5, -0.5, 0.5 )
-		  glEnd()
-		
-		  // Purple side - RIGHT
-		  glBegin(GL_POLYGON)
-		  glColor3f(  1.0,  0.0,  1.0 )
-		  glVertex3f( 0.5, -0.5, -0.5 )
-		  glVertex3f( 0.5,  0.5, -0.5 )
-		  glVertex3f( 0.5,  0.5,  0.5 )
-		  glVertex3f( 0.5, -0.5,  0.5 )
-		  glEnd()
-		
-		  // Green side - LEFT
-		  glBegin(GL_POLYGON)
-		  glColor3f(   0.0,  1.0,  0.0 )
-		  glVertex3f( -0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5,  0.5,  0.5 )
-		  glVertex3f( -0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5, -0.5, -0.5 )
-		  glEnd()
-		
-		  // Blue side - TOP
-		  glBegin(GL_POLYGON)
-		  glColor3f(   0.0,  0.0,  1.0 )
-		  glVertex3f(  0.5,  0.5,  0.5 )
-		  glVertex3f(  0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5,  0.5,  0.5 )
-		  glEnd()
-		
-		  // Red side - BOTTOM
-		  glBegin(GL_POLYGON)
-		  glColor3f(   1.0,  0.0,  0.0 )
-		  glVertex3f(  0.5, -0.5, -0.5 )
-		  glVertex3f(  0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5, -0.5, -0.5 )
-		  glEnd()
-		
-
-	func drawcube3
-
-		 //Multi-colored side - FRONT
-		  glBegin(GL_POLYGON)
-		
-		  glColor4f( 1.0, 0.0, 0.0 ,0.0 )     glVertex3f(  0.5, -0.5, -0.5 )      # P1 is red
-		  glColor4f( 0.0, 1.0, 0.0 ,0.0)     glVertex3f(  0.5,  0.5, -0.5 )      # P2 is green
-		  glColor4f( 0.0, 0.0, 1.0 ,0.0)     glVertex3f( -0.5,  0.5, -0.5 )      # P3 is blue
-		  glColor4f( 1.0, 0.0, 1.0 ,0.0)     glVertex3f( -0.5, -0.5, -0.5 )      # P4 is purple
-		
-		  glEnd()
-		
-		  // White side - BACK
-		  glBegin(GL_POLYGON)
-		  glColor4f(   1.0,  1.0, 1.0 ,0.0)
-		  glVertex3f(  0.5, -0.5, 0.5 )
-		  glVertex3f(  0.5,  0.5, 0.5 )
-		  glVertex3f( -0.5,  0.5, 0.5 )
-		  glVertex3f( -0.5, -0.5, 0.5 )
-		  glEnd()
-		
-		  // Purple side - RIGHT
-		  glBegin(GL_POLYGON)
-		  glColor4f(  1.0,  0.0,  1.0 ,0.0 )
-		  glVertex3f( 0.5, -0.5, -0.5 )
-		  glVertex3f( 0.5,  0.5, -0.5 )
-		  glVertex3f( 0.5,  0.5,  0.5 )
-		  glVertex3f( 0.5, -0.5,  0.5 )
-		  glEnd()
-		
-		  // Green side - LEFT
-		  glBegin(GL_POLYGON)
-		  glColor4f(   0.0,  1.0,  0.0 ,0.0 )
-		  glVertex3f( -0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5,  0.5,  0.5 )
-		  glVertex3f( -0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5, -0.5, -0.5 )
-		  glEnd()
-		
-		  // Blue side - TOP
-		  glBegin(GL_POLYGON)
-		  glColor4f(   0.0,  0.0,  1.0  ,0.0)
-		  glVertex3f(  0.5,  0.5,  0.5 )
-		  glVertex3f(  0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5,  0.5, -0.5 )
-		  glVertex3f( -0.5,  0.5,  0.5 )
-		  glEnd()
-		
-		  // Red side - BOTTOM
-		  glBegin(GL_POLYGON)
-		  glColor4f(   1.0,  0.0,  0.0 ,0.0 )
-		  glVertex3f(  0.5, -0.5, -0.5 )
-		  glVertex3f(  0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5, -0.5,  0.5 )
-		  glVertex3f( -0.5, -0.5, -0.5 )
-		  glEnd()
-		
 
 	func set2DMode
 		glMatrixMode(GL_PROJECTION)
