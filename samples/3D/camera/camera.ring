@@ -4,7 +4,7 @@
 
 # Load Libraries
 	load "gamelib.ring"		# RingAllegro Library
-	load "opengl32lib.ring"		# RingOpenGL  Library
+	load "opengl21lib.ring"		# RingOpenGL  Library
 
 #==============================================================
 # To Support MacOS X
