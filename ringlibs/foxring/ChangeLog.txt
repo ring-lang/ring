@@ -1,5 +1,11 @@
 FoxRing ChangeLog
 
+1.0.137 2018.02.08 Jar
+----------------------------------------------------------
+	Added - frForcePath() function
+	Added - frJustDrive() function
+	Added - frJustExt() function
+	Added - frJustStem() function
 
 1.0.136 2018.02.04 Jar
 ----------------------------------------------------------
@@ -8,7 +14,7 @@ FoxRing ChangeLog
 	Added - frAtC() function
 	Added - frChr() function
 	Fixed - frAt() function
-  Added file ChangeLog.txt to FoxRing directory.
+  	Added - File ChangeLog.txt to FoxRing directory.
 
 1.0.135  2018.02.01 Jar
 ----------------------------------------------------------
