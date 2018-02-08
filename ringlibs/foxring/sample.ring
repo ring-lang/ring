@@ -3,6 +3,19 @@ Load "foxring.ring"
 
 mf = new frFunctions
 
+
+lcCompletFileName = "C:\ring\docs\source\contribute.txt"
+
+lcNewPath = "C:\ring_2\docs\source\"
+
+?mf.frJustExt(lcCompletFileName)
+?mf.frJustDrive(lcCompletFileName)
+?mf.frJustStem(lcCompletFileName)
+?mf.frForcePath(lcCompletFileName, lcNewPath)
+
+
+
+
 ?mf.frTransform("    Ring is a good language    ", "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
 ?mf.frAllTrim("    Ring is a good language    ", Null) 
 
