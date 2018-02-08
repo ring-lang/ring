@@ -12,11 +12,15 @@
  *	frChr()			Returns the character associated with the specified numeric ANSI code.
  *	frEmpty()		Determines whether an expression evaluates to empty.
  *	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
+ *	frForcePath()		Returns a file name with a new path name substituted for the old one.
  *  	frIif()   		Returns one of two values depending on the value of a logical expression.
  *	frInList()		Determines whether an expression matches another expression in a list.
  *	frInt()			Evaluates a numeric expression and returns the integer portion of the expression.
+ *	frJustDrive()		Returns the drive letter from a complete path.
+ *	frJustExt()		Returns the characters of a file extension from a complete path.
  *	frJustFName()		Returns the file name portion of a complete path and file name.
  *	frJustPath()		Returns the path portion of a complete path and file name.
+ *	frJustStem()		Returns the stem name (the file name before the extension) from a complete path and file name.
  *	frLen()			Determines the number of characters in a character expression, indicating the length of the expression.
  *	frListToString()	Creates a string with the string elements of an Array.
  *	frLTrim()		Removes all leading spaces or parsing characters from the specified character expression.
@@ -52,7 +56,7 @@
 	
 class frFunctions
 
-	_version = "1.0.136"
+	_version = "1.0.137"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -377,6 +381,27 @@ class frFunctions
 		}
 		return llReturn 
 	}
+	
+	
+	/*
+	 * Syntax		: lcReturnValue = frForcePath(tcFileName, tcPath)
+	 * Description		: Returns a file name with a new path name substituted for the old one.
+	 *			:
+	 * Arguments   		: <tcFileName>
+	 *			: Specifies the file name (with or without a path or extension), which will get a new path.
+	 *			:
+	 *			: <tcPath>
+	 *			: Specifies the new path for tcFileName.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns a file name with a new path name substituted for the old one.
+	 *			:
+	 * Author	 	: Jar C 08.02.2018
+	 */
+	func frForcePath(tcFileName, tcPath) {
+		return this.frAddBs(this.frJustPath(tcPath)) + this.frJustFName(tcFileName)
+	}
+	
 
 	/*
 	 * Syntax		: lcRet = frVarType(tuExpression)
@@ -463,6 +488,72 @@ class frFunctions
 			
 		return lcRet
 	}	
+
+	/*
+	 * Syntax		: lcReturnValue = frJustDrive(tcPath)
+	 * Description		: Returns the drive letter from a complete path.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the complete path name for which you want only the drive.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the drive letter from a complete path.
+	 *			:
+	 * Author	 	: Jar C 08.02.2018
+	 */
+	func frJustDrive(tcPath) {
+	
+		lcReturnValue = this._empty_char
+		if this.frSubStr(tcPath, 2, 1) = ":" {
+			lcReturnValue = left(tcPath, 2)
+		}
+		return lcReturnValue
+	}
+
+
+	
+	/*
+	 * Syntax		: lcReturnValue = frJustExt(tcPath)
+	 * Description		: Returns the characters of a file extension from a complete path.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the name, which may include the full path, of the file for which you want only the extension. 
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the drive characters of a file extension from a complete path.
+	 *			:
+	 * Author	 	: Jar C 08.02.2018
+	 */
+	func frJustExt(tcPath) {
+	
+		lcReturnValue = this._empty_char
+		lnPos = this.frAt(".", tcPath, Null)
+		if this.frBetween(lnPos, 0, Len(tcPath)) {
+			lcReturnValue = this.frSubStr(tcPath, lnPos + 1, 0)
+		}
+		return lcReturnValue
+	}
+	
+
+	/*
+	 * Syntax		: lcReturnValue = frJustStem(tcPath)
+	 * Description		: Returns the stem name (the file name before the extension) from a complete path and file name.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the name (including path) of the file for which you want only the stem. 
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the stem name of a file from a complete path.
+	 *			:
+	 * Author	 	: Jar C 08.02.2018
+	 */
+	func frJustStem(tcPath) {
+	
+		lcFileName = this.frJustFName(tcPath)
+		lcExtension = "." + this.frJustExt(tcPath)
+		
+		return this.frStrTran(lcFileName, lcExtension, this._empty_char)
+	}
 
 	/*
 	 * Syntax		: lcRet = frRTrim(tcExpression, tcCharacter)
