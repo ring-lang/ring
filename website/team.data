@@ -41,6 +41,13 @@
                     'Active',
 					'<img src="shalok.jpg">'
                   ],
+				  [
+                    'Nehemiah Jacob',
+                    'nehemiah.jacob@gmail.com',
+                    'Web Framework',
+                    'Active',
+					'<img src="nehemiah.jpg">'
+                  ],
   				  [
 					'Ahmed Hassouna',
 					'mr.ahmed_hassouna@yahoo.com',
@@ -1011,12 +1018,6 @@
                     'José Rosado',
                     'jar.megaware@gmail.com',
                     'FoxRing Library',
-                    'Active'
-                  ],
-				  [
-                    'Nehemiah Jacob',
-                    'nehemiah.jacob@gmail.com',
-                    'Web Framework',
                     'Active'
                   ]				  
 ]
