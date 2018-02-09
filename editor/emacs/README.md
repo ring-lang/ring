@@ -16,4 +16,4 @@ Please follow these steps
 4 - Add the next two lines
 
 	(add-to-list 'load-path "~/.emacs.d/lisp/")
-	(load "ring-mode") ;; best not to include the ending “.el” or “.elc”
+	(load "ring-mode") 

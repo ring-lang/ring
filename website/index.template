@@ -867,7 +867,7 @@ Hello, World!
 		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" target="_blank">PWCT visual programming tool </a>
 		  and you will find the visual source of the language in the folder
 		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
-		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Forke me on GitHub</a>
+		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Fork me on GitHub</a>
 			<br><br>
 		  The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h)
 		  <br><br>

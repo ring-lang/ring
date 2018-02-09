@@ -239,7 +239,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 We will build Libuv first
 
 	cd ../extensions/ringlibuv/libuv
-	sudo apt-get install m4 automake
+	sudo apt-get libtool install m4 automake
 	sh autogen.sh
 	./configure
 	make
@@ -362,7 +362,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 We will build Libuv first
 
 	cd ../extensions/ringlibuv/libuv
-	sudo dnf install m4 autoconf automake
+	sudo dnf install libtool m4 autoconf automake
 	sh autogen.sh
 	./configure
 	make
