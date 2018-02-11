@@ -210,6 +210,9 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "The language I like the most. Efficient, simple, easy, flexible and wonderful language."
 	, Roshan Ali
 
+"I like variety. The richer the toolbox, the more appropriate the tool."
+	, Jonathan Day (Quora)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
