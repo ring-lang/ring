@@ -308,8 +308,13 @@
 					'<a href="https://www.youtube.com/watch?v=qQm5L-S92hk" target="_blank">Ring: Hello World (Download and Installation: Lesson One)</a>'
 				]
 			]
+	     ],		 			
+		  ["Tutorials (YouTube) by Muhammad Aslam Khan",[
+				[
+					'<a href="https://www.youtube.com/watch?v=zjQ6OW_uFnc" target="_blank">How to install Ring Programming Language and run hello world</a>'
+				]
+			]
 	     ],
-		 			
 			["English Tutorials (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank">The Ring programming language</a>'					
