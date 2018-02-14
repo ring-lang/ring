@@ -42,6 +42,13 @@
 					'<img src="shalok.jpg">'
                   ],
 				  [
+                    'José Rosado',
+                    'jar.megaware@gmail.com',
+                    'FoxRing Library',
+                    'Active',
+					'<img src="jose.jpg">'
+                  ],
+				  [
                     'Nehemiah Jacob',
                     'nehemiah.jacob@gmail.com',
                     'Web Framework',
@@ -1012,12 +1019,6 @@
                     'Muhammad Goni',
                     'muhammadgoni51@gmail.com',
                     'Ring2EXE Tester',
-                    'Active'
-                  ],
-				  [
-                    'José Rosado',
-                    'jar.megaware@gmail.com',
-                    'FoxRing Library',
                     'Active'
                   ]				  
 ]

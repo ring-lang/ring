@@ -13,7 +13,6 @@
 
 # Description
 
-
 The Ring is an Innovative and practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Meta programming, Declarative programming using nested structures, and Natural programming.
@@ -21,8 +20,7 @@ The language is portable (Windows, Linux, macOS, Android, etc.) and can be used 
 Console, GUI, Web, Games and Mobile applications. 
 The language is designed to be Simple, Small, Flexible and Fast. [Read more!](http://ring-lang.sourceforge.net/#why)
 
-
-![Ring](http://ring-lang.sourceforge.net/ringshots.gif)
+![Ring](http://ring-lang.sourceforge.net/newringshots.gif)
 
 # Building from source code
 

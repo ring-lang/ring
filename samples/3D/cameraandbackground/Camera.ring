@@ -25,9 +25,10 @@ func main
 
 class GraphicsApp from GraphicsAppBase
 
-	TITLE = "The Camera Sample"
+	TITLE = "Camera and Background Sample"
 
-bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitmap5 texture5 
+	bitmap1 texture1 bitmap2 texture2 font 
+	bitmap3 texture3  bitmap4 texture4  bitmap5 texture5 
 
 	// angle of rotation for the camera direction
 		angle=0.0
@@ -37,35 +38,36 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 	// XZ position of the camera
 		x=0.0
 		z=5.0
-		 xrot = 0.0
-       		 yrot = 0.0
-       		 zrot = 0.0
-	fraction = 0.1
+		xrot = 0.0
+       		yrot = 0.0
+       		zrot = 0.0
 	
+	fraction = 0.1
 	
 	SetCamera()
 
 	func SetCamera
+
 		angle = 0.5
 		lx = sin(angle)
 		lz = -cos(angle)
 
 	func loadresources
-                 bitmap1 = al_load_bitmap("wala.jpg")
+
+		bitmap1 = al_load_bitmap("wala.jpg")
 		texture1= al_get_opengl_texture(bitmap1)
 		bitmap2 = al_load_bitmap("skybox_nz.jpg")
 		texture2= al_get_opengl_texture(bitmap2)
-		 bitmap3 = al_load_bitmap("skybox_px.jpg")
+		bitmap3 = al_load_bitmap("skybox_px.jpg")
 		texture3= al_get_opengl_texture(bitmap3)
 		bitmap4 = al_load_bitmap("skybox_pz.jpg")
 		texture4= al_get_opengl_texture(bitmap4)
-		 bitmap5 = al_load_bitmap("skybox_nx.jpg")
+		bitmap5 = al_load_bitmap("skybox_nx.jpg")
 		texture5= al_get_opengl_texture(bitmap5)
-		
-
 		font = al_load_ttf_font("pirulen.ttf",54,0 )
 		
 	func destroyResources
+
                 al_destroy_bitmap(bitmap1)
 		al_destroy_bitmap(bitmap2)
 		al_destroy_bitmap(bitmap3)
@@ -73,6 +75,7 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 		al_destroy_bitmap(bitmap5)
 		
 		al_destroy_font(font)
+
 	func drawScene
 
 		w = SCREEN_W h = SCREEN_H
@@ -86,7 +89,6 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 		glMatrixMode(GL_MODELVIEW)
 		
 		glLoadIdentity()
-		
 		
 		glEnable(GL_TEXTURE_2D)						
 		glshademodel(gl_SMOOTH)
@@ -111,36 +113,36 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
                         0.0, 1.0,  0.0)
 		 
           # Draw BackGround
+
 		// Face BackGround
-	glBindTexture(GL_TEXTURE_2D, texture3)
+		glBindTexture(GL_TEXTURE_2D, texture3)
 		
 		glPushMatrix()
-		 glTranslatef(1.0,1.5,-99.0)
-			
-				glBegin(GL_QUADS)	
-					glTexCoord2f(0.0, 0.0) glVertex3f(-50.0, -50.0, 50.0)
-					glTexCoord2f(1.0, 0.0) glVertex3f( 50.0, -50.0,  50.0)
-					glTexCoord2f(1.0, 1.0) glVertex3f( 50.0,  50.0,  50.0)
-					glTexCoord2f(0.0, 1.0) glVertex3f(-50.0,  50.0,  50.0)
-				glEnd()
+			glTranslatef(1.0,1.5,-99.0)
+			glBegin(GL_QUADS)	
+				glTexCoord2f(0.0, 0.0) glVertex3f(-50.0, -50.0, 50.0)
+				glTexCoord2f(1.0, 0.0) glVertex3f( 50.0, -50.0,  50.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f( 50.0,  50.0,  50.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f(-50.0,  50.0,  50.0)
+			glEnd()
 	        glPopMatrix()
+
 		// Back BackGround
-	glBindTexture(GL_TEXTURE_2D, texture5)
+		glBindTexture(GL_TEXTURE_2D, texture5)
 		glPushMatrix()
-		 glTranslatef(1.0,1.5, 99.0)
-			
-				glBegin(GL_QUADS)	
-					glTexCoord2f(1.0, 0.0) glVertex3f(-50.0, -50.0, -50.0)
-					glTexCoord2f(1.0, 1.0) glVertex3f(-50.0,  50.0, -50.0)
-					glTexCoord2f(0.0, 1.0) glVertex3f( 50.0,  50.0, -50.0)
-					glTexCoord2f(0.0, 0.0) glVertex3f( 50.0, -50.0, -50.0)
-				glEnd()
+			glTranslatef(1.0,1.5, 99.0)
+			glBegin(GL_QUADS)	
+				glTexCoord2f(1.0, 0.0) glVertex3f(-50.0, -50.0, -50.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f(-50.0,  50.0, -50.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f( 50.0,  50.0, -50.0)
+				glTexCoord2f(0.0, 0.0) glVertex3f( 50.0, -50.0, -50.0)
+			glEnd()
 	        glPopMatrix()
+
 		// Right BackGround
-	glBindTexture(GL_TEXTURE_2D, texture4)
+		glBindTexture(GL_TEXTURE_2D, texture4)
 		glPushMatrix()
-		 glTranslatef(-99.0,1.5,1.0)
-			
+			glTranslatef(-99.0,1.5,1.0)
 				glBegin(GL_QUADS)	
 					glTexCoord2f(1.0, 0.0) glVertex3f( 50.0, -50.0, -50.0)
 					glTexCoord2f(1.0, 1.0) glVertex3f( 50.0,  50.0, -50.0)
@@ -148,50 +150,22 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 					glTexCoord2f(0.0, 0.0) glVertex3f( 50.0, -50.0,  50.0)
 				glEnd()
 	        glPopMatrix()
+
 		// Left BackGround
-	glBindTexture(GL_TEXTURE_2D, texture2)
+		glBindTexture(GL_TEXTURE_2D, texture2)
 		glPushMatrix()
-		 glTranslatef(99.0,1.5,1.0)
-			
-				glBegin(GL_QUADS)	
-					glTexCoord2f(0.0, 0.0) glVertex3f(-50.0, -50.0, -50.0)
-					glTexCoord2f(1.0, 0.0) glVertex3f(-50.0, -50.0,  50.0)
-					glTexCoord2f(1.0, 1.0) glVertex3f(-50.0,  50.0,  50.0)
-					glTexCoord2f(0.0, 1.0) glVertex3f(-50.0,  50.0, -50.0)
-				glEnd()
+			glTranslatef(99.0,1.5,1.0)
+			glBegin(GL_QUADS)	
+				glTexCoord2f(0.0, 0.0) glVertex3f(-50.0, -50.0, -50.0)
+				glTexCoord2f(1.0, 0.0) glVertex3f(-50.0, -50.0,  50.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f(-50.0,  50.0,  50.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f(-50.0,  50.0, -50.0)
+			glEnd()
 	        glPopMatrix()
-
-
-
-
-
-
-
-
-
-
-
-		/*# Draw Ground
-		     glBindTexture(GL_TEXTURE_2D, texture2)
-			 
-			for i = -10 to 10
-		                for  j=-10 to 10
-		                        glPushMatrix()
-		                        glTranslatef(i*1.0,-0.5,j * 1.0)
-			//glColor4f(1, 1, 1,1)
-					  glBegin(GL_QUADS)			
-							glTexCoord2f(0.0, 1.0) glVertex3f(-5.0,  0.0, -5.0)
-							glTexCoord2f(0.0, 0.0) glVertex3f(-5.0,  0.0,  5.0)
-							glTexCoord2f(1.0, 0.0) glVertex3f( 5.0,  0.0,  5.0)
-							glTexCoord2f(1.0, 1.0) glVertex3f( 5.0,  0.0, -5.0)
-						        glEnd()
-						 glPopMatrix()
-				  next
-			 next*/
 
 		# Draw Cubes   
 	
-			glBindTexture(GL_TEXTURE_2D, texture1)
+		glBindTexture(GL_TEXTURE_2D, texture1)
 		 for c= -1 to 1
 			 for i = -1 to 2
 		                for  j= -1 to 2
@@ -204,8 +178,8 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 		next
 		glflush()
 
-
 		# Respond to Keyboard
+
 			if key[key_left]
 				moveleft()
 			but key[key_right]
@@ -235,7 +209,7 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 		lz = -cos(angle)
 
 	func drawcube
-		 glTranslatef(0.0,0.2,-5.0)
+		glTranslatef(0.0,0.2,-5.0)
 
                 glRotatef(xrot,0.0,1.0,0.0)
                 glRotatef(yrot,0.0,1.0,0.0)
@@ -273,32 +247,28 @@ bitmap1 texture1 bitmap2 texture2 font bitmap3 texture3  bitmap4 texture4  bitma
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 		glEnd()
 
-		 xrot += 0.01
+		xrot += 0.01
                 yrot += 0.01
                 zrot +=0.01 
- 
-		
-               
-
 
 class GraphicsAppBase
 
 	display event_queue ev timeout  
 	timer  redraw 	= true
-		 bitmap3 =0
+	bitmap3 	= 0
 	FPS 		= 120 
 
 	SCREEN_W 	= 1200
-	SCREEN_H 	=700
+	SCREEN_H 	= 700
 
 	KEY_UP		= 1
 	KEY_DOWN 	= 2
 	KEY_LEFT 	= 3
 	KEY_RIGHT 	= 4
 
-	Key = [false,false,false,false]
+	Key 	= [false,false,false,false]
 
-	TITLE = "Graphics Application"
+	TITLE 	= "Graphics Application"
 
 	func start
 
