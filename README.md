@@ -520,5 +520,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 
 ## Building using CMake 
 
+This will build the Ring compiler and Ring Virtual Machine 
+
 	cmake .
 	make
