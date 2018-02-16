@@ -953,11 +953,12 @@ aList = "nice"
 		<b>Ring can do each of the next tasks in around 1 second</b> using normal computers in the market during the last 5 years  <br><br>
 		
 		(1) Compiling 100,000 lines of code <br>
-		(2) Executing 1000 search operation in a list contains 100,000 items, trying to find the last item (the worst case) <br>
-		(3) Creating list contains 1,000,000 items then sum all of the list items<br>
-		(4) Adding 20,000 items to the ListWidget in GUI applications <br>
-		(5) Adding 5,000 nodes to the TreeWidget in GUI applications <br> 
-		(6) Printing 10,000 messages to the terminal in Console applications <br><br>		
+		(2) Executing empty loop that count from 1 to 10,000,000  <br>
+		(3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br>
+		(4) Creating list contains 1,000,000 items then sum all of the list items<br>
+		(5) Adding 20,000 items to the ListWidget in GUI applications <br>
+		(6) Adding 5,000 nodes to the TreeWidget in GUI applications <br> 
+		(7) Printing 10,000 messages to the terminal in Console applications <br><br>		
 		
 		Also when we need more speed we can use C/C++ extensions! <br>
 		
