@@ -96,14 +96,7 @@
 					'Tester',
 					'Active',
 					'<img src="abdelrahman.jpg">'
-				  ],
-				  [
-					'Ahmad Fayed',
-					'ahmad_s_f@hotmail.com',
-					'Graphic Designer',
-					'Active',
-					'<img src="ahmedfayed.jpg" width="150" height="150">'
-				  ],
+				  ],				  
 				  [
 					'Hany Salah',
 					'hanyhani@hotmail.com',
@@ -164,8 +157,7 @@
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
 					'Domain',
-					'Active',
-					'<img src="mohfayed.jpg" width="167" height="166">'
+					'Active'			
 				  ],
 				  [
                     'Sara Hamdy Mohamed',
@@ -178,7 +170,13 @@
 					'Mhaggag7@gmail.com',
 					'Graphic Designer',
 					'Active'
-				  ],				    
+				  ],			
+				  [
+					'Ahmad Fayed',
+					'ahmad_s_f@hotmail.com',
+					'Graphic Designer',
+					'Active'
+				  ],				  
 				  [
 					'Muhammad Wael',
 					'mohamed.wael96@hotmail.com',
