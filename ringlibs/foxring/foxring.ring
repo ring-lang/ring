@@ -1,5 +1,6 @@
 /*
- *	
+ *
+ *	frAbs()			Returns the absolute value of the specified numeric expression.
  *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
  *	frAddBs()		Adds a backslash (if needed) to a path expression.
  *	frALines()		Creates an Array with the content of the specified string. 
@@ -11,6 +12,8 @@
  *				expressions of the same type.
  *	frChr()			Returns the character associated with the specified numeric ANSI code.
  *	frEmpty()		Determines whether an expression evaluates to empty.
+ *	frFile()		Checks if a file exists on disk.
+ *	frFileToStr()		Returns the contents of a file as a character string.
  *	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
  *	frForcePath()		Returns a file name with a new path name substituted for the old one.
  *  	frIif()   		Returns one of two values depending on the value of a logical expression.
@@ -56,7 +59,7 @@
 	
 class frFunctions
 
-	_version = "1.0.137"
+	_version = "1.0.138"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -76,6 +79,26 @@ class frFunctions
 	_ring_object_type 	= "OBJECT"
 
 	_set_separator 		= _separator
+	
+	
+	/*
+	 * Syntax		: lnReturnValue = frAbs(tnExpression)
+	 * Description		: Returns the absolute value of the specified numeric expression.
+	 * 			:
+	 * Arguments		: <tnExpression>
+	 *			: Specifies the numeric expression whose absolute value frAbs() returns.
+	 *			:
+	 * Returns		: <lnReturnValue>
+	 *			: Returns the absolute value of the specified numeric expression.
+	 *			:
+	 * Author		: Jar C 18.02.2018
+	 */
+	 
+	func frAbs(tnExpression) {
+	 	return fAbs(tnExpression)
+	}
+	
+	
 
 	/*
 	 * Syntax		: lnReturnValue = frAsc(tcExpression)
@@ -241,6 +264,58 @@ class frFunctions
 		
 		return llRet
 	}
+
+
+
+	/*
+	 * Syntax		: llReturnValue = frFile(tcFileName, tnFlag)
+	 * Description		: Checks if the specified file exists on disk.
+	 *			:
+	 * Arguments   		: <tcFileName>
+	 *			: Specifies the name of the file to check. tcFileName must include 
+	 *			: the file extension. You can include a path with the file name to 
+	 *			: search for a file in a directory or on a drive other than the current
+	 *			: directory or drive. 
+	 *			: 
+	 *			: <tnFlag> 
+	 *			: tnFlag was included for future compatibility.
+	 *			: In this version, It always returns true whenever the file exists on disk.
+	 *			:
+	 * Returns		: <llReturnValue> Logical
+	 *			: True if file exists on disk.
+	 *			: False if file doesn't exist on disk.
+	 *			:
+	 * Author	 	: Jar C 18.02.2018
+	 */
+
+	func frFile(tcFileName, tnFlag) {
+
+		// Jar 18.02.2018 
+		// At moment tnFlag isn´t used
+
+		return Fexists(tcFileName)	
+	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frFileToStr(tcFileName)
+	 * Description		: Returns the contents of a file as a character string.
+	 *			:
+	 * Arguments		: <tcFileName>
+	 * 			: Specifies the name of the file whose contents are returned as a character 
+	 *			: string. If the file is in a directory other than the current default directory, 
+	 *			: include a path with the file name.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: A character string with the content of the specified file.
+	 *			:
+	 * Author	 	: Jar C 18.02.2018
+	 */
+
+	func frFileToStr(tcFileName) {
+		return read(tcFileName)
+	}
+
 
 	/*
 	 * Syntax		: lcReturnValue = frStr(tnValue, tnLen, tnDec)
