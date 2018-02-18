@@ -1,4 +1,4 @@
-![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+![Ring](http://ring-lang.sf.net/thering.jpg)
 
 # Ring Programming Language - Arabic Course (Free)
 
