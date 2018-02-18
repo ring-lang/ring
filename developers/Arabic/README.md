@@ -1,4 +1,4 @@
-﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+﻿![Ring](http://ring-lang.sf.net/thering.jpg)
 
 <div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
 
@@ -39,7 +39,7 @@
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
 
-![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
+![Ring](http://ring-lang.sf.net/ringcourse.jpg)
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
 
