@@ -3,8 +3,26 @@ Load "foxring.ring"
 
 mf = new frFunctions
 
+?mf.frAbs(-45)      
+?mf.frAbs(10-30)    
+?mf.frAbs(30-10)    
+
+lcNumber1 = 40
+lcNumber2 = 2
+
+?mf.frAbs(lcNumber2-lcNumber1)  
+
+
+
 
 lcCompletFileName = "C:\ring\docs\source\contribute.txt"
+
+?mf.frFile(lcCompletFileName)
+if mf.frFile(lcCompletFileName) {
+  ?mf.frFileToStr(lcCompletFileName)
+else
+  ?"File does not exist"
+}
 
 lcNewPath = "C:\ring_2\docs\source\"
 
