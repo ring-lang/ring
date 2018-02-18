@@ -17,8 +17,8 @@ lcNumber2 = 2
 
 lcCompletFileName = "C:\ring\docs\source\contribute.txt"
 
-?mf.frFile(lcCompletFileName)
-if mf.frFile(lcCompletFileName) {
+?mf.frFile(lcCompletFileName, Null)
+if mf.frFile(lcCompletFileName, Null) {
   ?mf.frFileToStr(lcCompletFileName)
 else
   ?"File does not exist"
