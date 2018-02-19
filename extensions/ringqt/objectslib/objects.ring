@@ -34,6 +34,7 @@ func Open_Window cClass
 	cCode = ""
 	if packagename() != NULL {
 		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
 	}
 	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
 		  $RingQt_ObjName + ".start()"
@@ -57,6 +58,7 @@ func Open_WindowInPackages cClass,aPackages
 	cCode = ""
 	if packagename() != NULL {
 		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
 	}
 	for cPackage in aPackages {
 		cCode += "import " + cPackage  + nl
@@ -83,6 +85,7 @@ func Open_WindowNoShow cClass
 	cCode = ""
 	if packagename() != NULL {
 		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
 	}
 	cCode += $RingQt_ObjName + " = new " + cClass 
 	eval(cCode)	
@@ -108,7 +111,12 @@ func Open_WindowAndLink cClass,oParent
 
 	cClassNameWithoutController = substr(cClass,"controller","")
 	cParentClassNameWithoutController = substr(cParentClass,"controller","")
-	cCode = `
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
+	}
+	cCode += `
 		# Let the parent know about the child
 		if not isattribute(oParent,"n#{f1}ID")
 			AddAttribute(oParent,"n#{f1}ID")
