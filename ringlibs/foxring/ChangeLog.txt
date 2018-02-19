@@ -1,5 +1,12 @@
 FoxRing ChangeLog
 
+1.0.138 2018.02.18 Jar
+----------------------------------------------------------
+	Added - frAbs() function
+	Added - frFile() function
+	Added - frFileToStr() function
+
+
 1.0.137 2018.02.08 Jar
 ----------------------------------------------------------
 	Added - frForcePath() function
