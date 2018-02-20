@@ -42,8 +42,6 @@ ring_vm_deletescope
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope
-Type: int
-nOld
 ring_vm_getglobalscope
 Type: List *
 pList
