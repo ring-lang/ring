@@ -213,6 +213,9 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "I like variety. The richer the toolbox, the more appropriate the tool."
 	, Jonathan Day (Quora)
 
+"I greatly appreciated your work and congratulations on what has been achieved."
+	, Umberto Meglio (Italy)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
