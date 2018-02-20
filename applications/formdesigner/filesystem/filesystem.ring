@@ -177,10 +177,10 @@ class FormDesignerFileSystem
 
 	func DeleteAllobjects oDesigner
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
-			item = oDesigner.oModel.aObjectsList[x]
-			oObject = item[2]
-			oObject.oCorners.Hide()
-			oObject.Close()
+			oDesigner.oModel.aObjectsList[x][2] {
+				oCorners.Hide()
+				close()
+			}
 		}
 		oDesigner.oModel.DeleteAllObjects()
 		oDesigner.AddObjectsToCombo()
