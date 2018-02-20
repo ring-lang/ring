@@ -292,7 +292,7 @@ List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 )
 	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList,RING_VAR_VALUE);
 	ring_list_deleteallitems_gc(pVM->pRingState,pList2);
-	ring_list_copy(pList2,pList3);
+	ring_vm_list_copy(pVM,pList2,pList3);
 	return pList ;
 }
 

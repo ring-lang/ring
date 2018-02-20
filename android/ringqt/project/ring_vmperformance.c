@@ -8,6 +8,7 @@ void ring_vm_pushp ( VM *pVM )
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope List */
 	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_GLOBAL);
+	pVM->nVarScope = RING_VARSCOPE_GLOBAL ;
 }
 
 void ring_vm_pushplocal ( VM *pVM )
