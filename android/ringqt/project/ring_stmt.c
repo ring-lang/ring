@@ -598,8 +598,8 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
 						ring_parser_icg_newoperand(pParser,ring_string_get(pString));
 						ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
-						ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-						ring_parser_icg_newoperanddouble(pParser,1.0);
+						ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+						ring_parser_icg_newoperand(pParser,"NULL");
 						/* Before Equal ( = ) not += , -= ,... etc */
 						ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 						ring_parser_icg_newoperandint(pParser,0);
