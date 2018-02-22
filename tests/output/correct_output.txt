@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-1
-97
-96
+0
+112
+112
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3721
+Time 3754
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,9 +2347,9 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-027E4E38
+00905468
 OBJECTPOINTER
-1
+0
 1
 2
 3
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 20/02/2018
-time: 16:47:42
+date: 22/02/2018
+time: 07:12:45
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3465,3 +3465,10 @@ Func GetObjectPointerFromRingObject pObj
 B:\ring\tests>call ring scripts/varptr.ring 
 char
 char
+
+B:\ring\tests>call ring scripts/forloopscope.ring 
+10
+6
+10
+NULL
+10
