@@ -32,11 +32,13 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				pList = pVM->pActiveMem ;
 			}
 			else if ( x == 2 ) {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
-					continue ;
-				}
-				if ( ring_list_getsize(pVM->pObjState) == 0 ) {
+				/*
+				**  Check to avoid the Object Scope 
+				**  IF obj.attribute - we did the search in local scope - pass others 
+				**  Also if we don't have object scope using { } we will pass 
+				**  Also If we are using ICO_LOADAFIRST (Used by For In) - we don't check object scope 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				/* Search in Object State */
@@ -53,9 +55,14 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 						continue ;
 					}
 				}
-			} else {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
+			}
+			else {
+				/*
+				**  Check to Avoid the global scope 
+				**  If we are using ICO_LOADAFIRST (Used by For In) - we don't check global scope 
+				**  Also IF obj.attribute - we did the search in local scope - pass others 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				pList = ring_vm_getglobalscope(pVM);
@@ -112,7 +119,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_VAR_PVALUETYPE) ;
 		/*
 		**  Here we don't know the correct scope of the result 
-		**  becauase a global variable may be a reference to local variable 
+		**  because a global variable may be a reference to local variable 
 		**  And this case happens with setter/getter of the attributes using eval() 
 		**  Here we avoid this change if the variable name is "Self" to return self by reference 
 		*/
