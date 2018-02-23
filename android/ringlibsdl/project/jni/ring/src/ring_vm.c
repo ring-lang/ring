@@ -1092,11 +1092,13 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 	int x,lFunctionCall  ;
 	List *pList  ;
 	const char *cFile  ;
+	const char *cOldFile  ;
 	/* CGI Support */
 	ring_state_cgiheader(pVM->pRingState);
 	/* Print the Error Message */
 	printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
 	/* Print Calling Information */
+	cOldFile = NULL ;
 	lFunctionCall = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,x);
@@ -1105,6 +1107,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
 		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
 			continue ;
 		}
 		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
@@ -1153,7 +1156,12 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			cFile = pVM->cFileNameInClassRegion ;
 		}
 		else {
-			cFile = pVM->cFileName ;
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
+			}
 		}
 		printf( "in file %s ",cFile ) ;
 	}
