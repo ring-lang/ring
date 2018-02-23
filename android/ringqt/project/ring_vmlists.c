@@ -194,7 +194,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 		else if ( RING_VM_STACK_ISSTRING ) {
 			cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
 			cStr2[1] = '\0' ;
-			RING_VM_STACK_SETCVALUE(cStr2);
+			RING_VM_STACK_SETCVALUE2(cStr2,1);
 			return ;
 		} else {
 			ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
