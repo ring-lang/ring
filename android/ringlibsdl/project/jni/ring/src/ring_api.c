@@ -665,28 +665,47 @@ void ring_vmlib_time ( void *pPointer )
 void ring_vmlib_filename ( void *pPointer )
 {
 	VM *pVM  ;
-	int nPos  ;
 	List *pList  ;
+	int lFunctionCall,x  ;
+	const char *cOldFile  ;
+	const char *cFile  ;
 	pVM = (VM *) pPointer ;
-	if ( pVM->nInClassRegion ) {
-		RING_API_RETSTRING(pVM->cFileNameInClassRegion);
-		return ;
-	}
-	if ( (pVM->nFuncExecute2 > 0) && (ring_list_getsize(pVM->pFuncCallList)>0) ) {
+	/* Get the current file name */
+	cOldFile = NULL ;
+	cFile = NULL ;
+	lFunctionCall = 0 ;
+	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,x);
 		/*
-		**  Here we have Load Function Instruction - But Still the function is not called 
-		**  FunctionName (  ***Parameters**** We are here! ) 
+		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
+		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
-		nPos = ring_list_getsize(pVM->pFuncCallList)  -  (pVM->nFuncExecute2 - 1) ;
-		if ( (nPos > 0) && (nPos <= ring_list_getsize(pVM->pFuncCallList)) ) {
-			pList = ring_list_getlist(pVM->pFuncCallList,nPos);
-			if ( ring_list_getsize(pList) >= RING_FUNCCL_FILENAME ) {
-				RING_API_RETSTRING((char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME ));
+		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
+			continue ;
+		}
+		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+			lFunctionCall = 1 ;
+		}
+	}
+	if ( lFunctionCall ) {
+		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+	}
+	else {
+		if ( pVM->nInClassRegion ) {
+			cFile = pVM->cFileNameInClassRegion ;
+		}
+		else {
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
 			}
 		}
-		return ;
 	}
-	RING_API_RETSTRING(pVM->cFileName);
+	RING_API_RETSTRING(cFile);
 }
 
 void ring_vmlib_getchar ( void *pPointer )
