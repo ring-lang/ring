@@ -215,7 +215,7 @@ RING_VM_STACK_SETCVALUE(x)
 RING_VM_STACK_SETNVALUE(x)
 RING_VM_STACK_SETPVALUE(x)
 RING_VM_STACK_SETCVALUE2(x,y)
-RING_VM_STACK_PUSHCVALUE(x)
+RING_VM_STACK_PUSHCVALUE2(x,y)
 RING_VM_STACK_ISSTRING
 RING_VM_STACK_ISNUMBER
 RING_VM_STACK_ISPOINTER
@@ -448,6 +448,8 @@ Type: List *
 pList
 Type: const char *
 cFile
+Type: const char *
+cOldFile
 ring_vm_setfilename
 ring_vm_loadaddressfirst
 ring_vm_endfuncexec
