@@ -274,3 +274,4 @@ call ring scripts/plusequalfunc.ring
 call ring scripts/varptr.ring
 call ring scripts/forloopscope.ring
 call ring scripts/chars.ring
+call ring scripts/ncemain.ring
