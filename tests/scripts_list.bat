@@ -273,3 +273,4 @@ call ring scripts/testfnicr2.ring
 call ring scripts/plusequalfunc.ring
 call ring scripts/varptr.ring
 call ring scripts/forloopscope.ring
+call ring scripts/chars.ring
