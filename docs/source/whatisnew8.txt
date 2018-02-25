@@ -47,25 +47,20 @@ Example:
 	next 
 	? "All String"
 	? len(cStr)
-	? cStr
 	? "First Part"
 	n1 = cStr[1] + cStr[2] + cStr[3] + cStr[4]
 	? len(n1)
-	? n1
 	? "Second Part"
 	n2 = cStr[5] + cStr[6] + cStr[7] + cStr[8]
 	? len(n2)
-	? n2
 	? "Third Part"
 	n3 = cStr[9] + cStr[10] + cStr[11] + cStr[12]
 	? len(n3)
-	? n3
 	? "All String"
 	cString = cStr[1] + cStr[2] + cStr[3] + cStr[4] + 
 		  cStr[5] + cStr[6] + cStr[7] + cStr[8] + 
 		  cStr[9] + cStr[10] + cStr[11] + cStr[12]
 	? len(cString)
-	? cString
 	? ascii(cStr[1])
 	? len(cStr[2])
 
@@ -79,22 +74,19 @@ Output:
 	W
 	All String
 	12
-	      
 	First Part
 	4
-	
 	Second Part
-	4
-	
+	4	
 	Third Part
 	4
-	
 	All String
 	12
-	      
 	1
 	1
 	
+
+.. tip:: the '?' character in the previous output represent a binary character
 	
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Documentation
