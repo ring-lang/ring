@@ -14,6 +14,7 @@ Contents:
    Applications developed in little hours <ringapps>
    Introduction <introduction>
    Language Design <languagedesign>
+   What is new in Ring 1.8? <whatisnew8>
    What is new in Ring 1.7? <whatisnew7>
    What is new in Ring 1.6? <whatisnew6>
    What is new in Ring 1.5? <whatisnew5>

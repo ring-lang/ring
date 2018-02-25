@@ -1,0 +1,26 @@
+.. index:: 
+	single: What is new in Ring 1.8?; Introduction
+
+========================
+What is new in Ring 1.8?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.8 release.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.8 comes with the next features!
+
+* Better Documentation
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Documentation
+
+Better Documentation
+====================
+
+Ring 1.8 comes with better documentation
