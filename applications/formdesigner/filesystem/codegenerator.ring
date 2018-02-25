@@ -59,6 +59,7 @@ class FormDesignerCodeGenerator
 			write(cSourceFileName,cOutput)
 		# Write the Controller Source File
 			cSourceFileName = substr(cFormFileName,".rform","Controller.ring")
+			GenerateControllerClassInParent(oDesigner,cSourceFileName)
 			if fexists(cSourceFileName) { return }
 			cOutput = `# Form/Window Controller - Source Code File
 
@@ -90,6 +91,13 @@ class #{f2} from windowsControllerParent
 			}
 			cOutput = substr(cOutput,nl,WindowsNL())
 			write(cSourceFileName,cOutput)
+
+	func GenerateControllerClassInParent oDesigner,cSourceFileName
+		if oDesigner.IsParent() {
+			if isMethod(oDesigner.Parent(),"generatecontrollerclass") {
+				cDir = oDesigner.Parent().GenerateControllerClass(cSourceFileName)
+			}
+		}
 
 	func PrepareClassName cClassName
 		cClassName = substr(cClassName," ","_")
