@@ -127,8 +127,6 @@ Output:
 	1
 	
 
-.. tip:: the '?' character in the previous output represent a binary character
-	
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Documentation
 
