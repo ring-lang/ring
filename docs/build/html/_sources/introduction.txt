@@ -243,7 +243,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.7
+Version 1.8
 
 The MIT License (MIT)
 
