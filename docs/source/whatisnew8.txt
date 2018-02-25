@@ -15,9 +15,50 @@ List of changes and new features
 
 Ring 1.8 comes with the next features!
 
+* The For Loops uses the local scope
 * Merge binary characters
 * Better Documentation
 
+.. index:: 
+	pair: What is new in Ring 1.8?; The For Loops uses the local scope
+
+The For Loops uses the local scope
+==================================
+
+In Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.
+
+Example:
+
+.. code-block:: ring
+
+	x = 10
+	? x		# Print 10
+	test1()
+	? x		# Print 10
+	test2()
+	? x		# Print 10
+
+	func test1
+		for x = 1 to 5
+		next
+		? x	# Print 6
+
+	func test2
+		list = 1:5
+		for x in list
+		next
+		? x	# Print NULL (The "For In" loop will kill the reference after the loop)
+
+Output:
+
+.. code-block:: ring
+
+	10
+	6
+	10
+	NULL
+	10	
+		
 .. index:: 
 	pair: What is new in Ring 1.8?; Merge binary characters
 
