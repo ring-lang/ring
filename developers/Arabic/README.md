@@ -340,6 +340,16 @@
 			<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson3">3</td>
+		<td>
+			نتعرف على كيفية التعامل مع ال ListWidget وعمل تطبيق يقوم بجمع مجموعة من الأرقام
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155610002540345">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=s1DxFaiFCIo&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a&index=3">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 
 </div>
 
