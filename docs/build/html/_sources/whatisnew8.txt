@@ -27,7 +27,7 @@ Ring 1.8 comes with the next features!
 FoxRing Library
 ===============
 
-Developer: José Rosado
+Developer: Jose Rosado
 
 A class with some of the functions I used in FoxPro\
 
