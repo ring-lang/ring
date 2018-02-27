@@ -219,6 +219,9 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "Thanks a lot I just found Ring two days ago and I decided to learn it, it is amazing, the samples are helping a lot."
 	, Zaraki Ken
 
+"Extraordinary. well done sir"
+	, RugbyLeague (CodeProject Member - United Kingdom)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
