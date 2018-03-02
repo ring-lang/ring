@@ -47,15 +47,16 @@ class Game
 		nCardsCount = 10
 		nScale = 1
         ok
+
         win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
         aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
         aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
-        Player1EatPic   Player2EatPic
         lnewgame = false
         nDelayEat = 0.5
         nDelayNewGame = 1
 
         func start
+
                 win1 = new qWidget() {
                         setwindowtitle("Five")
                         setstylesheet("background-color: White")
