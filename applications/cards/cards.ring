@@ -43,7 +43,7 @@ Player2EatPic.delete()
 for t in aGameCards
           t.delete()
 next
-
+	
 class Game
 
         if ismobile()
@@ -60,7 +60,6 @@ class Game
         nDelayNewGame = 1
 
         func start
-
                 win1 = new qWidget() {
                         setwindowtitle("Five")
                         setstylesheet("background-color: White")
