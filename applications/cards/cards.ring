@@ -102,14 +102,7 @@ class Game
                         setButtonImage(aBtns[x],oPic2)
                         layout2.addwidget(aBtns[x])
                         aBtns[x].setclickevent("oGame.Player1click("+x+")")
-                        if ismobile()
-                            aBtns[x].setStyleSheet("
-                            border-style: outset;
-                            border-width: 2px;
-                            border-radius: 4px;
-                            border-color: black;
-                            padding: 6px;")
-                        ok
+			setButtonStyle(aBtns[x])
                 next
 
                 layout1.addwidget(label1)
@@ -133,14 +126,7 @@ class Game
                         setButtonImage(aBtns2[x],oPic2)
                         layout3.addwidget(aBtns2[x])
                         aBtns2[x].setclickevent("oGame.Player2click("+x+")")
-                        if ismobile()
-                            aBtns2[x].setStyleSheet("
-                            border-style: outset;
-                            border-width: 2px;
-                            border-radius: 4px;
-                            border-color: black;
-                            padding: 6px;")
-                        ok
+			setButtonStyle(aBtns2[x])
                 next
 
                 layout1.addwidget(label2)
@@ -151,12 +137,22 @@ class Game
 
                 oApp.exec()
 
-	func setButtonImage pBtn,pPixmap
-	        pBtn {
-	                setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
+	func setButtonImage oBtn,oPixmap
+	        oBtn {
+	                setIcon(new qicon(oPixmap.scaled(width(),height(),0,0)))
 	                setIconSize(new QSize(width(),height()))
 	        }
 	
+	func setButtonStyle oBtn
+		if ismobile()
+			oBtn.setStyleSheet("
+			border-style: outset;
+			border-width: 2px;
+			border-radius: 4px;
+			border-color: black;
+			padding: 6px;")
+		ok
+
         func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
