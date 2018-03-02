@@ -1,7 +1,7 @@
 # Application  : Cards Game
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Load "guilib.ring"
+load "guilib.ring"
 
 app1 = new qApp 
 
@@ -47,7 +47,7 @@ func gui_setbtnpixmap pBtn,pPixmap
                 setIconSize(new QSize(width(),height()))
         }
 
-Class Game
+class Game
 
         if isandroid()
             nCardsCount = 5
@@ -159,7 +159,7 @@ Class Game
 
                 app1.exec()
 
-        Func Player1Click x
+        func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
                         gui_setbtnpixmap(aBtns[x],aCards[nPos])
@@ -172,7 +172,7 @@ Class Game
                         checknewgame()
                 ok
 
-        Func Player2Click x
+        func Player2Click x
                 if nRole = 2 and aStatus2[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
                         gui_setbtnpixmap(aBtns2[x],aCards[nPos])
@@ -184,11 +184,9 @@ Class Game
                         Player2Eat(x,aStatusValues2[x])
                         checknewgame()
                 ok
-
-        Func Player1Eat nPos,nValue
-
+ 
+        func Player1Eat nPos,nValue
                  app1.processEvents()
-
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to nCardsCount
@@ -207,16 +205,14 @@ Class Game
                          ok
                  next
                  if lEat
-                                nPlayer1Score++
-                                gui_setbtnpixmap(aBtns[nPos],Player1EatPic)
-                                aStatus[nPos] = 2
-                                label1.settext("Player (1) - Score : " + nPlayer1Score)
+			nPlayer1Score++
+			gui_setbtnpixmap(aBtns[nPos],Player1EatPic)
+			aStatus[nPos] = 2
+			label1.settext("Player (1) - Score : " + nPlayer1Score)
                  ok
 
-        Func Player2Eat nPos,nValue
-
+        func Player2Eat nPos,nValue
                  app1.processEvents()
-
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to  nCardsCount
@@ -236,30 +232,27 @@ Class Game
                          ok
                  next
                  if lEat
-                                nPlayer2Score++
-                                gui_setbtnpixmap(aBtns2[nPos],Player2EatPic)
-                                aStatus2[nPos] = 2
-                                label2.settext("Player (2) - Score : " + nPlayer2Score)
+			nPlayer2Score++
+			gui_setbtnpixmap(aBtns2[nPos],Player2EatPic)
+			aStatus2[nPos] = 2
+			label2.settext("Player (2) - Score : " + nPlayer2Score)
                  ok
 
-        Func checknewgame
+        func checknewgame
                 if isnewgame()
-                                  lnewgame = true
-
-                                  if nPlayer1Score > nPlayer2Score
-                                         label1.settext("Player (1) Wins!!!")
-                                  ok
-                                  if nPlayer2Score > nPlayer1Score
-                                         label2.settext("Player (2) Wins!!!")
-                                  ok
-
-                                  app1.processEvents()
-                                  delay(nDelayNewGame)
-
-                                  win1.delete()
+			lnewgame = true
+			if nPlayer1Score > nPlayer2Score
+				label1.settext("Player (1) Wins!!!")
+			ok
+			if nPlayer2Score > nPlayer1Score
+				label2.settext("Player (2) Wins!!!")
+			ok
+			app1.processEvents()
+			delay(nDelayNewGame)
+			win1.delete()
                 ok
 
-        Func isnewgame
+        func isnewgame
                 for t in aStatus
                         if t = 0
                                 return false
@@ -272,7 +265,7 @@ Class Game
                 next
                 return true
 
-        Func delay x
-			nTime = x * 1000
-			oTest = new qTest
-			oTest.qsleep(nTime)
+        func delay x
+		nTime = x * 1000
+		oTest = new qTest
+		oTest.qsleep(nTime)
