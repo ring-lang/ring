@@ -5,48 +5,51 @@
 
 load "guilib.ring"
 
-oGame = NULL
+# The game object, Used by the Game Events
+	oGame = NULL
 
 func main
 
 	oApp = new qApp 
-	
-	oPic = new QPixmap(AppFile("cards.jpg"))
-	oPic2 = oPic.copy(0,(124*4)+1,79,124)
-	Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
-	Player2EatPic= oPic.copy(160,(124*4)+1,79,124)
-	
-	aGameCards = []
-	aGameValues = []
-	for x1 = 0 to 3
-		for y1 = 0 to 12
-			temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
-			aGameCards + temppic
-			aGameValues + (y1+1)
-		next
-	next
-	
-	nPlayer1Score = 0   nPlayer2Score=0
-	
-	do
-		oGame = new Game {
-			loadGame(oApp,oPic,oPic2,Player1EatPic,Player2EatPic,
-				 aGameCards,aGameValues,nPlayer1Score,nPlayer2Score)
-			Start()
-		}
-		nPlayer1Score = oGame.nPlayer1Score 
-		nPlayer2Score = oGame.nPlayer2Score
-	again oGame.lnewgame
-	
-	oPic.delete()
-	oPic2.delete()
-	Player1EatPic.delete()
-	Player2EatPic.delete()
-	
-	for t in aGameCards
-	          t.delete()
-	next
+
+	# Load Images	
+		oPic = new QPixmap(AppFile("cards.jpg"))
+		oPic2 = oPic.copy(0,(124*4)+1,79,124)
+		Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
+		Player2EatPic= oPic.copy(160,(124*4)+1,79,124)
 		
+		aGameCards = []
+		aGameValues = []
+		for x1 = 0 to 3
+			for y1 = 0 to 12
+				temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
+				aGameCards + temppic
+				aGameValues + (y1+1)
+			next
+		next
+
+	# Start the Game		
+		nPlayer1Score = 0   nPlayer2Score=0
+		do
+			oGame = new Game {
+				loadGame(oApp,oPic,oPic2,Player1EatPic,Player2EatPic,
+					 aGameCards,aGameValues,nPlayer1Score,nPlayer2Score)
+				Start()
+			}
+			nPlayer1Score = oGame.nPlayer1Score 
+			nPlayer2Score = oGame.nPlayer2Score
+		again oGame.lnewgame
+
+	# Delete Images		
+		oPic.delete()
+		oPic2.delete()
+		Player1EatPic.delete()
+		Player2EatPic.delete()
+		
+		for t in aGameCards
+		          t.delete()
+		next
+			
 class Game
 
         if ismobile()
@@ -63,11 +66,12 @@ class Game
         win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
         aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
         aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
+
         lnewgame = false
         nDelayEat = 0.5
         nDelayNewGame = 1
 
-	func loadgame p1,p2,p3,p4,p5,p6,p7,p8,p9
+	func loadGame p1,p2,p3,p4,p5,p6,p7,p8,p9
 		oApp=p1 oPic=p2 oPic2=p3 
 		Player1EatPic=p4 Player2EatPic=p5
 		aGameCards=p6 aGameValues=p7 
