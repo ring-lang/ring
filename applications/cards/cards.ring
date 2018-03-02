@@ -7,12 +7,6 @@ load "guilib.ring"
 
 oApp = new qApp 
 
-if ismobile()
-    nScale = 3
-else
-    nScale = 1
-ok
-
 oPic = new QPixmap(AppFile("cards.jpg"))
 oPic2 = oPic.copy(0,(124*4)+1,79,124)
 Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
@@ -47,9 +41,11 @@ next
 class Game
 
         if ismobile()
-            nCardsCount = 5
+		nCardsCount = 5
+		nScale = 3
         else
-            nCardsCount = 10
+		nCardsCount = 10
+		nScale = 1
         ok
         win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
         aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
