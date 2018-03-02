@@ -44,12 +44,6 @@ for t in aGameCards
           t.delete()
 next
 
-func setButtonImage pBtn,pPixmap
-        pBtn {
-                setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
-                setIconSize(new QSize(width(),height()))
-        }
-
 class Game
 
         if ismobile()
@@ -162,6 +156,12 @@ class Game
 
                 oApp.exec()
 
+	func setButtonImage pBtn,pPixmap
+	        pBtn {
+	                setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
+	                setIconSize(new QSize(width(),height()))
+	        }
+	
         func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
