@@ -18,13 +18,13 @@ oPic2 = oPic.copy(0,(124*4)+1,79,124)
 Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
 Player2EatPic= oPic.copy(160,(124*4)+1,79,124)
 
-aMyCards = []
-aMyValues = []
+aGameCards = []
+aGameValues = []
 for x1 = 0 to 3
 	for y1 = 0 to 12
 		temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
-		aMyCards + temppic
-		aMyValues + (y1+1)
+		aGameCards + temppic
+		aGameValues + (y1+1)
 	next
 next
 
@@ -40,7 +40,7 @@ oPic2.delete()
 Player1EatPic.delete()
 Player2EatPic.delete()
 
-for t in aMyCards
+for t in aGameCards
           t.delete()
 next
 
@@ -99,8 +99,8 @@ class Game
                         ok
                 }
 
-                aCards = aMyCards
-                aValues = aMyValues
+                aCards = aGameCards
+                aValues = aGameValues
 
                 layout2 = new qhboxlayout()
 
