@@ -13,16 +13,16 @@ else
     nScale = 1
 ok
 
-mypic = new QPixmap(AppFile("cards.jpg"))
-mypic2 = mypic.copy(0,(124*4)+1,79,124)
-Player1EatPic = mypic.copy(80,(124*4)+1,79,124)
-Player2EatPic= mypic.copy(160,(124*4)+1,79,124)
+oPic = new QPixmap(AppFile("cards.jpg"))
+oPic2 = oPic.copy(0,(124*4)+1,79,124)
+Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
+Player2EatPic= oPic.copy(160,(124*4)+1,79,124)
 
 aMyCards = []
 aMyValues = []
 for x1 = 0 to 3
 	for y1 = 0 to 12
-		temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
+		temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
 		aMyCards + temppic
 		aMyValues + (y1+1)
 	next
@@ -35,8 +35,8 @@ do
 	oGame.Start()
 again oGame.lnewgame
 
-mypic.delete()
-mypic2.delete()
+oPic.delete()
+oPic2.delete()
 Player1EatPic.delete()
 Player2EatPic.delete()
 
@@ -110,7 +110,7 @@ class Game
                         aBtns + new qpushbutton(win1)
                         aBtns[x].setfixedwidth(79*nScale)
                         aBtns[x].setfixedheight(124*nScale)
-                        setButtonImage(aBtns[x],mypic2)
+                        setButtonImage(aBtns[x],oPic2)
                         layout2.addwidget(aBtns[x])
                         aBtns[x].setclickevent("oGame.Player1click("+x+")")
                         if ismobile()
@@ -141,7 +141,7 @@ class Game
                         aBtns2 + new qpushbutton(win1)
                         aBtns2[x].setfixedwidth(79*nScale)
                         aBtns2[x].setfixedheight(124*nScale)
-                        setButtonImage(aBtns2[x],mypic2)
+                        setButtonImage(aBtns2[x],oPic2)
                         layout3.addwidget(aBtns2[x])
                         aBtns2[x].setclickevent("oGame.Player2click("+x+")")
                         if ismobile()
