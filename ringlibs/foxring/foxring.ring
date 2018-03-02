@@ -59,7 +59,7 @@
 	
 class frFunctions
 
-	_version = "1.0.138"
+	_version = "1.0.139"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -113,10 +113,16 @@ class frFunctions
 	 *			: Every character has a unique ANSI value in the range from 0 to 255.
 	 *			:
 	 * Author		: Jar C 04.02.2018
+	 *			: Jar U 01.03.2018 Updated to return 0 when tcExpression is an empty string. 
 	 */
 	 
 	func frAsc(tcExpression) {
-	 	return Ascii(Left(tcExpression, 1))
+		if tcExpression = this._empty_char {
+			lnReturnValue = 0
+		else
+			lnReturnValue = Ascii(Left(tcExpression, 1))
+		}
+	 	return lnReturnValue
 	}
 	
 	/*
