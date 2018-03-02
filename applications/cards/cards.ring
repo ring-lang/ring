@@ -5,7 +5,7 @@
 
 load "guilib.ring"
 
-app1 = new qApp 
+oApp = new qApp 
 
 if ismobile()
     nScale = 3
@@ -160,7 +160,7 @@ class Game
 
                 win1.setlayout(layout1)
 
-                app1.exec()
+                oApp.exec()
 
         func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
@@ -189,7 +189,7 @@ class Game
                 ok
  
         func Player1Eat nPos,nValue
-                 app1.processEvents()
+                 oApp.processEvents()
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to nCardsCount
@@ -215,7 +215,7 @@ class Game
                  ok
 
         func Player2Eat nPos,nValue
-                 app1.processEvents()
+                 oApp.processEvents()
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to  nCardsCount
@@ -250,7 +250,7 @@ class Game
 			if nPlayer2Score > nPlayer1Score
 				label2.settext("Player (2) Wins!!!")
 			ok
-			app1.processEvents()
+			oApp.processEvents()
 			delay(nDelayNewGame)
 			win1.delete()
                 ok
