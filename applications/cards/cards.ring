@@ -1,15 +1,18 @@
-# Application  : Cards Game
-# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+/*
+** Application  : Cards Game
+** Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+*/
 
 load "guilib.ring"
 
 app1 = new qApp 
 
-if isandroid()
+if ismobile()
     nScale = 3
 else
     nScale = 1
 ok
+
 mypic = new QPixmap(AppFile("cards.jpg"))
 mypic2 = mypic.copy(0,(124*4)+1,79,124)
 Player1EatPic = mypic.copy(80,(124*4)+1,79,124)
@@ -28,9 +31,9 @@ next
 nPlayer1Score = 0   nPlayer2Score=0
 
 do
-        Page1 = new Game
-        Page1.Start()
-again Page1.lnewgame
+	oGame = new Game
+	oGame.Start()
+again oGame.lnewgame
 
 mypic.delete()
 mypic2.delete()
@@ -41,7 +44,7 @@ for t in aMyCards
           t.delete()
 next
 
-func gui_setbtnpixmap pBtn,pPixmap
+func setButtonImage pBtn,pPixmap
         pBtn {
                 setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
                 setIconSize(new QSize(width(),height()))
@@ -49,7 +52,7 @@ func gui_setbtnpixmap pBtn,pPixmap
 
 class Game
 
-        if isandroid()
+        if ismobile()
             nCardsCount = 5
         else
             nCardsCount = 10
@@ -90,8 +93,8 @@ class Game
                                          border-color: black;
                                          padding: 6px;
                                         ")
-                        setclickevent("Page1.win1.close()")
-                        if isandroid()
+                        setclickevent("oGame.win1.close()")
+                        if ismobile()
                             setfixedheight(100)
                         ok
                 }
@@ -107,10 +110,10 @@ class Game
                         aBtns + new qpushbutton(win1)
                         aBtns[x].setfixedwidth(79*nScale)
                         aBtns[x].setfixedheight(124*nScale)
-                        gui_setbtnpixmap(aBtns[x],mypic2)
+                        setButtonImage(aBtns[x],mypic2)
                         layout2.addwidget(aBtns[x])
-                        aBtns[x].setclickevent("Page1.Player1click("+x+")")
-                        if isandroid()
+                        aBtns[x].setclickevent("oGame.Player1click("+x+")")
+                        if ismobile()
                             aBtns[x].setStyleSheet("
                             border-style: outset;
                             border-width: 2px;
@@ -138,10 +141,10 @@ class Game
                         aBtns2 + new qpushbutton(win1)
                         aBtns2[x].setfixedwidth(79*nScale)
                         aBtns2[x].setfixedheight(124*nScale)
-                        gui_setbtnpixmap(aBtns2[x],mypic2)
+                        setButtonImage(aBtns2[x],mypic2)
                         layout3.addwidget(aBtns2[x])
-                        aBtns2[x].setclickevent("Page1.Player2click("+x+")")
-                        if isandroid()
+                        aBtns2[x].setclickevent("oGame.Player2click("+x+")")
+                        if ismobile()
                             aBtns2[x].setStyleSheet("
                             border-style: outset;
                             border-width: 2px;
@@ -162,7 +165,7 @@ class Game
         func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
-                        gui_setbtnpixmap(aBtns[x],aCards[nPos])
+                        setButtonImage(aBtns[x],aCards[nPos])
                         del(aCards,nPos)
                         nRole = 2
                         aStatus[x] = 1
@@ -175,7 +178,7 @@ class Game
         func Player2Click x
                 if nRole = 2 and aStatus2[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
-                        gui_setbtnpixmap(aBtns2[x],aCards[nPos])
+                        setButtonImage(aBtns2[x],aCards[nPos])
                         del(aCards,nPos)
                         nRole = 1
                         aStatus2[x] = 1
@@ -192,21 +195,21 @@ class Game
                  for x = 1 to nCardsCount
                          if aStatus2[x] = 1 and (aStatusValues2[x] = nValue or nValue=5)
                                 aStatus2[x] = 2
-                                gui_setbtnpixmap(aBtns2[x],Player1EatPic)
+                                setButtonImage(aBtns2[x],Player1EatPic)
                                 lEat = True
                                 nPlayer1Score++
                          ok
                          if (x != nPos) and (aStatus[x] = 1) and
                                 (aStatusValues[x] = nValue or nValue=5)
                                 aStatus[x] = 2
-                                gui_setbtnpixmap(aBtns[x],Player1EatPic)
+                                setButtonImage(aBtns[x],Player1EatPic)
                                 lEat = True
                                 nPlayer1Score++
                          ok
                  next
                  if lEat
 			nPlayer1Score++
-			gui_setbtnpixmap(aBtns[nPos],Player1EatPic)
+			setButtonImage(aBtns[nPos],Player1EatPic)
 			aStatus[nPos] = 2
 			label1.settext("Player (1) - Score : " + nPlayer1Score)
                  ok
@@ -218,7 +221,7 @@ class Game
                  for x = 1 to  nCardsCount
                          if aStatus[x] = 1 and (aStatusValues[x] = nValue or nValue = 5)
                                 aStatus[x] = 2
-                                gui_setbtnpixmap(aBtns[x],Player2EatPic)
+                                setButtonImage(aBtns[x],Player2EatPic)
                                 lEat = True
                                 nPlayer2Score++
                          ok
@@ -226,14 +229,14 @@ class Game
                          if (x != nPos) and (aStatus2[x] = 1) and
                                 (aStatusValues2[x] = nValue or nValue=5 )
                                 aStatus2[x] = 2
-                                gui_setbtnpixmap(aBtns2[x],Player2EatPic)
+                                setButtonImage(aBtns2[x],Player2EatPic)
                                 lEat = True
                                 nPlayer2Score++
                          ok
                  next
                  if lEat
 			nPlayer2Score++
-			gui_setbtnpixmap(aBtns2[nPos],Player2EatPic)
+			setButtonImage(aBtns2[nPos],Player2EatPic)
 			aStatus2[nPos] = 2
 			label2.settext("Player (2) - Score : " + nPlayer2Score)
                  ok
