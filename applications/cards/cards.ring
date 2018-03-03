@@ -6,24 +6,125 @@
 load "guilib.ring"
 
 # The game object, Used by the Game Events
-	oGame = NULL
+	oGame 			= NULL
+	oApp  	  		= NULL   
+	winMenu 		= NULL
+
+# Global variables used by the main menu 
+	C_GAMEMODE_ONEPLAYER 	= 1
+	C_GAMEMODE_TWOPLAYERS 	= 2
+	nGameMode 		= C_GAMEMODE_TWOPLAYERS
+
+# Constants
+
+   	C_LABEL_STYLE = "font-size: 48px ; color : White ; background-color: Purple ;"
+
+        C_BUTTON_STYLE ="QPushButton{font-size: 28px ;background-color:navy;border:2px solid #9977fa;
+			 border-radius:7px;color:lightblue;} 
+			 QPushButton:hover{font-size: 28px ;color:navy;background-color:lightblue;} 
+			 QPushButton:pressed{font-size: 28px ;color:#aaa;background-color:#33116a; }"
+
+/*
+	Purpose : The main function, display the main menu 
+	Input	: None
+	Output	: None
+	Side Effects : None
+*/
 
 func main
+	oApp = new qApp {
+		winMenu = new qWidget() {
+			setWindowTitle("The Cards Game")
+			setstylesheet("background-color: white;")	
+			oCardsLabel = new qLabel(winMenu) {
+				setText("The Cards Game")
+				setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+				setFixedheight(300)
+				setstylesheet(C_LABEL_STYLE)
+			}
+			oBtnOnePlayer = new qPushbutton(winMenu) {
+				setText("One Player")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setclickevent("OnePlayer()")
+			}
+			oBtnTwoPlayers = new qPushbutton(winMenu) {
+				setText("Two Players")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setclickevent("TwoPlayers()")
+			}
+			oBtnExit = new qPushbutton(winMenu) {
+				setText("Exit")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setClickevent("CloseGame()")
+			}
+			oMainLayout = new qVBoxlayout() {
+				AddWidget(oCardsLabel)
+				AddWidget(oBtnOnePlayer)
+				AddWidget(oBtnTwoPlayers)
+				AddWidget(oBtnExit)
+			}
+			setLayout(oMainLayout)
+			showfullscreen()
+		}
+		exec()
+	}
 
-	oApp = new qApp 
+/*
+	Purpose : Set the play mode to one player
+	Input	: None
+	Output	: None
+	Side Effects : Update nGameMode 
+*/
 
+func OnePlayer
+	nGameMode = C_GAMEMODE_ONEPLAYER 
+	LoadCardsGame()
+
+/*
+	Purpose : Set the play mode to Two players
+	Input	: None
+	Output	: None
+	Side Effects : Update nGameMode 
+*/
+
+func TwoPlayers
+	nGameMode = C_GAMEMODE_TWOPLAYERS
+	LoadCardsGame()
+
+/*
+	Purpose : Close the game
+	Input	: None
+	Output	: None
+	Side Effects : None
+*/
+
+func CloseGame
+	winMenu.close()
+	oApp.quit()
+
+/*
+	Purpose : Load the cards images 
+	Input	: None
+	Output	: None
+	Side Effects : None
+*/
+
+
+func LoadCardsGame 
 	# Load Images	
-		oPic = new QPixmap(AppFile("cards.jpg"))
-		oPic2 = oPic.copy(0,(124*4)+1,79,124)
-		Player1EatPic = oPic.copy(80,(124*4)+1,79,124)
-		Player2EatPic= oPic.copy(160,(124*4)+1,79,124)
-		
-		aGameCards = []
-		aGameValues = []
+		oPic 		= new QPixmap("cards.jpg")
+		oPic2 		= oPic.copy(0,(124*4)+1,79,124)
+		Player1EatPic 	= oPic.copy(80,(124*4)+1,79,124)
+		Player2EatPic	= oPic.copy(160,(124*4)+1,79,124)		
+		aGameCards 	= []
+		aGameValues 	= []
 		for x1 = 0 to 3
 			for y1 = 0 to 12
 				temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
-				aGameCards + temppic
+				aGameCards  + temppic
 				aGameValues + (y1+1)
 			next
 		next
@@ -32,9 +133,8 @@ func main
 		nPlayer1Score = 0   nPlayer2Score=0
 		do
 			oGame = new Game {
-				loadGame(oApp,oPic,oPic2,Player1EatPic,Player2EatPic,
-					 aGameCards,aGameValues,nPlayer1Score,nPlayer2Score)
-				Start()
+				loadGame(oPic,oPic2,Player1EatPic,Player2EatPic,aGameCards,aGameValues,nPlayer1Score,nPlayer2Score)
+				Start()			
 			}
 			nPlayer1Score = oGame.nPlayer1Score 
 			nPlayer2Score = oGame.nPlayer2Score
@@ -45,44 +145,57 @@ func main
 		oPic2.delete()
 		Player1EatPic.delete()
 		Player2EatPic.delete()
-		
 		for t in aGameCards
 		          t.delete()
 		next
-			
+
+
 class Game
 
-        if ismobile()
-		nCardsCount = 5
-		nScale = 3
-        else
-		nCardsCount = 10
-		nScale = 1
-        ok
-
-	oApp oPic oPic2 Player1EatPic Player2EatPic aGameCards aGameValues
-	nPlayer1Score nPlayer2Score
+	# Setting properties based on platform
+	        if ismobile()
+			nCardsCount = 5
+			nScale = 3
+	        else
+			nCardsCount = 10
+			nScale = 1
+	        ok
 	
-        win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
-        aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
-        aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
-
-        lnewgame = false
-        nDelayEat = 0.5
-        nDelayNewGame = 1
-
-	func loadGame p1,p2,p3,p4,p5,p6,p7,p8,p9
-		oApp=p1 oPic=p2 oPic2=p3 
-		Player1EatPic=p4 Player2EatPic=p5
-		aGameCards=p6 aGameValues=p7 
-		nPlayer1Score=p8 nPlayer2Score=p9
+	# From the Game State
+		oPic 		oPic2 
+		Player1EatPic 	Player2EatPic 
+		aGameCards 	aGameValues
+		nPlayer1Score 	nPlayer2Score
+	
+	# The Game Window	
+	        win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
+	        aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
+	        aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
+	
+	# Playing with the computer 
+		oOnePlayerTimer  
+		aComputerActions = []
+	
+	# More attributes
+	        lnewgame 	= false
+	        nDelayEat 	= 0.5
+	        nDelayNewGame 	= 1
+		nDelayComputer  = 0.2
+	
+	func loadGame poPic,poPic2,pPlayer1Eatpic,pPlayer2Eatpic,paGameCards,paGameValues,pnPlayer1Score,pnPlayer2Score
+		oPic		= poPic 
+		oPic2		= poPic2 
+		Player1EatPic	= pPlayer1EatPic 
+		Player2EatPic	= pPlayer2EatPic
+		aGameCards	= paGameCards 
+		aGameValues	= paGameValues
+		nPlayer1Score	= pnPlayer1Score 
+		nPlayer2Score	= pnPlayer2Score
 
         func start
-
-                win1 = new qWidget() {
+                win1 = new qDialog(null) {
                         setwindowtitle("Five")
-                        setstylesheet("background-color: White")
-                        showfullscreen()
+                        setstylesheet("background-color: White")  
                 }
 
                 layout1 = new qvboxlayout()
@@ -158,7 +271,16 @@ class Game
 
                 win1.setlayout(layout1)
 
-                oApp.exec()
+		if nGameMode = C_GAMEMODE_ONEPLAYER
+			oOnePlayerTimer = new qTimer(win1) {
+				setinterval(200)
+				settimeoutevent("oGame.ComputerAction()")
+				start()
+			}
+		ok
+
+		win1.showfullscreen()
+		win1.exec()
 
 	func setButtonImage oBtn,oPixmap
 	        oBtn {
@@ -200,6 +322,10 @@ class Game
                         del(aValues,nPos)
                         Player2Eat(x,aStatusValues2[x])
                         checknewgame()
+			if nGameMode = C_GAMEMODE_ONEPLAYER
+				delay(nDelayComputer)
+				ComputerAction()
+			ok
                 ok
  
         func Player1Eat nPos,nValue
@@ -264,9 +390,12 @@ class Game
 			if nPlayer2Score > nPlayer1Score
 				label2.settext("Player (2) Wins!!!")
 			ok
+			if nGameMode = C_GAMEMODE_ONEPLAYER
+				oOnePlayerTimer.stop()
+			ok
 			oApp.processEvents()
 			delay(nDelayNewGame)
-			win1.delete()
+			win1.close()
                 ok
 
         func isnewgame
@@ -286,3 +415,25 @@ class Game
 		nTime = x * 1000
 		oTest = new qTest
 		oTest.qsleep(nTime)
+
+	func ComputerAction
+		oOnePlayerTimer.stop()
+		aOptions = 1:nCardsCount
+		if len(aComputerActions) > 0
+			for nNum in aComputerActions		
+				nPos = find(aOptions,nNum)
+				if nPos
+					del(aOptions,nPos)
+				ok
+			next
+		ok
+		if len(aComputerActions) < nCardsCount
+			# Repeat until you find new (unopened) card 
+				nCardNumber = Random(len(aOptions))
+				if nCardNumber = 0
+					nCardNumber = 1
+				ok
+				nCardNumber = aOptions[nCardNumber]
+			aComputerActions + nCardNumber
+			Player1Click(nCardNumber)
+		ok 
