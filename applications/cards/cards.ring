@@ -5,17 +5,15 @@
 
 load "guilib.ring"
 
-# The game object, Used by the Game Events
+# Global variables and constants used by the main menu 
+
 	oGame 			= NULL
 	oApp  	  		= NULL   
 	winMenu 		= NULL
 
-# Global variables used by the main menu 
 	C_GAMEMODE_ONEPLAYER 	= 1
 	C_GAMEMODE_TWOPLAYERS 	= 2
 	nGameMode 		= C_GAMEMODE_TWOPLAYERS
-
-# Constants
 
    	C_LABEL_STYLE = "font-size: 48px ; color : White ; background-color: Purple ;"
 
@@ -23,13 +21,6 @@ load "guilib.ring"
 			 border-radius:7px;color:lightblue;} 
 			 QPushButton:hover{font-size: 28px ;color:navy;background-color:lightblue;} 
 			 QPushButton:pressed{font-size: 28px ;color:#aaa;background-color:#33116a; }"
-
-/*
-	Purpose : The main function, display the main menu 
-	Input	: None
-	Output	: None
-	Side Effects : None
-*/
 
 func main
 	oApp = new qApp {
@@ -72,46 +63,17 @@ func main
 		exec()
 	}
 
-/*
-	Purpose : Set the play mode to one player
-	Input	: None
-	Output	: None
-	Side Effects : Update nGameMode 
-*/
-
 func OnePlayer
 	nGameMode = C_GAMEMODE_ONEPLAYER 
 	LoadCardsGame()
-
-/*
-	Purpose : Set the play mode to Two players
-	Input	: None
-	Output	: None
-	Side Effects : Update nGameMode 
-*/
 
 func TwoPlayers
 	nGameMode = C_GAMEMODE_TWOPLAYERS
 	LoadCardsGame()
 
-/*
-	Purpose : Close the game
-	Input	: None
-	Output	: None
-	Side Effects : None
-*/
-
 func CloseGame
 	winMenu.close()
 	oApp.quit()
-
-/*
-	Purpose : Load the cards images 
-	Input	: None
-	Output	: None
-	Side Effects : None
-*/
-
 
 func LoadCardsGame 
 	# Load Images	
@@ -128,7 +90,6 @@ func LoadCardsGame
 				aGameValues + (y1+1)
 			next
 		next
-
 	# Start the Game		
 		nPlayer1Score = 0   nPlayer2Score=0
 		do
@@ -139,7 +100,6 @@ func LoadCardsGame
 			nPlayer1Score = oGame.nPlayer1Score 
 			nPlayer2Score = oGame.nPlayer2Score
 		again oGame.lnewgame
-
 	# Delete Images		
 		oPic.delete()
 		oPic2.delete()
@@ -148,7 +108,6 @@ func LoadCardsGame
 		for t in aGameCards
 		          t.delete()
 		next
-
 
 class Game
 
