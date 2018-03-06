@@ -1,3 +1,7 @@
+# Application : Find in files 
+# Author      : Mahmoud Fayed <msfclipper@yahoo.com>
+# Date        : 2018.03.06
+
 load "findinfilesview.ring"
 import System.GUI
 if isMainSourceFile() { 
@@ -8,10 +12,14 @@ if isMainSourceFile() {
 			exec()
 		}
 }
+
 class findinfilesController from WindowsControllerParent
+
 	oView = new findinfilesView
 	oView.txtFolder.setText(CurrentDir())
+
 	func search
+
 		oView {
 			cText = txtFind.text()
 			cFolder = txtFolder.text()
@@ -36,12 +44,12 @@ class findinfilesController from WindowsControllerParent
 					if nPos { 
 						nRow++
 						TableOutput.setRowCount(nRow)
-							oItem = new TableWidgetItem(cFile)
-							TableOutput.setItem(nRow,1,oItem)
-							oItem = new TableWidgetItem(""+x)
-							TableOutput.setItem(nRow,2,oItem)
-							oItem = new TableWidgetItem(cLine)
-							TableOutput.setItem(nRow,3,oItem)
+						oItem = new TableWidgetItem(cFile)
+						TableOutput.setItem(nRow,1,oItem)
+						oItem = new TableWidgetItem(""+x)
+						TableOutput.setItem(nRow,2,oItem)
+						oItem = new TableWidgetItem(cLine)
+						TableOutput.setItem(nRow,3,oItem)
 					}
 				}
 			}
@@ -49,12 +57,15 @@ class findinfilesController from WindowsControllerParent
 				msginfo("Sorry","No Output!")
 			}
 		}
+
 	func browse
+
 		new QFileDialog(oView.win)
-			{
-				cFolder = getExistingDirectory(this.oView.win,"Open Directory","Folder",0)
-			}
+		{
+			cFolder = getExistingDirectory(this.oView.win,"Open Directory","Folder",0)
+		}
 		oView.txtFolder.setText(cFolder)
+
 	func close
+
 		oView.win.close()
-private
