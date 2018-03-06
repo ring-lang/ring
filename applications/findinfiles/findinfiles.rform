@@ -1,13 +1,13 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -235 , : y = 19  , 
+		 :x = -675 , : y = 19  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "LayoutMain" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "images/Search.ico" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
@@ -125,11 +125,11 @@ aObjectsList = [
 		 :x = 907 , : y = 16  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Search",
-		 :BtnImage =  "",
+		 :BtnImage =  "images/search.jpg",
 		 :setClickEvent =  "search"
 		]
 	],
@@ -137,11 +137,11 @@ aObjectsList = [
 		 :x = 907 , : y = 76  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Browse",
-		 :BtnImage =  "",
+		 :BtnImage =  "images/selectfolder.jpg",
 		 :setClickEvent =  "browse"
 		]
 	],
@@ -149,11 +149,11 @@ aObjectsList = [
 		 :x = 905 , : y = 529  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Close",
-		 :BtnImage =  "",
+		 :BtnImage =  "images/closeicon.jpg",
 		 :setClickEvent =  "Close"
 		]
 	],
