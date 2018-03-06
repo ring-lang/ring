@@ -16,8 +16,14 @@ class findinfilesController from WindowsControllerParent
 			cText = txtFind.text()
 			cFolder = txtFolder.text()
 			cExtension = txtExtension.text()
-			aFiles = ListAllFiles(cFolder,cExtension)
+			try { 
+				aFiles = ListAllFiles(cFolder,cExtension)
+			Catch 
+				msginfo("Sorry","Can't open the folder!")
+				return 
+			} 
 			nRow = 0
+			TableOutput.setRowCount(0)
 			for cFile in aFiles step 1 { 
 				cFileText = read(cFile)
 				aList = str2list(cFileText)
@@ -38,6 +44,9 @@ class findinfilesController from WindowsControllerParent
 							TableOutput.setItem(nRow,3,oItem)
 					}
 				}
+			}
+			if nRow = 0 { 
+				msginfo("Sorry","No Output!")
 			}
 		}
 	func browse
