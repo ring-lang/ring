@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 84 , : y = 23  , 
-		 :width =  1060 , :height = 679 , 
+		 :x = 84 , : y = 19  , 
+		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
@@ -24,7 +24,18 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "txtFind" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "lblExtension" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 16 , : y = 138  , 
+		 :width =  92 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Files Extension",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtFind" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 118 , : y = 8  , 
 		 :width =  787 , :height = 52 , 
 		 :textcolor =  "black" , 
@@ -40,7 +51,7 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "lblinfolder" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "lblinfolder" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 16 , : y = 76  , 
 		 :width =  92 , :height = 34 , 
 		 :textcolor =  "black" , 
@@ -51,7 +62,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "txtFolder" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "txtFolder" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 119 , : y = 69  , 
 		 :width =  787 , :height = 52 , 
 		 :textcolor =  "black" , 
@@ -67,8 +78,8 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "lblOutput" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 15 , : y = 125  , 
+	[ :name = "lblOutput" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 15 , : y = 195  , 
 		 :width =  92 , :height = 34 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -78,8 +89,8 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "TableOutput" , :id = 7 , :classname = "formdesigner_qtablewidget" , :data = [
-		 :x = 121 , : y = 139  , 
+	[ :name = "TableOutput" , :id = 8 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 121 , : y = 209  , 
 		 :width =  921 , :height = 313 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -110,7 +121,7 @@ aObjectsList = [
 		 :setitemSelectionChangedEvent =  ""
 		]
 	],
-	[ :name = "btnSearch" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnSearch" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 16  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
@@ -122,7 +133,7 @@ aObjectsList = [
 		 :setClickEvent =  "search"
 		]
 	],
-	[ :name = "btnBrowse" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnBrowse" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 76  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
@@ -134,8 +145,8 @@ aObjectsList = [
 		 :setClickEvent =  "browse"
 		]
 	],
-	[ :name = "btnClose" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 905 , : y = 459  , 
+	[ :name = "btnClose" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 905 , : y = 529  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -146,9 +157,9 @@ aObjectsList = [
 		 :setClickEvent =  "Close"
 		]
 	],
-	[ :name = "LayoutFind" , :id = 11 , :classname = "formdesigner_qlayout" , :data = [
-		 :x = 34 , : y = 485  , 
-		 :width =  254 , :height = 20 , 
+	[ :name = "LayoutFind" , :id = 12 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 38 , : y = 556  , 
+		 :width =  249 , :height = 15 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -157,9 +168,9 @@ aObjectsList = [
 		 :LayoutObjects =  "lblfind,txtFind,btnSearch"
 		]
 	],
-	[ :name = "LayoutInFolder" , :id = 12 , :classname = "formdesigner_qlayout" , :data = [
-		 :x = 20 , : y = 536  , 
-		 :width =  321 , :height = 32 , 
+	[ :name = "LayoutInFolder" , :id = 13 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 31 , : y = 590  , 
+		 :width =  318 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -168,9 +179,9 @@ aObjectsList = [
 		 :LayoutObjects =  "lblinfolder,txtFolder,btnBrowse"
 		]
 	],
-	[ :name = "LayoutOutput" , :id = 13 , :classname = "formdesigner_qlayout" , :data = [
-		 :x = 18 , : y = 585  , 
-		 :width =  266 , :height = 42 , 
+	[ :name = "LayoutOutput" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 38 , : y = 637  , 
+		 :width =  266 , :height = 40 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -179,15 +190,42 @@ aObjectsList = [
 		 :LayoutObjects =  "lblOutput,TableOutput"
 		]
 	],
-	[ :name = "LayoutMain" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
-		 :x = 372 , : y = 490  , 
-		 :width =  204 , :height = 33 , 
+	[ :name = "txtExtension" , :id = 15 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 119 , : y = 131  , 
+		 :width =  787 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "ring",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LayoutExtension" , :id = 16 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 352 , : y = 574  , 
+		 :width =  232 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "lblExtension,txtExtension"
+		]
+	],
+	[ :name = "LayoutMain" , :id = 17 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 406 , : y = 619  , 
+		 :width =  204 , :height = 56 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  0,
-		 :LayoutObjects =  "LayoutFind,LayoutInFolder,LayoutOutput,btnClose"
+		 :LayoutObjects =  "LayoutFind,LayoutInFolder,LayoutExtension,LayoutOutput,btnClose"
 		]
 	]
 ]

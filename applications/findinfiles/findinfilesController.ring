@@ -10,11 +10,13 @@ if isMainSourceFile() {
 }
 class findinfilesController from WindowsControllerParent
 	oView = new findinfilesView
+	oView.txtFolder.setText(CurrentDir())
 	func search
 		oView {
 			cText = txtFind.text()
 			cFolder = txtFolder.text()
-			aFiles = ListAllFiles(cFolder,"")
+			cExtension = txtExtension.text()
+			aFiles = ListAllFiles(cFolder,cExtension)
 			nRow = 0
 			for cFile in aFiles step 1 { 
 				cFileText = read(cFile)
