@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 84 , : y = 19  , 
+		 :x = -235 , : y = 19  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
@@ -46,7 +46,7 @@ aObjectsList = [
 		 :setTextChangedEvent =  "",
 		 :setcursorPositionChangedEvent =  "",
 		 :seteditingFinishedEvent =  "",
-		 :setreturnPressedEvent =  "",
+		 :setreturnPressedEvent =  "search",
 		 :setselectionChangedEvent =  "",
 		 :settextEditedEvent =  ""
 		]
