@@ -314,7 +314,7 @@
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
 		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
-				<a href="doc1.7/faq.html#why-ring-is-weakly-typed" target="_blank"> Why? </a>
+				<a href="doc1.7/faq.html#why-is-ring-weakly-typed" target="_blank"> Why? </a>
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
@@ -574,7 +574,7 @@ oPerson = <font color="purple">new</font> Person
 TimeForFun = <font color="purple">new</font> journey
 <font color="green"># The first surprise!</font>
 <b>TimeForFun {
-	Hello it is me		<font color="green"># What a beatiful programming world!</font>
+	Hello it is me		<font color="green"># What a beautiful programming world!</font>
 }</b>
 <font color="green"># Our Class</font>
 <font color="purple">class</font> journey
