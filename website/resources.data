@@ -102,6 +102,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/QtClassConverter" target="_blank">Qt Class Converter</a>',
 					'<img src="qtclassconverter.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/findinfiles" target="_blank">Find in files</a>',
+					'<img src="findinfiles.png" width="40%">'
 				]
 			    ]
                  ],
