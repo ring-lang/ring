@@ -15,45 +15,23 @@ List of changes and new features
 
 Ring 1.8 comes with the next features!
 
-* FoxRing Library
+* Find in files Application
 * The For Loops uses the local scope
 * Merge binary characters
+* FoxRing Library
 * Better Documentation
 
-
 .. index:: 
-	pair: What is new in Ring 1.8?; FoxRing Library
+	pair: What is new in Ring 1.8?; Find in files Application
 
-FoxRing Library
-===============
+Find in files Application
+=========================
 
-Developer: Jose Rosado
+Ring 1.8 comes with Find in files application
 
-A class with some of the functions I used in FoxPro\
+.. image:: findinfiles.png
+	:alt: Find in files
 
-Example:
-
-.. code-block:: ring
-
-	Load "foxring.ring"
-
-	mf = new frFunctions
-	? mf.frAbs(-45)      
-	? mf.frAbs(10-30)    
-	? mf.frAbs(30-10)   
-
-	? mf.frTransform("    Ring is a good language    ", "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
-	? mf.frAllTrim("    Ring is a good language    ", Null) 
-
-Output:
-
-.. code-block:: ring
-
-	45
-	20
-	20
-	    RING IS A GOOD LANGUAGE
-	Ring is a good language
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
@@ -162,6 +140,41 @@ Output:
 	1
 	1
 	
+
+.. index:: 
+	pair: What is new in Ring 1.8?; FoxRing Library
+
+FoxRing Library
+===============
+
+Developer: Jose Rosado
+
+A class with some of the functions I used in FoxPro\
+
+Example:
+
+.. code-block:: ring
+
+	Load "foxring.ring"
+
+	mf = new frFunctions
+	? mf.frAbs(-45)      
+	? mf.frAbs(10-30)    
+	? mf.frAbs(30-10)   
+
+	? mf.frTransform("    Ring is a good language    ", "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
+	? mf.frAllTrim("    Ring is a good language    ", Null) 
+
+Output:
+
+.. code-block:: ring
+
+	45
+	20
+	20
+	    RING IS A GOOD LANGUAGE
+	Ring is a good language
+
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Documentation
