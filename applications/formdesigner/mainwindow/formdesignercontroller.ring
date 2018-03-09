@@ -1178,6 +1178,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func BringToFront
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().raise()
 			oModel.RaiseActiveObject()
 			AddObjectsToCombo()
@@ -1185,6 +1186,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func SendToBack
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().lower()
 			oModel.LowerActiveObject()
 			AddObjectsToCombo()
