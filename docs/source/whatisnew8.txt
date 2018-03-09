@@ -19,6 +19,7 @@ Ring 1.8 comes with the next features!
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
+* Better Form Designer
 * Better Documentation
 
 .. index:: 
@@ -175,6 +176,15 @@ Output:
 	    RING IS A GOOD LANGUAGE
 	Ring is a good language
 
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Form Designer
+
+Better Form Designer
+====================
+
+(1) Layout Control - Display the control name when loading forms
+(2) Button Control - Display the button images written using relative path
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Documentation
