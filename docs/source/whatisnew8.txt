@@ -20,6 +20,7 @@ Ring 1.8 comes with the next features!
 * Merge binary characters
 * FoxRing Library
 * Better Form Designer
+* Better Cards Game
 * Better Documentation
 
 .. index:: 
@@ -187,6 +188,17 @@ Better Form Designer
 (2) Button Control - Display the button images written using relative path
 (3) Table  Control - Display the control name when loading forms
 (4) Better behavior in "Bring to front" and "Send to back" operations
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Cards Game
+
+Better Cards Game
+=================
+
+The Cards game is updated and we can play with the Computer
+
+.. image:: cardsmainmenu.png
+	:alt: Cards Main Menu
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Documentation

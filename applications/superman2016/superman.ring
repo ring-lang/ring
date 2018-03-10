@@ -3,8 +3,6 @@
 # SuperMan Game
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-
-
 oGameState = NULL
 
 Load "gameengine.ring"
