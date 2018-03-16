@@ -1782,7 +1782,7 @@ Hello
 <td>Calculate the SHA224 hash.</td>
 </tr>
 <tr class="row-even"><td>encrypt(cString,cKey,cIV)</td>
-<td>Cncrypts the data using the Blowfish algorithm.</td>
+<td>Encrypts the data using the Blowfish algorithm.</td>
 </tr>
 <tr class="row-odd"><td>decrypt(cString,cKey,cIV)</td>
 <td>Decrypt the data encrypted using the Encrypt() method.</td>
@@ -1795,9 +1795,9 @@ Hello
 <p>example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-<span class="n">osecuirty</span> <span class="o">=</span> <span class="k">new</span> <span class="n">secuirty</span>
-<span class="k">See</span> <span class="s">&quot;Test the secuirty Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oSecuirty</span> <span class="p">{</span>
+<span class="n">oSecurity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">security</span>
+<span class="k">See</span> <span class="s">&quot;Test the security Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oSecurity</span> <span class="p">{</span>
         <span class="k">see</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
         <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
         <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
