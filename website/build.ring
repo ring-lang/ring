@@ -33,7 +33,10 @@ Func createPage cHeader,cContent,cFooter,cOutput
 	See "Add header..." + nl
 	cStr = cHeader	
 	See "Add content..."  + nl
-	cStr += template(cContent,NULL) + nl
+	# Using template() then template2() to support using template() in the template file
+	# As we have in the download16.template
+	cContent = template(cContent,NULL)
+	cStr += template2(cContent,NULL) + nl
 	See "Add Footer..." + nl
 	cStr += cFooter
 	See "Writing file : " + cOutput  + nl
@@ -57,8 +60,10 @@ http://ring-lang.net
 # The function execute Ring code inside template files
 # Then put the result/output from Ring code in the template content
 Func Template cFile,oObject
-
 	cStr = Read(cFile)
+	return Template2(cStr,oObject)
+
+Func Template2 cStr,oObject
 	aList = []
 	cResult = ""
 	cCode = ""
