@@ -1,5 +1,8 @@
   aNews = [
-  ["February 9, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/OoZR4nYptbw" target="_blank"> Ring enters the top 50</a>'],
+  ["March 23, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/iUkiEtzY6mM" target="_blank"> Compiling Ring on Manjaro Linux</a>'],
+  ["March 20, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/M5-ZBqoXss4" target="_blank"> FoxRing Library</a>'],
+  ["March 6, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/AqYS3BavKCU" target="_blank"> Find in Files Application</a>'],
+  ["March 3, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/F6YMrboda3E" target="_blank"> Improving the Cards game</a>'],
   ["February 1, 2018",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Over 500 samples in Rosettacode about the Ring programming language</a>'],
   ["January 25, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/pWXlWO5Fze4" target="_blank"> Ring 1.7 Released!</a>'],
   ["December 21, 2017",'<a href="https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l" target="_blank"> Article : The declarative approach of the Ring programming language</a>'],
