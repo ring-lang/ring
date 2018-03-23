@@ -9,6 +9,12 @@ aPages = ["index.template","download.template",
 	  "download152.template",	
 	  "download151.template",	
 	  "download15.template",	
+	  "download141.template",	
+	  "download14.template",	
+	  "download13.template",	
+	  "download12.template",	
+	  "download11.template",	
+	  "download1.template",	
           "news.template","resources.template",
           "team.template"]
 
