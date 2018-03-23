@@ -6,6 +6,7 @@ aPages = ["index.template","download.template",
 	  "download16.template",
 	  "download154.template",	
 	  "download153.template",	
+	  "download152.template",	
           "news.template","resources.template",
           "team.template"]
 
