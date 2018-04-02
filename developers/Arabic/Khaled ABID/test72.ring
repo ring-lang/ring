@@ -17,4 +17,4 @@ func main
 
 func test
 	? x
-	? y
+	? y			# Error 
