@@ -1,5 +1,12 @@
 FoxRing ChangeLog
 
+1.0.140 2018.04.04 Jar
+----------------------------------------------------------
+	Added - frStuff() function
+	Fixed - Comments on frAt() abd frAtC() functions.
+	Updated - Comments on frVarType() function.
+
+
 1.0.139 2018.03.01 Jar
 ----------------------------------------------------------
 	Fixed - frAsc() function 
