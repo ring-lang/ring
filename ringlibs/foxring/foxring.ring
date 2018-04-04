@@ -37,7 +37,9 @@
  *	frStr()			Returns the character equivalent of a numeric expression.
  *	frStringToList()	Creates a List with the content of the specified string.
  *	frStrTran()		Searches a character expression for a second character expression and replaces each occurrence with a third 
- *				character expression.			
+ *				character expression.
+ *	frStuff()		Returns a new character string replaced by a specified number of characteres in a character expression with 
+ *				another character expression.
  *	frSubStr()		Returns a character string from the given character expression, starting at a specified position in the character 
  *				expression and continuing for a specified number of characters.			
  * 	frTransform()		Returns a character string from an expression in a format determined by a format code.
@@ -59,7 +61,7 @@
 	
 class frFunctions
 
-	_version = "1.0.139"
+	_version = "1.0.140"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -142,39 +144,41 @@ class frFunctions
 	}
 
 	/*
-	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOcurrence)
-	 * Description		: Searches a character expression for the ocurrence of another character expression. 
+	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression. 
 	 *			: The search performed by .frAt() is case-sensitive.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in tcString.
+	 *			: Specifies the character expression to search for in <tcString>.
 	 *			:
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for tcToSearch. 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
 	 *			:
 	 *			: <tnOccurrence> 
-	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
-	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for 
+	 *			: in <tcString>. 
+	 *			: By default, .frAt() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
 	 *			: 
-	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
-	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
-	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
-	 *			: tcString, .frAt() returns 0.
+	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in  <tcString>, frAt() 
+	 *			: returns 0.
 	 *			:
 	 * Author	 	: Jar c 19.12.2017
 	 */
 
-	func frAt(tcToSearch, tcString, tnOcurrence) {
+	func frAt(tcToSearch, tcString, tnOccurrence) {
 	
-		tnOcurrence 	= this.frSetIfEmpty(tnOcurrence, 1)
+		tnOccurrence 	= this.frSetIfEmpty(tnOccurrence, 1)
 		lnRet 		= 0
 		lnCounted 	= 0
 		
-		for n = 1 to tnOcurrence {
+		for n = 1 to tnOccurrence {
 			lnRet = SubStr(tcString, tcToSearch)
 			if lnRet > 0 {
 				tcString = SubStr(tcString, lnRet + 1)
-				if n < tnOcurrence {
+				if n < tnOccurrence {
 					lnCounted += lnRet
 				}
 			else
@@ -187,30 +191,32 @@ class frFunctions
 
 
 	/*
-	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOcurrence)
-	 * Description		: Searches a character expression for the ocurrence of another character expression 
+	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression 
 	 *			: without regard for the case of these two expressions.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in tcString.
+	 *			: Specifies the character expression to search for in <tcString>.
 	 *			:
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for tcToSearch. 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
 	 *			:
-	 *			: <tnOcurrence> 
-	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
-	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
+	 *			: <tnOccurrence> 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for
+	 *			: in tcString. 
+	 *			: By default, .frAtC() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
 	 *			: 
-	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
-	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
-	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
-	 *			: tcString, .frAt() returns 0.
+	 * Returns		: Numeric. .frAtC() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in <tcString>, frAtC()
+	 *			: returns 0.
 	 *			:
 	 * Author	 	: Jar c 04.02.2018
 	 */
 
-	func frAtC(tcToSearch, tcString, tnOcurrence) {
-		return this.frAt(Lower(tcToSearch), Lower(tcString), tnOcurrence)
+	func frAtC(tcToSearch, tcString, tnOccurrence) {
+		return this.frAt(Lower(tcToSearch), Lower(tcString), tnOccurrence)
 	}
 
 	/*
@@ -483,41 +489,6 @@ class frFunctions
 		return this.frAddBs(this.frJustPath(tcPath)) + this.frJustFName(tcFileName)
 	}
 	
-
-	/*
-	 * Syntax		: lcRet = frVarType(tuExpression)
-	 * Description		: 
-	 *			:
-	 * Arguments   		: 
-	 *			: 
-	 * Returns		: 
-	 *			: 
-	 * Author	 	: Jar C 01.09.2017
-	 */
-
-	func frVarType(tuExpression) {
-
-		lcRet = this._undefined_type
-		lcExpressionType = Type(tuExpression)
-
-		if lcExpressionType = this._ring_character_type {
-			lcRet = this._character_type
-		else
-			if lcExpressionType = this._ring_numeric_type {
-				lcRet = this._numeric_type
-			else
-				if lcExpressionType = this._ring_list_type {
-					lcRet = this._list_type
-				else
-					if lcExpressionType = this._ring_object_type {
-						lcRet = this._object_type
-					}
-				}
-			}
-		}
-	
-		return lcRet
-	}	
 
 	/*
 	 * Syntax		: lcReturnValue = frAllTrim(tcExpression, tcCharacter)
@@ -810,6 +781,41 @@ class frFunctions
 		return Len(tcString)
 	}
 
+
+	
+	/*
+	 * Syntax		: tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
+	 * Description		: Returns a new character string replaced by a specified number of characters in a character 
+	 *			: expression with another character expression.
+	 *			:
+	 * Arguments   		: <tcExpression>
+	 *			: Specify the character expression in which the replacement occurs.
+	 *			: 
+	 *			: <tnStartRep>
+	 *			: Specify the position in <tcExpression> where the replacement begins.
+	 *			: 
+	 *			: <tnCharRep>
+	 *			: Specifies the number of characters to be replaced. If <tnCharRep> is 0, the replacement string 
+	 *			: <tcToReplace> is inserted into <tcExpression>.
+	 *			: 
+	 *			: <tcToReplace>
+	 *			: Specifies the replacement character expression. If <tcToReplace> is an empty string, the number of 
+	 *			: characters specified by <tnCharRep> are removed from <tcExpression>.
+	 *			:
+	 * Returns		: Character 
+	 *			: 
+	 * Author	 	: Jar C 04.04.2018
+	 */
+	 
+	func frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace) {
+	
+		lcStart = Left(tcExpression, tnStartRep - 1)
+		lcEnd = SubStr(tcExpression, tnStartRep + tnCharRep)
+	
+		return lcStart + tcToReplace + lcEnd
+
+
+
 	/*
 	 * Syntax		: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
 	 * Description		: 
@@ -1011,7 +1017,6 @@ class frFunctions
 	 *			:
 	 * Returns		: None
 	 *			:  
-	 *			: 
 	 * Author	 	: Jar C 30.01.2018
 	 */
 
@@ -1180,6 +1185,57 @@ class frFunctions
 		}
 		return tcReturnValue
 	}
+
+
+	/*
+	 * Syntax		: lcRet = frVarType(tuExpression)
+	 * Description		: Returns the data type of an expression.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Expecifies the expression for which the data type is returned. frVartype() returns a
+	 *			: single character indicating the data type of the expression. 
+	 *			: The following table lists the characteres that frVarType() returns for each data type.
+	 *			:
+	 *			: -------------------	---------------------------------------------------------------
+	 *			: Return Value		Data Type
+	 *			: -------------------	---------------------------------------------------------------
+	 *			: C			Character
+	 *			: N			Numeric
+	 *			: A			List 
+	 *			: O			Object 
+	 *			: U			Undefined type
+	 *			: -------------------	---------------------------------------------------------------
+	 *			:
+	 * Returns		: Character 
+	 *			: 
+	 * Author	 	: Jar C 01.09.2017
+	 */
+
+	func frVarType(tuExpression) {
+
+		lcRet = this._undefined_type
+		lcExpressionType = Type(tuExpression)
+
+		if lcExpressionType = this._ring_character_type {
+			lcRet = this._character_type
+		else
+			if lcExpressionType = this._ring_numeric_type {
+				lcRet = this._numeric_type
+			else
+				if lcExpressionType = this._ring_list_type {
+					lcRet = this._list_type
+				else
+					if lcExpressionType = this._ring_object_type {
+						lcRet = this._object_type
+					}
+				}
+			}
+		}
+	
+		return lcRet
+	}	
+
+
 
 
 	/*
