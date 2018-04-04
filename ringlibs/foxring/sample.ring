@@ -3,6 +3,30 @@ Load "foxring.ring"
 
 mf = new frFunctions
 
+/*----------------------------------------------------------*/
+ * frStuff() samples
+/*----------------------------------------------------------*/
+
+lcStr1 = "abcdefghijklm"
+lcStr2 = "12345" 
+
+// insert
+?mf.frStuff(lcStr1, 4, 0, lcStr2)     
+// replace
+?mf.frStuff(lcStr1, 4, 3, lcStr2)     
+// delete
+?mf.frStuff(lcStr1, 4, 6, "")     
+// replace and insert
+?mf.frStuff(lcStr1, 4, 1, lcStr2)     
+// replace and delete
+?mf.frStuff(lcStr1, 4, 4, lcStr2)     
+// replace, delete rest
+?mf.frStuff(lcStr1, 4, Len(lcStr1), lcStr2)   
+
+/*----------------------------------------------------------*/
+
+
+
 ?mf.frAbs(-45)      
 ?mf.frAbs(10-30)    
 ?mf.frAbs(30-10)    
