@@ -1,8 +1,10 @@
-for c=1 to 5
-  see "Class:" + c+nl
-  see "*******" +nl
-  for s=1 to 3
-  see "Student:"+ s+nl
-  next
-  see "============="+nl
+
+for x=1 to 12
+    see "====================="+nl
+    see "Table "+x +":"+nl
+    see "==========="+nl
+    for y = 1 to 12
+    see " " +x + "*"+y+"="+(x*y)+nl
+     next
+
 next
