@@ -813,7 +813,7 @@ class frFunctions
 		lcEnd = SubStr(tcExpression, tnStartRep + tnCharRep)
 	
 		return lcStart + tcToReplace + lcEnd
-
+	}
 
 
 	/*
