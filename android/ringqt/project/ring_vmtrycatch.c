@@ -18,7 +18,7 @@ void ring_vm_catch ( VM *pVM,const char *cError )
 	pVM->nPC = ring_list_getint(pList,1) ;
 	ring_vm_restorestate(pVM,pList,2,RING_STATE_TRYCATCH);
 	/* Define variable cCatchError to contain the error message */
-	ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cError);
+	ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cError);
 	/* Tell C-API caller (CALL command) that catch happens! */
 	pVM->nActiveCatch = 1 ;
 	/* Catch Statements must be executed without try effects */

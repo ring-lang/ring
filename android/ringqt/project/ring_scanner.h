@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_scanner_h
 #define ring_scanner_h
 /* Data */
@@ -19,6 +19,8 @@ typedef struct Scanner {
 	RingState *pRingState  ;
 	/* Index of Keyword/Operator */
 	int nTokenIndex  ;
+	/* Literal Line */
+	int nLiteralLine  ;
 } Scanner ;
 /* Keywords */
 typedef enum SCANNER_KEYWORD {

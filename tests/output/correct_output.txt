@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-4
-96
-92
+3
+87
+84
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -565,7 +565,7 @@ cName value : Mahmoud
 cname: Mahmoud
 caddress: Egypt
 cphone: 123456789
-r: 0.000000
+r: 0
 Mahmoud
 Ahmed
 r value : 1
@@ -573,7 +573,7 @@ good
 cname: Ahmed
 caddress: Egypt
 cphone: 123456789
-r: 0.000000
+r: 0
 
 B:\ring\tests>call ring scripts/oop3.ring 
 NICE
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3699
+Time 3702
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -769,7 +769,7 @@ Months : 6
 Days per week : 5
 Test : 4
 After eval 
-test: 2.000000
+test: 2
 name: Mahmoud
 country: Egypt
 phone: 123456
@@ -777,10 +777,10 @@ job: Object...
 name: Programmer
 salary: 48000
 time: Object...
-test: 3.000000
-months: 6.000000
-daysperweek: 5.000000
-test: 4.000000
+test: 3
+months: 6
+daysperweek: 5
+test: 4
 
 B:\ring\tests>call ring scripts/oop19.ring 
 Name    : Mahmoud
@@ -812,8 +812,8 @@ phone: 123456
 link: Object...
 more...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -825,8 +825,8 @@ address: Egypt
 phone: 123456
 link: Object...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1432,8 +1432,8 @@ phone: 123456
 link: Object...
 more...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1452,8 +1452,8 @@ phone: 123456
 link: Object...
 more...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1472,8 +1472,8 @@ phone: 123456
 link: Object...
 more...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1495,8 +1495,8 @@ operator overloading works fine
 paramters : 2015
 operator : +
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : +
 operator overloading works fine
@@ -1506,8 +1506,8 @@ operator overloading works fine
 paramters : 2014
 operator : -
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : -
 operator overloading works fine
@@ -1517,8 +1517,8 @@ operator overloading works fine
 paramters : 2016
 operator : *
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : *
 operator overloading works fine
@@ -1528,8 +1528,8 @@ operator overloading works fine
 paramters : 2000
 operator : /
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : /
 operator overloading works fine
@@ -1539,8 +1539,8 @@ operator overloading works fine
 paramters : 2001
 operator : %
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : %
 operator overloading works fine
@@ -1571,8 +1571,8 @@ operator overloading works fine
 paramters : 0
 operator : neg
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : =
 operator overloading works fine
@@ -1582,8 +1582,8 @@ operator overloading works fine
 paramters : one
 operator : =
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : <=
 operator overloading works fine
@@ -1593,8 +1593,8 @@ operator overloading works fine
 paramters : one
 operator : <=
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : <
 operator overloading works fine
@@ -1604,8 +1604,8 @@ operator overloading works fine
 paramters : one
 operator : <
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : >
 operator overloading works fine
@@ -1615,8 +1615,8 @@ operator overloading works fine
 paramters : one
 operator : >
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : >=
 operator overloading works fine
@@ -1626,8 +1626,8 @@ operator overloading works fine
 paramters : one
 operator : >=
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : !=
 operator overloading works fine
@@ -1637,8 +1637,8 @@ operator overloading works fine
 paramters : one
 operator : !=
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : &
 operator overloading works fine
@@ -1648,8 +1648,8 @@ operator overloading works fine
 paramters : one
 operator : &
 operator overloading works fine
-paramters : x: 20.000000
-y: 40.000000
+paramters : x: 20
+y: 40
 
 operator : |
 operator overloading works fine
@@ -1667,8 +1667,8 @@ paramters : 1
 3
 
 operator : %
-x: 10.000000
-y: 10.000000
+x: 10
+y: 10
 
 B:\ring\tests>call ring scripts/oop40.ring 
 name mahmoud
@@ -1737,8 +1737,8 @@ phone: 123456
 link: Object...
 more...
 49000
-salary: 49000.000000
-tlist: List...
+salary: 49000
+tlist: [This Attribute Contains A List]
 1000
 2000
 3000
@@ -1756,20 +1756,20 @@ B:\ring\tests>call ring scripts/selfininit.ring
 20
 
 B:\ring\tests>call ring scripts/subobjs.ring 
-x: 10.000000
-y: 20.000000
-z: 30.000000
-x: 100.000000
-y: 200.000000
-z: 300.000000
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
 
 B:\ring\tests>call ring scripts/subobjs2.ring 
-x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
 
 B:\ring\tests>call ring scripts/subobjs3.ring 
 welcome
@@ -1789,20 +1789,20 @@ y : 250
 z : 350
 
 B:\ring\tests>call ring scripts/subobjs4.ring 
-x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
 
 B:\ring\tests>call ring scripts/subobjs5.ring 
-x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
 I have 2 points!
 B:\ring\tests>call ring scripts/newinlist.ring 
 Item 4 is a list contains 3 items
@@ -1810,13 +1810,13 @@ Item 4 is a list contains 3 items
 2
 3
 Object inside item 5
-x: 100.000000
-y: 200.000000
-z: 300.000000
+x: 100
+y: 200
+z: 300
 Object inside item 6
-x: 50.000000
-y: 150.000000
-z: 250.000000
+x: 50
+y: 150
+z: 250
 
 B:\ring\tests>call ring scripts/toop1.ring 
 10
@@ -2151,23 +2151,23 @@ sqrt(16) = 4
 
 B:\ring\tests>call ring scripts/newinmethodpara.ring 
 hello
-x: 10.000000
-y: 20.000000
-z: 30.000000
-x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 1000.000000
-y: 2000.000000
-z: 3000.000000
-x: 1000.000000
-y: 2000.000000
-z: 3000.000000
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
+x: 1000
+y: 2000
+z: 3000
+x: 1000
+y: 2000
+z: 3000
 
 B:\ring\tests>call ring scripts/newinpara.ring 
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 
 B:\ring\tests>call ring scripts/findcrash.ring 
 0
@@ -2187,9 +2187,9 @@ init
 good
 
 B:\ring\tests>call ring scripts/callinitmethod3.ring 
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 
 B:\ring\tests>call ring scripts/callmethodfromobj.ring 
 test2
@@ -2236,9 +2236,9 @@ x: 1.000000
 y: 2.000000
 z: 3.000000
 print the item (object)
-x: 1.000000
-y: 2.000000
-z: 3.000000
+x: 1
+y: 2
+z: 3
 
 B:\ring\tests>call ring scripts/insertfirst.ring 
 first
@@ -2263,12 +2263,12 @@ B:\ring\tests>call ring scripts/ppcrash2.ring
 11
 B:\ring\tests>call ring scripts/nestednew3.ring 
 pobject: NULL
-x: 30.000000
-y: 40.000000
-z: 50.000000
+x: 30
+y: 40
+z: 50
 pobject: NULL
-x: 10.000000
-y: 20.000000
+x: 10
+y: 20
 
 B:\ring\tests>call ring scripts/each.ring 
 1
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-03523D60
+034D4D90
 OBJECTPOINTER
 0
 1
@@ -2574,7 +2574,7 @@ phone: NULL
 B:\ring\tests>call ring scripts/conflict4.ring 
 name: mahmoud
 address: Egypt
-phone: 0.000000
+phone: 0
 
 B:\ring\tests>call ring scripts/privatemethod.ring 
 
@@ -2585,12 +2585,12 @@ B:\ring\tests>call ring scripts/privateattribute.ring
 Line 6 Error (R27) : Using private attribute from outside the class : salary 
 in file scripts/privateattribute.ring 
 B:\ring\tests>call ring scripts/dynamicattr1.ring 
-nindex: 1.000000
-nindex: 2.000000
+nindex: 1
+nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 11/12/2017
-time: 02:52:38
+date: 23/02/2018
+time: 17:34:39
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -2943,9 +2943,9 @@ done
 B:\ring\tests>call ring scripts/handlebraceerror2.ring 
 Handle Error!
 Message :Error (R3) : Calling Function without definition !: test
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 Done
 mmm...
 
@@ -2961,9 +2961,9 @@ B:\ring\tests>call ring scripts/selfafterclass.ring
 100
 200
 300
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 100
 200
 300
@@ -2972,9 +2972,9 @@ B:\ring\tests>call ring scripts/selfafterclass2.ring
 100
 200
 300
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 100
 200
 300
@@ -3030,12 +3030,12 @@ B:\ring\tests>call ring scripts/assigncrash6.ring
 done
 
 B:\ring\tests>call ring scripts/braceescape.ring 
-x: 10.000000
-y: 20.000000
-z: 30.000000
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
+x: 10
+y: 20
+z: 30
 100
 200
 300
@@ -3064,9 +3064,9 @@ y: NULL
 z: NULL
 
 B:\ring\tests>call ring scripts/initmethod.ring 
-x: 100.000000
-y: 200.000000
-z: 300.000000
+x: 100
+y: 200
+z: 300
 
 B:\ring\tests>call ring scripts/dynamicmethods.ring 
 10
@@ -3168,10 +3168,10 @@ init myfontclass
 init mycontrol
 
 B:\ring\tests>call ring scripts/returnscope.ring 
-top: 10.000000
-left: 10.000000
-width: 400.000000
-height: 400.000000
+top: 10
+left: 10
+width: 400
+height: 400
 
 B:\ring\tests>call ring scripts/returnlistfrommethod.ring 
 
@@ -3181,7 +3181,7 @@ B:\ring\tests>call ring scripts/evalbrace.ring
 wow
 B:\ring\tests>call ring scripts/equalobjobj.ring 
 
-Line 4 Object does not support operator overloading 
+Line 13 Object does not support operator overloading 
 In raise in file scripts/equalobjobj.ring 
 B:\ring\tests>call ring scripts/nullpointer.ring 
 
@@ -3206,8 +3206,8 @@ Line 13 Error (R14) : Calling Method without definition !: what
 In method test() in file scripts/objmethodnobraceerror.ring
 called from line 2  in file scripts/objmethodnobraceerror.ring 
 B:\ring\tests>call ring scripts/retselfbyref.ring 
-x: 15.000000
-x: 20.000000
+x: 15
+x: 20
 x: 20.000000
 
 B:\ring\tests>call ring scripts/passtemplisttoinitmethod.ring  
@@ -3308,9 +3308,9 @@ B:\ring\tests>call ring scripts/nestedfunccall.ring
 Line 5 Error (R1) : Cann't divide by zero ! 
 in file scripts/nestedfunccall.ring 
 B:\ring\tests>call ring scripts/classbraces.ring 
-x: 10.000000
-y: 20.000000
-z: 30.000000
+x: 10
+y: 20
+z: 30
 
 B:\ring\tests>call ring scripts/funcbraces.ring 
 hello
@@ -3321,13 +3321,13 @@ Hello Mahmoud
 
 B:\ring\tests>call ring scripts/classend.ring 
 nice
-name: 10.000000
-x: 10.000000
-y: 20.000000
-z: 30.000000
-x: 10.000000
-y: 20.000000
-z: 30.000000
+name: 10
+x: 10
+y: 20
+z: 30
+x: 10
+y: 20
+z: 30
 7
 10
 
@@ -3387,3 +3387,118 @@ Before the runtime error!
 
 Line 3 Error (R27) : Using private attribute from outside the class : salary 
 in file scripts/privateattributereuse.ring 
+B:\ring\tests>call ring scripts/listnovar.ring 
+Welcome!
+Hi!
+
+B:\ring\tests>call ring scripts/checknull.ring 
+1
+1
+1
+1
+1
+0
+
+B:\ring\tests>call ring scripts/selfaddcrash.ring 
+aitems: [This Attribute Contains A List]
+
+aitems: [This Attribute Contains A List]
+
+
+
+B:\ring\tests>call ring scripts/errorloc.ring 
+1
+3
+
+Line 5 Error (R34) : Variable is required for the assignment operation 
+In function main() in file scripts/errorloc.ring
+called from line 1  in file scripts/errorloc.ring 
+B:\ring\tests>call ring scripts/rangekeyword.ring 
+True
+
+B:\ring\tests>call ring scripts/objdecimals.ring 
+x: 10.12
+y: 20.12
+
+
+B:\ring\tests>call ring scripts/literror.ring 
+Error (S1) : In Line 2 , Literal not closed, expected " in the end
+
+B:\ring\tests>call ring scripts/noobject.ring 
+Hello
+
+Line 4 Error (R24) : Using uninitialized variable : noobject 
+in file scripts/noobject.ring 
+B:\ring\tests>call ring scripts/objcontainslist.ring 
+mylist: [This Attribute Contains A List]
+name: Test
+
+
+B:\ring\tests>call ring scripts/loadpackage.ring 
+Hello, World!
+Hello from testloadpackage.ring
+1000
+100
+1000
+
+B:\ring\tests>call ring scripts/testfnicr.ring 
+
+Line 4 Error (R1) : Cann't divide by zero ! 
+in file scripts/filenameinclassregion.ring 
+B:\ring\tests>call ring scripts/testfnicr2.ring 
+scripts/filenameinclassregion2.ring
+
+B:\ring\tests>call ring scripts/plusequalfunc.ring 
+one = test:get_one()
+okkkkkkkkkkkkk
+Func GetObjectPointerFromRingObject pObj
+     if isobject(pObj)
+	if isattribute(pObj,'pObject')
+		return pObj.pObject
+	else 
+		raise('Error, The parameter is not a GUI object!')
+	ok
+     ok	
+     return pObj		
+
+
+B:\ring\tests>call ring scripts/varptr.ring 
+char
+char
+
+B:\ring\tests>call ring scripts/forloopscope.ring 
+10
+6
+10
+NULL
+10
+
+B:\ring\tests>call ring scripts/chars.ring 
+Weo
+Weo
+3
+W
+All String
+12
+         
+First Part
+4
+   
+Second Part
+4
+   
+Third Part
+4
+   
+All String
+12
+         
+1
+1
+
+B:\ring\tests>call ring scripts/ncemain.ring 
+
+Line 1 Error (R1) : Cann't divide by zero ! 
+in file scripts/ncesub.ring 
+B:\ring\tests>call ring scripts/filenameinpara.ring 
+scripts/filenameinpara.ring

@@ -3,7 +3,8 @@
 Load "weblib.ring"
 Import System.Web
 
-cUploadPath = "C:/Apache2.2/htdocs/ringapp/upload/"
+
+cUploadPath = exefolder() + "../ringlibs/weblib/ringapp/upload/"
 
 New Page 
 {

@@ -251,7 +251,7 @@ void ring_vmlib_insert ( void *pPointer )
 		}
 		else if ( RING_API_ISLIST(3) ) {
 			pList2 = ring_list_insertlist(pList,nPos);
-			ring_list_copy(pList2,RING_API_GETLIST(3));
+			ring_vm_list_copy((VM *) pPointer,pList2,RING_API_GETLIST(3));
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -276,7 +276,7 @@ void ring_vmlib_sort ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_NEWLIST ;
 		pList2 = RING_API_GETLIST(1);
-		ring_list_copy(pList,pList2);
+		ring_vm_list_copy((VM *) pPointer,pList,pList2);
 		if ( ring_list_getsize(pList) < 2 ) {
 			RING_API_RETLIST(pList2);
 			return ;
@@ -469,7 +469,7 @@ void ring_vmlib_reverse ( void *pPointer )
 			}
 			else if ( ring_list_islist(pList2,x) ) {
 				pList3 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-				ring_list_copy(pList3,ring_list_getlist(pList2,x));
+				ring_vm_list_copy((VM *) pPointer,pList3,ring_list_getlist(pList2,x));
 			}
 		}
 		RING_API_RETLIST(pList);

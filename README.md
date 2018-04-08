@@ -1,4 +1,4 @@
-![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+![Ring](http://ring-lang.sf.net/thering.jpg)
 
 # Ring Programming Language
 
@@ -6,23 +6,21 @@
 
 | |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
-|Download |[![Download](http://ring-lang.sourceforge.net/binaryrelease.svg)](http://ring-lang.sourceforge.net/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](http://ring-lang.sourceforge.net/documentation.svg)](http://ring-lang.sourceforge.net/doc1.6/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
-|Try |[![Try](http://ring-lang.sourceforge.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Support |[![Support](http://ring-lang.sourceforge.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Download |[![Download](http://ring-lang.sf.net/binaryrelease.svg)](http://ring-lang.sf.net/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Help |[![Help](http://ring-lang.sf.net/documentation.svg)](http://ring-lang.sf.net/doc1.7/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Try |[![Try](http://ring-lang.sf.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sf.net/cgi-bin/ringlang.cgi)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Support |[![Support](http://ring-lang.sf.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
 # Description
-
 
 The Ring is an Innovative and practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Meta programming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, etc.) and can be used to create
 Console, GUI, Web, Games and Mobile applications. 
-The language is designed to be Simple, Small, Flexible and Fast. [Read more!](http://ring-lang.sourceforge.net/#why)
+The language is designed to be Simple, Small, Flexible and Fast. [Read more!](http://ring-lang.sf.net/#why)
 
-
-![Ring](http://ring-lang.sourceforge.net/ringshots.gif)
+![Ring](http://ring-lang.sf.net/newringshots.gif)
 
 # Building from source code
 
@@ -108,6 +106,12 @@ We provide instructions for building on the next platforms :-
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
+### Generate RingLibuv Source Code and Build 
+	
+	cd ../extensions/ringlibuv
 	gencode.bat
 	buildvc.bat
 
@@ -228,6 +232,24 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingLibuv Source Code and Build 
+
+We will build Libuv first
+
+	cd ../extensions/ringlibuv/libuv
+	sudo apt-get libtool install m4 automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+	
+	cd ..
+	./gencode.sh
+	./buildgcc.sh
+
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
@@ -330,6 +352,24 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingLibuv Source Code and Build 
+
+We will build Libuv first
+
+	cd ../extensions/ringlibuv/libuv
+	sudo dnf install libtool m4 autoconf automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+	
+	cd ..
 	./gencode.sh
 	./buildgcc.sh
 
@@ -441,6 +481,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildclang.sh
 
+### Generate RingLibuv Source Code and Build 
+	
+	cd ../extensions/ringlibuv
+	./gencode.sh
+	./buildclang.sh
+
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
@@ -473,6 +519,8 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 
 
 ## Building using CMake 
+
+This will build the Ring compiler and Ring Virtual Machine 
 
 	cmake .
 	make

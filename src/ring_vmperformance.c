@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* For Better Performance */
 
@@ -8,6 +8,7 @@ void ring_vm_pushp ( VM *pVM )
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope List */
 	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_GLOBAL);
+	pVM->nVarScope = RING_VARSCOPE_GLOBAL ;
 }
 
 void ring_vm_pushplocal ( VM *pVM )
@@ -284,7 +285,9 @@ void ring_vm_loadfuncp ( VM *pVM )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
 	ring_list_newlist_gc(pVM->pRingState,pList);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
+	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(6));
 	ring_vm_saveloadaddressscope(pVM);

@@ -124,6 +124,8 @@ Ring 1.5 is released on August 21, 2017
 
 Ring 1.6 is released on November 30, 2017
 
+Ring 1.7 is released on January 25, 2018
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -231,6 +233,8 @@ The Ring language comes with the next features
 * Tracing and Debugging
 * Type Hints
 * Comes with Ring2EXE to distribute applications
+* RingLibuv Extension
+* No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 
 License
 =======
@@ -239,7 +243,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.7
+Version 1.8
 
 The MIT License (MIT)
 

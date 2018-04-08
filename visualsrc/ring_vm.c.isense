@@ -184,6 +184,14 @@ Type: char
 lPassError
 Type: char
 lHideErrorMsg
+Type: List *
+aGlobalScopes
+Type: List *
+aActiveGlobalScopes
+Type: int
+nCurrentGlobalScope
+Type: char *
+cFileNameInClassRegion
 END:
 Type: VM
 struct VM
@@ -207,6 +215,7 @@ RING_VM_STACK_SETCVALUE(x)
 RING_VM_STACK_SETNVALUE(x)
 RING_VM_STACK_SETPVALUE(x)
 RING_VM_STACK_SETCVALUE2(x,y)
+RING_VM_STACK_PUSHCVALUE2(x,y)
 RING_VM_STACK_ISSTRING
 RING_VM_STACK_ISNUMBER
 RING_VM_STACK_ISPOINTER
@@ -257,6 +266,7 @@ RING_FUNCCL_PC
 RING_FUNCCL_SP
 RING_FUNCCL_TEMPMEM
 RING_FUNCCL_FILENAME
+RING_FUNCCL_NEWFILENAME
 RING_FUNCCL_METHODORFUNC
 RING_FUNCCL_LINENUMBER
 RING_FUNCCL_CALLERPC
@@ -367,8 +377,6 @@ Type: VM *
 pVM
 Type: int
 x
-Type: List *
-pList
 ring_vm_delete
 Type: int
 x
@@ -438,9 +446,18 @@ Type: int
 x,lFunctionCall
 Type: List *
 pList
+Type: const char *
+cFile
+Type: const char *
+cOldFile
 ring_vm_setfilename
 ring_vm_loadaddressfirst
 ring_vm_endfuncexec
+ring_vm_addglobalvariables
+Type: List *
+pList
+Type: int
+x
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock

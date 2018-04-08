@@ -130,3 +130,4 @@ class FormDesigner_QLayout from QLabel
 		itemdata = item[:data]
 		setLayoutTypeValue(itemdata[:LayoutType])
 		setLayoutObjectsValue(itemdata[:LayoutObjects])
+		setText(oDesigner.oModel.GetObjectName(self))

@@ -44,8 +44,9 @@ void ring_vm_liststart ( VM *pVM )
 			ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 		} else {
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
-				ring_vm_error(pVM,RING_VM_ERROR_NOTVARIABLE);
-				return ;
+				/* Create the List in Global Temp Memory. */
+				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
+				ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 			}
 			nType = RING_VM_STACK_OBJTYPE ;
 			if ( nType == RING_OBJTYPE_LISTITEM ) {
@@ -97,14 +98,14 @@ void ring_vm_listitem ( VM *pVM )
 			RING_VM_STACK_POP ;
 			pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_list_copy(pList3,pList2);
+			ring_vm_list_copy(pVM,pList3,pList2);
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			pList2 = ring_item_getlist(pItem);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_list_copy(pList3,pList2);
+			ring_vm_list_copy(pVM,pList3,pList2);
 		}
 	}
 }
@@ -193,7 +194,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 		else if ( RING_VM_STACK_ISSTRING ) {
 			cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
 			cStr2[1] = '\0' ;
-			RING_VM_STACK_SETCVALUE(cStr2);
+			RING_VM_STACK_SETCVALUE2(cStr2,1);
 			return ;
 		} else {
 			ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);

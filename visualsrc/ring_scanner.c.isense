@@ -19,6 +19,8 @@ Type: RingState *
 pRingState
 Type: int
 nTokenIndex
+Type: int
+nLiteralLine
 END:
 Type: Scanner
 struct Scanner

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Lists &mdash; Ring 1.7 documentation</title>
+    <title>Lists &mdash; Ring 1.8 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
     <link rel="next" title="Strings" href="strings.html" />
     <link rel="prev" title="Program Structure" href="programstructure.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="programstructure.html" title="Program Structure"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -411,8 +411,8 @@ the first item is the left side and the second item is the right side.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="passing-parameters-using-list">
-<span id="index-17"></span><h2>Passing Parameters Using List<a class="headerlink" href="#passing-parameters-using-list" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="passing-parameters-or-argumnents-using-list">
+<span id="index-17"></span><h2>Passing Parameters or Argumnents Using List<a class="headerlink" href="#passing-parameters-or-argumnents-using-list" title="Permalink to this headline">¶</a></h2>
 <p>This type of lists is very good for passing parameters to functions
 Where the order of parameters will not be important (we can change the order).</p>
 <p>Also some parameters maybe optional.</p>
@@ -430,8 +430,100 @@ Where the order of parameters will not be important (we can change the order).</
 </pre></div>
 </div>
 </div>
+<div class="section" id="passing-parameters-or-argumnents-using-list-array">
+<span id="index-18"></span><h2>Passing Parameters or Argumnents Using List Array<a class="headerlink" href="#passing-parameters-or-argumnents-using-list-array" title="Permalink to this headline">¶</a></h2>
+<p>Passing Arguments or Parmameters to a Function in an array format</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="o">]</span>    <span class="sd">### list with args or parms in  an array</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Sum result: &quot;</span><span class="o">+</span> <span class="n">result</span> <span class="o">+</span><span class="n">n</span>
+
+<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+  <span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">sizeList</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">sizeList</span>
+     <span class="k">See</span> <span class="n">aList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
+     <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">aList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+  <span class="k">next</span>
+<span class="k">return</span> <span class="n">acc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-multi-dimensional-array-using-list">
+<span id="index-19"></span><h2>Creating a Multi-Dimensional Array using  List<a class="headerlink" href="#creating-a-multi-dimensional-array-using-list" title="Permalink to this headline">¶</a></h2>
+<p>A Multi-Dimensional Array of any size can be built using recursion in a  Function</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="sd">###---------------------------------------------------------</span>
+<span class="sd">### Create Array -- Dimensions Any Size:  3D, 4D, 5D etc</span>
+
+<span class="n">dimList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>
+<span class="n">bList</span>   <span class="o">=</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">dimList</span><span class="p">)</span>
+
+<span class="sd">###---------------------------------------------------------</span>
+<span class="sd">### Populate the arrays using a counter 1 ,  4x4x4 = 256 , 2x3x4x5x6 = 720</span>
+
+<span class="n">Counter</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+            <span class="n">blist</span><span class="o">[</span><span class="n">Col</span><span class="o">][</span><span class="n">Row</span><span class="o">][</span><span class="n">Dep</span><span class="o">]</span> <span class="o">=</span> <span class="n">Counter</span>
+            <span class="n">Counter</span><span class="o">++</span>
+    <span class="k">next</span>
+  <span class="k">next</span>
+<span class="k">next</span>
+
+<span class="sd">###-----------------------------------------------</span>
+<span class="sd">### Print the array elements in block format</span>
+
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+            <span class="k">See</span> <span class="n">bList</span><span class="o">[</span><span class="n">Col</span><span class="o">][</span><span class="n">Row</span><span class="o">][</span><span class="n">Dep</span><span class="o">]</span> <span class="k">See</span> <span class="s">&quot; &quot;</span>
+    <span class="k">next</span>
+    <span class="k">See</span> <span class="n">nl</span>
+  <span class="k">next</span>
+    <span class="k">See</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="sd">###===========================</span>
+<span class="sd">### FUNCTIONS</span>
+
+<span class="sd">###-----------------------------------------------------------------------</span>
+<span class="sd">### Recursive Create a Dimension Array</span>
+<span class="sd">### Call by passing an array of dimesions: dimList = [2,3,4,5]</span>
+<span class="sd">### Drop the first entry every iteration call, making newParms</span>
+<span class="sd">###</span>
+<span class="sd">### Example:</span>
+<span class="sd">###    dimList = [4,2,3,2]                &lt;&lt;&lt; Number and size of dimensions in array format</span>
+<span class="sd">###    bList   = createDimList(dimList)   &lt;&lt;&lt; Call using the array as input</span>
+
+<span class="k">func</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">dimArray</span><span class="p">)</span>
+
+     <span class="n">sizeList</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">dimArray</span><span class="p">)</span>
+
+     <span class="n">newParms</span> <span class="o">=</span> <span class="o">[]</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="n">sizeList</span>
+        <span class="n">Add</span><span class="p">(</span><span class="n">newParms</span><span class="p">,</span> <span class="n">dimArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
+     <span class="k">next</span>
+
+     <span class="n">alist</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">dimArray</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+
+     <span class="k">if</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">aList</span>
+     <span class="k">ok</span>
+
+     <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">alist</span>
+         <span class="n">t</span> <span class="o">=</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">newParms</span><span class="p">)</span>
+     <span class="k">next</span>
+
+<span class="k">return</span> <span class="n">alist</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="swap-items">
-<span id="index-18"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this headline">¶</a></h2>
 <p>We can swap the list items using the Swap() function.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">four</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span>
@@ -481,7 +573,9 @@ Where the order of parameters will not be important (we can change the order).</
 <li><a class="reference internal" href="#using-lists-during-definition">Using Lists during definition</a></li>
 <li><a class="reference internal" href="#passing-lists-to-functions">Passing Lists to Functions</a></li>
 <li><a class="reference internal" href="#access-list-items-by-string-index">Access List Items by String Index</a></li>
-<li><a class="reference internal" href="#passing-parameters-using-list">Passing Parameters Using List</a></li>
+<li><a class="reference internal" href="#passing-parameters-or-argumnents-using-list">Passing Parameters or Argumnents Using List</a></li>
+<li><a class="reference internal" href="#passing-parameters-or-argumnents-using-list-array">Passing Parameters or Argumnents Using List Array</a></li>
+<li><a class="reference internal" href="#creating-a-multi-dimensional-array-using-list">Creating a Multi-Dimensional Array using  List</a></li>
 <li><a class="reference internal" href="#swap-items">Swap Items</a></li>
 </ul>
 </li>
@@ -529,11 +623,11 @@ Where the order of parameters will not be important (we can change the order).</
         <li class="right" >
           <a href="programstructure.html" title="Program Structure"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

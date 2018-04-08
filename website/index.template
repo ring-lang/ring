@@ -73,10 +73,13 @@
 			The language comes with better support for Natural Language Programming and Declarative Programming. The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). You get the language constructs ready for use to create domain-specific languages in a fraction of time.
 			</p>
 			
-			<a id="ringarticle2" href="https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
-			<a id="ringarticle3" href="https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
-			<a id="ringarticle4" href="https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag" target="_blank" class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
 			<a id="ringarticle"  href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article</a> 
+			<a id="ringarticle4" href="https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag" target="_blank" class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
+			<a id="ringarticle5" href="https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l" target="_blank" class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
+			<a id="ringarticle3" href="https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
+			<a id="ringarticle2" href="https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
+		
+			
 			</div>
 		</div>
 	  </div>
@@ -120,8 +123,8 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-      <div class="item">
-        <img src="ringdemo1.png" alt="" width="1366" height="729">
+      <div class="item active">
+        <img src="newringdemo1.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -129,7 +132,7 @@
       </div>
 
       <div class="item">
-        <img src="ringdemo2.png" alt="" width="1366" height="729">
+        <img src="newringdemo2.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -137,7 +140,7 @@
       </div>
     
       <div class="item">
-        <img src="ringdemo3.png" alt="" width="1366" height="729">
+        <img src="newringdemo3.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -145,7 +148,7 @@
       </div>
 
       <div class="item">
-        <img src="ringdemo4.jpg" alt="" width="1366" height="729">
+        <img src="newringdemo4.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -153,7 +156,7 @@
       </div>
   
       <div class="item">
-        <img src="ringdemo5.png" alt="" width="1366" height="729">
+        <img src="newringdemo5.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -161,7 +164,7 @@
       </div>
  
       <div class="item">
-        <img src="ringdemo6.png" alt="" width="1366" height="729">
+        <img src="newringdemo6.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -169,7 +172,7 @@
       </div>
 
 		<div class="item">
-        <img src="ringdemo8.png" alt="" width="1366" height="729">
+        <img src="newringdemo7.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -177,8 +180,8 @@
       </div>	  
 	
 
-	  <div class="item active">
-        <img src="ringdemo12.png" alt="" width="1366" height="729">
+	  <div class="item">
+        <img src="newringdemo8.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -186,7 +189,7 @@
       </div>	
 	
       <div class="item">
-        <img src="ringdemo10.png" alt="" width="1366" height="729">
+        <img src="newringdemo9.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -195,7 +198,7 @@
 	
 	 
 	  <div class="item">
-        <img src="ringdemo9.png" alt="" width="1366" height="729">
+        <img src="newringdemo10.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -203,21 +206,22 @@
       </div>	
 	
       <div class="item">
-        <img src="ringdemo11.png" alt="" width="1366" height="729">
+        <img src="newringdemo11.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
         </div>
       </div>	
-	
-	  <div class="item">
-        <img src="ringdemo7.png" alt="" width="1366" height="729">
+
+      <div class="item">
+        <img src="newringdemo12.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
         </div>
-      </div>
-	
+      </div>	
+	  
+
     </div>
 
     <!-- Left and right controls -->
@@ -229,11 +233,11 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
       <span class="sr-only">Next</span>
     </a>
+	
   </div>
 </div>
 		
-		
-		
+			
 		
 			</div>
 		</div>
@@ -243,9 +247,6 @@
 
 
 
-
- 
- 
  
  
 
@@ -260,7 +261,7 @@
 		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
 		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
-		<a href="doc1.6/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
 		</p>
 		<br> <br>
 
@@ -270,11 +271,11 @@
 
 		<p>
 			<ul>
-			<li>Applications programming language. <a href="doc1.6/ringapps.html" target="_blank"> Examples? </a> </li>
+			<li>Applications programming language. <a href="doc1.7/ringapps.html" target="_blank"> Examples? </a> </li>
 			<li>Productivity and developing high quality solutions that can scale.</li>			
-			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.6/embedding.html" target="_blank"> How? </a></li>
+			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.7/embedding.html" target="_blank"> How? </a></li>
 			<li>Simple language that can be used in education and introducing Compiler/VM concepts. <a href="#education" target="_blank"> How? </a></li>
-			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.6/naturallibrary.html" target="_blank"> How? </a></li>
+			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.7/naturallibrary.html" target="_blank"> How? </a></li>
 			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software. <a href="http://pwct.org" target="_blank"> What? </a></li>							
 			</ul>
 
@@ -292,7 +293,7 @@
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
 		To print something using the standard output, We can use the 'See' command. 
-		<a href="doc1.6/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
 		
 
 		<p>
@@ -302,7 +303,7 @@
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
-		<a href="doc1.6/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">func</font> main
@@ -311,11 +312,11 @@
 		</p>
 
 		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name, but we can use it!
-		<a href="doc1.6/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
+		<a href="doc1.7/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
 		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
-				<a href="doc1.6/faq.html#why-ring-is-weakly-typed" target="_blank"> Why? </a>
+				<a href="doc1.7/faq.html#why-is-ring-weakly-typed" target="_blank"> Why? </a>
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
@@ -335,7 +336,7 @@ nCount = 10	<font color="green"># Global variable</font>
 	      <div class="panel-body">
 
 		Ring is not case-sensitive
-		<a href="doc1.6/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">see</font> "Enter your name ? " 
@@ -345,7 +346,7 @@ nCount = 10	<font color="green"># Global variable</font>
 		</p>
 
 		The list index starts from 1
-		<a href="doc1.6/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -369,7 +370,7 @@ three()
 		</p>
 
 		The assignment operator uses Deep copy (no references in this operation)
-		<a href="doc1.6/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -409,7 +410,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 			</pre>
 		</p>
 		Exit from more than one loop
-		<a href="doc1.6/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">for</font> x = 1 <font color="purple">to</font> 10
@@ -565,7 +566,7 @@ oPerson = <font color="purple">new</font> Person
 	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
 	      <div class="panel-body">
 
-		<a href="doc1.6/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
+		<a href="doc1.7/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
 
 		<p>
 		After the object access using { } if the class contains a method called BraceEnd() it will be executed!
@@ -575,7 +576,7 @@ oPerson = <font color="purple">new</font> Person
 TimeForFun = <font color="purple">new</font> journey
 <font color="green"># The first surprise!</font>
 <b>TimeForFun {
-	Hello it is me		<font color="green"># What a beatiful programming world!</font>
+	Hello it is me		<font color="green"># What a beautiful programming world!</font>
 }</b>
 <font color="green"># Our Class</font>
 <font color="purple">class</font> journey
@@ -767,7 +768,23 @@ aWords = ["hello","it","is","me"]
 
 		</div>
 		</div>
+		
+		<br> <br>
+		
+		 <div class="panel panel-primary" id="designgoals_syntaxflexibility">
+	      <div class="panel-heading"><h4> Syntax Flexibility</h4></div>
+	      <div class="panel-body">
 
+		<p>
+			Ring comes with many styles for writing your source code! <br> <br>
+
+			Also you can change the language keywords and operators and create your custom style! <br>
+
+		</p>
+
+		  </div>
+		</div>
+		
 		<br> <br>
 <a name="education"></a>
 		        <div class="panel panel-primary" id="transparentimplementation">
@@ -850,7 +867,7 @@ Hello, World!
 		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" target="_blank">PWCT visual programming tool </a>
 		  and you will find the visual source of the language in the folder
 		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
-		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Forke me on GitHub</a>
+		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Fork me on GitHub</a>
 			<br><br>
 		  The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h)
 		  <br><br>
@@ -899,10 +916,126 @@ aList = "nice"
 	</div>
 	</div>
 
+			<br> <br>
+		
+		 <div class="panel panel-primary" id="designgoals_nogil">
+	      <div class="panel-heading"><h4> No Global Interpreter (VM) Lock - No GIL</h4></div>
+	      <div class="panel-body">
+
+		<p>
+			When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL) <br><br>
+
+			So threads can work in parallel and execute Ring instructions at the same time <br><br>
+
+			This is better for threads and concurrency (More Faster!) <br>
+
+		</p>
+
+		  </div>
+		</div>
+	
 
 	</div>
      </div>  
   </div>
+
+
+<a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Fast</a>
+  <div id="fastenough" class="panel-group collapse in">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
+      <div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+		<p>
+		Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
+		</p>
+		<p>
+		<b>Ring can do each of the next tasks in around 1 second</b> using normal computers in the market during the last 5 years  <br><br>
+		
+		(1) Compiling 100,000 lines of code <br>
+		(2) Executing empty loop that count from 1 to 10,000,000  <br>
+		(3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br>
+		(4) Creating list contains 1,000,000 items then summing all of the list items<br>
+		(5) Adding 20,000 items to the ListWidget in GUI applications <br>
+		(6) Adding 5,000 nodes to the TreeWidget in GUI applications <br> 
+		(7) Printing 10,000 messages to the terminal in Console applications <br><br>		
+		
+		Also when we need more speed we can use C/C++ extensions! <br>
+		
+		</p>
+		<br>	
+
+		<div class="col-xs-12">
+  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel2" data-slide-to="1"></li>
+      <li data-target="#myCarousel2" data-slide-to="2"></li>
+      <li data-target="#myCarousel2" data-slide-to="3"></li> 
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="ringdemo1_speed.png" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="ringdemo2_speed.png" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="ringdemo3_speed.png" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="ringdemo4_speed.png" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+  
+  
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+      <span class="sr-only">Next</span>
+    </a>
+	
+  </div>
+</div>
+			
+		
+			</div>
+		</div>
+	  </div>
+	 </div>
+   </div>
+
   
 
 <a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>

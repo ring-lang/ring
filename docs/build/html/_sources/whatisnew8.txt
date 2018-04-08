@@ -1,0 +1,209 @@
+.. index:: 
+	single: What is new in Ring 1.8?; Introduction
+
+========================
+What is new in Ring 1.8?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.8 release.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.8 comes with the next features!
+
+* Find in files Application
+* The For Loops uses the local scope
+* Merge binary characters
+* FoxRing Library
+* Better Form Designer
+* Better Cards Game
+* Better Documentation
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Find in files Application
+
+Find in files Application
+=========================
+
+Ring 1.8 comes with Find in files application
+
+.. image:: findinfiles.png
+	:alt: Find in files
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; The For Loops uses the local scope
+
+The For Loops uses the local scope
+==================================
+
+In Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.
+
+Example:
+
+.. code-block:: ring
+
+	x = 10
+	? x		# Print 10
+	test1()
+	? x		# Print 10
+	test2()
+	? x		# Print 10
+
+	func test1
+		for x = 1 to 5
+		next
+		? x	# Print 6
+
+	func test2
+		list = 1:5
+		for x in list
+		next
+		? x	# Print NULL (The "For In" loop will kill the reference after the loop)
+
+Output:
+
+.. code-block:: ring
+
+	10
+	6
+	10
+	NULL
+	10	
+		
+.. index:: 
+	pair: What is new in Ring 1.8?; Merge binary characters
+
+Merge binary characters
+=======================
+
+From Ring 1.0 we can create binary strings and do operations on these strings.
+
+Now in Ring 1.8, we can get individual characters from these strings and merge them together using
+the '+' operator.
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome"
+	? cstr[1] + cstr[2] + cStr[5]
+	v = cstr[1] + cstr[2] + cStr[5]
+	? v
+	? len(v)
+	c1 = cStr[1]
+	? c1
+	aList = [1,2,3]
+	cStr = ""
+	for item in aList 
+		cStr += int2bytes(item)
+	next 
+	? "All String"
+	? len(cStr)
+	? "First Part"
+	n1 = cStr[1] + cStr[2] + cStr[3] + cStr[4]
+	? len(n1)
+	? "Second Part"
+	n2 = cStr[5] + cStr[6] + cStr[7] + cStr[8]
+	? len(n2)
+	? "Third Part"
+	n3 = cStr[9] + cStr[10] + cStr[11] + cStr[12]
+	? len(n3)
+	? "All String"
+	cString = cStr[1] + cStr[2] + cStr[3] + cStr[4] + 
+		  cStr[5] + cStr[6] + cStr[7] + cStr[8] + 
+		  cStr[9] + cStr[10] + cStr[11] + cStr[12]
+	? len(cString)
+	? ascii(cStr[1])
+	? len(cStr[2])
+
+Output:
+
+.. code-block:: ring
+
+	Weo
+	Weo
+	3
+	W
+	All String
+	12
+	First Part
+	4
+	Second Part
+	4	
+	Third Part
+	4
+	All String
+	12
+	1
+	1
+	
+
+.. index:: 
+	pair: What is new in Ring 1.8?; FoxRing Library
+
+FoxRing Library
+===============
+
+Developer: Jose Rosado
+
+A class with some of the functions I used in FoxPro\
+
+Example:
+
+.. code-block:: ring
+
+	Load "foxring.ring"
+
+	mf = new frFunctions
+	? mf.frAbs(-45)      
+	? mf.frAbs(10-30)    
+	? mf.frAbs(30-10)   
+
+	? mf.frTransform("    Ring is a good language    ", "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
+	? mf.frAllTrim("    Ring is a good language    ", Null) 
+
+Output:
+
+.. code-block:: ring
+
+	45
+	20
+	20
+	    RING IS A GOOD LANGUAGE
+	Ring is a good language
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Form Designer
+
+Better Form Designer
+====================
+
+(1) Layout Control - Display the control name when loading forms
+(2) Button Control - Display the button images written using relative path
+(3) Table  Control - Display the control name when loading forms
+(4) Better behavior in "Bring to front" and "Send to back" operations
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Cards Game
+
+Better Cards Game
+=================
+
+The Cards game is updated and we can play with the Computer
+
+.. image:: cardsmainmenu.png
+	:alt: Cards Main Menu
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Documentation
+
+Better Documentation
+====================
+
+Ring 1.8 comes with better documentation

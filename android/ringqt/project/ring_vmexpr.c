@@ -977,7 +977,7 @@ double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 
 void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 {
-	List *pList,*pList2,*pList3  ;
+	List *pList,*pList2  ;
 	Item *pItem  ;
 	void *pPointer  ;
 	int nType  ;
@@ -1010,27 +1010,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		if ( strcmp(cStr,"+") == 0 ) {
 			if ( (ring_vm_oop_isobject(pList2) == 0) ) {
-				pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
-				ring_list_copy_gc(pVM->pRingState,pList3,pList);
-				if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList) ) {
-					pVM->pBraceObject = pList3 ;
-					/*
-					**  The copied object was created in Temp. memory that will be deleted 
-					**  The object contains the self property that contains a pointer to the object in memory 
-					**  We need to modify the pointer that point to the old location in Temp. Memory 
-					**  The pointer will be changed to point to the new location in the array 
-					**  The array maybe global or related to the object state and may stay longer than the Temp. Memory 
-					**  Without this modification using self may lead to crash or using corrupted memory 
-					*/
-					ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
-				}
-				else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList) ) {
-					/*
-					**  in ring code if we used mylist + new obj() the init method will be called 
-					**  the pVM->pBraceObject will not == pList but we have to update the self pointer! 
-					*/
-					ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
-				}
+				ring_vm_addlisttolist(pVM,pList,pList2);
 				return ;
 			}
 		}
@@ -1117,5 +1097,40 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
 		RING_VM_STACK_POP ;
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+	}
+}
+/* Add List to List */
+
+void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
+{
+	List *pList3, *pList4  ;
+	/*
+	**  Here we are going to copy the list pList to the list pList2 
+	**  We will copy to a temp list first (pList4) 
+	**  So we can add the Self object for example to an attribute in this object 
+	*/
+	pList4 = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_copy_gc(pVM->pRingState,pList4,pList);
+	pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
+	ring_list_copy_gc(pVM->pRingState,pList3,pList4);
+	ring_list_delete_gc(pVM->pRingState,pList4);
+	if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList) ) {
+		pVM->pBraceObject = pList3 ;
+		/*
+		**  The copied object was created in Temp. memory that will be deleted 
+		**  The object contains the self property that contains a pointer to the object in memory 
+		**  We need to modify the pointer that point to the old location in Temp. Memory 
+		**  The pointer will be changed to point to the new location in the array 
+		**  The array maybe global or related to the object state and may stay longer than the Temp. Memory 
+		**  Without this modification using self may lead to crash or using corrupted memory 
+		*/
+		ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
+	}
+	else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList) ) {
+		/*
+		**  in ring code if we used mylist + new obj() the init method will be called 
+		**  the pVM->pBraceObject will not == pList but we have to update the self pointer! 
+		*/
+		ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
 	}
 }

@@ -1078,6 +1078,6 @@ Source Code:
 Screen Shot:
 
 .. image:: tictactoe3d.png
-	:width: 550pt
-	:height: 450pt
+	:width: 450pt
+	:height: 350pt
 	:alt: TicTacToe 3D Game

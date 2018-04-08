@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -9,7 +9,6 @@ VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
-	List *pList  ;
 	pVM = (VM *) ring_state_malloc(pRingState,sizeof(VM));
 	if ( pVM == NULL ) {
 		printf( RING_OOM ) ;
@@ -36,32 +35,8 @@ VM * ring_vm_new ( RingState *pRingState )
 		pVM->aStack[x].nObjectType = 0 ;
 		pVM->aStack[x].NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	}
-	/*
-	**  Add Variables 
-	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
-	*/
-	ring_vm_addnewnumbervar(pVM,"true",1);
-	ring_vm_addnewnumbervar(pVM,"false",0);
-	ring_vm_addnewstringvar(pVM,"nl","\n");
-	ring_vm_addnewstringvar(pVM,"null","");
-	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
-	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
-	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
-	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
-	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
-	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
-	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
-	ring_vm_addnewpointervar(pVM,"this",NULL,0);
-	ring_vm_addnewstringvar(pVM,"tab","\t");
-	ring_vm_addnewstringvar(pVM,"cr","\r");
-	/* Add Command Line Parameters */
-	pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
-	pList = ring_list_getlist(pList,RING_VAR_VALUE);
-	for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
-		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
-	}
+	/* Add Variables */
+	ring_vm_addglobalvariables(pVM);
 	/* Lists */
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
@@ -214,6 +189,12 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lPassError = 0 ;
 	/* Hide Error message - don't display it in ring_vm_error() */
 	pVM->lHideErrorMsg = 0 ;
+	/* Custom Global Scopes (using load package) */
+	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
+	pVM->nCurrentGlobalScope = 0 ;
+	/* File name in the class region */
+	pVM->cFileNameInClassRegion = NULL ;
 	return pVM ;
 }
 
@@ -264,6 +245,9 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
 	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
+	/* Custom Global Scope (using Load Package) */
+	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
+	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -696,6 +680,16 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_LOADAFIRST :
 			ring_vm_loadaddressfirst(pVM);
 			break ;
+		/* Custom Global Scope */
+		case ICO_NEWGLOBALSCOPE :
+			ring_vm_newglobalscope(pVM);
+			break ;
+		case ICO_ENDGLOBALSCOPE :
+			ring_vm_endglobalscope(pVM);
+			break ;
+		case ICO_SETGLOBALSCOPE :
+			ring_vm_setglobalscope(pVM);
+			break ;
 	}
 }
 
@@ -714,7 +708,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			RING_VM_STACK_POP ;
 			if ( ring_vm_oop_isobject(pList) ) {
 				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
-					ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cStr);
+					ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cStr);
 					ring_vm_runcode(pVM,"braceerror()");
 					pVM->nActiveError = 0 ;
 					return ;
@@ -779,7 +773,9 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	aPara[2] = ring_list_getsize(pVM->pClassesMap) ;
 	/* Call Parser */
 	if ( nCont == 1 ) {
+		pVM->pRingState->lNoLineNumber = 1 ;
 		nRunVM = ring_parser_start(pScanner->Tokens,pVM->pRingState);
+		pVM->pRingState->lNoLineNumber = 0 ;
 	} else {
 		ring_vm_error(pVM,"Error in eval!");
 		ring_scanner_delete(pScanner);
@@ -864,6 +860,20 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
 		pItem = ring_list_getitem(pIR,x2) ;
 		pByteCode->aData[x2-1] = pItem ;
+		/* Avoid Performance Instuctions (Happens when called from New Thread) */
+		if ( x2 == 1 ) {
+			switch ( pItem->data.iNumber ) {
+				case ICO_PUSHPLOCAL :
+					pItem->data.iNumber = ICO_LOADADDRESS ;
+					break ;
+				case ICO_JUMPVARLPLENUM :
+					pItem->data.iNumber = ICO_JUMPVARLENUM ;
+					break ;
+				case ICO_INCLPJUMP :
+					pItem->data.iNumber = ICO_INCJUMP ;
+					break ;
+			}
+		}
 	}
 	/* Clear Other Items */
 	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
@@ -1081,11 +1091,14 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
 	int x,lFunctionCall  ;
 	List *pList  ;
+	const char *cFile  ;
+	const char *cOldFile  ;
 	/* CGI Support */
 	ring_state_cgiheader(pVM->pRingState);
 	/* Print the Error Message */
 	printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
 	/* Print Calling Information */
+	cOldFile = NULL ;
 	lFunctionCall = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,x);
@@ -1094,6 +1107,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
 		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
 			continue ;
 		}
 		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
@@ -1114,7 +1128,18 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			/* Adding () */
 			printf( "() in file " ) ;
 			/* File Name */
-			printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ) ;
+			if ( lFunctionCall == 1 ) {
+				cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+			}
+			else {
+				if ( pVM->nInClassRegion ) {
+					cFile = pVM->cFileNameInClassRegion ;
+				}
+				else {
+					cFile = pVM->cFileName ;
+				}
+			}
+			printf( "%s",cFile ) ;
 			/* Called From */
 			printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
 			lFunctionCall = 1 ;
@@ -1127,12 +1152,31 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 	}
 	else {
-		printf( "in file %s ",pVM->cFileName ) ;
+		if ( pVM->nInClassRegion ) {
+			cFile = pVM->cFileNameInClassRegion ;
+		}
+		else {
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
+			}
+		}
+		printf( "in file %s ",cFile ) ;
 	}
 }
 
 void ring_vm_setfilename ( VM *pVM )
 {
+	if ( pVM->nInClassRegion ) {
+		/*
+		**  We are using special attribute for this region to avoid save/restore file name 
+		**  If we used pVM->cFileName we could get problem in finding classes and packages 
+		*/
+		pVM->cFileNameInClassRegion = RING_VM_IR_READC ;
+		return ;
+	}
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
 }
@@ -1148,6 +1192,38 @@ void ring_vm_endfuncexec ( VM *pVM )
 {
 	if ( pVM->nFuncExecute > 0 ) {
 		pVM->nFuncExecute-- ;
+	}
+}
+
+void ring_vm_addglobalvariables ( VM *pVM )
+{
+	List *pList  ;
+	int x  ;
+	/*
+	**  Add Variables 
+	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
+	*/
+	ring_vm_addnewnumbervar(pVM,"true",1);
+	ring_vm_addnewnumbervar(pVM,"false",0);
+	ring_vm_addnewstringvar(pVM,"nl","\n");
+	ring_vm_addnewstringvar(pVM,"null","");
+	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
+	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
+	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
+	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
+	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
+	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
+	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
+	ring_vm_addnewpointervar(pVM,"this",NULL,0);
+	ring_vm_addnewstringvar(pVM,"tab","\t");
+	ring_vm_addnewstringvar(pVM,"cr","\r");
+	/* Add Command Line Parameters */
+	pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
+	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+	pList = ring_list_getlist(pList,RING_VAR_VALUE);
+	for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
+		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
 	}
 }
 /* Threads */

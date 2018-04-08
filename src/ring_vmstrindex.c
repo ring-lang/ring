@@ -10,7 +10,7 @@ void ring_vm_string_pushv ( VM *pVM )
 	RING_VM_STACK_POP ;
 	cStr[0] = newstr[0] ;
 	cStr[1] = '\0' ;
-	RING_VM_STACK_PUSHCVALUE(cStr);
+	RING_VM_STACK_PUSHCVALUE2(cStr,1);
 }
 
 void ring_vm_string_assignment ( VM *pVM )

@@ -123,7 +123,7 @@ Type: double
 nResult
 ring_vm_expr_ppoo
 Type: List *
-pList,*pList2,*pList3
+pList,*pList2
 Type: Item *
 pItem
 Type: void *
@@ -140,3 +140,6 @@ Type: List *
 pList
 Type: Item *
 pItem
+ring_vm_addlisttolist
+Type: List *
+pList3, *pList4

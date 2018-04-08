@@ -113,6 +113,7 @@ Class RNoteController from WindowsControllerParent
 	cReplaceText 	= ""
 
 	lAskToSave 	= false
+	cTextHash	= sha256("")
 
 	# Hash Table contains the File Name and the Line Number
 
@@ -150,9 +151,9 @@ Class RNoteController from WindowsControllerParent
 		this.pCheckCustomColors()
 		this.PrepareAutoComplete()
 		this.win1 = new qMainWindow() {
-			oFilter = new qAllEvents(this.win1)
-			oFilter.setCloseEvent(Method(:pSaveSettingsToFile))
-			installEventFilter(oFilter)
+			this.oFilter = new qAllEvents(this.win1)
+			this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
+			installEventFilter(this.oFilter)
 			setwindowtitle("Ring Notepad")
 			aBtns = [
 					new qtoolbutton(this.win1) {
@@ -1116,6 +1117,7 @@ Class RNoteController from WindowsControllerParent
 		ok
 		AutoComplete()
 		lAsktoSave = False
+		cTextHash  = sha256(textedit1.toplaintext())
 		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
 		oDockClassesList.setWindowTitle("Classes (Loading...)")
 		DisplayFunctionsList()
@@ -1398,6 +1400,7 @@ Class RNoteController from WindowsControllerParent
 		writefile(cActiveFileName,textedit1.toplaintext())
 		StatusMessage("File : " + cActiveFileName + " saved!")
 		lAskToSave = false
+		cTextHash  = sha256(textedit1.toplaintext())
 		AutoComplete()
 		displayFunctionsList()
 		displayClassesList()
@@ -1418,6 +1421,7 @@ Class RNoteController from WindowsControllerParent
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
 				this.pSetActiveFileName()
 				lAskToSave = false
+				cTextHash  = sha256(this.textedit1.toplaintext())
 			ok
 		}
 
@@ -1566,7 +1570,7 @@ Class RNoteController from WindowsControllerParent
 	func pAbout
 		MsgBox("About",
 			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
-			"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")
+			"2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func pSaveCurrentFolder
 		oItem = tree1.currentindex()
@@ -1582,6 +1586,9 @@ Class RNoteController from WindowsControllerParent
 			next
 			cStartupFolder = cFile
 		ok
+
+	func pRingNotepadXButton
+		pSaveSettings() 
 
 	func pSaveSettingsToFile
 		pSaveCurrentFolder()
@@ -1605,13 +1612,13 @@ Class RNoteController from WindowsControllerParent
 
 	func pSaveSettings
 		pSaveSettingsToFile()
-		if lAsktoSave
+		if lAsktoSave and cTextHash != sha256(textedit1.toplaintext())
 			new qmessagebox(win1)
 			{
 				setwindowtitle("Save Changes?")
 				settext("Some changes are not saved!")
 				setInformativeText("Do you want to save your changes?")
-				setstandardbuttons(QMessageBox_Yes | QMessageBox_No | QMessageBox_Cancel)
+				setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
 				result = exec()
 				this.win1 {
 				if result = QMessageBox_Yes
@@ -1642,9 +1649,8 @@ Class RNoteController from WindowsControllerParent
 		pSelectStyleColor2(nDefaultStyle)
 
 	func pQuit
-		if pSaveSettings()
-			myapp.quit()
-		ok
+		pSaveSettings()
+		myapp.quit()
 
 	func pOpenCHM
 		new QDesktopServices {
@@ -1953,7 +1959,7 @@ Class RNoteController from WindowsControllerParent
 		# IsRNOTE() and RNote() in the Form Designer 
 		# So we can reuse the Form Designer in other Projects
 		# I.e. Ring Notepad need to know about the Form Designer 
-		# But It's enough for the Form Designer to Know that
+		# But It's necessary for the Form Designer to Know that
 		# It's used in another project!
 		FormDesigner().setParentObject(self)
 		oDockFormDesigner.setWidget(FormDesigner().oView.win)

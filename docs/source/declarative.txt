@@ -80,8 +80,8 @@ The caller can avoid using the assignment operator and use the returned referenc
 The same is done also if the attribute is a list (not object).
 
 .. note:: Objects and Lists are treated using the same rules. When you pass them to function they are passed by reference, 
-when you return them from functions they are returned by value except if it's an object attribute where a return by reference 
-will be done.
+	when you return them from functions they are returned by value except if it's an object attribute where a return by reference 
+	will be done.
 
 Example:
 

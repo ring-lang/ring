@@ -41,7 +41,7 @@ class FormDesigner_QPushButton from QPushButton
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
 		# Set the Button Image
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(BtnImageValue())
-			setBtnImage(self,BtnImageValue())
+			DisplayButtonImage(oDesigner,BtnImageValue())
 		# Set the Click Event
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(clickeventcode())
 		oPropertiesTable.Blocksignals(False)
@@ -54,7 +54,7 @@ class FormDesigner_QPushButton from QPushButton
 					setText(cValue)
 				case C_AFTERCOMMON+1
 					setBtnImageValue(cValue)
-					setBtnImage(self,cValue)
+					DisplayButtonImage(oDesigner,cValue)
 				case C_AFTERCOMMON+2  	# Click Event
 					setClickEventCode(cValue)
 			}
@@ -94,4 +94,12 @@ class FormDesigner_QPushButton from QPushButton
 		setText(itemdata[:text])
 		SetBtnImageValue(itemdata[:BtnImage])
 		SetClickEventCode(itemdata[:setClickEvent])
+		DisplayButtonImage(oDesigner,itemdata[:BtnImage])
 
+	func DisplayButtonImage oDesigner,cFile 
+		if fexists(cFile) {
+			setBtnImage(self,cFile)
+		else 
+			cFileAndPath = JustFilePath(oDesigner.oFile.GetFileName())+cFile	
+			setBtnImage(self,cFileAndPath)
+		}

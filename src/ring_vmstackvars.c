@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Stack and Variables */
 
@@ -188,7 +188,7 @@ void ring_vm_inc ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		/* Replace ICO_INC with IncP for better performance */
 		RING_VM_IR_OPCODE = ICO_INCP ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -204,7 +204,7 @@ void ring_vm_loadapushv ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		/* Replace LoadAPushV with PUSHPV for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHPV ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -301,6 +301,7 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 {
 	int x  ;
 	List *pNewList2  ;
+	Item *pItem  ;
 	assert(pList != NULL);
 	/* Copy Items */
 	if ( ring_list_getsize(pList) == 0 ) {
@@ -322,6 +323,11 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 		else if ( ring_list_islist(pList,x) ) {
 			pNewList2 = ring_list_newlist_gc(pVM->pRingState,pNewList);
 			ring_vm_list_copy(pVM,pNewList2,ring_list_getlist(pList,x));
+			/* Update Self Object Pointer */
+			if ( ring_vm_oop_isobject(pNewList2) ) {
+				pItem = ring_list_getitem(pNewList,ring_list_getsize(pNewList));
+				ring_vm_oop_updateselfpointer(pVM,pNewList2,RING_OBJTYPE_LISTITEM,pItem);
+			}
 		}
 	}
 	/* Check if the List if a C Pointer List */

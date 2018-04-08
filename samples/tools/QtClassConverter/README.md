@@ -4,7 +4,7 @@ This is a nice tool that helps in implementation of new Qt classes into RingQt b
 
 This tool has been made to reduce pain for those who are new to the Ring Extension Code Generator and Qt framework specifications. So that, this tool will do most of the work, simply by some mouse clicks and basic understanding of Ring and RingQt building process.
 
-**Note:** This tool is a development continuation of ["qtclass2ringcodegen"](https://github.com/ring-lang/ring/tree/master/samples/tools/qtclass2ringcodegen) and ["setevents2getevents"](https://github.com/ring-lang/ring/tree/master/samples/tools/setevents2getevents) tools that have been developed by "Mahmoud Fayed (msfclipper@yahoo.com)".
+**Note:** This tool is a development continuation of ["qtclass2ringcodegen"](https://github.com/ring-lang/ring/tree/master/samples/tools/qtclass2ringcodegen) and ["setevents2getevents"](https://github.com/ring-lang/ring/tree/master/samples/tools/setevents2getevents) tools.
 
 ## Features
 

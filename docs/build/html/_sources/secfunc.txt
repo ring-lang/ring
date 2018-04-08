@@ -264,6 +264,42 @@ These functions use the Blowfish algorithm.
 	See "Cipher Text    : " + cStr + nl +
 	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
 
+We can write the same example using normal for loop
+
+.. code-block:: ring
+
+	See "Enter a string : " give cStr
+
+	cKey=""    			# 16 bytes
+	for x = 0 to 15
+		cKey += char(x) 
+	next
+
+	cIV = ""   
+	for x = 1 to 8
+		cIV += char(x) 
+	next
+
+
+	cStr = Encrypt(cStr,cKey,cIV)
+	See "Cipher Text    : " + cStr + nl +
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+
+Also we can write the password and the IV directly using strings
+
+.. code-block:: ring
+
+	See "Enter a string : " give cStr
+
+	# Note: Don't use simple password in real applications!
+	cKey = "1234567890@#$%^&"		
+	cIV  = "87654321"			
+
+	cStr = Encrypt(cStr,cKey,cIV)
+	See "Cipher Text    : " + cStr + nl +
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+
+
 .. index:: 
 	pair: Security and Internet Functions; File Hash
 

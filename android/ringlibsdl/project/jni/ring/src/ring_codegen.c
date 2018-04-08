@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Operations Text (Array) */
 const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","New","Give","Private","NewLabel", 
@@ -19,7 +19,7 @@ const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","
 
 "BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
 
-"INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit"} ;
+"INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit","NewGlobalScope","EndGlobalScope","SetGlobalScope"} ;
 /*
 **  Functions 
 **  Generate Intermediate Code 

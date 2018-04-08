@@ -62,6 +62,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
 			pVM->cPrevFileName = pVM->cFileName ;
 			pVM->cFileName = ring_list_getstring(pList2,RING_FUNCMAP_FILENAME) ;
+			ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
 			/* Method or Function */
 			if ( (y == 1) && (pVM->nCallMethod != 1) ) {
 				ring_list_addint_gc(pVM->pRingState,pList3,0);
@@ -125,7 +126,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		ring_list_addint_gc(pVM->pRingState,pList2,pVM->nSP);
 		/* Create Temp Memory */
 		ring_list_newlist_gc(pVM->pRingState,pList2);
-		/* File Name */
+		/*
+		**  File Name 
+		**  The old source file name 
+		*/
+		ring_list_addpointer_gc(pVM->pRingState,pList2,pVM->cFileName);
+		/* The new source file name */
 		ring_list_addpointer_gc(pVM->pRingState,pList2,pVM->cFileName);
 		/* Method or Function */
 		ring_list_addint_gc(pVM->pRingState,pList2,0);

@@ -16,6 +16,8 @@
 		GetActiveFolder() 		
 		OpenFile(cControllerFile)	
 		ClearActiveFormFile() 	
+	see : formdesigner/codegenerator.ring 
+		GenerateControllerClass()
 	
 	The Parent Application can use the next methods in the Form Designer 
 		OpenFile(cFormFileName)

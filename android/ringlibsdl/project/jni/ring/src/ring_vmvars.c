@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Variables 
@@ -32,11 +32,13 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				pList = pVM->pActiveMem ;
 			}
 			else if ( x == 2 ) {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
-					continue ;
-				}
-				if ( ring_list_getsize(pVM->pObjState) == 0 ) {
+				/*
+				**  Check to avoid the Object Scope 
+				**  IF obj.attribute - we did the search in local scope - pass others 
+				**  Also if we don't have object scope using { } we will pass 
+				**  Also If we are using ICO_LOADAFIRST (Used by For In) - we don't check object scope 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				/* Search in Object State */
@@ -53,12 +55,17 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 						continue ;
 					}
 				}
-			} else {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
+			}
+			else {
+				/*
+				**  Check to Avoid the global scope 
+				**  If we are using ICO_LOADAFIRST (Used by For In) - we don't check global scope 
+				**  Also IF obj.attribute - we did the search in local scope - pass others 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || pVM->nFirstAddress ) {
 					continue ;
 				}
-				pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
+				pList = ring_vm_getglobalscope(pVM);
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
 				/* Search Using Linear Search */
@@ -94,7 +101,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	**  Now We have the variable List 
 	**  The Scope of the search result 
 	*/
-	if ( ( x == 1 ) && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( ( x == 1 ) && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		x = RING_VARSCOPE_GLOBAL ;
 	}
 	else if ( (x == 1) && (pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))) ) {
@@ -112,7 +119,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_VAR_PVALUETYPE) ;
 		/*
 		**  Here we don't know the correct scope of the result 
-		**  becauase a global variable may be a reference to local variable 
+		**  because a global variable may be a reference to local variable 
 		**  And this case happens with setter/getter of the attributes using eval() 
 		**  Here we avoid this change if the variable name is "Self" to return self by reference 
 		*/
@@ -146,7 +153,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		/* Check Setter/Getter for Public Attributes */
 		if ( pVM->nGetSetProperty == 1 ) {
 			/* Avoid executing Setter/Getter when we use self.attribute and this.attribute */
-			pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+			pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 			if ( pThis != NULL ) {
 				if ( ring_list_getpointer(pThis,RING_VAR_VALUE ) == pVM->pGetSetObject ) {
 					return 1 ;
@@ -292,7 +299,7 @@ List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 )
 	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList,RING_VAR_VALUE);
 	ring_list_deleteallitems_gc(pVM->pRingState,pList2);
-	ring_list_copy(pList2,pList3);
+	ring_vm_list_copy(pVM,pList2,pList3);
 	return pList ;
 }
 
@@ -324,4 +331,40 @@ void ring_vm_deletescope ( VM *pVM )
 	/* Delete Local Scope information */
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeID,ring_list_getsize(pVM->aScopeID));
 	pVM->nActiveScopeID = ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)) ;
+}
+/* Custom Global Scope */
+
+void ring_vm_newglobalscope ( VM *pVM )
+{
+	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
+	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
+	ring_vm_addglobalvariables(pVM);
+}
+
+void ring_vm_endglobalscope ( VM *pVM )
+{
+	ring_list_deletelastitem_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
+	if ( ring_list_getsize(pVM->aActiveGlobalScopes) == 0 ) {
+		pVM->pActiveMem = ring_list_getlist(pVM->pMem,1);
+	}
+	else {
+		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
+	}
+}
+
+void ring_vm_setglobalscope ( VM *pVM )
+{
+	pVM->nCurrentGlobalScope = RING_VM_IR_READI ;
+}
+
+List * ring_vm_getglobalscope ( VM *pVM )
+{
+	List *pList  ;
+	if ( pVM->nCurrentGlobalScope == 0 ) {
+		pList = ring_list_getlist(pVM->pMem,1);
+	}
+	else {
+		pList = ring_list_getlist(pVM->aGlobalScopes,pVM->nCurrentGlobalScope);
+	}
+	return pList ;
 }

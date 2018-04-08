@@ -1,4 +1,4 @@
-﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+﻿![Ring](http://ring-lang.sf.net/thering.jpg)
 
 <div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
 
@@ -39,7 +39,7 @@
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
 
-![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
+![Ring](http://ring-lang.sf.net/ringcourse.jpg)
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
 
@@ -99,6 +99,8 @@
 <h1 id="lessons"> الدروس التعليمية </h1> 
 
 سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
+
+دروس تشرح أساسيات اللغة وإستخدام أنماط البرمجة المختلفة المتاحة بها
 
 <table>
 	<tr>	
@@ -202,6 +204,153 @@
 			<a href="https://www.youtube.com/watch?v=KXLQRHgti3w&index=9&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>10</td>
+		<td>
+			نتعرف على الطرق المختلفة للتعامل مع قواعد البيانات مثل SQLite او MySQL او كيفية استخدام اى قاعدة بيانات من خلال ال ODBC ونري مثال ايضا للتعامل مع ال Access ونشير لسهولة
+			استخدام دوال التعامل مع قواعد البيانات وكيف يمكن ان تستخدم لمعرفة اسماء الجداول واسماء الاعمدة وكيف تتيح عمل Transaction يكتمل ب Commit او يتم الغاءه ب Rollback وايضا
+			نري امكانية تخزين الصور فى قاعدة البيانات ... الشرح يعتمد ان المستمع لديه معرفة مسبقة بقواعد البيانات ومفاهيمها واستخدام SQL وفى حالة عدم توفر تلك المعرفة ستجد الكثير من المصادر بالبحث 
+			فى الانترنت.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430326770345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>
+			نتعرف على مفهوم أنماط البرمجة Programming Paradigm والفكرة الاساسية خلف ال OOP او ال Object Oriented Programming ثم نتعلم كيفية تعريف ال Class فى لغة الرينج وعمل
+			الكائنات منها Objects ونرى اساليب اللغة المتميزة فى تعديل الخصائص واستدعاء الميثود بطرق مرنة تتفوق على بقية اللغات الاخري.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430792185345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>
+			نكمل تعرفنا على مفاهيم ال Object Oriented المختلفة مثل الوراثة Inheritance والتركيب Composition وغيرها من مفاهيم ال OOP ثم نتعرف على نقطة من نقاط تميز لغة ال Ring 
+			فى دعم ال Declarative Programming فى صورة ال Nested Stuctures اعتمادا على ال Classes مما يعطى مرونة كبيرة فى اللغة فى عمل لغات متخصصة Domain Specific Languages
+			تشبه فى شكلها العام لغات مثل QML و REBOL 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430935895345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&index=12&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>
+			نتعرف على مبادىء استخدام ال Natural Programming فى لغة ال Ring وماتشمله اللغة من خصائص متميزة فى هذا الجانب.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155436439115345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>
+			نتابع تعرفنا على ال Natural Programming فى اللغة ونري امثلة أكثر تقدما ثم نتعرف على ال Natural Library وكيف انها تسهل العمل فى اللغة.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155441988535345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>
+			نتعرف على البرمجة الوظيفية Functional Programming 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449645470345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+		<a href="https://www.youtube.com/watch?v=AW9aYYARHG0&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=15">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>
+			نتعرف على ال Reflection وال Metaprogramming 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>
+			نتعرف على مجال رؤية المتغيرات Variables Scope
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155452486960345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>
+			نتعرف على ال Functions Scope وال Type Hints وال Trace Library
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>
+			نتعرف على الاصدار 1.7 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155588366475345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
+دروس تشرح تطوير تطبيقات الموبايل Mobile وتطبيقات سطح المكتب Desktop 
+
+<table>
+	<tr>	
+		<th>رقم الدرس</th>
+		<th>المحتوي</th>
+		<th>روابط المشاهدة</th>
+	</tr>
+	<tr>
+		<td id="lesson1">1</td>
+		<td>
+			نري مميزات الرينج فى التطوير للموبايل و نتعرف على كيفية عمل أول تطبيق واضافة الأزرار والاستجابة للاحداث
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/posts/10155467583940345">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson2">2</td>
+		<td>
+			نتعرف على كيفية التعامل مع ال Textbox او LineEdit وعمل تطبيق يطلب من المستخدم الاسم ثم الترحيب به
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155490450300345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson3">3</td>
+		<td>
+			نتعرف على كيفية التعامل مع ال ListWidget وعمل تطبيق يقوم بجمع مجموعة من الأرقام
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155610002540345">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=s1DxFaiFCIo&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a&index=3">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </div>
+
+

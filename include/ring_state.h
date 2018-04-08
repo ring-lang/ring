@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_state_h
 #define ring_state_h
 /* Data */
@@ -42,6 +42,11 @@ typedef struct RingState {
 	char lStartup  ;
 	/* Pool Manager */
 	PoolManager vPoolManager  ;
+	/* Avoid line number ( when we use eval() from VM ) */
+	char lNoLineNumber  ;
+	/* Custom Global Scope */
+	int nCustomGlobalScopeCounter  ;
+	List *aCustomGlobalScopeStack  ;
 } RingState ;
 /* Functions */
 
@@ -70,7 +75,7 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-#define RING_VERSION "1.7"
+#define RING_VERSION "1.8"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;

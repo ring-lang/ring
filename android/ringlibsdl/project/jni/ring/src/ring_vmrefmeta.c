@@ -80,7 +80,7 @@ void ring_vm_refmeta_globals ( void *pPointer )
 	int x  ;
 	List *pList, *pList2, *pList3  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_getlist(pVM->pMem,1) ;
+	pList = ring_vm_getglobalscope(pVM) ;
 	pList2 = RING_API_NEWLIST ;
 	/* We avoid internal global variables like true, false */
 	for ( x = RING_VM_INTERNALGLOBALSCOUNT + 1 ; x <= ring_list_getsize(pList) ; x++ ) {
@@ -159,7 +159,7 @@ void ring_vm_refmeta_isglobal ( void *pPointer )
 	if ( RING_API_GETSTRING(1) ) {
 		pVM = (VM *) pPointer ;
 		cStr = RING_API_GETSTRING(1) ;
-		pList = ring_list_getlist(pVM->pMem,1) ;
+		pList = ring_vm_getglobalscope(pVM) ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
 			if ( strcmp(ring_list_getstring(pList2,RING_VAR_NAME),cStr) == 0 ) {

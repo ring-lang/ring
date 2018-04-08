@@ -91,6 +91,15 @@ mergemethods("webpage","newobjectsfunctions")
 
 loadvars()
 
+Func GetaPageVars
+	return aPageVars 
+
+Func Gethtmlcssattributes
+	return htmlcssattributes
+
+Func GetaObjsAttributes
+	return aObjsAttributes
+
 Func LoadVars
 	if sysget("REQUEST_METHOD") = NULL
 		# The Web Library is not called from Web Application (From the Browser)
@@ -182,18 +191,28 @@ Func Alert cMessage
 		script( "document.onready = function() { alert(" +'"' + cMessage + '"' + ") }" )
 	}
 
-func HTML2PDF cStr
+func HTML2PDF filepath,filefolder,cStr
 
-	cFileName = "temp/"+tempname()
+	cTempName = WL_JustFileName(tempname())
+	cFileName = filepath+cTempName
 	cHTML = cFileName + ".html"
 	cPDF =  cFileName + ".pdf"
 	write(cHTML,cStr)
 	system("wkhtmltopdf " + cHTML + " " + cPDF)
 	New Page 
 	{  
-		script(scriptredirection(cPDF))  
+		text(cPDF)
+		script(scriptredirection(filefolder+cTempName+".pdf"))  
 	}
 
+func WL_JustFileName cFile
+	for x = len(cfile) to 1 step -1
+		if cfile[x] = "\" or cfile[x] = "/"
+			cfile = substr(cfile,x+1)
+			exit
+		ok
+	next
+	return cFile 
 
 Package System.Web
 			
@@ -324,7 +343,7 @@ Package System.Web
 			for x in aArray
 				if len(x) >= 3
 					if x[1] = cVar
-						return x[3]
+						return WL_justfilename(x[3])
 					ok
 				ok
 			next
@@ -1619,8 +1638,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		Func BraceEnd			
 
 	Class HTML2PDF from page
+		filepath filefolder
 		Func BraceEnd
-			HTML2PDF(cOutput)
+			HTML2PDF(filepath,filefolder,cOutput)
 
 	Class BootStrapPage from Page
 		lBootstrap = True
