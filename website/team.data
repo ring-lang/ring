@@ -165,7 +165,7 @@
 					'dev.mohamedamr@gmail.com',
 					'Tester',
 					'Active',
-					'<img src="mohamed amr.jpg">'
+					'<img src="mohamed amr.jpg" width="140" height="140">'
 				  ],
 				  [
 					'Mohammed Fayed',
