@@ -91,6 +91,13 @@
 					'<img src="majdi.jpg">'
 				  ],
 				  [
+					'Muhammed Amr Elsayed',
+					'dev.mohamedamr@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="mohamed amr.jpg">'
+				  ],
+				  [
                     'Sara Hamdy Mohamed',
                     'engsara88@yahoo.com',
                     'Vision Achiever',
@@ -208,12 +215,6 @@
 				  [
 					'Osama Ali',
 					'osama.a.mohamed94@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Muhammed Amr ',
-					'trainerma200@gmail.com',
 					'Tester',
 					'Active'
 				  ],
