@@ -160,6 +160,13 @@
                     'Active',
 					'<img src="hebaomran.png" width="140" height="140">'
                   ],
+          [
+					'Muhammed Amr Elsayed',
+					'dev.mohamedamr@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="mohamed amr.jpg">'
+				  ],
 				  [
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
@@ -171,7 +178,7 @@
                     'engsara88@yahoo.com',
                     'Vision Achiever',
                     'Active'
-                  ],				  				  
+          ],				  				  
 				  [
 					'Mohammed Ali Haggag',
 					'Mhaggag7@gmail.com',
@@ -265,12 +272,6 @@
 				  [
 					'Osama Ali',
 					'osama.a.mohamed94@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Muhammed Amr ',
-					'dev.mohamedamr@gmail.com',
 					'Tester',
 					'Active'
 				  ],
