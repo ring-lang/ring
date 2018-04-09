@@ -27,7 +27,7 @@ Class FormDesignerView from WindowsViewParent
 		# Create the form
 			oModel.AddObject("Window",
 				 new FormDesigner_qWidget() {
-					setWindowTitle("Form1")
+					setWindowTitle(T_FORMDESIGNER_FORMTITLE) # "Form1"
 				}
 			)
 

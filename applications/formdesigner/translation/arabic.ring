@@ -7,3 +7,4 @@
 */
 
 T_FORMDESIGNER_FORMDESIGNER = "مصمم النماذج"
+T_FORMDESIGNER_FORMTITLE = "النافذة 1"
