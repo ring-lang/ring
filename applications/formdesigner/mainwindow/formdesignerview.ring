@@ -98,19 +98,19 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {
-			subFile = addmenu("File")
+			subFile = addmenu(T_FORMDESIGNER_FILE) # "File"
 			subFile {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+n"))
 					setbtnimage(self,"image/new.png")
-					settext("New")
+					settext(T_FORMDESIGNER_NEW) # "New"
 					setclickevent(Method(:NewAction))
 				}
 				addaction(oAction)
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+o"))
 					setbtnimage(self,"image/open.png")
-					settext("Open")
+					settext(T_FORMDESIGNER_OPEN) # "Open"
 					setclickevent(Method(:OpenAction))
 				}
 				addaction(oAction)
@@ -118,7 +118,7 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+s"))
 					setbtnimage(self,"image/save.png")
-					settext("Save")
+					settext(T_FORMDESIGNER_SAVE) # "Save"
 					setclickevent(Method(:SaveAction))
 				}
 				addaction(oAction)
@@ -126,13 +126,13 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+e"))
 					setbtnimage(self,"image/saveas.png")
-					settext("Save As")
+					settext(T_FORMDESIGNER_SAVEAS) # "Save As"
 					setclickevent(Method(:SaveAsAction))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qaction(this.win) {
-					settext("Close")
+					settext(T_FORMDESIGNER_CLOSE) # "Close"
 					setstatustip("Close File")
 					setclickevent(Method(:CloseAction))
 				}
@@ -141,40 +141,40 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+q"))
 					setbtnimage(self,"image/close.png")
-					settext("Exit")
+					settext(T_FORMDESIGNER_EXIT) # "Exit"
 					setstatustip("Exit")
 					setclickevent(Method(:ExitAction))
 				}
 				addaction(oAction)
 			}
-			subEdit = addmenu("Edit")
+			subEdit = addmenu(T_FORMDESIGNER_EDIT) # "Edit"
 			subEdit {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+v"))
-					settext("Duplicate")
+					settext(T_FORMDESIGNER_DUPLICATE) # "Duplicate"
 					setclickevent(Method(:Duplicate))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+f"))
-					settext("Bring to front")
+					settext(T_FORMDESIGNER_BRINGTOFRONT) # "Bring to front"
 					setclickevent(Method(:BringToFront))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+b"))
-					settext("Send to back")
+					settext(T_FORMDESIGNER_SENDTOBACK) # "Send to back"
 					setclickevent(Method(:SendToBack))
 				}
 				addaction(oAction)
 			}
-			subView = addmenu("View")
+			subView = addmenu(T_FORMDESIGNER_VIEW) # "View"
 			subView {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+t"))
-					settext("ToolBox")
+					settext(T_FORMDESIGNER_TOOLBOX) # "ToolBox"
 					setclickevent(Method(:ToolBox))
 				}
 				addaction(oAction)
@@ -182,43 +182,43 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+p"))
 					setclickevent(Method(:Properties))
-					settext("Properties")
+					settext(T_FORMDESIGNER_PROPERTIES) # "Properties"
 				}
 				addaction(oAction)
 				addseparator()
 			}
-			subHelp = addmenu("Help")
+			subHelp = addmenu(T_FORMDESIGNER_HELP) # "Help"
 			subHelp {
-				subHelpLF = addmenu("Language Reference")
+				subHelpLF = addmenu(T_FORMDESIGNER_LANGUAGEREFERENCE) # "Language Reference"
 				subHelpLF {
 					oAction = new qAction(this.win) {
-						settext("CHM File")
+						settext(T_FORMDESIGNER_CHMFILE) # "CHM File"
 						setclickevent(Method(:OpenCHMAction))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win) {
-						settext("PDF File")
+						settext(T_FORMDESIGNER_PDFFILE) # "PDF File"
 						setclickevent(Method(:OpenPDFAction))
 					}
 					addaction(oAction)
 				}
 				addseparator()
-				subHelpTools = addmenu("Development Tools")
+				subHelpTools = addmenu(T_FORMDESIGNER_DEVELOPMENTTOOLS) # "Development Tools"
 				subHelpTools {
 					oAction = new qAction(this.win) {
-						settext("Programming Language")
+						settext(T_FORMDESIGNER_PROGRAMMINGLANGUAGE) # "Programming Language"
 						setclickevent(Method(:LangAction))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win) {
-						settext("GUI Library")
+						settext(T_FORMDESIGNER_GUILIBRARY) # "GUI Library"
 						setclickevent(Method(:GUIAction))
 					}
 					addaction(oAction)
 				}
 				addseparator()
 				oAction = new qAction(this.win) {
-					settext("About")
+					settext(T_FORMDESIGNER_ABOUT) # "About"
 					setclickevent(Method(:AboutAction))
 				}
 				addaction(oAction)
