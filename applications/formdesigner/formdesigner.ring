@@ -30,6 +30,9 @@
 	load "guilib.ring"
 	load "stdlib.ring"
 
+# Load The Translation File
+	load "translation/english.ring"
+
 # Load Main Window Files 
 	load "mainwindow/qwidget.ring"
 	load "mainwindow/formdesignercontroller.ring"
