@@ -60,7 +60,7 @@ Class FormDesignerView from WindowsViewParent
 
 		# Create the Main Window and use the Mdi Area
 			win = new qMainwindow() {
-				setWindowTitle("Form Designer")
+				setWindowTitle(T_FORMDESIGNER_FORMDESIGNER) # "Form Designer"
 				setcentralWidget(this.oArea)
 			}
 			setwinicon(win,$cCurrentDir + "/image/formdesigner.png")
