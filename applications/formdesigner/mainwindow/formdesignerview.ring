@@ -658,7 +658,7 @@ Class FormDesignerView from WindowsViewParent
 			setLayout(oLayout)
 		}
 		oPropertiesDock = new qDockWidget(NULL,0) {
-			setWindowTitle("Properties")
+			setWindowTitle(T_FROMDESIGNER_PROPERTIES_WINDOWTITLE) # "Properties"
 			setWidget(this.oProperties)
 		}
 		win.Adddockwidget(2,oPropertiesDock,2)
