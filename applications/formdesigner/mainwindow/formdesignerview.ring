@@ -268,14 +268,14 @@ Class FormDesignerView from WindowsViewParent
 	func CreateToolBox
 		oToolBox = new qWidget() {
  			this.oToolLock = new qPushButton(oToolBox) {
-					setText(this.TextSize("Lock",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LOCK,20)) # "Lock"
 					setbtnimage(self,AppFile("image/lock.png"))
 					setCheckable(True)
 					setChecked(false)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn1 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Select",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_SELECT,20)) # "Select"
 					setbtnimage(self,AppFile("image/select.png"))
 					setminimumwidth(150)
 					setCheckable(True)
@@ -283,163 +283,163 @@ Class FormDesignerView from WindowsViewParent
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn2 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Label",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LABEL,20)) # "Label"
 					setbtnimage(self,AppFile("image/label.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn3 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Button",18))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_BUTTON,18)) # "Button"
 					setbtnimage(self,AppFile("image/pushbutton.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn4 = new qPushButton(oToolBox) {
-					setText(this.TextSize("LineEdit",19))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LINEEDIT,19)) # "LineEdit"
 					setbtnimage(self,AppFile("image/textfield.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn5 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TextEdit",19))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TEXTEDIT,19)) # "TextEdit"
 					setbtnimage(self,AppFile("image/textarea.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn6 = new qPushButton(oToolBox) {
-					setText(this.TextSize("ListWidget",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LISTWIDGET,17)) # "ListWidget"
 					setbtnimage(self,AppFile("image/listview.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn7 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Checkbox",16))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_CHECKBOX,16)) # "Checkbox"
 					setbtnimage(self,AppFile("image/checkbox.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn8 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Image",19))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_IMAGE,19)) # "Image"
 					setbtnimage(self,AppFile("image/image.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn9 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Slider",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_SLIDER,20)) # "Slider"
 					setbtnimage(self,AppFile("image/slider.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn10 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Progressbar",15))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,15)) # "Progressbar"
 					setbtnimage(self,AppFile("image/progressbar.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn11 = new qPushButton(oToolBox) {
-					setText(this.TextSize("SpinBox",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_SPINBOX,17)) # "SpinBox"
 					setbtnimage(self,AppFile("image/spinner.bmp"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn12 = new qPushButton(oToolBox) {
-					setText(this.TextSize("ComboBox",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_COMBOBOX,17)) # "ComboBox"
 					setbtnimage(self,AppFile("image/combobox.bmp"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn13 = new qPushButton(oToolBox) {
-					setText(this.TextSize("DateTimeEdit",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,17)) # "DateTimeEdit"
 					setbtnimage(self,AppFile("image/datepicker.bmp"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn14 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TableWidget",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,17)) # "TableWidget"
 					setbtnimage(self,AppFile("image/grid.bmp"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn15 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TreeWidget",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TREEWIDGET,17)) # "TreeWidget"
 					setbtnimage(self,AppFile("image/tree.bmp"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn16 = new qPushButton(oToolBox) {
-					setText(this.TextSize("RadioButton",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,17)) # "RadioButton"
 					setbtnimage(self,AppFile("image/radiobutton.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn17 = new qPushButton(oToolBox) {
-					setText(this.TextSize("WebView",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_WEBVIEW,17)) # "WebView"
 					setbtnimage(self,AppFile("image/webview.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn18 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Dial Slider",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_DIALSLIDER,20)) # "Dial Slider"
 					setbtnimage(self,AppFile("image/dial.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn19 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Video Widget",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,17)) # "Video Widget"
 					setbtnimage(self,AppFile("image/videowidget.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn20 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Frame",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_FRAME,20)) # "Frame"
 					setbtnimage(self,AppFile("image/frame.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn21 = new qPushButton(oToolBox) {
-					setText(this.TextSize("LCD Number",17))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LCDNUMBER,17)) # "LCD Number"
 					setbtnimage(self,AppFile("image/lcdnumber.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn22 = new qPushButton(oToolBox) {
-					setText(this.TextSize("HyperLink",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_HYPERLINK,20)) # "HyperLink"
 					setbtnimage(self,AppFile("image/hyperlink.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn23 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Timer",22))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TIMER,22)) # "Timer"
 					setbtnimage(self,AppFile("image/timer.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn24 = new qPushButton(oToolBox) {
-					setText(this.TextSize("All Events",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_ALLEVENTS,20)) # "All Events"
 					setbtnimage(self,AppFile("image/allevents.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn25 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Layout",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_LAYOUT,20)) # "Layout"
 					setbtnimage(self,AppFile("image/layout.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn26 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Tab Widget",18))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TABWIDGET,18)) # "Tab Widget"
 					setbtnimage(self,AppFile("image/tab.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn27 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Statusbar",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_STATUSBAR,20)) # "Statusbar"
 					setbtnimage(self,AppFile("image/statusbar.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn28 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Toolbar",20))
+					setText(this.TextSize(T_FROMDESIGNER_TOOLBOX_TOOLBAR,20)) # "Toolbar"
 					setbtnimage(self,AppFile("image/toolbar.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
