@@ -228,7 +228,7 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateStatusBar
 		status1 = new qstatusbar(win) {
-			showmessage("Ready!",0)
+			showmessage(T_FORMDESIGNER_READY,0) # "Ready!"
 		}
 		win.setstatusbar(status1)
 
