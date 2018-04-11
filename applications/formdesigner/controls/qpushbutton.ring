@@ -29,9 +29,12 @@ class FormDesigner_QPushButton from QPushButton
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddProperty("Image",True)
-		oDesigner.oView.AddProperty("Set Click Event",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXT, 		# "Text"
+						False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_IMAGE,		# "Image"
+						True)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETCLICKEVENT, 	# "Set Click Event"
+						False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
