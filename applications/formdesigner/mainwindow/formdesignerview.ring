@@ -237,27 +237,27 @@ Class FormDesignerView from WindowsViewParent
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/new.png"))
 					setclickevent(Method(:NewAction))
-					settooltip("New File")
+					settooltip(T_FORMDESIGNER_TOOLBAR_NEWFILE) # "New File"
 				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/open.png"))
 					setclickevent(Method(:OpenAction))
-					settooltip("Open File")
+					settooltip(T_FORMDESIGNER_TOOLBAR_OPENFILE) # "Open File"
 				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/save.png"))
 					setclickevent(Method(:SaveAction))
-					settooltip("Save")
+					settooltip(T_FORMDESIGNER_TOOLBAR_SAVE) # "Save"
 				 } ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/saveas.png"))
 					setclickevent(Method(:SaveAsAction))
-					settooltip("Save As")
+					settooltip(T_FORMDESIGNER_TOOLBAR_SAVEAS) # "Save As"
 				 } ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/close.png"))
 					setclickevent(Method(:ExitAction))
-					settooltip("Exit")
+					settooltip(T_FORMDESIGNER_TOOLBAR_EXIT) # "Exit"
 				}
 			]
 
