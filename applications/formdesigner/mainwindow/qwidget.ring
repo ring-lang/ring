@@ -70,17 +70,20 @@ class FormDesigner_QWidget from QWidget
 		cMenubar = cValue
 
 	func AddObjectProperties  oDesigner
-		oDesigner.oView.AddProperty("X",False)
-		oDesigner.oView.AddProperty("Y",False)
-		oDesigner.oView.AddProperty("Width",False)
-		oDesigner.oView.AddProperty("Height",False)
-		oDesigner.oView.AddProperty("Title",False)
-		oDesigner.oView.AddProperty("Back Color",True)
-		oDesigner.oView.AddProperty("Window Flags",True)
-		oDesigner.oView.AddProperty("Set Layout",False)
-		oDesigner.oView.AddProperty("Window Icon",True)
-		oDesigner.oView.AddProperty("Menubar",True)
-		oDesigner.oView.AddPropertyCombobox("Index Type",["Start from 1","Start from 0"])
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_X,False) 		# "X"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_Y,False) 		# "Y"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WIDTH,False) 	# "Width"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HEIGHT,False) 	# "Height"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TITLE,False)	# "Title"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_BACKCOLOR,True)	# "Back Color"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWFLAGS,True)	# "Window Flags"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETLAYOUT,False)	# "Set Layout"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWICON,True)	# "Window Icon"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MENUBAR,True)	# "Menubar"
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_INDEXTYPE, # "Index Type"
+				[T_FORMDESIGNER_ATTRIBUTE_STARTFROM1, 			# "Start from 1"
+				T_FORMDESIGNER_ATTRIBUTE_STARTFROM0] 			# "Start from 0"
+				)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
