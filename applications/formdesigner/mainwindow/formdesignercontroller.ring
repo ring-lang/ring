@@ -43,8 +43,8 @@ class FormDesignerController from WindowsControllerParent
 				for t = 1 to nCount {
 					removerow(0)
 				}
-			setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
-			setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
+			setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) 	# "Property"
+			setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE))	# "Value"
 			setHorizontalHeaderItem(2, new QTableWidgetItem(""))
 		}
 		oModel.ActiveObject().AddObjectProperties(self)
