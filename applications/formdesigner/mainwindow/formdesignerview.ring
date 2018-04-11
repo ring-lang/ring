@@ -515,7 +515,7 @@ Class FormDesignerView from WindowsViewParent
 			setMiniMumWidth(195)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
-			setWindowTitle("ToolBox")
+			setWindowTitle(T_FROMDESIGNER_TOOLBOX_WINDOWTITLE) # "ToolBox"
 			setWidget(oScroll)
 		}
 		win.Adddockwidget(1,oToolBoxDock,1)
