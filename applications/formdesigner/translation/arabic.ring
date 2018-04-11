@@ -131,3 +131,9 @@ T_FORMDESIGNER_ATTRIBUTE_EDITINGFINSHEDEVENT		= "حدث انتهاء التعد�
 T_FORMDESIGNER_ATTRIBUTE_RETURNPRESSEDEVENT		= "حدث ضغط الادخال"
 T_FORMDESIGNER_ATTRIBUTE_SELECTIONCHANGEDEVENT		= "حدث تغير التحديد"
 T_FORMDESIGNER_ATTRIBUTE_TEXTEDITEDEVENT		= "حدث تغير النص"
+
+T_FORMDESIGNER_ATTRIBUTE_COPYAVAILABLEEVENT		= "حدث السماح بالنسخ"
+T_FORMDESIGNER_ATTRIBUTE_CURRENTCHARFORMATCHANGEDEVENT 	= "حدث تغير تنسيق الحرف الحالي"
+T_FORMDESIGNER_ATTRIBUTE_REDOAVAIABLEEVENT		= "حدث اعادة الفعل متاح"
+T_FORMDESIGNER_ATTRIBUTE_TEXTCHANGEDEVENT		= "حدث تغير النص"
+T_FORMDESIGNER_ATTRIBUTE_UNDOAVAILABLEEVENT		= "حدث التراجع متاح"
