@@ -30,8 +30,13 @@ class FormDesigner_QLabel from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Center","Right"])
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXT, # "Text"
+						False)
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_TEXTALIGN,	# "Text Align"
+			[T_FORMDESIGNER_ATTRIBUTE_TEXTALIGNLEFT, # "Left"
+			T_FORMDESIGNER_ATTRIBUTE_TEXTALIGNCENTER,# "Center" 
+			T_FORMDESIGNER_ATTRIBUTE_TEXTALIGNRIGHT] # "Right"
+			)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
