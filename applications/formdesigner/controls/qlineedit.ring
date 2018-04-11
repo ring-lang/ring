@@ -67,13 +67,13 @@ class FormDesigner_QLineEdit from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddProperty("TextChangedEvent",False)
-		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
-		oDesigner.oView.AddProperty("editingFinishedEvent",False)
-		oDesigner.oView.AddProperty("returnPressedEvent",False)
-		oDesigner.oView.AddProperty("selectionChangedEvent",False)
-		oDesigner.oView.AddProperty("textEditedEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXT,False)	 		# "Text"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXTCHANGEDEVENT,False)		# "TextChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURSORPOSITIONCHANGEDEVENT,False)	# "cursorPositionChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_EDITINGFINSHEDEVENT,False)		# "editingFinishedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_RETURNPRESSEDEVENT,False) 		# "returnPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SELECTIONCHANGEDEVENT,False)	# "selectionChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXTEDITEDEVENT,False)		# "textEditedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
