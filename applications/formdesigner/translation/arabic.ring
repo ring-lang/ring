@@ -150,3 +150,9 @@ T_FORMDESIGNER_ATTRIBUTE_ITEMDOUBLECLICKEDEVENT		= "حدث الضغط على ا�
 T_FORMDESIGNER_ATTRIBUTE_ITEMENTEREDEVENT		= "حدث ادخال العنصر"
 T_FORMDESIGNER_ATTRIBUTE_ITEMPRESSEDEVENT		= "حدث ضغط العنصر"
 T_FORMDESIGNER_ATTRIBUTE_ITEMSELECTIONCHANGEDEVENT	= "حدث تغير العنصر المحدد"
+
+T_FORMDESIGNER_ATTRIBUTE_STATECHANGEDEVENT		= "حدث تغير الحالة"
+T_FORMDESIGNER_ATTRIBUTE_CLICKEDEVENT			= "حدث الضغط بالفارة"
+T_FORMDESIGNER_ATTRIBUTE_PRESSEDEVENT			= "حدث الضغط"
+T_FORMDESIGNER_ATTRIBUTE_RELEASEDEVENT			= "حدث الإطلاق"
+T_FORMDESIGNER_ATTRIBUTE_TOGGLEDEVENT			= "حدث النفي"
