@@ -137,3 +137,16 @@ T_FORMDESIGNER_ATTRIBUTE_CURRENTCHARFORMATCHANGEDEVENT 	= "حدث تغير تن�
 T_FORMDESIGNER_ATTRIBUTE_REDOAVAIABLEEVENT		= "حدث اعادة الفعل متاح"
 T_FORMDESIGNER_ATTRIBUTE_TEXTCHANGEDEVENT		= "حدث تغير النص"
 T_FORMDESIGNER_ATTRIBUTE_UNDOAVAILABLEEVENT		= "حدث التراجع متاح"
+
+T_FORMDESIGNER_ATTRIBUTE_ITEMS 				= "العناصر"
+T_FORMDESIGNER_ATTRIBUTE_CURRENTROW			= "الصف الحالي"
+T_FORMDESIGNER_ATTRIBUTE_CURRENTITEMCHANGEDEVENT	= "حدث تغير العنصر الحالى"
+T_FORMDESIGNER_ATTRIBUTE_CURRENTROWCHANGEDEVENT		= "حدث تغير الصف الحالى"
+T_FORMDESIGNER_ATTRIBUTE_CURRENTTEXTCHANGEDEVENT	= "حدث تغير النص الحالى"
+T_FORMDESIGNER_ATTRIBUTE_ITEMACTIVATEDEVENT		= "حدث تنشيط العنصر"
+T_FORMDESIGNER_ATTRIBUTE_ITEMCHANGEDEVENT		= "حدث تغيير العنصر"
+T_FORMDESIGNER_ATTRIBUTE_ITEMCLICKEDEVENT		= "حدث الضغط على العنصر بالفارة"
+T_FORMDESIGNER_ATTRIBUTE_ITEMDOUBLECLICKEDEVENT		= "حدث الضغط على العنصر مرتين"
+T_FORMDESIGNER_ATTRIBUTE_ITEMENTEREDEVENT		= "حدث ادخال العنصر"
+T_FORMDESIGNER_ATTRIBUTE_ITEMPRESSEDEVENT		= "حدث ضغط العنصر"
+T_FORMDESIGNER_ATTRIBUTE_ITEMSELECTIONCHANGEDEVENT	= "حدث تغير العنصر المحدد"

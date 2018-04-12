@@ -103,18 +103,18 @@ class FormDesigner_QListWidget from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Items (S: Comma)",False)
-		oDesigner.oView.AddProperty("Current Row",False)
-		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
-		oDesigner.oView.AddProperty("currentRowChangedEvent",False)
-		oDesigner.oView.AddProperty("currentTextChangedEvent",False)
-		oDesigner.oView.AddProperty("itemActivatedEvent",False)
-		oDesigner.oView.AddProperty("itemChangedEvent",False)
-		oDesigner.oView.AddProperty("itemClickedEvent",False)
-		oDesigner.oView.AddProperty("itemDoubleClickedEvent",False)
-		oDesigner.oView.AddProperty("itemEnteredEvent",False)
-		oDesigner.oView.AddProperty("itemPressedEvent",False)
-		oDesigner.oView.AddProperty("itemSelectionChangedEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMS,False) 			# "Items (S: Comma)"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTROW,False) 			# "Current Row"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTITEMCHANGEDEVENT,False)	# "currentItemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTROWCHANGEDEVENT,False)	# "currentRowChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTTEXTCHANGEDEVENT,False)	# "currentTextChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMACTIVATEDEVENT,False)		# "itemActivatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCHANGEDEVENT,False)		# "itemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCLICKEDEVENT,False)		# "itemClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMDOUBLECLICKEDEVENT,False)	# "itemDoubleClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMENTEREDEVENT,False)		# "itemEnteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMPRESSEDEVENT,False)		# "itemPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMSELECTIONCHANGEDEVENT,False)	# "itemSelectionChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
