@@ -1,0 +1,230 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 4 , : y = 29  , 
+		 :width =  671 , :height = 714 , 
+		 :title =  "String To Constant" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout6" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 13 , : y = 17  , 
+		 :width =  108 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Constant Start : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "LineEdit1" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 123 , : y = 18  , 
+		 :width =  371 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label2" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 13 , : y = 85  , 
+		 :width =  82 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Input : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TextEdit1" , :id = 5 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 123 , : y = 84  , 
+		 :width =  371 , :height = 146 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label3" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 13 , : y = 253  , 
+		 :width =  60 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Output :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TextEdit2" , :id = 7 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 123 , : y = 248  , 
+		 :width =  371 , :height = 132 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label4" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 13 , : y = 394  , 
+		 :width =  88 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Constants : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TextEdit3" , :id = 9 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 123 , : y = 401  , 
+		 :width =  371 , :height = 140 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 11 , : y = 599  , 
+		 :width =  171 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Process",
+		 :BtnImage =  "",
+		 :setClickEvent =  "process"
+		]
+	],
+	[ :name = "Button2" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 190 , : y = 599  , 
+		 :width =  172 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Clear",
+		 :BtnImage =  "",
+		 :setClickEvent =  "clear"
+		]
+	],
+	[ :name = "Button3" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 370 , : y = 599  , 
+		 :width =  136 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "closeapp"
+		]
+	],
+	[ :name = "Layout1" , :id = 13 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 22  , 
+		 :width =  166 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Label1,LineEdit1"
+		]
+	],
+	[ :name = "Layout2" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 83  , 
+		 :width =  163 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Label2,TextEdit1"
+		]
+	],
+	[ :name = "Layout3" , :id = 15 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 243  , 
+		 :width =  157 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Label3,TextEdit2"
+		]
+	],
+	[ :name = "Layout4" , :id = 16 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 396  , 
+		 :width =  150 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Label4,TextEdit3"
+		]
+	],
+	[ :name = "Layout5" , :id = 17 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 562  , 
+		 :width =  144 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Button1,Button2,Button3"
+		]
+	],
+	[ :name = "Layout6" , :id = 18 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 561 , : y = 634  , 
+		 :width =  143 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Layout1,Layout2,Layout3,Layout4,Layout5"
+		]
+	]
+]
+# End Form Designer File
