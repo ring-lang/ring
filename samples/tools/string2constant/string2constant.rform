@@ -24,7 +24,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "LineEdit1" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "LineEditConstantStart" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 123 , : y = 18  , 
 		 :width =  371 , :height = 36 , 
 		 :textcolor =  "black" , 
@@ -51,7 +51,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "TextEdit1" , :id = 5 , :classname = "formdesigner_qtextedit" , :data = [
+	[ :name = "TextEditInput" , :id = 5 , :classname = "formdesigner_qtextedit" , :data = [
 		 :x = 123 , : y = 84  , 
 		 :width =  371 , :height = 146 , 
 		 :textcolor =  "black" , 
@@ -79,7 +79,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "TextEdit2" , :id = 7 , :classname = "formdesigner_qtextedit" , :data = [
+	[ :name = "TextEditOutput" , :id = 7 , :classname = "formdesigner_qtextedit" , :data = [
 		 :x = 123 , : y = 248  , 
 		 :width =  371 , :height = 132 , 
 		 :textcolor =  "black" , 
@@ -107,7 +107,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "TextEdit3" , :id = 9 , :classname = "formdesigner_qtextedit" , :data = [
+	[ :name = "TextEditConstants" , :id = 9 , :classname = "formdesigner_qtextedit" , :data = [
 		 :x = 123 , : y = 401  , 
 		 :width =  371 , :height = 140 , 
 		 :textcolor =  "black" , 
@@ -168,7 +168,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  1,
-		 :LayoutObjects =  "Label1,LineEdit1"
+		 :LayoutObjects =  "Label1,LineEditConstantStart"
 		]
 	],
 	[ :name = "Layout2" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
@@ -179,7 +179,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  1,
-		 :LayoutObjects =  "Label2,TextEdit1"
+		 :LayoutObjects =  "Label2,TextEditInput"
 		]
 	],
 	[ :name = "Layout3" , :id = 15 , :classname = "formdesigner_qlayout" , :data = [
@@ -190,7 +190,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  1,
-		 :LayoutObjects =  "Label3,TextEdit2"
+		 :LayoutObjects =  "Label3,TextEditOutput"
 		]
 	],
 	[ :name = "Layout4" , :id = 16 , :classname = "formdesigner_qlayout" , :data = [
@@ -201,7 +201,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  1,
-		 :LayoutObjects =  "Label4,TextEdit3"
+		 :LayoutObjects =  "Label4,TextEditConstants"
 		]
 	],
 	[ :name = "Layout5" , :id = 17 , :classname = "formdesigner_qlayout" , :data = [

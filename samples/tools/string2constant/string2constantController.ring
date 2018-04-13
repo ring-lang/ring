@@ -17,14 +17,14 @@ class string2constantController from WindowsControllerParent
 
 	oView { 
 		win.showmaximized()	
-		LineEdit1.setText("C_FORMDESIGNER_")
-		textEdit1.setFocus(True)
+		LineEditConstantStart.setText("C_FORMDESIGNER_")
+		TextEditInput.setFocus(True)
 	}
 
 	func process
 
-		cConstant = oView.LineEdit1.text()
-		cText = oView.textEdit1.toplaintext()
+		cConstant = oView.LineEditConstantStart.text()
+		cText = oView.TextEditInput.toplaintext()
 		cOutput = ""
 		cConstantsList = ""
 		aList = str2list(cText)
@@ -68,16 +68,16 @@ class string2constantController from WindowsControllerParent
 			}
 		}
 		cOutput = list2str(aList)
-		oView.textEdit2.setText(cOutput)
-		oView.textEdit3.setText(cConstantsList)
+		oView.TextEditOutput.setText(cOutput)
+		oView.TextEditConstants.setText(cConstantsList)
 
 	func clear
 
 		oView {
-			lineedit1.settext("")
-			textedit1.settext("")
-			textedit2.settext("")
-			textedit3.settext("")
+			LineEditConstantStart.settext("")
+			TextEditInput.settext("")
+			TextEditOutput.settext("")
+			TextEditConstants.settext("")
 		}
 
 	func closeapp
