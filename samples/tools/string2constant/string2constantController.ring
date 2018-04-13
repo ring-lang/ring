@@ -38,6 +38,9 @@ class string2constantController from WindowsControllerParent
 			cStartChar = ""
 			for x2 = 1 to nMax2 step 1 { 
 				cChar = cLine[x2]
+				if cChar = "#" {
+					exit 
+				}
 				if lStart = False and (cChar = '"' or cChar = "'" or cChar = "`") { 
 					lStart = True
 					cStartChar = cChar
@@ -63,6 +66,7 @@ class string2constantController from WindowsControllerParent
 					aList[x] = cNewLine
 					lStart = False
 					cConstantsList += cConstant+cString + Copy(Tab,3) + " = " + cStringBase + WindowsNL()
+					x -= 1
 					exit 
 				}
 			}
