@@ -51,11 +51,11 @@ class FormDesigner_QWebView from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("URL",False)
-		oDesigner.oView.AddProperty("loadProgressEvent ",False)
-		oDesigner.oView.AddProperty("loadStartedEvent ",False)
-		oDesigner.oView.AddProperty("selectionChangedEvent ",False)
-		oDesigner.oView.AddProperty("urlChangedEvent ",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_URL,False)			 	# "URL"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_LOADPROGRESSEVENT,False)		# "loadProgressEvent "
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_LOADSTARTEDEVENT,False)		# "loadStartedEvent "
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SELECTIONCHANGEDEVENT,False)	# "selectionChangedEvent "
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_URLCHANGEDEVENT,False)		# "urlChangedEvent "
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
