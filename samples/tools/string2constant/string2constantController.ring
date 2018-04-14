@@ -78,7 +78,6 @@ class string2constantController from WindowsControllerParent
 	func clear
 
 		oView {
-			LineEditConstantStart.settext("")
 			TextEditInput.settext("")
 			TextEditOutput.settext("")
 			TextEditConstants.settext("")
