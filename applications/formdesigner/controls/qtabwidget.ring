@@ -58,8 +58,8 @@ class FormDesigner_QTabWidget from QTabWidget
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Pages Count",False)
-		oDesigner.oView.AddProperty("Pages Titles (S: Comma)",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_PAGESCOUNT,False)			 # "Pages Count"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_PAGESTITLESSCOMMA,False)		 # "Pages Titles (S: Comma)"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
