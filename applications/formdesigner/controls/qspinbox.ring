@@ -51,11 +51,11 @@ class FormDesigner_QSpinBox from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Set Minimum",False)
-		oDesigner.oView.AddProperty("Set Maximum",False)
-		oDesigner.oView.AddProperty("Set Range",False)
-		oDesigner.oView.AddProperty("Set Value",False)
-		oDesigner.oView.AddProperty("valueChangedEvent",False)
+ 		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETMINIMUM,False)			# "Set Minimum"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETMAXIMUM,False)			# "Set Maximum"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETRANGE,False)			# "Set Range"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETVALUE,False)			# "Set Value"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_VALUECHANGEDEVENT,False)		# "valueChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
