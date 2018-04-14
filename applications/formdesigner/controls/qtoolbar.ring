@@ -29,9 +29,8 @@ class FormDesigner_QToolBar from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Title",True)
-		oDesigner.oView.AddProperty("Objects (S: Comma)",True)
-
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TITLE,True)	 # "Title"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_OBJECTSSCOMMA,True) # "Objects (S: Comma)"
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
