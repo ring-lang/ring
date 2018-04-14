@@ -173,3 +173,10 @@ C_FORMDESIGNER_SLIDERMOVEDEVENT				= "حدث تحرك المؤشر المتحر�
 C_FORMDESIGNER_SLIDERPRESSEDEVENT			= "حدث ضغط المؤشر المتحرك"
 C_FORMDESIGNER_SLIDERRELEASEDEVENT			= "حدث إطلاق المؤشر المتحرك"
 C_FORMDESIGNER_VALUECHANGEDEVENT			= "حدث تغير القيمة"
+
+C_FORMDESIGNER_ITEMS	 				= "العناصر"
+C_FORMDESIGNER_CURRENTINDEX				= "رقم العنصر الحالي"
+C_FORMDESIGNER_ACTIVATEDEVENT				= "حدث التنشيط"
+C_FORMDESIGNER_CURRENTINDEXCHANGEDEVENT			= "حدث تغير العنصر الحالى"
+C_FORMDESIGNER_EDITTEXTCHANGEDEVENT			= "حدث تغير تحرير النص"
+C_FORMDESIGNER_HIGHLIGHTEDEVENT			 	= "حدث الإظهار"

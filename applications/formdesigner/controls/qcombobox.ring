@@ -58,12 +58,12 @@ class FormDesigner_QComboBox from QComboBox
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Items (S: Comma)",False)
-		oDesigner.oView.AddProperty("Current Index",False)
-		oDesigner.oView.AddProperty("activatedEvent",False)
-		oDesigner.oView.AddProperty("currentIndexChangedEvent",False)
-		oDesigner.oView.AddProperty("editTextChangedEvent",False)
-		oDesigner.oView.AddProperty("highlightedEvent",False)
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_ITEMS,False)			# "Items (S: Comma)"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_CURRENTINDEX,False)			# "Current Index"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_ACTIVATEDEVENT,False)		# "activatedEvent"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_CURRENTINDEXCHANGEDEVENT,False)	# "currentIndexChangedEvent"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_EDITTEXTCHANGEDEVENT,False)		# "editTextChangedEvent"
+		oDesigner.oView.AddProperty(C_FORMDESIGNER_HIGHLIGHTEDEVENT,False)		# "highlightedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
