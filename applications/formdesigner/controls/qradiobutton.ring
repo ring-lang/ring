@@ -43,11 +43,11 @@ class FormDesigner_QRadioButton from QRadioButton
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddProperty("clickedEvent",False)
-		oDesigner.oView.AddProperty("pressedEvent",False)
-		oDesigner.oView.AddProperty("releasedEvent",False)
-		oDesigner.oView.AddProperty("toggledEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXT,False)			# "Text"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CLICKEDEVENT,False)		# "clickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_PRESSEDEVENT,False)		# "pressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_RELEASEDEVENT,False)		# "releasedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TOGGLEDEVENT,False)		# "toggledEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
