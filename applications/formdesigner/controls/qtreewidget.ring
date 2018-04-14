@@ -165,27 +165,28 @@ class FormDesigner_QTreeWidget from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Column Count",False)
-		oDesigner.oView.AddProperty("Header Labels (S: Comma)",False)
-		oDesigner.oView.AddPropertyCombobox("Header Hidden",["True","False"])
-		oDesigner.oView.AddProperty("collapsedEvent",False)
-		oDesigner.oView.AddProperty("expandedEvent",False)
-		oDesigner.oView.AddProperty("activatedEvent",False)
-		oDesigner.oView.AddProperty("clickedEvent",False)
-		oDesigner.oView.AddProperty("doubleClickedEvent",False)
-		oDesigner.oView.AddProperty("enteredEvent",False)
-		oDesigner.oView.AddProperty("pressedEvent",False)
-		oDesigner.oView.AddProperty("viewportEnteredEvent",False)
-		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
-		oDesigner.oView.AddProperty("itemActivatedEvent",False)
-		oDesigner.oView.AddProperty("itemChangedEvent",False)
-		oDesigner.oView.AddProperty("itemClickedEvent",False)
-		oDesigner.oView.AddProperty("itemCollapsedEvent",False)
-		oDesigner.oView.AddProperty("itemDoubleClickedEvent",False)
-		oDesigner.oView.AddProperty("itemEnteredEvent",False)
-		oDesigner.oView.AddProperty("itemExpandedEvent",False)
-		oDesigner.oView.AddProperty("itemPressedEvent",False)
-		oDesigner.oView.AddProperty("itemSelectionChangedEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_COLUMNCOUNT,False)			 	 # "Column Count"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HEADERLABELSSCOMMA,False)			 # "Header Labels (S: Comma)"
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_HEADERHIDDEN,
+						[T_FORMDESIGNER_ATTRIBUTE_TRUE,T_FORMDESIGNER_ATTRIBUTE_FALSE])	 # "Header Hidden" "True" "False"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_COLLAPSEDEVENT,False)			 # "collapsedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_EXPANDEDEVENT,False)			 # "expandedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ACTIVATEDEVENT,False)			 # "activatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CLICKEDEVENT,False)			 # "clickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DOUBLECLICKEDEVENT,False)			 # "doubleClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ENTEREDEVENT,False)			 # "enteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_PRESSEDEVENT,False)			 # "pressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VIEWPORTENTEREDEVENT,False)		 # "viewportEnteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTITEMCHANGEDEVENT,False)		 # "currentItemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMACTIVATEDEVENT,False)			 # "itemActivatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCHANGEDEVENT,False)			 # "itemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCLICKEDEVENT,False)			 # "itemClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCOLLAPSEDEVENT,False)			 # "itemCollapsedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMDOUBLECLICKEDEVENT,False)		 # "itemDoubleClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMENTEREDEVENT,False)			 # "itemEnteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMEXPANDEDEVENT,False)			 # "itemExpandedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMPRESSEDEVENT,False)			 # "itemPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMSELECTIONCHANGEDEVENT,False)		 # "itemSelectionChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
