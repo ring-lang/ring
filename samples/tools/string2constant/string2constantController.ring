@@ -17,7 +17,7 @@ class string2constantController from WindowsControllerParent
 
 	oView { 
 		win.showmaximized()	
-		LineEditConstantStart.setText("C_FORMDESIGNER_")
+		LineEditConstantStart.setText("T_FORMDESIGNER_ATTRIBUTE_")
 		TextEditInput.setFocus(True)
 	}
 
