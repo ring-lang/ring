@@ -95,17 +95,17 @@ class FormDesigner_QSlider from QSlider
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox(C_FORMDESIGNER_SETORIENTATION,[C_FORMDESIGNER_VERTICAL,C_FORMDESIGNER_HORIZONTAL])	# "Set Orientation" "Vertical" "Horizontal"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETMINIMUM,False)			 	# "Set Minimum"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETMAXIMUM,False)				 # "Set Maximum"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETRANGE,False)				 # "Set Range"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SETVALUE,False)				 # "Set Value"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_ACTIONTRIGGEREDEVENT,False)			 # "actionTriggeredEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_RANGECHANGEDEVENT,False)			 # "rangeChangedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SLIDERMOVEDEVENT,False)			 # "sliderMovedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SLIDERPRESSEDEVENT,False)			 # "sliderPressedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_SLIDERRELEASEDEVENT,False)			 # "sliderReleasedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_VALUECHANGEDEVENT,False)			 # "valueChangedEvent"
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_SETORIENTATION,[T_FORMDESIGNER_ATTRIBUTE_VERTICAL,T_FORMDESIGNER_ATTRIBUTE_HORIZONTAL])	# "Set Orientation" "Vertical" "Horizontal"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMINIMUM,False)			 	# "Set Minimum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMAXIMUM,False)				 # "Set Maximum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETRANGE,False)				 # "Set Range"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETVALUE,False)				 # "Set Value"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ACTIONTRIGGEREDEVENT,False)			 # "actionTriggeredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_RANGECHANGEDEVENT,False)			 # "rangeChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERMOVEDEVENT,False)			 # "sliderMovedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERPRESSEDEVENT,False)			 # "sliderPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERRELEASEDEVENT,False)			 # "sliderReleasedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VALUECHANGEDEVENT,False)			 # "valueChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

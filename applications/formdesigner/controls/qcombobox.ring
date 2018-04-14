@@ -58,12 +58,12 @@ class FormDesigner_QComboBox from QComboBox
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_ITEMS,False)			# "Items (S: Comma)"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_CURRENTINDEX,False)			# "Current Index"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_ACTIVATEDEVENT,False)		# "activatedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_CURRENTINDEXCHANGEDEVENT,False)	# "currentIndexChangedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_EDITTEXTCHANGEDEVENT,False)		# "editTextChangedEvent"
-		oDesigner.oView.AddProperty(C_FORMDESIGNER_HIGHLIGHTEDEVENT,False)		# "highlightedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMS,False)			# "Items (S: Comma)"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTINDEX,False)			# "Current Index"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ACTIVATEDEVENT,False)		# "activatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTINDEXCHANGEDEVENT,False)	# "currentIndexChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_EDITTEXTCHANGEDEVENT,False)		# "editTextChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HIGHLIGHTEDEVENT,False)		# "highlightedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
