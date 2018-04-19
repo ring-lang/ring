@@ -1,10 +1,13 @@
-﻿/* 
+/* 
 **	Project : Form Designer
 ** 	File Purpose : Translation File
 ** 	Language : English
 **	Date : 2018.04.09
 ** 	Author : Mahmoud Fayed <msfclipper@yahoo.com>
 */
+
+T_LANGUAGE = "arabic"
+T_LAYOUTDIRECTION = 1		# Right to Left
 
 T_FORMDESIGNER_FORMDESIGNER 		= "مصمم النماذج"
 T_FORMDESIGNER_FORMTITLE 		= "النافذة 1"

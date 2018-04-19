@@ -62,6 +62,7 @@ Class FormDesignerView from WindowsViewParent
 			win = new qMainwindow() {
 				setWindowTitle(T_FORMDESIGNER_FORMDESIGNER) # "Form Designer"
 				setcentralWidget(this.oArea)
+				setLayoutDirection(T_LAYOUTDIRECTION)
 			}
 			setwinicon(win,$cCurrentDir + "/image/formdesigner.png")
 

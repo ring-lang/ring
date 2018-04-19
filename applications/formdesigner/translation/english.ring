@@ -6,6 +6,9 @@
 ** 	Author : Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+T_LANGUAGE = "english"
+T_LAYOUTDIRECTION = 0		# Left to Right
+
 T_FORMDESIGNER_FORMDESIGNER 		= "Form Designer"
 T_FORMDESIGNER_FORMTITLE 		= "Form1"
 
