@@ -44,7 +44,7 @@ Class FormDesignerView from WindowsViewParent
 		# Add the form to the Sub Window
 			oSub =  new QMdiSubWindow(null) {
 				if T_LAYOUTDIRECTION {
-					move(22,132)
+					move(10,145)
 				else 
 					move(100,100)
 				}
@@ -274,36 +274,37 @@ Class FormDesignerView from WindowsViewParent
 
 		if T_LAYOUTDIRECTION {
 			aToolBoxTextList = [
-				:Lock = T_FROMDESIGNER_TOOLBOX_LOCK ,
-				:Select = T_FROMDESIGNER_TOOLBOX_SELECT,
-				:Label = T_FROMDESIGNER_TOOLBOX_LABEL,
-				:Button = T_FROMDESIGNER_TOOLBOX_BUTTON,
-				:LineEdit = T_FROMDESIGNER_TOOLBOX_LINEEDIT,
-				:TextEdit = T_FROMDESIGNER_TOOLBOX_TEXTEDIT,
-				:ListWidget = T_FROMDESIGNER_TOOLBOX_LISTWIDGET,
-				:CheckBox = T_FROMDESIGNER_TOOLBOX_CHECKBOX,
-				:Image = T_FROMDESIGNER_TOOLBOX_IMAGE,
-				:Slider = T_FROMDESIGNER_TOOLBOX_SLIDER,
-				:ProgressBar = T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,
-				:SpinBox = T_FROMDESIGNER_TOOLBOX_SPINBOX,
-				:ComboBox = T_FROMDESIGNER_TOOLBOX_COMBOBOX,
-				:DateTimeEdit = T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,
-				:TableWidget = T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,
-				:TreeWidget = T_FROMDESIGNER_TOOLBOX_TREEWIDGET,
-				:RadioButton = T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,
-				:WebView = T_FROMDESIGNER_TOOLBOX_WEBVIEW,
-				:DialSlider = T_FROMDESIGNER_TOOLBOX_DIALSLIDER,
-				:VideoWidget = T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,
-				:Frame = T_FROMDESIGNER_TOOLBOX_FRAME,
-				:LCDNumber = T_FROMDESIGNER_TOOLBOX_LCDNUMBER,
-				:HyperLink = T_FROMDESIGNER_TOOLBOX_HYPERLINK,
-				:Timer = T_FROMDESIGNER_TOOLBOX_TIMER,
-				:AllEvents = T_FROMDESIGNER_TOOLBOX_ALLEVENTS,
-				:Layout = T_FROMDESIGNER_TOOLBOX_LAYOUT,
-				:TabWidget = T_FROMDESIGNER_TOOLBOX_TABWIDGET,
-				:StatusBar = T_FROMDESIGNER_TOOLBOX_STATUSBAR,
-				:ToolBar = T_FROMDESIGNER_TOOLBOX_TOOLBAR	
+				:Lock = this.TextSize(T_FROMDESIGNER_TOOLBOX_LOCK,30) ,
+				:Select = this.TextSize(T_FROMDESIGNER_TOOLBOX_SELECT,35),
+				:Label = this.TextSize(T_FROMDESIGNER_TOOLBOX_LABEL,35),
+				:Button = this.TextSize(T_FROMDESIGNER_TOOLBOX_BUTTON,32),
+				:LineEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_LINEEDIT,32),
+				:TextEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_TEXTEDIT,32),
+				:ListWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_LISTWIDGET,32),
+				:CheckBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_CHECKBOX,32),
+				:Image = this.TextSize(T_FROMDESIGNER_TOOLBOX_IMAGE,32),
+				:Slider = this.TextSize(T_FROMDESIGNER_TOOLBOX_SLIDER,30),
+				:ProgressBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,32),
+				:SpinBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_SPINBOX,35),
+				:ComboBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_COMBOBOX,35),
+				:DateTimeEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,45),
+				:TableWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,35),
+				:TreeWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TREEWIDGET,32),
+				:RadioButton = this.TextSize(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,40),
+				:WebView = this.TextSize(T_FROMDESIGNER_TOOLBOX_WEBVIEW,35),
+				:DialSlider = this.TextSize(T_FROMDESIGNER_TOOLBOX_DIALSLIDER,35),
+				:VideoWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,35),
+				:Frame = this.TextSize(T_FROMDESIGNER_TOOLBOX_FRAME,35),
+				:LCDNumber = this.TextSize(T_FROMDESIGNER_TOOLBOX_LCDNUMBER,40),
+				:HyperLink = this.TextSize(T_FROMDESIGNER_TOOLBOX_HYPERLINK,35),
+				:Timer = this.TextSize(T_FROMDESIGNER_TOOLBOX_TIMER,35),
+				:AllEvents = this.TextSize(T_FROMDESIGNER_TOOLBOX_ALLEVENTS,40),
+				:Layout = this.TextSize(T_FROMDESIGNER_TOOLBOX_LAYOUT,35),
+				:TabWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABWIDGET,35),
+				:StatusBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_STATUSBAR,35),
+				:ToolBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_TOOLBAR,35)		
 			]
+
 		else 
 			aToolBoxTextList = [
 				:Lock = this.TextSize(T_FROMDESIGNER_TOOLBOX_LOCK,20) ,
@@ -585,7 +586,12 @@ Class FormDesignerView from WindowsViewParent
 		}
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
-			setMiniMumWidth(195)
+			if T_LAYOUTDIRECTION {
+				setMiniMumWidth(215)
+			else 
+				setMiniMumWidth(195)
+			}
+
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
 			setLayoutDirection(0)
