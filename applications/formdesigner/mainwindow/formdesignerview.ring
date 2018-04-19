@@ -43,7 +43,11 @@ Class FormDesignerView from WindowsViewParent
 
 		# Add the form to the Sub Window
 			oSub =  new QMdiSubWindow(null) {
-				move(100,100)
+				if T_LAYOUTDIRECTION {
+					move(22,132)
+				else 
+					move(100,100)
+				}
 				resize(400,400)
 				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
@@ -335,7 +339,7 @@ Class FormDesignerView from WindowsViewParent
 		}
 
 		oToolBox = new qWidget() {
-			setLayoutDirection(T_LAYOUTDIRECTION)
+			setLayoutDirection(0)
  			this.oToolLock = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:Lock]) # "Lock"
 					this.setToolbtnImage(self,AppFile("image/lock.png"))
@@ -595,9 +599,9 @@ Class FormDesignerView from WindowsViewParent
 		}
 
 	func setToolbtnImage oObject,cImage
-		if not T_LAYOUTDIRECTION {
+		//if not T_LAYOUTDIRECTION {
 			setbtnImage(oObject,cImage)
-		}
+		//}
 
 	func TextSize cText,nSize
 		nSpaces = (nSize - len(cText))/2
@@ -628,7 +632,11 @@ Class FormDesignerView from WindowsViewParent
 				setColumnwidth(2,40)
 				setAlternatingRowColors(true)
 				setitemChangedEvent(Method(:UpdateProperties))
-				setminimumwidth(370)
+				if T_LAYOUTDIRECTION {
+					setminimumwidth(390)
+				else 
+					setminimumwidth(370)
+				}
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
