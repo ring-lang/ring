@@ -257,6 +257,16 @@ int ring_parser_stmt ( Parser *pParser )
 					strcpy(cFileName,pParser->TokenText);
 				}
 			}
+			else {
+				/* Add the current folder to the file name */
+				ring_currentdir(cFileName);
+				#ifdef _WIN32
+				strcat(cFileName,"\\");
+				#else
+				strcat(cFileName,"/");
+				#endif
+				strcat(cFileName,pParser->TokenText);
+			}
 			/*
 			**  Generate Code 
 			**  Load Package - New Global Scope 
