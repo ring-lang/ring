@@ -20508,6 +20508,188 @@ Class QOpenGLTexture
 	Func hasFeature P1
 		return QOpenGLTexture_hasFeature(pObject,P1)
 
+Class QTabBar from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QTabBar_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTabBar_delete(pObject)
+
+	Func addTab P1
+		return QTabBar_addTab(pObject,P1)
+
+	Func addTab_2 P1,P2
+		return QTabBar_addTab_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func count 
+		return QTabBar_count(pObject)
+
+	Func currentIndex 
+		return QTabBar_currentIndex(pObject)
+
+	Func documentMode 
+		return QTabBar_documentMode(pObject)
+
+	Func drawBase 
+		return QTabBar_drawBase(pObject)
+
+	Func elideMode 
+		return QTabBar_elideMode(pObject)
+
+	Func expanding 
+		return QTabBar_expanding(pObject)
+
+	Func iconSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QTabBar_iconSize(pObject)
+		return pTempObj
+
+	Func insertTab P1,P2
+		return QTabBar_insertTab(pObject,P1,P2)
+
+	Func insertTab_2 P1,P2,P3
+		return QTabBar_insertTab_2(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func isMovable 
+		return QTabBar_isMovable(pObject)
+
+	Func isTabEnabled P1
+		return QTabBar_isTabEnabled(pObject,P1)
+
+	Func moveTab P1,P2
+		return QTabBar_moveTab(pObject,P1,P2)
+
+	Func removeTab P1
+		return QTabBar_removeTab(pObject,P1)
+
+	Func selectionBehaviorOnRemove 
+		return QTabBar_selectionBehaviorOnRemove(pObject)
+
+	Func setDocumentMode P1
+		return QTabBar_setDocumentMode(pObject,P1)
+
+	Func setDrawBase P1
+		return QTabBar_setDrawBase(pObject,P1)
+
+	Func setElideMode P1
+		return QTabBar_setElideMode(pObject,P1)
+
+	Func setExpanding P1
+		return QTabBar_setExpanding(pObject,P1)
+
+	Func setIconSize P1
+		return QTabBar_setIconSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMovable P1
+		return QTabBar_setMovable(pObject,P1)
+
+	Func setSelectionBehaviorOnRemove P1
+		return QTabBar_setSelectionBehaviorOnRemove(pObject,P1)
+
+	Func setShape P1
+		return QTabBar_setShape(pObject,P1)
+
+	Func setTabButton P1,P2,P3
+		return QTabBar_setTabButton(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func setTabData P1,P2
+		return QTabBar_setTabData(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setTabEnabled P1,P2
+		return QTabBar_setTabEnabled(pObject,P1,P2)
+
+	Func setTabIcon P1,P2
+		return QTabBar_setTabIcon(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setTabText P1,P2
+		return QTabBar_setTabText(pObject,P1,P2)
+
+	Func setTabTextColor P1,P2
+		return QTabBar_setTabTextColor(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setTabToolTip P1,P2
+		return QTabBar_setTabToolTip(pObject,P1,P2)
+
+	Func setTabWhatsThis P1,P2
+		return QTabBar_setTabWhatsThis(pObject,P1,P2)
+
+	Func setTabsClosable P1
+		return QTabBar_setTabsClosable(pObject,P1)
+
+	Func setUsesScrollButtons P1
+		return QTabBar_setUsesScrollButtons(pObject,P1)
+
+	Func shape 
+		return QTabBar_shape(pObject)
+
+	Func tabAt P1
+		return QTabBar_tabAt(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func tabButton P1,P2
+		pTempObj = new QWidget
+		pTempObj.pObject = QTabBar_tabButton(pObject,P1,P2)
+		return pTempObj
+
+	Func tabData P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QTabBar_tabData(pObject,P1)
+		return pTempObj
+
+	Func tabIcon P1
+		pTempObj = new QIcon
+		pTempObj.pObject = QTabBar_tabIcon(pObject,P1)
+		return pTempObj
+
+	Func tabRect P1
+		pTempObj = new QRect
+		pTempObj.pObject = QTabBar_tabRect(pObject,P1)
+		return pTempObj
+
+	Func tabText P1
+		return QTabBar_tabText(pObject,P1)
+
+	Func tabTextColor P1
+		pTempObj = new QColor
+		pTempObj.pObject = QTabBar_tabTextColor(pObject,P1)
+		return pTempObj
+
+	Func tabToolTip P1
+		return QTabBar_tabToolTip(pObject,P1)
+
+	Func tabWhatsThis P1
+		return QTabBar_tabWhatsThis(pObject,P1)
+
+	Func tabsClosable 
+		return QTabBar_tabsClosable(pObject)
+
+	Func usesScrollButtons 
+		return QTabBar_usesScrollButtons(pObject)
+
+	Func setCurrentIndex P1
+		return QTabBar_setCurrentIndex(pObject,P1)
+
+	Func setcurrentChangedEvent P1
+		return QTabBar_setcurrentChangedEvent(pObject,P1)
+
+	Func settabCloseRequestedEvent P1
+		return QTabBar_settabCloseRequestedEvent(pObject,P1)
+
+	Func settabMovedEvent P1
+		return QTabBar_settabMovedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QTabBar_getcurrentChangedEvent(pObject)
+
+	Func gettabCloseRequestedEvent 
+		return QTabBar_gettabCloseRequestedEvent(pObject)
+
+	Func gettabMovedEvent 
+		return QTabBar_gettabMovedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
