@@ -263,7 +263,7 @@ int ring_parser_stmt ( Parser *pParser )
 				/* Be Sure that we don't already have the current folder in the file name */
 				if ( strlen(cFileName) < strlen(pParser->TokenText) ) {
 					nPathExist = 1 ;
-					for ( x = 0 ; x < strlen(cFileName) ; x++ ) {
+					for ( x = 0 ; (unsigned) x < strlen(cFileName) ; x++ ) {
 						#ifdef _WIN32
 						if ( tolower(cFileName[x]) != tolower(pParser->TokenText[x]) ) {
 							nPathExist = 0 ;
