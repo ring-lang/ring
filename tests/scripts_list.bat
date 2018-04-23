@@ -276,3 +276,4 @@ call ring scripts/forloopscope.ring
 call ring scripts/chars.ring
 call ring scripts/ncemain.ring
 call ring scripts/filenameinpara.ring
+call ring scripts/filepath1.ring
