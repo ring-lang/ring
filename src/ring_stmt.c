@@ -228,7 +228,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -260,11 +260,36 @@ int ring_parser_stmt ( Parser *pParser )
 			else {
 				/* Add the current folder to the file name */
 				ring_currentdir(cFileName);
-				#ifdef _WIN32
-				strcat(cFileName,"\\");
-				#else
-				strcat(cFileName,"/");
-				#endif
+				/* Be Sure that we don't already have the current folder in the file name */
+				if ( strlen(cFileName) < strlen(pParser->TokenText) ) {
+					nPathExist = 1 ;
+					for ( x = 0 ; x < strlen(cFileName) ; x++ ) {
+						#ifdef _WIN32
+						if ( tolower(cFileName[x]) != tolower(pParser->TokenText[x]) ) {
+							nPathExist = 0 ;
+							break ;
+						}
+						#else
+						if ( cFileName[x] != pParser->TokenText[x] ) {
+							nPathExist = 0 ;
+							break ;
+						}
+						#endif
+					}
+					if ( nPathExist ) {
+						strcpy(cFileName,"");
+					}
+				}
+				else {
+					nPathExist = 0 ;
+				}
+				if ( nPathExist == 0 ) {
+					#ifdef _WIN32
+					strcat(cFileName,"\\");
+					#else
+					strcat(cFileName,"/");
+					#endif
+				}
 				strcat(cFileName,pParser->TokenText);
 			}
 			/*
