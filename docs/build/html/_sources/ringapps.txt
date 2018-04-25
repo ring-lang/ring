@@ -222,6 +222,12 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "Extraordinary. well done sir"
 	, RugbyLeague (CodeProject Member - United Kingdom)
 
+"The Ring language is pleasant. You get ahead very quickly."
+	, Neskuk (CodeProject Member - Switzerland)
+
+"I'm happy to use your language"
+	, Akhil Reddy
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
