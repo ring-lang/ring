@@ -121088,43 +121088,31 @@ RING_FUNC(ring_QFileDevice_unsetError)
 
 RING_FUNC(ring_QStandardPaths_displayName)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->displayName( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(QStandardPaths::displayName( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(1)).toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QStandardPaths_findExecutable)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->findExecutable(RING_API_GETSTRING(2),* (QStringList  *) RING_API_GETCPOINTER(3,"QStringList")).toStdString().c_str());
+	RING_API_RETSTRING(QStandardPaths::findExecutable(RING_API_GETSTRING(1),* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QStringList"));
 }
@@ -121132,62 +121120,50 @@ RING_FUNC(ring_QStandardPaths_findExecutable)
 
 RING_FUNC(ring_QStandardPaths_locate)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
+	if ( ! RING_API_ISNUMBER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->locate( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3), (QStandardPaths::LocateOptions )  (int) RING_API_GETNUMBER(4)).toStdString().c_str());
+	RING_API_RETSTRING(QStandardPaths::locate( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(1),RING_API_GETSTRING(2), (QStandardPaths::LocateOptions )  (int) RING_API_GETNUMBER(3)).toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QStandardPaths_locateAll)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
+	if ( ! RING_API_ISNUMBER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->locateAll( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3), (QStandardPaths::LocateOptions )  (int) RING_API_GETNUMBER(4));
+		*pValue = QStandardPaths::locateAll( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(1),RING_API_GETSTRING(2), (QStandardPaths::LocateOptions )  (int) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -121195,46 +121171,34 @@ RING_FUNC(ring_QStandardPaths_locateAll)
 
 RING_FUNC(ring_QStandardPaths_setTestModeEnabled)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setTestModeEnabled( (bool ) RING_API_GETNUMBER(2));
+	QStandardPaths::setTestModeEnabled( (bool ) RING_API_GETNUMBER(1));
 }
 
 
 RING_FUNC(ring_QStandardPaths_standardLocations)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->standardLocations( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(2));
+		*pValue = QStandardPaths::standardLocations( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(1));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -121242,22 +121206,16 @@ RING_FUNC(ring_QStandardPaths_standardLocations)
 
 RING_FUNC(ring_QStandardPaths_writableLocation)
 {
-	QStandardPaths *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISNUMBER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QStandardPaths *) RING_API_GETCPOINTER(1,"QStandardPaths");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->writableLocation( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(QStandardPaths::writableLocation( (QStandardPaths::StandardLocation )  (int) RING_API_GETNUMBER(1)).toStdString().c_str());
 }
 
 RING_FUNC(ring_QObject_new)

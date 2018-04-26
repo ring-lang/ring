@@ -9450,6 +9450,7 @@ void unsetError(void)
 name: QStandardPaths
 para: void
 nonew
+staticmethods
 </class>
 
 QString displayName(QStandardPaths::StandardLocation type)
