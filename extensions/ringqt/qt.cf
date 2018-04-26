@@ -283,6 +283,9 @@ extern "C" {
 
 #include <QTabBar>
 #include "gtabbar.h"
+#include <QFile>
+#include <QFileDevice>
+#include <QStandardPaths>
 
 </filter>
 
@@ -649,6 +652,19 @@ aEnumTypes + "QOpenGLShader::ShaderTypeBit"
 aEnumTypes + "QTabBar::ButtonPosition"
 aEnumTypes + "QTabBar::SelectionBehavior"
 aEnumTypes + "QTabBar::Shape"
+aEnumTypes + "QFileDevice::FileError"
+aEnumTypes + "QFileDevice::FileHandleFlag"
+aEnumTypes + "QFileDevice::FileHandleFlags"
+aEnumTypes + "QFileDevice::FileTime"
+aEnumTypes + "QFileDevice::MemoryMapFlags"
+aEnumTypes + "QFileDevice::Permission"
+aEnumTypes + "QFileDevice::Permissions"
+aEnumTypes + "QStandardPaths::LocateOption"
+aEnumTypes + "QStandardPaths::LocateOptions"
+aEnumTypes + "QStandardPaths::StandardLocation"
+aEnumTypes + "QFile::FileHandleFlags"
+aEnumTypes + "QFile::Permissions"
+
 
 $aMallocClassesList + "QModelIndex"
 
@@ -9380,3 +9396,66 @@ void settabMovedEvent(const char *)
 const char *getcurrentChangedEvent(void)
 const char *gettabCloseRequestedEvent(void)
 const char *gettabMovedEvent(void)
+
+<class>
+name: QFile
+para: void
+parent: QFileDevice
+</class>
+
+bool copy(QString newName)
+bool exists(void)
+bool link(QString linkName)
+bool open(FILE *fh, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+bool open@2(int fd, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+bool remove(void)
+bool rename(QString newName)
+void setFileName(QString name)
+QString symLinkTarget(void)
+bool copy@2(QString fileName, QString newName)
+QString decodeName(QByteArray localFileName)
+QString decodeName@2(char *localFileName)
+QByteArray encodeName(QString fileName)
+bool exists@2(QString fileName)
+bool link@2(QString fileName, QString linkName)
+QFile::Permissions permissions(QString fileName)
+bool remove@2(QString fileName)
+bool rename@2(QString oldName, QString newName)
+bool resize(QString fileName, qint64 sz)
+bool setPermissions(QString fileName, QFile::Permissions permissions)
+QString symLinkTarget@2(QString fileName)
+
+<class>
+name: QFileDevice
+parent: QIODevice
+nonew
+</class>
+
+QFileDevice::FileError error(void)
+bool flush(void)
+int handle(void)
+uchar * map(qint64 offset, qint64 size, QFileDevice::MemoryMapFlags flags)
+QFileDevice::Permissions permissions(void)
+bool resize(qint64 sz)
+QString fileName(void)
+<comment>
+QDateTime fileTime(QFileDevice::FileTime time)
+bool setFileTime(QDateTime newDate, QFileDevice::FileTime fileTime)
+</comment>
+bool setPermissions(QFileDevice::Permissions permissions)
+bool unmap(uchar *address)
+void unsetError(void)
+
+<class>
+name: QStandardPaths
+para: void
+nonew
+</class>
+
+QString displayName(QStandardPaths::StandardLocation type)
+QString findExecutable(QString executableName, QStringList paths))
+QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+void setTestModeEnabled(bool testMode)
+QStringList standardLocations(QStandardPaths::StandardLocation type)
+QString writableLocation(QStandardPaths::StandardLocation type)

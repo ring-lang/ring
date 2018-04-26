@@ -20690,6 +20690,139 @@ Class QTabBar from QWidget
 	Func gettabMovedEvent 
 		return QTabBar_gettabMovedEvent(pObject)
 
+Class QFile from QFileDevice
+
+	pObject
+
+	Func init 
+		pObject = QFile_new()
+		return self
+
+	Func delete
+		pObject = QFile_delete(pObject)
+
+	Func copy P1
+		return QFile_copy(pObject,P1)
+
+	Func exists 
+		return QFile_exists(pObject)
+
+	Func link P1
+		return QFile_link(pObject,P1)
+
+	Func open P1,P2,P3
+		return QFile_open(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func open_2 P1,P2,P3
+		return QFile_open_2(pObject,P1,P2,P3)
+
+	Func remove 
+		return QFile_remove(pObject)
+
+	Func rename P1
+		return QFile_rename(pObject,P1)
+
+	Func setFileName P1
+		return QFile_setFileName(pObject,P1)
+
+	Func symLinkTarget 
+		return QFile_symLinkTarget(pObject)
+
+	Func copy_2 P1,P2
+		return QFile_copy_2(pObject,P1,P2)
+
+	Func decodeName P1
+		return QFile_decodeName(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func decodeName_2 P1
+		return QFile_decodeName_2(pObject,P1)
+
+	Func encodeName P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QFile_encodeName(pObject,P1)
+		return pTempObj
+
+	Func exists_2 P1
+		return QFile_exists_2(pObject,P1)
+
+	Func link_2 P1,P2
+		return QFile_link_2(pObject,P1,P2)
+
+	Func permissions P1
+		return QFile_permissions(pObject,P1)
+
+	Func remove_2 P1
+		return QFile_remove_2(pObject,P1)
+
+	Func rename_2 P1,P2
+		return QFile_rename_2(pObject,P1,P2)
+
+	Func resize P1,P2
+		return QFile_resize(pObject,P1,P2)
+
+	Func setPermissions P1,P2
+		return QFile_setPermissions(pObject,P1,P2)
+
+	Func symLinkTarget_2 P1
+		return QFile_symLinkTarget_2(pObject,P1)
+
+Class QFileDevice from QIODevice
+	Func error 
+		return QFileDevice_error()
+
+	Func flush 
+		return QFileDevice_flush()
+
+	Func handle 
+		return QFileDevice_handle()
+
+	Func map P1,P2,P3
+		return QFileDevice_map(P1,P2,P3)
+
+	Func permissions 
+		return QFileDevice_permissions()
+
+	Func resize P1
+		return QFileDevice_resize(P1)
+
+	Func fileName 
+		return QFileDevice_fileName()
+
+	Func setPermissions P1
+		return QFileDevice_setPermissions(P1)
+
+	Func unmap P1
+		return QFileDevice_unmap(GetObjectPointerFromRingObject(P1))
+
+	Func unsetError 
+		return QFileDevice_unsetError()
+
+Class QStandardPaths
+	Func displayName P1
+		return QStandardPaths_displayName(P1)
+
+	Func findExecutable P1,P2
+		return QStandardPaths_findExecutable(P1,GetObjectPointerFromRingObject(P2))
+
+	Func locate P1,P2,P3
+		return QStandardPaths_locate(P1,P2,P3)
+
+	Func locateAll P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QStandardPaths_locateAll(P1,P2,P3)
+		return pTempObj
+
+	Func setTestModeEnabled P1
+		return QStandardPaths_setTestModeEnabled(P1)
+
+	Func standardLocations P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QStandardPaths_standardLocations(P1)
+		return pTempObj
+
+	Func writableLocation P1
+		return QStandardPaths_writableLocation(P1)
+
 Class QPixmap2 from QPixmap
 
 	pObject
