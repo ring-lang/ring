@@ -218,3 +218,5 @@ Better RingQt
 The next classes are added to RingQt
 
 (1) QTabBar
+(2) QFile
+(3) QFileDevice
