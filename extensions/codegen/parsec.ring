@@ -99,6 +99,7 @@ C_CLASSESLIST_CODENAME 		= 4
 C_CLASSESLIST_PASSVMPOINTER 	= 5
 C_CLASSESLIST_ABSTRACT 		= 6
 C_CLASSESLIST_NONEW 		= 7
+C_CLASSESLIST_STATICMETHODS	= 8
 
 $lNodllstartup = false	# when used, ring.h will not be included automatically
 $cLibInitFunc = "ringlib_init"
@@ -338,7 +339,7 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				cClassName = trim(substr(cValue,6))
 				See "Class Name : " + cClassName + nl
-				$aClassesList + [cClassName,"","","",false,false,false]
+				$aClassesList + [cClassName,"","","",false,false,false,false]
 			ok
 		ok
 	next
@@ -397,6 +398,9 @@ Func GenCode aList
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_NONEW] = true
 				#del($aClassesList,nIndex)		
+			but lower(cValue) = "staticmethods"
+				nIndex = find($aClassesList,$cClassName,1)
+				$aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS] = true
 			ok
 		ok
 	next
@@ -880,15 +884,25 @@ Func GenMethodCodeGetClassCodeName
 	ok
 	return cClassCodeName
 
+Func GenMethodCodeISStaticMethods
+	nIndex = find($aClassesList,$cClassName,1)
+	return $aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS]
+
 Func GenMethodCodeCheckParaCount aList
 
 	cClassCodeName = GenMethodCodeGetClassCodeName()
 
 	aPara = aList[C_FUNC_PARA]
-	nCount = ParaCount(aPara) + 1
-	cCode =  C_TABS_1 + cClassCodeName + " *pObject ;" + nl +
-	 	 C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+	if GenMethodCodeISStaticMethods()
+		nCount = ParaCount(aPara)
+		cCode = C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
 		 C_TABS_2 +"RING_API_ERROR("
+	else
+		nCount = ParaCount(aPara) + 1
+		cCode =  C_TABS_1 + cClassCodeName + " *pObject ;" + nl +
+		 	 C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+			 C_TABS_2 +"RING_API_ERROR("
+	ok
 	switch nCount
 	on 1 
 		cCode += "RING_API_MISS1PARA"
@@ -908,21 +922,26 @@ Func GenMethodCodeCheckParaCount aList
 
 Func GenMethodCodeCheckParaType aList
 	cClassCodeName = GenMethodCodeGetClassCodeName()
-	cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
-			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			 C_TABS_2 + "return ;" + nl +
-			 C_TABS_1 + "}" + nl +
-			 C_TABS_1 + "pObject = ("+
-			 cClassCodeName+" *) RING_API_GETCPOINTER(1," + '"'+
-			 $cClassName+'"' + ");"+nl
-
+	if GenMethodCodeISStaticMethods()
+		cCode = ""
+	else 
+		cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
+				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				 C_TABS_2 + "return ;" + nl +
+				 C_TABS_1 + "}" + nl +
+				 C_TABS_1 + "pObject = ("+
+				 cClassCodeName+" *) RING_API_GETCPOINTER(1," + '"'+
+				 $cClassName+'"' + ");"+nl
+	ok
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
 		nMax = len(aPara)
 		for t = 1 to nMax
 			x = aPara[t]
-			t++ # avoid the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t++ # avoid the object pointer
+			ok
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
@@ -953,7 +972,9 @@ Func GenMethodCodeCheckParaType aList
 						 C_TABS_1 + "}" + nl
 				ok
 			off
-			t-- # ignore effect of avoiding the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t-- # ignore effect of avoiding the object pointer
+			ok
 		next
 	ok
 	return cCode
@@ -998,8 +1019,14 @@ Func GenMethodCodeCallFunc aList
 			lRet = false
 			lUNKNOWN = true
 	off
+	if GenMethodCodeISStaticMethods()
+		cClassCodeName = GenMethodCodeGetClassCodeName()
+		cCode += cClassCodeName + "::"+ cFuncName + "(" +
+		GenMethodCodeGetParaValues(aList) + ")"
+	else 
 	cCode += "pObject->"+ cFuncName + "(" +
 		GenMethodCodeGetParaValues(aList) + ")"
+	ok
 
 	#Check before return list for any 
 	if len(aBeforeReturn) > 0
@@ -1039,7 +1066,9 @@ Func GenMethodCodeGetParaValues aList
 				cCode += ","
 			ok
 			x = aPara[t]
-			t++ # avoid the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t++ # avoid the object pointer
+			ok
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += " (" + x + ") " + "RING_API_GETNUMBER(" + t + ")"
@@ -1059,7 +1088,9 @@ Func GenMethodCodeGetParaValues aList
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
 			off
-			t-- # ignore effect of avoiding the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t-- # ignore effect of avoiding the object pointer
+			ok
 		next
 	ok
 	return cCode
