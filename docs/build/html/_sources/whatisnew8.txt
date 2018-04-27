@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.8 comes with the next features!
 
 * Find in files Application
+* String2Constant Application
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
@@ -36,6 +37,26 @@ Ring 1.8 comes with Find in files application
 .. image:: findinfiles.png
 	:alt: Find in files
 
+
+.. index:: 
+	pair: What is new in Ring 1.8?; String2Constant Application
+
+String2Constant Application
+===========================
+
+Ring 1.8 comes with String2Constant application
+
+Using this tool we can convert the source code to be based on constants instead of string literals
+
+Then we can store constants in separate source code files that we can translate to different languages
+
+Where we can have special file for each language, like (English.ring, Arabic.ring and so on)
+
+Using this simple tool, the Form Designer is translated to Arabic language too just as an example.
+
+
+.. image:: string2constant.png
+	:alt: String2Constant 
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
