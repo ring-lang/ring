@@ -17,7 +17,7 @@ class string2constantController from WindowsControllerParent
 
 	oView { 
 		win.showmaximized()	
-		LineEditConstantStart.setText("T_FORMDESIGNER_ATTRIBUTE_")
+		LineEditConstantStart.setText("T_MYAPP_")
 		TextEditInput.setFocus(True)
 	}
 
@@ -55,17 +55,17 @@ class string2constantController from WindowsControllerParent
 					cStringBase = substr(cLine,nStart,nEnd-nStart+1)
 					cString = upper(cStringBase)
 					cString = substr(cString,2,len(cString)-2)
-					cString = substr(cString," ","")
-					cString = substr(cString,"(","")
-					cString = substr(cString,")","")
-					cString = substr(cString,":","")
+					for cChar in [" ","(",")",":",",","!","+","-","*","/","%","#","@",
+							"^","&","|"]
+						cString = substr(cString,cChar,"")
+					next 
 					cNewLine = cNewLine + cString
 					cStringEnd = SubStr(cLine,nEnd+1)
 					cNewLine = cNewLine + cStringEnd
-					cNewLine = cNewLine + Copy(Tab,3) + " # " + cStringBase
+					cNewLine = cNewLine + Tab + " # " + cStringBase
 					aList[x] = cNewLine
 					lStart = False
-					cConstantsList += cConstant+cString + Copy(Tab,3) + " = " + cStringBase + WindowsNL()
+					cConstantsList += cConstant+cString + " = " + cStringBase + WindowsNL()
 					x -= 1
 					exit 
 				}
