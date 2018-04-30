@@ -101,8 +101,6 @@ Class FormDesignerView from WindowsViewParent
 					win.tabifydockwidget(oToolBoxDock,oDesignDock)
 					win.tabifydockwidget(oToolBoxDock,oPropertiesDock)
 					oDesignDock.raise()
-				# Menubar
-					CreateMenuBar()
 			}
 
 		# Show the Window
