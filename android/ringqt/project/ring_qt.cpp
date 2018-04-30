@@ -243,6 +243,13 @@ extern "C" {
 #include <QQuaternion>
 #include <QMatrix4x4>
 
+#include <QTabBar>
+#include "gtabbar.h"
+#include <QFile>
+#include <QFileDevice>
+#include <QStandardPaths>
+
+
 
 
 extern "C" {
