@@ -22,6 +22,8 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
 	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27  oToolBtn28
 
+	oDesignDock
+
 	func CreateMainWindow oModel
 
 		# Create the form
@@ -86,6 +88,22 @@ Class FormDesignerView from WindowsViewParent
 
 		# Create the Statusbar
 			CreateStatusBar()
+
+		# Mobile Options
+			if isMobile() {
+				# Create dockable window for the design region
+					oDesignDock = new qDockWidget(NULL,0) {
+						setLayoutDirection(0)
+						setWindowTitle(T_FROMDESIGNER_DESIGN_WINDOWTITLE) # "Design Region"
+						setWidget(this.oArea)
+					}		
+					win.Adddockwidget(1,oDesignDock,1)
+					win.tabifydockwidget(oToolBoxDock,oDesignDock)
+					win.tabifydockwidget(oToolBoxDock,oPropertiesDock)
+					oDesignDock.raise()
+				# Menubar
+					CreateMenuBar()
+			}
 
 		# Show the Window
 			win.showmaximized()
