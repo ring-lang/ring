@@ -244,6 +244,13 @@ extern "C" {
 #include <QQuaternion>
 #include <QMatrix4x4>
 
+#include <QTabBar>
+#include "gtabbar.h"
+#include <QFile>
+#include <QFileDevice>
+#include <QStandardPaths>
+
+
 
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
@@ -269,13 +276,6 @@ extern "C" {
 #include <QSerialPortInfo>
 #include <QWebSettings>
 #include <QWebView>
-
-
-#include <QTabBar>
-#include "gtabbar.h"
-#include <QFile>
-#include <QFileDevice>
-#include <QStandardPaths>
 
 
 
