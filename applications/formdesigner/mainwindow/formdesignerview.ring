@@ -607,7 +607,7 @@ Class FormDesignerView from WindowsViewParent
 			else 
 				setMiniMumWidth(195)
 			}
-
+			setwidgetresizable(True)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
 			setLayoutDirection(0)
@@ -621,9 +621,9 @@ Class FormDesignerView from WindowsViewParent
 		}
 
 	func setToolbtnImage oObject,cImage
-		//if not T_LAYOUTDIRECTION {
+		if not isMobile() {
 			setbtnImage(oObject,cImage)
-		//}
+		}
 
 	func TextSize cText,nSize
 		nSpaces = (nSize - len(cText))/2
