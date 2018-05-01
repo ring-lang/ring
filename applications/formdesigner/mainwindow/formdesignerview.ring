@@ -634,7 +634,11 @@ Class FormDesignerView from WindowsViewParent
 			setLayoutDirection(T_LAYOUTDIRECTION)
 			oLabelObject = new qLabel(this.oProperties) {
 				setText(T_FROMDESIGNER_PROPERTIES_OBJECT) # "Object"
-				setMaximumWidth(50)
+				if isMobile() {
+					setMaximumWidth(200)
+				else
+					setMaximumWidth(50)
+				}
 			}
 			this.oObjectsCombo = new qCombobox(this.oProperties) {
 				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
@@ -650,8 +654,14 @@ Class FormDesignerView from WindowsViewParent
 				setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) # "Property"
 				setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE)) # "Value"
 				setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
-				setColumnwidth(0,190)
-				setColumnwidth(2,40)
+				if isMobile() {
+					setColumnwidth(0,500)
+					setColumnwidth(1,500)
+					setColumnwidth(2,120)
+				else
+					setColumnwidth(0,190)
+					setColumnwidth(2,40)
+				}
 				setAlternatingRowColors(true)
 				setitemChangedEvent(Method(:UpdateProperties))
 				if T_LAYOUTDIRECTION {
@@ -797,7 +807,11 @@ Class FormDesignerView from WindowsViewParent
 		else
 			oBtn = new qPushButton(NULL) {
 				setText("::")
-				setfixedwidth(30)
+				if isMobile() {
+					setfixedwidth(110)
+				else 
+					setfixedwidth(30)
+				}
 				setClickEvent(this.Method(:DialogButtonAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,2,oBtn)
