@@ -76,6 +76,7 @@ Class MoveResizeCorners
 		MoveEvent(oDesigner)
 
 	func ResizeEvent oDesigner
+		if MobileEventDelay() { return }
 		# Resize Event
 			nXPos =  oFilter.getx()
 			nYPos = ofilter.gety()
@@ -154,12 +155,7 @@ Class MoveResizeCorners
 			return True
 
 	func MoveEvent oDesigner
-		if isMobile() {
-			if nClockValue != 0 and clock() - nClockValue < nClocksCount {
-				return 
-			}
-			nClockValue = clock()
-		}
+		if MobileEventDelay() { return }
 		# Move Event
 		if lPress {
 			lMoveEvent=True
@@ -181,6 +177,7 @@ Class MoveResizeCorners
 		MousePress(oDesigner)
 
 	func MouseMoveMany oDesigner
+		if MobileEventDelay() { return }
 		if lPress {
 			lMoveEvent=True
 			nX2 = oFilter.getglobalx()
@@ -196,9 +193,20 @@ Class MoveResizeCorners
 				oObject.move(oObject.x()+ndiffx,oObject.y()+ndiffy)
 				oObject.oCorners.refresh(oObject)
 			}
+			if isMobile() {
+				oFDApp.processevents()
+			}
 		}
 
 	func MouseReleaseMany oDesigner
 		MouseRelease(oDesigner)
 
 
+	func MobileEventDelay
+		if isMobile() {
+			if nClockValue != 0 and clock() - nClockValue < nClocksCount {
+				return True
+			}
+			nClockValue = clock()
+		}
+		return False

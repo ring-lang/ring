@@ -20,6 +20,10 @@ class FormDesigner_QWidget from QWidget
 
 	nIndexType = 0
 
+	# For Mobile Devices 
+		nClockValue = 0
+		nClocksCount = clockspersecond() / 4
+
 	func IndexTypeValue
 		return nIndexType
 
@@ -196,11 +200,25 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.SelectDrawAction(aRect)
 
 	func MouseMoveAction oDesigner
+		if MobileEventDelay() { return }
 		aRect = GetRectDim(oDesigner)
 		oDesigner.oView.oLabelSelect {
 			move(aRect[1],aRect[2])
 			resize(aRect[3],aRect[4])
+			if isMobile() {
+				show()
+				oFDApp.processevents()
+			}
 		}
+
+	func MobileEventDelay
+		if isMobile() {
+			if nClockValue != 0 and clock() - nClockValue < nClocksCount {
+				return True
+			}
+			nClockValue = clock()
+		}
+		return False
 
 	func GetRectDim oDesigner
 		C_TOPMARGIN = 25
