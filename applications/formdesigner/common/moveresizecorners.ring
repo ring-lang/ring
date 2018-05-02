@@ -26,6 +26,11 @@ Class MoveResizeCorners
 			lMoveEvent=False
 			lResize=False
 			nResizeMode=0
+		# For Mobile Devices 
+			AddAttribute(self,:nClockValue)
+			AddAttribute(self,:nClocksCount)
+			nClockValue = 0
+			nClocksCount = clockspersecond() / 4
 
 	func CreateCorners
 		oCorners = new ObjectCorners(self)
@@ -149,6 +154,12 @@ Class MoveResizeCorners
 			return True
 
 	func MoveEvent oDesigner
+		if isMobile() {
+			if nClockValue != 0 and clock() - nClockValue < nClocksCount {
+				return 
+			}
+			nClockValue = clock()
+		}
 		# Move Event
 		if lPress {
 			lMoveEvent=True
@@ -160,6 +171,10 @@ Class MoveResizeCorners
 			nX = nX2
 			ny = nY2
 			oCorners.refresh(oDesigner.oModel.ActiveObject())
+			if isMobile() {
+				show()
+				oFDApp.processevents()
+			}
 		}
 
 	func MousePressMany oDesigner
