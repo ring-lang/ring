@@ -76,7 +76,6 @@ Class MoveResizeCorners
 		MoveEvent(oDesigner)
 
 	func ResizeEvent oDesigner
-		if MobileEventDelay() { return }
 		# Resize Event
 			nXPos =  oFilter.getx()
 			nYPos = ofilter.gety()
