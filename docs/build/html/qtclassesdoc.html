@@ -1413,7 +1413,64 @@
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QDir.html">http://doc.qt.io/qt-5/QDir.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
-<li>void setNameFilters(QStringList)</li>
+<li>QString absoluteFilePath(QString fileName)</li>
+<li>QString absolutePath(void)</li>
+<li>QString canonicalPath(void)</li>
+<li>bool cd(QString dirName)</li>
+<li>bool cdUp(void)</li>
+<li>uint count(void)</li>
+<li>QString dirName(void)</li>
+<li>QFileInfoList entryInfoList(QStringList nameFilters, QDir::Filters filters, QDir::SortFlags sort)</li>
+<li>QFileInfoList entryInfoList_2(QDir::Filters filters, QDir::SortFlags sort)</li>
+<li>QStringList entryList(QStringList nameQDir::Filters, QDir::Filters filters, QDir::SortFlags sort)</li>
+<li>QStringList entryList_2(QDir::Filters filters, QDir::SortFlags sort)</li>
+<li>bool exists(QString name)</li>
+<li>bool exists_2(void)</li>
+<li>QString filePath(QString fileName)</li>
+<li>QDir::Filters filter(void)</li>
+<li>bool isAbsolute(void)</li>
+<li>bool isReadable(void)</li>
+<li>bool isRelative(void)</li>
+<li>bool isRoot(void)</li>
+<li>bool makeAbsolute(void)</li>
+<li>bool mkdir(QString dirName)</li>
+<li>bool mkpath(QString dirPath)</li>
+<li>QStringList nameFilters(void)</li>
+<li>QString path(void)</li>
+<li>void refresh(void)</li>
+<li>QString relativeFilePath(QString fileName)</li>
+<li>bool remove(QString fileName)</li>
+<li>bool removeRecursively(void)</li>
+<li>bool rename(QString oldName, QString newName)</li>
+<li>bool rmdir(QString dirName)</li>
+<li>bool rmpath(QString dirPath)</li>
+<li>void setFilter(QDir::Filters filters)</li>
+<li>void setNameFilters(QStringList nameQDir::Filters)</li>
+<li>void setPath(QString path)</li>
+<li>void setSorting(QDir::SortFlags sort)</li>
+<li>QDir::SortFlags sorting(void)</li>
+<li>void swap(QDir other)</li>
+<li>void addSearchPath(QString prefix, QString path)</li>
+<li>QString cleanPath(QString path)</li>
+<li>QDir current(void)</li>
+<li>QString currentPath(void)</li>
+<li>QFileInfoList drives(void)</li>
+<li>QString fromNativeSeparators(QString pathName)</li>
+<li>QDir home(void)</li>
+<li>QString homePath(void)</li>
+<li>bool isAbsolutePath(QString path)</li>
+<li>bool isRelativePath(QString path)</li>
+<li>bool match(QString filter, QString fileName)</li>
+<li>bool match_2(QStringList filters, QString fileName)</li>
+<li>QDir root(void)</li>
+<li>QString rootPath(void)</li>
+<li>QStringList searchPaths(QString prefix)</li>
+<li>QChar separator(void)</li>
+<li>bool setCurrent(QString path)</li>
+<li>void setSearchPaths(QString prefix, QStringList searchPaths)</li>
+<li>QDir temp(void)</li>
+<li>QString tempPath(void)</li>
+<li>QString toNativeSeparators(QString pathName)</li>
 </ul>
 </div>
 <div class="section" id="qdirmodel-class">

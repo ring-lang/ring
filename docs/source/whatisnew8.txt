@@ -243,6 +243,7 @@ The next classes are added to RingQt
 (2) QFile
 (3) QFileDevice
 (4) QStandardPaths
+(5) QDir
 
 Better Code Generator For Extensions
 ====================================
