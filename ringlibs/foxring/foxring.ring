@@ -1,10 +1,10 @@
 /*
  *
  *	frAbs()			Returns the absolute value of the specified numeric expression.
- *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
  *	frAddBs()		Adds a backslash (if needed) to a path expression.
  *	frALines()		Creates an Array with the content of the specified string. 
  *	frAllTrim()		Removes all leading and trailing spaces of the specified string. 
+ *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
  *	frAt()			Searches a character expression for the occurrence of another character expression.
  *	frAtC()			Searches a character expression for the ocurrence of another character expression without 
  *				regard for the case of these two expressions.
@@ -29,6 +29,7 @@
  *	frLTrim()		Removes all leading spaces or parsing characters from the specified character expression.
  *	frPadL()		Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
  *	frPadR()		Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+ *	frProper()		Returns from a character expression a string capitalized as appropriate for proper names.
  *	frReplicate()		Returns a character string that contains a specified character expression repeated a specified number of times.
  *	frRTrim()		Removes all trailing spaces or parsing characters from the specified character expression.
  *	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
@@ -61,7 +62,7 @@
 	
 class frFunctions
 
-	_version = "1.0.140"
+	_version = "1.0.141"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -750,6 +751,31 @@ class frFunctions
 	func frPadR(tcString, tnLen, tcChar) {
 		return Left(tcString + Copy(this.frSetIfEmpty(tcChar, this._space), tnLen), tnLen)
 	}
+
+
+	/*
+	 * Syntax		: tcReturnValue = frProper(tcExpression)
+	 * Description		: Returns from a character expression a string capitalized as appropriate for proper names.
+	 *			:
+	 * Arguments		: <tcExpression>
+	 *			: Specifies the character expression from which frProper() returns a capitalized character string.
+	 *			:
+	 * Returns		: <tcReturnValue> 
+	 *			:
+	 * Author		: Jar C 04.05.2017
+	 */
+	
+	func frProper(tcExpression) {
+		lcLetters = "abcdefghijklmnopqrstuvxywz"
+		tcExpression = Lower(tcExpression)
+		for lcLetter in lcLetters {
+			tcExpression = SubStr(tcExpression, this._space + lcLetter, this._space + Upper(lcLetter))
+		}
+		tcExpression = Upper(Left(tcExpression, 1)) + SubStr(tcExpression, 2)
+	
+		return tcExpression
+	}
+
 
 	/*
 	 * Syntax		: tcReturnValue = frReplicate(tcString, tnTimes)
