@@ -2110,11 +2110,195 @@ Class QDir
 	Func delete
 		pObject = QDir_delete(pObject)
 
-	Func currentPath 
-		return QDir_currentPath(pObject)
+	Func absoluteFilePath P1
+		return QDir_absoluteFilePath(pObject,P1)
+
+	Func absolutePath 
+		return QDir_absolutePath(pObject)
+
+	Func canonicalPath 
+		return QDir_canonicalPath(pObject)
+
+	Func cd P1
+		return QDir_cd(pObject,P1)
+
+	Func cdUp 
+		return QDir_cdUp(pObject)
+
+	Func count 
+		return QDir_count(pObject)
+
+	Func dirName 
+		return QDir_dirName(pObject)
+
+	Func entryInfoList P1,P2,P3
+		return QDir_entryInfoList(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func entryInfoList_2 P1,P2
+		return QDir_entryInfoList_2(pObject,P1,P2)
+
+	Func entryList P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QDir_entryList(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func entryList_2 P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QDir_entryList_2(pObject,P1,P2)
+		return pTempObj
+
+	Func exists P1
+		return QDir_exists(pObject,P1)
+
+	Func exists_2 
+		return QDir_exists_2(pObject)
+
+	Func filePath P1
+		return QDir_filePath(pObject,P1)
+
+	Func filter 
+		return QDir_filter(pObject)
+
+	Func isAbsolute 
+		return QDir_isAbsolute(pObject)
+
+	Func isReadable 
+		return QDir_isReadable(pObject)
+
+	Func isRelative 
+		return QDir_isRelative(pObject)
+
+	Func isRoot 
+		return QDir_isRoot(pObject)
+
+	Func makeAbsolute 
+		return QDir_makeAbsolute(pObject)
+
+	Func mkdir P1
+		return QDir_mkdir(pObject,P1)
+
+	Func mkpath P1
+		return QDir_mkpath(pObject,P1)
+
+	Func nameFilters 
+		pTempObj = new QStringList
+		pTempObj.pObject = QDir_nameFilters(pObject)
+		return pTempObj
+
+	Func path 
+		return QDir_path(pObject)
+
+	Func refresh 
+		return QDir_refresh(pObject)
+
+	Func relativeFilePath P1
+		return QDir_relativeFilePath(pObject,P1)
+
+	Func remove P1
+		return QDir_remove(pObject,P1)
+
+	Func removeRecursively 
+		return QDir_removeRecursively(pObject)
+
+	Func rename P1,P2
+		return QDir_rename(pObject,P1,P2)
+
+	Func rmdir P1
+		return QDir_rmdir(pObject,P1)
+
+	Func rmpath P1
+		return QDir_rmpath(pObject,P1)
+
+	Func setFilter P1
+		return QDir_setFilter(pObject,P1)
 
 	Func setNameFilters P1
 		return QDir_setNameFilters(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPath P1
+		return QDir_setPath(pObject,P1)
+
+	Func setSorting P1
+		return QDir_setSorting(pObject,P1)
+
+	Func sorting 
+		return QDir_sorting(pObject)
+
+	Func swap P1
+		return QDir_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addSearchPath P1,P2
+		return QDir_addSearchPath(pObject,P1,P2)
+
+	Func cleanPath P1
+		return QDir_cleanPath(pObject,P1)
+
+	Func current 
+		pTempObj = new QDir
+		pTempObj.pObject = QDir_current(pObject)
+		return pTempObj
+
+	Func currentPath 
+		return QDir_currentPath(pObject)
+
+	Func drives 
+		return QDir_drives(pObject)
+
+	Func fromNativeSeparators P1
+		return QDir_fromNativeSeparators(pObject,P1)
+
+	Func home 
+		pTempObj = new QDir
+		pTempObj.pObject = QDir_home(pObject)
+		return pTempObj
+
+	Func homePath 
+		return QDir_homePath(pObject)
+
+	Func isAbsolutePath P1
+		return QDir_isAbsolutePath(pObject,P1)
+
+	Func isRelativePath P1
+		return QDir_isRelativePath(pObject,P1)
+
+	Func match P1,P2
+		return QDir_match(pObject,P1,P2)
+
+	Func match_2 P1,P2
+		return QDir_match_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func root 
+		pTempObj = new QDir
+		pTempObj.pObject = QDir_root(pObject)
+		return pTempObj
+
+	Func rootPath 
+		return QDir_rootPath(pObject)
+
+	Func searchPaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QDir_searchPaths(pObject,P1)
+		return pTempObj
+
+	Func separator 
+		return QDir_separator(pObject)
+
+	Func setCurrent P1
+		return QDir_setCurrent(pObject,P1)
+
+	Func setSearchPaths P1,P2
+		return QDir_setSearchPaths(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func temp 
+		pTempObj = new QDir
+		pTempObj.pObject = QDir_temp(pObject)
+		return pTempObj
+
+	Func tempPath 
+		return QDir_tempPath(pObject)
+
+	Func toNativeSeparators P1
+		return QDir_toNativeSeparators(pObject,P1)
 
 Class QFileSystemModel
 
