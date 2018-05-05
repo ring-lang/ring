@@ -25,6 +25,7 @@ Ring 1.8 comes with the next features!
 * Better Documentation
 * Better RingQt
 * Better Code Generator For Extensions
+* Better Ring VM
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Find in files Application
@@ -245,8 +246,18 @@ The next classes are added to RingQt
 (4) QStandardPaths
 (5) QDir
 
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Code Generator For Extensions
+
 Better Code Generator For Extensions
 ====================================
 
 New Option: StaticMethods
 
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Ring VM
+
+Better Ring VM
+==============
+
+(1) Better loading for files in relative paths
