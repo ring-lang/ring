@@ -37,5 +37,9 @@
 		<file>image/tree.bmp</file>
 		<file>image/videowidget.png</file>
 		<file>image/webview.png</file>
+		<file>image/duplicate.png</file>
+		<file>image/bring_to_front.png</file>
+		<file>image/send_to_back.png</file>
+		<file>image/delete.png</file>
     </qresource>
 </RCC>
