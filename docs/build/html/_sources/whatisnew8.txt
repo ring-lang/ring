@@ -212,6 +212,7 @@ Better Form Designer
 (2) Button Control - Display the button images written using relative path
 (3) Table  Control - Display the control name when loading forms
 (4) Better behavior in "Bring to front" and "Send to back" operations
+(5) New buttons are added to the toolbar (Duplicate, Bring to front, Send to back, Delete)
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Cards Game
