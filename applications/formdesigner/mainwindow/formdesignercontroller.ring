@@ -765,11 +765,8 @@ class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  ,
 											oModel.ActiveObject().y()  + 10)
 					case Qt_Key_Delete
-						HideCorners()
-						oModel.ActiveObject().close()
-						oModel.deleteactiveObject()
-						ShowCorners()
-						AddObjectsToCombo()
+						DeleteControl()
+						return
 				}
 			case 33554432	# Shift
 				switch nkey {
@@ -787,6 +784,27 @@ class FormDesignerController from WindowsControllerParent
 											oModel.ActiveObject().height() + 10)
 				}
 		}
+		if ismethod(oModel.ActiveObject(),"refreshcorners") {
+			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
+		}
+
+	func DeleteControl
+		if oModel.IsManySelected() {
+			aObjects = oModel.getselectedObjects()
+			for item in aObjects {
+				oObject = item[2]
+				oObject.oCorners.Hide()
+				oObject.Close()
+			}
+			oModel.deleteselectedObjects()
+			AddObjectsToCombo()
+		}
+		if oModel.IsFormActive() { return }
+		HideCorners()
+		oModel.ActiveObject().close()
+		oModel.deleteactiveObject()
+		ShowCorners()
+		AddObjectsToCombo()
 		if ismethod(oModel.ActiveObject(),"refreshcorners") {
 			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
 		}

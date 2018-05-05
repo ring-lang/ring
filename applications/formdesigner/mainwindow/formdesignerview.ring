@@ -276,6 +276,26 @@ Class FormDesignerView from WindowsViewParent
 					settooltip(T_FORMDESIGNER_TOOLBAR_SAVEAS) # "Save As"
 				 } ,
 				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/duplicate.png"))
+					setclickevent(Method(:Duplicate))
+					settooltip(T_FORMDESIGNER_TOOLBAR_DUPLICATE) # "Duplicate"
+				 } ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/bring_to_front.png"))
+					setclickevent(Method(:BringToFront))
+					settooltip(T_FORMDESIGNER_TOOLBAR_BRINGTOFRONT) # "Bring to front"
+				 } ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/send_to_back.png"))
+					setclickevent(Method(:SendToBack))
+					settooltip(T_FORMDESIGNER_TOOLBAR_SENDTOBACK) # "Send to back"
+				 } ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/delete.png"))
+					setclickevent(Method(:DeleteControl))
+					settooltip(T_FORMDESIGNER_TOOLBAR_DELETE) # "Delete"
+				 } ,
+				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/close.png"))
 					setclickevent(Method(:ExitAction))
 					settooltip(T_FORMDESIGNER_TOOLBAR_EXIT) # "Exit"
