@@ -291,6 +291,13 @@ int ring_parser_stmt ( Parser *pParser )
 					#endif
 				}
 				strcat(cFileName,pParser->TokenText);
+				/*
+				**  Check if we have the file after adding the folder - because we may have the file in a parent directory 
+				**  Like we are in myapp/myapp2 and the file exist in myapp folder 
+				*/
+				if ( ring_fexists(cFileName) == 0 ) {
+					strcpy(cFileName,pParser->TokenText);
+				}
 			}
 			/*
 			**  Generate Code 
