@@ -798,6 +798,7 @@ class FormDesignerController from WindowsControllerParent
 			}
 			oModel.deleteselectedObjects()
 			AddObjectsToCombo()
+			return 
 		}
 		if oModel.IsFormActive() { return }
 		HideCorners()
@@ -841,13 +842,7 @@ class FormDesignerController from WindowsControllerParent
 							oObject.oCorners.refresh(oObject)
 						}
 					case Qt_Key_Delete
-						for item in aObjects {
-							oObject = item[2]
-							oObject.oCorners.Hide()
-							oObject.Close()
-						}
-						oModel.deleteselectedObjects()
-						AddObjectsToCombo()
+						DeleteControl()
 				}
 			case 33554432	# Shift
 				switch nkey {
