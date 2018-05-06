@@ -52,4 +52,21 @@ class windowObjectsView from WindowsViewParent
 			setText("Cancel")
 			setClickEvent(Method(:CancelAction))
 		}
+		Layout1 = new QHBoxLayout() {
+			AddWidget(LabelObjects)
+			AddWidget(ListObjects)
+			
+		}
+		Layout2 = new QHBoxLayout() {
+			AddWidget(BtnOk)
+			AddWidget(BtnCancel)
+			
+		}
+		Layout3 = new QVBoxLayout() {
+			AddLayout(Layout1)
+			AddLayout(Layout2)
+			
+		}
+
+		setLayout(Layout3) 
 	}
