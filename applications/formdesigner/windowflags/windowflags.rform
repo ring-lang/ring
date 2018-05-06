@@ -1,12 +1,12 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 64 , : y = 90  , 
-		 :width =  395 , :height = 376 , 
+		 :x = 0 , : y = 14  , 
+		 :width =  474 , :height = 376 , 
 		 :title =  "Window Flags" , 
 		 :backcolor =  "#efebe7" , 
 		 :windowflags =  "" , 
-		 :mainlayout =  "" ,
+		 :mainlayout =  "Layout4" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
@@ -99,6 +99,50 @@ aObjectsList = [
 		 :text =  "Cancel",
 		 :BtnImage =  "",
 		 :setClickEvent =  "CancelAction"
+		]
+	],
+	[ :name = "Layout1" , :id = 8 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 402 , : y = 17  , 
+		 :width =  112 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "LabelType,ListType"
+		]
+	],
+	[ :name = "Layout2" , :id = 9 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 402 , : y = 78  , 
+		 :width =  112 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "LabelHints,ListHints"
+		]
+	],
+	[ :name = "Layout3" , :id = 10 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 402 , : y = 150  , 
+		 :width =  112 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "BtnOk,BtnCancel"
+		]
+	],
+	[ :name = "Layout4" , :id = 11 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 402 , : y = 234  , 
+		 :width =  112 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Layout1,Layout2,Layout3"
 		]
 	]
 ]
