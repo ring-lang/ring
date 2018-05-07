@@ -883,8 +883,9 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 
 void ring_vm_returneval ( VM *pVM )
 {
-	int aPara[3]  ;
+	int aPara[3],nExtraSize  ;
 	ByteCode *pByteCode  ;
+	/* This function will always be called after each eval() execution */
 	ring_vm_return(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(2) ;
@@ -895,6 +896,7 @@ void ring_vm_returneval ( VM *pVM )
 		**  This means that the code can be deleted without any problems 
 		**  We do that to avoid memory leaks 
 		*/
+		nExtraSize = ring_list_getsize(pVM->pCode) - aPara[0] ;
 		while ( ring_list_getsize(pVM->pCode) != aPara[0] ) {
 			ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode);
 		}
@@ -906,6 +908,9 @@ void ring_vm_returneval ( VM *pVM )
 				exit(0);
 			}
 			pVM->pByteCode = pByteCode ;
+		}
+		else {
+			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 		}
 	}
 	/*

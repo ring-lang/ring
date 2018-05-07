@@ -414,7 +414,7 @@ Type: Item *
 pItem
 ring_vm_returneval
 Type: int
-aPara[3]
+aPara[3],nExtraSize
 Type: ByteCode *
 pByteCode
 ring_vm_error2
