@@ -12,6 +12,9 @@ Type: GCData
 Mark: ->
 GCData *
 ring_pooldata
+RING_POOLMANAGER_ITEMSINBLOCK
+RING_POOLMANAGER_ITEMSIZE
+RING_USEPOOLMANAGER
 Parent: PoolData
 Parent: PoolDataTypes
 Type: String
@@ -27,7 +30,7 @@ vHashTable
 Type: HashItem
 vHashItem
 Type: char
-vChar[64]
+vChar[RING_POOLMANAGER_ITEMSIZE]
 END:
 Type: struct PoolData *
 pNext
@@ -56,9 +59,6 @@ struct PoolManager *
 Type: PoolManager
 Mark: ->
 PoolManager *
-RING_POOLMANAGER_ITEMSINBLOCK
-RING_POOLMANAGER_ITEMSIZE
-RING_USEPOOLMANAGER
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 GCLog
