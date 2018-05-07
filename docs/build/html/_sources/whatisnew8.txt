@@ -263,3 +263,4 @@ Better Ring VM
 ==============
 
 (1) Better loading for files in relative paths
+(2) VM Code Optimization for eval() function 
