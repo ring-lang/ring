@@ -243,7 +243,7 @@ void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 	PoolData *pPoolData  ;
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
-			if ( (pMemory > pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
+			if ( (pMemory >= pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
 				pPoolData = (PoolData *) pMemory ;
 				pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
 				pRingState->vPoolManager.pCurrentItem = pPoolData ;
