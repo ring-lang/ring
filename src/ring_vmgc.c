@@ -165,7 +165,11 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 {
 	#if RING_USEPOOLMANAGER
 	/* Use Pool Manager */
-	ring_poolmanager_free((RingState *) pState,pMemory);
+	if ( pState != NULL ) {
+		if ( ((RingState *) pState )->pVM  != NULL ) {
+			ring_poolmanager_free((RingState *) pState,pMemory);
+		}
+	}
 	#else
 	ring_free(pMemory);
 	#endif
@@ -259,6 +263,8 @@ void ring_poolmanager_delete ( RingState *pRingState )
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
 			free( pRingState->vPoolManager.pBlockStart ) ;
+			pRingState->vPoolManager.pBlockStart = NULL ;
+			pRingState->vPoolManager.pBlockEnd = NULL ;
 		}
 	}
 }
