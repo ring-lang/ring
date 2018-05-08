@@ -168,8 +168,10 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	if ( pState != NULL ) {
 		if ( ((RingState *) pState )->pVM  != NULL ) {
 			ring_poolmanager_free((RingState *) pState,pMemory);
+			return ;
 		}
 	}
+	ring_free(pMemory);
 	#else
 	ring_free(pMemory);
 	#endif
