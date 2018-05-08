@@ -4,7 +4,7 @@
 /* Macro */
 #define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #define RING_POOLMANAGER_ITEMSIZE 512
-#define RING_USEPOOLMANAGER 1
+#define RING_USEPOOLMANAGER 0
 /* Data */
 typedef struct PoolData {
 	union PoolDataTypes {

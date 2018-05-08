@@ -207,7 +207,7 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
-	pRingState->vPoolManager.pCurrentItem = pMemory+1 ;
+	pRingState->vPoolManager.pCurrentItem = pMemory ;
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
 	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
