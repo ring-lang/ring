@@ -59,7 +59,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		#if GCLog
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
-		ring_item_content_delete(pItem);
+		ring_item_content_delete_gc(pState,pItem);
 		ring_state_free(pState,pItem);
 	}
 	else {
