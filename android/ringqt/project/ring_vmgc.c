@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 
 void ring_vm_gc_checkreferences ( VM *pVM )
@@ -17,7 +17,7 @@ void ring_vm_gc_checkreferences ( VM *pVM )
 					#if GCLog
 					printf( "GC CheckReferences - Free Memory %p \n",pItem ) ;
 					#endif
-					ring_item_delete(pItem);
+					ring_item_delete_gc(pVM->pRingState,pItem);
 				}
 			}
 		}
@@ -41,14 +41,14 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType )
 	}
 }
 
-void ring_vm_gc_checkupdatereference ( List *pList )
+void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 {
 	Item *pItem  ;
 	/* Reference Counting to Destination before copy from Source */
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
 		if ( ring_list_getint(pList,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
-			ring_item_delete(pItem);
+			ring_item_delete_gc(pVM->pRingState,pItem);
 		}
 	}
 }
@@ -72,7 +72,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 	List *pList  ;
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
-		ring_vm_gc_checkupdatereference(pList);
+		ring_vm_gc_checkupdatereference(pVM,pList);
 	}
 }
 

@@ -288,7 +288,7 @@ void ring_vm_setreference ( VM *pVM )
 	pList = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	/* Reference Counting to Destination before copy from Source */
-	ring_vm_gc_checkupdatereference(pList);
+	ring_vm_gc_checkupdatereference(pVM,pList);
 	/* Copy by reference */
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
