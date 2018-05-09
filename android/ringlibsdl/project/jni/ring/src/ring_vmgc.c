@@ -151,10 +151,8 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 {
 	#if RING_USEPOOLMANAGER
 	if ( pState != NULL ) {
-		if ( ((RingState *) pState )->pVM  != NULL ) {
-			if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
-				return ring_poolmanager_allocate( (RingState *) pState,size) ;
-			}
+		if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+			return ring_poolmanager_allocate( (RingState *) pState,size) ;
 		}
 	}
 	#endif
@@ -166,15 +164,11 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	#if RING_USEPOOLMANAGER
 	/* Use Pool Manager */
 	if ( pState != NULL ) {
-		if ( ((RingState *) pState )->pVM  != NULL ) {
-			ring_poolmanager_free((RingState *) pState,pMemory);
-			return ;
-		}
+		ring_poolmanager_free((RingState *) pState,pMemory);
+		return ;
 	}
-	ring_free(pMemory);
-	#else
-	ring_free(pMemory);
 	#endif
+	ring_free(pMemory);
 }
 
 RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
