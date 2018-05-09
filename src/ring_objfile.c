@@ -103,7 +103,7 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 			return 0 ;
 		}
 	}
-	ring_list_delete(pListStack);
+	ring_list_delete_gc(pRingState,pListStack);
 	/* Update Ring State */
 	#ifdef DEBUG_OBJFILE
 	puts("Old Code List ");
@@ -248,7 +248,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						break ;
 					case 'E' :
 						pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
-						ring_list_deletelastitem(pListStack);
+						ring_list_deletelastitem_gc(pRingState,pListStack);
 						/* Read Line */
 						while ( c != '\n' ) {
 							c = getc(fObj);
@@ -274,7 +274,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 			case '}' :
 				if ( nBraceEnd ) {
 					pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
-					ring_list_deletelastitem(pListStack);
+					ring_list_deletelastitem_gc(pRingState,pListStack);
 					nBraceEnd-- ;
 					#ifdef DEBUG_OBJFILE
 					puts("Read } ");
@@ -425,7 +425,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						break ;
 					case 'E' :
 						pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
-						ring_list_deletelastitem(pListStack);
+						ring_list_deletelastitem_gc(pRingState,pListStack);
 						/* Read Line */
 						while ( c != '\n' ) {
 							c = ring_objfile_getc(pRingState,&cData);
@@ -451,7 +451,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 			case '}' :
 				if ( nBraceEnd ) {
 					pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
-					ring_list_deletelastitem(pListStack);
+					ring_list_deletelastitem_gc(pRingState,pListStack);
 					nBraceEnd-- ;
 					#ifdef DEBUG_OBJFILE
 					puts("Read } ");
