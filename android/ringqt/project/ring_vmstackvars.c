@@ -27,7 +27,7 @@ void ring_vm_pushv ( VM *pVM )
 							ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
 							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
 								/* Delete the Item from the HashTable */
-								ring_hashtable_deleteitem(pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+								ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
 								ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
 							}
 							return ;
