@@ -283,8 +283,8 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 	ring_vm_loadcode(pVM);
 	ring_vm_loadcfunctions(pRingState);
 	/* Generate Items Array &  Hash Table */
-	ring_list_genarray(pRingState->pRingCFunctions);
-	ring_list_genhashtable2(pRingState->pRingCFunctions);
+	ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+	ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
 	if ( ring_list_getsize(pVM->pCode) > 0 ) {
 		pVM->nPC = 1 ;
 		ring_vm_mainloop(pVM);
@@ -786,7 +786,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Generate Code 
 		**  Generate  Hash Table 
 		*/
-		ring_list_genhashtable2(pVM->pFunctionsMap);
+		ring_list_genhashtable2_gc(pVM->pRingState,pVM->pFunctionsMap);
 		if ( pVM->nEvalCalledFromRingCode ) {
 			ring_scanner_addreturn3(pVM->pRingState,aPara);
 		}
