@@ -108,16 +108,16 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 				continue ;
 			}
 			if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
-				ring_list_deleteitem(pScope,x);
+				ring_list_deleteitem_gc(pVM->pRingState,pScope,x);
 			}
 			else if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_OBJECT) == 0 ) {
-				ring_list_deleteitem(pScope,x);
+				ring_list_deleteitem_gc(pVM->pRingState,pScope,x);
 			}
 		}
 	}
 	/* Delete The HashTable */
-	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
-	ring_list_genhashtable2(pScope);
+	pScope->pHashTable = ring_hashtable_delete_gc(pVM->pRingState,pScope->pHashTable) ;
+	ring_list_genhashtable2_gc(pVM->pRingState,pScope);
 }
 
 void ring_vm_gc_newitemreference ( Item *pItem )
