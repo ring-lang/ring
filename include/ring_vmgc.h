@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_gc_h
 #define ring_gc_h
 /* Functions */
@@ -7,7 +7,7 @@ void ring_vm_gc_checkreferences ( VM *pVM ) ;
 
 void ring_vm_gc_checknewreference ( void *pPointer,int nType ) ;
 
-void ring_vm_gc_checkupdatereference ( List *pList ) ;
+void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList ) ;
 
 void ring_vm_gc_deleteitem ( Item *pItem ) ;
 
