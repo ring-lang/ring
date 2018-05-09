@@ -172,7 +172,7 @@ void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus )
 void ring_parser_icg_deletelastoperation ( Parser *pParser )
 {
 	if ( ring_list_getsize(pParser->GenCode) > 0 ) {
-		ring_list_deleteitem(pParser->GenCode,ring_list_getsize(pParser->GenCode));
+		ring_list_deleteitem_gc(pParser->pRingState,pParser->GenCode,ring_list_getsize(pParser->GenCode));
 		pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode));
 	}
 }
