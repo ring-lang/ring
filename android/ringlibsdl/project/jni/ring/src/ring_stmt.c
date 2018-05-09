@@ -1343,7 +1343,7 @@ int ring_parser_namedotname ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 			} else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_PACKAGENAME);
-				ring_string_delete(pString);
+				ring_string_delete_gc(pParser->pRingState,pString);
 				return 0 ;
 			}
 		}
