@@ -110,6 +110,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/string2constant" target="_blank">String2Constant</a>',
 					'<img src="string2constant.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">StopWatch</a>',
+					'<img src="stopwatch.png" width="40%">'
 				]
 			    ]
                  ],
