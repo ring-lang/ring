@@ -7,7 +7,7 @@ aObjectsList = [
 		 :backcolor =  "#ffff7f" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "Layout1" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "images/stopwatch.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
