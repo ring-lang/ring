@@ -2,11 +2,11 @@
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 100 , : y = 100  , 
-		 :width =  739 , :height = 597 , 
+		 :width =  484 , :height = 597 , 
 		 :title =  "StopWatch" , 
 		 :backcolor =  "#ffff7f" , 
 		 :windowflags =  "" , 
-		 :mainlayout =  "" ,
+		 :mainlayout =  "Layout1" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
@@ -14,7 +14,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 174 , : y = 34  , 
+		 :x = 44 , : y = 34  , 
 		 :width =  380 , :height = 91 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -25,7 +25,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Watch" , :id = 3 , :classname = "formdesigner_qlcdnumber" , :data = [
-		 :x = 139 , : y = 147  , 
+		 :x = 9 , : y = 147  , 
 		 :width =  450 , :height = 74 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -35,7 +35,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ButtonStart" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 146 , : y = 269  , 
+		 :x = 16 , : y = 269  , 
 		 :width =  437 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -47,7 +47,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ButtonPause" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 146 , : y = 340  , 
+		 :x = 16 , : y = 340  , 
 		 :width =  437 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -59,7 +59,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ButtonExit" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 146 , : y = 410  , 
+		 :x = 16 , : y = 410  , 
 		 :width =  437 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -71,14 +71,25 @@ aObjectsList = [
 		]
 	],
 	[ :name = "WatchTimer" , :id = 7 , :classname = "formdesigner_qtimer" , :data = [
-		 :x = 21 , : y = 310  , 
-		 :width =  90 , :height = 67 , 
+		 :x = 245 , : y = 479  , 
+		 :width =  130 , :height = 67 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Interval =  "1000",
 		 :Timeout =  "WatchTimerEvent"
+		]
+	],
+	[ :name = "Layout1" , :id = 8 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 36 , : y = 489  , 
+		 :width =  63 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Label1,Watch,ButtonStart,ButtonPause,ButtonExit"
 		]
 	]
 ]
