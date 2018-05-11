@@ -17,6 +17,7 @@ Ring 1.8 comes with the next features!
 
 * Find in files Application
 * String2Constant Application
+* StopWatch Application
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
@@ -58,6 +59,18 @@ Using this simple tool, the Form Designer is translated to Arabic language too j
 
 .. image:: string2constant.png
 	:alt: String2Constant 
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; StopWatch Application
+
+StopWatch Application
+=====================
+
+Ring 1.8 comes with StopWatch application
+
+.. image:: stopwatch.png
+	:alt: StopWatch
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
