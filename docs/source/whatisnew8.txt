@@ -18,6 +18,7 @@ Ring 1.8 comes with the next features!
 * Find in files Application
 * String2Constant Application
 * StopWatch Application
+* More 3D Samples
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
@@ -71,6 +72,21 @@ Ring 1.8 comes with StopWatch application
 
 .. image:: stopwatch.png
 	:alt: StopWatch
+
+.. index:: 
+	pair: What is new in Ring 1.8?; More 3D Samples
+
+More 3D Samples
+===============
+
+Ring 1.8 comes with more 3D Samples
+
+.. image:: more3dsamples.jpg
+	:alt: 3D samples
+
+.. image:: more3dsamples2.jpg
+	:alt: 3D samples
+
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
