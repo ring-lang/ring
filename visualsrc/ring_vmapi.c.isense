@@ -378,6 +378,8 @@ ring_vmlib_ptrcmp
 Type: List *
 pList, *pList2
 ring_vmlib_state_init
+Type: RingState *
+pState
 ring_vmlib_state_runcode
 ring_vmlib_state_delete
 ring_vmlib_state_runfile
@@ -401,6 +403,8 @@ pList, *pList2, *pList3
 Type: VM *
 pVM
 ring_vmlib_state_new
+Type: RingState *
+pState
 ring_vmlib_state_mainfile
 Type: RingState *
 pRingState
