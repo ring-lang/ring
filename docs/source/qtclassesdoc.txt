@@ -2612,7 +2612,6 @@ Parameters : void
 * QHostInfo fromName(QString)
 * QString localDomainName(void)
 * QString localHostName(void)
-* int lookupHost(QString, QObject *receiver, const char *member)
 
 .. index::
 	pair: RingQt Classes Reference; QIODevice Class
@@ -6367,8 +6366,6 @@ Parameters : void
 * QStringRef appendTo(QString * string)
 * QChar at(int position)
 * void clear(void)
-* int compare(QString other, Qt::CaseSensitivity cs)
-* int compare_2(QStringRef other, Qt::CaseSensitivity cs)
 * int compare_3(QLatin1String other, Qt::CaseSensitivity cs)
 * QChar * constData(void)
 * bool contains(QString str, Qt::CaseSensitivity cs)

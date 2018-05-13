@@ -19,6 +19,7 @@ Ring 1.8 comes with the next features!
 * String2Constant Application
 * StopWatch Application
 * More 3D Samples
+* Compiling on Manjaro Linux
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
@@ -81,12 +82,28 @@ More 3D Samples
 
 Ring 1.8 comes with more 3D Samples
 
+The next screen shot for the Top-Down view - Many levels of cubes sample
+
 .. image:: more3dsamples.jpg
 	:alt: 3D samples
+
+The next screen shot for the Camera Sample
 
 .. image:: more3dsamples2.jpg
 	:alt: 3D samples
 
+.. index:: 
+	pair: What is new in Ring 1.8?; Compiling on Manjaro Linux
+
+Compiling on Manjaro Linux
+==========================
+
+Ring 1.8 is tested on Manjaro Linux too
+
+Tests by : Iip Rifai
+
+.. image:: ringonmanjarolinux.png
+	:alt: Ring on Manjaro Linux
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
