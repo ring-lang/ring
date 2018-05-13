@@ -133,18 +133,21 @@ class FormDesignerController from WindowsControllerParent
 		SetToolboxModeToSelect()
 		oModel.ActiveObject().ComboItemAction(self,nRow)
 
+	func ShowPropertiesWidget 
+		if oModel.IsManySelected() {
+			nWidth = oView.oPropertiesDock.width()
+			oView.oPropertiesDock.setWidget(oView.oProperties2)
+			oView.oPropertiesDock.setminimumwidth(nWidth)
+		else
+			oView.oPropertiesDock.setminimumwidth(10)
+			oView.oPropertiesDock.setWidget(oView.oProperties)
+		}
+
 	func SelectDrawAction aRect
 		if oView.oToolBtn1.ischecked()  { # Select
 			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
-			if oModel.IsManySelected() {
-				nWidth = oView.oPropertiesDock.width()
-				oView.oPropertiesDock.setWidget(oView.oProperties2)
-				oView.oPropertiesDock.setminimumwidth(nWidth)
-			else
-				oView.oPropertiesDock.setminimumwidth(10)
-				oView.oPropertiesDock.setWidget(oView.oProperties)
-			}
+			ShowPropertiesWidget()
 		elseif oView.oToolBtn2.ischecked()   # Create Label
 			HideCorners()
 			UpdatePositionForParent(aRect)
@@ -685,12 +688,14 @@ class FormDesignerController from WindowsControllerParent
 					else
 						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
 					}
+					ShowPropertiesWidget()
 					return
 				else
 					if oFDApp.keyboardmodifiers() {
 						oModel.AddSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Show()
+						ShowPropertiesWidget()
 						return
 					}
 				}
@@ -708,9 +713,7 @@ class FormDesignerController from WindowsControllerParent
 						# Draw old current object corners 					
 							oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
 					oModel.AddSelectedObject(nObjectIndex)
-					nWidth = oView.oPropertiesDock.width()
-					oView.oPropertiesDock.setWidget(oView.oProperties2)
-					oView.oPropertiesDock.setminimumwidth(nWidth)
+					ShowPropertiesWidget()
 					return
 				}
 			}
@@ -798,6 +801,7 @@ class FormDesignerController from WindowsControllerParent
 			}
 			oModel.deleteselectedObjects()
 			AddObjectsToCombo()
+			ShowPropertiesWidget()
 			return 
 		}
 		if oModel.IsFormActive() { return }
