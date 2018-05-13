@@ -277,3 +277,4 @@ call ring scripts/chars.ring
 call ring scripts/ncemain.ring
 call ring scripts/filenameinpara.ring
 call ring scripts/filepath1.ring
+call ring scripts/ringinring.ring
