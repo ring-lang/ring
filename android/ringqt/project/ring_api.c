@@ -1966,7 +1966,10 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 
 void ring_vmlib_state_init ( void *pPointer )
 {
-	RING_API_RETCPOINTER(ring_state_init(),"RINGSTATE");
+	RingState *pState  ;
+	pState = ring_state_init();
+	pState->nRingInsideRing = 1 ;
+	RING_API_RETCPOINTER((void *) pState,"RINGSTATE");
 }
 
 void ring_vmlib_state_runcode ( void *pPointer )
@@ -2077,7 +2080,10 @@ void ring_vmlib_state_setvar ( void *pPointer )
 
 void ring_vmlib_state_new ( void *pPointer )
 {
-	RING_API_RETCPOINTER(ring_state_new(),"RINGSTATE");
+	RingState *pState  ;
+	pState = ring_state_new();
+	pState->nRingInsideRing = 1 ;
+	RING_API_RETCPOINTER((void *) pState,"RINGSTATE");
 }
 
 void ring_vmlib_state_mainfile ( void *pPointer )

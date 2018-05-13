@@ -728,7 +728,12 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			return ;
 		}
 		pVM->nActiveError = 1 ;
-		exit(0);
+		if ( pVM->pRingState->nRingInsideRing == 0 ) {
+			exit(0);
+		}
+		else {
+			ring_vm_bye(pVM);
+		}
 	}
 	/*
 	**  Check Eval In Scope 

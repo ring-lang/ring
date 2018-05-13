@@ -33,6 +33,8 @@ typedef struct RingState {
 	unsigned int nWarning : 1  ;
 	/* Set to 1 to tell the scanner to don't delete the VM after execution */
 	unsigned int nDontDeleteTheVM : 1  ;
+	/* Set to 1 to tell the state that we are running Ring from Ring (to avoid exit() on error) */
+	unsigned int nRingInsideRing : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;

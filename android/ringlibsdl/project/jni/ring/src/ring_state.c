@@ -63,6 +63,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
 	pRingState->nDontDeleteTheVM = 0 ;
+	pRingState->nRingInsideRing = 0 ;
 	pRingState->lNoLineNumber = 0 ;
 	pRingState->nCustomGlobalScopeCounter = 0 ;
 	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
