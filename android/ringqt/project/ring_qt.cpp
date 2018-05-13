@@ -48246,35 +48246,6 @@ RING_FUNC(ring_QHostInfo_localHostName)
 }
 
 
-RING_FUNC(ring_QHostInfo_lookupHost)
-{
-	QHostInfo *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QHostInfo *) RING_API_GETCPOINTER(1,"QHostInfo");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->lookupHost(RING_API_GETSTRING(2),(QObject *) RING_API_GETCPOINTER(3,"QObject"),RING_API_GETSTRING(4)));
-}
-
-
 RING_FUNC(ring_QFileInfo_absoluteDir)
 {
 	QFileInfo *pObject ;
@@ -85365,31 +85336,6 @@ RING_FUNC(ring_QStringRef_clear)
 }
 
 
-RING_FUNC(ring_QStringRef_compare)
-{
-	QStringRef *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->compare(RING_API_GETSTRING(2), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
-}
-
-
 RING_FUNC(ring_QStringRef_compare_2)
 {
 	QStringRef *pObject ;
@@ -107309,7 +107255,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhostinfo_fromname",ring_QHostInfo_fromName);
 	ring_vm_funcregister("qhostinfo_localdomainname",ring_QHostInfo_localDomainName);
 	ring_vm_funcregister("qhostinfo_localhostname",ring_QHostInfo_localHostName);
-	ring_vm_funcregister("qhostinfo_lookuphost",ring_QHostInfo_lookupHost);
 	ring_vm_funcregister("qfileinfo_absolutedir",ring_QFileInfo_absoluteDir);
 	ring_vm_funcregister("qfileinfo_absolutefilepath",ring_QFileInfo_absoluteFilePath);
 	ring_vm_funcregister("qfileinfo_absolutepath",ring_QFileInfo_absolutePath);
@@ -109141,7 +109086,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstringref_appendto",ring_QStringRef_appendTo);
 	ring_vm_funcregister("qstringref_at",ring_QStringRef_at);
 	ring_vm_funcregister("qstringref_clear",ring_QStringRef_clear);
-	ring_vm_funcregister("qstringref_compare",ring_QStringRef_compare);
 	ring_vm_funcregister("qstringref_compare_2",ring_QStringRef_compare_2);
 	ring_vm_funcregister("qstringref_compare_3",ring_QStringRef_compare_3);
 	ring_vm_funcregister("qstringref_constdata",ring_QStringRef_constData);
