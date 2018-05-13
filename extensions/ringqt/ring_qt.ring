@@ -8554,9 +8554,6 @@ Class QHostInfo
 	Func localHostName 
 		return QHostInfo_localHostName(pObject)
 
-	Func lookupHost P1,P2,P3
-		return QHostInfo_lookupHost(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
-
 Class QFileInfo
 
 	pObject
@@ -15724,9 +15721,6 @@ Class QStringRef
 
 	Func clear 
 		return QStringRef_clear(pObject)
-
-	Func compare P1,P2
-		return QStringRef_compare(pObject,P1,P2)
 
 	Func compare_2 P1,P2
 		return QStringRef_compare_2(pObject,GetObjectPointerFromRingObject(P1),P2)

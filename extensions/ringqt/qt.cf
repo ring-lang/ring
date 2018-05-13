@@ -4158,8 +4158,9 @@ void abortHostLookup(int id)
 QHostInfo fromName(QString)
 QString localDomainName(void)
 QString localHostName(void)
+<comment>
 int lookupHost(QString, QObject *receiver, const char *member)
-
+</comment>
 
 <class>
 name: QFileInfo
@@ -7241,7 +7242,9 @@ para: void
 QStringRef appendTo(QString * string)
 QChar at(int position)
 void clear(void)
+<comment>
 int compare(QString other, Qt::CaseSensitivity cs)
+</comment>
 int compare@2(QStringRef other, Qt::CaseSensitivity cs)
 int compare@3(QLatin1String other, Qt::CaseSensitivity cs)
 QChar * constData(void)
