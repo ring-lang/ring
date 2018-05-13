@@ -1176,6 +1176,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		}
 		printf( "in file %s ",cFile ) ;
 	}
+	fflush(stdout);
 }
 
 void ring_vm_setfilename ( VM *pVM )
