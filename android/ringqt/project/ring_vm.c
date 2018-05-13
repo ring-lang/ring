@@ -733,6 +733,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 		else {
 			ring_vm_bye(pVM);
+			return ;
 		}
 	}
 	/*
