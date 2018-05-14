@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 100 , : y = 100  , 
+		 :x = 66 , : y = 55  , 
 		 :width =  484 , :height = 597 , 
 		 :title =  "StopWatch" , 
 		 :backcolor =  "#ffff7f" , 
