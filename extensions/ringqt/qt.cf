@@ -259,6 +259,9 @@ extern "C" {
 #include <QFileDevice>
 #include <QStandardPaths>
 
+#include <QQuickWidget>
+#include <QQmlError>
+#include "gquickwidget.h"
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -668,6 +671,8 @@ aEnumTypes + "QDir::Filter"
 aEnumTypes + "QDir::Filters"
 aEnumTypes + "QDir::SortFlag"
 aEnumTypes + "QDir::SortFlags"
+aEnumTypes + "QQuickWidget::ResizeMode"
+aEnumTypes + "QQuickWidget::Status"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -9523,3 +9528,52 @@ QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, Q
 void setTestModeEnabled(bool testMode)
 QStringList standardLocations(QStandardPaths::StandardLocation type)
 QString writableLocation(QStandardPaths::StandardLocation type)
+
+<class>
+name: QQuickWidget
+para: QWidget *
+parent: QWidget
+codename: GQuickWidget
+passvmpointer
+</class>
+
+QQmlEngine *engine(void)
+QList<QQmlError> errors(void)
+QSurfaceFormat format(void)
+QImage grabFramebuffer(void)
+QSize initialSize(void)
+QQuickWindow *quickWindow(void)
+QQuickWidget::ResizeMode resizeMode(void)
+QQmlContext *rootContext(void)
+QQuickItem *rootObject(void)
+void setClearColor(QColor color)
+void setFormat(QSurfaceFormat format)
+void setResizeMode(QQuickWidget::ResizeMode)
+QUrl source(void)
+QQuickWidget::Status status(void)
+void setSource(QUrl url)
+
+void setsceneGraphErrorEvent(const char *)
+void setstatusChangedEvent(const char *)
+
+const char *getsceneGraphErrorEvent(void)
+const char *getstatusChangedEvent(void)
+
+<class>
+name: QQmlError
+para: void
+</class>
+
+
+int column(void)
+QString description(void)
+bool isValid(void)
+int line(void)
+QObject * object(void)
+void setColumn(int column)
+void setDescription(QString description)
+void setLine(int line)
+void setObject(QObject *object)
+void setUrl(QUrl url)
+QString toString(void)
+QUrl url(void)

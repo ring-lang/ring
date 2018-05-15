@@ -21001,6 +21001,133 @@ Class QStandardPaths
 	Func writableLocation P1
 		return QStandardPaths_writableLocation(P1)
 
+Class QQuickWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QQuickWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQuickWidget_delete(pObject)
+
+	Func engine 
+		return QQuickWidget_engine(pObject)
+
+	Func errors 
+		return QQuickWidget_errors(pObject)
+
+	Func format 
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QQuickWidget_format(pObject)
+		return pTempObj
+
+	Func grabFramebuffer 
+		pTempObj = new QImage
+		pTempObj.pObject = QQuickWidget_grabFramebuffer(pObject)
+		return pTempObj
+
+	Func initialSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QQuickWidget_initialSize(pObject)
+		return pTempObj
+
+	Func quickWindow 
+		return QQuickWidget_quickWindow(pObject)
+
+	Func resizeMode 
+		return QQuickWidget_resizeMode(pObject)
+
+	Func rootContext 
+		return QQuickWidget_rootContext(pObject)
+
+	Func rootObject 
+		return QQuickWidget_rootObject(pObject)
+
+	Func setClearColor P1
+		return QQuickWidget_setClearColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFormat P1
+		return QQuickWidget_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setResizeMode P1
+		return QQuickWidget_setResizeMode(pObject,P1)
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQuickWidget_source(pObject)
+		return pTempObj
+
+	Func status 
+		return QQuickWidget_status(pObject)
+
+	Func setSource P1
+		return QQuickWidget_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setsceneGraphErrorEvent P1
+		return QQuickWidget_setsceneGraphErrorEvent(pObject,P1)
+
+	Func setstatusChangedEvent P1
+		return QQuickWidget_setstatusChangedEvent(pObject,P1)
+
+	Func getsceneGraphErrorEvent 
+		return QQuickWidget_getsceneGraphErrorEvent(pObject)
+
+	Func getstatusChangedEvent 
+		return QQuickWidget_getstatusChangedEvent(pObject)
+
+Class QQmlError
+
+	pObject
+
+	Func init 
+		pObject = QQmlError_new()
+		return self
+
+	Func delete
+		pObject = QQmlError_delete(pObject)
+
+	Func column 
+		return QQmlError_column(pObject)
+
+	Func description 
+		return QQmlError_description(pObject)
+
+	Func isValid 
+		return QQmlError_isValid(pObject)
+
+	Func line 
+		return QQmlError_line(pObject)
+
+	Func object 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlError_object(pObject)
+		return pTempObj
+
+	Func setColumn P1
+		return QQmlError_setColumn(pObject,P1)
+
+	Func setDescription P1
+		return QQmlError_setDescription(pObject,P1)
+
+	Func setLine P1
+		return QQmlError_setLine(pObject,P1)
+
+	Func setObject P1
+		return QQmlError_setObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUrl P1
+		return QQmlError_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString 
+		return QQmlError_toString(pObject)
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlError_url(pObject)
+		return pTempObj
+
 Class QPixmap2 from QPixmap
 
 	pObject

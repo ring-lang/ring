@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth opengl
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth opengl quickwidgets qml
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -60,6 +60,7 @@ SOURCES +=   \
     gstackedwidget.cpp \
     gcalendarwidget.cpp \
     gtabbar.cpp \
+    gquickwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -110,7 +111,8 @@ HEADERS  += \
     gstackedwidget.h \
     gcalendarwidget.h \
     gdockwidget.h \
-    gtabbar.h
+    gtabbar.h \
+    gquickwidget.h 
 
 INCLUDEPATH += ../../include
 
