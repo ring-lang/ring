@@ -5435,6 +5435,30 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QQmlError Class
+
+QQmlError Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQmlError.html
+
+
+Parameters : void
+
+* int column(void)
+* QString description(void)
+* bool isValid(void)
+* int line(void)
+* QObject * object(void)
+* void setColumn(int column)
+* void setDescription(QString description)
+* void setLine(int line)
+* void setObject(QObject *object)
+* void setUrl(QUrl url)
+* QString toString(void)
+* QUrl url(void)
+.. index::
 	pair: RingQt Classes Reference; QQuaternion Class
 
 QQuaternion Class
@@ -5466,6 +5490,41 @@ Parameters : float,float,float,float
 * QQuaternion fromAxisAndAngle_2(float x, float y, float z, float angle)
 * QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 * QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+
+.. index::
+	pair: RingQt Classes Reference; QQuickWidget Class
+
+QQuickWidget Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQuickWidget.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QQmlEngine *engine(void)
+* QList<QQmlError> errors(void)
+* QSurfaceFormat format(void)
+* QImage grabFramebuffer(void)
+* QSize initialSize(void)
+* QQuickWindow *quickWindow(void)
+* QQuickWidget::ResizeMode resizeMode(void)
+* QQmlContext *rootContext(void)
+* QQuickItem *rootObject(void)
+* void setClearColor(QColor color)
+* void setFormat(QSurfaceFormat format)
+* void setResizeMode(QQuickWidget::ResizeMode)
+* QUrl source(void)
+* QQuickWidget::Status status(void)
+* void setSource(QUrl url)
+* void setsceneGraphErrorEvent(const char *)
+* void setstatusChangedEvent(const char *)
+* const char *getsceneGraphErrorEvent(void)
+* const char *getstatusChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QRadioButton Class
@@ -6253,6 +6312,7 @@ Parameters : void
 * void setTestModeEnabled(bool testMode)
 * QStringList standardLocations(QStandardPaths::StandardLocation type)
 * QString writableLocation(QStandardPaths::StandardLocation type)
+
 .. index::
 	pair: RingQt Classes Reference; QStatusBar Class
 

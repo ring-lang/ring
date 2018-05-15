@@ -294,6 +294,8 @@ The next classes are added to RingQt
 (3) QFileDevice
 (4) QStandardPaths
 (5) QDir
+(6) QQuickWidget
+(7) QQmlError
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Code Generator For Extensions
