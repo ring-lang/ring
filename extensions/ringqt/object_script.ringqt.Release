@@ -47,9 +47,9 @@ INPUT(
 ./release\gstackedwidget.o
 ./release\gcalendarwidget.o
 ./release\gtabbar.o
-./release\gquickwidget.o
 ./release\ring_qt.o
 ./release\openglwidget.o
+./release\gquickwidget.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
 ./release\moc_glineedit.o
@@ -98,6 +98,6 @@ INPUT(
 ./release\moc_gcalendarwidget.o
 ./release\moc_gdockwidget.o
 ./release\moc_gtabbar.o
-./release\moc_gquickwidget.o
 ./release\moc_openglwidget.o
+./release\moc_gquickwidget.o
 );

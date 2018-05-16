@@ -259,9 +259,11 @@ extern "C" {
 #include <QFileDevice>
 #include <QStandardPaths>
 
+<filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
 #include <QQmlError>
 #include "gquickwidget.h"
+</filter>
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
@@ -9529,6 +9531,8 @@ void setTestModeEnabled(bool testMode)
 QStringList standardLocations(QStandardPaths::StandardLocation type)
 QString writableLocation(QStandardPaths::StandardLocation type)
 
+<filter> (iswindows() or ismacosx()) 
+
 <class>
 name: QQuickWidget
 para: QWidget *
@@ -9577,3 +9581,5 @@ void setObject(QObject *object)
 void setUrl(QUrl url)
 QString toString(void)
 QUrl url(void)
+
+</filter>
