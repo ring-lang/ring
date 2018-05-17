@@ -261,6 +261,7 @@ Better Form Designer
 (5) New buttons are added to the toolbar (Duplicate, Bring to front, Send to back, Delete)
 (6) Using layouts in (Menubar designer, Window Flags window, Selecting Objects window)
 (7) Better behavior for displaying the properties window when changing the selected objects
+(8) New buttons are added to move and resize multiple selection of objects.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Cards Game
