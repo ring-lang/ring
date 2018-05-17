@@ -774,6 +774,39 @@ Class FormDesignerView from WindowsViewParent
 				setText(T_FROMDESIGNER_PROPERTIES_MS19) # "Font"
 				setClickEvent(Method(:MSFont))
 			}
+			oBtn20 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS20) # "Move - Up"
+				setClickEvent(Method(:MSMoveUp))
+			}
+			oBtn21 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS21)  # "Move - Down"
+				setClickEvent(Method(:MSMoveDown))
+			}
+			oBtn22 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS22)  # "Move - Right"
+				setClickEvent(Method(:MSMoveRight))
+			}
+			oBtn23 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS23)  # "Move - Left"
+				setClickEvent(Method(:MSMoveLeft))
+			}
+			oBtn24 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS24)  # "Increase - Width"
+				setClickEvent(Method(:MSIncreaseWidth))
+			}
+			oBtn25 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS25)  # "Decrease - Width"
+				setClickEvent(Method(:MSDecreaseWidth))
+			}
+			oBtn26 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS26)  # "Increase - Height"
+				setClickEvent(Method(:MSIncreaseHeight))
+			}
+			oBtn27 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS27)  # "Decrease - Height"
+				setClickEvent(Method(:MSDecreaseHeight))
+			}
+
 			oLayout = new qVBoxLayout() {
 				AddWidget(oBtn1)
 				AddWidget(oBtn2)
@@ -794,6 +827,14 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oBtn17)
 				AddWidget(oBtn18)
 				AddWidget(oBtn19)
+				AddWidget(oBtn20)
+				AddWidget(oBtn21)
+				AddWidget(oBtn22)
+				AddWidget(oBtn23)
+				AddWidget(oBtn24)
+				AddWidget(oBtn25)
+				AddWidget(oBtn26)
+				AddWidget(oBtn27)
 				insertStretch( -1, 1 )
 			}
 			setLayout(oLayout)

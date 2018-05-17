@@ -1115,6 +1115,70 @@ class FormDesignerController from WindowsControllerParent
 			oModel.GetObjectByID(item[3]).setFontProperty(cFont)
 		}
 
+	func MSMoveUp
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() , oObject.y() - 10 )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveDown
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() , oObject.y() + 10 )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveLeft
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() - 10 , oObject.y() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveRight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() + 10 , oObject.y() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSIncreaseWidth
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() + 10 , oObject.height() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSDecreaseWidth
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() - 10 , oObject.height() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSIncreaseHeight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() , oObject.height() + 10)
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSDecreaseHeight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() , oObject.height() - 10)
+			oObject.oCorners.Refresh(oObject)
+		}
+
 	func NewAction
 		oFile.NewAction(self)
 
