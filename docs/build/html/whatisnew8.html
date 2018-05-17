@@ -70,7 +70,7 @@
 <li>Better Documentation</li>
 <li>Better RingQt</li>
 <li>Better Code Generator For Extensions</li>
-<li>Better Ring VM</li>
+<li>Better Ring Compiler and VM</li>
 </ul>
 </div>
 <div class="section" id="find-in-files-application">
@@ -259,8 +259,8 @@ All String
 <span id="index-14"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>New Option: StaticMethods</p>
 </div>
-<div class="section" id="better-ring-vm">
-<span id="index-15"></span><h2>Better Ring VM<a class="headerlink" href="#better-ring-vm" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="better-ring-compilter-and-vm">
+<span id="index-15"></span><h2>Better Ring Compilter and VM<a class="headerlink" href="#better-ring-compilter-and-vm" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Better loading for files in relative paths</li>
 <li>Code Optimization for eval() function</li>
@@ -289,6 +289,36 @@ in file Ring_EmbeddedCode
 End of test!
 </pre></div>
 </div>
+<ol class="arabic simple" start="5">
+<li>The compiler will ignore new lines after keywords that expect tokens after it</li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span>
+<span class="s">&quot;</span>
+        <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="s">&quot;</span>
+<span class="n">test</span><span class="p">()</span>
+
+<span class="k">func</span>
+<span class="c">#======================#</span>
+        <span class="n">Test</span>
+<span class="c">#======================#</span>
+
+        <span class="o">?</span>
+        <span class="s">&quot;</span>
+
+        <span class="n">Hello</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Test</span> <span class="n">function</span>
+
+        <span class="s">&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+
+
+Hello from the Test function
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -315,7 +345,7 @@ End of test!
 <li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator For Extensions</a></li>
-<li><a class="reference internal" href="#better-ring-vm">Better Ring VM</a></li>
+<li><a class="reference internal" href="#better-ring-compilter-and-vm">Better Ring Compilter and VM</a></li>
 </ul>
 </li>
 </ul>

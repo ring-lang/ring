@@ -28,7 +28,7 @@ Ring 1.8 comes with the next features!
 * Better Documentation
 * Better RingQt
 * Better Code Generator For Extensions
-* Better Ring VM
+* Better Ring Compiler and VM
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Find in files Application
@@ -306,10 +306,10 @@ Better Code Generator For Extensions
 New Option: StaticMethods
 
 .. index:: 
-	pair: What is new in Ring 1.8?; Better Ring VM
+	pair: What is new in Ring 1.8?; Better Ring Compiler and VM
 
-Better Ring VM
-==============
+Better Ring Compilter and VM
+============================
 
 (1) Better loading for files in relative paths
 (2) Code Optimization for eval() function 
@@ -342,3 +342,37 @@ Output:
 	in file Ring_EmbeddedCode
 	End of test!
 	
+(5) The compiler will ignore new lines after keywords that expect tokens after it
+
+Example:
+
+.. code-block:: ring
+
+	see 
+	"
+		Hello, World!
+	"
+	test()
+
+	func 
+	#======================#
+		Test
+	#======================#
+
+		?
+		"
+	
+		Hello from the Test function
+
+		"
+
+Output:
+
+.. code-block:: none
+
+
+	        Hello, World!
+
+
+	        Hello from the Test function
+
