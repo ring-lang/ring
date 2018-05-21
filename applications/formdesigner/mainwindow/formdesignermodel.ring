@@ -429,6 +429,15 @@ Class FormDesignerModel
 		}
 		return aList
 
+	func GetLayoutsNames 
+		aList = []
+		for Item in aObjectsList {
+			if ClassName(Item[2]) = "formdesigner_qlayout" {
+				aList + Item[1]
+			}
+		}
+		return aList
+
 	func ActiveObjectItemAsList
 		return [ aObjectsList[nActiveObject] ]
 

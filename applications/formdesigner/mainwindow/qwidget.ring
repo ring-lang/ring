@@ -81,7 +81,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TITLE,False)	# "Title"
 		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_BACKCOLOR,True)	# "Back Color"
 		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWFLAGS,True)	# "Window Flags"
-		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETLAYOUT,False)	# "Set Layout"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETLAYOUT,True)	# "Set Layout"
 		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWICON,True)	# "Window Icon"
 		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MENUBAR,True)	# "Menubar"
 		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_INDEXTYPE, # "Index Type"
@@ -173,6 +173,14 @@ class FormDesigner_QWidget from QWidget
 					"System.GUI"
 				])
 				Last_Window().setParentObject(oDesigner)
+				Last_Window().LoadSelectedItems()
+			case 7  # Window Layout 
+				open_window(:WindowObjectsController)
+				Last_Window().setParentObject(oDesigner)
+				Last_Window().setPropertyIndex(7)
+				Last_Window().setMethodName("setMainLayoutValue")
+				aList = oDesigner.oModel.GetLayoutsNames()
+				Last_Window().LoadObjectsData(aList)
 				Last_Window().LoadSelectedItems()
 			case 8	# Window Icon
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
