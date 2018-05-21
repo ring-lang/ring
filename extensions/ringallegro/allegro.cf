@@ -41,6 +41,13 @@ aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"
 aEnumTypes + "GLclampf"
+
+
+aNumberTypes + "unsigned int"
+
+aEnumTypes + "ALLEGRO_AUDIO_DEPTH"
+aEnumTypes + "ALLEGRO_CHANNEL_CONF"
+
 </runcode>
 
 <funcstart>
