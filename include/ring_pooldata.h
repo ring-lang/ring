@@ -1,8 +1,11 @@
 /* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_pooldata
 #define ring_pooldata
-/* Macro */
-#define RING_USEPOOLMANAGER 1
+/*
+**  Macro 
+**  We disable the memory pool to have malloc() and free() - thread safe 
+*/
+#define RING_USEPOOLMANAGER 0
 #define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #define RING_POOLMANAGER_ITEMSIZE 64
 /* Data */
