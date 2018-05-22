@@ -13,5 +13,5 @@
 	load "objectslib/objects.ring"
 	load "objectslib/subwindows.ring"
 # Load the modern library (Better functions and classes)	
-	load "commonfunctions.ring"
-	load "newguiclasses.ring"
+	load "modernlib/commonfunctions.ring"
+	load "modernlib/newguiclasses.ring"
