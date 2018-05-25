@@ -45,11 +45,7 @@ Class FormDesignerView from WindowsViewParent
 
 		# Add the form to the Sub Window
 			oSub =  new QMdiSubWindow(null) {
-				if T_LAYOUTDIRECTION {
-					move(10,145)
-				else 
-					move(100,100)
-				}
+				move(20,20)
 				resize(400,400)
 				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
