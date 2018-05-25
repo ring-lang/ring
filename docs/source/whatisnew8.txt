@@ -310,8 +310,8 @@ New Option: StaticMethods
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Ring Compiler and VM
 
-Better Ring Compilter and VM
-============================
+Better Ring Compiler and VM
+===========================
 
 (1) Better loading for files in relative paths
 (2) Code Optimization for eval() function 
