@@ -23,7 +23,7 @@ class menubardesignerView from WindowsViewParent
 		move(0,0)
 		resize(872,722)
 		setWindowTitle(T_FROMDESIGNER_MB_MENUBARDESIGNER)	 # "Menubar Designer"
-
+		setLayoutDirection(T_LAYOUTDIRECTION)
 		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint) 
 		Label1 = new label(win) {
 			move(8,24)

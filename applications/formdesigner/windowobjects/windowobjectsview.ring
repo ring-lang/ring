@@ -12,6 +12,7 @@ class windowObjectsView from WindowsViewParent
 		move(64,40)
 		resize(395,376)
 		setWindowTitle(T_FROMDESIGNER_WO_WINDOWOBJECTS) # "Window Objects"
+		setLayoutDirection(T_LAYOUTDIRECTION)
 		setstylesheet("background-color:rgba(239,235,231,255);")
 		LabelObjects = new qlabel(win) {
 			move(10,13)
