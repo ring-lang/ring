@@ -11,7 +11,7 @@ class windowObjectsView from WindowsViewParent
 	win = new qWidget() {
 		move(64,40)
 		resize(395,376)
-		setWindowTitle("Window Objects")
+		setWindowTitle(T_FROMDESIGNER_WO_WINDOWOBJECTS) # "Window Objects"
 		setstylesheet("background-color:rgba(239,235,231,255);")
 		LabelObjects = new qlabel(win) {
 			move(10,13)
@@ -20,7 +20,7 @@ class windowObjectsView from WindowsViewParent
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("")
 			setfont(oFont)
-			setText("Objects")
+			setText(T_FROMDESIGNER_WO_OBJECTS) # "Objects"
 			setAlignment(Qt_AlignRight |  Qt_AlignVCenter)
 		}
 		ListObjects = new qlistwidget(win) {
@@ -38,7 +38,7 @@ class windowObjectsView from WindowsViewParent
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("")
 			setfont(oFont)
-			setText("Ok")
+			setText(T_FROMDESIGNER_WO_OK) # "Ok"
 			setClickEvent(Method(:okAction))
 
 		}
@@ -49,7 +49,7 @@ class windowObjectsView from WindowsViewParent
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("")
 			setfont(oFont)
-			setText("Cancel")
+			setText(T_FROMDESIGNER_WO_CANCEL) # "Cancel"
 			setClickEvent(Method(:CancelAction))
 		}
 		Layout1 = new QHBoxLayout() {
