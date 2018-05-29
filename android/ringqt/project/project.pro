@@ -116,8 +116,7 @@ HEADERS  += \
 	gtabbar.h \
 	gquickwidget.h 
 
-CONFIG += mobility c++11
-QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter -std=c++11
+CONFIG += warn_off
 
 RESOURCES = project.qrc
 
