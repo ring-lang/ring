@@ -218,11 +218,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
-		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	if ( ring_fexists("ring.ringo") && argc == 1 ) {
-		ring_execute("ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	/* Print Version */
