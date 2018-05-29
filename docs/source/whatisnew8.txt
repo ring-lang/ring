@@ -28,6 +28,7 @@ Ring 1.8 comes with the next features!
 * Better Documentation
 * Better RingQt
 * Better Code Generator For Extensions
+* Better RingQt for Android
 * Better Ring Compiler and VM
 
 .. index:: 
@@ -306,6 +307,21 @@ Better Code Generator For Extensions
 ====================================
 
 New Option: StaticMethods
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better RingQt for Android
+
+Better RingQt for Android
+=========================
+
+(1) RingQt for Android is updated to support modern versions of Qt
+
+Tested using
+
+* Qt 5.11.0
+* Qt 5.9.5
+* Qt 5.5.1
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Ring Compiler and VM
