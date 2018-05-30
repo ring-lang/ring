@@ -4,7 +4,7 @@ cClassName,*cClassName2
 Type: int
 x,nLimit,nClassPC,nType,nCont
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf
+pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
 Type: Item *
 pItem
 Type: const char *
@@ -25,7 +25,7 @@ Type: int
 x
 ring_vm_oop_setscope
 Type: List *
-pList
+pList, *pThis
 ring_vm_oop_isobject
 ring_vm_oop_getobj
 Type: List *

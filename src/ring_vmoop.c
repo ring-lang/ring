@@ -22,7 +22,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 {
 	const char *cClassName,*cClassName2  ;
 	int x,nLimit,nClassPC,nType,nCont  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
 	Item *pItem  ;
 	const char *cTempName = RING_TEMP_OBJECT ;
 	pList2 = NULL ;
@@ -134,6 +134,10 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addint_gc(pVM->pRingState,pList4,RING_VM_STACK_OBJTYPE);
 				/* Save Current Global Scope */
 				ring_list_addint_gc(pVM->pRingState,pList4,pVM->nCurrentGlobalScope);
+				/* Save the This object */
+				pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+				ring_list_addpointer_gc(pVM->pRingState,pList4,ring_list_getpointer(pThis,RING_VAR_VALUE));
+				ring_list_addint_gc(pVM->pRingState,pList4,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -147,6 +151,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 				pVM->nInClassRegion++ ;
 				/* Support using Braces to access the object state */
 				pVM->pBraceObject = pList2 ;
+				/* Support using This in the class region */
+				ring_vm_oop_setthethisvariable(pVM);
 				return ;
 			}
 		}
@@ -253,7 +259,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 
 void ring_vm_oop_setscope ( VM *pVM )
 {
-	List *pList  ;
+	List *pList, *pThis  ;
 	/* This function called after creating new object and executing class init */
 	pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
 	/*
@@ -289,6 +295,10 @@ void ring_vm_oop_setscope ( VM *pVM )
 	RING_VM_STACK_OBJTYPE = ring_list_getint(pList,14) ;
 	/* Restore current Global Scope */
 	pVM->nCurrentGlobalScope = ring_list_getint(pList,15);
+	/* Restore the This object */
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,16));
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,17));
 	/* After init methods */
 	ring_vm_oop_aftercallmethod(pVM);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
