@@ -280,3 +280,4 @@ call ring scripts/filepath1.ring
 call ring scripts/ringinring.ring
 call ring scripts/ignorenewline.ring
 call ring scripts/thisinclassregion.ring
+call ring scripts/nullattr.ring
