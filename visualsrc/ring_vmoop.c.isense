@@ -170,3 +170,6 @@ Type: int
 x,lFound
 Type: List *
 pRecord
+ring_vm_oop_setthethisvariableinclassregion
+Type: List *
+pList, *pThis
