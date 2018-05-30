@@ -233,7 +233,13 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	/* This function is called by all of the other functions that create new varaibles */
 	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
-	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NULL);
+	/* Determine Type based on Region */
+	if ( pVM->nInClassRegion ) {
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_STRING);
+	}
+	else {
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NULL);
+	}
 	ring_list_addstring_gc(pVM->pRingState,pList,"NULL");
 	/* Pointer Type */
 	ring_list_addint_gc(pVM->pRingState,pList,0);
