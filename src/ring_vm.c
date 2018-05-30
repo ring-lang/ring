@@ -298,28 +298,16 @@ void ring_vm_mainloop ( VM *pVM )
 	if ( pVM->pRingState->nPrintInstruction ) {
 		do {
 			ring_vm_fetch2(pVM);
-			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-				pVM->nEvalReturnPC = 0 ;
-				break ;
-			}
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	else {
 		do {
 			ring_vm_fetch(pVM);
-			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-				pVM->nEvalReturnPC = 0 ;
-				break ;
-			}
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	#else
 	do {
 		ring_vm_fetch(pVM);
-		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-			pVM->nEvalReturnPC = 0 ;
-			break ;
-		}
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
@@ -980,7 +968,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	if ( nRunVM ) {
 		pVM->nFuncExecute = 0 ;
 		pVM->nFuncExecute2 = 0 ;
-		ring_vm_mainloop(pVM);
+		ring_vm_mainloopforeval(pVM);
 	}
 	/* Restore state to take in mind nested events execution */
 	pVM->nRunCode-- ;
@@ -1238,6 +1226,39 @@ void ring_vm_addglobalvariables ( VM *pVM )
 		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
 	}
 }
+
+void ring_vm_mainloopforeval ( VM *pVM )
+{
+	#if RING_VMSHOWOPCODE
+	/* Preprocessor Allows showing the OPCODE */
+	if ( pVM->pRingState->nPrintInstruction ) {
+		do {
+			ring_vm_fetch2(pVM);
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	else {
+		do {
+			ring_vm_fetch(pVM);
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	#else
+	do {
+		ring_vm_fetch(pVM);
+		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+			pVM->nEvalReturnPC = 0 ;
+			break ;
+		}
+	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	#endif
+}
 /* Threads */
 
 RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
@@ -1348,7 +1369,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	ring_vm_loadfunc2(pVM,cFuncName,0);
 	ring_vm_call2(pVM);
 	/* Execute the function */
-	ring_vm_mainloop(pVM);
+	ring_vm_mainloopforeval(pVM);
 	/* Free Stack */
 	ring_vm_freestack(pVM);
 	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
