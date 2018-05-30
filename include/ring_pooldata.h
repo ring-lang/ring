@@ -3,9 +3,9 @@
 #define ring_pooldata
 /*
 **  Macro 
-**  We disable the memory pool to have malloc() and free() - thread safe 
+**  Memory pool is thread safe because ring_vm_runcodefromthread() create new state 
 */
-#define RING_USEPOOLMANAGER 0
+#define RING_USEPOOLMANAGER 1
 #define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #define RING_POOLMANAGER_ITEMSIZE 64
 /* Data */
