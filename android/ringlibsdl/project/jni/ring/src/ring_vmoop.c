@@ -151,8 +151,6 @@ void ring_vm_oop_newobj ( VM *pVM )
 				pVM->nInClassRegion++ ;
 				/* Support using Braces to access the object state */
 				pVM->pBraceObject = pList2 ;
-				/* Support using This in the class region */
-				ring_vm_oop_setthethisvariable(pVM);
 				return ;
 			}
 		}
@@ -255,6 +253,8 @@ void ring_vm_oop_newclass ( VM *pVM )
 	ring_vm_oop_parentmethods(pVM,pClass);
 	/* Attributes Scope is Public */
 	pVM->nPrivateFlag = 0 ;
+	/* Support using This in the class region */
+	ring_vm_oop_setthethisvariableinclassregion(pVM);
 }
 
 void ring_vm_oop_setscope ( VM *pVM )
@@ -1286,4 +1286,18 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 	pItem->data.pList = pList ;
 	/* Update The Self Pointer */
 	ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
+}
+
+void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
+{
+	List *pList, *pThis  ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
+	/* Get Object Scope */
+	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
+	/* Get Self Attribute List */
+	pList = ring_list_getlist(pList,1);
+	/* Save this */
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }
