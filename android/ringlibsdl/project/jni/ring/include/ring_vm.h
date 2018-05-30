@@ -145,6 +145,8 @@ void ring_vm_printstack ( VM *pVM ) ;
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr ) ;
 
 void ring_vm_addglobalvariables ( VM *pVM ) ;
+
+void ring_vm_mainloopforeval ( VM *pVM ) ;
 /* Stack and Variables */
 
 void ring_vm_pushv ( VM *pVM ) ;

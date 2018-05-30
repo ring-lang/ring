@@ -318,7 +318,7 @@ void ring_vm_call2 ( VM *pVM )
 			**  Using the return command 
 			*/
 			RING_VM_STACK_POP ;
-			ring_vm_mainloop(pVM);
+			ring_vm_mainloopforeval(pVM);
 		}
 	}
 }
