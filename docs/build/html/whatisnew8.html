@@ -62,6 +62,7 @@
 <li>StopWatch Application</li>
 <li>More 3D Samples</li>
 <li>Compiling on Manjaro Linux</li>
+<li>Using This in the class region as Self</li>
 <li>The For Loops uses the local scope</li>
 <li>Merge binary characters</li>
 <li>FoxRing Library</li>
@@ -107,8 +108,46 @@
 <p>Tests by : Iip Rifai</p>
 <img alt="Ring on Manjaro Linux" src="_images/ringonmanjarolinux.png" />
 </div>
+<div class="section" id="using-this-in-the-class-region-as-self">
+<span id="index-7"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Permalink to this headline">¶</a></h2>
+<p>Now we can use This in the class region as Self</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+                <span class="n">test</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="o">?</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">program</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;My Application&quot;</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span>
+        <span class="o">?</span> <span class="n">name</span> <span class="o">?</span> <span class="n">version</span>
+
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Name    = &quot;</span> <span class="o">+</span> <span class="n">name</span>
+                <span class="o">?</span> <span class="s">&quot;Version = &quot;</span> <span class="o">+</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>My Application
+1.0
+Name    = My Application
+Version = 1.0
+name: My Application
+version: 1.0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When we use braces to change the current active object, Using This we can still point to the class.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The difference between This and Self is that Self point to the current active object that we can change using braces.</p>
+</div>
+</div>
 <div class="section" id="the-for-loops-uses-the-local-scope">
-<span id="index-7"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
@@ -140,7 +179,7 @@
 </div>
 </div>
 <div class="section" id="merge-binary-characters">
-<span id="index-8"></span><h2>Merge binary characters<a class="headerlink" href="#merge-binary-characters" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Merge binary characters<a class="headerlink" href="#merge-binary-characters" title="Permalink to this headline">¶</a></h2>
 <p>From Ring 1.0 we can create binary strings and do operations on these strings.</p>
 <p>Now in Ring 1.8, we can get individual characters from these strings and merge them together using
 the &#8216;+&#8217; operator.</p>
@@ -198,7 +237,7 @@ All String
 </div>
 </div>
 <div class="section" id="foxring-library">
-<span id="index-9"></span><h2>FoxRing Library<a class="headerlink" href="#foxring-library" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>FoxRing Library<a class="headerlink" href="#foxring-library" title="Permalink to this headline">¶</a></h2>
 <p>Developer: Jose Rosado</p>
 <p>A class with some of the functions I used in FoxPro</p>
 <p>Example:</p>
@@ -223,7 +262,7 @@ All String
 </div>
 </div>
 <div class="section" id="better-form-designer">
-<span id="index-10"></span><h2>Better Form Designer<a class="headerlink" href="#better-form-designer" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Better Form Designer<a class="headerlink" href="#better-form-designer" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Layout Control - Display the control name when loading forms</li>
 <li>Button Control - Display the button images written using relative path</li>
@@ -237,16 +276,16 @@ All String
 </ol>
 </div>
 <div class="section" id="better-cards-game">
-<span id="index-11"></span><h2>Better Cards Game<a class="headerlink" href="#better-cards-game" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Better Cards Game<a class="headerlink" href="#better-cards-game" title="Permalink to this headline">¶</a></h2>
 <p>The Cards game is updated and we can play with the Computer</p>
 <img alt="Cards Main Menu" src="_images/cardsmainmenu.png" />
 </div>
 <div class="section" id="better-documentation">
-<span id="index-12"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.8 comes with better documentation</p>
 </div>
 <div class="section" id="better-ringqt">
-<span id="index-13"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <p>The next classes are added to RingQt</p>
 <ol class="arabic simple">
 <li>QTabBar</li>
@@ -259,11 +298,11 @@ All String
 </ol>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-14"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>New Option: StaticMethods</p>
 </div>
 <div class="section" id="better-ringqt-for-android">
-<span id="index-15"></span><h2>Better RingQt for Android<a class="headerlink" href="#better-ringqt-for-android" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Better RingQt for Android<a class="headerlink" href="#better-ringqt-for-android" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>RingQt for Android is updated to support modern versions of Qt</li>
 </ol>
@@ -275,7 +314,7 @@ All String
 </ul>
 </div>
 <div class="section" id="better-ring-compiler-and-vm">
-<span id="index-16"></span><h2>Better Ring Compiler and VM<a class="headerlink" href="#better-ring-compiler-and-vm" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Better Ring Compiler and VM<a class="headerlink" href="#better-ring-compiler-and-vm" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Better loading for files in relative paths</li>
 <li>Code Optimization for eval() function</li>
@@ -352,6 +391,7 @@ Hello from the Test function
 <li><a class="reference internal" href="#stopwatch-application">StopWatch Application</a></li>
 <li><a class="reference internal" href="#more-3d-samples">More 3D Samples</a></li>
 <li><a class="reference internal" href="#compiling-on-manjaro-linux">Compiling on Manjaro Linux</a></li>
+<li><a class="reference internal" href="#using-this-in-the-class-region-as-self">Using This in the class region as Self</a></li>
 <li><a class="reference internal" href="#the-for-loops-uses-the-local-scope">The For Loops uses the local scope</a></li>
 <li><a class="reference internal" href="#merge-binary-characters">Merge binary characters</a></li>
 <li><a class="reference internal" href="#foxring-library">FoxRing Library</a></li>

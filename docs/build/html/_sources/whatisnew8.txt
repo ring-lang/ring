@@ -20,6 +20,7 @@ Ring 1.8 comes with the next features!
 * StopWatch Application
 * More 3D Samples
 * Compiling on Manjaro Linux
+* Using This in the class region as Self
 * The For Loops uses the local scope
 * Merge binary characters
 * FoxRing Library
@@ -105,6 +106,49 @@ Tests by : Iip Rifai
 
 .. image:: ringonmanjarolinux.png
 	:alt: Ring on Manjaro Linux
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Using This in the class region as Self
+
+Using This in the class region as Self
+======================================
+
+Now we can use This in the class region as Self
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		o1 = new program {
+			test()
+		}
+		? o1
+
+	class program 
+		this.name = "My Application"
+		this.version = "1.0"
+		? name ? version	
+
+		func test
+			? "Name    = " + name 
+			? "Version = " + version
+
+Output
+
+.. code-block:: none
+
+	My Application
+	1.0
+	Name    = My Application
+	Version = 1.0
+	name: My Application
+	version: 1.0
+
+.. note:: When we use braces to change the current active object, Using This we can still point to the class.
+
+.. tip:: The difference between This and Self is that Self point to the current active object that we can change using braces.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; The For Loops uses the local scope
