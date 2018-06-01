@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
@@ -516,14 +516,22 @@ void ring_vm_movetoprevscope ( VM *pVM )
 void ring_vm_createtemplist ( VM *pVM )
 {
 	List *pList  ;
-	/*
-	**  Create the list in the TempMem related to the function 
-	**  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
-	**  Variable name in TemMem is not important, we use it for storage (no search) 
-	*/
-	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-	pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
-	ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
+	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		/*
+		**  Create the list in the TempMem related to the function 
+		**  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
+		**  Variable name in TemMem is not important, we use it for storage (no search) 
+		*/
+		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+		pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+		ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
+	}
+	else {
+		/* Create the list in the general temp. memory */
+		ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
+	}
+	/* Set the Address scope as local */
+	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 }
 
 void ring_vm_saveloadaddressscope ( VM *pVM )

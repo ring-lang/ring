@@ -32,16 +32,10 @@ void ring_vm_liststart ( VM *pVM )
 			}
 		}
 		if ( (pVM->nFuncExecute > 0)  || ( nCont == 1 ) ) {
-			if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-				ring_vm_createtemplist(pVM);
-			} else {
-				/* Create the list in the General Temp Memory */
-				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
-			}
+			/* Create the Temp list */
+			ring_vm_createtemplist(pVM);
 			pVar = (List *) RING_VM_STACK_READP ;
 			nType = RING_VM_STACK_OBJTYPE ;
-			/* Set the Address Scope As Local */
-			ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 		} else {
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
 				/* Create the List in Global Temp Memory. */
