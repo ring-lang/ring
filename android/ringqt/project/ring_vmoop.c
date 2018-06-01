@@ -24,7 +24,6 @@ void ring_vm_oop_newobj ( VM *pVM )
 	int x,nLimit,nClassPC,nType,nCont  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
 	Item *pItem  ;
-	const char *cTempName = RING_TEMP_OBJECT ;
 	pList2 = NULL ;
 	pVar = NULL ;
 	pItem = NULL ;

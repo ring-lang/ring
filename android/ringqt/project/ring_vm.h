@@ -690,7 +690,6 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_CPOINTERSTATUS_COPIED 1
 #define RING_CPOINTERSTATUS_NOTASSIGNED 2
 /* Temp Object */
-#define RING_TEMP_OBJECT "ring_temp_object"
 #define RING_TEMP_VARIABLE "ring_sys_temp"
 /* Trace */
 #define RING_VM_TRACEEVENT_NEWLINE 1
