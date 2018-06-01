@@ -51,7 +51,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 					nCont = 1 ;
 				}
 				if ( nCont == 1 ) {
-					ring_vm_newvar(pVM,cTempName);
+					/* Create the Temp Variable */
+					ring_vm_createtemplist(pVM);
 					pVar = (List *) RING_VM_STACK_READP ;
 					nType = RING_VM_STACK_OBJTYPE ;
 					ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
