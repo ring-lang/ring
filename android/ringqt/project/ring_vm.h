@@ -255,8 +255,6 @@ void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList ) ;
 
 void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int nStrSize ) ;
 
-List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 ) ;
-
 void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const char *cStr2 ) ;
 /* Jump */
 
