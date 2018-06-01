@@ -33,6 +33,8 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 RING_API void ring_list_print ( List *pList ) ;
 
 RING_API int ring_list_gettype ( List *pList, int index ) ;
+
+RING_API void ring_list_swaptwolists_gc ( void *pState,List *pList1, List *pList2 ) ;
 /* int */
 
 RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;
@@ -150,6 +152,8 @@ RING_API void ring_list_clear ( List *pList ) ;
 /* Delete item from list using the item pointer */
 
 RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
+
+RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 ) ;
 /* Macro */
 #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
 #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )

@@ -260,6 +260,9 @@ ring_list_insertlist
 ring_list_sortstr
 ring_list_genhashtable
 ring_list_genhashtable2
+ring_list_swaptwolists
+Type: List
+TempList
 ring_list_test
 Type: List *
 pList,*pList2
