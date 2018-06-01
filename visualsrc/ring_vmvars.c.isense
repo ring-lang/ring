@@ -32,9 +32,6 @@ pList
 ring_vm_newtempvar
 Type: List *
 pList
-ring_vm_newtempvar2
-Type: List *
-pList,*pList2
 ring_vm_addnewcpointervar
 Type: List *
 pList, *pList2
