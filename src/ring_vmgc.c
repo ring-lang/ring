@@ -110,9 +110,6 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 			if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
 				ring_list_deleteitem_gc(pVM->pRingState,pScope,x);
 			}
-			else if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_OBJECT) == 0 ) {
-				ring_list_deleteitem_gc(pVM->pRingState,pScope,x);
-			}
 		}
 	}
 	/* Delete The HashTable */
