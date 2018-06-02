@@ -178,7 +178,7 @@ class FormDesignerFileSystem
 	func DeleteAllobjects oDesigner
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
 			oDesigner.oModel.aObjectsList[x][2] {
-				oCorners.Hide()
+				oCorners.close()
 				close()
 			}
 		}
