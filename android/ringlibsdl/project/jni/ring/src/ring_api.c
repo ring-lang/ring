@@ -158,7 +158,7 @@ RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
 	/* Copy the list */
-	ring_list_copy(pList2,pList);
+	ring_list_copy_gc(((VM *) pPointer)->pRingState,pList2,pList);
 	RING_API_PUSHPVALUE(pList3);
 	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }
@@ -2074,7 +2074,7 @@ void ring_vmlib_state_setvar ( void *pPointer )
 		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_LIST);
 		ring_list_setlist_gc(pVM->pRingState,pList, RING_VAR_VALUE);
 		pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
-		ring_list_copy(pList3,pList2);
+		ring_list_copy_gc(((VM *) pPointer)->pRingState,pList3,pList2);
 	}
 }
 
