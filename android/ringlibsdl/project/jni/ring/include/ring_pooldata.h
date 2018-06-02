@@ -6,7 +6,7 @@
 **  Memory pool is thread safe because ring_vm_runcodefromthread() create new state 
 */
 #define RING_USEPOOLMANAGER 1
-#define RING_POOLMANAGER_ITEMSINBLOCK 100000
+#define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #define RING_POOLMANAGER_ITEMSIZE 64
 /* Data */
 typedef struct PoolData {

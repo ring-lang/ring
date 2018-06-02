@@ -151,7 +151,7 @@ RING_API void ring_list_refcopy ( List *pNewList, List *pList ) ;
 RING_API void ring_list_clear ( List *pList ) ;
 /* Delete item from list using the item pointer */
 
-RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
+RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pItem ) ;
 
 RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 ) ;
 /* Macro */

@@ -628,7 +628,7 @@ RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem )
 }
 /* Delete item from list using the item pointer */
 
-RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem )
+RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pItem )
 {
 	int x  ;
 	Item *pItem2  ;
@@ -636,7 +636,7 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem )
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pItem2 = ring_list_getitem(pList,x);
 		if ( pItem == pItem2 ) {
-			ring_list_deleteitem(pList,x);
+			ring_list_deleteitem_gc(pState,pList,x);
 			return 1 ;
 		}
 		if ( ring_list_islist(pList,x) ) {
