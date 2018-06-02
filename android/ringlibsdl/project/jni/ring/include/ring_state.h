@@ -44,6 +44,7 @@ typedef struct RingState {
 	char lStartup  ;
 	/* Pool Manager */
 	PoolManager vPoolManager  ;
+	int lStartPoolManager  ;
 	/* Avoid line number ( when we use eval() from VM ) */
 	char lNoLineNumber  ;
 	/* Custom Global Scope */

@@ -67,6 +67,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->lNoLineNumber = 0 ;
 	pRingState->nCustomGlobalScopeCounter = 0 ;
 	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
+	pRingState->lStartPoolManager = 0 ;
 	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	return pRingState ;
 }

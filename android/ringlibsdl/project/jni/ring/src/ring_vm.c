@@ -293,6 +293,7 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 
 void ring_vm_mainloop ( VM *pVM )
 {
+	pVM->pRingState->lStartPoolManager = 1 ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
@@ -1229,6 +1230,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 
 void ring_vm_mainloopforeval ( VM *pVM )
 {
+	pVM->pRingState->lStartPoolManager = 1 ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
