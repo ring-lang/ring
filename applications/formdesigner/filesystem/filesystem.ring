@@ -196,6 +196,8 @@ class FormDesignerFileSystem
 
 	func CreateFormObjects oDesigner,aObjectsList
 		# Use the List data to create the objects
+			oDesigner.oView.win.setupdatesenabled(False)
+			oDesigner.oView.win.blocksignals(True)
 			for item in aObjectsList {
 				cClass = item[:classname]
 				itemdata = item[:data]
@@ -359,6 +361,8 @@ class FormDesignerFileSystem
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}
 			}
+			oDesigner.oView.win.setupdatesenabled(True)
+			oDesigner.oView.win.blocksignals(False)
 		# Objects List
 			oDesigner.AddObjectsToCombo()
 		# Object Properties
