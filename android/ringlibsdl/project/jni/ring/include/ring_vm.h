@@ -325,6 +325,8 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM ) ;
 void ring_vm_retitemref ( VM *pVM ) ;
 
 void ring_vm_callclassinit ( VM *pVM ) ;
+
+List * ring_vm_prevtempmem ( VM *pVM ) ;
 /* User Interface */
 
 void ring_vm_see ( VM *pVM ) ;

@@ -498,8 +498,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
 	} else {
 		return ;
 	}
-	pList2 = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
+	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,ring_vm_prevtempmem(pVM));
 	ring_list_setint_gc(pVM->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
@@ -571,4 +570,27 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM )
 		}
 	}
 	return 0 ;
+}
+
+List * ring_vm_prevtempmem ( VM *pVM )
+{
+	List *pList  ;
+	int x  ;
+	/* We use the previous scope as the default parent */
+	pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
+	/* Get Temp Memory of the previous function */
+	for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
+		if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
+			/* Get Temp Mem */
+			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)-1);
+			pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+			/*
+			**  Create empty list to avoid using the HashTable for all temp. variables 
+			**  This is necessary for better performance 
+			*/
+			pList = ring_list_newlist(pList);
+			break ;
+		}
+	}
+	return pList ;
 }
