@@ -527,7 +527,7 @@ void ring_vm_createtemplist ( VM *pVM )
 		**  Create empty list to avoid using the HashTable for all temp. variables 
 		**  This is necessary for better performance 
 		*/
-		pList = ring_list_newlist(pList);
+		pList = ring_list_newlist_gc(pVM->pRingState,pList);
 		ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
 	}
 	else {
@@ -535,7 +535,7 @@ void ring_vm_createtemplist ( VM *pVM )
 		**  Create empty list to avoid using the HashTable for all temp. variables 
 		**  This is necessary for better performance 
 		*/
-		pList = ring_list_newlist(pVM->pTempMem);
+		pList = ring_list_newlist_gc(pVM->pRingState,pVM->pTempMem);
 		/* Create the list in the general temp. memory */
 		ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pList);
 	}
@@ -598,7 +598,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
 			**  Create empty list to avoid using the HashTable for all temp. variables 
 			**  This is necessary for better performance 
 			*/
-			pList = ring_list_newlist(pList);
+			pList = ring_list_newlist_gc(pVM->pRingState,pList);
 			break ;
 		}
 	}
