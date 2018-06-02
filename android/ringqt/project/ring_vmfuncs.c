@@ -523,11 +523,21 @@ void ring_vm_createtemplist ( VM *pVM )
 		*/
 		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+		/*
+		**  Create empty list to avoid using the HashTable for all temp. variables 
+		**  This is necessary for better performance 
+		*/
+		pList = ring_list_newlist(pList);
 		ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
 	}
 	else {
+		/*
+		**  Create empty list to avoid using the HashTable for all temp. variables 
+		**  This is necessary for better performance 
+		*/
+		pList = ring_list_newlist(pVM->pTempMem);
 		/* Create the list in the general temp. memory */
-		ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
+		ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pList);
 	}
 	/* Set the Address scope as local */
 	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
