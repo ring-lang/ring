@@ -46,6 +46,8 @@ Type: char
 lStartup
 Type: PoolManager
 vPoolManager
+Type: int
+lStartPoolManager
 Type: char
 lNoLineNumber
 Type: int
