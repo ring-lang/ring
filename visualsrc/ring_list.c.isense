@@ -152,7 +152,7 @@ Type: Item *
 pItem2
 Type: List *
 pList2
-ring_list_deliteminsidelist
+ring_list_deliteminsidelist_gc
 Type: int
 x
 Type: Item *
