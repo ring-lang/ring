@@ -265,7 +265,7 @@ extern "C" {
 #include "gquickwidget.h"
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "")
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
@@ -282,7 +282,9 @@ extern "C" {
 #include <QOpenGLShaderProgram>
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
+</filter>
 
+<filter> (sysget("RINGQT_ANDROID") = "")
 
 #include "gserialport.h"
 #include "gwebview.h"
