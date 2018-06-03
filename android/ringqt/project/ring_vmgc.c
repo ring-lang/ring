@@ -258,6 +258,7 @@ void ring_poolmanager_delete ( RingState *pRingState )
 			free( pRingState->vPoolManager.pBlockStart ) ;
 			pRingState->vPoolManager.pBlockStart = NULL ;
 			pRingState->vPoolManager.pBlockEnd = NULL ;
+			pRingState->vPoolManager.pCurrentItem = NULL ;
 		}
 	}
 }
