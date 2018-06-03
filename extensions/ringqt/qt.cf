@@ -57,7 +57,7 @@ extern "C" {
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 #include "openglwidget.h"
 </filter>
 
@@ -8127,7 +8127,7 @@ const char *getclickedEvent(void)
 const char *getcurrentPageChangedEvent(void)
 const char *getselectionChangedEvent(void)
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
 <class>
 name: QOpenGLFunctions
