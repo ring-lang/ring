@@ -8927,7 +8927,7 @@ void translate@2(qreal x, qreal y)
 void translate@3(qreal x, qreal y, qreal z)
 QMatrix4x4 transposed(void)
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
 <class>
 name: QOpenGLPaintDevice
