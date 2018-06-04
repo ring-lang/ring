@@ -189,14 +189,14 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	PoolData *pMemory  ;
 	int x  ;
 	/* Get Block Memory */
-	pMemory = (PoolData *) ring_malloc(sizeof(PoolData)*RING_POOLMANAGER_ITEMSINBLOCK);
+	pMemory = (PoolData *) ring_calloc(RING_POOLMANAGER_ITEMSINBLOCK,sizeof(PoolData));
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
 	/* Set Linked Lists (pNext values) */
-	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 2 ; x++ ) {
+	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 1 ; x++ ) {
 		pMemory[x].pNext = pMemory+x+1 ;
 	}
 	pMemory[RING_POOLMANAGER_ITEMSINBLOCK-1].pNext = NULL ;
