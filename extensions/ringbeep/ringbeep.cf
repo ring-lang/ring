@@ -1,0 +1,5 @@
+<code>
+#include "windows.h"
+</code>
+
+int Beep(int dwFreq,int dwDuration)
