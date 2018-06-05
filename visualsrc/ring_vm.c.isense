@@ -192,6 +192,8 @@ Type: int
 nCurrentGlobalScope
 Type: char *
 cFileNameInClassRegion
+Type: char
+lUsePushPLocal
 END:
 Type: VM
 struct VM
