@@ -1276,7 +1276,7 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 	if ( lFound == 0 ) {
 		pRecord = ring_list_newlist_gc(pVM->pRingState,pVM->aDynamicSelfItems);
 		ring_list_addint_gc(pVM->pRingState,pRecord,pVM->nPC);
-		pItem = ring_item_new(ITEMTYPE_NOTHING);
+		pItem = ring_item_new_gc(pVM->pRingState,ITEMTYPE_NOTHING);
 		ring_list_addpointer_gc(pVM->pRingState,pRecord,pItem);
 		ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
 		ring_state_free(pVM->pRingState,pItem->data.pList);
@@ -1299,5 +1299,6 @@ void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
 	pList = ring_list_getlist(pList,1);
 	/* Save this */
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	/* Create the Temp Variable for the new object */
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }

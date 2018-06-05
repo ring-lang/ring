@@ -7,8 +7,6 @@ Type: List *
 pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
 Type: Item *
 pItem
-Type: const char *
-cTempName
 ring_vm_oop_parentinit
 Type: const char *
 cClassName,*cClassName2
