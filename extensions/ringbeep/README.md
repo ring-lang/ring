@@ -22,9 +22,22 @@ Then we run : gencode.bat to generate ringbeep.c
 
 	gencode.bat
 
+The gencode.bat contains the next command to call Ring Extensions Generator
+
+	ring ..\codegen\parsec.ring ringbeep.cf ringbeep.c
+
+
 Then we build the extension using : 
 
 	buildvc.bat
+
+The file buildvc.bat contains the next commands to build the extension using Visual C/C++ 
+
+	cls
+	call ../../src/locatevc.bat
+	cl /c /DEBUG ringbeep.c -I"..\..\include"
+	link /DEBUG ringbeep.obj  ..\..\lib\ring.lib kernel32.lib /DLL /OUT:ringbeep.dll /SUBSYSTEM:CONSOLE,"5.01" 
+	del ringbeep.obj
 
 Then we test the function using
 
