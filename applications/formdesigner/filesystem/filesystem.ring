@@ -182,22 +182,60 @@ class FormDesignerFileSystem
 				close()
 			}
 		}
+		DeleteAllObjectsFromModel(oDesigner)
+
+	func DeleteAllObjectsFromModel oDesigner
 		oDesigner.oModel.DeleteAllObjects()
 		oDesigner.AddObjectsToCombo()
 		oDesigner.AddObjectProperties()
 
 	func LoadFormFromFile oDesigner
+		# Disable Updates 
+			oDesigner.oView.oSub.setupdatesenabled(False)
+			oDesigner.oView.oSub.blocksignals(True)
 		# Delete objects
-			DeleteAllObjects(oDesigner)
+			DeleteAllObjectsFromModel(oDesigner)
+		# Create New Form 
+			CreateNewForm(oDesigner)
 		# Load the Form Data
 			eval(read(cFileName))
 		# Create Objects
 			CreateFormObjects(oDesigner,aObjectsList)
+		# Enable Updates
+			oDesigner.oView.oSub.setupdatesenabled(True)
+			oDesigner.oView.oSub.blocksignals(False)
+
+
+	func CreateNewForm oDesigner
+		# Close the form 
+			oDesigner.oModel.FormObject().close()
+
+		# Update the Model 
+			oDesigner.oModel.aObjectsList = []
+
+		# Create the form
+			oDesigner.oModel.AddObject("Window",
+				 new FormDesigner_qWidget() { hide() }
+			)
+
+		# Create the Select/Draw Label
+			oDesigner.oView.oLabelSelect = new qlabel(oDesigner.oModel.FormObject()) {
+				setGeometry(100,100,400,400)
+		 		setstylesheet("background-color:rgba(50,150,255,0.3);border: 1px solid black")
+				setautoFillBackground(false)
+				settext("")
+				setmousetracking(false)
+				hide()
+			}
+
+		# Add the form to the Sub Window
+			oDesigner.oView.oSub {
+				setwidget(oDesigner.oModel.FormObject())
+				oDesigner.oModel.ActiveObject().setSubWindow(oDesigner.oView.oSub)
+			}
 
 	func CreateFormObjects oDesigner,aObjectsList
 		# Use the List data to create the objects
-			oDesigner.oView.win.setupdatesenabled(False)
-			oDesigner.oView.win.blocksignals(True)
 			for item in aObjectsList {
 				cClass = item[:classname]
 				itemdata = item[:data]
@@ -223,6 +261,7 @@ class FormDesignerFileSystem
 							else 
 								setIndexTypeValue(0)
 							}
+							show()
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
@@ -361,8 +400,6 @@ class FormDesignerFileSystem
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}
 			}
-			oDesigner.oView.win.setupdatesenabled(True)
-			oDesigner.oView.win.blocksignals(False)
 		# Objects List
 			oDesigner.AddObjectsToCombo()
 		# Object Properties
