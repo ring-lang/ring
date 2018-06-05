@@ -247,9 +247,9 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	ring_list_addint_gc(pVM->pRingState,pList,0);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable == NULL ) {
-		pParent->pHashTable = ring_hashtable_new();
+		pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 	}
-	ring_hashtable_newpointer(pParent->pHashTable,cStr,pList);
+	ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
 	return pList ;
 }
 
