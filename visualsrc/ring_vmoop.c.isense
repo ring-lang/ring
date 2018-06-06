@@ -158,9 +158,6 @@ x
 ring_vm_oop_updateselfpointer
 Type: List *
 pList
-ring_vm_oop_setthethisvariable
-Type: List *
-pList, *pThis
 ring_vm_oop_updateselfpointer2
 Type: Item *
 pItem
@@ -168,6 +165,9 @@ Type: int
 x,lFound
 Type: List *
 pRecord
+ring_vm_oop_setthethisvariable
+Type: List *
+pList, *pThis
 ring_vm_oop_setthethisvariableinclassregion
 Type: List *
 pList, *pThis
