@@ -1224,30 +1224,6 @@ void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContain
 	ring_list_setint_gc(pVM->pRingState,pList,4,nType);
 }
 
-void ring_vm_oop_setthethisvariable ( VM *pVM )
-{
-	List *pList, *pThis  ;
-	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
-	if ( (ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0) ) {
-		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
-		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
-		return ;
-	}
-	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
-	/* Get Object Scope */
-	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
-	if ( pList == NULL ) {
-		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
-		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
-		return ;
-	}
-	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
-	/* Save this */
-	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
-	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
-}
-
 void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 {
 	Item *pItem  ;
@@ -1280,12 +1256,35 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 		ring_list_addpointer_gc(pVM->pRingState,pRecord,pItem);
 		ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
 		ring_state_free(pVM->pRingState,pItem->data.pList);
-		pItem->gc.nReferenceCount++ ;
 	}
 	/* Set the pointer */
 	pItem->data.pList = pList ;
 	/* Update The Self Pointer */
 	ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
+}
+
+void ring_vm_oop_setthethisvariable ( VM *pVM )
+{
+	List *pList, *pThis  ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+	if ( (ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0) ) {
+		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
+	/* Get Object Scope */
+	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
+	if ( pList == NULL ) {
+		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	/* Get Self Attribute List */
+	pList = ring_list_getlist(pList,1);
+	/* Save this */
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }
 
 void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
