@@ -189,7 +189,7 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
 		for ( x = nStart ; x <= nEnd ; x++ ) {
 			pList = ring_list_newlist_gc(pParser->pRingState,pParser->GenCode);
 			pList2 = ring_list_getlist(pParser->GenCode,x);
-			ring_list_copy(pList,pList2);
+			ring_list_copy_gc(pParser->pRingState,pList,pList2);
 			#if RING_SHOWIC
 			nCount2 = ring_list_getsize(pList);
 			printf( "\n %6d [ %s ] ", ring_list_getsize(pParser->GenCode) , RING_IC_OP[ring_list_getint(pList,1)] ) ;
