@@ -468,7 +468,7 @@ void ring_vm_oop_movetobeforeobjstate ( VM *pVM )
 	/* Move list from pObjState to aBeforeObjState */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBeforeObjState);
 	pList2 = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
-	ring_list_copy(pList,pList2);
+	ring_list_copy_gc(pVM->pRingState,pList,pList2);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
 }
 
@@ -498,7 +498,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 				if ( strcmp(cClassName,cClassName2) == 0 ) {
 					/* Push Class Package */
 					ring_vm_oop_pushclasspackage(pVM,pList4);
-					ring_list_copy(pList3,ring_list_getlist(pList4,4));
+					ring_list_copy_gc(pVM->pRingState,pList3,ring_list_getlist(pList4,4));
 					cClassName = ring_list_getstring(pList4,3) ;
 					nFound = 1 ;
 					break ;
@@ -1176,7 +1176,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 			}
 		}
 		pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-		ring_list_copy(pList2,pList);
+		ring_list_copy_gc(pVM->pRingState,pList2,pList);
 		/* Add Logical Value (True) , That we are inside the class method */
 		ring_list_addint_gc(pVM->pRingState,pList2,1);
 		/* Push Class Package */
