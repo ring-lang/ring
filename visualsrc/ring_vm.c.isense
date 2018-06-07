@@ -10,6 +10,8 @@ Type: char
 nSize
 Type: List *
 pList
+Type: Item
+vTempItem
 END:
 Type: ByteCode
 struct ByteCode
@@ -164,8 +166,6 @@ Type: char
 nRunCode
 Type: char
 nActiveError
-Type: List *
-aDynamicSelfItems
 Type: String *
 pPackageName
 Type: char
@@ -260,6 +260,7 @@ RING_VM_IR_ITEM(x)
 RING_VM_IR_LIST
 RING_VM_IR_LOAD
 RING_VM_IR_UNLOAD
+RING_VM_IR_TEMPITEM
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCCL_TYPE

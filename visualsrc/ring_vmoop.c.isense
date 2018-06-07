@@ -161,10 +161,6 @@ pList
 ring_vm_oop_updateselfpointer2
 Type: Item *
 pItem
-Type: int
-x,lFound
-Type: List *
-pRecord
 ring_vm_oop_setthethisvariable
 Type: List *
 pList, *pThis
