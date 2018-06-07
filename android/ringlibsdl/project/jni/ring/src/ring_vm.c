@@ -167,8 +167,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nRunCode = 0 ;
 	/* Flag that we have runtime error to avoid calling the error function again */
 	pVM->nActiveError = 0 ;
-	/* Dynamic List of Self Items and PC */
-	pVM->aDynamicSelfItems = ring_list_new_gc(pVM->pRingState,0);
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,"");
 	/*
@@ -233,17 +231,6 @@ VM * ring_vm_delete ( VM *pVM )
 	ring_state_free(pVM->pRingState,pVM->pByteCode);
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
-	/*
-	**  Remove Dynamic Self Items 
-	**  Delete Items 
-	*/
-	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
-		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
-		pItem = (Item *) ring_list_getpointer(pRecord,2);
-		ring_state_free(pVM->pRingState,pItem);
-	}
-	/* Delete List */
-	pVM->aDynamicSelfItems = ring_list_delete_gc(pVM->pRingState,pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
 	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);

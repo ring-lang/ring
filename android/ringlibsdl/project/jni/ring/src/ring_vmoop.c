@@ -1227,36 +1227,29 @@ void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContain
 void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 {
 	Item *pItem  ;
-	int x,lFound  ;
-	List *pRecord  ;
 	/*
-	**  This function will create new item 
+	**  This function will get the temp item of the current instruction 
 	**  Then Add the Object List Pointer to this temp item 
 	**  Then update the self pointer to use this item pointer 
 	**  This fix the self pointer before usage using braces { } or methods calls 
 	**  This is important because there are use cases where updateselfpointer is not enough 
 	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
 	**  Self pointer that point to deleted items/variables/objects 
-	**  Create The Temp. Item 
-	**  Try to find the item, or create it if it's not found 
+	**  Get the Temp Item 
+	**  Use Temp. Item in the current instruction 
 	*/
-	lFound = 0 ;
-	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
-		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
-		if ( ring_list_getint(pRecord,1) == pVM->nPC ) {
-			pItem = (Item *) ring_list_getpointer(pRecord,2);
-			lFound = 1 ;
-			break ;
-		}
-	}
-	if ( lFound == 0 ) {
-		pRecord = ring_list_newlist_gc(pVM->pRingState,pVM->aDynamicSelfItems);
-		ring_list_addint_gc(pVM->pRingState,pRecord,pVM->nPC);
-		pItem = ring_item_new_gc(pVM->pRingState,ITEMTYPE_NOTHING);
-		ring_list_addpointer_gc(pVM->pRingState,pRecord,pItem);
-		ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
-		ring_state_free(pVM->pRingState,pItem->data.pList);
-	}
+	pItem = RING_VM_IR_TEMPITEM ;
+	/* Set Type */
+	pItem->nType = ITEMTYPE_LIST ;
+	/* Delete pointer information */
+	pItem->data.pPointer = NULL ;
+	pItem->nObjectType = 0 ;
+	/* Delete number information */
+	pItem->data.dNumber = 0 ;
+	pItem->data.iNumber = 0 ;
+	pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
+	/* Reference Count */
+	ring_vm_gc_cleardata(pItem);
 	/* Set the pointer */
 	pItem->data.pList = pList ;
 	/* Update The Self Pointer */

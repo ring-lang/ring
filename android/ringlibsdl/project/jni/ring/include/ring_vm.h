@@ -13,6 +13,7 @@ typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
 	char nSize  ;
 	List *pList  ;
+	Item vTempItem  ;
 } ByteCode ;
 typedef struct VM {
 	int nPC  ;
@@ -90,7 +91,6 @@ typedef struct VM {
 	char *cPrevFileName  ;
 	char nRunCode  ;
 	char nActiveError  ;
-	List *aDynamicSelfItems  ;
 	String *pPackageName  ;
 	char lTrace  ;
 	String *pTrace  ;
@@ -603,6 +603,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_IR_LIST pVM->pByteCodeIR->pList
 #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
 #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
+#define RING_VM_IR_TEMPITEM (&((pVM->pByteCode + pVM->nPC - 2)->vTempItem))
 /*
 **  Calling Functions 
 **  Note : When you insert items check performance functions for update too! 
