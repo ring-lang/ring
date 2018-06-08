@@ -49,6 +49,8 @@ vPoolManager
 Type: char
 lStartPoolManager
 Type: char
+lRunFromThread
+Type: char
 lNoLineNumber
 Type: int
 nCustomGlobalScopeCounter

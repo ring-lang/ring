@@ -39,7 +39,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pList = pVM->pFunctionsMap ;
 		}
 		if ( ring_list_gethashtable(pList) == NULL ) {
-			ring_list_genhashtable2_gc(pVM->pRingState,pList);
+			if ( pVM->pRingState->lRunFromThread ) {
+				ring_list_genhashtable2(pList);
+			}
+			else {
+				ring_list_genhashtable2_gc(pVM->pRingState,pList);
+			}
 		}
 		pList2 = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pList),cStr);
 		if ( pList2 != NULL ) {

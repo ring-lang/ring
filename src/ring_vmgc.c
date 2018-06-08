@@ -114,7 +114,12 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	}
 	/* Delete The HashTable */
 	pScope->pHashTable = ring_hashtable_delete_gc(pVM->pRingState,pScope->pHashTable) ;
-	ring_list_genhashtable2_gc(pVM->pRingState,pScope);
+	if ( pVM->pRingState->lRunFromThread ) {
+		ring_list_genhashtable2(pScope);
+	}
+	else {
+		ring_list_genhashtable2_gc(pVM->pRingState,pScope);
+	}
 }
 
 void ring_vm_gc_newitemreference ( Item *pItem )

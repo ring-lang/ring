@@ -45,7 +45,6 @@ RING_API_NOTPOINTER
 RING_API_NULLPOINTER
 RING_API_EMPTYLIST
 ring_vm_funcregister(x,y)
-RING_API_PSTATUS_NOTCOPIED
 ring_vm_funcregister2
 Type: List *
 pList
