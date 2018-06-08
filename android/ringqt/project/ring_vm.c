@@ -195,6 +195,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->cFileNameInClassRegion = NULL ;
 	/* Control Performance Instructions */
 	pVM->lUsePushPLocal = 0 ;
+	/* Track C Pointers in Lists */
+	pVM->lTrackCPointersInLists = 0 ;
 	return pVM ;
 }
 
