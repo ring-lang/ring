@@ -233,8 +233,8 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 	List *pList, *pList2  ;
 	int y  ;
 	pList = (List *) RING_API_GETLIST(x) ;
-	/* Check pointer status ( 0 = copied , 1 = Not copied ) */
-	if ( ring_list_getint(pList,3) == 0 ) {
+	/* Check pointer status ( 0 = Not copied , 1 = Copied ) */
+	if ( ring_list_getint(pList,3) == RING_API_PSTATUS_NOTCOPIED ) {
 		ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 		return ;
 	}

@@ -277,4 +277,7 @@ void ring_vmlib_give ( void *pPointer ) ;
 **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
 **  C Pointer List , [ Pointer Value , Type String , Status Number 0=Not Copied 1=Copied 2= Not Assigned Yet] 
 */
+#define RING_API_PSTATUS_NOTCOPIED 0
+#define RING_API_PSTATUS_COPIED 1
+#define RING_API_PSTATUS_NOTASSIGNED 2
 #endif

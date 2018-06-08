@@ -56,7 +56,8 @@ void ring_vm_dll_closelib ( void *pPointer )
 	if ( RING_API_ISPOINTER(1) ) {
 		handle = RING_API_GETCPOINTER(1,"DLL") ;
 		CloseDLL(handle);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
