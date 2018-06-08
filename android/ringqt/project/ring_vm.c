@@ -274,8 +274,14 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 	ring_vm_loadcode(pVM);
 	ring_vm_loadcfunctions(pRingState);
 	/* Generate Items Array &  Hash Table */
-	ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
-	ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
+	if ( pRingState->lRunFromThread ) {
+		ring_list_genarray(pRingState->pRingCFunctions);
+		ring_list_genhashtable2(pRingState->pRingCFunctions);
+	}
+	else {
+		ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+		ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
+	}
 	if ( ring_list_getsize(pVM->pCode) > 0 ) {
 		pVM->nPC = 1 ;
 		ring_vm_mainloop(pVM);
@@ -772,7 +778,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Generate Code 
 		**  Generate  Hash Table 
 		*/
-		ring_list_genhashtable2_gc(pVM->pRingState,pVM->pFunctionsMap);
+		if ( pVM->pRingState->lRunFromThread ) {
+			ring_list_genhashtable2(pVM->pFunctionsMap);
+		}
+		else {
+			ring_list_genhashtable2_gc(pVM->pRingState,pVM->pFunctionsMap);
+		}
 		if ( pVM->nEvalCalledFromRingCode ) {
 			ring_scanner_addreturn3(pVM->pRingState,aPara);
 		}
@@ -1293,6 +1304,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	Item *pItem  ;
 	/* Create the RingState */
 	pState = ring_state_init();
+	/*
+	**  Flag that we are running from thread 
+	**  We check this flag when generating hash tables of lists (for functions or scope) 
+	**  In this case we generate the hash table without the memory pool 
+	**  Because the memory of the current memory pool of this state will be deleted when deleteing the state 
+	**  And the lists of the hash table will be needed to be used by the main VM 
+	*/
+	pState->lRunFromThread = 1 ;
 	pState->nPrintInstruction = pVM->pRingState->nPrintInstruction ;
 	/* Share the same Mutex between VMs */
 	ring_vm_mutexlock(pVM);

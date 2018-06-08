@@ -50,6 +50,8 @@ typedef struct RingState {
 	/* Custom Global Scope */
 	int nCustomGlobalScopeCounter  ;
 	List *aCustomGlobalScopeStack  ;
+	/* Flag to know if we are running from thread (Useful for the Pool Manager) */
+	char lRunFromThread  ;
 } RingState ;
 /* Functions */
 
