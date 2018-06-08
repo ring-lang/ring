@@ -1320,7 +1320,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingCFunctions = pVM->pRingState->pRingCFunctions ;
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
-	pState->pVM->pCode = ring_list_new_gc(pVM->pRingState,0) ;
+	pState->pVM->pCode = ring_list_new_gc(pState,0) ;
 	ring_list_copy_gc(pState,pState->pVM->pCode,pVM->pRingState->pRingGenCode);
 	pState->pRingGenCode = pState->pVM->pCode ;
 	ring_vm_loadcode(pState->pVM);
@@ -1329,7 +1329,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
-	ring_list_delete_gc(pVM->pRingState,pState->pVM->pCode);
+	ring_list_delete_gc(pState,pState->pVM->pCode);
 	/* Restore the first scope - global scope */
 	pState->pVM->pMem->pFirst->pValue = pItem ;
 	/* Avoid deleteing the shared code and the Mutex */
