@@ -92,8 +92,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
 	/* Assignment Pointer */
 	pVM->pAssignment = NULL ;
-	/* C Pointers List (Copied Pointers Only that are active i.e. Not NULL) */
-	pVM->aCPointers = ring_list_new_gc(pVM->pRingState,0) ;
 	/* For Loop - Step List */
 	pVM->aForStep = ring_list_new_gc(pVM->pRingState,0);
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
@@ -218,7 +216,6 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aScopeID = ring_list_delete_gc(pVM->pRingState,pVM->aScopeID);
 	pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
-	pVM->aCPointers = ring_list_delete_gc(pVM->pRingState,pVM->aCPointers);
 	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
 	pVM->aLoadAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aLoadAddressScope);
 	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);

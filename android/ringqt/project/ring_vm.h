@@ -62,7 +62,6 @@ typedef struct VM {
 	char nGetSetObjType  ;
 	List *aSetProperty  ;
 	void *pAssignment  ;
-	List *aCPointers  ;
 	List *aForStep  ;
 	char nFirstAddress  ;
 	char nBeforeEqual  ;
