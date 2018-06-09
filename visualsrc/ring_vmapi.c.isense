@@ -72,14 +72,10 @@ Type: List *
 pList
 ring_vm_api_getcpointer
 Type: List *
-pList, *pList2
-Type: int
-y
+pList
 ring_vm_api_setcpointernull
 Type: List *
 pList, *pList2
-Type: int
-y
 ring_vm_api_varptr
 Type: VM *
 pVM

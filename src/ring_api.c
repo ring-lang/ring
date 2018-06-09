@@ -221,22 +221,12 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 
 RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 {
-	List *pList, *pList2  ;
-	int y  ;
+	List *pList  ;
 	pList = (List *) RING_API_GETLIST(x) ;
 	/* Check pointer status ( 0 = Not copied , 1 = Copied ) */
 	if ( ring_list_getint(pList,3) == RING_CPOINTERSTATUS_NOTCOPIED ) {
 		ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 		return ;
-	}
-	pList2 = ((VM *) pPointer)->aCPointers ;
-	if ( ring_list_getsize(pList2) > 0 ) {
-		for ( y = ring_list_getsize(pList2) ; y >= 1 ; y-- ) {
-			if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
-				ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList2,y);
-				ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
-			}
-		}
 	}
 }
 
