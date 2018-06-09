@@ -154,7 +154,7 @@ void ring_vm_assignment ( VM *pVM )
 					pVar = ring_item_getlist(pItem);
 				}
 				pList = ring_list_new_gc(pVM->pRingState,0);
-				ring_list_copy_gc(pVM->pRingState,pList,pVar);
+				ring_vm_list_copy(pVM,pList,pVar);
 				/*
 				**  We use (Temp) List - to avoid problems when coping from parent list to child list 
 				**  Simulate C Pointer copy on the original list because we works on the temp list 
@@ -359,6 +359,11 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 				ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 			}
+			/* Copy The Pointer by Reference */
+			pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
+			pItem = ring_list_getitem(pList,1) ;
+			pNewList->pFirst->pValue = pItem ;
+			ring_vm_gc_newitemreference(pItem);
 		}
 	}
 }
