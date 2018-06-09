@@ -379,8 +379,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 
 RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const char *cType )
 {
-	List *pList, *pList2  ;
-	int y  ;
+	List *pList  ;
 	Item *pItem  ;
 	if ( RING_API_ISLIST(x) ) {
 		pList = RING_API_GETLIST(x) ;
