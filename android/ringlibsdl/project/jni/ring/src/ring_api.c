@@ -395,15 +395,6 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 						pItem = ring_list_getitem(pList,1);
 						return & (pItem->data.pPointer) ;
 					}
-					pList2 = ((VM *) pPointer)->aCPointers ;
-					if ( ring_list_getsize(pList2) > 0 ) {
-						for ( y = 1 ; y <= ring_list_getsize(pList2) ; y++ ) {
-							if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
-								pItem = ring_list_getitem(pList,1);
-								return & (pItem->data.pPointer) ;
-							}
-						}
-					}
 					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
 					return NULL ;
