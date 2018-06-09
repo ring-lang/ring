@@ -97,7 +97,6 @@ func playstart oGame
 			exit
 		ok
 		ogame.refresh()
-		callgc()
 	end
 
 	oSound.Delete()
