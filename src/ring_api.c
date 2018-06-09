@@ -186,8 +186,7 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 
 RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType )
 {
-	List *pList, *pList2  ;
-	int y  ;
+	List *pList  ;
 	if ( RING_API_ISLIST(x) ) {
 		pList = RING_API_GETLIST(x) ;
 		if ( ring_list_ispointer(pList,1) ) {
@@ -199,14 +198,6 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 					*/
 					if ( (ring_list_getint(pList,3) == 0) || (ring_list_getint(pList,3) == 2) ) {
 						return ring_list_getpointer(pList,1) ;
-					}
-					pList2 = ((VM *) pPointer)->aCPointers ;
-					if ( ring_list_getsize(pList2) > 0 ) {
-						for ( y = 1 ; y <= ring_list_getsize(pList2) ; y++ ) {
-							if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
-								return ring_list_getpointer(pList,1) ;
-							}
-						}
 					}
 					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
