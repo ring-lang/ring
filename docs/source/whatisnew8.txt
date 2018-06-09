@@ -515,4 +515,6 @@ Output:
 
 	        Hello from the Test function
 
-(6) Better code for the main loop, special loop for eval() function.
+(6) Better code (faster) for the main loop, special loop for eval() function.
+(7) Better code (faster) for tracking C pointers to avoid using NULL pointers.
+(8) Better code (faster) for getting the self object using braces.
