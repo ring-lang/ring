@@ -519,6 +519,7 @@ Output:
 (6) Better code (faster) for the main loop, special loop for eval() function.
 (7) Better code (faster) for tracking C pointers to avoid using NULL pointers.
 (8) Better code (faster) for getting the self object using braces.
+(9) No need use callgc() function.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Notes to extensions creators
