@@ -32,6 +32,7 @@ Ring 1.8 comes with the next features!
 * Better Code Generator For Extensions
 * Better RingQt for Android
 * Better Ring Compiler and VM
+* Notes to extensions creators
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Find in files Application
@@ -518,3 +519,15 @@ Output:
 (6) Better code (faster) for the main loop, special loop for eval() function.
 (7) Better code (faster) for tracking C pointers to avoid using NULL pointers.
 (8) Better code (faster) for getting the self object using braces.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Notes to extensions creators
+
+Notes to extensions creators
+============================
+
+If you have created new extensions for Ring in the C/C++ languages.
+
+You have to rebuild your extension (Generate the DLL file again using Ring 1.8 header files) before usage with Ring 1.8
+
+Because we changed the internal structure of the VM, but no changes to the code are required. just rebuild.

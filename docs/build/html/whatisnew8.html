@@ -74,6 +74,7 @@
 <li>Better Code Generator For Extensions</li>
 <li>Better RingQt for Android</li>
 <li>Better Ring Compiler and VM</li>
+<li>Notes to extensions creators</li>
 </ul>
 </div>
 <div class="section" id="find-in-files-application">
@@ -435,6 +436,12 @@ Hello from the Test function
 <li>Better code (faster) for getting the self object using braces.</li>
 </ol>
 </div>
+<div class="section" id="notes-to-extensions-creators">
+<span id="index-19"></span><h2>Notes to extensions creators<a class="headerlink" href="#notes-to-extensions-creators" title="Permalink to this headline">¶</a></h2>
+<p>If you have created new extensions for Ring in the C/C++ languages.</p>
+<p>You have to rebuild your extension (Generate the DLL file again using Ring 1.8 header files) before usage with Ring 1.8</p>
+<p>Because we changed the internal structure of the VM, but no changes to the code are required. just rebuild.</p>
+</div>
 </div>
 
 
@@ -464,6 +471,7 @@ Hello from the Test function
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator For Extensions</a></li>
 <li><a class="reference internal" href="#better-ringqt-for-android">Better RingQt for Android</a></li>
 <li><a class="reference internal" href="#better-ring-compiler-and-vm">Better Ring Compiler and VM</a></li>
+<li><a class="reference internal" href="#notes-to-extensions-creators">Notes to extensions creators</a></li>
 </ul>
 </li>
 </ul>
