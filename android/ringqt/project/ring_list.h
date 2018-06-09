@@ -146,8 +146,6 @@ RING_API void ring_list_genhashtable_gc ( void *pState,List *pList ) ;
 
 RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_refcopy ( List *pNewList, List *pList ) ;
-
 RING_API void ring_list_clear ( List *pList ) ;
 /* Delete item from list using the item pointer */
 

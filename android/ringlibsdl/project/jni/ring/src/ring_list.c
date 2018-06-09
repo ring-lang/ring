@@ -1054,17 +1054,6 @@ RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
 }
 /* Copy list by reference */
 
-RING_API void ring_list_refcopy ( List *pNewList, List *pList )
-{
-	pNewList->pFirst = pList->pFirst ;
-	pNewList->pLast = pList->pLast ;
-	pNewList->nSize = pList->nSize ;
-	pNewList->nNextItemAfterLastAccess = pList->nNextItemAfterLastAccess ;
-	pNewList->pLastItemLastAccess = pList->pLastItemLastAccess ;
-	pNewList->pItemsArray = pList->pItemsArray ;
-	pNewList->pHashTable = pList->pHashTable ;
-}
-
 RING_API void ring_list_clear ( List *pList )
 {
 	pList->pFirst = NULL ;
