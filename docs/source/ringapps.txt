@@ -225,8 +225,11 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "The Ring language is pleasant. You get ahead very quickly."
 	, Neskuk (CodeProject Member - Switzerland)
 
-"I'm happy to use your language"
+"I'm happy to use your language."
 	, Akhil Reddy
+
+"I am enjoying using the Ring Programming language."
+	, Gabriel Wendt
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
