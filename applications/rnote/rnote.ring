@@ -5,12 +5,17 @@
 	Load "guilib.ring"
 	Load "stdlib.ring"
 
+# Load the Find in files application 
+	load "../findinfiles/findinfilesController.ring"
+
 # Load the Form Designer 
 	Load "../formdesigner/formdesigner.ring"
-	import formdesigner 
 
 # Load the Web Server - ServerPrepare Class
 	load "../libdepwin/Apache2.2/ring/prepare.ring"
+
+# Import Classes 
+	import formdesigner 
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
@@ -417,6 +422,15 @@ Class RNoteController from WindowsControllerParent
 						setclickEvent(Method(:pTabWidth))
 					}
 					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+alt+f"))
+						setbtnimage(self,"image/search.png")
+						settext("Find in Files")
+						setclickEvent(Method(:pFindInFiles))
+					}
+					addaction(oAction)
+
 				}
 				subView {
 					oAction = new qAction(this.win1) {
@@ -2568,3 +2582,8 @@ Class RNoteController from WindowsControllerParent
 		oProcess = pRunProcess(cAppToRun,cPara,cpGetProcessData)
 		OSFilesManager()
 		chdir(exefolder())
+
+	func pFindInFiles 
+		chdir(cCurrentDir+"../findinfiles")
+		open_window(:findinfilesController)
+		chdir(cCurrentDir)
