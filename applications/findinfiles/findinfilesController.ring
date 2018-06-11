@@ -38,7 +38,11 @@ class findinfilesController from WindowsControllerParent
 				nMax = len(aList)
 				for x = 1 to nMax step 1 { 
 					cLine = aList[x]
-					nPos = substr(cLine,cText)
+					if checkMatchCase.checkstate() {
+						nPos = substr(cLine,cText)
+					else 
+						nPos = substr(upper(cLine),upper(cText))
+					}
 					cLine = substr(cLine,Tab,"")
 					cLine = trim(cLine)
 					if nPos { 
