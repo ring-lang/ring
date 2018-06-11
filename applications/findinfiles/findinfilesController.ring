@@ -18,9 +18,12 @@ class findinfilesController from WindowsControllerParent
 	oView = new findinfilesView
 	oView.txtFolder.setText(CurrentDir())
 
+	aResult = []
+
 	func search
 		Qt_ItemIsSelectable 	= 1
 		Qt_ItemIsEnabled 	= 32
+		aResult = []
 		oView {
 			cText = txtFind.text()
 			cFolder = txtFolder.text()
@@ -58,6 +61,7 @@ class findinfilesController from WindowsControllerParent
 						oItem = new TableWidgetItem(cLine)
 						oItem.setFlags(Qt_ItemIsSelectable|Qt_ItemIsEnabled)
 						TableOutput.setItem(nRow,3,oItem)
+						this.aResult + [cFile,x]
 					}
 				}
 			}
@@ -77,3 +81,11 @@ class findinfilesController from WindowsControllerParent
 	func close
 
 		oView.win.close()
+
+	func SelectResult 
+		nIndex	= oView.TableOutput.currentrow()
+		cFile  	= aResult[nIndex][1]
+		nRow 	= aResult[nIndex][2]
+		if isParent() {
+			parent().FindInFilesSelect(cFile,nRow)
+		}
