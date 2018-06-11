@@ -217,7 +217,7 @@ aObjectsList = [
 		 :LayoutObjects =  "lblExtension,txtExtension"
 		]
 	],
-	[ :name = "checkMatchCase" , :id = 19 , :classname = "formdesigner_qcheckbox" , :data = [
+	[ :name = "checkMatchCase" , :id = 18 , :classname = "formdesigner_qcheckbox" , :data = [
 		 :x = 11 , : y = 204  , 
 		 :width =  168 , :height = 36 , 
 		 :textcolor =  "black" , 
@@ -232,7 +232,7 @@ aObjectsList = [
 		 :settoggledEvent =  ""
 		]
 	],
-	[ :name = "LayoutMain" , :id = 18 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutMain" , :id = 19 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 406 , : y = 619  , 
 		 :width =  204 , :height = 56 , 
 		 :textcolor =  "black" , 
