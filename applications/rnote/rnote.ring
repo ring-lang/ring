@@ -2590,5 +2590,14 @@ Class RNoteController from WindowsControllerParent
 		chdir(cCurrentDir)
 
 	func FindInFilesSelect cFile,nRow 
+		pCheckSaveBeforeChange()
+		cActiveFileName = cFile 
 		openFile(cFile)
 		GotoLine(nRow)		
+		AutoComplete()
+		lAsktoSave = False
+		cTextHash  = sha256(textedit1.toplaintext())
+		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
+		oDockClassesList.setWindowTitle("Classes (Loading...)")
+		DisplayFunctionsList()
+		DisplayClassesList()
