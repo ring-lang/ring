@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.8 comes with the next features!
 
+* Better Performance
 * Find in files Application
 * String2Constant Application
 * StopWatch Application
@@ -33,6 +34,18 @@ Ring 1.8 comes with the next features!
 * Better RingQt for Android
 * Better Ring Compiler and VM
 * Notes to extensions creators
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Performance 
+
+Better Performance
+==================
+
+Ring 1.8 is faster than Ring 1.7 
+
+The performance gain is between 10% and 100% based on the application.
+
+Check the 3D samples in this release to get an idea about the current performance.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Find in files Application
