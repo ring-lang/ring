@@ -2585,5 +2585,10 @@ Class RNoteController from WindowsControllerParent
 
 	func pFindInFiles 
 		chdir(cCurrentDir+"../findinfiles")
-		open_window(:findinfilesController)
+		open_WindowAndLink(:findinfilesController,self)
+		FindInFiles().setParentObject(self)
 		chdir(cCurrentDir)
+
+	func FindInFilesSelect cFile,nRow 
+		openFile(cFile)
+		GotoLine(nRow)		
