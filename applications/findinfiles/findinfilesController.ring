@@ -18,6 +18,8 @@ class findinfilesController from WindowsControllerParent
 	oView = new findinfilesView
 	oView.txtFolder.setText(CurrentDir())
 
+	cCurrentDir 	= currentdir()
+
 	aResult 	= []
 	nFilesCount 	= 0
 	nMatches 	= 0
@@ -31,7 +33,10 @@ class findinfilesController from WindowsControllerParent
 			cFolder = trim(txtFolder.text())
 			cExtension = trim(txtExtension.text())
 			try { 
+				cDir = currentdir()
+				chdir(this.cCurrentDir)
 				aFiles = ListAllFiles(cFolder,cExtension)
+				chdir(cDir)
 			Catch 
 				msginfo("Sorry","Can't open the folder!")
 				return 
