@@ -28,8 +28,8 @@ class findinfilesController from WindowsControllerParent
 		aResult = []
 		oView {
 			cText = txtFind.text()
-			cFolder = txtFolder.text()
-			cExtension = txtExtension.text()
+			cFolder = trim(txtFolder.text())
+			cExtension = trim(txtExtension.text())
 			try { 
 				aFiles = ListAllFiles(cFolder,cExtension)
 			Catch 
