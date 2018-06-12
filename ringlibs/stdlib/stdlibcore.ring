@@ -924,17 +924,18 @@ func ListAllFiles_Process cPath,aList,cExt
 	aOutput = []
 	for aSub in aList 
 		# Workaround a bug in Linux, when aSub[2] = True for files (not folders)
+			if aSub[1] = "." or aSub[1] = ".."
+				loop
+			ok
 			if aSub[2] and substr(aSub[1],".")
 				aSub[2] = 0
 			ok
 		if aSub[2] # Directory
-			if aSub[1] != "." and aSub[1] != ".."
-				cNewPath = cPath + "/" + aSub[1]
-				aSubOutput = listAllFiles(cNewPath,cExt)
-				for item in aSubOutput 
-					aOutput + item
-				next
-			ok
+			cNewPath = cPath + "/" + aSub[1]
+			aSubOutput = listAllFiles(cNewPath,cExt)
+			for item in aSubOutput 
+				aOutput + item
+			next
 		else		# File
 			if cExt != NULL
 				if right(aSub[1],len(cExt)+1) = "."+cExt 
