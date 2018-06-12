@@ -44,14 +44,6 @@ GL_SYS_Event = NULL
 # ANDROID 
 GL_AC_BACK = -1 
 
-# Using Eval() we avoid function redefinition 
-# Using Eval() with a string is better than using it with Load command
-# So we can compile the program to Ring Object File (*.ringo)
-# Without the need to External files 
-# Also we keep the same source code for Desktop edition and Mobile Edition
-
-eval(
-`
 
 func gl_start_playing
 	al_run_main()
@@ -237,5 +229,3 @@ func gl_draw_filled_triangle x1, y1, x2, y2,x3,y3,color
 
 func gl_draw_point x,y,color
 	al_draw_pixel(x,y,color)
-
-`)	# End of Eval()
