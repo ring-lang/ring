@@ -508,7 +508,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
 	ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
 	/* Copy the list */
-	ring_list_copy_gc(pVM->pRingState,pList2,pList);
+	ring_vm_list_copy(pVM,pList2,pList);
 	/* Update self object pointer */
 	if ( ring_vm_oop_isobject(pList2) ) {
 		ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);

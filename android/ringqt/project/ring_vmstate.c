@@ -110,10 +110,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	pVM->nInsideBraceFlag = ring_list_getint(pList,22) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,24),pVM->aBeforeObjState);
-	/* Update Self Object if we are inside braces */
-	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
-		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
-	}
 	pVM->nLineNumber = ring_list_getint(pList,26) ;
 	pVM->nInClassRegion = ring_list_getint(pList,27) ;
 	pVM->nPrivateFlag = ring_list_getint(pList,28) ;
@@ -228,10 +224,6 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,x+29));
-	/* Update Self Object if we are inside braces */
-	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
-		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
-	}
 }
 /* Return to a Specific position in the array, delete all items after that position */
 
