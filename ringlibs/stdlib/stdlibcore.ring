@@ -924,11 +924,13 @@ func ListAllFiles_Process cPath,aList,cExt
 	aOutput = []
 	for aSub in aList 
 		if aSub[2] # Directory
-			cNewPath = cPath + "/" + aSub[1]
-			aSubOutput = listAllFiles(cNewPath,cExt)
-			for item in aSubOutput 
-				aOutput + item
-			next
+			if aSub[1] != "." and aSub[1] != ".."
+				cNewPath = cPath + "/" + aSub[1]
+				aSubOutput = listAllFiles(cNewPath,cExt)
+				for item in aSubOutput 
+					aOutput + item
+				next
+			ok
 		else		# File
 			if cExt != NULL
 				if right(aSub[1],len(cExt)+1) = "."+cExt 
