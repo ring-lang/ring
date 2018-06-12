@@ -18,7 +18,9 @@ class findinfilesController from WindowsControllerParent
 	oView = new findinfilesView
 	oView.txtFolder.setText(CurrentDir())
 
-	aResult = []
+	aResult 	= []
+	nFilesCount 	= 0
+	nMatches 	= 0
 
 	func search
 		Qt_ItemIsSelectable 	= 1
@@ -37,10 +39,13 @@ class findinfilesController from WindowsControllerParent
 			nRow = 0
 			this.StartOutput()
 			Statusbar1.ShowMessage("Searching...",0)
+			this.nFilesCount 	= 0
+			this.nMatches 		= 0
 			for cFile in aFiles step 1 { 
 				cFileText = read(cFile)
 				aList = str2list(cFileText)
 				nMax = len(aList)
+				lFound = False 
 				for x = 1 to nMax step 1 { 
 					cLine = aList[x]
 					if checkMatchCase.checkstate() {
@@ -51,6 +56,11 @@ class findinfilesController from WindowsControllerParent
 					cLine = substr(cLine,Tab,"")
 					cLine = trim(cLine)
 					if nPos { 
+						this.nMatches++
+						if lFound = False {
+							lFound = True 
+							this.nFilesCount++
+						}
 						nRow++
 						TableOutput.setRowCount(nRow)
 						oItem = new TableWidgetItem(cFile)
@@ -66,10 +76,14 @@ class findinfilesController from WindowsControllerParent
 					}
 				}
 			}
-			Statusbar1.ShowMessage("Done...",0)
 			if nRow = 0 { 
+				Statusbar1.ShowMessage("Done...",0)
 				msginfo("Sorry","No Output!")
+				return 
 			}
+			Statusbar1.ShowMessage("" +
+				this.nMatches + " matches across " +
+				this.nFilesCount + " files" ,0)
 		}
 
 	func StartOutput
@@ -93,6 +107,7 @@ class findinfilesController from WindowsControllerParent
 		oView.win.close()
 
 	func SelectResult 
+
 		nIndex	= oView.TableOutput.currentrow()
 		cFile  	= aResult[nIndex][1]
 		nRow 	= aResult[nIndex][2]
