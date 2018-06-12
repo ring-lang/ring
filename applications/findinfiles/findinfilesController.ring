@@ -38,7 +38,8 @@ class findinfilesController from WindowsControllerParent
 			} 
 			nRow = 0
 			this.StartOutput()
-			Statusbar1.ShowMessage("Searching...",0)
+			Statusbar1.ShowMessage("Searching " + len(aFiles) + 
+					" files for " + cText ,0)
 			this.nFilesCount 	= 0
 			this.nMatches 		= 0
 			for cFile in aFiles step 1 { 
