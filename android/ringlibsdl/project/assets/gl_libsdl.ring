@@ -58,15 +58,6 @@ SDL_NEVENT = 0
 #android
 GL_AC_BACK = SDLK_AC_BACK
 
-# Using Eval() we avoid function redefinition 
-# Using Eval() with a string is better than using it with Load command
-# So we can compile the program to Ring Object File (*.ringo)
-# Without the need to External files 
-# Also we keep the same source code for Desktop edition and Mobile Edition
-
-eval(
-`
-
 func gl_start_playing
 	gl_game_start()
     	main()
@@ -336,5 +327,3 @@ func gl_rect p1,p2,p3,p4
 	sdl_set_sdl_rect_w(rect,p3)
 	sdl_set_sdl_rect_h(rect,p4)
 	return rect
-
-`) # End of Eval()
