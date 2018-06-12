@@ -13,7 +13,6 @@ typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
 	char nSize  ;
 	List *pList  ;
-	Item vTempItem  ;
 } ByteCode ;
 typedef struct VM {
 	int nPC  ;
