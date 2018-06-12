@@ -2,7 +2,7 @@
 # Author      : Mahmoud Fayed <msfclipper@yahoo.com>
 # Date        : 2018.03.06
 
-load "findinfilesview.ring"
+load "findinfilesView.ring"
 import System.GUI
 if isMainSourceFile() { 
 	new App
