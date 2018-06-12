@@ -6,11 +6,11 @@ load "findinfilesview.ring"
 import System.GUI
 if isMainSourceFile() { 
 	new App
-		{
-			StyleFusion()
-			open_window(:findinfilesController)
-			exec()
-		}
+	{
+		StyleFusion()
+		open_window(:findinfilesController)
+		exec()
+	}
 }
 
 class findinfilesController from WindowsControllerParent
@@ -35,7 +35,8 @@ class findinfilesController from WindowsControllerParent
 				return 
 			} 
 			nRow = 0
-			TableOutput.setRowCount(0)
+			this.StartOutput()
+			Statusbar1.ShowMessage("Searching...",0)
 			for cFile in aFiles step 1 { 
 				cFileText = read(cFile)
 				aList = str2list(cFileText)
@@ -65,9 +66,18 @@ class findinfilesController from WindowsControllerParent
 					}
 				}
 			}
+			Statusbar1.ShowMessage("Done...",0)
 			if nRow = 0 { 
 				msginfo("Sorry","No Output!")
 			}
+		}
+
+	func StartOutput
+
+		oView {
+			TableOutput.setRowCount(0)
+			TableOutput.hide()
+			TableOutput.show()
 		}
 
 	func browse

@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 2 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 0 , : y = 19  , 
+		 :x = -495 , : y = 19  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
@@ -241,6 +241,16 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :LayoutType =  0,
 		 :LayoutObjects =  "LayoutFind,LayoutInFolder,LayoutExtension,checkMatchCase,LayoutOutput,btnClose"
+		]
+	],
+	[ :name = "Statusbar1" , :id = 20 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 810 , : y = 612  , 
+		 :width =  99 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Message =  "Ready"
 		]
 	]
 ]
