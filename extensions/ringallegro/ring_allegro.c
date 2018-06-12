@@ -286,7 +286,7 @@ VM *globalVM ;
 
 int al_usr_main(int argc, char **argv)
 {
-	ring_vm_runcodefromthread(globalVM,"al_game_start()");	
+	ring_vm_runcode(globalVM,"al_game_start()");	
 	exit(0);
 	return 0;
 }
