@@ -923,6 +923,10 @@ func ListAllFiles cPath,cExt
 func ListAllFiles_Process cPath,aList,cExt
 	aOutput = []
 	for aSub in aList 
+		# Workaround a bug in Linux, when aSub[2] = True for files (not folders)
+			if aSub[2] and substr(aSub[1],".")
+				aSub[2] = 0
+			ok
 		if aSub[2] # Directory
 			if aSub[1] != "." and aSub[1] != ".."
 				cNewPath = cPath + "/" + aSub[1]
