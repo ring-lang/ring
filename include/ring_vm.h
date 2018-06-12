@@ -433,8 +433,6 @@ void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
 void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
 
-void ring_vm_oop_updateselfpointer2 ( VM *pVM,List *pObj ) ;
-
 void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM ) ;
 /* For Better Performance */
 

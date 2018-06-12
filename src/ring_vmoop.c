@@ -427,8 +427,6 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	if ( pVar == NULL ) {
 		return ;
 	}
-	/* Update Self Pointer Using Temp. Item */
-	ring_vm_oop_updateselfpointer2(pVM,pVar);
 	/* Get Object Class */
 	pList = (List *) ring_list_getpointer(pVar,1);
 	/* Push Class Package */
@@ -594,8 +592,6 @@ void ring_vm_oop_bracestart ( VM *pVM )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-	/* Update Self Pointer Using Temp. Item */
-	ring_vm_oop_updateselfpointer2(pVM,pVM->pBraceObject);
 	pVM->pBraceObject = NULL ;
 	pVM->nInsideBraceFlag = 1 ;
 }
@@ -1222,38 +1218,6 @@ void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContain
 	ring_list_setpointer_gc(pVM->pRingState,pList,3, pContainer);
 	/* Set Object Type */
 	ring_list_setint_gc(pVM->pRingState,pList,4,nType);
-}
-
-void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
-{
-	Item *pItem  ;
-	/*
-	**  This function will get the temp item of the current instruction 
-	**  Then Add the Object List Pointer to this temp item 
-	**  Then update the self pointer to use this item pointer 
-	**  This fix the self pointer before usage using braces { } or methods calls 
-	**  This is important because there are use cases where updateselfpointer is not enough 
-	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
-	**  Self pointer that point to deleted items/variables/objects 
-	**  Get the Temp Item 
-	**  Use Temp. Item in the current instruction 
-	*/
-	pItem = RING_VM_IR_TEMPITEM ;
-	/* Set Type */
-	pItem->nType = ITEMTYPE_LIST ;
-	/* Delete pointer information */
-	pItem->data.pPointer = NULL ;
-	pItem->nObjectType = 0 ;
-	/* Delete number information */
-	pItem->data.dNumber = 0 ;
-	pItem->data.iNumber = 0 ;
-	pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
-	/* Reference Count */
-	ring_vm_gc_cleardata(pItem);
-	/* Set the pointer */
-	pItem->data.pList = pList ;
-	/* Update The Self Pointer */
-	ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
 }
 
 void ring_vm_oop_setthethisvariable ( VM *pVM )

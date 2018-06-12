@@ -115,8 +115,6 @@ aSetProperty
 Type: void *
 pAssignment
 Type: List *
-aCPointers
-Type: List *
 aForStep
 Type: char
 nFirstAddress
@@ -194,8 +192,6 @@ Type: char *
 cFileNameInClassRegion
 Type: char
 lUsePushPLocal
-Type: char
-lTrackCPointersInLists
 END:
 Type: VM
 struct VM
