@@ -46,11 +46,11 @@ GL_AC_BACK = -1
 
 
 func gl_start_playing
-	if ismacosx() 
+	//if ismacosx() 
 		al_run_main()
-	else
-		al_game_start()
-	ok
+	//else
+	//	al_game_start()
+	//ok
 
 func al_game_start 
 	gl_game_start()
