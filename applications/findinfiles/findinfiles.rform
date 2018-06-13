@@ -73,7 +73,7 @@ aObjectsList = [
 		 :setTextChangedEvent =  "",
 		 :setcursorPositionChangedEvent =  "",
 		 :seteditingFinishedEvent =  "",
-		 :setreturnPressedEvent =  "",
+		 :setreturnPressedEvent =  "search",
 		 :setselectionChangedEvent =  "",
 		 :settextEditedEvent =  ""
 		]
@@ -201,7 +201,7 @@ aObjectsList = [
 		 :setTextChangedEvent =  "",
 		 :setcursorPositionChangedEvent =  "",
 		 :seteditingFinishedEvent =  "",
-		 :setreturnPressedEvent =  "",
+		 :setreturnPressedEvent =  "search",
 		 :setselectionChangedEvent =  "",
 		 :settextEditedEvent =  ""
 		]
