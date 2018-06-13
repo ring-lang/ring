@@ -14,9 +14,6 @@
 # Load the Web Server - ServerPrepare Class
 	load "../libdepwin/Apache2.2/ring/prepare.ring"
 
-# Import Classes 
-	import formdesigner 
-
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
 
@@ -1968,6 +1965,8 @@ Class RNoteController from WindowsControllerParent
 	func pFormDesignerDock
 		cDir = CurrentDir()
 		chdir(exefolder() + "/../applications/formdesigner")
+		# Import Classes 
+			import formdesigner 
 		open_windowAndLink(:FormDesignerController,self)
 		# We still use setParentObject() and avoid using
 		# IsRNOTE() and RNote() in the Form Designer 
