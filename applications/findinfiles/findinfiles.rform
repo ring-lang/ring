@@ -246,7 +246,7 @@ aObjectsList = [
 	[ :name = "Statusbar1" , :id = 20 , :classname = "formdesigner_qstatusbar" , :data = [
 		 :x = 810 , : y = 612  , 
 		 :width =  99 , :height = 31 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
