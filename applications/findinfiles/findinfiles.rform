@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 2 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -495 , : y = 19  , 
+		 :x = -91 , : y = 19  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
@@ -16,7 +16,7 @@ aObjectsList = [
 	[ :name = "lblfind" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 15 , : y = 15  , 
 		 :width =  92 , :height = 34 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -27,7 +27,7 @@ aObjectsList = [
 	[ :name = "lblExtension" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 16 , : y = 138  , 
 		 :width =  92 , :height = 34 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -54,7 +54,7 @@ aObjectsList = [
 	[ :name = "lblinfolder" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 16 , : y = 76  , 
 		 :width =  92 , :height = 34 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -81,7 +81,7 @@ aObjectsList = [
 	[ :name = "lblOutput" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 15 , : y = 255  , 
 		 :width =  92 , :height = 34 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -92,7 +92,7 @@ aObjectsList = [
 	[ :name = "TableOutput" , :id = 9 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 121 , : y = 269  , 
 		 :width =  921 , :height = 243 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -124,8 +124,8 @@ aObjectsList = [
 	[ :name = "btnSearch" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 16  , 
 		 :width =  137 , :height = 42 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "#ffffff" , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Search",
@@ -136,8 +136,8 @@ aObjectsList = [
 	[ :name = "btnBrowse" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 76  , 
 		 :width =  137 , :height = 42 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "#ffffff" , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Browse",
@@ -148,8 +148,8 @@ aObjectsList = [
 	[ :name = "btnClose" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 905 , : y = 529  , 
 		 :width =  137 , :height = 42 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "#ffffff" , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Close",
@@ -220,7 +220,7 @@ aObjectsList = [
 	[ :name = "checkMatchCase" , :id = 18 , :classname = "formdesigner_qcheckbox" , :data = [
 		 :x = 11 , : y = 204  , 
 		 :width =  168 , :height = 36 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
