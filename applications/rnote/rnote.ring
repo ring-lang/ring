@@ -5,14 +5,14 @@
 	Load "guilib.ring"
 	Load "stdlib.ring"
 
-# Load the Find in files application 
-	load "../findinfiles/findinfilesController.ring"
-
 # Load the Form Designer 
 	Load "../formdesigner/formdesigner.ring"
 
 # Load the Web Server - ServerPrepare Class
-	load "../libdepwin/Apache2.2/ring/prepare.ring"
+	Load "../libdepwin/Apache2.2/ring/prepare.ring"
+
+# Load the Find in files application 
+	Load "../findinfiles/findinfilesController.ring"
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
