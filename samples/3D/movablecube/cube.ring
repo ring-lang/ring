@@ -237,7 +237,6 @@ class GraphicsAppBase
 				drawScene()
 				al_flip_display()
 			ok
-			callgc()
 		end
 
 	func destroy
