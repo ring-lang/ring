@@ -407,6 +407,7 @@ Better Form Designer
 (8) New buttons are added to move and resize multiple selection of objects.
 (9) Window Properties - Add button to select the layout.
 (10) Opening forms and switching between files is faster.
+(11) Objects Order window.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Cards Game
