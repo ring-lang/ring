@@ -659,9 +659,20 @@ Class FormDesignerView from WindowsViewParent
 			this.oObjectsCombo = new qCombobox(this.oProperties) {
 				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
 			}
+			oBtnObjectsOrder = new qPushButton(this.oProperties) {
+				setText("::")
+				setClickevent(Method(:ObjectsOrderAction))
+				if isMobile() {
+					setfixedwidth(110)
+				else 
+					setfixedwidth(30)
+				}
+
+			}
 			oLayout1 = new qHBoxlayout() {
 				AddWidget(oLabelObject)
 				AddWidget(this.oObjectsCombo)
+				AddWidget(oBtnObjectsOrder)
 			}
 			this.oPropertiesTable = new qTableWidget(this.oProperties) {
 				setrowcount(0)

@@ -458,3 +458,9 @@ Class FormDesignerModel
 			swap(aObjectsList,nActiveObject+1,x+1)
 			del(aObjectsList,nActiveObject+1)
 		}
+
+	func MoveObjectDown nIndex 
+		swap(aObjectsList,nIndex+1,nIndex+2)
+
+	func MoveObjectUp nIndex 
+		swap(aObjectsList,nIndex+1,nIndex)

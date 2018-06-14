@@ -1347,3 +1347,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func SaveIfOnlyFileIsOpened
 		oFile.SaveIfOnlyFileIsOpened(self)
+
+	func ObjectsOrderAction
+		Open_WindowAndLink(:ObjectsOrderController,self)
+		ObjectsOrder().loadobjects()
