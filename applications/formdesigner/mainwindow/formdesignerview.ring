@@ -463,31 +463,31 @@ Class FormDesignerView from WindowsViewParent
 			}
  			this.oToolbtn11 = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:SpinBox]) # "SpinBox"
-					this.setToolbtnImage(self,AppFile("image/spinner.bmp"))
+					this.setToolbtnImage(self,AppFile("image/spinner.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn12 = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:ComboBox]) # "ComboBox"
-					this.setToolbtnImage(self,AppFile("image/combobox.bmp"))
+					this.setToolbtnImage(self,AppFile("image/combobox.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn13 = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:DateTimeEdit]) # "DateTimeEdit"
-					this.setToolbtnImage(self,AppFile("image/datepicker.bmp"))
+					this.setToolbtnImage(self,AppFile("image/datepicker.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn14 = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:TableWidget]) # "TableWidget"
-					this.setToolbtnImage(self,AppFile("image/grid.bmp"))
+					this.setToolbtnImage(self,AppFile("image/grid.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn15 = new qPushButton(oToolBox) {
 					setText(aToolBoxTextList[:TreeWidget]) # "TreeWidget"
-					this.setToolbtnImage(self,AppFile("image/tree.bmp"))
+					this.setToolbtnImage(self,AppFile("image/tree.png"))
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
