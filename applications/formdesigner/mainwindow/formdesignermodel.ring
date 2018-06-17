@@ -398,19 +398,31 @@ Class FormDesignerModel
 
 	func SetObjectName oDesigner,oObject,cValue
 		# Check duplication
-		for Item in aObjectsList {
-			if lower(trim(Item[1])) = lower(trim(cValue)) {
-				if not PtrCmp( Item[2].pObject , oObject.pObject ) {
-					oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
+			for Item in aObjectsList {
+				if lower(trim(Item[1])) = lower(trim(cValue)) {
+					if not PtrCmp( Item[2].pObject , oObject.pObject ) {
+						oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
+					}
+					return
 				}
-				return
 			}
-		}
-		for Item in aObjectsList {
-			if PtrCmp( Item[2].pObject , oObject.pObject ) {
-				Item[1] = cValue
+		# Set the new name 
+			for Item in aObjectsList {
+				if PtrCmp( Item[2].pObject , oObject.pObject ) {
+					cOldName = Item[1]
+					Item[1] = cValue
+				}
 			}
-		}
+		# Update Control Name in Layouts  		
+			for Item in aObjectsList {
+				if ClassName(Item[2]) = "formdesigner_qlayout" {
+					cLayoutObjects = Item[2].layoutobjectsValue()
+					cLayoutObjects = substr(cLayoutObjects,cOldName,cValue)
+					Item[2].setlayoutobjectsValue(cLayoutObjects)
+				}
+			}
+
+
 
 	func GetObjectClassByName cName
 		cOutput = ""
