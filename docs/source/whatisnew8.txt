@@ -408,6 +408,7 @@ Better Form Designer
 (9) Window Properties - Add button to select the layout.
 (10) Opening forms and switching between files is faster.
 (11) Objects Order window.
+(12) Select Objects window.
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Cards Game
