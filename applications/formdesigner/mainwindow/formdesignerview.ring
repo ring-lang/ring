@@ -186,6 +186,20 @@ Class FormDesignerView from WindowsViewParent
 					setclickevent(Method(:SendToBack))
 				}
 				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Del"))
+					settext(T_FORMDESIGNER_TOOLBAR_DELETE) # "Delete"
+					setclickevent(Method(:DeleteControl))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					settext(T_FORMDESIGNER_TOOLBAR_SELECTOBJECTS) # "Select objects"
+					setclickevent(Method(:SelectObjectsWindow))
+				}
+				addaction(oAction)
+
 			}
 			subView = addmenu(T_FORMDESIGNER_VIEW) # "View"
 			subView {
