@@ -44,7 +44,8 @@
 	load "menubardesigner/menubardesignerController.ring"
 	load "windowflags/windowflagsController.ring"
 	load "windowobjects/windowobjectscontroller.ring"
-	load "objectsorder/objectsordercontroller.ring"
+	load "objectsorder/objectsorderController.ring"
+	load "selobjects/selobjectsController.ring"
 
 # Load Controls
 	load "controls/qlabel.ring"

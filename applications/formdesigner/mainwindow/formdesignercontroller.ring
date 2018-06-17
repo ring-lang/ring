@@ -1353,3 +1353,8 @@ class FormDesignerController from WindowsControllerParent
 	func ObjectsOrderAction
 		Open_WindowAndLink(:ObjectsOrderController,self)
 		ObjectsOrder().loadobjects()
+
+	func SelectObjectsWindow 
+		Open_WindowAndLink(:selObjectsController,self)
+		SelObjects().loadobjects()
+
