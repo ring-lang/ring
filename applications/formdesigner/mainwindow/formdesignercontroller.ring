@@ -1244,7 +1244,9 @@ class FormDesignerController from WindowsControllerParent
 					item = aObjects[x]
 					oObject = item[2]
 					oObject.oCorners.Show()
-					oModel.AddSelectedObject(x)
+					if nCount+1 != len(aObjects) {
+						oModel.AddSelectedObject(x)
+					}
 				}
 
 	func ShowMsg cTitle,cText,cText2
