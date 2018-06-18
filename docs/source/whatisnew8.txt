@@ -469,6 +469,8 @@ Tested using
 * Qt 5.9.5
 * Qt 5.5.1
 
+(2) The Ring Object File (ringo) will be executed directly from resources.
+
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Ring Compiler and VM
 
