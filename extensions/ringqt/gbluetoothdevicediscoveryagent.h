@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GBLUETOOTHDEVICEDISCOVERYAGENT_H
 #define GBLUETOOTHDEVICEDISCOVERYAGENT_H
 #include <QApplication>
