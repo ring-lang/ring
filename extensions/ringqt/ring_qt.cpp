@@ -273,13 +273,14 @@ extern "C" {
 
 
 #include "gserialport.h"
-#include "gwebview.h"
-
 #include <QSerialPort>
 #include <QSerialPortInfo>
 
+
+#include "gwebview.h"
 #include <QWebSettings>
 #include <QWebView>
+
 
 
 
