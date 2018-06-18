@@ -277,6 +277,7 @@ extern "C" {
 
 #include <QSerialPort>
 #include <QSerialPortInfo>
+
 #include <QWebSettings>
 #include <QWebView>
 
