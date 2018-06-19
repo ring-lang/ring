@@ -853,6 +853,7 @@ Class RNoteController from WindowsControllerParent
 						append("*.bat")
 						append("*.md")
 						append("*.cf")
+						append("*.qml")
 					}
 					setnamefilters(myfiles)
 					setNameFilterDisables(false)

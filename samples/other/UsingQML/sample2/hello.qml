@@ -2,14 +2,15 @@ import QtQuick 2.1
 
 Rectangle {
     id: rectangle
-    color: "red"
-    width: 200
-    height: 200
+    color: "purple"
+    width: 600
+    height: 600
 
     Text {
         id: text
-        text: "This is QML code.\n(Click to pause)"
-        font.pointSize: 14
+        text: "Using QML from RingQt\n(Click to pause)"
+	color: "white"
+        font.pointSize: 24
         anchors.centerIn: parent
         PropertyAnimation {
             id: animation
