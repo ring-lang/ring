@@ -32,6 +32,9 @@ class findinfilesController from WindowsControllerParent
 			cText = txtFind.text()
 			cFolder = trim(txtFolder.text())
 			cExtension = trim(txtExtension.text())
+			if trim(cText) = NULL or trim(cFolder) = NULL or trim(cExtension) = NULL {
+				return 
+			}
 			try { 
 				cDir = currentdir()
 				chdir(this.cCurrentDir)
