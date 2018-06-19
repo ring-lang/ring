@@ -239,11 +239,11 @@ Output:
 	name: My Application
 	version: 1.0
 
-In previous versions of Ring, trying to access the object attribute before assinging a value to it
+In previous versions of Ring, trying to access the object attribute before assigning a value to it
 
 Will lead to runtime error and you can't check it using isnull() 
 
-The only way was assinging a value or using try/catch/end 
+The only way was assigning a value or using try/catch/end 
 
 We changed this behavior so we can have full control in seamless way.
 
