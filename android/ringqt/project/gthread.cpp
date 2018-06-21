@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -60,7 +60,7 @@ void GThread::startedSlot()
 	if (strcmp(this->cStartedEvent,"")==0)
 		return ;
 
-	ring_vm_runcode(this->pVM,this->cStartedEvent);
+	ring_vm_runcodefromthread(this->pVM,this->cStartedEvent);
 }
 
 void GThread::finishedSlot()
@@ -68,6 +68,6 @@ void GThread::finishedSlot()
 	if (strcmp(this->cFinishedEvent,"")==0)
 		return ;
 
-	ring_vm_runcode(this->pVM,this->cFinishedEvent);
+	ring_vm_runcodefromthread(this->pVM,this->cFinishedEvent);
 }
 

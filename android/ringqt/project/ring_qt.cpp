@@ -256,6 +256,9 @@ extern "C" {
 
 
 
+
+
+
 extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);
@@ -103007,6 +103010,21 @@ RING_FUNC(ring_QQmlError_new)
 	RING_API_RETCPOINTER(pObject,"QQmlError");
 }
 
+RING_FUNC(ring_QScrollBar_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QScrollBar *pObject = new QScrollBar((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QScrollBar");
+}
+
 RING_FUNC(ring_QObject_delete)
 {
 	QObject *pObject ; 
@@ -105553,6 +105571,21 @@ RING_FUNC(ring_QQmlError_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QQmlError *) RING_API_GETCPOINTER(1,"QQmlError");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QScrollBar_delete)
+{
+	QScrollBar *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QScrollBar *) RING_API_GETCPOINTER(1,"QScrollBar");
 		delete pObject ;
 	}
 }
@@ -110659,6 +110692,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfile_new",ring_QFile_new);
 	ring_vm_funcregister("qquickwidget_new",ring_QQuickWidget_new);
 	ring_vm_funcregister("qqmlerror_new",ring_QQmlError_new);
+	ring_vm_funcregister("qscrollbar_new",ring_QScrollBar_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -110829,4 +110863,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfile_delete",ring_QFile_delete);
 	ring_vm_funcregister("qquickwidget_delete",ring_QQuickWidget_delete);
 	ring_vm_funcregister("qqmlerror_delete",ring_QQmlError_delete);
+	ring_vm_funcregister("qscrollbar_delete",ring_QScrollBar_delete);
 }

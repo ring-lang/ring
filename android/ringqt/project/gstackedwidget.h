@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GSTACKEDWIDGET_H
 #define GSTACKEDWIDGET_H
 #include <QApplication>
