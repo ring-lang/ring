@@ -4105,7 +4105,9 @@ Class QAbstractScrollArea from QFrame
 		return pTempObj
 
 	Func horizontalScrollBar 
-		return QAbstractScrollArea_horizontalScrollBar(pObject)
+		pTempObj = new QScrollBar
+		pTempObj.pObject = QAbstractScrollArea_horizontalScrollBar(pObject)
+		return pTempObj
 
 	Func horizontalScrollBarPolicy 
 		return QAbstractScrollArea_horizontalScrollBarPolicy(pObject)
@@ -4137,7 +4139,9 @@ Class QAbstractScrollArea from QFrame
 		return QAbstractScrollArea_setViewport(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func verticalScrollBar 
-		return QAbstractScrollArea_verticalScrollBar(pObject)
+		pTempObj = new QScrollBar
+		pTempObj.pObject = QAbstractScrollArea_verticalScrollBar(pObject)
+		return pTempObj
 
 	Func verticalScrollBarPolicy 
 		return QAbstractScrollArea_verticalScrollBarPolicy(pObject)
@@ -21668,5 +21672,18 @@ Class QAxObject from QAxBase
 
 	Func delete
 		pObject = QAxObject_delete(pObject)
+	Func ObjectPointer
+		return pObject
+
+Class QScrollBar from QAbstractSlider
+
+	pObject
+
+	Func init P1
+		pObject = QScrollBar_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QScrollBar_delete(pObject)
 	Func ObjectPointer
 		return pObject
