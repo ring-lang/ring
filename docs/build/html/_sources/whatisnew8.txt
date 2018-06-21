@@ -445,6 +445,7 @@ The next classes are added to RingQt
 (5) QDir
 (6) QQuickWidget
 (7) QQmlError
+(8) QScrollBar
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better Code Generator For Extensions
