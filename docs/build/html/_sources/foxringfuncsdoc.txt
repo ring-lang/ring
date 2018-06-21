@@ -328,6 +328,23 @@ frSpace() function
 
 .. code-block:: none
 
+	 * Syntax		: lcReturnValue = frSpace(tnSpaces)
+	 * Description		: Returns a character string composed of a specified number of spaces.
+	 *			:
+	 * Arguments   		: <tnSpaces>
+	 *			: Specifies the number of spaces that frSpace() returns.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Character
+
+.. index:: 
+     pair: FoxRing Functions Reference; frInList() function
+
+frInList() function
+===================
+
+.. code-block:: none
+
 	 * Syntax		: llReturnValue = frInList(tuExpression, taList)
 	 * Description		: Determines whether an expression matches another expression in a set of expressions.
 	 *			:
@@ -339,15 +356,6 @@ frSpace() function
 	 *			: The expressions in the list of expressions needn't to be of the same data type. 
 	 *			:
 	 * Returns		: <luReturnValue> Null or logical value.
-
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
-
-.. code-block:: none
-
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
