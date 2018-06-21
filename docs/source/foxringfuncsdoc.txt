@@ -460,12 +460,14 @@ frRTrim() function
 	 Syntax		: lcRet = frRTrim(tcExpression, tcCharacter)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frJustPath() function
 
-() function
-================
+frJustPath() function
+=====================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frJustPath(tcExpression)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
