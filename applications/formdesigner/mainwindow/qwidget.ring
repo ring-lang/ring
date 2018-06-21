@@ -134,9 +134,9 @@ class FormDesigner_QWidget from QWidget
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the X
-			oPropertiesTable.item(0,1).settext(""+oSubWindow.x())
+			oPropertiesTable.item(0,1).settext(""+(oSubWindow.x()+oDesigner.oview.oArea.horizontalScrollBar().value()))
 		# Set the Y
-			oPropertiesTable.item(1,1).settext(""+oSubWindow.y())
+			oPropertiesTable.item(1,1).settext(""+(oSubWindow.y()+oDesigner.oview.oArea.verticalScrollBar().value()))
 		# Set the Width
 			oPropertiesTable.item(2,1).settext(""+oSubWindow.width())
 		# Set the Height
