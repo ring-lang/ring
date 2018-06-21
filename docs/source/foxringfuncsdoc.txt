@@ -378,12 +378,14 @@ frForcePath() function
 	 *			: Returns a file name with a new path name substituted for the old one.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frAllTrim() function
 
-() function
-================
+frAllTrim() function
+====================
 
 .. code-block:: none
+
+	Syntax		: lcReturnValue = frAllTrim(tcExpression, tcCharacter)
 
 
 .. index:: 
