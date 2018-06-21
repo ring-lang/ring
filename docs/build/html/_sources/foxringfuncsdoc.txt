@@ -584,12 +584,14 @@ frStuff() function
 	 * Returns		: Character 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frSubStr() function
 
-() function
-================
+frSubStr() function
+===================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
