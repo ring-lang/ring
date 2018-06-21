@@ -321,13 +321,24 @@ frSetIfEmpty() function
 	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frSpace() function
 
-() function
+frSpace() function
 ================
 
 .. code-block:: none
 
+	 * Syntax		: llReturnValue = frInList(tuExpression, taList)
+	 * Description		: Determines whether an expression matches another expression in a set of expressions.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Specifies the expression frInList() searches for in the List.
+	 *			:
+	 *			: <taList>
+	 *			: Specifies the List of expressions to search. You must include at least one element in the list.
+	 *			: The expressions in the list of expressions needn't to be of the same data type. 
+	 *			:
+	 * Returns		: <luReturnValue> Null or logical value.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
