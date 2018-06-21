@@ -399,12 +399,21 @@ frLTrim() function
 	Syntax		: lcRet = frLTrim(tcExpression, tcCharacter)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frJustDrive() function
 
-() function
-================
+frJustDrive() function
+======================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frJustDrive(tcPath)
+	 * Description		: Returns the drive letter from a complete path.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the complete path name for which you want only the drive.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the drive letter from a complete path.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
