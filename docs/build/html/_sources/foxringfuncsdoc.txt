@@ -625,12 +625,15 @@ frInt() function
 	Syntax		: lnInt = frInt(tnExpression)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frStringToList() function
 
-() function
-================
+frStringToList() function
+=========================
 
 .. code-block:: none
+
+	 * Syntax		: laList = frStringToList(tcExpression)
+	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
