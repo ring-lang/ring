@@ -300,13 +300,25 @@ frStr() function
 	 *			: returns a value using scientific notation. 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frSetIfEmpty() function
 
-() function
-================
+frSetIfEmpty() function
+=======================
 
 .. code-block:: none
 
+	 * Syntax		: tuReturnValue = frSetIfEmpty(tuValue, tuNewValue)
+	 * Description		: Set a Value into a variable if the variable value is empty, null or zero.
+	 *			:
+	 * Arguments   		: <tuValue>
+	 *			: The value to evaluate.
+	 *			:
+	 *			: <tuNewValue>
+	 *			: The value to set if tuValue is empty.
+	 *			:
+	 * Returns		: tuNewValue if tuValue is empty, otherwise returns the original value.
+	 *			:
+	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
