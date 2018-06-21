@@ -179,13 +179,24 @@ frAtC() function
 	 *			: returns 0.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frChr() function
 
-() function
+frChr() function
 ================
 
 .. code-block:: none
 
+	 * Syntax		: lcReturnValue = frChr(tnExpression)
+	 * Description		: Returns the character associated with the specified numeric ANSI code.
+	 *			:
+	 * Arguments		: <tnExpression>
+	 *			: Specifies a number between 0 and 255 whose equivalent ANSI character frChr() returns.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns a single character corresponding to the numeric position of the character in the
+	 *			: character table of the current code page.
+	 * 			:
+	 * Remarks		: tnExpression must be between 0 and 255
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
