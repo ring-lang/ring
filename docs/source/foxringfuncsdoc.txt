@@ -536,12 +536,14 @@ frProper() function
 	 * Returns		: <tcReturnValue> 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frReplicate() function
 
-() function
-================
+frReplicate() function
+======================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frReplicate(tcString, tnTimes)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
