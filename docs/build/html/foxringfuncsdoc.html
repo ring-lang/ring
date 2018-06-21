@@ -650,6 +650,88 @@ frVarType()             Returns the data type of an expression.
 </pre></div>
 </div>
 </div>
+<div class="section" id="example">
+<span id="index-43"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>Load &quot;foxring.ring&quot;
+
+
+mf = new frFunctions
+
+/*----------------------------------------------------------*/
+ * frProper() samples
+/*----------------------------------------------------------*/
+
+lcStr1 = &quot;ring is a good language&quot;
+?mf.frProper(lcStr1)
+?mf.frProper(Upper(lcStr1))
+
+
+/*----------------------------------------------------------*/
+ * frStuff() samples
+/*----------------------------------------------------------*/
+
+lcStr1 = &quot;abcdefghijklm&quot;
+lcStr2 = &quot;12345&quot;
+
+// insert
+?mf.frStuff(lcStr1, 4, 0, lcStr2)
+// replace
+?mf.frStuff(lcStr1, 4, 3, lcStr2)
+// delete
+?mf.frStuff(lcStr1, 4, 6, &quot;&quot;)
+// replace and insert
+?mf.frStuff(lcStr1, 4, 1, lcStr2)
+// replace and delete
+?mf.frStuff(lcStr1, 4, 4, lcStr2)
+// replace, delete rest
+?mf.frStuff(lcStr1, 4, Len(lcStr1), lcStr2)
+
+/*----------------------------------------------------------*/
+
+
+
+?mf.frAbs(-45)
+?mf.frAbs(10-30)
+?mf.frAbs(30-10)
+
+lcNumber1 = 40
+lcNumber2 = 2
+
+?mf.frAbs(lcNumber2-lcNumber1)
+
+
+
+
+lcCompletFileName = &quot;C:\ring\docs\source\contribute.txt&quot;
+
+?mf.frFile(lcCompletFileName, Null)
+if mf.frFile(lcCompletFileName, Null) {
+  ?mf.frFileToStr(lcCompletFileName)
+else
+  ?&quot;File does not exist&quot;
+}
+
+lcNewPath = &quot;C:\ring_2\docs\source\&quot;
+?mf.frJustExt(lcCompletFileName)
+?mf.frJustDrive(lcCompletFileName)
+?mf.frJustStem(lcCompletFileName)
+?mf.frForcePath(lcCompletFileName, lcNewPath)
+?mf.frTransform(&quot;    Ring is a good language    &quot;, &quot;@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;)
+?mf.frAllTrim(&quot;    Ring is a good language    &quot;, Null)
+?mf._version
+lnValue = 3125.54
+?mf.frTransform(lnValue, &quot;@B&quot;)+ &quot;Euros&quot;
+?mf.frTransform(lnValue, &quot;@C 9999,999,999,999.999&quot;)
+mf.frSetSeparatorTo(&quot; &quot;)
+?mf.frTransform(lnValue, &quot;9999,999,999,999.999&quot;)
+?mf.frInt(lnValue)
+?mf.frForceExt(&quot;teste&quot;, &quot;dbf&quot;)
+// Format &quot;@L&quot; Added into frTransform() function
+?mf.frTransform(&quot;123&quot;, &quot;@L 999999&quot;)
+?mf.frTransform(123, &quot;@L 999999&quot;)
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -703,6 +785,7 @@ frVarType()             Returns the data type of an expression.
 <li><a class="reference internal" href="#frsetseparatorto-function">frSetSeparatorTo() function</a></li>
 <li><a class="reference internal" href="#frtransform-function">frTransform() function</a></li>
 <li><a class="reference internal" href="#frvartype-function">frVarType() function</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
