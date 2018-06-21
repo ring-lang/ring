@@ -470,12 +470,14 @@ frJustPath() function
 	Syntax		: tcReturnValue = frJustPath(tcExpression)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frForceExt() function
 
-() function
-================
+frForceExt() function
+=====================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frForceExt(tcFileName, tcNewExtension)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
