@@ -241,12 +241,24 @@ frFile() function
 	 *			: False if file doesn't exist on disk.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frFileToStr() function
 
-() function
-================
+frFileToStr() function
+======================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frFileToStr(tcFileName)
+	 * Description		: Returns the contents of a file as a character string.
+	 *			:
+	 * Arguments		: <tcFileName>
+	 * 			: Specifies the name of the file whose contents are returned as a character 
+	 *			: string. If the file is in a directory other than the current default directory, 
+	 *			: include a path with the file name.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: A character string with the content of the specified file.
+	 *			:
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
