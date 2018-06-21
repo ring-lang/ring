@@ -416,12 +416,21 @@ frJustDrive() function
 	 *			: Returns the drive letter from a complete path.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frJustExt() function
 
-() function
-================
+frJustExt() function
+====================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frJustExt(tcPath)
+	 * Description		: Returns the characters of a file extension from a complete path.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the name, which may include the full path, of the file for which you want only the extension. 
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the drive characters of a file extension from a complete path.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
