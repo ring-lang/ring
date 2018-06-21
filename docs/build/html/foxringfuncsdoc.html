@@ -263,194 +263,223 @@ frVarType()             Returns the data type of an expression.
 </pre></div>
 </div>
 </div>
-<div class="section" id="function">
-<span id="index-11"></span><h2>() function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>
+<div class="section" id="frstr-function">
+<span id="index-11"></span><h2>frStr() function<a class="headerlink" href="#frstr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frStr(tnValue, tnLen, tnDec)
+* Description          : Returns the character equivalent of a numeric expression.
+*                      :
+* Arguments            : &lt;tnValue&gt;
+*                      : Specifies the numeric expression to evaluate.
+*                      :
+*                      : &lt;tnLen&gt;
+*                      : Specifies the length of the character string returned. If tnLen is 0, tnLen defaults to 10 characters.
+*                      : If tnLen &lt; 0 returns one string with same length as the number.
+*                      : Note
+*                      : If the expression contains a decimal point, the length includes one character for the decimal point and one character
+*                      : for each digit in the character string.
+*                      :
+*                      : &lt;tnDec&gt;
+*                      : Specifies the number of decimal places in the character string returned. To specify the number of decimal places using
+*                      : tnDec, you must include nLength. If nDecimalPlaces is omitted, the number of decimal places defaults to zero (0).
+*                      :
+* Returns              : Character data type. frStr() returns a character string equivalent to the specified numeric expression.
+*                      :
+*                      : Depending on certain conditions, frStr() can return the following:
+*                      : If you specify fewer decimal places than exist in tnValue, the return value is rounded up. To round results to the nearest
+*                      : decimal place instead of upward, include the ROUND( ) function. For more information, see ROUND( ) Function.
+*                      : If nExpression is an integer, and nLength is less than the number of digits in nExpression, frStr( ) returns a string of
+*                      : asterisks, indicating numeric overflow.
+*                      : If nExpression contains a decimal point, and nLength is equal to or less than the number of digits to the left of the decimal
+*                      : point, frStr( ) returns a string of asterisks, indicating numeric overflow.
+*                      : If nLength is greater than the length of the value evaluated by nExpression, frStr( ) returns a character string padded with
+*                      : leading spaces.
+*                      : If nExpression has Numeric or Float type, and nLength is less than the number of digits in nExpression, and , frStr( )
+*                      : returns a value using scientific notation.
 </pre></div>
 </div>
 </div>
-<div class="section" id="index-12">
-<span id="id1"></span><h2>() function<a class="headerlink" href="#index-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function">
+<span id="index-12"></span><h2>() function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-13">
-<span id="id2"></span><h2>() function<a class="headerlink" href="#index-13" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>() function<a class="headerlink" href="#index-13" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-14">
-<span id="id3"></span><h2>() function<a class="headerlink" href="#index-14" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>() function<a class="headerlink" href="#index-14" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-15">
-<span id="id4"></span><h2>() function<a class="headerlink" href="#index-15" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>() function<a class="headerlink" href="#index-15" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-16">
-<span id="id5"></span><h2>() function<a class="headerlink" href="#index-16" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>() function<a class="headerlink" href="#index-16" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-17">
-<span id="id6"></span><h2>() function<a class="headerlink" href="#index-17" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>() function<a class="headerlink" href="#index-17" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-18">
-<span id="id7"></span><h2>() function<a class="headerlink" href="#index-18" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>() function<a class="headerlink" href="#index-18" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-19">
-<span id="id8"></span><h2>() function<a class="headerlink" href="#index-19" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>() function<a class="headerlink" href="#index-19" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-20">
-<span id="id9"></span><h2>() function<a class="headerlink" href="#index-20" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>() function<a class="headerlink" href="#index-20" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-21">
-<span id="id10"></span><h2>() function<a class="headerlink" href="#index-21" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>() function<a class="headerlink" href="#index-21" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-22">
-<span id="id11"></span><h2>() function<a class="headerlink" href="#index-22" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>() function<a class="headerlink" href="#index-22" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-23">
-<span id="id12"></span><h2>() function<a class="headerlink" href="#index-23" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>() function<a class="headerlink" href="#index-23" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-24">
-<span id="id13"></span><h2>() function<a class="headerlink" href="#index-24" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>() function<a class="headerlink" href="#index-24" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-25">
-<span id="id14"></span><h2>() function<a class="headerlink" href="#index-25" title="Permalink to this headline">¶</a></h2>
+<span id="id13"></span><h2>() function<a class="headerlink" href="#index-25" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-26">
-<span id="id15"></span><h2>() function<a class="headerlink" href="#index-26" title="Permalink to this headline">¶</a></h2>
+<span id="id14"></span><h2>() function<a class="headerlink" href="#index-26" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-27">
-<span id="id16"></span><h2>() function<a class="headerlink" href="#index-27" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>() function<a class="headerlink" href="#index-27" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-28">
-<span id="id17"></span><h2>() function<a class="headerlink" href="#index-28" title="Permalink to this headline">¶</a></h2>
+<span id="id16"></span><h2>() function<a class="headerlink" href="#index-28" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-29">
-<span id="id18"></span><h2>() function<a class="headerlink" href="#index-29" title="Permalink to this headline">¶</a></h2>
+<span id="id17"></span><h2>() function<a class="headerlink" href="#index-29" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-30">
-<span id="id19"></span><h2>() function<a class="headerlink" href="#index-30" title="Permalink to this headline">¶</a></h2>
+<span id="id18"></span><h2>() function<a class="headerlink" href="#index-30" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-31">
-<span id="id20"></span><h2>() function<a class="headerlink" href="#index-31" title="Permalink to this headline">¶</a></h2>
+<span id="id19"></span><h2>() function<a class="headerlink" href="#index-31" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-32">
-<span id="id21"></span><h2>() function<a class="headerlink" href="#index-32" title="Permalink to this headline">¶</a></h2>
+<span id="id20"></span><h2>() function<a class="headerlink" href="#index-32" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-33">
-<span id="id22"></span><h2>() function<a class="headerlink" href="#index-33" title="Permalink to this headline">¶</a></h2>
+<span id="id21"></span><h2>() function<a class="headerlink" href="#index-33" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-34">
-<span id="id23"></span><h2>() function<a class="headerlink" href="#index-34" title="Permalink to this headline">¶</a></h2>
+<span id="id22"></span><h2>() function<a class="headerlink" href="#index-34" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-35">
-<span id="id24"></span><h2>() function<a class="headerlink" href="#index-35" title="Permalink to this headline">¶</a></h2>
+<span id="id23"></span><h2>() function<a class="headerlink" href="#index-35" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-36">
-<span id="id25"></span><h2>() function<a class="headerlink" href="#index-36" title="Permalink to this headline">¶</a></h2>
+<span id="id24"></span><h2>() function<a class="headerlink" href="#index-36" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-37">
-<span id="id26"></span><h2>() function<a class="headerlink" href="#index-37" title="Permalink to this headline">¶</a></h2>
+<span id="id25"></span><h2>() function<a class="headerlink" href="#index-37" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-38">
-<span id="id27"></span><h2>() function<a class="headerlink" href="#index-38" title="Permalink to this headline">¶</a></h2>
+<span id="id26"></span><h2>() function<a class="headerlink" href="#index-38" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-39">
-<span id="id28"></span><h2>() function<a class="headerlink" href="#index-39" title="Permalink to this headline">¶</a></h2>
+<span id="id27"></span><h2>() function<a class="headerlink" href="#index-39" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-40">
-<span id="id29"></span><h2>() function<a class="headerlink" href="#index-40" title="Permalink to this headline">¶</a></h2>
+<span id="id28"></span><h2>() function<a class="headerlink" href="#index-40" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-41">
-<span id="id30"></span><h2>() function<a class="headerlink" href="#index-41" title="Permalink to this headline">¶</a></h2>
+<span id="id29"></span><h2>() function<a class="headerlink" href="#index-41" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="index-42">
-<span id="id31"></span><h2>() function<a class="headerlink" href="#index-42" title="Permalink to this headline">¶</a></h2>
+<span id="id30"></span><h2>() function<a class="headerlink" href="#index-42" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -476,8 +505,8 @@ frVarType()             Returns the data type of an expression.
 <li><a class="reference internal" href="#frempty-function">frEmpty() function</a></li>
 <li><a class="reference internal" href="#frfile-function">frFile() function</a></li>
 <li><a class="reference internal" href="#frfiletostr-function">frFileToStr() function</a></li>
+<li><a class="reference internal" href="#frstr-function">frStr() function</a></li>
 <li><a class="reference internal" href="#function">() function</a></li>
-<li><a class="reference internal" href="#index-12">() function</a></li>
 <li><a class="reference internal" href="#index-13">() function</a></li>
 <li><a class="reference internal" href="#index-14">() function</a></li>
 <li><a class="reference internal" href="#index-15">() function</a></li>

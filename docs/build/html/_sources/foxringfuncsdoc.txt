@@ -261,12 +261,43 @@ frFileToStr() function
 	 *			:
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frStr() function
 
-() function
+frStr() function
 ================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frStr(tnValue, tnLen, tnDec)
+	 * Description		: Returns the character equivalent of a numeric expression.
+	 *			:
+	 * Arguments	   	: <tnValue>
+	 *			: Specifies the numeric expression to evaluate.
+	 *			: 
+	 *			: <tnLen>
+	 *			: Specifies the length of the character string returned. If tnLen is 0, tnLen defaults to 10 characters. 
+	 *			: If tnLen < 0 returns one string with same length as the number.
+	 *			: Note  
+	 *			: If the expression contains a decimal point, the length includes one character for the decimal point and one character 
+ 	 *			: for each digit in the character string.
+	 *			: 
+	 *			: <tnDec> 
+	 *			: Specifies the number of decimal places in the character string returned. To specify the number of decimal places using 
+	 *			: tnDec, you must include nLength. If nDecimalPlaces is omitted, the number of decimal places defaults to zero (0). 
+	 *			: 
+	 * Returns		: Character data type. frStr() returns a character string equivalent to the specified numeric expression. 
+	 *			: 
+	 *			: Depending on certain conditions, frStr() can return the following: 
+	 *			: If you specify fewer decimal places than exist in tnValue, the return value is rounded up. To round results to the nearest 
+	 *			: decimal place instead of upward, include the ROUND( ) function. For more information, see ROUND( ) Function.
+	 *			: If nExpression is an integer, and nLength is less than the number of digits in nExpression, frStr( ) returns a string of 
+	 *			: asterisks, indicating numeric overflow.
+	 *			: If nExpression contains a decimal point, and nLength is equal to or less than the number of digits to the left of the decimal
+	 *			: point, frStr( ) returns a string of asterisks, indicating numeric overflow.
+	 *			: If nLength is greater than the length of the value evaluated by nExpression, frStr( ) returns a character string padded with
+	 * 			: leading spaces.
+	 *			: If nExpression has Numeric or Float type, and nLength is less than the number of digits in nExpression, and , frStr( ) 
+	 *			: returns a value using scientific notation. 
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
