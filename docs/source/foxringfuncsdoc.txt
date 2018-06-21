@@ -500,12 +500,14 @@ frJustFName() function
 	Syntax		: tcReturnValue = frJustFName(tcExpression)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frPadL() function
 
-() function
-================
+frPadL() function
+=================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frPadL(tcString, tnLen, tcChar)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
