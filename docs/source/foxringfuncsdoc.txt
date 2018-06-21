@@ -66,3 +66,273 @@ FoxRing functions
 	frVal()			Returns a numeric value from a character expression composed of numbers.
 	frVarType()		Returns the data type of an expression.
 
+.. index:: 
+     pair: FoxRing Functions Reference; frAbs() function
+
+frAbs() function
+================
+
+.. code-block:: none
+
+	 * Syntax		: lnReturnValue = frAbs(tnExpression)
+	 * Description		: Returns the absolute value of the specified numeric expression.
+	 * 			:
+	 * Arguments		: <tnExpression>
+	 *			: Specifies the numeric expression whose absolute value frAbs() returns.
+	 *			:
+	 * Returns		: <lnReturnValue>
+	 *			: Returns the absolute value of the specified numeric expression.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAsc() function
+
+frAsc() function
+================
+
+.. code-block:: none
+
+	 * Syntax		: lnReturnValue = frAsc(tcExpression)
+	 * Description		: Returns the ANSI value for the leftmost character in a character expression.
+	 * 			:
+	 * Arguments		: <tcExpression>
+	 *			: Specifies the character expression containing the character whose ANSI value frAsc() 
+	 *			: returns. Any characters after the first character in tcExpression are ignored by frAsc().
+	 *			:
+	 * Returns		: <lnReturnValue>
+	 *			: returns the position of the character in the character table of the current code page. 
+	 *			: Every character has a unique ANSI value in the range from 0 to 255.
+	 *			:
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
