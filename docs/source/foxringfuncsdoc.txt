@@ -216,13 +216,29 @@ frEmpty() function
 	 * Returns		: <llReturnValue> Logical
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frFile() function
 
-() function
+frFile() function
 ================
 
 .. code-block:: none
 
+	 * Syntax		: llReturnValue = frFile(tcFileName, tnFlag)
+	 * Description		: Checks if the specified file exists on disk.
+	 *			:
+	 * Arguments   		: <tcFileName>
+	 *			: Specifies the name of the file to check. tcFileName must include 
+	 *			: the file extension. You can include a path with the file name to 
+	 *			: search for a file in a directory or on a drive other than the current
+	 *			: directory or drive. 
+	 *			: 
+	 *			: <tnFlag> 
+	 *			: tnFlag was included for future compatibility.
+	 *			: In this version, It always returns true whenever the file exists on disk.
+	 *			:
+	 * Returns		: <llReturnValue> Logical
+	 *			: True if file exists on disk.
+	 *			: False if file doesn't exist on disk.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
