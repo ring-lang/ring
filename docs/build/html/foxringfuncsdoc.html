@@ -597,14 +597,37 @@ frVarType()             Returns the data type of an expression.
 </pre></div>
 </div>
 </div>
-<div class="section" id="function">
-<span id="index-41"></span><h2>() function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>
+<div class="section" id="frtransform-function">
+<span id="index-41"></span><h2>frTransform() function<a class="headerlink" href="#frtransform-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+* Description          : Returns a character string from an expression in a format determined by a format code.
+*                      :
+* Arguments            : &lt;tuExpression&gt;
+*                      : Specifies the expression to format.
+*                      :
+*                      : &lt;tcFormatCodes&gt;
+*                      : Specifies one or more format codes that determine how to format the expression.
+*                      :
+*                      : Note
+*                      : The following table lists the available format codes for tcFormatCodes.
+*                      :
+*                      :  ---------------------------------------------------------------------------------------
+*                      :       Format Code     Description
+*                      :  ---------------------------------------------------------------------------------------
+*                      :       @!                      Converts an entire character string to uppercase.
+*                      :       @T                      Trims leading and trailing spaces from character values.
+*                      :       @B                      Left-justifies Numeric data within the display region.
+*                      :       @L                      Pads numeric and string data with leading zeros.
+*                      :       @C                      Appends CR to positive numeric values to indicate a credit.
+*                      :       @X                      Appends DB to negative numeric values to indicate a debit.
+*                      :  ---------------------------------------------------------------------------------------
+*                      :
+* Returns              : &lt;tcReturnValue&gt;
 </pre></div>
 </div>
 </div>
-<div class="section" id="index-42">
-<span id="id1"></span><h2>() function<a class="headerlink" href="#index-42" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function">
+<span id="index-42"></span><h2>() function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -660,8 +683,8 @@ frVarType()             Returns the data type of an expression.
 <li><a class="reference internal" href="#frval-function">frVal() function</a></li>
 <li><a class="reference internal" href="#frbetween-function">frBetween() function</a></li>
 <li><a class="reference internal" href="#frsetseparatorto-function">frSetSeparatorTo() function</a></li>
+<li><a class="reference internal" href="#frtransform-function">frTransform() function</a></li>
 <li><a class="reference internal" href="#function">() function</a></li>
-<li><a class="reference internal" href="#index-42">() function</a></li>
 </ul>
 </li>
 </ul>

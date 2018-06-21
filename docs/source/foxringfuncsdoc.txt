@@ -716,12 +716,37 @@ frSetSeparatorTo() function
 	 * Returns		: None
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frTransform() function
 
-() function
-================
+frTransform() function
+======================
 
 .. code-block:: none
+
+	 * Syntax		: tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+	 * Description		: Returns a character string from an expression in a format determined by a format code.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Specifies the expression to format.
+	 *			:
+	 *			: <tcFormatCodes>		
+	 *			: Specifies one or more format codes that determine how to format the expression. 
+	 *			: 
+	 *			: Note
+	 *			: The following table lists the available format codes for tcFormatCodes.
+	 *			: 
+	 *			:  ---------------------------------------------------------------------------------------
+	 *			:	Format Code	Description
+	 *			:  ---------------------------------------------------------------------------------------
+	 *			: 	@!			Converts an entire character string to uppercase.
+	 *			:  	@T 			Trims leading and trailing spaces from character values.
+	 *			: 	@B			Left-justifies Numeric data within the display region.
+	 *			: 	@L			Pads numeric and string data with leading zeros.
+	 *			:	@C			Appends CR to positive numeric values to indicate a credit.
+	 *			:	@X			Appends DB to negative numeric values to indicate a debit.
+	 *			:  ---------------------------------------------------------------------------------------
+	 *			: 
+	 * Returns		: <tcReturnValue>
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
