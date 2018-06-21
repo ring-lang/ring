@@ -604,12 +604,15 @@ frStrTran() function
 	Syntax		: tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frListToString() function
 
-() function
-================
+frListToString() function
+=========================
 
 .. code-block:: none
+
+	 * Syntax		: lcRet = frListToString(taList)
+	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
