@@ -389,12 +389,14 @@ frAllTrim() function
 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frLTrim() function
 
-() function
-================
+frLTrim() function
+==================
 
 .. code-block:: none
+
+	Syntax		: lcRet = frLTrim(tcExpression, tcCharacter)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
