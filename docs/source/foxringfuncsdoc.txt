@@ -490,12 +490,14 @@ frALines() function
 	Syntax		: tnReturnValue = frALines(taList, tcExpression, tcSeparator)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frJustFName() function
 
-() function
+frJustFName() function
 ================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frJustFName(tcExpression)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
