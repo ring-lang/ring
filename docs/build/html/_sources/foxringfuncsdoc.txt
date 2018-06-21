@@ -673,12 +673,28 @@ frVal() function
 	 *			: Return a numeric value. 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frBetween() function
 
-() function
-================
+frBetween() function
+====================
 
 .. code-block:: none
+
+	 * Syntax		: luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
+	 * Description		: Determines whether the value of an expression is inclusively between the 
+	 *			: values of two expressions of the same type.
+	 *			:
+	 * Arguments   		: <tuTestValue>
+	 *			: Specifies an expression to evaluate.
+	 *			:
+	 *			: <tuLowValue>
+	 *			: Specifies the lower value in the range.
+	 *			:
+	 *			: <tuHighValue>
+	 *			: Specifies the higher value in the range.
+	 *			:
+	 * Returns		: <luReturnValue>
+	 *			: Returns a logical oder null value. 
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
