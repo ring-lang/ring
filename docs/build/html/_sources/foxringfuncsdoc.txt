@@ -1,0 +1,68 @@
+.. index:: 
+     single: FoxRing Functions Reference; Introduction
+
+===========================
+FoxRing Functions Reference
+===========================
+
+As a FoxPro developer, I started writing a class with some of the functions I used in FoxPro.
+
+The goal is to create as many functions as possible with the behavior similar to FoxPro functions.
+
+Developer: Jose Rosado
+
+.. index:: 
+     pair: FoxRing Functions Reference; FoxRing functions
+
+FoxRing functions
+=================
+
+.. code-block:: none
+
+	frAbs()			Returns the absolute value of the specified numeric expression.
+	frAddBs()		Adds a backslash (if needed) to a path expression.
+	frALines()		Creates an Array with the content of the specified string. 
+	frAllTrim()		Removes all leading and trailing spaces of the specified string. 
+	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
+	frAt()			Searches a character expression for the occurrence of another character expression.
+	frAtC()			Searches a character expression for the ocurrence of another character expression without 
+				regard for the case of these two expressions.
+	frBetween()		Determines whether the value of an expression is inclusively between the values of two 
+				expressions of the same type.
+	frChr()			Returns the character associated with the specified numeric ANSI code.
+	frEmpty()		Determines whether an expression evaluates to empty.
+	frFile()		Checks if a file exists on disk.
+	frFileToStr()		Returns the contents of a file as a character string.
+	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
+	frForcePath()		Returns a file name with a new path name substituted for the old one.
+	frIif()   		Returns one of two values depending on the value of a logical expression.
+	frInList()		Determines whether an expression matches another expression in a list.
+	frInt()			Evaluates a numeric expression and returns the integer portion of the expression.
+	frJustDrive()		Returns the drive letter from a complete path.
+	frJustExt()		Returns the characters of a file extension from a complete path.
+	frJustFName()		Returns the file name portion of a complete path and file name.
+	frJustPath()		Returns the path portion of a complete path and file name.
+	frJustStem()		Returns the stem name (the file name before the extension) from a complete path and file name.
+	frLen()			Determines the number of characters in a character expression, indicating the length of the expression.
+	frListToString()	Creates a string with the string elements of an Array.
+	frLTrim()		Removes all leading spaces or parsing characters from the specified character expression.
+	frPadL()		Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
+	frPadR()		Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+	frProper()		Returns from a character expression a string capitalized as appropriate for proper names.
+	frReplicate()		Returns a character string that contains a specified character expression repeated a specified number of times.
+	frRTrim()		Removes all trailing spaces or parsing characters from the specified character expression.
+	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
+	frSetSeparatorTo()	Specifies the character for the numeric place separator.
+	frSpace()		Returns a character string composed of a specified number of spaces.
+	frStr()			Returns the character equivalent of a numeric expression.
+	frStringToList()	Creates a List with the content of the specified string.
+	frStrTran()		Searches a character expression for a second character expression and replaces each occurrence with a third 
+				character expression.
+	frStuff()		Returns a new character string replaced by a specified number of characteres in a character expression with 
+				another character expression.
+	frSubStr()		Returns a character string from the given character expression, starting at a specified position in the character 
+				expression and continuing for a specified number of characters.			
+	frTransform()		Returns a character string from an expression in a format determined by a format code.
+	frVal()			Returns a numeric value from a character expression composed of numbers.
+	frVarType()		Returns the data type of an expression.
+

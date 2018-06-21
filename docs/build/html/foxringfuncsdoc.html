@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FoxRing Functions Reference &mdash; Ring 1.8 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
+    <link rel="next" title="RingLibCurl Functions Reference" href="ringlibcurlfuncsdoc.html" />
+    <link rel="prev" title="RingMurmurHash Functions Reference" href="ringmurmurhashfuncsdoc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ringmurmurhashfuncsdoc.html" title="RingMurmurHash Functions Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="foxring-functions-reference">
+<span id="index-0"></span><h1>FoxRing Functions Reference<a class="headerlink" href="#foxring-functions-reference" title="Permalink to this headline">¶</a></h1>
+<p>As a FoxPro developer, I started writing a class with some of the functions I used in FoxPro.</p>
+<p>The goal is to create as many functions as possible with the behavior similar to FoxPro functions.</p>
+<p>Developer: Jose Rosado</p>
+<div class="section" id="foxring-functions">
+<span id="index-1"></span><h2>FoxRing functions<a class="headerlink" href="#foxring-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre><span></span>frAbs()                 Returns the absolute value of the specified numeric expression.
+frAddBs()               Adds a backslash (if needed) to a path expression.
+frALines()              Creates an Array with the content of the specified string.
+frAllTrim()             Removes all leading and trailing spaces of the specified string.
+frAsc()                 Returns the ANSI value for the leftmost character in a character expression.
+frAt()                  Searches a character expression for the occurrence of another character expression.
+frAtC()                 Searches a character expression for the ocurrence of another character expression without
+                        regard for the case of these two expressions.
+frBetween()             Determines whether the value of an expression is inclusively between the values of two
+                        expressions of the same type.
+frChr()                 Returns the character associated with the specified numeric ANSI code.
+frEmpty()               Determines whether an expression evaluates to empty.
+frFile()                Checks if a file exists on disk.
+frFileToStr()           Returns the contents of a file as a character string.
+frForceExt()            Returns a string with the old file name extension replaced by a new extension.
+frForcePath()           Returns a file name with a new path name substituted for the old one.
+frIif()                 Returns one of two values depending on the value of a logical expression.
+frInList()              Determines whether an expression matches another expression in a list.
+frInt()                 Evaluates a numeric expression and returns the integer portion of the expression.
+frJustDrive()           Returns the drive letter from a complete path.
+frJustExt()             Returns the characters of a file extension from a complete path.
+frJustFName()           Returns the file name portion of a complete path and file name.
+frJustPath()            Returns the path portion of a complete path and file name.
+frJustStem()            Returns the stem name (the file name before the extension) from a complete path and file name.
+frLen()                 Determines the number of characters in a character expression, indicating the length of the expression.
+frListToString()        Creates a string with the string elements of an Array.
+frLTrim()               Removes all leading spaces or parsing characters from the specified character expression.
+frPadL()                Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
+frPadR()                Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+frProper()              Returns from a character expression a string capitalized as appropriate for proper names.
+frReplicate()           Returns a character string that contains a specified character expression repeated a specified number of times.
+frRTrim()               Removes all trailing spaces or parsing characters from the specified character expression.
+frSetIfEmpty()          Set a Value into a variable if the variable value is empty, null or zero.
+frSetSeparatorTo()      Specifies the character for the numeric place separator.
+frSpace()               Returns a character string composed of a specified number of spaces.
+frStr()                 Returns the character equivalent of a numeric expression.
+frStringToList()        Creates a List with the content of the specified string.
+frStrTran()             Searches a character expression for a second character expression and replaces each occurrence with a third
+                        character expression.
+frStuff()               Returns a new character string replaced by a specified number of characteres in a character expression with
+                        another character expression.
+frSubStr()              Returns a character string from the given character expression, starting at a specified position in the character
+                        expression and continuing for a specified number of characters.
+frTransform()           Returns a character string from an expression in a format determined by a format code.
+frVal()                 Returns a numeric value from a character expression composed of numbers.
+frVarType()             Returns the data type of an expression.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">FoxRing Functions Reference</a><ul>
+<li><a class="reference internal" href="#foxring-functions">FoxRing functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ringmurmurhashfuncsdoc.html"
+                        title="previous chapter">RingMurmurHash Functions Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringlibcurlfuncsdoc.html"
+                        title="next chapter">RingLibCurl Functions Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/foxringfuncsdoc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ringmurmurhashfuncsdoc.html" title="RingMurmurHash Functions Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
