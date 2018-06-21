@@ -199,13 +199,21 @@ frChr() function
 	 * Remarks		: tnExpression must be between 0 and 255
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frEmpty() function
 
-() function
-================
+frEmpty() function
+==================
 
 .. code-block:: none
 
+	 * Syntax		: llReturnValue = frEmpty(tuExpression)
+	 * Description		: Determines whether an expression evaluates to empty.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Specifies the expression that EMPTY() evaluates. You can specify an expression with Character, 
+	 *			: Numeric, or logical type.
+	 *			:
+	 * Returns		: <llReturnValue> Logical
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
