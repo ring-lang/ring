@@ -91,6 +91,7 @@ Contents:
    Language Reference <reference>
    RingQt Classes and Methods Reference <qtclassesdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
+   FoxRing Functions Reference <foxringfuncsdoc>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
