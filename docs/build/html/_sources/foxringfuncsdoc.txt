@@ -594,12 +594,14 @@ frSubStr() function
 	Syntax		: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frStrTran() function
 
-() function
-================
+frStrTran() function
+====================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
