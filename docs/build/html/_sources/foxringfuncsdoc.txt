@@ -150,13 +150,33 @@ frAt() function
 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frAtC() function
 
-() function
+frAtC() function
 ================
 
 .. code-block:: none
 
+	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression 
+	 *			: without regard for the case of these two expressions.
+	 *			:
+	 * Arguments   		: <tcToSearch>
+	 *			: Specifies the character expression to search for in <tcString>.
+	 *			:
+	 *			: <tcString> 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
+	 *			:
+	 *			: <tnOccurrence> 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for
+	 *			: in tcString. 
+	 *			: By default, frAtC() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
+	 *			: 
+	 * Returns		: Numeric. frAtC() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in <tcString>, frAtC()
+	 *			: returns 0.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
