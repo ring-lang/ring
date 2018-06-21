@@ -358,12 +358,24 @@ frInList() function
 	 * Returns		: <luReturnValue> Null or logical value.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frForcePath() function
 
-() function
-================
+frForcePath() function
+======================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frForcePath(tcFileName, tcPath)
+	 * Description		: Returns a file name with a new path name substituted for the old one.
+	 *			:
+	 * Arguments   		: <tcFileName>
+	 *			: Specifies the file name (with or without a path or extension), which will get a new path.
+	 *			:
+	 *			: <tcPath>
+	 *			: Specifies the new path for tcFileName.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns a file name with a new path name substituted for the old one.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
