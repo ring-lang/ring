@@ -636,12 +636,24 @@ frStringToList() function
 	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frIIf() function
 
-() function
+frIIf() function
 ================
 
 .. code-block:: none
+
+	 * Syntax		: luReturnValue = frIIf(tlExpression, tuReturnIfTrue, tuReturnIfFalse)
+	 * Description		: Returns one of two values depending on the value of a logical expression.
+	 *			:
+	 * Arguments   		: <tlExpression>
+	 *			: Specifies the logical expression that frIIf() evaluates.
+	 *			:
+	 *			: <tuReturnTrue>, <tuReturnFalse>
+	 *			: If tlExpression evaluates to True, tuReturnIfTrue is returned and tuReturnIfFalse is not evaluated. 
+	 *			: If tlExpression evaluates to False or Null, tuReturnIfFalse is returned and tuReturnIfTrue is not evaluated.
+	 *			: 
+	 * Returns		: <luReturnValue> Defined by <tuReturnIfTrue> or <tuReturnIfFalse>
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
