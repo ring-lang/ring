@@ -546,12 +546,14 @@ frReplicate() function
 	Syntax		: tcReturnValue = frReplicate(tcString, tnTimes)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frLen() function
 
-() function
+frLen() function
 ================
 
 .. code-block:: none
+
+	Syntax		: tnReturnValue = frLen(tcString)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
