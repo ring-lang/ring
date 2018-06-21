@@ -656,12 +656,21 @@ frIIf() function
 	 * Returns		: <luReturnValue> Defined by <tuReturnIfTrue> or <tuReturnIfFalse>
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frVal() function
 
-() function
+frVal() function
 ================
 
 .. code-block:: none
+
+	 * Syntax		: luReturnValue = frVal(tcExpression)
+	 * Description		: Returns a numeric value from a character expression composed of numbers
+	 *			:
+	 * Arguments   		: <tcExpression>
+	 *			: Specifies a character expression composed of up to 16 numbers.
+	 *			:
+	 * Returns		: <tnValue>
+	 *			: Return a numeric value. 
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
