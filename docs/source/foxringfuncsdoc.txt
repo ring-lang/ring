@@ -520,12 +520,20 @@ frPadR() function
 	Syntax		: tcReturnValue = frPadR(tcString, tnLen, tcChar)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frProper() function
 
-() function
-================
+frProper() function
+===================
 
 .. code-block:: none
+
+	 * Syntax		: tcReturnValue = frProper(tcExpression)
+	 * Description		: Returns from a character expression a string capitalized as appropriate for proper names.
+	 *			:
+	 * Arguments		: <tcExpression>
+	 *			: Specifies the character expression from which frProper() returns a capitalized character string.
+	 *			:
+	 * Returns		: <tcReturnValue> 
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
