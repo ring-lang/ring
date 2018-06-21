@@ -510,12 +510,14 @@ frPadL() function
 	Syntax		: tcReturnValue = frPadL(tcString, tnLen, tcChar)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frPadR() function
 
-() function
-================
+frPadR() function
+=================
 
 .. code-block:: none
+
+	Syntax		: tcReturnValue = frPadR(tcString, tnLen, tcChar)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
