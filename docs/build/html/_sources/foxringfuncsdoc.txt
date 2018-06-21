@@ -697,12 +697,23 @@ frBetween() function
 	 *			: Returns a logical oder null value. 
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frSetSeparatorTo() function
 
-() function
-================
+frSetSeparatorTo() function
+===========================
 
 .. code-block:: none
+
+	 * Syntax		: frSetSeparatorTo(tuExpression)
+	 * Description		: Specifies the character for the numeric place separator.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Specifies the character for the numeric place separator. 
+	 *			:
+	 *			: Use frSetSeparatorTo() to change the numeric place separator from de default, for example space " " or a comma ",".
+	 *			: Issue frSetSeparatorTo(Null) to reset the value to its default.
+	 *			:
+	 * Returns		: None
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
