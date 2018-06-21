@@ -480,12 +480,14 @@ frForceExt() function
 	Syntax		: tcReturnValue = frForceExt(tcFileName, tcNewExtension)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frALines() function
 
-() function
-================
+frALines() function
+===================
 
 .. code-block:: none
+
+	Syntax		: tnReturnValue = frALines(taList, tcExpression, tcSeparator)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
