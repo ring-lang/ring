@@ -433,12 +433,21 @@ frJustExt() function
 	 *			: Returns the drive characters of a file extension from a complete path.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frJustStem() function
 
-() function
-================
+frJustStem() function
+=====================
 
 .. code-block:: none
+
+	 * Syntax		: lcReturnValue = frJustStem(tcPath)
+	 * Description		: Returns the stem name (the file name before the extension) from a complete path and file name.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the name (including path) of the file for which you want only the stem. 
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: Returns the stem name of a file from a complete path.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
