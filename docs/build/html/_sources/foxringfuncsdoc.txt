@@ -120,40 +120,34 @@ frAddBs() function
 	 * Returns		: <lcReturnValue> The path with the backslash.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frAt() function
 
-() function
-================
+frAt() function
+===============
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
+	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression. 
+	 *			: The search performed by frAt() is case-sensitive.
+	 *			:
+	 * Arguments   		: <tcToSearch>
+	 *			: Specifies the character expression to search for in <tcString>.
+	 *			:
+	 *			: <tcString> 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
+	 *			:
+	 *			: <tnOccurrence> 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for 
+	 *			: in <tcString>. 
+	 *			: By default, frAt() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
+	 *			: 
+	 * Returns		: Numeric. frAt() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in  <tcString>, frAt() 
+	 *			: returns 0.
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
-
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
-
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
-
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -161,11 +155,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -173,11 +164,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -185,11 +173,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -197,11 +182,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -209,11 +191,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -221,11 +199,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -233,11 +207,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -245,11 +216,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -257,11 +225,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -269,11 +234,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -281,11 +242,8 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
+.. code-block:: none
 
-() function
-================
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -293,11 +251,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -305,11 +259,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -317,11 +267,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -329,11 +275,7 @@ frAddBs() function
 () function
 ================
 
-.. index:: 
-     pair: FoxRing Functions Reference; () function
-
-() function
-================
+.. code-block:: none
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
@@ -341,8 +283,172 @@ frAddBs() function
 () function
 ================
 
+.. code-block:: none
+
 .. index:: 
      pair: FoxRing Functions Reference; () function
 
 () function
 ================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
+
+.. index:: 
+     pair: FoxRing Functions Reference; () function
+
+() function
+================
+
+.. code-block:: none
