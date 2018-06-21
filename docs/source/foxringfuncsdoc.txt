@@ -450,12 +450,14 @@ frJustStem() function
 	 *			: Returns the stem name of a file from a complete path.
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frRTrim() function
 
-() function
-================
+frRTrim() function
+==================
 
 .. code-block:: none
+
+	 Syntax		: lcRet = frRTrim(tcExpression, tcCharacter)
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
