@@ -556,12 +556,32 @@ frLen() function
 	Syntax		: tnReturnValue = frLen(tcString)
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frStuff() function
 
-() function
-================
+frStuff() function
+==================
 
 .. code-block:: none
+
+	 * Syntax		: tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
+	 * Description		: Returns a new character string replaced by a specified number of characters in a character 
+	 *			: expression with another character expression.
+	 *			:
+	 * Arguments   		: <tcExpression>
+	 *			: Specify the character expression in which the replacement occurs.
+	 *			: 
+	 *			: <tnStartRep>
+	 *			: Specify the position in <tcExpression> where the replacement begins.
+	 *			: 
+	 *			: <tnCharRep>
+	 *			: Specifies the number of characters to be replaced. If <tnCharRep> is 0, the replacement string 
+	 *			: <tcToReplace> is inserted into <tcExpression>.
+	 *			: 
+	 *			: <tcToReplace>
+	 *			: Specifies the replacement character expression. If <tcToReplace> is an empty string, the number of 
+	 *			: characters specified by <tnCharRep> are removed from <tcExpression>.
+	 *			:
+	 * Returns		: Character 
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
