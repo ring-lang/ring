@@ -104,10 +104,20 @@ frAsc() function
 	 *			:
 
 .. index:: 
-     pair: FoxRing Functions Reference; () function
+     pair: FoxRing Functions Reference; frAddBs() function
 
-() function
-================
+frAddBs() function
+==================
+
+.. code-block:: none
+
+	 * Syntax		: lcReturnValue = frAddBs(tcPath)
+	 * Description		: Adds a backslash (if needed) to a path expression.
+	 *			:
+	 * Arguments   		: <tcPath>
+	 *			: Specifies the path name to which to add the backslash.
+	 *			:
+	 * Returns		: <lcReturnValue> The path with the backslash.
 
 .. index:: 
      pair: FoxRing Functions Reference; () function
