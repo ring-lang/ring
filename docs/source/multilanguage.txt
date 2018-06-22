@@ -7,6 +7,14 @@ Multi-language Applications
 
 There are many ways to create multi-language Ring application!
 
+In this chapter we will learn about using the String2Constant tool
+
+.. index:: 
+     pair: Multi-language applications; Using String2Constant
+
+Using String2Constant
+=====================
+
 Starting from Ring 1.8 we have the String2Constant application
 
 You will find this tool in the ring/samples/tools/string2constant folder
