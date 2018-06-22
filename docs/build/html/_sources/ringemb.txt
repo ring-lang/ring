@@ -206,3 +206,40 @@ Example:
 If you will use this feature, remember to update the previous example based on your application needs
 
 So you can call ring_state_delete() at some point to avoid the memory leak!
+
+.. index:: 
+	pair: Embedding Ring in Ring; Runtime Errors when Embedding Ring in Ring
+
+Runtime Errors when Embedding Ring in Ring
+==========================================
+
+Starting from Ring 1.8 
+
+When embedding Ring in Ring, the error in the hosted environment will not close the host
+
+Example:
+
+.. code-block:: ring
+
+	? "Start the test!" 
+
+	pState = ring_state_init()
+
+	ring_state_runcode(pState," ? 'Let us try having an error' ? x")
+
+	ring_state_delete(pState)
+
+	? ""
+	? "End of test!"
+
+Output:
+
+.. code-block:: none
+
+	Start the test!
+	Let us try having an error
+
+	Line 1 Error (R24) : Using uninitialized variable : x
+	in file Ring_EmbeddedCode
+	End of test!
+
