@@ -685,7 +685,7 @@ Output:
 .. index:: 
 	pair: Object Oriented Programming; Sort() and List of Objects
 
-Sort() and list of objects
+Sort() and List of Objects
 ==========================
 
 We can sort a list of objects based on an object attribute using the Sort() function.
