@@ -70,10 +70,8 @@
 <li>FoxRing Library</li>
 <li>Better Form Designer</li>
 <li>Better Cards Game</li>
-<li>Better Documentation</li>
 <li>Better RingQt</li>
 <li>Better Code Generator For Extensions</li>
-<li>Better RingQt for Android</li>
 <li>Better Ring Compiler and VM</li>
 <li>Notes to extensions creators</li>
 </ul>
@@ -350,13 +348,11 @@ All String
 <p>The Cards game is updated and we can play with the Computer</p>
 <img alt="Cards Main Menu" src="_images/cardsmainmenu.png" />
 </div>
-<div class="section" id="better-documentation">
-<span id="index-15"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
-<p>Ring 1.8 comes with better documentation</p>
-</div>
 <div class="section" id="better-ringqt">
-<span id="index-16"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
-<p>The next classes are added to RingQt</p>
+<span id="index-15"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The next classes are added to RingQt</li>
+</ul>
 <ol class="arabic simple">
 <li>QTabBar</li>
 <li>QFile</li>
@@ -367,9 +363,21 @@ All String
 <li>QQmlError</li>
 <li>QScrollBar</li>
 </ol>
+<ul class="simple">
+<li>RingQt for Android is updated to support modern versions of Qt</li>
+</ul>
+<p>Tested using</p>
+<ol class="arabic simple">
+<li>Qt 5.5.1</li>
+<li>Qt 5.9.5</li>
+<li>Qt 5.11.0</li>
+</ol>
+<ul class="simple">
+<li>In RingQt for Android, The Ring Object File (ringo) will be executed directly from resources.</li>
+</ul>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-17"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>New Option: StaticMethods</p>
 <p>Starting from Ring 1.8 the code generator support the staticmethods option.</p>
 <p>So the code generator can know that the class doesn&#8217;t need an object to call the methods.</p>
@@ -391,23 +399,8 @@ QString writableLocation(QStandardPaths::StandardLocation type)
 </pre></div>
 </div>
 </div>
-<div class="section" id="better-ringqt-for-android">
-<span id="index-18"></span><h2>Better RingQt for Android<a class="headerlink" href="#better-ringqt-for-android" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>RingQt for Android is updated to support modern versions of Qt</li>
-</ol>
-<p>Tested using</p>
-<ul class="simple">
-<li>Qt 5.11.0</li>
-<li>Qt 5.9.5</li>
-<li>Qt 5.5.1</li>
-</ul>
-<ol class="arabic simple" start="2">
-<li>The Ring Object File (ringo) will be executed directly from resources.</li>
-</ol>
-</div>
 <div class="section" id="better-ring-compiler-and-vm">
-<span id="index-19"></span><h2>Better Ring Compiler and VM<a class="headerlink" href="#better-ring-compiler-and-vm" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Better Ring Compiler and VM<a class="headerlink" href="#better-ring-compiler-and-vm" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Better loading for files in relative paths</li>
 <li>Code Optimization for eval() function</li>
@@ -473,7 +466,7 @@ Hello from the Test function
 </ol>
 </div>
 <div class="section" id="notes-to-extensions-creators">
-<span id="index-20"></span><h2>Notes to extensions creators<a class="headerlink" href="#notes-to-extensions-creators" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>Notes to extensions creators<a class="headerlink" href="#notes-to-extensions-creators" title="Permalink to this headline">¶</a></h2>
 <p>If you have created new extensions for Ring in the C/C++ languages.</p>
 <p>You have to rebuild your extension (Generate the DLL file again using Ring 1.8 header files) before usage with Ring 1.8</p>
 <p>Because we changed the internal structure of the VM, but no changes to the code are required. just rebuild.</p>
@@ -503,10 +496,8 @@ Hello from the Test function
 <li><a class="reference internal" href="#foxring-library">FoxRing Library</a></li>
 <li><a class="reference internal" href="#better-form-designer">Better Form Designer</a></li>
 <li><a class="reference internal" href="#better-cards-game">Better Cards Game</a></li>
-<li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator For Extensions</a></li>
-<li><a class="reference internal" href="#better-ringqt-for-android">Better RingQt for Android</a></li>
 <li><a class="reference internal" href="#better-ring-compiler-and-vm">Better Ring Compiler and VM</a></li>
 <li><a class="reference internal" href="#notes-to-extensions-creators">Notes to extensions creators</a></li>
 </ul>
