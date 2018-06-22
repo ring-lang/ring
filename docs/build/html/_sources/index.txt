@@ -87,6 +87,7 @@ Contents:
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Create your first extension <ringbeep>
    Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
    RingQt Classes and Methods Reference <qtclassesdoc>
