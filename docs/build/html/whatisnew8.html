@@ -371,6 +371,25 @@ All String
 <div class="section" id="better-code-generator-for-extensions">
 <span id="index-17"></span><h2>Better Code Generator For Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>New Option: StaticMethods</p>
+<p>Starting from Ring 1.8 the code generator support the staticmethods option.</p>
+<p>So the code generator can know that the class doesn&#8217;t need an object to call the methods.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;class&gt;
+name: QStandardPaths
+para: void
+nonew
+staticmethods
+&lt;/class&gt;
+
+QString displayName(QStandardPaths::StandardLocation type)
+QString findExecutable(QString executableName, QStringList paths))
+QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+void setTestModeEnabled(bool testMode)
+QStringL/ist standardLocations(QStandardPaths::StandardLocation type)
+QString writableLocation(QStandardPaths::StandardLocation type)
+</pre></div>
+</div>
 </div>
 <div class="section" id="better-ringqt-for-android">
 <span id="index-18"></span><h2>Better RingQt for Android<a class="headerlink" href="#better-ringqt-for-android" title="Permalink to this headline">¶</a></h2>

@@ -455,6 +455,29 @@ Better Code Generator For Extensions
 
 New Option: StaticMethods
 
+Starting from Ring 1.8 the code generator support the staticmethods option.
+
+So the code generator can know that the class doesn't need an object to call the methods.
+
+Example:
+
+.. code-block:: none
+
+	<class>
+	name: QStandardPaths
+	para: void
+	nonew
+	staticmethods
+	</class>
+
+	QString displayName(QStandardPaths::StandardLocation type)
+	QString findExecutable(QString executableName, QStringList paths))
+	QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+	QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+	void setTestModeEnabled(bool testMode)
+	QStringL/ist standardLocations(QStandardPaths::StandardLocation type)
+	QString writableLocation(QStandardPaths::StandardLocation type)
+
 
 .. index:: 
 	pair: What is new in Ring 1.8?; Better RingQt for Android

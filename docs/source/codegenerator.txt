@@ -577,7 +577,7 @@ Code Generator Rules for Wrapping C++ Classes
 
 * We can define classes between <class> and </class>
 * Between <class> and <class> we set attributes like 
-  "name, nonew, para, parent, codename, passvmpointer and abstract"
+  "name, nonew, para, parent, codename, passvmpointer, abstract and staticmethods"
 * we set the attributes using the style attributename:value or attributename only if no values
   are required
 * The "name" attribute determine the class name in C++ code and this name will be the default name
@@ -586,10 +586,11 @@ Code Generator Rules for Wrapping C++ Classes
 * The parent attribute determine the parent class name
 * The codename attribute determine another class name in C++ code 
 * The passvmpoint instruction means passing the Ring VM pointer to the class constructor when 
-  we create new objects, this happens when we set the codename attribute to a class the we will define
+  we create new objects, this happens when we set the codename attribute to a class that we will define
   and this class need the Virtual Machine pointer (for example to use it to execute Ring code from C++
   code).
 * The abstract instruction means that no new method is required for this class "no objects will be created".
+* The staticmethods instruction means that method doesn't need an object to be called.
 * Using <nodllstartup> we can avoid #include "ring.h", We need this to write our startup code. 
 * Using <libinitfunc> we can change the function name that register the library functions
 * Using <ignorecpointertype> we can ignore pointer type check   
@@ -1180,6 +1181,36 @@ also Ring code around 9000 lines.
 
 	Most of the content of the previous configuration file is removed from this documentation, 
         for a complete version see the Ring source code distribution.
+
+.. index:: 
+	pair: Code Generator; Static Methods
+
+Static Methods
+==============
+
+Starting from Ring 1.8 the code generator support the staticmethods option.
+
+So the code generator can know that the class doesn't need an object to call the methods.
+
+Example:
+
+.. code-block:: none
+
+	<class>
+	name: QStandardPaths
+	para: void
+	nonew
+	staticmethods
+	</class>
+
+	QString displayName(QStandardPaths::StandardLocation type)
+	QString findExecutable(QString executableName, QStringList paths))
+	QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+	QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+	void setTestModeEnabled(bool testMode)
+	QStringL/ist standardLocations(QStandardPaths::StandardLocation type)
+	QString writableLocation(QStandardPaths::StandardLocation type)
+
 
 .. index:: 
 	pair: Code Generator; Configuration Files Examples
