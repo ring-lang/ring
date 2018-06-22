@@ -773,8 +773,40 @@ z: 30.000000
 </pre></div>
 </div>
 </div>
+<div class="section" id="the-for-loops-uses-the-local-scope">
+<span id="index-13"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test1</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test2</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print 6</span>
+
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">6</span>
+<span class="mi">10</span>
+<span class="kp">NULL</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="summary-of-scope-rules">
-<span id="index-13"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this headline">¶</a></h2>
 <p>At first remember that</p>
 <p>1 - Each programming language comes with it&#8217;s scope rules based on the language goals</p>
 <p>2 - Programming in the small is different than Programming in the Large</p>
@@ -836,6 +868,7 @@ z: 30.000000
 <li><a class="reference internal" href="#creating-a-class-for-each-window-in-gui-applications">Creating a Class for each Window in GUI applications</a></li>
 <li><a class="reference internal" href="#conflict-between-self-inside-braces-and-self-in-the-class-region">Conflict between self inside braces and self in the class region</a></li>
 <li><a class="reference internal" href="#using-braces-to-escape-from-the-current-object-scope">Using braces to escape from the current object scope</a></li>
+<li><a class="reference internal" href="#the-for-loops-uses-the-local-scope">The For Loops uses the local scope</a></li>
 <li><a class="reference internal" href="#summary-of-scope-rules">Summary of Scope Rules</a></li>
 </ul>
 </li>
