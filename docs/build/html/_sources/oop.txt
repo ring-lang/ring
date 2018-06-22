@@ -834,6 +834,9 @@ Because
 
 .. tip:: In large programs protect your classes and define their members using self.attribute
 
+.. index:: 
+	pair: Object Oriented Programming; Using This.Attribute and This.Method()
+
 Using This.Attribute and This.Method()
 ======================================
 
@@ -864,3 +867,111 @@ Example:
 	Class UI
 		func display x,y,z
 			see x + nl + y + nl + z + nl
+
+.. index:: 
+	pair: Object Oriented Programming; Using This in the class region as Self
+
+Using This in the class region as Self
+======================================
+
+The class region is the region that comes after the class name and before any method.
+
+We can use This in the class region as Self.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		o1 = new program {
+			test()
+		}
+
+		? o1
+
+	class program 
+
+		this.name = "My Application"
+		this.version = "1.0"
+		? name ? version	
+
+		func test
+			? "Name    = " + name 
+			? "Version = " + version
+
+Output
+
+.. code-block:: none
+
+	My Application
+	1.0
+	Name    = My Application
+	Version = 1.0
+	name: My Application
+	version: 1.0
+
+.. note:: When we use braces to change the current active object, Using This we can still point to the class.
+
+.. tip:: The difference between This and Self is that Self point to the current active object that we can change using braces.
+
+Remember that in most cases we don't need to use This or Self in the class region
+
+We can write
+
+
+.. code-block:: ring
+
+	class program name version
+
+Or 
+
+.. code-block:: ring
+
+	class program name="My Application" version="1.0"
+
+.. note:: We use This or Self in the class region just to avoid conflict with global variables that are defined with the same name.
+
+
+.. index:: 
+	pair: Object Oriented Programming; Default value for object attributes
+
+Default value for object attributes
+===================================
+
+The default value for object attributes is NULL
+
+In Ring, the NULL value is just an empty string or a string that contains "NULL"
+
+We can check for NULL values using the isNULL() function
+
+Example:
+
+.. code-block:: ring
+
+	oProgram = new Program
+	? oProgram.name
+	? oProgram.version
+	? isNULL(oProgram.name)
+	? isNULL(oProgram.version)
+	oProgram { name="My Application" version="1.0" }
+	? isNULL(oProgram.name)
+	? isNULL(oProgram.version)
+	? oProgram
+
+	class program
+		name 
+		version
+
+Output:
+
+.. code-block:: none
+
+	NULL
+	NULL
+	1
+	1
+	0
+	0
+	name: My Application
+	version: 1.0

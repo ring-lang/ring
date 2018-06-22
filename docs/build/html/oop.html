@@ -757,7 +757,7 @@ use self.attribute and self.method()</p>
 </div>
 </div>
 <div class="section" id="using-this-attribute-and-this-method">
-<h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Permalink to this headline">¶</a></h2>
 <p>Inside class methods we have access to the object scope directly. we don&#8217;t need to use Self.attribute
 or Self.method to read/write attribute and call methods.</p>
 <p>But we can use braces {} while we are inside methods to access another object, In this case the current
@@ -778,6 +778,94 @@ object scope will be changed while we are inside the brace.</p>
 <span class="k">Class</span> <span class="n">UI</span>
         <span class="k">func</span> <span class="n">display</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
                 <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-this-in-the-class-region-as-self">
+<span id="index-15"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Permalink to this headline">¶</a></h2>
+<p>The class region is the region that comes after the class name and before any method.</p>
+<p>We can use This in the class region as Self.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+                <span class="n">test</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="o">?</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">program</span>
+
+        <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;My Application&quot;</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span>
+        <span class="o">?</span> <span class="n">name</span> <span class="o">?</span> <span class="n">version</span>
+
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Name    = &quot;</span> <span class="o">+</span> <span class="n">name</span>
+                <span class="o">?</span> <span class="s">&quot;Version = &quot;</span> <span class="o">+</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>My Application
+1.0
+Name    = My Application
+Version = 1.0
+name: My Application
+version: 1.0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When we use braces to change the current active object, Using This we can still point to the class.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The difference between This and Self is that Self point to the current active object that we can change using braces.</p>
+</div>
+<p>Remember that in most cases we don&#8217;t need to use This or Self in the class region</p>
+<p>We can write</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Or</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We use This or Self in the class region just to avoid conflict with global variables that are defined with the same name.</p>
+</div>
+</div>
+<div class="section" id="default-value-for-object-attributes">
+<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this headline">¶</a></h2>
+<p>The default value for object attributes is NULL</p>
+<p>In Ring, the NULL value is just an empty string or a string that contains &#8220;NULL&#8221;</p>
+<p>We can check for NULL values using the isNULL() function</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">oProgram</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Program</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">name</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">version</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="n">oProgram</span> <span class="p">{</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="p">}</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">oProgram</span>
+
+<span class="k">class</span> <span class="n">program</span>
+        <span class="n">name</span>
+        <span class="n">version</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>NULL
+NULL
+1
+1
+0
+0
+name: My Application
+version: 1.0
 </pre></div>
 </div>
 </div>
@@ -806,6 +894,8 @@ object scope will be changed while we are inside the brace.</p>
 <li><a class="reference internal" href="#sort-and-list-of-objects">Sort() and list of objects</a></li>
 <li><a class="reference internal" href="#using-self-attribute-and-self-method">Using Self.Attribute and Self.Method()</a></li>
 <li><a class="reference internal" href="#using-this-attribute-and-this-method">Using This.Attribute and This.Method()</a></li>
+<li><a class="reference internal" href="#using-this-in-the-class-region-as-self">Using This in the class region as Self</a></li>
+<li><a class="reference internal" href="#default-value-for-object-attributes">Default value for object attributes</a></li>
 </ul>
 </li>
 </ul>
