@@ -187,7 +187,9 @@ Example:
 
 		### Send URL+Crumb to Yahoo to fetch 1st stock history data,
 
-		$url = "https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&period2=1498777545&interval=1wk&events=history&crumb=" + myCrumb
+		$url = "https://query1.finance.yahoo.com/v7/finance/download/AMZN"+
+			"?period1=1277856000&period2=1498777545&interval=1wk" + 
+			"&events=history&crumb=" + myCrumb
 
 		curl_easy_setopt(curl, CURLOPT_URL, $url);
 		cStr = curl_easy_perform_silent(curl)

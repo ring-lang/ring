@@ -205,7 +205,9 @@
 
         <span class="sd">### Send URL+Crumb to Yahoo to fetch 1st stock history data,</span>
 
-        <span class="o">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&amp;period2=1498777545&amp;interval=1wk&amp;events=history&amp;crumb=&quot;</span> <span class="o">+</span> <span class="n">myCrumb</span>
+        <span class="o">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://query1.finance.yahoo.com/v7/finance/download/AMZN&quot;</span><span class="o">+</span>
+                <span class="s">&quot;?period1=1277856000&amp;period2=1498777545&amp;interval=1wk&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;&amp;events=history&amp;crumb=&quot;</span> <span class="o">+</span> <span class="n">myCrumb</span>
 
         <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="o">$</span><span class="n">url</span><span class="p">);</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
