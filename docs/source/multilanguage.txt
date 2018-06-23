@@ -64,24 +64,6 @@ The next section from the English.ring file
 	T_FORMDESIGNER_SAVEAS 			= "Save As"
 	T_FORMDESIGNER_CLOSE 			= "Close"
 
-The next section from the Arabic.ring file
-
-.. code-block:: ring
-
-	T_LANGUAGE = "arabic"
-	T_LAYOUTDIRECTION = 1			# Right to Left
-
-	T_FORMDESIGNER_FORMDESIGNER 		= "مصمم النماذج"
-	T_FORMDESIGNER_FORMTITLE 		= "النافذة 1"
-
-	T_FORMDESIGNER_FILE 			= "ملف"
-	T_FORMDESIGNER_NEW 			= "جديد"
-	T_FORMDESIGNER_OPEN 			= "فتح"
-	T_FORMDESIGNER_SAVE 			= "حفظ"
-	T_FORMDESIGNER_SAVEAS 			= "حفظ بإسم"
-	T_FORMDESIGNER_CLOSE 			= "إغلاق"
-	T_FORMDESIGNER_EXIT 			= "خروج"
-
 The form designer source code files will use these constants instead of typing the string literals 
 
 the next section from the formdesigner/mainwindow/formdesignerview.ring
