@@ -89,7 +89,8 @@ int Beep(int dwFreq,int dwDuration)
 <div class="highlight-none"><div class="highlight"><pre><span></span>cls
 call ../../src/locatevc.bat
 cl /c /DEBUG ringbeep.c -I&quot;..\..\include&quot;
-link /DEBUG ringbeep.obj  ..\..\lib\ring.lib kernel32.lib /DLL /OUT:ringbeep.dll /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
+link /DEBUG ringbeep.obj  ..\..\lib\ring.lib kernel32.lib /DLL /OUT:ringbeep.dll ^
+                                                        /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
 del ringbeep.obj
 </pre></div>
 </div>
