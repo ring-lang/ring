@@ -57,6 +57,8 @@ Output:
 	Do 1000 search operation - Find the last item (Worst Case!)
 	Time: 0.87 seconds
 
+.. index:: 
+     pair: Performance Tips; Many Tree Items
 
 Many Tree Items
 ===============
@@ -103,3 +105,49 @@ Output:
 
 .. image:: manytreeitems.png
 	:alt: Many Tree Items
+
+
+.. index:: 
+     pair: Performance Tips; Creating Lists
+
+Creating Lists
+==============
+
+Example:
+
+.. code-block:: ring
+
+	? "Create the list using the Range operator"
+	t1 = clock()
+	aList = 1:1000000
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	? "Create the list using the For loop"
+	t1 = clock()
+	aList = []
+	for x = 1 to 1000000
+		aList + x
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	? "Create the list using the list() function and the For loop"
+	t1 = clock()
+	aList = list(1000000)
+	for x = 1 to 1000000
+		aList[x] = x
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+Output:
+
+.. code-block:: none
+
+	Create the list using the Range operator
+	Time : 0.48 seconds
+	Create the list using the For loop
+	Time : 0.79 seconds
+	Create the list using the list() function and the For loop
+	Time : 1.56 seconds
+
+.. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
+
