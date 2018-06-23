@@ -131,9 +131,10 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
                                 <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
                                 <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;Test()&quot;</span><span class="p">)</span>
                         <span class="p">}</span>
-                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in the sub environment</span>
-                        <span class="c"># Will create timers by Qt and closing the window will not be enough</span>
-                        <span class="c"># To close the application</span>
+                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in</span>
+                        <span class="c"># the sub environment</span>
+                        <span class="c"># Will create timers by Qt and closing the window</span>
+                        <span class="c"># will not be enough to close the application</span>
                         <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                         <span class="n">oFilter</span><span class="p">.</span><span class="n">setCloseEvent</span><span class="p">(</span><span class="s">&quot;myapp.quit()&quot;</span><span class="p">)</span>
                         <span class="n">win</span><span class="p">.</span><span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>

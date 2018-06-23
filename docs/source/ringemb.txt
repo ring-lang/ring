@@ -112,9 +112,10 @@ Example:
 					setText("Test")
 					setClickEvent("Test()")
 				}
-				# We need this because using load 'guilib.ring' in the sub environment
-				# Will create timers by Qt and closing the window will not be enough
-				# To close the application
+				# We need this because using load 'guilib.ring' in
+				# the sub environment
+				# Will create timers by Qt and closing the window 
+				# will not be enough to close the application
 				oFilter = new qAllEvents(win)
 				oFilter.setCloseEvent("myapp.quit()")
 				win.installeventfilter(oFilter)
