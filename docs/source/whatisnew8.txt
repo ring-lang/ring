@@ -375,7 +375,8 @@ Example:
 	? mf.frAbs(10-30)    
 	? mf.frAbs(30-10)   
 
-	? mf.frTransform("    Ring is a good language    ", "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
+	? mf.frTransform("    Ring is a good language    ",
+			 "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
 	? mf.frAllTrim("    Ring is a good language    ", Null) 
 
 Output:
@@ -473,11 +474,6 @@ Example:
 
 	QString displayName(QStandardPaths::StandardLocation type)
 	QString findExecutable(QString executableName, QStringList paths))
-	QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
-	QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
-	void setTestModeEnabled(bool testMode)
-	QStringL/ist standardLocations(QStandardPaths::StandardLocation type)
-	QString writableLocation(QStandardPaths::StandardLocation type)
 
 
 .. index:: 
