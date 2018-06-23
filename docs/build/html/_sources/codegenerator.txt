@@ -1205,11 +1205,6 @@ Example:
 
 	QString displayName(QStandardPaths::StandardLocation type)
 	QString findExecutable(QString executableName, QStringList paths))
-	QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
-	QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
-	void setTestModeEnabled(bool testMode)
-	QStringL/ist standardLocations(QStandardPaths::StandardLocation type)
-	QString writableLocation(QStandardPaths::StandardLocation type)
 
 
 .. index:: 
