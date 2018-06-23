@@ -188,3 +188,39 @@ Output:
 
 .. note:: Using the *= operator is faster that using the * operator
 
+
+.. index:: 
+     pair: Performance Tips; Using len() and For Loops
+
+Using len() and For Loops
+=========================
+
+Example:
+
+.. code-block:: ring
+
+	aList = 1:1000000
+
+	? "Using len() in the For loop"
+	t1 = clock()
+	for x = 1 to len(aList)
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	? "Using len() before the For loop"
+	t1 = clock()
+	nMax = len(aList)
+	for x = 1 to nMax
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+Output:
+
+.. code-block:: none
+
+	Using len() in the For loop
+	Time : 5.50 seconds
+	Using len() before the For loop
+	Time : 0.24 seconds
+
+.. note:: Using len() before the For loop is faster than using len() in the For loop.
