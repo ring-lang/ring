@@ -27,3 +27,79 @@ Ring can do each of the next tasks in around 1 second using normal computers in 
 
 Also when we need more speed we can use C/C++ extensions! 
 
+.. index:: 
+     pair: Performance Tips; Search Operation
+
+Search Operation
+================
+
+Example:
+
+.. code-block:: ring
+
+	? "Create list contains 100,000 items"
+	aList = 1:100000
+
+	? "Do 1000 search operation - Find the last item (Worst Case!)"
+	c = clock() 
+
+	for t = 1 to 1000
+		find(alist,100000)
+	next
+
+	? "Time: " + ( clock() - c ) / clockspersecond() + " seconds"
+
+Output:
+
+.. code-block:: none
+
+	Create list contains 100,000 items
+	Do 1000 search operation - Find the last item (Worst Case!)
+	Time: 0.87 seconds
+
+
+Many Tree Items
+===============
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	func main
+
+	new qApp {
+		win = new qWidget() { 
+			move(100,100) resize(500,500)
+			setWindowTitle("Many Tree Items - Testing Performance")
+			tree = new qTreeWidget(win) { 
+				blocksignals(True) setUpdatesEnabled(False)
+				root = new qTreeWidgetItem()
+				root.setText(0,"The Root Node")
+				t1 = clock()
+				for t = 1 to 5000
+					oItem = new qTreeWidgetItem()
+					oItem.settext(0,"Item " + t)
+					root.addchild(oItem)
+				next
+				cTime = (clock()-t1)/clockspersecond()
+				setHeaderLabel("Creating 5000 nodes in " + cTime + " seconds.")
+				addTopLevelItem(root)
+				expanditem(root)
+				blocksignals(False) setUpdatesEnabled(True)
+			}
+			oLayout = new qVBoxLayout() {
+				addWidget(tree)
+			}
+			setLayout(oLayout)
+			show() 
+		}
+		exec()
+	}
+	
+
+Output:
+
+.. image:: manytreeitems.png
+	:alt: Many Tree Items
