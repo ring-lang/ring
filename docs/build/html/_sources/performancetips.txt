@@ -151,3 +151,40 @@ Output:
 
 .. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
 
+
+.. index:: 
+     pair: Performance Tips; Arithmetic Operations
+
+Arithmetic Operations
+=====================
+
+Example:
+
+.. code-block:: ring
+
+	? "Using * operator"
+	t1 = clock()
+	for x = 1 to 1000000
+		out = x * 2
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	? "Using *= operator"
+	t1 = clock()
+	for x = 1 to 1000000
+		out = x
+		out *= 2
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+Output:
+
+.. code-block:: none
+
+	Using * operator
+	Time : 1.34 seconds
+	Using *= operator
+	Time : 0.47 seconds
+
+.. note:: Using the *= operator is faster that using the * operator
+
