@@ -232,6 +232,57 @@ Time : 0.24 seconds
 <p class="last">Using len() before the For loop is faster than using len() in the For loop.</p>
 </div>
 </div>
+<div class="section" id="calling-functions-and-methods">
+<span id="index-7"></span><h2>Calling Functions and Methods<a class="headerlink" href="#calling-functions-and-methods" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;calling 100000 functions&quot;</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+        <span class="n">test</span><span class="p">()</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span>
+
+<span class="o">?</span> <span class="s">&quot;calling 100000 methods using the dot operator&quot;</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;calling 100000 methods using braces &quot;</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+        <span class="n">o1</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+
+
+<span class="k">func</span> <span class="n">test</span>
+
+<span class="k">class</span> <span class="n">test</span>
+        <span class="k">func</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>calling 100000 functions
+Time : 0.28 seconds
+calling 100000 methods using the dot operator
+Time : 0.36 seconds
+calling 100000 methods using braces
+Time : 1.19 seconds
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Calling functions is faster than calling methods but the difference is very small.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using the dot operator to call methods is faster than using braces.</p>
+</div>
+</div>
 </div>
 
 
@@ -249,6 +300,7 @@ Time : 0.24 seconds
 <li><a class="reference internal" href="#creating-lists">Creating Lists</a></li>
 <li><a class="reference internal" href="#arithmetic-operations">Arithmetic Operations</a></li>
 <li><a class="reference internal" href="#using-len-and-for-loops">Using len() and For Loops</a></li>
+<li><a class="reference internal" href="#calling-functions-and-methods">Calling Functions and Methods</a></li>
 </ul>
 </li>
 </ul>

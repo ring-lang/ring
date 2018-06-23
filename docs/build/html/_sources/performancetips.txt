@@ -224,3 +224,62 @@ Output:
 	Time : 0.24 seconds
 
 .. note:: Using len() before the For loop is faster than using len() in the For loop.
+
+
+.. index:: 
+     pair: Performance Tips; Calling Functions and Methods
+
+Calling Functions and Methods
+=============================
+
+Example:
+
+.. code-block:: ring
+
+	? "calling 100000 functions"
+	t1 = clock()
+	for x = 1 to 100000
+		test()
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	o1 = new test
+
+	? "calling 100000 methods using the dot operator"
+	t1 = clock()
+	for x = 1 to 100000
+		o1.test()
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+	? "calling 100000 methods using braces "
+	t1 = clock()
+	for x = 1 to 100000
+		o1 { test() }
+	next
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+
+	func test
+
+	class test
+		func test
+
+
+Output:
+
+.. code-block:: none
+
+	calling 100000 functions
+	Time : 0.28 seconds
+	calling 100000 methods using the dot operator
+	Time : 0.36 seconds
+	calling 100000 methods using braces
+	Time : 1.19 seconds
+
+.. note:: Calling functions is faster than calling methods but the difference is very small.
+
+.. note:: Using the dot operator to call methods is faster than using braces.
+
+
+
