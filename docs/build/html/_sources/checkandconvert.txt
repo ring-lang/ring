@@ -214,7 +214,8 @@ Syntax:
 
 .. code-block:: ring
 
-	IsCntrl(value) ---> 1 if the value is a control character (no printing position) or 0 if not	
+	IsCntrl(value) ---> 1 if the value is a control character (no printing position) 
+			    or 0 if not	
 
 Example:
 
