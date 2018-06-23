@@ -291,7 +291,8 @@
     <span class="n">tm_year4</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">+</span> <span class="mi">299</span><span class="p">)</span> <span class="o">/</span> <span class="mi">400</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
 
     <span class="sd">### Result</span>
-    <span class="n">EpochSec</span> <span class="o">=</span> <span class="n">tm_sec</span> <span class="o">+</span> <span class="n">tm_min</span> <span class="o">+</span> <span class="n">tm_hour</span> <span class="o">+</span> <span class="n">tm_yday</span> <span class="o">+</span> <span class="n">tm_year1</span> <span class="o">+</span> <span class="n">tm_year2</span> <span class="o">-</span> <span class="n">tm_year3</span> <span class="o">+</span> <span class="n">tm_year4</span>
+    <span class="n">EpochSec</span> <span class="o">=</span> <span class="n">tm_sec</span> <span class="o">+</span> <span class="n">tm_min</span> <span class="o">+</span> <span class="n">tm_hour</span> <span class="o">+</span> <span class="n">tm_yday</span> <span class="o">+</span>
+               <span class="n">tm_year1</span> <span class="o">+</span> <span class="n">tm_year2</span> <span class="o">-</span> <span class="n">tm_year3</span> <span class="o">+</span> <span class="n">tm_year4</span>
 
 <span class="k">return</span> <span class="n">EpochSec</span>
 </pre></div>

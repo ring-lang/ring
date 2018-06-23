@@ -263,7 +263,8 @@ Example:
 	    tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
 
 	    ### Result
-	    EpochSec = tm_sec + tm_min + tm_hour + tm_yday + tm_year1 + tm_year2 - tm_year3 + tm_year4
+	    EpochSec = tm_sec + tm_min + tm_hour + tm_yday +
+		       tm_year1 + tm_year2 - tm_year3 + tm_year4
 
 	return EpochSec
 	
