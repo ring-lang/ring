@@ -1,6 +1,6 @@
 echo off
 
-call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+call ../../src/locatevc.bat
 
 cl /c /DEBUG ring_winapi.c -I"..\..\include"
 
