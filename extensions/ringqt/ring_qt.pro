@@ -125,8 +125,8 @@ win32 {
 macx {
 	LIBS +=  ../../lib/libring.dylib
 	QT   += quick quickwidgets qml
-	SOURCES += gquickwidget.cpp 
-	HEADERS += gquickwidget.h 
+	SOURCES += openglwidget.cpp gquickwidget.cpp 
+	HEADERS += openglwidget.h gquickwidget.h 
 }
 
 unix:!macx {
