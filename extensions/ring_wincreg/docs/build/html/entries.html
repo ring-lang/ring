@@ -1,0 +1,478 @@
+
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dealing with Entries &#8212; Ring_WinCReg 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dealing with Values" href="values.html" />
+    <link rel="prev" title="Dealing with Keys" href="keys.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="values.html" title="Dealing with Values"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="keys.html" title="Dealing with Keys"
+             accesskey="P">previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<a href="http://ring-wincreg.sf.net/"><img src="logo.png" border="0"
+alt="Home"/></a>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dealing with Entries</a><ul>
+<li><a class="reference internal" href="#create-entry">Create Entry</a></li>
+<li><a class="reference internal" href="#entry-existence">Entry Existence</a></li>
+<li><a class="reference internal" href="#get-entry">Get Entry</a><ul>
+<li><a class="reference internal" href="#getentryat-function">GetEntryAt() Function</a></li>
+<li><a class="reference internal" href="#getentryname-function">GetEntryName() Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#entries-count">Entries Count</a></li>
+<li><a class="reference internal" href="#get-all-entries">Get All Entries</a></li>
+<li><a class="reference internal" href="#access-the-default-entry">Access the default entry</a></li>
+<li><a class="reference internal" href="#copy-entries">Copy Entries</a><ul>
+<li><a class="reference internal" href="#copyto-function">CopyTo() Function</a></li>
+<li><a class="reference internal" href="#copyallto-function">CopyAllTo() Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rename-entry">Rename Entry</a></li>
+<li><a class="reference internal" href="#checking-entry-type">Checking Entry Type</a></li>
+<li><a class="reference internal" href="#get-entry-type">Get Entry Type</a><ul>
+<li><a class="reference internal" href="#type-function">Type() Function</a></li>
+<li><a class="reference internal" href="#typename-function">TypeName() Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clear-entry">Clear Entry</a></li>
+<li><a class="reference internal" href="#delete-entry">Delete Entry</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="keys.html"
+                        title="previous chapter">Dealing with Keys</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="values.html"
+                        title="next chapter">Dealing with Values</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/entries.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dealing-with-entries">
+<h1>Dealing with Entries<a class="headerlink" href="#dealing-with-entries" title="Permalink to this headline">¶</a></h1>
+<p>Here, we are going to learn how to deal with registry entries by using &#8220;ring_wincreg&#8221; extension capabilities through RCRegistry class library.</p>
+<div class="section" id="create-entry">
+<span id="index-0"></span><h2>Create Entry<a class="headerlink" href="#create-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can create an empty entry using <strong>Create()</strong> function. This function accepts one parameter which is the type of entry to be created. If the entry is already existed this function will return error message.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+Reg[&quot;NewValue&quot;].Create(REG_BINARY)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Creating an empty entry with Create() function will initialize it with nil value of the corresponding data type.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Default entry is considered not existed if it is still not set. So if we use Create() function it will be initialized with value of corresponding data type.</p>
+</div>
+<p>We can indirectly create any entry by using those functions that set the values for each data type.(<a class="reference internal" href="values.html#set-value"><span class="std std-ref">Set Value</span></a>) So that we can create any entry by initially setting any value to it as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+Reg[&quot;AppStyle&quot;].SetValue(&quot;Normal Style&quot;)
+
+Reg[&quot;AppOpenCount&quot;].SetDWORD(3)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="entry-existence">
+<span id="index-1"></span><h2>Entry Existence<a class="headerlink" href="#entry-existence" title="Permalink to this headline">¶</a></h2>
+<p>We can check whether a specific entry is existed or not using <strong>Exists()</strong> function as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+If Reg[&quot;AppStyle&quot;].Exists() = True
+        See &quot;AppStyle is existed in MyApp key&quot;
+Ok
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-entry">
+<span id="index-2"></span><h2>Get Entry<a class="headerlink" href="#get-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can get one entry from any opened key, if it contains any, by using <strong>GetEntryAt()</strong> and <strong>GetEntryName()</strong> functions.</p>
+<div class="section" id="getentryat-function">
+<span id="index-3"></span><span id="id1"></span><h3>GetEntryAt() Function<a class="headerlink" href="#getentryat-function" title="Permalink to this headline">¶</a></h3>
+<p>This function will return a key handle by its index so that we can not deal with it as string with all other function but we can use GetEntryName() function to get it is string.</p>
+<p>This function actually used in case that we want to transfer a whole entry containing its all properties within &#8220;ring_wincreg&#8221; extension from one key to attach it to another (ex. copy).</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+DestReg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp2&quot;])
+        }
+
+New RCRegistry {
+
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+
+        EntryH = GetEntryAt(1)
+
+        CopyTo(EntryH, DestReg.Key)
+
+        CloseKey()
+
+        }
+
+DestReg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="getentryname-function">
+<span id="index-4"></span><h3>GetEntryName() Function<a class="headerlink" href="#getentryname-function" title="Permalink to this headline">¶</a></h3>
+<p>This function is used to get the name of an entry handle that could be retrieved by GetEntryAt() function.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+EntryH = Reg.GetEntryAt(1)
+
+See &quot;The retrieved entry name is : &quot; + Reg.GetEntryName(EntryH)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="entries-count">
+<span id="index-5"></span><h2>Entries Count<a class="headerlink" href="#entries-count" title="Permalink to this headline">¶</a></h2>
+<p>We may need to know the total number of values/entries within the opened key. This could be done by using <strong>EntriesCount()</strong> function.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry
+
+Reg.OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+
+See &quot;The total number of entries are : &quot; + Reg.EntriesCount()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-all-entries">
+<span id="index-6"></span><h2>Get All Entries<a class="headerlink" href="#get-all-entries" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of all entries contained in an opened key by using <strong>GetEntries()</strong> function as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+aList = Reg.GetEntries()
+
+See &quot;These are the entries that are contained in MyApp&quot; + NL
+See aList
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-the-default-entry">
+<span id="index-7"></span><h2>Access the default entry<a class="headerlink" href="#access-the-default-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can access the default entry that is present in each key in the registry tree by passing empty string as an entry name</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;Setting the default entry value &gt;&gt;&gt; &quot; + NL
+
+Reg[&quot;&quot;].SetValue(&quot;default entry value&quot;)
+
+See &quot;The value of default entry is : &quot; + Reg[&quot;&quot;].GetValue()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Default entry is of (REG_SZ) data type by default but it can take any data type by setting the value using the data type specific functions. (<a class="reference internal" href="values.html#set-value"><span class="std std-ref">Set Value</span></a>)</p>
+</div>
+</div>
+<div class="section" id="copy-entries">
+<span id="index-8"></span><h2>Copy Entries<a class="headerlink" href="#copy-entries" title="Permalink to this headline">¶</a></h2>
+<p>We can copy an entry or the whole list of entries in an opened key to another key by using <strong>CopyTo()</strong> and <strong>CopyAllTo()</strong> functions.</p>
+<div class="section" id="copyto-function">
+<span id="index-9"></span><h3>CopyTo() Function<a class="headerlink" href="#copyto-function" title="Permalink to this headline">¶</a></h3>
+<p>This function has two instances one can be used to copy an entry by passing its handle <a class="reference internal" href="#getentryat-function"><span class="std std-ref">GetEntryAt() Function</span></a>, the other is used to copy any entry by using its name.</p>
+<p>Here is an example of the second instance of <strong>CopyTo()</strong> function.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+DestReg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp2&quot;])
+        }
+
+Reg[&quot;AppVersion&quot;].CopyTo(DestReg.Key)
+
+See &quot;The value of the copied AppVersion entry is : &quot; + DestReg[&quot;AppVersion&quot;].GetValue()
+
+Reg.CloseKey()
+
+DestReg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="copyallto-function">
+<span id="index-10"></span><h3>CopyAllTo() Function<a class="headerlink" href="#copyallto-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can copy all of the opened key entries to another one.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+DestReg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp2&quot;]) }
+
+Reg.CopyAllTo(DestReg.Key)
+
+See &quot;The copied entries are : &quot; + NL
+
+See DestReg.GetEntries()
+
+Reg.CloseKey()
+
+DestReg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rename-entry">
+<span id="index-11"></span><h2>Rename Entry<a class="headerlink" href="#rename-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can rename any entry by using <strong>Rename()</strong> function. The new name should be passed as a parameter to Rename() function.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry {
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+        }
+
+Reg[&quot;AppStyle&quot;].Rename(&quot;AppGeneralLook&quot;)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-entry-type">
+<span id="index-12"></span><h2>Checking Entry Type<a class="headerlink" href="#checking-entry-type" title="Permalink to this headline">¶</a></h2>
+<p>We can check a specific entry for it is type by some useful functions. These functions are:</p>
+<ol class="arabic simple">
+<li>IsString() function : return True if the entry is of (REG_SZ) type.</li>
+<li>IsDWORD() function : return True if the entry is of (REG_DWORD) type.</li>
+<li>IsMultiString() function : return True if the entry is of (REG_MULTI_SZ) type.</li>
+<li>IsExpandSZ() function : return True if the entry is of (REG_EXPAND_SZ) type.</li>
+<li>IsQWORD() function : return True if the entry is of (REG_QWORD) type.</li>
+<li>IsBinary() function : return True if the entry is of (REG_BINARY) type.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+If Reg[&quot;AppPath&quot;].IsString() = True
+        See Reg[&quot;AppPath&quot;].GetValue()
+Ok
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-entry-type">
+<span id="index-13"></span><h2>Get Entry Type<a class="headerlink" href="#get-entry-type" title="Permalink to this headline">¶</a></h2>
+<p>We can get the type of entry directly from registry by using <strong>Type()</strong> and <strong>TypeName()</strong> functions.</p>
+<div class="section" id="type-function">
+<span id="index-14"></span><h3>Type() Function<a class="headerlink" href="#type-function" title="Permalink to this headline">¶</a></h3>
+<p>The registry entries types are known with specific numbers so that using <strong>Type()</strong> function will return a number of the type of the specified entry.</p>
+<p>There are predefined Registry types constants in the &#8220;wincreg.rh&#8221; header file that may be used for comparison with this function return.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+If Reg[&quot;AppVersion&quot;].Type() = REG_SZ
+        See &quot;This (AppVersion) entry is of (REG_SZ) type&quot;
+Ok
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="typename-function">
+<span id="index-15"></span><h3>TypeName() Function<a class="headerlink" href="#typename-function" title="Permalink to this headline">¶</a></h3>
+<p>This function return the type name of a specified entry as a string.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;The type of (AppVersion) entry is : &quot; + Reg[&quot;AppVersion&quot;].TypeName()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clear-entry">
+<span id="index-16"></span><h2>Clear Entry<a class="headerlink" href="#clear-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can clear the content of any data type entry by using <strong>Clear()</strong> function as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;The old logo is : &quot; + Reg[&quot;AppLogo&quot;].GetValue() + NL
+
+Reg[&quot;AppLogo&quot;].Clear()
+
+Reg[&quot;AppLogo&quot;].SetValue(&quot;We are in your eye&#39;s TRUST&quot;)
+
+See &quot;The new logo is : &quot; + Reg[&quot;AppLogo&quot;].GetValue()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-entry">
+<span id="index-17"></span><h2>Delete Entry<a class="headerlink" href="#delete-entry" title="Permalink to this headline">¶</a></h2>
+<p>We can delete any entry that is not needed by using <strong>Delete()</strong> function as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;NewEntry&quot;].Create(REG_SZ)
+
+See &quot;NewEntry has been created&quot; + NL
+
+Reg[&quot;NewEntry&quot;].Delete()
+
+See &quot;NewEntry has been deleted&quot;
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We can use this function with default entry to clear its content and restore its default data type (REG_SZ).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="values.html" title="Dealing with Values"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="keys.html" title="Dealing with Keys"
+             >previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Majdi Sobain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

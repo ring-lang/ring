@@ -1,0 +1,561 @@
+
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dealing with Values &#8212; Ring_WinCReg 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extension functions list" href="extensionfunctions.html" />
+    <link rel="prev" title="Dealing with Entries" href="entries.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extensionfunctions.html" title="Extension functions list"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="entries.html" title="Dealing with Entries"
+             accesskey="P">previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<a href="http://ring-wincreg.sf.net/"><img src="logo.png" border="0"
+alt="Home"/></a>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dealing with Values</a><ul>
+<li><a class="reference internal" href="#set-value">Set Value</a><ul>
+<li><a class="reference internal" href="#setvalue-function">SetValue() Function</a></li>
+<li><a class="reference internal" href="#setvalue2-function">SetValue2() Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-value">Get Value</a></li>
+<li><a class="reference internal" href="#string-values">String Values</a></li>
+<li><a class="reference internal" href="#dword-numerical-values">DWORD Numerical Values</a></li>
+<li><a class="reference internal" href="#multi-string-values">Multi String Values</a><ul>
+<li><a class="reference internal" href="#setmulti-function">SetMulti() Function</a></li>
+<li><a class="reference internal" href="#multisetat-function">MultiSetAt() Function</a></li>
+<li><a class="reference internal" href="#multiadd-function">MultiAdd() Function</a></li>
+<li><a class="reference internal" href="#multigetat-function">MultiGetAt() Function</a></li>
+<li><a class="reference internal" href="#multiremoveat-function">MultiRemoveAt() Function</a></li>
+<li><a class="reference internal" href="#multicount-function">MultiCount() Function</a></li>
+<li><a class="reference internal" href="#multiclear-function">MultiClear() Function</a></li>
+<li><a class="reference internal" href="#setmultilist-function">SetMultiList() Function</a></li>
+<li><a class="reference internal" href="#getmultilist-function">GetMultiList() Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qword-numerical-values">QWORD Numerical Values</a></li>
+<li><a class="reference internal" href="#expandable-string-values">Expandable String Values</a></li>
+<li><a class="reference internal" href="#binary-values">Binary Values</a></li>
+<li><a class="reference internal" href="#set-and-get-ring-objects">Set and Get Ring Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="entries.html"
+                        title="previous chapter">Dealing with Entries</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extensionfunctions.html"
+                        title="next chapter">Extension functions list</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/values.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dealing-with-values">
+<h1>Dealing with Values<a class="headerlink" href="#dealing-with-values" title="Permalink to this headline">¶</a></h1>
+<p>Here, we are going to learn how to deal with registry values by using &#8220;ring_wincreg&#8221; extension capabilities through RCRegistry class library.</p>
+<div class="section" id="set-value">
+<span id="index-0"></span><span id="id1"></span><h2>Set Value<a class="headerlink" href="#set-value" title="Permalink to this headline">¶</a></h2>
+<p>We can set a value for any specified entry by using set functions for each registry data type. Additionally, two general functions <strong>SetValue()</strong> and <strong>SetValue2()</strong> that could set any data type.</p>
+<div class="section" id="setvalue-function">
+<span id="index-1"></span><h3>SetValue() Function<a class="headerlink" href="#setvalue-function" title="Permalink to this headline">¶</a></h3>
+<p>This general function can set values smartly according to entry existence. If the entry existed it will save the data automatically using entry data type setting function, BUT if it does not exist it will save it according to the following rules:</p>
+<ul class="simple">
+<li>String value will be saved as (REG_SZ) type.</li>
+<li>Numbers in the range of DWORD will be saved as (REG_DWORD).</li>
+<li>Numbers not in the range of DWORD will be converted to string then saved as (REG_SZ).</li>
+<li>Floated numbers will automatically be converted to string and saved as (REG_SZ).</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Setting new value to a previously existed entry with different data type will give error message because this function automatically use data type specific function of the already existed entry type for setting new values.</p>
+</div>
+<p>This function has been used in the previous examples to save strings, but now will try to save DWORD value.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;OpenTimes&quot;].SetValue(12)
+
+See &quot;The type of OpenTimes entry is : &quot; + Reg[&quot;OpenTimes&quot;].TypeName()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">5.0000 is considered as not floated value as there&#8217;s no real value after the point.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Setting values to already present (REG_MULTI_SZ) entry using SetValue() function will be done by using SetMultiList() function which means that we have to pass list to SetValue() function to set (REG_MULTI_SZ) values.</p>
+<p class="last">This is the same thing with SetValue2() function.</p>
+</div>
+</div>
+<div class="section" id="setvalue2-function">
+<span id="index-2"></span><h3>SetValue2() Function<a class="headerlink" href="#setvalue2-function" title="Permalink to this headline">¶</a></h3>
+<p>This general function can set any data type explicitly by passing the value and its type as parameters as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;ExplicitValue&quot;].SetValue2(78232, REG_QWORD)
+
+See &quot;The value is : &quot; + Reg[&quot;ExplicitValue&quot;].GetValue() + NL
+
+See &quot;The value data type is : &quot; + Reg[&quot;ExplicitValue&quot;].TypeName()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-value">
+<span id="index-3"></span><span id="id2"></span><h2>Get Value<a class="headerlink" href="#get-value" title="Permalink to this headline">¶</a></h2>
+<p>We can get a value for any specified entry using get functions for each registry type. But there&#8217;s a general <strong>GetValue()</strong> function that could be used to get values smartly according to their data type as follow:</p>
+<ul class="simple">
+<li>(REG_SZ) values will be returned as string.</li>
+<li>(REG_DWORD) values will be returned as numbers.</li>
+<li>(REG_MULTI_SZ) values will be return as list.</li>
+<li>(REG_QWORD) values will be return as number or string.(<a class="reference internal" href="#qword-numbers"><span class="std std-ref">QWORD Numerical Values</span></a>)</li>
+<li>(REG_EXPAND_SZ) values will be returned as string.</li>
+<li>(REG_BINARY) values will be returned as string.</li>
+</ul>
+<p>This function could be used if its not necessary to use type specific functions.</p>
+<p>Here is an example of how to use it.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;The path of this application is : &quot; + Reg[&quot;AppPath&quot;].GetValue() + NL
+
+See &quot;The version of this application is : &quot; + Reg[&quot;AppVersion&quot;].GetValue() + NL
+
+See &quot;This application has been launched &quot; + Reg[&quot;OpenTimes&quot;].GetValue() + &quot; times&quot;
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-values">
+<span id="index-4"></span><h2>String Values<a class="headerlink" href="#string-values" title="Permalink to this headline">¶</a></h2>
+<p>We can set and get strictly string values using <strong>SetString()</strong> and <strong>GetString()</strong> functions. These values will be saved in registry as (REG_SZ) values.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;AppLogo&quot;].SetString(&quot;We give without counting :)&quot;)
+
+See &quot;MyApp logo is : &quot; + Reg[&quot;AppLogo&quot;].GetString()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="dword-numerical-values">
+<span id="index-5"></span><h2>DWORD Numerical Values<a class="headerlink" href="#dword-numerical-values" title="Permalink to this headline">¶</a></h2>
+<p>DWORD numerical values are unsigned Long 32 bit numbers (Unsigned Long) that are saved in registry as (REG_DWORD) values. They have a range of  (0 - 4294967294). Floated numbers will be converted into strings and dealt with as string, So its better to deal with them as string from the beginning.</p>
+<p>Here we will talk about integer values. These values can strictly be saved and gotten by <strong>SetDWORD()</strong> and <strong>GetDWORD()</strong> functions.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;SoundVolume&quot;].SetDWORD(57)
+
+See &quot;The sound volume now is : &quot; + Reg[&quot;SoundVolume&quot;].GetDWORD()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-string-values">
+<span id="index-6"></span><h2>Multi String Values<a class="headerlink" href="#multi-string-values" title="Permalink to this headline">¶</a></h2>
+<p>Multi string values are values that contain a list of string values each list item is separated in single line. They are saved in registry as (REG_MULTI_SZ) values.</p>
+<p>We can deal with multi string values (REG_MULTI_SZ) with more than just two functions. We can use these functions:</p>
+<ol class="arabic simple">
+<li>SetMulti() function.</li>
+<li>MultiSetAt() function.</li>
+<li>MultiAdd() function.</li>
+<li>MultiGetAt() function.</li>
+<li>MultiRemoveAt() function.</li>
+<li>MultiCount() function.</li>
+<li>MultiClear() function.</li>
+<li>SetMultiList() function.</li>
+<li>GetMultiList() function.</li>
+</ol>
+<div class="section" id="setmulti-function">
+<span id="index-7"></span><h3>SetMulti() Function<a class="headerlink" href="#setmulti-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can create and set first item of the multi string value as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;FileMenuItems&quot;].SetMulti(&quot;Open&quot;)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multisetat-function">
+<span id="index-8"></span><h3>MultiSetAt() Function<a class="headerlink" href="#multisetat-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can set(substitute) any item of the list with any given value.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;FileMenuItems&quot;].MultiSetAt(1, &quot;New&quot;)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiadd-function">
+<span id="index-9"></span><h3>MultiAdd() Function<a class="headerlink" href="#multiadd-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can add a value as new item to pre existed multi string value list or can establish a new multi string value list with help of SetMulti() function.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;FileMenuItems&quot;].MultiAdd(&quot;Open&quot;)
+
+Reg[&quot;FileMenuItems&quot;].MultiAdd(&quot;Save&quot;)
+
+Reg[&quot;FileMenuItems&quot;].MultiAdd(&quot;Exit&quot;)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multigetat-function">
+<span id="index-10"></span><h3>MultiGetAt() Function<a class="headerlink" href="#multigetat-function" title="Permalink to this headline">¶</a></h3>
+<p>This function gets the value of one item of multi string value by its index.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;The first item in the list is : &quot; + Reg[&quot;FileMenuItems&quot;].MultiGetAt(1)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiremoveat-function">
+<span id="index-11"></span><h3>MultiRemoveAt() Function<a class="headerlink" href="#multiremoveat-function" title="Permalink to this headline">¶</a></h3>
+<p>This function removes any item of multi string value by its index.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;FileMenuItems&quot;].MultiRemoveAt(1)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multicount-function">
+<span id="index-12"></span><h3>MultiCount() Function<a class="headerlink" href="#multicount-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can return the total number of items(lines) of multi string value.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+See &quot;The total number of items is : &quot; + Reg[&quot;FileMenuItems&quot;].MultiCount()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiclear-function">
+<span id="index-13"></span><h3>MultiClear() Function<a class="headerlink" href="#multiclear-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can clear all of the items(lines) in any multi string value making it empty entry.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;FileMenuItems&quot;].MultiClear()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="setmultilist-function">
+<span id="index-14"></span><h3>SetMultiList() Function<a class="headerlink" href="#setmultilist-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can save a list of items completely to a multi string value.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+FileMenuItems = [&quot;New&quot;, &quot;Open&quot;, &quot;Save&quot;, &quot;Exit&quot;]
+
+Reg[&quot;FileMenuItems&quot;].SetMultiList(FileMenuItems)
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SetMultiList() function will clear the content of the entry if its already existed.</p>
+</div>
+</div>
+<div class="section" id="getmultilist-function">
+<span id="index-15"></span><h3>GetMultiList() Function<a class="headerlink" href="#getmultilist-function" title="Permalink to this headline">¶</a></h3>
+<p>This function can get all items(lines) of multi string value as a list as follow:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+aList = Reg[&quot;FileMenuItems&quot;].GetMultiList()
+
+See &quot;The items of file menu are : &quot; + NL
+
+See aList
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="qword-numerical-values">
+<span id="qword-numbers"></span><span id="index-16"></span><h2>QWORD Numerical Values<a class="headerlink" href="#qword-numerical-values" title="Permalink to this headline">¶</a></h2>
+<p>QWORD numerical values are unsigned 64 bit numbers (Unsigned Long Long) that have a range from 0 to 18446744073709551615. These numerical values are saved in registry as (REG_QWORD) type values.</p>
+<p>We can deal with (REG_QWORD) registry type by using <strong>SetQWORD()</strong>, <strong>GetQWORD()</strong>, and <strong>GetQWORDs()</strong> functions.</p>
+<p>These functions can do the following:</p>
+<ol class="arabic simple">
+<li>SetQWORD() function : accepts numbers and numerical string values and save them as (REG_QWORD).</li>
+<li>GetQWORD() function : return QWORD value and check if it is within Ring numbers range so it return it as number, but if it is not return it as string value.</li>
+<li>GetQWORDs() function: return QWORD value always as string value.</li>
+</ol>
+<p>For more stability in coding it is better to deal with QWORD values as strings by using <strong>SetQWORD()</strong> and <strong>GetQWORDs()</strong> functions.</p>
+<p>Here is an example about QWORD:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;UpperLimit&quot;].SetQWORD(&quot;989872323890&quot;)
+
+UL = Reg[&quot;UpperLimit&quot;].GetQWORD()
+
+See &quot;The UpperLimit value is &quot; + UL + NL
+
+See &quot;The UL type is : &quot; + Type(UL) + NL
+
+See &quot;The UpperLimit string value is : &quot; + Reg[&quot;UpperLimit&quot;].GetQWORDs()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="expandable-string-values">
+<span id="index-17"></span><h2>Expandable String Values<a class="headerlink" href="#expandable-string-values" title="Permalink to this headline">¶</a></h2>
+<p>Expandable string values are string that contain some system environment variables (ex. &#8220;%path%&#8221;) that could be expanded at the time of retrieving it by substitute the contained system environment variables with their values.</p>
+<p>We can set and get expandable string value using type specific functions which are <strong>SetExpandSZ()</strong>, <strong>GetExpandSZ()</strong> and <strong>GetExpandedSZ()</strong>.</p>
+<p>The first two functions (<strong>SetExpandSZ()</strong> and <strong>GetExpandSZ()</strong>) that set and get these strings deal with them blindly which means it ignores whether they are expandable or not. But If you want to get the expanded result of them you can use <strong>GetExpandedSZ()</strong> function.</p>
+<p>Here is a complete example that show all of that:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;SysPaths&quot;].SetExpandSZ(&quot;The system paths are : &quot; + NL + &quot;%path%&quot;)
+
+See Reg[&quot;SysPaths&quot;].GetExpandSZ() + NL + NL
+
+See Reg[&quot;SysPaths&quot;].GetExpandedSZ()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+<div class="section" id="binary-values">
+<span id="index-18"></span><h2>Binary Values<a class="headerlink" href="#binary-values" title="Permalink to this headline">¶</a></h2>
+<p>Binary values are primary values that can represent any data. In registry editor we can see these values as hexadecimal representation. They are saved in registry as (REG_BINARY) data type.</p>
+<p>We can set and get (REG_BINARY) type values using <strong>SetBinary()</strong> and <strong>GetBinary()</strong> functions also we can get the whole length of binary elements by using <strong>BinaryLength()</strong> function.</p>
+<p>Binary values are dealt with in Ring as a string contains each binary value as hexadecimal representation separated by commas.</p>
+<p>There are two functions that help in binary &lt;-&gt; string conversion. These are <strong>StringToBinary()</strong> and <strong>BinaryToString()</strong>. These functions are members of RCRegistry class so that they can be called from its objects.</p>
+<p>Here is an example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+Reg[&quot;BinaryValue&quot;].SetBinary(Reg.StringToBinary(&quot;ring_wincreg&quot;))
+
+See &quot;The entered binary value string representation is : &quot; + Reg[&quot;BinaryValue&quot;].GetBinary() + NL
+
+See &quot;The Original String of this binary representation is : &quot; + Reg.BinaryToString(Reg[&quot;BinaryValue&quot;].GetBinary()) + NL
+
+See &quot;The full length of BinaryValue is : &quot; + Reg[&quot;BinaryValue&quot;].BinaryLength()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SetBinary() function may accept any character as a separator instead of &#8221;,&#8221; but its better to use comma to unify coding.</p>
+</div>
+</div>
+<div class="section" id="set-and-get-ring-objects">
+<span id="index-19"></span><h2>Set and Get Ring Objects<a class="headerlink" href="#set-and-get-ring-objects" title="Permalink to this headline">¶</a></h2>
+<p>We can save and retrieve Ring objects during runtime to help saving their states for future use. There two functions (<strong>SetObject()</strong> and <strong>GetObject()</strong>) that deal with objects in a nice and smart manner.</p>
+<p>Here is an example that will clarify all of what we said.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;]) }
+
+oOne = New One
+
+See &quot;Saving oOne Object ... &quot; + NL
+Reg[&quot;oOne&quot;].SetObject(oOne)
+
+See &quot;Retrieving oOne Object ... &quot; + NL
+See Reg[&quot;oOne&quot;].GetObject()
+
+oTwo = New Two
+
+oTwo.o.x = 15
+
+See &quot;Saving oTwo Object ... &quot; + NL
+Reg[&quot;oTwo&quot;].SetObject(oTwo)
+
+See &quot;Retrieving oTwo Object ... &quot; + NL
+T = Reg[&quot;oTwo&quot;].GetObject()
+
+See &quot;This is printable copy of retrieved oTwo object : &quot; + NL
+See T
+
+See &quot;This is the modified x value of o object in oTwo Object : &quot; + NL
+See T.o.x
+
+See NL + &quot;This is the printable form of z list that&#39;s a part of o Object in oTwo Object : &quot; + NL
+See T.o.z
+
+Reg.CloseKey()
+
+
+Class One
+        x = 2
+        y = &quot;One&quot;
+        z = [4, 5, &quot;LOne&quot;, [&quot;Ltwo&quot;, 53, 66], 32, &quot;Last&quot;]
+
+        Func Hello See &quot;Hello&quot;
+
+
+Class Two
+        g = 44
+        u = &quot;Two&quot;
+        o = New One
+
+        Func Hello See &quot;Hello&quot;
+</pre></div>
+</div>
+<p>This example show the power of these functions in dealing with Ring Objects. But there are some points that we should know about:</p>
+<ol class="arabic simple">
+<li>These functions save and retrieve objects by saving their attributes and their values.</li>
+<li>They can smartly save attributes that are lists and objects.</li>
+<li>They take dynamic nature of Ring Language in account so that new created attributes are also saved and retrieved correctly.</li>
+<li>Attributes that are not strings, numbers, lists, or objects will be ignored.</li>
+<li>Objects are saved in registry as a binary values.</li>
+<li>Saving Objects that have some attributes of their same class will not be saved correctly. This is because saving recursive objects have been halted for overflow problems.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extensionfunctions.html" title="Extension functions list"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="entries.html" title="Dealing with Entries"
+             >previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Majdi Sobain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

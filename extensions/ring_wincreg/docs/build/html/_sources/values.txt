@@ -1,0 +1,516 @@
+=====================
+Dealing with Values
+=====================
+
+Here, we are going to learn how to deal with registry values by using "ring_wincreg" extension capabilities through RCRegistry class library.
+
+.. index::
+	pair: Dealing with Values; Set Value
+	
+.. _Set-Value:
+
+Set Value
+==========
+
+We can set a value for any specified entry by using set functions for each registry data type. Additionally, two general functions **SetValue()** and **SetValue2()** that could set any data type. 
+
+.. index::
+	pair: Set Value; SetValue() Function
+	
+SetValue() Function
+--------------------
+
+This general function can set values smartly according to entry existence. If the entry existed it will save the data automatically using entry data type setting function, BUT if it does not exist it will save it according to the following rules:
+
+* String value will be saved as (REG_SZ) type.
+* Numbers in the range of DWORD will be saved as (REG_DWORD).
+* Numbers not in the range of DWORD will be converted to string then saved as (REG_SZ).
+* Floated numbers will automatically be converted to string and saved as (REG_SZ).
+
+.. note:: 
+   Setting new value to a previously existed entry with different data type will give error message because this function automatically use data type specific function of the already existed entry type for setting new values.
+
+This function has been used in the previous examples to save strings, but now will try to save DWORD value.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["OpenTimes"].SetValue(12)
+	
+	See "The type of OpenTimes entry is : " + Reg["OpenTimes"].TypeName()
+	
+	Reg.CloseKey()
+	
+.. note:: 5.0000 is considered as not floated value as there's no real value after the point.
+
+.. note:: Setting values to already present (REG_MULTI_SZ) entry using SetValue() function will be done by using SetMultiList() function which means that we have to pass list to SetValue() function to set (REG_MULTI_SZ) values.
+   
+   This is the same thing with SetValue2() function.
+
+.. index::
+	pair: Set Value; SetValue2() Function
+	
+SetValue2() Function
+---------------------
+
+This general function can set any data type explicitly by passing the value and its type as parameters as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["ExplicitValue"].SetValue2(78232, REG_QWORD)
+	
+	See "The value is : " + Reg["ExplicitValue"].GetValue() + NL
+	
+	See "The value data type is : " + Reg["ExplicitValue"].TypeName()
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Values; Get Value
+	
+.. _Get-Value:
+
+Get Value
+==========
+
+We can get a value for any specified entry using get functions for each registry type. But there's a general **GetValue()** function that could be used to get values smartly according to their data type as follow:
+
+* (REG_SZ) values will be returned as string.
+* (REG_DWORD) values will be returned as numbers.
+* (REG_MULTI_SZ) values will be return as list.
+* (REG_QWORD) values will be return as number or string.(:ref:`QWORD-numbers`)
+* (REG_EXPAND_SZ) values will be returned as string.
+* (REG_BINARY) values will be returned as string.
+
+This function could be used if its not necessary to use type specific functions.
+
+Here is an example of how to use it.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	See "The path of this application is : " + Reg["AppPath"].GetValue() + NL
+	
+	See "The version of this application is : " + Reg["AppVersion"].GetValue() + NL
+	
+	See "This application has been launched " + Reg["OpenTimes"].GetValue() + " times"
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Values; String Values
+	
+String Values
+==============
+
+We can set and get strictly string values using **SetString()** and **GetString()** functions. These values will be saved in registry as (REG_SZ) values.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["AppLogo"].SetString("We give without counting :)")
+	
+	See "MyApp logo is : " + Reg["AppLogo"].GetString()
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Values; DWORD Numerical Values
+	
+DWORD Numerical Values
+=======================
+
+DWORD numerical values are unsigned Long 32 bit numbers (Unsigned Long) that are saved in registry as (REG_DWORD) values. They have a range of  (0 - 4294967294). Floated numbers will be converted into strings and dealt with as string, So its better to deal with them as string from the beginning.
+
+Here we will talk about integer values. These values can strictly be saved and gotten by **SetDWORD()** and **GetDWORD()** functions.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["SoundVolume"].SetDWORD(57)
+	
+	See "The sound volume now is : " + Reg["SoundVolume"].GetDWORD()
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Values; Multi String Values
+	
+Multi String Values
+====================
+
+Multi string values are values that contain a list of string values each list item is separated in single line. They are saved in registry as (REG_MULTI_SZ) values. 
+
+We can deal with multi string values (REG_MULTI_SZ) with more than just two functions. We can use these functions:
+
+1. SetMulti() function.
+2. MultiSetAt() function.
+3. MultiAdd() function.
+4. MultiGetAt() function.
+5. MultiRemoveAt() function.
+6. MultiCount() function.
+7. MultiClear() function.
+8. SetMultiList() function.
+9. GetMultiList() function.
+
+.. index:: 
+	pair: Multi String Values; SetMulti() Function
+	
+SetMulti() Function
+--------------------
+
+This function can create and set first item of the multi string value as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["FileMenuItems"].SetMulti("Open")
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiSetAt() Function
+	
+MultiSetAt() Function
+----------------------
+
+This function can set(substitute) any item of the list with any given value.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["FileMenuItems"].MultiSetAt(1, "New")
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiAdd() Function
+	
+MultiAdd() Function
+--------------------
+
+This function can add a value as new item to pre existed multi string value list or can establish a new multi string value list with help of SetMulti() function.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["FileMenuItems"].MultiAdd("Open")
+	
+	Reg["FileMenuItems"].MultiAdd("Save")
+	
+	Reg["FileMenuItems"].MultiAdd("Exit")
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiGetAt() Function
+	
+MultiGetAt() Function
+----------------------
+
+This function gets the value of one item of multi string value by its index.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	See "The first item in the list is : " + Reg["FileMenuItems"].MultiGetAt(1)
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiRemoveAt() Function
+	
+MultiRemoveAt() Function
+-------------------------
+
+This function removes any item of multi string value by its index.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["FileMenuItems"].MultiRemoveAt(1)
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiCount() Function
+	
+MultiCount() Function
+----------------------
+
+This function can return the total number of items(lines) of multi string value.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	See "The total number of items is : " + Reg["FileMenuItems"].MultiCount()
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; MultiClear() Function
+	
+MultiClear() Function
+----------------------
+
+This function can clear all of the items(lines) in any multi string value making it empty entry.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["FileMenuItems"].MultiClear()
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Multi String Values; SetMultiList() Function
+	
+SetMultiList() Function
+------------------------
+
+This function can save a list of items completely to a multi string value.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	FileMenuItems = ["New", "Open", "Save", "Exit"]
+	
+	Reg["FileMenuItems"].SetMultiList(FileMenuItems)
+	
+	Reg.CloseKey()
+	
+.. note:: SetMultiList() function will clear the content of the entry if its already existed.
+	
+.. index:: 
+	pair: Multi String Values; GetMultiList() Function
+	
+GetMultiList() Function
+------------------------
+
+This function can get all items(lines) of multi string value as a list as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	aList = Reg["FileMenuItems"].GetMultiList()
+	
+	See "The items of file menu are : " + NL
+	
+	See aList
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Dealing with Values; QWORD Numerical Values
+	
+.. _QWORD-numbers:
+	
+QWORD Numerical Values
+=======================
+
+QWORD numerical values are unsigned 64 bit numbers (Unsigned Long Long) that have a range from 0 to 18446744073709551615. These numerical values are saved in registry as (REG_QWORD) type values.
+
+We can deal with (REG_QWORD) registry type by using **SetQWORD()**, **GetQWORD()**, and **GetQWORDs()** functions.
+
+These functions can do the following:
+
+1. SetQWORD() function : accepts numbers and numerical string values and save them as (REG_QWORD).
+2. GetQWORD() function : return QWORD value and check if it is within Ring numbers range so it return it as number, but if it is not return it as string value.
+3. GetQWORDs() function: return QWORD value always as string value.
+
+For more stability in coding it is better to deal with QWORD values as strings by using **SetQWORD()** and **GetQWORDs()** functions.
+
+Here is an example about QWORD:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["UpperLimit"].SetQWORD("989872323890")
+	
+	UL = Reg["UpperLimit"].GetQWORD()
+	
+	See "The UpperLimit value is " + UL + NL
+	
+	See "The UL type is : " + Type(UL) + NL
+	
+	See "The UpperLimit string value is : " + Reg["UpperLimit"].GetQWORDs()
+		
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Dealing with Values; Expandable String Values
+	
+Expandable String Values
+=========================
+
+Expandable string values are string that contain some system environment variables (ex. "%path%") that could be expanded at the time of retrieving it by substitute the contained system environment variables with their values.
+
+We can set and get expandable string value using type specific functions which are **SetExpandSZ()**, **GetExpandSZ()** and **GetExpandedSZ()**.
+
+The first two functions (**SetExpandSZ()** and **GetExpandSZ()**) that set and get these strings deal with them blindly which means it ignores whether they are expandable or not. But If you want to get the expanded result of them you can use **GetExpandedSZ()** function.
+
+Here is a complete example that show all of that:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["SysPaths"].SetExpandSZ("The system paths are : " + NL + "%path%")
+	
+	See Reg["SysPaths"].GetExpandSZ() + NL + NL
+	
+	See Reg["SysPaths"].GetExpandedSZ()
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Dealing with Values; Binary Values
+	
+Binary Values
+==============
+
+Binary values are primary values that can represent any data. In registry editor we can see these values as hexadecimal representation. They are saved in registry as (REG_BINARY) data type.
+
+We can set and get (REG_BINARY) type values using **SetBinary()** and **GetBinary()** functions also we can get the whole length of binary elements by using **BinaryLength()** function.
+
+Binary values are dealt with in Ring as a string contains each binary value as hexadecimal representation separated by commas.
+
+There are two functions that help in binary <-> string conversion. These are **StringToBinary()** and **BinaryToString()**. These functions are members of RCRegistry class so that they can be called from its objects.
+
+Here is an example:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	Reg["BinaryValue"].SetBinary(Reg.StringToBinary("ring_wincreg"))
+	
+	See "The entered binary value string representation is : " + Reg["BinaryValue"].GetBinary() + NL
+	
+	See "The Original String of this binary representation is : " + Reg.BinaryToString(Reg["BinaryValue"].GetBinary()) + NL
+	
+	See "The full length of BinaryValue is : " + Reg["BinaryValue"].BinaryLength()
+	
+	Reg.CloseKey()
+	
+.. note:: SetBinary() function may accept any character as a separator instead of "," but its better to use comma to unify coding.
+
+.. index::
+	pair: Dealing with Values; Set and Get Ring Objects
+	
+Set and Get Ring Objects
+=========================
+
+We can save and retrieve Ring objects during runtime to help saving their states for future use. There two functions (**SetObject()** and **GetObject()**) that deal with objects in a nice and smart manner. 
+
+Here is an example that will clarify all of what we said.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) }
+	
+	oOne = New One
+	
+	See "Saving oOne Object ... " + NL
+	Reg["oOne"].SetObject(oOne)
+	
+	See "Retrieving oOne Object ... " + NL
+	See Reg["oOne"].GetObject()
+	
+	oTwo = New Two
+	
+	oTwo.o.x = 15
+	
+	See "Saving oTwo Object ... " + NL
+	Reg["oTwo"].SetObject(oTwo) 
+	
+	See "Retrieving oTwo Object ... " + NL
+	T = Reg["oTwo"].GetObject()
+	
+	See "This is printable copy of retrieved oTwo object : " + NL
+	See T
+	
+	See "This is the modified x value of o object in oTwo Object : " + NL
+	See T.o.x
+	
+	See NL + "This is the printable form of z list that's a part of o Object in oTwo Object : " + NL
+	See T.o.z
+	
+	Reg.CloseKey()
+	
+	
+	Class One
+		x = 2
+		y = "One"
+		z = [4, 5, "LOne", ["Ltwo", 53, 66], 32, "Last"]
+		
+		Func Hello See "Hello"
+		
+		
+	Class Two 
+		g = 44
+		u = "Two"
+		o = New One
+		
+		Func Hello See "Hello"
+		
+This example show the power of these functions in dealing with Ring Objects. But there are some points that we should know about:
+
+1. These functions save and retrieve objects by saving their attributes and their values.
+2. They can smartly save attributes that are lists and objects.
+3. They take dynamic nature of Ring Language in account so that new created attributes are also saved and retrieved correctly.
+4. Attributes that are not strings, numbers, lists, or objects will be ignored.
+5. Objects are saved in registry as a binary values. 
+6. Saving Objects that have some attributes of their same class will not be saved correctly. This is because saving recursive objects have been halted for overflow problems.

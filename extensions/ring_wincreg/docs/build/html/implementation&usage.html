@@ -1,0 +1,238 @@
+
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Implementation and Usage &#8212; Ring_WinCReg 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dealing with Keys" href="keys.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="keys.html" title="Dealing with Keys"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<a href="http://ring-wincreg.sf.net/"><img src="logo.png" border="0"
+alt="Home"/></a>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Implementation and Usage</a><ul>
+<li><a class="reference internal" href="#download-and-implementation">Download and Implementation</a></li>
+<li><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li><a class="reference internal" href="#direct-extension-s-functions-usage">Direct extension&#8217;s functions usage</a></li>
+<li><a class="reference internal" href="#rcregistry-class-library-usage">RCRegistry class library usage</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="keys.html"
+                        title="next chapter">Dealing with Keys</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/implementation&amp;usage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-and-usage">
+<h1>Implementation and Usage<a class="headerlink" href="#implementation-and-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="download-and-implementation">
+<span id="index-0"></span><h2>Download and Implementation<a class="headerlink" href="#download-and-implementation" title="Permalink to this headline">¶</a></h2>
+<p>To use this extension you have to start with downloading it following next steps:</p>
+<ol class="arabic simple">
+<li>Download the extension from <a class="reference external" href="https://github.com/MajdiSobain/ring_wincreg/releases">GitHub</a> or <a class="reference external" href="https://sourceforge.net/projects/ring-wincreg">Sourceforge</a> pages.</li>
+<li>Extract the contents of the bin folder and copy them to the bin folder that is present in the ring language folder ( where the &#8220;ring.exe&#8221; file is located ).</li>
+<li>Load the extension and its features in the ring code by using load command as:</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<span id="index-1"></span><h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<p>In order to use &#8220;ring_wincreg&#8221; extension you have two options to start with:</p>
+<ul class="simple">
+<li>Using the functions of the extension directly</li>
+<li>Using the extension through RCRegistry Class Library</li>
+</ul>
+<p>I would prefer to use the second option as you can read in (<a class="reference internal" href="#rcregistry-class-library-usage"><span class="std std-ref">RCRegistry class library usage</span></a>) section and because I have added some other nice features using Ring that can be used only with RCRegistry class library.</p>
+</div>
+<div class="section" id="direct-extension-s-functions-usage">
+<span id="use-extension-functions-directly"></span><span id="index-2"></span><h2>Direct extension&#8217;s functions usage<a class="headerlink" href="#direct-extension-s-functions-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can use the extension functions directly by calling each function as any ring function. In this case you have to load the &#8220;ring_wincreg.dll&#8221; file directly from the ring code as:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>LoadLib(&quot;ring_wincreg.dll&quot;)
+</pre></div>
+</div>
+<p>Then you can call the functions of the extension by their names.</p>
+<p>Lets take a practical example of using this method; in this example we are going to create a key and save a value in it.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>LoadLib(&quot;ring_wincreg.dll&quot;)
+
+oKey = CRegOpenKey(HKEY_CURRENT_USER, &quot;Software\MyApp&quot;)
+
+CRegSetValue(oKey, &quot;version&quot;, &quot;4.4&quot;)
+
+See &quot;MyApp version is : &quot; + CRegGetValue(oKey, &quot;version&quot;)
+
+CRegCloseKey(oKey)
+</pre></div>
+</div>
+<p>This example does the following:</p>
+<ul class="simple">
+<li>Create and open a key named &#8220;MyApp&#8221; in the &#8220;Software&#8221; key in the main root &#8220;HKEY_CURRENT_USER&#8221;, then assign it&#8217;s handle (pointer) to the oKey.</li>
+<li>Create new entry named &#8220;version&#8221;.</li>
+<li>Set the value &#8220;4.4&#8221; to the newly created entry.</li>
+<li>Print the value of the &#8220;version&#8221; entry after retrieving it.</li>
+<li>Close the key &#8220;oKey&#8221;.</li>
+</ul>
+</div>
+<div class="section" id="rcregistry-class-library-usage">
+<span id="index-3"></span><span id="id1"></span><h2>RCRegistry class library usage<a class="headerlink" href="#rcregistry-class-library-usage" title="Permalink to this headline">¶</a></h2>
+<p>RCRegistry class library has been made to simplify using &#8220;ring_wincreg&#8221; extension by avoid using its long function&#8217;s names and introduce a nice template for dealing with entries.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>RCRegistryObject[&quot;EntryName&quot;]
+</pre></div>
+</div>
+<p>Also it reduces the pain of repeatedly mentioning the key handle and typing other parameters with each function call of this extension.</p>
+<p>In a nutshell, this class library brings a special, readable and nice coding experience throughout &#8220;ring_wincreg&#8221; extension usage.</p>
+<p>It has been written in a ring file called &#8220;wincreg.ring&#8221; which contains also another class named &#8220;RCRegEntry&#8221; that is needed by RCRegistry class to deal with entries.</p>
+<p>To use &#8220;ring_wincreg&#8221; extension using this library you have to load &#8220;wincreg.ring&#8221; file to your code, because this file will load &#8220;ring_wincreg.dll&#8221; extension file and &#8220;wincreg.rh&#8221; header file that it needs.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+</pre></div>
+</div>
+<p>Now we have to apply the previous example using this method to clarify the difference.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+oReg = New RCRegistry {
+
+        OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+
+        oReg[&quot;version&quot;].SetValue(&quot;4.4&quot;)
+
+        See &quot;MyApp version is : &quot; + oReg[&quot;version&quot;].GetValue()
+
+        CloseKey()
+
+        }
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">RCRegistry class can represent and deal with one opened key. So in case of dealing with more than one key at the same time we should define a separate RCRegistry Object for each key.</p>
+</div>
+<p>As we are really lucky using Ring, we can write the same previous example without creating any object like this:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+New RCRegistry {
+
+        OpenKey([HKEY_CURRENT_USER, :Software\MyApp])
+
+        Self[&quot;version&quot;].SetValue(&quot;4.4&quot;)
+
+        See &quot;MyApp version is : &quot; + Self[&quot;version&quot;].GetValue()
+
+        CloseKey()
+
+        }
+</pre></div>
+</div>
+<p>In the next sections I&#8217;m going to explain how to use &#8220;ring_wincreg&#8221; extension using RCRegistry class library but I should also list all of the extension functions later on.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="keys.html" title="Dealing with Keys"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Majdi Sobain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>
