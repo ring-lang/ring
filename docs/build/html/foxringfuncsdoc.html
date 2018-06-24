@@ -248,8 +248,8 @@
 * Description          : Returns the absolute value of the specified numeric expression.
 *                      :
 * Arguments            : &lt;tnExpression&gt;
-*                      : Specifies the numeric expression whose absolute value frAbs() returns.
-*                      :
+*                      : Specifies the numeric expression whose absolute value frAbs()
+*                      : returns.
 * Returns              : &lt;lnReturnValue&gt;
 *                      : Returns the absolute value of the specified numeric expression.
 </pre></div>
@@ -258,16 +258,18 @@
 <div class="section" id="frasc-function">
 <span id="index-3"></span><h2>frAsc() function<a class="headerlink" href="#frasc-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lnReturnValue = frAsc(tcExpression)
-* Description          : Returns the ANSI value for the leftmost character in a character expression.
-*                      :
+* Description          : Returns the ANSI value for the leftmost character in
+*                      : a character expression.
 * Arguments            : &lt;tcExpression&gt;
-*                      : Specifies the character expression containing the character whose ANSI value frAsc()
-*                      : returns. Any characters after the first character in tcExpression are ignored by frAsc().
-*                      :
+*                      : Specifies the character expression containing the character
+*                      : whose ANSI value frAsc()
+*                      : returns. Any characters after the first character in
+*                      : tcExpression are ignored by frAsc().
 * Returns              : &lt;lnReturnValue&gt;
-*                      : returns the position of the character in the character table of the current code page.
-*                      : Every character has a unique ANSI value in the range from 0 to 255.
-*                      :
+*                      : returns the position of the character in the character
+*                      : table of the current code page.
+*                      : Every character has a unique ANSI value in the
+*                      : range from 0 to 255.
 </pre></div>
 </div>
 </div>
@@ -286,24 +288,30 @@
 <div class="section" id="frat-function">
 <span id="index-5"></span><h2>frAt() function<a class="headerlink" href="#frat-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lnPos = frAt(tcToSearch, tcString, tnOccurrence)
-* Description          : Searches a character expression for the occurrence of another character expression.
+* Description          : Searches a character expression for the occurrence of
+*                      : another character expression.
 *                      : The search performed by frAt() is case-sensitive.
 *                      :
 * Arguments            : &lt;tcToSearch&gt;
-*                      : Specifies the character expression to search for in &lt;tcString&gt;.
-*                      :
+*                      : Specifies the character expression to search
+*                      : for in &lt;tcString&gt;.
 *                      : &lt;tcString&gt;
-*                      : Specifies the character expression to search for &lt;tcToSearch&gt;.
-*                      :
+*                      : Specifies the character expression to search
+*                      : for &lt;tcToSearch&gt;.
 *                      : &lt;tnOccurrence&gt;
-*                      : Specifies which occurrence, first, second, third, and so on, of &lt;tcToSearch&gt; to search for
+*                      : Specifies which occurrence, first, second, third,
+*                      : and so on, of &lt;tcToSearch&gt; to search for
 *                      : in &lt;tcString&gt;.
-*                      : By default, frAt() searches for the first occurrence of &lt;tcToSearch&gt; (tnOccurrence = 1).
-*                      :
-* Returns              : Numeric. frAt() returns an integer indicating the position of the first character for a
-*                      : character expression or memo field within another character expression or memo field,
-*                      : beginning from the leftmost character. If the expression or field is not found, or if
-*                      : &lt;tnOccurrence&gt; is greater than the number of times &lt;tcToSearch&gt; occurs in  &lt;tcString&gt;, frAt()
+*                      : By default, frAt() searches for the first occurrence
+*                      : of &lt;tcToSearch&gt; (tnOccurrence = 1).
+* Returns              : Numeric. frAt() returns an integer indicating the
+*                      : position of the first character for a
+*                      : character expression or memo field within another
+*                      : character expression or memo field,
+*                      : beginning from the leftmost character. If the
+*                      : expression or field is not found, or if
+*                      : &lt;tnOccurrence&gt; is greater than the number of
+*                      : times &lt;tcToSearch&gt; occurs in  &lt;tcString&gt;, frAt()
 *                      : returns 0.
 </pre></div>
 </div>
@@ -311,24 +319,30 @@
 <div class="section" id="fratc-function">
 <span id="index-6"></span><h2>frAtC() function<a class="headerlink" href="#fratc-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
-* Description          : Searches a character expression for the occurrence of another character expression
+* Description          : Searches a character expression for the occurrence
+*                      : of another character expression
 *                      : without regard for the case of these two expressions.
 *                      :
 * Arguments            : &lt;tcToSearch&gt;
-*                      : Specifies the character expression to search for in &lt;tcString&gt;.
-*                      :
+*                      : Specifies the character expression to search
+*                      : for in &lt;tcString&gt;.
 *                      : &lt;tcString&gt;
-*                      : Specifies the character expression to search for &lt;tcToSearch&gt;.
-*                      :
+*                      : Specifies the character expression to search
+*                      : for &lt;tcToSearch&gt;.
 *                      : &lt;tnOccurrence&gt;
-*                      : Specifies which occurrence, first, second, third, and so on, of &lt;tcToSearch&gt; to search for
+*                      : Specifies which occurrence, first, second, third,
+*                      : and so on, of &lt;tcToSearch&gt; to search for
 *                      : in tcString.
-*                      : By default, frAtC() searches for the first occurrence of &lt;tcToSearch&gt; (tnOccurrence = 1).
-*                      :
-* Returns              : Numeric. frAtC() returns an integer indicating the position of the first character for a
-*                      : character expression or memo field within another character expression or memo field,
-*                      : beginning from the leftmost character. If the expression or field is not found, or if
-*                      : &lt;tnOccurrence&gt; is greater than the number of times &lt;tcToSearch&gt; occurs in &lt;tcString&gt;, frAtC()
+*                      : By default, frAtC() searches for the first occurrence
+*                      : of &lt;tcToSearch&gt; (tnOccurrence = 1).
+* Returns              : Numeric. frAtC() returns an integer indicating the
+*                      : position of the first character for a
+*                      : character expression or memo field within
+*                      : another character expression or memo field,
+*                      : beginning from the leftmost character. If the
+*                      : expression or field is not found, or if
+*                      : &lt;tnOccurrence&gt; is greater than the number of
+*                      : times &lt;tcToSearch&gt; occurs in &lt;tcString&gt;, frAtC()
 *                      : returns 0.
 </pre></div>
 </div>
@@ -336,13 +350,14 @@
 <div class="section" id="frchr-function">
 <span id="index-7"></span><h2>frChr() function<a class="headerlink" href="#frchr-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frChr(tnExpression)
-* Description          : Returns the character associated with the specified numeric ANSI code.
-*                      :
+* Description          : Returns the character associated with the specified numeric
+*                      :  ANSI code.
 * Arguments            : &lt;tnExpression&gt;
-*                      : Specifies a number between 0 and 255 whose equivalent ANSI character frChr() returns.
-*                      :
+*                      : Specifies a number between 0 and 255 whose equivalent ANSI
+*                      : character frChr() returns.
 * Returns              : &lt;lcReturnValue&gt;
-*                      : Returns a single character corresponding to the numeric position of the character in the
+*                      : Returns a single character corresponding to the numeric
+*                      : position of the character in the
 *                      : character table of the current code page.
 *                      :
 * Remarks              : tnExpression must be between 0 and 255
@@ -355,7 +370,8 @@
 * Description          : Determines whether an expression evaluates to empty.
 *                      :
 * Arguments            : &lt;tuExpression&gt;
-*                      : Specifies the expression that EMPTY() evaluates. You can specify an expression with Character,
+*                      : Specifies the expression that EMPTY() evaluates.
+*                      : You can specify an expression with Character,
 *                      : Numeric, or logical type.
 *                      :
 * Returns              : &lt;llReturnValue&gt; Logical
@@ -368,15 +384,17 @@
 * Description          : Checks if the specified file exists on disk.
 *                      :
 * Arguments            : &lt;tcFileName&gt;
-*                      : Specifies the name of the file to check. tcFileName must include
-*                      : the file extension. You can include a path with the file name to
-*                      : search for a file in a directory or on a drive other than the current
-*                      : directory or drive.
+*                      : Specifies the name of the file to check.
+*                      : tcFileName must include
+*                      : the file extension. You can include a path with
+*                      : the file name to
+*                      : search for a file in a directory or on a drive
+*                      : other than the current directory or drive.
 *                      :
 *                      : &lt;tnFlag&gt;
 *                      : tnFlag was included for future compatibility.
-*                      : In this version, It always returns true whenever the file exists on disk.
-*                      :
+*                      : In this version, It always returns true whenever
+*                      : the file exists on disk.
 * Returns              : &lt;llReturnValue&gt; Logical
 *                      : True if file exists on disk.
 *                      : False if file doesn&#39;t exist on disk.
@@ -389,8 +407,10 @@
 * Description          : Returns the contents of a file as a character string.
 *                      :
 * Arguments            : &lt;tcFileName&gt;
-*                      : Specifies the name of the file whose contents are returned as a character
-*                      : string. If the file is in a directory other than the current default directory,
+*                      : Specifies the name of the file whose contents are
+*                      : returned as a character
+*                      : string. If the file is in a directory other than
+*                      : the current default directory,
 *                      : include a path with the file name.
 *                      :
 * Returns              : &lt;lcReturnValue&gt;
@@ -408,28 +428,41 @@
 *                      : Specifies the numeric expression to evaluate.
 *                      :
 *                      : &lt;tnLen&gt;
-*                      : Specifies the length of the character string returned. If tnLen is 0, tnLen defaults to 10 characters.
+*                      : Specifies the length of the character string returned.
+*                      : If tnLen is 0, tnLen defaults to 10 characters.
 *                      : If tnLen &lt; 0 returns one string with same length as the number.
 *                      : Note
-*                      : If the expression contains a decimal point, the length includes one character for the decimal point and one character
+*                      : If the expression contains a decimal point,
+*                      : the length includes one character for
+*                      : the decimal point and one character
 *                      : for each digit in the character string.
 *                      :
 *                      : &lt;tnDec&gt;
-*                      : Specifies the number of decimal places in the character string returned. To specify the number of decimal places using
-*                      : tnDec, you must include nLength. If nDecimalPlaces is omitted, the number of decimal places defaults to zero (0).
+*                      : Specifies the number of decimal places in the
+*                      : character string returned.
+*                      : To specify the number of decimal places using
+*                      : tnDec, you must include nLength. If nDecimalPlaces is omitted,
+*                      : the number of decimal places defaults to zero (0).
 *                      :
-* Returns              : Character data type. frStr() returns a character string equivalent to the specified numeric expression.
-*                      :
+* Returns              : Character data type. frStr() returns a character string
+*                      : equivalent to the specified numeric expression.
 *                      : Depending on certain conditions, frStr() can return the following:
-*                      : If you specify fewer decimal places than exist in tnValue, the return value is rounded up. To round results to the nearest
-*                      : decimal place instead of upward, include the ROUND( ) function. For more information, see ROUND( ) Function.
-*                      : If nExpression is an integer, and nLength is less than the number of digits in nExpression, frStr( ) returns a string of
+*                      : If you specify fewer decimal places than exist in tnValue,
+*                      : the return value is rounded up. To round results to the nearest
+*                      : decimal place instead of upward, include the ROUND( ) function.
+*                      : For more information, see ROUND( ) Function.
+*                      : If nExpression is an integer, and nLength is less than
+*                      : the number of digits in nExpression, frStr( ) returns a string of
 *                      : asterisks, indicating numeric overflow.
-*                      : If nExpression contains a decimal point, and nLength is equal to or less than the number of digits to the left of the decimal
-*                      : point, frStr( ) returns a string of asterisks, indicating numeric overflow.
-*                      : If nLength is greater than the length of the value evaluated by nExpression, frStr( ) returns a character string padded with
+*                      : If nExpression contains a decimal point, and nLength is equal
+*                      : to or less than the number of digits to the left of the decimal
+*                      : point, frStr( ) returns a string of asterisks,
+*                      : indicating numeric overflow.
+*                      : If nLength is greater than the length of the value evaluated
+*                      : by nExpression, frStr( ) returns a character string padded with
 *                      : leading spaces.
-*                      : If nExpression has Numeric or Float type, and nLength is less than the number of digits in nExpression, and , frStr( )
+*                      : If nExpression has Numeric or Float type, and nLength
+*                      : is less than the number of digits in nExpression, and , frStr( )
 *                      : returns a value using scientific notation.
 </pre></div>
 </div>
@@ -437,16 +470,16 @@
 <div class="section" id="frsetifempty-function">
 <span id="index-12"></span><h2>frSetIfEmpty() function<a class="headerlink" href="#frsetifempty-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : tuReturnValue = frSetIfEmpty(tuValue, tuNewValue)
-* Description          : Set a Value into a variable if the variable value is empty, null or zero.
-*                      :
+* Description          : Set a Value into a variable if the variable
+*                      : value is empty, null or zero.
 * Arguments            : &lt;tuValue&gt;
 *                      : The value to evaluate.
 *                      :
 *                      : &lt;tuNewValue&gt;
 *                      : The value to set if tuValue is empty.
 *                      :
-* Returns              : tuNewValue if tuValue is empty, otherwise returns the original value.
-*                      :
+* Returns              : tuNewValue if tuValue is empty, otherwise
+*                      : returns the original value.
 * Remarks              : This function doesn&#39;t exist in VFP.
 </pre></div>
 </div>
@@ -454,8 +487,8 @@
 <div class="section" id="frspace-function">
 <span id="index-13"></span><h2>frSpace() function<a class="headerlink" href="#frspace-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frSpace(tnSpaces)
-* Description          : Returns a character string composed of a specified number of spaces.
-*                      :
+* Description          : Returns a character string composed of a
+*                      : specified number of spaces.
 * Arguments            : &lt;tnSpaces&gt;
 *                      : Specifies the number of spaces that frSpace() returns.
 *                      :
@@ -467,14 +500,16 @@
 <div class="section" id="frinlist-function">
 <span id="index-14"></span><h2>frInList() function<a class="headerlink" href="#frinlist-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : llReturnValue = frInList(tuExpression, taList)
-* Description          : Determines whether an expression matches another expression in a set of expressions.
-*                      :
+* Description          : Determines whether an expression matches another
+*                      : expression in a set of expressions.
 * Arguments            : &lt;tuExpression&gt;
 *                      : Specifies the expression frInList() searches for in the List.
 *                      :
 *                      : &lt;taList&gt;
-*                      : Specifies the List of expressions to search. You must include at least one element in the list.
-*                      : The expressions in the list of expressions needn&#39;t to be of the same data type.
+*                      : Specifies the List of expressions to search.
+*                      : You must include at least one element in the list.
+*                      : The expressions in the list of expressions needn&#39;t to be
+*                      : of the same data type.
 *                      :
 * Returns              : &lt;luReturnValue&gt; Null or logical value.
 </pre></div>
@@ -483,16 +518,17 @@
 <div class="section" id="frforcepath-function">
 <span id="index-15"></span><h2>frForcePath() function<a class="headerlink" href="#frforcepath-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frForcePath(tcFileName, tcPath)
-* Description          : Returns a file name with a new path name substituted for the old one.
-*                      :
+* Description          : Returns a file name with a new path name
+*                      : substituted for the old one.
 * Arguments            : &lt;tcFileName&gt;
-*                      : Specifies the file name (with or without a path or extension), which will get a new path.
-*                      :
+*                      : Specifies the file name (with or without a path or extension),
+*                      : which will get a new path.
 *                      : &lt;tcPath&gt;
 *                      : Specifies the new path for tcFileName.
 *                      :
 * Returns              : &lt;lcReturnValue&gt;
-*                      : Returns a file name with a new path name substituted for the old one.
+*                      : Returns a file name with a new path name
+*                      : substituted for the old one.
 </pre></div>
 </div>
 </div>
@@ -514,8 +550,8 @@
 * Description          : Returns the drive letter from a complete path.
 *                      :
 * Arguments            : &lt;tcPath&gt;
-*                      : Specifies the complete path name for which you want only the drive.
-*                      :
+*                      : Specifies the complete path name for
+*                      : which you want only the drive.
 * Returns              : &lt;lcReturnValue&gt;
 *                      : Returns the drive letter from a complete path.
 </pre></div>
@@ -524,24 +560,25 @@
 <div class="section" id="frjustext-function">
 <span id="index-19"></span><h2>frJustExt() function<a class="headerlink" href="#frjustext-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frJustExt(tcPath)
-* Description          : Returns the characters of a file extension from a complete path.
-*                      :
+* Description          : Returns the characters of a file extension
+*                      : from a complete path.
 * Arguments            : &lt;tcPath&gt;
-*                      : Specifies the name, which may include the full path, of the file for which you want only the extension.
-*                      :
+*                      : Specifies the name, which may include the full path,
+*                      : of the file for which you want only the extension.
 * Returns              : &lt;lcReturnValue&gt;
-*                      : Returns the drive characters of a file extension from a complete path.
+*                      : Returns the drive characters of a file extension
+*                      : from a complete path.
 </pre></div>
 </div>
 </div>
 <div class="section" id="frjuststem-function">
 <span id="index-20"></span><h2>frJustStem() function<a class="headerlink" href="#frjuststem-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : lcReturnValue = frJustStem(tcPath)
-* Description          : Returns the stem name (the file name before the extension) from a complete path and file name.
-*                      :
+* Description          : Returns the stem name (the file name before the extension)
+*                      : from a complete path and file name.
 * Arguments            : &lt;tcPath&gt;
-*                      : Specifies the name (including path) of the file for which you want only the stem.
-*                      :
+*                      : Specifies the name (including path) of the file
+*                      : for which you want only the stem.
 * Returns              : &lt;lcReturnValue&gt;
 *                      : Returns the stem name of a file from a complete path.
 </pre></div>
@@ -592,11 +629,11 @@
 <div class="section" id="frproper-function">
 <span id="index-28"></span><h2>frProper() function<a class="headerlink" href="#frproper-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : tcReturnValue = frProper(tcExpression)
-* Description          : Returns from a character expression a string capitalized as appropriate for proper names.
-*                      :
+* Description          : Returns from a character expression a string
+*                      : capitalized as appropriate for proper names.
 * Arguments            : &lt;tcExpression&gt;
-*                      : Specifies the character expression from which frProper() returns a capitalized character string.
-*                      :
+*                      : Specifies the character expression from which
+*                      : frProper() returns a capitalized character string.
 * Returns              : &lt;tcReturnValue&gt;
 </pre></div>
 </div>
@@ -615,37 +652,40 @@
 </div>
 <div class="section" id="frstuff-function">
 <span id="index-31"></span><h2>frStuff() function<a class="headerlink" href="#frstuff-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
-* Description          : Returns a new character string replaced by a specified number of characters in a character
-*                      : expression with another character expression.
-*                      :
-* Arguments            : &lt;tcExpression&gt;
-*                      : Specify the character expression in which the replacement occurs.
-*                      :
-*                      : &lt;tnStartRep&gt;
-*                      : Specify the position in &lt;tcExpression&gt; where the replacement begins.
-*                      :
-*                      : &lt;tnCharRep&gt;
-*                      : Specifies the number of characters to be replaced. If &lt;tnCharRep&gt; is 0, the replacement string
-*                      : &lt;tcToReplace&gt; is inserted into &lt;tcExpression&gt;.
-*                      :
-*                      : &lt;tcToReplace&gt;
-*                      : Specifies the replacement character expression. If &lt;tcToReplace&gt; is an empty string, the number of
-*                      : characters specified by &lt;tnCharRep&gt; are removed from &lt;tcExpression&gt;.
-*                      :
-* Returns              : Character
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax       : tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
+* Description  : Returns a new character string replaced by a
+*              : specified number of characters in a character
+*              : expression with another character expression.
+*              :
+* Arguments    : &lt;tcExpression&gt;
+*              : Specify the character expression in which the replacement occurs.
+*              :
+*              : &lt;tnStartRep&gt;
+*              : Specify the position in &lt;tcExpression&gt; where the replacement begins.
+*              :
+*              : &lt;tnCharRep&gt;
+*              : Specifies the number of characters to be replaced.
+*              : If &lt;tnCharRep&gt; is 0, the replacement string
+*              : &lt;tcToReplace&gt; is inserted into &lt;tcExpression&gt;.
+*              :
+*              : &lt;tcToReplace&gt;
+*              : Specifies the replacement character expression.
+*              : If &lt;tcToReplace&gt; is an empty string, the number of
+*              : characters specified by &lt;tnCharRep&gt; are removed from &lt;tcExpression&gt;.
+*              :
+* Returns      : Character
 </pre></div>
 </div>
 </div>
 <div class="section" id="frsubstr-function">
 <span id="index-32"></span><h2>frSubStr() function<a class="headerlink" href="#frsubstr-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Syntax          : tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
+<div class="highlight-none"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
 </pre></div>
 </div>
 </div>
 <div class="section" id="frstrtran-function">
 <span id="index-33"></span><h2>frStrTran() function<a class="headerlink" href="#frstrtran-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Syntax          : tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
+<div class="highlight-none"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
 </pre></div>
 </div>
 </div>
@@ -672,14 +712,16 @@
 <div class="section" id="friif-function">
 <span id="index-37"></span><h2>frIIf() function<a class="headerlink" href="#friif-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : luReturnValue = frIIf(tlExpression, tuReturnIfTrue, tuReturnIfFalse)
-* Description          : Returns one of two values depending on the value of a logical expression.
-*                      :
+* Description          : Returns one of two values depending on the
+*                      : value of a logical expression.
 * Arguments            : &lt;tlExpression&gt;
 *                      : Specifies the logical expression that frIIf() evaluates.
 *                      :
 *                      : &lt;tuReturnTrue&gt;, &lt;tuReturnFalse&gt;
-*                      : If tlExpression evaluates to True, tuReturnIfTrue is returned and tuReturnIfFalse is not evaluated.
-*                      : If tlExpression evaluates to False or Null, tuReturnIfFalse is returned and tuReturnIfTrue is not evaluated.
+*                      : If tlExpression evaluates to True, tuReturnIfTrue is
+*                      : returned and tuReturnIfFalse is not evaluated.
+*                      : If tlExpression evaluates to False or Null, tuReturnIfFalse is
+*                      : returned and tuReturnIfTrue is not evaluated.
 *                      :
 * Returns              : &lt;luReturnValue&gt; Defined by &lt;tuReturnIfTrue&gt; or &lt;tuReturnIfFalse&gt;
 </pre></div>
@@ -688,8 +730,8 @@
 <div class="section" id="frval-function">
 <span id="index-38"></span><h2>frVal() function<a class="headerlink" href="#frval-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : luReturnValue = frVal(tcExpression)
-* Description          : Returns a numeric value from a character expression composed of numbers
-*                      :
+* Description          : Returns a numeric value from a character expression
+*                      : composed of numbers
 * Arguments            : &lt;tcExpression&gt;
 *                      : Specifies a character expression composed of up to 16 numbers.
 *                      :
@@ -700,65 +742,67 @@
 </div>
 <div class="section" id="frbetween-function">
 <span id="index-39"></span><h2>frBetween() function<a class="headerlink" href="#frbetween-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
-* Description          : Determines whether the value of an expression is inclusively between the
-*                      : values of two expressions of the same type.
-*                      :
-* Arguments            : &lt;tuTestValue&gt;
-*                      : Specifies an expression to evaluate.
-*                      :
-*                      : &lt;tuLowValue&gt;
-*                      : Specifies the lower value in the range.
-*                      :
-*                      : &lt;tuHighValue&gt;
-*                      : Specifies the higher value in the range.
-*                      :
-* Returns              : &lt;luReturnValue&gt;
-*                      : Returns a logical oder null value.
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax       : luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
+* Description  : Determines whether the value of an expression
+*              : is inclusively between the
+*              : values of two expressions of the same type.
+*              :
+* Arguments    : &lt;tuTestValue&gt;
+*              : Specifies an expression to evaluate.
+*              :
+*              : &lt;tuLowValue&gt;
+*              : Specifies the lower value in the range.
+*              :
+*              : &lt;tuHighValue&gt;
+*              : Specifies the higher value in the range.
+*              :
+* Returns      : &lt;luReturnValue&gt;
+*              : Returns a logical oder null value.
 </pre></div>
 </div>
 </div>
 <div class="section" id="frsetseparatorto-function">
 <span id="index-40"></span><h2>frSetSeparatorTo() function<a class="headerlink" href="#frsetseparatorto-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : frSetSeparatorTo(tuExpression)
-* Description          : Specifies the character for the numeric place separator.
-*                      :
-* Arguments            : &lt;tuExpression&gt;
-*                      : Specifies the character for the numeric place separator.
-*                      :
-*                      : Use frSetSeparatorTo() to change the numeric place separator from de default, for example space &quot; &quot; or a comma &quot;,&quot;.
-*                      : Issue frSetSeparatorTo(Null) to reset the value to its default.
-*                      :
-* Returns              : None
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax       : frSetSeparatorTo(tuExpression)
+* Description  : Specifies the character for the numeric place separator.
+*              :
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the character for the numeric place separator.
+*              :
+*              : Use frSetSeparatorTo() to change the numeric place
+*              : separator from de default, for example space &quot; &quot; or a comma &quot;,&quot;.
+*              : Issue frSetSeparatorTo(Null) to reset the value to its default.
+*              :
+* Returns      : None
 </pre></div>
 </div>
 </div>
 <div class="section" id="frtransform-function">
 <span id="index-41"></span><h2>frTransform() function<a class="headerlink" href="#frtransform-function" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax               : tcReturnValue = frTransform(tuExpression, tcFormatCodes)
-* Description          : Returns a character string from an expression in a format determined by a format code.
-*                      :
-* Arguments            : &lt;tuExpression&gt;
-*                      : Specifies the expression to format.
-*                      :
-*                      : &lt;tcFormatCodes&gt;
-*                      : Specifies one or more format codes that determine how to format the expression.
-*                      :
-*                      : Note
-*                      : The following table lists the available format codes for tcFormatCodes.
-*                      :
-*                      :  ---------------------------------------------------------------------------------------
-*                      :       Format Code     Description
-*                      :  ---------------------------------------------------------------------------------------
-*                      :       @!                      Converts an entire character string to uppercase.
-*                      :       @T                      Trims leading and trailing spaces from character values.
-*                      :       @B                      Left-justifies Numeric data within the display region.
-*                      :       @L                      Pads numeric and string data with leading zeros.
-*                      :       @C                      Appends CR to positive numeric values to indicate a credit.
-*                      :       @X                      Appends DB to negative numeric values to indicate a debit.
-*                      :  ---------------------------------------------------------------------------------------
-*                      :
-* Returns              : &lt;tcReturnValue&gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>* Syntax       : tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+* Description  : Returns a character string from an expression in a
+*              : format determined by a format code.
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the expression to format.
+*              :
+*              : &lt;tcFormatCodes&gt;
+*              : Specifies one or more format codes that determine how to
+*              : format the expression.
+*              : Note
+*              : The following table lists the available format codes for tcFormatCodes.
+*              :
+*              :  ---------------------------------------------------------------------------------
+*              :       Format Code     Description
+*              :  ---------------------------------------------------------------------------------
+*              :       @!              Converts an entire character string to uppercase.
+*              :       @T              Trims leading and trailing spaces from character values.
+*              :       @B              Left-justifies Numeric data within the display region.
+*              :       @L              Pads numeric and string data with leading zeros.
+*              :       @C              Appends CR to positive numeric values to indicate a credit.
+*              :       @X              Appends DB to negative numeric values to indicate a debit.
+*              :  ---------------------------------------------------------------------------------
+*              :
+* Returns      : &lt;tcReturnValue&gt;
 </pre></div>
 </div>
 </div>

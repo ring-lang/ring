@@ -147,8 +147,8 @@ frAbs() function
 	 * Description		: Returns the absolute value of the specified numeric expression.
 	 * 			:
 	 * Arguments		: <tnExpression>
-	 *			: Specifies the numeric expression whose absolute value frAbs() returns.
-	 *			:
+	 *			: Specifies the numeric expression whose absolute value frAbs()
+	 *			: returns.
 	 * Returns		: <lnReturnValue>
 	 *			: Returns the absolute value of the specified numeric expression.
 
@@ -161,16 +161,18 @@ frAsc() function
 .. code-block:: none
 
 	 * Syntax		: lnReturnValue = frAsc(tcExpression)
-	 * Description		: Returns the ANSI value for the leftmost character in a character expression.
-	 * 			:
+	 * Description		: Returns the ANSI value for the leftmost character in
+	 * 			: a character expression.
 	 * Arguments		: <tcExpression>
-	 *			: Specifies the character expression containing the character whose ANSI value frAsc() 
-	 *			: returns. Any characters after the first character in tcExpression are ignored by frAsc().
-	 *			:
+	 *			: Specifies the character expression containing the character 
+	 *			: whose ANSI value frAsc() 
+	 *			: returns. Any characters after the first character in 
+	 *			: tcExpression are ignored by frAsc().
 	 * Returns		: <lnReturnValue>
-	 *			: returns the position of the character in the character table of the current code page. 
-	 *			: Every character has a unique ANSI value in the range from 0 to 255.
-	 *			:
+	 *			: returns the position of the character in the character 
+	 *			: table of the current code page. 
+	 *			: Every character has a unique ANSI value in the 
+	 *			: range from 0 to 255.
 
 .. index:: 
      pair: FoxRing Functions Reference; frAddBs() function
@@ -197,24 +199,30 @@ frAt() function
 .. code-block:: none
 
 	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
-	 * Description		: Searches a character expression for the occurrence of another character expression. 
+	 * Description		: Searches a character expression for the occurrence of 
+	 *			: another character expression. 
 	 *			: The search performed by frAt() is case-sensitive.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in <tcString>.
-	 *			:
+	 *			: Specifies the character expression to search 
+	 *			: for in <tcString>.
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for <tcToSearch>. 
-	 *			:
+	 *			: Specifies the character expression to search 
+	 *			: for <tcToSearch>. 
 	 *			: <tnOccurrence> 
-	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for 
+	 *			: Specifies which occurrence, first, second, third, 
+	 *			: and so on, of <tcToSearch> to search for 
 	 *			: in <tcString>. 
-	 *			: By default, frAt() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
-	 *			: 
-	 * Returns		: Numeric. frAt() returns an integer indicating the position of the first character for a 
-	 *			: character expression or memo field within another character expression or memo field, 
-	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
-	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in  <tcString>, frAt() 
+	 *			: By default, frAt() searches for the first occurrence 
+	 *			: of <tcToSearch> (tnOccurrence = 1). 
+	 * Returns		: Numeric. frAt() returns an integer indicating the 
+	 *			: position of the first character for a 
+	 *			: character expression or memo field within another 
+	 *			: character expression or memo field, 
+	 *			: beginning from the leftmost character. If the 
+	 *			: expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of 
+	 *			: times <tcToSearch> occurs in  <tcString>, frAt() 
 	 *			: returns 0.
 
 
@@ -227,24 +235,30 @@ frAtC() function
 .. code-block:: none
 
 	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
-	 * Description		: Searches a character expression for the occurrence of another character expression 
+	 * Description		: Searches a character expression for the occurrence 
+	 *			: of another character expression 
 	 *			: without regard for the case of these two expressions.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in <tcString>.
-	 *			:
+	 *			: Specifies the character expression to search 
+	 *			: for in <tcString>.
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for <tcToSearch>. 
-	 *			:
+	 *			: Specifies the character expression to search 
+	 *			: for <tcToSearch>. 
 	 *			: <tnOccurrence> 
-	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for
+	 *			: Specifies which occurrence, first, second, third, 
+	 * 			: and so on, of <tcToSearch> to search for
 	 *			: in tcString. 
-	 *			: By default, frAtC() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
-	 *			: 
-	 * Returns		: Numeric. frAtC() returns an integer indicating the position of the first character for a 
-	 *			: character expression or memo field within another character expression or memo field, 
-	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
-	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in <tcString>, frAtC()
+	 *			: By default, frAtC() searches for the first occurrence 
+	 *			: of <tcToSearch> (tnOccurrence = 1). 
+	 * Returns		: Numeric. frAtC() returns an integer indicating the 
+	 *			: position of the first character for a 
+	 *			: character expression or memo field within 
+	 *			: another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the 
+	 *			: expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of 
+	 * 			: times <tcToSearch> occurs in <tcString>, frAtC()
 	 *			: returns 0.
 
 .. index:: 
@@ -256,13 +270,14 @@ frChr() function
 .. code-block:: none
 
 	 * Syntax		: lcReturnValue = frChr(tnExpression)
-	 * Description		: Returns the character associated with the specified numeric ANSI code.
-	 *			:
+	 * Description		: Returns the character associated with the specified numeric
+	 *			:  ANSI code.
 	 * Arguments		: <tnExpression>
-	 *			: Specifies a number between 0 and 255 whose equivalent ANSI character frChr() returns.
-	 *			:
+	 *			: Specifies a number between 0 and 255 whose equivalent ANSI 
+	 *			: character frChr() returns.
 	 * Returns		: <lcReturnValue>
-	 *			: Returns a single character corresponding to the numeric position of the character in the
+	 *			: Returns a single character corresponding to the numeric 
+	 *			: position of the character in the
 	 *			: character table of the current code page.
 	 * 			:
 	 * Remarks		: tnExpression must be between 0 and 255
@@ -279,7 +294,8 @@ frEmpty() function
 	 * Description		: Determines whether an expression evaluates to empty.
 	 *			:
 	 * Arguments   		: <tuExpression>
-	 *			: Specifies the expression that EMPTY() evaluates. You can specify an expression with Character, 
+	 *			: Specifies the expression that EMPTY() evaluates. 
+	 *			: You can specify an expression with Character, 
 	 *			: Numeric, or logical type.
 	 *			:
 	 * Returns		: <llReturnValue> Logical
@@ -296,15 +312,17 @@ frFile() function
 	 * Description		: Checks if the specified file exists on disk.
 	 *			:
 	 * Arguments   		: <tcFileName>
-	 *			: Specifies the name of the file to check. tcFileName must include 
-	 *			: the file extension. You can include a path with the file name to 
-	 *			: search for a file in a directory or on a drive other than the current
-	 *			: directory or drive. 
+	 *			: Specifies the name of the file to check. 
+	 *			: tcFileName must include 
+	 *			: the file extension. You can include a path with 
+	 *			: the file name to 
+	 *			: search for a file in a directory or on a drive 
+	 *			: other than the current directory or drive. 
 	 *			: 
 	 *			: <tnFlag> 
 	 *			: tnFlag was included for future compatibility.
-	 *			: In this version, It always returns true whenever the file exists on disk.
-	 *			:
+	 *			: In this version, It always returns true whenever 
+	 *			: the file exists on disk.
 	 * Returns		: <llReturnValue> Logical
 	 *			: True if file exists on disk.
 	 *			: False if file doesn't exist on disk.
@@ -321,8 +339,10 @@ frFileToStr() function
 	 * Description		: Returns the contents of a file as a character string.
 	 *			:
 	 * Arguments		: <tcFileName>
-	 * 			: Specifies the name of the file whose contents are returned as a character 
-	 *			: string. If the file is in a directory other than the current default directory, 
+	 * 			: Specifies the name of the file whose contents are 
+	 *			: returned as a character 
+	 *			: string. If the file is in a directory other than 
+	 *			: the current default directory, 
 	 *			: include a path with the file name.
 	 *			:
 	 * Returns		: <lcReturnValue> 
@@ -344,28 +364,41 @@ frStr() function
 	 *			: Specifies the numeric expression to evaluate.
 	 *			: 
 	 *			: <tnLen>
-	 *			: Specifies the length of the character string returned. If tnLen is 0, tnLen defaults to 10 characters. 
+	 *			: Specifies the length of the character string returned. 
+	 *			: If tnLen is 0, tnLen defaults to 10 characters. 
 	 *			: If tnLen < 0 returns one string with same length as the number.
 	 *			: Note  
-	 *			: If the expression contains a decimal point, the length includes one character for the decimal point and one character 
+	 *			: If the expression contains a decimal point, 
+	 * 			: the length includes one character for
+	 *			: the decimal point and one character 
  	 *			: for each digit in the character string.
 	 *			: 
 	 *			: <tnDec> 
-	 *			: Specifies the number of decimal places in the character string returned. To specify the number of decimal places using 
-	 *			: tnDec, you must include nLength. If nDecimalPlaces is omitted, the number of decimal places defaults to zero (0). 
+	 *			: Specifies the number of decimal places in the 
+	 *			: character string returned. 
+	 *			: To specify the number of decimal places using 
+	 *			: tnDec, you must include nLength. If nDecimalPlaces is omitted,
+	 *			: the number of decimal places defaults to zero (0). 
 	 *			: 
-	 * Returns		: Character data type. frStr() returns a character string equivalent to the specified numeric expression. 
-	 *			: 
+	 * Returns		: Character data type. frStr() returns a character string 
+	 *			: equivalent to the specified numeric expression. 
 	 *			: Depending on certain conditions, frStr() can return the following: 
-	 *			: If you specify fewer decimal places than exist in tnValue, the return value is rounded up. To round results to the nearest 
-	 *			: decimal place instead of upward, include the ROUND( ) function. For more information, see ROUND( ) Function.
-	 *			: If nExpression is an integer, and nLength is less than the number of digits in nExpression, frStr( ) returns a string of 
+	 *			: If you specify fewer decimal places than exist in tnValue, 
+	 *			: the return value is rounded up. To round results to the nearest 
+	 *			: decimal place instead of upward, include the ROUND( ) function. 
+	 *			: For more information, see ROUND( ) Function.
+	 *			: If nExpression is an integer, and nLength is less than 
+	 *			: the number of digits in nExpression, frStr( ) returns a string of 
 	 *			: asterisks, indicating numeric overflow.
-	 *			: If nExpression contains a decimal point, and nLength is equal to or less than the number of digits to the left of the decimal
-	 *			: point, frStr( ) returns a string of asterisks, indicating numeric overflow.
-	 *			: If nLength is greater than the length of the value evaluated by nExpression, frStr( ) returns a character string padded with
+	 *			: If nExpression contains a decimal point, and nLength is equal 
+	 *			: to or less than the number of digits to the left of the decimal
+	 *			: point, frStr( ) returns a string of asterisks, 
+	 *			: indicating numeric overflow.
+	 *			: If nLength is greater than the length of the value evaluated 
+	 *			: by nExpression, frStr( ) returns a character string padded with
 	 * 			: leading spaces.
-	 *			: If nExpression has Numeric or Float type, and nLength is less than the number of digits in nExpression, and , frStr( ) 
+	 *			: If nExpression has Numeric or Float type, and nLength 
+	 *			: is less than the number of digits in nExpression, and , frStr( ) 
 	 *			: returns a value using scientific notation. 
 
 .. index:: 
@@ -377,16 +410,16 @@ frSetIfEmpty() function
 .. code-block:: none
 
 	 * Syntax		: tuReturnValue = frSetIfEmpty(tuValue, tuNewValue)
-	 * Description		: Set a Value into a variable if the variable value is empty, null or zero.
-	 *			:
+	 * Description		: Set a Value into a variable if the variable 
+	 *			: value is empty, null or zero.
 	 * Arguments   		: <tuValue>
 	 *			: The value to evaluate.
 	 *			:
 	 *			: <tuNewValue>
 	 *			: The value to set if tuValue is empty.
 	 *			:
-	 * Returns		: tuNewValue if tuValue is empty, otherwise returns the original value.
-	 *			:
+	 * Returns		: tuNewValue if tuValue is empty, otherwise 
+	 *			: returns the original value.
 	 * Remarks		: This function doesn't exist in VFP.
 
 .. index:: 
@@ -398,8 +431,8 @@ frSpace() function
 .. code-block:: none
 
 	 * Syntax		: lcReturnValue = frSpace(tnSpaces)
-	 * Description		: Returns a character string composed of a specified number of spaces.
-	 *			:
+	 * Description		: Returns a character string composed of a 
+	 *			: specified number of spaces.
 	 * Arguments   		: <tnSpaces>
 	 *			: Specifies the number of spaces that frSpace() returns.
 	 *			:
@@ -415,14 +448,16 @@ frInList() function
 .. code-block:: none
 
 	 * Syntax		: llReturnValue = frInList(tuExpression, taList)
-	 * Description		: Determines whether an expression matches another expression in a set of expressions.
-	 *			:
+	 * Description		: Determines whether an expression matches another 
+	 *			: expression in a set of expressions.
 	 * Arguments   		: <tuExpression>
 	 *			: Specifies the expression frInList() searches for in the List.
 	 *			:
 	 *			: <taList>
-	 *			: Specifies the List of expressions to search. You must include at least one element in the list.
-	 *			: The expressions in the list of expressions needn't to be of the same data type. 
+	 *			: Specifies the List of expressions to search. 
+	 *			: You must include at least one element in the list.
+	 *			: The expressions in the list of expressions needn't to be 
+	 *			: of the same data type. 
 	 *			:
 	 * Returns		: <luReturnValue> Null or logical value.
 
@@ -435,16 +470,17 @@ frForcePath() function
 .. code-block:: none
 
 	 * Syntax		: lcReturnValue = frForcePath(tcFileName, tcPath)
-	 * Description		: Returns a file name with a new path name substituted for the old one.
-	 *			:
+	 * Description		: Returns a file name with a new path name 
+	 *			: substituted for the old one.
 	 * Arguments   		: <tcFileName>
-	 *			: Specifies the file name (with or without a path or extension), which will get a new path.
-	 *			:
+	 *			: Specifies the file name (with or without a path or extension), 
+	 *			: which will get a new path.
 	 *			: <tcPath>
 	 *			: Specifies the new path for tcFileName.
 	 *			:
 	 * Returns		: <lcReturnValue> 
-	 *			: Returns a file name with a new path name substituted for the old one.
+	 *			: Returns a file name with a new path name 
+	 *			: substituted for the old one.
 
 .. index:: 
      pair: FoxRing Functions Reference; frAllTrim() function
@@ -479,8 +515,8 @@ frJustDrive() function
 	 * Description		: Returns the drive letter from a complete path.
 	 *			:
 	 * Arguments   		: <tcPath>
-	 *			: Specifies the complete path name for which you want only the drive.
-	 *			:
+	 *			: Specifies the complete path name for 
+	 *			: which you want only the drive.
 	 * Returns		: <lcReturnValue> 
 	 *			: Returns the drive letter from a complete path.
 
@@ -493,13 +529,14 @@ frJustExt() function
 .. code-block:: none
 
 	 * Syntax		: lcReturnValue = frJustExt(tcPath)
-	 * Description		: Returns the characters of a file extension from a complete path.
-	 *			:
+	 * Description		: Returns the characters of a file extension 
+	 *			: from a complete path.
 	 * Arguments   		: <tcPath>
-	 *			: Specifies the name, which may include the full path, of the file for which you want only the extension. 
-	 *			:
+	 *			: Specifies the name, which may include the full path, 
+	 *			: of the file for which you want only the extension. 
 	 * Returns		: <lcReturnValue> 
-	 *			: Returns the drive characters of a file extension from a complete path.
+	 *			: Returns the drive characters of a file extension
+	 *			: from a complete path.
 
 .. index:: 
      pair: FoxRing Functions Reference; frJustStem() function
@@ -510,11 +547,11 @@ frJustStem() function
 .. code-block:: none
 
 	 * Syntax		: lcReturnValue = frJustStem(tcPath)
-	 * Description		: Returns the stem name (the file name before the extension) from a complete path and file name.
-	 *			:
+	 * Description		: Returns the stem name (the file name before the extension)
+	 *			: from a complete path and file name.
 	 * Arguments   		: <tcPath>
-	 *			: Specifies the name (including path) of the file for which you want only the stem. 
-	 *			:
+	 *			: Specifies the name (including path) of the file 
+	 *			: for which you want only the stem. 
 	 * Returns		: <lcReturnValue> 
 	 *			: Returns the stem name of a file from a complete path.
 
@@ -597,11 +634,11 @@ frProper() function
 .. code-block:: none
 
 	 * Syntax		: tcReturnValue = frProper(tcExpression)
-	 * Description		: Returns from a character expression a string capitalized as appropriate for proper names.
-	 *			:
+	 * Description		: Returns from a character expression a string 
+	 *			: capitalized as appropriate for proper names.
 	 * Arguments		: <tcExpression>
-	 *			: Specifies the character expression from which frProper() returns a capitalized character string.
-	 *			:
+	 *			: Specifies the character expression from which 
+	 *			: frProper() returns a capitalized character string.
 	 * Returns		: <tcReturnValue> 
 
 .. index:: 
@@ -632,25 +669,28 @@ frStuff() function
 
 .. code-block:: none
 
-	 * Syntax		: tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
-	 * Description		: Returns a new character string replaced by a specified number of characters in a character 
-	 *			: expression with another character expression.
-	 *			:
-	 * Arguments   		: <tcExpression>
-	 *			: Specify the character expression in which the replacement occurs.
-	 *			: 
-	 *			: <tnStartRep>
-	 *			: Specify the position in <tcExpression> where the replacement begins.
-	 *			: 
-	 *			: <tnCharRep>
-	 *			: Specifies the number of characters to be replaced. If <tnCharRep> is 0, the replacement string 
-	 *			: <tcToReplace> is inserted into <tcExpression>.
-	 *			: 
-	 *			: <tcToReplace>
-	 *			: Specifies the replacement character expression. If <tcToReplace> is an empty string, the number of 
-	 *			: characters specified by <tnCharRep> are removed from <tcExpression>.
-	 *			:
-	 * Returns		: Character 
+	 * Syntax	: tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
+	 * Description	: Returns a new character string replaced by a 
+	 *		: specified number of characters in a character 
+	 *		: expression with another character expression.
+	 *		:
+	 * Arguments   	: <tcExpression>
+	 *		: Specify the character expression in which the replacement occurs.
+	 *		: 
+	 *		: <tnStartRep>
+	 *		: Specify the position in <tcExpression> where the replacement begins.
+	 *		: 
+	 *		: <tnCharRep>
+	 *		: Specifies the number of characters to be replaced.
+	 *		: If <tnCharRep> is 0, the replacement string 
+	 *		: <tcToReplace> is inserted into <tcExpression>.
+	 *		: 
+	 *		: <tcToReplace>
+	 *		: Specifies the replacement character expression. 
+	 * 		: If <tcToReplace> is an empty string, the number of 
+	 *		: characters specified by <tnCharRep> are removed from <tcExpression>.
+	 *		:
+	 * Returns	: Character 
 
 .. index:: 
      pair: FoxRing Functions Reference; frSubStr() function
@@ -660,7 +700,7 @@ frSubStr() function
 
 .. code-block:: none
 
-	Syntax		: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
+	Syntax	: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
 
 .. index:: 
      pair: FoxRing Functions Reference; frStrTran() function
@@ -670,7 +710,7 @@ frStrTran() function
 
 .. code-block:: none
 
-	Syntax		: tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
+	Syntax	: tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
 
 .. index:: 
      pair: FoxRing Functions Reference; frListToString() function
@@ -713,14 +753,16 @@ frIIf() function
 .. code-block:: none
 
 	 * Syntax		: luReturnValue = frIIf(tlExpression, tuReturnIfTrue, tuReturnIfFalse)
-	 * Description		: Returns one of two values depending on the value of a logical expression.
-	 *			:
+	 * Description		: Returns one of two values depending on the 
+	 *			: value of a logical expression.
 	 * Arguments   		: <tlExpression>
 	 *			: Specifies the logical expression that frIIf() evaluates.
 	 *			:
 	 *			: <tuReturnTrue>, <tuReturnFalse>
-	 *			: If tlExpression evaluates to True, tuReturnIfTrue is returned and tuReturnIfFalse is not evaluated. 
-	 *			: If tlExpression evaluates to False or Null, tuReturnIfFalse is returned and tuReturnIfTrue is not evaluated.
+	 *			: If tlExpression evaluates to True, tuReturnIfTrue is 
+	 *			: returned and tuReturnIfFalse is not evaluated. 
+	 *			: If tlExpression evaluates to False or Null, tuReturnIfFalse is 
+	 *			: returned and tuReturnIfTrue is not evaluated.
 	 *			: 
 	 * Returns		: <luReturnValue> Defined by <tuReturnIfTrue> or <tuReturnIfFalse>
 
@@ -733,8 +775,8 @@ frVal() function
 .. code-block:: none
 
 	 * Syntax		: luReturnValue = frVal(tcExpression)
-	 * Description		: Returns a numeric value from a character expression composed of numbers
-	 *			:
+	 * Description		: Returns a numeric value from a character expression
+	 *			: composed of numbers
 	 * Arguments   		: <tcExpression>
 	 *			: Specifies a character expression composed of up to 16 numbers.
 	 *			:
@@ -749,21 +791,22 @@ frBetween() function
 
 .. code-block:: none
 
-	 * Syntax		: luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
-	 * Description		: Determines whether the value of an expression is inclusively between the 
-	 *			: values of two expressions of the same type.
-	 *			:
-	 * Arguments   		: <tuTestValue>
-	 *			: Specifies an expression to evaluate.
-	 *			:
-	 *			: <tuLowValue>
-	 *			: Specifies the lower value in the range.
-	 *			:
-	 *			: <tuHighValue>
-	 *			: Specifies the higher value in the range.
-	 *			:
-	 * Returns		: <luReturnValue>
-	 *			: Returns a logical oder null value. 
+	 * Syntax	: luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
+	 * Description	: Determines whether the value of an expression 
+	 *		: is inclusively between the 
+	 *		: values of two expressions of the same type.
+	 *		:
+	 * Arguments   	: <tuTestValue>
+	 *		: Specifies an expression to evaluate.
+	 *		:
+	 *		: <tuLowValue>
+	 *		: Specifies the lower value in the range.
+	 *		:
+	 *		: <tuHighValue>
+	 *		: Specifies the higher value in the range.
+	 *		:
+	 * Returns	: <luReturnValue>
+	 *		: Returns a logical oder null value. 
 
 .. index:: 
      pair: FoxRing Functions Reference; frSetSeparatorTo() function
@@ -773,16 +816,17 @@ frSetSeparatorTo() function
 
 .. code-block:: none
 
-	 * Syntax		: frSetSeparatorTo(tuExpression)
-	 * Description		: Specifies the character for the numeric place separator.
-	 *			:
-	 * Arguments   		: <tuExpression>
-	 *			: Specifies the character for the numeric place separator. 
-	 *			:
-	 *			: Use frSetSeparatorTo() to change the numeric place separator from de default, for example space " " or a comma ",".
-	 *			: Issue frSetSeparatorTo(Null) to reset the value to its default.
-	 *			:
-	 * Returns		: None
+	 * Syntax	: frSetSeparatorTo(tuExpression)
+	 * Description	: Specifies the character for the numeric place separator.
+	 *		:
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the character for the numeric place separator. 
+	 *		:
+	 *		: Use frSetSeparatorTo() to change the numeric place 
+	 *		: separator from de default, for example space " " or a comma ",".
+	 *		: Issue frSetSeparatorTo(Null) to reset the value to its default.
+	 *		:
+	 * Returns	: None
 
 .. index:: 
      pair: FoxRing Functions Reference; frTransform() function
@@ -792,30 +836,30 @@ frTransform() function
 
 .. code-block:: none
 
-	 * Syntax		: tcReturnValue = frTransform(tuExpression, tcFormatCodes)
-	 * Description		: Returns a character string from an expression in a format determined by a format code.
-	 *			:
-	 * Arguments   		: <tuExpression>
-	 *			: Specifies the expression to format.
-	 *			:
-	 *			: <tcFormatCodes>		
-	 *			: Specifies one or more format codes that determine how to format the expression. 
-	 *			: 
-	 *			: Note
-	 *			: The following table lists the available format codes for tcFormatCodes.
-	 *			: 
-	 *			:  ---------------------------------------------------------------------------------------
-	 *			:	Format Code	Description
-	 *			:  ---------------------------------------------------------------------------------------
-	 *			: 	@!			Converts an entire character string to uppercase.
-	 *			:  	@T 			Trims leading and trailing spaces from character values.
-	 *			: 	@B			Left-justifies Numeric data within the display region.
-	 *			: 	@L			Pads numeric and string data with leading zeros.
-	 *			:	@C			Appends CR to positive numeric values to indicate a credit.
-	 *			:	@X			Appends DB to negative numeric values to indicate a debit.
-	 *			:  ---------------------------------------------------------------------------------------
-	 *			: 
-	 * Returns		: <tcReturnValue>
+	 * Syntax	: tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+	 * Description	: Returns a character string from an expression in a 
+	 *		: format determined by a format code.
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the expression to format.
+	 *		:
+	 *		: <tcFormatCodes>		
+	 *		: Specifies one or more format codes that determine how to
+	 *		: format the expression. 
+	 *		: Note
+	 *		: The following table lists the available format codes for tcFormatCodes.
+	 *		: 
+	 *		:  ---------------------------------------------------------------------------------
+	 *		:	Format Code	Description
+	 *		:  ---------------------------------------------------------------------------------
+	 *		: 	@!		Converts an entire character string to uppercase.
+	 *		:  	@T 		Trims leading and trailing spaces from character values.
+	 *		: 	@B		Left-justifies Numeric data within the display region.
+	 *		: 	@L		Pads numeric and string data with leading zeros.
+	 *		:	@C		Appends CR to positive numeric values to indicate a credit.
+	 *		:	@X		Appends DB to negative numeric values to indicate a debit.
+	 *		:  ---------------------------------------------------------------------------------
+	 *		: 
+	 * Returns	: <tcReturnValue>
 
 .. index:: 
      pair: FoxRing Functions Reference; frVarType() function
