@@ -1,0 +1,149 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 282 , : y = 206  , 
+		 :width =  523 , :height = 242 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_dialog" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 9 , : y = 65  , 
+		 :width =  120 , :height = 23 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Path",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label2" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 11 , : y = 128  , 
+		 :width =  111 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Arguments",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 445 , : y = 62  , 
+		 :width =  61 , :height = 24 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Browse",
+		 :BtnImage =  "",
+		 :setClickEvent =  "BrowseAction"
+		]
+	],
+	[ :name = "PathLE" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 16 , : y = 90  , 
+		 :width =  493 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "PathLEChangedAction",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "ArgsLE" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 18 , : y = 152  , 
+		 :width =  287 , :height = 25 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 284 , : y = 196  , 
+		 :width =  101 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "OK",
+		 :BtnImage =  "",
+		 :setClickEvent =  "OkAction"
+		]
+	],
+	[ :name = "Button7" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 401 , : y = 196  , 
+		 :width =  101 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Cancel",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CancelAction"
+		]
+	],
+	[ :name = "Label3" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 9 , : y = 5  , 
+		 :width =  72 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Name",
+		 :textalign =  0
+		]
+	],
+	[ :name = "NameLE" , :id = 10 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 20 , : y = 32  , 
+		 :width =  360 , :height = 25 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "UsersCB" , :id = 11 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 388 , : y = 150  , 
+		 :width =  146 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "All users",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	]
+]
+# End Form Designer File
