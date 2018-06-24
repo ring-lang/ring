@@ -74,7 +74,7 @@ Contents:
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
    Using the Form Designer <formdesigner>
-   Multi-language applications <multilanguage>
+   Multi-language Applications <multilanguage>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>

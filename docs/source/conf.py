@@ -55,8 +55,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Ring'
-copyright = u'2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri'
-author = u'Eng. Mahmoud Fayed and Dr. Atif Alamri'
+copyright = u'2016-2018, Ring Team'
+author = u'Ring Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -242,7 +242,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'Ring.tex', u'Ring Documentation',
-   u'Eng. Mahmoud Fayed and Dr. Atif Alamri', 'manual'),
+   u'Ring Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

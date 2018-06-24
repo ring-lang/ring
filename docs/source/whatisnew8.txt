@@ -45,6 +45,8 @@ The performance gain is between 10% and 100% based on the application.
 
 Check the 3D samples in this release to get an idea about the current performance.
 
+For more information check the Performance Tips chapter.
+
 .. index:: 
 	pair: What is new in Ring 1.8?; Find in files Application
 
@@ -71,8 +73,9 @@ Then we can store constants in separate source code files that we can translate 
 
 Where we can have special file for each language, like (English.ring, Arabic.ring and so on)
 
-Using this simple tool, the Form Designer is translated to Arabic language too just as an example.
+Using this simple tool, the Form Designer is translated to the Arabic language.
 
+For more information check the Multi-language Applications chapter.
 
 .. image:: string2constant.png
 	:alt: String2Constant 
