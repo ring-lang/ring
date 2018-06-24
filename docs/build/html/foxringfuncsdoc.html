@@ -57,54 +57,190 @@
 <p>Developer: Jose Rosado</p>
 <div class="section" id="foxring-functions">
 <span id="index-1"></span><h2>FoxRing functions<a class="headerlink" href="#foxring-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none"><div class="highlight"><pre><span></span>frAbs()                 Returns the absolute value of the specified numeric expression.
-frAddBs()               Adds a backslash (if needed) to a path expression.
-frALines()              Creates an Array with the content of the specified string.
-frAllTrim()             Removes all leading and trailing spaces of the specified string.
-frAsc()                 Returns the ANSI value for the leftmost character in a character expression.
-frAt()                  Searches a character expression for the occurrence of another character expression.
-frAtC()                 Searches a character expression for the ocurrence of another character expression without
-                        regard for the case of these two expressions.
-frBetween()             Determines whether the value of an expression is inclusively between the values of two
-                        expressions of the same type.
-frChr()                 Returns the character associated with the specified numeric ANSI code.
-frEmpty()               Determines whether an expression evaluates to empty.
-frFile()                Checks if a file exists on disk.
-frFileToStr()           Returns the contents of a file as a character string.
-frForceExt()            Returns a string with the old file name extension replaced by a new extension.
-frForcePath()           Returns a file name with a new path name substituted for the old one.
-frIif()                 Returns one of two values depending on the value of a logical expression.
-frInList()              Determines whether an expression matches another expression in a list.
-frInt()                 Evaluates a numeric expression and returns the integer portion of the expression.
-frJustDrive()           Returns the drive letter from a complete path.
-frJustExt()             Returns the characters of a file extension from a complete path.
-frJustFName()           Returns the file name portion of a complete path and file name.
-frJustPath()            Returns the path portion of a complete path and file name.
-frJustStem()            Returns the stem name (the file name before the extension) from a complete path and file name.
-frLen()                 Determines the number of characters in a character expression, indicating the length of the expression.
-frListToString()        Creates a string with the string elements of an Array.
-frLTrim()               Removes all leading spaces or parsing characters from the specified character expression.
-frPadL()                Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
-frPadR()                Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
-frProper()              Returns from a character expression a string capitalized as appropriate for proper names.
-frReplicate()           Returns a character string that contains a specified character expression repeated a specified number of times.
-frRTrim()               Removes all trailing spaces or parsing characters from the specified character expression.
-frSetIfEmpty()          Set a Value into a variable if the variable value is empty, null or zero.
-frSetSeparatorTo()      Specifies the character for the numeric place separator.
-frSpace()               Returns a character string composed of a specified number of spaces.
-frStr()                 Returns the character equivalent of a numeric expression.
-frStringToList()        Creates a List with the content of the specified string.
-frStrTran()             Searches a character expression for a second character expression and replaces each occurrence with a third
-                        character expression.
-frStuff()               Returns a new character string replaced by a specified number of characteres in a character expression with
-                        another character expression.
-frSubStr()              Returns a character string from the given character expression, starting at a specified position in the character
-                        expression and continuing for a specified number of characters.
-frTransform()           Returns a character string from an expression in a format determined by a format code.
-frVal()                 Returns a numeric value from a character expression composed of numbers.
-frVarType()             Returns the data type of an expression.
-</pre></div>
-</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>frAbs()</td>
+<td>Returns the absolute value of the specified numeric expression.</td>
+</tr>
+<tr class="row-odd"><td>frAddBs()</td>
+<td>Adds a backslash (if needed) to a path expression.</td>
+</tr>
+<tr class="row-even"><td>frALines()</td>
+<td>Creates an Array with the content of the specified string.</td>
+</tr>
+<tr class="row-odd"><td>frAllTrim()</td>
+<td>Removes all leading and trailing spaces of the specified string.</td>
+</tr>
+<tr class="row-even"><td>frAsc()</td>
+<td>Returns the ANSI value for the leftmost character in a character expression.</td>
+</tr>
+<tr class="row-odd"><td>frAt()</td>
+<td>Searches a character expression for the occurrence</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>of another character expression.</td>
+</tr>
+<tr class="row-odd"><td>frAtC()</td>
+<td>Searches a character expression for the ocurrence of another character expression without</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>regard for the case of these two expressions.</td>
+</tr>
+<tr class="row-odd"><td>frBetween()</td>
+<td>Determines whether the value of an expression is inclusively between the values of two</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>expressions of the same type.</td>
+</tr>
+<tr class="row-odd"><td>frChr()</td>
+<td>Returns the character associated with the specified numeric ANSI code.</td>
+</tr>
+<tr class="row-even"><td>frEmpty()</td>
+<td>Determines whether an expression evaluates to empty.</td>
+</tr>
+<tr class="row-odd"><td>frFile()</td>
+<td>Checks if a file exists on disk.</td>
+</tr>
+<tr class="row-even"><td>frFileToStr()</td>
+<td>Returns the contents of a file as a character string.</td>
+</tr>
+<tr class="row-odd"><td>frForceExt()</td>
+<td>Returns a string with the old file name extension replaced by a new extension.</td>
+</tr>
+<tr class="row-even"><td>frForcePath()</td>
+<td>Returns a file name with a new path name substituted for the old one.</td>
+</tr>
+<tr class="row-odd"><td>frIif()</td>
+<td>Returns one of two values depending on the value of a logical expression.</td>
+</tr>
+<tr class="row-even"><td>frInList()</td>
+<td>Determines whether an expression matches another expression in a list.</td>
+</tr>
+<tr class="row-odd"><td>frInt()</td>
+<td>Evaluates a numeric expression and returns the integer portion of the expression.</td>
+</tr>
+<tr class="row-even"><td>frJustDrive()</td>
+<td>Returns the drive letter from a complete path.</td>
+</tr>
+<tr class="row-odd"><td>frJustExt()</td>
+<td>Returns the characters of a file extension from a complete path.</td>
+</tr>
+<tr class="row-even"><td>frJustFName()</td>
+<td>Returns the file name portion of a complete path and file name.</td>
+</tr>
+<tr class="row-odd"><td>frJustPath()</td>
+<td>Returns the path portion of a complete path and file name.</td>
+</tr>
+<tr class="row-even"><td>frJustStem()</td>
+<td>Returns the stem name (the file name before the extension)</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>from a complete path and file name.</td>
+</tr>
+<tr class="row-even"><td>frLen()</td>
+<td>Determines the number of characters in a character expression,</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>indicating the length of the expression.</td>
+</tr>
+<tr class="row-even"><td>frListToString()</td>
+<td>Creates a string with the string elements of an Array.</td>
+</tr>
+<tr class="row-odd"><td>frLTrim()</td>
+<td>Removes all leading spaces or parsing characters from the</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>specified character expression.</td>
+</tr>
+<tr class="row-odd"><td>frPadL()</td>
+<td>Returns a string from an expression, padded with spaces or characters to a</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>specified length on the left side.</td>
+</tr>
+<tr class="row-odd"><td>frPadR()</td>
+<td>Returns a string from an expression, padded with spaces or characters to a</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>specified length on the right side.</td>
+</tr>
+<tr class="row-odd"><td>frProper()</td>
+<td>Returns from a character expression a string capitalized as</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>appropriate for proper names.</td>
+</tr>
+<tr class="row-odd"><td>frReplicate()</td>
+<td>Returns a character string that contains a specified character</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>expression repeated a specified number of times.</td>
+</tr>
+<tr class="row-odd"><td>frRTrim()</td>
+<td>Removes all trailing spaces or parsing characters from</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>the specified character expression.</td>
+</tr>
+<tr class="row-odd"><td>frSetIfEmpty()</td>
+<td>Set a Value into a variable if the variable value is empty, null or zero.</td>
+</tr>
+<tr class="row-even"><td>frSetSeparatorTo()</td>
+<td>Specifies the character for the numeric place separator.</td>
+</tr>
+<tr class="row-odd"><td>frSpace()</td>
+<td>Returns a character string composed of a specified number of spaces.</td>
+</tr>
+<tr class="row-even"><td>frStr()</td>
+<td>Returns the character equivalent of a numeric expression.</td>
+</tr>
+<tr class="row-odd"><td>frStringToList()</td>
+<td>Creates a List with the content of the specified string.</td>
+</tr>
+<tr class="row-even"><td>frStrTran()</td>
+<td>Searches a character expression for a second character expression and</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>replaces each occurrence with a third character expression.</td>
+</tr>
+<tr class="row-even"><td>frStuff()</td>
+<td>Returns a new character string replaced by a specified number of</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>characteres in a character expression with another character expression.</td>
+</tr>
+<tr class="row-even"><td>frSubStr()</td>
+<td>Returns a character string from the given character expression,</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>starting at a specified position in the character</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>expression and continuing for a specified number of characters.</td>
+</tr>
+<tr class="row-odd"><td>frTransform()</td>
+<td>Returns a character string from an expression in a</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>format determined by a format code.</td>
+</tr>
+<tr class="row-odd"><td>frVal()</td>
+<td>Returns a numeric value from a character expression composed of numbers.</td>
+</tr>
+<tr class="row-even"><td>frVarType()</td>
+<td>Returns the data type of an expression.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="frabs-function">
 <span id="index-2"></span><h2>frAbs() function<a class="headerlink" href="#frabs-function" title="Permalink to this headline">¶</a></h2>
