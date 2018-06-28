@@ -24,7 +24,7 @@ Class RNoteController from WindowsControllerParent
 	aBackColor 		= [255,255,255]
 	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
 	oTempFont 		= new qfont("",0,0,0)
-	cWebsite 		= "http://www.ring-lang.sf.net/doc/index.html"
+	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
 	cRingEXE 		= exefilename()
@@ -830,6 +830,7 @@ Class RNoteController from WindowsControllerParent
 			}
 			setstatusbar(this.status1)
 			this.tree1 = new qtreeview(this.win1) {
+				setStylesheet("font-size: 30")
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
