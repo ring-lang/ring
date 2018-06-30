@@ -472,6 +472,376 @@ RING_FUNC(ring_set_pqconninfooption_dispsize)
 	pMyPointer->dispsize = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_pqprintopt)
+{
+	PQprintOpt *pMyPointer ;
+	pMyPointer = (PQprintOpt *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQprintOpt)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"PQprintOpt");
+}
+
+RING_FUNC(ring_destroy_pqprintopt)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_pqprintopt_header)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->header);
+}
+
+RING_FUNC(ring_set_pqprintopt_header)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->header = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_align)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->align);
+}
+
+RING_FUNC(ring_set_pqprintopt_align)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->align = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_standard)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->standard);
+}
+
+RING_FUNC(ring_set_pqprintopt_standard)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->standard = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_html3)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->html3);
+}
+
+RING_FUNC(ring_set_pqprintopt_html3)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->html3 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_expanded)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->expanded);
+}
+
+RING_FUNC(ring_set_pqprintopt_expanded)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->expanded = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_pager)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETNUMBER(pMyPointer->pager);
+}
+
+RING_FUNC(ring_set_pqprintopt_pager)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->pager = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pqprintopt_fieldSep)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETCPOINTER(pMyPointer->fieldSep,"char");
+}
+
+RING_FUNC(ring_set_pqprintopt_fieldSep)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->fieldSep = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqprintopt_tableOpt)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETCPOINTER(pMyPointer->tableOpt,"char");
+}
+
+RING_FUNC(ring_set_pqprintopt_tableOpt)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->tableOpt = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqprintopt_caption)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETCPOINTER(pMyPointer->caption,"char");
+}
+
+RING_FUNC(ring_set_pqprintopt_caption)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->caption = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqprintopt_fieldName)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	RING_API_RETCPOINTER(pMyPointer->fieldName,"char");
+}
+
+RING_FUNC(ring_set_pqprintopt_fieldName)
+{
+	PQprintOpt *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
+	pMyPointer->fieldName = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
 
 RING_FUNC(ring_PQconnectdbParams)
 {
@@ -1796,4 +2166,26 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_pqconninfooption_dispchar",ring_set_pqconninfooption_dispchar);
 	ring_vm_funcregister("get_pqconninfooption_dispsize",ring_get_pqconninfooption_dispsize);
 	ring_vm_funcregister("set_pqconninfooption_dispsize",ring_set_pqconninfooption_dispsize);
+	ring_vm_funcregister("new_pqprintopt",ring_new_pqprintopt);
+	ring_vm_funcregister("destroy_pqprintopt",ring_destroy_pqprintopt);
+	ring_vm_funcregister("get_pqprintopt_header",ring_get_pqprintopt_header);
+	ring_vm_funcregister("set_pqprintopt_header",ring_set_pqprintopt_header);
+	ring_vm_funcregister("get_pqprintopt_align",ring_get_pqprintopt_align);
+	ring_vm_funcregister("set_pqprintopt_align",ring_set_pqprintopt_align);
+	ring_vm_funcregister("get_pqprintopt_standard",ring_get_pqprintopt_standard);
+	ring_vm_funcregister("set_pqprintopt_standard",ring_set_pqprintopt_standard);
+	ring_vm_funcregister("get_pqprintopt_html3",ring_get_pqprintopt_html3);
+	ring_vm_funcregister("set_pqprintopt_html3",ring_set_pqprintopt_html3);
+	ring_vm_funcregister("get_pqprintopt_expanded",ring_get_pqprintopt_expanded);
+	ring_vm_funcregister("set_pqprintopt_expanded",ring_set_pqprintopt_expanded);
+	ring_vm_funcregister("get_pqprintopt_pager",ring_get_pqprintopt_pager);
+	ring_vm_funcregister("set_pqprintopt_pager",ring_set_pqprintopt_pager);
+	ring_vm_funcregister("get_pqprintopt_fieldSep",ring_get_pqprintopt_fieldSep);
+	ring_vm_funcregister("set_pqprintopt_fieldSep",ring_set_pqprintopt_fieldSep);
+	ring_vm_funcregister("get_pqprintopt_tableOpt",ring_get_pqprintopt_tableOpt);
+	ring_vm_funcregister("set_pqprintopt_tableOpt",ring_set_pqprintopt_tableOpt);
+	ring_vm_funcregister("get_pqprintopt_caption",ring_get_pqprintopt_caption);
+	ring_vm_funcregister("set_pqprintopt_caption",ring_set_pqprintopt_caption);
+	ring_vm_funcregister("get_pqprintopt_fieldName",ring_get_pqprintopt_fieldName);
+	ring_vm_funcregister("set_pqprintopt_fieldName",ring_set_pqprintopt_fieldName);
 }
