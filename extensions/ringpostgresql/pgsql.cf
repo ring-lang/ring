@@ -179,5 +179,8 @@ int PQrequestCancel(PGconn *conn)
 
 PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,int *result_len,int result_is_int,const PQArgBlock *args,int nargs)
 
+PGnotify *PQnotifies(PGconn *conn)
+
+int PQputCopyData(PGconn *conn,const char *buffer,int nbytes)
 
 

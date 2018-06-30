@@ -2805,6 +2805,42 @@ RING_FUNC(ring_PQfn)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_PQnotifies)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQnotifies((PGconn *) RING_API_GETCPOINTER(1,"PGconn")),"PGnotify");
+}
+
+
+RING_FUNC(ring_PQputCopyData)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQputCopyData((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -2903,6 +2939,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqcancel",ring_PQcancel);
 	ring_vm_funcregister("pqrequestcancel",ring_PQrequestCancel);
 	ring_vm_funcregister("pqfn",ring_PQfn);
+	ring_vm_funcregister("pqnotifies",ring_PQnotifies);
+	ring_vm_funcregister("pqputcopydata",ring_PQputCopyData);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
