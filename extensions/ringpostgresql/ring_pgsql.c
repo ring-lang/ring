@@ -198,6 +198,20 @@ RING_FUNC(ring_PQconnectPoll)
 	RING_API_RETNUMBER(PQconnectPoll((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
 }
 
+
+RING_FUNC(ring_PQstatus)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQstatus((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -207,6 +221,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqconnectstartparams",ring_PQconnectStartParams);
 	ring_vm_funcregister("pqconnectstart",ring_PQconnectStart);
 	ring_vm_funcregister("pqconnectpoll",ring_PQconnectPoll);
+	ring_vm_funcregister("pqstatus",ring_PQstatus);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);

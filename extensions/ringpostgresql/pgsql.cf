@@ -29,3 +29,5 @@ PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,char *pgtty,char *dbNa
 PGconn *PQconnectStartParams(const char * const *keywords,const char * const *values,int expand_dbname)
 PGconn *PQconnectStart(const char *conninfo)
 PostgresPollingStatusType PQconnectPoll(PGconn *conn)
+
+int PQstatus(PGconn *)
