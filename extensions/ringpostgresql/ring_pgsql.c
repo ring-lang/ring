@@ -114,6 +114,96 @@ RING_FUNC(ring_get_pgres_single_tuple)
 	RING_API_RETNUMBER(PGRES_SINGLE_TUPLE);
 }
 
+RING_FUNC(ring_get_pg_diag_severity)
+{
+	RING_API_RETNUMBER(PG_DIAG_SEVERITY);
+}
+
+RING_FUNC(ring_get_pg_diag_severity_nonlocalized)
+{
+	RING_API_RETNUMBER(PG_DIAG_SEVERITY_NONLOCALIZED);
+}
+
+RING_FUNC(ring_get_pg_diag_sqlstate)
+{
+	RING_API_RETNUMBER(PG_DIAG_SQLSTATE);
+}
+
+RING_FUNC(ring_get_pg_diag_message_primary)
+{
+	RING_API_RETNUMBER(PG_DIAG_MESSAGE_PRIMARY);
+}
+
+RING_FUNC(ring_get_pg_diag_message_detail)
+{
+	RING_API_RETNUMBER(PG_DIAG_MESSAGE_DETAIL);
+}
+
+RING_FUNC(ring_get_pg_diag_message_hint)
+{
+	RING_API_RETNUMBER(PG_DIAG_MESSAGE_HINT);
+}
+
+RING_FUNC(ring_get_pg_diag_statement_position)
+{
+	RING_API_RETNUMBER(PG_DIAG_STATEMENT_POSITION);
+}
+
+RING_FUNC(ring_get_pg_diag_internal_position)
+{
+	RING_API_RETNUMBER(PG_DIAG_INTERNAL_POSITION);
+}
+
+RING_FUNC(ring_get_pg_diag_internal_query)
+{
+	RING_API_RETNUMBER(PG_DIAG_INTERNAL_QUERY);
+}
+
+RING_FUNC(ring_get_pg_diag_context)
+{
+	RING_API_RETNUMBER(PG_DIAG_CONTEXT);
+}
+
+RING_FUNC(ring_get_pg_diag_schema_name)
+{
+	RING_API_RETNUMBER(PG_DIAG_SCHEMA_NAME);
+}
+
+RING_FUNC(ring_get_pg_diag_table_name)
+{
+	RING_API_RETNUMBER(PG_DIAG_TABLE_NAME);
+}
+
+RING_FUNC(ring_get_pg_diag_column_name)
+{
+	RING_API_RETNUMBER(PG_DIAG_COLUMN_NAME);
+}
+
+RING_FUNC(ring_get_pg_diag_datatype_name)
+{
+	RING_API_RETNUMBER(PG_DIAG_DATATYPE_NAME);
+}
+
+RING_FUNC(ring_get_pg_diag_constraint_name)
+{
+	RING_API_RETNUMBER(PG_DIAG_CONSTRAINT_NAME);
+}
+
+RING_FUNC(ring_get_pg_diag_source_file)
+{
+	RING_API_RETNUMBER(PG_DIAG_SOURCE_FILE);
+}
+
+RING_FUNC(ring_get_pg_diag_source_line)
+{
+	RING_API_RETNUMBER(PG_DIAG_SOURCE_LINE);
+}
+
+RING_FUNC(ring_get_pg_diag_source_function)
+{
+	RING_API_RETNUMBER(PG_DIAG_SOURCE_FUNCTION);
+}
+
 RING_FUNC(ring_new_pqconninfooption)
 {
 	PQconninfoOption *pMyPointer ;
@@ -1182,6 +1272,70 @@ RING_FUNC(ring_PQresultStatus)
 	RING_API_RETNUMBER(PQresultStatus((PGresult *) RING_API_GETCPOINTER(1,"PGresult")));
 }
 
+
+RING_FUNC(ring_PQresStatus)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQresStatus( (ExecStatusType )  (int) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_PQresultErrorMessage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQresultErrorMessage((PGresult *) RING_API_GETCPOINTER(1,"PGresult")));
+}
+
+
+RING_FUNC(ring_PQresultVerboseErrorMessage)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQresultVerboseErrorMessage((PGresult *) RING_API_GETCPOINTER(1,"PGresult"),* (PGVerbosity  *) RING_API_GETCPOINTER(2,"PGVerbosity"),* (PGContextVisibility  *) RING_API_GETCPOINTER(3,"PGContextVisibility")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"PGVerbosity"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"PGContextVisibility"));
+}
+
+
+RING_FUNC(ring_PQresultErrorField)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQresultErrorField((PGresult *) RING_API_GETCPOINTER(1,"PGresult"), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -1229,6 +1383,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqdescribeprepared",ring_PQdescribePrepared);
 	ring_vm_funcregister("pqdescribeportal",ring_PQdescribePortal);
 	ring_vm_funcregister("pqresultstatus",ring_PQresultStatus);
+	ring_vm_funcregister("pqresstatus",ring_PQresStatus);
+	ring_vm_funcregister("pqresulterrormessage",ring_PQresultErrorMessage);
+	ring_vm_funcregister("pqresultverboseerrormessage",ring_PQresultVerboseErrorMessage);
+	ring_vm_funcregister("pqresulterrorfield",ring_PQresultErrorField);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
@@ -1251,6 +1409,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_pgres_fatal_error",ring_get_pgres_fatal_error);
 	ring_vm_funcregister("get_pgres_copy_both",ring_get_pgres_copy_both);
 	ring_vm_funcregister("get_pgres_single_tuple",ring_get_pgres_single_tuple);
+	ring_vm_funcregister("get_pg_diag_severity",ring_get_pg_diag_severity);
+	ring_vm_funcregister("get_pg_diag_severity_nonlocalized",ring_get_pg_diag_severity_nonlocalized);
+	ring_vm_funcregister("get_pg_diag_sqlstate",ring_get_pg_diag_sqlstate);
+	ring_vm_funcregister("get_pg_diag_message_primary",ring_get_pg_diag_message_primary);
+	ring_vm_funcregister("get_pg_diag_message_detail",ring_get_pg_diag_message_detail);
+	ring_vm_funcregister("get_pg_diag_message_hint",ring_get_pg_diag_message_hint);
+	ring_vm_funcregister("get_pg_diag_statement_position",ring_get_pg_diag_statement_position);
+	ring_vm_funcregister("get_pg_diag_internal_position",ring_get_pg_diag_internal_position);
+	ring_vm_funcregister("get_pg_diag_internal_query",ring_get_pg_diag_internal_query);
+	ring_vm_funcregister("get_pg_diag_context",ring_get_pg_diag_context);
+	ring_vm_funcregister("get_pg_diag_schema_name",ring_get_pg_diag_schema_name);
+	ring_vm_funcregister("get_pg_diag_table_name",ring_get_pg_diag_table_name);
+	ring_vm_funcregister("get_pg_diag_column_name",ring_get_pg_diag_column_name);
+	ring_vm_funcregister("get_pg_diag_datatype_name",ring_get_pg_diag_datatype_name);
+	ring_vm_funcregister("get_pg_diag_constraint_name",ring_get_pg_diag_constraint_name);
+	ring_vm_funcregister("get_pg_diag_source_file",ring_get_pg_diag_source_file);
+	ring_vm_funcregister("get_pg_diag_source_line",ring_get_pg_diag_source_line);
+	ring_vm_funcregister("get_pg_diag_source_function",ring_get_pg_diag_source_function);
 	ring_vm_funcregister("new_pqconninfooption",ring_new_pqconninfooption);
 	ring_vm_funcregister("destroy_pqconninfooption",ring_destroy_pqconninfooption);
 	ring_vm_funcregister("get_pqconninfooption_keyword",ring_get_pqconninfooption_keyword);

@@ -40,6 +40,25 @@ PGRES_FATAL_ERROR
 PGRES_COPY_BOTH
 PGRES_SINGLE_TUPLE
 
+PG_DIAG_SEVERITY
+PG_DIAG_SEVERITY_NONLOCALIZED
+PG_DIAG_SQLSTATE
+PG_DIAG_MESSAGE_PRIMARY
+PG_DIAG_MESSAGE_DETAIL
+PG_DIAG_MESSAGE_HINT
+PG_DIAG_STATEMENT_POSITION
+PG_DIAG_INTERNAL_POSITION
+PG_DIAG_INTERNAL_QUERY
+PG_DIAG_CONTEXT
+PG_DIAG_SCHEMA_NAME
+PG_DIAG_TABLE_NAME
+PG_DIAG_COLUMN_NAME
+PG_DIAG_DATATYPE_NAME
+PG_DIAG_CONSTRAINT_NAME
+PG_DIAG_SOURCE_FILE
+PG_DIAG_SOURCE_LINE
+PG_DIAG_SOURCE_FUNCTION
+
 </constant>
 
 <struct>
@@ -99,3 +118,8 @@ PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,int nParams,const cha
 PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
 PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
 ExecStatusType PQresultStatus(const PGresult *res)
+
+char *PQresStatus(ExecStatusType status)
+char *PQresultErrorMessage(const PGresult *res)
+char *PQresultVerboseErrorMessage(const PGresult *res,PGVerbosity verbosity,PGContextVisibility show_context)
+char *PQresultErrorField(const PGresult *res, int fieldcode)
