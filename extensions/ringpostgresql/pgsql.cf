@@ -8,6 +8,8 @@
 <runcode>
 aNumberTypes + "unsigned int"
 aEnumTypes + "PostgresPollingStatusType"
+aEnumTypes + "ConnStatusType"
+aEnumTypes + "PGTransactionStatusType"
 </runcode>
 
 <constant>
@@ -41,7 +43,6 @@ PGconn *PQconnectStartParams(const char * const *keywords,const char * const *va
 PGconn *PQconnectStart(const char *conninfo)
 PostgresPollingStatusType PQconnectPoll(PGconn *conn)
 
-int PQstatus(PGconn *)
 PQconninfoOption *PQconndefaults(void)
 PQconninfoOption *PQconninfo(PGconn *conn)
 PQconninfoOption *PQconninfoParse(const char *conninfo, char **errmsg)
@@ -51,3 +52,15 @@ int PQresetStart(PGconn *conn)
 PostgresPollingStatusType PQresetPoll(PGconn *conn)
 
 PGPing PQpingParams(const char * const *keywords,const char * const *values,int expand_dbname)
+PGPing PQping(const char *conninfo)
+
+char *PQdb(const PGconn *conn)
+char *PQuser(const PGconn *conn)
+char *PQpass(const PGconn *conn)
+char *PQhost(const PGconn *conn)
+char *PQport(const PGconn *conn)
+char *PQtty(const PGconn *conn)
+char *PQoptions(const PGconn *conn)
+
+ConnStatusType PQstatus(const PGconn *conn)
+PGTransactionStatusType PQtransactionStatus(const PGconn *conn)
