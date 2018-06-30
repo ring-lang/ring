@@ -9,4 +9,5 @@
 aNumberTypes + "unsigned int"
 </runcode>
 
-PGconn *PQconnectdbParams(const char * const *keywords,const char * const *values,int expand_dbname);
+PGconn *PQconnectdbParams(const char *keywords,const char *values,int expand_dbname);
+PGconn *PQconnectdb(const char *conninfo)
