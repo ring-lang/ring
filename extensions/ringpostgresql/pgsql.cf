@@ -10,6 +10,17 @@ aNumberTypes + "unsigned int"
 aEnumTypes + "PostgresPollingStatusType"
 </runcode>
 
+<constant>
+CONNECTION_STARTED
+CONNECTION_MADE
+CONNECTION_AWAITING_RESPONSE
+CONNECTION_AUTH_OK
+CONNECTION_SSL_STARTUP
+CONNECTION_SETENV
+CONNECTION_CHECK_WRITABLE
+CONNECTION_CONSUME
+</constant>
+
 PGconn *PQconnectdbParams(const char *keywords,const char *values,int expand_dbname);
 PGconn *PQconnectdb(const char *conninfo)
 PGconn *PQsetdbLogin(const char *pghost,const char *pgport,const char *pgoptions,const char *pgtty,const char *dbName,const char *login,const char *pwd)

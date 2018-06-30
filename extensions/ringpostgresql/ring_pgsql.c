@@ -4,6 +4,46 @@
 
 #include "libpq-fe.h"
 
+RING_FUNC(ring_get_connection_started)
+{
+	RING_API_RETNUMBER(CONNECTION_STARTED);
+}
+
+RING_FUNC(ring_get_connection_made)
+{
+	RING_API_RETNUMBER(CONNECTION_MADE);
+}
+
+RING_FUNC(ring_get_connection_awaiting_response)
+{
+	RING_API_RETNUMBER(CONNECTION_AWAITING_RESPONSE);
+}
+
+RING_FUNC(ring_get_connection_auth_ok)
+{
+	RING_API_RETNUMBER(CONNECTION_AUTH_OK);
+}
+
+RING_FUNC(ring_get_connection_ssl_startup)
+{
+	RING_API_RETNUMBER(CONNECTION_SSL_STARTUP);
+}
+
+RING_FUNC(ring_get_connection_setenv)
+{
+	RING_API_RETNUMBER(CONNECTION_SETENV);
+}
+
+RING_FUNC(ring_get_connection_check_writable)
+{
+	RING_API_RETNUMBER(CONNECTION_CHECK_WRITABLE);
+}
+
+RING_FUNC(ring_get_connection_consume)
+{
+	RING_API_RETNUMBER(CONNECTION_CONSUME);
+}
+
 
 RING_FUNC(ring_PQconnectdbParams)
 {
@@ -167,4 +207,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqconnectstartparams",ring_PQconnectStartParams);
 	ring_vm_funcregister("pqconnectstart",ring_PQconnectStart);
 	ring_vm_funcregister("pqconnectpoll",ring_PQconnectPoll);
+	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
+	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
+	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
+	ring_vm_funcregister("get_connection_auth_ok",ring_get_connection_auth_ok);
+	ring_vm_funcregister("get_connection_ssl_startup",ring_get_connection_ssl_startup);
+	ring_vm_funcregister("get_connection_setenv",ring_get_connection_setenv);
+	ring_vm_funcregister("get_connection_check_writable",ring_get_connection_check_writable);
+	ring_vm_funcregister("get_connection_consume",ring_get_connection_consume);
 }
