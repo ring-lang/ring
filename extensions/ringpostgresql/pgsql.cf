@@ -64,6 +64,7 @@ PG_DIAG_SOURCE_FUNCTION
 <struct>
 PQconninfoOption {char *keyword,char *envvar, char *compiled, char *val, char *label, char *dispchar,dispsize}
 PQprintOpt {header,align,standard,html3,expanded,pager,char *fieldSep,char *tableOpt,char *caption,char *fieldName}
+PQArgBlock {len,isint}
 </struct>
 
 PGconn *PQconnectdbParams(const char **keywords,const char **values,int expand_dbname);
@@ -175,4 +176,8 @@ PGcancel *PQgetCancel(PGconn *conn)
 void PQfreeCancel(PGcancel *cancel)
 int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
 int PQrequestCancel(PGconn *conn)
+
+PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,int *result_len,int result_is_int,const PQArgBlock *args,int nargs)
+
+
 
