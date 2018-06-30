@@ -34,12 +34,12 @@ PQPING_NO_ATTEMPT
 PQconninfoOption {char *keyword,char *envvar, char *compiled, char *val, char *label, char *dispchar,dispsize}
 </struct>
 
-PGconn *PQconnectdbParams(const char *keywords,const char *values,int expand_dbname);
+PGconn *PQconnectdbParams(const char **keywords,const char **values,int expand_dbname);
 PGconn *PQconnectdb(const char *conninfo)
 PGconn *PQsetdbLogin(const char *pghost,const char *pgport,const char *pgoptions,const char *pgtty,const char *dbName,const char *login,const char *pwd)
 PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,char *pgtty,char *dbName)
 
-PGconn *PQconnectStartParams(const char * const *keywords,const char * const *values,int expand_dbname)
+PGconn *PQconnectStartParams(const char **keywords,const char **values,int expand_dbname)
 PGconn *PQconnectStart(const char *conninfo)
 PostgresPollingStatusType PQconnectPoll(PGconn *conn)
 
@@ -51,7 +51,7 @@ void PQreset(PGconn *conn)
 int PQresetStart(PGconn *conn)
 PostgresPollingStatusType PQresetPoll(PGconn *conn)
 
-PGPing PQpingParams(const char * const *keywords,const char * const *values,int expand_dbname)
+PGPing PQpingParams(const char **keywords,const char **values,int expand_dbname)
 PGPing PQping(const char *conninfo)
 
 char *PQdb(const PGconn *conn)
@@ -76,3 +76,6 @@ int PQconnectionUsedPassword(const PGconn *conn)
 int PQsslInUse(const PGconn *conn)
 const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
 
+const char **PQsslAttributeNames(const PGconn *conn)
+void *PQsslStruct(const PGconn *conn, const char *struct_name)
+void *PQgetssl(const PGconn *conn)

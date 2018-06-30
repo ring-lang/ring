@@ -339,11 +339,11 @@ RING_FUNC(ring_PQconnectdbParams)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(1) ) {
+	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -351,7 +351,7 @@ RING_FUNC(ring_PQconnectdbParams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(PQconnectdbParams(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)),"PGconn");
+	RING_API_RETCPOINTER(PQconnectdbParams((char **) RING_API_GETCPOINTER2POINTER(1,"char"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3)),"PGconn");
 }
 
 
@@ -455,7 +455,7 @@ RING_FUNC(ring_PQconnectStartParams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(PQconnectStartParams((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"), (int ) RING_API_GETNUMBER(3)),"PGconn");
+	RING_API_RETCPOINTER(PQconnectStartParams((char **) RING_API_GETCPOINTER2POINTER(1,"char"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3)),"PGconn");
 }
 
 
@@ -606,7 +606,7 @@ RING_FUNC(ring_PQpingParams)
 	{
 		PGPing *pValue ; 
 		pValue = (PGPing *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PGPing)) ;
-		*pValue = PQpingParams((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"), (int ) RING_API_GETNUMBER(3));
+		*pValue = PQpingParams((char **) RING_API_GETCPOINTER2POINTER(1,"char"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"PGPing");
 	}
 }
@@ -904,6 +904,52 @@ RING_FUNC(ring_PQsslAttribute)
 	RING_API_RETSTRING(PQsslAttribute((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_PQsslAttributeNames)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQsslAttributeNames((PGconn *) RING_API_GETCPOINTER(1,"PGconn")),"char");
+}
+
+
+RING_FUNC(ring_PQsslStruct)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQsslStruct((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)),"void");
+}
+
+
+RING_FUNC(ring_PQgetssl)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQgetssl((PGconn *) RING_API_GETCPOINTER(1,"PGconn")),"void");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -941,6 +987,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqconnectionusedpassword",ring_PQconnectionUsedPassword);
 	ring_vm_funcregister("pqsslinuse",ring_PQsslInUse);
 	ring_vm_funcregister("pqsslattribute",ring_PQsslAttribute);
+	ring_vm_funcregister("pqsslattributenames",ring_PQsslAttributeNames);
+	ring_vm_funcregister("pqsslstruct",ring_PQsslStruct);
+	ring_vm_funcregister("pqgetssl",ring_PQgetssl);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
