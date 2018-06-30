@@ -44,6 +44,274 @@ RING_FUNC(ring_get_connection_consume)
 	RING_API_RETNUMBER(CONNECTION_CONSUME);
 }
 
+RING_FUNC(ring_new_pqconninfooption)
+{
+	PQconninfoOption *pMyPointer ;
+	pMyPointer = (PQconninfoOption *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQconninfoOption)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"PQconninfoOption");
+}
+
+RING_FUNC(ring_destroy_pqconninfooption)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_pqconninfooption_keyword)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->keyword,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_keyword)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->keyword = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_envvar)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->envvar,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_envvar)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->envvar = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_compiled)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->compiled,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_compiled)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->compiled = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_val)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->val,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_val)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->val = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_label)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->label,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_label)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->label = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_dispchar)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETCPOINTER(pMyPointer->dispchar,"char");
+}
+
+RING_FUNC(ring_set_pqconninfooption_dispchar)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->dispchar = (char *) RING_API_GETCPOINTER(2,"char *");
+}
+
+RING_FUNC(ring_get_pqconninfooption_dispsize)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	RING_API_RETNUMBER(pMyPointer->dispsize);
+}
+
+RING_FUNC(ring_set_pqconninfooption_dispsize)
+{
+	PQconninfoOption *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
+	pMyPointer->dispsize = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_PQconnectdbParams)
 {
@@ -241,4 +509,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_connection_setenv",ring_get_connection_setenv);
 	ring_vm_funcregister("get_connection_check_writable",ring_get_connection_check_writable);
 	ring_vm_funcregister("get_connection_consume",ring_get_connection_consume);
+	ring_vm_funcregister("new_pqconninfooption",ring_new_pqconninfooption);
+	ring_vm_funcregister("destroy_pqconninfooption",ring_destroy_pqconninfooption);
+	ring_vm_funcregister("get_pqconninfooption_keyword",ring_get_pqconninfooption_keyword);
+	ring_vm_funcregister("set_pqconninfooption_keyword",ring_set_pqconninfooption_keyword);
+	ring_vm_funcregister("get_pqconninfooption_envvar",ring_get_pqconninfooption_envvar);
+	ring_vm_funcregister("set_pqconninfooption_envvar",ring_set_pqconninfooption_envvar);
+	ring_vm_funcregister("get_pqconninfooption_compiled",ring_get_pqconninfooption_compiled);
+	ring_vm_funcregister("set_pqconninfooption_compiled",ring_set_pqconninfooption_compiled);
+	ring_vm_funcregister("get_pqconninfooption_val",ring_get_pqconninfooption_val);
+	ring_vm_funcregister("set_pqconninfooption_val",ring_set_pqconninfooption_val);
+	ring_vm_funcregister("get_pqconninfooption_label",ring_get_pqconninfooption_label);
+	ring_vm_funcregister("set_pqconninfooption_label",ring_set_pqconninfooption_label);
+	ring_vm_funcregister("get_pqconninfooption_dispchar",ring_get_pqconninfooption_dispchar);
+	ring_vm_funcregister("set_pqconninfooption_dispchar",ring_set_pqconninfooption_dispchar);
+	ring_vm_funcregister("get_pqconninfooption_dispsize",ring_get_pqconninfooption_dispsize);
+	ring_vm_funcregister("set_pqconninfooption_dispsize",ring_set_pqconninfooption_dispsize);
 }

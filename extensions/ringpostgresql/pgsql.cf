@@ -21,6 +21,10 @@ CONNECTION_CHECK_WRITABLE
 CONNECTION_CONSUME
 </constant>
 
+<struct>
+PQconninfoOption {char *keyword,char *envvar, char *compiled, char *val, char *label, char *dispchar,dispsize}
+</struct>
+
 PGconn *PQconnectdbParams(const char *keywords,const char *values,int expand_dbname);
 PGconn *PQconnectdb(const char *conninfo)
 PGconn *PQsetdbLogin(const char *pghost,const char *pgport,const char *pgoptions,const char *pgtty,const char *dbName,const char *login,const char *pwd)
