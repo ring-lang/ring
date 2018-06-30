@@ -3317,6 +3317,48 @@ RING_FUNC(ring_PQsetNoticeProcessor)
 	}
 }
 
+
+RING_FUNC(ring_PQinitOpenSSL)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	PQinitOpenSSL( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_PQinitSSL)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	PQinitSSL( (int ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_PQisthreadsafe)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(PQisthreadsafe());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -3442,6 +3484,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqlibversion",ring_PQlibVersion);
 	ring_vm_funcregister("pqsetnoticereceiver",ring_PQsetNoticeReceiver);
 	ring_vm_funcregister("pqsetnoticeprocessor",ring_PQsetNoticeProcessor);
+	ring_vm_funcregister("pqinitopenssl",ring_PQinitOpenSSL);
+	ring_vm_funcregister("pqinitssl",ring_PQinitSSL);
+	ring_vm_funcregister("pqisthreadsafe",ring_PQisthreadsafe);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);

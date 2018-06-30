@@ -222,3 +222,7 @@ void *PQinstanceData(const PGconn *conn, PGEventProc proc)
 int PQresultSetInstanceData(PGresult *res, PGEventProc proc, void *data)
 void *PQresultInstanceData(const PGresult *res, PGEventProc proc)
 </comment>
+
+void PQinitOpenSSL(int do_ssl, int do_crypto)
+void PQinitSSL(int do_ssl)
+int PQisthreadsafe(void)
