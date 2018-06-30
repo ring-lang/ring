@@ -756,6 +756,154 @@ RING_FUNC(ring_PQtransactionStatus)
 	RING_API_RETNUMBER(PQtransactionStatus((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
 }
 
+
+RING_FUNC(ring_PQparameterStatus)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQparameterStatus((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_PQprotocolVersion)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQprotocolVersion((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQserverVersion)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQserverVersion((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQerrorMessage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQerrorMessage((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQsocket)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQsocket((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQbackendPID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQbackendPID((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQconnectionNeedsPassword)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQconnectionNeedsPassword((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQconnectionUsedPassword)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQconnectionUsedPassword((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQsslInUse)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQsslInUse((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQsslAttribute)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQsslAttribute((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -783,6 +931,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqoptions",ring_PQoptions);
 	ring_vm_funcregister("pqstatus",ring_PQstatus);
 	ring_vm_funcregister("pqtransactionstatus",ring_PQtransactionStatus);
+	ring_vm_funcregister("pqparameterstatus",ring_PQparameterStatus);
+	ring_vm_funcregister("pqprotocolversion",ring_PQprotocolVersion);
+	ring_vm_funcregister("pqserverversion",ring_PQserverVersion);
+	ring_vm_funcregister("pqerrormessage",ring_PQerrorMessage);
+	ring_vm_funcregister("pqsocket",ring_PQsocket);
+	ring_vm_funcregister("pqbackendpid",ring_PQbackendPID);
+	ring_vm_funcregister("pqconnectionneedspassword",ring_PQconnectionNeedsPassword);
+	ring_vm_funcregister("pqconnectionusedpassword",ring_PQconnectionUsedPassword);
+	ring_vm_funcregister("pqsslinuse",ring_PQsslInUse);
+	ring_vm_funcregister("pqsslattribute",ring_PQsslAttribute);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);

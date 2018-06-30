@@ -64,3 +64,15 @@ char *PQoptions(const PGconn *conn)
 
 ConnStatusType PQstatus(const PGconn *conn)
 PGTransactionStatusType PQtransactionStatus(const PGconn *conn)
+const char *PQparameterStatus(const PGconn *conn, const char *paramName)
+
+int PQprotocolVersion(const PGconn *conn)
+int PQserverVersion(const PGconn *conn)
+char *PQerrorMessage(const PGconn *conn)
+int PQsocket(const PGconn *conn)
+int PQbackendPID(const PGconn *conn)
+int PQconnectionNeedsPassword(const PGconn *conn)
+int PQconnectionUsedPassword(const PGconn *conn)
+int PQsslInUse(const PGconn *conn)
+const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
+
