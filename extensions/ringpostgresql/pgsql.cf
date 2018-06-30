@@ -7,9 +7,14 @@
 
 <runcode>
 aNumberTypes + "unsigned int"
+aEnumTypes + "PostgresPollingStatusType"
 </runcode>
 
 PGconn *PQconnectdbParams(const char *keywords,const char *values,int expand_dbname);
 PGconn *PQconnectdb(const char *conninfo)
 PGconn *PQsetdbLogin(const char *pghost,const char *pgport,const char *pgoptions,const char *pgtty,const char *dbName,const char *login,const char *pwd)
 PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,char *pgtty,char *dbName)
+
+PGconn *PQconnectStartParams(const char * const *keywords,const char * const *values,int expand_dbname)
+PGconn *PQconnectStart(const char *conninfo)
+PostgresPollingStatusType PQconnectPoll(PGconn *conn)
