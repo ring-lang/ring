@@ -10,6 +10,7 @@ aNumberTypes + "unsigned int"
 aEnumTypes + "PostgresPollingStatusType"
 aEnumTypes + "ConnStatusType"
 aEnumTypes + "PGTransactionStatusType"
+aEnumTypes + "ExecStatusType"
 </runcode>
 
 <constant>
@@ -27,6 +28,17 @@ PQPING_OK
 PQPING_REJECT
 PQPING_NO_RESPONSE
 PQPING_NO_ATTEMPT
+
+PGRES_EMPTY_QUERY
+PGRES_COMMAND_OK
+PGRES_TUPLES_OK
+PGRES_COPY_OUT
+PGRES_COPY_IN
+PGRES_BAD_RESPONSE
+PGRES_NONFATAL_ERROR
+PGRES_FATAL_ERROR
+PGRES_COPY_BOTH
+PGRES_SINGLE_TUPLE
 
 </constant>
 
@@ -79,3 +91,11 @@ const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
 const char **PQsslAttributeNames(const PGconn *conn)
 void *PQsslStruct(const PGconn *conn, const char *struct_name)
 void *PQgetssl(const PGconn *conn)
+
+PGresult *PQexec(PGconn *conn, const char *command);
+PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,const Oid *paramTypes,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQprepare(PGconn *conn,const char *stmtName,const char *query,int nParams,const Oid *paramTypes)
+PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,int nParams,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
+PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
+ExecStatusType PQresultStatus(const PGresult *res)

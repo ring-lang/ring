@@ -64,6 +64,56 @@ RING_FUNC(ring_get_pqping_no_attempt)
 	RING_API_RETNUMBER(PQPING_NO_ATTEMPT);
 }
 
+RING_FUNC(ring_get_pgres_empty_query)
+{
+	RING_API_RETNUMBER(PGRES_EMPTY_QUERY);
+}
+
+RING_FUNC(ring_get_pgres_command_ok)
+{
+	RING_API_RETNUMBER(PGRES_COMMAND_OK);
+}
+
+RING_FUNC(ring_get_pgres_tuples_ok)
+{
+	RING_API_RETNUMBER(PGRES_TUPLES_OK);
+}
+
+RING_FUNC(ring_get_pgres_copy_out)
+{
+	RING_API_RETNUMBER(PGRES_COPY_OUT);
+}
+
+RING_FUNC(ring_get_pgres_copy_in)
+{
+	RING_API_RETNUMBER(PGRES_COPY_IN);
+}
+
+RING_FUNC(ring_get_pgres_bad_response)
+{
+	RING_API_RETNUMBER(PGRES_BAD_RESPONSE);
+}
+
+RING_FUNC(ring_get_pgres_nonfatal_error)
+{
+	RING_API_RETNUMBER(PGRES_NONFATAL_ERROR);
+}
+
+RING_FUNC(ring_get_pgres_fatal_error)
+{
+	RING_API_RETNUMBER(PGRES_FATAL_ERROR);
+}
+
+RING_FUNC(ring_get_pgres_copy_both)
+{
+	RING_API_RETNUMBER(PGRES_COPY_BOTH);
+}
+
+RING_FUNC(ring_get_pgres_single_tuple)
+{
+	RING_API_RETNUMBER(PGRES_SINGLE_TUPLE);
+}
+
 RING_FUNC(ring_new_pqconninfooption)
 {
 	PQconninfoOption *pMyPointer ;
@@ -950,6 +1000,188 @@ RING_FUNC(ring_PQgetssl)
 	RING_API_RETCPOINTER(PQgetssl((PGconn *) RING_API_GETCPOINTER(1,"PGconn")),"void");
 }
 
+
+RING_FUNC(ring_PQexec)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQexec((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)),"PGresult");
+}
+
+
+RING_FUNC(ring_PQexecParams)
+{
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQexecParams((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3),(Oid *) RING_API_GETCPOINTER(4,"Oid"),(char **) RING_API_GETCPOINTER2POINTER(5,"char"),RING_API_GETINTPOINTER(6),RING_API_GETINTPOINTER(7), (int ) RING_API_GETNUMBER(8)),"PGresult");
+	RING_API_ACCEPTINTVALUE(6) ;
+	RING_API_ACCEPTINTVALUE(7) ;
+}
+
+
+RING_FUNC(ring_PQprepare)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQprepare((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4),(Oid *) RING_API_GETCPOINTER(5,"Oid")),"PGresult");
+}
+
+
+RING_FUNC(ring_PQexecPrepared)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQexecPrepared((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3),(char **) RING_API_GETCPOINTER2POINTER(4,"char"),RING_API_GETINTPOINTER(5),RING_API_GETINTPOINTER(6), (int ) RING_API_GETNUMBER(7)),"PGresult");
+	RING_API_ACCEPTINTVALUE(5) ;
+	RING_API_ACCEPTINTVALUE(6) ;
+}
+
+
+RING_FUNC(ring_PQdescribePrepared)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQdescribePrepared((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)),"PGresult");
+}
+
+
+RING_FUNC(ring_PQdescribePortal)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQdescribePortal((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)),"PGresult");
+}
+
+
+RING_FUNC(ring_PQresultStatus)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQresultStatus((PGresult *) RING_API_GETCPOINTER(1,"PGresult")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -990,6 +1222,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqsslattributenames",ring_PQsslAttributeNames);
 	ring_vm_funcregister("pqsslstruct",ring_PQsslStruct);
 	ring_vm_funcregister("pqgetssl",ring_PQgetssl);
+	ring_vm_funcregister("pqexec",ring_PQexec);
+	ring_vm_funcregister("pqexecparams",ring_PQexecParams);
+	ring_vm_funcregister("pqprepare",ring_PQprepare);
+	ring_vm_funcregister("pqexecprepared",ring_PQexecPrepared);
+	ring_vm_funcregister("pqdescribeprepared",ring_PQdescribePrepared);
+	ring_vm_funcregister("pqdescribeportal",ring_PQdescribePortal);
+	ring_vm_funcregister("pqresultstatus",ring_PQresultStatus);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
@@ -1002,6 +1241,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_pqping_reject",ring_get_pqping_reject);
 	ring_vm_funcregister("get_pqping_no_response",ring_get_pqping_no_response);
 	ring_vm_funcregister("get_pqping_no_attempt",ring_get_pqping_no_attempt);
+	ring_vm_funcregister("get_pgres_empty_query",ring_get_pgres_empty_query);
+	ring_vm_funcregister("get_pgres_command_ok",ring_get_pgres_command_ok);
+	ring_vm_funcregister("get_pgres_tuples_ok",ring_get_pgres_tuples_ok);
+	ring_vm_funcregister("get_pgres_copy_out",ring_get_pgres_copy_out);
+	ring_vm_funcregister("get_pgres_copy_in",ring_get_pgres_copy_in);
+	ring_vm_funcregister("get_pgres_bad_response",ring_get_pgres_bad_response);
+	ring_vm_funcregister("get_pgres_nonfatal_error",ring_get_pgres_nonfatal_error);
+	ring_vm_funcregister("get_pgres_fatal_error",ring_get_pgres_fatal_error);
+	ring_vm_funcregister("get_pgres_copy_both",ring_get_pgres_copy_both);
+	ring_vm_funcregister("get_pgres_single_tuple",ring_get_pgres_single_tuple);
 	ring_vm_funcregister("new_pqconninfooption",ring_new_pqconninfooption);
 	ring_vm_funcregister("destroy_pqconninfooption",ring_destroy_pqconninfooption);
 	ring_vm_funcregister("get_pqconninfooption_keyword",ring_get_pqconninfooption_keyword);
