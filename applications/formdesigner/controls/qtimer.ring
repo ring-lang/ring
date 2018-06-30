@@ -87,3 +87,4 @@ class FormDesigner_QTimer from QLabel
 		itemdata = item[:data]
 		setIntervalValue(itemdata[:Interval])
 		setTimeoutValue(itemdata[:Timeout])
+		setText(oDesigner.oModel.GetObjectName(self))
