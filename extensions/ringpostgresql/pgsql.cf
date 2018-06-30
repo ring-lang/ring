@@ -31,3 +31,5 @@ PGconn *PQconnectStart(const char *conninfo)
 PostgresPollingStatusType PQconnectPoll(PGconn *conn)
 
 int PQstatus(PGconn *)
+
+PQconninfoOption *PQconndefaults(void)
