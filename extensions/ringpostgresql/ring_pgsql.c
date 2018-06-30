@@ -1847,11 +1847,15 @@ RING_FUNC(ring_PQresultVerboseErrorMessage)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(PQresultVerboseErrorMessage((PGresult *) RING_API_GETCPOINTER(1,"PGresult"),* (PGVerbosity  *) RING_API_GETCPOINTER(2,"PGVerbosity"),* (PGContextVisibility  *) RING_API_GETCPOINTER(3,"PGContextVisibility")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"PGVerbosity"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"PGContextVisibility"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(PQresultVerboseErrorMessage((PGresult *) RING_API_GETCPOINTER(1,"PGresult"), (PGVerbosity )  (int) RING_API_GETNUMBER(2), (PGContextVisibility )  (int) RING_API_GETNUMBER(3)));
 }
 
 
@@ -2841,6 +2845,222 @@ RING_FUNC(ring_PQputCopyData)
 	RING_API_RETNUMBER(PQputCopyData((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
 }
 
+
+RING_FUNC(ring_PQputCopyEnd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQputCopyEnd((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_PQgetCopyData)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQgetCopyData((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PQgetline)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQgetline((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PQgetlineAsync)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQgetlineAsync((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PQputline)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQputline((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_PQputnbytes)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQputnbytes((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PQendcopy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQendcopy((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQclientEncoding)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQclientEncoding((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_pg_encoding_to_char)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pg_encoding_to_char( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_PQsetClientEncoding)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQsetClientEncoding((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_PQtrace)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	PQtrace((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),(FILE *) RING_API_GETCPOINTER(2,"FILE"));
+}
+
+
+RING_FUNC(ring_PQuntrace)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	PQuntrace((PGconn *) RING_API_GETCPOINTER(1,"PGconn"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -2941,6 +3161,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqfn",ring_PQfn);
 	ring_vm_funcregister("pqnotifies",ring_PQnotifies);
 	ring_vm_funcregister("pqputcopydata",ring_PQputCopyData);
+	ring_vm_funcregister("pqputcopyend",ring_PQputCopyEnd);
+	ring_vm_funcregister("pqgetcopydata",ring_PQgetCopyData);
+	ring_vm_funcregister("pqgetline",ring_PQgetline);
+	ring_vm_funcregister("pqgetlineasync",ring_PQgetlineAsync);
+	ring_vm_funcregister("pqputline",ring_PQputline);
+	ring_vm_funcregister("pqputnbytes",ring_PQputnbytes);
+	ring_vm_funcregister("pqendcopy",ring_PQendcopy);
+	ring_vm_funcregister("pqclientencoding",ring_PQclientEncoding);
+	ring_vm_funcregister("pg_encoding_to_char",ring_pg_encoding_to_char);
+	ring_vm_funcregister("pqsetclientencoding",ring_PQsetClientEncoding);
+	ring_vm_funcregister("pqtrace",ring_PQtrace);
+	ring_vm_funcregister("pquntrace",ring_PQuntrace);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);

@@ -11,6 +11,9 @@ aEnumTypes + "PostgresPollingStatusType"
 aEnumTypes + "ConnStatusType"
 aEnumTypes + "PGTransactionStatusType"
 aEnumTypes + "ExecStatusType"
+aEnumTypes + "PGVerbosity"
+aEnumTypes + "PGContextVisibility"
+
 </runcode>
 
 <constant>
@@ -182,5 +185,18 @@ PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,int *result_len,int result_
 PGnotify *PQnotifies(PGconn *conn)
 
 int PQputCopyData(PGconn *conn,const char *buffer,int nbytes)
+int PQputCopyEnd(PGconn *conn,const char *errormsg)
+int PQgetCopyData(PGconn *conn,char **buffer,int async)
+int PQgetline(PGconn *conn,char *buffer,int length)
+int PQgetlineAsync(PGconn *conn,char *buffer,int bufsize)
+int PQputline(PGconn *conn,const char *string)
+int PQputnbytes(PGconn *conn,const char *buffer,int nbytes)
+int PQendcopy(PGconn *conn)
+
+int PQclientEncoding(const PGconn *conn)
+char *pg_encoding_to_char(int encoding_id)
+int PQsetClientEncoding(PGconn *conn, const char *encoding)
+void PQtrace(PGconn *conn, FILE *stream)
+void PQuntrace(PGconn *conn)
 
 
