@@ -39,7 +39,8 @@ void ring_vm_curl_download ( void *pPointer )
 	}
 	curl = curl_easy_init();
 	if ( curl ) {
-		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
+		/* We don't use ring_string_new_gc() because ring_getcurldata() don't know about Ring State */
+		pString = ring_string_new("");
 		curl_easy_setopt(curl, CURLOPT_URL,RING_API_GETSTRING(1));
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
@@ -49,7 +50,7 @@ void ring_vm_curl_download ( void *pPointer )
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 		RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
-		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
+		ring_string_delete(pString);
 	}
 }
 
