@@ -2521,6 +2521,84 @@ RING_FUNC(ring_PQflush)
 	RING_API_RETNUMBER(PQflush((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
 }
 
+
+RING_FUNC(ring_PQsetSingleRowMode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQsetSingleRowMode((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
+
+RING_FUNC(ring_PQgetCancel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(PQgetCancel((PGconn *) RING_API_GETCPOINTER(1,"PGconn")),"PGcancel");
+}
+
+
+RING_FUNC(ring_PQfreeCancel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	PQfreeCancel((PGcancel *) RING_API_GETCPOINTER(1,"PGcancel"));
+}
+
+
+RING_FUNC(ring_PQcancel)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQcancel((PGcancel *) RING_API_GETCPOINTER(1,"PGcancel"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PQrequestCancel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PQrequestCancel((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -2613,6 +2691,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqsetnonblocking",ring_PQsetnonblocking);
 	ring_vm_funcregister("pqisnonblocking",ring_PQisnonblocking);
 	ring_vm_funcregister("pqflush",ring_PQflush);
+	ring_vm_funcregister("pqsetsinglerowmode",ring_PQsetSingleRowMode);
+	ring_vm_funcregister("pqgetcancel",ring_PQgetCancel);
+	ring_vm_funcregister("pqfreecancel",ring_PQfreeCancel);
+	ring_vm_funcregister("pqcancel",ring_PQcancel);
+	ring_vm_funcregister("pqrequestcancel",ring_PQrequestCancel);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);

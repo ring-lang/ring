@@ -169,3 +169,10 @@ int PQsetnonblocking(PGconn *conn, int arg)
 int PQisnonblocking(const PGconn *conn)
 int PQflush(PGconn *conn)
 
+int PQsetSingleRowMode(PGconn *conn)
+
+PGcancel *PQgetCancel(PGconn *conn)
+void PQfreeCancel(PGcancel *cancel)
+int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
+int PQrequestCancel(PGconn *conn)
+
