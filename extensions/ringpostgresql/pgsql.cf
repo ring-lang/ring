@@ -11,6 +11,7 @@ aEnumTypes + "PostgresPollingStatusType"
 </runcode>
 
 <constant>
+
 CONNECTION_STARTED
 CONNECTION_MADE
 CONNECTION_AWAITING_RESPONSE
@@ -19,6 +20,12 @@ CONNECTION_SSL_STARTUP
 CONNECTION_SETENV
 CONNECTION_CHECK_WRITABLE
 CONNECTION_CONSUME
+
+PQPING_OK
+PQPING_REJECT
+PQPING_NO_RESPONSE
+PQPING_NO_ATTEMPT
+
 </constant>
 
 <struct>
@@ -43,3 +50,4 @@ void PQreset(PGconn *conn)
 int PQresetStart(PGconn *conn)
 PostgresPollingStatusType PQresetPoll(PGconn *conn)
 
+PGPing PQpingParams(const char * const *keywords,const char * const *values,int expand_dbname)

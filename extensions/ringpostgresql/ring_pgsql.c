@@ -44,6 +44,26 @@ RING_FUNC(ring_get_connection_consume)
 	RING_API_RETNUMBER(CONNECTION_CONSUME);
 }
 
+RING_FUNC(ring_get_pqping_ok)
+{
+	RING_API_RETNUMBER(PQPING_OK);
+}
+
+RING_FUNC(ring_get_pqping_reject)
+{
+	RING_API_RETNUMBER(PQPING_REJECT);
+}
+
+RING_FUNC(ring_get_pqping_no_response)
+{
+	RING_API_RETNUMBER(PQPING_NO_RESPONSE);
+}
+
+RING_FUNC(ring_get_pqping_no_attempt)
+{
+	RING_API_RETNUMBER(PQPING_NO_ATTEMPT);
+}
+
 RING_FUNC(ring_new_pqconninfooption)
 {
 	PQconninfoOption *pMyPointer ;
@@ -578,6 +598,33 @@ RING_FUNC(ring_PQresetPoll)
 	RING_API_RETNUMBER(PQresetPoll((PGconn *) RING_API_GETCPOINTER(1,"PGconn")));
 }
 
+
+RING_FUNC(ring_PQpingParams)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		PGPing *pValue ; 
+		pValue = (PGPing *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PGPing)) ;
+		*pValue = PQpingParams((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"PGPing");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -595,6 +642,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqreset",ring_PQreset);
 	ring_vm_funcregister("pqresetstart",ring_PQresetStart);
 	ring_vm_funcregister("pqresetpoll",ring_PQresetPoll);
+	ring_vm_funcregister("pqpingparams",ring_PQpingParams);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
@@ -603,6 +651,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_connection_setenv",ring_get_connection_setenv);
 	ring_vm_funcregister("get_connection_check_writable",ring_get_connection_check_writable);
 	ring_vm_funcregister("get_connection_consume",ring_get_connection_consume);
+	ring_vm_funcregister("get_pqping_ok",ring_get_pqping_ok);
+	ring_vm_funcregister("get_pqping_reject",ring_get_pqping_reject);
+	ring_vm_funcregister("get_pqping_no_response",ring_get_pqping_no_response);
+	ring_vm_funcregister("get_pqping_no_attempt",ring_get_pqping_no_attempt);
 	ring_vm_funcregister("new_pqconninfooption",ring_new_pqconninfooption);
 	ring_vm_funcregister("destroy_pqconninfooption",ring_destroy_pqconninfooption);
 	ring_vm_funcregister("get_pqconninfooption_keyword",ring_get_pqconninfooption_keyword);
