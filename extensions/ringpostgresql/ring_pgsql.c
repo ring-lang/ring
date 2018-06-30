@@ -974,6 +974,40 @@ RING_FUNC(ring_set_pqargblock_u_integer)
 	pMyPointer->u.integer = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_get_pqargblock_u_ptr)
+{
+	PQArgBlock *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQArgBlock");
+	RING_API_RETCPOINTER(pMyPointer->u.ptr,"int");
+}
+
+RING_FUNC(ring_set_pqargblock_u_ptr)
+{
+	PQArgBlock *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"PQArgBlock");
+	pMyPointer->u.ptr = (int *) RING_API_GETCPOINTER(2,"int *");
+}
+
 
 RING_FUNC(ring_PQconnectdbParams)
 {
@@ -2955,4 +2989,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_pqargblock_isint",ring_set_pqargblock_isint);
 	ring_vm_funcregister("get_pqargblock_u_integer",ring_get_pqargblock_u_integer);
 	ring_vm_funcregister("set_pqargblock_u_integer",ring_set_pqargblock_u_integer);
+	ring_vm_funcregister("get_pqargblock_u_ptr",ring_get_pqargblock_u_ptr);
+	ring_vm_funcregister("set_pqargblock_u_ptr",ring_set_pqargblock_u_ptr);
 }
