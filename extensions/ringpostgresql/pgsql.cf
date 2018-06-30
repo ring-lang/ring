@@ -212,3 +212,13 @@ void *PQresultAlloc(PGresult *res, size_t nBytes)
 int PQlibVersion(void)
 
 PQnoticeReceiver PQsetNoticeReceiver(PGconn *conn,PQnoticeReceiver proc,void *arg)
+PQnoticeProcessor PQsetNoticeProcessor(PGconn *conn,PQnoticeProcessor proc,void *arg)
+
+<comment>
+int eventproc(PGEventId evtId, void *evtInfo, void *passThrough)
+int PQregisterEventProc(PGconn *conn, PGEventProc proc,const char *name, void *passThrough)
+int PQsetInstanceData(PGconn *conn, PGEventProc proc, void *data)
+void *PQinstanceData(const PGconn *conn, PGEventProc proc)
+int PQresultSetInstanceData(PGresult *res, PGEventProc proc, void *data)
+void *PQresultInstanceData(const PGresult *res, PGEventProc proc)
+</comment>

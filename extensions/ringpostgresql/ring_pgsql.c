@@ -3292,6 +3292,31 @@ RING_FUNC(ring_PQsetNoticeReceiver)
 	}
 }
 
+
+RING_FUNC(ring_PQsetNoticeProcessor)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		PQnoticeProcessor *pValue ; 
+		pValue = (PQnoticeProcessor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQnoticeProcessor)) ;
+		*pValue = PQsetNoticeProcessor((PGconn *) RING_API_GETCPOINTER(1,"PGconn"),* (PQnoticeProcessor  *) RING_API_GETCPOINTER(2,"PQnoticeProcessor"),(void *) RING_API_GETCPOINTER(3,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"PQnoticeProcessor"));
+		RING_API_RETCPOINTER(pValue,"PQnoticeProcessor");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("pqconnectdbparams",ring_PQconnectdbParams);
@@ -3416,6 +3441,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqresultalloc",ring_PQresultAlloc);
 	ring_vm_funcregister("pqlibversion",ring_PQlibVersion);
 	ring_vm_funcregister("pqsetnoticereceiver",ring_PQsetNoticeReceiver);
+	ring_vm_funcregister("pqsetnoticeprocessor",ring_PQsetNoticeProcessor);
 	ring_vm_funcregister("get_connection_started",ring_get_connection_started);
 	ring_vm_funcregister("get_connection_made",ring_get_connection_made);
 	ring_vm_funcregister("get_connection_awaiting_response",ring_get_connection_awaiting_response);
