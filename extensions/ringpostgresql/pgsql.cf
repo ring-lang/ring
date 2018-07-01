@@ -24,8 +24,6 @@ CONNECTION_AWAITING_RESPONSE
 CONNECTION_AUTH_OK
 CONNECTION_SSL_STARTUP
 CONNECTION_SETENV
-CONNECTION_CHECK_WRITABLE
-CONNECTION_CONSUME
 
 PQPING_OK
 PQPING_REJECT
@@ -44,7 +42,6 @@ PGRES_COPY_BOTH
 PGRES_SINGLE_TUPLE
 
 PG_DIAG_SEVERITY
-PG_DIAG_SEVERITY_NONLOCALIZED
 PG_DIAG_SQLSTATE
 PG_DIAG_MESSAGE_PRIMARY
 PG_DIAG_MESSAGE_DETAIL
@@ -126,7 +123,6 @@ ExecStatusType PQresultStatus(const PGresult *res)
 
 char *PQresStatus(ExecStatusType status)
 char *PQresultErrorMessage(const PGresult *res)
-char *PQresultVerboseErrorMessage(const PGresult *res,PGVerbosity verbosity,PGContextVisibility show_context)
 char *PQresultErrorField(const PGresult *res, int fieldcode)
 
 void PQclear(PGresult *res)

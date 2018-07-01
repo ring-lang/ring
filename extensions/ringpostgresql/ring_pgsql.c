@@ -34,16 +34,6 @@ RING_FUNC(ring_get_connection_setenv)
 	RING_API_RETNUMBER(CONNECTION_SETENV);
 }
 
-RING_FUNC(ring_get_connection_check_writable)
-{
-	RING_API_RETNUMBER(CONNECTION_CHECK_WRITABLE);
-}
-
-RING_FUNC(ring_get_connection_consume)
-{
-	RING_API_RETNUMBER(CONNECTION_CONSUME);
-}
-
 RING_FUNC(ring_get_pqping_ok)
 {
 	RING_API_RETNUMBER(PQPING_OK);
@@ -117,11 +107,6 @@ RING_FUNC(ring_get_pgres_single_tuple)
 RING_FUNC(ring_get_pg_diag_severity)
 {
 	RING_API_RETNUMBER(PG_DIAG_SEVERITY);
-}
-
-RING_FUNC(ring_get_pg_diag_severity_nonlocalized)
-{
-	RING_API_RETNUMBER(PG_DIAG_SEVERITY_NONLOCALIZED);
 }
 
 RING_FUNC(ring_get_pg_diag_sqlstate)
@@ -1837,28 +1822,6 @@ RING_FUNC(ring_PQresultErrorMessage)
 }
 
 
-RING_FUNC(ring_PQresultVerboseErrorMessage)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(PQresultVerboseErrorMessage((PGresult *) RING_API_GETCPOINTER(1,"PGresult"), (PGVerbosity )  (int) RING_API_GETNUMBER(2), (PGContextVisibility )  (int) RING_API_GETNUMBER(3)));
-}
-
-
 RING_FUNC(ring_PQresultErrorField)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -3408,7 +3371,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pqresultstatus",ring_PQresultStatus);
 	ring_vm_funcregister("pqresstatus",ring_PQresStatus);
 	ring_vm_funcregister("pqresulterrormessage",ring_PQresultErrorMessage);
-	ring_vm_funcregister("pqresultverboseerrormessage",ring_PQresultVerboseErrorMessage);
 	ring_vm_funcregister("pqresulterrorfield",ring_PQresultErrorField);
 	ring_vm_funcregister("pqclear",ring_PQclear);
 	ring_vm_funcregister("pqntuples",ring_PQntuples);
@@ -3493,8 +3455,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_connection_auth_ok",ring_get_connection_auth_ok);
 	ring_vm_funcregister("get_connection_ssl_startup",ring_get_connection_ssl_startup);
 	ring_vm_funcregister("get_connection_setenv",ring_get_connection_setenv);
-	ring_vm_funcregister("get_connection_check_writable",ring_get_connection_check_writable);
-	ring_vm_funcregister("get_connection_consume",ring_get_connection_consume);
 	ring_vm_funcregister("get_pqping_ok",ring_get_pqping_ok);
 	ring_vm_funcregister("get_pqping_reject",ring_get_pqping_reject);
 	ring_vm_funcregister("get_pqping_no_response",ring_get_pqping_no_response);
@@ -3510,7 +3470,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_pgres_copy_both",ring_get_pgres_copy_both);
 	ring_vm_funcregister("get_pgres_single_tuple",ring_get_pgres_single_tuple);
 	ring_vm_funcregister("get_pg_diag_severity",ring_get_pg_diag_severity);
-	ring_vm_funcregister("get_pg_diag_severity_nonlocalized",ring_get_pg_diag_severity_nonlocalized);
 	ring_vm_funcregister("get_pg_diag_sqlstate",ring_get_pg_diag_sqlstate);
 	ring_vm_funcregister("get_pg_diag_message_primary",ring_get_pg_diag_message_primary);
 	ring_vm_funcregister("get_pg_diag_message_detail",ring_get_pg_diag_message_detail);
