@@ -14,9 +14,26 @@ if (PQstatus(conn) != CONNECTION_OK)
         call exit_nicely(conn)
 ok
 
-res = PQexec(conn, "select * from pg_database")
+res = PQexec(conn, "BEGIN")
+if PQresultStatus(res) != PGRES_COMMAND_OK
+	fputs(stderr, "BEGIN command failed: " + PQerrorMessage(conn))
+	PQclear(res)
+	call exit_nicely(conn)
+ok
+
+PQclear(res)
+
+res = PQexec(conn, "DECLARE myportal CURSOR FOR select * from pg_database")
+if PQresultStatus(res) != PGRES_COMMAND_OK
+	fputs(stderr, "DECLARE CURSOR failed: " + PQerrorMessage(conn))
+	PQclear(res)
+	call exit_nicely(conn)
+ok
+PQclear(res)
+
+res = PQexec(conn, "FETCH ALL in myportal")
 if PQresultStatus(res) != PGRES_TUPLES_OK
-	fputs(stderr, "Select failed: " + PQerrorMessage(conn))
+	fputs(stderr, "FETCH ALL failed: " + PQerrorMessage(conn))
 	PQclear(res)
 	exit_nicely(conn)
 ok
@@ -35,6 +52,12 @@ for i = 1 to PQntuples(res)
 	see nl
 next
 
+PQclear(res)
+
+res = PQexec(conn, "CLOSE myportal")
+PQclear(res)
+
+res = PQexec(conn, "END")
 PQclear(res)
 
 PQfinish(conn)
