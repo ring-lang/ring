@@ -43,3 +43,5 @@ The folder RingLibUV contains the Ring binding to the LibUV library.
 The folder RingWinAPI contains the Ring binding to some functions in Windows API
 
 The folder RingWinCREG contains some functions for using the Windows Registry
+
+The folder RingPostgreSQL contains the Ring binding to the PostgreSQL library  
