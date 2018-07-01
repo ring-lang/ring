@@ -34,6 +34,11 @@ RING_FUNC(ring_get_connection_setenv)
 	RING_API_RETNUMBER(CONNECTION_SETENV);
 }
 
+RING_FUNC(ring_get_connection_ok)
+{
+	RING_API_RETNUMBER(CONNECTION_OK);
+}
+
 RING_FUNC(ring_get_pqping_ok)
 {
 	RING_API_RETNUMBER(PQPING_OK);
@@ -3455,6 +3460,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_connection_auth_ok",ring_get_connection_auth_ok);
 	ring_vm_funcregister("get_connection_ssl_startup",ring_get_connection_ssl_startup);
 	ring_vm_funcregister("get_connection_setenv",ring_get_connection_setenv);
+	ring_vm_funcregister("get_connection_ok",ring_get_connection_ok);
 	ring_vm_funcregister("get_pqping_ok",ring_get_pqping_ok);
 	ring_vm_funcregister("get_pqping_reject",ring_get_pqping_reject);
 	ring_vm_funcregister("get_pqping_no_response",ring_get_pqping_no_response);

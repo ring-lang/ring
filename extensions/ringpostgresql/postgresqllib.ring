@@ -5,3 +5,5 @@ but ismacosx()
 else
 	LoadLib("libring_pgsql.so")
 ok
+
+load "ring_pgsql.rh"
