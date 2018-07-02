@@ -14,49 +14,49 @@ penNbr   =  1
 
 New qapp
 {
-   win1 =  new qwidget()
-    {
-              setwindowtitle("Drawing using QPixMap")
-              setgeometry(100,100,500,500)
-              label1 = new qlabel(win1)
-              {
-                           setgeometry(10,10,500,500)
-                           settext("")
-              }       
-              Canvas = new qlabel(win1)
-             {              
-                            MonaLisa = new qPixMap2( 500,500)  
-                            color    = new qcolor(){ setrgb(255,0,0,255) }
-
-                           daVinci = new qpainter() 
-                           {
-                                         begin(MonaLisa)               
-                           }            
-             setpixmap(MonaLisa)         
-             }       
-    nCounter = 0
-    oTimer = new qTimer(win1) {
-        setinterval(500)
-        settimeoutevent("DrawCounter()")
-        start()
-    } 
-       show()      
-    }
-   exec()
+	win1 =  new qwidget()
+	{
+		setwindowtitle("Drawing using QPixMap")
+		setgeometry(100,100,500,500)
+		label1 = new qlabel(win1)
+		{
+			setgeometry(10,10,500,500)
+			settext("")
+		}       
+		Canvas = new qlabel(win1)
+		{              
+			MonaLisa = new qPixMap2( 500,500)  
+			color    = new qcolor(){ setrgb(255,0,0,255) }
+			daVinci = new qpainter() 
+			{
+				begin(MonaLisa)               
+			}            
+			setpixmap(MonaLisa)         
+		}       
+		nCounter = 0
+		oTimer = new qTimer(win1) {
+			setinterval(500)
+			settimeoutevent("DrawCounter()")
+			start()
+		} 
+		show()      
+	}
+	exec()
 }
+
 DrawCounter()
 
 func DrawCounter()
-        nCounter++
-        if nCounter < 15
-           Draw(penArray[penNbr])         
-        elseif nCounter % 15 = 0
-           nCounter = 0
-           penNbr++
-           if penNbr > 3
-              penNbr = 1
-           ok        
-           Draw(penArray[penNbr])
+	nCounter++
+	if nCounter < 15
+		Draw(penArray[penNbr])         
+	elseif nCounter % 15 = 0
+		nCounter = 0
+		penNbr++
+		if penNbr > 3
+			penNbr = 1
+		ok        
+		Draw(penArray[penNbr])
         ok
 return
  
