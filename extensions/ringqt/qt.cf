@@ -3936,6 +3936,7 @@ int qvsnprintf(char *str, size_t n, const char *fmt, va_list ap)
 <class>
 name: QIODevice
 para: void
+parent: QObject
 codename: GIODevice
 passvmpointer
 abstract

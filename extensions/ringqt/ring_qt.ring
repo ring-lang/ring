@@ -8089,7 +8089,7 @@ Class QByteArray
 		pTempObj.pObject = QByteArray_number(pObject,P1,P2)
 		return pTempObj
 
-Class QIODevice
+Class QIODevice from QObject
 
 	pObject
 
