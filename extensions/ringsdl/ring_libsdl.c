@@ -16668,7 +16668,6 @@ RING_FUNC(ring_SDLNet_TCP_Close)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TCPsocket"));
 }
 
-
 RING_FUNC(ring_SDLNet_TCP_Accept)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -16676,15 +16675,19 @@ RING_FUNC(ring_SDLNet_TCP_Accept)
 		return ;
 	}
 	{
-		TCPsocket *pValue ; 
+		TCPsocket *pValue ;
+		TCPsocket aValue;
 		pValue = (TCPsocket *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TCPsocket)) ;
-		*pValue = SDLNet_TCP_Accept(* (TCPsocket  *) RING_API_GETCPOINTER(1,"TCPsocket"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TCPsocket"));
+		do {
+			aValue = SDLNet_TCP_Accept(* (TCPsocket  *) RING_API_GETCPOINTER(1,"TCPsocket"));
+		} while (! aValue );
+		*pValue = aValue;
+
+		if (RING_API_ISCPOINTERNOTASSIGNED(1))
+			ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TCPsocket"));
 		RING_API_RETCPOINTER(pValue,"TCPsocket");
 	}
 }
-
 
 RING_FUNC(ring_SDLNet_TCP_GetPeerAddress)
 {

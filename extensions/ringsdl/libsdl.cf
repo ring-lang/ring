@@ -1301,7 +1301,31 @@ int SDLNet_ResolveHost(IPaddress *address, const char *host, Uint16 port)
 const char *SDLNet_ResolveIP(IPaddress *address)
 TCPsocket SDLNet_TCP_Open(IPaddress *ip)
 void SDLNet_TCP_Close(TCPsocket sock)
+<register>
 TCPsocket SDLNet_TCP_Accept(TCPsocket server)
+<register>
+<code>
+RING_FUNC(ring_SDLNet_TCP_Accept)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		TCPsocket *pValue ; 
+		TCPsocket aValue;
+		pValue = (TCPsocket *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TCPsocket)) ;
+		do {
+			aValue = SDLNet_TCP_Accept(* (TCPsocket  *) RING_API_GETCPOINTER(1,"TCPsocket"));
+		} while (! aValue );
+		*pValue = aValue;
+
+		if (RING_API_ISCPOINTERNOTASSIGNED(1))
+			ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TCPsocket"));
+		RING_API_RETCPOINTER(pValue,"TCPsocket");
+	}
+}
+</code>
 IPaddress *SDLNet_TCP_GetPeerAddress(TCPsocket sock)
 int SDLNet_TCP_Send(TCPsocket sock, const void *data, int len)
 int SDLNet_TCP_Recv(TCPsocket sock, void *data, int maxlen)
