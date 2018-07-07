@@ -68,9 +68,6 @@ class Vectors
 	V Print Vectors Sum
 	aVectors = []
 
-	func getPlus
-		aOperations + [ :plus , len(aVectors) ]
-
 	func getV
 		aVectors + new Vector
 		return aVectors[len(aVectors)]
