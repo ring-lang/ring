@@ -26,15 +26,13 @@ class Array
 	                on "+"
 	                        if isnumber(para)
 					for t=1 to len(aData)
-						item = aData[t]
-						result.aData[t] = item + Para 
+						result.aData[t] = aData[t] + Para 
 					next 
 				elseif isobject(para)
 					if classname(para) = classname(self)
 						for t=1 to len(aData)
 							if t <= len(Para)
-								item = aData[t]
-								result.aData[t] = item + Para[t] 
+								result.aData[t] = aData[t] + Para[t] 
 							ok
 						next 
 					else 
