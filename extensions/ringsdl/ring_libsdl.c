@@ -7356,6 +7356,21 @@ RING_FUNC(ring_sdl_get_sdlk_underscore)
 	RING_API_RETNUMBER(SDLK_UNDERSCORE);
 }
 
+RING_FUNC(ring_sdl_get_sdl_thread_priority_low)
+{
+	RING_API_RETNUMBER(SDL_THREAD_PRIORITY_LOW);
+}
+
+RING_FUNC(ring_sdl_get_sdl_thread_priority_normal)
+{
+	RING_API_RETNUMBER(SDL_THREAD_PRIORITY_NORMAL);
+}
+
+RING_FUNC(ring_sdl_get_sdl_thread_priority_high)
+{
+	RING_API_RETNUMBER(SDL_THREAD_PRIORITY_HIGH);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -17162,6 +17177,426 @@ RING_FUNC(ring_circleRGBA)
 	RING_API_RETNUMBER(circleRGBA((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"), (Sint16 ) RING_API_GETNUMBER(2), (Sint16 ) RING_API_GETNUMBER(3), (Sint16 ) RING_API_GETNUMBER(4), (Uint8 ) RING_API_GETNUMBER(5), (Uint8 ) RING_API_GETNUMBER(6), (Uint8 ) RING_API_GETNUMBER(7), (Uint8 ) RING_API_GETNUMBER(8)));
 }
 
+
+int SDL_Thread_Function(void *pPointer) {
+	VM *pVM;
+	List *pList;
+	pList = (List *) pPointer;
+	pVM = ring_list_getpointer(pList,1);
+	ring_vm_runcodefromthread(pVM,ring_list_getstring(pList,2));
+	ring_list_delete(pList);	
+	return 1;
+}
+
+RING_FUNC(ring_SDL_CreateThread) {
+	List *pList;
+	if ( RING_API_PARACOUNT != 2 ) {
+RING_API_ERROR(RING_API_MISS2PARA);
+return ;
+}
+if ( ! RING_API_ISSTRING(1) || ! RING_API_ISSTRING(2) ) {
+RING_API_ERROR(RING_API_BADPARATYPE);
+return ;
+}
+	pList = ring_list_new(0) ;
+	ring_list_addpointer(pList,pPointer);
+	ring_list_addstring(pList,RING_API_GETSTRING(1));
+	ring_vm_mutexfunctions((VM *) pPointer,SDL_CreateMutex,
+SDL_LockMutex,SDL_UnlockMutex,SDL_DestroyMutex);
+	SDL_CreateThread(SDL_Thread_Function, RING_API_GETSTRING(2), (void *) pList);
+	
+}
+
+RING_FUNC(ring_SDL_DetachThread)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_DetachThread((SDL_Thread *) RING_API_GETCPOINTER(1,"SDL_Thread"));
+}
+
+
+RING_FUNC(ring_SDL_GetThreadID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetThreadID((SDL_Thread *) RING_API_GETCPOINTER(1,"SDL_Thread")));
+}
+
+
+RING_FUNC(ring_SDL_GetThreadName)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetThreadName((SDL_Thread *) RING_API_GETCPOINTER(1,"SDL_Thread")));
+}
+
+
+RING_FUNC(ring_SDL_SetThreadPriority)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SetThreadPriority( (SDL_ThreadPriority )  (int) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_TLSCreate)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_TLSCreate());
+}
+
+
+RING_FUNC(ring_SDL_TLSGet)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_TLSGet( (SDL_TLSID ) RING_API_GETNUMBER(1)),"void");
+}
+
+
+RING_FUNC(ring_SDL_TLSSet)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_TLSSet( (SDL_TLSID   ) RING_API_GETNUMBER(1),(void *) RING_API_GETCPOINTER(2,"void"),(void *) RING_API_GETCPOINTER(3,"void")));
+}
+
+
+RING_FUNC(ring_SDL_ThreadID)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ThreadID());
+}
+
+
+RING_FUNC(ring_SDL_WaitThread)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_WaitThread((SDL_Thread *) RING_API_GETCPOINTER(1,"SDL_Thread"),RING_API_GETINTPOINTER(2));
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+RING_FUNC(ring_SDL_CondBroadcast)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_CondBroadcast((SDL_cond *) RING_API_GETCPOINTER(1,"SDL_cond")));
+}
+
+
+RING_FUNC(ring_SDL_CondSignal)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_CondSignal((SDL_cond *) RING_API_GETCPOINTER(1,"SDL_cond")));
+}
+
+
+RING_FUNC(ring_SDL_CondWait)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_CondWait((SDL_cond *) RING_API_GETCPOINTER(1,"SDL_cond"),(SDL_mutex *) RING_API_GETCPOINTER(2,"SDL_mutex")));
+}
+
+
+RING_FUNC(ring_SDL_CondWaitTimeout)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_CondWaitTimeout((SDL_cond *) RING_API_GETCPOINTER(1,"SDL_cond"),(SDL_mutex *) RING_API_GETCPOINTER(2,"SDL_mutex"), (Uint32 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_SDL_CreateCond)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_CreateCond(),"SDL_cond");
+}
+
+
+RING_FUNC(ring_SDL_CreateMutex)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_CreateMutex(),"SDL_mutex");
+}
+
+
+RING_FUNC(ring_SDL_CreateSemaphore)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_CreateSemaphore( (Uint32 ) RING_API_GETNUMBER(1)),"SDL_sem");
+}
+
+
+RING_FUNC(ring_SDL_DestroyCond)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_DestroyCond((SDL_cond *) RING_API_GETCPOINTER(1,"SDL_cond"));
+}
+
+
+RING_FUNC(ring_SDL_DestroyMutex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_DestroyMutex((SDL_mutex *) RING_API_GETCPOINTER(1,"SDL_mutex"));
+}
+
+
+RING_FUNC(ring_SDL_DestroySemaphore)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_DestroySemaphore((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem"));
+}
+
+
+RING_FUNC(ring_SDL_LockMutex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_LockMutex((SDL_mutex *) RING_API_GETCPOINTER(1,"SDL_mutex")));
+}
+
+
+RING_FUNC(ring_SDL_SemPost)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SemPost((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem")));
+}
+
+
+RING_FUNC(ring_SDL_SemTryWait)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SemTryWait((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem")));
+}
+
+
+RING_FUNC(ring_SDL_SemValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SemValue((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem")));
+}
+
+
+RING_FUNC(ring_SDL_SemWait)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SemWait((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem")));
+}
+
+
+RING_FUNC(ring_SDL_SemWaitTimeout)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SemWaitTimeout((SDL_sem *) RING_API_GETCPOINTER(1,"SDL_sem"), (Uint32   ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_TryLockMutex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_TryLockMutex((SDL_mutex *) RING_API_GETCPOINTER(1,"SDL_mutex")));
+}
+
+
+RING_FUNC(ring_SDL_UnlockMutex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_UnlockMutex((SDL_mutex *) RING_API_GETCPOINTER(1,"SDL_mutex")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -17745,6 +18180,34 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdlnet_checksockets",ring_SDLNet_CheckSockets);
 	ring_vm_funcregister("sdlnet_socketready",ring_SDLNet_SocketReady);
 	ring_vm_funcregister("circlergba",ring_circleRGBA);
+	ring_vm_funcregister("sdl_createthread",ring_SDL_CreateThread);
+	ring_vm_funcregister("sdl_detachthread",ring_SDL_DetachThread);
+	ring_vm_funcregister("sdl_getthreadid",ring_SDL_GetThreadID);
+	ring_vm_funcregister("sdl_getthreadname",ring_SDL_GetThreadName);
+	ring_vm_funcregister("sdl_setthreadpriority",ring_SDL_SetThreadPriority);
+	ring_vm_funcregister("sdl_tlscreate",ring_SDL_TLSCreate);
+	ring_vm_funcregister("sdl_tlsget",ring_SDL_TLSGet);
+	ring_vm_funcregister("sdl_tlsset",ring_SDL_TLSSet);
+	ring_vm_funcregister("sdl_threadid",ring_SDL_ThreadID);
+	ring_vm_funcregister("sdl_waitthread",ring_SDL_WaitThread);
+	ring_vm_funcregister("sdl_condbroadcast",ring_SDL_CondBroadcast);
+	ring_vm_funcregister("sdl_condsignal",ring_SDL_CondSignal);
+	ring_vm_funcregister("sdl_condwait",ring_SDL_CondWait);
+	ring_vm_funcregister("sdl_condwaittimeout",ring_SDL_CondWaitTimeout);
+	ring_vm_funcregister("sdl_createcond",ring_SDL_CreateCond);
+	ring_vm_funcregister("sdl_createmutex",ring_SDL_CreateMutex);
+	ring_vm_funcregister("sdl_createsemaphore",ring_SDL_CreateSemaphore);
+	ring_vm_funcregister("sdl_destroycond",ring_SDL_DestroyCond);
+	ring_vm_funcregister("sdl_destroymutex",ring_SDL_DestroyMutex);
+	ring_vm_funcregister("sdl_destroysemaphore",ring_SDL_DestroySemaphore);
+	ring_vm_funcregister("sdl_lockmutex",ring_SDL_LockMutex);
+	ring_vm_funcregister("sdl_sempost",ring_SDL_SemPost);
+	ring_vm_funcregister("sdl_semtrywait",ring_SDL_SemTryWait);
+	ring_vm_funcregister("sdl_semvalue",ring_SDL_SemValue);
+	ring_vm_funcregister("sdl_semwait",ring_SDL_SemWait);
+	ring_vm_funcregister("sdl_semwaittimeout",ring_SDL_SemWaitTimeout);
+	ring_vm_funcregister("sdl_trylockmutex",ring_SDL_TryLockMutex);
+	ring_vm_funcregister("sdl_unlockmutex",ring_SDL_UnlockMutex);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -18394,4 +18857,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_sdlk_quotedbl",ring_sdl_get_sdlk_quotedbl);
 	ring_vm_funcregister("sdl_get_sdlk_rightparen",ring_sdl_get_sdlk_rightparen);
 	ring_vm_funcregister("sdl_get_sdlk_underscore",ring_sdl_get_sdlk_underscore);
+	ring_vm_funcregister("sdl_get_sdl_thread_priority_low",ring_sdl_get_sdl_thread_priority_low);
+	ring_vm_funcregister("sdl_get_sdl_thread_priority_normal",ring_sdl_get_sdl_thread_priority_normal);
+	ring_vm_funcregister("sdl_get_sdl_thread_priority_high",ring_sdl_get_sdl_thread_priority_high);
 }
