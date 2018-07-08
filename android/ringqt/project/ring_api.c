@@ -1713,6 +1713,9 @@ void ring_vmlib_eval ( void *pPointer )
 		cStr = RING_API_GETSTRING(1);
 		pVM = (VM *) pPointer ;
 		pVM->nEvalCalledFromRingCode = 1 ;
+		if ( pVM->lInsideEval == 0 ) {
+			pVM->nRetEvalDontDelete = 0 ;
+		}
 		if ( ring_vm_eval(pVM,cStr) == 0 ) {
 			pVM->nEvalCalledFromRingCode = 0 ;
 		}
