@@ -10,8 +10,6 @@ Type: char
 nSize
 Type: List *
 pList
-Type: Item
-vTempItem
 END:
 Type: ByteCode
 struct ByteCode
@@ -192,6 +190,8 @@ Type: char *
 cFileNameInClassRegion
 Type: char
 lUsePushPLocal
+Type: char
+lInsideEval
 END:
 Type: VM
 struct VM
