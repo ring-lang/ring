@@ -106,7 +106,7 @@ Type: Item *
 pItem
 ring_vm_api_getcpointer2pointer
 Type: List *
-pList, *pList2
+pList
 Type: Item *
 pItem
 ring_list_addcpointer_gc
