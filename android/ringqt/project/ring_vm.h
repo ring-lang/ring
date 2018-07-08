@@ -103,6 +103,7 @@ typedef struct VM {
 	int nCurrentGlobalScope  ;
 	char *cFileNameInClassRegion  ;
 	char lUsePushPLocal  ;
+	char lInsideEval  ;
 } VM ;
 /*
 **  Functions 

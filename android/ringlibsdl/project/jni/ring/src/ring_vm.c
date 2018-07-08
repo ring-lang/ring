@@ -193,6 +193,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->cFileNameInClassRegion = NULL ;
 	/* Control Performance Instructions */
 	pVM->lUsePushPLocal = 0 ;
+	/* To know if we are inside eval() or not */
+	pVM->lInsideEval = 0 ;
 	return pVM ;
 }
 
@@ -1228,6 +1230,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 void ring_vm_mainloopforeval ( VM *pVM )
 {
 	pVM->pRingState->lStartPoolManager = 1 ;
+	pVM->lInsideEval = 1 ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
@@ -1257,6 +1260,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 		}
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
+	pVM->lInsideEval = 0 ;
 }
 /* Threads */
 
