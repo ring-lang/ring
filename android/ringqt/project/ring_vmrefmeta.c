@@ -55,6 +55,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_passerror",ring_vm_refmeta_ringvmpasserror);
 	ring_vm_funcregister("ringvm_hideerrormsg",ring_vm_refmeta_ringvmhideerrormsg);
 	ring_vm_funcregister("ringvm_callfunc",ring_vm_refmeta_ringvmcallfunc);
+	ring_vm_funcregister("ringvm_info",ring_vm_refmeta_ringvminfo);
 }
 /* Functions */
 
@@ -1023,4 +1024,60 @@ void ring_vm_refmeta_ringvmcallfunc ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_refmeta_ringvminfo ( void *pPointer )
+{
+	VM *pVM  ;
+	List *pList  ;
+	pVM = (VM *) pPointer ;
+	pList = ring_list_new_gc(pVM->pRingState,0);
+	/*
+	**  Add the list items 
+	**  Lists Size 
+	*/
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesList));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesStack));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pCode));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aNewByteCodeItems));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pMem));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeID));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTempMem));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aPCBlockFlag));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aLoadAddressScope));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aBeforeObjState));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pFuncCallList));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTry));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeNewObj));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aSetProperty));
+	/* Values */
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nRetEvalDontDelete);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nRunCode);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->lRunFromThread);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nPC);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nSP);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nFuncSP);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nLineNumber);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nDecimals);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nActiveError);
+	ring_list_addstring(pList,pVM->cFileName);
+	/*
+	**  Memory Pool 
+	**  Check if used or not 
+	*/
+	if ( pVM->pRingState->vPoolManager.pBlockStart == NULL ) {
+		ring_list_adddouble_gc(pVM->pRingState, pList, 0.0);
+	}
+	else {
+		ring_list_adddouble_gc(pVM->pRingState, pList, 1.0);
+	}
+	/* Check if we have current item or not! */
+	if ( pVM->pRingState->vPoolManager.pCurrentItem != NULL ) {
+		ring_list_adddouble_gc(pVM->pRingState, pList, 1.0);
+	}
+	else {
+		ring_list_adddouble_gc(pVM->pRingState, pList, 0.0);
+	}
+	RING_API_RETLIST(pList);
+	ring_list_delete_gc(pVM->pRingState,pList);
 }
