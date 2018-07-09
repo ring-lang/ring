@@ -262,3 +262,8 @@ Type: VM *
 pVM
 Type: String *
 pString
+ring_vm_refmeta_ringvminfo
+Type: VM *
+pVM
+Type: List *
+pList
