@@ -1233,7 +1233,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 void ring_vm_mainloopforeval ( VM *pVM )
 {
 	pVM->pRingState->lStartPoolManager = 1 ;
-	pVM->lInsideEval = 1 ;
+	pVM->lInsideEval++ ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
@@ -1263,7 +1263,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 		}
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
-	pVM->lInsideEval = 0 ;
+	pVM->lInsideEval-- ;
 }
 /* Threads */
 
