@@ -157,7 +157,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 		((RingState *) pState)->vPoolManager.nAllocCount++ ;
 		#endif
 		if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
-			return ring_poolmanager_allocate(pState,size) ;
+			return ring_poolmanager_allocate((RingState *) pState,size) ;
 		}
 	}
 	#endif
