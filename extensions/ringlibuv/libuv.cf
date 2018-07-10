@@ -490,6 +490,7 @@ void uv_pointer2string(void)
 void uv_free(void)
 void uv_deletecallbacks(void *pObject)
 void uv_deleteallcallbacks(void)
+int uv_callbackscount(void)
 </register>
 
 <code>
@@ -521,6 +522,10 @@ RING_FUNC(ring_uv_deleteallcallbacks)
 	ring_list_deleteallitems_gc(pVMLibUV->pRingState,aCallBack) ;
 }
 
+RING_FUNC(ring_uv_callbackscount)
+{
+	RING_API_RETNUMBER(ring_list_getsize(aCallBack));
+}
 
 
 RING_FUNC(ring_uv_callback)
