@@ -13,6 +13,7 @@ Mark: ->
 GCData *
 ring_pooldata
 RING_USEPOOLMANAGER
+RING_TRACKALLOCATIONS
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSIZE
 Parent: PoolData
@@ -50,6 +51,14 @@ Type: void *
 pBlockStart
 Type: void *
 pBlockEnd
+Type: unsigned int
+nAllocCount
+Type: unsigned int
+nFreeCount
+Type: unsigned int
+nSmallAllocCount
+Type: unsigned int
+nSmallFreeCount
 END:
 Type: PoolManager
 struct PoolManager
