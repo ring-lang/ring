@@ -469,6 +469,21 @@ RING_FUNC(ring_uv_callbackscount)
 	RING_API_RETNUMBER(ring_list_getsize(aCallBack));
 }
 
+RING_FUNC(ring_uv_deletecallbacksafter)
+{
+	int x;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	for (x = RING_API_GETNUMBER(1) ; x <= ring_list_getsize(aCallBack) ; x++ ) {
+		ring_list_deleteitem_gc(pVMLibUV->pRingState,aCallBack,ring_list_getsize(aCallBack));
+	}
+}
 
 RING_FUNC(ring_uv_callback)
 {
@@ -9538,6 +9553,7 @@ RING_API void ring_libuv_start(RingState *pRingState)
 	ring_vm_funcregister("uv_deletecallbacks",ring_uv_deletecallbacks);
 	ring_vm_funcregister("uv_deleteallcallbacks",ring_uv_deleteallcallbacks);
 	ring_vm_funcregister("uv_callbackscount",ring_uv_callbackscount);
+	ring_vm_funcregister("uv_deletecallbacksafter",ring_uv_deletecallbacksafter);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
