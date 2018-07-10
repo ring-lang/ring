@@ -459,6 +459,12 @@ RING_FUNC(ring_uv_deletecallbacks)
 	return ;
 }
 
+RING_FUNC(ring_uv_deleteallcallbacks)
+{
+	ring_list_deleteallitems_gc(pVMLibUV->pRingState,aCallBack) ;
+}
+
+
 
 RING_FUNC(ring_uv_callback)
 {
@@ -591,7 +597,7 @@ RING_FUNC(ring_uv_eventpara)
 {
 	int x;
 	List *pList, *pPara;
-
+	char *cType;
 	RING_API_IGNORECPOINTERTYPE;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
@@ -606,8 +612,8 @@ RING_FUNC(ring_uv_eventpara)
 	{
 		return;
 	}
-
-	x = uv_checkevent_callback(RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
+	cType = RING_API_GETSTRING(2);
+	x = uv_checkevent_callback(RING_API_GETCPOINTER(1,"void"),cType);
 	pList = ring_list_getlist(aCallBack,x) ;
 	pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 	RING_API_RETLIST(pPara);
@@ -9526,6 +9532,7 @@ RING_API void ring_libuv_start(RingState *pRingState)
 	ring_vm_funcregister("uv_pointer2string",ring_uv_pointer2string);
 	ring_vm_funcregister("uv_free",ring_uv_free);
 	ring_vm_funcregister("uv_deletecallbacks",ring_uv_deletecallbacks);
+	ring_vm_funcregister("uv_deleteallcallbacks",ring_uv_deleteallcallbacks);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
