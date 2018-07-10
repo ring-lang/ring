@@ -27,13 +27,13 @@ RING_API void * ring_calloc ( size_t nitems, size_t size ) ;
 RING_API void * ring_realloc ( void *ptr, size_t size ) ;
 /* Memory Functions (Ring StateAware) */
 
-RING_API void * ring_state_malloc ( void *pState,size_t size ) ;
+RING_API void * ring_state_malloc ( RingState *pState,size_t size ) ;
 
-RING_API void ring_state_free ( void *pState,void *pMemory ) ;
+RING_API void ring_state_free ( RingState *pState,void *pMemory ) ;
 
-RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
+RING_API void * ring_state_calloc ( RingState *pState,size_t nitems, size_t size ) ;
 
-RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
+RING_API void * ring_state_realloc ( RingState *pState,void *ptr, size_t size ) ;
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 /* Macro */
