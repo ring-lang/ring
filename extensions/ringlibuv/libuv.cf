@@ -1148,7 +1148,7 @@ Stream handle
 <struct>
 uv_stream_t  
 uv_connect_t {uv_stream_t *handle}
-uv_shutdown_t  
+uv_shutdown_t {uv_stream_t *handle}
 uv_write_t 
 </struct>
 
