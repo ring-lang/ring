@@ -149,36 +149,49 @@ RING_API void * ring_realloc ( void *ptr, size_t size )
 }
 /* Memory Functions (RingState Aware) */
 
-RING_API void * ring_state_malloc ( void *pState,size_t size )
+RING_API void * ring_state_malloc ( RingState *pState,size_t size )
 {
 	#if RING_USEPOOLMANAGER
 	if ( pState != NULL ) {
+		#if RING_TRACKALLOCATIONS
+		pState->vPoolManager.nAllocCount++ ;
+		#endif
 		if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
-			return ring_poolmanager_allocate( (RingState *) pState,size) ;
+			return ring_poolmanager_allocate(pState,size) ;
 		}
 	}
 	#endif
 	return ring_malloc(size) ;
 }
 
-RING_API void ring_state_free ( void *pState,void *pMemory )
+RING_API void ring_state_free ( RingState *pState,void *pMemory )
 {
 	#if RING_USEPOOLMANAGER
 	/* Use Pool Manager */
 	if ( pState != NULL ) {
-		ring_poolmanager_free((RingState *) pState,pMemory);
+		#if RING_TRACKALLOCATIONS
+		pState->vPoolManager.nFreeCount++ ;
+		#endif
+		ring_poolmanager_free(pState,pMemory);
 		return ;
 	}
 	#endif
 	ring_free(pMemory);
 }
 
-RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
+RING_API void * ring_state_calloc ( RingState *pState,size_t nitems, size_t size )
 {
+	#if RING_USEPOOLMANAGER
+	if ( pState != NULL ) {
+		#if RING_TRACKALLOCATIONS
+		pState->vPoolManager.nAllocCount++ ;
+		#endif
+	}
+	#endif
 	return ring_calloc(nitems,size) ;
 }
 
-RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
+RING_API void * ring_state_realloc ( RingState *pState,void *ptr, size_t size )
 {
 	return ring_realloc(ptr,size) ;
 }
@@ -213,6 +226,11 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
 	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
+	/* Set Values For Tracking Allocations */
+	pRingState->vPoolManager.nAllocCount = 0 ;
+	pRingState->vPoolManager.nFreeCount = 0 ;
+	pRingState->vPoolManager.nSmallAllocCount = 0 ;
+	pRingState->vPoolManager.nSmallFreeCount = 0 ;
 }
 
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
@@ -237,6 +255,9 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 			exit(0);
 		}
 	}
+	#if RING_TRACKALLOCATIONS
+	pRingState->vPoolManager.nSmallAllocCount++ ;
+	#endif
 	return pMemory ;
 }
 
@@ -249,6 +270,9 @@ void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 				pPoolData = (PoolData *) pMemory ;
 				pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
 				pRingState->vPoolManager.pCurrentItem = pPoolData ;
+				#if RING_TRACKALLOCATIONS
+				pRingState->vPoolManager.nSmallFreeCount++ ;
+				#endif
 				return ;
 			}
 		}

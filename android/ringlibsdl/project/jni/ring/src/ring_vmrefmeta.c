@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -1078,6 +1078,11 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	else {
 		ring_list_adddouble_gc(pVM->pRingState, pList, 0.0);
 	}
+	/* Track Allocations */
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nAllocCount);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nFreeCount);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nSmallAllocCount);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nSmallFreeCount);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
 }
