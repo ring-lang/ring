@@ -1149,7 +1149,7 @@ Stream handle
 uv_stream_t  
 uv_connect_t {uv_stream_t *handle}
 uv_shutdown_t {uv_stream_t *handle}
-uv_write_t 
+uv_write_t {uv_stream_t *handle}
 </struct>
 
 int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)
@@ -1177,7 +1177,7 @@ TCP handle
 </comment>
 
 <struct>
-uv_tcp_t
+uv_tcp_t 
 </struct>
 
 int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)

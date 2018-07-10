@@ -3779,6 +3779,40 @@ RING_FUNC(ring_destroy_uv_write_t)
 	}
 }
 
+RING_FUNC(ring_get_uv_write_t_handle)
+{
+	uv_write_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_write_t");
+	RING_API_RETCPOINTER(pMyPointer->handle,"uv_stream_t");
+}
+
+RING_FUNC(ring_set_uv_write_t_handle)
+{
+	uv_write_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_write_t");
+	pMyPointer->handle = (uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t *");
+}
+
 
 RING_FUNC(ring_uv_shutdown)
 {
@@ -10136,6 +10170,8 @@ RING_API void ring_libuv_start(RingState *pRingState)
 	ring_vm_funcregister("set_uv_shutdown_t_handle",ring_set_uv_shutdown_t_handle);
 	ring_vm_funcregister("new_uv_write_t",ring_new_uv_write_t);
 	ring_vm_funcregister("destroy_uv_write_t",ring_destroy_uv_write_t);
+	ring_vm_funcregister("get_uv_write_t_handle",ring_get_uv_write_t_handle);
+	ring_vm_funcregister("set_uv_write_t_handle",ring_set_uv_write_t_handle);
 	ring_vm_funcregister("new_uv_tcp_t",ring_new_uv_tcp_t);
 	ring_vm_funcregister("destroy_uv_tcp_t",ring_destroy_uv_tcp_t);
 	ring_vm_funcregister("new_uv_pipe_t",ring_new_uv_pipe_t);
