@@ -1203,7 +1203,7 @@ Func GenRingCode aList
 						  GenRingCodeParaListUse(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) +")"+nl+
 						  C_TABS_2 + "return self" + nl + nl +
 						  C_TABS_1 + "Func delete" + nl + 
-						  C_TABS_2 + "pObject = " + cClassName+"_delete(pObject)" + nl +
+						  C_TABS_2 + "pObject = " + cClassName+"_delete(pObject)" + nl + nl +
 						  C_TABS_1 + "Func ObjectPointer" + nl +
 						  C_TABS_2 + "return pObject" + nl 					
 						else
