@@ -1,5 +1,11 @@
 FoxRing ChangeLog
 
+1.0.142 2018.07.11 Jar
+----------------------------------------------------------
+	Added - frSetDate() function	
+	Added - frSetCentury() function
+	Added - frDate() function
+	
 
 1.0.141 2018.05.04 Jar
 ----------------------------------------------------------

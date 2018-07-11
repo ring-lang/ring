@@ -4,6 +4,96 @@ Load "foxring.ring"
 mf = new frFunctions
 
 /*----------------------------------------------------------*/
+ * frSetDate(), frSetCentury(), frDate() samples
+/*----------------------------------------------------------*/
+lcOldDateFormat = mf.frSetDate(Null)
+?lcOldDateFormat
+?"Set century on"
+lcOldCenturyFormat = mf.frSetCentury("ON")
+
+?"Set date to ANSI"
+mf.frSetDate("ansi")
+
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to GERMAN"
+mf.frSetDate("german")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to FRENCH"
+?mf.frSetDate("french")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to AMERICAN"
+?mf.frSetDate("AMERICAN")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to USA"
+?mf.frSetDate("USA")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to DMY"
+?mf.frSetDate("dmy")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to YMD"
+?mf.frSetDate("YMD")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set century on"
+lcOldCenturyFormat = mf.frSetCentury("OFF")
+
+?"Set date to ANSI"
+mf.frSetDate("ansi")
+
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to GERMAN"
+mf.frSetDate("german")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to FRENCH"
+?mf.frSetDate("french")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to AMERICAN"
+?mf.frSetDate("AMERICAN")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to USA"
+?mf.frSetDate("USA")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to DMY"
+?mf.frSetDate("dmy")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+?"Set date to YMD"
+?mf.frSetDate("YMD")
+?mf.frDate(18, 5, 25)
+?mf.frDate(null, null, null)
+
+mf.frSetDate(lcOldDateFormat)
+?mf.frSetDate(Null)
+
+
+
+
+
+/*----------------------------------------------------------*/
  * frProper() samples
 /*----------------------------------------------------------*/
 
