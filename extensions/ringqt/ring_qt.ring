@@ -64,6 +64,7 @@ Class QObject
 
 	Func delete
 		pObject = QObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -143,6 +144,7 @@ Class QWidget from QObject
 
 	Func delete
 		pObject = QWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -832,6 +834,7 @@ Class QLabel from QWidget
 
 	Func delete
 		pObject = QLabel_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -947,6 +950,7 @@ Class QPushButton from QAbstractButton
 
 	Func delete
 		pObject = QPushButton_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -975,6 +979,7 @@ Class QBitmap from QPixmap
 
 	Func delete
 		pObject = QBitmap_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1009,6 +1014,7 @@ Class QPixmap
 
 	Func delete
 		pObject = QPixmap_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1182,6 +1188,7 @@ Class QLineEdit from QWidget
 
 	Func delete
 		pObject = QLineEdit_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1409,6 +1416,7 @@ Class QVBoxLayout from QBoxLayout
 
 	Func delete
 		pObject = QVBoxLayout_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1428,6 +1436,7 @@ Class QHBoxLayout from QBoxLayout
 
 	Func delete
 		pObject = QHBoxLayout_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1447,6 +1456,7 @@ Class QTextEdit from QAbstractScrollArea
 
 	Func delete
 		pObject = QTextEdit_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1751,6 +1761,7 @@ Class QListWidget from QListView
 
 	Func delete
 		pObject = QListWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -1897,6 +1908,7 @@ Class QTreeView from QAbstractItemView
 
 	Func delete
 		pObject = QTreeView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -2133,6 +2145,7 @@ Class QDir
 
 	Func delete
 		pObject = QDir_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -2336,6 +2349,7 @@ Class QFileSystemModel
 
 	Func delete
 		pObject = QFileSystemModel_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -2499,6 +2513,7 @@ Class QTreeWidget from QTreeView
 
 	Func delete
 		pObject = QTreeWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -2745,6 +2760,7 @@ Class QTreeWidgetItem
 
 	Func delete
 		pObject = QTreeWidgetItem_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -2939,6 +2955,7 @@ Class QComboBox from QWidget
 
 	Func delete
 		pObject = QComboBox_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3141,6 +3158,7 @@ Class QMenuBar from QWidget
 
 	Func delete
 		pObject = QMenuBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3220,6 +3238,7 @@ Class QMenu from QWidget
 
 	Func delete
 		pObject = QMenu_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3343,6 +3362,7 @@ Class QToolBar from QWidget
 
 	Func delete
 		pObject = QToolBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3443,6 +3463,7 @@ Class QMainWindow from QWidget
 
 	Func delete
 		pObject = QMainWindow_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3604,6 +3625,7 @@ Class QStatusBar from QWidget
 
 	Func delete
 		pObject = QStatusBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3647,6 +3669,7 @@ Class QDockWidget from QWidget
 
 	Func delete
 		pObject = QDockWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3747,6 +3770,7 @@ Class QTabWidget from QWidget
 
 	Func delete
 		pObject = QTabWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -3900,6 +3924,7 @@ Class QTableWidgetItem
 
 	Func delete
 		pObject = QTableWidgetItem_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4034,6 +4059,7 @@ Class QFrame from QWidget
 
 	Func delete
 		pObject = QFrame_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4093,6 +4119,7 @@ Class QAbstractScrollArea from QFrame
 
 	Func delete
 		pObject = QAbstractScrollArea_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4161,6 +4188,7 @@ Class QAbstractItemView from QAbstractScrollArea
 
 	Func delete
 		pObject = QAbstractItemView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4365,6 +4393,7 @@ Class QTableView from QAbstractItemView
 
 	Func delete
 		pObject = QTableView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4505,6 +4534,7 @@ Class QTableWidget from QTableView
 
 	Func delete
 		pObject = QTableWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4759,6 +4789,7 @@ Class QProgressBar from QWidget
 
 	Func delete
 		pObject = QProgressBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4844,6 +4875,7 @@ Class QSpinBox from QWidget
 
 	Func delete
 		pObject = QSpinBox_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4911,6 +4943,7 @@ Class QAbstractSlider from QWidget
 
 	Func delete
 		pObject = QAbstractSlider_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -4996,6 +5029,7 @@ Class QSlider from QAbstractSlider
 
 	Func delete
 		pObject = QSlider_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5067,6 +5101,7 @@ Class QDateTimeEdit from QAbstractSpinBox
 
 	Func delete
 		pObject = QDateTimeEdit_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5232,6 +5267,7 @@ Class QAbstractSpinBox from QWidget
 
 	Func delete
 		pObject = QAbstractSpinBox_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5323,6 +5359,7 @@ Class QDial from QAbstractSlider
 
 	Func delete
 		pObject = QDial_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5403,6 +5440,7 @@ Class QWebView from QWidget
 
 	Func delete
 		pObject = QWebView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5519,6 +5557,7 @@ Class QUrl
 
 	Func delete
 		pObject = QUrl_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5644,6 +5683,7 @@ Class QCheckBox from QAbstractButton
 
 	Func delete
 		pObject = QCheckBox_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5709,6 +5749,7 @@ Class QAbstractButton from QWidget
 
 	Func delete
 		pObject = QAbstractButton_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5808,6 +5849,7 @@ Class QRadioButton from QAbstractButton
 
 	Func delete
 		pObject = QRadioButton_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5855,6 +5897,7 @@ Class QButtonGroup
 
 	Func delete
 		pObject = QButtonGroup_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -5917,6 +5960,7 @@ Class QMediaPlayer
 
 	Func delete
 		pObject = QMediaPlayer_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6018,6 +6062,7 @@ Class QMediaPlaylist
 
 	Func delete
 		pObject = QMediaPlaylist_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6097,6 +6142,7 @@ Class QVideoWidget from QWidget
 
 	Func delete
 		pObject = QVideoWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6176,6 +6222,7 @@ Class QAction
 
 	Func delete
 		pObject = QAction_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6357,6 +6404,7 @@ Class QEvent
 
 	Func delete
 		pObject = QEvent_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6388,6 +6436,7 @@ Class QMessageBox from QDialog
 
 	Func delete
 		pObject = QMessageBox_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6507,6 +6556,7 @@ Class QTimer
 
 	Func delete
 		pObject = QTimer_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6550,6 +6600,7 @@ Class QFileDialog from QWidget
 
 	Func delete
 		pObject = QFileDialog_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -6727,6 +6778,7 @@ Class QPainter
 
 	Func delete
 		pObject = QPainter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7020,6 +7072,7 @@ Class QPicture
 
 	Func delete
 		pObject = QPicture_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7062,6 +7115,7 @@ Class QPen
 
 	Func delete
 		pObject = QPen_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7145,6 +7199,7 @@ Class QColor
 
 	Func delete
 		pObject = QColor_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7435,6 +7490,7 @@ Class QPrinter
 
 	Func delete
 		pObject = QPrinter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7589,6 +7645,7 @@ Class QFont
 
 	Func delete
 		pObject = QFont_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7791,6 +7848,7 @@ Class QBrush
 
 	Func delete
 		pObject = QBrush_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -7857,6 +7915,7 @@ Class QByteArray
 
 	Func delete
 		pObject = QByteArray_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8099,6 +8158,7 @@ Class QIODevice from QObject
 
 	Func delete
 		pObject = QIODevice_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8204,6 +8264,7 @@ Class QAbstractSocket from QIODevice
 
 	Func delete
 		pObject = QAbstractSocket_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8366,6 +8427,7 @@ Class QNetworkProxy
 
 	Func delete
 		pObject = QNetworkProxy_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8451,6 +8513,7 @@ Class QTcpSocket from QAbstractSocket
 
 	Func delete
 		pObject = QTcpSocket_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8524,6 +8587,7 @@ Class QTcpServer
 
 	Func delete
 		pObject = QTcpServer_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8609,6 +8673,7 @@ Class QHostAddress
 
 	Func delete
 		pObject = QHostAddress_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8649,6 +8714,7 @@ Class QHostInfo
 
 	Func delete
 		pObject = QHostInfo_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8700,6 +8766,7 @@ Class QFileInfo
 
 	Func delete
 		pObject = QFileInfo_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8855,6 +8922,7 @@ Class QDirModel
 
 	Func delete
 		pObject = QDirModel_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8946,6 +9014,7 @@ Class QFontDialog from QDialog
 
 	Func delete
 		pObject = QFontDialog_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -8990,6 +9059,7 @@ Class QDialog from QWidget
 
 	Func delete
 		pObject = QDialog_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9033,6 +9103,7 @@ Class QTextCursor
 
 	Func delete
 		pObject = QTextCursor_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9228,6 +9299,7 @@ Class QColorDialog from QDialog
 
 	Func delete
 		pObject = QColorDialog_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9286,6 +9358,7 @@ Class QStringList
 
 	Func delete
 		pObject = QStringList_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9426,6 +9499,7 @@ Class QLCDNumber from QFrame
 
 	Func delete
 		pObject = QLCDNumber_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9487,6 +9561,7 @@ Class QInputDialog from QDialog
 
 	Func delete
 		pObject = QInputDialog_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -9625,6 +9700,7 @@ Class QAllEvents from QWidget
 
 	Func delete
 		pObject = QAllEvents_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10020,6 +10096,7 @@ Class QDesktopWidget from QWidget
 
 	Func delete
 		pObject = QDesktopWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10060,6 +10137,7 @@ Class QRect
 
 	Func delete
 		pObject = QRect_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10254,6 +10332,7 @@ Class QTextDocument from QObject
 
 	Func delete
 		pObject = QTextDocument_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10490,6 +10569,7 @@ Class QTextBlock
 
 	Func delete
 		pObject = QTextBlock_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10595,6 +10675,7 @@ Class QTime
 
 	Func delete
 		pObject = QTime_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10675,6 +10756,7 @@ Class QListWidgetItem
 
 	Func delete
 		pObject = QListWidgetItem_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10790,6 +10872,7 @@ Class QSystemTrayIcon
 
 	Func delete
 		pObject = QSystemTrayIcon_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10851,6 +10934,7 @@ Class QDate
 
 	Func delete
 		pObject = QDate_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -10961,6 +11045,7 @@ Class QSqlDatabase
 
 	Func delete
 		pObject = QSqlDatabase_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11113,6 +11198,7 @@ Class QSqlDriver
 
 	Func delete
 		pObject = QSqlDriver_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11140,6 +11226,7 @@ Class QSqlQuery
 
 	Func delete
 		pObject = QSqlQuery_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11267,6 +11354,7 @@ Class QSqlError
 
 	Func delete
 		pObject = QSqlError_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11310,6 +11398,7 @@ Class QSqlIndex from QSqlRecord
 
 	Func delete
 		pObject = QSqlIndex_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11344,6 +11433,7 @@ Class QSqlRecord
 
 	Func delete
 		pObject = QSqlRecord_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11415,6 +11505,7 @@ Class QSqlField
 
 	Func delete
 		pObject = QSqlField_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11504,6 +11595,7 @@ Class QVariant
 
 	Func delete
 		pObject = QVariant_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11681,6 +11773,7 @@ Class QNetworkRequest
 
 	Func delete
 		pObject = QNetworkRequest_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11746,6 +11839,7 @@ Class QNetworkAccessManager from QObject
 
 	Func delete
 		pObject = QNetworkAccessManager_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11850,6 +11944,7 @@ Class QNetworkReply from QIODevice
 
 	Func delete
 		pObject = QNetworkReply_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -11911,6 +12006,7 @@ Class QPainterPath
 
 	Func delete
 		pObject = QPainterPath_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12060,6 +12156,7 @@ Class QImage
 
 	Func delete
 		pObject = QImage_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12259,6 +12356,7 @@ Class RingCodeHighlighter
 
 	Func delete
 		pObject = RingCodeHighlighter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12278,6 +12376,7 @@ Class QXmlStreamReader
 
 	Func delete
 		pObject = QXmlStreamReader_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12483,6 +12582,7 @@ Class QXmlStreamWriter
 
 	Func delete
 		pObject = QXmlStreamWriter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12600,6 +12700,7 @@ Class QXmlStreamNotationDeclaration
 
 	Func delete
 		pObject = QXmlStreamNotationDeclaration_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12628,6 +12729,7 @@ Class QXmlStreamNamespaceDeclaration
 
 	Func delete
 		pObject = QXmlStreamNamespaceDeclaration_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12651,6 +12753,7 @@ Class QXmlStreamEntityDeclaration
 
 	Func delete
 		pObject = QXmlStreamEntityDeclaration_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12689,6 +12792,7 @@ Class QXmlStreamAttributes
 
 	Func delete
 		pObject = QXmlStreamAttributes_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12742,6 +12846,7 @@ Class QXmlStreamAttribute
 
 	Func delete
 		pObject = QXmlStreamAttribute_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12783,6 +12888,7 @@ Class QThread from QObject
 
 	Func delete
 		pObject = QThread_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12876,6 +12982,7 @@ Class QThreadPool from QObject
 
 	Func delete
 		pObject = QThreadPool_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12927,6 +13034,7 @@ Class QRegularExpression
 
 	Func delete
 		pObject = QRegularExpression_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -12982,6 +13090,7 @@ Class QRegularExpressionMatch
 
 	Func delete
 		pObject = QRegularExpressionMatch_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13060,6 +13169,7 @@ Class QRegularExpressionMatchIterator
 
 	Func delete
 		pObject = QRegularExpressionMatchIterator_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13103,6 +13213,7 @@ Class QJsonArray
 
 	Func delete
 		pObject = QJsonArray_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13197,6 +13308,7 @@ Class QJsonDocument
 
 	Func delete
 		pObject = QJsonDocument_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13276,6 +13388,7 @@ Class QJsonObject
 
 	Func delete
 		pObject = QJsonObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13333,6 +13446,7 @@ Class QJsonParseError
 
 	Func delete
 		pObject = QJsonParseError_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13349,6 +13463,7 @@ Class QJsonValue
 
 	Func delete
 		pObject = QJsonValue_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13428,6 +13543,7 @@ Class QPlainTextEdit from QAbstractScrollArea
 
 	Func delete
 		pObject = QPlainTextEdit_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13698,6 +13814,7 @@ Class CodeEditor from QPlainTextEdit
 
 	Func delete
 		pObject = CodeEditor_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13725,6 +13842,7 @@ Class QGridLayout
 
 	Func delete
 		pObject = QGridLayout_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13818,6 +13936,7 @@ Class QTextCharFormat
 
 	Func delete
 		pObject = QTextCharFormat_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -13998,6 +14117,7 @@ Class QGraphicsVideoItem
 
 	Func delete
 		pObject = QGraphicsVideoItem_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14034,6 +14154,7 @@ Class QCamera from QMediaObject
 
 	Func delete
 		pObject = QCamera_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14122,6 +14243,7 @@ Class QCameraImageCapture
 
 	Func delete
 		pObject = QCameraImageCapture_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14191,6 +14313,7 @@ Class QMediaObject from QWidget
 
 	Func delete
 		pObject = QMediaObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14223,6 +14346,7 @@ Class QHeaderView from QAbstractItemView
 
 	Func delete
 		pObject = QHeaderView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14481,6 +14605,7 @@ Class QFontMetrics
 
 	Func delete
 		pObject = QFontMetrics_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14587,6 +14712,7 @@ Class QSplashScreen from QWidget
 
 	Func delete
 		pObject = QSplashScreen_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14620,6 +14746,7 @@ Class QBoxLayout from QLayout
 
 	Func delete
 		pObject = QBoxLayout_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14690,6 +14817,7 @@ Class QLayout from QObject
 
 	Func delete
 		pObject = QLayout_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14780,6 +14908,7 @@ Class QLinearGradient from QGradient
 
 	Func delete
 		pObject = QLinearGradient_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14815,6 +14944,7 @@ Class QGradient
 
 	Func delete
 		pObject = QGradient_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14852,6 +14982,7 @@ Class QPointF
 
 	Func delete
 		pObject = QPointF_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14894,6 +15025,7 @@ Class QPoint
 
 	Func delete
 		pObject = QPoint_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14931,6 +15063,7 @@ Class QScrollArea from QAbstractScrollArea
 
 	Func delete
 		pObject = QScrollArea_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -14975,6 +15108,7 @@ Class QSplitter from QFrame
 
 	Func delete
 		pObject = QSplitter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15061,6 +15195,7 @@ Class QCompleter from QObject
 
 	Func delete
 		pObject = QCompleter_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15171,6 +15306,7 @@ Class QString2
 
 	Func delete
 		pObject = QString2_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15207,6 +15343,7 @@ Class QProcess from QIODevice
 
 	Func delete
 		pObject = QProcess_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15337,6 +15474,7 @@ Class QMdiArea from QAbstractScrollArea
 
 	Func delete
 		pObject = QMdiArea_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15448,6 +15586,7 @@ Class QMdiSubWindow from QWidget
 
 	Func delete
 		pObject = QMdiSubWindow_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15509,6 +15648,7 @@ Class QCursor
 
 	Func delete
 		pObject = QCursor_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15570,6 +15710,7 @@ Class QListView from QAbstractItemView
 
 	Func delete
 		pObject = QListView_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15672,6 +15813,7 @@ Class QAxBase from QObject
 
 	Func delete
 		pObject = QAxBase_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15731,6 +15873,7 @@ Class QUuid
 
 	Func delete
 		pObject = QUuid_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15747,6 +15890,7 @@ Class QToolButton from QAbstractButton
 
 	Func delete
 		pObject = QToolButton_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15815,6 +15959,7 @@ Class QSerialPort from QIODevice
 
 	Func delete
 		pObject = QSerialPort_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -15960,6 +16105,7 @@ Class QSerialPortInfo
 
 	Func delete
 		pObject = QSerialPortInfo_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16006,6 +16152,7 @@ Class QStringRef
 
 	Func delete
 		pObject = QStringRef_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16177,6 +16324,7 @@ Class QMutex
 
 	Func delete
 		pObject = QMutex_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16199,6 +16347,7 @@ Class QMutexLocker
 
 	Func delete
 		pObject = QMutexLocker_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16223,6 +16372,7 @@ Class QBuffer from QIODevice
 
 	Func delete
 		pObject = QBuffer_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16255,6 +16405,7 @@ Class QBluetoothAddress
 
 	Func delete
 		pObject = QBluetoothAddress_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16280,6 +16431,7 @@ Class QBluetoothDeviceDiscoveryAgent
 
 	Func delete
 		pObject = QBluetoothDeviceDiscoveryAgent_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16341,6 +16493,7 @@ Class QBluetoothDeviceInfo
 
 	Func delete
 		pObject = QBluetoothDeviceInfo_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16395,6 +16548,7 @@ Class QBluetoothHostInfo
 
 	Func delete
 		pObject = QBluetoothHostInfo_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16422,6 +16576,7 @@ Class QBluetoothLocalDevice
 
 	Func delete
 		pObject = QBluetoothLocalDevice_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16440,6 +16595,7 @@ Class QDateTime
 
 	Func delete
 		pObject = QDateTime_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16581,6 +16737,7 @@ Class QScreen
 
 	Func delete
 		pObject = QScreen_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -16702,6 +16859,7 @@ Class QWindow from QObject
 
 	Func delete
 		pObject = QWindow_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17144,6 +17302,7 @@ Class QGuiApplication from QCoreApplication
 
 	Func delete
 		pObject = QGuiApplication_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17497,6 +17656,7 @@ Class QTextBrowser from QTextEdit
 
 	Func delete
 		pObject = QTextBrowser_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17594,6 +17754,7 @@ Class QRegion
 
 	Func delete
 		pObject = QRegion_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17688,6 +17849,7 @@ Class QStackedWidget from QFrame
 
 	Func delete
 		pObject = QStackedWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17747,6 +17909,7 @@ Class QCalendarWidget from QWidget
 
 	Func delete
 		pObject = QCalendarWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -17913,6 +18076,7 @@ Class QOpenGLFunctions
 
 	Func delete
 		pObject = QOpenGLFunctions_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -18355,6 +18519,7 @@ Class QOpenGLContext from QObject
 
 	Func delete
 		pObject = QOpenGLContext_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -18477,6 +18642,7 @@ Class QOpenGLFunctions_3_2_Core
 
 	Func delete
 		pObject = QOpenGLFunctions_3_2_Core_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19252,6 +19418,7 @@ Class QSurfaceFormat
 
 	Func delete
 		pObject = QSurfaceFormat_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19375,6 +19542,7 @@ Class QOpenGLWidget from QWidget
 
 	Func delete
 		pObject = QOpenGLWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19445,6 +19613,7 @@ Class QOpenGLVersionProfile
 
 	Func delete
 		pObject = QOpenGLVersionProfile_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19479,6 +19648,7 @@ Class QVector2D
 
 	Func delete
 		pObject = QVector2D_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19550,6 +19720,7 @@ Class QVector3D
 
 	Func delete
 		pObject = QVector3D_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19648,6 +19819,7 @@ Class QVector4D
 
 	Func delete
 		pObject = QVector4D_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19735,6 +19907,7 @@ Class QQuaternion
 
 	Func delete
 		pObject = QQuaternion_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19833,6 +20006,7 @@ Class QMatrix4x4
 
 	Func delete
 		pObject = QMatrix4x4_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -19992,6 +20166,7 @@ Class QOpenGLPaintDevice from QPaintDevice
 
 	Func delete
 		pObject = QOpenGLPaintDevice_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20082,6 +20257,7 @@ Class QOpenGLTimerQuery
 
 	Func delete
 		pObject = QOpenGLTimerQuery_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20125,6 +20301,7 @@ Class QOpenGLDebugLogger
 
 	Func delete
 		pObject = QOpenGLDebugLogger_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20180,6 +20357,7 @@ Class QOpenGLFramebufferObject
 
 	Func delete
 		pObject = QOpenGLFramebufferObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20245,6 +20423,7 @@ Class QOpenGLVertexArrayObject
 
 	Func delete
 		pObject = QOpenGLVertexArrayObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20276,6 +20455,7 @@ Class QOpenGLBuffer
 
 	Func delete
 		pObject = QOpenGLBuffer_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20340,6 +20520,7 @@ Class QOpenGLShaderProgram
 
 	Func delete
 		pObject = QOpenGLShaderProgram_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20776,6 +20957,7 @@ Class QOpenGLShader
 
 	Func delete
 		pObject = QOpenGLShader_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -20821,6 +21003,7 @@ Class QOpenGLTexture
 
 	Func delete
 		pObject = QOpenGLTexture_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21066,6 +21249,7 @@ Class QTabBar from QWidget
 
 	Func delete
 		pObject = QTabBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21250,6 +21434,7 @@ Class QFile from QFileDevice
 
 	Func delete
 		pObject = QFile_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21385,6 +21570,7 @@ Class QQuickWidget from QWidget
 
 	Func delete
 		pObject = QQuickWidget_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21463,6 +21649,7 @@ Class QQmlError
 
 	Func delete
 		pObject = QQmlError_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21516,6 +21703,7 @@ Class QPixmap2 from QPixmap
 
 	Func delete
 		pObject = QPixmap2_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21529,6 +21717,7 @@ Class QIcon
 
 	Func delete
 		pObject = QIcon_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21542,6 +21731,7 @@ Class QSize
 
 	Func delete
 		pObject = QSize_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21555,6 +21745,7 @@ Class QFrame2 from QFrame
 
 	Func delete
 		pObject = QFrame2_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21568,6 +21759,7 @@ Class QFrame3 from QFrame
 
 	Func delete
 		pObject = QFrame3_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21581,6 +21773,7 @@ Class QDateEdit from QDateTimeEdit
 
 	Func delete
 		pObject = QDateEdit_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21594,6 +21787,7 @@ Class QPainter2 from QPainter
 
 	Func delete
 		pObject = QPainter2_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21607,6 +21801,7 @@ Class QKeySequence
 
 	Func delete
 		pObject = QKeySequence_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21620,6 +21815,7 @@ Class QXmlStreamEntityResolver
 
 	Func delete
 		pObject = QXmlStreamEntityResolver_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21633,6 +21829,7 @@ Class QCameraViewfinder from QVideoWidget
 
 	Func delete
 		pObject = QCameraViewfinder_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21646,6 +21843,7 @@ Class QCompleter2 from QCompleter
 
 	Func delete
 		pObject = QCompleter2_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21659,6 +21857,7 @@ Class QCompleter3 from QCompleter
 
 	Func delete
 		pObject = QCompleter3_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21672,6 +21871,7 @@ Class QAxObject from QAxBase
 
 	Func delete
 		pObject = QAxObject_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
 
@@ -21685,5 +21885,6 @@ Class QScrollBar from QAbstractSlider
 
 	Func delete
 		pObject = QScrollBar_delete(pObject)
+
 	Func ObjectPointer
 		return pObject
