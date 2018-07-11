@@ -1155,6 +1155,7 @@ Func GenDeleteFuncForClasses aList
     				C_TABS_1 +"{" + nl +
             			C_TABS_2 +'pObject = ('+cCodeName+' *) RING_API_GETCPOINTER(1,"'+cCodeName+'");' + nl +
             			C_TABS_2 +"delete pObject ;" + nl +
+				C_TABS_2 +"RING_API_SETNULLPOINTER(1);" + nl +
     				C_TABS_1 +"}" + nl +				
 			"}" + nl + nl
 	next
