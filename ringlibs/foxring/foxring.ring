@@ -1593,9 +1593,9 @@ class frFunctions
 			llOk = true
 			lcRet = this._dateform_dmy
 		}
-		if not llOk and this._set_date = this._date_ydm {
+		if not llOk and this._set_date = this._date_ymd {
 			llOk = true
-			lcRet = this._dateform_ydm
+			lcRet = this._dateform_ymd
 		}
 
 		return lcRet
