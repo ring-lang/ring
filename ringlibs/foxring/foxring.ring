@@ -11,6 +11,7 @@
  *	frBetween()		Determines whether the value of an expression is inclusively between the values of two 
  *				expressions of the same type.
  *	frChr()			Returns the character associated with the specified numeric ANSI code.
+ * 	frDate()		Returns the current system date, which is controlled by the operating system, or creates a date.
  *	frEmpty()		Determines whether an expression evaluates to empty.
  *	frFile()		Checks if a file exists on disk.
  *	frFileToStr()		Returns the contents of a file as a character string.
@@ -32,6 +33,8 @@
  *	frProper()		Returns from a character expression a string capitalized as appropriate for proper names.
  *	frReplicate()		Returns a character string that contains a specified character expression repeated a specified number of times.
  *	frRTrim()		Removes all trailing spaces or parsing characters from the specified character expression.
+ *	frSetCentury()		Returns the current value of the century format and sets a new one when especified.
+ *	frSetDate()		Returns the current value of the date format and sets a new one when especified.
  *	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
  *	frSetSeparatorTo()	Specifies the character for the numeric place separator.
  *	frSpace()		Returns a character string composed of a specified number of spaces.
@@ -62,7 +65,7 @@
 	
 class frFunctions
 
-	_version = "1.0.141"
+	_version = "1.0.142"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -76,12 +79,48 @@ class frFunctions
 	_back_slash = "\"
 	_separator = ","
 
+	_on = "ON"
+	_off = "OFF"
+	
 	_ring_character_type 	= "STRING"
 	_ring_numeric_type 	= "NUMBER"
 	_ring_list_type 	= "LIST"
 	_ring_object_type 	= "OBJECT"
 
+	_dateform_american 		= "mm/dd/yy"
+	_dateform_ansi 			= "yy.mm.dd"
+	_dateform_british_french	= "dd/mm/yy"
+	_dateform_british 		= "dd/mm/yy"
+	_dateform_french		= "dd/mm/yy"
+	_dateform_german 		= "dd.mm.yy"
+	_dateform_italian		= "dd-mm-yy"
+	_dateform_japan			= "yy/mm/dd"
+	_dateform_taiwan		= "yy/mm/dd"
+	_dateform_usa			= "mm-dd-yy"
+	_dateform_mdy			= "mm/dd/yy"
+	_dateform_dmy			= "dd/mm/yy"
+	_dateform_ymd			= "yy/mm/dd"
+
+	_date_american 			= "AMERICAN"
+	_date_ansi 			= "ANSI"
+	_date_british_french		= "BRITISH/FRENCH"
+	_date_british 			= "BRITISH"
+	_date_french 			= "FRENCH"
+	_date_german 			= "GERMAN"
+	_date_italian			= "ITALIAN"
+	_date_japan			= "JAPAN"
+	_date_taiwan			= "TAIWAN"
+	_date_usa			= "USA"
+	_date_mdy			= "MDY"
+	_date_dmy			= "DMY"
+	_date_ymd			= "YMD"
+
 	_set_separator 		= _separator
+	_set_century		= _off
+	_set_century_to		= -1
+	_set_century_rollover	= 48
+	_set_date 		= _date_dmy
+	_set_dateformat		= _dateform_dmy
 	
 	
 	/*
@@ -239,6 +278,40 @@ class frFunctions
 	func frChr(tnExpression) {
 	 	return Char(tnExpression)
 	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frDate(tnYear, tnMonth, tnDay)
+	 * Description		: Returns the current system date, which is controlled by the operating system, or creates a date.
+	 * 			:
+	 * Arguments		: <tnYear>
+	 *			: Specifies de year to return by the function.
+	 *			:
+	 *			: <tnMonth>
+	 *			: Specifies de month to return by the function.
+	 *			:
+	 *			: <tnDay>
+	 *			: Specifies de day to return by the function.
+	 *			:
+	 *			: When we specify Null arguments the function returns the current system date.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns a date with the current specified date format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frDate(tnYear, tnMonth, tnDay) {
+	
+		if isnull(tnYear) or isnull(tnMonth) or isnull(tnDay) {
+			tnYear = timelist()[19]
+			tnMonth = timelist()[10]
+			tnDay = timelist()[6]
+		}
+	
+		return this._dateFormat(tnYear, tnMonth, tnDay)
+	}
+
+
 
 	/*
 	 * Syntax		: llReturnValue = frEmpty(tuExpression)
@@ -1030,6 +1103,83 @@ class frFunctions
     	}
 
 	
+	/*
+	 * Syntax		: lcReturnValue = frSetCentury(tcStatus)
+	 * Description		: Returns the current value of the century format and sets a new one when especified.
+	 * 			:
+	 * Arguments		: <tcStatus>
+	 *			: Specifies the century status. 
+	 *			:
+	 *			: "OFF" (Default) Shows the year with only two digits.
+	 *			:
+	 *			: "ON" Shows the year in a four-digits format.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns the current value of the century format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frSetCentury(tcStatus) {
+	
+		lcRet = this.frIIf(this._set_century = this._on, this._on, this._off)
+		laStatus = [this._on, this._off]
+		if not this.frEmpty(tcStatus) {
+			if this.frInList(upper(tcStatus), laStatus) {
+				this._set_century = upper(tcStatus)
+			}
+		}
+		return lcRet
+	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frSetDate(tcDateFormat)
+	 * Description		: Returns the current value of the date format and sets a new one when especified
+	 * 			:
+	 * Arguments		: <tcDateFormat>
+	 *			: Specifies the date format 
+	 *			: Here are the settings and the resulting date formats:
+	 *			:
+	 *			: 
+	 *			: 	Setting  			Format  
+	 *			: --------------------------------------------------
+	 *			: 	AMERICAN			mm/dd/yy
+ 	 *			: 	ANSI				yy.mm.dd
+ 	 *			: 	BRITISH/FRENCH			dd/mm/yy
+	 *			: 	BRITISH				dd/mm/yy
+	 *			: 	FRENCH				dd/mm/yy
+	 *			: 	GERMAN				dd.mm.yy
+	 *			: 	ITALIAN				dd-mm-yy
+	 *			: 	JAPAN				yy/mm/dd
+	 *			: 	TAIWAN				yy/mm/dd
+	 *			: 	USA				mm-dd-yy
+	 *			: 	MDY				mm/dd/yy
+	 *			: 	DMY				dd/mm/yy
+	 *			: 	YMD				yy/mm/dd
+	 *			: --------------------------------------------------
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns the current value of the date format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frSetDate(tcDateFormat) {
+
+		laFormats = [this._date_american, this._date_ansi, this._date_british_french, this._date_british, 
+					this._date_french, this._date_german, this._date_italian, this._date_japan, 
+					this._date_taiwan, this._date_usa, this._date_mdy, this._date_dmy, this._date_ymd]
+
+		lcRet = this._set_date
+		if not this.frEmpty(tcDateFormat) {
+			if this.frInList(upper(tcDateFormat), laFormats) {
+				this._set_date = upper(tcDateFormat)
+				this._set_dateformat = this._getDateFormat()
+			}
+		}
+		return lcRet
+	}
+
+	
 
 	/*
 	 * Syntax		: frSetSeparatorTo(tuExpression)
@@ -1353,3 +1503,102 @@ class frFunctions
 		}
 		
 		return lcRet
+
+	func _dateFormat(tnYear, tnMonth, tnDay) {
+	
+		lcFormat = "@L 99"
+		lcMonth = this.frTransform(tnMonth, lcFormat)
+		lcDay = this.frTransform(tnDay, lcFormat)
+
+		if tnYear > 99 {
+			lcYear = this.frTransform(tnYear, "@L 9999")
+		else	
+			lcYear = this.frTransform(tnYear, lcFormat)
+		}
+		
+		if this._set_century = this._off {
+			lcYear = right(lcYear, 2)
+		else
+			if len(lcYear) < 4 {
+				lcYear = left("" + TimeList()[19], 2) + lcYear
+			}
+		}
+	
+		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
+		if left(this._set_dateformat, 1) = "m" {
+			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
+		else
+			if left(this._set_dateformat, 1) = "y" {
+				lcRet = lcYear + lcDateSeparator + lcMonth + lcDateSeparator + lcDay
+			else
+				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
+			}
+		}
+
+		return lcRet
+	}
+	
+	
+
+	func _getDateFormat() {
+
+		lcRet = this._dateform_dmy
+		llOk = false
+
+		if not llOk and this._set_date = this._date_american {
+			llOk = true
+			lcRet = this._dateform_american
+		}
+		if not llOk and this._set_date = this._date_ansi {
+			llOk = true
+			lcRet = this._dateform_ansi
+		}
+		if not llOk and this._set_date = this._date_british_french {
+			llOk = true
+			lcRet = this._dateform_british_french
+		}
+		if not llOk and this._set_date = this._date_british {
+			llOk = true
+			lcRet = this._dateform_british
+		}
+		if not llOk and this._set_date = this._date_french {
+			llOk = true
+			lcRet = this._dateform_french
+		}
+		if not llOk and this._set_date = this._date_german {
+			llOk = true
+			lcRet = this._dateform_german
+		}
+		if not llOk and this._set_date = this._date_italian {
+			llOk = true
+			lcRet = this._dateform_italian
+		}
+		if not llOk and this._set_date = this._date_japan {
+			llOk = true
+			lcRet = this._dateform_japan
+		}
+		if not llOk and this._set_date = this._date_taiwan {
+			llOk = true
+			lcRet = this._dateform_taiwan
+		}
+		if not llOk and this._set_date = this._date_usa {
+			llOk = true
+			lcRet = this._dateform_usa
+		}
+		if not llOk and this._set_date = this._date_mdy {
+			llOk = true
+			lcRet = this._dateform_mdy
+		}
+		if not llOk and this._set_date = this._date_dmy {
+			llOk = true
+			lcRet = this._dateform_dmy
+		}
+		if not llOk and this._set_date = this._date_ymd {
+			llOk = true
+			lcRet = this._dateform_ymd
+		}
+
+		return lcRet
+
+	} 	
+
