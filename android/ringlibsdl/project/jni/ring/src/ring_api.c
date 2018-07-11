@@ -1124,7 +1124,7 @@ void ring_vmlib_hex ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		sprintf( cStr , "%x" , (int) RING_API_GETNUMBER(1) ) ;
+		sprintf( cStr , "%lx" , (unsigned long) RING_API_GETNUMBER(1) ) ;
 		RING_API_RETSTRING(cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1133,13 +1133,13 @@ void ring_vmlib_hex ( void *pPointer )
 
 void ring_vmlib_dec ( void *pPointer )
 {
-	unsigned int x  ;
+	unsigned long x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		sscanf(RING_API_GETSTRING(1),"%x",&x);
+		sscanf(RING_API_GETSTRING(1),"%lx",&x);
 		RING_API_RETNUMBER(x);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
