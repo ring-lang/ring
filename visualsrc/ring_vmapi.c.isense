@@ -230,7 +230,7 @@ ring_vmlib_isobject
 ring_vmlib_hex
 cStr
 ring_vmlib_dec
-Type: unsigned int
+Type: unsigned long
 x
 ring_vmlib_number
 Type: double
