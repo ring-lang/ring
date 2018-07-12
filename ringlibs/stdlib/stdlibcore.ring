@@ -739,7 +739,11 @@ Func IsMainSourceFile
 func Substring str,substr,n
        newstr=right(str,len(str)-n+1)
        nr = substr(newstr, substr)
-       return n + nr -1
+       if nr = 0
+          return 0
+       else
+          return n + nr -1
+       ok
        
 /*
 	Function Name	: Changestring
