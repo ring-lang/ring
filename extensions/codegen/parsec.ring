@@ -1145,7 +1145,8 @@ Func GenDeleteFuncForClasses aList
 		aList + mylist
 		cCode += "RING_FUNC(" + cFuncName + ")" + nl + 
 			"{" + nl +
-				C_TABS_1 + cCodeName + " *pObject ; " +nl +
+				C_TABS_1 + cCodeName + " *pObject ; " + nl +
+				C_TABS_1 + "RING_API_IGNORECPOINTERTYPE ;" + nl +
 				C_TABS_1 +"if ( RING_API_PARACOUNT != 1 )" + nl +
     				C_TABS_1 +"{" + nl +
         			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA);" + nl +
