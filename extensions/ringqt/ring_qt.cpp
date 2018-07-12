@@ -125602,6 +125602,7 @@ RING_FUNC(ring_QScrollBar_new)
 RING_FUNC(ring_QObject_delete)
 {
 	QObject *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125618,6 +125619,7 @@ RING_FUNC(ring_QObject_delete)
 RING_FUNC(ring_QWidget_delete)
 {
 	QWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125634,6 +125636,7 @@ RING_FUNC(ring_QWidget_delete)
 RING_FUNC(ring_QLabel_delete)
 {
 	QLabel *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125650,6 +125653,7 @@ RING_FUNC(ring_QLabel_delete)
 RING_FUNC(ring_QPushButton_delete)
 {
 	GPushButton *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125666,6 +125670,7 @@ RING_FUNC(ring_QPushButton_delete)
 RING_FUNC(ring_QBitmap_delete)
 {
 	QBitmap *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125682,6 +125687,7 @@ RING_FUNC(ring_QBitmap_delete)
 RING_FUNC(ring_QPixmap_delete)
 {
 	QPixmap *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125698,6 +125704,7 @@ RING_FUNC(ring_QPixmap_delete)
 RING_FUNC(ring_QPixmap2_delete)
 {
 	QPixmap *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125714,6 +125721,7 @@ RING_FUNC(ring_QPixmap2_delete)
 RING_FUNC(ring_QIcon_delete)
 {
 	QIcon *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125730,6 +125738,7 @@ RING_FUNC(ring_QIcon_delete)
 RING_FUNC(ring_QSize_delete)
 {
 	QSize *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125746,6 +125755,7 @@ RING_FUNC(ring_QSize_delete)
 RING_FUNC(ring_QLineEdit_delete)
 {
 	GLineEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125762,6 +125772,7 @@ RING_FUNC(ring_QLineEdit_delete)
 RING_FUNC(ring_QVBoxLayout_delete)
 {
 	QVBoxLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125778,6 +125789,7 @@ RING_FUNC(ring_QVBoxLayout_delete)
 RING_FUNC(ring_QHBoxLayout_delete)
 {
 	QHBoxLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125794,6 +125806,7 @@ RING_FUNC(ring_QHBoxLayout_delete)
 RING_FUNC(ring_QTextEdit_delete)
 {
 	GTextEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125810,6 +125823,7 @@ RING_FUNC(ring_QTextEdit_delete)
 RING_FUNC(ring_QListWidget_delete)
 {
 	GListWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125826,6 +125840,7 @@ RING_FUNC(ring_QListWidget_delete)
 RING_FUNC(ring_QTreeView_delete)
 {
 	GTreeView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125842,6 +125857,7 @@ RING_FUNC(ring_QTreeView_delete)
 RING_FUNC(ring_QDir_delete)
 {
 	QDir *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125858,6 +125874,7 @@ RING_FUNC(ring_QDir_delete)
 RING_FUNC(ring_QFileSystemModel_delete)
 {
 	QFileSystemModel *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125874,6 +125891,7 @@ RING_FUNC(ring_QFileSystemModel_delete)
 RING_FUNC(ring_QTreeWidget_delete)
 {
 	GTreeWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125890,6 +125908,7 @@ RING_FUNC(ring_QTreeWidget_delete)
 RING_FUNC(ring_QTreeWidgetItem_delete)
 {
 	QTreeWidgetItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125906,6 +125925,7 @@ RING_FUNC(ring_QTreeWidgetItem_delete)
 RING_FUNC(ring_QComboBox_delete)
 {
 	GComboBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125922,6 +125942,7 @@ RING_FUNC(ring_QComboBox_delete)
 RING_FUNC(ring_QMenuBar_delete)
 {
 	QMenuBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125938,6 +125959,7 @@ RING_FUNC(ring_QMenuBar_delete)
 RING_FUNC(ring_QMenu_delete)
 {
 	QMenu *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125954,6 +125976,7 @@ RING_FUNC(ring_QMenu_delete)
 RING_FUNC(ring_QToolBar_delete)
 {
 	QToolBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125970,6 +125993,7 @@ RING_FUNC(ring_QToolBar_delete)
 RING_FUNC(ring_QMainWindow_delete)
 {
 	QMainWindow *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -125986,6 +126010,7 @@ RING_FUNC(ring_QMainWindow_delete)
 RING_FUNC(ring_QStatusBar_delete)
 {
 	QStatusBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126002,6 +126027,7 @@ RING_FUNC(ring_QStatusBar_delete)
 RING_FUNC(ring_QDockWidget_delete)
 {
 	GDockWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126018,6 +126044,7 @@ RING_FUNC(ring_QDockWidget_delete)
 RING_FUNC(ring_QTabWidget_delete)
 {
 	GTabWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126034,6 +126061,7 @@ RING_FUNC(ring_QTabWidget_delete)
 RING_FUNC(ring_QTableWidgetItem_delete)
 {
 	QTableWidgetItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126050,6 +126078,7 @@ RING_FUNC(ring_QTableWidgetItem_delete)
 RING_FUNC(ring_QFrame_delete)
 {
 	QFrame *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126066,6 +126095,7 @@ RING_FUNC(ring_QFrame_delete)
 RING_FUNC(ring_QFrame2_delete)
 {
 	QFrame *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126082,6 +126112,7 @@ RING_FUNC(ring_QFrame2_delete)
 RING_FUNC(ring_QFrame3_delete)
 {
 	QFrame *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126098,6 +126129,7 @@ RING_FUNC(ring_QFrame3_delete)
 RING_FUNC(ring_QAbstractScrollArea_delete)
 {
 	QAbstractScrollArea *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126114,6 +126146,7 @@ RING_FUNC(ring_QAbstractScrollArea_delete)
 RING_FUNC(ring_QTableView_delete)
 {
 	QTableView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126130,6 +126163,7 @@ RING_FUNC(ring_QTableView_delete)
 RING_FUNC(ring_QTableWidget_delete)
 {
 	GTableWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126146,6 +126180,7 @@ RING_FUNC(ring_QTableWidget_delete)
 RING_FUNC(ring_QProgressBar_delete)
 {
 	GProgressBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126162,6 +126197,7 @@ RING_FUNC(ring_QProgressBar_delete)
 RING_FUNC(ring_QSpinBox_delete)
 {
 	GSpinBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126178,6 +126214,7 @@ RING_FUNC(ring_QSpinBox_delete)
 RING_FUNC(ring_QAbstractSlider_delete)
 {
 	QAbstractSlider *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126194,6 +126231,7 @@ RING_FUNC(ring_QAbstractSlider_delete)
 RING_FUNC(ring_QSlider_delete)
 {
 	GSlider *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126210,6 +126248,7 @@ RING_FUNC(ring_QSlider_delete)
 RING_FUNC(ring_QDateEdit_delete)
 {
 	QDateEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126226,6 +126265,7 @@ RING_FUNC(ring_QDateEdit_delete)
 RING_FUNC(ring_QDateTimeEdit_delete)
 {
 	QDateTimeEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126242,6 +126282,7 @@ RING_FUNC(ring_QDateTimeEdit_delete)
 RING_FUNC(ring_QAbstractSpinBox_delete)
 {
 	QAbstractSpinBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126258,6 +126299,7 @@ RING_FUNC(ring_QAbstractSpinBox_delete)
 RING_FUNC(ring_QDial_delete)
 {
 	GDial *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126274,6 +126316,7 @@ RING_FUNC(ring_QDial_delete)
 RING_FUNC(ring_QWebView_delete)
 {
 	GWebView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126290,6 +126333,7 @@ RING_FUNC(ring_QWebView_delete)
 RING_FUNC(ring_QUrl_delete)
 {
 	QUrl *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126306,6 +126350,7 @@ RING_FUNC(ring_QUrl_delete)
 RING_FUNC(ring_QCheckBox_delete)
 {
 	GCheckBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126322,6 +126367,7 @@ RING_FUNC(ring_QCheckBox_delete)
 RING_FUNC(ring_QRadioButton_delete)
 {
 	GRadioButton *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126338,6 +126384,7 @@ RING_FUNC(ring_QRadioButton_delete)
 RING_FUNC(ring_QButtonGroup_delete)
 {
 	GButtonGroup *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126354,6 +126401,7 @@ RING_FUNC(ring_QButtonGroup_delete)
 RING_FUNC(ring_QMediaPlayer_delete)
 {
 	QMediaPlayer *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126370,6 +126418,7 @@ RING_FUNC(ring_QMediaPlayer_delete)
 RING_FUNC(ring_QMediaPlaylist_delete)
 {
 	QMediaPlaylist *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126386,6 +126435,7 @@ RING_FUNC(ring_QMediaPlaylist_delete)
 RING_FUNC(ring_QVideoWidget_delete)
 {
 	GVideoWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126402,6 +126452,7 @@ RING_FUNC(ring_QVideoWidget_delete)
 RING_FUNC(ring_QAction_delete)
 {
 	GAction *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126418,6 +126469,7 @@ RING_FUNC(ring_QAction_delete)
 RING_FUNC(ring_QEvent_delete)
 {
 	QEvent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126434,6 +126486,7 @@ RING_FUNC(ring_QEvent_delete)
 RING_FUNC(ring_QMessageBox_delete)
 {
 	QMessageBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126450,6 +126503,7 @@ RING_FUNC(ring_QMessageBox_delete)
 RING_FUNC(ring_QTimer_delete)
 {
 	GTimer *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126466,6 +126520,7 @@ RING_FUNC(ring_QTimer_delete)
 RING_FUNC(ring_QFileDialog_delete)
 {
 	QFileDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126482,6 +126537,7 @@ RING_FUNC(ring_QFileDialog_delete)
 RING_FUNC(ring_QPainter_delete)
 {
 	QPainter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126498,6 +126554,7 @@ RING_FUNC(ring_QPainter_delete)
 RING_FUNC(ring_QPainter2_delete)
 {
 	QPainter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126514,6 +126571,7 @@ RING_FUNC(ring_QPainter2_delete)
 RING_FUNC(ring_QPicture_delete)
 {
 	QPicture *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126530,6 +126588,7 @@ RING_FUNC(ring_QPicture_delete)
 RING_FUNC(ring_QPen_delete)
 {
 	QPen *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126546,6 +126605,7 @@ RING_FUNC(ring_QPen_delete)
 RING_FUNC(ring_QColor_delete)
 {
 	QColor *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126562,6 +126622,7 @@ RING_FUNC(ring_QColor_delete)
 RING_FUNC(ring_QPrinter_delete)
 {
 	QPrinter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126578,6 +126639,7 @@ RING_FUNC(ring_QPrinter_delete)
 RING_FUNC(ring_QFont_delete)
 {
 	QFont *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126594,6 +126656,7 @@ RING_FUNC(ring_QFont_delete)
 RING_FUNC(ring_QBrush_delete)
 {
 	QBrush *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126610,6 +126673,7 @@ RING_FUNC(ring_QBrush_delete)
 RING_FUNC(ring_QByteArray_delete)
 {
 	QByteArray *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126626,6 +126690,7 @@ RING_FUNC(ring_QByteArray_delete)
 RING_FUNC(ring_QNetworkProxy_delete)
 {
 	QNetworkProxy *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126642,6 +126707,7 @@ RING_FUNC(ring_QNetworkProxy_delete)
 RING_FUNC(ring_QTcpSocket_delete)
 {
 	GTcpSocket *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126658,6 +126724,7 @@ RING_FUNC(ring_QTcpSocket_delete)
 RING_FUNC(ring_QTcpServer_delete)
 {
 	GTcpServer *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126674,6 +126741,7 @@ RING_FUNC(ring_QTcpServer_delete)
 RING_FUNC(ring_QHostAddress_delete)
 {
 	QHostAddress *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126690,6 +126758,7 @@ RING_FUNC(ring_QHostAddress_delete)
 RING_FUNC(ring_QHostInfo_delete)
 {
 	QHostInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126706,6 +126775,7 @@ RING_FUNC(ring_QHostInfo_delete)
 RING_FUNC(ring_QFileInfo_delete)
 {
 	QFileInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126722,6 +126792,7 @@ RING_FUNC(ring_QFileInfo_delete)
 RING_FUNC(ring_QDirModel_delete)
 {
 	QDirModel *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126738,6 +126809,7 @@ RING_FUNC(ring_QDirModel_delete)
 RING_FUNC(ring_QFontDialog_delete)
 {
 	QFontDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126754,6 +126826,7 @@ RING_FUNC(ring_QFontDialog_delete)
 RING_FUNC(ring_QDialog_delete)
 {
 	QDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126770,6 +126843,7 @@ RING_FUNC(ring_QDialog_delete)
 RING_FUNC(ring_QTextCursor_delete)
 {
 	QTextCursor *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126786,6 +126860,7 @@ RING_FUNC(ring_QTextCursor_delete)
 RING_FUNC(ring_QColorDialog_delete)
 {
 	QColorDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126802,6 +126877,7 @@ RING_FUNC(ring_QColorDialog_delete)
 RING_FUNC(ring_QStringList_delete)
 {
 	QStringList *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126818,6 +126894,7 @@ RING_FUNC(ring_QStringList_delete)
 RING_FUNC(ring_QKeySequence_delete)
 {
 	QKeySequence *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126834,6 +126911,7 @@ RING_FUNC(ring_QKeySequence_delete)
 RING_FUNC(ring_QLCDNumber_delete)
 {
 	QLCDNumber *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126850,6 +126928,7 @@ RING_FUNC(ring_QLCDNumber_delete)
 RING_FUNC(ring_QInputDialog_delete)
 {
 	QInputDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126866,6 +126945,7 @@ RING_FUNC(ring_QInputDialog_delete)
 RING_FUNC(ring_QAllEvents_delete)
 {
 	GAllEvents *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126882,6 +126962,7 @@ RING_FUNC(ring_QAllEvents_delete)
 RING_FUNC(ring_QDesktopWidget_delete)
 {
 	QDesktopWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126898,6 +126979,7 @@ RING_FUNC(ring_QDesktopWidget_delete)
 RING_FUNC(ring_QRect_delete)
 {
 	QRect *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126914,6 +126996,7 @@ RING_FUNC(ring_QRect_delete)
 RING_FUNC(ring_QTextDocument_delete)
 {
 	QTextDocument *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126930,6 +127013,7 @@ RING_FUNC(ring_QTextDocument_delete)
 RING_FUNC(ring_QTextBlock_delete)
 {
 	QTextBlock *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126946,6 +127030,7 @@ RING_FUNC(ring_QTextBlock_delete)
 RING_FUNC(ring_QTime_delete)
 {
 	QTime *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126962,6 +127047,7 @@ RING_FUNC(ring_QTime_delete)
 RING_FUNC(ring_QListWidgetItem_delete)
 {
 	QListWidgetItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126978,6 +127064,7 @@ RING_FUNC(ring_QListWidgetItem_delete)
 RING_FUNC(ring_QSystemTrayIcon_delete)
 {
 	QSystemTrayIcon *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -126994,6 +127081,7 @@ RING_FUNC(ring_QSystemTrayIcon_delete)
 RING_FUNC(ring_QDate_delete)
 {
 	QDate *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127010,6 +127098,7 @@ RING_FUNC(ring_QDate_delete)
 RING_FUNC(ring_QSqlDatabase_delete)
 {
 	QSqlDatabase *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127026,6 +127115,7 @@ RING_FUNC(ring_QSqlDatabase_delete)
 RING_FUNC(ring_QSqlQuery_delete)
 {
 	QSqlQuery *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127042,6 +127132,7 @@ RING_FUNC(ring_QSqlQuery_delete)
 RING_FUNC(ring_QSqlError_delete)
 {
 	QSqlError *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127058,6 +127149,7 @@ RING_FUNC(ring_QSqlError_delete)
 RING_FUNC(ring_QSqlIndex_delete)
 {
 	QSqlIndex *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127074,6 +127166,7 @@ RING_FUNC(ring_QSqlIndex_delete)
 RING_FUNC(ring_QSqlRecord_delete)
 {
 	QSqlRecord *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127090,6 +127183,7 @@ RING_FUNC(ring_QSqlRecord_delete)
 RING_FUNC(ring_QSqlField_delete)
 {
 	QSqlField *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127106,6 +127200,7 @@ RING_FUNC(ring_QSqlField_delete)
 RING_FUNC(ring_QVariant_delete)
 {
 	QVariant *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127122,6 +127217,7 @@ RING_FUNC(ring_QVariant_delete)
 RING_FUNC(ring_QNetworkRequest_delete)
 {
 	QNetworkRequest *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127138,6 +127234,7 @@ RING_FUNC(ring_QNetworkRequest_delete)
 RING_FUNC(ring_QNetworkAccessManager_delete)
 {
 	GNetworkAccessManager *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127154,6 +127251,7 @@ RING_FUNC(ring_QNetworkAccessManager_delete)
 RING_FUNC(ring_QPainterPath_delete)
 {
 	QPainterPath *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127170,6 +127268,7 @@ RING_FUNC(ring_QPainterPath_delete)
 RING_FUNC(ring_QImage_delete)
 {
 	QImage *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127186,6 +127285,7 @@ RING_FUNC(ring_QImage_delete)
 RING_FUNC(ring_RingCodeHighlighter_delete)
 {
 	Highlighter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127202,6 +127302,7 @@ RING_FUNC(ring_RingCodeHighlighter_delete)
 RING_FUNC(ring_QXmlStreamReader_delete)
 {
 	QXmlStreamReader *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127218,6 +127319,7 @@ RING_FUNC(ring_QXmlStreamReader_delete)
 RING_FUNC(ring_QXmlStreamWriter_delete)
 {
 	QXmlStreamWriter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127234,6 +127336,7 @@ RING_FUNC(ring_QXmlStreamWriter_delete)
 RING_FUNC(ring_QXmlStreamNotationDeclaration_delete)
 {
 	QXmlStreamNotationDeclaration *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127250,6 +127353,7 @@ RING_FUNC(ring_QXmlStreamNotationDeclaration_delete)
 RING_FUNC(ring_QXmlStreamNamespaceDeclaration_delete)
 {
 	QXmlStreamNamespaceDeclaration *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127266,6 +127370,7 @@ RING_FUNC(ring_QXmlStreamNamespaceDeclaration_delete)
 RING_FUNC(ring_QXmlStreamEntityResolver_delete)
 {
 	QXmlStreamEntityResolver *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127282,6 +127387,7 @@ RING_FUNC(ring_QXmlStreamEntityResolver_delete)
 RING_FUNC(ring_QXmlStreamEntityDeclaration_delete)
 {
 	QXmlStreamEntityDeclaration *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127298,6 +127404,7 @@ RING_FUNC(ring_QXmlStreamEntityDeclaration_delete)
 RING_FUNC(ring_QXmlStreamAttributes_delete)
 {
 	QXmlStreamAttributes *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127314,6 +127421,7 @@ RING_FUNC(ring_QXmlStreamAttributes_delete)
 RING_FUNC(ring_QXmlStreamAttribute_delete)
 {
 	QXmlStreamAttribute *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127330,6 +127438,7 @@ RING_FUNC(ring_QXmlStreamAttribute_delete)
 RING_FUNC(ring_QThread_delete)
 {
 	GThread *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127346,6 +127455,7 @@ RING_FUNC(ring_QThread_delete)
 RING_FUNC(ring_QThreadPool_delete)
 {
 	QThreadPool *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127362,6 +127472,7 @@ RING_FUNC(ring_QThreadPool_delete)
 RING_FUNC(ring_QRegularExpression_delete)
 {
 	QRegularExpression *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127378,6 +127489,7 @@ RING_FUNC(ring_QRegularExpression_delete)
 RING_FUNC(ring_QRegularExpressionMatch_delete)
 {
 	QRegularExpressionMatch *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127394,6 +127506,7 @@ RING_FUNC(ring_QRegularExpressionMatch_delete)
 RING_FUNC(ring_QRegularExpressionMatchIterator_delete)
 {
 	QRegularExpressionMatchIterator *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127410,6 +127523,7 @@ RING_FUNC(ring_QRegularExpressionMatchIterator_delete)
 RING_FUNC(ring_QJsonArray_delete)
 {
 	QJsonArray *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127426,6 +127540,7 @@ RING_FUNC(ring_QJsonArray_delete)
 RING_FUNC(ring_QJsonDocument_delete)
 {
 	QJsonDocument *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127442,6 +127557,7 @@ RING_FUNC(ring_QJsonDocument_delete)
 RING_FUNC(ring_QJsonObject_delete)
 {
 	QJsonObject *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127458,6 +127574,7 @@ RING_FUNC(ring_QJsonObject_delete)
 RING_FUNC(ring_QJsonParseError_delete)
 {
 	QJsonParseError *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127474,6 +127591,7 @@ RING_FUNC(ring_QJsonParseError_delete)
 RING_FUNC(ring_QJsonValue_delete)
 {
 	QJsonValue *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127490,6 +127608,7 @@ RING_FUNC(ring_QJsonValue_delete)
 RING_FUNC(ring_QPlainTextEdit_delete)
 {
 	GPlainTextEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127506,6 +127625,7 @@ RING_FUNC(ring_QPlainTextEdit_delete)
 RING_FUNC(ring_CodeEditor_delete)
 {
 	CodeEditor *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127522,6 +127642,7 @@ RING_FUNC(ring_CodeEditor_delete)
 RING_FUNC(ring_QGridLayout_delete)
 {
 	QGridLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127538,6 +127659,7 @@ RING_FUNC(ring_QGridLayout_delete)
 RING_FUNC(ring_QTextCharFormat_delete)
 {
 	QTextCharFormat *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127554,6 +127676,7 @@ RING_FUNC(ring_QTextCharFormat_delete)
 RING_FUNC(ring_QCameraViewfinder_delete)
 {
 	QCameraViewfinder *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127570,6 +127693,7 @@ RING_FUNC(ring_QCameraViewfinder_delete)
 RING_FUNC(ring_QGraphicsVideoItem_delete)
 {
 	QGraphicsVideoItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127586,6 +127710,7 @@ RING_FUNC(ring_QGraphicsVideoItem_delete)
 RING_FUNC(ring_QCamera_delete)
 {
 	QCamera *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127602,6 +127727,7 @@ RING_FUNC(ring_QCamera_delete)
 RING_FUNC(ring_QCameraImageCapture_delete)
 {
 	QCameraImageCapture *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127618,6 +127744,7 @@ RING_FUNC(ring_QCameraImageCapture_delete)
 RING_FUNC(ring_QHeaderView_delete)
 {
 	GHeaderView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127634,6 +127761,7 @@ RING_FUNC(ring_QHeaderView_delete)
 RING_FUNC(ring_QFontMetrics_delete)
 {
 	QFontMetrics *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127650,6 +127778,7 @@ RING_FUNC(ring_QFontMetrics_delete)
 RING_FUNC(ring_QSplashScreen_delete)
 {
 	QSplashScreen *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127666,6 +127795,7 @@ RING_FUNC(ring_QSplashScreen_delete)
 RING_FUNC(ring_QBoxLayout_delete)
 {
 	QBoxLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127682,6 +127812,7 @@ RING_FUNC(ring_QBoxLayout_delete)
 RING_FUNC(ring_QLinearGradient_delete)
 {
 	QLinearGradient *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127698,6 +127829,7 @@ RING_FUNC(ring_QLinearGradient_delete)
 RING_FUNC(ring_QPointF_delete)
 {
 	QPointF *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127714,6 +127846,7 @@ RING_FUNC(ring_QPointF_delete)
 RING_FUNC(ring_QPoint_delete)
 {
 	QPoint *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127730,6 +127863,7 @@ RING_FUNC(ring_QPoint_delete)
 RING_FUNC(ring_QScrollArea_delete)
 {
 	QScrollArea *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127746,6 +127880,7 @@ RING_FUNC(ring_QScrollArea_delete)
 RING_FUNC(ring_QSplitter_delete)
 {
 	QSplitter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127762,6 +127897,7 @@ RING_FUNC(ring_QSplitter_delete)
 RING_FUNC(ring_QCompleter_delete)
 {
 	QCompleter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127778,6 +127914,7 @@ RING_FUNC(ring_QCompleter_delete)
 RING_FUNC(ring_QCompleter2_delete)
 {
 	QCompleter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127794,6 +127931,7 @@ RING_FUNC(ring_QCompleter2_delete)
 RING_FUNC(ring_QCompleter3_delete)
 {
 	QCompleter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127810,6 +127948,7 @@ RING_FUNC(ring_QCompleter3_delete)
 RING_FUNC(ring_QString2_delete)
 {
 	QString *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127826,6 +127965,7 @@ RING_FUNC(ring_QString2_delete)
 RING_FUNC(ring_QProcess_delete)
 {
 	GProcess *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127842,6 +127982,7 @@ RING_FUNC(ring_QProcess_delete)
 RING_FUNC(ring_QMdiArea_delete)
 {
 	QMdiArea *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127858,6 +127999,7 @@ RING_FUNC(ring_QMdiArea_delete)
 RING_FUNC(ring_QMdiSubWindow_delete)
 {
 	QMdiSubWindow *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127874,6 +128016,7 @@ RING_FUNC(ring_QMdiSubWindow_delete)
 RING_FUNC(ring_QCursor_delete)
 {
 	QCursor *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127890,6 +128033,7 @@ RING_FUNC(ring_QCursor_delete)
 RING_FUNC(ring_QListView_delete)
 {
 	QListView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127906,6 +128050,7 @@ RING_FUNC(ring_QListView_delete)
 RING_FUNC(ring_QAxObject_delete)
 {
 	QAxObject *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127922,6 +128067,7 @@ RING_FUNC(ring_QAxObject_delete)
 RING_FUNC(ring_QUuid_delete)
 {
 	QUuid *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127938,6 +128084,7 @@ RING_FUNC(ring_QUuid_delete)
 RING_FUNC(ring_QToolButton_delete)
 {
 	GToolButton *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127954,6 +128101,7 @@ RING_FUNC(ring_QToolButton_delete)
 RING_FUNC(ring_QSerialPort_delete)
 {
 	GSerialPort *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127970,6 +128118,7 @@ RING_FUNC(ring_QSerialPort_delete)
 RING_FUNC(ring_QSerialPortInfo_delete)
 {
 	QSerialPortInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127986,6 +128135,7 @@ RING_FUNC(ring_QSerialPortInfo_delete)
 RING_FUNC(ring_QStringRef_delete)
 {
 	QStringRef *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128002,6 +128152,7 @@ RING_FUNC(ring_QStringRef_delete)
 RING_FUNC(ring_QMutex_delete)
 {
 	QMutex *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128018,6 +128169,7 @@ RING_FUNC(ring_QMutex_delete)
 RING_FUNC(ring_QMutexLocker_delete)
 {
 	QMutexLocker *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128034,6 +128186,7 @@ RING_FUNC(ring_QMutexLocker_delete)
 RING_FUNC(ring_QBuffer_delete)
 {
 	QBuffer *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128050,6 +128203,7 @@ RING_FUNC(ring_QBuffer_delete)
 RING_FUNC(ring_QBluetoothAddress_delete)
 {
 	QBluetoothAddress *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128066,6 +128220,7 @@ RING_FUNC(ring_QBluetoothAddress_delete)
 RING_FUNC(ring_QBluetoothDeviceDiscoveryAgent_delete)
 {
 	GBluetoothDeviceDiscoveryAgent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128082,6 +128237,7 @@ RING_FUNC(ring_QBluetoothDeviceDiscoveryAgent_delete)
 RING_FUNC(ring_QBluetoothDeviceInfo_delete)
 {
 	QBluetoothDeviceInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128098,6 +128254,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_delete)
 RING_FUNC(ring_QBluetoothHostInfo_delete)
 {
 	QBluetoothHostInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128114,6 +128271,7 @@ RING_FUNC(ring_QBluetoothHostInfo_delete)
 RING_FUNC(ring_QBluetoothLocalDevice_delete)
 {
 	GBluetoothLocalDevice *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128130,6 +128288,7 @@ RING_FUNC(ring_QBluetoothLocalDevice_delete)
 RING_FUNC(ring_QDateTime_delete)
 {
 	QDateTime *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128146,6 +128305,7 @@ RING_FUNC(ring_QDateTime_delete)
 RING_FUNC(ring_QWindow_delete)
 {
 	GWindow *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128162,6 +128322,7 @@ RING_FUNC(ring_QWindow_delete)
 RING_FUNC(ring_QGuiApplication_delete)
 {
 	GGuiApplication *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128178,6 +128339,7 @@ RING_FUNC(ring_QGuiApplication_delete)
 RING_FUNC(ring_QTextBrowser_delete)
 {
 	GTextBrowser *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128194,6 +128356,7 @@ RING_FUNC(ring_QTextBrowser_delete)
 RING_FUNC(ring_QRegion_delete)
 {
 	QRegion *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128210,6 +128373,7 @@ RING_FUNC(ring_QRegion_delete)
 RING_FUNC(ring_QStackedWidget_delete)
 {
 	GStackedWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128226,6 +128390,7 @@ RING_FUNC(ring_QStackedWidget_delete)
 RING_FUNC(ring_QCalendarWidget_delete)
 {
 	GCalendarWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128242,6 +128407,7 @@ RING_FUNC(ring_QCalendarWidget_delete)
 RING_FUNC(ring_QOpenGLFunctions_delete)
 {
 	QOpenGLFunctions *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128258,6 +128424,7 @@ RING_FUNC(ring_QOpenGLFunctions_delete)
 RING_FUNC(ring_QOpenGLContext_delete)
 {
 	QOpenGLContext *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128274,6 +128441,7 @@ RING_FUNC(ring_QOpenGLContext_delete)
 RING_FUNC(ring_QOpenGLFunctions_3_2_Core_delete)
 {
 	QOpenGLFunctions_3_2_Core *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128290,6 +128458,7 @@ RING_FUNC(ring_QOpenGLFunctions_3_2_Core_delete)
 RING_FUNC(ring_QSurfaceFormat_delete)
 {
 	QSurfaceFormat *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128306,6 +128475,7 @@ RING_FUNC(ring_QSurfaceFormat_delete)
 RING_FUNC(ring_QOpenGLWidget_delete)
 {
 	OpenGLWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128322,6 +128492,7 @@ RING_FUNC(ring_QOpenGLWidget_delete)
 RING_FUNC(ring_QOpenGLVersionProfile_delete)
 {
 	QOpenGLVersionProfile *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128338,6 +128509,7 @@ RING_FUNC(ring_QOpenGLVersionProfile_delete)
 RING_FUNC(ring_QVector2D_delete)
 {
 	QVector2D *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128354,6 +128526,7 @@ RING_FUNC(ring_QVector2D_delete)
 RING_FUNC(ring_QVector3D_delete)
 {
 	QVector3D *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128370,6 +128543,7 @@ RING_FUNC(ring_QVector3D_delete)
 RING_FUNC(ring_QVector4D_delete)
 {
 	QVector4D *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128386,6 +128560,7 @@ RING_FUNC(ring_QVector4D_delete)
 RING_FUNC(ring_QQuaternion_delete)
 {
 	QQuaternion *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128402,6 +128577,7 @@ RING_FUNC(ring_QQuaternion_delete)
 RING_FUNC(ring_QMatrix4x4_delete)
 {
 	QMatrix4x4 *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128418,6 +128594,7 @@ RING_FUNC(ring_QMatrix4x4_delete)
 RING_FUNC(ring_QOpenGLPaintDevice_delete)
 {
 	QOpenGLPaintDevice *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128434,6 +128611,7 @@ RING_FUNC(ring_QOpenGLPaintDevice_delete)
 RING_FUNC(ring_QOpenGLTimerQuery_delete)
 {
 	QOpenGLTimerQuery *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128450,6 +128628,7 @@ RING_FUNC(ring_QOpenGLTimerQuery_delete)
 RING_FUNC(ring_QOpenGLDebugLogger_delete)
 {
 	QOpenGLDebugLogger *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128466,6 +128645,7 @@ RING_FUNC(ring_QOpenGLDebugLogger_delete)
 RING_FUNC(ring_QOpenGLFramebufferObject_delete)
 {
 	QOpenGLFramebufferObject *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128482,6 +128662,7 @@ RING_FUNC(ring_QOpenGLFramebufferObject_delete)
 RING_FUNC(ring_QOpenGLVertexArrayObject_delete)
 {
 	QOpenGLVertexArrayObject *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128498,6 +128679,7 @@ RING_FUNC(ring_QOpenGLVertexArrayObject_delete)
 RING_FUNC(ring_QOpenGLBuffer_delete)
 {
 	QOpenGLBuffer *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128514,6 +128696,7 @@ RING_FUNC(ring_QOpenGLBuffer_delete)
 RING_FUNC(ring_QOpenGLShaderProgram_delete)
 {
 	QOpenGLShaderProgram *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128530,6 +128713,7 @@ RING_FUNC(ring_QOpenGLShaderProgram_delete)
 RING_FUNC(ring_QOpenGLShader_delete)
 {
 	QOpenGLShader *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128546,6 +128730,7 @@ RING_FUNC(ring_QOpenGLShader_delete)
 RING_FUNC(ring_QOpenGLTexture_delete)
 {
 	QOpenGLTexture *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128562,6 +128747,7 @@ RING_FUNC(ring_QOpenGLTexture_delete)
 RING_FUNC(ring_QTabBar_delete)
 {
 	GTabBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128578,6 +128764,7 @@ RING_FUNC(ring_QTabBar_delete)
 RING_FUNC(ring_QFile_delete)
 {
 	QFile *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128594,6 +128781,7 @@ RING_FUNC(ring_QFile_delete)
 RING_FUNC(ring_QQuickWidget_delete)
 {
 	GQuickWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128610,6 +128798,7 @@ RING_FUNC(ring_QQuickWidget_delete)
 RING_FUNC(ring_QQmlError_delete)
 {
 	QQmlError *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -128626,6 +128815,7 @@ RING_FUNC(ring_QQmlError_delete)
 RING_FUNC(ring_QScrollBar_delete)
 {
 	QScrollBar *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
