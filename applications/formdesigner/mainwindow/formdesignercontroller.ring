@@ -710,8 +710,10 @@ class FormDesignerController from WindowsControllerParent
 					oModel.ActiveObject().oCorners.Show()
 					# Keep the old current object in selection 
 						oModel.AddSelectedObject(nOldCurrentIndex)
-						# Draw old current object corners 					
-							oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
+						# Draw old current object corners 
+							if classname(oModel.GetObjectByIndex(nOldCurrentIndex)) != "formdesigner_qwidget" {
+								oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
+							}
 					oModel.AddSelectedObject(nObjectIndex)
 					ShowPropertiesWidget()
 					return
@@ -727,7 +729,9 @@ class FormDesignerController from WindowsControllerParent
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			if oModel.IsManySelected() {
-				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self)
+				if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+					oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self)
+				}
 				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
@@ -739,7 +743,9 @@ class FormDesignerController from WindowsControllerParent
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			if oModel.IsManySelected() {
-				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self)
+				if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+					oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self)
+				}
 				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {

@@ -131,7 +131,9 @@ Class FormDesignerModel
 		aManySelectedObjects = []
 
 	func AddSelectedObject nIndex
-		aManySelectedObjects + aObjectsList[nIndex]
+		if nIndex != 1 {
+			aManySelectedObjects + aObjectsList[nIndex]
+		}
 
 	func GetSelectedObjects
 		return aManySelectedObjects
