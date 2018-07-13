@@ -670,7 +670,6 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreatePropertiesWidget
 		oProperties = new qWidget() {
-			setAttribute(Qt_WA_DeleteOnClose,True)
 			setLayoutDirection(T_LAYOUTDIRECTION)
 			oLabelObject = new qLabel(this.oProperties) {
 				setText(T_FROMDESIGNER_PROPERTIES_OBJECT) # "Object"
@@ -728,7 +727,6 @@ Class FormDesignerView from WindowsViewParent
 			setLayout(oLayout2)
 		}
 		oProperties2Widget = new qWidget() {
-			setAttribute(Qt_WA_DeleteOnClose,True)
 			setLayoutDirection(T_LAYOUTDIRECTION)
 			oBtn1 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS1) # "Align - Left Sides"
