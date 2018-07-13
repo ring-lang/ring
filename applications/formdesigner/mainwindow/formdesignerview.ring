@@ -896,7 +896,7 @@ Class FormDesignerView from WindowsViewParent
 			item.setFlags(False)	# Can't Edit the Item
 			oPropertiesTable.setItem(nRow,2,item)
 		else
-			oBtn = new qPushButton(NULL) {
+			oBtn = new qPushButton(oPropertiesTable) {
 				setText("::")
 				if isMobile() {
 					setfixedwidth(110)
@@ -918,7 +918,7 @@ Class FormDesignerView from WindowsViewParent
 			item.setFlags(False)	# Can't Edit the Item
 			oPropertiesTable.setItem(nRow,0,item)
 		# Combobox
-			oCombo = new qCombobox(NULL) {
+			oCombo = new qCombobox(oPropertiesTable) {
 				for cValue in aList { AddItem(cValue,0) }
 				setCurrentIndexchangedevent(this.Method(:ComboItemAction+"("+nRow+")"))
 			}
