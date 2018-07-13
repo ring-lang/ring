@@ -37,6 +37,7 @@ Class FormDesignerGeneral
 	func SelectColor
 		oColor = new qColorDialog()
 		aColor = oColor.GetColor()
+		oColor.delete()
 		r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
 		if len(r) < 2 { r = "0" + r }
 		if len(g) < 2 { g = "0" + g }
@@ -49,14 +50,16 @@ Class FormDesignerGeneral
 		oFontDialog = new qfontdialog() {
 			aFont = getfont()
 		}
+		oFontDialog.delete()
 		if aFont[1] != NULL {
 			cFont = aFont[1]
 		}
 		return cFont
 
 	func SelectFile oDesigner
-		new qfiledialog(oDesigner.oView.win) {
+		oFileDialog = new qfiledialog(oDesigner.oView.win) {
 			cInputFileName = getopenfilename(oDesigner.oView.win,"Open File",currentdir(),"*.*")
 		}
+		oFileDialog.delete()
 		return cInputFileName
 

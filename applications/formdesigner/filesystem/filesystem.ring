@@ -30,9 +30,10 @@ class FormDesignerFileSystem
 	func NewAction oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",cDir,"*.rform")
 			}
+			oFileDialog.delete()
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
@@ -105,9 +106,10 @@ class FormDesignerFileSystem
 	func OpenAction oDesigner
 		# Get the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",cDir,"*.rform")
 			}
+			oFileDialog.close()
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
 			LoadFormFromFile(oDesigner)
@@ -135,9 +137,10 @@ class FormDesignerFileSystem
 	func SaveFile oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",cDir,"*.rform")
 			}
+			oFileDialog.delete()
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
