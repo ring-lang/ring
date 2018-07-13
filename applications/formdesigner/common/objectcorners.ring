@@ -99,3 +99,9 @@ class ObjectCorners
 		oCorner2.close()
 		oCorner3.close()
 		oCorner4.close()
+
+	func delete 
+		oCorner1.delete()
+		oCorner2.delete()
+		oCorner3.delete()
+		oCorner4.delete()
