@@ -24,6 +24,11 @@ class FormDesigner_QWidget from QWidget
 		nClockValue = 0
 		nClocksCount = clockspersecond() / 4
 
+	func init
+		super.init()
+		setAttribute(Qt_WA_DeleteOnClose,True)
+		return self
+
 	func IndexTypeValue
 		return nIndexType
 

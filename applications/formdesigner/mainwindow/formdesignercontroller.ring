@@ -686,7 +686,9 @@ class FormDesignerController from WindowsControllerParent
 						oModel.RemoveSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Hide()
 					else
-						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
+						if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+							oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
+						}
 					}
 					ShowPropertiesWidget()
 					return
