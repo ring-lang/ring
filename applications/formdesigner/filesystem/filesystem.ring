@@ -92,6 +92,8 @@ class FormDesignerFileSystem
 		 		setBackColor("")
 				setWindowTitle("Form 1")
 			}
+		# Properties
+			oDesigner.ObjectProperties()
 		# Tell the Parent (Ring Notepad for example)
 			if oDesigner.isParent() {
 				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
