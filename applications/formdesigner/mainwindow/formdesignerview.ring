@@ -665,6 +665,10 @@ Class FormDesignerView from WindowsViewParent
 		return copy(" ",nSpaces)+cText+Copy(" ",nSpaces)
 
 	func CreateProperties
+		CreatePropertiesWidget()
+		CreatePropertiesDock()
+
+	func CreatePropertiesWidget
 		oProperties = new qWidget() {
 			setAttribute(Qt_WA_DeleteOnClose,True)
 			setLayoutDirection(T_LAYOUTDIRECTION)
@@ -867,6 +871,9 @@ Class FormDesignerView from WindowsViewParent
 			}
 			setLayout(oLayout)
 		}
+
+
+	func CreatePropertiesDock
 		oProperties2 = new qScrollArea(null) {
 			setWidget(this.oProperties2Widget)
 			setwidgetresizable(True)
@@ -881,6 +888,13 @@ Class FormDesignerView from WindowsViewParent
 		else 
 			win.Adddockwidget(2,oPropertiesDock,2)
 		}
+
+	func RefreshProperties 
+		oProperties.close()
+		oProperties2Widget.close()
+		CreatePropertiesWidget()
+		oProperties2.setWidget(this.oProperties2Widget)
+		oPropertiesDock.setWidget(this.oProperties)
 
 	func AddProperty cItem,lButton
 		oPropertiesTable.blocksignals(True)
