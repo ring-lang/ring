@@ -890,8 +890,6 @@ Class FormDesignerView from WindowsViewParent
 		}
 
 	func RefreshProperties 
-		oProperties.close()
-		oProperties2Widget.close()
 		CreatePropertiesWidget()
 		oProperties2.setWidget(this.oProperties2Widget)
 		oPropertiesDock.setWidget(this.oProperties)
