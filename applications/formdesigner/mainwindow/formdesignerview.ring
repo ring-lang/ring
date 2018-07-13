@@ -680,11 +680,11 @@ Class FormDesignerView from WindowsViewParent
 				}
 			}
 			this.oObjectsCombo = new qCombobox(this.oProperties) {
-				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
+				setcurrentIndexChangedEvent(this.Method(:ChangeObjectAction))
 			}
 			oBtnObjectsOrder = new qPushButton(this.oProperties) {
 				setText("::")
-				setClickevent(Method(:ObjectsOrderAction))
+				setClickevent(this.Method(:ObjectsOrderAction))
 				if isMobile() {
 					setfixedwidth(110)
 				else 
@@ -713,7 +713,7 @@ Class FormDesignerView from WindowsViewParent
 					setColumnwidth(2,40)
 				}
 				setAlternatingRowColors(true)
-				setitemChangedEvent(Method(:UpdateProperties))
+				setitemChangedEvent(this.Method(:UpdateProperties))
 				if T_LAYOUTDIRECTION {
 					setminimumwidth(390)
 				else 
@@ -730,111 +730,111 @@ Class FormDesignerView from WindowsViewParent
 			setLayoutDirection(T_LAYOUTDIRECTION)
 			oBtn1 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS1) # "Align - Left Sides"
-				setClickEvent(Method(:MSAlignLeft))
+				setClickEvent(this.Method(:MSAlignLeft))
 			}
 			oBtn2 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS2) # "Align - Right Sides"
-				setClickEvent(Method(:MSAlignRight))
+				setClickEvent(this.Method(:MSAlignRight))
 			}
 			oBtn3 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS3) # "Align - Top Sides"
-				setClickEvent(Method(:MSAlignTop))
+				setClickEvent(this.Method(:MSAlignTop))
 			}
 			oBtn4 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS4) # "Align - Bottom Sides"
-				setClickEvent(Method(:MSAlignBottom))
+				setClickEvent(this.Method(:MSAlignBottom))
 			}
 			oBtn5 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS5) # "Center Vertically"
-				setClickEvent(Method(:MSCenterVer))
+				setClickEvent(this.Method(:MSCenterVer))
 			}
 			oBtn6 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS6) # "Center Horizontally"
-				setClickEvent(Method(:MSCenterHor))
+				setClickEvent(this.Method(:MSCenterHor))
 			}
 			oBtn7 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS7) # "Size - To Tallest"
-				setClickEvent(Method(:MSSizeToTallest))
+				setClickEvent(this.Method(:MSSizeToTallest))
 			}
 			oBtn8 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS8) # "Size - To Shortest"
-				setClickEvent(Method(:MSSizeToShortest))
+				setClickEvent(this.Method(:MSSizeToShortest))
 			}
 			oBtn9 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS9) # "Size - To Widest"
-				setClickEvent(Method(:MSSizeToWidest))
+				setClickEvent(this.Method(:MSSizeToWidest))
 			}
 			oBtn10 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS10) # "Size - To Narrowest"
-				setClickEvent(Method(:MSSizeToNarrowest))
+				setClickEvent(this.Method(:MSSizeToNarrowest))
 			}
 			oBtn11 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS11) # "Horizontal Spacing - Make Equal"
-				setClickEvent(Method(:MSHorSpacingMakeEqual))
+				setClickEvent(this.Method(:MSHorSpacingMakeEqual))
 			}
 			oBtn12 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS12) # "Horizontal Spacing - Increase"
-				setClickEvent(Method(:MSHorSpacingIncrease))
+				setClickEvent(this.Method(:MSHorSpacingIncrease))
 			}
 			oBtn13 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS13) # "Horizontal Spacing - Decrease"
-				setClickEvent(Method(:MSHorSpacingDecrease))
+				setClickEvent(this.Method(:MSHorSpacingDecrease))
 			}
 			oBtn14 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS14) # "Vertical Spacing - Make Equal"
-				setClickEvent(Method(:MSVerSpacingMakeEqual))
+				setClickEvent(this.Method(:MSVerSpacingMakeEqual))
 			}
 			oBtn15 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS15) # "Vertical Spacing - Increase"
-				setClickEvent(Method(:MSVerSpacingIncrease))
+				setClickEvent(this.Method(:MSVerSpacingIncrease))
 			}
 			oBtn16 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS16) # "Vertical Spacing - Decrease"
-				setClickEvent(Method(:MSVerSpacingDecrease))
+				setClickEvent(this.Method(:MSVerSpacingDecrease))
 			}
 			oBtn17 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS17) # "Text Color"
-				setClickEvent(Method(:MSTextColor))
+				setClickEvent(this.Method(:MSTextColor))
 			}
 			oBtn18 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS18) # "Back Color"
-				setClickEvent(Method(:MSBackColor))
+				setClickEvent(this.Method(:MSBackColor))
 			}
 			oBtn19 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS19) # "Font"
-				setClickEvent(Method(:MSFont))
+				setClickEvent(this.Method(:MSFont))
 			}
 			oBtn20 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS20) # "Move - Up"
-				setClickEvent(Method(:MSMoveUp))
+				setClickEvent(this.Method(:MSMoveUp))
 			}
 			oBtn21 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS21)  # "Move - Down"
-				setClickEvent(Method(:MSMoveDown))
+				setClickEvent(this.Method(:MSMoveDown))
 			}
 			oBtn22 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS22)  # "Move - Right"
-				setClickEvent(Method(:MSMoveRight))
+				setClickEvent(this.Method(:MSMoveRight))
 			}
 			oBtn23 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS23)  # "Move - Left"
-				setClickEvent(Method(:MSMoveLeft))
+				setClickEvent(this.Method(:MSMoveLeft))
 			}
 			oBtn24 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS24)  # "Increase - Width"
-				setClickEvent(Method(:MSIncreaseWidth))
+				setClickEvent(this.Method(:MSIncreaseWidth))
 			}
 			oBtn25 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS25)  # "Decrease - Width"
-				setClickEvent(Method(:MSDecreaseWidth))
+				setClickEvent(this.Method(:MSDecreaseWidth))
 			}
 			oBtn26 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS26)  # "Increase - Height"
-				setClickEvent(Method(:MSIncreaseHeight))
+				setClickEvent(this.Method(:MSIncreaseHeight))
 			}
 			oBtn27 = new qPushbutton(this.oProperties2Widget) {
 				setText(T_FROMDESIGNER_PROPERTIES_MS27)  # "Decrease - Height"
-				setClickEvent(Method(:MSDecreaseHeight))
+				setClickEvent(this.Method(:MSDecreaseHeight))
 			}
 
 			oLayout = new qVBoxLayout() {
