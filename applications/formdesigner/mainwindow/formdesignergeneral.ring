@@ -9,28 +9,25 @@ package formdesigner
 
 Class FormDesignerGeneral
 
+	oCursor =  new qCursor()
+
 	func oCursorA
-		oCursor =  new qCursor()
 		oCursor.setShape(Qt_ArrowCursor)
 		return oCursor
 
 	func oCursorF
-		oCursor =  new qCursor()
 		oCursor.setShape(Qt_SizeFDiagCursor)
 		return oCursor
 
 	func oCursorB
-		oCursor =  new qCursor()
 		oCursor.setShape(Qt_SizeBDiagCursor)
 		return oCursor
 
 	func oCursorH
-		oCursor =  new qCursor()
 		oCursor.setShape(Qt_SizeHorCursor)
 		return oCursor
 
 	func oCursorV
-		oCursor =  new qCursor()
 		oCursor.setShape(Qt_SizeVerCursor)
 		return oCursor
 
