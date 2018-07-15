@@ -1,6 +1,6 @@
-2247
-193994
-191747
+3045
+185114
+182069
 hello
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
@@ -466,72 +466,6 @@ Mahmoud Samir Fayed
 send function return list to function take list
 1
 2
-
-
-	Main Menu
-	===========
-	[1] Say Hello
-	[2] Sum two numbers
-	[3] Stars
-	[4] Fact
-	[5] Exit
-
-	
-Enter your name ? Hello mahmoud
-
-
-	Main Menu
-	===========
-	[1] Say Hello
-	[2] Sum two numbers
-	[3] Stars
-	[4] Fact
-	[5] Exit
-
-	
-number 1 : number 2 : Sum : 7
-
-	Main Menu
-	===========
-	[1] Say Hello
-	[2] Sum two numbers
-	[3] Stars
-	[4] Fact
-	[5] Exit
-
-	
-        *
-        **
-        ***
-        ****
-        *****
-        ******
-        *******
-        ********
-        *********
-        **********
-
-
-	Main Menu
-	===========
-	[1] Say Hello
-	[2] Sum two numbers
-	[3] Stars
-	[4] Fact
-	[5] Exit
-
-	
-Enter Number : Output : 120
-
-	Main Menu
-	===========
-	[1] Say Hello
-	[2] Sum two numbers
-	[3] Stars
-	[4] Fact
-	[5] Exit
-
-	
 Welcome
 Welcome
 Mahmoud
@@ -653,7 +587,7 @@ Hello Mahmoud
 name: Mahmoud
 country: egypt
 phone: 1234567879
-Time 3557874
+Time 3546164
 Welcome
 nice
 Great
@@ -2087,7 +2021,7 @@ y: 20
 30
 
 Can't open file scripts/bracexpreval.ring 
-Enter Number (1) :Enter Number (2) :The Sum : 70x7fdd176b6328
+0x7f9af88ce328
 OBJECTPOINTER
 0
 1
@@ -2280,7 +2214,7 @@ Line 6 Error (R27) : Using private attribute from outside the class : salary
 in file scripts/privateattribute.ring nindex: 1
 nindex: 2
 date: 15/07/2018
-time: 16:42:39
+time: 16:57:19
  SPY SP500 0
  SDYL SPDivs 1
  FB Facebook 2

@@ -6,7 +6,6 @@ ring scripts/s62.ring
 ring scripts/s63.ring
 ring scripts/s64.ring
 ring scripts/s65.ring
-ring scripts/s78.ring < scripts/test78.txt
 ring scripts/oop.ring
 ring scripts/oop2.ring
 ring scripts/oop3.ring
@@ -127,7 +126,6 @@ ring scripts/happynum2.ring
 ring scripts/addmethod.ring
 ring scripts/addmethod2.ring
 ring scripts/bracexpreval.ring
-ring scripts/english.ring  < scripts/testenglish.txt
 ring scripts/objectpointer.ring
 ring scripts/double.ring
 ring scripts/funcdef.ring
