@@ -129,6 +129,9 @@ void ring_vm_sqlite_execute ( void *pPointer )
 			pList = RING_API_NEWLIST ;
 			rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,(void *) pList,&ErrMsg);
 			RING_API_RETLIST(pList);
+			if ( ErrMsg ) {
+				free( ErrMsg ) ;
+			}
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
