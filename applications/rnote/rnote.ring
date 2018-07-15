@@ -1833,7 +1833,11 @@ Class RNoteController from WindowsControllerParent
 				ok
 			ok
 			if nLineNumber % 100 = 0 
+				nOldCount = oFunctionsList.Count()
 				MyAPP.ProcessEvents()
+				if oFunctionsList.Count() != nOldCount 
+					return
+				ok
 				# Check if the file is changed
 				if not cTempActiveFile = cActiveFileName
 					return 
@@ -1878,7 +1882,11 @@ Class RNoteController from WindowsControllerParent
 				ok
 			ok
 			if nLineNumber % 100 = 0 
+				nOldCount = oClassesList.Count()
 				MyAPP.ProcessEvents()
+				if oClassesList.Count() != nOldCount 
+					return 
+				ok
 				# Check if the file is changed
 				if not cTempActiveFile = cActiveFileName
 					return 
