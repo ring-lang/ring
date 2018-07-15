@@ -394,295 +394,178 @@ Class FormDesignerView from WindowsViewParent
 			setLayoutDirection(0)
  			this.oToolLock = new qTooLButton(oToolBox) {
 					setText(aToolBoxTextList[:Lock]) # "Lock"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/lock.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
-					setChecked(false)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn1 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Select]) # "Select"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/select.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
-					setChecked(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
+					setChecked(True)
 			}
  			this.oToolbtn2 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Label]) # "Label"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/label.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn3 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Button]) # "Button"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/pushbutton.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn4 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:LineEdit]) # "LineEdit"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/textfield.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn5 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:TextEdit]) # "TextEdit"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/textarea.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn6 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:ListWidget]) # "ListWidget"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/listview.png"))
--					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn7 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:CheckBox]) # "Checkbox"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/checkbox.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn8 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Image]) # "Image"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/image.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn9 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Slider]) # "Slider"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/slider.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn10 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:ProgressBar]) # "Progressbar"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/progressbar.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn11 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:SpinBox]) # "SpinBox"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/spinner.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn12 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:ComboBox]) # "ComboBox"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/combobox.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn13 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:DateTimeEdit]) # "DateTimeEdit"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/datepicker.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn14 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:TableWidget]) # "TableWidget"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/grid.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn15 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:TreeWidget]) # "TreeWidget"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/tree.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn16 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:RadioButton]) # "RadioButton"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/radiobutton.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn17 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:WebView]) # "WebView"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/webview.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn18 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:DialSlider]) # "Dial Slider"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/dial.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn19 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:VideoWidget]) # "Video Widget"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/videowidget.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn20 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Frame]) # "Frame"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/frame.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn21 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:LCDNumber]) # "LCD Number"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/lcdnumber.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn22 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:HyperLink]) # "HyperLink"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/hyperlink.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn23 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Timer]) # "Timer"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/timer.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn24 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:AllEvents]) # "All Events"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/allevents.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn25 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Layout]) # "Layout"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/layout.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn26 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:TabWidget]) # "Tab Widget"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/tab.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn27 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:StatusBar]) # "Statusbar"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/statusbar.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
  			this.oToolbtn28 = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:ToolBar]) # "Toolbar"
-					setToolButtonStyle(2)
 					this.setToolbtnImage(self,AppFile("image/toolbar.png"))
-					setminimumwidth(150)
-					setminimumheight(30)
-					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
-					setIconSize(new QSize(15,15))
+					this.ToolboxBtnProperties(self)
 			}
 
 			Layout1 = new qVBoxLayout() {
@@ -768,6 +651,15 @@ Class FormDesignerView from WindowsViewParent
 			win.Adddockwidget(2,oToolBoxDock,2)
 		else 
 			win.Adddockwidget(1,oToolBoxDock,1)
+		}
+
+	func ToolboxBtnProperties oButton 
+		oButton {
+			setToolButtonStyle(2)
+			setminimumwidth(150)
+			setminimumheight(30)
+			setCheckable(True)
+			setIconSize(new QSize(15,15))
 		}
 
 	func setToolbtnImage oObject,cImage
