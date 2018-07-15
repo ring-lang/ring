@@ -275,7 +275,7 @@ ring scripts/forloopscope.ring
 ring scripts/chars.ring
 ring scripts/ncemain.ring
 ring scripts/filenameinpara.ring
-ring scripts/filepath1.ring
+ring scripts/filepath1_linux.ring
 ring scripts/ringinring.ring
 ring scripts/ignorenewline.ring
 ring scripts/thisinclassregion.ring

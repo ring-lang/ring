@@ -1,6 +1,6 @@
-3045
-185114
-182069
+3160
+190641
+187481
 hello
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
@@ -587,7 +587,7 @@ Hello Mahmoud
 name: Mahmoud
 country: egypt
 phone: 1234567879
-Time 3546164
+Time 3570929
 Welcome
 nice
 Great
@@ -2021,7 +2021,7 @@ y: 20
 30
 
 Can't open file scripts/bracexpreval.ring 
-0x7f9af88ce328
+0x7fc1f6e2f328
 OBJECTPOINTER
 0
 1
@@ -2214,7 +2214,7 @@ Line 6 Error (R27) : Using private attribute from outside the class : salary
 in file scripts/privateattribute.ring nindex: 1
 nindex: 2
 date: 15/07/2018
-time: 16:57:19
+time: 17:02:48
  SPY SP500 0
  SDYL SPDivs 1
  FB Facebook 2
@@ -2880,11 +2880,8 @@ All String
 
 Line 1 Error (R1) : Cann't divide by zero ! 
 in file /home/mahmoud/Desktop/ring/tests/scripts/ncesub.ring scripts/filenameinpara.ring
-
-Can't open file b:\ring\tests\scripts\filepath2.ring 
-
-b:\ring\tests\scripts\filepath2.ring Line (2) Syntax error
-b:\ring\tests\scripts\filepath2.ring errors count : 1 
+Test...
+Test 2....
 Start the test!
 Let us try having an error
 
