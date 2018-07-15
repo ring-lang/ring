@@ -2,11 +2,19 @@ cDialogIcon = ""
 
 func setwinicon pWindow,cImage
 	if cImage = NULL return ok		
-	pWindow.setWindowIcon(new qicon(new qpixmap(cImage)))
+	oPixMap = new qpixmap(cImage)
+	oIcon = new qicon(oPixMap)
+	pWindow.setWindowIcon(oIcon)
+	oIcon.delete()
+	oPixMap.delete()
 		
 func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
-	pBtn.setIcon(new qicon(new qpixmap(cImage)))
+	oPixMap = new qpixmap(cImage)
+	oIcon = new qicon(oPixMap)
+	pBtn.setIcon(oIcon)
+	oIcon.delete()
+	oPixMap.delete()
 
 func SetDialogIcon cFile
 	cDialogIcon = cFile
