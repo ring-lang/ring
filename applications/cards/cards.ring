@@ -153,6 +153,7 @@ class Game
 
         func start
                 win1 = new qDialog(null) {
+			setAttribute(Qt_WA_DeleteOnClose,True)
                         setwindowtitle("Five")
                         setstylesheet("background-color: White")  
                 }
@@ -243,8 +244,14 @@ class Game
 
 	func setButtonImage oBtn,oPixmap
 	        oBtn {
-	                setIcon(new qicon(oPixmap.scaled(width(),height(),0,0)))
-	                setIconSize(new QSize(width(),height()))
+			oTempPixMap = oPixmap.scaled(width(),height(),0,0)
+			oTempIcon = new qicon(oTempPixMap)
+	                setIcon(oTempIcon)
+			oTempSize = new QSize(width(),height())
+	                setIconSize(oTempSize)
+			oTempPixMap.delete()
+			oTempIcon.delete()
+			oTempSize.delete()
 	        }
 	
 	func setButtonStyle oBtn
