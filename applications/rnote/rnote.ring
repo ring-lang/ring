@@ -782,7 +782,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
-						settext("Ring2EXE (Prepare Qt Project) - Distribute for Mobile Devices)")
+						settext("Ring2EXE (Prepare Qt Project - Distribute for Mobile Devices)")
 						setclickEvent(Method("pDistribute(7)"))
 					}
 					addaction(oAction)
