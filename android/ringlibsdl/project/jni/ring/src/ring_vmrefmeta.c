@@ -1034,7 +1034,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	pList = ring_list_new_gc(pVM->pRingState,0);
 	/*
 	**  Add the list items 
-	**  Lists Size 
+	**  Lists Size (14 Items) 
 	*/
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesList));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesStack));
@@ -1051,6 +1051,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeNewObj));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aSetProperty));
 	/* Values */
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->lInsideEval);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nRetEvalDontDelete);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nRunCode);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->lRunFromThread);
