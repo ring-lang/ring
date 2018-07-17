@@ -39,13 +39,8 @@ class FormDesignerController from WindowsControllerParent
 	func AddObjectProperties
 		oView.oPropertiesTable   {
 			# Remove Rows
-				nCount = rowcount()
-				for t = 1 to nCount {
-					removerow(0)
-				}
-			setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) 	# "Property"
-			setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE))	# "Value"
-			setHorizontalHeaderItem(2, new QTableWidgetItem(""))
+				clear()
+				this.oView.PreparePropertiesTable(self)
 		}
 		oModel.ActiveObject().AddObjectProperties(self)
 

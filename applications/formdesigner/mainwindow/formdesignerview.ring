@@ -705,27 +705,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oBtnObjectsOrder)
 			}
 			this.oPropertiesTable = new qTableWidget(this.oProperties) {
-				setrowcount(0)
-				setcolumncount(3)
-				setselectionbehavior(QAbstractItemView_SelectRows)
-				setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) # "Property"
-				setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE)) # "Value"
-				setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
-				if isMobile() {
-					setColumnwidth(0,500)
-					setColumnwidth(1,500)
-					setColumnwidth(2,120)
-				else
-					setColumnwidth(0,190)
-					setColumnwidth(2,40)
-				}
-				setAlternatingRowColors(true)
-				setitemChangedEvent(this.Method(:UpdateProperties))
-				if T_LAYOUTDIRECTION {
-					setminimumwidth(390)
-				else 
-					setminimumwidth(370)
-				}
+				this.PreparePropertiesTable(self)
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
@@ -877,6 +857,30 @@ Class FormDesignerView from WindowsViewParent
 			setLayout(oLayout)
 		}
 
+	func PreparePropertiesTable oTable 
+		oTable {
+			setrowcount(0)
+			setcolumncount(3)
+			setselectionbehavior(QAbstractItemView_SelectRows)
+			setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) # "Property"
+			setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE)) # "Value"
+			setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
+			if isMobile() {
+				setColumnwidth(0,500)
+				setColumnwidth(1,500)
+				setColumnwidth(2,120)
+			else
+				setColumnwidth(0,190)
+				setColumnwidth(2,40)
+			}
+			setAlternatingRowColors(true)
+			setitemChangedEvent(this.Method(:UpdateProperties))
+			if T_LAYOUTDIRECTION {
+				setminimumwidth(390)
+			else 
+				setminimumwidth(370)
+			}
+		}
 
 	func CreatePropertiesDock
 		oProperties2 = new qScrollArea(null) {
