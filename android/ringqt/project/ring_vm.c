@@ -956,14 +956,6 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nLineNumber = pVM->nLineNumber ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
-	/* Check removing the new byte code */
-	if ( pVM->lInsideEval == 0 ) {
-		pVM->nRetEvalDontDelete = 0 ;
-	}
-	if ( pVM->nRunCode != 1 ) {
-		/* We have nested events that call this function */
-		pVM->nRetEvalDontDelete = 1 ;
-	}
 	nRunVM = ring_vm_eval(pVM,cStr);
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
@@ -1230,8 +1222,11 @@ void ring_vm_addglobalvariables ( VM *pVM )
 
 void ring_vm_mainloopforeval ( VM *pVM )
 {
+	int nDontDelete  ;
 	pVM->pRingState->lStartPoolManager = 1 ;
 	pVM->lInsideEval++ ;
+	nDontDelete = pVM->nRetEvalDontDelete ;
+	pVM->nRetEvalDontDelete = 0 ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
@@ -1262,6 +1257,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 	pVM->lInsideEval-- ;
+	pVM->nRetEvalDontDelete = nDontDelete ;
 }
 /* Threads */
 

@@ -914,7 +914,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
-			pVM->nRetEvalDontDelete = 1 ;
+			if ( pVM->lInsideEval ) {
+				pVM->nRetEvalDontDelete = 1 ;
+			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 			ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
@@ -1001,7 +1003,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			/* Eval the string */
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
-			pVM->nRetEvalDontDelete = 1 ;
+			if ( pVM->lInsideEval ) {
+				pVM->nRetEvalDontDelete = 1 ;
+			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 			ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
@@ -1132,7 +1136,9 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		/* Eval the string */
 		pItem = RING_VM_IR_ITEM(1) ;
 		pVM->nEvalCalledFromRingCode = 0 ;
-		pVM->nRetEvalDontDelete = 1 ;
+		if ( pVM->lInsideEval ) {
+			pVM->nRetEvalDontDelete = 1 ;
+		}
 		ring_vm_eval(pVM,ring_string_get(pString));
 		/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 		ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
