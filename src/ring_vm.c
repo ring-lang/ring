@@ -956,6 +956,10 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nLineNumber = pVM->nLineNumber ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
+	/* Take in mind nested events */
+	if ( pVM->nRunCode != 1 ) {
+		pVM->nRetEvalDontDelete = 1 ;
+	}
 	nRunVM = ring_vm_eval(pVM,cStr);
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
