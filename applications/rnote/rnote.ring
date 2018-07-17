@@ -1147,12 +1147,14 @@ Class RNoteController from WindowsControllerParent
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
 
 	func pCursorPositionChanged
-		nLine = textedit1.textcursor().blocknumber()+1
+		oCursor = textedit1.textcursor()
+		nLine = oCursor.blocknumber()+1
 		StatusMessage(" Line : "+nLine+
-					" Column : " +(textedit1.textcursor().columnnumber()+1) +
+					" Column : " +(oCursor.columnnumber()+1) +
 					" Total Lines : " + textedit1.document().linecount())
 		pSetActiveLineColor()
 		aFilesLines[cActiveFileName] = nLine
+		oCursor.delete()
 
 	func pGoto
 		oInput = New QInputDialog(win1)
@@ -1486,7 +1488,7 @@ Class RNoteController from WindowsControllerParent
 		oCursor.clearselection()
 		textedit1.settextcursor(oCursor)
 		textedit1.Document().setdefaultfont(oTempFont)
-
+		oCursor.delete()
 
 	func pColor
 		new qcolordialog() {
