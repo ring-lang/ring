@@ -459,6 +459,8 @@ pList
 Type: int
 x
 ring_vm_mainloopforeval
+Type: int
+nDontDelete
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
