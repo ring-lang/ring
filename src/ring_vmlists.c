@@ -38,8 +38,8 @@ void ring_vm_liststart ( VM *pVM )
 			nType = RING_VM_STACK_OBJTYPE ;
 		} else {
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
-				/* Create the List in Global Temp Memory. */
-				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
+				/* Create the List in the Temp Memory. */
+				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,ring_vm_prevtempmem(pVM));
 				ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 			}
 			nType = RING_VM_STACK_OBJTYPE ;
