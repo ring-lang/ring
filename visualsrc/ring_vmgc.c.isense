@@ -89,10 +89,6 @@ ring_vm_gc_killreference
 Type: List *
 pList
 ring_vm_gc_deletetemplists
-Type: int
-x
-Type: List *
-pScope,*pList
 ring_vm_gc_newitemreference
 ring_malloc
 ring_free

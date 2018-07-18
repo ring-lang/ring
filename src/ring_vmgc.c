@@ -92,6 +92,9 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	**  When testing al_map_rgb() in Allegro Library this problem becomes critical 
 	**  This function solves this problem, by deleting temp lists/C Pointers in the current scope 
 	*/
+	if ( pVM->nInClassRegion ) {
+		return ;
+	}
 	ring_list_deleteallitems_gc(pVM->pRingState,ring_vm_prevtempmem(pVM));
 }
 
