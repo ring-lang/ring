@@ -599,17 +599,12 @@ List * ring_vm_prevtempmem ( VM *pVM )
 	pList = pVM->pTempMem ;
 	/* Get Temp Memory of the previous function */
 	for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
-		if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,x);
+		if ( ring_list_getsize(pList) >= RING_FUNCCL_TEMPMEM ) {
 			/* Get Temp Mem */
-			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)-1);
 			pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
 			break ;
 		}
 	}
-	/*
-	**  Create empty list to avoid using the HashTable for all temp. variables 
-	**  This is necessary for better performance 
-	*/
-	pList = ring_list_newlist_gc(pVM->pRingState,pList);
 	return pList ;
 }
