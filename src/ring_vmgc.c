@@ -78,48 +78,21 @@ void ring_vm_gc_killreference ( VM *pVM )
 
 void ring_vm_gc_deletetemplists ( VM *pVM )
 {
-	int x  ;
-	List *pScope,*pList  ;
-	/* If we are in the class region (After class name) then return */
-	if ( pVM->nInClassRegion ) {
-		return ;
-	}
 	/*
 	**  This function is called from Ring code by callgc() 
 	**  Function Goal 
 	**  When we return Lists/Pointers from functions we create variable called ring_sys_temp 
-	**  This variable is created in the previous scope instead of the active function scope 
+	**  This variable is created in the caller temp. memory instead of the active function scope 
 	**  This is necessary because the function scope will be deleted and we need the varaible 
 	**  This is important because we may assign the variable to variable name 
 	**  The problem happens when we have a loop that uses f1(f2()) 
 	**  and f2() return a lists/pointer 
-	**  The temp list/C Pointer will not be deleted until the end of the function 
+	**  The temp list/C Pointer will not be deleted until the end of the caller function 
 	**  But we have a loop and this will lead to a memory leak during loop execution 
 	**  When testing al_map_rgb() in Allegro Library this problem becomes critical 
 	**  This function solves this problem, by deleting temp lists/C Pointers in the current scope 
-	**  We use -1 to skip the currect scope of the Ring function (callgc()) 
 	*/
-	pScope = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
-	/* The function works only when we expect to have temp variables */
-	if ( ring_list_getsize(pScope) >= 1 ) {
-		for ( x = ring_list_getsize(pScope) ; x >= 1 ; x-- ) {
-			pList = ring_list_getlist(pScope,x);
-			if ( ring_list_getsize(pList) != RING_VAR_LISTSIZE ) {
-				continue ;
-			}
-			if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
-				ring_list_deleteitem_gc(pVM->pRingState,pScope,x);
-			}
-		}
-	}
-	/* Delete The HashTable */
-	pScope->pHashTable = ring_hashtable_delete_gc(pVM->pRingState,pScope->pHashTable) ;
-	if ( pVM->pRingState->lRunFromThread ) {
-		ring_list_genhashtable2(pScope);
-	}
-	else {
-		ring_list_genhashtable2_gc(pVM->pRingState,pScope);
-	}
+	ring_list_deleteallitems_gc(pVM->pRingState,ring_vm_prevtempmem(pVM));
 }
 
 void ring_vm_gc_newitemreference ( Item *pItem )
