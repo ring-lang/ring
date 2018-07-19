@@ -104,6 +104,7 @@ typedef struct VM {
 	char *cFileNameInClassRegion  ;
 	char lUsePushPLocal  ;
 	char lInsideEval  ;
+	List *pCLibraries  ;
 } VM ;
 /*
 **  Functions 
