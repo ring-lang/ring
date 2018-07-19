@@ -69,8 +69,8 @@ Type: PoolManager
 Mark: ->
 PoolManager *
 ring_gc_h
-ring_vm_gc_cleardata(pItem)
 GCLog
+ring_vm_gc_cleardata
 ring_vm_gc_checkreferences
 Type: int
 x
@@ -90,6 +90,7 @@ Type: List *
 pList
 ring_vm_gc_deletetemplists
 ring_vm_gc_newitemreference
+ring_vm_gc_freefunc
 ring_malloc
 ring_free
 ring_calloc

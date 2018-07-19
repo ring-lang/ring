@@ -1,7 +1,12 @@
 /* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_gc_h
 #define ring_gc_h
-/* Functions */
+/*
+**  Functions 
+**  GC Functions 
+*/
+
+void ring_vm_gc_cleardata ( Item *pItem ) ;
 
 void ring_vm_gc_checkreferences ( VM *pVM ) ;
 
@@ -16,6 +21,8 @@ void ring_vm_gc_killreference ( VM *pVM ) ;
 void ring_vm_gc_deletetemplists ( VM *pVM ) ;
 
 void ring_vm_gc_newitemreference ( Item *pItem ) ;
+
+void ring_vm_gc_freefunc ( RingState *pState,Item *pItem ) ;
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size ) ;
@@ -37,7 +44,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 /* Macro */
-#define ring_vm_gc_cleardata(pItem) (pItem->gc.nReferenceCount = 0)
 #define GCLog 0
 /* Pool Manager Functions */
 
