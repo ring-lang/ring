@@ -87,5 +87,5 @@ void ring_vm_dll_closealllibs ( VM *pVM )
 		handle = ring_list_getpointer(pVM->pCLibraries,x);
 		CloseDLL(handle);
 	}
-	ring_list_deleteallitems(pVM->pCLibraries);
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pCLibraries);
 }
