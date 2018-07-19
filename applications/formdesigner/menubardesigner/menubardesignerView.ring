@@ -39,6 +39,7 @@ class menubardesignerView from WindowsViewParent
 				Append(T_FROMDESIGNER_MB_TEXT)	 # "Text"
 			}
 			setheaderlabels(oList)
+			oList.delete()
 			setHeaderHidden(True)
 			setclickedEvent(Method(:ItemClickAction))
 		}
