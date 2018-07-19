@@ -192,6 +192,8 @@ Type: char
 lUsePushPLocal
 Type: char
 lInsideEval
+Type: List *
+pCLibraries
 END:
 Type: VM
 struct VM

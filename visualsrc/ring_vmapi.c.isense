@@ -444,3 +444,12 @@ pRingState
 ring_vm_dll_closelib
 Type: LpHandleType
 handle
+Type: int
+nIndex
+Type: VM *
+pVM
+ring_vm_dll_closealllibs
+Type: int
+x
+Type: LpHandleType
+handle

@@ -195,6 +195,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lUsePushPLocal = 0 ;
 	/* To know if we are inside eval() or not */
 	pVM->lInsideEval = 0 ;
+	/* Dynamic Libraries */
+	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
 	return pVM ;
 }
 
@@ -236,6 +238,9 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Custom Global Scope (using Load Package) */
 	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
 	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
+	/* Dynamic Libraries */
+	ring_vm_dll_closealllibs(pVM);
+	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
