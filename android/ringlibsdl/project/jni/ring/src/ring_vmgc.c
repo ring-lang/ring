@@ -1,5 +1,12 @@
 /* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
+/* GC Functions */
+
+void ring_vm_gc_cleardata ( Item *pItem )
+{
+	pItem->gc.nReferenceCount = 0 ;
+	pItem->gc.pFreeFunc = NULL ;
+}
 
 void ring_vm_gc_checkreferences ( VM *pVM )
 {
@@ -59,6 +66,10 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		#if GCLog
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
+		/* Call Free Function */
+		if ( pItem->nType == ITEMTYPE_POINTER ) {
+			ring_vm_gc_freefunc((RingState *) pState,pItem);
+		}
 		ring_item_content_delete_gc(pState,pItem);
 		ring_state_free(pState,pItem);
 	}
@@ -101,6 +112,13 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 void ring_vm_gc_newitemreference ( Item *pItem )
 {
 	pItem->gc.nReferenceCount++ ;
+}
+
+void ring_vm_gc_freefunc ( RingState *pState,Item *pItem )
+{
+	if ( pItem->gc.pFreeFunc != NULL ) {
+		pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
+	}
 }
 /* Memory Functions (General) */
 

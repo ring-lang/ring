@@ -3,5 +3,6 @@
 #define ring_vmgcdata
 typedef struct GCData {
 	int nReferenceCount  ;
+	void (*pFreeFunc)(void *,void *) ;
 } GCData ;
 #endif
