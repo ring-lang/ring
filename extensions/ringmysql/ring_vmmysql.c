@@ -34,7 +34,7 @@ void ring_vm_mysql_init ( void *pPointer )
 	MYSQL *con  ;
 	con = mysql_init(NULL) ;
 	if ( con != NULL ) {
-		RING_API_RETCPOINTER(con,RING_VM_POINTER_MYSQL);
+		RING_API_RETMANAGEDCPOINTER(con,RING_VM_POINTER_MYSQL,ring_vm_mysql_freefunc);
 	} else {
 		RING_API_RETNUMBER(0);
 	}
@@ -382,4 +382,11 @@ void ring_vm_mysql_rollback ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_mysql_freefunc ( void *pState,void *pPointer )
+{
+	MYSQL *con  ;
+	con = (MYSQL *) pPointer ;
+	mysql_close(con);
 }

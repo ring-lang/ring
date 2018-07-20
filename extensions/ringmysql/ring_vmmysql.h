@@ -34,6 +34,8 @@ void ring_vm_mysql_autocommit ( void *pPointer ) ;
 void ring_vm_mysql_commit ( void *pPointer ) ;
 
 void ring_vm_mysql_rollback ( void *pPointer ) ;
+
+void ring_vm_mysql_freefunc ( void *pState,void *pPointer ) ;
 /* MACRO */
 #define RING_VM_POINTER_MYSQL "mysql"
 #endif
