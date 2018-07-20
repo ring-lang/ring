@@ -91,6 +91,7 @@ pList
 ring_vm_gc_deletetemplists
 ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
+ring_vm_gc_setfreefunc
 ring_malloc
 ring_free
 ring_calloc

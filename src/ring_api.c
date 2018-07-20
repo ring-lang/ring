@@ -170,9 +170,10 @@ RING_API List * ring_vm_api_newlist ( VM *pVM )
 	return pList ;
 }
 
-RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType )
+RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) )
 {
 	List *pList  ;
+	Item *pItem  ;
 	/* Create the list */
 	pList = RING_API_NEWLIST ;
 	/* The variable value will be a list contains the pointer */
@@ -181,6 +182,11 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
 	ring_list_addint_gc(((VM *) pPointer)->pRingState,pList,2);
+	/* Set the Free Function */
+	if ( pFreeFunc != NULL ) {
+		pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);
+		ring_vm_gc_setfreefunc(pItem,pFreeFunc);
+	}
 	RING_API_RETLIST(pList);
 }
 
@@ -425,6 +431,11 @@ RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral
 	ring_list_addstring_gc(pState,pList2,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
 	ring_list_addint_gc(pState,pList2,2);
+}
+
+RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType )
+{
+	ring_vm_api_retcpointer2(pPointer,pGeneral,cType,NULL);
 }
 /*
 **  Library 

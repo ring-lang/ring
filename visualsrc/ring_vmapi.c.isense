@@ -34,6 +34,7 @@ RING_API_IGNORECPOINTERTYPE
 RING_API_ISCPOINTER(x)
 RING_API_ISOBJECT(x)
 RING_API_GETCPOINTER2POINTER(x,y)
+RING_API_RETCPOINTER2(x,y,z)
 RING_API_MISS1PARA
 RING_API_MISS2PARA
 RING_API_MISS3PARA
@@ -67,9 +68,11 @@ pVM
 ring_vm_api_newlist
 Type: List *
 pList
-ring_vm_api_retcpointer
+ring_vm_api_retcpointer2
 Type: List *
 pList
+Type: Item *
+pItem
 ring_vm_api_getcpointer
 Type: List *
 pList
@@ -112,6 +115,7 @@ pItem
 ring_list_addcpointer_gc
 Type: List *
 pList2
+ring_vm_api_retcpointer
 ring_vmlib_len
 Type: VM *
 pVM

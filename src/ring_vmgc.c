@@ -120,6 +120,11 @@ void ring_vm_gc_freefunc ( RingState *pState,Item *pItem )
 		pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
 	}
 }
+
+void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
+{
+	pItem->gc.pFreeFunc = pFreeFunc ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )
