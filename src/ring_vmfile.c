@@ -57,7 +57,7 @@ void ring_vm_file_fopen ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
 		fp = fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETCPOINTER2(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
+		RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -121,7 +121,7 @@ void ring_vm_file_tempfile ( void *pPointer )
 {
 	FILE *fp  ;
 	fp = tmpfile();
-	RING_API_RETCPOINTER(fp,RING_VM_POINTER_FILE);
+	RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 }
 
 void ring_vm_file_tempname ( void *pPointer )
