@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vmodbc_h
 #define ring_vmodbc_h
 /* Functions */
@@ -34,6 +34,8 @@ void ring_vm_odbc_autocommit ( void *pPointer ) ;
 void ring_vm_odbc_commit ( void *pPointer ) ;
 
 void ring_vm_odbc_rollback ( void *pPointer ) ;
+
+void ring_vm_odbc_freefunc ( RingState *pState,void *pPointer ) ;
 /* Constants */
 #define RING_ODBC_FLAG_ENV 0x01
 #define RING_ODBC_FLAG_DBC 0x02
