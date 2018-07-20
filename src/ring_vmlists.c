@@ -288,18 +288,18 @@ void ring_vm_listassignment ( VM *pVM )
 	List *pList,*pVar  ;
 	pVar = NULL ;
 	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
 		assert(cStr1 != NULL);
 		RING_VM_STACK_POP ;
 		pItem = (Item *) RING_VM_STACK_READP ;
 		assert(pItem != NULL);
 		RING_VM_STACK_POP ;
 		if ( pVM->nBeforeEqual == 0 ) {
-			ring_item_setstring_gc(pVM->pRingState,pItem, ring_string_get(cStr1));
+			ring_item_setstring2_gc(pVM->pRingState,pItem, ring_string_get(cStr1),ring_string_size(cStr1));
 		} else {
 			if ( ring_item_isstring(pItem) ) {
 				pString = ring_item_getstring(pItem);
-				ring_string_add_gc(pVM->pRingState,pString,ring_string_get(cStr1));
+				ring_string_add2_gc(pVM->pRingState,pString,ring_string_get(cStr1),ring_string_size(cStr1));
 			}
 			else if ( ring_item_isdouble(pItem) ) {
 				ring_item_setdouble_gc(pVM->pRingState,pItem,ring_item_getdouble(pItem)+ring_vm_stringtonum(pVM,ring_string_get(cStr1)));

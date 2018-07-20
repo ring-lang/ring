@@ -366,7 +366,7 @@ pList
 ring_vmlib_pointer2object
 ring_vmlib_nullpointer
 ring_vmlib_space
-Type: String *
+Type: char *
 pString
 ring_vmlib_ptrcmp
 Type: List *
