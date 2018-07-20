@@ -139,14 +139,7 @@ void ring_vm_odbc_close ( void *pPointer )
 		if ( pODBC == NULL ) {
 			return ;
 		}
-		if ( pODBC->nFlag & RING_ODBC_FLAG_STMT ) {
-			SQLFreeHandle(SQL_HANDLE_STMT,pODBC->stmt);
-		}
-		if ( pODBC->nFlag & RING_ODBC_FLAG_DBC ) {
-			SQLFreeHandle(SQL_HANDLE_DBC,pODBC->dbc);
-		}
-		SQLFreeHandle(SQL_HANDLE_ENV,pODBC->env);
-		free( pODBC ) ;
+		ring_vm_odbc_freefunc(((VM *) pPointer)->pRingState,pODBC);
 		RING_API_SETNULLPOINTER(1);
 		RING_API_RETNUMBER(1);
 	} else {
