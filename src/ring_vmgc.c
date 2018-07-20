@@ -117,7 +117,9 @@ void ring_vm_gc_newitemreference ( Item *pItem )
 void ring_vm_gc_freefunc ( RingState *pState,Item *pItem )
 {
 	if ( pItem->gc.pFreeFunc != NULL ) {
-		pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
+		if ( pItem->data.pPointer  != NULL ) {
+			pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
+		}
 	}
 }
 
