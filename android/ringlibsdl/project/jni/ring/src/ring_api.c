@@ -1907,15 +1907,15 @@ void ring_vmlib_nullpointer ( void *pPointer )
 
 void ring_vmlib_space ( void *pPointer )
 {
-	String *pString  ;
+	char *pString  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		pString = ring_string_new2_gc(((VM *) pPointer)->pRingState,"",RING_API_GETNUMBER(1));
-		RING_API_RETSTRING2(ring_string_get(pString),RING_API_GETNUMBER(1));
-		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
+		pString = ring_state_calloc(((VM *) pPointer)->pRingState,1,RING_API_GETNUMBER(1));
+		RING_API_RETSTRING2(pString,RING_API_GETNUMBER(1));
+		ring_state_free(((VM *) pPointer)->pRingState,pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
