@@ -73,6 +73,8 @@ void ring_vm_file_bytes2int ( void *pPointer ) ;
 void ring_vm_file_bytes2float ( void *pPointer ) ;
 
 void ring_vm_file_bytes2double ( void *pPointer ) ;
+
+void ring_vm_file_freefunc ( RingState *pRingState,void *pPointer ) ;
 /* Constants */
 #define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
 #define RING_VM_POINTER_FILE "file"
