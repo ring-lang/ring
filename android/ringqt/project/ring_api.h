@@ -45,6 +45,8 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x ) ;
 RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const char *cType ) ;
 
 RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType ) ;
+
+RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) ) ;
 /*
 **  Library 
 **  General 
@@ -260,6 +262,7 @@ void ring_vmlib_give ( void *pPointer ) ;
 #define RING_API_ISCPOINTER(x) ring_vm_api_iscpointer(pPointer,x)
 #define RING_API_ISOBJECT(x) ring_vm_api_isobject(pPointer,x)
 #define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
+#define RING_API_RETCPOINTER2(x,y,z) (ring_vm_api_retcpointer2((VM *) pPointer,(void *) x,y,z))
 /* Constants/MACRO */
 #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
 #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"

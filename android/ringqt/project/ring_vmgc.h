@@ -23,6 +23,8 @@ void ring_vm_gc_deletetemplists ( VM *pVM ) ;
 void ring_vm_gc_newitemreference ( Item *pItem ) ;
 
 void ring_vm_gc_freefunc ( RingState *pState,Item *pItem ) ;
+
+void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) ) ;
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size ) ;
