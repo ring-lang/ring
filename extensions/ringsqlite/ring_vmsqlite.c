@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -29,7 +29,7 @@ void ring_vm_sqlite_init ( void *pPointer )
 		return ;
 	}
 	psqlite->db = NULL ;
-	RING_API_RETCPOINTER(psqlite,RING_VM_POINTER_SQLITE);
+	RING_API_RETMANAGEDCPOINTER(psqlite,RING_VM_POINTER_SQLITE,ring_vm_sqlite_freefunc);
 }
 
 void ring_vm_sqlite_close ( void *pPointer )
@@ -133,4 +133,14 @@ void ring_vm_sqlite_execute ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_sqlite_freefunc ( void *pState,void *pPointer )
+{
+	ring_sqlite *psqlite  ;
+	psqlite = (ring_sqlite *) pPointer ;
+	if ( psqlite->db ) {
+		sqlite3_close(psqlite->db);
+	}
+	free( psqlite ) ;
 }
