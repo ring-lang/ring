@@ -283,3 +283,4 @@ call ring scripts/thisinclassregion.ring
 call ring scripts/nullattr.ring
 call ring scripts/nullptr.ring
 call ring scripts/spaceinlist.ring 
+call ring scripts/xortest.ring
