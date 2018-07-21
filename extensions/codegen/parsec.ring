@@ -34,16 +34,17 @@
 	we mean that we have the same method with different parameters (As in C++)	
 */
 
-C_INS_FUNCTION  = 1
-C_INS_CODE	= 2
-C_INS_REGISTER  = 3
-C_INS_COMMENT   = 4
-C_INS_STRUCT    = 5
-C_INS_FUNCSTART = 6
-C_INS_RUNCODE   = 7
-C_INS_CLASS	= 8
-C_INS_FILTER    = 9
-C_INS_CONSTANT  = 10
+C_INS_FUNCTION  	= 1
+C_INS_CODE		= 2
+C_INS_REGISTER  	= 3
+C_INS_COMMENT  		= 4
+C_INS_STRUCT    	= 5
+C_INS_FUNCSTART 	= 6
+C_INS_RUNCODE   	= 7
+C_INS_CLASS		= 8
+C_INS_FILTER    	= 9
+C_INS_CONSTANT  	= 10
+C_INS_FREEFUNCTIONS 	= 11
 
 C_FUNC_INS	= 1
 C_FUNC_OUTPUT 	= 2
@@ -182,6 +183,10 @@ Func Main
 			loop
 		but cLine = "<nodllstartup>"
 			$lNodllstartup = true
+			loop
+		but cLine = "<addfreefunctionsprototype>"
+			lFlag = C_INS_FREEFUNCTIONS
+			aData + [C_INS_FREEFUNCTIONS]
 			loop
 		but left(cLine,13) = "<libinitfunc>"
 			$cLibInitFunc = trim(substr(cLine,14))
@@ -342,9 +347,7 @@ Func GenCode aList
 				$aClassesList + [cClassName,"","","",false,false,false,false]
 			ok
 		ok
-	next
-		
-	cCode += GenFreeFuncForClassesPrototype(aList)
+	next		
 	
 	for t = 1 to nMax 
 		aFunc = aList[t]
@@ -360,6 +363,8 @@ Func GenCode aList
 			cCode += GenStruct(aFunc)
 		but aFunc[C_FUNC_INS] = C_INS_CONSTANT
 			cCode += GenConstant(aFunc)
+		but aFunc[C_FUNC_INS] = C_INS_FREEFUNCTIONS
+			cCode += GenFreeFuncForClassesPrototype(aList)
 		but aFunc[C_FUNC_INS] = C_INS_RUNCODE
 			Try
 				eval(aFunc[C_INS_CODE])
@@ -1204,7 +1209,7 @@ Func GenFreeFuncForClassesPrototype aList
 		aList + mylist
 		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
 	next
-	cCode += nl
+	cCode += nl + nl
 	return cCode
 
 
