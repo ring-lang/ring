@@ -100,14 +100,6 @@ func LoadCardsGame
 			nPlayer1Score = oGame.nPlayer1Score 
 			nPlayer2Score = oGame.nPlayer2Score
 		again oGame.lnewgame
-	# Delete Images		
-		oPic.delete()
-		oPic2.delete()
-		Player1EatPic.delete()
-		Player2EatPic.delete()
-		for t in aGameCards
-		          t.delete()
-		next
 
 class Game
 
@@ -244,14 +236,8 @@ class Game
 
 	func setButtonImage oBtn,oPixmap
 	        oBtn {
-			oTempPixMap = oPixmap.scaled(width(),height(),0,0)
-			oTempIcon = new qicon(oTempPixMap)
-	                setIcon(oTempIcon)
-			oTempSize = new QSize(width(),height())
-	                setIconSize(oTempSize)
-			oTempPixMap.delete()
-			oTempIcon.delete()
-			oTempSize.delete()
+	                setIcon(new qicon(oPixmap.scaled(width(),height(),0,0)))
+	                setIconSize(new QSize(width(),height()))
 	        }
 	
 	func setButtonStyle oBtn
