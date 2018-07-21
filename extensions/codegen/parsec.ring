@@ -995,6 +995,7 @@ Func GenMethodCodeCallFunc aList
 	lRet = true
 	lUNKNOWN = false
 	lRetPointer = false
+	lObject = false
 	switch VarTypeID(aList[C_FUNC_OUTPUT])
 		on C_TYPE_VOID
 			lRet = false
@@ -1014,6 +1015,7 @@ Func GenMethodCodeCallFunc aList
 				C_TABS_2 + "pValue = new " + aList[C_FUNC_OUTPUT] + 
 				"() ;" + nl +
 				C_TABS_2 + "*pValue = " 
+				lObject = true
 			else
 				cCode += "{" + nl + 
 				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
@@ -1021,7 +1023,6 @@ Func GenMethodCodeCallFunc aList
 				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				C_TABS_2 + "*pValue = " 
 			ok
-
 			lRet = false
 			lUNKNOWN = true
 	off
@@ -1034,15 +1035,14 @@ Func GenMethodCodeCallFunc aList
 		GenMethodCodeGetParaValues(aList) + ")"
 	ok
 
-	#Check before return list for any 
-	if len(aBeforeReturn) > 0
-		nIndex = find(aBeforeReturn,aList[C_FUNC_OUTPUT],C_BR_TYPENAME)
-		if nIndex > 0
-			cCode += aBeforeReturn[nIndex][C_BR_CODE]
+	# Check before return list for any 
+		if len(aBeforeReturn) > 0
+			nIndex = find(aBeforeReturn,aList[C_FUNC_OUTPUT],C_BR_TYPENAME)
+			if nIndex > 0
+				cCode += aBeforeReturn[nIndex][C_BR_CODE]
+			ok
 		ok
-
-	ok
-
+	
 	if lRet		
 		if lRetPointer
 			cCode += ',"' + GenPointerType(aList[C_FUNC_OUTPUT]) + '"'
@@ -1054,8 +1054,14 @@ Func GenMethodCodeCallFunc aList
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + C_TABS_1 + "}" + nl
+		if lObject 
+			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+				",ring_"+ trim(aList[C_FUNC_OUTPUT]) + "_freefunc" +
+				 '");' + nl + C_TABS_1 + "}" + nl
+		else 
+			cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+				 '");' + nl + C_TABS_1 + "}" + nl
+		ok
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
