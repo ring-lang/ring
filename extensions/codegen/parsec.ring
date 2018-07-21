@@ -1209,7 +1209,7 @@ Func GenFreeFuncForClassesPrototype aList
 		aList + mylist
 		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
 	next
-	cCode += nl + nl
+	cCode += "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
 	return cCode
 
 
