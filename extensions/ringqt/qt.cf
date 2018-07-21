@@ -1200,6 +1200,7 @@ QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
 <class>
 name: QPixmap
 para: const char *
+managed
 </class>
 
 QPixmap copy(int x, int y, int width, int height)
@@ -1252,16 +1253,19 @@ name: QPixmap2
 para: int width, int height
 parent: QPixmap
 codename: QPixmap
+managed
 </class>
 
 <class>
 name: QIcon
 para: QPixmap
+managed
 </class>
 
 <class>
 name: QSize
 para: int width, int height
+managed
 </class>
 
 <class>
@@ -1679,6 +1683,7 @@ const char *getviewportEnteredEvent(void)
 <class>
 name: QDir
 para: void
+managed
 </class>
 
 QString absoluteFilePath(QString fileName)
@@ -4435,6 +4440,7 @@ RING_FUNC(ring_QColorDialog_getcolor)
 <class>
 name: QStringList
 para: void
+managed
 </class>
 
 QString join(QString)
@@ -4489,6 +4495,7 @@ QString value(int)
 <class>
 name: QKeySequence
 para: QString 
+managed
 </class>
 
 <class>

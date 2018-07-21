@@ -123225,7 +123225,7 @@ RING_FUNC(ring_QPixmap_new)
 		return ;
 	}
 	QPixmap *pObject = new QPixmap(RING_API_GETSTRING(1));
-	RING_API_RETCPOINTER(pObject,"QPixmap");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QPixmap",ring_QPixmap_freefunc);
 }
 
 RING_FUNC(ring_QPixmap2_new)
@@ -123244,7 +123244,7 @@ RING_FUNC(ring_QPixmap2_new)
 		return ;
 	}
 	QPixmap *pObject = new QPixmap( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
-	RING_API_RETCPOINTER(pObject,"QPixmap2");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QPixmap2",ring_QPixmap2_freefunc);
 }
 
 RING_FUNC(ring_QIcon_new)
@@ -123255,7 +123255,7 @@ RING_FUNC(ring_QIcon_new)
 		return ;
 	}
 	QIcon *pObject = new QIcon(* (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap"));
-	RING_API_RETCPOINTER(pObject,"QIcon");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QIcon",ring_QIcon_freefunc);
 }
 
 RING_FUNC(ring_QSize_new)
@@ -123274,7 +123274,7 @@ RING_FUNC(ring_QSize_new)
 		return ;
 	}
 	QSize *pObject = new QSize( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
-	RING_API_RETCPOINTER(pObject,"QSize");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QSize",ring_QSize_freefunc);
 }
 
 RING_FUNC(ring_QLineEdit_new)
@@ -123367,7 +123367,7 @@ RING_FUNC(ring_QDir_new)
 		return ;
 	}
 	QDir *pObject = new QDir();
-	RING_API_RETCPOINTER(pObject,"QDir");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QDir",ring_QDir_freefunc);
 }
 
 RING_FUNC(ring_QFileSystemModel_new)
@@ -124203,7 +124203,7 @@ RING_FUNC(ring_QStringList_new)
 		return ;
 	}
 	QStringList *pObject = new QStringList();
-	RING_API_RETCPOINTER(pObject,"QStringList");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QStringList",ring_QStringList_freefunc);
 }
 
 RING_FUNC(ring_QKeySequence_new)
@@ -124218,7 +124218,7 @@ RING_FUNC(ring_QKeySequence_new)
 		return ;
 	}
 	QKeySequence *pObject = new QKeySequence(RING_API_GETSTRING(1));
-	RING_API_RETCPOINTER(pObject,"QKeySequence");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QKeySequence",ring_QKeySequence_freefunc);
 }
 
 RING_FUNC(ring_QLCDNumber_new)
