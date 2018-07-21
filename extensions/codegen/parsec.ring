@@ -109,6 +109,8 @@ $lIgnoreCPointerTypeCheck = false
 
 $aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
 
+$lAddFreeFunctions = false 
+
 # When we define constants 
 	C_CONSTANT_INS			= 1
 	C_CONSTANT_NAME 		= 2
@@ -187,6 +189,7 @@ Func Main
 		but cLine = "<addfreefunctionsprototype>"
 			lFlag = C_INS_FREEFUNCTIONS
 			aData + [C_INS_FREEFUNCTIONS]
+			$lAddFreeFunctions = true
 			loop
 		but left(cLine,13) = "<libinitfunc>"
 			$cLibInitFunc = trim(substr(cLine,14))
@@ -411,7 +414,9 @@ Func GenCode aList
 	next
 	cCode += GenNewFuncForClasses(aList)
 	cCode += GenDeleteFuncForClasses(aList)
-	cCode += GenFreeFuncForClasses(aList)
+	if $lAddFreeFunctions 
+		cCode += GenFreeFuncForClasses(aList)
+	ok
 	cCode += GenFuncPrototype(aList)
 	return cCode
 
@@ -1054,7 +1059,7 @@ Func GenMethodCodeCallFunc aList
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		if lObject 
+		if lObject and $lAddFreeFunctions
 			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
 				'",ring_'+ trim(aList[C_FUNC_OUTPUT]) + "_freefunc" +
 				 ');' + nl + C_TABS_1 + "}" + nl
