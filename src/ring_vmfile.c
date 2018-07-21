@@ -770,7 +770,7 @@ void ring_vm_file_bytes2double ( void *pPointer )
 	RING_API_ERROR(RING_API_BADPARATYPE);
 }
 
-void ring_vm_file_freefunc ( RingState *pRingState,void *pPointer )
+void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 {
 	FILE *fp  ;
 	fp = (FILE *) pPointer ;
