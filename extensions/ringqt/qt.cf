@@ -695,6 +695,8 @@ $aMallocClassesList + "QModelIndex"
 
 </runcode>
 
+<addfreefunctionsprototype>
+
 <class>
 name: QApp
 parent: QGuiApplication
