@@ -1056,8 +1056,8 @@ Func GenMethodCodeCallFunc aList
 	if lUNKNOWN 	# Generate code to convert struct to struct *
 		if lObject 
 			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-				",ring_"+ trim(aList[C_FUNC_OUTPUT]) + "_freefunc" +
-				 '");' + nl + C_TABS_1 + "}" + nl
+				'",ring_'+ trim(aList[C_FUNC_OUTPUT]) + "_freefunc" +
+				 ');' + nl + C_TABS_1 + "}" + nl
 		else 
 			cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
 				 '");' + nl + C_TABS_1 + "}" + nl
