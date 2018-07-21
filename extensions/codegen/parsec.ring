@@ -1193,7 +1193,7 @@ Func GenFreeFuncForClasses aList
 	return cCode
 
 Func GenFreeFuncForClassesPrototype aList
-	cCode = "// Functions Prototype - Functions used to Free Memory " + nl + nl
+	cCode = nl + "// Functions Prototype - Functions used to Free Memory " + nl + nl
 	for aSub in $aClassesList
 		cName = aSub[1]	cPara = "void"
 		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
@@ -1209,7 +1209,7 @@ Func GenFreeFuncForClassesPrototype aList
 		aList + mylist
 		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
 	next
-	cCode += "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
+	cCode += nl + "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
 	return cCode
 
 
