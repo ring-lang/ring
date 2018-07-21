@@ -1187,7 +1187,7 @@ Func GenFreeFuncForClasses aList
 			cCodeName = cName
 		ok
 		cFuncName = "ring_" + cName + "_freefunc"
-		cCode += "void " + cFuncName + "(RingState *pState,void *pPointer)" + nl + 
+		cCode += "void " + cFuncName + "(void *pState,void *pPointer)" + nl + 
 			"{" + nl +
 				C_TABS_1 + cCodeName + " *pObject ; " + nl +
             			C_TABS_1 +'pObject = ('+cCodeName+' *) pPointer;' + nl +
@@ -1209,7 +1209,7 @@ Func GenFreeFuncForClassesPrototype aList
 			cCodeName = cName
 		ok
 		cFuncName = "ring_" + cName + "_freefunc"
-		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
+		cCode += C_TABS_1 + "void " + cFuncName + "(void *pState,void *pPointer);" + nl 
 	next
 	cCode += nl + "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
 	return cCode
