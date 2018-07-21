@@ -6,7 +6,7 @@ func setwinicon pWindow,cImage
 		
 func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
-	pBtn.setIcon(new qicon(new qpixmap(cImage))n)
+	pBtn.setIcon(new qicon(new qpixmap(cImage)))
 
 func SetDialogIcon cFile
 	cDialogIcon = cFile
