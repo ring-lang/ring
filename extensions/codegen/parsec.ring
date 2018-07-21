@@ -1181,8 +1181,6 @@ Func GenFreeFuncForClasses aList
 			cCodeName = cName
 		ok
 		cFuncName = "ring_" + cName + "_freefunc"
-		mylist = [C_INS_REGISTER,"void","delete",ParaList(cPara),cName]
-		aList + mylist
 		cCode += "void " + cFuncName + "(RingState *pState,void *pPointer)" + nl + 
 			"{" + nl +
 				C_TABS_1 + cCodeName + " *pObject ; " + nl +
