@@ -1203,8 +1203,6 @@ Func GenFreeFuncForClassesPrototype aList
 			cCodeName = cName
 		ok
 		cFuncName = "ring_" + cName + "_freefunc"
-		mylist = [C_INS_REGISTER,"void","delete",ParaList(cPara),cName]
-		aList + mylist
 		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
 	next
 	cCode += nl + "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
