@@ -101,6 +101,7 @@ C_CLASSESLIST_PASSVMPOINTER 	= 5
 C_CLASSESLIST_ABSTRACT 		= 6
 C_CLASSESLIST_NONEW 		= 7
 C_CLASSESLIST_STATICMETHODS	= 8
+C_CLASSESLIST_MANAGED		= 9
 
 $lNodllstartup = false	# when used, ring.h will not be included automatically
 $cLibInitFunc = "ringlib_init"
@@ -347,7 +348,7 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				cClassName = trim(substr(cValue,6))
 				See "Class Name : " + cClassName + nl
-				$aClassesList + [cClassName,"","","",false,false,false,false]
+				$aClassesList + [cClassName,"","","",false,false,false,false,false]
 			ok
 		ok
 	next		
@@ -409,6 +410,11 @@ Func GenCode aList
 			but lower(cValue) = "staticmethods"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS] = true
+			but lower(cValue) = "managed"
+				nIndex = find($aClassesList,$cClassName,1)
+				$aClassesList[nIndex][C_CLASSESLIST_MANAGED] = true
+				See "Class : Managed" + nl		
+
 			ok
 		ok
 	next
@@ -1139,10 +1145,15 @@ Func GenNewFuncForClasses aList
 				if aSub[C_CLASSESLIST_PASSVMPOINTER] 
 					cCode += ", (VM *) pPointer"
 				ok
-				cCode += ");" + nl +
-				C_TABS_1 + "RING_API_RETCPOINTER(pObject,"+
-					'"'+cName+'"' + ");"+ nl +
-			"}" + nl + nl
+				cCode += ");" + nl 
+			if aSub[C_CLASSESLIST_MANAGED]	
+				cCode += C_TABS_1 + "RING_API_RETMANAGEDCPOINTER(pObject,"+
+					'"'+cName+'",' + "ring_" + cName + "_freefunc" + ");"+ nl 
+			else 
+				cCode += C_TABS_1 + "RING_API_RETCPOINTER(pObject,"+
+					'"'+cName+'"' + ");"+ nl 
+			ok
+			cCode += "}" + nl + nl
 	next
 	return cCode
 
