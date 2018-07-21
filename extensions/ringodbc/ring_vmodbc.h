@@ -35,7 +35,7 @@ void ring_vm_odbc_commit ( void *pPointer ) ;
 
 void ring_vm_odbc_rollback ( void *pPointer ) ;
 
-void ring_vm_odbc_freefunc ( RingState *pState,void *pPointer ) ;
+void ring_vm_odbc_freefunc ( void *pState,void *pPointer ) ;
 /* Constants */
 #define RING_ODBC_FLAG_ENV 0x01
 #define RING_ODBC_FLAG_DBC 0x02

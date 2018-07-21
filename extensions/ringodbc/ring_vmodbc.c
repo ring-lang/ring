@@ -458,7 +458,7 @@ void ring_vm_odbc_rollback ( void *pPointer )
 	}
 }
 
-void ring_vm_odbc_freefunc ( RingState *pState,void *pPointer )
+void ring_vm_odbc_freefunc ( void *pState,void *pPointer )
 {
 	ring_odbc *pODBC  ;
 	pODBC = (ring_odbc *) pPointer ;
