@@ -344,7 +344,7 @@ Func GenCode aList
 		ok
 	next
 		
-	#
+	cCode += GenFreeFuncForClassesPrototype(aList)
 	
 	for t = 1 to nMax 
 		aFunc = aList[t]
@@ -406,6 +406,7 @@ Func GenCode aList
 	next
 	cCode += GenNewFuncForClasses(aList)
 	cCode += GenDeleteFuncForClasses(aList)
+	cCode += GenFreeFuncForClasses(aList)
 	cCode += GenFuncPrototype(aList)
 	return cCode
 
@@ -1161,6 +1162,51 @@ Func GenDeleteFuncForClasses aList
 			"}" + nl + nl
 	next
 	return cCode
+
+Func GenFreeFuncForClasses aList
+	cCode = ""
+	for aSub in $aClassesList
+		cName = aSub[1]	cPara = "void"
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
+			loop
+		ok
+		if aSub[C_CLASSESLIST_CODENAME] != NULL
+			cCodeName = aSub[C_CLASSESLIST_CODENAME]
+		else
+			cCodeName = cName
+		ok
+		cFuncName = "ring_" + cName + "_freefunc"
+		mylist = [C_INS_REGISTER,"void","delete",ParaList(cPara),cName]
+		aList + mylist
+		cCode += "void " + cFuncName + "(RingState *pState,void *pPointer)" + nl + 
+			"{" + nl +
+				C_TABS_1 + cCodeName + " *pObject ; " + nl +
+            			C_TABS_1 +'pObject = ('+cCodeName+' *) pPointer;' + nl +
+            			C_TABS_1 +"delete pObject ;" + nl +
+			"}" + nl + nl
+	next
+	return cCode
+
+Func GenFreeFuncForClassesPrototype aList
+	cCode = "// Functions Prototype - Functions used to Free Memory " + nl + nl
+	for aSub in $aClassesList
+		cName = aSub[1]	cPara = "void"
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
+			loop
+		ok
+		if aSub[C_CLASSESLIST_CODENAME] != NULL
+			cCodeName = aSub[C_CLASSESLIST_CODENAME]
+		else
+			cCodeName = cName
+		ok
+		cFuncName = "ring_" + cName + "_freefunc"
+		mylist = [C_INS_REGISTER,"void","delete",ParaList(cPara),cName]
+		aList + mylist
+		cCode += C_TABS_1 + "void " + cFuncName + "(RingState *pState,void *pPointer);" + nl 
+	next
+	cCode += nl
+	return cCode
+
 
 Func GenRingConstants aList
 	cCode = ""
