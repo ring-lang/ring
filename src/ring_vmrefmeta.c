@@ -914,7 +914,10 @@ void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	RING_API_RETLIST(pVM->pCFunctionsList);
+	pList = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_copy_gc(pVM->pRingState,pList,pVM->pCFunctionsList);
+	RING_API_RETLIST(pList);
+	ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
