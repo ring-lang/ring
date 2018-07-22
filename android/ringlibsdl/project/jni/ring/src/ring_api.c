@@ -1924,7 +1924,7 @@ void ring_vmlib_space ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		pString = ring_state_calloc(((VM *) pPointer)->pRingState,1,RING_API_GETNUMBER(1));
+		pString = (char *) ring_state_calloc(((VM *) pPointer)->pRingState,1,RING_API_GETNUMBER(1));
 		RING_API_RETSTRING2(pString,RING_API_GETNUMBER(1));
 		ring_state_free(((VM *) pPointer)->pRingState,pString);
 	} else {
