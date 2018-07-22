@@ -100899,7 +100899,7 @@ RING_FUNC(ring_QPixmap_new)
 		return ;
 	}
 	QPixmap *pObject = new QPixmap(RING_API_GETSTRING(1));
-	RING_API_RETMANAGEDCPOINTER(pObject,"QPixmap",ring_QPixmap_freefunc);
+	RING_API_RETCPOINTER(pObject,"QPixmap");
 }
 
 RING_FUNC(ring_QPixmap2_new)
@@ -100918,7 +100918,7 @@ RING_FUNC(ring_QPixmap2_new)
 		return ;
 	}
 	QPixmap *pObject = new QPixmap( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
-	RING_API_RETMANAGEDCPOINTER(pObject,"QPixmap2",ring_QPixmap2_freefunc);
+	RING_API_RETCPOINTER(pObject,"QPixmap2");
 }
 
 RING_FUNC(ring_QIcon_new)
