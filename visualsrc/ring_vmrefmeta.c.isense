@@ -205,6 +205,8 @@ pVM
 ring_vm_refmeta_ringvmfileslist
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmcalllist
 Type: VM *
 pVM
@@ -218,15 +220,23 @@ pList, *pList2
 ring_vm_refmeta_ringvmfunctionslist
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmclasseslist
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmpackageslist
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmcfunctionslist
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmsettrace
 Type: VM *
 pVM
@@ -235,6 +245,8 @@ cStr
 ring_vm_refmeta_ringvmtracedata
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmtraceevent
 Type: VM *
 pVM
