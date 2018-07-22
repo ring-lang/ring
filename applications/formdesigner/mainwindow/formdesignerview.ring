@@ -392,7 +392,7 @@ Class FormDesignerView from WindowsViewParent
 
 		oToolBox = new qWidget() {
 			setLayoutDirection(0)
- 			this.oToolLock = new qTooLButton(oToolBox) {
+ 			this.oToolLock = new qToolButton(oToolBox) {
 					setText(aToolBoxTextList[:Lock]) # "Lock"
 					this.setToolbtnImage(self,AppFile("image/lock.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
@@ -657,9 +657,10 @@ Class FormDesignerView from WindowsViewParent
 
 	func ToolboxBtnProperties oButton 
 		oButton {
-				setToolButtonStyle(2)
 				setCheckable(True)
+				setSizePolicy(1,1)
 				if not isMobile()  {
+					setToolButtonStyle(2)
 					if T_LAYOUTDIRECTION {
 						setminimumwidth(174)
 						setminimumheight(30)
