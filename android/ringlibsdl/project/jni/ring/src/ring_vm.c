@@ -239,7 +239,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
 	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
 	/* Dynamic Libraries */
-	#ifdef RING_VM_DLL
+	#if RING_VM_DLL
 	ring_vm_dll_closealllibs(pVM);
 	#endif
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
