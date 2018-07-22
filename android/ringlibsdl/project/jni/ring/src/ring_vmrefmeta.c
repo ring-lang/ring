@@ -844,8 +844,12 @@ void ring_vm_refmeta_packagename ( void *pPointer )
 void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
-	RING_API_RETLIST(pVM->pRingState->pRingFilesList);
+	pList = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_copy_gc(pVM->pRingState,pList,pVM->pRingState->pRingFilesList);
+	RING_API_RETLIST(pList);
+	ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
@@ -875,6 +879,7 @@ void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
 void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pFunctionsMap);
 }
@@ -882,6 +887,7 @@ void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer )
 void ring_vm_refmeta_ringvmclasseslist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pClassesMap);
 }
@@ -889,6 +895,7 @@ void ring_vm_refmeta_ringvmclasseslist ( void *pPointer )
 void ring_vm_refmeta_ringvmpackageslist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pPackagesMap);
 }
@@ -896,6 +903,7 @@ void ring_vm_refmeta_ringvmpackageslist ( void *pPointer )
 void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pCFunctionsList);
 }
@@ -927,8 +935,12 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 void ring_vm_refmeta_ringvmtracedata ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
-	RING_API_RETLIST(pVM->pTraceData);
+	pList = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_copy_gc(pVM->pRingState,pList,pVM->pTraceData);
+	RING_API_RETLIST(pList);
+	ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmtraceevent ( void *pPointer )
