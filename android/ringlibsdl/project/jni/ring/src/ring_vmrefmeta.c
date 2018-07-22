@@ -851,8 +851,12 @@ void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
 {
 	VM *pVM  ;
+	List *pList  ;
 	pVM = (VM *) pPointer ;
-	RING_API_RETLIST(pVM->pFuncCallList);
+	pList = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_copy_gc(pVM->pRingState,pList,pVM->pFuncCallList);
+	RING_API_RETLIST(pList);
+	ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
