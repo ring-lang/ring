@@ -26,7 +26,6 @@ class FormDesigner_QWidget from QWidget
 
 	func init
 		super.init()
-		setAttribute(Qt_WA_DeleteOnClose,True)
 		return self
 
 	func IndexTypeValue
