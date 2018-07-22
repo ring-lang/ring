@@ -44,6 +44,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 				if ( RING_VM_STACK_ISPOINTER ) {
 					if ( pVM->pAssignment == RING_VM_STACK_READP ) {
 						nCont = 0 ;
+						/* Clear the Assignment Pointer */
+						pVM->pAssignment = NULL ;
 					}
 				}
 				if ( pVM->nFuncExecute > 0 ) {

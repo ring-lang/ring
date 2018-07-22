@@ -19,6 +19,8 @@ void ring_vm_liststart ( VM *pVM )
 				nCont = 1 ;
 			}
 			else {
+				/* Clear the Assignment Pointer */
+				pVM->pAssignment = NULL ;
 				/* Be Sure that we are modifying Object Attribute (Not Global/Local Variable) */
 				if ( pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE ) {
 					/*
