@@ -635,10 +635,12 @@ Class FormDesignerView from WindowsViewParent
 		}
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
-			if T_LAYOUTDIRECTION {
-				setMiniMumWidth(215)
-			else 
-				setMiniMumWidth(195)
+			if not isMobile() {
+				if T_LAYOUTDIRECTION {
+					setMiniMumWidth(215)
+				else 
+					setMiniMumWidth(195)
+				}
 			}
 			setwidgetresizable(True)
 		}
