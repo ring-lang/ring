@@ -3772,6 +3772,7 @@ void setPageSizeMM(QSizeF)
 <class>
 name: QFont
 para: QString, int, int, bool
+managed
 </class>
 
 bool bold(void)
