@@ -101696,7 +101696,7 @@ RING_FUNC(ring_QFont_new)
 		return ;
 	}
 	QFont *pObject = new QFont(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3), (bool) RING_API_GETNUMBER(4));
-	RING_API_RETCPOINTER(pObject,"QFont");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QFont",ring_QFont_freefunc);
 }
 
 RING_FUNC(ring_QBrush_new)
