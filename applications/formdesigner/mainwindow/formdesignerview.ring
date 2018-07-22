@@ -655,11 +655,19 @@ Class FormDesignerView from WindowsViewParent
 
 	func ToolboxBtnProperties oButton 
 		oButton {
-			setToolButtonStyle(2)
-			setminimumwidth(150)
-			setminimumheight(30)
-			setCheckable(True)
-			setIconSize(new QSize(15,15))
+				setToolButtonStyle(2)
+				setCheckable(True)
+				if not isMobile()  {
+					if T_LAYOUTDIRECTION {
+						setminimumwidth(174)
+						setminimumheight(30)
+						setIconSize(new QSize(15,15))
+					else 
+						setminimumwidth(150)
+						setminimumheight(30)
+						setIconSize(new QSize(15,15))
+					}
+				}
 		}
 
 	func setToolbtnImage oObject,cImage
