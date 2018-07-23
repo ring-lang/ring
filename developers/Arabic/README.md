@@ -39,7 +39,7 @@
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
 
-![Ring](http://ring-lang.sf.net/ringcourse.jpg)
+![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
 
