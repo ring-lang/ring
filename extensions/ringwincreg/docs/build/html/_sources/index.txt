@@ -1,0 +1,28 @@
+.. Ring_WinCReg documentation master file, created by
+   sphinx-quickstart on Sun Sep 18 21:46:40 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Ring_WinCReg's documentation!
+========================================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+   :name: ring_wincreg
+
+   Introduction <introduction>
+   Implementation and Usage <implementation&usage>
+   Dealing with Keys <keys>
+   Dealing with Entries <entries>
+   Dealing with Values <values>
+   Extension functions list <extensionfunctions>
+   	
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`
+

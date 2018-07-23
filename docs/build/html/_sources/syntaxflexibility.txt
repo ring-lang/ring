@@ -635,3 +635,43 @@ Example:
 			endfunc
 		endclass
 	endpackage
+
+.. index:: 
+	pair: Syntax Flexibility; Ignore new lines after keywords
+
+Ignore new lines after keywords
+===============================
+
+Starting from Ring 1.8 the compiler will ignore new lines after keywords that expect tokens after it
+
+Example:
+
+.. code-block:: ring
+
+	see 
+	"
+		Hello, World!
+	"
+	test()
+
+	func 
+	#======================#
+		Test
+	#======================#
+
+		?
+		"
+	
+		Hello from the Test function
+
+		"
+
+Output:
+
+.. code-block:: none
+
+
+	        Hello, World!
+
+
+	        Hello from the Test function

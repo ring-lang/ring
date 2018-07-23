@@ -1,16 +1,20 @@
 /*
- *	
- *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
+ *
+ *	frAbs()			Returns the absolute value of the specified numeric expression.
  *	frAddBs()		Adds a backslash (if needed) to a path expression.
  *	frALines()		Creates an Array with the content of the specified string. 
  *	frAllTrim()		Removes all leading and trailing spaces of the specified string. 
+ *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
  *	frAt()			Searches a character expression for the occurrence of another character expression.
  *	frAtC()			Searches a character expression for the ocurrence of another character expression without 
  *				regard for the case of these two expressions.
  *	frBetween()		Determines whether the value of an expression is inclusively between the values of two 
  *				expressions of the same type.
  *	frChr()			Returns the character associated with the specified numeric ANSI code.
+ * 	frDate()		Returns the current system date, which is controlled by the operating system, or creates a date.
  *	frEmpty()		Determines whether an expression evaluates to empty.
+ *	frFile()		Checks if a file exists on disk.
+ *	frFileToStr()		Returns the contents of a file as a character string.
  *	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
  *	frForcePath()		Returns a file name with a new path name substituted for the old one.
  *  	frIif()   		Returns one of two values depending on the value of a logical expression.
@@ -26,15 +30,20 @@
  *	frLTrim()		Removes all leading spaces or parsing characters from the specified character expression.
  *	frPadL()		Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
  *	frPadR()		Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+ *	frProper()		Returns from a character expression a string capitalized as appropriate for proper names.
  *	frReplicate()		Returns a character string that contains a specified character expression repeated a specified number of times.
  *	frRTrim()		Removes all trailing spaces or parsing characters from the specified character expression.
+ *	frSetCentury()		Returns the current value of the century format and sets a new one when especified.
+ *	frSetDate()		Returns the current value of the date format and sets a new one when especified.
  *	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
  *	frSetSeparatorTo()	Specifies the character for the numeric place separator.
  *	frSpace()		Returns a character string composed of a specified number of spaces.
  *	frStr()			Returns the character equivalent of a numeric expression.
  *	frStringToList()	Creates a List with the content of the specified string.
  *	frStrTran()		Searches a character expression for a second character expression and replaces each occurrence with a third 
- *				character expression.			
+ *				character expression.
+ *	frStuff()		Returns a new character string replaced by a specified number of characteres in a character expression with 
+ *				another character expression.
  *	frSubStr()		Returns a character string from the given character expression, starting at a specified position in the character 
  *				expression and continuing for a specified number of characters.			
  * 	frTransform()		Returns a character string from an expression in a format determined by a format code.
@@ -56,7 +65,7 @@
 	
 class frFunctions
 
-	_version = "1.0.137"
+	_version = "1.0.142"
 
 	_character_type = "C"
 	_numeric_type = "N"	
@@ -70,12 +79,68 @@ class frFunctions
 	_back_slash = "\"
 	_separator = ","
 
+	_on = "ON"
+	_off = "OFF"
+	
 	_ring_character_type 	= "STRING"
 	_ring_numeric_type 	= "NUMBER"
 	_ring_list_type 	= "LIST"
 	_ring_object_type 	= "OBJECT"
 
+	_dateform_american 		= "mm/dd/yy"
+	_dateform_ansi 			= "yy.mm.dd"
+	_dateform_british_french	= "dd/mm/yy"
+	_dateform_british 		= "dd/mm/yy"
+	_dateform_french		= "dd/mm/yy"
+	_dateform_german 		= "dd.mm.yy"
+	_dateform_italian		= "dd-mm-yy"
+	_dateform_japan			= "yy/mm/dd"
+	_dateform_taiwan		= "yy/mm/dd"
+	_dateform_usa			= "mm-dd-yy"
+	_dateform_mdy			= "mm/dd/yy"
+	_dateform_dmy			= "dd/mm/yy"
+	_dateform_ymd			= "yy/mm/dd"
+
+	_date_american 			= "AMERICAN"
+	_date_ansi 			= "ANSI"
+	_date_british_french		= "BRITISH/FRENCH"
+	_date_british 			= "BRITISH"
+	_date_french 			= "FRENCH"
+	_date_german 			= "GERMAN"
+	_date_italian			= "ITALIAN"
+	_date_japan			= "JAPAN"
+	_date_taiwan			= "TAIWAN"
+	_date_usa			= "USA"
+	_date_mdy			= "MDY"
+	_date_dmy			= "DMY"
+	_date_ymd			= "YMD"
+
 	_set_separator 		= _separator
+	_set_century		= _off
+	_set_century_to		= -1
+	_set_century_rollover	= 48
+	_set_date 		= _date_dmy
+	_set_dateformat		= _dateform_dmy
+	
+	
+	/*
+	 * Syntax		: lnReturnValue = frAbs(tnExpression)
+	 * Description		: Returns the absolute value of the specified numeric expression.
+	 * 			:
+	 * Arguments		: <tnExpression>
+	 *			: Specifies the numeric expression whose absolute value frAbs() returns.
+	 *			:
+	 * Returns		: <lnReturnValue>
+	 *			: Returns the absolute value of the specified numeric expression.
+	 *			:
+	 * Author		: Jar C 18.02.2018
+	 */
+	 
+	func frAbs(tnExpression) {
+	 	return fAbs(tnExpression)
+	}
+	
+	
 
 	/*
 	 * Syntax		: lnReturnValue = frAsc(tcExpression)
@@ -90,10 +155,16 @@ class frFunctions
 	 *			: Every character has a unique ANSI value in the range from 0 to 255.
 	 *			:
 	 * Author		: Jar C 04.02.2018
+	 *			: Jar U 01.03.2018 Updated to return 0 when tcExpression is an empty string. 
 	 */
 	 
 	func frAsc(tcExpression) {
-	 	return Ascii(Left(tcExpression, 1))
+		if tcExpression = this._empty_char {
+			lnReturnValue = 0
+		else
+			lnReturnValue = Ascii(Left(tcExpression, 1))
+		}
+	 	return lnReturnValue
 	}
 	
 	/*
@@ -113,39 +184,41 @@ class frFunctions
 	}
 
 	/*
-	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOcurrence)
-	 * Description		: Searches a character expression for the ocurrence of another character expression. 
+	 * Syntax		: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression. 
 	 *			: The search performed by .frAt() is case-sensitive.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in tcString.
+	 *			: Specifies the character expression to search for in <tcString>.
 	 *			:
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for tcToSearch. 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
 	 *			:
 	 *			: <tnOccurrence> 
-	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
-	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for 
+	 *			: in <tcString>. 
+	 *			: By default, .frAt() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
 	 *			: 
-	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
-	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
-	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
-	 *			: tcString, .frAt() returns 0.
+	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in  <tcString>, frAt() 
+	 *			: returns 0.
 	 *			:
 	 * Author	 	: Jar c 19.12.2017
 	 */
 
-	func frAt(tcToSearch, tcString, tnOcurrence) {
+	func frAt(tcToSearch, tcString, tnOccurrence) {
 	
-		tnOcurrence 	= this.frSetIfEmpty(tnOcurrence, 1)
+		tnOccurrence 	= this.frSetIfEmpty(tnOccurrence, 1)
 		lnRet 		= 0
 		lnCounted 	= 0
 		
-		for n = 1 to tnOcurrence {
+		for n = 1 to tnOccurrence {
 			lnRet = SubStr(tcString, tcToSearch)
 			if lnRet > 0 {
 				tcString = SubStr(tcString, lnRet + 1)
-				if n < tnOcurrence {
+				if n < tnOccurrence {
 					lnCounted += lnRet
 				}
 			else
@@ -158,30 +231,32 @@ class frFunctions
 
 
 	/*
-	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOcurrence)
-	 * Description		: Searches a character expression for the ocurrence of another character expression 
+	 * Syntax		: lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
+	 * Description		: Searches a character expression for the occurrence of another character expression 
 	 *			: without regard for the case of these two expressions.
 	 *			:
 	 * Arguments   		: <tcToSearch>
-	 *			: Specifies the character expression to search for in tcString.
+	 *			: Specifies the character expression to search for in <tcString>.
 	 *			:
 	 *			: <tcString> 
-	 *			: Specifies the character expression to search for tcToSearch. 
+	 *			: Specifies the character expression to search for <tcToSearch>. 
 	 *			:
-	 *			: <tnOcurrence> 
-	 *			: Specifies which ocurrence, first, second, third, and so on, of tcToSearch to search for in tcString. 
-	 *			: By default, .frAt() searches for the first ocurrence of tcToSearch (tnOcurrence = 1). 
+	 *			: <tnOccurrence> 
+	 *			: Specifies which occurrence, first, second, third, and so on, of <tcToSearch> to search for
+	 *			: in tcString. 
+	 *			: By default, .frAtC() searches for the first occurrence of <tcToSearch> (tnOccurrence = 1). 
 	 *			: 
-	 * Returns		: Numeric. .frAt() returns an integer indicating the position of the first character for a character expression
-	 *			: or memo field within another character expression or memo field, beginning from the leftmost character. If the 
-	 *			: expression or field is not found, or if tnOcurrence is greater than the number of times tcToSearch occurs in 
-	 *			: tcString, .frAt() returns 0.
+	 * Returns		: Numeric. .frAtC() returns an integer indicating the position of the first character for a 
+	 *			: character expression or memo field within another character expression or memo field, 
+	 *			: beginning from the leftmost character. If the expression or field is not found, or if 
+	 *			: <tnOccurrence> is greater than the number of times <tcToSearch> occurs in <tcString>, frAtC()
+	 *			: returns 0.
 	 *			:
 	 * Author	 	: Jar c 04.02.2018
 	 */
 
-	func frAtC(tcToSearch, tcString, tnOcurrence) {
-		return this.frAt(Lower(tcToSearch), Lower(tcString), tnOcurrence)
+	func frAtC(tcToSearch, tcString, tnOccurrence) {
+		return this.frAt(Lower(tcToSearch), Lower(tcString), tnOccurrence)
 	}
 
 	/*
@@ -203,6 +278,40 @@ class frFunctions
 	func frChr(tnExpression) {
 	 	return Char(tnExpression)
 	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frDate(tnYear, tnMonth, tnDay)
+	 * Description		: Returns the current system date, which is controlled by the operating system, or creates a date.
+	 * 			:
+	 * Arguments		: <tnYear>
+	 *			: Specifies de year to return by the function.
+	 *			:
+	 *			: <tnMonth>
+	 *			: Specifies de month to return by the function.
+	 *			:
+	 *			: <tnDay>
+	 *			: Specifies de day to return by the function.
+	 *			:
+	 *			: When we specify Null arguments the function returns the current system date.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns a date with the current specified date format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frDate(tnYear, tnMonth, tnDay) {
+	
+		if isnull(tnYear) or isnull(tnMonth) or isnull(tnDay) {
+			tnYear = timelist()[19]
+			tnMonth = timelist()[10]
+			tnDay = timelist()[6]
+		}
+	
+		return this._dateFormat(tnYear, tnMonth, tnDay)
+	}
+
+
 
 	/*
 	 * Syntax		: llReturnValue = frEmpty(tuExpression)
@@ -241,6 +350,58 @@ class frFunctions
 		
 		return llRet
 	}
+
+
+
+	/*
+	 * Syntax		: llReturnValue = frFile(tcFileName, tnFlag)
+	 * Description		: Checks if the specified file exists on disk.
+	 *			:
+	 * Arguments   		: <tcFileName>
+	 *			: Specifies the name of the file to check. tcFileName must include 
+	 *			: the file extension. You can include a path with the file name to 
+	 *			: search for a file in a directory or on a drive other than the current
+	 *			: directory or drive. 
+	 *			: 
+	 *			: <tnFlag> 
+	 *			: tnFlag was included for future compatibility.
+	 *			: In this version, It always returns true whenever the file exists on disk.
+	 *			:
+	 * Returns		: <llReturnValue> Logical
+	 *			: True if file exists on disk.
+	 *			: False if file doesn't exist on disk.
+	 *			:
+	 * Author	 	: Jar C 18.02.2018
+	 */
+
+	func frFile(tcFileName, tnFlag) {
+
+		// Jar 18.02.2018 
+		// At moment tnFlag isn´t used
+
+		return Fexists(tcFileName)	
+	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frFileToStr(tcFileName)
+	 * Description		: Returns the contents of a file as a character string.
+	 *			:
+	 * Arguments		: <tcFileName>
+	 * 			: Specifies the name of the file whose contents are returned as a character 
+	 *			: string. If the file is in a directory other than the current default directory, 
+	 *			: include a path with the file name.
+	 *			:
+	 * Returns		: <lcReturnValue> 
+	 *			: A character string with the content of the specified file.
+	 *			:
+	 * Author	 	: Jar C 18.02.2018
+	 */
+
+	func frFileToStr(tcFileName) {
+		return read(tcFileName)
+	}
+
 
 	/*
 	 * Syntax		: lcReturnValue = frStr(tnValue, tnLen, tnDec)
@@ -402,41 +563,6 @@ class frFunctions
 		return this.frAddBs(this.frJustPath(tcPath)) + this.frJustFName(tcFileName)
 	}
 	
-
-	/*
-	 * Syntax		: lcRet = frVarType(tuExpression)
-	 * Description		: 
-	 *			:
-	 * Arguments   		: 
-	 *			: 
-	 * Returns		: 
-	 *			: 
-	 * Author	 	: Jar C 01.09.2017
-	 */
-
-	func frVarType(tuExpression) {
-
-		lcRet = this._undefined_type
-		lcExpressionType = Type(tuExpression)
-
-		if lcExpressionType = this._ring_character_type {
-			lcRet = this._character_type
-		else
-			if lcExpressionType = this._ring_numeric_type {
-				lcRet = this._numeric_type
-			else
-				if lcExpressionType = this._ring_list_type {
-					lcRet = this._list_type
-				else
-					if lcExpressionType = this._ring_object_type {
-						lcRet = this._object_type
-					}
-				}
-			}
-		}
-	
-		return lcRet
-	}	
 
 	/*
 	 * Syntax		: lcReturnValue = frAllTrim(tcExpression, tcCharacter)
@@ -699,6 +825,31 @@ class frFunctions
 		return Left(tcString + Copy(this.frSetIfEmpty(tcChar, this._space), tnLen), tnLen)
 	}
 
+
+	/*
+	 * Syntax		: tcReturnValue = frProper(tcExpression)
+	 * Description		: Returns from a character expression a string capitalized as appropriate for proper names.
+	 *			:
+	 * Arguments		: <tcExpression>
+	 *			: Specifies the character expression from which frProper() returns a capitalized character string.
+	 *			:
+	 * Returns		: <tcReturnValue> 
+	 *			:
+	 * Author		: Jar C 04.05.2017
+	 */
+	
+	func frProper(tcExpression) {
+		lcLetters = "abcdefghijklmnopqrstuvxywz"
+		tcExpression = Lower(tcExpression)
+		for lcLetter in lcLetters {
+			tcExpression = SubStr(tcExpression, this._space + lcLetter, this._space + Upper(lcLetter))
+		}
+		tcExpression = Upper(Left(tcExpression, 1)) + SubStr(tcExpression, 2)
+	
+		return tcExpression
+	}
+
+
 	/*
 	 * Syntax		: tcReturnValue = frReplicate(tcString, tnTimes)
 	 * Description		: 
@@ -728,6 +879,41 @@ class frFunctions
 	func frLen(tcString) {
 		return Len(tcString)
 	}
+
+
+	
+	/*
+	 * Syntax		: tcReturnValue = frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace)
+	 * Description		: Returns a new character string replaced by a specified number of characters in a character 
+	 *			: expression with another character expression.
+	 *			:
+	 * Arguments   		: <tcExpression>
+	 *			: Specify the character expression in which the replacement occurs.
+	 *			: 
+	 *			: <tnStartRep>
+	 *			: Specify the position in <tcExpression> where the replacement begins.
+	 *			: 
+	 *			: <tnCharRep>
+	 *			: Specifies the number of characters to be replaced. If <tnCharRep> is 0, the replacement string 
+	 *			: <tcToReplace> is inserted into <tcExpression>.
+	 *			: 
+	 *			: <tcToReplace>
+	 *			: Specifies the replacement character expression. If <tcToReplace> is an empty string, the number of 
+	 *			: characters specified by <tnCharRep> are removed from <tcExpression>.
+	 *			:
+	 * Returns		: Character 
+	 *			: 
+	 * Author	 	: Jar C 04.04.2018
+	 */
+	 
+	func frStuff(tcExpression, tnStartRep, tnCharRep, tcToReplace) {
+	
+		lcStart = Left(tcExpression, tnStartRep - 1)
+		lcEnd = SubStr(tcExpression, tnStartRep + tnCharRep)
+	
+		return lcStart + tcToReplace + lcEnd
+	}
+
 
 	/*
 	 * Syntax		: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
@@ -917,6 +1103,83 @@ class frFunctions
     	}
 
 	
+	/*
+	 * Syntax		: lcReturnValue = frSetCentury(tcStatus)
+	 * Description		: Returns the current value of the century format and sets a new one when especified.
+	 * 			:
+	 * Arguments		: <tcStatus>
+	 *			: Specifies the century status. 
+	 *			:
+	 *			: "OFF" (Default) Shows the year with only two digits.
+	 *			:
+	 *			: "ON" Shows the year in a four-digits format.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns the current value of the century format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frSetCentury(tcStatus) {
+	
+		lcRet = this.frIIf(this._set_century = this._on, this._on, this._off)
+		laStatus = [this._on, this._off]
+		if not this.frEmpty(tcStatus) {
+			if this.frInList(upper(tcStatus), laStatus) {
+				this._set_century = upper(tcStatus)
+			}
+		}
+		return lcRet
+	}
+
+
+	/*
+	 * Syntax		: lcReturnValue = frSetDate(tcDateFormat)
+	 * Description		: Returns the current value of the date format and sets a new one when especified
+	 * 			:
+	 * Arguments		: <tcDateFormat>
+	 *			: Specifies the date format 
+	 *			: Here are the settings and the resulting date formats:
+	 *			:
+	 *			: 
+	 *			: 	Setting  			Format  
+	 *			: --------------------------------------------------
+	 *			: 	AMERICAN			mm/dd/yy
+ 	 *			: 	ANSI				yy.mm.dd
+ 	 *			: 	BRITISH/FRENCH			dd/mm/yy
+	 *			: 	BRITISH				dd/mm/yy
+	 *			: 	FRENCH				dd/mm/yy
+	 *			: 	GERMAN				dd.mm.yy
+	 *			: 	ITALIAN				dd-mm-yy
+	 *			: 	JAPAN				yy/mm/dd
+	 *			: 	TAIWAN				yy/mm/dd
+	 *			: 	USA				mm-dd-yy
+	 *			: 	MDY				mm/dd/yy
+	 *			: 	DMY				dd/mm/yy
+	 *			: 	YMD				yy/mm/dd
+	 *			: --------------------------------------------------
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns the current value of the date format.
+	 *			:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frSetDate(tcDateFormat) {
+
+		laFormats = [this._date_american, this._date_ansi, this._date_british_french, this._date_british, 
+					this._date_french, this._date_german, this._date_italian, this._date_japan, 
+					this._date_taiwan, this._date_usa, this._date_mdy, this._date_dmy, this._date_ymd]
+
+		lcRet = this._set_date
+		if not this.frEmpty(tcDateFormat) {
+			if this.frInList(upper(tcDateFormat), laFormats) {
+				this._set_date = upper(tcDateFormat)
+				this._set_dateformat = this._getDateFormat()
+			}
+		}
+		return lcRet
+	}
+
+	
 
 	/*
 	 * Syntax		: frSetSeparatorTo(tuExpression)
@@ -930,7 +1193,6 @@ class frFunctions
 	 *			:
 	 * Returns		: None
 	 *			:  
-	 *			: 
 	 * Author	 	: Jar C 30.01.2018
 	 */
 
@@ -1102,6 +1364,57 @@ class frFunctions
 
 
 	/*
+	 * Syntax		: lcRet = frVarType(tuExpression)
+	 * Description		: Returns the data type of an expression.
+	 *			:
+	 * Arguments   		: <tuExpression>
+	 *			: Expecifies the expression for which the data type is returned. frVartype() returns a
+	 *			: single character indicating the data type of the expression. 
+	 *			: The following table lists the characteres that frVarType() returns for each data type.
+	 *			:
+	 *			: -------------------	---------------------------------------------------------------
+	 *			: Return Value		Data Type
+	 *			: -------------------	---------------------------------------------------------------
+	 *			: C			Character
+	 *			: N			Numeric
+	 *			: A			List 
+	 *			: O			Object 
+	 *			: U			Undefined type
+	 *			: -------------------	---------------------------------------------------------------
+	 *			:
+	 * Returns		: Character 
+	 *			: 
+	 * Author	 	: Jar C 01.09.2017
+	 */
+
+	func frVarType(tuExpression) {
+
+		lcRet = this._undefined_type
+		lcExpressionType = Type(tuExpression)
+
+		if lcExpressionType = this._ring_character_type {
+			lcRet = this._character_type
+		else
+			if lcExpressionType = this._ring_numeric_type {
+				lcRet = this._numeric_type
+			else
+				if lcExpressionType = this._ring_list_type {
+					lcRet = this._list_type
+				else
+					if lcExpressionType = this._ring_object_type {
+						lcRet = this._object_type
+					}
+				}
+			}
+		}
+	
+		return lcRet
+	}	
+
+
+
+
+	/*
 	 * private functions and properties for this class
 	 */
 
@@ -1190,3 +1503,102 @@ class frFunctions
 		}
 		
 		return lcRet
+
+	func _dateFormat(tnYear, tnMonth, tnDay) {
+	
+		lcFormat = "@L 99"
+		lcMonth = this.frTransform(tnMonth, lcFormat)
+		lcDay = this.frTransform(tnDay, lcFormat)
+
+		if tnYear > 99 {
+			lcYear = this.frTransform(tnYear, "@L 9999")
+		else	
+			lcYear = this.frTransform(tnYear, lcFormat)
+		}
+		
+		if this._set_century = this._off {
+			lcYear = right(lcYear, 2)
+		else
+			if len(lcYear) < 4 {
+				lcYear = left("" + TimeList()[19], 2) + lcYear
+			}
+		}
+	
+		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
+		if left(this._set_dateformat, 1) = "m" {
+			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
+		else
+			if left(this._set_dateformat, 1) = "y" {
+				lcRet = lcYear + lcDateSeparator + lcMonth + lcDateSeparator + lcDay
+			else
+				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
+			}
+		}
+
+		return lcRet
+	}
+	
+	
+
+	func _getDateFormat() {
+
+		lcRet = this._dateform_dmy
+		llOk = false
+
+		if not llOk and this._set_date = this._date_american {
+			llOk = true
+			lcRet = this._dateform_american
+		}
+		if not llOk and this._set_date = this._date_ansi {
+			llOk = true
+			lcRet = this._dateform_ansi
+		}
+		if not llOk and this._set_date = this._date_british_french {
+			llOk = true
+			lcRet = this._dateform_british_french
+		}
+		if not llOk and this._set_date = this._date_british {
+			llOk = true
+			lcRet = this._dateform_british
+		}
+		if not llOk and this._set_date = this._date_french {
+			llOk = true
+			lcRet = this._dateform_french
+		}
+		if not llOk and this._set_date = this._date_german {
+			llOk = true
+			lcRet = this._dateform_german
+		}
+		if not llOk and this._set_date = this._date_italian {
+			llOk = true
+			lcRet = this._dateform_italian
+		}
+		if not llOk and this._set_date = this._date_japan {
+			llOk = true
+			lcRet = this._dateform_japan
+		}
+		if not llOk and this._set_date = this._date_taiwan {
+			llOk = true
+			lcRet = this._dateform_taiwan
+		}
+		if not llOk and this._set_date = this._date_usa {
+			llOk = true
+			lcRet = this._dateform_usa
+		}
+		if not llOk and this._set_date = this._date_mdy {
+			llOk = true
+			lcRet = this._dateform_mdy
+		}
+		if not llOk and this._set_date = this._date_dmy {
+			llOk = true
+			lcRet = this._dateform_dmy
+		}
+		if not llOk and this._set_date = this._date_ymd {
+			llOk = true
+			lcRet = this._dateform_ymd
+		}
+
+		return lcRet
+
+	} 	
+

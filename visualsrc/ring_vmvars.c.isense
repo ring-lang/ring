@@ -32,9 +32,6 @@ pList
 ring_vm_newtempvar
 Type: List *
 pList
-ring_vm_newtempvar2
-Type: List *
-pList,*pList2
 ring_vm_addnewcpointervar
 Type: List *
 pList, *pList2
@@ -42,8 +39,6 @@ ring_vm_deletescope
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope
-Type: int
-nOld
 ring_vm_getglobalscope
 Type: List *
 pList

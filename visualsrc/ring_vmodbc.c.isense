@@ -123,3 +123,6 @@ Type: ring_odbc *
 pODBC
 Type: SQLRETURN
 ret
+ring_vm_odbc_freefunc
+Type: ring_odbc *
+pODBC

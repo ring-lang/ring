@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vmfile_h
 #define ring_vmfile_h
 /* Functions */
@@ -73,6 +73,8 @@ void ring_vm_file_bytes2int ( void *pPointer ) ;
 void ring_vm_file_bytes2float ( void *pPointer ) ;
 
 void ring_vm_file_bytes2double ( void *pPointer ) ;
+
+void ring_vm_file_freefunc ( void *pRingState,void *pPointer ) ;
 /* Constants */
 #define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
 #define RING_VM_POINTER_FILE "file"

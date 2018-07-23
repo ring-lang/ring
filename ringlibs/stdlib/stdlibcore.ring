@@ -739,7 +739,11 @@ Func IsMainSourceFile
 func Substring str,substr,n
        newstr=right(str,len(str)-n+1)
        nr = substr(newstr, substr)
-       return n + nr -1
+       if nr = 0
+          return 0
+       else
+          return n + nr -1
+       ok
        
 /*
 	Function Name	: Changestring
@@ -923,6 +927,13 @@ func ListAllFiles cPath,cExt
 func ListAllFiles_Process cPath,aList,cExt
 	aOutput = []
 	for aSub in aList 
+		# Workaround a bug in Linux, when aSub[2] = True for files (not folders)
+			if aSub[1] = "." or aSub[1] = ".."
+				loop
+			ok
+			if aSub[2] and substr(aSub[1],".")
+				aSub[2] = 0
+			ok
 		if aSub[2] # Directory
 			cNewPath = cPath + "/" + aSub[1]
 			aSubOutput = listAllFiles(cNewPath,cExt)

@@ -7,10 +7,12 @@
 
 # Load the Form Designer 
 	Load "../formdesigner/formdesigner.ring"
-	import formdesigner 
 
 # Load the Web Server - ServerPrepare Class
-	load "../libdepwin/Apache2.2/ring/prepare.ring"
+	Load "../libdepwin/Apache2.2/ring/prepare.ring"
+
+# Load the Find in files application 
+	Load "../findinfiles/findinfilesController.ring"
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
@@ -22,7 +24,7 @@ Class RNoteController from WindowsControllerParent
 	aBackColor 		= [255,255,255]
 	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
 	oTempFont 		= new qfont("",0,0,0)
-	cWebsite 		= "http://www.ring-lang.sf.net/doc/index.html"
+	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
 	cRingEXE 		= exefilename()
@@ -86,6 +88,7 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_ART2		 		= 12
 		STYLECOLOR_ART3		 		= 13
 		STYLECOLOR_IMAGE	 		= 14
+		STYLECOLOR_IMAGE2	 		= 15
 		nDefaultStyle  				= STYLECOLOR_WHITE
 		lKeywordsBold 				= True
 	# Default Mode
@@ -417,6 +420,15 @@ Class RNoteController from WindowsControllerParent
 						setclickEvent(Method(:pTabWidth))
 					}
 					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+alt+f"))
+						setbtnimage(self,"image/search.png")
+						settext("Find in Files")
+						setclickEvent(Method(:pFindInFiles))
+					}
+					addaction(oAction)
+
 				}
 				subView {
 					oAction = new qAction(this.win1) {
@@ -565,6 +577,12 @@ Class RNoteController from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(14)"))
 							settext("Image")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(15)"))
+							settext("Image 2")
 						}
 						addaction(oAction)
 					}
@@ -771,7 +789,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
-						settext("Ring2EXE (Prepare Qt Project) - Distribute for Mobile Devices)")
+						settext("Ring2EXE (Prepare Qt Project - Distribute for Mobile Devices)")
 						setclickEvent(Method("pDistribute(7)"))
 					}
 					addaction(oAction)
@@ -819,6 +837,7 @@ Class RNoteController from WindowsControllerParent
 			}
 			setstatusbar(this.status1)
 			this.tree1 = new qtreeview(this.win1) {
+				setStylesheet("font-size: 30")
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
@@ -842,6 +861,7 @@ Class RNoteController from WindowsControllerParent
 						append("*.bat")
 						append("*.md")
 						append("*.cf")
+						append("*.qml")
 					}
 					setnamefilters(myfiles)
 					setNameFilterDisables(false)
@@ -1474,7 +1494,6 @@ Class RNoteController from WindowsControllerParent
 		textedit1.settextcursor(oCursor)
 		textedit1.Document().setdefaultfont(oTempFont)
 
-
 	func pColor
 		new qcolordialog() {
 			r = exec()
@@ -1680,7 +1699,6 @@ Class RNoteController from WindowsControllerParent
 		oFontMetrics = new QFontMetrics(oTempFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)
 		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
-		oFontMetrics.Delete()
 
 	func pBrowserLink x
 		cLink = aBrowserLinks[x][2]
@@ -1820,7 +1838,11 @@ Class RNoteController from WindowsControllerParent
 				ok
 			ok
 			if nLineNumber % 100 = 0 
+				nOldCount = oFunctionsList.Count()
 				MyAPP.ProcessEvents()
+				if oFunctionsList.Count() != nOldCount 
+					return
+				ok
 				# Check if the file is changed
 				if not cTempActiveFile = cActiveFileName
 					return 
@@ -1865,7 +1887,11 @@ Class RNoteController from WindowsControllerParent
 				ok
 			ok
 			if nLineNumber % 100 = 0 
+				nOldCount = oClassesList.Count()
 				MyAPP.ProcessEvents()
+				if oClassesList.Count() != nOldCount 
+					return 
+				ok
 				# Check if the file is changed
 				if not cTempActiveFile = cActiveFileName
 					return 
@@ -1954,12 +1980,14 @@ Class RNoteController from WindowsControllerParent
 	func pFormDesignerDock
 		cDir = CurrentDir()
 		chdir(exefolder() + "/../applications/formdesigner")
+		# Import Classes 
+			import formdesigner 
 		open_windowAndLink(:FormDesignerController,self)
 		# We still use setParentObject() and avoid using
 		# IsRNOTE() and RNote() in the Form Designer 
 		# So we can reuse the Form Designer in other Projects
 		# I.e. Ring Notepad need to know about the Form Designer 
-		# But It's enough for the Form Designer to Know that
+		# But It's necessary for the Form Designer to Know that
 		# It's used in another project!
 		FormDesigner().setParentObject(self)
 		oDockFormDesigner.setWidget(FormDesigner().oView.win)
@@ -1996,6 +2024,7 @@ Class RNoteController from WindowsControllerParent
 		on 12 pStyleArt2()
 		on 13 pStyleArt3()
 		on 14 pStyleImage()
+		on 15 pStyleImage2()
 		off
 		if nStyle >= 7 
 			lKeywordsBold = False 
@@ -2011,8 +2040,10 @@ Class RNoteController from WindowsControllerParent
 		next
 		if nStyle = STYLECOLOR_ART or nStyle = STYLECOLOR_ART2
 			pStyleArt_AfterControls()
-		but nStyle = STYLECOLOR_IMAGE  
-			pStyleImage_AfterControls()
+		but nStyle = STYLECOLOR_IMAGE 
+			pStyleImage_AfterControls(1)
+		but nStyle = STYLECOLOR_IMAGE2 
+			pStyleImage_AfterControls(2)
 		ok
 
 	func pSetEditorColors
@@ -2308,6 +2339,22 @@ Class RNoteController from WindowsControllerParent
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
 
+	func pStyleImage2()
+			nDefaultStyle  = STYLECOLOR_IMAGE2
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) 	},
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	= new qcolor() { setrgb(240,127,224,255)}
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [11,11,11]
 
 
 	func pStyleArt_AfterControls
@@ -2318,16 +2365,25 @@ Class RNoteController from WindowsControllerParent
 			}
 		next
 
-	func pStyleImage_AfterControls
+	func pStyleImage_AfterControls nIndex
 		# Called After we have all of the Ring Notepad Window Controls
-		cBackImage = cCurrentDir + "image/back.jpg"
-		cBackImage = substr(cBackImage,"\","/")
-		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
-			oObj {
-				setstylesheet("color:white;background-image: url('" + cBackImage + "');")
-			}
-		next
-		textedit1.setstylesheet("color:white;background-image: url('" + cBackImage + "');")
+		if nIndex = 1
+			cBackImage = cCurrentDir + "image/back.jpg"
+			cBackImage = substr(cBackImage,"\","/")
+			for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
+				oObj {
+					setstylesheet("color:white;background-image: url('" + cBackImage + "');")
+				}
+			next
+			textedit1.setstylesheet("color:white;background-image: url('" + cBackImage + "');")
+		else 
+			cBackImage = cCurrentDir + "image/back2.jpg"
+			cBackImage = substr(cBackImage,"\","/")
+			textedit1.setstylesheet("color:white;background-image: url('" + cBackImage + "');")
+			textedit1.verticalscrollbar().setStyleSheet("color:black;")
+			textedit1.horizontalscrollbar().setStyleSheet("color:black;")
+		ok
+
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
@@ -2568,3 +2624,22 @@ Class RNoteController from WindowsControllerParent
 		oProcess = pRunProcess(cAppToRun,cPara,cpGetProcessData)
 		OSFilesManager()
 		chdir(exefolder())
+
+	func pFindInFiles 
+		chdir(cCurrentDir+"../findinfiles")
+		open_WindowAndLink(:findinfilesController,self)
+		FindInFiles().setParentObject(self)
+		chdir(cCurrentDir)
+
+	func FindInFilesSelect cFile,nRow 
+		pCheckSaveBeforeChange()
+		cActiveFileName = cFile 
+		openFile(cFile)
+		GotoLine(nRow)		
+		AutoComplete()
+		lAsktoSave = False
+		cTextHash  = sha256(textedit1.toplaintext())
+		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
+		oDockClassesList.setWindowTitle("Classes (Loading...)")
+		DisplayFunctionsList()
+		DisplayClassesList()

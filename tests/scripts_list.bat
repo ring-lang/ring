@@ -272,3 +272,16 @@ call ring scripts/testfnicr.ring
 call ring scripts/testfnicr2.ring
 call ring scripts/plusequalfunc.ring
 call ring scripts/varptr.ring
+call ring scripts/forloopscope.ring
+call ring scripts/chars.ring
+call ring scripts/ncemain.ring
+call ring scripts/filenameinpara.ring
+call ring scripts/filepath1.ring
+call ring scripts/ringinring.ring
+call ring scripts/ignorenewline.ring
+call ring scripts/thisinclassregion.ring
+call ring scripts/nullattr.ring
+call ring scripts/nullptr.ring
+call ring scripts/spaceinlist.ring 
+call ring scripts/xortest.ring
+call ring scripts/nestednew.ring

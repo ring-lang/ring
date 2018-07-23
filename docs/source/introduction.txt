@@ -126,6 +126,8 @@ Ring 1.6 is released on November 30, 2017
 
 Ring 1.7 is released on January 25, 2018
 
+Ring 1.8 is released on June 25, 2018
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -243,7 +245,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.7
+Version 1.9
 
 The MIT License (MIT)
 

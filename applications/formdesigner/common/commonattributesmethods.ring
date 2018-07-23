@@ -57,14 +57,14 @@ class CommonAttributesMethods
 		AddObjectCommonProperties(oDesigner)
 
 	func AddObjectCommonProperties  oDesigner
-		oDesigner.oView.AddProperty("Name",False)
-		oDesigner.oView.AddProperty("X",False)
-		oDesigner.oView.AddProperty("Y",False)
-		oDesigner.oView.AddProperty("Width",False)
-		oDesigner.oView.AddProperty("Height",False)
-		oDesigner.oView.AddProperty("Text Color",True)
-		oDesigner.oView.AddProperty("Back Color",True)
-		oDesigner.oView.AddProperty("Font",True)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_NAME,False) 	# "Name"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_X,False) 		# "X"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_Y,False) 		# "Y"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WIDTH,False) 	# "Width"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HEIGHT,False) 	# "Height"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXTCOLOR,True) 	# "Text Color"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_BACKCOLOR,True) 	# "Back Color"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_FONT,True) 	# "Font"
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)

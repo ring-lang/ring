@@ -61,7 +61,6 @@ typedef struct VM {
 	char nGetSetObjType  ;
 	List *aSetProperty  ;
 	void *pAssignment  ;
-	List *aCPointers  ;
 	List *aForStep  ;
 	char nFirstAddress  ;
 	char nBeforeEqual  ;
@@ -90,7 +89,6 @@ typedef struct VM {
 	char *cPrevFileName  ;
 	char nRunCode  ;
 	char nActiveError  ;
-	List *aDynamicSelfItems  ;
 	String *pPackageName  ;
 	char lTrace  ;
 	String *pTrace  ;
@@ -104,6 +102,9 @@ typedef struct VM {
 	List *aActiveGlobalScopes  ;
 	int nCurrentGlobalScope  ;
 	char *cFileNameInClassRegion  ;
+	char lUsePushPLocal  ;
+	char lInsideEval  ;
+	List *pCLibraries  ;
 } VM ;
 /*
 **  Functions 
@@ -145,6 +146,8 @@ void ring_vm_printstack ( VM *pVM ) ;
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr ) ;
 
 void ring_vm_addglobalvariables ( VM *pVM ) ;
+
+void ring_vm_mainloopforeval ( VM *pVM ) ;
 /* Stack and Variables */
 
 void ring_vm_pushv ( VM *pVM ) ;
@@ -253,8 +256,6 @@ void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList ) ;
 
 void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int nStrSize ) ;
 
-List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 ) ;
-
 void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const char *cStr2 ) ;
 /* Jump */
 
@@ -325,6 +326,8 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM ) ;
 void ring_vm_retitemref ( VM *pVM ) ;
 
 void ring_vm_callclassinit ( VM *pVM ) ;
+
+List * ring_vm_prevtempmem ( VM *pVM ) ;
 /* User Interface */
 
 void ring_vm_see ( VM *pVM ) ;
@@ -431,7 +434,7 @@ void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
 void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
 
-void ring_vm_oop_updateselfpointer2 ( VM *pVM,List *pObj ) ;
+void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM ) ;
 /* For Better Performance */
 
 void ring_vm_pushp ( VM *pVM ) ;
@@ -547,6 +550,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_STACK_SETNVALUE(x) ring_itemarray_setdouble(pVM->aStack, pVM->nSP , x)
 #define RING_VM_STACK_SETPVALUE(x) ring_itemarray_setpointer(pVM->aStack, pVM->nSP , x )
 #define RING_VM_STACK_SETCVALUE2(x,y) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
+#define RING_VM_STACK_PUSHCVALUE2(x,y) pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
 /* Check */
 #define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
 #define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
@@ -597,6 +601,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_IR_LIST pVM->pByteCodeIR->pList
 #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
 #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
+#define RING_VM_IR_TEMPITEM (&((pVM->pByteCode + pVM->nPC - 2)->vTempItem))
 /*
 **  Calling Functions 
 **  Note : When you insert items check performance functions for update too! 
@@ -611,7 +616,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_FUNCCL_SP 4
 #define RING_FUNCCL_TEMPMEM 5
 #define RING_FUNCCL_FILENAME 6
-#define RING_FUNCCL_NEWFILENAME 6
+#define RING_FUNCCL_NEWFILENAME 7
 #define RING_FUNCCL_METHODORFUNC 8
 #define RING_FUNCCL_LINENUMBER 9
 #define RING_FUNCCL_CALLERPC 10
@@ -687,7 +692,6 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_CPOINTERSTATUS_COPIED 1
 #define RING_CPOINTERSTATUS_NOTASSIGNED 2
 /* Temp Object */
-#define RING_TEMP_OBJECT "ring_temp_object"
 #define RING_TEMP_VARIABLE "ring_sys_temp"
 /* Trace */
 #define RING_VM_TRACEEVENT_NEWLINE 1

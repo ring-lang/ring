@@ -12,6 +12,10 @@ Type: GCData
 Mark: ->
 GCData *
 ring_pooldata
+RING_USEPOOLMANAGER
+RING_TRACKALLOCATIONS
+RING_POOLMANAGER_ITEMSINBLOCK
+RING_POOLMANAGER_ITEMSIZE
 Parent: PoolData
 Parent: PoolDataTypes
 Type: String
@@ -27,7 +31,7 @@ vHashTable
 Type: HashItem
 vHashItem
 Type: char
-vChar[64]
+vChar[RING_POOLMANAGER_ITEMSIZE]
 END:
 Type: struct PoolData *
 pNext
@@ -47,6 +51,14 @@ Type: void *
 pBlockStart
 Type: void *
 pBlockEnd
+Type: unsigned int
+nAllocCount
+Type: unsigned int
+nFreeCount
+Type: unsigned int
+nSmallAllocCount
+Type: unsigned int
+nSmallFreeCount
 END:
 Type: PoolManager
 struct PoolManager
@@ -56,12 +68,9 @@ struct PoolManager *
 Type: PoolManager
 Mark: ->
 PoolManager *
-RING_POOLMANAGER_ITEMSINBLOCK
-RING_POOLMANAGER_ITEMSIZE
-RING_USEPOOLMANAGER
 ring_gc_h
-ring_vm_gc_cleardata(pItem)
 GCLog
+ring_vm_gc_cleardata
 ring_vm_gc_checkreferences
 Type: int
 x
@@ -80,11 +89,9 @@ ring_vm_gc_killreference
 Type: List *
 pList
 ring_vm_gc_deletetemplists
-Type: int
-x
-Type: List *
-pScope,*pList
 ring_vm_gc_newitemreference
+ring_vm_gc_freefunc
+ring_vm_gc_setfreefunc
 ring_malloc
 ring_free
 ring_calloc

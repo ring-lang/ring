@@ -34,6 +34,7 @@ RING_API_IGNORECPOINTERTYPE
 RING_API_ISCPOINTER(x)
 RING_API_ISOBJECT(x)
 RING_API_GETCPOINTER2POINTER(x,y)
+RING_API_RETMANAGEDCPOINTER(x,y,z)
 RING_API_MISS1PARA
 RING_API_MISS2PARA
 RING_API_MISS3PARA
@@ -67,19 +68,17 @@ pVM
 ring_vm_api_newlist
 Type: List *
 pList
-ring_vm_api_retcpointer
+ring_vm_api_retcpointer2
 Type: List *
 pList
+Type: Item *
+pItem
 ring_vm_api_getcpointer
 Type: List *
-pList, *pList2
-Type: int
-y
+pList
 ring_vm_api_setcpointernull
 Type: List *
-pList, *pList2
-Type: int
-y
+pList
 ring_vm_api_varptr
 Type: VM *
 pVM
@@ -110,14 +109,13 @@ Type: Item *
 pItem
 ring_vm_api_getcpointer2pointer
 Type: List *
-pList, *pList2
-Type: int
-y
+pList
 Type: Item *
 pItem
 ring_list_addcpointer_gc
 Type: List *
 pList2
+ring_vm_api_retcpointer
 ring_vmlib_len
 Type: VM *
 pVM
@@ -169,10 +167,14 @@ tm_info
 ring_vmlib_filename
 Type: VM *
 pVM
-Type: int
-nPos
 Type: List *
 pList
+Type: int
+lFunctionCall,x
+Type: const char *
+cOldFile
+Type: const char *
+cFile
 ring_vmlib_getchar
 Type: char
 cStr[2]
@@ -232,7 +234,7 @@ ring_vmlib_isobject
 ring_vmlib_hex
 cStr
 ring_vmlib_dec
-Type: unsigned int
+Type: unsigned long
 x
 ring_vmlib_number
 Type: double
@@ -368,12 +370,14 @@ pList
 ring_vmlib_pointer2object
 ring_vmlib_nullpointer
 ring_vmlib_space
-Type: String *
+Type: char *
 pString
 ring_vmlib_ptrcmp
 Type: List *
 pList, *pList2
 ring_vmlib_state_init
+Type: RingState *
+pState
 ring_vmlib_state_runcode
 ring_vmlib_state_delete
 ring_vmlib_state_runfile
@@ -397,6 +401,8 @@ pList, *pList2, *pList3
 Type: VM *
 pVM
 ring_vmlib_state_new
+Type: RingState *
+pState
 ring_vmlib_state_mainfile
 Type: RingState *
 pRingState
@@ -440,5 +446,14 @@ pVM
 Type: RingState *
 pRingState
 ring_vm_dll_closelib
+Type: LpHandleType
+handle
+Type: int
+nIndex
+Type: VM *
+pVM
+ring_vm_dll_closealllibs
+Type: int
+x
 Type: LpHandleType
 handle

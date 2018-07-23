@@ -673,7 +673,8 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	at any time using the Assignment operator too. Reducing references usage or using them through
 	managers helps a lot to achieve this goal. by doing this we have full control.
 
-(11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
+(11) If you want to create references and avoid creating a manager, 
+	You can use Object2Pointer() and Pointer2Object() functions
 	But It's not the Ring way "Spirit" to do things.
 
 .. index:: 

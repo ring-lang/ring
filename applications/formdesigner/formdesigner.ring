@@ -16,6 +16,8 @@
 		GetActiveFolder() 		
 		OpenFile(cControllerFile)	
 		ClearActiveFormFile() 	
+	see : formdesigner/codegenerator.ring 
+		GenerateControllerClass()
 	
 	The Parent Application can use the next methods in the Form Designer 
 		OpenFile(cFormFileName)
@@ -28,6 +30,9 @@
 	load "guilib.ring"
 	load "stdlib.ring"
 
+# Load The Translation File
+	load "translation/english.ring"
+
 # Load Main Window Files 
 	load "mainwindow/qwidget.ring"
 	load "mainwindow/formdesignercontroller.ring"
@@ -39,6 +44,8 @@
 	load "menubardesigner/menubardesignerController.ring"
 	load "windowflags/windowflagsController.ring"
 	load "windowobjects/windowobjectscontroller.ring"
+	load "objectsorder/objectsorderController.ring"
+	load "selobjects/selobjectsController.ring"
 
 # Load Controls
 	load "controls/qlabel.ring"

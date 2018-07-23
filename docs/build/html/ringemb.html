@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Embedding Ring in Ring &mdash; Ring 1.7 documentation</title>
+    <title>Embedding Ring in Ring &mdash; Ring 1.9 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
     <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
     <link rel="prev" title="The Trace Library and the Interactive Debugger" href="debug.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="debug.html" title="The Trace Library and the Interactive Debugger"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -131,9 +131,10 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
                                 <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
                                 <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;Test()&quot;</span><span class="p">)</span>
                         <span class="p">}</span>
-                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in the sub environment</span>
-                        <span class="c"># Will create timers by Qt and closing the window will not be enough</span>
-                        <span class="c"># To close the application</span>
+                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in</span>
+                        <span class="c"># the sub environment</span>
+                        <span class="c"># Will create timers by Qt and closing the window</span>
+                        <span class="c"># will not be enough to close the application</span>
                         <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                         <span class="n">oFilter</span><span class="p">.</span><span class="n">setCloseEvent</span><span class="p">(</span><span class="s">&quot;myapp.quit()&quot;</span><span class="p">)</span>
                         <span class="n">win</span><span class="p">.</span><span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
@@ -212,6 +213,33 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <p>If you will use this feature, remember to update the previous example based on your application needs</p>
 <p>So you can call ring_state_delete() at some point to avoid the memory leak!</p>
 </div>
+<div class="section" id="runtime-errors-when-embedding-ring-in-ring">
+<span id="index-5"></span><h2>Runtime Errors when Embedding Ring in Ring<a class="headerlink" href="#runtime-errors-when-embedding-ring-in-ring" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8</p>
+<p>When embedding Ring in Ring, the error in the hosted environment will not close the host</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Start the test!&quot;</span>
+
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot; ? &#39;Let us try having an error&#39; ? x&quot;</span><span class="p">)</span>
+
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="o">?</span> <span class="s">&quot;End of test!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Start the test!
+Let us try having an error
+
+Line 1 Error (R24) : Using uninitialized variable : x
+in file Ring_EmbeddedCode
+End of test!
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -227,6 +255,7 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <li><a class="reference internal" href="#serial-execution-of-programs">Serial Execution of Programs</a></li>
 <li><a class="reference internal" href="#ring-state-setvar">ring_state_setvar()</a></li>
 <li><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile">ring_state_new() and ring_state_mainfile()</a></li>
+<li><a class="reference internal" href="#runtime-errors-when-embedding-ring-in-ring">Runtime Errors when Embedding Ring in Ring</a></li>
 </ul>
 </li>
 </ul>
@@ -273,11 +302,11 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
         <li class="right" >
           <a href="debug.html" title="The Trace Library and the Interactive Debugger"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

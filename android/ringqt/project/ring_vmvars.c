@@ -32,11 +32,13 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				pList = pVM->pActiveMem ;
 			}
 			else if ( x == 2 ) {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
-					continue ;
-				}
-				if ( ring_list_getsize(pVM->pObjState) == 0 ) {
+				/*
+				**  Check to avoid the Object Scope 
+				**  IF obj.attribute - we did the search in local scope - pass others 
+				**  Also if we don't have object scope using { } we will pass 
+				**  Also If we are using ICO_LOADAFIRST (Used by For In) - we don't check object scope 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				/* Search in Object State */
@@ -53,9 +55,14 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 						continue ;
 					}
 				}
-			} else {
-				/* IF obj.attribute - we did the search in local scope - pass others */
-				if ( pVM->nGetSetProperty == 1 ) {
+			}
+			else {
+				/*
+				**  Check to Avoid the global scope 
+				**  If we are using ICO_LOADAFIRST (Used by For In) - we don't check global scope 
+				**  Also IF obj.attribute - we did the search in local scope - pass others 
+				*/
+				if ( (pVM->nGetSetProperty == 1) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				pList = ring_vm_getglobalscope(pVM);
@@ -73,7 +80,12 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 			else {
 				/* Search Using the HashTable */
 				if ( pList->pHashTable == NULL ) {
-					ring_list_genhashtable2_gc(pVM->pRingState,pList);
+					if ( pVM->pRingState->lRunFromThread ) {
+						ring_list_genhashtable2(pList);
+					}
+					else {
+						ring_list_genhashtable2_gc(pVM->pRingState,pList);
+					}
 				}
 				pList2 = (List *) ring_hashtable_findpointer(pList->pHashTable,cStr);
 				if ( pList2 != NULL ) {
@@ -112,7 +124,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_VAR_PVALUETYPE) ;
 		/*
 		**  Here we don't know the correct scope of the result 
-		**  becauase a global variable may be a reference to local variable 
+		**  because a global variable may be a reference to local variable 
 		**  And this case happens with setter/getter of the attributes using eval() 
 		**  Here we avoid this change if the variable name is "Self" to return self by reference 
 		*/
@@ -226,7 +238,13 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	/* This function is called by all of the other functions that create new varaibles */
 	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
-	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NULL);
+	/* Determine Type based on Region */
+	if ( pVM->nInClassRegion ) {
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_STRING);
+	}
+	else {
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NULL);
+	}
 	ring_list_addstring_gc(pVM->pRingState,pList,"NULL");
 	/* Pointer Type */
 	ring_list_addint_gc(pVM->pRingState,pList,0);
@@ -234,9 +252,9 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	ring_list_addint_gc(pVM->pRingState,pList,0);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable == NULL ) {
-		pParent->pHashTable = ring_hashtable_new();
+		pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 	}
-	ring_hashtable_newpointer(pParent->pHashTable,cStr,pList);
+	ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
 	return pList ;
 }
 
@@ -282,18 +300,6 @@ void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
 	pVM->nSP++ ;
 	RING_VM_STACK_SETPVALUE(pList);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
-}
-
-List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 )
-{
-	List *pList,*pList2  ;
-	pList = ring_vm_newvar2(pVM,cStr,pVM->pTempMem);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
-	pList2 = ring_list_getlist(pList,RING_VAR_VALUE);
-	ring_list_deleteallitems_gc(pVM->pRingState,pList2);
-	ring_list_copy(pList2,pList3);
-	return pList ;
 }
 
 void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const char *cStr2 )

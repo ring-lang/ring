@@ -178,29 +178,31 @@ class FormDesigner_QTableWidget from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Row Count",False)
-		oDesigner.oView.AddProperty("Column Count",False)
-		oDesigner.oView.AddProperty("Horizontal Headers (S: Comma)",False)
-		oDesigner.oView.AddProperty("Columns Width (S: Comma)",False)
-		oDesigner.oView.AddProperty("Horizontal Header Style",False)
-		oDesigner.oView.AddProperty("Vertical Header Style",False)
-		oDesigner.oView.AddPropertyCombobox("Selection Behavior",["Items","Rows","Columns"])
-		oDesigner.oView.AddPropertyCombobox("Alternating Row Colors",["True","False"])
-		oDesigner.oView.AddProperty("cellActivatedEvent",False)
-		oDesigner.oView.AddProperty("cellChangedEvent",False)
-		oDesigner.oView.AddProperty("cellClickedEvent",False)
-		oDesigner.oView.AddProperty("cellDoubleClickedEvent",False)
-		oDesigner.oView.AddProperty("cellEnteredEvent",False)
-		oDesigner.oView.AddProperty("cellPressedEvent",False)
-		oDesigner.oView.AddProperty("currentCellChangedEvent",False)
-		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
-		oDesigner.oView.AddProperty("itemActivatedEvent",False)
-		oDesigner.oView.AddProperty("itemChangedEvent",False)
-		oDesigner.oView.AddProperty("itemClickedEvent",False)
-		oDesigner.oView.AddProperty("itemDoubleClickedEvent",False)
-		oDesigner.oView.AddProperty("itemEnteredEvent",False)
-		oDesigner.oView.AddProperty("itemPressedEvent",False)
-		oDesigner.oView.AddProperty("itemSelectionChangedEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ROWCOUNT,False)			 	# "Row Count"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_COLUMNCOUNT,False)			 	# "Column Count"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HORIZONTALHEADERSSCOMMA,False)		# "Horizontal Headers (S: Comma)"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_COLUMNSWIDTHSCOMMA,False)			# "Columns Width (S: Comma)"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_HORIZONTALHEADERSTYLE,False)		# "Horizontal Header Style"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VERTICALHEADERSTYLE,False)			# "Vertical Header Style"
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_SELECTIONBEHAVIOR,
+							[T_FORMDESIGNER_ATTRIBUTE_ITEMS,T_FORMDESIGNER_ATTRIBUTE_ROWS,T_FORMDESIGNER_ATTRIBUTE_COLUMNS])  # "Selection Behavior" "Items" "Rows" "Columns"
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_ALTERNATINGROWCOLORS,
+							[T_FORMDESIGNER_ATTRIBUTE_TRUE,T_FORMDESIGNER_ATTRIBUTE_FALSE])			 # "Alternating Row Colors" "True" "False"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLACTIVATEDEVENT,False)			# "cellActivatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLCHANGEDEVENT,False)			# "cellChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLCLICKEDEVENT,False)			# "cellClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLDOUBLECLICKEDEVENT,False)		# "cellDoubleClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLENTEREDEVENT,False)			# "cellEnteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CELLPRESSEDEVENT,False)			# "cellPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTCELLCHANGEDEVENT,False)		# "currentCellChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTITEMCHANGEDEVENT,False)		# "currentItemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMACTIVATEDEVENT,False)			# "itemActivatedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCHANGEDEVENT,False)			# "itemChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMCLICKEDEVENT,False)			# "itemClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMDOUBLECLICKEDEVENT,False)		# "itemDoubleClickedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMENTEREDEVENT,False)			# "itemEnteredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMPRESSEDEVENT,False)			# "itemPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ITEMSELECTIONCHANGEDEVENT,False)		# "itemSelectionChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
@@ -475,4 +477,6 @@ class FormDesigner_QTableWidget from QLineEdit
 		SetitemEnteredEventCode(itemdata[:setitemEnteredEvent])
 		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
 		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
+		# Set the object name
+			setText(oDesigner.oModel.GetObjectName(self))
 

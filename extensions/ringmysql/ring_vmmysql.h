@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vmmysql_h
 #define ring_vmmysql_h
 /* Functions */
@@ -34,6 +34,8 @@ void ring_vm_mysql_autocommit ( void *pPointer ) ;
 void ring_vm_mysql_commit ( void *pPointer ) ;
 
 void ring_vm_mysql_rollback ( void *pPointer ) ;
+
+void ring_vm_mysql_freefunc ( void *pState,void *pPointer ) ;
 /* MACRO */
 #define RING_VM_POINTER_MYSQL "mysql"
 #endif

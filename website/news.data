@@ -1,4 +1,17 @@
   aNews = [
+  ["July 17, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/MjQGbF9fBfc" target="_blank"> New style in Ring Notepad</a>'],
+  ["July 2, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/WS4-o0jFfOw" target="_blank"> Deploying Ring web applications in the Cloud using Heroku</a>'],
+  ["June 25, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/WHeOl5fGW-0" target="_blank"> Ring 1.8 Released!</a>'],
+  ["June 21, 2018",'<a href="https://ja.wikipedia.org/wiki/Ring_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" target="_blank"> Ring Article (Wikipedia - Japanese)</a>'],
+  ["June 10, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringbeep" target="_blank"> Create your first extension </a>'],
+  ["June 4, 2018",'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank"> Movie: Introduction to Ring </a>'],
+  ["June 1, 2018",'<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/README.md" target="_blank"> Free Arabic Course </a>'],
+  ["May 11, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/amfHRmCw37E" target="_blank"> StopWatch Application </a>'],
+  ["April 27, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/ItLfmBjBWrA" target="_blank"> String2Constant Application</a>'],
+  ["March 23, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/iUkiEtzY6mM" target="_blank"> Compiling Ring on Manjaro Linux</a>'],
+  ["March 20, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/M5-ZBqoXss4" target="_blank"> FoxRing Library</a>'],
+  ["March 6, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/AqYS3BavKCU" target="_blank"> Find in Files Application</a>'],
+  ["March 3, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/F6YMrboda3E" target="_blank"> Improving the Cards game</a>'],
   ["February 9, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/OoZR4nYptbw" target="_blank"> Ring enters the top 50</a>'],
   ["February 1, 2018",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Over 500 samples in Rosettacode about the Ring programming language</a>'],
   ["January 25, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/pWXlWO5Fze4" target="_blank"> Ring 1.7 Released!</a>'],
@@ -53,7 +66,7 @@
 						<a href="https://www.facebook.com/Youm7/posts/1331818946888764" target="_blank">Facebook</a>
 						<a href="http://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86-%D8%A5%D8%A8%D8%AA%D9%83%D8%A7%D8%B1/2532713#.VqNi6U-RZVV" target="_blank"> Website </a> '],
   ["December 13, 2015",'Arabic Interview about the language in the "Muslim Researchers" : 
-							<a href="http://muslims-res.com/ar/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],  
+							<a href="http://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],  
   ["September, 2015",'Most of the Documentation was written!'],
   ["August, 2015",'Most of the Testing was done!'],
   ["May, 2015",'Most of the work in the Compiler and The Virtual Machine was done!'],

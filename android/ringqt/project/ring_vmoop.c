@@ -22,9 +22,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 {
 	const char *cClassName,*cClassName2  ;
 	int x,nLimit,nClassPC,nType,nCont  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
 	Item *pItem  ;
-	const char *cTempName = RING_TEMP_OBJECT ;
 	pList2 = NULL ;
 	pVar = NULL ;
 	pItem = NULL ;
@@ -45,13 +44,16 @@ void ring_vm_oop_newobj ( VM *pVM )
 				if ( RING_VM_STACK_ISPOINTER ) {
 					if ( pVM->pAssignment == RING_VM_STACK_READP ) {
 						nCont = 0 ;
+						/* Clear the Assignment Pointer */
+						pVM->pAssignment = NULL ;
 					}
 				}
 				if ( pVM->nFuncExecute > 0 ) {
 					nCont = 1 ;
 				}
 				if ( nCont == 1 ) {
-					ring_vm_newvar(pVM,cTempName);
+					/* Create the Temp Variable */
+					ring_vm_createtemplist(pVM);
 					pVar = (List *) RING_VM_STACK_READP ;
 					nType = RING_VM_STACK_OBJTYPE ;
 					ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
@@ -134,6 +136,10 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addint_gc(pVM->pRingState,pList4,RING_VM_STACK_OBJTYPE);
 				/* Save Current Global Scope */
 				ring_list_addint_gc(pVM->pRingState,pList4,pVM->nCurrentGlobalScope);
+				/* Save the This object */
+				pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+				ring_list_addpointer_gc(pVM->pRingState,pList4,ring_list_getpointer(pThis,RING_VAR_VALUE));
+				ring_list_addint_gc(pVM->pRingState,pList4,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -249,11 +255,13 @@ void ring_vm_oop_newclass ( VM *pVM )
 	ring_vm_oop_parentmethods(pVM,pClass);
 	/* Attributes Scope is Public */
 	pVM->nPrivateFlag = 0 ;
+	/* Support using This in the class region */
+	ring_vm_oop_setthethisvariableinclassregion(pVM);
 }
 
 void ring_vm_oop_setscope ( VM *pVM )
 {
-	List *pList  ;
+	List *pList, *pThis  ;
 	/* This function called after creating new object and executing class init */
 	pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
 	/*
@@ -289,6 +297,10 @@ void ring_vm_oop_setscope ( VM *pVM )
 	RING_VM_STACK_OBJTYPE = ring_list_getint(pList,14) ;
 	/* Restore current Global Scope */
 	pVM->nCurrentGlobalScope = ring_list_getint(pList,15);
+	/* Restore the This object */
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,16));
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,17));
 	/* After init methods */
 	ring_vm_oop_aftercallmethod(pVM);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
@@ -417,8 +429,6 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	if ( pVar == NULL ) {
 		return ;
 	}
-	/* Update Self Pointer Using Temp. Item */
-	ring_vm_oop_updateselfpointer2(pVM,pVar);
 	/* Get Object Class */
 	pList = (List *) ring_list_getpointer(pVar,1);
 	/* Push Class Package */
@@ -458,7 +468,7 @@ void ring_vm_oop_movetobeforeobjstate ( VM *pVM )
 	/* Move list from pObjState to aBeforeObjState */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBeforeObjState);
 	pList2 = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
-	ring_list_copy(pList,pList2);
+	ring_list_copy_gc(pVM->pRingState,pList,pList2);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
 }
 
@@ -488,7 +498,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 				if ( strcmp(cClassName,cClassName2) == 0 ) {
 					/* Push Class Package */
 					ring_vm_oop_pushclasspackage(pVM,pList4);
-					ring_list_copy(pList3,ring_list_getlist(pList4,4));
+					ring_list_copy_gc(pVM->pRingState,pList3,ring_list_getlist(pList4,4));
 					cClassName = ring_list_getstring(pList4,3) ;
 					nFound = 1 ;
 					break ;
@@ -584,8 +594,6 @@ void ring_vm_oop_bracestart ( VM *pVM )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-	/* Update Self Pointer Using Temp. Item */
-	ring_vm_oop_updateselfpointer2(pVM,pVM->pBraceObject);
 	pVM->pBraceObject = NULL ;
 	pVM->nInsideBraceFlag = 1 ;
 }
@@ -908,7 +916,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
-			pVM->nRetEvalDontDelete = 1 ;
+			if ( pVM->lInsideEval ) {
+				pVM->nRetEvalDontDelete = 1 ;
+			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 			ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
@@ -995,7 +1005,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			/* Eval the string */
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
-			pVM->nRetEvalDontDelete = 1 ;
+			if ( pVM->lInsideEval ) {
+				pVM->nRetEvalDontDelete = 1 ;
+			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 			ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
@@ -1126,7 +1138,9 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		/* Eval the string */
 		pItem = RING_VM_IR_ITEM(1) ;
 		pVM->nEvalCalledFromRingCode = 0 ;
-		pVM->nRetEvalDontDelete = 1 ;
+		if ( pVM->lInsideEval ) {
+			pVM->nRetEvalDontDelete = 1 ;
+		}
 		ring_vm_eval(pVM,ring_string_get(pString));
 		/* We don't use RING_VM_IR because Eval reallocation change mem. locations */
 		ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
@@ -1166,7 +1180,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 			}
 		}
 		pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-		ring_list_copy(pList2,pList);
+		ring_list_copy_gc(pVM->pRingState,pList2,pList);
 		/* Add Logical Value (True) , That we are inside the class method */
 		ring_list_addint_gc(pVM->pRingState,pList2,1);
 		/* Push Class Package */
@@ -1238,42 +1252,17 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }
 
-void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
+void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
 {
-	Item *pItem  ;
-	int x,lFound  ;
-	List *pRecord  ;
-	/*
-	**  This function will create new item 
-	**  Then Add the Object List Pointer to this temp item 
-	**  Then update the self pointer to use this item pointer 
-	**  This fix the self pointer before usage using braces { } or methods calls 
-	**  This is important because there are use cases where updateselfpointer is not enough 
-	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
-	**  Self pointer that point to deleted items/variables/objects 
-	**  Create The Temp. Item 
-	**  Try to find the item, or create it if it's not found 
-	*/
-	lFound = 0 ;
-	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
-		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
-		if ( ring_list_getint(pRecord,1) == pVM->nPC ) {
-			pItem = (Item *) ring_list_getpointer(pRecord,2);
-			lFound = 1 ;
-			break ;
-		}
-	}
-	if ( lFound == 0 ) {
-		pRecord = ring_list_newlist_gc(pVM->pRingState,pVM->aDynamicSelfItems);
-		ring_list_addint_gc(pVM->pRingState,pRecord,pVM->nPC);
-		pItem = ring_item_new(ITEMTYPE_NOTHING);
-		ring_list_addpointer_gc(pVM->pRingState,pRecord,pItem);
-		ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
-		ring_state_free(pVM->pRingState,pItem->data.pList);
-		pItem->gc.nReferenceCount++ ;
-	}
-	/* Set the pointer */
-	pItem->data.pList = pList ;
-	/* Update The Self Pointer */
-	ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
+	List *pList, *pThis  ;
+	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
+	/* Get Object Scope */
+	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
+	/* Get Self Attribute List */
+	pList = ring_list_getlist(pList,1);
+	/* Save this */
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	/* Create the Temp Variable for the new object */
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }

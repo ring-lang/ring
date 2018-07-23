@@ -46,8 +46,10 @@ INPUT(
 ./debug\gdockwidget.o
 ./debug\gstackedwidget.o
 ./debug\gcalendarwidget.o
+./debug\gtabbar.o
 ./debug\ring_qt.o
 ./debug\openglwidget.o
+./debug\gquickwidget.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
 ./debug\moc_glineedit.o
@@ -95,5 +97,7 @@ INPUT(
 ./debug\moc_gstackedwidget.o
 ./debug\moc_gcalendarwidget.o
 ./debug\moc_gdockwidget.o
+./debug\moc_gtabbar.o
 ./debug\moc_openglwidget.o
+./debug\moc_gquickwidget.o
 );

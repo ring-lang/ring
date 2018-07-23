@@ -33,6 +33,8 @@ typedef struct RingState {
 	unsigned int nWarning : 1  ;
 	/* Set to 1 to tell the scanner to don't delete the VM after execution */
 	unsigned int nDontDeleteTheVM : 1  ;
+	/* Set to 1 to tell the state that we are running Ring from Ring (to avoid exit() on error) */
+	unsigned int nRingInsideRing : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;
@@ -42,11 +44,14 @@ typedef struct RingState {
 	char lStartup  ;
 	/* Pool Manager */
 	PoolManager vPoolManager  ;
+	char lStartPoolManager  ;
 	/* Avoid line number ( when we use eval() from VM ) */
 	char lNoLineNumber  ;
 	/* Custom Global Scope */
 	int nCustomGlobalScopeCounter  ;
 	List *aCustomGlobalScopeStack  ;
+	/* Flag to know if we are running from thread (Useful for the Pool Manager) */
+	char lRunFromThread  ;
 } RingState ;
 /* Functions */
 
@@ -75,7 +80,7 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-#define RING_VERSION "1.7"
+#define RING_VERSION "1.9"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;

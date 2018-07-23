@@ -35,6 +35,11 @@ VM * ring_vm_new ( RingState *pRingState )
 		pVM->aStack[x].nObjectType = 0 ;
 		pVM->aStack[x].NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	}
+	/*
+	**  Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) 
+	**  Class Region (After the Class Name) 
+	*/
+	pVM->nInClassRegion = 0 ;
 	/* Add Variables */
 	ring_vm_addglobalvariables(pVM);
 	/* Lists */
@@ -72,11 +77,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	/* Flag used by Try/Catch to tell C-API that catch happens! */
 	pVM->nActiveCatch = 0 ;
-	/*
-	**  Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) 
-	**  Class Region (After the Class Name) 
-	*/
-	pVM->nInClassRegion = 0 ;
 	pVM->pPackagesMap = NULL ;
 	/* Set the main File Name */
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
@@ -92,8 +92,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
 	/* Assignment Pointer */
 	pVM->pAssignment = NULL ;
-	/* C Pointers List (Copied Pointers Only that are active i.e. Not NULL) */
-	pVM->aCPointers = ring_list_new_gc(pVM->pRingState,0) ;
 	/* For Loop - Step List */
 	pVM->aForStep = ring_list_new_gc(pVM->pRingState,0);
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
@@ -167,8 +165,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nRunCode = 0 ;
 	/* Flag that we have runtime error to avoid calling the error function again */
 	pVM->nActiveError = 0 ;
-	/* Dynamic List of Self Items and PC */
-	pVM->aDynamicSelfItems = ring_list_new_gc(pVM->pRingState,0);
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,"");
 	/*
@@ -195,6 +191,12 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nCurrentGlobalScope = 0 ;
 	/* File name in the class region */
 	pVM->cFileNameInClassRegion = NULL ;
+	/* Control Performance Instructions */
+	pVM->lUsePushPLocal = 0 ;
+	/* To know if we are inside eval() or not */
+	pVM->lInsideEval = 0 ;
+	/* Dynamic Libraries */
+	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
 	return pVM ;
 }
 
@@ -218,7 +220,6 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aScopeID = ring_list_delete_gc(pVM->pRingState,pVM->aScopeID);
 	pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
-	pVM->aCPointers = ring_list_delete_gc(pVM->pRingState,pVM->aCPointers);
 	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
 	pVM->aLoadAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aLoadAddressScope);
 	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
@@ -231,23 +232,17 @@ VM * ring_vm_delete ( VM *pVM )
 	ring_state_free(pVM->pRingState,pVM->pByteCode);
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
-	/*
-	**  Remove Dynamic Self Items 
-	**  Delete Items 
-	*/
-	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
-		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
-		pItem = (Item *) ring_list_getpointer(pRecord,2);
-		ring_state_free(pVM->pRingState,pItem);
-	}
-	/* Delete List */
-	pVM->aDynamicSelfItems = ring_list_delete_gc(pVM->pRingState,pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
 	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
 	/* Custom Global Scope (using Load Package) */
 	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);
 	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
+	/* Dynamic Libraries */
+	#if RING_VM_DLL
+	ring_vm_dll_closealllibs(pVM);
+	#endif
+	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -283,8 +278,14 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 	ring_vm_loadcode(pVM);
 	ring_vm_loadcfunctions(pRingState);
 	/* Generate Items Array &  Hash Table */
-	ring_list_genarray(pRingState->pRingCFunctions);
-	ring_list_genhashtable2(pRingState->pRingCFunctions);
+	if ( pRingState->lRunFromThread ) {
+		ring_list_genarray(pRingState->pRingCFunctions);
+		ring_list_genhashtable2(pRingState->pRingCFunctions);
+	}
+	else {
+		ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+		ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
+	}
 	if ( ring_list_getsize(pVM->pCode) > 0 ) {
 		pVM->nPC = 1 ;
 		ring_vm_mainloop(pVM);
@@ -293,33 +294,22 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 
 void ring_vm_mainloop ( VM *pVM )
 {
+	pVM->pRingState->lStartPoolManager = 1 ;
 	#if RING_VMSHOWOPCODE
 	/* Preprocessor Allows showing the OPCODE */
 	if ( pVM->pRingState->nPrintInstruction ) {
 		do {
 			ring_vm_fetch2(pVM);
-			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-				pVM->nEvalReturnPC = 0 ;
-				break ;
-			}
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	else {
 		do {
 			ring_vm_fetch(pVM);
-			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-				pVM->nEvalReturnPC = 0 ;
-				break ;
-			}
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	#else
 	do {
 		ring_vm_fetch(pVM);
-		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-			pVM->nEvalReturnPC = 0 ;
-			break ;
-		}
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
@@ -728,7 +718,13 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			return ;
 		}
 		pVM->nActiveError = 1 ;
-		exit(0);
+		if ( pVM->pRingState->nRingInsideRing == 0 ) {
+			exit(0);
+		}
+		else {
+			ring_vm_bye(pVM);
+			return ;
+		}
 	}
 	/*
 	**  Check Eval In Scope 
@@ -786,7 +782,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Generate Code 
 		**  Generate  Hash Table 
 		*/
-		ring_list_genhashtable2(pVM->pFunctionsMap);
+		if ( pVM->pRingState->lRunFromThread ) {
+			ring_list_genhashtable2(pVM->pFunctionsMap);
+		}
+		else {
+			ring_list_genhashtable2_gc(pVM->pRingState,pVM->pFunctionsMap);
+		}
 		if ( pVM->nEvalCalledFromRingCode ) {
 			ring_scanner_addreturn3(pVM->pRingState,aPara);
 		}
@@ -883,8 +884,9 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 
 void ring_vm_returneval ( VM *pVM )
 {
-	int aPara[3]  ;
+	int aPara[3],nExtraSize  ;
 	ByteCode *pByteCode  ;
+	/* This function will always be called after each eval() execution */
 	ring_vm_return(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(2) ;
@@ -895,6 +897,7 @@ void ring_vm_returneval ( VM *pVM )
 		**  This means that the code can be deleted without any problems 
 		**  We do that to avoid memory leaks 
 		*/
+		nExtraSize = ring_list_getsize(pVM->pCode) - aPara[0] ;
 		while ( ring_list_getsize(pVM->pCode) != aPara[0] ) {
 			ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode);
 		}
@@ -906,6 +909,9 @@ void ring_vm_returneval ( VM *pVM )
 				exit(0);
 			}
 			pVM->pByteCode = pByteCode ;
+		}
+		else {
+			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 		}
 	}
 	/*
@@ -944,7 +950,7 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber,nRetEvalDontDelete  ;
+	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
 	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++ ;
@@ -955,12 +961,10 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nFuncSP = pVM->nFuncSP ;
 	pStackList = ring_vm_savestack(pVM);
 	nLineNumber = pVM->nLineNumber ;
-	nRetEvalDontDelete = pVM->nRetEvalDontDelete ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
-	/* Check removing the new byte code */
+	/* Take in mind nested events */
 	if ( pVM->nRunCode != 1 ) {
-		/* We have nested events that call this function */
 		pVM->nRetEvalDontDelete = 1 ;
 	}
 	nRunVM = ring_vm_eval(pVM,cStr);
@@ -969,7 +973,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	if ( nRunVM ) {
 		pVM->nFuncExecute = 0 ;
 		pVM->nFuncExecute2 = 0 ;
-		ring_vm_mainloop(pVM);
+		ring_vm_mainloopforeval(pVM);
 	}
 	/* Restore state to take in mind nested events execution */
 	pVM->nRunCode-- ;
@@ -986,7 +990,6 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
 	pVM->nLineNumber = nLineNumber ;
-	pVM->nRetEvalDontDelete = nRetEvalDontDelete ;
 }
 
 void ring_vm_init ( RingState *pRingState )
@@ -1092,11 +1095,13 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 	int x,lFunctionCall  ;
 	List *pList  ;
 	const char *cFile  ;
+	const char *cOldFile  ;
 	/* CGI Support */
 	ring_state_cgiheader(pVM->pRingState);
 	/* Print the Error Message */
 	printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
 	/* Print Calling Information */
+	cOldFile = NULL ;
 	lFunctionCall = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,x);
@@ -1105,6 +1110,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
 		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
 			continue ;
 		}
 		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
@@ -1153,10 +1159,16 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			cFile = pVM->cFileNameInClassRegion ;
 		}
 		else {
-			cFile = pVM->cFileName ;
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
+			}
 		}
 		printf( "in file %s ",cFile ) ;
 	}
+	fflush(stdout);
 }
 
 void ring_vm_setfilename ( VM *pVM )
@@ -1218,6 +1230,46 @@ void ring_vm_addglobalvariables ( VM *pVM )
 		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
 	}
 }
+
+void ring_vm_mainloopforeval ( VM *pVM )
+{
+	int nDontDelete  ;
+	pVM->pRingState->lStartPoolManager = 1 ;
+	pVM->lInsideEval++ ;
+	nDontDelete = pVM->nRetEvalDontDelete ;
+	pVM->nRetEvalDontDelete = 0 ;
+	#if RING_VMSHOWOPCODE
+	/* Preprocessor Allows showing the OPCODE */
+	if ( pVM->pRingState->nPrintInstruction ) {
+		do {
+			ring_vm_fetch2(pVM);
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	else {
+		do {
+			ring_vm_fetch(pVM);
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	#else
+	do {
+		ring_vm_fetch(pVM);
+		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+			pVM->nEvalReturnPC = 0 ;
+			break ;
+		}
+	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	#endif
+	pVM->lInsideEval-- ;
+	pVM->nRetEvalDontDelete = nDontDelete ;
+}
 /* Threads */
 
 RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
@@ -1259,6 +1311,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	Item *pItem  ;
 	/* Create the RingState */
 	pState = ring_state_init();
+	/*
+	**  Flag that we are running from thread 
+	**  We check this flag when generating hash tables of lists (for functions or scope) 
+	**  In this case we generate the hash table without the memory pool 
+	**  Because the memory of the current memory pool of this state will be deleted when deleteing the state 
+	**  And the lists of the hash table will be needed to be used by the main VM 
+	*/
+	pState->lRunFromThread = 1 ;
 	pState->nPrintInstruction = pVM->pRingState->nPrintInstruction ;
 	/* Share the same Mutex between VMs */
 	ring_vm_mutexlock(pVM);
@@ -1286,8 +1346,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingCFunctions = pVM->pRingState->pRingCFunctions ;
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
-	pState->pVM->pCode = ring_list_new_gc(pVM->pRingState,0) ;
-	ring_list_copy(pState->pVM->pCode,pVM->pRingState->pRingGenCode);
+	pState->pVM->pCode = ring_list_new_gc(pState,0) ;
+	ring_list_copy_gc(pState,pState->pVM->pCode,pVM->pRingState->pRingGenCode);
 	pState->pRingGenCode = pState->pVM->pCode ;
 	ring_vm_loadcode(pState->pVM);
 	/* Avoid the call to the main function */
@@ -1295,7 +1355,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
-	ring_list_delete_gc(pVM->pRingState,pState->pVM->pCode);
+	ring_list_delete_gc(pState,pState->pVM->pCode);
 	/* Restore the first scope - global scope */
 	pState->pVM->pMem->pFirst->pValue = pItem ;
 	/* Avoid deleteing the shared code and the Mutex */
@@ -1328,7 +1388,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	ring_vm_loadfunc2(pVM,cFuncName,0);
 	ring_vm_call2(pVM);
 	/* Execute the function */
-	ring_vm_mainloop(pVM);
+	ring_vm_mainloopforeval(pVM);
 	/* Free Stack */
 	ring_vm_freestack(pVM);
 	/* Avoid normal steps after this function, because we deleted the scope in Prepare */

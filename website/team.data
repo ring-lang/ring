@@ -26,7 +26,7 @@
 					'Tester/Samples',
 					'Active',
 					'<img src="UmbertoMariani.png">'
-				  ],
+				  ],				 
 				  [
                     'Marino Esteban',
                     'marinoest@gmail.com',
@@ -89,7 +89,7 @@
 					'Tester',
 					'Active',
 					'<img src="abdelrahman.jpg">'
-				  ],
+				  ],				  
 				  [
 					'Hany Salah',
 					'hanyhani@hotmail.com',
@@ -98,7 +98,7 @@
 					'<img src="hany.jpg">'
 				  ],
 				  [
-                    'Amin Najah (Najahdev.com)',
+                    'Amin Najah',
                     'Najahdev.amine@gmail.com ',
                     'Marketing',
                     'Active',
@@ -126,43 +126,71 @@
 					'<img src="amr.png">'
 				  ],
 				  [
+                    'Omar Selim',
+                    'BIMarabia@gmail.com ',
+                    'Video Tutorials',
+                    'Active',
+					'<img src="omarselim.png" width="160" height="160">'
+                  ],
+				  [
+					'Nouran M. Radwan',
+					'radwannouran@yahoo.com',
+					'Graphic Designer',
+					'Active',
+					'<img src="nouran.png" width="160" height="160">'
+				  ],
+				  [
 					'Rashad Kamsheh',
 					'rashadse@hotmail.com',
 					'English Revision',
 					'Active',
 					'<img src="rashad.jpg">'
+				  ],				  
+				  [
+                    'Roshan Ali',
+                    'roshan_a5@yahoo.com',
+                    'Video Tutorials',
+                    'Active',
+					'<img src="roshan.jpg">'
+                  ],
+				  [
+                    'Heba Omran',
+                    'hiba.2omran@gmail.com',
+                    'Vision Achiever',
+                    'Active',
+					'<img src="hebaomran.png" width="140" height="140">'
+                  ],
+          [
+					'Muhammed Amr Elsayed',
+					'dev.mohamedamr@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="mohamed amr.jpg" width="140" height="140">'
+				  ],
+				  [
+					'Mohammed Fayed',
+					'ms_fayed@hotmail.com',
+					'Domain',
+					'Active'			
 				  ],
 				  [
                     'Sara Hamdy Mohamed',
                     'engsara88@yahoo.com',
                     'Vision Achiever',
                     'Active'
-                  ],				  
-				  [
-					'Mohammed Fayed',
-					'ms_fayed@hotmail.com',
-					'Domain',
-					'Active'
-				  ],
+          ],				  				  
 				  [
 					'Mohammed Ali Haggag',
 					'Mhaggag7@gmail.com',
 					'Graphic Designer',
 					'Active'
-				  ],
+				  ],			
 				  [
 					'Ahmad Fayed',
 					'ahmad_s_f@hotmail.com',
 					'Graphic Designer',
 					'Active'
-				  ],
-				  [
-					'Nouran M. Radwan',
-					'radwannouran@yahoo.com',
-					'Graphic Designer',
-					'Active'
-				  ],
-
+				  ],				  
 				  [
 					'Muhammad Wael',
 					'mohamed.wael96@hotmail.com',
@@ -244,12 +272,6 @@
 				  [
 					'Osama Ali',
 					'osama.a.mohamed94@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Muhammed Amr ',
-					'trainerma200@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -1020,5 +1042,12 @@
                     'muhammadgoni51@gmail.com',
                     'Ring2EXE Tester',
                     'Active'
-                  ]				  
+                  ],
+  				  [
+                    'L Godioleskky',
+                    'Igodio2@gmail.com',
+                    'Tester',
+                    'Active'
+                  ]
+
 ]

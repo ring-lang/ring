@@ -29,8 +29,9 @@ class FormDesigner_QLayout from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox("Type",["Vertical","Horizontal"])
-		oDesigner.oView.AddProperty("Objects (S: Comma)",True)
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_TYPE,
+			[T_FORMDESIGNER_ATTRIBUTE_VERTICAL,T_FORMDESIGNER_ATTRIBUTE_HORIZONTAL]) # "Type" "Vertical" "Horizontal"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_OBJECTSSCOMMA,True) # "Objects (S: Comma)"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
@@ -130,3 +131,4 @@ class FormDesigner_QLayout from QLabel
 		itemdata = item[:data]
 		setLayoutTypeValue(itemdata[:LayoutType])
 		setLayoutObjectsValue(itemdata[:LayoutObjects])
+		setText(oDesigner.oModel.GetObjectName(self))

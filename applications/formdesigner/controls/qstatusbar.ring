@@ -22,7 +22,7 @@ class FormDesigner_QStatusbar from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Message",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MESSAGE,False) # "Message"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

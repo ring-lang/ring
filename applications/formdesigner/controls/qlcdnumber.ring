@@ -23,7 +23,7 @@ class FormDesigner_QLCDNumber from QLCDNumber
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Display",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DISPLAY,False) # "Display"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

@@ -34,6 +34,8 @@ Type: unsigned int
 nWarning : 1
 Type: unsigned int
 nDontDeleteTheVM : 1
+Type: unsigned int
+nRingInsideRing : 1
 Type: int
 argc
 Type: char  **
@@ -45,11 +47,15 @@ lStartup
 Type: PoolManager
 vPoolManager
 Type: char
+lStartPoolManager
+Type: char
 lNoLineNumber
 Type: int
 nCustomGlobalScopeCounter
 Type: List *
 aCustomGlobalScopeStack
+Type: char
+lRunFromThread
 END:
 Type: RingState
 struct RingState

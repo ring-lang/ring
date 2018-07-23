@@ -13,6 +13,16 @@ uv_mutex_t *pMutexLibUV;
 
 #define RINGLIBUV_EVENTPARA  4
 
+RING_API void ring_libuv_start(RingState *pRingState);
+
+RING_API void ringlib_init(RingState *pRingState)
+{
+	pVMLibUV = pRingState->pVM;
+	ring_libuv_start(pRingState) ;
+}
+
+
+
 int uv_checkevent_callback(void *pObject,const char *cEvent)
 {
 	List *pList;
@@ -34,11 +44,12 @@ void uv_timer_callback(uv_timer_t *handle)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"timer");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_timer_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_timer_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 
 }
@@ -48,11 +59,12 @@ void uv_prepare_callback(uv_prepare_t *handle)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"prepare");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_prepare_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_prepare_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -61,11 +73,12 @@ void uv_check_callback(uv_check_t *handle)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"check");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_check_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_check_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -74,11 +87,12 @@ void uv_idle_callback(uv_idle_t *obj)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"idle");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_idle_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_idle_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -87,13 +101,14 @@ void uv_poll_callback(uv_poll_t *obj,int status,int events)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"poll");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_poll_t");
-		ring_list_adddouble(pPara,status);
-		ring_list_adddouble(pPara,events);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_poll_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,events);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -102,12 +117,13 @@ void uv_signal_callback(uv_signal_t *obj,int signum)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"signal");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_signal_t");
-		ring_list_adddouble(pPara,signum);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_signal_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,signum);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -116,12 +132,13 @@ void uv_shutdown_callback(uv_shutdown_t *obj,int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"shutdown");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_shutdown_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_shutdown_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -130,12 +147,13 @@ void uv_connection_callback(uv_stream_t *obj,int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"connection");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_stream_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_stream_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -144,12 +162,13 @@ void uv_write_callback(uv_write_t *obj,int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"write");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"uv_write_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_write_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -158,12 +177,13 @@ void uv_connect_callback(uv_connect_t *req, int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"connect");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_connect_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_connect_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -172,14 +192,15 @@ void uv_fs_event_callback(uv_fs_event_t *req, const char* filename, int events, 
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"fs_event");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_fs_event_t");
-		ring_list_addstring(pPara,filename);
-		ring_list_adddouble(pPara,events);
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_fs_event_t");
+		ring_list_addstring_gc(pVMLibUV->pRingState,pPara,filename);
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,events);
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -188,11 +209,12 @@ void uv_fs_callback(uv_fs_t *req)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"fs");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_fs_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_fs_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -211,11 +233,12 @@ void uv_thread_callback(void *obj)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"thread");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,obj,"void");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"void");
 	ring_vm_mutexfunctions(pVMLibUV,uv_new_mutex,
 uv_mutex_lock,uv_mutex_unlock,uv_mutex_destroy);
 	ring_vm_runcodefromthread(pVMLibUV,ring_list_getstring(pList,3));
@@ -226,12 +249,13 @@ void uv_walk_callback(uv_handle_t *handle, void *arg)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"walk");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_handle_t");
-		ring_list_addcpointer(pPara,arg,"void");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_handle_t");
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,arg,"void");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -240,11 +264,12 @@ void uv_close_callback(uv_handle_t *handle)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"close");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_handle_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_handle_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -253,11 +278,12 @@ void uv_async_callback(uv_async_t *handle)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"async");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_async_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_async_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -266,13 +292,14 @@ void uv_alloc_callback(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"alloc");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_handle_t");
-		ring_list_adddouble(pPara,suggested_size);
-		ring_list_addcpointer(pPara,buf,"uv_buf_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_handle_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,suggested_size);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,buf,"uv_buf_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -281,13 +308,14 @@ void uv_read_callback(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(stream,"read");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,stream,"uv_stream_t");
-		ring_list_adddouble(pPara,nread);
-		ring_list_addcpointer(pPara,(uv_buf_t *) buf,"uv_buf_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,stream,"uv_stream_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,nread);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,(uv_buf_t *) buf,"uv_buf_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -296,12 +324,13 @@ void uv_udp_send_callback(uv_udp_send_t* req, int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"udp_send");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_udp_send_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_udp_send_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -310,15 +339,16 @@ void uv_udp_recv_callback(uv_udp_t* handle, ssize_t nread, const uv_buf_t* buf, 
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"udp_recv");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_udp_t");
-		ring_list_adddouble(pPara,nread);
-		ring_list_addcpointer(pPara,(uv_buf_t *) buf,"uv_buf_t");
-		ring_list_addcpointer(pPara,(struct sockaddr *) addr,"sockaddr");
-		ring_list_adddouble(pPara,flags);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_udp_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,nread);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,(uv_buf_t *) buf,"uv_buf_t");
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,(struct sockaddr *) addr,"sockaddr");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,flags);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -327,14 +357,15 @@ void uv_fs_poll_callback(uv_fs_poll_t* handle, int status, const uv_stat_t* prev
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(handle,"fs_poll");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,handle,"uv_fs_poll_t");
-		ring_list_adddouble(pPara,status);
-		ring_list_addcpointer(pPara,(uv_stat_t *) prev,"uv_stat_t");
-		ring_list_addcpointer(pPara,(uv_stat_t *) curr,"uv_stat_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,handle,"uv_fs_poll_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,(uv_stat_t *) prev,"uv_stat_t");
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,(uv_stat_t *) curr,"uv_stat_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -343,11 +374,12 @@ void uv_work_callback(uv_work_t* req)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"work");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_work_t");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_work_t");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -356,12 +388,13 @@ void uv_after_work_callback(uv_work_t* req, int status)
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"after_work");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_work_t");
-		ring_list_adddouble(pPara,status);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_work_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -370,13 +403,14 @@ void uv_getaddrinfo_callback(uv_getaddrinfo_t* req, int status, struct addrinfo*
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"getaddrinfo");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_getaddrinfo_t");
-		ring_list_adddouble(pPara,status);
-		ring_list_addcpointer(pPara,res,"addrinfo");
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_getaddrinfo_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,res,"addrinfo");
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
@@ -385,20 +419,72 @@ void uv_getnameinfo_callback(uv_getnameinfo_t* req, int status, const char* host
 	int x;
 	List *pList, *pPara;
 	x = uv_checkevent_callback(req,"getnameinfo");
+	if (x == 0) return ;
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
-		ring_list_deleteallitems(pPara);
-		ring_list_addcpointer(pPara,req,"uv_getnameinfo_t");
-		ring_list_adddouble(pPara,status);
-		ring_list_addstring(pPara,hostname);
-		ring_list_addstring(pPara,service);
+		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
+		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,req,"uv_getnameinfo_t");
+		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
+		ring_list_addstring_gc(pVMLibUV->pRingState,pPara,hostname);
+		ring_list_addstring_gc(pVMLibUV->pRingState,pPara,service);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
 }
 
 void my_alloc_cb(uv_handle_t* handle, size_t suggested_size, uv_buf_t* buf) {
 buf->base = malloc(suggested_size);
 buf->len = suggested_size;
+}
+
+RING_FUNC(ring_uv_deletecallbacks)
+{
+	void *pObject;
+	List *pList;
+	int x;
+	RING_API_IGNORECPOINTERTYPE;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	pObject = RING_API_GETCPOINTER(1,"void");
+	for(x = 1 ; x <= ring_list_getsize(aCallBack) ; x++)
+	{
+		pList = ring_list_getlist(aCallBack,x) ;
+		if (  ring_list_getpointer(pList,1) == pObject  )
+		{
+			ring_list_deleteitem_gc(pVMLibUV->pRingState,aCallBack,x);
+			return ;
+		}
+	}
+	return ;
+}
+
+RING_FUNC(ring_uv_deleteallcallbacks)
+{
+	ring_list_deleteallitems_gc(pVMLibUV->pRingState,aCallBack) ;
+}
+
+RING_FUNC(ring_uv_callbackscount)
+{
+	RING_API_RETNUMBER(ring_list_getsize(aCallBack));
+}
+
+RING_FUNC(ring_uv_deletecallbacksafter)
+{
+	int x,nStart,nEnd;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nStart = ring_list_getsize(aCallBack);
+	nEnd = (int) RING_API_GETNUMBER(1);
+	for (x = nStart ; x > nEnd  ; x-- ) {
+		ring_list_deleteitem_gc(pVMLibUV->pRingState,aCallBack,x);
+	}
 }
 
 RING_FUNC(ring_uv_callback)
@@ -416,16 +502,15 @@ RING_FUNC(ring_uv_callback)
 	}
 	if ( aCallBack == NULL )
 	{
-		aCallBack = ring_list_new(0);
+		aCallBack = ring_list_new_gc(pVMLibUV->pRingState,0);
 	}
 	cCallBackType = RING_API_GETSTRING(2) ;
-	pList = ring_list_newlist(aCallBack);
-	ring_list_addpointer(pList,RING_API_GETCPOINTER(1,"void"));
-	ring_list_addstring(pList,cCallBackType);
-	ring_list_addstring(pList,RING_API_GETSTRING(3));
+	pList = ring_list_newlist_gc(pVMLibUV->pRingState,aCallBack);
+	ring_list_addpointer_gc(pVMLibUV->pRingState,pList,RING_API_GETCPOINTER(1,"void"));
+	ring_list_addstring_gc(pVMLibUV->pRingState,pList,cCallBackType);
+	ring_list_addstring_gc(pVMLibUV->pRingState,pList,RING_API_GETSTRING(3));
 	// Add List for the Event Parameters
-		ring_list_newlist(pList);	
-	pVMLibUV = (VM *) pPointer;
+		ring_list_newlist_gc(pVMLibUV->pRingState,pList);	
 	if (strcmp(cCallBackType,"timer") == 0)
 	{
 		RING_API_RETCPOINTER(uv_timer_callback,"void");
@@ -533,7 +618,7 @@ RING_FUNC(ring_uv_eventpara)
 {
 	int x;
 	List *pList, *pPara;
-
+	char *cType;
 	RING_API_IGNORECPOINTERTYPE;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
@@ -548,8 +633,8 @@ RING_FUNC(ring_uv_eventpara)
 	{
 		return;
 	}
-
-	x = uv_checkevent_callback(RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
+	cType = RING_API_GETSTRING(2);
+	x = uv_checkevent_callback(RING_API_GETCPOINTER(1,"void"),cType);
 	pList = ring_list_getlist(aCallBack,x) ;
 	pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 	RING_API_RETLIST(pPara);
@@ -3630,6 +3715,40 @@ RING_FUNC(ring_destroy_uv_shutdown_t)
 	}
 }
 
+RING_FUNC(ring_get_uv_shutdown_t_handle)
+{
+	uv_shutdown_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_shutdown_t");
+	RING_API_RETCPOINTER(pMyPointer->handle,"uv_stream_t");
+}
+
+RING_FUNC(ring_set_uv_shutdown_t_handle)
+{
+	uv_shutdown_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_shutdown_t");
+	pMyPointer->handle = (uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t *");
+}
+
 RING_FUNC(ring_new_uv_write_t)
 {
 	uv_write_t *pMyPointer ;
@@ -3658,6 +3777,40 @@ RING_FUNC(ring_destroy_uv_write_t)
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
+}
+
+RING_FUNC(ring_get_uv_write_t_handle)
+{
+	uv_write_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_write_t");
+	RING_API_RETCPOINTER(pMyPointer->handle,"uv_stream_t");
+}
+
+RING_FUNC(ring_set_uv_write_t_handle)
+{
+	uv_write_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uv_write_t");
+	pMyPointer->handle = (uv_stream_t *) RING_API_GETCPOINTER(2,"uv_stream_t *");
 }
 
 
@@ -9460,13 +9613,17 @@ RING_FUNC(ring_uv_os_gethostname)
 	RING_API_RETNUMBER(uv_os_gethostname((char *) RING_API_GETCPOINTER(1,"char"),(size_t *) RING_API_GETCPOINTER(2,"size_t")));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_API void ring_libuv_start(RingState *pRingState)
 {
 	ring_vm_funcregister("uv_callback",ring_uv_callback);
 	ring_vm_funcregister("uv_eventpara",ring_uv_eventpara);
 	ring_vm_funcregister("uv_myalloccallback",ring_uv_myalloccallback);
 	ring_vm_funcregister("uv_pointer2string",ring_uv_pointer2string);
 	ring_vm_funcregister("uv_free",ring_uv_free);
+	ring_vm_funcregister("uv_deletecallbacks",ring_uv_deletecallbacks);
+	ring_vm_funcregister("uv_deleteallcallbacks",ring_uv_deleteallcallbacks);
+	ring_vm_funcregister("uv_callbackscount",ring_uv_callbackscount);
+	ring_vm_funcregister("uv_deletecallbacksafter",ring_uv_deletecallbacksafter);
 	ring_vm_funcregister("uv_strerror",ring_uv_strerror);
 	ring_vm_funcregister("uv_err_name",ring_uv_err_name);
 	ring_vm_funcregister("uv_translate_sys_error",ring_uv_translate_sys_error);
@@ -10009,8 +10166,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uv_connect_t_handle",ring_set_uv_connect_t_handle);
 	ring_vm_funcregister("new_uv_shutdown_t",ring_new_uv_shutdown_t);
 	ring_vm_funcregister("destroy_uv_shutdown_t",ring_destroy_uv_shutdown_t);
+	ring_vm_funcregister("get_uv_shutdown_t_handle",ring_get_uv_shutdown_t_handle);
+	ring_vm_funcregister("set_uv_shutdown_t_handle",ring_set_uv_shutdown_t_handle);
 	ring_vm_funcregister("new_uv_write_t",ring_new_uv_write_t);
 	ring_vm_funcregister("destroy_uv_write_t",ring_destroy_uv_write_t);
+	ring_vm_funcregister("get_uv_write_t_handle",ring_get_uv_write_t_handle);
+	ring_vm_funcregister("set_uv_write_t_handle",ring_set_uv_write_t_handle);
 	ring_vm_funcregister("new_uv_tcp_t",ring_new_uv_tcp_t);
 	ring_vm_funcregister("destroy_uv_tcp_t",ring_destroy_uv_tcp_t);
 	ring_vm_funcregister("new_uv_pipe_t",ring_new_uv_pipe_t);

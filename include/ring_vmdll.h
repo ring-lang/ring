@@ -21,4 +21,6 @@ void ring_vm_dll_loadfunctions ( RingState *pRingState ) ;
 void ring_vm_dll_loadlib ( void *pPointer ) ;
 
 void ring_vm_dll_closelib ( void *pPointer ) ;
+
+void ring_vm_dll_closealllibs ( VM *pVM ) ;
 #endif

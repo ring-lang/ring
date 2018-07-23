@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Code Generator for wrapping C/C++ Libraries &mdash; Ring 1.7 documentation</title>
+    <title>Code Generator for wrapping C/C++ Libraries &mdash; Ring 1.9 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
-    <link rel="next" title="RingLibCurl Functions Reference" href="ringlibcurlfuncsdoc.html" />
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Create your first extension" href="ringbeep.html" />
     <link rel="prev" title="Embedding Ring Language in C/C++ Programs" href="embedding.html" /> 
   </head>
   <body role="document">
@@ -36,12 +36,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+          <a href="ringbeep.html" title="Create your first extension"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="embedding.html" title="Embedding Ring Language in C/C++ Programs"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -525,7 +525,7 @@ threads to our Ring applications by using a threads library.</p>
 <ul class="simple">
 <li>We can define classes between &lt;class&gt; and &lt;/class&gt;</li>
 <li>Between &lt;class&gt; and &lt;class&gt; we set attributes like
-&#8220;name, nonew, para, parent, codename, passvmpointer and abstract&#8221;</li>
+&#8220;name, nonew, para, parent, codename, passvmpointer, abstract and staticmethods&#8221;</li>
 <li>we set the attributes using the style attributename:value or attributename only if no values
 are required</li>
 <li>The &#8220;name&#8221; attribute determine the class name in C++ code and this name will be the default name
@@ -534,10 +534,11 @@ in the Ring code</li>
 <li>The parent attribute determine the parent class name</li>
 <li>The codename attribute determine another class name in C++ code</li>
 <li>The passvmpoint instruction means passing the Ring VM pointer to the class constructor when
-we create new objects, this happens when we set the codename attribute to a class the we will define
+we create new objects, this happens when we set the codename attribute to a class that we will define
 and this class need the Virtual Machine pointer (for example to use it to execute Ring code from C++
 code).</li>
 <li>The abstract instruction means that no new method is required for this class &#8220;no objects will be created&#8221;.</li>
+<li>The staticmethods instruction means that method doesn&#8217;t need an object to be called.</li>
 <li>Using &lt;nodllstartup&gt; we can avoid #include &#8220;ring.h&#8221;, We need this to write our startup code.</li>
 <li>Using &lt;libinitfunc&gt; we can change the function name that register the library functions</li>
 <li>Using &lt;ignorecpointertype&gt; we can ignore pointer type check</li>
@@ -1119,8 +1120,25 @@ also Ring code around 9000 lines.</p>
 for a complete version see the Ring source code distribution.</p>
 </div>
 </div>
+<div class="section" id="static-methods">
+<span id="index-20"></span><h2>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8 the code generator support the staticmethods option.</p>
+<p>So the code generator can know that the class doesn&#8217;t need an object to call the methods.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&lt;class&gt;
+name: QStandardPaths
+para: void
+nonew
+staticmethods
+&lt;/class&gt;
+
+QString displayName(QStandardPaths::StandardLocation type)
+QString findExecutable(QString executableName, QStringList paths))
+</pre></div>
+</div>
+</div>
 <div class="section" id="configuration-files-examples">
-<span id="index-20"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this headline">¶</a></h2>
 <p>You can learn from the next examples</p>
 <ul class="simple">
 <li>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf</a></li>
@@ -1171,6 +1189,7 @@ the next examples</p>
 <li><a class="reference internal" href="#code-generator-rules-for-wrapping-c-classes">Code Generator Rules for Wrapping C++ Classes</a></li>
 <li><a class="reference internal" href="#using-configuration-file-that-wrap-c-library">Using configuration file that wrap C++ Library</a></li>
 <li><a class="reference internal" href="#configuration-file-for-the-qt-framework">Configuration file for the Qt Framework</a></li>
+<li><a class="reference internal" href="#static-methods">Static Methods</a></li>
 <li><a class="reference internal" href="#configuration-files-examples">Configuration Files Examples</a></li>
 </ul>
 </li>
@@ -1180,8 +1199,8 @@ the next examples</p>
   <p class="topless"><a href="embedding.html"
                         title="previous chapter">Embedding Ring Language in C/C++ Programs</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ringlibcurlfuncsdoc.html"
-                        title="next chapter">RingLibCurl Functions Reference</a></p>
+  <p class="topless"><a href="ringbeep.html"
+                        title="next chapter">Create your first extension</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1213,16 +1232,16 @@ the next examples</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+          <a href="ringbeep.html" title="Create your first extension"
              >next</a> |</li>
         <li class="right" >
           <a href="embedding.html" title="Embedding Ring Language in C/C++ Programs"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

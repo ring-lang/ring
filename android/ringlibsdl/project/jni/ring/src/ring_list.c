@@ -628,7 +628,7 @@ RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem )
 }
 /* Delete item from list using the item pointer */
 
-RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem )
+RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pItem )
 {
 	int x  ;
 	Item *pItem2  ;
@@ -636,7 +636,7 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem )
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pItem2 = ring_list_getitem(pList,x);
 		if ( pItem == pItem2 ) {
-			ring_list_deleteitem(pList,x);
+			ring_list_deleteitem_gc(pState,pList,x);
 			return 1 ;
 		}
 		if ( ring_list_islist(pList,x) ) {
@@ -1054,17 +1054,6 @@ RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
 }
 /* Copy list by reference */
 
-RING_API void ring_list_refcopy ( List *pNewList, List *pList )
-{
-	pNewList->pFirst = pList->pFirst ;
-	pNewList->pLast = pList->pLast ;
-	pNewList->nSize = pList->nSize ;
-	pNewList->nNextItemAfterLastAccess = pList->nNextItemAfterLastAccess ;
-	pNewList->pLastItemLastAccess = pList->pLastItemLastAccess ;
-	pNewList->pItemsArray = pList->pItemsArray ;
-	pNewList->pHashTable = pList->pHashTable ;
-}
-
 RING_API void ring_list_clear ( List *pList )
 {
 	pList->pFirst = NULL ;
@@ -1248,6 +1237,36 @@ RING_API void ring_list_genhashtable ( List *pList )
 RING_API void ring_list_genhashtable2 ( List *pList )
 {
 	ring_list_genhashtable2_gc(NULL,pList);
+}
+/* Swap two lists */
+
+RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
+{
+	List TempList  ;
+	/* Get data from pList1 to TempList */
+	TempList.pFirst = pList1->pFirst ;
+	TempList.pLast = pList1->pLast ;
+	TempList.nSize = pList1->nSize ;
+	TempList.nNextItemAfterLastAccess = pList1->nNextItemAfterLastAccess ;
+	TempList.pLastItemLastAccess = pList1->pLastItemLastAccess ;
+	TempList.pHashTable = pList1->pHashTable ;
+	TempList.pItemsArray = pList1->pItemsArray ;
+	/* Get data from pList2 to pList1 */
+	pList1->pFirst = pList2->pFirst ;
+	pList1->pLast = pList2->pLast ;
+	pList1->nSize = pList2->nSize ;
+	pList1->nNextItemAfterLastAccess = pList2->nNextItemAfterLastAccess ;
+	pList1->pLastItemLastAccess = pList2->pLastItemLastAccess ;
+	pList1->pHashTable = pList2->pHashTable ;
+	pList1->pItemsArray = pList2->pItemsArray ;
+	/* Get data from TempList to pList2 */
+	pList2->pFirst = TempList.pFirst ;
+	pList2->pLast = TempList.pLast ;
+	pList2->nSize = TempList.nSize ;
+	pList2->nNextItemAfterLastAccess = TempList.nNextItemAfterLastAccess ;
+	pList2->pLastItemLastAccess = TempList.pLastItemLastAccess ;
+	pList2->pHashTable = TempList.pHashTable ;
+	pList2->pItemsArray = TempList.pItemsArray ;
 }
 /* Test */
 

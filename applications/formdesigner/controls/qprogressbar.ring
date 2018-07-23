@@ -59,12 +59,12 @@ class FormDesigner_QProgressbar from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Horizontal","Vertical"])
-		oDesigner.oView.AddProperty("Set Minimum",False)
-		oDesigner.oView.AddProperty("Set Maximum",False)
-		oDesigner.oView.AddProperty("Set Range",False)
-		oDesigner.oView.AddProperty("Set Value",False)
-		oDesigner.oView.AddProperty("valueChangedEvent",False)
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_SETORIENTATION,[T_FORMDESIGNER_ATTRIBUTE_HORIZONTAL,T_FORMDESIGNER_ATTRIBUTE_VERTICAL]) # "Set Orientation" "Horizontal" "Vertical"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMINIMUM,False)			# "Set Minimum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMAXIMUM,False)			# "Set Maximum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETRANGE,False)			# "Set Range"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETVALUE,False)			# "Set Value"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VALUECHANGEDEVENT,False)		# "valueChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

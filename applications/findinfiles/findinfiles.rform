@@ -1,0 +1,257 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 2 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -91 , : y = 19  , 
+		 :width =  1060 , :height = 725 , 
+		 :title =  "Find in files" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "LayoutMain" ,
+		 :WindowIcon =  "images/Search.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "lblfind" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 15 , : y = 15  , 
+		 :width =  92 , :height = 34 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Find",
+		 :textalign =  0
+		]
+	],
+	[ :name = "lblExtension" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 16 , : y = 138  , 
+		 :width =  92 , :height = 34 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Files Extension",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtFind" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 118 , : y = 8  , 
+		 :width =  787 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "search",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "lblinfolder" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 16 , : y = 76  , 
+		 :width =  92 , :height = 34 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "In Folder",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtFolder" , :id = 7 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 119 , : y = 69  , 
+		 :width =  787 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "search",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "lblOutput" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 15 , : y = 255  , 
+		 :width =  92 , :height = 34 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Output",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TableOutput" , :id = 9 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 121 , : y = 269  , 
+		 :width =  921 , :height = 243 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "3",
+		 :HorizontalHeaders =  "File,Line,Text",
+		 :ColumnsWidth =  "400,50,800",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "SelectResult",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "btnSearch" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 907 , : y = 16  , 
+		 :width =  137 , :height = 42 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Search",
+		 :BtnImage =  "images/search.jpg",
+		 :setClickEvent =  "search"
+		]
+	],
+	[ :name = "btnBrowse" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 907 , : y = 76  , 
+		 :width =  137 , :height = 42 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Browse",
+		 :BtnImage =  "images/selectfolder.jpg",
+		 :setClickEvent =  "browse"
+		]
+	],
+	[ :name = "btnClose" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 905 , : y = 529  , 
+		 :width =  137 , :height = 42 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "images/closeicon.jpg",
+		 :setClickEvent =  "Close"
+		]
+	],
+	[ :name = "LayoutFind" , :id = 13 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 38 , : y = 556  , 
+		 :width =  249 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "lblfind,txtFind,btnSearch"
+		]
+	],
+	[ :name = "LayoutInFolder" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 31 , : y = 590  , 
+		 :width =  318 , :height = 32 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "lblinfolder,txtFolder,btnBrowse"
+		]
+	],
+	[ :name = "LayoutOutput" , :id = 15 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 38 , : y = 637  , 
+		 :width =  266 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "lblOutput,TableOutput"
+		]
+	],
+	[ :name = "txtExtension" , :id = 16 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 119 , : y = 131  , 
+		 :width =  787 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "ring",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "search",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LayoutExtension" , :id = 17 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 352 , : y = 574  , 
+		 :width =  232 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "lblExtension,txtExtension"
+		]
+	],
+	[ :name = "checkMatchCase" , :id = 18 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 11 , : y = 204  , 
+		 :width =  168 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Match Case",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "LayoutMain" , :id = 19 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 406 , : y = 619  , 
+		 :width =  204 , :height = 56 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "LayoutFind,LayoutInFolder,LayoutExtension,checkMatchCase,LayoutOutput,btnClose"
+		]
+	],
+	[ :name = "Statusbar1" , :id = 20 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 810 , : y = 612  , 
+		 :width =  99 , :height = 31 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Message =  "Ready"
+		]
+	]
+]
+# End Form Designer File

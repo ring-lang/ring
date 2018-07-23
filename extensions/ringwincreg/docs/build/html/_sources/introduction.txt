@@ -1,0 +1,59 @@
+.. index:: 
+	single: Introduction; Introduction
+
+=============
+Introduction
+=============
+
+Creating a new programming language doesn't mean that it should support Windows Registry by default specially if that language gives the chance to others for its extension. This is the exact situation of Ring Programming language. So that, This awesome Ring_WinCReg extension has been made to give a nice support of Windows Registry access and editing from within Ring Programming Language.
+
+Absolutely, Supporting Windows Registry will give a big chance for the all community of Ring programmers and developers who like to use Windows Registry for a reason or another.
+
+**Windows Registry** is a place where, in addition to save your application settings in it, you can find all of windows and other applications/programms settings that help in their operation, so manipulating in a such place may be the demand for some applications like those controlling Windows Startup Programs.
+
+.. index::
+	pair: Introduction; Ring_WinCReg Extension
+	
+Ring_WinCReg Extension
+=======================
+
+Ring WinCReg extension is a very light, easy, and powerful extension for Ring Programming Language that has been made to bring all means of easiness in regard to the dealing with Windows Registry. It gives you the ability to do from minor registry needs like saving or restoring settings to more superior goals like reaching and manipulating every single key or value in the whole registry tree.
+
+This extension has been made on top of previously created C++ language class called "Registry Wrapper Class (CRegisry Class)" that has been published on `CodeProject in this article <http://www.codeproject.com/Articles/8953/Registry-Wrapper-Class-CRegistry>`_.
+
+.. index::
+	pair: Introduction; RCRegistry Class
+	
+RCRegistry Class Library
+=========================
+
+RCRegistry class, stands for Ring CRegistry Class or CRegistry Class for Ring, is a Ring Class that has been made to make using ring_wincreg extension functions easier by using the same style of "Registry Wrapper Class" usage in C++. I found this style reasonable and readable better than just using the ring_wincreg original functions (:ref:`RCRegistry-class-library-usage`). It can be used by loading the file that contains it (wincreg.ring).
+
+.. index::
+	pair: Introduction; Simple Example
+	
+Simple Example
+===============
+
+This is a simple ring code that uses this extension:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = new RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"]) 
+	# This will create a key called "MyApp" if its not present then it will be Opened
+	
+	Reg["AppVersion"].SetValue("2.3")
+	
+	Reg["AppPath"].SetValue(exeFolder())
+
+	See "AppVersion is : " + Reg["AppVersion"].GetValue() + NL
+
+	See "App Path is : " + Reg["AppPath"].GetValue()
+	
+	Reg.CloseKey()
+
+

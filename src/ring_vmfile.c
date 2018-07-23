@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 #include <sys/types.h>
 #ifdef _WIN32
@@ -57,7 +57,7 @@ void ring_vm_file_fopen ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
 		fp = fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETCPOINTER(fp,RING_VM_POINTER_FILE);
+		RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -121,7 +121,7 @@ void ring_vm_file_tempfile ( void *pPointer )
 {
 	FILE *fp  ;
 	fp = tmpfile();
-	RING_API_RETCPOINTER(fp,RING_VM_POINTER_FILE);
+	RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 }
 
 void ring_vm_file_tempname ( void *pPointer )
@@ -768,4 +768,11 @@ void ring_vm_file_bytes2double ( void *pPointer )
 		}
 	}
 	RING_API_ERROR(RING_API_BADPARATYPE);
+}
+
+void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
+{
+	FILE *fp  ;
+	fp = (FILE *) pPointer ;
+	fclose( fp ) ;
 }

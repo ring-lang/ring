@@ -44,3 +44,8 @@ cStr
 ring_vm_isstackpointertoobjstate
 Type: int
 nScope
+ring_vm_prevtempmem
+Type: List *
+pList
+Type: int
+x

@@ -1,0 +1,567 @@
+.. index:: 
+	single: What is new in Ring 1.8?; Introduction
+
+========================
+What is new in Ring 1.8?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.8 release.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.8 comes with the next features!
+
+* Better Performance
+* Find in files Application
+* String2Constant Application
+* StopWatch Application
+* More 3D Samples
+* Compiling on Manjaro Linux
+* Using This in the class region as Self
+* Default value for object attributes is NULL
+* The For Loops uses the local scope
+* Merge binary characters
+* FoxRing Library
+* Better Form Designer
+* Better Cards Game
+* Better RingQt
+* Better Code Generator For Extensions
+* Better Ring Compiler and VM
+* Notes to extensions creators
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Performance 
+
+Better Performance
+==================
+
+Ring 1.8 is faster than Ring 1.7 
+
+The performance gain is between 10% and 100% based on the application.
+
+Check the 3D samples in this release to get an idea about the current performance.
+
+For more information check the Performance Tips chapter.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Find in files Application
+
+Find in files Application
+=========================
+
+Ring 1.8 comes with Find in files application
+
+.. image:: findinfiles.png
+	:alt: Find in files
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; String2Constant Application
+
+String2Constant Application
+===========================
+
+Ring 1.8 comes with String2Constant application
+
+Using this tool we can convert the source code to be based on constants instead of string literals
+
+Then we can store constants in separate source code files that we can translate to different languages
+
+Where we can have special file for each language, like (English.ring, Arabic.ring and so on)
+
+Using this simple tool, the Form Designer is translated to the Arabic language.
+
+For more information check the Multi-language Applications chapter.
+
+.. image:: string2constant.png
+	:alt: String2Constant 
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; StopWatch Application
+
+StopWatch Application
+=====================
+
+Ring 1.8 comes with StopWatch application
+
+.. image:: stopwatch.png
+	:alt: StopWatch
+
+.. index:: 
+	pair: What is new in Ring 1.8?; More 3D Samples
+
+More 3D Samples
+===============
+
+Ring 1.8 comes with more 3D Samples
+
+The next screen shot for the Top-Down view - Many levels of cubes sample
+
+.. image:: more3dsamples.jpg
+	:alt: 3D samples
+
+The next screen shot for the Camera Sample
+
+.. image:: more3dsamples2.jpg
+	:alt: 3D samples
+
+The next screen shot for the Camera and background sample
+
+Developer : Azzeddine Remmal
+
+.. image:: cameraandbackground.png
+	:alt: Camera and background
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Compiling on Manjaro Linux
+
+Compiling on Manjaro Linux
+==========================
+
+Ring 1.8 is tested on Manjaro Linux too
+
+Tests by : Iip Rifai
+
+.. image:: ringonmanjarolinux.png
+	:alt: Ring on Manjaro Linux
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Using This in the class region as Self
+
+Using This in the class region as Self
+======================================
+
+The class region is the region that comes after the class name and before any method.
+
+Now we can use This in the class region as Self.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		o1 = new program {
+			test()
+		}
+
+		? o1
+
+	class program 
+
+		this.name = "My Application"
+		this.version = "1.0"
+		? name ? version	
+
+		func test
+			? "Name    = " + name 
+			? "Version = " + version
+
+Output
+
+.. code-block:: none
+
+	My Application
+	1.0
+	Name    = My Application
+	Version = 1.0
+	name: My Application
+	version: 1.0
+
+.. note:: When we use braces to change the current active object, Using This we can still point to the class.
+
+.. tip:: The difference between This and Self is that Self point to the current active object that we can change using braces.
+
+Remember that in most cases we don't need to use This or Self in the class region
+
+We can write
+
+
+.. code-block:: ring
+
+	class program name version
+
+Or 
+
+.. code-block:: ring
+
+	class program name="My Application" version="1.0"
+
+.. note:: We use This or Self in the class region just to avoid conflict with global variables that are defined with the same name.
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Default value for object attributes is NULL
+
+Default value for object attributes is NULL
+===========================================
+
+Starting from Ring 1.8 the default value for object attributes is NULL
+
+In Ring, the NULL value is just an empty string or a string that contains "NULL"
+
+We can check for NULL values using the isNULL() function
+
+Example:
+
+.. code-block:: ring
+
+	oProgram = new Program
+	? oProgram.name
+	? oProgram.version
+	? isNULL(oProgram.name)
+	? isNULL(oProgram.version)
+	oProgram { name="My Application" version="1.0" }
+	? isNULL(oProgram.name)
+	? isNULL(oProgram.version)
+	? oProgram
+
+	class program
+		name 
+		version
+
+Output:
+
+.. code-block:: none
+
+	NULL
+	NULL
+	1
+	1
+	0
+	0
+	name: My Application
+	version: 1.0
+
+In previous versions of Ring, trying to access the object attribute before assigning a value to it
+
+Will lead to runtime error and you can't check it using isnull() 
+
+The only way was assigning a value or using try/catch/end 
+
+We changed this behavior so we can have full control in seamless way.
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; The For Loops uses the local scope
+
+The For Loops uses the local scope
+==================================
+
+In Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.
+
+Example:
+
+.. code-block:: ring
+
+	x = 10
+	? x		# Print 10
+	test1()
+	? x		# Print 10
+	test2()
+	? x		# Print 10
+
+	func test1
+		for x = 1 to 5
+		next
+		? x	# Print 6
+
+	func test2
+		list = 1:5
+		for x in list
+		next
+		? x	# Print NULL (The "For In" loop will kill the reference after the loop)
+
+Output:
+
+.. code-block:: ring
+
+	10
+	6
+	10
+	NULL
+	10	
+		
+.. index:: 
+	pair: What is new in Ring 1.8?; Merge binary characters
+
+Merge binary characters
+=======================
+
+From Ring 1.0 we can create binary strings and do operations on these strings.
+
+Now in Ring 1.8, we can get individual characters from these strings and merge them together using
+the '+' operator.
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome"
+	? cstr[1] + cstr[2] + cStr[5]
+	v = cstr[1] + cstr[2] + cStr[5]
+	? v
+	? len(v)
+	c1 = cStr[1]
+	? c1
+	aList = [1,2,3]
+	cStr = ""
+	for item in aList 
+		cStr += int2bytes(item)
+	next 
+	? "All String"
+	? len(cStr)
+	? "First Part"
+	n1 = cStr[1] + cStr[2] + cStr[3] + cStr[4]
+	? len(n1)
+	? "Second Part"
+	n2 = cStr[5] + cStr[6] + cStr[7] + cStr[8]
+	? len(n2)
+	? "Third Part"
+	n3 = cStr[9] + cStr[10] + cStr[11] + cStr[12]
+	? len(n3)
+	? "All String"
+	cString = cStr[1] + cStr[2] + cStr[3] + cStr[4] + 
+		  cStr[5] + cStr[6] + cStr[7] + cStr[8] + 
+		  cStr[9] + cStr[10] + cStr[11] + cStr[12]
+	? len(cString)
+	? ascii(cStr[1])
+	? len(cStr[2])
+
+Output:
+
+.. code-block:: ring
+
+	Weo
+	Weo
+	3
+	W
+	All String
+	12
+	First Part
+	4
+	Second Part
+	4	
+	Third Part
+	4
+	All String
+	12
+	1
+	1
+	
+
+.. index:: 
+	pair: What is new in Ring 1.8?; FoxRing Library
+
+FoxRing Library
+===============
+
+Developer: Jose Rosado
+
+A class with some of the functions I used in FoxPro\
+
+Example:
+
+.. code-block:: ring
+
+	Load "foxring.ring"
+
+	mf = new frFunctions
+	? mf.frAbs(-45)      
+	? mf.frAbs(10-30)    
+	? mf.frAbs(30-10)   
+
+	? mf.frTransform("    Ring is a good language    ",
+			 "@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
+	? mf.frAllTrim("    Ring is a good language    ", Null) 
+
+Output:
+
+.. code-block:: ring
+
+	45
+	20
+	20
+	    RING IS A GOOD LANGUAGE
+	Ring is a good language
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Form Designer
+
+Better Form Designer
+====================
+
+(1) Layout Control - Display the control name when loading forms.
+(2) Button Control - Display the button images written using relative path.
+(3) Table  Control - Display the control name when loading forms.
+(4) Better behavior in "Bring to front" and "Send to back" operations.
+(5) New buttons are added to the toolbar (Duplicate, Bring to front, Send to back, Delete).
+(6) Using layouts in (Menubar designer, Window Flags window, Selecting Objects window).
+(7) Better behavior for displaying the properties window when changing the selected objects.
+(8) New buttons are added to move and resize multiple selection of objects.
+(9) Window Properties - Add button to select the layout.
+(10) Opening forms and switching between files is faster.
+(11) Objects Order window.
+(12) Select Objects window.
+(13) When we change the control name, the name will be updated in layout objects.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Cards Game
+
+Better Cards Game
+=================
+
+The Cards game is updated and we can play with the Computer
+
+.. image:: cardsmainmenu.png
+	:alt: Cards Main Menu
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better RingQt
+
+Better RingQt
+=============
+
+* The next classes are added to RingQt
+
+(1) QTabBar
+(2) QFile
+(3) QFileDevice
+(4) QStandardPaths
+(5) QDir
+(6) QQuickWidget
+(7) QQmlError
+(8) QScrollBar
+
+* RingQt for Android is updated to support modern versions of Qt
+
+Tested using
+
+(1) Qt 5.5.1
+(2) Qt 5.9.5
+(3) Qt 5.11.0
+
+* In RingQt for Android, The Ring Object File (ringo) will be executed directly from resources.
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Code Generator For Extensions
+
+Better Code Generator For Extensions
+====================================
+
+New Option: StaticMethods
+
+Starting from Ring 1.8 the code generator support the staticmethods option.
+
+So the code generator can know that the class doesn't need an object to call the methods.
+
+Example:
+
+.. code-block:: none
+
+	<class>
+	name: QStandardPaths
+	para: void
+	nonew
+	staticmethods
+	</class>
+
+	QString displayName(QStandardPaths::StandardLocation type)
+	QString findExecutable(QString executableName, QStringList paths))
+
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Better Ring Compiler and VM
+
+Better Ring Compiler and VM
+===========================
+
+(1) Better loading for files in relative paths
+(2) Code Optimization for eval() function 
+(3) Better Memory Pool
+(4) When embedding Ring in Ring, the error in the hosted environment will not close the host
+
+Example:
+
+.. code-block:: ring
+
+	? "Start the test!" 
+
+	pState = ring_state_init()
+
+	ring_state_runcode(pState," ? 'Let us try having an error' ? x")
+
+	ring_state_delete(pState)
+
+	? ""
+	? "End of test!"
+
+Output:
+
+.. code-block:: none
+
+	Start the test!
+	Let us try having an error
+
+	Line 1 Error (R24) : Using uninitialized variable : x
+	in file Ring_EmbeddedCode
+	End of test!
+	
+(5) The compiler will ignore new lines after keywords that expect tokens after it
+
+Example:
+
+.. code-block:: ring
+
+	see 
+	"
+		Hello, World!
+	"
+	test()
+
+	func 
+	#======================#
+		Test
+	#======================#
+
+		?
+		"
+	
+		Hello from the Test function
+
+		"
+
+Output:
+
+.. code-block:: none
+
+
+	        Hello, World!
+
+
+	        Hello from the Test function
+
+(6) Better code (faster) for the main loop, special loop for eval() function.
+(7) Better code (faster) for tracking C pointers to avoid using NULL pointers.
+(8) Better code (faster) for getting the self object using braces.
+
+.. index:: 
+	pair: What is new in Ring 1.8?; Notes to extensions creators
+
+Notes to extensions creators
+============================
+
+If you have created new extensions for Ring in the C/C++ languages.
+
+You have to rebuild your extension (Generate the DLL file again using Ring 1.8 header files) before usage with Ring 1.8
+
+Because we changed the internal structure of the VM, but no changes to the code are required. just rebuild.

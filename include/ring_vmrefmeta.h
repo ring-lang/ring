@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vmrefmeta_h
 #define ring_vmrefmeta_h
 /* Functions */
@@ -95,4 +95,6 @@ void ring_vm_refmeta_ringvmpasserror ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvmcallfunc ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvminfo ( void *pPointer ) ;
 #endif

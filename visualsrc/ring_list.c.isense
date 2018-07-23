@@ -152,7 +152,7 @@ Type: Item *
 pItem2
 Type: List *
 pList2
-ring_list_deliteminsidelist
+ring_list_deliteminsidelist_gc
 Type: int
 x
 Type: Item *
@@ -260,6 +260,9 @@ ring_list_insertlist
 ring_list_sortstr
 ring_list_genhashtable
 ring_list_genhashtable2
+ring_list_swaptwolists
+Type: List
+TempList
 ring_list_test
 Type: List *
 pList,*pList2

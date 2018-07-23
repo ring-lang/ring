@@ -1,0 +1,983 @@
+.. index:: 
+     single: FoxRing Functions Reference; Introduction
+
+===========================
+FoxRing Functions Reference
+===========================
+
+As a FoxPro developer, I started writing a class with some of the functions I used in FoxPro.
+
+The goal is to create as many functions as possible with the behavior similar to FoxPro functions.
+
+Developer: Jose Rosado
+
+.. index:: 
+     pair: FoxRing Functions Reference; FoxRing functions
+
+FoxRing functions
+=================
+
++-----------------------+-----------------------------------------------------------------------------------------------+
+| Function Name		| 				Description						        |
++=======================+===============================================================================================+
+| frAbs()		| Returns the absolute value of the specified numeric expression.			       	|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frAddBs()		| Adds a backslash (if needed) to a path expression.						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frALines()		| Creates an Array with the content of the specified string. 					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frAllTrim()		| Removes all leading and trailing spaces of the specified string. 				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frAsc()		| Returns the ANSI value for the leftmost character in a character expression.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frAt()		| Searches a character expression for the occurrence 						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| of another character expression.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frAtC()		| Searches a character expression for the ocurrence of another character expression without 	|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| regard for the case of these two expressions.							|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frBetween()		| Determines whether the value of an expression is inclusively between the values of two 	|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| expressions of the same type.									|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frChr()		| Returns the character associated with the specified numeric ANSI code.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frEmpty()		| Determines whether an expression evaluates to empty.						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frFile()		| Checks if a file exists on disk.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frFileToStr()		| Returns the contents of a file as a character string.						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frForceExt()		| Returns a string with the old file name extension replaced by a new extension.		|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frForcePath()		| Returns a file name with a new path name substituted for the old one.				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frIif()   		| Returns one of two values depending on the value of a logical expression.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frInList()		| Determines whether an expression matches another expression in a list.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frInt()		| Evaluates a numeric expression and returns the integer portion of the expression.		|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frJustDrive()		| Returns the drive letter from a complete path.						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frJustExt()		| Returns the characters of a file extension from a complete path.				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frJustFName()		| Returns the file name portion of a complete path and file name.				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frJustPath()		| Returns the path portion of a complete path and file name.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frJustStem()		| Returns the stem name (the file name before the extension) 					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| from a complete path and file name.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frLen()		| Determines the number of characters in a character expression, 				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| indicating the length of the expression.							|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frListToString()	| Creates a string with the string elements of an Array.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frLTrim()		| Removes all leading spaces or parsing characters from the 					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| specified character expression.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frPadL()		| Returns a string from an expression, padded with spaces or characters to a 			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| specified length on the left side.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frPadR()		| Returns a string from an expression, padded with spaces or characters to a 			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| specified length on the right side.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frProper()		| Returns from a character expression a string capitalized as 					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| appropriate for proper names.									|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frReplicate()		| Returns a character string that contains a specified character 				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| expression repeated a specified number of times.						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frRTrim()		| Removes all trailing spaces or parsing characters from 					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| the specified character expression.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frSetIfEmpty()	| Set a Value into a variable if the variable value is empty, null or zero.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frSetSeparatorTo()	| Specifies the character for the numeric place separator.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frSpace()		| Returns a character string composed of a specified number of spaces.				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frStr()		| Returns the character equivalent of a numeric expression.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frStringToList()	| Creates a List with the content of the specified string.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frStrTran()		| Searches a character expression for a second character expression and 			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| replaces each occurrence with a third character expression.					|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frStuff()		| Returns a new character string replaced by a specified number of 				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| characteres in a character expression with another character expression.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frSubStr()		| Returns a character string from the given character expression, 				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| starting at a specified position in the character 						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| expression and continuing for a specified number of characters.				|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frTransform()		| Returns a character string from an expression in a 						|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| 			| format determined by a format code.								|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frVal()		| Returns a numeric value from a character expression composed of numbers.			|
++-----------------------+-----------------------------------------------------------------------------------------------+
+| frVarType()		| Returns the data type of an expression.							|
++-----------------------+-----------------------------------------------------------------------------------------------+
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAbs() function
+
+frAbs() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lnReturnValue = frAbs(tnExpression)
+	 * Description	: Returns the absolute value of the specified numeric expression.
+	 * 		:
+	 * Arguments	: <tnExpression>
+	 *		: Specifies the numeric expression whose absolute value frAbs()
+	 *		: returns.
+	 * Returns	: <lnReturnValue>
+	 *		: Returns the absolute value of the specified numeric expression.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAsc() function
+
+frAsc() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lnReturnValue = frAsc(tcExpression)
+	 * Description	: Returns the ANSI value for the leftmost character in
+	 * 		: a character expression.
+	 * Arguments	: <tcExpression>
+	 *		: Specifies the character expression containing the character 
+	 *		: whose ANSI value frAsc() 
+	 *		: returns. Any characters after the first character in 
+	 *		: tcExpression are ignored by frAsc().
+	 * Returns	: <lnReturnValue>
+	 *		: returns the position of the character in the character 
+	 *		: table of the current code page. 
+	 *		: Every character has a unique ANSI value in the 
+	 *		: range from 0 to 255.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAddBs() function
+
+frAddBs() function
+==================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frAddBs(tcPath)
+	 * Description	: Adds a backslash (if needed) to a path expression.
+	 *		:
+	 * Arguments   	: <tcPath>
+	 *		: Specifies the path name to which to add the backslash.
+	 *		:
+	 * Returns	: <lcReturnValue> The path with the backslash.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAt() function
+
+frAt() function
+===============
+
+.. code-block:: none
+
+	 * Syntax	: lnPos = frAt(tcToSearch, tcString, tnOccurrence)
+	 * Description	: Searches a character expression for the occurrence of 
+	 *		: another character expression. 
+	 *		: The search performed by frAt() is case-sensitive.
+	 *		:
+	 * Arguments   	: <tcToSearch>
+	 *		: Specifies the character expression to search 
+	 *		: for in <tcString>.
+	 *		: <tcString> 
+	 *		: Specifies the character expression to search 
+	 *		: for <tcToSearch>. 
+	 *		: <tnOccurrence> 
+	 *		: Specifies which occurrence, first, second, third, 
+	 *		: and so on, of <tcToSearch> to search for 
+	 *		: in <tcString>. 
+	 *		: By default, frAt() searches for the first occurrence 
+	 *		: of <tcToSearch> (tnOccurrence = 1). 
+	 * Returns	: Numeric. frAt() returns an integer indicating the 
+	 *		: position of the first character for a 
+	 *		: character expression or memo field within another 
+	 *		: character expression or memo field, 
+	 *		: beginning from the leftmost character. If the 
+	 *		: expression or field is not found, or if 
+	 *		: <tnOccurrence> is greater than the number of 
+	 *		: times <tcToSearch> occurs in  <tcString>, frAt() 
+	 *		: returns 0.
+
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAtC() function
+
+frAtC() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
+	 * Description	: Searches a character expression for the occurrence 
+	 *		: of another character expression 
+	 *		: without regard for the case of these two expressions.
+	 *		:
+	 * Arguments   	: <tcToSearch>
+	 *		: Specifies the character expression to search 
+	 *		: for in <tcString>.
+	 *		: <tcString> 
+	 *		: Specifies the character expression to search 
+	 *		: for <tcToSearch>. 
+	 *		: <tnOccurrence> 
+	 *		: Specifies which occurrence, first, second, third, 
+	 * 		: and so on, of <tcToSearch> to search for
+	 *		: in tcString. 
+	 *		: By default, frAtC() searches for the first occurrence 
+	 *		: of <tcToSearch> (tnOccurrence = 1). 
+	 * Returns	: Numeric. frAtC() returns an integer indicating the 
+	 *		: position of the first character for a 
+	 *		: character expression or memo field within 
+	 *		: another character expression or memo field, 
+	 *		: beginning from the leftmost character. If the 
+	 *		: expression or field is not found, or if 
+	 *		: <tnOccurrence> is greater than the number of 
+	 * 		: times <tcToSearch> occurs in <tcString>, frAtC()
+	 *		: returns 0.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frChr() function
+
+frChr() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frChr(tnExpression)
+	 * Description	: Returns the character associated with the specified numeric
+	 *		:  ANSI code.
+	 * Arguments	: <tnExpression>
+	 *		: Specifies a number between 0 and 255 whose equivalent ANSI 
+	 *		: character frChr() returns.
+	 * Returns	: <lcReturnValue>
+	 *		: Returns a single character corresponding to the numeric 
+	 *		: position of the character in the
+	 *		: character table of the current code page.
+	 * 		:
+	 * Remarks	: tnExpression must be between 0 and 255
+
+.. index:: 
+     pair: FoxRing Functions Reference; frEmpty() function
+
+frEmpty() function
+==================
+
+.. code-block:: none
+
+	 * Syntax	: llReturnValue = frEmpty(tuExpression)
+	 * Description	: Determines whether an expression evaluates to empty.
+	 *		:
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the expression that EMPTY() evaluates. 
+	 *		: You can specify an expression with Character, 
+	 *		: Numeric, or logical type.
+	 *		:
+	 * Returns	: <llReturnValue> Logical
+
+.. index:: 
+     pair: FoxRing Functions Reference; frFile() function
+
+frFile() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: llReturnValue = frFile(tcFileName, tnFlag)
+	 * Description	: Checks if the specified file exists on disk.
+	 *		:
+	 * Arguments   	: <tcFileName>
+	 *		: Specifies the name of the file to check. 
+	 *		: tcFileName must include 
+	 *		: the file extension. You can include a path with 
+	 *		: the file name to 
+	 *		: search for a file in a directory or on a drive 
+	 *		: other than the current directory or drive. 
+	 *		: 
+	 *		: <tnFlag> 
+	 *		: tnFlag was included for future compatibility.
+	 *		: In this version, It always returns true whenever 
+	 *		: the file exists on disk.
+	 * Returns	: <llReturnValue> Logical
+	 *		: True if file exists on disk.
+	 *		: False if file doesn't exist on disk.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frFileToStr() function
+
+frFileToStr() function
+======================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frFileToStr(tcFileName)
+	 * Description	: Returns the contents of a file as a character string.
+	 *		:
+	 * Arguments	: <tcFileName>
+	 * 		: Specifies the name of the file whose contents are 
+	 *		: returned as a character 
+	 *		: string. If the file is in a directory other than 
+	 *		: the current default directory, 
+	 *		: include a path with the file name.
+	 *		:
+	 * Returns	: <lcReturnValue> 
+	 *		: A character string with the content of the specified file.
+	 *		:
+
+.. index:: 
+     pair: FoxRing Functions Reference; frStr() function
+
+frStr() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frStr(tnValue, tnLen, tnDec)
+	 * Description	: Returns the character equivalent of a numeric expression.
+	 *		:
+	 * Arguments	: <tnValue>
+	 *		: Specifies the numeric expression to evaluate.
+	 *		: 
+	 *		: <tnLen>
+	 *		: Specifies the length of the character string returned. 
+	 *		: If tnLen is 0, tnLen defaults to 10 characters. 
+	 *		: If tnLen < 0 returns one string with same length as the number.
+	 *		: Note  
+	 *		: If the expression contains a decimal point, 
+	 * 		: the length includes one character for
+	 *		: the decimal point and one character 
+ 	 *		: for each digit in the character string.
+	 *		: 
+	 *		: <tnDec> 
+	 *		: Specifies the number of decimal places in the 
+	 *		: character string returned. 
+	 *		: To specify the number of decimal places using 
+	 *		: tnDec, you must include nLength. If nDecimalPlaces is omitted,
+	 *		: the number of decimal places defaults to zero (0). 
+	 *		: 
+	 * Returns	: Character data type. frStr() returns a character string 
+	 *		: equivalent to the specified numeric expression. 
+	 *		: Depending on certain conditions, frStr() can return the following: 
+	 *		: If you specify fewer decimal places than exist in tnValue, 
+	 *		: the return value is rounded up. To round results to the nearest 
+	 *		: decimal place instead of upward, include the ROUND( ) function. 
+	 *		: For more information, see ROUND( ) Function.
+	 *		: If nExpression is an integer, and nLength is less than 
+	 *		: the number of digits in nExpression, frStr( ) returns a string of 
+	 *		: asterisks, indicating numeric overflow.
+	 *		: If nExpression contains a decimal point, and nLength is equal 
+	 *		: to or less than the number of digits to the left of the decimal
+	 *		: point, frStr( ) returns a string of asterisks, 
+	 *		: indicating numeric overflow.
+	 *		: If nLength is greater than the length of the value evaluated 
+	 *		: by nExpression, frStr( ) returns a character string padded with
+	 * 		: leading spaces.
+	 *		: If nExpression has Numeric or Float type, and nLength 
+	 *		: is less than the number of digits in nExpression, and , frStr( ) 
+	 *		: returns a value using scientific notation. 
+
+.. index:: 
+     pair: FoxRing Functions Reference; frSetIfEmpty() function
+
+frSetIfEmpty() function
+=======================
+
+.. code-block:: none
+
+	 * Syntax	: tuReturnValue = frSetIfEmpty(tuValue, tuNewValue)
+	 * Description	: Set a Value into a variable if the variable 
+	 *		: value is empty, null or zero.
+	 * Arguments   	: <tuValue>
+	 *		: The value to evaluate.
+	 *		:
+	 *		: <tuNewValue>
+	 *		: The value to set if tuValue is empty.
+	 *		:
+	 * Returns	: tuNewValue if tuValue is empty, otherwise 
+	 *		: returns the original value.
+	 * Remarks	: This function doesn't exist in VFP.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frSpace() function
+
+frSpace() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frSpace(tnSpaces)
+	 * Description	: Returns a character string composed of a 
+	 *		: specified number of spaces.
+	 * Arguments   	: <tnSpaces>
+	 *		: Specifies the number of spaces that frSpace() returns.
+	 *		:
+	 * Returns	: <lcReturnValue> 
+	 *		: Character
+
+.. index:: 
+     pair: FoxRing Functions Reference; frInList() function
+
+frInList() function
+===================
+
+.. code-block:: none
+
+	 * Syntax	: llReturnValue = frInList(tuExpression, taList)
+	 * Description	: Determines whether an expression matches another 
+	 *		: expression in a set of expressions.
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the expression frInList() searches for in the List.
+	 *		:
+	 *		: <taList>
+	 *		: Specifies the List of expressions to search. 
+	 *		: You must include at least one element in the list.
+	 *		: The expressions in the list of expressions needn't to be 
+	 *		: of the same data type. 
+	 *		:
+	 * Returns	: <luReturnValue> Null or logical value.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frForcePath() function
+
+frForcePath() function
+======================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frForcePath(tcFileName, tcPath)
+	 * Description	: Returns a file name with a new path name 
+	 *		: substituted for the old one.
+	 * Arguments   	: <tcFileName>
+	 *		: Specifies the file name (with or without a path or extension), 
+	 *		: which will get a new path.
+	 *		: <tcPath>
+	 *		: Specifies the new path for tcFileName.
+	 *		:
+	 * Returns	: <lcReturnValue> 
+	 *		: Returns a file name with a new path name 
+	 *		: substituted for the old one.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frAllTrim() function
+
+frAllTrim() function
+====================
+
+.. code-block:: none
+
+	Syntax	: lcReturnValue = frAllTrim(tcExpression, tcCharacter)
+
+
+.. index:: 
+     pair: FoxRing Functions Reference; frLTrim() function
+
+frLTrim() function
+==================
+
+.. code-block:: none
+
+	Syntax	: lcRet = frLTrim(tcExpression, tcCharacter)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frJustDrive() function
+
+frJustDrive() function
+======================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frJustDrive(tcPath)
+	 * Description	: Returns the drive letter from a complete path.
+	 *		:
+	 * Arguments   	: <tcPath>
+	 *		: Specifies the complete path name for 
+	 *		: which you want only the drive.
+	 * Returns	: <lcReturnValue> 
+	 *		: Returns the drive letter from a complete path.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frJustExt() function
+
+frJustExt() function
+====================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frJustExt(tcPath)
+	 * Description	: Returns the characters of a file extension 
+	 *		: from a complete path.
+	 * Arguments   	: <tcPath>
+	 *		: Specifies the name, which may include the full path, 
+	 *		: of the file for which you want only the extension. 
+	 * Returns	: <lcReturnValue> 
+	 *		: Returns the drive characters of a file extension
+	 *		: from a complete path.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frJustStem() function
+
+frJustStem() function
+=====================
+
+.. code-block:: none
+
+	 * Syntax	: lcReturnValue = frJustStem(tcPath)
+	 * Description	: Returns the stem name (the file name before the extension)
+	 *		: from a complete path and file name.
+	 * Arguments   	: <tcPath>
+	 *		: Specifies the name (including path) of the file 
+	 *		: for which you want only the stem. 
+	 * Returns	: <lcReturnValue> 
+	 *		: Returns the stem name of a file from a complete path.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frRTrim() function
+
+frRTrim() function
+==================
+
+.. code-block:: none
+
+	 Syntax	: lcRet = frRTrim(tcExpression, tcCharacter)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frJustPath() function
+
+frJustPath() function
+=====================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frJustPath(tcExpression)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frForceExt() function
+
+frForceExt() function
+=====================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frForceExt(tcFileName, tcNewExtension)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frALines() function
+
+frALines() function
+===================
+
+.. code-block:: none
+
+	Syntax	: tnReturnValue = frALines(taList, tcExpression, tcSeparator)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frJustFName() function
+
+frJustFName() function
+================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frJustFName(tcExpression)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frPadL() function
+
+frPadL() function
+=================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frPadL(tcString, tnLen, tcChar)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frPadR() function
+
+frPadR() function
+=================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frPadR(tcString, tnLen, tcChar)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frProper() function
+
+frProper() function
+===================
+
+.. code-block:: none
+
+	 * Syntax	: tcReturnValue = frProper(tcExpression)
+	 * Description	: Returns from a character expression a string 
+	 *		: capitalized as appropriate for proper names.
+	 * Arguments	: <tcExpression>
+	 *		: Specifies the character expression from which 
+	 *		: frProper() returns a capitalized character string.
+	 * Returns	: <tcReturnValue> 
+
+.. index:: 
+     pair: FoxRing Functions Reference; frReplicate() function
+
+frReplicate() function
+======================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frReplicate(tcString, tnTimes)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frLen() function
+
+frLen() function
+================
+
+.. code-block:: none
+
+	Syntax	: tnReturnValue = frLen(tcString)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frStuff() function
+
+frStuff() function
+==================
+
+.. code-block:: none
+
+	 * Syntax	: tcReturnValue = frStuff(tcExpression, tnStartRep,
+						  tnCharRep, tcToReplace)
+	 * Description	: Returns a new character string replaced by a 
+	 *		: specified number of characters in a character 
+	 *		: expression with another character expression.
+	 *		:
+	 * Arguments   	: <tcExpression>
+	 *		: Specify the character expression in which the replacement occurs.
+	 *		: 
+	 *		: <tnStartRep>
+	 *		: Specify the position in <tcExpression> where the replacement begins.
+	 *		: 
+	 *		: <tnCharRep>
+	 *		: Specifies the number of characters to be replaced.
+	 *		: If <tnCharRep> is 0, the replacement string 
+	 *		: <tcToReplace> is inserted into <tcExpression>.
+	 *		: 
+	 *		: <tcToReplace>
+	 *		: Specifies the replacement character expression. 
+	 * 		: If <tcToReplace> is an empty string, the number of 
+	 *		: characters specified by <tnCharRep> are removed from <tcExpression>.
+	 *		:
+	 * Returns	: Character 
+
+.. index:: 
+     pair: FoxRing Functions Reference; frSubStr() function
+
+frSubStr() function
+===================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frStrTran() function
+
+frStrTran() function
+====================
+
+.. code-block:: none
+
+	Syntax	: tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frListToString() function
+
+frListToString() function
+=========================
+
+.. code-block:: none
+
+	 * Syntax	: lcRet = frListToString(taList)
+	 * Remarks	: This function doesn't exist in VFP.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frInt() function
+
+frInt() function
+================
+
+.. code-block:: none
+
+	Syntax		: lnInt = frInt(tnExpression)
+
+.. index:: 
+     pair: FoxRing Functions Reference; frStringToList() function
+
+frStringToList() function
+=========================
+
+.. code-block:: none
+
+	 * Syntax	: laList = frStringToList(tcExpression)
+	 * Remarks	: This function doesn't exist in VFP.
+
+.. index:: 
+     pair: FoxRing Functions Reference; frIIf() function
+
+frIIf() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: luReturnValue = frIIf(tlExpression, tuReturnIfTrue, tuReturnIfFalse)
+	 * Description	: Returns one of two values depending on the 
+	 *		: value of a logical expression.
+	 * Arguments   	: <tlExpression>
+	 *		: Specifies the logical expression that frIIf() evaluates.
+	 *		:
+	 *		: <tuReturnTrue>, <tuReturnFalse>
+	 *		: If tlExpression evaluates to True, tuReturnIfTrue is 
+	 *		: returned and tuReturnIfFalse is not evaluated. 
+	 *		: If tlExpression evaluates to False or Null, tuReturnIfFalse is 
+	 *		: returned and tuReturnIfTrue is not evaluated.
+	 *		: 
+	 * Returns	: <luReturnValue> Defined by <tuReturnIfTrue> or <tuReturnIfFalse>
+
+.. index:: 
+     pair: FoxRing Functions Reference; frVal() function
+
+frVal() function
+================
+
+.. code-block:: none
+
+	 * Syntax	: luReturnValue = frVal(tcExpression)
+	 * Description	: Returns a numeric value from a character expression
+	 *		: composed of numbers
+	 * Arguments   	: <tcExpression>
+	 *		: Specifies a character expression composed of up to 16 numbers.
+	 *		:
+	 * Returns	: <tnValue>
+	 *		: Return a numeric value. 
+
+.. index:: 
+     pair: FoxRing Functions Reference; frBetween() function
+
+frBetween() function
+====================
+
+.. code-block:: none
+
+	 * Syntax	: luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
+	 * Description	: Determines whether the value of an expression 
+	 *		: is inclusively between the 
+	 *		: values of two expressions of the same type.
+	 *		:
+	 * Arguments   	: <tuTestValue>
+	 *		: Specifies an expression to evaluate.
+	 *		:
+	 *		: <tuLowValue>
+	 *		: Specifies the lower value in the range.
+	 *		:
+	 *		: <tuHighValue>
+	 *		: Specifies the higher value in the range.
+	 *		:
+	 * Returns	: <luReturnValue>
+	 *		: Returns a logical oder null value. 
+
+.. index:: 
+     pair: FoxRing Functions Reference; frSetSeparatorTo() function
+
+frSetSeparatorTo() function
+===========================
+
+.. code-block:: none
+
+	 * Syntax	: frSetSeparatorTo(tuExpression)
+	 * Description	: Specifies the character for the numeric place separator.
+	 *		:
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the character for the numeric place separator. 
+	 *		:
+	 *		: Use frSetSeparatorTo() to change the numeric place 
+	 *		: separator from de default, for example space " " or a comma ",".
+	 *		: Issue frSetSeparatorTo(Null) to reset the value to its default.
+	 *		:
+	 * Returns	: None
+
+.. index:: 
+     pair: FoxRing Functions Reference; frTransform() function
+
+frTransform() function
+======================
+
+.. code-block:: none
+
+	 * Syntax	: tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+	 * Description	: Returns a character string from an expression in a 
+	 *		: format determined by a format code.
+	 * Arguments   	: <tuExpression>
+	 *		: Specifies the expression to format.
+	 *		:
+	 *		: <tcFormatCodes>		
+	 *		: Specifies one or more format codes that determine how to
+	 *		: format the expression. 
+	 *		: 
+	 * Returns	: <tcReturnValue>
+
+The following table lists the available format codes for tcFormatCodes.
+
+.. code-block:: none
+
+	 --------------------------------------------------------------------------
+	  Format Code	Description
+	 --------------------------------------------------------------------------
+	  @!		Converts an entire character string to uppercase.
+	  @T 		Trims leading and trailing spaces from character values.
+	  @B		Left-justifies Numeric data within the display region.
+	  @L		Pads numeric and string data with leading zeros.
+	  @C		Appends CR to positive numeric values to indicate a credit.
+	  @X		Appends DB to negative numeric values to indicate a debit.
+	 --------------------------------------------------------------------------
+
+.. index:: 
+     pair: FoxRing Functions Reference; frVarType() function
+
+frVarType() function
+====================
+
+.. code-block:: none
+
+	 * Syntax	: lcRet = frVarType(tuExpression)
+	 * Description	: Returns the data type of an expression.
+	 *		:
+	 * Arguments   	: <tuExpression>
+	 *		: Expecifies the expression for which the data type is returned.
+	 *		:  frVartype() returns a
+	 *		: single character indicating the data type of the expression. 
+	 *		: The following table lists the characteres that frVarType() 
+	 *		: returns for each data type.
+	 *		:
+	 *		: -------------------	-------------------------------------
+	 *		: Return Value		Data Type
+	 *		: -------------------	-------------------------------------
+	 *		: C			Character
+	 *		: N			Numeric
+	 *		: A			List 
+	 *		: O			Object 
+	 *		: U			Undefined type
+	 *		: -------------------	-------------------------------------
+	 *		:
+	 * Returns	: Character 
+
+.. index:: 
+     pair: FoxRing Functions Reference; Example
+
+Example
+=======
+
+.. code-block:: ring
+
+	Load "foxring.ring"
+
+
+	mf = new frFunctions
+
+	/*----------------------------------------------------------*/
+	 * frProper() samples
+	/*----------------------------------------------------------*/
+
+	lcStr1 = "ring is a good language"
+	?mf.frProper(lcStr1)
+	?mf.frProper(Upper(lcStr1))
+
+
+	/*----------------------------------------------------------*/
+	 * frStuff() samples
+	/*----------------------------------------------------------*/
+
+	lcStr1 = "abcdefghijklm"
+	lcStr2 = "12345" 
+
+	// insert
+	?mf.frStuff(lcStr1, 4, 0, lcStr2)     
+	// replace
+	?mf.frStuff(lcStr1, 4, 3, lcStr2)     
+	// delete
+	?mf.frStuff(lcStr1, 4, 6, "")     
+	// replace and insert
+	?mf.frStuff(lcStr1, 4, 1, lcStr2)     
+	// replace and delete
+	?mf.frStuff(lcStr1, 4, 4, lcStr2)     
+	// replace, delete rest
+	?mf.frStuff(lcStr1, 4, Len(lcStr1), lcStr2)   
+
+	/*----------------------------------------------------------*/
+
+
+
+	?mf.frAbs(-45)      
+	?mf.frAbs(10-30)    
+	?mf.frAbs(30-10)    
+
+	lcNumber1 = 40
+	lcNumber2 = 2
+
+	?mf.frAbs(lcNumber2-lcNumber1)  
+
+
+
+
+	lcCompletFileName = "C:\ring\docs\source\contribute.txt"
+
+	?mf.frFile(lcCompletFileName, Null)
+	if mf.frFile(lcCompletFileName, Null) {
+	  ?mf.frFileToStr(lcCompletFileName)
+	else
+	  ?"File does not exist"
+	}
+
+	lcNewPath = "C:\ring_2\docs\source\"
+	?mf.frJustExt(lcCompletFileName)
+	?mf.frJustDrive(lcCompletFileName)
+	?mf.frJustStem(lcCompletFileName)
+	?mf.frForcePath(lcCompletFileName, lcNewPath)
+	?mf.frTransform("    Ring is a good language    ", 
+			"@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") 
+	?mf.frAllTrim("    Ring is a good language    ", Null) 
+	?mf._version
+	lnValue = 3125.54
+	?mf.frTransform(lnValue, "@B")+ "Euros"
+	?mf.frTransform(lnValue, "@C 9999,999,999,999.999")
+	mf.frSetSeparatorTo(" ")
+	?mf.frTransform(lnValue, "9999,999,999,999.999")
+	?mf.frInt(lnValue)
+	?mf.frForceExt("teste", "dbf")
+	// Format "@L" Added into frTransform() function
+	?mf.frTransform("123", "@L 999999")
+	?mf.frTransform(123, "@L 999999")
+

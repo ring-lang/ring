@@ -286,7 +286,7 @@ VM *globalVM ;
 
 int al_usr_main(int argc, char **argv)
 {
-	ring_vm_runcodefromthread(globalVM,"al_game_start()");	
+	ring_vm_runcode(globalVM,"al_game_start()");	
 	exit(0);
 	return 0;
 }
@@ -4775,12 +4775,7 @@ RING_FUNC(ring_al_get_mouse_num_axes)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_mouse_num_axes();
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_mouse_num_axes());
 }
 
 
@@ -4790,12 +4785,7 @@ RING_FUNC(ring_al_get_mouse_num_buttons)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_mouse_num_buttons();
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_mouse_num_buttons());
 }
 
 
@@ -7855,9 +7845,11 @@ RING_FUNC(ring_al_get_audio_depth_size)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETNUMBER(al_get_audio_depth_size(* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_DEPTH")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_DEPTH"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_get_audio_depth_size( (ALLEGRO_AUDIO_DEPTH )  (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -7867,9 +7859,11 @@ RING_FUNC(ring_al_get_channel_count)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETNUMBER(al_get_channel_count(* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(1,"ALLEGRO_CHANNEL_CONF")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_CHANNEL_CONF"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_get_channel_count( (ALLEGRO_CHANNEL_CONF )  (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -7879,13 +7873,19 @@ RING_FUNC(ring_al_create_voice)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_create_voice(* (unsigned int  *) RING_API_GETCPOINTER(1,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_VOICE");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_create_voice( (unsigned int ) RING_API_GETNUMBER(1), (ALLEGRO_AUDIO_DEPTH )  (int) RING_API_GETNUMBER(2), (ALLEGRO_CHANNEL_CONF )  (int) RING_API_GETNUMBER(3)),"ALLEGRO_VOICE");
 }
 
 
@@ -7981,12 +7981,7 @@ RING_FUNC(ring_al_get_voice_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_voice_frequency((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_voice_frequency((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE")));
 }
 
 
@@ -8000,12 +7995,7 @@ RING_FUNC(ring_al_get_voice_channels)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
-		*pValue = al_get_voice_channels((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
-	}
+	RING_API_RETNUMBER(al_get_voice_channels((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE")));
 }
 
 
@@ -8019,12 +8009,7 @@ RING_FUNC(ring_al_get_voice_depth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
-		*pValue = al_get_voice_depth((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
-	}
+	RING_API_RETNUMBER(al_get_voice_depth((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE")));
 }
 
 
@@ -8070,12 +8055,7 @@ RING_FUNC(ring_al_get_voice_position)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE")));
 }
 
 
@@ -8089,9 +8069,11 @@ RING_FUNC(ring_al_set_voice_position)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_set_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_voice_position((ALLEGRO_VOICE *) RING_API_GETCPOINTER(1,"ALLEGRO_VOICE"), (unsigned int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -8105,19 +8087,27 @@ RING_FUNC(ring_al_create_sample)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(6) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_create_sample((void *) RING_API_GETCPOINTER(1,"void"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"), (bool ) RING_API_GETNUMBER(6)),"ALLEGRO_SAMPLE");
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
+	RING_API_RETCPOINTER(al_create_sample((void *) RING_API_GETCPOINTER(1,"void"), (unsigned int ) RING_API_GETNUMBER(2), (unsigned int ) RING_API_GETNUMBER(3), (ALLEGRO_AUDIO_DEPTH )  (int) RING_API_GETNUMBER(4), (ALLEGRO_CHANNEL_CONF )  (int) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6)),"ALLEGRO_SAMPLE");
 }
 
 
@@ -8203,12 +8193,7 @@ RING_FUNC(ring_al_get_sample_channels)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
-		*pValue = al_get_sample_channels((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
-	}
+	RING_API_RETNUMBER(al_get_sample_channels((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE")));
 }
 
 
@@ -8222,12 +8207,7 @@ RING_FUNC(ring_al_get_sample_depth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
-		*pValue = al_get_sample_depth((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
-	}
+	RING_API_RETNUMBER(al_get_sample_depth((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE")));
 }
 
 
@@ -8241,12 +8221,7 @@ RING_FUNC(ring_al_get_sample_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_sample_frequency((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_sample_frequency((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE")));
 }
 
 
@@ -8260,12 +8235,7 @@ RING_FUNC(ring_al_get_sample_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_sample_length((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_sample_length((ALLEGRO_SAMPLE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE")));
 }
 
 
@@ -8349,12 +8319,7 @@ RING_FUNC(ring_al_get_sample_instance_channels)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
-		*pValue = al_get_sample_instance_channels((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
-	}
+	RING_API_RETNUMBER(al_get_sample_instance_channels((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE")));
 }
 
 
@@ -8368,12 +8333,7 @@ RING_FUNC(ring_al_get_sample_instance_depth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
-		*pValue = al_get_sample_instance_depth((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
-	}
+	RING_API_RETNUMBER(al_get_sample_instance_depth((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE")));
 }
 
 
@@ -8387,12 +8347,7 @@ RING_FUNC(ring_al_get_sample_instance_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_sample_instance_frequency((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_sample_instance_frequency((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE")));
 }
 
 
@@ -8406,12 +8361,7 @@ RING_FUNC(ring_al_get_sample_instance_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE")));
 }
 
 
@@ -8425,9 +8375,11 @@ RING_FUNC(ring_al_set_sample_instance_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_set_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_sample_instance_length((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"), (unsigned int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -8441,12 +8393,7 @@ RING_FUNC(ring_al_get_sample_instance_position)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE")));
 }
 
 
@@ -8460,9 +8407,11 @@ RING_FUNC(ring_al_set_sample_instance_position)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_set_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_sample_instance_position((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"), (unsigned int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -8709,13 +8658,19 @@ RING_FUNC(ring_al_create_mixer)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_create_mixer(* (unsigned int  *) RING_API_GETCPOINTER(1,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_MIXER");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_AUDIO_DEPTH"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_CHANNEL_CONF"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_create_mixer( (unsigned int ) RING_API_GETNUMBER(1), (ALLEGRO_AUDIO_DEPTH )  (int) RING_API_GETNUMBER(2), (ALLEGRO_CHANNEL_CONF )  (int) RING_API_GETNUMBER(3)),"ALLEGRO_MIXER");
 }
 
 
@@ -8831,12 +8786,7 @@ RING_FUNC(ring_al_get_mixer_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER")));
 }
 
 
@@ -8850,9 +8800,11 @@ RING_FUNC(ring_al_set_mixer_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_set_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_mixer_frequency((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"), (unsigned int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -8866,12 +8818,7 @@ RING_FUNC(ring_al_get_mixer_channels)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
-		*pValue = al_get_mixer_channels((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
-	}
+	RING_API_RETNUMBER(al_get_mixer_channels((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER")));
 }
 
 
@@ -8885,12 +8832,7 @@ RING_FUNC(ring_al_get_mixer_depth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
-		*pValue = al_get_mixer_depth((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
-	}
+	RING_API_RETNUMBER(al_get_mixer_depth((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER")));
 }
 
 
@@ -9031,15 +8973,23 @@ RING_FUNC(ring_al_create_audio_stream)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_create_audio_stream( (size_t ) RING_API_GETNUMBER(1),* (unsigned int  *) RING_API_GETCPOINTER(2,"unsigned int"),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int"),* (ALLEGRO_AUDIO_DEPTH  *) RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"),* (ALLEGRO_CHANNEL_CONF  *) RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF")),"ALLEGRO_AUDIO_STREAM");
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_AUDIO_DEPTH"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_CHANNEL_CONF"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_create_audio_stream( (size_t ) RING_API_GETNUMBER(1), (unsigned int ) RING_API_GETNUMBER(2), (unsigned int ) RING_API_GETNUMBER(3), (ALLEGRO_AUDIO_DEPTH )  (int) RING_API_GETNUMBER(4), (ALLEGRO_CHANNEL_CONF )  (int) RING_API_GETNUMBER(5)),"ALLEGRO_AUDIO_STREAM");
 }
 
 
@@ -9109,12 +9059,7 @@ RING_FUNC(ring_al_get_audio_stream_frequency)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_audio_stream_frequency((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_audio_stream_frequency((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9128,12 +9073,7 @@ RING_FUNC(ring_al_get_audio_stream_channels)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_CHANNEL_CONF *pValue ; 
-		pValue = (ALLEGRO_CHANNEL_CONF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_CHANNEL_CONF)) ;
-		*pValue = al_get_audio_stream_channels((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_CHANNEL_CONF");
-	}
+	RING_API_RETNUMBER(al_get_audio_stream_channels((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9147,12 +9087,7 @@ RING_FUNC(ring_al_get_audio_stream_depth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		ALLEGRO_AUDIO_DEPTH *pValue ; 
-		pValue = (ALLEGRO_AUDIO_DEPTH *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_AUDIO_DEPTH)) ;
-		*pValue = al_get_audio_stream_depth((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_AUDIO_DEPTH");
-	}
+	RING_API_RETNUMBER(al_get_audio_stream_depth((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9166,12 +9101,7 @@ RING_FUNC(ring_al_get_audio_stream_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_audio_stream_length((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_audio_stream_length((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9408,12 +9338,7 @@ RING_FUNC(ring_al_get_audio_stream_fragments)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9427,12 +9352,7 @@ RING_FUNC(ring_al_get_available_audio_stream_fragments)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
-		*pValue = al_get_available_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
-	}
+	RING_API_RETNUMBER(al_get_available_audio_stream_fragments((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM")));
 }
 
 
@@ -9550,9 +9470,11 @@ RING_FUNC(ring_al_load_audio_stream)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_load_audio_stream(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2),* (unsigned int  *) RING_API_GETCPOINTER(3,"unsigned int")),"ALLEGRO_AUDIO_STREAM");
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_load_audio_stream(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2), (unsigned int ) RING_API_GETNUMBER(3)),"ALLEGRO_AUDIO_STREAM");
 }
 
 
@@ -9574,9 +9496,11 @@ RING_FUNC(ring_al_load_audio_stream_f)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_load_audio_stream_f((ALLEGRO_FILE *) RING_API_GETCPOINTER(1,"ALLEGRO_FILE"),RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3),* (unsigned int  *) RING_API_GETCPOINTER(4,"unsigned int")),"ALLEGRO_AUDIO_STREAM");
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_load_audio_stream_f((ALLEGRO_FILE *) RING_API_GETCPOINTER(1,"ALLEGRO_FILE"),RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3), (unsigned int ) RING_API_GETNUMBER(4)),"ALLEGRO_AUDIO_STREAM");
 }
 
 

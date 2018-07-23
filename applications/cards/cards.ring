@@ -1,79 +1,159 @@
-# Application  : Cards Game
-# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+/*
+** Application  : Cards Game
+** Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+*/
 
-Load "guilib.ring"
+load "guilib.ring"
 
-app1 = new qApp 
+# Global variables and constants used by the main menu 
 
-if isandroid()
-    nScale = 3
-else
-    nScale = 1
-ok
-mypic = new QPixmap(AppFile("cards.jpg"))
-mypic2 = mypic.copy(0,(124*4)+1,79,124)
-Player1EatPic = mypic.copy(80,(124*4)+1,79,124)
-Player2EatPic= mypic.copy(160,(124*4)+1,79,124)
+	oGame 			= NULL
+	oApp  	  		= NULL   
+	winMenu 		= NULL
 
-aMyCards = []
-aMyValues = []
-for x1 = 0 to 3
-	for y1 = 0 to 12
-		temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
-		aMyCards + temppic
-		aMyValues + (y1+1)
-	next
-next
+	C_GAMEMODE_ONEPLAYER 	= 1
+	C_GAMEMODE_TWOPLAYERS 	= 2
+	nGameMode 		= C_GAMEMODE_TWOPLAYERS
 
-nPlayer1Score = 0   nPlayer2Score=0
+   	C_LABEL_STYLE = "font-size: 48px ; color : White ; background-color: Purple ;"
 
-do
-        Page1 = new Game
-        Page1.Start()
-again Page1.lnewgame
+        C_BUTTON_STYLE ="QPushButton{font-size: 28px ;background-color:navy;border:2px solid #9977fa;
+			 border-radius:7px;color:lightblue;} 
+			 QPushButton:hover{font-size: 28px ;color:navy;background-color:lightblue;} 
+			 QPushButton:pressed{font-size: 28px ;color:#aaa;background-color:#33116a; }"
 
-mypic.delete()
-mypic2.delete()
-Player1EatPic.delete()
-Player2EatPic.delete()
+func main
+	oApp = new qApp {
+		winMenu = new qWidget() {
+			setWindowTitle("The Cards Game")
+			setstylesheet("background-color: white;")	
+			oCardsLabel = new qLabel(winMenu) {
+				setText("The Cards Game")
+				setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+				setFixedheight(300)
+				setstylesheet(C_LABEL_STYLE)
+			}
+			oBtnOnePlayer = new qPushbutton(winMenu) {
+				setText("One Player")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setclickevent("OnePlayer()")
+			}
+			oBtnTwoPlayers = new qPushbutton(winMenu) {
+				setText("Two Players")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setclickevent("TwoPlayers()")
+			}
+			oBtnExit = new qPushbutton(winMenu) {
+				setText("Exit")
+				setFixedheight(300)
+				setstylesheet(C_BUTTON_STYLE)
+				setClickevent("CloseGame()")
+			}
+			oMainLayout = new qVBoxlayout() {
+				AddWidget(oCardsLabel)
+				AddWidget(oBtnOnePlayer)
+				AddWidget(oBtnTwoPlayers)
+				AddWidget(oBtnExit)
+			}
+			setLayout(oMainLayout)
+			showfullscreen()
+		}
+		exec()
+	}
 
-for t in aMyCards
-          t.delete()
-next
+func OnePlayer
+	nGameMode = C_GAMEMODE_ONEPLAYER 
+	LoadCardsGame()
 
-func gui_setbtnpixmap pBtn,pPixmap
-        pBtn {
-                setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
-                setIconSize(new QSize(width(),height()))
-        }
+func TwoPlayers
+	nGameMode = C_GAMEMODE_TWOPLAYERS
+	LoadCardsGame()
 
-Class Game
+func CloseGame
+	winMenu.close()
+	oApp.quit()
 
-        if isandroid()
-            nCardsCount = 5
-        else
-            nCardsCount = 10
-        ok
-        win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
-        aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
-        aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
-        Player1EatPic   Player2EatPic
-        lnewgame = false
-        nDelayEat = 0.5
-        nDelayNewGame = 1
+func LoadCardsGame 
+	# Load Images	
+		oPic 		= new QPixmap("cards.jpg")
+		oPic2 		= oPic.copy(0,(124*4)+1,79,124)
+		Player1EatPic 	= oPic.copy(80,(124*4)+1,79,124)
+		Player2EatPic	= oPic.copy(160,(124*4)+1,79,124)		
+		aGameCards 	= []
+		aGameValues 	= []
+		for x1 = 0 to 3
+			for y1 = 0 to 12
+				temppic = oPic.copy((79*y1)+1,(124*x1)+1,79,124)
+				aGameCards  + temppic
+				aGameValues + (y1+1)
+			next
+		next
+	# Start the Game		
+		nPlayer1Score = 0   nPlayer2Score=0
+		do
+			oGame = new Game {
+				loadGame(oPic,oPic2,Player1EatPic,Player2EatPic,aGameCards,aGameValues,nPlayer1Score,nPlayer2Score)
+				Start()			
+			}
+			nPlayer1Score = oGame.nPlayer1Score 
+			nPlayer2Score = oGame.nPlayer2Score
+		again oGame.lnewgame
+
+class Game
+
+	# Setting properties based on platform
+	        if ismobile()
+			nCardsCount = 5
+			nScale = 3
+	        else
+			nCardsCount = 10
+			nScale = 1
+	        ok
+	
+	# From the Game State
+		oPic 		oPic2 
+		Player1EatPic 	Player2EatPic 
+		aGameCards 	aGameValues
+		nPlayer1Score 	nPlayer2Score
+	
+	# The Game Window	
+	        win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
+	        aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
+	        aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
+	
+	# Playing with the computer 
+		oOnePlayerTimer  
+		aComputerActions = []
+	
+	# More attributes
+	        lnewgame 	= false
+	        nDelayEat 	= 0.5
+	        nDelayNewGame 	= 1
+		nDelayComputer  = 0.2
+	
+	func loadGame poPic,poPic2,pPlayer1Eatpic,pPlayer2Eatpic,paGameCards,paGameValues,pnPlayer1Score,pnPlayer2Score
+		oPic		= poPic 
+		oPic2		= poPic2 
+		Player1EatPic	= pPlayer1EatPic 
+		Player2EatPic	= pPlayer2EatPic
+		aGameCards	= paGameCards 
+		aGameValues	= paGameValues
+		nPlayer1Score	= pnPlayer1Score 
+		nPlayer2Score	= pnPlayer2Score
 
         func start
-
-                win1 = new qWidget() {
+                win1 = new qDialog(null) {
+			setAttribute(Qt_WA_DeleteOnClose,True)
                         setwindowtitle("Five")
-                        setstylesheet("background-color: White")
-                        showfullscreen()
+                        setstylesheet("background-color: White")  
                 }
 
                 layout1 = new qvboxlayout()
 
                 label1 = new qlabel(win1) {
-                        settext("Player (1) - Score : " + nPlayer1Score)
+                        settext("Player (1) - Score : " + this.nPlayer1Score)
                         setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                         setstylesheet("color: White; background-color: Purple;
                                          font-size:20pt")
@@ -90,14 +170,14 @@ Class Game
                                          border-color: black;
                                          padding: 6px;
                                         ")
-                        setclickevent("Page1.win1.close()")
-                        if isandroid()
+                        setclickevent("oGame.win1.close()")
+                        if ismobile()
                             setfixedheight(100)
                         ok
                 }
 
-                aCards = aMyCards
-                aValues = aMyValues
+                aCards = aGameCards
+                aValues = aGameValues
 
                 layout2 = new qhboxlayout()
 
@@ -107,24 +187,17 @@ Class Game
                         aBtns + new qpushbutton(win1)
                         aBtns[x].setfixedwidth(79*nScale)
                         aBtns[x].setfixedheight(124*nScale)
-                        gui_setbtnpixmap(aBtns[x],mypic2)
+                        setButtonImage(aBtns[x],oPic2)
                         layout2.addwidget(aBtns[x])
-                        aBtns[x].setclickevent("Page1.Player1click("+x+")")
-                        if isandroid()
-                            aBtns[x].setStyleSheet("
-                            border-style: outset;
-                            border-width: 2px;
-                            border-radius: 4px;
-                            border-color: black;
-                            padding: 6px;")
-                        ok
+                        aBtns[x].setclickevent("oGame.Player1click("+x+")")
+			setButtonStyle(aBtns[x])
                 next
 
                 layout1.addwidget(label1)
                 layout1.addlayout(layout2)
 
                 label2 = new qlabel(win1) {
-                        settext("Player (2) - Score : " + nPlayer2Score)
+                        settext("Player (2) - Score : " + this.nPlayer2Score)
                         setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                         setstylesheet("color: white; background-color: red;
                                          font-size:20pt")
@@ -138,17 +211,10 @@ Class Game
                         aBtns2 + new qpushbutton(win1)
                         aBtns2[x].setfixedwidth(79*nScale)
                         aBtns2[x].setfixedheight(124*nScale)
-                        gui_setbtnpixmap(aBtns2[x],mypic2)
+                        setButtonImage(aBtns2[x],oPic2)
                         layout3.addwidget(aBtns2[x])
-                        aBtns2[x].setclickevent("Page1.Player2click("+x+")")
-                        if isandroid()
-                            aBtns2[x].setStyleSheet("
-                            border-style: outset;
-                            border-width: 2px;
-                            border-radius: 4px;
-                            border-color: black;
-                            padding: 6px;")
-                        ok
+                        aBtns2[x].setclickevent("oGame.Player2click("+x+")")
+			setButtonStyle(aBtns2[x])
                 next
 
                 layout1.addwidget(label2)
@@ -157,12 +223,37 @@ Class Game
 
                 win1.setlayout(layout1)
 
-                app1.exec()
+		if nGameMode = C_GAMEMODE_ONEPLAYER
+			oOnePlayerTimer = new qTimer(win1) {
+				setinterval(200)
+				settimeoutevent("oGame.ComputerAction()")
+				start()
+			}
+		ok
 
-        Func Player1Click x
+		win1.showfullscreen()
+		win1.exec()
+
+	func setButtonImage oBtn,oPixmap
+	        oBtn {
+	                setIcon(new qicon(oPixmap.scaled(width(),height(),0,0)))
+	                setIconSize(new QSize(width(),height()))
+	        }
+	
+	func setButtonStyle oBtn
+		if ismobile()
+			oBtn.setStyleSheet("
+			border-style: outset;
+			border-width: 2px;
+			border-radius: 4px;
+			border-color: black;
+			padding: 6px;")
+		ok
+
+        func Player1Click x
                 if nRole = 1 and aStatus[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
-                        gui_setbtnpixmap(aBtns[x],aCards[nPos])
+                        setButtonImage(aBtns[x],aCards[nPos])
                         del(aCards,nPos)
                         nRole = 2
                         aStatus[x] = 1
@@ -172,10 +263,10 @@ Class Game
                         checknewgame()
                 ok
 
-        Func Player2Click x
+        func Player2Click x
                 if nRole = 2 and aStatus2[x] = 0
                         nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
-                        gui_setbtnpixmap(aBtns2[x],aCards[nPos])
+                        setButtonImage(aBtns2[x],aCards[nPos])
                         del(aCards,nPos)
                         nRole = 1
                         aStatus2[x] = 1
@@ -183,46 +274,46 @@ Class Game
                         del(aValues,nPos)
                         Player2Eat(x,aStatusValues2[x])
                         checknewgame()
+			if nGameMode = C_GAMEMODE_ONEPLAYER
+				delay(nDelayComputer)
+				ComputerAction()
+			ok
                 ok
-
-        Func Player1Eat nPos,nValue
-
-                 app1.processEvents()
-
+ 
+        func Player1Eat nPos,nValue
+                 oApp.processEvents()
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to nCardsCount
                          if aStatus2[x] = 1 and (aStatusValues2[x] = nValue or nValue=5)
                                 aStatus2[x] = 2
-                                gui_setbtnpixmap(aBtns2[x],Player1EatPic)
+                                setButtonImage(aBtns2[x],Player1EatPic)
                                 lEat = True
                                 nPlayer1Score++
                          ok
                          if (x != nPos) and (aStatus[x] = 1) and
                                 (aStatusValues[x] = nValue or nValue=5)
                                 aStatus[x] = 2
-                                gui_setbtnpixmap(aBtns[x],Player1EatPic)
+                                setButtonImage(aBtns[x],Player1EatPic)
                                 lEat = True
                                 nPlayer1Score++
                          ok
                  next
                  if lEat
-                                nPlayer1Score++
-                                gui_setbtnpixmap(aBtns[nPos],Player1EatPic)
-                                aStatus[nPos] = 2
-                                label1.settext("Player (1) - Score : " + nPlayer1Score)
+			nPlayer1Score++
+			setButtonImage(aBtns[nPos],Player1EatPic)
+			aStatus[nPos] = 2
+			label1.settext("Player (1) - Score : " + nPlayer1Score)
                  ok
 
-        Func Player2Eat nPos,nValue
-
-                 app1.processEvents()
-
+        func Player2Eat nPos,nValue
+                 oApp.processEvents()
                  delay(nDelayEat)
                  lEat = false
                  for x = 1 to  nCardsCount
                          if aStatus[x] = 1 and (aStatusValues[x] = nValue or nValue = 5)
                                 aStatus[x] = 2
-                                gui_setbtnpixmap(aBtns[x],Player2EatPic)
+                                setButtonImage(aBtns[x],Player2EatPic)
                                 lEat = True
                                 nPlayer2Score++
                          ok
@@ -230,36 +321,36 @@ Class Game
                          if (x != nPos) and (aStatus2[x] = 1) and
                                 (aStatusValues2[x] = nValue or nValue=5 )
                                 aStatus2[x] = 2
-                                gui_setbtnpixmap(aBtns2[x],Player2EatPic)
+                                setButtonImage(aBtns2[x],Player2EatPic)
                                 lEat = True
                                 nPlayer2Score++
                          ok
                  next
                  if lEat
-                                nPlayer2Score++
-                                gui_setbtnpixmap(aBtns2[nPos],Player2EatPic)
-                                aStatus2[nPos] = 2
-                                label2.settext("Player (2) - Score : " + nPlayer2Score)
+			nPlayer2Score++
+			setButtonImage(aBtns2[nPos],Player2EatPic)
+			aStatus2[nPos] = 2
+			label2.settext("Player (2) - Score : " + nPlayer2Score)
                  ok
 
-        Func checknewgame
+        func checknewgame
                 if isnewgame()
-                                  lnewgame = true
-
-                                  if nPlayer1Score > nPlayer2Score
-                                         label1.settext("Player (1) Wins!!!")
-                                  ok
-                                  if nPlayer2Score > nPlayer1Score
-                                         label2.settext("Player (2) Wins!!!")
-                                  ok
-
-                                  app1.processEvents()
-                                  delay(nDelayNewGame)
-
-                                  win1.delete()
+			lnewgame = true
+			if nPlayer1Score > nPlayer2Score
+				label1.settext("Player (1) Wins!!!")
+			ok
+			if nPlayer2Score > nPlayer1Score
+				label2.settext("Player (2) Wins!!!")
+			ok
+			if nGameMode = C_GAMEMODE_ONEPLAYER
+				oOnePlayerTimer.stop()
+			ok
+			oApp.processEvents()
+			delay(nDelayNewGame)
+			win1.close()
                 ok
 
-        Func isnewgame
+        func isnewgame
                 for t in aStatus
                         if t = 0
                                 return false
@@ -272,7 +363,29 @@ Class Game
                 next
                 return true
 
-        Func delay x
-			nTime = x * 1000
-			oTest = new qTest
-			oTest.qsleep(nTime)
+        func delay x
+		nTime = x * 1000
+		oTest = new qTest
+		oTest.qsleep(nTime)
+
+	func ComputerAction
+		oOnePlayerTimer.stop()
+		aOptions = 1:nCardsCount
+		if len(aComputerActions) > 0
+			for nNum in aComputerActions		
+				nPos = find(aOptions,nNum)
+				if nPos
+					del(aOptions,nPos)
+				ok
+			next
+		ok
+		if len(aComputerActions) < nCardsCount
+			# Repeat until you find new (unopened) card 
+				nCardNumber = Random(len(aOptions))
+				if nCardNumber = 0
+					nCardNumber = 1
+				ok
+				nCardNumber = aOptions[nCardNumber]
+			aComputerActions + nCardNumber
+			Player1Click(nCardNumber)
+		ok 

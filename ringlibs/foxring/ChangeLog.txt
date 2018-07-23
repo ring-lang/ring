@@ -1,5 +1,43 @@
 FoxRing ChangeLog
 
+1.0.142 2018.07.11 Jar
+----------------------------------------------------------
+	Added - frSetDate() function	
+	Added - frSetCentury() function
+	Added - frDate() function
+	
+
+1.0.141 2018.05.04 Jar
+----------------------------------------------------------
+	Added - frProper() function	
+
+
+1.0.140 2018.04.05 Jar
+----------------------------------------------------------
+	Fixed - frStuff() function
+
+
+
+1.0.140 2018.04.04 Jar
+----------------------------------------------------------
+	Added - frStuff() function
+	Fixed - Comments on frAt() abd frAtC() functions.
+	Updated - Comments on frVarType() function.
+
+
+1.0.139 2018.03.01 Jar
+----------------------------------------------------------
+	Fixed - frAsc() function 
+		Returns 0 when <tcExpression> is an empty string.
+
+
+1.0.138 2018.02.18 Jar
+----------------------------------------------------------
+	Added - frAbs() function
+	Added - frFile() function
+	Added - frFileToStr() function
+
+
 1.0.137 2018.02.08 Jar
 ----------------------------------------------------------
 	Added - frForcePath() function

@@ -219,35 +219,36 @@ class FormDesigner_QAllEvents from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Control Name",False)
-		oDesigner.oView.AddProperty("KeyPressEvent",False)
-		oDesigner.oView.AddProperty("MouseButtonPressEvent",False)
-		oDesigner.oView.AddProperty("MouseButtonReleaseEvent",False)
-		oDesigner.oView.AddProperty("MouseButtonDblClickEvent",False)
-		oDesigner.oView.AddProperty("MouseMoveEvent",False)
-		oDesigner.oView.AddProperty("CloseEvent",False)
-		oDesigner.oView.AddProperty("ContextMenuEvent",False)
-		oDesigner.oView.AddProperty("DragEnterEvent",False)
-		oDesigner.oView.AddProperty("DragLeaveEvent",False)
-		oDesigner.oView.AddProperty("DragMoveEvent",False)
-		oDesigner.oView.AddProperty("DropEvent",False)
-		oDesigner.oView.AddProperty("EnterEvent",False)
-		oDesigner.oView.AddProperty("FocusInEvent",False)
-		oDesigner.oView.AddProperty("FocusOutEvent",False)
-		oDesigner.oView.AddProperty("KeyReleaseEvent",False)
-		oDesigner.oView.AddProperty("LeaveEvent",False)
-		oDesigner.oView.AddProperty("NonClientAreaMouseButtonDblClickEvent",False)
-		oDesigner.oView.AddProperty("NonClientAreaMouseButtonPressEvent",False)
-		oDesigner.oView.AddProperty("NonClientAreaMouseButtonReleaseEvent",False)
-		oDesigner.oView.AddProperty("NonClientAreaMouseMoveEvent",False)
-		oDesigner.oView.AddProperty("MoveEvent",False)
-		oDesigner.oView.AddProperty("ResizeEvent",False)
-		oDesigner.oView.AddProperty("WindowActivateEvent",False)
-		oDesigner.oView.AddProperty("WindowBlockedEvent",False)
-		oDesigner.oView.AddProperty("WindowDeactivateEvent",False)
-		oDesigner.oView.AddProperty("WindowStateChangeEvent",False)
-		oDesigner.oView.AddProperty("WindowUnblockedEvent",False)
-		oDesigner.oView.AddProperty("PaintEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CONTROLNAME,False)			 # "Control Name"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_KEYPRESSEVENT,False)		 # "KeyPressEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MOUSEBUTTONPRESSEVENT,False)	 # "MouseButtonPressEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MOUSEBUTTONRELEASEEVENT,False)	 # "MouseButtonReleaseEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MOUSEBUTTONDBLCLICKEVENT,False)	 # "MouseButtonDblClickEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MOUSEMOVEEVENT,False)		 # "MouseMoveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CLOSEEVENT,False)			 # "CloseEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CONTEXTMENUEVENT,False)		 # "ContextMenuEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DRAGENTEREVENT,False)		 # "DragEnterEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DRAGLEAVEEVENT,False)		 # "DragLeaveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DRAGMOVEEVENT,False)		 # "DragMoveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_DROPEVENT,False)			 # "DropEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ENTEREVENT,False)			 # "EnterEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_FOCUSINEVENT,False)		 # "FocusInEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_FOCUSOUTEVENT,False)		 # "FocusOutEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_KEYRELEASEEVENT,False)		 # "KeyReleaseEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_LEAVEEVENT,False)			 # "LeaveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_NONCLIENTAREAMOUSEBUTTONDBLCLICKEVENT,False)		 # "NonClientAreaMouseButtonDblClickEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_NONCLIENTAREAMOUSEBUTTONPRESSEVENT,False)			 # "NonClientAreaMouseButtonPressEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_NONCLIENTAREAMOUSEBUTTONRELEASEEVENT,False)		 # "NonClientAreaMouseButtonReleaseEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_NONCLIENTAREAMOUSEMOVEEVENT,False)				 # "NonClientAreaMouseMoveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_MOVEEVENT,False)			 # "MoveEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_RESIZEEVENT,False)			 # "ResizeEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWACTIVATEEVENT,False)		 # "WindowActivateEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWBLOCKEDEVENT,False)		 # "WindowBlockedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWDEACTIVATEEVENT,False)	 # "WindowDeactivateEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWSTATECHANGEEVENT,False)	 # "WindowStateChangeEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_WINDOWUNBLOCKEDEVENT,False)	 # "WindowUnblockedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_PAINTEVENT,False)			 # "PaintEvent"
+
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

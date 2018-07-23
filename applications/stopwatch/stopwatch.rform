@@ -1,0 +1,96 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 26 , : y = 44  , 
+		 :width =  484 , :height = 597 , 
+		 :title =  "StopWatch" , 
+		 :backcolor =  "#ffff7f" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "images/stopwatch.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 44 , : y = 34  , 
+		 :width =  380 , :height = 91 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,36,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "StopWatch",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Watch" , :id = 3 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 9 , : y = 147  , 
+		 :width =  450 , :height = 74 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :display =  0
+		]
+	],
+	[ :name = "ButtonStart" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 16 , : y = 269  , 
+		 :width =  437 , :height = 61 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,24,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Start",
+		 :BtnImage =  "",
+		 :setClickEvent =  "StartWatch"
+		]
+	],
+	[ :name = "ButtonPause" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 16 , : y = 340  , 
+		 :width =  437 , :height = 61 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,24,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Pause",
+		 :BtnImage =  "",
+		 :setClickEvent =  "PauseWatch"
+		]
+	],
+	[ :name = "ButtonExit" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 16 , : y = 410  , 
+		 :width =  437 , :height = 61 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,24,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Exit",
+		 :BtnImage =  "",
+		 :setClickEvent =  "ExitWatch"
+		]
+	],
+	[ :name = "WatchTimer" , :id = 7 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 245 , : y = 479  , 
+		 :width =  130 , :height = 67 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "1000",
+		 :Timeout =  "WatchTimerEvent"
+		]
+	],
+	[ :name = "Layout1" , :id = 8 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 36 , : y = 489  , 
+		 :width =  63 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Label1,Watch,ButtonStart,ButtonPause,ButtonExit"
+		]
+	]
+]
+# End Form Designer File

@@ -29,8 +29,8 @@ class FormDesigner_QTimer from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Interval",False)
-		oDesigner.oView.AddProperty("Timeout Event",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_INTERVAL,False)	 # "Interval"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TIMEOUTEVENT,False) # "Timeout Event"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
@@ -87,3 +87,4 @@ class FormDesigner_QTimer from QLabel
 		itemdata = item[:data]
 		setIntervalValue(itemdata[:Interval])
 		setTimeoutValue(itemdata[:Timeout])
+		setText(oDesigner.oModel.GetObjectName(self))

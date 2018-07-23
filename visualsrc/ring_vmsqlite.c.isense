@@ -41,3 +41,6 @@ Type: List *
 pList
 Type: char *
 ErrMsg
+ring_vm_sqlite_freefunc
+Type: ring_sqlite *
+psqlite

@@ -1,0 +1,171 @@
+
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &#8212; Ring_WinCReg 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Implementation and Usage" href="implementation&amp;usage.html" />
+    <link rel="prev" title="Welcome to Ring_WinCReg’s documentation!" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="implementation&usage.html" title="Implementation and Usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Ring_WinCReg’s documentation!"
+             accesskey="P">previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<a href="http://ring-wincreg.sf.net/"><img src="logo.png" border="0"
+alt="Home"/></a>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#ring-wincreg-extension">Ring_WinCReg Extension</a></li>
+<li><a class="reference internal" href="#rcregistry-class-library">RCRegistry Class Library</a></li>
+<li><a class="reference internal" href="#simple-example">Simple Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Ring_WinCReg&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementation&amp;usage.html"
+                        title="next chapter">Implementation and Usage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="index-0"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Creating a new programming language doesn&#8217;t mean that it should support Windows Registry by default specially if that language gives the chance to others for its extension. This is the exact situation of Ring Programming language. So that, This awesome Ring_WinCReg extension has been made to give a nice support of Windows Registry access and editing from within Ring Programming Language.</p>
+<p>Absolutely, Supporting Windows Registry will give a big chance for the all community of Ring programmers and developers who like to use Windows Registry for a reason or another.</p>
+<p><strong>Windows Registry</strong> is a place where, in addition to save your application settings in it, you can find all of windows and other applications/programms settings that help in their operation, so manipulating in a such place may be the demand for some applications like those controlling Windows Startup Programs.</p>
+<div class="section" id="ring-wincreg-extension">
+<span id="index-1"></span><h2>Ring_WinCReg Extension<a class="headerlink" href="#ring-wincreg-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring WinCReg extension is a very light, easy, and powerful extension for Ring Programming Language that has been made to bring all means of easiness in regard to the dealing with Windows Registry. It gives you the ability to do from minor registry needs like saving or restoring settings to more superior goals like reaching and manipulating every single key or value in the whole registry tree.</p>
+<p>This extension has been made on top of previously created C++ language class called &#8220;Registry Wrapper Class (CRegisry Class)&#8221; that has been published on <a class="reference external" href="http://www.codeproject.com/Articles/8953/Registry-Wrapper-Class-CRegistry">CodeProject in this article</a>.</p>
+</div>
+<div class="section" id="rcregistry-class-library">
+<span id="index-2"></span><h2>RCRegistry Class Library<a class="headerlink" href="#rcregistry-class-library" title="Permalink to this headline">¶</a></h2>
+<p>RCRegistry class, stands for Ring CRegistry Class or CRegistry Class for Ring, is a Ring Class that has been made to make using ring_wincreg extension functions easier by using the same style of &#8220;Registry Wrapper Class&#8221; usage in C++. I found this style reasonable and readable better than just using the ring_wincreg original functions (<a class="reference internal" href="implementation&amp;usage.html#rcregistry-class-library-usage"><span class="std std-ref">RCRegistry class library usage</span></a>). It can be used by loading the file that contains it (wincreg.ring).</p>
+</div>
+<div class="section" id="simple-example">
+<span id="index-3"></span><h2>Simple Example<a class="headerlink" href="#simple-example" title="Permalink to this headline">¶</a></h2>
+<p>This is a simple ring code that uses this extension:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;wincreg.ring&quot;
+
+Reg = new RCRegistry
+
+Reg.OpenKey([HKEY_CURRENT_USER, &quot;Software\MyApp&quot;])
+# This will create a key called &quot;MyApp&quot; if its not present then it will be Opened
+
+Reg[&quot;AppVersion&quot;].SetValue(&quot;2.3&quot;)
+
+Reg[&quot;AppPath&quot;].SetValue(exeFolder())
+
+See &quot;AppVersion is : &quot; + Reg[&quot;AppVersion&quot;].GetValue() + NL
+
+See &quot;App Path is : &quot; + Reg[&quot;AppPath&quot;].GetValue()
+
+Reg.CloseKey()
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="implementation&usage.html" title="Implementation and Usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Ring_WinCReg’s documentation!"
+             >previous</a> |</li>
+  <li><a href="http://ring-wincreg.sf.net/">Home</a> &#187;</li>
+  
+        <li class="nav-item nav-item-0"><a href="index.html">Ring_WinCReg 1.2 documentation</a> &#187;</li>  
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Majdi Sobain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+    </div>
+  </body>
+</html>

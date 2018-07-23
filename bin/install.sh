@@ -1,5 +1,5 @@
 # Simple Script to copy ring binary file and libraries to the system
-# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # To be able to call ring from any folder 
 
@@ -391,4 +391,17 @@ if [ -f lib/libring_uv.so ];
 then
 sudo cp lib/libring_uv.so /usr/lib
 sudo cp lib/libring_uv.so /usr/lib64
+fi
+
+# Make the RingPostgreSQL library ready for use directly
+
+if [ -f lib/libring_pgsql.dylib ];
+then
+cp lib/libring_pgsql.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_pgsql.so ];
+then
+sudo cp lib/libring_pgsql.so /usr/lib
+sudo cp lib/libring_pgsql.so /usr/lib64
 fi

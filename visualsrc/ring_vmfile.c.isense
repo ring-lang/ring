@@ -165,3 +165,6 @@ uData
 ring_vm_file_bytes2double
 Type: Ring_uData
 uData
+ring_vm_file_freefunc
+Type: FILE *
+fp

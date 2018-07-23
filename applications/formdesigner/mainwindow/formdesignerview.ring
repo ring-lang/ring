@@ -11,7 +11,7 @@ Class FormDesignerView from WindowsViewParent
 
 	oForm oSub oFilter oArea win
 
-	oPropertiesDock oProperties oProperties2
+	oPropertiesDock oProperties oProperties2 oProperties2Widget
 	oObjectsCombo 	oPropertiesTable oLabelSelect
 
 	oToolBoxDock	oToolLock
@@ -22,12 +22,14 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
 	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27  oToolBtn28
 
+	oDesignDock
+
 	func CreateMainWindow oModel
 
 		# Create the form
 			oModel.AddObject("Window",
 				 new FormDesigner_qWidget() {
-					setWindowTitle("Form1")
+					setWindowTitle(T_FORMDESIGNER_FORMTITLE) # "Form1"
 				}
 			)
 
@@ -43,7 +45,7 @@ Class FormDesignerView from WindowsViewParent
 
 		# Add the form to the Sub Window
 			oSub =  new QMdiSubWindow(null) {
-				move(100,100)
+				move(20,20)
 				resize(400,400)
 				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
@@ -60,8 +62,9 @@ Class FormDesignerView from WindowsViewParent
 
 		# Create the Main Window and use the Mdi Area
 			win = new qMainwindow() {
-				setWindowTitle("Form Designer")
+				setWindowTitle(T_FORMDESIGNER_FORMDESIGNER) # "Form Designer"
 				setcentralWidget(this.oArea)
+				setLayoutDirection(T_LAYOUTDIRECTION)
 			}
 			setwinicon(win,$cCurrentDir + "/image/formdesigner.png")
 
@@ -82,6 +85,20 @@ Class FormDesignerView from WindowsViewParent
 		# Create the Statusbar
 			CreateStatusBar()
 
+		# Mobile Options
+			if isMobile() {
+				# Create dockable window for the design region
+					oDesignDock = new qDockWidget(NULL,0) {
+						setLayoutDirection(0)
+						setWindowTitle(T_FROMDESIGNER_DESIGN_WINDOWTITLE) # "Design Region"
+						setWidget(this.oArea)
+					}		
+					win.Adddockwidget(1,oDesignDock,1)
+					win.tabifydockwidget(oToolBoxDock,oDesignDock)
+					win.tabifydockwidget(oToolBoxDock,oPropertiesDock)
+					oDesignDock.raise()
+			}
+
 		# Show the Window
 			win.showmaximized()
 
@@ -98,19 +115,19 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {
-			subFile = addmenu("File")
+			subFile = addmenu(T_FORMDESIGNER_FILE) # "File"
 			subFile {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+n"))
 					setbtnimage(self,"image/new.png")
-					settext("New")
+					settext(T_FORMDESIGNER_NEW) # "New"
 					setclickevent(Method(:NewAction))
 				}
 				addaction(oAction)
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+o"))
 					setbtnimage(self,"image/open.png")
-					settext("Open")
+					settext(T_FORMDESIGNER_OPEN) # "Open"
 					setclickevent(Method(:OpenAction))
 				}
 				addaction(oAction)
@@ -118,7 +135,7 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+s"))
 					setbtnimage(self,"image/save.png")
-					settext("Save")
+					settext(T_FORMDESIGNER_SAVE) # "Save"
 					setclickevent(Method(:SaveAction))
 				}
 				addaction(oAction)
@@ -126,13 +143,13 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+e"))
 					setbtnimage(self,"image/saveas.png")
-					settext("Save As")
+					settext(T_FORMDESIGNER_SAVEAS) # "Save As"
 					setclickevent(Method(:SaveAsAction))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qaction(this.win) {
-					settext("Close")
+					settext(T_FORMDESIGNER_CLOSE) # "Close"
 					setstatustip("Close File")
 					setclickevent(Method(:CloseAction))
 				}
@@ -141,40 +158,54 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+q"))
 					setbtnimage(self,"image/close.png")
-					settext("Exit")
+					settext(T_FORMDESIGNER_EXIT) # "Exit"
 					setstatustip("Exit")
 					setclickevent(Method(:ExitAction))
 				}
 				addaction(oAction)
 			}
-			subEdit = addmenu("Edit")
+			subEdit = addmenu(T_FORMDESIGNER_EDIT) # "Edit"
 			subEdit {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+v"))
-					settext("Duplicate")
+					settext(T_FORMDESIGNER_DUPLICATE) # "Duplicate"
 					setclickevent(Method(:Duplicate))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+f"))
-					settext("Bring to front")
+					settext(T_FORMDESIGNER_BRINGTOFRONT) # "Bring to front"
 					setclickevent(Method(:BringToFront))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+b"))
-					settext("Send to back")
+					settext(T_FORMDESIGNER_SENDTOBACK) # "Send to back"
 					setclickevent(Method(:SendToBack))
 				}
 				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Del"))
+					settext(T_FORMDESIGNER_TOOLBAR_DELETE) # "Delete"
+					setclickevent(Method(:DeleteControl))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					settext(T_FORMDESIGNER_TOOLBAR_SELECTOBJECTS) # "Select objects"
+					setclickevent(Method(:SelectObjectsWindow))
+				}
+				addaction(oAction)
+
 			}
-			subView = addmenu("View")
+			subView = addmenu(T_FORMDESIGNER_VIEW) # "View"
 			subView {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+t"))
-					settext("ToolBox")
+					settext(T_FORMDESIGNER_TOOLBOX) # "ToolBox"
 					setclickevent(Method(:ToolBox))
 				}
 				addaction(oAction)
@@ -182,43 +213,43 @@ Class FormDesignerView from WindowsViewParent
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+p"))
 					setclickevent(Method(:Properties))
-					settext("Properties")
+					settext(T_FORMDESIGNER_PROPERTIES) # "Properties"
 				}
 				addaction(oAction)
 				addseparator()
 			}
-			subHelp = addmenu("Help")
+			subHelp = addmenu(T_FORMDESIGNER_HELP) # "Help"
 			subHelp {
-				subHelpLF = addmenu("Language Reference")
+				subHelpLF = addmenu(T_FORMDESIGNER_LANGUAGEREFERENCE) # "Language Reference"
 				subHelpLF {
 					oAction = new qAction(this.win) {
-						settext("CHM File")
+						settext(T_FORMDESIGNER_CHMFILE) # "CHM File"
 						setclickevent(Method(:OpenCHMAction))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win) {
-						settext("PDF File")
+						settext(T_FORMDESIGNER_PDFFILE) # "PDF File"
 						setclickevent(Method(:OpenPDFAction))
 					}
 					addaction(oAction)
 				}
 				addseparator()
-				subHelpTools = addmenu("Development Tools")
+				subHelpTools = addmenu(T_FORMDESIGNER_DEVELOPMENTTOOLS) # "Development Tools"
 				subHelpTools {
 					oAction = new qAction(this.win) {
-						settext("Programming Language")
+						settext(T_FORMDESIGNER_PROGRAMMINGLANGUAGE) # "Programming Language"
 						setclickevent(Method(:LangAction))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win) {
-						settext("GUI Library")
+						settext(T_FORMDESIGNER_GUILIBRARY) # "GUI Library"
 						setclickevent(Method(:GUIAction))
 					}
 					addaction(oAction)
 				}
 				addseparator()
 				oAction = new qAction(this.win) {
-					settext("About")
+					settext(T_FORMDESIGNER_ABOUT) # "About"
 					setclickevent(Method(:AboutAction))
 				}
 				addaction(oAction)
@@ -228,7 +259,7 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateStatusBar
 		status1 = new qstatusbar(win) {
-			showmessage("Ready!",0)
+			showmessage(T_FORMDESIGNER_READY,0) # "Ready!"
 		}
 		win.setstatusbar(status1)
 
@@ -237,27 +268,52 @@ Class FormDesignerView from WindowsViewParent
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/new.png"))
 					setclickevent(Method(:NewAction))
-					settooltip("New File")
+					settooltip(T_FORMDESIGNER_TOOLBAR_NEWFILE) # "New File"
 				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/open.png"))
 					setclickevent(Method(:OpenAction))
-					settooltip("Open File")
+					settooltip(T_FORMDESIGNER_TOOLBAR_OPENFILE) # "Open File"
 				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/save.png"))
 					setclickevent(Method(:SaveAction))
-					settooltip("Save")
-				 } ,
+					settooltip(T_FORMDESIGNER_TOOLBAR_SAVE) # "Save"
+				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/saveas.png"))
 					setclickevent(Method(:SaveAsAction))
-					settooltip("Save As")
-				 } ,
+					settooltip(T_FORMDESIGNER_TOOLBAR_SAVEAS) # "Save As"
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/duplicate.png"))
+					setclickevent(Method(:Duplicate))
+					settooltip(T_FORMDESIGNER_TOOLBAR_DUPLICATE) # "Duplicate"
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/bring_to_front.png"))
+					setclickevent(Method(:BringToFront))
+					settooltip(T_FORMDESIGNER_TOOLBAR_BRINGTOFRONT) # "Bring to front"
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/send_to_back.png"))
+					setclickevent(Method(:SendToBack))
+					settooltip(T_FORMDESIGNER_TOOLBAR_SENDTOBACK) # "Send to back"
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/delete.png"))
+					setclickevent(Method(:DeleteControl))
+					settooltip(T_FORMDESIGNER_TOOLBAR_DELETE) # "Delete"
+				} ,
+				new qtoolbutton(win) {
+					setbtnimage(self,AppFile("image/selectobjects.png"))
+					setclickevent(Method(:SelectObjectsWindow))
+					settooltip(T_FORMDESIGNER_TOOLBAR_SELECTOBJECTS) # "Select Objects"
+				} ,
 				new qtoolbutton(win) {
 					setbtnimage(self,AppFile("image/close.png"))
 					setclickevent(Method(:ExitAction))
-					settooltip("Exit")
+					settooltip(T_FORMDESIGNER_TOOLBAR_EXIT) # "Exit"
 				}
 			]
 
@@ -266,183 +322,250 @@ Class FormDesignerView from WindowsViewParent
 		}
 
 	func CreateToolBox
+
+		if T_LAYOUTDIRECTION {
+			aToolBoxTextList = [
+				:Lock = this.TextSize(T_FROMDESIGNER_TOOLBOX_LOCK,30) ,
+				:Select = this.TextSize(T_FROMDESIGNER_TOOLBOX_SELECT,35),
+				:Label = this.TextSize(T_FROMDESIGNER_TOOLBOX_LABEL,35),
+				:Button = this.TextSize(T_FROMDESIGNER_TOOLBOX_BUTTON,32),
+				:LineEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_LINEEDIT,32),
+				:TextEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_TEXTEDIT,32),
+				:ListWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_LISTWIDGET,32),
+				:CheckBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_CHECKBOX,32),
+				:Image = this.TextSize(T_FROMDESIGNER_TOOLBOX_IMAGE,32),
+				:Slider = this.TextSize(T_FROMDESIGNER_TOOLBOX_SLIDER,30),
+				:ProgressBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,32),
+				:SpinBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_SPINBOX,35),
+				:ComboBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_COMBOBOX,35),
+				:DateTimeEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,45),
+				:TableWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,35),
+				:TreeWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TREEWIDGET,32),
+				:RadioButton = this.TextSize(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,40),
+				:WebView = this.TextSize(T_FROMDESIGNER_TOOLBOX_WEBVIEW,35),
+				:DialSlider = this.TextSize(T_FROMDESIGNER_TOOLBOX_DIALSLIDER,35),
+				:VideoWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,35),
+				:Frame = this.TextSize(T_FROMDESIGNER_TOOLBOX_FRAME,35),
+				:LCDNumber = this.TextSize(T_FROMDESIGNER_TOOLBOX_LCDNUMBER,40),
+				:HyperLink = this.TextSize(T_FROMDESIGNER_TOOLBOX_HYPERLINK,35),
+				:Timer = this.TextSize(T_FROMDESIGNER_TOOLBOX_TIMER,35),
+				:AllEvents = this.TextSize(T_FROMDESIGNER_TOOLBOX_ALLEVENTS,40),
+				:Layout = this.TextSize(T_FROMDESIGNER_TOOLBOX_LAYOUT,35),
+				:TabWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABWIDGET,35),
+				:StatusBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_STATUSBAR,35),
+				:ToolBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_TOOLBAR,35)		
+			]
+
+		else 
+			aToolBoxTextList = [
+				:Lock = this.TextSize(T_FROMDESIGNER_TOOLBOX_LOCK,20) ,
+				:Select = this.TextSize(T_FROMDESIGNER_TOOLBOX_SELECT,20),
+				:Label = this.TextSize(T_FROMDESIGNER_TOOLBOX_LABEL,20),
+				:Button = this.TextSize(T_FROMDESIGNER_TOOLBOX_BUTTON,18),
+				:LineEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_LINEEDIT,19),
+				:TextEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_TEXTEDIT,19),
+				:ListWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_LISTWIDGET,18),
+				:CheckBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_CHECKBOX,18),
+				:Image = this.TextSize(T_FROMDESIGNER_TOOLBOX_IMAGE,19),
+				:Slider = this.TextSize(T_FROMDESIGNER_TOOLBOX_SLIDER,21),
+				:ProgressBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,17),
+				:SpinBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_SPINBOX,19),
+				:ComboBox = this.TextSize(T_FROMDESIGNER_TOOLBOX_COMBOBOX,16),
+				:DateTimeEdit = this.TextSize(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,17),
+				:TableWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,17),
+				:TreeWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TREEWIDGET,17),
+				:RadioButton = this.TextSize(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,17),
+				:WebView = this.TextSize(T_FROMDESIGNER_TOOLBOX_WEBVIEW,17),
+				:DialSlider = this.TextSize(T_FROMDESIGNER_TOOLBOX_DIALSLIDER,20),
+				:VideoWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,17),
+				:Frame = this.TextSize(T_FROMDESIGNER_TOOLBOX_FRAME,20),
+				:LCDNumber = this.TextSize(T_FROMDESIGNER_TOOLBOX_LCDNUMBER,15),
+				:HyperLink = this.TextSize(T_FROMDESIGNER_TOOLBOX_HYPERLINK,19),
+				:Timer = this.TextSize(T_FROMDESIGNER_TOOLBOX_TIMER,20),
+				:AllEvents = this.TextSize(T_FROMDESIGNER_TOOLBOX_ALLEVENTS,20),
+				:Layout = this.TextSize(T_FROMDESIGNER_TOOLBOX_LAYOUT,20),
+				:TabWidget = this.TextSize(T_FROMDESIGNER_TOOLBOX_TABWIDGET,18),
+				:StatusBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_STATUSBAR,20),
+				:ToolBar = this.TextSize(T_FROMDESIGNER_TOOLBOX_TOOLBAR,20)		
+			]
+		}
+
 		oToolBox = new qWidget() {
- 			this.oToolLock = new qPushButton(oToolBox) {
-					setText(this.TextSize("Lock",20))
-					setbtnimage(self,AppFile("image/lock.png"))
-					setCheckable(True)
-					setChecked(false)
+			setLayoutDirection(0)
+ 			this.oToolLock = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Lock]) # "Lock"
+					this.setToolbtnImage(self,AppFile("image/lock.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn1 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Select",20))
-					setbtnimage(self,AppFile("image/select.png"))
-					setminimumwidth(150)
-					setCheckable(True)
+ 			this.oToolbtn1 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Select]) # "Select"
+					this.setToolbtnImage(self,AppFile("image/select.png"))
+					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 					setChecked(True)
-					setClickEvent(Method(:ToolBtnChangeAction))
 			}
- 			this.oToolbtn2 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Label",20))
-					setbtnimage(self,AppFile("image/label.png"))
-					setCheckable(True)
+ 			this.oToolbtn2 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Label]) # "Label"
+					this.setToolbtnImage(self,AppFile("image/label.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn3 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Button",18))
-					setbtnimage(self,AppFile("image/pushbutton.png"))
-					setCheckable(True)
+ 			this.oToolbtn3 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Button]) # "Button"
+					this.setToolbtnImage(self,AppFile("image/pushbutton.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn4 = new qPushButton(oToolBox) {
-					setText(this.TextSize("LineEdit",19))
-					setbtnimage(self,AppFile("image/textfield.png"))
-					setCheckable(True)
+ 			this.oToolbtn4 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:LineEdit]) # "LineEdit"
+					this.setToolbtnImage(self,AppFile("image/textfield.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn5 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TextEdit",19))
-					setbtnimage(self,AppFile("image/textarea.png"))
-					setCheckable(True)
+ 			this.oToolbtn5 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:TextEdit]) # "TextEdit"
+					this.setToolbtnImage(self,AppFile("image/textarea.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn6 = new qPushButton(oToolBox) {
-					setText(this.TextSize("ListWidget",17))
-					setbtnimage(self,AppFile("image/listview.png"))
-					setCheckable(True)
+ 			this.oToolbtn6 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:ListWidget]) # "ListWidget"
+					this.setToolbtnImage(self,AppFile("image/listview.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn7 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Checkbox",16))
-					setbtnimage(self,AppFile("image/checkbox.png"))
-					setCheckable(True)
+ 			this.oToolbtn7 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:CheckBox]) # "Checkbox"
+					this.setToolbtnImage(self,AppFile("image/checkbox.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn8 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Image",19))
-					setbtnimage(self,AppFile("image/image.png"))
-					setCheckable(True)
+ 			this.oToolbtn8 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Image]) # "Image"
+					this.setToolbtnImage(self,AppFile("image/image.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn9 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Slider",20))
-					setbtnimage(self,AppFile("image/slider.png"))
-					setCheckable(True)
+ 			this.oToolbtn9 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Slider]) # "Slider"
+					this.setToolbtnImage(self,AppFile("image/slider.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn10 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Progressbar",15))
-					setbtnimage(self,AppFile("image/progressbar.png"))
-					setCheckable(True)
+ 			this.oToolbtn10 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:ProgressBar]) # "Progressbar"
+					this.setToolbtnImage(self,AppFile("image/progressbar.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn11 = new qPushButton(oToolBox) {
-					setText(this.TextSize("SpinBox",17))
-					setbtnimage(self,AppFile("image/spinner.bmp"))
-					setCheckable(True)
+ 			this.oToolbtn11 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:SpinBox]) # "SpinBox"
+					this.setToolbtnImage(self,AppFile("image/spinner.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn12 = new qPushButton(oToolBox) {
-					setText(this.TextSize("ComboBox",17))
-					setbtnimage(self,AppFile("image/combobox.bmp"))
-					setCheckable(True)
+ 			this.oToolbtn12 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:ComboBox]) # "ComboBox"
+					this.setToolbtnImage(self,AppFile("image/combobox.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn13 = new qPushButton(oToolBox) {
-					setText(this.TextSize("DateTimeEdit",17))
-					setbtnimage(self,AppFile("image/datepicker.bmp"))
-					setCheckable(True)
+ 			this.oToolbtn13 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:DateTimeEdit]) # "DateTimeEdit"
+					this.setToolbtnImage(self,AppFile("image/datepicker.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn14 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TableWidget",17))
-					setbtnimage(self,AppFile("image/grid.bmp"))
-					setCheckable(True)
+ 			this.oToolbtn14 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:TableWidget]) # "TableWidget"
+					this.setToolbtnImage(self,AppFile("image/grid.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn15 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TreeWidget",17))
-					setbtnimage(self,AppFile("image/tree.bmp"))
-					setCheckable(True)
+ 			this.oToolbtn15 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:TreeWidget]) # "TreeWidget"
+					this.setToolbtnImage(self,AppFile("image/tree.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn16 = new qPushButton(oToolBox) {
-					setText(this.TextSize("RadioButton",17))
-					setbtnimage(self,AppFile("image/radiobutton.png"))
-					setCheckable(True)
+ 			this.oToolbtn16 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:RadioButton]) # "RadioButton"
+					this.setToolbtnImage(self,AppFile("image/radiobutton.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn17 = new qPushButton(oToolBox) {
-					setText(this.TextSize("WebView",17))
-					setbtnimage(self,AppFile("image/webview.png"))
-					setCheckable(True)
+ 			this.oToolbtn17 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:WebView]) # "WebView"
+					this.setToolbtnImage(self,AppFile("image/webview.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn18 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Dial Slider",20))
-					setbtnimage(self,AppFile("image/dial.png"))
-					setCheckable(True)
+ 			this.oToolbtn18 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:DialSlider]) # "Dial Slider"
+					this.setToolbtnImage(self,AppFile("image/dial.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn19 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Video Widget",17))
-					setbtnimage(self,AppFile("image/videowidget.png"))
-					setCheckable(True)
+ 			this.oToolbtn19 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:VideoWidget]) # "Video Widget"
+					this.setToolbtnImage(self,AppFile("image/videowidget.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn20 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Frame",20))
-					setbtnimage(self,AppFile("image/frame.png"))
-					setCheckable(True)
+ 			this.oToolbtn20 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Frame]) # "Frame"
+					this.setToolbtnImage(self,AppFile("image/frame.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn21 = new qPushButton(oToolBox) {
-					setText(this.TextSize("LCD Number",17))
-					setbtnimage(self,AppFile("image/lcdnumber.png"))
-					setCheckable(True)
+ 			this.oToolbtn21 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:LCDNumber]) # "LCD Number"
+					this.setToolbtnImage(self,AppFile("image/lcdnumber.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn22 = new qPushButton(oToolBox) {
-					setText(this.TextSize("HyperLink",20))
-					setbtnimage(self,AppFile("image/hyperlink.png"))
-					setCheckable(True)
+ 			this.oToolbtn22 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:HyperLink]) # "HyperLink"
+					this.setToolbtnImage(self,AppFile("image/hyperlink.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn23 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Timer",22))
-					setbtnimage(self,AppFile("image/timer.png"))
-					setCheckable(True)
+ 			this.oToolbtn23 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Timer]) # "Timer"
+					this.setToolbtnImage(self,AppFile("image/timer.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn24 = new qPushButton(oToolBox) {
-					setText(this.TextSize("All Events",20))
-					setbtnimage(self,AppFile("image/allevents.png"))
-					setCheckable(True)
+ 			this.oToolbtn24 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:AllEvents]) # "All Events"
+					this.setToolbtnImage(self,AppFile("image/allevents.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn25 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Layout",20))
-					setbtnimage(self,AppFile("image/layout.png"))
-					setCheckable(True)
+ 			this.oToolbtn25 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:Layout]) # "Layout"
+					this.setToolbtnImage(self,AppFile("image/layout.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn26 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Tab Widget",18))
-					setbtnimage(self,AppFile("image/tab.png"))
-					setCheckable(True)
+ 			this.oToolbtn26 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:TabWidget]) # "Tab Widget"
+					this.setToolbtnImage(self,AppFile("image/tab.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn27 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Statusbar",20))
-					setbtnimage(self,AppFile("image/statusbar.png"))
-					setCheckable(True)
+ 			this.oToolbtn27 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:StatusBar]) # "Statusbar"
+					this.setToolbtnImage(self,AppFile("image/statusbar.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
- 			this.oToolbtn28 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Toolbar",20))
-					setbtnimage(self,AppFile("image/toolbar.png"))
-					setCheckable(True)
+ 			this.oToolbtn28 = new qToolButton(oToolBox) {
+					setText(aToolBoxTextList[:ToolBar]) # "Toolbar"
+					this.setToolbtnImage(self,AppFile("image/toolbar.png"))
 					setClickEvent(Method(:ToolBtnChangeAction))
+					this.ToolboxBtnProperties(self)
 			}
 
 			Layout1 = new qVBoxLayout() {
@@ -512,43 +635,88 @@ Class FormDesignerView from WindowsViewParent
 		}
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
-			setMiniMumWidth(195)
+			if not isMobile() {
+				if T_LAYOUTDIRECTION {
+					setMiniMumWidth(215)
+				else 
+					setMiniMumWidth(195)
+				}
+			}
+			setwidgetresizable(True)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
-			setWindowTitle("ToolBox")
+			setLayoutDirection(0)
+			setWindowTitle(T_FROMDESIGNER_TOOLBOX_WINDOWTITLE) # "ToolBox"
 			setWidget(oScroll)
 		}
-		win.Adddockwidget(1,oToolBoxDock,1)
+		if T_LAYOUTDIRECTION {
+			win.Adddockwidget(2,oToolBoxDock,2)
+		else 
+			win.Adddockwidget(1,oToolBoxDock,1)
+		}
+
+	func ToolboxBtnProperties oButton 
+		oButton {
+				setCheckable(True)
+				setSizePolicy(1,1)
+				if not isMobile()  {
+					setToolButtonStyle(2)
+					if T_LAYOUTDIRECTION {
+						setminimumwidth(174)
+						setminimumheight(30)
+						setIconSize(new QSize(15,15))
+					else 
+						setminimumwidth(150)
+						setminimumheight(30)
+						setIconSize(new QSize(15,15))
+					}
+				}
+		}
+
+	func setToolbtnImage oObject,cImage
+		if not isMobile() {
+			setbtnImage(oObject,cImage)
+		}
 
 	func TextSize cText,nSize
 		nSpaces = (nSize - len(cText))/2
 		return copy(" ",nSpaces)+cText+Copy(" ",nSpaces)
 
 	func CreateProperties
+		CreatePropertiesWidget()
+		CreatePropertiesDock()
+
+	func CreatePropertiesWidget
 		oProperties = new qWidget() {
+			setLayoutDirection(T_LAYOUTDIRECTION)
 			oLabelObject = new qLabel(this.oProperties) {
-				setText("Object")
-				setMaximumWidth(50)
+				setText(T_FROMDESIGNER_PROPERTIES_OBJECT) # "Object"
+				if isMobile() {
+					setMaximumWidth(200)
+				else
+					setMaximumWidth(50)
+				}
 			}
 			this.oObjectsCombo = new qCombobox(this.oProperties) {
-				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
+				setcurrentIndexChangedEvent(this.Method(:ChangeObjectAction))
+			}
+			oBtnObjectsOrder = new qPushButton(this.oProperties) {
+				setText("::")
+				setClickevent(this.Method(:ObjectsOrderAction))
+				if isMobile() {
+					setfixedwidth(110)
+				else 
+					setfixedwidth(30)
+				}
+
 			}
 			oLayout1 = new qHBoxlayout() {
 				AddWidget(oLabelObject)
 				AddWidget(this.oObjectsCombo)
+				AddWidget(oBtnObjectsOrder)
 			}
 			this.oPropertiesTable = new qTableWidget(this.oProperties) {
-				setrowcount(0)
-				setcolumncount(3)
-				setselectionbehavior(QAbstractItemView_SelectRows)
-				setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
-				setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
-				setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
-				setColumnwidth(0,190)
-				setColumnwidth(2,40)
-				setAlternatingRowColors(true)
-				setitemChangedEvent(Method(:UpdateProperties))
-				setminimumwidth(370)
+				this.PreparePropertiesTable(self)
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
@@ -556,83 +724,117 @@ Class FormDesignerView from WindowsViewParent
 			}
 			setLayout(oLayout2)
 		}
-		oProperties2 = new qWidget() {
-			oBtn1 = new qPushbutton(this.oProperties2) {
-				setText("Align - Left Sides")
-				setClickEvent(Method(:MSAlignLeft))
+		oProperties2Widget = new qWidget() {
+			setLayoutDirection(T_LAYOUTDIRECTION)
+			oBtn1 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS1) # "Align - Left Sides"
+				setClickEvent(this.Method(:MSAlignLeft))
 			}
-			oBtn2 = new qPushbutton(this.oProperties2) {
-				setText("Align - Right Sides")
-				setClickEvent(Method(:MSAlignRight))
+			oBtn2 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS2) # "Align - Right Sides"
+				setClickEvent(this.Method(:MSAlignRight))
 			}
-			oBtn3 = new qPushbutton(this.oProperties2) {
-				setText("Align - Top Sides")
-				setClickEvent(Method(:MSAlignTop))
+			oBtn3 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS3) # "Align - Top Sides"
+				setClickEvent(this.Method(:MSAlignTop))
 			}
-			oBtn4 = new qPushbutton(this.oProperties2) {
-				setText("Align - Bottom Sides")
-				setClickEvent(Method(:MSAlignBottom))
+			oBtn4 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS4) # "Align - Bottom Sides"
+				setClickEvent(this.Method(:MSAlignBottom))
 			}
-			oBtn5 = new qPushbutton(this.oProperties2) {
-				setText("Center Vertically")
-				setClickEvent(Method(:MSCenterVer))
+			oBtn5 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS5) # "Center Vertically"
+				setClickEvent(this.Method(:MSCenterVer))
 			}
-			oBtn6 = new qPushbutton(this.oProperties2) {
-				setText("Center Horizontally")
-				setClickEvent(Method(:MSCenterHor))
+			oBtn6 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS6) # "Center Horizontally"
+				setClickEvent(this.Method(:MSCenterHor))
 			}
-			oBtn7 = new qPushbutton(this.oProperties2) {
-				setText("Size - To Tallest")
-				setClickEvent(Method(:MSSizeToTallest))
+			oBtn7 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS7) # "Size - To Tallest"
+				setClickEvent(this.Method(:MSSizeToTallest))
 			}
-			oBtn8 = new qPushbutton(this.oProperties2) {
-				setText("Size - To Shortest")
-				setClickEvent(Method(:MSSizeToShortest))
+			oBtn8 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS8) # "Size - To Shortest"
+				setClickEvent(this.Method(:MSSizeToShortest))
 			}
-			oBtn9 = new qPushbutton(this.oProperties2) {
-				setText("Size - To Widest")
-				setClickEvent(Method(:MSSizeToWidest))
+			oBtn9 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS9) # "Size - To Widest"
+				setClickEvent(this.Method(:MSSizeToWidest))
 			}
-			oBtn10 = new qPushbutton(this.oProperties2) {
-				setText("Size - To Narrowest")
-				setClickEvent(Method(:MSSizeToNarrowest))
+			oBtn10 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS10) # "Size - To Narrowest"
+				setClickEvent(this.Method(:MSSizeToNarrowest))
 			}
-			oBtn11 = new qPushbutton(this.oProperties2) {
-				setText("Horizontal Spacing - Make Equal")
-				setClickEvent(Method(:MSHorSpacingMakeEqual))
+			oBtn11 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS11) # "Horizontal Spacing - Make Equal"
+				setClickEvent(this.Method(:MSHorSpacingMakeEqual))
 			}
-			oBtn12 = new qPushbutton(this.oProperties2) {
-				setText("Horizontal Spacing - Increase")
-				setClickEvent(Method(:MSHorSpacingIncrease))
+			oBtn12 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS12) # "Horizontal Spacing - Increase"
+				setClickEvent(this.Method(:MSHorSpacingIncrease))
 			}
-			oBtn13 = new qPushbutton(this.oProperties2) {
-				setText("Horizontal Spacing - Decrease")
-				setClickEvent(Method(:MSHorSpacingDecrease))
+			oBtn13 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS13) # "Horizontal Spacing - Decrease"
+				setClickEvent(this.Method(:MSHorSpacingDecrease))
 			}
-			oBtn14 = new qPushbutton(this.oProperties2) {
-				setText("Vertical Spacing - Make Equal")
-				setClickEvent(Method(:MSVerSpacingMakeEqual))
+			oBtn14 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS14) # "Vertical Spacing - Make Equal"
+				setClickEvent(this.Method(:MSVerSpacingMakeEqual))
 			}
-			oBtn15 = new qPushbutton(this.oProperties2) {
-				setText("Vertical Spacing - Increase")
-				setClickEvent(Method(:MSVerSpacingIncrease))
+			oBtn15 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS15) # "Vertical Spacing - Increase"
+				setClickEvent(this.Method(:MSVerSpacingIncrease))
 			}
-			oBtn16 = new qPushbutton(this.oProperties2) {
-				setText("Vertical Spacing - Decrease")
-				setClickEvent(Method(:MSVerSpacingDecrease))
+			oBtn16 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS16) # "Vertical Spacing - Decrease"
+				setClickEvent(this.Method(:MSVerSpacingDecrease))
 			}
-			oBtn17 = new qPushbutton(this.oProperties2) {
-				setText("Text Color")
-				setClickEvent(Method(:MSTextColor))
+			oBtn17 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS17) # "Text Color"
+				setClickEvent(this.Method(:MSTextColor))
 			}
-			oBtn18 = new qPushbutton(this.oProperties2) {
-				setText("Back Color")
-				setClickEvent(Method(:MSBackColor))
+			oBtn18 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS18) # "Back Color"
+				setClickEvent(this.Method(:MSBackColor))
 			}
-			oBtn19 = new qPushbutton(this.oProperties2) {
-				setText("Font")
-				setClickEvent(Method(:MSFont))
+			oBtn19 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS19) # "Font"
+				setClickEvent(this.Method(:MSFont))
 			}
+			oBtn20 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS20) # "Move - Up"
+				setClickEvent(this.Method(:MSMoveUp))
+			}
+			oBtn21 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS21)  # "Move - Down"
+				setClickEvent(this.Method(:MSMoveDown))
+			}
+			oBtn22 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS22)  # "Move - Right"
+				setClickEvent(this.Method(:MSMoveRight))
+			}
+			oBtn23 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS23)  # "Move - Left"
+				setClickEvent(this.Method(:MSMoveLeft))
+			}
+			oBtn24 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS24)  # "Increase - Width"
+				setClickEvent(this.Method(:MSIncreaseWidth))
+			}
+			oBtn25 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS25)  # "Decrease - Width"
+				setClickEvent(this.Method(:MSDecreaseWidth))
+			}
+			oBtn26 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS26)  # "Increase - Height"
+				setClickEvent(this.Method(:MSIncreaseHeight))
+			}
+			oBtn27 = new qPushbutton(this.oProperties2Widget) {
+				setText(T_FROMDESIGNER_PROPERTIES_MS27)  # "Decrease - Height"
+				setClickEvent(this.Method(:MSDecreaseHeight))
+			}
+
 			oLayout = new qVBoxLayout() {
 				AddWidget(oBtn1)
 				AddWidget(oBtn2)
@@ -653,15 +855,64 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oBtn17)
 				AddWidget(oBtn18)
 				AddWidget(oBtn19)
+				AddWidget(oBtn20)
+				AddWidget(oBtn21)
+				AddWidget(oBtn22)
+				AddWidget(oBtn23)
+				AddWidget(oBtn24)
+				AddWidget(oBtn25)
+				AddWidget(oBtn26)
+				AddWidget(oBtn27)
 				insertStretch( -1, 1 )
 			}
 			setLayout(oLayout)
 		}
+
+	func PreparePropertiesTable oTable 
+		oTable {
+			setrowcount(0)
+			setcolumncount(3)
+			setselectionbehavior(QAbstractItemView_SelectRows)
+			setHorizontalHeaderItem(0, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_PROPERTY)) # "Property"
+			setHorizontalHeaderItem(1, new QTableWidgetItem(T_FROMDESIGNER_PROPERTIES_VALUE)) # "Value"
+			setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
+			if isMobile() {
+				setColumnwidth(0,500)
+				setColumnwidth(1,500)
+				setColumnwidth(2,120)
+			else
+				setColumnwidth(0,190)
+				setColumnwidth(2,40)
+			}
+			setAlternatingRowColors(true)
+			setitemChangedEvent(this.Method(:UpdateProperties))
+			if T_LAYOUTDIRECTION {
+				setminimumwidth(390)
+			else 
+				setminimumwidth(370)
+			}
+		}
+
+	func CreatePropertiesDock
+		oProperties2 = new qScrollArea(null) {
+			setWidget(this.oProperties2Widget)
+			setwidgetresizable(True)
+		}
 		oPropertiesDock = new qDockWidget(NULL,0) {
-			setWindowTitle("Properties")
+			setLayoutDirection(0)
+			setWindowTitle(T_FROMDESIGNER_PROPERTIES_WINDOWTITLE) # "Properties"
 			setWidget(this.oProperties)
 		}
-		win.Adddockwidget(2,oPropertiesDock,2)
+		if T_LAYOUTDIRECTION {
+			win.Adddockwidget(1,oPropertiesDock,1)
+		else 
+			win.Adddockwidget(2,oPropertiesDock,2)
+		}
+
+	func RefreshProperties 
+		CreatePropertiesWidget()
+		oProperties2.setWidget(this.oProperties2Widget)
+		oPropertiesDock.setWidget(this.oProperties)
 
 	func AddProperty cItem,lButton
 		oPropertiesTable.blocksignals(True)
@@ -679,9 +930,13 @@ Class FormDesignerView from WindowsViewParent
 			item.setFlags(False)	# Can't Edit the Item
 			oPropertiesTable.setItem(nRow,2,item)
 		else
-			oBtn = new qPushButton(NULL) {
+			oBtn = new qPushButton(oPropertiesTable) {
 				setText("::")
-				setfixedwidth(30)
+				if isMobile() {
+					setfixedwidth(110)
+				else 
+					setfixedwidth(30)
+				}
 				setClickEvent(this.Method(:DialogButtonAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,2,oBtn)
@@ -697,7 +952,7 @@ Class FormDesignerView from WindowsViewParent
 			item.setFlags(False)	# Can't Edit the Item
 			oPropertiesTable.setItem(nRow,0,item)
 		# Combobox
-			oCombo = new qCombobox(NULL) {
+			oCombo = new qCombobox(oPropertiesTable) {
 				for cValue in aList { AddItem(cValue,0) }
 				setCurrentIndexchangedevent(this.Method(:ComboItemAction+"("+nRow+")"))
 			}

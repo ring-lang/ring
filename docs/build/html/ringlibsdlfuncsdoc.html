@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>RingLibSDL Functions Reference &mdash; Ring 1.7 documentation</title>
+    <title>RingLibSDL Functions Reference &mdash; Ring 1.9 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
     <link rel="next" title="RingLibuv Functions Reference" href="ringlibuvfuncsdoc.html" />
     <link rel="prev" title="RingAllegro Functions Reference" href="ringallegrofuncsdoc.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="ringallegrofuncsdoc.html" title="RingAllegro Functions Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -340,6 +340,9 @@
 <li>SDLK_QUOTEDBL</li>
 <li>SDLK_RIGHTPAREN</li>
 <li>SDLK_UNDERSCORE</li>
+<li>SDL_THREAD_PRIORITY_LOW</li>
+<li>SDL_THREAD_PRIORITY_NORMAL</li>
+<li>SDL_THREAD_PRIORITY_HIGH</li>
 <li>void SDL_RenderCopy2(SDL_Renderer <a href="#id1"><span class="problematic" id="id2">*</span></a>,SDL_Texture <a href="#id3"><span class="problematic" id="id4">*</span></a>)</li>
 <li>void SDL_Delay(int)</li>
 <li>void SDL_Init(int)</li>
@@ -863,23 +866,22 @@
 <li>TCPsocket SDLNet_TCP_Open(IPaddress <a href="#id1207"><span class="problematic" id="id1208">*</span></a>ip)</li>
 <li>void SDLNet_TCP_Close(TCPsocket sock)</li>
 <li>TCPsocket SDLNet_TCP_Accept(TCPsocket server)</li>
-<li>IPaddress <a href="#id1209"><span class="problematic" id="id1210">*</span></a>SDLNet_TCP_GetPeerAddress(TCPsocket sock)</li>
-<li>int SDLNet_TCP_Send(TCPsocket sock, const void <a href="#id1211"><span class="problematic" id="id1212">*</span></a>data, int len)</li>
-<li>int SDLNet_TCP_Recv(TCPsocket sock, void <a href="#id1213"><span class="problematic" id="id1214">*</span></a>data, int maxlen)</li>
+<li>int SDLNet_TCP_Send(TCPsocket sock, const void <a href="#id1209"><span class="problematic" id="id1210">*</span></a>data, int len)</li>
+<li>int SDLNet_TCP_Recv(TCPsocket sock, void <a href="#id1211"><span class="problematic" id="id1212">*</span></a>data, int maxlen)</li>
 <li>UDPsocket SDLNet_UDP_Open(Uint16 port)</li>
 <li>void SDLNet_UDP_Close(UDPsocket sock)</li>
-<li>int SDLNet_UDP_Bind(UDPsocket sock, int channel, IPaddress <a href="#id1215"><span class="problematic" id="id1216">*</span></a>address)</li>
+<li>int SDLNet_UDP_Bind(UDPsocket sock, int channel, IPaddress <a href="#id1213"><span class="problematic" id="id1214">*</span></a>address)</li>
 <li>void SDLNet_UDP_Unbind(UDPsocket sock, int channel)</li>
-<li>IPaddress <a href="#id1217"><span class="problematic" id="id1218">*</span></a>SDLNet_UDP_GetPeerAddress(UDPsocket sock, int channel)</li>
-<li>int SDLNet_UDP_Send(UDPsocket sock, int channel, UDPpacket <a href="#id1219"><span class="problematic" id="id1220">*</span></a>packet)</li>
-<li>int SDLNet_UDP_Recv(UDPsocket sock, UDPpacket <a href="#id1221"><span class="problematic" id="id1222">*</span></a>packet)</li>
-<li>int SDLNet_UDP_SendV(UDPsocket sock, UDPpacket <a href="#id1223"><span class="problematic" id="id1224">**</span></a>packetV, int npackets)</li>
-<li>int SDLNet_UDP_RecvV(UDPsocket sock, UDPpacket <a href="#id1225"><span class="problematic" id="id1226">**</span></a>packetV)</li>
-<li>UDPpacket <a href="#id1227"><span class="problematic" id="id1228">*</span></a>SDLNet_AllocPacket(int size)</li>
-<li>int SDLNet_ResizePacket(UDPpacket <a href="#id1229"><span class="problematic" id="id1230">*</span></a>packet, int size)</li>
-<li>void SDLNet_FreePacket(UDPpacket <a href="#id1231"><span class="problematic" id="id1232">*</span></a>packet)</li>
-<li>UDPpacket <a href="#id1233"><span class="problematic" id="id1234">**</span></a>SDLNet_AllocPacketV(int howmany, int size)</li>
-<li>void SDLNet_FreePacketV(UDPpacket <a href="#id1235"><span class="problematic" id="id1236">**</span></a>packetV)</li>
+<li>IPaddress <a href="#id1215"><span class="problematic" id="id1216">*</span></a>SDLNet_UDP_GetPeerAddress(UDPsocket sock, int channel)</li>
+<li>int SDLNet_UDP_Send(UDPsocket sock, int channel, UDPpacket <a href="#id1217"><span class="problematic" id="id1218">*</span></a>packet)</li>
+<li>int SDLNet_UDP_Recv(UDPsocket sock, UDPpacket <a href="#id1219"><span class="problematic" id="id1220">*</span></a>packet)</li>
+<li>int SDLNet_UDP_SendV(UDPsocket sock, UDPpacket <a href="#id1221"><span class="problematic" id="id1222">**</span></a>packetV, int npackets)</li>
+<li>int SDLNet_UDP_RecvV(UDPsocket sock, UDPpacket <a href="#id1223"><span class="problematic" id="id1224">**</span></a>packetV)</li>
+<li>UDPpacket <a href="#id1225"><span class="problematic" id="id1226">*</span></a>SDLNet_AllocPacket(int size)</li>
+<li>int SDLNet_ResizePacket(UDPpacket <a href="#id1227"><span class="problematic" id="id1228">*</span></a>packet, int size)</li>
+<li>void SDLNet_FreePacket(UDPpacket <a href="#id1229"><span class="problematic" id="id1230">*</span></a>packet)</li>
+<li>UDPpacket <a href="#id1231"><span class="problematic" id="id1232">**</span></a>SDLNet_AllocPacketV(int howmany, int size)</li>
+<li>void SDLNet_FreePacketV(UDPpacket <a href="#id1233"><span class="problematic" id="id1234">**</span></a>packetV)</li>
 <li>SDLNet_SocketSet SDLNet_AllocSocketSet(int maxsockets)</li>
 <li>void SDLNet_FreeSocketSet(SDLNet_SocketSet set)</li>
 <li>int SDLNet_AddSocket(SDLNet_SocketSet set, SDLNet_GenericSocket sock)</li>
@@ -891,6 +893,34 @@
 <li>int SDLNet_CheckSockets(SDLNet_SocketSet set, Uint32 timeout)</li>
 <li>int SDLNet_SocketReady(TCPsocket sock)</li>
 <li>int circleRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rad, Uint8 r, Uint8 g, Uint8 b, Uint8 a)</li>
+<li>SDL_Thread <a href="#id1235"><span class="problematic" id="id1236">*</span></a>SDL_CreateThread(SDL_ThreadFunction fn,const char <a href="#id1237"><span class="problematic" id="id1238">*</span></a>name,void <a href="#id1239"><span class="problematic" id="id1240">*</span></a>data)</li>
+<li>void SDL_DetachThread(SDL_Thread <a href="#id1241"><span class="problematic" id="id1242">*</span></a>thread)</li>
+<li>SDL_threadID SDL_GetThreadID(SDL_Thread <a href="#id1243"><span class="problematic" id="id1244">*</span></a>thread)</li>
+<li>const char <em>SDL_GetThreadName(SDL_Thread</em> thread)</li>
+<li>int SDL_SetThreadPriority(SDL_ThreadPriority priority)</li>
+<li>SDL_TLSID SDL_TLSCreate(void)</li>
+<li>void <a href="#id1245"><span class="problematic" id="id1246">*</span></a>SDL_TLSGet(SDL_TLSID id)</li>
+<li>int SDL_TLSSet(SDL_TLSID   id,const void <a href="#id1247"><span class="problematic" id="id1248">*</span></a>value,void <a href="#id1249"><span class="problematic" id="id1250">*</span></a>)</li>
+<li>SDL_threadID SDL_ThreadID(void)</li>
+<li>void SDL_WaitThread(SDL_Thread <a href="#id1251"><span class="problematic" id="id1252">*</span></a>thread,int <a href="#id1253"><span class="problematic" id="id1254">*</span></a>status)</li>
+<li>int SDL_CondBroadcast(SDL_cond <a href="#id1255"><span class="problematic" id="id1256">*</span></a>cond)</li>
+<li>int SDL_CondSignal(SDL_cond <a href="#id1257"><span class="problematic" id="id1258">*</span></a>cond)</li>
+<li>int SDL_CondWait(SDL_cond <a href="#id1259"><span class="problematic" id="id1260">*</span></a>cond,SDL_mutex <a href="#id1261"><span class="problematic" id="id1262">*</span></a>mutex)</li>
+<li>int SDL_CondWaitTimeout(SDL_cond <a href="#id1263"><span class="problematic" id="id1264">*</span></a>cond,SDL_mutex <a href="#id1265"><span class="problematic" id="id1266">*</span></a>mutex,Uint32 ms)</li>
+<li>SDL_cond <a href="#id1267"><span class="problematic" id="id1268">*</span></a>SDL_CreateCond(void)</li>
+<li>SDL_mutex <a href="#id1269"><span class="problematic" id="id1270">*</span></a>SDL_CreateMutex(void)</li>
+<li>SDL_sem <a href="#id1271"><span class="problematic" id="id1272">*</span></a>SDL_CreateSemaphore(Uint32 initial_value)</li>
+<li>void SDL_DestroyCond(SDL_cond <a href="#id1273"><span class="problematic" id="id1274">*</span></a>cond)</li>
+<li>void SDL_DestroyMutex(SDL_mutex <a href="#id1275"><span class="problematic" id="id1276">*</span></a>mutex)</li>
+<li>void SDL_DestroySemaphore(SDL_sem <a href="#id1277"><span class="problematic" id="id1278">*</span></a>sem)</li>
+<li>int SDL_LockMutex(SDL_mutex <a href="#id1279"><span class="problematic" id="id1280">*</span></a>mutex)</li>
+<li>int SDL_SemPost(SDL_sem <a href="#id1281"><span class="problematic" id="id1282">*</span></a>sem)</li>
+<li>int SDL_SemTryWait(SDL_sem <a href="#id1283"><span class="problematic" id="id1284">*</span></a>sem)</li>
+<li>Uint32 SDL_SemValue(SDL_sem <a href="#id1285"><span class="problematic" id="id1286">*</span></a>sem)</li>
+<li>int SDL_SemWait(SDL_sem <a href="#id1287"><span class="problematic" id="id1288">*</span></a>sem)</li>
+<li>int SDL_SemWaitTimeout(SDL_sem <a href="#id1289"><span class="problematic" id="id1290">*</span></a>sem,Uint32   ms)</li>
+<li>int SDL_TryLockMutex(SDL_mutex <a href="#id1291"><span class="problematic" id="id1292">*</span></a>mutex)</li>
+<li>int SDL_UnlockMutex(SDL_mutex <a href="#id1293"><span class="problematic" id="id1294">*</span></a>mutex)</li>
 </ul>
 </div>
 
@@ -942,11 +972,11 @@
         <li class="right" >
           <a href="ringallegrofuncsdoc.html" title="RingAllegro Functions Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

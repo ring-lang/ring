@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Stack and Variables */
 
@@ -27,7 +27,7 @@ void ring_vm_pushv ( VM *pVM )
 							ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
 							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
 								/* Delete the Item from the HashTable */
-								ring_hashtable_deleteitem(pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+								ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
 								ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
 							}
 							return ;
@@ -68,17 +68,19 @@ void ring_vm_loadaddress ( VM *pVM )
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
-		/* Replace LoadAddress with PUSHPLOCAL for better performance */
-		RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
-		ring_vm_newbytecodeitem(pVM,3);
-		ring_vm_newbytecodeitem(pVM,4);
-		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
-		ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-		#if RING_SHOWICFINAL
-		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
-		ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
-		ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-		#endif
+		if ( pVM->lUsePushPLocal ) {
+			/* Replace LoadAddress with PUSHPLOCAL for better performance */
+			RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
+			ring_vm_newbytecodeitem(pVM,3);
+			ring_vm_newbytecodeitem(pVM,4);
+			ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
+			ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+			#if RING_SHOWICFINAL
+			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
+			ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
+			ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+			#endif
+		}
 	}
 	/* Add Result Scope to aLoadAddressScope Array */
 	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,pVM->nVarScope);
@@ -152,12 +154,8 @@ void ring_vm_assignment ( VM *pVM )
 					pVar = ring_item_getlist(pItem);
 				}
 				pList = ring_list_new_gc(pVM->pRingState,0);
-				ring_list_copy(pList,pVar);
-				/*
-				**  We use (Temp) List - to avoid problems when coping from parent list to child list 
-				**  Simulate C Pointer copy on the original list because we works on the temp list 
-				*/
-				ring_vm_list_simpointercopy(pVM,pVar);
+				ring_vm_list_copy(pVM,pList,pVar);
+				/* We use (Temp) List - to avoid problems when coping from parent list to child list */
 				RING_VM_STACK_POP ;
 				pVar = (List *) RING_VM_STACK_READP ;
 				RING_VM_STACK_POP ;
@@ -288,7 +286,7 @@ void ring_vm_setreference ( VM *pVM )
 	pList = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	/* Reference Counting to Destination before copy from Source */
-	ring_vm_gc_checkupdatereference(pList);
+	ring_vm_gc_checkupdatereference(pVM,pList);
 	/* Copy by reference */
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
@@ -301,6 +299,7 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 {
 	int x  ;
 	List *pNewList2  ;
+	Item *pItem  ;
 	assert(pList != NULL);
 	/* Copy Items */
 	if ( ring_list_getsize(pList) == 0 ) {
@@ -322,26 +321,24 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 		else if ( ring_list_islist(pList,x) ) {
 			pNewList2 = ring_list_newlist_gc(pVM->pRingState,pNewList);
 			ring_vm_list_copy(pVM,pNewList2,ring_list_getlist(pList,x));
+			/* Update Self Object Pointer */
+			if ( ring_vm_oop_isobject(pNewList2) ) {
+				pItem = ring_list_getitem(pNewList,ring_list_getsize(pNewList));
+				ring_vm_oop_updateselfpointer(pVM,pNewList2,RING_OBJTYPE_LISTITEM,pItem);
+			}
 		}
 	}
 	/* Check if the List if a C Pointer List */
 	if ( ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE ) {
 		if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER)  && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isint(pList,RING_CPOINTER_STATUS) ) {
-			/* Check value to avoid adding the pointer to the C Pointer list again */
-			if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
-				/* Mark C Pointer List As Copied */
-				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
-				ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
-				/* Add the pointer to the C Poiners List */
-				if ( ring_list_findpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER)) == 0 ) {
-					ring_list_addpointer_gc(pVM->pRingState,pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER));
-				}
-			}
-			else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
-				/* Mark the C Pointer List as Not Copied */
-				ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-				ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-			}
+			/* Mark the C Pointer List as Not Copied */
+			ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+			ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+			/* Copy The Pointer by Reference */
+			pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
+			pItem = ring_list_getitem(pList,1) ;
+			pNewList->pFirst->pValue = pItem ;
+			ring_vm_gc_newitemreference(pItem);
 		}
 	}
 }

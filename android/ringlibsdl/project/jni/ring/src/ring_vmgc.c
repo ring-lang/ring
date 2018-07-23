@@ -1,5 +1,12 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
+/* GC Functions */
+
+void ring_vm_gc_cleardata ( Item *pItem )
+{
+	pItem->gc.nReferenceCount = 0 ;
+	pItem->gc.pFreeFunc = NULL ;
+}
 
 void ring_vm_gc_checkreferences ( VM *pVM )
 {
@@ -17,7 +24,7 @@ void ring_vm_gc_checkreferences ( VM *pVM )
 					#if GCLog
 					printf( "GC CheckReferences - Free Memory %p \n",pItem ) ;
 					#endif
-					ring_item_delete(pItem);
+					ring_item_delete_gc(pVM->pRingState,pItem);
 				}
 			}
 		}
@@ -41,14 +48,14 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType )
 	}
 }
 
-void ring_vm_gc_checkupdatereference ( List *pList )
+void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 {
 	Item *pItem  ;
 	/* Reference Counting to Destination before copy from Source */
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
 		if ( ring_list_getint(pList,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
-			ring_item_delete(pItem);
+			ring_item_delete_gc(pVM->pRingState,pItem);
 		}
 	}
 }
@@ -59,7 +66,11 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		#if GCLog
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
-		ring_item_content_delete(pItem);
+		/* Call Free Function */
+		if ( pItem->nType == ITEMTYPE_POINTER ) {
+			ring_vm_gc_freefunc((RingState *) pState,pItem);
+		}
+		ring_item_content_delete_gc(pState,pItem);
 		ring_state_free(pState,pItem);
 	}
 	else {
@@ -72,57 +83,49 @@ void ring_vm_gc_killreference ( VM *pVM )
 	List *pList  ;
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
-		ring_vm_gc_checkupdatereference(pList);
+		ring_vm_gc_checkupdatereference(pVM,pList);
 	}
 }
 
 void ring_vm_gc_deletetemplists ( VM *pVM )
 {
-	int x  ;
-	List *pScope,*pList  ;
-	/* If we are in the class region (After class name) then return */
-	if ( pVM->nInClassRegion ) {
-		return ;
-	}
 	/*
 	**  This function is called from Ring code by callgc() 
 	**  Function Goal 
 	**  When we return Lists/Pointers from functions we create variable called ring_sys_temp 
-	**  This variable is created in the previous scope instead of the active function scope 
+	**  This variable is created in the caller temp. memory instead of the active function scope 
 	**  This is necessary because the function scope will be deleted and we need the varaible 
 	**  This is important because we may assign the variable to variable name 
 	**  The problem happens when we have a loop that uses f1(f2()) 
 	**  and f2() return a lists/pointer 
-	**  The temp list/C Pointer will not be deleted until the end of the function 
+	**  The temp list/C Pointer will not be deleted until the end of the caller function 
 	**  But we have a loop and this will lead to a memory leak during loop execution 
 	**  When testing al_map_rgb() in Allegro Library this problem becomes critical 
 	**  This function solves this problem, by deleting temp lists/C Pointers in the current scope 
-	**  We use -1 to skip the currect scope of the Ring function (callgc()) 
 	*/
-	pScope = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
-	/* The function works only when we expect to have temp variables */
-	if ( ring_list_getsize(pScope) >= 1 ) {
-		for ( x = ring_list_getsize(pScope) ; x >= 1 ; x-- ) {
-			pList = ring_list_getlist(pScope,x);
-			if ( ring_list_getsize(pList) != RING_VAR_LISTSIZE ) {
-				continue ;
-			}
-			if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
-				ring_list_deleteitem(pScope,x);
-			}
-			else if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_OBJECT) == 0 ) {
-				ring_list_deleteitem(pScope,x);
-			}
-		}
+	if ( pVM->nInClassRegion ) {
+		return ;
 	}
-	/* Delete The HashTable */
-	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
-	ring_list_genhashtable2(pScope);
+	ring_list_deleteallitems_gc(pVM->pRingState,ring_vm_prevtempmem(pVM));
 }
 
 void ring_vm_gc_newitemreference ( Item *pItem )
 {
 	pItem->gc.nReferenceCount++ ;
+}
+
+void ring_vm_gc_freefunc ( RingState *pState,Item *pItem )
+{
+	if ( pItem->gc.pFreeFunc != NULL ) {
+		if ( pItem->data.pPointer  != NULL ) {
+			pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
+		}
+	}
+}
+
+void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
+{
+	pItem->gc.pFreeFunc = pFreeFunc ;
 }
 /* Memory Functions (General) */
 
@@ -151,10 +154,11 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 {
 	#if RING_USEPOOLMANAGER
 	if ( pState != NULL ) {
-		if ( ((RingState *) pState )->pVM  != NULL ) {
-			if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
-				return ring_poolmanager_allocate( (RingState *) pState,size) ;
-			}
+		#if RING_TRACKALLOCATIONS
+		((RingState *) pState)->vPoolManager.nAllocCount++ ;
+		#endif
+		if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+			return ring_poolmanager_allocate((RingState *) pState,size) ;
 		}
 	}
 	#endif
@@ -165,14 +169,26 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 {
 	#if RING_USEPOOLMANAGER
 	/* Use Pool Manager */
-	ring_poolmanager_free((RingState *) pState,pMemory);
-	#else
-	ring_free(pMemory);
+	if ( pState != NULL ) {
+		#if RING_TRACKALLOCATIONS
+		((RingState *) pState)->vPoolManager.nFreeCount++ ;
+		#endif
+		ring_poolmanager_free(((RingState *) pState),pMemory);
+		return ;
+	}
 	#endif
+	ring_free(pMemory);
 }
 
 RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 {
+	#if RING_USEPOOLMANAGER
+	if ( pState != NULL ) {
+		#if RING_TRACKALLOCATIONS
+		((RingState *) pState)->vPoolManager.nAllocCount++ ;
+		#endif
+	}
+	#endif
 	return ring_calloc(nitems,size) ;
 }
 
@@ -192,14 +208,14 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	PoolData *pMemory  ;
 	int x  ;
 	/* Get Block Memory */
-	pMemory = (PoolData *) ring_malloc(sizeof(PoolData)*RING_POOLMANAGER_ITEMSINBLOCK);
+	pMemory = (PoolData *) ring_calloc(RING_POOLMANAGER_ITEMSINBLOCK,sizeof(PoolData));
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
 	/* Set Linked Lists (pNext values) */
-	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 2 ; x++ ) {
+	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 1 ; x++ ) {
 		pMemory[x].pNext = pMemory+x+1 ;
 	}
 	pMemory[RING_POOLMANAGER_ITEMSINBLOCK-1].pNext = NULL ;
@@ -207,10 +223,15 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
-	pRingState->vPoolManager.pCurrentItem = pMemory+1 ;
+	pRingState->vPoolManager.pCurrentItem = pMemory ;
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
 	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
+	/* Set Values For Tracking Allocations */
+	pRingState->vPoolManager.nAllocCount = 0 ;
+	pRingState->vPoolManager.nFreeCount = 0 ;
+	pRingState->vPoolManager.nSmallAllocCount = 0 ;
+	pRingState->vPoolManager.nSmallFreeCount = 0 ;
 }
 
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
@@ -218,7 +239,7 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 	void *pMemory  ;
 	pMemory = NULL ;
 	/* If No memory - Create new block */
-	if ( (pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL) ) {
+	if ( (pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL)  && (pRingState->lStartPoolManager) ) {
 		ring_poolmanager_newblock(pRingState);
 	}
 	/* Get Item from the Pool Manager */
@@ -235,6 +256,9 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 			exit(0);
 		}
 	}
+	#if RING_TRACKALLOCATIONS
+	pRingState->vPoolManager.nSmallAllocCount++ ;
+	#endif
 	return pMemory ;
 }
 
@@ -243,10 +267,13 @@ void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 	PoolData *pPoolData  ;
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
-			if ( (pMemory > pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
+			if ( (pMemory >= pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
 				pPoolData = (PoolData *) pMemory ;
 				pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
 				pRingState->vPoolManager.pCurrentItem = pPoolData ;
+				#if RING_TRACKALLOCATIONS
+				pRingState->vPoolManager.nSmallFreeCount++ ;
+				#endif
 				return ;
 			}
 		}
@@ -259,6 +286,9 @@ void ring_poolmanager_delete ( RingState *pRingState )
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
 			free( pRingState->vPoolManager.pBlockStart ) ;
+			pRingState->vPoolManager.pBlockStart = NULL ;
+			pRingState->vPoolManager.pBlockEnd = NULL ;
+			pRingState->vPoolManager.pCurrentItem = NULL ;
 		}
 	}
 }

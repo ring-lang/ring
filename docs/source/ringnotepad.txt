@@ -242,6 +242,8 @@ to find and replace text.
 
 Also We can set the Tab Width (Number of Spaces)
 
+Starting from Ring 1.8 we have the (Find in Files) option.
+
 .. image:: rnotemenu_edit.png
 	:alt: Ring Notepad - Edit Menu
 

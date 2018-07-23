@@ -219,7 +219,6 @@ class game from gamebase
 					next	
 				next	
 				gclock = clock()	 
-				callgc()		
 			ok	 			
 		end
 

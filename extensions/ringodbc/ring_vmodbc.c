@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #ifdef _WIN32
@@ -50,7 +50,7 @@ void ring_vm_odbc_init ( void *pPointer )
 	pODBC->nFlag = RING_ODBC_FLAG_ENV ;
 	ret = SQLSetEnvAttr(pODBC->env, SQL_ATTR_ODBC_VERSION, (void *) SQL_OV_ODBC3, 0);
 	if ( SQL_SUCCEEDED(ret) ) {
-		RING_API_RETCPOINTER(pODBC,RING_VM_POINTER_ODBC);
+		RING_API_RETMANAGEDCPOINTER(pODBC,RING_VM_POINTER_ODBC,ring_vm_odbc_freefunc);
 	} else {
 		free( pODBC ) ;
 		RING_API_RETNUMBER(0);
@@ -139,14 +139,7 @@ void ring_vm_odbc_close ( void *pPointer )
 		if ( pODBC == NULL ) {
 			return ;
 		}
-		if ( pODBC->nFlag & RING_ODBC_FLAG_STMT ) {
-			SQLFreeHandle(SQL_HANDLE_STMT,pODBC->stmt);
-		}
-		if ( pODBC->nFlag & RING_ODBC_FLAG_DBC ) {
-			SQLFreeHandle(SQL_HANDLE_DBC,pODBC->dbc);
-		}
-		SQLFreeHandle(SQL_HANDLE_ENV,pODBC->env);
-		free( pODBC ) ;
+		ring_vm_odbc_freefunc(((VM *) pPointer)->pRingState,pODBC);
 		RING_API_SETNULLPOINTER(1);
 		RING_API_RETNUMBER(1);
 	} else {
@@ -463,4 +456,18 @@ void ring_vm_odbc_rollback ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_odbc_freefunc ( void *pState,void *pPointer )
+{
+	ring_odbc *pODBC  ;
+	pODBC = (ring_odbc *) pPointer ;
+	if ( pODBC->nFlag & RING_ODBC_FLAG_STMT ) {
+		SQLFreeHandle(SQL_HANDLE_STMT,pODBC->stmt);
+	}
+	if ( pODBC->nFlag & RING_ODBC_FLAG_DBC ) {
+		SQLFreeHandle(SQL_HANDLE_DBC,pODBC->dbc);
+	}
+	SQLFreeHandle(SQL_HANDLE_ENV,pODBC->env);
+	free( pODBC ) ;
 }

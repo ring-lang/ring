@@ -22,7 +22,7 @@ class FormDesigner_QImage from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Image File",True)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_IMAGEFILE,True)	# "Image File"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

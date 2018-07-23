@@ -30,9 +30,10 @@ class FormDesignerFileSystem
 	func NewAction oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",cDir,"*.rform")
 			}
+			oFileDialog.delete()
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
@@ -73,6 +74,8 @@ class FormDesignerFileSystem
 		return cInputFileName
 
 	func CloseAction oDesigner
+		# Refresh Properties 
+			oDesigner.oView.refreshProperties()
 		# Delete objects
 			DeleteAllObjects(oDesigner)	
 		# No File Name
@@ -87,8 +90,11 @@ class FormDesignerFileSystem
 				blocksignals(False)
 			}
 			oDesigner.oModel.FormObject() {
+		 		setBackColor("")
 				setWindowTitle("Form 1")
 			}
+		# Properties
+			oDesigner.ObjectProperties()
 		# Tell the Parent (Ring Notepad for example)
 			if oDesigner.isParent() {
 				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
@@ -100,9 +106,10 @@ class FormDesignerFileSystem
 	func OpenAction oDesigner
 		# Get the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",cDir,"*.rform")
 			}
+			oFileDialog.close()
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
 			LoadFormFromFile(oDesigner)
@@ -130,9 +137,10 @@ class FormDesignerFileSystem
 	func SaveFile oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			new qfiledialog(oDesigner.oView.win) {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
 				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",cDir,"*.rform")
 			}
+			oFileDialog.delete()
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
@@ -177,22 +185,66 @@ class FormDesignerFileSystem
 
 	func DeleteAllobjects oDesigner
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
-			item = oDesigner.oModel.aObjectsList[x]
-			oObject = item[2]
-			oObject.oCorners.Hide()
-			oObject.Close()
+			oDesigner.oModel.aObjectsList[x][2] {
+				oCorners.close()
+				oCorners.delete()
+				close()
+				delete()
+			}
 		}
+		DeleteAllObjectsFromModel(oDesigner)
+
+	func DeleteAllObjectsFromModel oDesigner
 		oDesigner.oModel.DeleteAllObjects()
 		oDesigner.AddObjectsToCombo()
 		oDesigner.AddObjectProperties()
 
 	func LoadFormFromFile oDesigner
+		# Refresh Properties 
+			oDesigner.oView.refreshProperties()
+		# Disable Updates 
+			oDesigner.oView.oSub.setupdatesenabled(False)
+			oDesigner.oView.oSub.blocksignals(True)
 		# Delete objects
-			DeleteAllObjects(oDesigner)
+			DeleteAllObjectsFromModel(oDesigner)
+		# Create New Form 
+			CreateNewForm(oDesigner)
 		# Load the Form Data
 			eval(read(cFileName))
 		# Create Objects
 			CreateFormObjects(oDesigner,aObjectsList)
+		# Enable Updates
+			oDesigner.oView.oSub.setupdatesenabled(True)
+			oDesigner.oView.oSub.blocksignals(False)
+
+
+	func CreateNewForm oDesigner
+		# Close the form 
+			oDesigner.oModel.FormObject().close()
+
+		# Update the Model 
+			oDesigner.oModel.aObjectsList = []
+
+		# Create the form
+			oDesigner.oModel.AddObject("Window",
+				 new FormDesigner_qWidget() { hide() }
+			)
+
+		# Create the Select/Draw Label
+			oDesigner.oView.oLabelSelect = new qlabel(oDesigner.oModel.FormObject()) {
+				setGeometry(100,100,400,400)
+		 		setstylesheet("background-color:rgba(50,150,255,0.3);border: 1px solid black")
+				setautoFillBackground(false)
+				settext("")
+				setmousetracking(false)
+				hide()
+			}
+
+		# Add the form to the Sub Window
+			oDesigner.oView.oSub {
+				setwidget(oDesigner.oModel.FormObject())
+				oDesigner.oModel.ActiveObject().setSubWindow(oDesigner.oView.oSub)
+			}
 
 	func CreateFormObjects oDesigner,aObjectsList
 		# Use the List data to create the objects
@@ -221,6 +273,7 @@ class FormDesignerFileSystem
 							else 
 								setIndexTypeValue(0)
 							}
+							show()
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()

@@ -22,7 +22,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Video File",True)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VIDEOFILE,True)	# "Video File"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

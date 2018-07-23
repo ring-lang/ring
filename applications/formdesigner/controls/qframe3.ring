@@ -30,7 +30,8 @@ class FormDesigner_QFrame3 from QFrame3
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox("Frame Style",["Plain","Raised","Sunken"])
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_FRAMESTYLE,
+			[T_FORMDESIGNER_ATTRIBUTE_PLAIN,T_FORMDESIGNER_ATTRIBUTE_RAISED,T_FORMDESIGNER_ATTRIBUTE_SUNKEN]) # "Frame Style" "Plain" "Raised""Sunken"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

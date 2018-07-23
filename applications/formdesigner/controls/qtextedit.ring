@@ -75,14 +75,14 @@ class FormDesigner_QTextEdit from QLineEdit
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddProperty("copyAvailableEvent",False)
-		oDesigner.oView.AddProperty("currentCharFormatChangedEvent",False)
-		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
-		oDesigner.oView.AddProperty("redoAvailableEvent",False)
-		oDesigner.oView.AddProperty("selectionChangedEvent",False)
-		oDesigner.oView.AddProperty("textChangedEvent",False)
-		oDesigner.oView.AddProperty("undoAvailableEvent",False)
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXT,False)				# "Text"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_COPYAVAILABLEEVENT,False)			# "copyAvailableEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURRENTCHARFORMATCHANGEDEVENT,False)	# "currentCharFormatChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_CURSORPOSITIONCHANGEDEVENT,False)		# "cursorPositionChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_REDOAVAIABLEEVENT,False)			# "redoAvailableEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SELECTIONCHANGEDEVENT,False)		# "selectionChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_TEXTCHANGEDEVENT,False)			# "textChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_UNDOAVAILABLEEVENT,False)			# "undoAvailableEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

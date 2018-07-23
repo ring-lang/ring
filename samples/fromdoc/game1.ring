@@ -142,7 +142,6 @@ while true
                 al_draw_bitmap(bouncer, bouncer_x, bouncer_y, 0)
                 al_flip_display()
         ok
-        callgc()
 end
 
 al_destroy_timer(timer)

@@ -1,6 +1,6 @@
 # The Ring Standard Library
 # Trace Library
-# 2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2017-2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Trace Events
 TRACEEVENT_NEWLINE 	= 1
@@ -16,7 +16,7 @@ TRACEDATA_FILENAME 	= 2
 TRACEDATA_FUNCNAME 	= 3
 TRACEDATA_METHODORFUNC 	= 4
 
-# Method of Function
+# Method or Function
 TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
@@ -179,13 +179,15 @@ func NoBreakPoints
 
 
 func PrintLocalsData nScope
+	TRACE_TEMPLIST = []
 	if nScope = 1	# Global
 		ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = globals()')
 	else
-		ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+		ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals()')
 	ok
 	see nl 
 	aTempList = TRACE_TEMPLIST
+	if len(aTempList) = 0 return ok
 	TRACE_TEMPLIST = []
 	nSpaces = 5
 	for TRACE_ITEM in aTempList
@@ -194,12 +196,14 @@ func PrintLocalsData nScope
 		ok
 	next
 	for TRACE_ITEM in aTempList
-		see "Variable : " +  TRACE_ITEM
-		cVarName = TRACE_ITEM
-		see copy(" ",nSpaces-len(cVarName)) + " Type : " 
-		ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-		ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +  TRACE_ITEM +"))))")
-		see " Value : " 
-		ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
-		see nl
+		if TRACE_ITEM != NULL
+			see "Variable : " +  TRACE_ITEM
+			cVarName = TRACE_ITEM
+			see copy(" ",nSpaces-len(cVarName)) + " Type : " 
+			ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
+			ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +  TRACE_ITEM +"))))")
+			see " Value : " 
+			ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
+			see nl
+		ok
 	next

@@ -1,10 +1,19 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
 int ring_vm_loadfunc ( VM *pVM )
 {
-	return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,1) ;
+	if ( pVM->lInsideEval ) {
+		/*
+		**  In this case we are using eval("somefunction()") 
+		**  We don't use optimization, it's not required because the code will not be executed again 
+		*/
+		return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,0) ;
+	}
+	else {
+		return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,1) ;
+	}
 }
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
@@ -39,7 +48,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pList = pVM->pFunctionsMap ;
 		}
 		if ( ring_list_gethashtable(pList) == NULL ) {
-			ring_list_genhashtable2_gc(pVM->pRingState,pList);
+			if ( pVM->pRingState->lRunFromThread ) {
+				ring_list_genhashtable2(pList);
+			}
+			else {
+				ring_list_genhashtable2_gc(pVM->pRingState,pList);
+			}
 		}
 		pList2 = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pList),cStr);
 		if ( pList2 != NULL ) {
@@ -293,11 +307,11 @@ void ring_vm_call2 ( VM *pVM )
 				pVM->nIgnoreNULL = 0 ;
 			}
 		}
-		/* Move returned List to the previous scope */
-		if ( RING_VM_STACK_ISPOINTER ) {
-			ring_vm_movetoprevscope(pVM);
-		}
-		/* Return (Delete Scope, Restore ActiveMem) */
+		/*
+		**  We don't need to move the list to the previous scope 
+		**  Because RING_API_RETLIST() will do this for us 
+		**  Return (Delete Scope, Restore ActiveMem) 
+		*/
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		ring_vm_deletescope(pVM);
 		/* Restore ActiveMem */
@@ -318,7 +332,7 @@ void ring_vm_call2 ( VM *pVM )
 			**  Using the return command 
 			*/
 			RING_VM_STACK_POP ;
-			ring_vm_mainloop(pVM);
+			ring_vm_mainloopforeval(pVM);
 		}
 	}
 }
@@ -498,13 +512,12 @@ void ring_vm_movetoprevscope ( VM *pVM )
 	} else {
 		return ;
 	}
-	pList2 = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
+	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,ring_vm_prevtempmem(pVM));
 	ring_list_setint_gc(pVM->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
 	/* Copy the list */
-	ring_list_copy_gc(pVM->pRingState,pList2,pList);
+	ring_vm_list_copy(pVM,pList2,pList);
 	/* Update self object pointer */
 	if ( ring_vm_oop_isobject(pList2) ) {
 		ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
@@ -516,14 +529,23 @@ void ring_vm_movetoprevscope ( VM *pVM )
 void ring_vm_createtemplist ( VM *pVM )
 {
 	List *pList  ;
-	/*
-	**  Create the list in the TempMem related to the function 
-	**  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
-	**  Variable name in TemMem is not important, we use it for storage (no search) 
-	*/
-	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-	pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		/*
+		**  Create the list in the TempMem related to the function 
+		**  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
+		**  Variable name in TemMem is not important, we use it for storage (no search) 
+		*/
+		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+		pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+	}
+	else {
+		/* Create the list in the General Temp. Memory */
+		pList = ring_list_newlist_gc(pVM->pRingState,pVM->pTempMem);
+	}
+	/* Create the variable */
 	ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
+	/* Set the Address scope as local */
+	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 }
 
 void ring_vm_saveloadaddressscope ( VM *pVM )
@@ -563,4 +585,22 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM )
 		}
 	}
 	return 0 ;
+}
+
+List * ring_vm_prevtempmem ( VM *pVM )
+{
+	List *pList  ;
+	int x  ;
+	/* We use the general temp. memory as the default parent */
+	pList = pVM->pTempMem ;
+	/* Get Temp Memory of the previous function */
+	for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,x);
+		if ( ring_list_getsize(pList) >= RING_FUNCCL_TEMPMEM ) {
+			/* Get Temp Mem */
+			pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+			break ;
+		}
+	}
+	return pList ;
 }

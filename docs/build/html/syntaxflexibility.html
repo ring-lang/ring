@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Syntax Flexibility &mdash; Ring 1.7 documentation</title>
+    <title>Syntax Flexibility &mdash; Ring 1.9 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
     <link rel="next" title="Introduction to the Type Hints Library" href="typehints.html" />
     <link rel="prev" title="Scope Rules for Functions and Methods" href="scope2.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="scope2.html" title="Scope Rules for Functions and Methods"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -556,6 +556,37 @@ Then you can use the &#8216;else&#8217; keyword.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="ignore-new-lines-after-keywords">
+<span id="index-17"></span><h2>Ignore new lines after keywords<a class="headerlink" href="#ignore-new-lines-after-keywords" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8 the compiler will ignore new lines after keywords that expect tokens after it</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span>
+<span class="s">&quot;</span>
+        <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="s">&quot;</span>
+<span class="n">test</span><span class="p">()</span>
+
+<span class="k">func</span>
+<span class="c">#======================#</span>
+        <span class="n">Test</span>
+<span class="c">#======================#</span>
+
+        <span class="o">?</span>
+        <span class="s">&quot;</span>
+
+        <span class="n">Hello</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Test</span> <span class="n">function</span>
+
+        <span class="s">&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+
+
+Hello from the Test function
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -583,6 +614,7 @@ Then you can use the &#8216;else&#8217; keyword.</p>
 <li><a class="reference internal" href="#using-braces-in-packages-classes-functions">Using braces { } in Packages/Classes/Functions</a></li>
 <li><a class="reference internal" href="#using-end-keyword-after-packages-classes-functions">Using &#8216;end&#8217; keyword after Packages/Classes/Functions</a></li>
 <li><a class="reference internal" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">Using &#8216;endpackage&#8217;/&#8217;endclass&#8217;/&#8217;endfunc&#8217; keywords after Packages/Classes/Functions</a></li>
+<li><a class="reference internal" href="#ignore-new-lines-after-keywords">Ignore new lines after keywords</a></li>
 </ul>
 </li>
 </ul>
@@ -629,11 +661,11 @@ Then you can use the &#8216;else&#8217; keyword.</p>
         <li class="right" >
           <a href="scope2.html" title="Scope Rules for Functions and Methods"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

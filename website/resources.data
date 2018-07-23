@@ -102,6 +102,18 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/QtClassConverter" target="_blank">Qt Class Converter</a>',
 					'<img src="qtclassconverter.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/findinfiles" target="_blank">Find in files</a>',
+					'<img src="findinfiles.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/string2constant" target="_blank">String2Constant</a>',
+					'<img src="string2constant.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">StopWatch</a>',
+					'<img src="stopwatch.png" width="40%">'
 				]
 			    ]
                  ],
@@ -306,6 +318,9 @@
 		 ["English Tutorials (YouTube) by Roshan Ali",[
 				[
 					'<a href="https://www.youtube.com/watch?v=qQm5L-S92hk" target="_blank">Ring: Hello World (Download and Installation: Lesson One)</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Ring Programing: Lesson 2</a>'
 				]
 			]
 	     ],		 			
@@ -1020,6 +1035,9 @@
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=A6roiRtcXbQ&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=2" target="_blank">Using Classes - Braces and init() Method</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=VIoxZnYx_Q8&index=3&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-" target="_blank">Using Ring2EXE - Distribute Application</a>'
 				]
 			]
 	     ],
@@ -2208,6 +2226,14 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=UV0y57ohVyw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#130 Set CSS Style To Controls</a>',
 					'<img src="ahpart3.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=KB-zUFE2bSE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#131 Calculator</a>',
+					'<img src="ahpart3.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=mLS0E215nZk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#132 Form Designer - Say Hello</a>',
+					'<img src="ahpart3.jpg" width="60%">'
 				]
 			]
 			],
@@ -2268,11 +2294,18 @@
 					'<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18" target="_blank">Ring programming language - Lesson 18 - Functions Scope, Type Hints and Trace Library</a>'
 				],
 				[
+					'<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 19 - Ring 1.7 Features!</a>'
+				],
+				[
 					'<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 1 - First Application (Buttons and Events)</a>'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 2 - Using Textbox (LineEdit Control)</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=s1DxFaiFCIo&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a&index=3" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 3 - Sum Numbers (ListWidget Control)</a>'
 				]
+
 			]
 			]
 ]

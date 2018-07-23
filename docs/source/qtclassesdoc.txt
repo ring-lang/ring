@@ -1698,7 +1698,64 @@ C++ Reference : http://doc.qt.io/qt-5/QDir.html
 
 Parameters : void
 
-* void setNameFilters(QStringList)
+* QString absoluteFilePath(QString fileName)
+* QString absolutePath(void)
+* QString canonicalPath(void)
+* bool cd(QString dirName)
+* bool cdUp(void)
+* uint count(void)
+* QString dirName(void)
+* QFileInfoList entryInfoList(QStringList nameFilters, QDir::Filters filters, QDir::SortFlags sort)
+* QFileInfoList entryInfoList_2(QDir::Filters filters, QDir::SortFlags sort)
+* QStringList entryList(QStringList nameQDir::Filters, QDir::Filters filters, QDir::SortFlags sort)
+* QStringList entryList_2(QDir::Filters filters, QDir::SortFlags sort)
+* bool exists(QString name)
+* bool exists_2(void)
+* QString filePath(QString fileName)
+* QDir::Filters filter(void)
+* bool isAbsolute(void)
+* bool isReadable(void)
+* bool isRelative(void)
+* bool isRoot(void)
+* bool makeAbsolute(void)
+* bool mkdir(QString dirName)
+* bool mkpath(QString dirPath)
+* QStringList nameFilters(void)
+* QString path(void)
+* void refresh(void)
+* QString relativeFilePath(QString fileName)
+* bool remove(QString fileName)
+* bool removeRecursively(void)
+* bool rename(QString oldName, QString newName)
+* bool rmdir(QString dirName)
+* bool rmpath(QString dirPath)
+* void setFilter(QDir::Filters filters)
+* void setNameFilters(QStringList nameQDir::Filters)
+* void setPath(QString path)
+* void setSorting(QDir::SortFlags sort)
+* QDir::SortFlags sorting(void)
+* void swap(QDir other)
+* void addSearchPath(QString prefix, QString path)
+* QString cleanPath(QString path)
+* QDir current(void)
+* QString currentPath(void)
+* QFileInfoList drives(void)
+* QString fromNativeSeparators(QString pathName)
+* QDir home(void)
+* QString homePath(void)
+* bool isAbsolutePath(QString path)
+* bool isRelativePath(QString path)
+* bool match(QString filter, QString fileName)
+* bool match_2(QStringList filters, QString fileName)
+* QDir root(void)
+* QString rootPath(void)
+* QStringList searchPaths(QString prefix)
+* QChar separator(void)
+* bool setCurrent(QString path)
+* void setSearchPaths(QString prefix, QStringList searchPaths)
+* QDir temp(void)
+* QString tempPath(void)
+* QString toNativeSeparators(QString pathName)
 
 .. index::
 	pair: RingQt Classes Reference; QDirModel Class
@@ -1798,6 +1855,65 @@ Parameters : QEvent::Type Type
 * void setAccepted(bool accepted)
 * bool spontaneous(void)
 * int type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QFile Class
+
+QFile Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFile.html
+
+
+Parameters : void
+
+
+Parent Class : QFileDevice
+
+* bool copy(QString newName)
+* bool exists(void)
+* bool link(QString linkName)
+* bool open(FILE *fh, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+* bool open_2(int fd, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+* bool remove(void)
+* bool rename(QString newName)
+* void setFileName(QString name)
+* QString symLinkTarget(void)
+* bool copy_2(QString fileName, QString newName)
+* QString decodeName(QByteArray localFileName)
+* QString decodeName_2(char *localFileName)
+* QByteArray encodeName(QString fileName)
+* bool exists_2(QString fileName)
+* bool link_2(QString fileName, QString linkName)
+* QFile::Permissions permissions(QString fileName)
+* bool remove_2(QString fileName)
+* bool rename_2(QString oldName, QString newName)
+* bool resize(QString fileName, qint64 sz)
+* bool setPermissions(QString fileName, QFile::Permissions permissions)
+* QString symLinkTarget_2(QString fileName)
+
+.. index::
+	pair: RingQt Classes Reference; QFileDevice Class
+
+QFileDevice Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFileDevice.html
+
+
+Parent Class : QIODevice
+
+* QFileDevice::FileError error(void)
+* bool flush(void)
+* int handle(void)
+* uchar * map(qint64 offset, qint64 size, QFileDevice::MemoryMapFlags flags)
+* QFileDevice::Permissions permissions(void)
+* bool resize(qint64 sz)
+* QString fileName(void)
+* bool unmap(uchar *address)
+* void unsetError(void)
 
 .. index::
 	pair: RingQt Classes Reference; QFileDialog Class
@@ -2496,7 +2612,6 @@ Parameters : void
 * QHostInfo fromName(QString)
 * QString localDomainName(void)
 * QString localHostName(void)
-* int lookupHost(QString, QObject *receiver, const char *member)
 
 .. index::
 	pair: RingQt Classes Reference; QIODevice Class
@@ -4598,6 +4713,7 @@ Parameters : QOpenGLTexture::Target
 * int width(void)
 * QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
 * GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
+
 .. index::
 	pair: RingQt Classes Reference; QOpenGLTimerQuery Class
 
@@ -5319,6 +5435,31 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QQmlError Class
+
+QQmlError Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQmlError.html
+
+
+Parameters : void
+
+* int column(void)
+* QString description(void)
+* bool isValid(void)
+* int line(void)
+* QObject * object(void)
+* void setColumn(int column)
+* void setDescription(QString description)
+* void setLine(int line)
+* void setObject(QObject *object)
+* void setUrl(QUrl url)
+* QString toString(void)
+* QUrl url(void)
+
+.. index::
 	pair: RingQt Classes Reference; QQuaternion Class
 
 QQuaternion Class
@@ -5350,6 +5491,41 @@ Parameters : float,float,float,float
 * QQuaternion fromAxisAndAngle_2(float x, float y, float z, float angle)
 * QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 * QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+
+.. index::
+	pair: RingQt Classes Reference; QQuickWidget Class
+
+QQuickWidget Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQuickWidget.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QQmlEngine *engine(void)
+* QList<QQmlError> errors(void)
+* QSurfaceFormat format(void)
+* QImage grabFramebuffer(void)
+* QSize initialSize(void)
+* QQuickWindow *quickWindow(void)
+* QQuickWidget::ResizeMode resizeMode(void)
+* QQmlContext *rootContext(void)
+* QQuickItem *rootObject(void)
+* void setClearColor(QColor color)
+* void setFormat(QSurfaceFormat format)
+* void setResizeMode(QQuickWidget::ResizeMode)
+* QUrl source(void)
+* QQuickWidget::Status status(void)
+* void setSource(QUrl url)
+* void setsceneGraphErrorEvent(const char *)
+* void setstatusChangedEvent(const char *)
+* const char *getsceneGraphErrorEvent(void)
+* const char *getstatusChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QRadioButton Class
@@ -5619,6 +5795,21 @@ Parent Class : QAbstractScrollArea
 * QWidget *takeWidget(void)
 * QWidget *widget(void)
 * bool widgetResizable(void)
+
+.. index::
+	pair: RingQt Classes Reference; QScrollBar Class
+
+QScrollBar Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QScrollBar.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractSlider
 
 .. index::
 	pair: RingQt Classes Reference; QSerialPort Class
@@ -6119,6 +6310,26 @@ Parent Class : QFrame
 * const char *getwidgetRemovedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QStandardPaths Class
+
+QStandardPaths Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QStandardPaths.html
+
+
+Parameters : void
+
+* QString displayName(QStandardPaths::StandardLocation type)
+* QString findExecutable(QString executableName, QStringList paths))
+* QString locate(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+* QStringList locateAll(QStandardPaths::StandardLocation type, QString fileName, QStandardPaths::LocateOptions options)
+* void setTestModeEnabled(bool testMode)
+* QStringList standardLocations(QStandardPaths::StandardLocation type)
+* QString writableLocation(QStandardPaths::StandardLocation type)
+
+.. index::
 	pair: RingQt Classes Reference; QStatusBar Class
 
 QStatusBar Class
@@ -6231,8 +6442,6 @@ Parameters : void
 * QStringRef appendTo(QString * string)
 * QChar at(int position)
 * void clear(void)
-* int compare(QString other, Qt::CaseSensitivity cs)
-* int compare_2(QStringRef other, Qt::CaseSensitivity cs)
 * int compare_3(QLatin1String other, Qt::CaseSensitivity cs)
 * QChar * constData(void)
 * bool contains(QString str, Qt::CaseSensitivity cs)
@@ -6353,6 +6562,75 @@ Parameters : void
 * void showMessage(QString, QString, QSystemTrayIcon::MessageIcon, int millisecondsTimeoutHint)
 * bool isSystemTrayAvailable(void)
 * bool supportsMessages(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTabBar Class
+
+QTabBar Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTabBar.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* int addTab(QString text)
+* int addTab_2(QIcon icon, QString text)
+* int count(void)
+* int currentIndex(void)
+* bool documentMode(void)
+* bool drawBase(void)
+* Qt::TextElideMode elideMode(void)
+* bool expanding(void)
+* QSize iconSize(void)
+* int insertTab(int index, QString text)
+* int insertTab_2(int index, QIcon icon, QString text)
+* bool isMovable(void)
+* bool isTabEnabled(int index)
+* void moveTab(int from, int to)
+* void removeTab(int index)
+* QTabBar::SelectionBehavior selectionBehaviorOnRemove(void)
+* void setDocumentMode(bool set)
+* void setDrawBase(bool drawTheBase)
+* void setElideMode(Qt::TextElideMode)
+* void setExpanding(bool enabled)
+* void setIconSize(QSize size)
+* void setMovable(bool movable)
+* void setSelectionBehaviorOnRemove(QTabBar::SelectionBehavior behavior)
+* void setShape(QTabBar::Shape shape)
+* void setTabButton(int index, QTabBar::ButtonPosition position, QWidget * widget)
+* void setTabData(int index, QVariant data)
+* void setTabEnabled(int index, bool enabled)
+* void setTabIcon(int index, QIcon icon)
+* void setTabText(int index, QString text)
+* void setTabTextColor(int index, QColor color)
+* void setTabToolTip(int index, QString tip)
+* void setTabWhatsThis(int index, QString text)
+* void setTabsClosable(bool closable)
+* void setUsesScrollButtons(bool useButtons)
+* QTabBar::Shape shape(void)
+* int tabAt(QPoint position)
+* QWidget * tabButton(int index, QTabBar::ButtonPosition position)
+* QVariant tabData(int index)
+* QIcon tabIcon(int index)
+* QRect tabRect(int index)
+* QString tabText(int index)
+* QColor tabTextColor(int index)
+* QString tabToolTip(int index)
+* QString tabWhatsThis(int index)
+* bool tabsClosable(void)
+* bool usesScrollButtons(void)
+* void setCurrentIndex(int index)
+* void setcurrentChangedEvent(const char *)
+* void settabCloseRequestedEvent(const char *)
+* void settabMovedEvent(const char *)
+* const char *getcurrentChangedEvent(void)
+* const char *gettabCloseRequestedEvent(void)
+* const char *gettabMovedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTabWidget Class
@@ -7825,6 +8103,54 @@ C++ Reference : http://doc.qt.io/qt-5/QVideoWidgetControl.html
 
 Parent Class : QMediaControl
 
+
+.. index::
+	pair: RingQt Classes Reference; QWebEngineView Class
+
+QWebEngineView Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QWebEngineView.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* bool hasSelection(void)
+* QWebEngineHistory *history(void)
+* void load(QUrl) # In RingQt use : void loadpage(QUrl)
+* QWebEnginePage *page(void)
+* QAction *pageAction(QWebEnginePage::WebAction action)
+* QString selectedText(void)
+* void setContent(QByteArray,QString,QUrl)
+* void setHtml(QString,QUrl)
+* void setPage(QWebEnginePage *page)
+* void setUrl(QUrl)
+* void setZoomFactor(qreal factor)
+* QWebSettings *settings(void)
+* QString title(void)
+* void triggerPageAction(QWebEnginePage::WebAction action, bool checked)
+* QUrl url(void)
+* qreal zoomFactor(void)
+* void back(void)
+* void forward(void)
+* void reload(void)
+* void stop(void)
+* void setloadFinishedEvent(const char *)
+* void setloadProgressEvent(const char *)
+* void setloadStartedEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void settitleChangedEvent(const char *)
+* void seturlChangedEvent(const char *)
+* const char *getloadFinishedEvent(void)
+* const char *getloadProgressEvent(void)
+* const char *getloadStartedEvent(void)
+* const char *getselectionChangedEvent(void)
+* const char *gettitleChangedEvent(void)
+* const char *geturlChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QWebView Class

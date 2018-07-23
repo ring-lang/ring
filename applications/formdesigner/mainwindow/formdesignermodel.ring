@@ -131,7 +131,9 @@ Class FormDesignerModel
 		aManySelectedObjects = []
 
 	func AddSelectedObject nIndex
-		aManySelectedObjects + aObjectsList[nIndex]
+		if nIndex != 1 {
+			aManySelectedObjects + aObjectsList[nIndex]
+		}
 
 	func GetSelectedObjects
 		return aManySelectedObjects
@@ -398,19 +400,31 @@ Class FormDesignerModel
 
 	func SetObjectName oDesigner,oObject,cValue
 		# Check duplication
-		for Item in aObjectsList {
-			if lower(trim(Item[1])) = lower(trim(cValue)) {
-				if not PtrCmp( Item[2].pObject , oObject.pObject ) {
-					oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
+			for Item in aObjectsList {
+				if lower(trim(Item[1])) = lower(trim(cValue)) {
+					if not PtrCmp( Item[2].pObject , oObject.pObject ) {
+						oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
+					}
+					return
 				}
-				return
 			}
-		}
-		for Item in aObjectsList {
-			if PtrCmp( Item[2].pObject , oObject.pObject ) {
-				Item[1] = cValue
+		# Set the new name 
+			for Item in aObjectsList {
+				if PtrCmp( Item[2].pObject , oObject.pObject ) {
+					cOldName = Item[1]
+					Item[1] = cValue
+				}
 			}
-		}
+		# Update Control Name in Layouts  		
+			for Item in aObjectsList {
+				if ClassName(Item[2]) = "formdesigner_qlayout" {
+					cLayoutObjects = Item[2].layoutobjectsValue()
+					cLayoutObjects = substr(cLayoutObjects,cOldName,cValue)
+					Item[2].setlayoutobjectsValue(cLayoutObjects)
+				}
+			}
+
+
 
 	func GetObjectClassByName cName
 		cOutput = ""
@@ -429,11 +443,22 @@ Class FormDesignerModel
 		}
 		return aList
 
+	func GetLayoutsNames 
+		aList = []
+		for Item in aObjectsList {
+			if ClassName(Item[2]) = "formdesigner_qlayout" {
+				aList + Item[1]
+			}
+		}
+		return aList
+
 	func ActiveObjectItemAsList
 		return [ aObjectsList[nActiveObject] ]
 
 	func RaiseActiveObject
+		aObjectsList + 0
 		swap(aObjectsList,nActiveObject,len(aObjectsList))
+		del(aObjectsList,nActiveObject)
 
 	func LowerActiveObject
 		cParentValue = ActiveObject().CurrentParentName()
@@ -443,5 +468,13 @@ Class FormDesignerModel
 				}
 		}
 		if not x = nActiveObject {
-			swap(aObjectsList,nActiveObject,x)
+			insert(aObjectsList,x,0)
+			swap(aObjectsList,nActiveObject+1,x+1)
+			del(aObjectsList,nActiveObject+1)
 		}
+
+	func MoveObjectDown nIndex 
+		swap(aObjectsList,nIndex+1,nIndex+2)
+
+	func MoveObjectUp nIndex 
+		swap(aObjectsList,nIndex+1,nIndex)

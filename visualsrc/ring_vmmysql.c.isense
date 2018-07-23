@@ -92,3 +92,6 @@ Type: MYSQL *
 con
 Type: int
 nResult
+ring_vm_mysql_freefunc
+Type: MYSQL *
+con

@@ -1261,7 +1261,7 @@ Methods:
 Method									Description/Output
 ======================================	======================================================================
 open(cDatabase)							Open Database.
-close()									Close Database.
+close()								Close Database.
 errormessage()							Get Error Message.
 execute(cSQL)							Execute Query.
 ======================================	======================================================================
@@ -1353,15 +1353,15 @@ Methods:
 ======================================	======================================================================
 Method									Description/Output
 ======================================	======================================================================
-md5(cString)							Calculate the MD5 hash.
-sha1(cString)							Calculate the SHA1 hash.
-sha256(cString)							Calculate the SHA256 hash.
-sha512(cString)							Calculate the SHA512 hash.
-sha384(cString)							Calculate the SHA384 hash.
-sha224(cString)							Calculate the SHA224 hash.
-encrypt(cString,cKey,cIV)				Cncrypts the data using the Blowfish algorithm.
+md5(cString)						Calculate the MD5 hash.
+sha1(cString)						Calculate the SHA1 hash.
+sha256(cString)						Calculate the SHA256 hash.
+sha512(cString)						Calculate the SHA512 hash.
+sha384(cString)						Calculate the SHA384 hash.
+sha224(cString)						Calculate the SHA224 hash.
+encrypt(cString,cKey,cIV)				Encrypts the data using the Blowfish algorithm.
 decrypt(cString,cKey,cIV)				Decrypt the data encrypted using the Encrypt() method.
-randbytes(nSize)						Generate a string of pseudo-random bytes.
+randbytes(nSize)					Generate a string of pseudo-random bytes.
 ======================================	======================================================================
 
 example:
@@ -1370,9 +1370,9 @@ example:
 
 	Load "stdlib.ring"
 
-	osecuirty = new secuirty
-	See "Test the secuirty Class Methods" + nl
-	oSecuirty { 
+	oSecurity = new security
+	See "Test the security Class Methods" + nl
+	oSecurity { 
 		see md5("hello") + nl + 
 		sha1("hello") + nl + sha256("hello") + nl +
 		sha512("hello") + nl + sha384("hello") + nl + 

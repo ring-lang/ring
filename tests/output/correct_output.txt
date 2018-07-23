@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-75
-75
+3
+76
+73
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3725
+Time 1201
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-03014A78
+0139C338
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 24/01/2018
-time: 18:46:30
+date: 22/07/2018
+time: 23:12:15
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3444,9 +3444,9 @@ Hello from testloadpackage.ring
 B:\ring\tests>call ring scripts/testfnicr.ring 
 
 Line 4 Error (R1) : Cann't divide by zero ! 
-in file scripts/filenameinclassregion.ring 
+in file B:\ring\tests\scripts/filenameinclassregion.ring 
 B:\ring\tests>call ring scripts/testfnicr2.ring 
-scripts/filenameinclassregion2.ring
+B:\ring\tests\scripts/filenameinclassregion2.ring
 
 B:\ring\tests>call ring scripts/plusequalfunc.ring 
 one = test:get_one()
@@ -3465,3 +3465,115 @@ Func GetObjectPointerFromRingObject pObj
 B:\ring\tests>call ring scripts/varptr.ring 
 char
 char
+
+B:\ring\tests>call ring scripts/forloopscope.ring 
+10
+6
+10
+NULL
+10
+
+B:\ring\tests>call ring scripts/chars.ring 
+Weo
+Weo
+3
+W
+All String
+12
+         
+First Part
+4
+   
+Second Part
+4
+   
+Third Part
+4
+   
+All String
+12
+         
+1
+1
+
+B:\ring\tests>call ring scripts/ncemain.ring 
+
+Line 1 Error (R1) : Cann't divide by zero ! 
+in file B:\ring\tests\scripts/ncesub.ring 
+B:\ring\tests>call ring scripts/filenameinpara.ring 
+scripts/filenameinpara.ring
+
+B:\ring\tests>call ring scripts/filepath1.ring 
+Test...
+Test 2....
+
+B:\ring\tests>call ring scripts/ringinring.ring 
+Start the test!
+Let us try having an error
+
+Line 1 Error (R24) : Using uninitialized variable : x 
+in file Ring_EmbeddedCode 
+End of test!
+
+B:\ring\tests>call ring scripts/ignorenewline.ring 
+
+	Hello, World!
+
+	
+	Hello from the Test function
+
+	
+
+B:\ring\tests>call ring scripts/thisinclassregion.ring 
+My Application
+1.0
+Name    = My Application
+Version = 1.0
+name: My Application
+version: 1.0
+
+
+B:\ring\tests>call ring scripts/nullattr.ring 
+NULL
+NULL
+1
+1
+0
+0
+name: My Application
+version: 1.0
+
+
+B:\ring\tests>call ring scripts/nullptr.ring 
+0
+1
+Wow, we get error here!
+
+B:\ring\tests>call ring scripts/spaceinlist.ring  
+ B1: ABCD
+ B2: EFGH
+ B3: IJKL
+ B4: MNOP
+
+B:\ring\tests>call ring scripts/xortest.ring 
+B1= 2345 B2= 1111
+
+B3=B[1]^B[2] : 3454
+
+B[3]=B[1][k]^'1' :
+3
+2
+5
+4
+
+B[3]=B[1][k]^B[2][k] :
+3
+2
+5
+4
+====
+
+B:\ring\tests>call ring scripts/nestednew.ring 
+True parent!
+hello from child
+hello from parent

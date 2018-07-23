@@ -38,8 +38,16 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		}
 		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		(*pFunc)(pRingState) ;
-		ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
-		ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
+		/* Generate Hash Table */
+		if ( pRingState->lRunFromThread ) {
+			ring_list_genarray(pRingState->pRingCFunctions);
+			ring_list_genhashtable2(pRingState->pRingCFunctions);
+		}
+		else {
+			ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+			ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
+		}
+		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,handle);
 		RING_API_RETCPOINTER(handle,"DLL");
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -49,6 +57,9 @@ void ring_vm_dll_loadlib ( void *pPointer )
 void ring_vm_dll_closelib ( void *pPointer )
 {
 	LpHandleType handle  ;
+	int nIndex  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -56,7 +67,25 @@ void ring_vm_dll_closelib ( void *pPointer )
 	if ( RING_API_ISPOINTER(1) ) {
 		handle = RING_API_GETCPOINTER(1,"DLL") ;
 		CloseDLL(handle);
-	} else {
+		RING_API_SETNULLPOINTER(1);
+		/* Remove the pointer */
+		nIndex = ring_list_findpointer(pVM->pCLibraries,handle);
+		if ( nIndex ) {
+			ring_list_deleteitem_gc(pVM->pRingState,pVM->pCLibraries,nIndex);
+		}
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_dll_closealllibs ( VM *pVM )
+{
+	int x  ;
+	LpHandleType handle  ;
+	for ( x = 1 ; x <= ring_list_getsize(pVM->pCLibraries) ; x++ ) {
+		handle = ring_list_getpointer(pVM->pCLibraries,x);
+		CloseDLL(handle);
+	}
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pCLibraries);
 }

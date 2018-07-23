@@ -34,16 +34,17 @@
 	we mean that we have the same method with different parameters (As in C++)	
 */
 
-C_INS_FUNCTION  = 1
-C_INS_CODE	= 2
-C_INS_REGISTER  = 3
-C_INS_COMMENT   = 4
-C_INS_STRUCT    = 5
-C_INS_FUNCSTART = 6
-C_INS_RUNCODE   = 7
-C_INS_CLASS	= 8
-C_INS_FILTER    = 9
-C_INS_CONSTANT  = 10
+C_INS_FUNCTION  	= 1
+C_INS_CODE		= 2
+C_INS_REGISTER  	= 3
+C_INS_COMMENT  		= 4
+C_INS_STRUCT    	= 5
+C_INS_FUNCSTART 	= 6
+C_INS_RUNCODE   	= 7
+C_INS_CLASS		= 8
+C_INS_FILTER    	= 9
+C_INS_CONSTANT  	= 10
+C_INS_FREEFUNCTIONS 	= 11
 
 C_FUNC_INS	= 1
 C_FUNC_OUTPUT 	= 2
@@ -99,6 +100,8 @@ C_CLASSESLIST_CODENAME 		= 4
 C_CLASSESLIST_PASSVMPOINTER 	= 5
 C_CLASSESLIST_ABSTRACT 		= 6
 C_CLASSESLIST_NONEW 		= 7
+C_CLASSESLIST_STATICMETHODS	= 8
+C_CLASSESLIST_MANAGED		= 9
 
 $lNodllstartup = false	# when used, ring.h will not be included automatically
 $cLibInitFunc = "ringlib_init"
@@ -106,6 +109,8 @@ $cLibInitFunc = "ringlib_init"
 $lIgnoreCPointerTypeCheck = false
 
 $aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
+
+$lAddFreeFunctions = false 
 
 # When we define constants 
 	C_CONSTANT_INS			= 1
@@ -181,6 +186,11 @@ Func Main
 			loop
 		but cLine = "<nodllstartup>"
 			$lNodllstartup = true
+			loop
+		but cLine = "<addfreefunctionsprototype>"
+			lFlag = C_INS_FREEFUNCTIONS
+			aData + [C_INS_FREEFUNCTIONS]
+			$lAddFreeFunctions = true
 			loop
 		but left(cLine,13) = "<libinitfunc>"
 			$cLibInitFunc = trim(substr(cLine,14))
@@ -338,12 +348,10 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				cClassName = trim(substr(cValue,6))
 				See "Class Name : " + cClassName + nl
-				$aClassesList + [cClassName,"","","",false,false,false]
+				$aClassesList + [cClassName,"","","",false,false,false,false,false]
 			ok
 		ok
-	next
-		
-	#
+	next		
 	
 	for t = 1 to nMax 
 		aFunc = aList[t]
@@ -359,6 +367,8 @@ Func GenCode aList
 			cCode += GenStruct(aFunc)
 		but aFunc[C_FUNC_INS] = C_INS_CONSTANT
 			cCode += GenConstant(aFunc)
+		but aFunc[C_FUNC_INS] = C_INS_FREEFUNCTIONS
+			cCode += GenFreeFuncForClassesPrototype(aList)
 		but aFunc[C_FUNC_INS] = C_INS_RUNCODE
 			Try
 				eval(aFunc[C_INS_CODE])
@@ -397,11 +407,22 @@ Func GenCode aList
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_NONEW] = true
 				#del($aClassesList,nIndex)		
+			but lower(cValue) = "staticmethods"
+				nIndex = find($aClassesList,$cClassName,1)
+				$aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS] = true
+			but lower(cValue) = "managed"
+				nIndex = find($aClassesList,$cClassName,1)
+				$aClassesList[nIndex][C_CLASSESLIST_MANAGED] = true
+				See "Class : Managed" + nl		
+
 			ok
 		ok
 	next
 	cCode += GenNewFuncForClasses(aList)
 	cCode += GenDeleteFuncForClasses(aList)
+	if $lAddFreeFunctions 
+		cCode += GenFreeFuncForClasses(aList)
+	ok
 	cCode += GenFuncPrototype(aList)
 	return cCode
 
@@ -880,15 +901,25 @@ Func GenMethodCodeGetClassCodeName
 	ok
 	return cClassCodeName
 
+Func GenMethodCodeISStaticMethods
+	nIndex = find($aClassesList,$cClassName,1)
+	return $aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS]
+
 Func GenMethodCodeCheckParaCount aList
 
 	cClassCodeName = GenMethodCodeGetClassCodeName()
 
 	aPara = aList[C_FUNC_PARA]
-	nCount = ParaCount(aPara) + 1
-	cCode =  C_TABS_1 + cClassCodeName + " *pObject ;" + nl +
-	 	 C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+	if GenMethodCodeISStaticMethods()
+		nCount = ParaCount(aPara)
+		cCode = C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
 		 C_TABS_2 +"RING_API_ERROR("
+	else
+		nCount = ParaCount(aPara) + 1
+		cCode =  C_TABS_1 + cClassCodeName + " *pObject ;" + nl +
+		 	 C_TABS_1 + "if ( RING_API_PARACOUNT != "+nCount+" ) {" + nl +
+			 C_TABS_2 +"RING_API_ERROR("
+	ok
 	switch nCount
 	on 1 
 		cCode += "RING_API_MISS1PARA"
@@ -908,21 +939,26 @@ Func GenMethodCodeCheckParaCount aList
 
 Func GenMethodCodeCheckParaType aList
 	cClassCodeName = GenMethodCodeGetClassCodeName()
-	cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
-			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			 C_TABS_2 + "return ;" + nl +
-			 C_TABS_1 + "}" + nl +
-			 C_TABS_1 + "pObject = ("+
-			 cClassCodeName+" *) RING_API_GETCPOINTER(1," + '"'+
-			 $cClassName+'"' + ");"+nl
-
+	if GenMethodCodeISStaticMethods()
+		cCode = ""
+	else 
+		cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
+				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				 C_TABS_2 + "return ;" + nl +
+				 C_TABS_1 + "}" + nl +
+				 C_TABS_1 + "pObject = ("+
+				 cClassCodeName+" *) RING_API_GETCPOINTER(1," + '"'+
+				 $cClassName+'"' + ");"+nl
+	ok
 	aPara = aList[C_FUNC_PARA]
 	nCount = ParaCount(aPara)
 	if nCount > 0
 		nMax = len(aPara)
 		for t = 1 to nMax
 			x = aPara[t]
-			t++ # avoid the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t++ # avoid the object pointer
+			ok
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
@@ -953,7 +989,9 @@ Func GenMethodCodeCheckParaType aList
 						 C_TABS_1 + "}" + nl
 				ok
 			off
-			t-- # ignore effect of avoiding the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t-- # ignore effect of avoiding the object pointer
+			ok
 		next
 	ok
 	return cCode
@@ -968,6 +1006,7 @@ Func GenMethodCodeCallFunc aList
 	lRet = true
 	lUNKNOWN = false
 	lRetPointer = false
+	lObject = false
 	switch VarTypeID(aList[C_FUNC_OUTPUT])
 		on C_TYPE_VOID
 			lRet = false
@@ -987,6 +1026,7 @@ Func GenMethodCodeCallFunc aList
 				C_TABS_2 + "pValue = new " + aList[C_FUNC_OUTPUT] + 
 				"() ;" + nl +
 				C_TABS_2 + "*pValue = " 
+				lObject = true
 			else
 				cCode += "{" + nl + 
 				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
@@ -994,22 +1034,26 @@ Func GenMethodCodeCallFunc aList
 				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				C_TABS_2 + "*pValue = " 
 			ok
-
 			lRet = false
 			lUNKNOWN = true
 	off
+	if GenMethodCodeISStaticMethods()
+		cClassCodeName = GenMethodCodeGetClassCodeName()
+		cCode += cClassCodeName + "::"+ cFuncName + "(" +
+		GenMethodCodeGetParaValues(aList) + ")"
+	else 
 	cCode += "pObject->"+ cFuncName + "(" +
 		GenMethodCodeGetParaValues(aList) + ")"
-
-	#Check before return list for any 
-	if len(aBeforeReturn) > 0
-		nIndex = find(aBeforeReturn,aList[C_FUNC_OUTPUT],C_BR_TYPENAME)
-		if nIndex > 0
-			cCode += aBeforeReturn[nIndex][C_BR_CODE]
-		ok
-
 	ok
 
+	# Check before return list for any 
+		if len(aBeforeReturn) > 0
+			nIndex = find(aBeforeReturn,aList[C_FUNC_OUTPUT],C_BR_TYPENAME)
+			if nIndex > 0
+				cCode += aBeforeReturn[nIndex][C_BR_CODE]
+			ok
+		ok
+	
 	if lRet		
 		if lRetPointer
 			cCode += ',"' + GenPointerType(aList[C_FUNC_OUTPUT]) + '"'
@@ -1021,8 +1065,15 @@ Func GenMethodCodeCallFunc aList
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + C_TABS_1 + "}" + nl
+		if lObject and $lAddFreeFunctions
+			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+				'",ring_'+ trim(aList[C_FUNC_OUTPUT]) + "_freefunc" +
+				 ');' + nl + C_TABS_1 + "}" + nl
+		else 
+			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+				'",ring_state_free' +
+				 ');' + nl + C_TABS_1 + "}" + nl
+		ok
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
@@ -1039,7 +1090,9 @@ Func GenMethodCodeGetParaValues aList
 				cCode += ","
 			ok
 			x = aPara[t]
-			t++ # avoid the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t++ # avoid the object pointer
+			ok
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += " (" + x + ") " + "RING_API_GETNUMBER(" + t + ")"
@@ -1059,7 +1112,9 @@ Func GenMethodCodeGetParaValues aList
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
 			off
-			t-- # ignore effect of avoiding the object pointer
+			if not GenMethodCodeISStaticMethods()
+				t-- # ignore effect of avoiding the object pointer
+			ok
 		next
 	ok
 	return cCode
@@ -1090,10 +1145,15 @@ Func GenNewFuncForClasses aList
 				if aSub[C_CLASSESLIST_PASSVMPOINTER] 
 					cCode += ", (VM *) pPointer"
 				ok
-				cCode += ");" + nl +
-				C_TABS_1 + "RING_API_RETCPOINTER(pObject,"+
-					'"'+cName+'"' + ");"+ nl +
-			"}" + nl + nl
+				cCode += ");" + nl 
+			if aSub[C_CLASSESLIST_MANAGED]	
+				cCode += C_TABS_1 + "RING_API_RETMANAGEDCPOINTER(pObject,"+
+					'"'+cName+'",' + "ring_" + cName + "_freefunc" + ");"+ nl 
+			else 
+				cCode += C_TABS_1 + "RING_API_RETCPOINTER(pObject,"+
+					'"'+cName+'"' + ");"+ nl 
+			ok
+			cCode += "}" + nl + nl
 	next
 	return cCode
 
@@ -1114,7 +1174,8 @@ Func GenDeleteFuncForClasses aList
 		aList + mylist
 		cCode += "RING_FUNC(" + cFuncName + ")" + nl + 
 			"{" + nl +
-				C_TABS_1 + cCodeName + " *pObject ; " +nl +
+				C_TABS_1 + cCodeName + " *pObject ; " + nl +
+				C_TABS_1 + "RING_API_IGNORECPOINTERTYPE ;" + nl +
 				C_TABS_1 +"if ( RING_API_PARACOUNT != 1 )" + nl +
     				C_TABS_1 +"{" + nl +
         			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA);" + nl +
@@ -1124,10 +1185,52 @@ Func GenDeleteFuncForClasses aList
     				C_TABS_1 +"{" + nl +
             			C_TABS_2 +'pObject = ('+cCodeName+' *) RING_API_GETCPOINTER(1,"'+cCodeName+'");' + nl +
             			C_TABS_2 +"delete pObject ;" + nl +
+				C_TABS_2 +"RING_API_SETNULLPOINTER(1);" + nl +
     				C_TABS_1 +"}" + nl +				
 			"}" + nl + nl
 	next
 	return cCode
+
+Func GenFreeFuncForClasses aList
+	cCode = ""
+	for aSub in $aClassesList
+		cName = aSub[1]	cPara = "void"
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
+			loop
+		ok
+		if aSub[C_CLASSESLIST_CODENAME] != NULL
+			cCodeName = aSub[C_CLASSESLIST_CODENAME]
+		else
+			cCodeName = cName
+		ok
+		cFuncName = "ring_" + cName + "_freefunc"
+		cCode += "void " + cFuncName + "(void *pState,void *pPointer)" + nl + 
+			"{" + nl +
+				C_TABS_1 + cCodeName + " *pObject ; " + nl +
+            			C_TABS_1 +'pObject = ('+cCodeName+' *) pPointer;' + nl +
+            			C_TABS_1 +"delete pObject ;" + nl +
+			"}" + nl + nl
+	next
+	return cCode
+
+Func GenFreeFuncForClassesPrototype aList
+	cCode = nl + "// Functions Prototype - Functions used to Free Memory " + nl + nl
+	for aSub in $aClassesList
+		cName = aSub[1]	cPara = "void"
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
+			loop
+		ok
+		if aSub[C_CLASSESLIST_CODENAME] != NULL
+			cCodeName = aSub[C_CLASSESLIST_CODENAME]
+		else
+			cCodeName = cName
+		ok
+		cFuncName = "ring_" + cName + "_freefunc"
+		cCode += C_TABS_1 + "void " + cFuncName + "(void *pState,void *pPointer);" + nl 
+	next
+	cCode += nl + "// End of Functions Prototype - Functions used to Free Memory " + nl + nl
+	return cCode
+
 
 Func GenRingConstants aList
 	cCode = ""
@@ -1171,7 +1274,9 @@ Func GenRingCode aList
 						  GenRingCodeParaListUse(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) +")"+nl+
 						  C_TABS_2 + "return self" + nl + nl +
 						  C_TABS_1 + "Func delete" + nl + 
-						  C_TABS_2 + "pObject = " + cClassName+"_delete(pObject)" + nl  					
+						  C_TABS_2 + "pObject = " + cClassName+"_delete(pObject)" + nl + nl +
+						  C_TABS_1 + "Func ObjectPointer" + nl +
+						  C_TABS_2 + "return pObject" + nl 					
 						else
 							del($aClassesList,nIndex)
 						ok

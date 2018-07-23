@@ -63,9 +63,12 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
 	pRingState->nDontDeleteTheVM = 0 ;
+	pRingState->nRingInsideRing = 0 ;
 	pRingState->lNoLineNumber = 0 ;
 	pRingState->nCustomGlobalScopeCounter = 0 ;
 	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
+	pRingState->lStartPoolManager = 0 ;
+	pRingState->lRunFromThread = 1 ;
 	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	return pRingState ;
 }
@@ -89,8 +92,8 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
-	ring_poolmanager_delete(pRingState);
 	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
+	ring_poolmanager_delete(pRingState);
 	ring_free(pRingState);
 	return NULL ;
 }
@@ -217,11 +220,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
-		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	if ( ring_fexists("ring.ringo") && argc == 1 ) {
-		ring_execute("ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	/* Print Version */

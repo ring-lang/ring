@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Scope Rules for Variables and Attributes &mdash; Ring 1.7 documentation</title>
+    <title>Scope Rules for Variables and Attributes &mdash; Ring 1.9 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.7',
+        VERSION:     '1.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,9 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.7 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
     <link rel="next" title="Scope Rules for Functions and Methods" href="scope2.html" />
-    <link rel="prev" title="Using the Form Designer" href="formdesigner.html" /> 
+    <link rel="prev" title="Multi-language Applications" href="multilanguage.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,9 +39,9 @@
           <a href="scope2.html" title="Scope Rules for Functions and Methods"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="formdesigner.html" title="Using the Form Designer"
+          <a href="multilanguage.html" title="Multi-language Applications"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -773,8 +773,40 @@ z: 30.000000
 </pre></div>
 </div>
 </div>
+<div class="section" id="the-for-loops-uses-the-local-scope">
+<span id="index-13"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test1</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test2</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print 6</span>
+
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">6</span>
+<span class="mi">10</span>
+<span class="kp">NULL</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="summary-of-scope-rules">
-<span id="index-13"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this headline">¶</a></h2>
 <p>At first remember that</p>
 <p>1 - Each programming language comes with it&#8217;s scope rules based on the language goals</p>
 <p>2 - Programming in the small is different than Programming in the Large</p>
@@ -836,14 +868,15 @@ z: 30.000000
 <li><a class="reference internal" href="#creating-a-class-for-each-window-in-gui-applications">Creating a Class for each Window in GUI applications</a></li>
 <li><a class="reference internal" href="#conflict-between-self-inside-braces-and-self-in-the-class-region">Conflict between self inside braces and self in the class region</a></li>
 <li><a class="reference internal" href="#using-braces-to-escape-from-the-current-object-scope">Using braces to escape from the current object scope</a></li>
+<li><a class="reference internal" href="#the-for-loops-uses-the-local-scope">The For Loops uses the local scope</a></li>
 <li><a class="reference internal" href="#summary-of-scope-rules">Summary of Scope Rules</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="formdesigner.html"
-                        title="previous chapter">Using the Form Designer</a></p>
+  <p class="topless"><a href="multilanguage.html"
+                        title="previous chapter">Multi-language Applications</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="scope2.html"
                         title="next chapter">Scope Rules for Functions and Methods</a></p>
@@ -881,13 +914,13 @@ z: 30.000000
           <a href="scope2.html" title="Scope Rules for Functions and Methods"
              >next</a> |</li>
         <li class="right" >
-          <a href="formdesigner.html" title="Using the Form Designer"
+          <a href="multilanguage.html" title="Multi-language Applications"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.7 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

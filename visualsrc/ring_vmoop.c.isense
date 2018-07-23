@@ -4,11 +4,9 @@ cClassName,*cClassName2
 Type: int
 x,nLimit,nClassPC,nType,nCont
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf
+pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
 Type: Item *
 pItem
-Type: const char *
-cTempName
 ring_vm_oop_parentinit
 Type: const char *
 cClassName,*cClassName2
@@ -25,7 +23,7 @@ Type: int
 x
 ring_vm_oop_setscope
 Type: List *
-pList
+pList, *pThis
 ring_vm_oop_isobject
 ring_vm_oop_getobj
 Type: List *
@@ -163,10 +161,6 @@ pList
 ring_vm_oop_setthethisvariable
 Type: List *
 pList, *pThis
-ring_vm_oop_updateselfpointer2
-Type: Item *
-pItem
-Type: int
-x,lFound
+ring_vm_oop_setthethisvariableinclassregion
 Type: List *
-pRecord
+pList, *pThis

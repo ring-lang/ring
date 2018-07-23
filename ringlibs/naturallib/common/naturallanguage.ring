@@ -18,6 +18,7 @@ class NaturalLanguage
 		}
 
 	func SetCommandsPath cPath
+		cPath = substr(cPath,CurrentDir()+"/","")
 		cCommandsPath = cPath
 
 	func SetPackageName cName

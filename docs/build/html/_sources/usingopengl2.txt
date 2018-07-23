@@ -1081,3 +1081,31 @@ Screen Shot:
 	:width: 450pt
 	:height: 350pt
 	:alt: TicTacToe 3D Game
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingAllegro for 3D  Graphics; More 3D Samples
+
+More 3D Samples
+===============
+
+You will find the samples in ring/samples/3D folder
+
+The next screen shot for the Top-Down view - Many levels of cubes sample
+
+.. image:: more3dsamples.jpg
+	:alt: 3D samples
+
+The next screen shot for the Camera Sample
+
+.. image:: more3dsamples2.jpg
+	:alt: 3D samples
+
+The next screen shot for the Camera and background sample
+
+Developer : Azzeddine Remmal
+
+.. image:: cameraandbackground.png
+	:alt: Camera and background
+
+

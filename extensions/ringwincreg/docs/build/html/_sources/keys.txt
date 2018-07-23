@@ -1,0 +1,653 @@
+==================
+Dealing with Keys
+==================
+
+Here, we are going to learn how to deal with registry keys by using "ring_wincreg" extension capabilities through RCRegistry class library.
+
+.. index::
+	pair: Dealing with Keys; Create Key
+
+Create Key
+=============
+
+We can create a new key by using the same functions for opening keys because these functions can create a key if it is not existed and then open it. (:ref:`Open-Keys`)
+
+.. index::
+	pair: Dealing with Keys; Key Existence
+	
+Key Existence
+==============
+
+We can check whether a specific key existed before we open it by using **KeyExists()** function. This function accepts two parameters(HKEY ROOT, "SubKey\Path"). See the next example:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	New RCRegistry {
+	
+		If KeyExists(HKEY_CURRENT_USER, "Software\MyApp") = True
+			See "MyApp key is existed inside Software key"
+		Else
+			See "MyApp does not exist in Software key"
+		Ok
+	}
+	
+.. index:: 
+	pair: Dealing with Keys; Open Key
+	
+.. _Open-Keys:
+
+Open Key
+=========
+
+We can open a registry key using more than one function and option.
+
+.. index::
+	pair: Open Key; OpenKey() Function
+	
+OpenKey() Function
+-------------------
+
+This function is the primary open key function in the RCRegistry class that could be used to open keys.
+
+This function accepts parameters as a list so we should pass one list parameter that contains other parameters. The number of parameters allowed are 2-4. These parameters are:
+
+1. The HKEY root indexes: of the windows registry which could either be:
+		* HKEY_CLASSES_ROOT
+		* HKEY_CURRENT_USER
+		* HKEY_LOCAL_MACHINE
+		* HKEY_USERS
+		* HKEY_CURRENT_CONFIG
+		
+	.. note::
+	   ROOT HKEY indexes are numbers for each HKEY root, this index has been defined depending on the root organization in Windows Registry Editor but it starts with one. The complete list of HKEY roots indexes is:
+	   
+	   * HKEY_CLASSES_ROOT = 1
+	   	* HKCR = 1
+	   * HKEY_CURRENT_USER = 2
+	   	* HKCU = 2
+	   * HKEY_LOCAL_MACHINE = 3
+	   	* HKLM = 3
+	   * HKEY_USERS = 4
+	   	* HKU = 4
+	   * HKEY_CURRENT_CONFIG = 5
+	   	* HKCC = 5
+	   
+	   Note that each HKEY root has been shorten for easier call.
+   
+2. The sub key path: which is the key that we want to open under the specified root. It is a complete path to the required key under the specified root.
+3. Flags: which are numerical values represent specific behaviour that should extension assume. These flags allow more control over extension behaviour. They could be one or more of the follow:
+		* CREG_CREATE = 1 : this flag will make the function to create the key if its not exist. (This flag used by default if no flags have been set)
+		* CREG_READONLY = 0 : this flag opens the key if it is existed but will not create it if it is not. It cannot be used with CREG_CREATE flag at the same time.
+		* CREG_AUTOOPEN = 2 : this flag activates the auto open mechanism of this extension, which helps faster performance by automatic close and then open the key whenever it is needed. This is useful in case of repeatedly calling key open and close functions.
+		* CREG_NOCACHE = 4 : deactivate the caching mechanism of the CRegistry Class. ( Activated by default )
+		
+		.. note::
+		   Till now, the first three flags are only effective in the process of opening and closing the key, and the last one is effective in dealing with entries and values. To know how to use flags in more details go to (:ref:`SetAndGetFlags`) section.
+
+4. The option to access Wow64 tree: which could be true for access or false for opposite. It has been set "False" by default.
+
+.. hint::
+   Wow64 tree is an automatically created tree of keys inside windows registry for 32 bit programs that run on an 64 bit windows. So opening/creating "Software\\MyApp" under the HKEY_LOCAL_MACHINE root will not open/create it as expected but it will be opened/created as "Software\\Wow6432Node\\MyApp". `(Registry Redirection) <https://msdn.microsoft.com/en-us/library/windows/desktop/ms724072(v=vs.85).aspx>`_
+   
+   Till now any windows application created by Ring Programming Language is considered to be 32 bit application because Ring is built as 32 bit program.
+   
+Now lets have some examples for how to use **OpenKey()** function.
+
+Example 1
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software", CREG_READONLY])
+	
+	If Reg.SubKeyExists("Microsoft")
+		See "Microsoft key is already present in the Software key"
+	Ok
+	
+	Reg.CloseKey()
+
+This example opens "Software" key in the "HKEY_CURRENT_USER" HKEY root for reading only which means it will not auto create sub key if its not existed. Then it checks for "Microsoft" sub key whether it exists under "Software" key or not.
+	
+Example 2
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_LOCAL_MACHINE, "Software", CREG_READONLY, True])
+	
+	If Reg.SubKeyExists("Microsoft")
+		See "Microsoft key is already created in the Wow64 tree"
+	Ok
+	
+	Reg.CloseKey()
+
+This example does the same task that the previous example do. The main difference is that it opens the key in the Wow64 tree not the regular tree due to adding the forth parameter with "True" value.
+
+.. note:: 
+   This example may show access denied error (if Registry Virtualization has been disabled by manifest file). You can get around it by running Ring as Administrator.
+   You can use `"Ring_WINAPI" <https://github.com/MajdiSobain/ring_winapi>`_ extension to help elevating Ring.
+
+.. note::
+   In case you want to reach Wow64 tree without changing flags you can open the key first by calling **OpenKey()** function with two parameters then use **Access64Tree()** function (:ref:`Access64Tree`) to access Wow64 tree.
+
+.. index::
+	pair: Open Key; OpenKey2() Function
+	
+OpenKey2() Function
+--------------------
+
+This function is an overriding copy of the previous **OpenKey()** . But it accepts just two non list parameters, these are:
+
+1. HKEY root.
+2. Sub key to be opened.
+
+Example
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey2(HKCU, "Software\MyApp")
+	
+	Reg["version"].SetValue("4.4")
+	
+	See "MyApp version is : " + Reg["version"].GetValue()
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Open Key; OpenKey3() Function
+	
+OpenKey3() Function
+--------------------
+
+This function is an overriding copy of OpenKey() function. But it accepts just three non list parameters, these are:
+
+1. HKEY root.
+2. Sub key to be opened.
+3. Flags
+
+Example
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey3(HKCU, "Software\MyApp", CREG_CREATE)
+	
+	Reg["version"].SetValue("4.4")
+	
+	See "MyApp version is : " + Reg["version"].GetValue()
+	
+	Reg.CloseKey()
+
+.. index::
+	pair: Open Key; OpenKey4() Function
+	
+OpenKey4() Function
+--------------------
+
+This function is another overriding copy of OpenKey() function. But it accepts all four non list parameters, which are:
+
+1. HKEY root.
+2. Sub key to be opened.
+3. Flags.
+4. Wow64 tree access.
+
+Example
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey4(HKEY_LOCAL_MACHINE, "Software\MyApp", CREG_CREATE, True)
+	
+	Reg["version"].SetValue("4.4")
+	
+	See "MyApp version is : " + Reg["version"].GetValue()
+	
+	Reg.CloseKey()
+
+After opening the key it will be saved in an attribute as a pointer in RCRegistry object named **(Key)**, So that it could be used by other functions easily.
+
+.. code-block:: none 
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software,MyApp"])
+	
+	See "This is the information of Key handle pointer of this RCRegistry Object" + NL
+	
+	See Reg.Key
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Keys; Access HKEY Root
+	
+Access HKEY Root
+=================
+
+We can access/open any HKEY Root by passing empty string as sub key path as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKCU, ""]) }
+	
+	See "The sub keys contained in HKEY_CURRENT_USER are : " + NL
+	
+	See Reg.GetSubKeys()
+	
+	Reg.CloseKey()
+	
+.. index:: 
+	pair: Dealing with Keys; Close Key
+		
+Close Key
+============
+
+We can close any opened key by using **CloseKey()** function. It is recommended to close any key you opened to prevent any conflicts when the key is needed to be opened again.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	See "MyApp key is Opened" + NL
+	
+	Reg.CloseKey()
+	
+	See "MyApp key is closed"
+
+.. index::
+	pair: Dealing with Keys; Set and Get Flags
+	
+.. _SetAndGetFlags:
+
+Set and Get Flags
+==================
+
+We can Set or Get flags any time in the code using special functions. This may be useful if we opened a key without specifying enough flags that we want. 
+
+This can be done using **SetFlags()** and **GetFlags()** functions as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring" 
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	See "The flags that has been already set are : " + Reg.GetFlags() + NL
+	# Reg.GetFlags() will return 1 because CREG_CREATE flag has been set by default
+	
+	Reg.SetFlags(Reg.GetFlags() | CREG_AUTOOPEN)
+	
+	See "The flags after addition of CREG_AUTOOPEN are : " + Reg.GetFlags() + NL
+	
+	Reg.SetFlags(Reg.GetFlags() & ~CREG_AUTOOPEN)
+	
+	See "The flags after subtraction of CREG_AUTOOPEN are : " + Reg.GetFlags()
+	
+	Reg.CloseKey()
+	
+It is a must to know that setting new flags will omit any previously set flags.
+
+You can set multiple flags using bitwise operators as following (check previous example):
+	- OR "|" operator : will sum any flags. You can use "+" operator to do the same task.
+	- AND plus COMPLEMENT " & ~ " operators : will cause subtraction of any previously set flag. These operators reduce the possibility of creating unexpected flags than using "-" operator that may lead to unexpected behaviour if subtracted flags are not set initially.
+	
+	The most important thing is that subtracting using bitwise operators should be segmented if you want to remove more than one flag as follow:
+	
+	.. code-block:: none
+	
+		SetFlags( GetFlags() & ~CREG_AUTOOPEN )
+		SetFlags( GetFlags() & ~CREG_CREATE )
+	
+	OR
+	
+	.. code-block:: none
+	
+		SetFlags( (GetFlags() & ~CREG_AUTOOPEN) & ~CREG_CREATE )
+		
+.. note::
+   Setting multiple flags inappropriately may lead to unexpected behaviour.
+
+**CREG_CREATE** and **CREG_READONLY** flags **are not allowed** to be used together in the same flag setting context to avoid unexpected behaviour.
+The accepted ways to use them are:
+
+	* (CREG_CREATE) : This flag, alone or with other flags, will allow creating new keys.
+	* (CREG_READONLY) : This flag, alone or with other flags, will not permit creating keys if they are not existed.
+	* (GetFlags() & ~CREG_CREATE) : This expression will switch from **CREG_CREATE** situation into **CREG_READONLY** one in a key previously set to allow creating new keys. Providing that GetFlags() function returns multiple flags containing **CREG_CREATE** flag.
+	* (GetFlags() | CREG_CREATE) : this expression will switch from **CREG_READONLY** situation into **CREG_CREATE** one in a key previously set to prevent creating new keys. Providing that GetFlags() function returns multiple flags containing **CREG_READONLY** flag.
+   
+	The last two conditions help reset flags in case that there are already used multiple flags, but if you want to set flags completely from scratch use the previous two individual flags.
+	
+**CREG_CREATE** flag is used by default when calling OpenKey() function without setting flags. But if you set **CREG_AUTOOPEN** and\\or **CREG_NOCACHE** flags alone without setting any one of the previous two flags (**CREG_CREATE** or **CREG_READONLY**), the extension will use **CREG_READONLY** by default.
+
+As we highlighted before in (:ref:`Open-Keys`) section, using **CREG_AUTOOPEN** flag will help opening and closing the key automatically whenever it is needed, unless the key is manually closed or deleted. Now we will have a quick example showing the benefit of this:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry { OpenKey([HKCU, "Software\MyApp", CREG_CREATE | CREG_AUTOOPEN]) }
+	# After opening the key it will be closed automatically
+	
+	Reg["version"].SetValue("5.5")
+	# Here the key will be opened, setting the value, and then closed automatically
+	
+	See "The version of my app is : " + Reg["version"].GetValue()
+	# Here the key will be opened again, retrieving the value, and then closed automatically
+	
+**CREG_NOCACHE** flag may rarely be used if you want to relieve some load from RAM if the application is suspected to run on old computers, because this extension load all entries of the opened key by default for better responsiveness and performance.
+
+.. index::
+	pair: Dealing with Keys; Accessing 64 Bit Tree (Registry Redirection)
+	
+.. _Access64Tree:
+	
+Accessing Wow64 Tree (Registry Redirection)
+=============================================
+
+We can change the setting that let us access the 64 bit applications registry tree any time if we miss to set it during key opening.
+
+This could be done by using **Access64Tree()** function as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_LOCAL_MACHINE, "Software\MyApp"])
+	
+	Reg.Access64Tree(False)
+	
+	Reg["new value"].SetValue("1")
+	
+	Reg.Access64Tree(False)
+	
+	IF Reg["new value"].Exists() 
+		See "new value does exist" + NL
+	Else
+		See "new value does not exist" + NL
+	Ok
+	
+	Reg.Access64Tree(True)
+	
+	IF Reg["new value"].Exists() 
+		See "new value does exist" + NL
+	Else
+		See "new value does not exist" + NL
+	Ok
+	
+	Reg.CloseKey()
+	
+.. note:: This example may show access denied error. You can get around it by running Ring as Administrator.
+   You can use `"Ring_WINAPI" <https://github.com/MajdiSobain/ring_winapi>`_ extension to help elevating Ring.
+
+.. index::
+	pair: Dealing with Keys; Registry Virtualization Check
+	
+Registry Virtualization Check
+==============================
+
+We can attempt to check whether the opened key is under virtualization effect or not using **IsVirtualized()** and **IsVirtualized2()** functions.
+
+**Registry Virtualization** is an internal mechanism of Windows that helps keeping the sensitive registry keys and windows files away from being touched by the applications that have been developed to reach them in the previous copies of windows. So that to reach such sensitive keys and files you have to disable virtualization either by running your application/program as an administrator or use manifest files.
+
+Now check whether the currently opened key has been virtualized or not we can use these two functions.
+
+.. index::
+	pair: Registry Virtualization Check; IsVirtualized() Function
+	
+IsVirtualized() Function
+-------------------------
+
+This function checks virtualization of the opened key and return True/False.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_LOCAL_MACHINE, "Software\MyApp"])
+	
+	If Reg.IsVirtualized()
+		See "This key is virtualized"
+	Else
+		See "This key is not virtualized"
+	Ok
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Registry Virtualization Check; IsVirtualized2() Function
+	
+IsVirtualized2() Function
+--------------------------
+
+This function checks virtualization of the opened key and return:
+
+1. Number ( 1 ) if it is virtualized.
+2. Number ( 0 ) if it is not virtualized.
+3. Number ( -1 ) if the function is not certain about virtualization of the specified key.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_LOCAL_MACHINE, "Software\MyApp"])
+	
+	Switch Reg.IsVirtualized2()
+	On 1
+		See "This key is virtualized"
+	On 0
+		See "This key is not virtualized"
+	On -1
+		See "The function is not able to check virtualization of this key"
+	Off
+	
+	Reg.CloseKey()
+
+.. index::
+	pair: Dealing with Keys; Refresh Caching
+	
+Refresh Caching
+================
+
+If we found that some unknown or unexpected behaviours of "ring_wincreg" extension regarding retrieving entries or some values we can refresh the internal catching mechanism by using **Refresh()** function.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	See "Refreshing wincreg" + NL
+	
+	Reg.Refresh()
+	
+	See "Ring_WinCReg extension has been refreshed"
+	
+	Reg.CloseKey()
+	
+.. note:: This function may not be used during all of your work as there is a good internal management mechanism in "ring_wincreg" extension.
+
+.. index::
+	pair: Dealing with Keys; Sub Keys Existence
+	
+Sub Keys Existence
+===================
+
+We can check for any sub key that we may think it could be existed within the opened key by **SubKeyExists()** function.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	If Reg.SubKeyExists("Options")
+		See "Options sub key already existed"
+	Else
+		See "Options sub key does not exist"
+	Ok
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Keys; Sub Keys Count
+	
+Sub Keys Count
+===============
+
+We can get the total number of sub keys that are contained within any opened key by using **SubKeysCount()** function as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	See "The total number of sub keys contained in this key are : " + Reg.SubKeysCount()
+	
+	Reg.CloseKey()
+	
+.. index::
+	pair: Dealing with Keys; Sub Key by Index
+	
+Sub Key by Index
+=================
+
+We can get any sub key present in the opened key by its index using **GetSubKeyAt()** function.
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+	
+	See "The first sub key in this key is : " + Reg.GetSubKeyAt(1)
+	
+	Reg.CloseKey()
+
+.. index::
+	pair: Dealing with Keys; Get All Sub Keys
+	
+Get All Sub Keys
+=================
+
+We can get the list of all sub keys in the opened key as a list by using **GetSubKeys()** function as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	New RCRegistry {
+	
+		OpenKey([HKEY_CURRENT_USER, "Software\MyApp"])
+		
+		See "The list of Keys in MyApp key are : " + NL
+		
+		aList = GetSubKeys()
+		
+		See aList
+		
+		CloseKey()
+		
+	}
+	
+.. index::
+	pair: Dealing with Keys; Delete Key
+	
+Delete Key
+=============
+
+We can delete any key by using **DeleteKey()** and **DeleteKey2()** functions.
+
+.. index::
+	pair: Delete Key; DeleteKey() Function
+	
+DeleteKey() Function
+---------------------
+
+This function can delete any opened key as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	Reg = New RCRegistry
+	
+	Reg.OpenKey([HKEY_CURRENT_USER, "Software\MyTempApp"])
+	
+	See "MyTempApp key is Created and Opened" + NL
+	
+	Reg.DeleteKey()
+	
+	See "MyTempApp key is deleted now"
+	
+.. index::
+	pair: Delete Key; DeleteKey2() Function
+	
+DeleteKey2() Function
+----------------------
+
+This function can delete any key that is not already opened. This function accepts two parameters (HKEY ROOT, "SubKey\Path") as follow:
+
+.. code-block:: none
+
+	Load "wincreg.ring"
+	
+	New RCRegistry { 
+	
+		OpenKey([HKEY_CURRENT_USER, "Software\MyTempApp"]) 
+		
+		See "MyTempApp has been created" + NL
+		
+		CloseKey() 
+	}
+	
+	New RCRegistry {
+
+		DeleteKey2(HKEY_CURRENT_USER, "Software\MyTempApp")
+	
+		See "MyTempApp key is deleted without opening"
+		
+	}
+	

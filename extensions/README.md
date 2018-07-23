@@ -6,6 +6,8 @@ The folder CodeGen contains a tool (Written in Ring)
 to generate C/C++ code that wraps C/C++ functions/classes
 to be used from Ring code.
 
+The folder RingBeep contains a simple example to learn how to create an extension
+
 The folder RingInternet contains functions that uses the LibCurl library  
 
 The folder RingCurl contains the Ring binding to the LibCurl library  
@@ -37,3 +39,9 @@ The folder RingConsoleColors contains the Ring binding to the ConsoleColors Libr
 The folder RingMurmurhash contains hash functions
 
 The folder RingLibUV contains the Ring binding to the LibUV library.
+
+The folder RingWinAPI contains the Ring binding to some functions in Windows API
+
+The folder RingWinCREG contains some functions for using the Windows Registry
+
+The folder RingPostgreSQL contains the Ring binding to the PostgreSQL library  

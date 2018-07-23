@@ -7,14 +7,14 @@ Load "stdbase.ring"
 Load "stdlibcore.ring"
 
 if IsMainSourceFile() 
-	secuirty_class_test()
+	security_class_test()
 ok
 
-func secuirty_class_test
+func security_class_test
 	
-	osecuirty = new secuirty
-	See "Test the secuirty Class Methods" + nl
-	oSecuirty { 
+	osecurity = new security
+	See "Test the security Class Methods" + nl
+	osecurity { 
 		see md5("hello") + nl + 
 		sha1("hello") + nl + sha256("hello") + nl +
 		sha512("hello") + nl + sha384("hello") + nl + 
@@ -25,7 +25,7 @@ func secuirty_class_test
 		see cCipher + nl + decrypt(cCipher,cKey,cIV) + nl
 	}
 
-Class secuirty
+Class security
  
 	Func md5 cString
 		return std_md5(cString)

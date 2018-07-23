@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Multi-language Applications &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Scope Rules for Variables and Attributes" href="scope.html" />
+    <link rel="prev" title="Using the Form Designer" href="formdesigner.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scope.html" title="Scope Rules for Variables and Attributes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="multi-language-applications">
+<span id="index-0"></span><h1>Multi-language Applications<a class="headerlink" href="#multi-language-applications" title="Permalink to this headline">¶</a></h1>
+<p>There are many ways to create multi-language Ring application!</p>
+<p>In this chapter we will learn about using the String2Constant tool</p>
+<div class="section" id="using-string2constant">
+<span id="index-1"></span><h2>Using String2Constant<a class="headerlink" href="#using-string2constant" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8 we have the String2Constant application</p>
+<p>You will find this tool in the ring/samples/tools/string2constant folder</p>
+<p>Using this tool we can convert the source code to be based on constants instead of string literals</p>
+<p>Then we can store constants in separate source code files that we can translate to different languages</p>
+<p>Where we can have special file for each language, like (English.ring, Arabic.ring and so on)</p>
+<p>Using this simple tool, the Form Designer is translated to Arabic language too just as an example.</p>
+<img alt="String2Constant" src="_images/string2constant.png" />
+</div>
+<div class="section" id="form-designer-translation">
+<span id="index-2"></span><h2>Form Designer Translation<a class="headerlink" href="#form-designer-translation" title="Permalink to this headline">¶</a></h2>
+<p>You will find the form designer application in the ring/applications/formdesigner folder</p>
+<p>The files used for translation are stored in the ring/applications/formdesinger/translation folder</p>
+<p>You will find two files</p>
+<ul class="simple">
+<li>Arabic.ring</li>
+<li>English.ring</li>
+</ul>
+<p>You can check these files to get an idea about constants definition.</p>
+<p>The next section from the English.ring file</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">T_LANGUAGE</span> <span class="o">=</span> <span class="s">&quot;english&quot;</span>
+<span class="n">T_LAYOUTDIRECTION</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c"># Left to Right</span>
+
+<span class="n">T_FORMDESIGNER_FORMDESIGNER</span>             <span class="o">=</span> <span class="s">&quot;Form Designer&quot;</span>
+<span class="n">T_FORMDESIGNER_FORMTITLE</span>                <span class="o">=</span> <span class="s">&quot;Form1&quot;</span>
+
+<span class="n">T_FORMDESIGNER_FILE</span>                     <span class="o">=</span> <span class="s">&quot;File&quot;</span>
+<span class="n">T_FORMDESIGNER_NEW</span>                      <span class="o">=</span> <span class="s">&quot;New&quot;</span>
+<span class="n">T_FORMDESIGNER_OPEN</span>                     <span class="o">=</span> <span class="s">&quot;Open&quot;</span>
+<span class="n">T_FORMDESIGNER_SAVE</span>                     <span class="o">=</span> <span class="s">&quot;Save&quot;</span>
+<span class="n">T_FORMDESIGNER_SAVEAS</span>                   <span class="o">=</span> <span class="s">&quot;Save As&quot;</span>
+<span class="n">T_FORMDESIGNER_CLOSE</span>                    <span class="o">=</span> <span class="s">&quot;Close&quot;</span>
+</pre></div>
+</div>
+<p>The form designer source code files will use these constants instead of typing the string literals</p>
+<p>the next section from the formdesigner/mainwindow/formdesignerview.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Create the Main Window and use the Mdi Area</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qMainwindow</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_FORMDESIGNER</span><span class="p">)</span> <span class="c"># &quot;Form Designer&quot;</span>
+                <span class="n">setcentralWidget</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">oArea</span><span class="p">)</span>
+                <span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Using comments we can write the string literal to get more readable code.</li>
+<li>Using setLayoutDirection() method we can set the window direction to be Right To Left.</li>
+<li>Using the Load command, We can determine which translation file to use.</li>
+</ul>
+</div>
+<div class="section" id="forms-translation">
+<span id="index-3"></span><h2>Forms Translation<a class="headerlink" href="#forms-translation" title="Permalink to this headline">¶</a></h2>
+<p>After creating the form using the Form Designer, the View class will be generated.</p>
+<p>We don&#8217;t modify the view class, We just add the translation through the Controller class.</p>
+<p>For example, we have the form file : ring/formdesigner/selobjects/selobjects.rform</p>
+<img alt="Form Translation" src="_images/formtranslation1.png" />
+<p>And we add the translation through the Controller class using the next code</p>
+<p>And we define the constants in English.ring and Arabic.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">selobjectsController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">selobjectsView</span>  <span class="p">{</span>
+                <span class="n">ListObjects</span><span class="p">.</span><span class="n">setselectionmode</span><span class="p">(</span><span class="n">QAbstractItemView_MultiSelection</span><span class="p">)</span>
+                <span class="n">win</span><span class="p">.</span><span class="n">setwindowmodality</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="c"># Translation</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_TITLE</span><span class="p">)</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+                        <span class="n">labelobjects</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_OBJECTS</span><span class="p">)</span>
+                        <span class="n">btnSelect</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_SELECT</span><span class="p">)</span>
+                        <span class="n">btnClose</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_CLOSE</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Multi-language Applications</a><ul>
+<li><a class="reference internal" href="#using-string2constant">Using String2Constant</a></li>
+<li><a class="reference internal" href="#form-designer-translation">Form Designer Translation</a></li>
+<li><a class="reference internal" href="#forms-translation">Forms Translation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="formdesigner.html"
+                        title="previous chapter">Using the Form Designer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scope.html"
+                        title="next chapter">Scope Rules for Variables and Attributes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/multilanguage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scope.html" title="Scope Rules for Variables and Attributes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

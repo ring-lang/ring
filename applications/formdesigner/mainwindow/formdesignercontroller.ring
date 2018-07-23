@@ -39,13 +39,8 @@ class FormDesignerController from WindowsControllerParent
 	func AddObjectProperties
 		oView.oPropertiesTable   {
 			# Remove Rows
-				nCount = rowcount()
-				for t = 1 to nCount {
-					removerow(0)
-				}
-			setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
-			setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
-			setHorizontalHeaderItem(2, new QTableWidgetItem(""))
+				clear()
+				this.oView.PreparePropertiesTable(self)
 		}
 		oModel.ActiveObject().AddObjectProperties(self)
 
@@ -133,18 +128,21 @@ class FormDesignerController from WindowsControllerParent
 		SetToolboxModeToSelect()
 		oModel.ActiveObject().ComboItemAction(self,nRow)
 
+	func ShowPropertiesWidget 
+		if oModel.IsManySelected() {
+			nWidth = oView.oPropertiesDock.width()
+			oView.oPropertiesDock.setWidget(oView.oProperties2)
+			oView.oPropertiesDock.setminimumwidth(nWidth)
+		else
+			oView.oPropertiesDock.setminimumwidth(10)
+			oView.oPropertiesDock.setWidget(oView.oProperties)
+		}
+
 	func SelectDrawAction aRect
 		if oView.oToolBtn1.ischecked()  { # Select
 			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
-			if oModel.IsManySelected() {
-				nWidth = oView.oPropertiesDock.width()
-				oView.oPropertiesDock.setWidget(oView.oProperties2)
-				oView.oPropertiesDock.setminimumwidth(nWidth)
-			else
-				oView.oPropertiesDock.setminimumwidth(10)
-				oView.oPropertiesDock.setWidget(oView.oProperties)
-			}
+			ShowPropertiesWidget()
 		elseif oView.oToolBtn2.ischecked()   # Create Label
 			HideCorners()
 			UpdatePositionForParent(aRect)
@@ -683,14 +681,18 @@ class FormDesignerController from WindowsControllerParent
 						oModel.RemoveSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Hide()
 					else
-						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
+						if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+							oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
+						}
 					}
+					ShowPropertiesWidget()
 					return
 				else
 					if oFDApp.keyboardmodifiers() {
 						oModel.AddSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Show()
+						ShowPropertiesWidget()
 						return
 					}
 				}
@@ -705,12 +707,12 @@ class FormDesignerController from WindowsControllerParent
 					oModel.ActiveObject().oCorners.Show()
 					# Keep the old current object in selection 
 						oModel.AddSelectedObject(nOldCurrentIndex)
-						# Draw old current object corners 					
-							oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
+						# Draw old current object corners 
+							if classname(oModel.GetObjectByIndex(nOldCurrentIndex)) != "formdesigner_qwidget" {
+								oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
+							}
 					oModel.AddSelectedObject(nObjectIndex)
-					nWidth = oView.oPropertiesDock.width()
-					oView.oPropertiesDock.setWidget(oView.oProperties2)
-					oView.oPropertiesDock.setminimumwidth(nWidth)
+					ShowPropertiesWidget()
 					return
 				}
 			}
@@ -724,7 +726,9 @@ class FormDesignerController from WindowsControllerParent
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			if oModel.IsManySelected() {
-				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self)
+				if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+					oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self)
+				}
 				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
@@ -736,7 +740,9 @@ class FormDesignerController from WindowsControllerParent
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			if oModel.IsManySelected() {
-				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self)
+				if classname(oModel.GetObjectByIndex(nObjectIndex)) != "formdesigner_qwidget" {
+					oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self)
+				}
 				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
@@ -765,11 +771,8 @@ class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  ,
 											oModel.ActiveObject().y()  + 10)
 					case Qt_Key_Delete
-						HideCorners()
-						oModel.ActiveObject().close()
-						oModel.deleteactiveObject()
-						ShowCorners()
-						AddObjectsToCombo()
+						DeleteControl()
+						return
 				}
 			case 33554432	# Shift
 				switch nkey {
@@ -787,6 +790,29 @@ class FormDesignerController from WindowsControllerParent
 											oModel.ActiveObject().height() + 10)
 				}
 		}
+		if ismethod(oModel.ActiveObject(),"refreshcorners") {
+			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
+		}
+
+	func DeleteControl
+		if oModel.IsManySelected() {
+			aObjects = oModel.getselectedObjects()
+			for item in aObjects {
+				oObject = item[2]
+				oObject.oCorners.Hide()
+				oObject.Close()
+			}
+			oModel.deleteselectedObjects()
+			AddObjectsToCombo()
+			ShowPropertiesWidget()
+			return 
+		}
+		if oModel.IsFormActive() { return }
+		HideCorners()
+		oModel.ActiveObject().close()
+		oModel.deleteactiveObject()
+		ShowCorners()
+		AddObjectsToCombo()
 		if ismethod(oModel.ActiveObject(),"refreshcorners") {
 			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
 		}
@@ -823,13 +849,7 @@ class FormDesignerController from WindowsControllerParent
 							oObject.oCorners.refresh(oObject)
 						}
 					case Qt_Key_Delete
-						for item in aObjects {
-							oObject = item[2]
-							oObject.oCorners.Hide()
-							oObject.Close()
-						}
-						oModel.deleteselectedObjects()
-						AddObjectsToCombo()
+						DeleteControl()
 				}
 			case 33554432	# Shift
 				switch nkey {
@@ -1098,6 +1118,70 @@ class FormDesignerController from WindowsControllerParent
 			oModel.GetObjectByID(item[3]).setFontProperty(cFont)
 		}
 
+	func MSMoveUp
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() , oObject.y() - 10 )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveDown
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() , oObject.y() + 10 )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveLeft
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() - 10 , oObject.y() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSMoveRight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() + 10 , oObject.y() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSIncreaseWidth
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() + 10 , oObject.height() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSDecreaseWidth
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() - 10 , oObject.height() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSIncreaseHeight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() , oObject.height() + 10)
+			oObject.oCorners.Refresh(oObject)
+		}
+
+	func MSDecreaseHeight
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() , oObject.height() - 10)
+			oObject.oCorners.Refresh(oObject)
+		}
+
 	func NewAction
 		oFile.NewAction(self)
 
@@ -1163,7 +1247,9 @@ class FormDesignerController from WindowsControllerParent
 					item = aObjects[x]
 					oObject = item[2]
 					oObject.oCorners.Show()
-					oModel.AddSelectedObject(x)
+					if nCount+1 != len(aObjects) {
+						oModel.AddSelectedObject(x)
+					}
 				}
 
 	func ShowMsg cTitle,cText,cText2
@@ -1178,6 +1264,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func BringToFront
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().raise()
 			oModel.RaiseActiveObject()
 			AddObjectsToCombo()
@@ -1185,6 +1272,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func SendToBack
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().lower()
 			oModel.LowerActiveObject()
 			AddObjectsToCombo()
@@ -1264,3 +1352,12 @@ class FormDesignerController from WindowsControllerParent
 
 	func SaveIfOnlyFileIsOpened
 		oFile.SaveIfOnlyFileIsOpened(self)
+
+	func ObjectsOrderAction
+		Open_WindowAndLink(:ObjectsOrderController,self)
+		ObjectsOrder().loadobjects()
+
+	func SelectObjectsWindow 
+		Open_WindowAndLink(:selObjectsController,self)
+		SelObjects().loadobjects()
+

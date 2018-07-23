@@ -213,6 +213,38 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "I like variety. The richer the toolbox, the more appropriate the tool."
 	, Jonathan Day (Quora)
 
+"I greatly appreciated your work and congratulations on what has been achieved."
+	, Umberto Meglio (Italy)
+
+"Thanks a lot I just found Ring two days ago and I decided to learn it, it is amazing, the samples are helping a lot."
+	, Zaraki Ken
+
+"Extraordinary. well done sir"
+	, RugbyLeague (CodeProject Member - United Kingdom)
+
+"The Ring language is pleasant. You get ahead very quickly."
+	, Neskuk (CodeProject Member - Switzerland)
+
+"I'm happy to use your language."
+	, Akhil Reddy
+
+"I am enjoying using the Ring Programming language."
+	, Gabriel Wendt
+
+"I'm loving this language!"
+	, Pablo Prieto
+
+"Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages.
+
+Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages.
+
+The extent to which Ring has simplified the development database apps, web apps and GUI apps is a great credit to the Ring team.
+Ring's implementation of OOP and GUI based apps is far superior to C++ and C# 
+
+Another major achievement of the Ring team is the ease at which programmers can get on-line access to Ring documentation, compared to on-line C++ and C# documentation"
+	, L Godioleskky
+
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 

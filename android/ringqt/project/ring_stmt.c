@@ -10,6 +10,7 @@ int ring_parser_class ( Parser *pParser )
 	/* Statement --> Class Identifier  [ From Identifier ] */
 	if ( ring_parser_iskeyword(pParser,K_CLASS) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isidentifier(pParser) ) {
 			/*
 			**  Generate Code 
@@ -114,6 +115,7 @@ int ring_parser_class ( Parser *pParser )
 	/* Statement --> Func|Def Identifier [PARALIST] */
 	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isidentifier(pParser) ) {
 			/*
 			**  Generate Code 
@@ -171,6 +173,7 @@ int ring_parser_class ( Parser *pParser )
 	/* Statement --> Package Identifier { '.' Identifier } */
 	if ( ring_parser_iskeyword(pParser,K_PACKAGE) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PACKAGE);
 		#if RING_PARSERTRACE
@@ -228,7 +231,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -253,6 +256,48 @@ int ring_parser_stmt ( Parser *pParser )
 			if ( ring_fexists(pParser->TokenText) == 0 ) {
 				ring_exefolder(cFileName);
 				strcat(cFileName,pParser->TokenText);
+				if ( ring_fexists(cFileName) == 0 ) {
+					strcpy(cFileName,pParser->TokenText);
+				}
+			}
+			else {
+				/* Add the current folder to the file name */
+				ring_currentdir(cFileName);
+				/* Be Sure that we don't already have the current folder in the file name */
+				if ( strlen(cFileName) < strlen(pParser->TokenText) ) {
+					nPathExist = 1 ;
+					for ( x = 0 ; (unsigned) x < strlen(cFileName) ; x++ ) {
+						#ifdef _WIN32
+						if ( tolower(cFileName[x]) != tolower(pParser->TokenText[x]) ) {
+							nPathExist = 0 ;
+							break ;
+						}
+						#else
+						if ( cFileName[x] != pParser->TokenText[x] ) {
+							nPathExist = 0 ;
+							break ;
+						}
+						#endif
+					}
+					if ( nPathExist ) {
+						strcpy(cFileName,"");
+					}
+				}
+				else {
+					nPathExist = 0 ;
+				}
+				if ( nPathExist == 0 ) {
+					#ifdef _WIN32
+					strcat(cFileName,"\\");
+					#else
+					strcat(cFileName,"/");
+					#endif
+				}
+				strcat(cFileName,pParser->TokenText);
+				/*
+				**  Check if we have the file after adding the folder - because we may have the file in a parent directory 
+				**  Like we are in myapp/myapp2 and the file exist in myapp folder 
+				*/
 				if ( ring_fexists(cFileName) == 0 ) {
 					strcpy(cFileName,pParser->TokenText);
 				}
@@ -311,6 +356,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> See|Put Expr */
 	if ( ring_parser_iskeyword(pParser,K_SEE) | ring_parser_iskeyword(pParser,K_PUT) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		#if RING_USESEEFUNCTION
 		/* Generate code to use the SEE function */
 		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
@@ -346,6 +392,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> ? Expr */
 	if ( ring_parser_isoperator(pParser,"?") ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 		pParser->nAssignmentFlag = 0 ;
@@ -367,6 +414,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Give|Get Identifier */
 	if ( ring_parser_iskeyword(pParser,K_GIVE) | ring_parser_iskeyword(pParser,K_GET) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isidentifier(pParser) ) {
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
@@ -408,6 +456,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> For Identifier = Expr to Expr {Statement} Next  |  For Identifier in Expr {Statemen */
 	if ( ring_parser_iskeyword(pParser,K_FOR) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isidentifier(pParser) ) {
 			pString = ring_string_new_gc(pParser->pRingState,pParser->TokenText);
 			ring_parser_nexttoken(pParser);
@@ -435,6 +484,7 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_parser_icg_newoperand(pParser,ring_string_get(pString));
 					if ( ring_parser_iskeyword(pParser,K_TO) ) {
 						ring_parser_nexttoken(pParser);
+						RING_PARSER_IGNORENEWLINE ;
 						pParser->nAssignmentFlag = 0 ;
 						if ( ring_parser_csexpr(pParser) ) {
 							pParser->nAssignmentFlag = 1 ;
@@ -533,6 +583,7 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_parser_icg_newoperand(pParser,"len");
 				nStart = ring_parser_icg_instructionscount(pParser) + 1 ;
 				ring_parser_nexttoken(pParser);
+				RING_PARSER_IGNORENEWLINE ;
 				pParser->nAssignmentFlag = 0 ;
 				if ( ring_parser_csexpr(pParser) ) {
 					pParser->nAssignmentFlag = 1 ;
@@ -598,8 +649,8 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
 						ring_parser_icg_newoperand(pParser,ring_string_get(pString));
 						ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
-						ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-						ring_parser_icg_newoperanddouble(pParser,1.0);
+						ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+						ring_parser_icg_newoperand(pParser,"NULL");
 						/* Before Equal ( = ) not += , -= ,... etc */
 						ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 						ring_parser_icg_newoperandint(pParser,0);
@@ -623,6 +674,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> IF Expr Statements OK */
 	if ( ring_parser_iskeyword(pParser,K_IF) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		pParser->nAssignmentFlag = 0 ;
 		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
@@ -726,6 +778,7 @@ int ring_parser_stmt ( Parser *pParser )
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		pParser->nAssignmentFlag = 0 ;
 		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
@@ -791,6 +844,7 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
 			/* Generate Code */
 			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
 			pParser->nAssignmentFlag = 0 ;
 			if ( ring_parser_expr(pParser) ) {
 				/* Generate Code (Test Condition) */
@@ -979,6 +1033,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Switch  Expr { ON|CASE Expr {Statement} } OFF */
 	if ( ring_parser_iskeyword(pParser,K_SWITCH) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		pParser->nAssignmentFlag = 0 ;
 		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
@@ -1074,6 +1129,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Import Identifier { '.' Identifier } */
 	if ( ring_parser_iskeyword(pParser,K_IMPORT) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_IMPORT);
 		#if RING_PARSERTRACE
@@ -1301,7 +1357,7 @@ int ring_parser_namedotname ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 			} else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_PACKAGENAME);
-				ring_string_delete(pString);
+				ring_string_delete_gc(pParser->pRingState,pString);
 				return 0 ;
 			}
 		}

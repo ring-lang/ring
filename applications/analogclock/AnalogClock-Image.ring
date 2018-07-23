@@ -261,14 +261,8 @@ Func WindowSizeChanged()
 
 return
 
-###--------------------------------------------------------------------
-### Fix Memory Leak. Delete Old scaled image, When New image is scaled
-### Scale the Clock Dial Image
 
 func analogClock
-        if isObject(oScaledImage) 
-           oScaledImage.Delete()
-        ok
         oScaledImage = image.scaled(WinWidth-16 , WinHeight-38 ,0,0)
         imageClock.setpixmap(oScaledImage)   ### Size-H, Siz-V, Aspect, Transform
 return

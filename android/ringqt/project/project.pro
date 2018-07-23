@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml
 
 DEPLOYMENT_PLUGIN += qsqlite
 
@@ -61,6 +61,8 @@ SOURCES +=   \
     gdockwidget.cpp \
 	gstackedwidget.cpp \
 	gcalendarwidget.cpp \
+	gtabbar.cpp \
+	gquickwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -110,10 +112,11 @@ HEADERS  += \
     gwindow.h \
 	gstackedwidget.h \
 	gcalendarwidget.h \
-    gdockwidget.h 
+    gdockwidget.h \
+	gtabbar.h \
+	gquickwidget.h 
 
-CONFIG += mobility c++11
-QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter -std=c++11
+CONFIG += warn_off
 
 RESOURCES = project.qrc
 

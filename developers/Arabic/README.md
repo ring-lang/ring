@@ -1,4 +1,4 @@
-﻿![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+﻿![Ring](http://ring-lang.sf.net/thering.jpg)
 
 <div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
 
@@ -39,7 +39,7 @@
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
 
-![Ring](http://ring-lang.sourceforge.net/ringcourse.jpg)
+![Ring](http://ring-lang.sourceforge.net/ringcourse_2018.jpg)
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
 
@@ -101,6 +101,10 @@
 سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
 
 دروس تشرح أساسيات اللغة وإستخدام أنماط البرمجة المختلفة المتاحة بها
+
+هذه المجموعة من الدروس تم الانتهاء منها ويتم تحديثها عند إطلاق اصدار جديد من اللغة 
+
+من خلال تقديم درس جديد يشرح الاضافات فى هذا الإصدار
 
 <table>
 	<tr>	
@@ -276,7 +280,7 @@
 			نتعرف على ال Reflection وال Metaprogramming 
 		</td>
 		<td>
-			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -286,7 +290,7 @@
 			نتعرف على مجال رؤية المتغيرات Variables Scope
 		</td>
 		<td>
-			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155452486960345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155452486960345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -296,8 +300,28 @@
 			نتعرف على ال Functions Scope وال Type Hints وال Trace Library
 		</td>
 		<td>
-			<a  href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>
+			نتعرف على الاصدار 1.7 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155588366475345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>
+			نتعرف على الاصدار 1.8 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155970006300345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=uDGeHq_gJPI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=20">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 </table>
@@ -328,6 +352,16 @@
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155490450300345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson3">3</td>
+		<td>
+			نتعرف على كيفية التعامل مع ال ListWidget وعمل تطبيق يقوم بجمع مجموعة من الأرقام
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155610002540345">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=s1DxFaiFCIo&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a&index=3">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 

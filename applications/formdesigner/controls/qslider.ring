@@ -95,17 +95,17 @@ class FormDesigner_QSlider from QSlider
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Vertical","Horizontal"])
-		oDesigner.oView.AddProperty("Set Minimum",False)
-		oDesigner.oView.AddProperty("Set Maximum",False)
-		oDesigner.oView.AddProperty("Set Range",False)
-		oDesigner.oView.AddProperty("Set Value",False)
-		oDesigner.oView.AddProperty("actionTriggeredEvent",False)
-		oDesigner.oView.AddProperty("rangeChangedEvent",False)
-		oDesigner.oView.AddProperty("sliderMovedEvent",False)
-		oDesigner.oView.AddProperty("sliderPressedEvent",False)
-		oDesigner.oView.AddProperty("sliderReleasedEvent",False)
-		oDesigner.oView.AddProperty("valueChangedEvent",False)
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_SETORIENTATION,[T_FORMDESIGNER_ATTRIBUTE_VERTICAL,T_FORMDESIGNER_ATTRIBUTE_HORIZONTAL])	# "Set Orientation" "Vertical" "Horizontal"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMINIMUM,False)			 	# "Set Minimum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETMAXIMUM,False)				 # "Set Maximum"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETRANGE,False)				 # "Set Range"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SETVALUE,False)				 # "Set Value"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_ACTIONTRIGGEREDEVENT,False)			 # "actionTriggeredEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_RANGECHANGEDEVENT,False)			 # "rangeChangedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERMOVEDEVENT,False)			 # "sliderMovedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERPRESSEDEVENT,False)			 # "sliderPressedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_SLIDERRELEASEDEVENT,False)			 # "sliderReleasedEvent"
+		oDesigner.oView.AddProperty(T_FORMDESIGNER_ATTRIBUTE_VALUECHANGEDEVENT,False)			 # "valueChangedEvent"
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)

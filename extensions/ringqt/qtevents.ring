@@ -446,6 +446,35 @@ aclasses = [
 					]
 				  ]
 		] ,
+		[	:name = "GWebEngineView" ,
+			:realname = "QWebEngineView" ,
+			:events = [
+					[ 	:signal = "loadFinished(bool)" ,
+						:slot = "loadFinishedSlot()" ,
+						:event = "loadFinished"
+					] ,
+					[ 	:signal = "loadProgress(int)" ,
+						:slot = "loadProgressSlot()" ,
+						:event = "loadProgress"
+					] ,
+					[ 	:signal = "loadStarted()" ,
+						:slot = "loadStartedSlot()" ,
+						:event = "loadStarted"
+					] ,
+					[ 	:signal = "selectionChanged()" ,
+						:slot = "selectionChangedSlot()" ,
+						:event = "selectionChanged"
+					] ,					
+					[ 	:signal = "titleChanged(QString)" ,
+						:slot = "titleChangedSlot()" ,
+						:event = "titleChanged"
+					] ,
+					[ 	:signal = "urlChanged(QUrl)" ,
+						:slot = "urlChangedSlot()" ,
+						:event = "urlChanged"
+					]
+				  ]
+		] ,
 		[	:name = "GCheckBox" ,
 			:realname = "QCheckBox" ,
 			:events = [
@@ -690,11 +719,13 @@ aclasses = [
 			:events = [
 					[ 	:signal = "started()" ,
 						:slot = "startedSlot()" ,
-						:event = "Started"
+						:event = "Started",
+						:thread = True
 					] ,
 					[ 	:signal = "finished()" ,
 						:slot = "finishedSlot()" ,
-						:event = "Finished"
+						:event = "Finished",
+						:thread = True
 					] 
 				  ]
 		],
@@ -1232,6 +1263,38 @@ aclasses = [
 						:event = "selectionChanged"
 					]
 				]
+		],
+		[	:name = "GTabBar" ,
+			:realname = "QTabBar" ,
+			:initpara = "QWidget *",
+			:events = [
+					[ 	:signal = "currentChanged(int)" ,
+						:slot = "currentChangedSlot()" ,
+						:event = "currentChanged"
+					],
+					[ 	:signal = "tabCloseRequested(int)" ,
+						:slot = "tabCloseRequestedSlot()" ,
+						:event = "tabCloseRequested"
+					],
+					[ 	:signal = "tabMoved(int,int)" ,
+						:slot = "tabMovedSlot()" ,
+						:event = "tabMoved"
+					]
+				]
+		],
+		[	:name = "GQuickWidget" ,
+			:realname = "QQuickWidget" ,
+			:initpara = "QWidget *",
+			:events = [
+					[ 	:signal = "sceneGraphError(QQuickWindow::SceneGraphError,const QString)" ,
+						:slot = "sceneGraphErrorSlot()" ,
+						:event = "sceneGraphError"
+					],
+					[ 	:signal = "statusChanged(QQuickWidget::Status)" ,
+						:slot = "statusChangedSlot()" ,
+						:event = "statusChanged"
+					]
+				]
 		]
 
 	    ]
@@ -1260,7 +1323,7 @@ Func GenHeader aClass
 
 	# Start of code string
 	cCode = `
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef <T_HEADER>
 #define <T_HEADER>
 #include <QApplication>
@@ -1351,7 +1414,7 @@ Func GenSource aClass
 
 # Start of code string
 	cCode = `
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -1450,11 +1513,18 @@ void '+aClass[:name]+'::'
 '
 		cSlots += aEvent[:slotparacode]
 
+
+	if aEvent[:thread] = True 
+		cSlots +='
+	ring_vm_runcodefromthread(this->pVM,this->c'+aEvent[:event]+'Event);
+}
+'
+	else 
 		cSlots +='
 	ring_vm_runcode(this->pVM,this->c'+aEvent[:event]+'Event);
 }
 '
-
+	ok
 
 	Next
 
