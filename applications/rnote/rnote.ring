@@ -100,6 +100,7 @@ Class RNoteController from WindowsControllerParent
 		VIEWMODE_GUIDEV		= 6
 		VIEWMODE_WEBDEV		= 7
 		VIEWMODE_TESTING	= 8
+		VIEWMODE_COMMON		= 9
 		nDefaultMode		= VIEWMODE_GENERAL
 
 
@@ -634,6 +635,12 @@ Class RNoteController from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetMode(8)"))
 							settext("Testing (Project Files + Code Editor + Output Window)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(9)"))
+							settext("Common (All Windows + Output Window in the bottom)")
 						}
 						addaction(oAction)
 					}
@@ -2532,6 +2539,24 @@ Class RNoteController from WindowsControllerParent
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
+			on VIEWMODE_COMMON	
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.show()
+				oDockClassesList.show()
+				oDockFunctionsList.show()
+				oDockOutputWindow.show()
+				oDockFormDesigner.show()
+				win1 {
+					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,2)
+					tabifydockwidget(this.oDockFormDesigner,this.oDockSourceCode)
+					# Change the order
+						tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+					tabifydockwidget(this.oDockFormDesigner,this.oDockWebBrowser)
+				}
+				oDockSourceCode.raise()
 		off
 
 	func ClearActiveFormFile
