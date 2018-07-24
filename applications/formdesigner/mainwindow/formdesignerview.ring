@@ -909,11 +909,6 @@ Class FormDesignerView from WindowsViewParent
 			win.Adddockwidget(2,oPropertiesDock,2)
 		}
 
-	func RefreshProperties 
-		CreatePropertiesWidget()
-		oProperties2.setWidget(this.oProperties2Widget)
-		oPropertiesDock.setWidget(this.oProperties)
-
 	func AddProperty cItem,lButton
 		oPropertiesTable.blocksignals(True)
 		nRow = oPropertiesTable.rowcount()

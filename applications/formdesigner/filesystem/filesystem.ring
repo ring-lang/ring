@@ -74,8 +74,6 @@ class FormDesignerFileSystem
 		return cInputFileName
 
 	func CloseAction oDesigner
-		# Refresh Properties 
-			oDesigner.oView.refreshProperties()
 		# Delete objects
 			DeleteAllObjects(oDesigner)	
 		# No File Name
@@ -198,8 +196,6 @@ class FormDesignerFileSystem
 		oDesigner.AddObjectProperties()
 
 	func LoadFormFromFile oDesigner
-		# Refresh Properties 
-			oDesigner.oView.refreshProperties()
 		# Disable Updates 
 			oDesigner.oView.oSub.setupdatesenabled(False)
 			oDesigner.oView.oSub.blocksignals(True)
