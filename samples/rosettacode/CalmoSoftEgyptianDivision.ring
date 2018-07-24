@@ -25,5 +25,5 @@ while i > 1
       ok
 end
  
-see string(dividend)  + " divided by " + string(divisor) + " using egytian division" + nl
+see string(dividend)  + " divided by " + string(divisor) + " using egyptian division" + nl
 see " returns " + string(answer) + " mod(ulus) " + string(dividend-accumulator)
