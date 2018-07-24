@@ -139,13 +139,13 @@ func _BreakPoint
 		nScope = ringvm_scopescount()-2
 		switch cmd
 			on "locals"			
-				ringvm_EvalInScope(nScope,"see locals() callgc()")
+				ringvm_EvalInScope(nScope,"see locals()")
 				loop
 			on "localsdata"
 				PrintLocalsData(nScope)
 				loop
 			on "globals"			
-				ringvm_EvalInScope(nScope,"see globals() callgc()")
+				ringvm_EvalInScope(nScope,"see globals()")
 				loop
 			on "cont"
 				ringvm_passerror()
