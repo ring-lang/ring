@@ -187,9 +187,7 @@ class FormDesignerFileSystem
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
 			oDesigner.oModel.aObjectsList[x][2] {
 				oCorners.close()
-				oCorners.delete()
 				close()
-				delete()
 			}
 		}
 		DeleteAllObjectsFromModel(oDesigner)
