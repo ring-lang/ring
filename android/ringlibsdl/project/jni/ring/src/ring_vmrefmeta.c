@@ -983,6 +983,8 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	List *pActiveMem,*pState  ;
 	const char *cStr  ;
 	int nScope,nSize  ;
+	Items *pLastItem  ;
+	Items *pNextItem  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -990,13 +992,23 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) && RING_API_ISSTRING(2) ) {
 		/* We must get cStr before we change the pVM->pActiveMem */
-		cStr = RING_API_GETSTRING(2) ;
 		nScope = (int) RING_API_GETNUMBER(1) ;
+		cStr = RING_API_GETSTRING(2) ;
 		pActiveMem = pVM->pActiveMem ;
 		pVM->pActiveMem = ring_list_getlist(pVM->pMem,nScope) ;
 		pVM->nActiveScopeID++ ;
+		/* Prepare the current scope */
+		ring_list_deletearray_gc(pVM->pRingState,pVM->pMem);
 		nSize = pVM->pMem->nSize ;
+		pLastItem = pVM->pMem->pLast ;
+		pVM->pMem->pLastItemLastAccess = NULL ;
+		pVM->pMem->nNextItemAfterLastAccess = 0 ;
+		ring_list_getitem(pVM->pMem,nScope);
+		pNextItem = pVM->pMem->pLastItemLastAccess->pNext ;
 		pVM->pMem->nSize = nScope ;
+		pVM->pMem->pLast = pVM->pMem->pLastItemLastAccess ;
+		pVM->pMem->pLast->pNext = NULL ;
+		ring_list_adddouble_gc(pVM->pRingState,pVM->aScopeID,pVM->nActiveScopeID);
 		pVM->nEvalInScope++ ;
 		/* Save State */
 		pState = ring_list_new_gc(((VM *) pPointer)->pRingState,0);
@@ -1006,7 +1018,10 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		ring_vm_restorestate2(pVM,pState,1);
 		ring_list_delete_gc(((VM *) pPointer)->pRingState,pState);
 		pVM->nEvalInScope-- ;
+		/* Restore the current scope */
 		pVM->pMem->nSize = nSize ;
+		pVM->pMem->pLast->pNext = pNextItem ;
+		pVM->pMem->pLast = pLastItem ;
 		pVM->pActiveMem = pActiveMem ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
