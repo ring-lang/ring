@@ -78,6 +78,15 @@ class FormDesignerFileSystem
 			DeleteAllObjects(oDesigner)	
 		# No File Name
 			cFileName = "noname.rform"
+		PrepareTheForm(oDesigner)
+		# Tell the Parent (Ring Notepad for example)
+			if oDesigner.isParent() {
+				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
+					oDesigner.Parent().ClearActiveFormFile()
+				}
+			}
+
+	func PrepareTheForm oDesigner
 		# Default Properties
 			oDesigner.oView.oSub {
 				blocksignals(True)
@@ -93,12 +102,6 @@ class FormDesignerFileSystem
 			}
 		# Properties
 			oDesigner.ObjectProperties()
-		# Tell the Parent (Ring Notepad for example)
-			if oDesigner.isParent() {
-				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
-					oDesigner.Parent().ClearActiveFormFile()
-				}
-			}
 
 
 	func OpenAction oDesigner
@@ -200,9 +203,9 @@ class FormDesignerFileSystem
 			oDesigner.oView.oSub.setupdatesenabled(False)
 			oDesigner.oView.oSub.blocksignals(True)
 		# Delete objects
-			DeleteAllObjectsFromModel(oDesigner)
+			DeleteAllObjects(oDesigner)
 		# Create New Form 
-			CreateNewForm(oDesigner)
+			PrepareTheForm(oDesigner)
 		# Load the Form Data
 			eval(read(cFileName))
 		# Create Objects
