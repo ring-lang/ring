@@ -2429,7 +2429,6 @@ Class RNoteController from WindowsControllerParent
 		pRunGUIOperation(cMainFileName)
 
 	func pSetMode nMode
-		nDefaultMode = nMode
 		switch nMode
 			on VIEWMODE_GENERAL	
 				oDockProjectFiles.Show()
@@ -2540,13 +2539,7 @@ Class RNoteController from WindowsControllerParent
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
 			on VIEWMODE_COMMON	
-				oDockProjectFiles.Show()
-				oDockSourceCode.show()
-				oDockWebBrowser.show()
-				oDockClassesList.show()
-				oDockFunctionsList.show()
-				oDockOutputWindow.show()
-				oDockFormDesigner.show()
+				pSetMode(VIEWMODE_GENERAL)
 				win1 {
 					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,1)
@@ -2558,6 +2551,7 @@ Class RNoteController from WindowsControllerParent
 				}
 				oDockSourceCode.raise()
 		off
+		nDefaultMode = nMode
 
 	func ClearActiveFormFile
 		cFormFile = ""
