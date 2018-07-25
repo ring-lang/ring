@@ -2481,7 +2481,9 @@ Class QFileSystemModel
 		return pTempObj
 
 	Func mimeData P1
-		return QFileSystemModel_mimeData(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QMimeData
+		pTempObj.pObject = QFileSystemModel_mimeData(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mimeTypes 
 		pTempObj = new QStringList
@@ -21727,7 +21729,9 @@ Class QDrag from QObject
 		return pTempObj
 
 	Func mimeData 
-		return QDrag_mimeData(pObject)
+		pTempObj = new QMimeData
+		pTempObj.pObject = QDrag_mimeData(pObject)
+		return pTempObj
 
 	Func pixmap 
 		pTempObj = new QPixmap
@@ -21770,6 +21774,91 @@ Class QDrag from QObject
 
 	Func gettargetChangedEvent 
 		return QDrag_gettargetChangedEvent(pObject)
+
+Class QMimeData from QObject
+
+	pObject
+
+	Func init 
+		pObject = QMimeData_new()
+		return self
+
+	Func delete
+		pObject = QMimeData_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func clear 
+		return QMimeData_clear(pObject)
+
+	Func colorData 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMimeData_colorData(pObject)
+		return pTempObj
+
+	Func data P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QMimeData_data(pObject,P1)
+		return pTempObj
+
+	Func formats 
+		pTempObj = new QStringList
+		pTempObj.pObject = QMimeData_formats(pObject)
+		return pTempObj
+
+	Func hasColor 
+		return QMimeData_hasColor(pObject)
+
+	Func hasFormat P1
+		return QMimeData_hasFormat(pObject,P1)
+
+	Func hasHtml 
+		return QMimeData_hasHtml(pObject)
+
+	Func hasImage 
+		return QMimeData_hasImage(pObject)
+
+	Func hasText 
+		return QMimeData_hasText(pObject)
+
+	Func hasUrls 
+		return QMimeData_hasUrls(pObject)
+
+	Func html 
+		return QMimeData_html(pObject)
+
+	Func imageData 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMimeData_imageData(pObject)
+		return pTempObj
+
+	Func removeFormat P1
+		return QMimeData_removeFormat(pObject,P1)
+
+	Func setColorData P1
+		return QMimeData_setColorData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1,P2
+		return QMimeData_setData(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setHtml P1
+		return QMimeData_setHtml(pObject,P1)
+
+	Func setImageData P1
+		return QMimeData_setImageData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setText P1
+		return QMimeData_setText(pObject,P1)
+
+	Func setUrls P1
+		return QMimeData_setUrls(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func text 
+		return QMimeData_text(pObject)
+
+	Func urls 
+		return QMimeData_urls(pObject)
 
 Class QPixmap2 from QPixmap
 

@@ -261,7 +261,7 @@ extern "C" {
 
 #include <QDrag>
 #include "gdrag.h"
-
+#include <QMimeData>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -9696,5 +9696,31 @@ void settargetChangedEvent(const char *)
 const char *getactionChangedEvent(void)
 const char *gettargetChangedEvent(void)
 
+<class>
+name: QMimeData
+para: void
+parent: QObject
+</class>
 
+void clear(void)
+QVariant colorData(void)
+QByteArray data(QString mimeType)
+QStringList formats(void)
+bool hasColor(void)
+bool hasFormat(QString mimeType)
+bool hasHtml(void)
+bool hasImage(void)
+bool hasText(void)
+bool hasUrls(void)
+QString html(void)
+QVariant imageData(void)
+void removeFormat(QString mimeType)
+void setColorData(QVariant color)
+void setData(QString mimeType, QByteArray data)
+void setHtml(QString html)
+void setImageData(QVariant image)
+void setText(QString text)
+void setUrls(QList<QUrl> urls)
+QString text(void)
+QList<QUrl> urls(void)
 
