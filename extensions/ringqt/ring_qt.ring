@@ -21693,6 +21693,84 @@ Class QQmlError
 		pTempObj.pObject = QQmlError_url(pObject)
 		return pTempObj
 
+Class QDrag from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QDrag_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDrag_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func defaultAction 
+		return QDrag_defaultAction(pObject)
+
+	Func dragCursor P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QDrag_dragCursor(pObject,P1)
+		return pTempObj
+
+	Func exec P1
+		return QDrag_exec(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func exec_2 P1,P2
+		return QDrag_exec_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func hotSpot 
+		pTempObj = new QPoint
+		pTempObj.pObject = QDrag_hotSpot(pObject)
+		return pTempObj
+
+	Func mimeData 
+		return QDrag_mimeData(pObject)
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QDrag_pixmap(pObject)
+		return pTempObj
+
+	Func setDragCursor P1,P2
+		return QDrag_setDragCursor(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setHotSpot P1
+		return QDrag_setHotSpot(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMimeData P1
+		return QDrag_setMimeData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPixmap P1
+		return QDrag_setPixmap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func source 
+		pTempObj = new QObject
+		pTempObj.pObject = QDrag_source(pObject)
+		return pTempObj
+
+	Func supportedActions 
+		return QDrag_supportedActions(pObject)
+
+	Func target 
+		pTempObj = new QObject
+		pTempObj.pObject = QDrag_target(pObject)
+		return pTempObj
+
+	Func setactionChangedEvent P1
+		return QDrag_setactionChangedEvent(pObject,P1)
+
+	Func settargetChangedEvent P1
+		return QDrag_settargetChangedEvent(pObject,P1)
+
+	Func getactionChangedEvent 
+		return QDrag_getactionChangedEvent(pObject)
+
+	Func gettargetChangedEvent 
+		return QDrag_gettargetChangedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
