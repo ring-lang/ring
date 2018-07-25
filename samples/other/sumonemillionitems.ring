@@ -6,7 +6,7 @@ aList = 1:1000000
 
 nSum = 0
 nMax = len(aList)
-for x=1 to nMax
+for x=nMax to 1 step -1
 	nSum += aList[x]
 next
 
