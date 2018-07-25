@@ -60,6 +60,7 @@ SOURCES +=   \
     gstackedwidget.cpp \
     gcalendarwidget.cpp \
     gtabbar.cpp \
+    gdrag.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -110,7 +111,8 @@ HEADERS  += \
     gstackedwidget.h \
     gcalendarwidget.h \
     gdockwidget.h \
-    gtabbar.h 
+    gtabbar.h \
+    gdrag.h 
     
 
 INCLUDEPATH += ../../include
