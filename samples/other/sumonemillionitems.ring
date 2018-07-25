@@ -4,13 +4,13 @@
 t1 = clock()
 aList = 1:1000000
 
-nTime = (clock()-t1)/clockspersecond()
-
 nSum = 0
 nMax = len(aList)
 for x=1 to nMax
 	nSum += aList[x]
 next
+
+nTime = (clock()-t1)/clockspersecond()
 
 ? "Size : " + nMax
 ? "Sum  : " + nSum
