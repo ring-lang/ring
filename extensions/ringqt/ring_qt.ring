@@ -15346,6 +15346,9 @@ Class QString2
 		pTempObj.pObject = QString2_unicode(pObject)
 		return pTempObj
 
+	Func number P1,P2
+		return QString2_number(pObject,P1,P2)
+
 Class QProcess from QIODevice
 
 	pObject

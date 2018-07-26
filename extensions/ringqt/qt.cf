@@ -369,6 +369,7 @@ aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
 aNumberTypes + "ushort"
+aNumberTypes + "ulong"
 
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
@@ -6960,6 +6961,7 @@ QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
 QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 
 QChar * unicode(void)
+QString number(ulong n, int base)
 
 <class>
 name: QProcess

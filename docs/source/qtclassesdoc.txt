@@ -6639,6 +6639,7 @@ Parameters : void
 * QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
 * QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
 * QChar * unicode(void)
+* QString number(ulong n, int base)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
