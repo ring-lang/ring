@@ -1310,7 +1310,6 @@ aclasses = [
 					]
 			]
 		]
-
 	    ]
 
 Func Main
@@ -1359,7 +1358,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 <T_EVENTSATTRIBUTES>
 
-<T_CLASSNAMEMETHOD>(<T_INITPARA>parent,VM *pVM );
+<T_CLASSNAMEMETHOD>(<T_INITPARA><T_PASSPARENT>VM *pVM );
 
 <T_CLASSNAMEMETHOD2>();
 
@@ -1380,6 +1379,13 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 	cSpace = copy(" ",4)
 
+	# Add parent,
+	if aClass[:noparent] = True 
+		cCode = substr(cCode,"<T_PASSPARENT>","")
+	else
+		cCode = substr(cCode,"<T_PASSPARENT>","parent,")
+	ok
+
 	# Set the header name
 	cCode = substr(cCode,"<T_HEADER>", upper(aClass[:name])+"_H")
 
@@ -1393,7 +1399,11 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	if aClass[:initpara] != NULL
 		cCode = substr(cCode,"<T_INITPARA>", aClass[:initpara])
 	else
-		cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+		if not aClass[:noparent] = True
+			cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+		else 
+			cCode = substr(cCode,"<T_INITPARA>", "")
+		ok
 	ok
 
 	aEvents = aClass[:events]
@@ -1434,7 +1444,7 @@ extern "C" {
 }
 #include "<T_HEADER>.h"
 
-<T_CLASSNAME>::<T_CLASSNAME>(<T_INITPARA>parent,VM *pVM)  : <T_REALCLASSNAME>(<T_INITPARAPARENT>parent)
+<T_CLASSNAME>::<T_CLASSNAME>(<T_INITPARA><T_PASSPARENT>VM *pVM)  : <T_REALCLASSNAME>(<T_INITPARAPARENT><T_PASSPARENT2>)
 {
 	this->pVM = pVM;
 	this->pParaList = ring_list_new(0);
@@ -1460,6 +1470,15 @@ void <T_CLASSNAME>::geteventparameters(void)
 <T_SLOTS>
 `	# End of Code String
 
+	# Add parent,
+	if aClass[:noparent] = True 
+		cCode = substr(cCode,"<T_PASSPARENT>","")
+		cCode = substr(cCode,"<T_PASSPARENT2>","")
+	else
+		cCode = substr(cCode,"<T_PASSPARENT>","parent,")
+		cCode = substr(cCode,"<T_PASSPARENT2>","parent")
+	ok
+
 	# Set the class name and the parent class name
 	cCode = substr(cCode,"<T_HEADER>", lower(aClass[:name]))
 	cCode = substr(cCode,"<T_CLASSNAME>", aClass[:name])
@@ -1468,7 +1487,11 @@ void <T_CLASSNAME>::geteventparameters(void)
 	if aClass[:initpara] != NULL
 		cCode = substr(cCode,"<T_INITPARA>", aClass[:initpara])
 	else
-		cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+		if not aClass[:noparent] = True
+			cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+		else 
+			cCode = substr(cCode,"<T_INITPARA>", "")
+		ok
 	ok
 
 	if aClass[:initparaparent] != NULL

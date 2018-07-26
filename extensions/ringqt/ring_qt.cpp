@@ -255,6 +255,9 @@ extern "C" {
 #include <QMimeData>
 #include <QDropEvent>
 #include <QDragMoveEvent>
+#include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QClipboard>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -524,6 +527,9 @@ extern "C" {
 	void ring_QMimeData_freefunc(void *pState,void *pPointer);
 	void ring_QDropEvent_freefunc(void *pState,void *pPointer);
 	void ring_QDragMoveEvent_freefunc(void *pState,void *pPointer);
+	void ring_QDragEnterEvent_freefunc(void *pState,void *pPointer);
+	void ring_QDragLeaveEvent_freefunc(void *pState,void *pPointer);
+	void ring_QClipboard_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -124213,6 +124219,302 @@ RING_FUNC(ring_QDragMoveEvent_ignore_2)
 	pObject->ignore();
 }
 
+
+RING_FUNC(ring_QClipboard_clear)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->clear( (QClipboard::Mode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QClipboard_image)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QImage *pValue ; 
+		pValue = new QImage() ;
+		*pValue = pObject->image( (QClipboard::Mode )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QImage",ring_QImage_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QClipboard_mimeData)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->mimeData( (QClipboard::Mode )  (int) RING_API_GETNUMBER(2)),"QMimeData");
+}
+
+
+RING_FUNC(ring_QClipboard_ownsClipboard)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	RING_API_RETNUMBER(pObject->ownsClipboard());
+}
+
+
+RING_FUNC(ring_QClipboard_ownsFindBuffer)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	RING_API_RETNUMBER(pObject->ownsFindBuffer());
+}
+
+
+RING_FUNC(ring_QClipboard_ownsSelection)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	RING_API_RETNUMBER(pObject->ownsSelection());
+}
+
+
+RING_FUNC(ring_QClipboard_pixmap)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->pixmap( (QClipboard::Mode )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPixmap",ring_QPixmap_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QClipboard_setImage)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setImage(* (QImage  *) RING_API_GETCPOINTER(2,"QImage"), (QClipboard::Mode )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
+}
+
+
+RING_FUNC(ring_QClipboard_setMimeData)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMimeData((QMimeData *) RING_API_GETCPOINTER(2,"QMimeData"), (QClipboard::Mode )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QClipboard_setPixmap)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPixmap(* (QPixmap  *) RING_API_GETCPOINTER(2,"QPixmap"), (QClipboard::Mode )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
+}
+
+
+RING_FUNC(ring_QClipboard_setText)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setText(RING_API_GETSTRING(2), (QClipboard::Mode )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QClipboard_supportsFindBuffer)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	RING_API_RETNUMBER(pObject->supportsFindBuffer());
+}
+
+
+RING_FUNC(ring_QClipboard_supportsSelection)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	RING_API_RETNUMBER(pObject->supportsSelection());
+}
+
+
+RING_FUNC(ring_QClipboard_text)
+{
+	QClipboard *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QClipboard *) RING_API_GETCPOINTER(1,"QClipboard");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->text( (QClipboard::Mode )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -126965,6 +127267,44 @@ RING_FUNC(ring_QDragMoveEvent_new)
 	}
 	QDragMoveEvent *pObject = new QDragMoveEvent(* (QPoint *) RING_API_GETCPOINTER(1,"QPoint"), (Qt::DropActions)  (int) RING_API_GETNUMBER(2),(QMimeData *) RING_API_GETCPOINTER(3,"QMimeData"), (Qt::MouseButtons)  (int) RING_API_GETNUMBER(4), (Qt::KeyboardModifiers)  (int) RING_API_GETNUMBER(5), (QEvent::Type)  (int) RING_API_GETNUMBER(6));
 	RING_API_RETCPOINTER(pObject,"QDragMoveEvent");
+}
+
+RING_FUNC(ring_QDragEnterEvent_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QDragEnterEvent *pObject = new QDragEnterEvent(* (QPoint *) RING_API_GETCPOINTER(1,"QPoint"), (Qt::DropActions)  (int) RING_API_GETNUMBER(2),(QMimeData *) RING_API_GETCPOINTER(3,"QMimeData"), (Qt::MouseButtons)  (int) RING_API_GETNUMBER(4), (Qt::KeyboardModifiers)  (int) RING_API_GETNUMBER(5));
+	RING_API_RETCPOINTER(pObject,"QDragEnterEvent");
+}
+
+RING_FUNC(ring_QDragLeaveEvent_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDragLeaveEvent *pObject = new QDragLeaveEvent();
+	RING_API_RETCPOINTER(pObject,"QDragLeaveEvent");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -130265,6 +130605,40 @@ RING_FUNC(ring_QDragMoveEvent_delete)
 	}
 }
 
+RING_FUNC(ring_QDragEnterEvent_delete)
+{
+	QDragEnterEvent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDragEnterEvent *) RING_API_GETCPOINTER(1,"QDragEnterEvent");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QDragLeaveEvent_delete)
+{
+	QDragLeaveEvent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDragLeaveEvent *) RING_API_GETCPOINTER(1,"QDragLeaveEvent");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -131620,6 +131994,20 @@ void ring_QDragMoveEvent_freefunc(void *pState,void *pPointer)
 {
 	QDragMoveEvent *pObject ; 
 	pObject = (QDragMoveEvent *) pPointer;
+	delete pObject ;
+}
+
+void ring_QDragEnterEvent_freefunc(void *pState,void *pPointer)
+{
+	QDragEnterEvent *pObject ; 
+	pObject = (QDragEnterEvent *) pPointer;
+	delete pObject ;
+}
+
+void ring_QDragLeaveEvent_freefunc(void *pState,void *pPointer)
+{
+	QDragLeaveEvent *pObject ; 
+	pObject = (QDragLeaveEvent *) pPointer;
 	delete pObject ;
 }
 
@@ -137512,6 +137900,20 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdragmoveevent_answerrect",ring_QDragMoveEvent_answerRect);
 	ring_vm_funcregister("qdragmoveevent_ignore",ring_QDragMoveEvent_ignore);
 	ring_vm_funcregister("qdragmoveevent_ignore_2",ring_QDragMoveEvent_ignore_2);
+	ring_vm_funcregister("qclipboard_clear",ring_QClipboard_clear);
+	ring_vm_funcregister("qclipboard_image",ring_QClipboard_image);
+	ring_vm_funcregister("qclipboard_mimedata",ring_QClipboard_mimeData);
+	ring_vm_funcregister("qclipboard_ownsclipboard",ring_QClipboard_ownsClipboard);
+	ring_vm_funcregister("qclipboard_ownsfindbuffer",ring_QClipboard_ownsFindBuffer);
+	ring_vm_funcregister("qclipboard_ownsselection",ring_QClipboard_ownsSelection);
+	ring_vm_funcregister("qclipboard_pixmap",ring_QClipboard_pixmap);
+	ring_vm_funcregister("qclipboard_setimage",ring_QClipboard_setImage);
+	ring_vm_funcregister("qclipboard_setmimedata",ring_QClipboard_setMimeData);
+	ring_vm_funcregister("qclipboard_setpixmap",ring_QClipboard_setPixmap);
+	ring_vm_funcregister("qclipboard_settext",ring_QClipboard_setText);
+	ring_vm_funcregister("qclipboard_supportsfindbuffer",ring_QClipboard_supportsFindBuffer);
+	ring_vm_funcregister("qclipboard_supportsselection",ring_QClipboard_supportsSelection);
+	ring_vm_funcregister("qclipboard_text",ring_QClipboard_text);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -137706,6 +138108,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmimedata_new",ring_QMimeData_new);
 	ring_vm_funcregister("qdropevent_new",ring_QDropEvent_new);
 	ring_vm_funcregister("qdragmoveevent_new",ring_QDragMoveEvent_new);
+	ring_vm_funcregister("qdragenterevent_new",ring_QDragEnterEvent_new);
+	ring_vm_funcregister("qdragleaveevent_new",ring_QDragLeaveEvent_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -137900,4 +138304,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmimedata_delete",ring_QMimeData_delete);
 	ring_vm_funcregister("qdropevent_delete",ring_QDropEvent_delete);
 	ring_vm_funcregister("qdragmoveevent_delete",ring_QDragMoveEvent_delete);
+	ring_vm_funcregister("qdragenterevent_delete",ring_QDragEnterEvent_delete);
+	ring_vm_funcregister("qdragleaveevent_delete",ring_QDragLeaveEvent_delete);
 }

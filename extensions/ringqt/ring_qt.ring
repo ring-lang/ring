@@ -17336,7 +17336,9 @@ Class QGuiApplication from QCoreApplication
 		return QGuiApplication_changeOverrideCursor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func clipboard 
-		return QGuiApplication_clipboard(pObject)
+		pTempObj = new QClipboard
+		pTempObj.pObject = QGuiApplication_clipboard(pObject)
+		return pTempObj
 
 	Func desktopSettingsAware 
 		return QGuiApplication_desktopSettingsAware(pObject)
@@ -21946,6 +21948,55 @@ Class QDragMoveEvent from QDropEvent
 	Func ignore_2 
 		return QDragMoveEvent_ignore_2(pObject)
 
+Class QClipboard
+	Func clear P1
+		return QClipboard_clear(P1)
+
+	Func image P1
+		pTempObj = new QImage
+		pTempObj.pObject = QClipboard_image(P1)
+		return pTempObj
+
+	Func mimeData P1
+		pTempObj = new QMimeData
+		pTempObj.pObject = QClipboard_mimeData(P1)
+		return pTempObj
+
+	Func ownsClipboard 
+		return QClipboard_ownsClipboard()
+
+	Func ownsFindBuffer 
+		return QClipboard_ownsFindBuffer()
+
+	Func ownsSelection 
+		return QClipboard_ownsSelection()
+
+	Func pixmap P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QClipboard_pixmap(P1)
+		return pTempObj
+
+	Func setImage P1,P2
+		return QClipboard_setImage(GetObjectPointerFromRingObject(P1),P2)
+
+	Func setMimeData P1,P2
+		return QClipboard_setMimeData(GetObjectPointerFromRingObject(P1),P2)
+
+	Func setPixmap P1,P2
+		return QClipboard_setPixmap(GetObjectPointerFromRingObject(P1),P2)
+
+	Func setText P1,P2
+		return QClipboard_setText(P1,P2)
+
+	Func supportsFindBuffer 
+		return QClipboard_supportsFindBuffer()
+
+	Func supportsSelection 
+		return QClipboard_supportsSelection()
+
+	Func text P1
+		return QClipboard_text(P1)
+
 Class QPixmap2 from QPixmap
 
 	pObject
@@ -22138,6 +22189,34 @@ Class QScrollBar from QAbstractSlider
 
 	Func delete
 		pObject = QScrollBar_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QDragEnterEvent from QDragMoveEvent
+
+	pObject
+
+	Func init P1,P2,P3,P4,P5
+		pObject = QDragEnterEvent_new(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,P5)
+		return self
+
+	Func delete
+		pObject = QDragEnterEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QDragLeaveEvent from QEvent
+
+	pObject
+
+	Func init 
+		pObject = QDragLeaveEvent_new()
+		return self
+
+	Func delete
+		pObject = QDragLeaveEvent_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
