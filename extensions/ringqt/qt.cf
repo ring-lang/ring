@@ -267,6 +267,7 @@ extern "C" {
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QClipboard>
+#include <QChar>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -703,6 +704,14 @@ aEnumTypes + "Qt::DropActions"
 aEnumTypes + "Qt::MouseButtons"
 aEnumTypes + "Qt::KeyboardModifiers"
 aEnumTypes + "QClipboard::Mode"
+aEnumTypes + "QChar::Category"
+aEnumTypes + "QChar::Decomposition"
+aEnumTypes + "QChar::Direction"
+aEnumTypes + "QChar::JoiningType"
+aEnumTypes + "QChar::Script"
+aEnumTypes + "QChar::SpecialCharacter"
+aEnumTypes + "QChar::UnicodeVersion"
+
 
 $aMallocClassesList + "QModelIndex"
 
@@ -6941,7 +6950,6 @@ QByteArray toUtf8(void)
 int toWCharArray(wchar_t *array)
 QString trimmed(void)
 void truncate(int position)
-QChar * unicode(void)
 ushort * utf16(void)
 </comment>
 
@@ -6950,6 +6958,7 @@ QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensiti
 QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
 QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 
+QChar * unicode(void)
 
 <class>
 name: QProcess
@@ -9799,3 +9808,83 @@ bool supportsFindBuffer(void)
 bool supportsSelection(void)
 QString text(QClipboard::Mode mode)
 
+<class>
+name: QChar
+para: int
+</class>
+
+QChar::Category category(void)
+uchar cell(void)
+unsigned char combiningClass(void)
+QString decomposition(void)
+QChar::Decomposition decompositionTag(void)
+int digitValue(void)
+QChar::Direction direction(void)
+bool hasMirrored(void)
+bool isDigit(void)
+bool isHighSurrogate(void)
+bool isLetter(void)
+bool isLetterOrNumber(void)
+bool isLowSurrogate(void)
+bool isLower(void)
+bool isMark(void)
+bool isNonCharacter(void)
+bool isNull(void)
+bool isNumber(void)
+bool isPrint(void)
+bool isPunct(void)
+bool isSpace(void)
+bool isSurrogate(void)
+bool isSymbol(void)
+bool isTitleCase(void)
+bool isUpper(void)
+QChar::JoiningType joiningType(void)
+QChar mirroredChar(void)
+uchar row(void)
+QChar::Script script(void)
+QChar toCaseFolded(void)
+char toLatin1(void)
+QChar toLower(void)
+QChar toTitleCase(void)
+QChar toUpper(void)
+ushort unicode(void)
+ushort unicode@2(void)
+QChar::UnicodeVersion unicodeVersion(void)
+QChar::Category category@2(uint ucs4)
+unsigned char combiningClass@2(uint ucs4)
+QChar::UnicodeVersion currentUnicodeVersion(void)
+QString decomposition@2(uint ucs4)
+QChar::Decomposition decompositionTag@2(uint ucs4)
+int digitValue@2(uint ucs4)
+QChar::Direction direction@2(uint ucs4)
+QChar fromLatin1(char c)
+bool hasMirrored@2(uint ucs4)
+ushort highSurrogate(uint ucs4)
+bool isDigit@2(uint ucs4)
+bool isHighSurrogate@2(uint ucs4)
+bool isLetter@2(uint ucs4)
+bool isLetterOrNumber@2(uint ucs4)
+bool isLowSurrogate@2(uint ucs4)
+bool isLower@2(uint ucs4)
+bool isMark@2(uint ucs4)
+bool isNonCharacter@2(uint ucs4)
+bool isNumber@2(uint ucs4)
+bool isPrint@2(uint ucs4)
+bool isPunct@2(uint ucs4)
+bool isSpace@2(uint ucs4)
+bool isSurrogate@2(uint ucs4)
+bool isSymbol@2(uint ucs4)
+bool isTitleCase@2(uint ucs4)
+bool isUpper@2(uint ucs4)
+QChar::JoiningType joiningType@2(uint ucs4)
+ushort lowSurrogate(uint ucs4)
+uint mirroredChar@2(uint ucs4)
+bool requiresSurrogates(uint ucs4)
+QChar::Script script@2(uint ucs4)
+uint surrogateToUcs4(ushort high, ushort low)
+uint surrogateToUcs4@2(QChar high, QChar low)
+uint toCaseFolded@2(uint ucs4)
+uint toLower@2(uint ucs4)
+uint toTitleCase@2(uint ucs4)
+uint toUpper@2(uint ucs4)
+QChar::UnicodeVersion unicodeVersion@2(uint ucs4)

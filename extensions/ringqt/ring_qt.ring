@@ -2320,7 +2320,9 @@ Class QDir
 		return pTempObj
 
 	Func separator 
-		return QDir_separator(pObject)
+		pTempObj = new QChar
+		pTempObj.pObject = QDir_separator(pObject)
+		return pTempObj
 
 	Func setCurrent P1
 		return QDir_setCurrent(pObject,P1)
@@ -10362,7 +10364,9 @@ Class QTextDocument from QObject
 		return QTextDocument_blockCount(pObject)
 
 	Func characterAt P1
-		return QTextDocument_characterAt(pObject,P1)
+		pTempObj = new QChar
+		pTempObj.pObject = QTextDocument_characterAt(pObject,P1)
+		return pTempObj
 
 	Func characterCount 
 		return QTextDocument_characterCount(pObject)
@@ -11631,7 +11635,9 @@ Class QVariant
 		return pTempObj
 
 	Func toChar 
-		return QVariant_toChar(pObject)
+		pTempObj = new QChar
+		pTempObj.pObject = QVariant_toChar(pObject)
+		return pTempObj
 
 	Func toDate 
 		pTempObj = new QDate
@@ -15335,6 +15341,11 @@ Class QString2
 		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
+	Func unicode 
+		pTempObj = new QChar
+		pTempObj.pObject = QString2_unicode(pObject)
+		return pTempObj
+
 Class QProcess from QIODevice
 
 	pObject
@@ -16164,7 +16175,9 @@ Class QStringRef
 		return pTempObj
 
 	Func at P1
-		return QStringRef_at(pObject,P1)
+		pTempObj = new QChar
+		pTempObj.pObject = QStringRef_at(pObject,P1)
+		return pTempObj
 
 	Func clear 
 		return QStringRef_clear(pObject)
@@ -16176,7 +16189,9 @@ Class QStringRef
 		return QStringRef_compare_3(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func constData 
-		return QStringRef_constData(pObject)
+		pTempObj = new QChar
+		pTempObj.pObject = QStringRef_constData(pObject)
+		return pTempObj
 
 	Func contains P1,P2
 		return QStringRef_contains(pObject,P1,P2)
@@ -16203,7 +16218,9 @@ Class QStringRef
 		return QStringRef_count_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func data 
-		return QStringRef_data(pObject)
+		pTempObj = new QChar
+		pTempObj.pObject = QStringRef_data(pObject)
+		return pTempObj
 
 	Func endsWith P1,P2
 		return QStringRef_endsWith(pObject,P1,P2)
@@ -16299,7 +16316,9 @@ Class QStringRef
 		return pTempObj
 
 	Func unicode 
-		return QStringRef_unicode(pObject)
+		pTempObj = new QChar
+		pTempObj.pObject = QStringRef_unicode(pObject)
+		return pTempObj
 
 	Func compare_4 P1,P2,P3
 		return QStringRef_compare_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
@@ -21996,6 +22015,257 @@ Class QClipboard
 
 	Func text P1
 		return QClipboard_text(P1)
+
+Class QChar
+
+	pObject
+
+	Func init P1
+		pObject = QChar_new(P1)
+		return self
+
+	Func delete
+		pObject = QChar_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func category 
+		return QChar_category(pObject)
+
+	Func cell 
+		return QChar_cell(pObject)
+
+	Func combiningClass 
+		return QChar_combiningClass(pObject)
+
+	Func decomposition 
+		return QChar_decomposition(pObject)
+
+	Func decompositionTag 
+		return QChar_decompositionTag(pObject)
+
+	Func digitValue 
+		return QChar_digitValue(pObject)
+
+	Func direction 
+		return QChar_direction(pObject)
+
+	Func hasMirrored 
+		return QChar_hasMirrored(pObject)
+
+	Func isDigit 
+		return QChar_isDigit(pObject)
+
+	Func isHighSurrogate 
+		return QChar_isHighSurrogate(pObject)
+
+	Func isLetter 
+		return QChar_isLetter(pObject)
+
+	Func isLetterOrNumber 
+		return QChar_isLetterOrNumber(pObject)
+
+	Func isLowSurrogate 
+		return QChar_isLowSurrogate(pObject)
+
+	Func isLower 
+		return QChar_isLower(pObject)
+
+	Func isMark 
+		return QChar_isMark(pObject)
+
+	Func isNonCharacter 
+		return QChar_isNonCharacter(pObject)
+
+	Func isNull 
+		return QChar_isNull(pObject)
+
+	Func isNumber 
+		return QChar_isNumber(pObject)
+
+	Func isPrint 
+		return QChar_isPrint(pObject)
+
+	Func isPunct 
+		return QChar_isPunct(pObject)
+
+	Func isSpace 
+		return QChar_isSpace(pObject)
+
+	Func isSurrogate 
+		return QChar_isSurrogate(pObject)
+
+	Func isSymbol 
+		return QChar_isSymbol(pObject)
+
+	Func isTitleCase 
+		return QChar_isTitleCase(pObject)
+
+	Func isUpper 
+		return QChar_isUpper(pObject)
+
+	Func joiningType 
+		return QChar_joiningType(pObject)
+
+	Func mirroredChar 
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_mirroredChar(pObject)
+		return pTempObj
+
+	Func row 
+		return QChar_row(pObject)
+
+	Func script 
+		return QChar_script(pObject)
+
+	Func toCaseFolded 
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_toCaseFolded(pObject)
+		return pTempObj
+
+	Func toLatin1 
+		return QChar_toLatin1(pObject)
+
+	Func toLower 
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_toLower(pObject)
+		return pTempObj
+
+	Func toTitleCase 
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_toTitleCase(pObject)
+		return pTempObj
+
+	Func toUpper 
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_toUpper(pObject)
+		return pTempObj
+
+	Func unicode 
+		return QChar_unicode(pObject)
+
+	Func unicode_2 
+		return QChar_unicode_2(pObject)
+
+	Func unicodeVersion 
+		return QChar_unicodeVersion(pObject)
+
+	Func category_2 P1
+		return QChar_category_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func combiningClass_2 P1
+		return QChar_combiningClass_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func currentUnicodeVersion 
+		return QChar_currentUnicodeVersion(pObject)
+
+	Func decomposition_2 P1
+		return QChar_decomposition_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func decompositionTag_2 P1
+		return QChar_decompositionTag_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func digitValue_2 P1
+		return QChar_digitValue_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func direction_2 P1
+		return QChar_direction_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func fromLatin1 P1
+		pTempObj = new QChar
+		pTempObj.pObject = QChar_fromLatin1(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func hasMirrored_2 P1
+		return QChar_hasMirrored_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func highSurrogate P1
+		return QChar_highSurrogate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isDigit_2 P1
+		return QChar_isDigit_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isHighSurrogate_2 P1
+		return QChar_isHighSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isLetter_2 P1
+		return QChar_isLetter_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isLetterOrNumber_2 P1
+		return QChar_isLetterOrNumber_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isLowSurrogate_2 P1
+		return QChar_isLowSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isLower_2 P1
+		return QChar_isLower_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isMark_2 P1
+		return QChar_isMark_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNonCharacter_2 P1
+		return QChar_isNonCharacter_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNumber_2 P1
+		return QChar_isNumber_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isPrint_2 P1
+		return QChar_isPrint_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isPunct_2 P1
+		return QChar_isPunct_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isSpace_2 P1
+		return QChar_isSpace_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isSurrogate_2 P1
+		return QChar_isSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isSymbol_2 P1
+		return QChar_isSymbol_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isTitleCase_2 P1
+		return QChar_isTitleCase_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isUpper_2 P1
+		return QChar_isUpper_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func joiningType_2 P1
+		return QChar_joiningType_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func lowSurrogate P1
+		return QChar_lowSurrogate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mirroredChar_2 P1
+		return QChar_mirroredChar_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func requiresSurrogates P1
+		return QChar_requiresSurrogates(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func script_2 P1
+		return QChar_script_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func surrogateToUcs4 P1,P2
+		return QChar_surrogateToUcs4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func surrogateToUcs4_2 P1,P2
+		return QChar_surrogateToUcs4_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toCaseFolded_2 P1
+		return QChar_toCaseFolded_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toLower_2 P1
+		return QChar_toLower_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toTitleCase_2 P1
+		return QChar_toTitleCase_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUpper_2 P1
+		return QChar_toUpper_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func unicodeVersion_2 P1
+		return QChar_unicodeVersion_2(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QPixmap2 from QPixmap
 
