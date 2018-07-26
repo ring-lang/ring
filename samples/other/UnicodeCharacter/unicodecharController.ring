@@ -24,8 +24,8 @@ class unicodecharController from windowsControllerParent
 			oString.append(cText)
 		# Get unicode value (As QChar)
 			cUniCode = oString.Unicode()
-			nUniCode = cUniCode.unicode()
 		# Convert QChar to Numeric Value (Decimal)
+			nUniCode = cUniCode.unicode()
 			? "Unicode Character (Decimal Value) : " + nUniCode
 			? "Unicode Character (Hex. Value)    : " + oString.number(nUniCode,16)
 			? "Unicode Character (Bin. Value)    : " + oString.number(nUniCode,2)
