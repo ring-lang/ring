@@ -253,6 +253,7 @@ extern "C" {
 #include "gdrag.h"
 #include <QMimeData>
 #include <QDropEvent>
+#include <QDragMoveEvent>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -472,6 +473,7 @@ extern "C" {
 	void ring_QDrag_freefunc(void *pState,void *pPointer);
 	void ring_QMimeData_freefunc(void *pState,void *pPointer);
 	void ring_QDropEvent_freefunc(void *pState,void *pPointer);
+	void ring_QDragMoveEvent_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -101791,6 +101793,100 @@ RING_FUNC(ring_QDropEvent_source)
 	RING_API_RETCPOINTER(pObject->source(),"QObject");
 }
 
+
+RING_FUNC(ring_QDragMoveEvent_accept)
+{
+	QDragMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+	pObject->accept(* (QRect  *) RING_API_GETCPOINTER(2,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
+}
+
+
+RING_FUNC(ring_QDragMoveEvent_accept_2)
+{
+	QDragMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+	pObject->accept();
+}
+
+
+RING_FUNC(ring_QDragMoveEvent_answerRect)
+{
+	QDragMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->answerRect();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QRect",ring_QRect_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QDragMoveEvent_ignore)
+{
+	QDragMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+	pObject->ignore(* (QRect  *) RING_API_GETCPOINTER(2,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
+}
+
+
+RING_FUNC(ring_QDragMoveEvent_ignore_2)
+{
+	QDragMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+	pObject->ignore();
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -104243,6 +104339,37 @@ RING_FUNC(ring_QDropEvent_new)
 	}
 	QDropEvent *pObject = new QDropEvent(* (QPointF *) RING_API_GETCPOINTER(1,"QPointF"), (Qt::DropActions)  (int) RING_API_GETNUMBER(2),(QMimeData *) RING_API_GETCPOINTER(3,"QMimeData"), (Qt::MouseButtons)  (int) RING_API_GETNUMBER(4), (Qt::KeyboardModifiers)  (int) RING_API_GETNUMBER(5), (QEvent::Type)  (int) RING_API_GETNUMBER(6));
 	RING_API_RETCPOINTER(pObject,"QDropEvent");
+}
+
+RING_FUNC(ring_QDragMoveEvent_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QDragMoveEvent *pObject = new QDragMoveEvent(* (QPoint *) RING_API_GETCPOINTER(1,"QPoint"), (Qt::DropActions)  (int) RING_API_GETNUMBER(2),(QMimeData *) RING_API_GETCPOINTER(3,"QMimeData"), (Qt::MouseButtons)  (int) RING_API_GETNUMBER(4), (Qt::KeyboardModifiers)  (int) RING_API_GETNUMBER(5), (QEvent::Type)  (int) RING_API_GETNUMBER(6));
+	RING_API_RETCPOINTER(pObject,"QDragMoveEvent");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -107203,6 +107330,23 @@ RING_FUNC(ring_QDropEvent_delete)
 	}
 }
 
+RING_FUNC(ring_QDragMoveEvent_delete)
+{
+	QDragMoveEvent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDragMoveEvent *) RING_API_GETCPOINTER(1,"QDragMoveEvent");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -108418,6 +108562,13 @@ void ring_QDropEvent_freefunc(void *pState,void *pPointer)
 {
 	QDropEvent *pObject ; 
 	pObject = (QDropEvent *) pPointer;
+	delete pObject ;
+}
+
+void ring_QDragMoveEvent_freefunc(void *pState,void *pPointer)
+{
+	QDragMoveEvent *pObject ; 
+	pObject = (QDragMoveEvent *) pPointer;
 	delete pObject ;
 }
 
@@ -113403,6 +113554,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdropevent_proposedaction",ring_QDropEvent_proposedAction);
 	ring_vm_funcregister("qdropevent_setdropaction",ring_QDropEvent_setDropAction);
 	ring_vm_funcregister("qdropevent_source",ring_QDropEvent_source);
+	ring_vm_funcregister("qdragmoveevent_accept",ring_QDragMoveEvent_accept);
+	ring_vm_funcregister("qdragmoveevent_accept_2",ring_QDragMoveEvent_accept_2);
+	ring_vm_funcregister("qdragmoveevent_answerrect",ring_QDragMoveEvent_answerRect);
+	ring_vm_funcregister("qdragmoveevent_ignore",ring_QDragMoveEvent_ignore);
+	ring_vm_funcregister("qdragmoveevent_ignore_2",ring_QDragMoveEvent_ignore_2);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -113577,6 +113733,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdrag_new",ring_QDrag_new);
 	ring_vm_funcregister("qmimedata_new",ring_QMimeData_new);
 	ring_vm_funcregister("qdropevent_new",ring_QDropEvent_new);
+	ring_vm_funcregister("qdragmoveevent_new",ring_QDragMoveEvent_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -113751,4 +113908,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdrag_delete",ring_QDrag_delete);
 	ring_vm_funcregister("qmimedata_delete",ring_QMimeData_delete);
 	ring_vm_funcregister("qdropevent_delete",ring_QDropEvent_delete);
+	ring_vm_funcregister("qdragmoveevent_delete",ring_QDragMoveEvent_delete);
 }
