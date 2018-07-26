@@ -1838,6 +1838,66 @@ Parent Class : QWidget
 * const char *getvisibilityChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QDrag Class
+
+QDrag Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDrag.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* Qt::DropAction defaultAction(void)
+* QPixmap dragCursor(Qt::DropAction action)
+* Qt::DropAction exec(Qt::DropActions supportedActions)
+* Qt::DropAction exec_2(Qt::DropActions supportedActions, Qt::DropAction defaultDropAction)
+* QPoint hotSpot(void)
+* QMimeData *mimeData(void)
+* QPixmap pixmap(void)
+* void setDragCursor(QPixmap cursor, Qt::DropAction action)
+* void setHotSpot(QPoint hotspot)
+* void setMimeData(QMimeData * data)
+* void setPixmap(QPixmap pixmap)
+* QObject * source(void)
+* Qt::DropActions supportedActions(void)
+* QObject * target(void)
+* void setactionChangedEvent(const char *)
+* void settargetChangedEvent(const char *)
+* const char *getactionChangedEvent(void)
+* const char *gettargetChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDropEvent Class
+
+QDropEvent Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDropEvent.html
+
+
+Parameters : QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+
+
+Parent Class : QEvent
+
+* void acceptProposedAction(void)
+* Qt::DropAction dropAction(void)
+* Qt::KeyboardModifiers keyboardModifiers(void)
+* QMimeData * mimeData(void)
+* Qt::MouseButtons mouseButtons(void)
+* QPoint pos(void)
+* QPointF posF(void)
+* Qt::DropActions possibleActions(void)
+* Qt::DropAction proposedAction(void)
+* void setDropAction(Qt::DropAction action)
+* QObject * source(void)
+.. index::
 	pair: RingQt Classes Reference; QEvent Class
 
 QEvent Class
@@ -2624,6 +2684,9 @@ C++ Reference : http://doc.qt.io/qt-5/QIODevice.html
 
 
 Parameters : void
+
+
+Parent Class : QObject
 
 * QString errorString(void)
 * bool getChar(char *c)
@@ -3701,6 +3764,43 @@ Parent Class : QDialog
 * int information(QWidget * parent, QString ,QString, int buttons,int defaultButton)
 * int question(QWidget * parent,QString,QString, int buttons ,int  defaultButton)
 * int warning(QWidget *parent, QString,QString, int buttons,int defaultButton)
+
+.. index::
+	pair: RingQt Classes Reference; QMimeData Class
+
+QMimeData Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMimeData.html
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* void clear(void)
+* QVariant colorData(void)
+* QByteArray data(QString mimeType)
+* QStringList formats(void)
+* bool hasColor(void)
+* bool hasFormat(QString mimeType)
+* bool hasHtml(void)
+* bool hasImage(void)
+* bool hasText(void)
+* bool hasUrls(void)
+* QString html(void)
+* QVariant imageData(void)
+* void removeFormat(QString mimeType)
+* void setColorData(QVariant color)
+* void setData(QString mimeType, QByteArray data)
+* void setHtml(QString html)
+* void setImageData(QVariant image)
+* void setText(QString text)
+* void setUrls(QList<QUrl> urls)
+* QString text(void)
+* QList<QUrl> urls(void)
 
 .. index::
 	pair: RingQt Classes Reference; QMutex Class
@@ -5810,6 +5910,7 @@ Parameters : QWidget *parent
 
 
 Parent Class : QAbstractSlider
+
 
 .. index::
 	pair: RingQt Classes Reference; QSerialPort Class
