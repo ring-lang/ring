@@ -21718,10 +21718,10 @@ Class QDrag from QObject
 		return pTempObj
 
 	Func exec P1
-		return QDrag_exec(pObject,GetObjectPointerFromRingObject(P1))
+		return QDrag_exec(pObject,P1)
 
 	Func exec_2 P1,P2
-		return QDrag_exec_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QDrag_exec_2(pObject,P1,P2)
 
 	Func hotSpot 
 		pTempObj = new QPoint
@@ -21859,6 +21859,61 @@ Class QMimeData from QObject
 
 	Func urls 
 		return QMimeData_urls(pObject)
+
+Class QDropEvent from QEvent
+
+	pObject
+
+	Func init P1,P2,P3,P4,P5,P6
+		pObject = QDropEvent_new(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,P5,P6)
+		return self
+
+	Func delete
+		pObject = QDropEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func acceptProposedAction 
+		return QDropEvent_acceptProposedAction(pObject)
+
+	Func dropAction 
+		return QDropEvent_dropAction(pObject)
+
+	Func keyboardModifiers 
+		return QDropEvent_keyboardModifiers(pObject)
+
+	Func mimeData 
+		pTempObj = new QMimeData
+		pTempObj.pObject = QDropEvent_mimeData(pObject)
+		return pTempObj
+
+	Func mouseButtons 
+		return QDropEvent_mouseButtons(pObject)
+
+	Func pos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QDropEvent_pos(pObject)
+		return pTempObj
+
+	Func posF 
+		pTempObj = new QPointF
+		pTempObj.pObject = QDropEvent_posF(pObject)
+		return pTempObj
+
+	Func possibleActions 
+		return QDropEvent_possibleActions(pObject)
+
+	Func proposedAction 
+		return QDropEvent_proposedAction(pObject)
+
+	Func setDropAction P1
+		return QDropEvent_setDropAction(pObject,P1)
+
+	Func source 
+		pTempObj = new QObject
+		pTempObj.pObject = QDropEvent_source(pObject)
+		return pTempObj
 
 Class QPixmap2 from QPixmap
 

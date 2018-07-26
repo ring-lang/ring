@@ -262,6 +262,7 @@ extern "C" {
 #include <QDrag>
 #include "gdrag.h"
 #include <QMimeData>
+#include <QDropEvent>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -694,6 +695,9 @@ aEnumTypes + "QDir::SortFlag"
 aEnumTypes + "QDir::SortFlags"
 aEnumTypes + "QQuickWidget::ResizeMode"
 aEnumTypes + "QQuickWidget::Status"
+aEnumTypes + "Qt::DropActions"
+aEnumTypes + "Qt::MouseButtons"
+aEnumTypes + "Qt::KeyboardModifiers"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -9724,3 +9728,21 @@ void setUrls(QList<QUrl> urls)
 QString text(void)
 QList<QUrl> urls(void)
 
+<class>
+name: QDropEvent
+para: QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+parent: QEvent
+</class>
+
+
+void acceptProposedAction(void)
+Qt::DropAction dropAction(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
+QMimeData * mimeData(void)
+Qt::MouseButtons mouseButtons(void)
+QPoint pos(void)
+QPointF posF(void)
+Qt::DropActions possibleActions(void)
+Qt::DropAction proposedAction(void)
+void setDropAction(Qt::DropAction action)
+QObject * source(void)
