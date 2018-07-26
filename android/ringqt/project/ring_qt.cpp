@@ -102840,12 +102840,7 @@ RING_FUNC(ring_QChar_unicode)
 		return ;
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	{
-		ushort *pValue ; 
-		pValue = (ushort *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ushort)) ;
-		*pValue = pObject->unicode();
-		RING_API_RETMANAGEDCPOINTER(pValue,"ushort",ring_state_free);
-	}
+	RING_API_RETNUMBER(pObject->unicode());
 }
 
 
@@ -102862,12 +102857,7 @@ RING_FUNC(ring_QChar_unicode_2)
 		return ;
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	{
-		ushort *pValue ; 
-		pValue = (ushort *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ushort)) ;
-		*pValue = pObject->unicode();
-		RING_API_RETMANAGEDCPOINTER(pValue,"ushort",ring_state_free);
-	}
+	RING_API_RETNUMBER(pObject->unicode());
 }
 
 
@@ -103075,14 +103065,9 @@ RING_FUNC(ring_QChar_highSurrogate)
 		return ;
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	{
-		ushort *pValue ; 
-		pValue = (ushort *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ushort)) ;
-		*pValue = pObject->highSurrogate(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
+	RING_API_RETNUMBER(pObject->highSurrogate(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ushort",ring_state_free);
-	}
 }
 
 
@@ -103422,14 +103407,9 @@ RING_FUNC(ring_QChar_lowSurrogate)
 		return ;
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	{
-		ushort *pValue ; 
-		pValue = (ushort *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ushort)) ;
-		*pValue = pObject->lowSurrogate(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
+	RING_API_RETNUMBER(pObject->lowSurrogate(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ushort",ring_state_free);
-	}
 }
 
 
@@ -103508,14 +103488,18 @@ RING_FUNC(ring_QChar_surrogateToUcs4)
 		return ;
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	{
 		uint *pValue ; 
 		pValue = (uint *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uint)) ;
-		*pValue = pObject->surrogateToUcs4(* (ushort  *) RING_API_GETCPOINTER(2,"ushort"),* (ushort  *) RING_API_GETCPOINTER(3,"ushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ushort"));
+		*pValue = pObject->surrogateToUcs4( (ushort ) RING_API_GETNUMBER(2), (ushort ) RING_API_GETNUMBER(3));
 		RING_API_RETMANAGEDCPOINTER(pValue,"uint",ring_state_free);
 	}
 }
