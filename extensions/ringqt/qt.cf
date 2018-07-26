@@ -368,6 +368,7 @@ aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
+aNumberTypes + "ushort"
 
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"

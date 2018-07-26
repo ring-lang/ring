@@ -22247,7 +22247,7 @@ Class QChar
 		return QChar_script_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func surrogateToUcs4 P1,P2
-		return QChar_surrogateToUcs4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QChar_surrogateToUcs4(pObject,P1,P2)
 
 	Func surrogateToUcs4_2 P1,P2
 		return QChar_surrogateToUcs4_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))

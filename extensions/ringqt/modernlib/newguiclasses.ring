@@ -10,6 +10,8 @@ load "listwidgetclass.ring"
 load "tablewidgetclass.ring"
 load "treewidgetclass.ring"
 
+class QString from QString2
+
 package System.GUI
 
 	class window from qWidget
