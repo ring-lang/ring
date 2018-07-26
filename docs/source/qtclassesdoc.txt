@@ -1872,6 +1872,26 @@ Parent Class : QObject
 * const char *gettargetChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QDragMoveEvent Class
+
+QDragMoveEvent Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragMoveEvent.html
+
+
+Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+
+
+Parent Class : QDropEvent
+
+* void accept(QRect rectangle)
+* void accept_2(void)
+* QRect answerRect(void)
+* void ignore(QRect rectangle)
+* void ignore_2(void)
+.. index::
 	pair: RingQt Classes Reference; QDropEvent Class
 
 QDropEvent Class
@@ -1897,6 +1917,7 @@ Parent Class : QEvent
 * Qt::DropAction proposedAction(void)
 * void setDropAction(Qt::DropAction action)
 * QObject * source(void)
+
 .. index::
 	pair: RingQt Classes Reference; QEvent Class
 
