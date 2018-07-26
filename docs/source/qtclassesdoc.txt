@@ -1078,6 +1078,29 @@ Parent Class : QAbstractButton
 * const char *gettoggledEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QClipboard Class
+
+QClipboard Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QClipboard.html
+
+* void clear(QClipboard::Mode mode)
+* QImage image(QClipboard::Mode mode)
+* QMimeData * mimeData(QClipboard::Mode mode)
+* bool ownsClipboard(void)
+* bool ownsFindBuffer(void)
+* bool ownsSelection(void)
+* QPixmap pixmap(QClipboard::Mode mode)
+* void setImage(QImage image, QClipboard::Mode mode)
+* void setMimeData(QMimeData * src, QClipboard::Mode mode)
+* void setPixmap(QPixmap pixmap, QClipboard::Mode mode)
+* void setText(QString text, QClipboard::Mode mode)
+* bool supportsFindBuffer(void)
+* bool supportsSelection(void)
+* QString text(QClipboard::Mode mode)
+.. index::
 	pair: RingQt Classes Reference; QColor Class
 
 QColor Class
@@ -1872,6 +1895,38 @@ Parent Class : QObject
 * const char *gettargetChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QDragEnterEvent Class
+
+QDragEnterEvent Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragEnterEvent.html
+
+
+Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers
+
+
+Parent Class : QDragMoveEvent
+
+
+.. index::
+	pair: RingQt Classes Reference; QDragLeaveEvent Class
+
+QDragLeaveEvent Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragLeaveEvent.html
+
+
+Parameters : void
+
+
+Parent Class : QEvent
+
+
+.. index::
 	pair: RingQt Classes Reference; QDragMoveEvent Class
 
 QDragMoveEvent Class
@@ -1891,6 +1946,7 @@ Parent Class : QDropEvent
 * QRect answerRect(void)
 * void ignore(QRect rectangle)
 * void ignore_2(void)
+
 .. index::
 	pair: RingQt Classes Reference; QDropEvent Class
 
