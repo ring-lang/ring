@@ -263,6 +263,7 @@ extern "C" {
 #include "gdrag.h"
 #include <QMimeData>
 #include <QDropEvent>
+#include <QDragMoveEvent>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -9746,3 +9747,16 @@ Qt::DropActions possibleActions(void)
 Qt::DropAction proposedAction(void)
 void setDropAction(Qt::DropAction action)
 QObject * source(void)
+
+<class>
+name: QDragMoveEvent
+para: QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+parent: QDropEvent
+</class>
+
+
+void accept(QRect rectangle)
+void accept@2(void)
+QRect answerRect(void)
+void ignore(QRect rectangle)
+void ignore@2(void)

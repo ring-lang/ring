@@ -21915,6 +21915,37 @@ Class QDropEvent from QEvent
 		pTempObj.pObject = QDropEvent_source(pObject)
 		return pTempObj
 
+Class QDragMoveEvent from QDropEvent
+
+	pObject
+
+	Func init P1,P2,P3,P4,P5,P6
+		pObject = QDragMoveEvent_new(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,P5,P6)
+		return self
+
+	Func delete
+		pObject = QDragMoveEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func accept P1
+		return QDragMoveEvent_accept(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func accept_2 
+		return QDragMoveEvent_accept_2(pObject)
+
+	Func answerRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QDragMoveEvent_answerRect(pObject)
+		return pTempObj
+
+	Func ignore P1
+		return QDragMoveEvent_ignore(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func ignore_2 
+		return QDragMoveEvent_ignore_2(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
