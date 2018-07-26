@@ -102664,23 +102664,6 @@ RING_FUNC(ring_QChar_isUpper)
 }
 
 
-RING_FUNC(ring_QChar_joiningType)
-{
-	QChar *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	RING_API_RETNUMBER(pObject->joiningType());
-}
-
-
 RING_FUNC(ring_QChar_mirroredChar)
 {
 	QChar *pObject ;
@@ -103395,25 +103378,6 @@ RING_FUNC(ring_QChar_isUpper_2)
 	}
 	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
 	RING_API_RETNUMBER(pObject->isUpper(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
-}
-
-
-RING_FUNC(ring_QChar_joiningType_2)
-{
-	QChar *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QChar *) RING_API_GETCPOINTER(1,"QChar");
-	RING_API_RETNUMBER(pObject->joiningType(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 }
@@ -115508,7 +115472,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchar_issymbol",ring_QChar_isSymbol);
 	ring_vm_funcregister("qchar_istitlecase",ring_QChar_isTitleCase);
 	ring_vm_funcregister("qchar_isupper",ring_QChar_isUpper);
-	ring_vm_funcregister("qchar_joiningtype",ring_QChar_joiningType);
 	ring_vm_funcregister("qchar_mirroredchar",ring_QChar_mirroredChar);
 	ring_vm_funcregister("qchar_row",ring_QChar_row);
 	ring_vm_funcregister("qchar_script",ring_QChar_script);
@@ -115546,7 +115509,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchar_issymbol_2",ring_QChar_isSymbol_2);
 	ring_vm_funcregister("qchar_istitlecase_2",ring_QChar_isTitleCase_2);
 	ring_vm_funcregister("qchar_isupper_2",ring_QChar_isUpper_2);
-	ring_vm_funcregister("qchar_joiningtype_2",ring_QChar_joiningType_2);
 	ring_vm_funcregister("qchar_lowsurrogate",ring_QChar_lowSurrogate);
 	ring_vm_funcregister("qchar_mirroredchar_2",ring_QChar_mirroredChar_2);
 	ring_vm_funcregister("qchar_requiressurrogates",ring_QChar_requiresSurrogates);

@@ -22108,9 +22108,6 @@ Class QChar
 	Func isUpper 
 		return QChar_isUpper(pObject)
 
-	Func joiningType 
-		return QChar_joiningType(pObject)
-
 	Func mirroredChar 
 		pTempObj = new QChar
 		pTempObj.pObject = QChar_mirroredChar(pObject)
@@ -22233,9 +22230,6 @@ Class QChar
 
 	Func isUpper_2 P1
 		return QChar_isUpper_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func joiningType_2 P1
-		return QChar_joiningType_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func lowSurrogate P1
 		return QChar_lowSurrogate(pObject,GetObjectPointerFromRingObject(P1))
