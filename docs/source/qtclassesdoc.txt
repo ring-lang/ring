@@ -520,6 +520,10 @@ Parent Class : QWidget
 * const char *getWindowStateChangeFunc(void)
 * const char *getWindowUnblockedFunc(void)
 * const char *getPaintFunc(void)
+* QDropEvent *getDropEventObject(void)
+* QDragMoveEvent *getDragMoveEventObject(void)
+* QDragEnterEvent *getDragEnterEventObject(void)
+* QDragLeaveEvent *getDragLeaveEventObject(void)
 
 .. index::
 	pair: RingQt Classes Reference; QApp Class
