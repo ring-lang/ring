@@ -98,6 +98,10 @@ class GAllEvents : public QWidget
     QWidget *pParentWidget;
 
     QEvent *pEvent;
+    QDropEvent *getDropEventObject(void);
+    QDragMoveEvent *getDragMoveEventObject(void);
+    QDragEnterEvent *getDragEnterEventObject(void);
+    QDragLeaveEvent *getDragLeaveEventObject(void);
 
     GAllEvents(QWidget *parent,VM *pVM );
 
@@ -234,8 +238,6 @@ class GAllEvents : public QWidget
     const char *getWindowStateChangeFunc(void);
     const char *getWindowUnblockedFunc(void);
     const char *getPaintFunc(void);
-
-
 
     void setEventOutput(bool x);
 

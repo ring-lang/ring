@@ -10090,6 +10090,26 @@ Class QAllEvents from QWidget
 	Func getPaintFunc 
 		return QAllEvents_getPaintFunc(pObject)
 
+	Func getDropEventObject 
+		pTempObj = new QDropEvent
+		pTempObj.pObject = QAllEvents_getDropEventObject(pObject)
+		return pTempObj
+
+	Func getDragMoveEventObject 
+		pTempObj = new QDragMoveEvent
+		pTempObj.pObject = QAllEvents_getDragMoveEventObject(pObject)
+		return pTempObj
+
+	Func getDragEnterEventObject 
+		pTempObj = new QDragEnterEvent
+		pTempObj.pObject = QAllEvents_getDragEnterEventObject(pObject)
+		return pTempObj
+
+	Func getDragLeaveEventObject 
+		pTempObj = new QDragLeaveEvent
+		pTempObj.pObject = QAllEvents_getDragLeaveEventObject(pObject)
+		return pTempObj
+
 Class QDesktopWidget from QWidget
 
 	pObject

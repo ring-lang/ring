@@ -4738,6 +4738,10 @@ const char *getWindowStateChangeFunc(void)
 const char *getWindowUnblockedFunc(void)
 const char *getPaintFunc(void)
 
+QDropEvent *getDropEventObject(void)
+QDragMoveEvent *getDragMoveEventObject(void)
+QDragEnterEvent *getDragEnterEventObject(void)
+QDragLeaveEvent *getDragLeaveEventObject(void)
 
 <class>
 name: QDesktopWidget
@@ -9750,7 +9754,6 @@ name: QDropEvent
 para: QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
 parent: QEvent
 </class>
-
 
 void acceptProposedAction(void)
 Qt::DropAction dropAction(void)

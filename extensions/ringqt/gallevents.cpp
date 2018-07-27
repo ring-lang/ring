@@ -1418,3 +1418,26 @@ const char *GAllEvents::getPaintFunc(void)
 	return this->cPaintFunc  ;
 }
 
+QDropEvent *GAllEvents::getDropEventObject(void) 
+{
+	QDropEvent *pCurrentEvent = static_cast<QDropEvent *>(this->pEvent);
+	return pCurrentEvent;
+}
+
+QDragMoveEvent *GAllEvents::getDragMoveEventObject(void) 
+{
+	QDragMoveEvent *pCurrentEvent = static_cast<QDragMoveEvent *>(this->pEvent);
+	return pCurrentEvent;
+}
+
+QDragEnterEvent *GAllEvents::getDragEnterEventObject(void)
+{
+	QDragEnterEvent *pCurrentEvent = static_cast<QDragEnterEvent *>(this->pEvent);
+	return pCurrentEvent;
+}
+
+QDragLeaveEvent *GAllEvents::getDragLeaveEventObject(void)
+{
+	QDragLeaveEvent *pCurrentEvent = static_cast<QDragLeaveEvent *>(this->pEvent);
+	return pCurrentEvent;
+}
