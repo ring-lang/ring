@@ -1,0 +1,81 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  696 , :height = 403 , 
+		 :title =  "Drag and Drop Sample" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "ListWidget1" , :id = 2 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 90 , : y = 78  , 
+		 :width =  239 , :height = 233 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "one,two,three,four,five",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "ListWidget2" , :id = 3 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 358 , : y = 76  , 
+		 :width =  239 , :height = 233 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "1,2,3,4,5",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label1" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 90 , : y = 37  , 
+		 :width =  78 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "From",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label4" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 358 , : y = 37  , 
+		 :width =  78 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "To",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File
