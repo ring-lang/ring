@@ -55883,6 +55883,74 @@ RING_FUNC(ring_QAllEvents_getPaintFunc)
 }
 
 
+RING_FUNC(ring_QAllEvents_getDropEventObject)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getDropEventObject(),"QDropEvent");
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragMoveEventObject)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getDragMoveEventObject(),"QDragMoveEvent");
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragEnterEventObject)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getDragEnterEventObject(),"QDragEnterEvent");
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragLeaveEventObject)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getDragLeaveEventObject(),"QDragLeaveEvent");
+}
+
+
 RING_FUNC(ring_QDesktopWidget_availableGeometry)
 {
 	QDesktopWidget *pObject ;
@@ -113177,6 +113245,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_getwindowstatechangefunc",ring_QAllEvents_getWindowStateChangeFunc);
 	ring_vm_funcregister("qallevents_getwindowunblockedfunc",ring_QAllEvents_getWindowUnblockedFunc);
 	ring_vm_funcregister("qallevents_getpaintfunc",ring_QAllEvents_getPaintFunc);
+	ring_vm_funcregister("qallevents_getdropeventobject",ring_QAllEvents_getDropEventObject);
+	ring_vm_funcregister("qallevents_getdragmoveeventobject",ring_QAllEvents_getDragMoveEventObject);
+	ring_vm_funcregister("qallevents_getdragentereventobject",ring_QAllEvents_getDragEnterEventObject);
+	ring_vm_funcregister("qallevents_getdragleaveeventobject",ring_QAllEvents_getDragLeaveEventObject);
 	ring_vm_funcregister("qdesktopwidget_availablegeometry",ring_QDesktopWidget_availableGeometry);
 	ring_vm_funcregister("qdesktopwidget_isvirtualdesktop",ring_QDesktopWidget_isVirtualDesktop);
 	ring_vm_funcregister("qdesktopwidget_primaryscreen",ring_QDesktopWidget_primaryScreen);
