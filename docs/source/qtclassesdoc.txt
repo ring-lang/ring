@@ -1134,6 +1134,7 @@ Parameters : int
 * uint toTitleCase_2(uint ucs4)
 * uint toUpper_2(uint ucs4)
 * QChar::UnicodeVersion unicodeVersion_2(uint ucs4)
+
 .. index::
 	pair: RingQt Classes Reference; QCheckBox Class
 
@@ -1166,6 +1167,25 @@ Parent Class : QAbstractButton
 * const char *getreleasedEvent(void)
 * const char *gettoggledEvent(void)
 
+.. index::
+	pair: RingQt Classes Reference; QChildEvent Class
+
+QChildEvent Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QChildEvent.html
+
+
+Parameters : QEvent::Type,QObject *
+
+
+Parent Class : QEvent
+
+* bool added(void)
+* QObject *child(void)
+* bool polished(void)
+* bool removed(void)
 .. index::
 	pair: RingQt Classes Reference; QClipboard Class
 
