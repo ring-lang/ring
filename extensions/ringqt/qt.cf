@@ -3480,8 +3480,6 @@ void drawPicture(int x, int y,  QPicture  picture)
 void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
 void drawPixmap(int x, int y,  QPixmap)
 void drawPoint(int x, int y)
-void drawPoints(QPointF * points, int pointCount)
-void drawPolyline(QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects(QRectF *rectangles, int rectCount)
 void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
@@ -3542,6 +3540,8 @@ QTransform  worldTransform(void)
 <register>
 void drawPolygon(List *pPoints, Qt::FillRule fillRule)
 void drawConvexPolygon(List *pPoints)
+void drawPoints(List *pPoints)
+void drawPolyline(List *pPoints)
 </register>
 
 <code>
@@ -3610,6 +3610,69 @@ RING_FUNC(ring_QPainter_drawConvexPolygon)
 	pObject->drawConvexPolygon(points, nSize);
 	delete [] points;
 }
+
+RING_FUNC(ring_QPainter_drawPoints)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPoints(points, nSize);
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawPolyline)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolyline(points, nSize);
+	delete [] points;
+}
+
 </code>
 
 <class>

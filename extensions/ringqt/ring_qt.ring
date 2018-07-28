@@ -6878,12 +6878,6 @@ Class QPainter
 	Func drawPoint P1,P2
 		return QPainter_drawPoint(pObject,P1,P2)
 
-	Func drawPoints P1,P2
-		return QPainter_drawPoints(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func drawPolyline P1,P2
-		return QPainter_drawPolyline(pObject,GetObjectPointerFromRingObject(P1),P2)
-
 	Func drawRect P1,P2,P3,P4
 		return QPainter_drawRect(pObject,P1,P2,P3,P4)
 
@@ -7065,6 +7059,12 @@ Class QPainter
 
 	Func drawConvexPolygon P1
 		return QPainter_drawConvexPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func drawPoints P1
+		return QPainter_drawPoints(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func drawPolyline P1
+		return QPainter_drawPolyline(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QPicture
 

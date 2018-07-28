@@ -38266,56 +38266,6 @@ RING_FUNC(ring_QPainter_drawPoint)
 }
 
 
-RING_FUNC(ring_QPainter_drawPoints)
-{
-	QPainter *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->drawPoints((QPointF *) RING_API_GETCPOINTER(2,"QPointF"), (int ) RING_API_GETNUMBER(3));
-}
-
-
-RING_FUNC(ring_QPainter_drawPolyline)
-{
-	QPainter *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->drawPolyline((QPointF *) RING_API_GETCPOINTER(2,"QPointF"), (int ) RING_API_GETNUMBER(3));
-}
-
-
 RING_FUNC(ring_QPainter_drawRect)
 {
 	QPainter *pObject ;
@@ -39673,6 +39623,69 @@ RING_FUNC(ring_QPainter_drawConvexPolygon)
 	pObject->drawConvexPolygon(points, nSize);
 	delete [] points;
 }
+
+RING_FUNC(ring_QPainter_drawPoints)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPoints(points, nSize);
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawPolyline)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolyline(points, nSize);
+	delete [] points;
+}
+
 
 RING_FUNC(ring_QPicture_boundingRect)
 {
@@ -135795,8 +135808,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_drawpie",ring_QPainter_drawPie);
 	ring_vm_funcregister("qpainter_drawpixmap",ring_QPainter_drawPixmap);
 	ring_vm_funcregister("qpainter_drawpoint",ring_QPainter_drawPoint);
-	ring_vm_funcregister("qpainter_drawpoints",ring_QPainter_drawPoints);
-	ring_vm_funcregister("qpainter_drawpolyline",ring_QPainter_drawPolyline);
 	ring_vm_funcregister("qpainter_drawrect",ring_QPainter_drawRect);
 	ring_vm_funcregister("qpainter_drawrects",ring_QPainter_drawRects);
 	ring_vm_funcregister("qpainter_drawroundedrect",ring_QPainter_drawRoundedRect);
@@ -135855,6 +135866,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_worldtransform",ring_QPainter_worldTransform);
 	ring_vm_funcregister("qpainter_drawpolygon",ring_QPainter_drawPolygon);
 	ring_vm_funcregister("qpainter_drawconvexpolygon",ring_QPainter_drawConvexPolygon);
+	ring_vm_funcregister("qpainter_drawpoints",ring_QPainter_drawPoints);
+	ring_vm_funcregister("qpainter_drawpolyline",ring_QPainter_drawPolyline);
 	ring_vm_funcregister("qpicture_boundingrect",ring_QPicture_boundingRect);
 	ring_vm_funcregister("qpicture_data",ring_QPicture_data);
 	ring_vm_funcregister("qpicture_isnull",ring_QPicture_isNull);
