@@ -5168,7 +5168,9 @@ Parameters : void
 * void drawPicture(int x, int y,  QPicture  picture)
 * void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
 * void drawPixmap(int x, int y,  QPixmap)
+* void drawPoint(int x, int y)
 * void drawPoints( QPointF * points, int pointCount)
+* void drawPolyline( QPointF * points, int pointCount)
 * void drawRect(int x, int y, int width, int height)
 * void drawRects( QRectF * rectangles, int rectCount)
 * void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
@@ -5225,7 +5227,7 @@ Parameters : void
 * QRect window(void)
 * bool worldMatrixEnabled(void)
 * QTransform  worldTransform(void)
-* void drawPolygon(QPainter *pObject, Qt::FillRule fillRule )
+* void drawPolygon(List *pPoints, Qt::FillRule fillRule )
 
 .. index::
 	pair: RingQt Classes Reference; QPainter2 Class
