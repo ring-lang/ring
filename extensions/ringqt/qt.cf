@@ -3480,14 +3480,8 @@ void drawPath( QPainterPath  path)
 void drawPicture(int x, int y,  QPicture  picture)
 void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
 void drawPixmap(int x, int y,  QPixmap)
-<comment>
-void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap  pixmap, PixmapFragmentHints hints)
-</comment>
 void drawPoint(int x, int y)
 void drawPoints( QPointF * points, int pointCount)
-<comment>
-void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
-</comment>
 void drawPolyline( QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects( QRectF * rectangles, int rectCount)
@@ -3502,11 +3496,6 @@ void fillPath( QPainterPath  path,  QBrush  brush)
 void fillRect(int x, int y, int width, int height, QBrush)
 QFont font(void)
 QFontInfo fontInfo(void)
-
-<comment>
-QFontMetrics fontMetrics(void)
-</comment>
-
 bool hasClipping(void)
 void initFrom( QWidget *widget)
 bool isActive(void)
@@ -3552,7 +3541,7 @@ bool worldMatrixEnabled(void)
 QTransform  worldTransform(void)
 
 <register>
-void drawPolygon(QPainter *pObject, Qt::FillRule fillRule )
+void drawPolygon(List *pPoints, Qt::FillRule fillRule )
 </register>
 
 <code>
