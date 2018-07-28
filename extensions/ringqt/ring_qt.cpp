@@ -37988,31 +37988,6 @@ RING_FUNC(ring_QPainter_drawChord)
 }
 
 
-RING_FUNC(ring_QPainter_drawConvexPolygon)
-{
-	QPainter *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->drawConvexPolygon((QPoint *) RING_API_GETCPOINTER(2,"QPoint"), (int ) RING_API_GETNUMBER(3));
-}
-
-
 RING_FUNC(ring_QPainter_drawEllipse)
 {
 	QPainter *pObject ;
@@ -38165,7 +38140,7 @@ RING_FUNC(ring_QPainter_drawPath)
 		return ;
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	pObject->drawPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"));
+	pObject->drawPath(* (QPainterPath  *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
@@ -39174,7 +39149,7 @@ RING_FUNC(ring_QPainter_setFont)
 		return ;
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	pObject->setFont(* (QFont   *) RING_API_GETCPOINTER(2,"QFont"));
+	pObject->setFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
@@ -39235,7 +39210,7 @@ RING_FUNC(ring_QPainter_setPen)
 		return ;
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	pObject->setPen(* (QPen   *) RING_API_GETCPOINTER(2,"QPen"));
+	pObject->setPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
 }
@@ -39501,8 +39476,8 @@ RING_FUNC(ring_QPainter_transform)
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
-		QTransform  *pValue ; 
-		pValue = (QTransform  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform )) ;
+		QTransform *pValue ; 
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
 		*pValue = pObject->transform();
 		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_state_free);
 	}
@@ -39665,6 +39640,37 @@ RING_FUNC(ring_QPainter_drawPolygon)
 		points[x].setY((float) ring_list_getdouble(pList2,2));
 	}
 	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));	
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawConvexPolygon)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPoint *points = new QPoint[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawConvexPolygon(points, nSize);
 	delete [] points;
 }
 
@@ -135779,7 +135785,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_devicetransform",ring_QPainter_deviceTransform);
 	ring_vm_funcregister("qpainter_drawarc",ring_QPainter_drawArc);
 	ring_vm_funcregister("qpainter_drawchord",ring_QPainter_drawChord);
-	ring_vm_funcregister("qpainter_drawconvexpolygon",ring_QPainter_drawConvexPolygon);
 	ring_vm_funcregister("qpainter_drawellipse",ring_QPainter_drawEllipse);
 	ring_vm_funcregister("qpainter_drawglyphrun",ring_QPainter_drawGlyphRun);
 	ring_vm_funcregister("qpainter_drawimage",ring_QPainter_drawImage);
@@ -135849,6 +135854,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_worldmatrixenabled",ring_QPainter_worldMatrixEnabled);
 	ring_vm_funcregister("qpainter_worldtransform",ring_QPainter_worldTransform);
 	ring_vm_funcregister("qpainter_drawpolygon",ring_QPainter_drawPolygon);
+	ring_vm_funcregister("qpainter_drawconvexpolygon",ring_QPainter_drawConvexPolygon);
 	ring_vm_funcregister("qpicture_boundingrect",ring_QPicture_boundingRect);
 	ring_vm_funcregister("qpicture_data",ring_QPicture_data);
 	ring_vm_funcregister("qpicture_isnull",ring_QPicture_isNull);

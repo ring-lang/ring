@@ -6848,9 +6848,6 @@ Class QPainter
 	Func drawChord P1,P2,P3,P4,P5,P6
 		return QPainter_drawChord(pObject,P1,P2,P3,P4,P5,P6)
 
-	Func drawConvexPolygon P1,P2
-		return QPainter_drawConvexPolygon(pObject,GetObjectPointerFromRingObject(P1),P2)
-
 	Func drawEllipse P1,P2,P3,P4
 		return QPainter_drawEllipse(pObject,P1,P2,P3,P4)
 
@@ -7065,6 +7062,9 @@ Class QPainter
 
 	Func drawPolygon P1,P2
 		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func drawConvexPolygon P1
+		return QPainter_drawConvexPolygon(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QPicture
 
