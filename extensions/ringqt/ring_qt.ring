@@ -22284,6 +22284,34 @@ Class QChar
 	Func unicodeVersion_2 P1
 		return QChar_unicodeVersion_2(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QChildEvent from QEvent
+
+	pObject
+
+	Func init P1,P2
+		pObject = QChildEvent_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QChildEvent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func added 
+		return QChildEvent_added(pObject)
+
+	Func child 
+		pTempObj = new QObject
+		pTempObj.pObject = QChildEvent_child(pObject)
+		return pTempObj
+
+	Func polished 
+		return QChildEvent_polished(pObject)
+
+	Func removed 
+		return QChildEvent_removed(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

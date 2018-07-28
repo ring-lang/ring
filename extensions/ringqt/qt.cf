@@ -268,6 +268,7 @@ extern "C" {
 #include <QDragLeaveEvent>
 #include <QClipboard>
 #include <QChar>
+#include <QChildEvent>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -9892,3 +9893,14 @@ uint toLower@2(uint ucs4)
 uint toTitleCase@2(uint ucs4)
 uint toUpper@2(uint ucs4)
 QChar::UnicodeVersion unicodeVersion@2(uint ucs4)
+
+<class>
+name: QChildEvent
+para: QEvent::Type,QObject *
+parent: QEvent
+</class>
+
+bool added(void)
+QObject *child(void)
+bool polished(void)
+bool removed(void)

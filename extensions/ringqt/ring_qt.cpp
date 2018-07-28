@@ -259,6 +259,7 @@ extern "C" {
 #include <QDragLeaveEvent>
 #include <QClipboard>
 #include <QChar>
+#include <QChildEvent>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -532,6 +533,7 @@ extern "C" {
 	void ring_QDragLeaveEvent_freefunc(void *pState,void *pPointer);
 	void ring_QClipboard_freefunc(void *pState,void *pPointer);
 	void ring_QChar_freefunc(void *pState,void *pPointer);
+	void ring_QChildEvent_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -126028,6 +126030,74 @@ RING_FUNC(ring_QChar_unicodeVersion_2)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 }
 
+
+RING_FUNC(ring_QChildEvent_added)
+{
+	QChildEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
+	RING_API_RETNUMBER(pObject->added());
+}
+
+
+RING_FUNC(ring_QChildEvent_child)
+{
+	QChildEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
+	RING_API_RETCPOINTER(pObject->child(),"QObject");
+}
+
+
+RING_FUNC(ring_QChildEvent_polished)
+{
+	QChildEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
+	RING_API_RETNUMBER(pObject->polished());
+}
+
+
+RING_FUNC(ring_QChildEvent_removed)
+{
+	QChildEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
+	RING_API_RETNUMBER(pObject->removed());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -128833,6 +128903,25 @@ RING_FUNC(ring_QChar_new)
 	}
 	QChar *pObject = new QChar( (int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QChar");
+}
+
+RING_FUNC(ring_QChildEvent_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QChildEvent *pObject = new QChildEvent( (QEvent::Type)  (int) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QChildEvent");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -132184,6 +132273,23 @@ RING_FUNC(ring_QChar_delete)
 	}
 }
 
+RING_FUNC(ring_QChildEvent_delete)
+{
+	QChildEvent *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -133560,6 +133666,13 @@ void ring_QChar_freefunc(void *pState,void *pPointer)
 {
 	QChar *pObject ; 
 	pObject = (QChar *) pPointer;
+	delete pObject ;
+}
+
+void ring_QChildEvent_freefunc(void *pState,void *pPointer)
+{
+	QChildEvent *pObject ; 
+	pObject = (QChildEvent *) pPointer;
 	delete pObject ;
 }
 
@@ -139545,6 +139658,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchar_totitlecase_2",ring_QChar_toTitleCase_2);
 	ring_vm_funcregister("qchar_toupper_2",ring_QChar_toUpper_2);
 	ring_vm_funcregister("qchar_unicodeversion_2",ring_QChar_unicodeVersion_2);
+	ring_vm_funcregister("qchildevent_added",ring_QChildEvent_added);
+	ring_vm_funcregister("qchildevent_child",ring_QChildEvent_child);
+	ring_vm_funcregister("qchildevent_polished",ring_QChildEvent_polished);
+	ring_vm_funcregister("qchildevent_removed",ring_QChildEvent_removed);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -139742,6 +139859,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdragenterevent_new",ring_QDragEnterEvent_new);
 	ring_vm_funcregister("qdragleaveevent_new",ring_QDragLeaveEvent_new);
 	ring_vm_funcregister("qchar_new",ring_QChar_new);
+	ring_vm_funcregister("qchildevent_new",ring_QChildEvent_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -139939,4 +140057,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdragenterevent_delete",ring_QDragEnterEvent_delete);
 	ring_vm_funcregister("qdragleaveevent_delete",ring_QDragLeaveEvent_delete);
 	ring_vm_funcregister("qchar_delete",ring_QChar_delete);
+	ring_vm_funcregister("qchildevent_delete",ring_QChildEvent_delete);
 }
