@@ -520,6 +520,10 @@ Parent Class : QWidget
 * const char *getWindowStateChangeFunc(void)
 * const char *getWindowUnblockedFunc(void)
 * const char *getPaintFunc(void)
+* QDropEvent *getDropEventObject(void)
+* QDragMoveEvent *getDragMoveEventObject(void)
+* QDragEnterEvent *getDragEnterEventObject(void)
+* QDragLeaveEvent *getDragLeaveEventObject(void)
 
 .. index::
 	pair: RingQt Classes Reference; QApp Class
@@ -1046,6 +1050,92 @@ Parent Class : QVideoWidget
 
 
 .. index::
+	pair: RingQt Classes Reference; QChar Class
+
+QChar Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QChar.html
+
+
+Parameters : int
+
+* QChar::Category category(void)
+* uchar cell(void)
+* unsigned char combiningClass(void)
+* QString decomposition(void)
+* QChar::Decomposition decompositionTag(void)
+* int digitValue(void)
+* QChar::Direction direction(void)
+* bool hasMirrored(void)
+* bool isDigit(void)
+* bool isHighSurrogate(void)
+* bool isLetter(void)
+* bool isLetterOrNumber(void)
+* bool isLowSurrogate(void)
+* bool isLower(void)
+* bool isMark(void)
+* bool isNonCharacter(void)
+* bool isNull(void)
+* bool isNumber(void)
+* bool isPrint(void)
+* bool isPunct(void)
+* bool isSpace(void)
+* bool isSurrogate(void)
+* bool isSymbol(void)
+* bool isTitleCase(void)
+* bool isUpper(void)
+* QChar mirroredChar(void)
+* uchar row(void)
+* QChar::Script script(void)
+* QChar toCaseFolded(void)
+* char toLatin1(void)
+* QChar toLower(void)
+* QChar toTitleCase(void)
+* QChar toUpper(void)
+* ushort unicode(void)
+* ushort unicode_2(void)
+* QChar::UnicodeVersion unicodeVersion(void)
+* QChar::Category category_2(uint ucs4)
+* unsigned char combiningClass_2(uint ucs4)
+* QChar::UnicodeVersion currentUnicodeVersion(void)
+* QString decomposition_2(uint ucs4)
+* QChar::Decomposition decompositionTag_2(uint ucs4)
+* int digitValue_2(uint ucs4)
+* QChar::Direction direction_2(uint ucs4)
+* QChar fromLatin1(char c)
+* bool hasMirrored_2(uint ucs4)
+* ushort highSurrogate(uint ucs4)
+* bool isDigit_2(uint ucs4)
+* bool isHighSurrogate_2(uint ucs4)
+* bool isLetter_2(uint ucs4)
+* bool isLetterOrNumber_2(uint ucs4)
+* bool isLowSurrogate_2(uint ucs4)
+* bool isLower_2(uint ucs4)
+* bool isMark_2(uint ucs4)
+* bool isNonCharacter_2(uint ucs4)
+* bool isNumber_2(uint ucs4)
+* bool isPrint_2(uint ucs4)
+* bool isPunct_2(uint ucs4)
+* bool isSpace_2(uint ucs4)
+* bool isSurrogate_2(uint ucs4)
+* bool isSymbol_2(uint ucs4)
+* bool isTitleCase_2(uint ucs4)
+* bool isUpper_2(uint ucs4)
+* ushort lowSurrogate(uint ucs4)
+* uint mirroredChar_2(uint ucs4)
+* bool requiresSurrogates(uint ucs4)
+* QChar::Script script_2(uint ucs4)
+* uint surrogateToUcs4(ushort high, ushort low)
+* uint surrogateToUcs4_2(QChar high, QChar low)
+* uint toCaseFolded_2(uint ucs4)
+* uint toLower_2(uint ucs4)
+* uint toTitleCase_2(uint ucs4)
+* uint toUpper_2(uint ucs4)
+* QChar::UnicodeVersion unicodeVersion_2(uint ucs4)
+
+.. index::
 	pair: RingQt Classes Reference; QCheckBox Class
 
 QCheckBox Class
@@ -1076,6 +1166,49 @@ Parent Class : QAbstractButton
 * const char *getpressedEvent(void)
 * const char *getreleasedEvent(void)
 * const char *gettoggledEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QChildEvent Class
+
+QChildEvent Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QChildEvent.html
+
+
+Parameters : QEvent::Type,QObject *
+
+
+Parent Class : QEvent
+
+* bool added(void)
+* QObject *child(void)
+* bool polished(void)
+* bool removed(void)
+.. index::
+	pair: RingQt Classes Reference; QClipboard Class
+
+QClipboard Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QClipboard.html
+
+* void clear(QClipboard::Mode mode)
+* QImage image(QClipboard::Mode mode)
+* QMimeData * mimeData(QClipboard::Mode mode)
+* bool ownsClipboard(void)
+* bool ownsFindBuffer(void)
+* bool ownsSelection(void)
+* QPixmap pixmap(QClipboard::Mode mode)
+* void setImage(QImage image, QClipboard::Mode mode)
+* void setMimeData(QMimeData * src, QClipboard::Mode mode)
+* void setPixmap(QPixmap pixmap, QClipboard::Mode mode)
+* void setText(QString text, QClipboard::Mode mode)
+* bool supportsFindBuffer(void)
+* bool supportsSelection(void)
+* QString text(QClipboard::Mode mode)
 
 .. index::
 	pair: RingQt Classes Reference; QColor Class
@@ -1836,6 +1969,120 @@ Parent Class : QWidget
 * const char *getfeaturesChangedEvent(void)
 * const char *gettopLevelChangedEvent(void)
 * const char *getvisibilityChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDrag Class
+
+QDrag Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDrag.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* Qt::DropAction defaultAction(void)
+* QPixmap dragCursor(Qt::DropAction action)
+* Qt::DropAction exec(Qt::DropActions supportedActions)
+* Qt::DropAction exec_2(Qt::DropActions supportedActions, Qt::DropAction defaultDropAction)
+* QPoint hotSpot(void)
+* QMimeData *mimeData(void)
+* QPixmap pixmap(void)
+* void setDragCursor(QPixmap cursor, Qt::DropAction action)
+* void setHotSpot(QPoint hotspot)
+* void setMimeData(QMimeData * data)
+* void setPixmap(QPixmap pixmap)
+* QObject * source(void)
+* Qt::DropActions supportedActions(void)
+* QObject * target(void)
+* void setactionChangedEvent(const char *)
+* void settargetChangedEvent(const char *)
+* const char *getactionChangedEvent(void)
+* const char *gettargetChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDragEnterEvent Class
+
+QDragEnterEvent Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragEnterEvent.html
+
+
+Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers
+
+
+Parent Class : QDragMoveEvent
+
+
+.. index::
+	pair: RingQt Classes Reference; QDragLeaveEvent Class
+
+QDragLeaveEvent Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragLeaveEvent.html
+
+
+Parameters : void
+
+
+Parent Class : QEvent
+
+
+.. index::
+	pair: RingQt Classes Reference; QDragMoveEvent Class
+
+QDragMoveEvent Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDragMoveEvent.html
+
+
+Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+
+
+Parent Class : QDropEvent
+
+* void accept(QRect rectangle)
+* void accept_2(void)
+* QRect answerRect(void)
+* void ignore(QRect rectangle)
+* void ignore_2(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDropEvent Class
+
+QDropEvent Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDropEvent.html
+
+
+Parameters : QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+
+
+Parent Class : QEvent
+
+* void acceptProposedAction(void)
+* Qt::DropAction dropAction(void)
+* Qt::KeyboardModifiers keyboardModifiers(void)
+* QMimeData * mimeData(void)
+* Qt::MouseButtons mouseButtons(void)
+* QPoint pos(void)
+* QPointF posF(void)
+* Qt::DropActions possibleActions(void)
+* Qt::DropAction proposedAction(void)
+* void setDropAction(Qt::DropAction action)
+* QObject * source(void)
 
 .. index::
 	pair: RingQt Classes Reference; QEvent Class
@@ -2624,6 +2871,9 @@ C++ Reference : http://doc.qt.io/qt-5/QIODevice.html
 
 
 Parameters : void
+
+
+Parent Class : QObject
 
 * QString errorString(void)
 * bool getChar(char *c)
@@ -3701,6 +3951,43 @@ Parent Class : QDialog
 * int information(QWidget * parent, QString ,QString, int buttons,int defaultButton)
 * int question(QWidget * parent,QString,QString, int buttons ,int  defaultButton)
 * int warning(QWidget *parent, QString,QString, int buttons,int defaultButton)
+
+.. index::
+	pair: RingQt Classes Reference; QMimeData Class
+
+QMimeData Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMimeData.html
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* void clear(void)
+* QVariant colorData(void)
+* QByteArray data(QString mimeType)
+* QStringList formats(void)
+* bool hasColor(void)
+* bool hasFormat(QString mimeType)
+* bool hasHtml(void)
+* bool hasImage(void)
+* bool hasText(void)
+* bool hasUrls(void)
+* QString html(void)
+* QVariant imageData(void)
+* void removeFormat(QString mimeType)
+* void setColorData(QVariant color)
+* void setData(QString mimeType, QByteArray data)
+* void setHtml(QString html)
+* void setImageData(QVariant image)
+* void setText(QString text)
+* void setUrls(QList<QUrl> urls)
+* QString text(void)
+* QList<QUrl> urls(void)
 
 .. index::
 	pair: RingQt Classes Reference; QMutex Class
@@ -5811,6 +6098,7 @@ Parameters : QWidget *parent
 
 Parent Class : QAbstractSlider
 
+
 .. index::
 	pair: RingQt Classes Reference; QSerialPort Class
 
@@ -6372,6 +6660,8 @@ Parameters : void
 * QStringList split_2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 * QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
 * QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
+* QChar * unicode(void)
+* QString number(ulong n, int base)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
