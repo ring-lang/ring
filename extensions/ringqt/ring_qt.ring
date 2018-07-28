@@ -9825,6 +9825,15 @@ Class QAllEvents from QWidget
 	Func setPaintEvent P1
 		return QAllEvents_setPaintEvent(pObject,P1)
 
+	Func setChildAddedEvent P1
+		return QAllEvents_setChildAddedEvent(pObject,P1)
+
+	Func setChildPolishedEvent P1
+		return QAllEvents_setChildPolishedEvent(pObject,P1)
+
+	Func setChildRemovedEvent P1
+		return QAllEvents_setChildRemovedEvent(pObject,P1)
+
 	Func getKeyPressEvent 
 		return QAllEvents_getKeyPressEvent(pObject)
 
@@ -9908,6 +9917,15 @@ Class QAllEvents from QWidget
 
 	Func getPaintEvent 
 		return QAllEvents_getPaintEvent(pObject)
+
+	Func getChildAddedEvent 
+		return QAllEvents_getChildAddedEvent(pObject)
+
+	Func getChildPolishedEvent 
+		return QAllEvents_getChildPolishedEvent(pObject)
+
+	Func getChildRemovedEvent 
+		return QAllEvents_getChildRemovedEvent(pObject)
 
 	Func setEventOutput P1
 		return QAllEvents_setEventOutput(pObject,P1)
@@ -10006,6 +10024,15 @@ Class QAllEvents from QWidget
 	Func setPaintFunc P1
 		return QAllEvents_setPaintFunc(pObject,P1)
 
+	Func setChildAddedFunc P1
+		return QAllEvents_setChildAddedFunc(pObject,P1)
+
+	Func setChildPolishedFunc P1
+		return QAllEvents_setChildPolishedFunc(pObject,P1)
+
+	Func setChildRemovedFunc P1
+		return QAllEvents_setChildRemovedFunc(pObject,P1)
+
 	Func getKeyPressFunc 
 		return QAllEvents_getKeyPressFunc(pObject)
 
@@ -10090,6 +10117,15 @@ Class QAllEvents from QWidget
 	Func getPaintFunc 
 		return QAllEvents_getPaintFunc(pObject)
 
+	Func getChildAddedFunc 
+		return QAllEvents_getChildAddedFunc(pObject)
+
+	Func getChildPolishedFunc 
+		return QAllEvents_getChildPolishedFunc(pObject)
+
+	Func getChildRemovedFunc 
+		return QAllEvents_getChildRemovedFunc(pObject)
+
 	Func getDropEventObject 
 		pTempObj = new QDropEvent
 		pTempObj.pObject = QAllEvents_getDropEventObject(pObject)
@@ -10108,6 +10144,11 @@ Class QAllEvents from QWidget
 	Func getDragLeaveEventObject 
 		pTempObj = new QDragLeaveEvent
 		pTempObj.pObject = QAllEvents_getDragLeaveEventObject(pObject)
+		return pTempObj
+
+	Func getChildEventObject 
+		pTempObj = new QChildEvent
+		pTempObj.pObject = QAllEvents_getChildEventObject(pObject)
 		return pTempObj
 
 Class QDesktopWidget from QWidget

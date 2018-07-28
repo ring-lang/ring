@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef GALLEVENTS_H
 #define GALLEVENTS_H
@@ -60,7 +60,9 @@ class GAllEvents : public QWidget
     char cWindowStateChangeEvent[100];
     char cWindowUnblockedEvent[100];
     char cPaintEvent[100];
-
+    char cChildAddedEvent[100];
+    char cChildPolishedEvent[100];
+    char cChildRemovedEvent[100];	
 
     char cKeyPressFunc[100];
     char cMouseButtonPressFunc[100];
@@ -90,6 +92,9 @@ class GAllEvents : public QWidget
     char cWindowStateChangeFunc[100];
     char cWindowUnblockedFunc[100];
     char cPaintFunc[100];
+    char cChildAddedFunc[100];
+    char cChildPolishedFunc[100];
+    char cChildRemovedFunc[100];	
 
 
     bool lEventOutput ;	
@@ -102,6 +107,7 @@ class GAllEvents : public QWidget
     QDragMoveEvent *getDragMoveEventObject(void);
     QDragEnterEvent *getDragEnterEventObject(void);
     QDragLeaveEvent *getDragLeaveEventObject(void);
+    QChildEvent *getChildEventObject(void);
 
     GAllEvents(QWidget *parent,VM *pVM );
 
@@ -149,6 +155,9 @@ class GAllEvents : public QWidget
     void setWindowStateChangeEvent(const char *cStr);
     void setWindowUnblockedEvent(const char *cStr);
     void setPaintEvent(const char *cStr);
+    void setChildAddedEvent(const char *cStr);
+    void setChildPolishedEvent(const char *cStr);
+    void setChildRemovedEvent(const char *cStr);
 
     const char *getKeyPressEvent(void);
     const char *getMouseButtonPressEvent(void);
@@ -178,6 +187,9 @@ class GAllEvents : public QWidget
     const char *getWindowStateChangeEvent(void);
     const char *getWindowUnblockedEvent(void);
     const char *getPaintEvent(void);
+    const char *getChildAddedEvent(void);
+    const char *getChildPolishedEvent(void);
+    const char *getChildRemovedEvent(void);
 
 
     void setKeyPressFunc(const char *cStr);
@@ -209,6 +221,9 @@ class GAllEvents : public QWidget
     void setWindowStateChangeFunc(const char *cStr);
     void setWindowUnblockedFunc(const char *cStr);
     void setPaintFunc(const char *cStr);
+    void setChildAddedFunc(const char *cStr);
+    void setChildPolishedFunc(const char *cStr);
+    void setChildRemovedFunc(const char *cStr);
 
     const char *getKeyPressFunc(void);
     const char *getMouseButtonPressFunc(void);
@@ -238,6 +253,9 @@ class GAllEvents : public QWidget
     const char *getWindowStateChangeFunc(void);
     const char *getWindowUnblockedFunc(void);
     const char *getPaintFunc(void);
+    const char *getChildAddedFunc(void);
+    const char *getChildPolishedFunc(void);
+    const char *getChildRemovedFunc(void);
 
     void setEventOutput(bool x);
 
@@ -276,6 +294,9 @@ class GAllEvents : public QWidget
     void callWindowStateChangeEvent(void);
     void callWindowUnblockedEvent(void);
     void callPaintEvent(void);
+    void callChildAddedEvent(void);
+    void callChildPolishedEvent(void);
+    void callChildRemovedEvent(void);
 
     void callKeyPressFunc(void);
     void callMouseButtonPressFunc(void);
@@ -305,7 +326,9 @@ class GAllEvents : public QWidget
     void callWindowStateChangeFunc(void);
     void callWindowUnblockedFunc(void);
     void callPaintFunc(void);
-	
+    void callChildAddedFunc(void);	
+    void callChildPolishedFunc(void);
+    void callChildRemovedFunc(void);
 };
 
 #endif 

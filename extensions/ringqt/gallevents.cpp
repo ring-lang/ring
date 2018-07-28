@@ -38,6 +38,9 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cWindowStateChangeEvent,"");
 	strcpy(this->cWindowUnblockedEvent,"");
 	strcpy(this->cPaintEvent,"");
+	strcpy(this->cChildAddedEvent,"");
+	strcpy(this->cChildPolishedEvent,"");
+	strcpy(this->cChildRemovedEvent,"");
 	this->lEventOutput = true ;
 
 	strcpy(this->cKeyPressFunc,"");
@@ -68,6 +71,9 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cWindowStateChangeFunc,"");
 	strcpy(this->cWindowUnblockedFunc,"");
 	strcpy(this->cPaintFunc,"");
+	strcpy(this->cChildAddedFunc,"");
+	strcpy(this->cChildPolishedFunc,"");
+	strcpy(this->cChildRemovedFunc,"");
 }
 
 bool GAllEvents::eventFilter(QObject *object, QEvent *event)
@@ -194,6 +200,15 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
         else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintEvent,"")!=0) ) {
 		this->callPaintEvent();
  		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedEvent,"")!=0) ) {
+		this->callChildAddedEvent();
+ 		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedEvent,"")!=0) ) {
+		this->callChildPolishedEvent();
+ 		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedEvent,"")!=0) ) {
+		this->callChildRemovedEvent();
+ 		return this->lEventOutput;
     	}
 
 	else if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressFunc,"")!=0) ) {
@@ -314,6 +329,15 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
     	}
         else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintFunc,"")!=0) ) {
 		this->callPaintFunc();
+ 		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedFunc,"")!=0) ) {
+		this->callChildAddedFunc();
+ 		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedFunc,"")!=0) ) {
+		this->callChildPolishedFunc();
+ 		return this->lEventOutput;
+ 		else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedFunc,"")!=0) ) {
+		this->callChildRemovedFunc();
  		return this->lEventOutput;
     	}
 
@@ -755,6 +779,47 @@ void GAllEvents::callPaintEvent(void)
 	ring_vm_runcode(this->pVM,this->cPaintEvent);
 }
 
+void GAllEvents::setChildAddedEvent(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildAddedEvent,cStr);
+}
+
+void GAllEvents::callChildAddedEvent(void)
+{
+	if (strcmp(this->cChildAddedEvent,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cChildAddedEvent);
+}
+
+void GAllEvents::setChildPolishedEvent(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildPolishedEvent,cStr);
+}
+
+void GAllEvents::callChildPolishedEvent(void)
+{
+	if (strcmp(this->cChildPolishedEvent,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cChildPolishedEvent);
+}
+
+
+void GAllEvents::setChildRemovedEvent(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildRemovedEvent,cStr);
+}
+
+void GAllEvents::callChildRemovedEvent(void)
+{
+	if (strcmp(this->cChildRemovedEvent,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cChildRemovedEvent);
+}
+
+
 const char *GAllEvents::getKeyPressEvent(void)
 {
 	return this->cKeyPressEvent  ;
@@ -894,6 +959,22 @@ const char *GAllEvents::getPaintEvent(void)
 {
 	return this->cPaintEvent  ;
 }
+
+const char *GAllEvents::getChildAddedEvent(void)
+{
+	return this->cChildAddedEvent  ;
+}
+
+const char *GAllEvents::getChildPolishedEvent(void)
+{
+	return this->cChildPolishedEvent  ;
+}
+
+const char *GAllEvents::getChildRemovedEvent(void)
+{
+	return this->cChildRemovedEvent  ;
+}
+
 
 void GAllEvents::setEventOutput(bool x)
 {
@@ -1278,6 +1359,45 @@ void GAllEvents::callPaintFunc(void)
 	ring_vm_callfunction(this->pVM,this->cPaintFunc);
 }
 
+void GAllEvents::setChildAddedFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildAddedFunc,cStr);
+}
+
+void GAllEvents::callChildAddedFunc(void)
+{
+	if (strcmp(this->cChildAddedFunc,"")==0)
+		return ;
+	ring_vm_callfunction(this->pVM,this->cChildAddedFunc);
+}
+
+void GAllEvents::setChildPolishedFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildPolishedFunc,cStr);
+}
+
+void GAllEvents::callChildPolishedFunc(void)
+{
+	if (strcmp(this->cChildPolishedFunc,"")==0)
+		return ;
+	ring_vm_callfunction(this->pVM,this->cChildPolishedFunc);
+}
+
+void GAllEvents::setChildRemovedFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cChildRemovedFunc,cStr);
+}
+
+void GAllEvents::callChildRemovedFunc(void)
+{
+	if (strcmp(this->cChildRemovedFunc,"")==0)
+		return ;
+	ring_vm_callfunction(this->pVM,this->cChildRemovedFunc);
+}
+
 const char *GAllEvents::getKeyPressFunc(void)
 {
 	return this->cKeyPressFunc  ;
@@ -1418,6 +1538,21 @@ const char *GAllEvents::getPaintFunc(void)
 	return this->cPaintFunc  ;
 }
 
+const char *GAllEvents::getChildAddedFunc(void)
+{
+	return this->cChildAddedFunc  ;
+}
+
+const char *GAllEvents::getChildPolishedFunc(void)
+{
+	return this->cChildPolishedFunc  ;
+}
+
+const char *GAllEvents::getChildRemovedFunc(void)
+{
+	return this->cChildRemovedFunc  ;
+}
+
 QDropEvent *GAllEvents::getDropEventObject(void) 
 {
 	QDropEvent *pCurrentEvent = static_cast<QDropEvent *>(this->pEvent);
@@ -1439,5 +1574,11 @@ QDragEnterEvent *GAllEvents::getDragEnterEventObject(void)
 QDragLeaveEvent *GAllEvents::getDragLeaveEventObject(void)
 {
 	QDragLeaveEvent *pCurrentEvent = static_cast<QDragLeaveEvent *>(this->pEvent);
+	return pCurrentEvent;
+}
+
+QChildEvent *GAllEvents::getChildEventObject(void)
+{
+	QChildEvent *pCurrentEvent = static_cast<QChildEvent *>(this->pEvent);
 	return pCurrentEvent;
 }
