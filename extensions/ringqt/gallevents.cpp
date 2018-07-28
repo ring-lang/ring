@@ -200,13 +200,16 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
         else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintEvent,"")!=0) ) {
 		this->callPaintEvent();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedEvent,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedEvent,"")!=0) ) {
 		this->callChildAddedEvent();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedEvent,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedEvent,"")!=0) ) {
 		this->callChildPolishedEvent();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedEvent,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedEvent,"")!=0) ) {
 		this->callChildRemovedEvent();
  		return this->lEventOutput;
     	}
@@ -330,13 +333,16 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
         else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintFunc,"")!=0) ) {
 		this->callPaintFunc();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedFunc,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildAdded) && (strcmp(this->cChildAddedFunc,"")!=0) ) {
 		this->callChildAddedFunc();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedFunc,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildPolished) && (strcmp(this->cChildPolishedFunc,"")!=0) ) {
 		this->callChildPolishedFunc();
  		return this->lEventOutput;
- 		else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedFunc,"")!=0) ) {
+	}
+ 	else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedFunc,"")!=0) ) {
 		this->callChildRemovedFunc();
  		return this->lEventOutput;
     	}
