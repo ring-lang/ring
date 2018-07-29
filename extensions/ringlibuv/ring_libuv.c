@@ -140,6 +140,7 @@ void uv_shutdown_callback(uv_shutdown_t *obj,int status)
 		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"uv_shutdown_t");
 		ring_list_adddouble_gc(pVMLibUV->pRingState,pPara,status);
 	ring_vm_runcode(pVMLibUV,ring_list_getstring(pList,3));
+	uv_close((uv_handle_t*) obj->handle, (uv_close_cb) free);
 }
 
 void uv_connection_callback(uv_stream_t *obj,int status)
