@@ -8,6 +8,11 @@ ok
 
 Load "ring_libuv.rh"
 
+# More Constants
+	UV_EVENTPARA_STATUS = 2
+	UV_EVENTPARA_SIZE   = 2
+	UV_EVENTPARA_BUFFER = 3
+
 func uv_walk oloop, cFunc, oArg
 	cCall = uv_callback(oLoop,"walk",cFunc)
 	return uv_walk_2(oLoop,cCall,oArg)
