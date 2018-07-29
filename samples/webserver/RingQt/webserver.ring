@@ -16,16 +16,16 @@ class Server
 
         oTcpServer oTcpClient
 
-        func server
+        func Server
                 oTcpServer = new qTcpServer(NULL) 
-                oTcpServer.setNewConnectionEvent("oServer.pNewConnection()")
+                oTcpServer.setNewConnectionEvent("oServer.NewConnection()")
                 oHostAddress = new qHostAddress()
                 oHostAddress.SetAddress("127.0.0.1")
                 oTcpServer.listen(oHostAddress,8081)                
                 ? "Server Started" + nl +
                   "listen to port 8081" 
  
-        func pNewConnection
+        func NewConnection
                 oTcpClient = oTcpServer.nextPendingConnection()
                 while not oTcpClient.waitForReadyRead(100) end
 		oTcpClient.ReadAll()
