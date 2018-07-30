@@ -1,4 +1,5 @@
   aNews = [
+  ["July 29, 2016",'<a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Over 1000 topics in Ring Group</a> '],
   ["July 17, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/MjQGbF9fBfc" target="_blank"> New style in Ring Notepad</a>'],
   ["July 2, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/WS4-o0jFfOw" target="_blank"> Deploying Ring web applications in the Cloud using Heroku</a>'],
   ["June 25, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/WHeOl5fGW-0" target="_blank"> Ring 1.8 Released!</a>'],
