@@ -16,10 +16,7 @@ class RNoteView
 				setwindowtitle("Ring Notepad")
 				this.CreateToolbars()	
 				this.CreateMenubar()
-				this.status1 = new qstatusbar(this.win1) {
-					showmessage("Ready!",0)
-				}
-				setstatusbar(this.status1)
+				this.CreateStatusbar()
 				this.tree1 = new qtreeview(this.win1) {
 					setStylesheet("font-size: 30")
 					setclickedEvent(Method(:pChangeFile))
@@ -903,4 +900,12 @@ class RNoteView
 					}
 				}
 				setmenubar(menu1)
+		}
+
+	func CreateStatusbar
+		win1 {
+			this.status1 = new qstatusbar(this.win1) {
+				showmessage("Ready!",0)
+			}
+			setstatusbar(this.status1)
 		}
