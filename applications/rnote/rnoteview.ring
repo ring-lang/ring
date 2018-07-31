@@ -14,136 +14,7 @@ class RNoteView
 				this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
 				installEventFilter(this.oFilter)
 				setwindowtitle("Ring Notepad")
-				aBtns = [
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/new.png")
-							setclickEvent(Method(:pNew))
-							settooltip("New File (Ctrl+N)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/open.png")
-							setclickEvent(Method(:pOpen))
-							settooltip("Open File (Ctrl+O)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/save.png")
-							setclickEvent(Method(:pSave))
-							settooltip("Save (Ctrl+S)")
-						 } ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/saveas.png")
-							setclickEvent(Method(:pSaveAs))
-							settooltip("Save As (Ctrl+E)")
-						 } ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/undo.png")
-							setclickEvent(Method(:pUndo))
-							settooltip("Undo (Ctrl+Z)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/cut.png")
-							setclickEvent(Method(:pCut))
-							settooltip("Cut (Ctrl+X)")
-						 } ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/copy.png")
-							setclickEvent(Method(:pCopy))
-							settooltip("Copy (Ctrl+C)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/paste.png")
-							setclickEvent(Method(:pPaste))
-							settooltip("Paste (Ctrl+V)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/font.png")
-							setclickEvent(Method(:pFont))
-							settooltip("Font (Ctrl+I)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/search.png")
-							setclickEvent(Method(:pFind))
-							settooltip("Find and Replace (Ctrl+F)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/print.png")
-							setclickEvent(Method(:pPrint))
-							settooltip("Print (Ctrl+P)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/debug.png")
-							setclickevent(Method(:pDebug)) 
-							settooltip("Debug - Run then wait! (Ctrl+D)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/run.png")
-							setclickEvent(Method(:pRun))
-							settooltip("Run the program (Ctrl+R) ")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/rungui.png")
-							setclickEvent(Method(:pRunNoConsole))
-							settooltip("Run GUI Application - No Console (Ctrl+F5)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/web.png")
-							setclickEvent(Method(:RunInBrowser))
-							settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
-						} ,
-						new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/close.png")
-							setclickEvent(Method(:pQuit))
-							settooltip("Quit (Ctrl+Q)")
-						}
-					]
-	
-				tool1 = addtoolbar("files")  {
-					for x in aBtns addwidget(x) addseparator() next
-				}
-	
-				# Main File Toolbar
-				tool2 = addtoolbar("mainfile")  {
-					oLblMainFile = new qLabel(this.win1) {
-						setText("Main File : ")
-					}
-					this.oTxtMainFile = new qLineEdit(this.win1) {
-						setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
-						setReadOnly(True)
-					}
-					oBtnSetFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/open.png")
-						setclickEvent(Method(:pSetMainFile))
-						settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
-					}
-					oBtnDebugMainFile = new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/debug.png")
-							setclickevent(Method(:pDebugMainFile)) 
-							settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
-					} 
-					oBtnRunMainFile = new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/run.png")
-							setclickEvent(Method(:pRunMainFile))
-							settooltip("Main File : Run the program (Ctrl+Shift+R)")
-					} 
-					oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/rungui.png")
-							setclickEvent(Method(:pRunGUIMainFile))
-							settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
-					} 
-					oBtnRunWebMainFile = new qtoolbutton(this.win1) {
-							setbtnimage(self,"image/web.png")
-							setclickEvent(Method(:RunInBrowserMainFile))
-							settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
-					} 
-					AddWidget(oLblMainFile)
-					AddWidget(this.oTxtMainFile)
-					AddWidget(oBtnSetFile)
-					AddWidget(oBtnDebugMainFile)
-					AddWidget(oBtnRunMainFile)
-					AddWidget(oBtnRunGUIMainFile)
-					AddWidget(oBtnRunWebMainFile)
-				}
-	
+				this.CreateToolbars()	
 				menu1 = new qmenubar(this.win1) {
 					subFile 	= addmenu("File")
 					subEdit 	= addmenu("Edit")
@@ -895,4 +766,137 @@ class RNoteView
 			exec()
 		}
 	
+	
+	func CreateToolBars
+		win1 {
+			aBtns = [
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/new.png")
+						setclickEvent(Method(:pNew))
+						settooltip("New File (Ctrl+N)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/open.png")
+						setclickEvent(Method(:pOpen))
+						settooltip("Open File (Ctrl+O)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/save.png")
+						setclickEvent(Method(:pSave))
+						settooltip("Save (Ctrl+S)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/saveas.png")
+						setclickEvent(Method(:pSaveAs))
+						settooltip("Save As (Ctrl+E)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/undo.png")
+						setclickEvent(Method(:pUndo))
+						settooltip("Undo (Ctrl+Z)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/cut.png")
+						setclickEvent(Method(:pCut))
+						settooltip("Cut (Ctrl+X)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/copy.png")
+						setclickEvent(Method(:pCopy))
+						settooltip("Copy (Ctrl+C)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/paste.png")
+						setclickEvent(Method(:pPaste))
+						settooltip("Paste (Ctrl+V)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/font.png")
+						setclickEvent(Method(:pFont))
+						settooltip("Font (Ctrl+I)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/search.png")
+						setclickEvent(Method(:pFind))
+						settooltip("Find and Replace (Ctrl+F)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/print.png")
+						setclickEvent(Method(:pPrint))
+						settooltip("Print (Ctrl+P)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/debug.png")
+						setclickevent(Method(:pDebug)) 
+						settooltip("Debug - Run then wait! (Ctrl+D)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/run.png")
+						setclickEvent(Method(:pRun))
+						settooltip("Run the program (Ctrl+R) ")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/rungui.png")
+						setclickEvent(Method(:pRunNoConsole))
+						settooltip("Run GUI Application - No Console (Ctrl+F5)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/web.png")
+						setclickEvent(Method(:RunInBrowser))
+						settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/close.png")
+						setclickEvent(Method(:pQuit))
+						settooltip("Quit (Ctrl+Q)")
+					}
+				]
+	
+			tool1 = addtoolbar("files")  {
+				for x in aBtns addwidget(x) addseparator() next
+			}
+	
+			# Main File Toolbar
+			tool2 = addtoolbar("mainfile")  {
+				oLblMainFile = new qLabel(this.win1) {
+					setText("Main File : ")
+				}
+				this.oTxtMainFile = new qLineEdit(this.win1) {
+					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
+					setReadOnly(True)
+				}
+				oBtnSetFile = new qtoolbutton(this.win1) {
+					setbtnimage(self,"image/open.png")
+					setclickEvent(Method(:pSetMainFile))
+					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
+				}
+				oBtnDebugMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/debug.png")
+						setclickevent(Method(:pDebugMainFile)) 
+						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
+				} 
+				oBtnRunMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/run.png")
+						setclickEvent(Method(:pRunMainFile))
+						settooltip("Main File : Run the program (Ctrl+Shift+R)")
+				} 
+				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/rungui.png")
+						setclickEvent(Method(:pRunGUIMainFile))
+						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
+				} 
+				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/web.png")
+						setclickEvent(Method(:RunInBrowserMainFile))
+						settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
+				} 
+				AddWidget(oLblMainFile)
+				AddWidget(this.oTxtMainFile)
+				AddWidget(oBtnSetFile)
+				AddWidget(oBtnDebugMainFile)
+				AddWidget(oBtnRunMainFile)
+				AddWidget(oBtnRunGUIMainFile)
+				AddWidget(oBtnRunWebMainFile)
+			}
+		}
 	
