@@ -19,17 +19,8 @@ class RNoteView
 				this.CreateStatusbar()
 				this.CreateProjectFiles()	
 				this.CreateSourceCode()
-				this.CreateWebBrowser()
-				# Functions List
-				this.aFunctionsPos = []	# Lines Numbers for each function
-				this.oFunctionsList = new qListwidget(this.win1) {
-					setitemdoubleclickedEvent(Method(:pSelectFunction))
-					setitemactivatedEvent(Method(:pSelectFunction))
-				}
-				this.oDockFunctionsList = new qDockwidget(this.win1,0) {
-					setWidget(this.oFunctionsList)
-					setwindowtitle("Functions")
-				}
+				this.CreateWebBrowser()	
+				this.CreateFunctionsList()
 				# Classes List
 				this.aClassesPos = []	# Lines Numbers for each class
 				this.oClassesList = new qListwidget(this.win1) {
@@ -922,5 +913,18 @@ class RNoteView
 			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
 				setwidget(this.oWebBrowser)
 				setwindowtitle("Web Browser")
+			}
+		}
+
+	func CreateFunctionsList
+		win1 {
+			this.aFunctionsPos = []	# Lines Numbers for each function
+			this.oFunctionsList = new qListwidget(this.win1) {
+				setitemdoubleclickedEvent(Method(:pSelectFunction))
+				setitemactivatedEvent(Method(:pSelectFunction))
+			}
+			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
+				setWidget(this.oFunctionsList)
+				setwindowtitle("Functions")
 			}
 		}
