@@ -10,10 +10,11 @@ class RNoteView
 			this.pCheckCustomColors()
 			this.PrepareAutoComplete()
 			this.win1 = new qMainWindow() {
+				setwindowtitle("Ring Notepad")
+				setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 				this.oFilter = new qAllEvents(this.win1)
 				this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
 				installEventFilter(this.oFilter)
-				setwindowtitle("Ring Notepad")
 				this.CreateToolbars()	
 				this.CreateMenubar()
 				this.CreateStatusbar()
@@ -24,22 +25,7 @@ class RNoteView
 				this.CreateClassesList()
 				this.CreateOutputWindow()
 				this.CreateFormDesigner()
-				adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
-				adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
-				this.win1 {
-					tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
-					tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
-					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
-					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
-				}
-				setwinicon(self,this.cCurrentDir + "/image/notepad.png")
-				this.oDockSourceCode.raise()
-				this.oDockFunctionsList.raise()
+				this.PrepareDockableWindows()
 			}
 			this {  
 				pSetMode(nDefaultMode) 
@@ -940,4 +926,23 @@ class RNoteView
 				setwindowtitle("Form Designer")
 			}
 			this.pformdesignerdock()
+		}
+
+	func PrepareDockableWindows
+		win1 {
+			adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+			adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
+			this.win1 {
+				tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+				tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+				tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+				tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+			}
+			this.oDockSourceCode.raise()
+			this.oDockFunctionsList.raise()
 		}
