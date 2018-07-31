@@ -23,10 +23,7 @@ class RNoteView
 				this.CreateFunctionsList()
 				this.CreateClassesList()
 				this.CreateOutputWindow()
-				this.oDockFormDesigner = new qDockwidget(this.win1,0) {
-					setwindowtitle("Form Designer")
-				}
-				this.pformdesignerdock()
+				this.CreateFormDesigner()
 				adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
 				adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 				adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
@@ -935,4 +932,12 @@ class RNoteView
 				setwidget( this.oOutputWindow )
 				setwindowtitle("Output")
 			}
+		}
+
+	func CreateFormDesigner
+		win1 {
+			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
+				setwindowtitle("Form Designer")
+			}
+			this.pformdesignerdock()
 		}
