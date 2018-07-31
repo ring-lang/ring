@@ -9,6 +9,7 @@
 	Load "rnoteview.ring"
 	Load "rnotemode.ring"
 	Load "rnotestyle.ring"
+	Load "rnoteautocomplete.ring"
 
 # Load the Form Designer 
 	Load "../formdesigner/formdesigner.ring"
@@ -23,7 +24,8 @@
 	mergemethods(:RNoteController,:RNoteView)
 	mergemethods(:RNoteController,:RNoteMode)
 	mergemethods(:RNoteController,:RNoteStyle)
-	
+	mergemethods(:RNoteController,:RNoteAutoComplete)	
+
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
 
@@ -838,104 +840,6 @@ Class RNoteController from WindowsControllerParent
 			oList.Append(Item)
 		next
 
-	func PrepareAutoComplete
-		oAutoCompleteList = new qStringList()
-		# Add Ring Keywords
-			aKeywords = ["again","and","but","bye","call","case","catch",
-				"changeringkeyword","changeringoperator","class",
-				"def","do","done","else","elseif","end","exit","for","from",
-				"func","get","give","if","import","in","load","loadsyntax",
-				"loop","new","next","not","off","ok","on","or","other",
-				"package","private","put","return","see","step","switch",
-				"to","try","while"]
-			AddItems(aKeywords,oAutoCompleteList)
-		# Add Ring Functions
-			aCFunctionsList = cfunctions()
-			for cFunction in aCFunctionsList
-				cFunction += "()"
-			next
-			AddItems(aCFunctionsList,oAutoCompleteList)
-		# Add Ring Methods
-			aCMethodsList = aCFunctionsList
-			for x = len(aCMethodsList) to 1 step -1
-				cMethod = aCMethodsList[x]
-				nPos = substr(cMethod,"_")
-				if nPos
-					aCMethodsList[x] = substr(aCMethodsList[x],nPos+1)
-				else
-					del(aCMethodsList,x)
-				ok
-			next
-			AddItems(aCMethodsList,oAutoCompleteList)
-			oAutoCompleteList.RemoveDuplicates()
-		# Add Ring Classes
-			aClassesList = classes()
-			aClassesNoInit = ["qapp"]
-			for cClass in aClassesList
-				if find(aClassesNoInit,cClass) = 0
-					cClass = cClass + "() {" + nl + "}"
-				else
-					cClass = cClass + " {" + nl + "}"
-				ok
-			next
-			AddItems(aClassesList,oAutoCompleteList)
-		# Add Ring Libraries
-			aLibsList = ['load "guilib.ring"' , 'load "stdlib.ring"' ,
-					'load "weblib.ring"', 'load "ringlibcurl.ring"']
-			AddItems(aLibsList,oAutoCompleteList)
-		# Save the List Size
-			nAutoCompleteListSize = oAutoCompleteList.Count()
-
-	func AutoCompleteTimer
- 		cFileContent = textedit1.toplaintext() # read(cActiveFileName)
-		if len(cFileContent) > 3 and len(cFileContent) < 1024 # 1KByte
-			CallAutoComplete()
-		else
-			if len(cFileContent) > 3
-				CallAutoComplete()
-				oACTimer.stop()
-			ok
-		ok
-
-	func CallAutoComplete
-		if isObject(oCompleter)
-			if oCompleter.popup().isvisible() = false
-				AutoComplete()
-			ok
-		ok
-
-
-	func AutoComplete
-		StatusMessage("Prepare Auto-Complete ... Please Wait!")
-		# Add words in the current file
-			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
-			if len(cFileContent) < 102400	# 100 KByte
-				StatusMessage("Prepare Auto-Complete ... Get File Words!")
-				aList = Split(cFileContent," ")
-				StatusMessage("Prepare Auto-Complete ... Filter!")
-				nMax = len(aList)
-				for x = nMax to 1 step -1
-					if not isalnum(aList[x])
-						del(aList,x)
-					ok
-				next
-				AddItems(aList,oAutoCompleteList)
-			ok
-		StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
-		oAutoCompleteList.RemoveDuplicates()
-		StatusMessage("Prepare Auto-Complete ... Sort!")
-		oAutoCompleteList.Sort()
-		oCompleter = new qCompleter3(oAutoCompleteList,textedit1)
-		oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
-		oCompleter.setCompletionMode(QCompleter_PopupCompletion)
-		oTempFont.fromstring(cFont)
-		oCompleter.popup().setFont(oTempFont)
-		textedit1.setCompleter(oCompleter)
-		StatusMessage("Prepare Auto-Complete ... Done!")
-		StatusMessage("Ready...")
-		if isObject(oACTimer)
-			oACTimer.start()
-		ok
 
 	func DisplayFunctionsList
 		oFunctionsList.clear()
