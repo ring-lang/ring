@@ -17,37 +17,8 @@ class RNoteView
 				this.CreateToolbars()	
 				this.CreateMenubar()
 				this.CreateStatusbar()
-				this.CreateProjectFiles()
-				this.textedit1 = new codeeditor(this.win1) {
-					setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
-					setLineWrapMode(QTextEdit_NoWrap)
-					setTextChangedEvent(Method(:pTextChanged))
-					setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
-					setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
-				}
-				this.AutoComplete()
-				this.oACTimer = new qtimer(this.win1) {
-					setinterval(5000)
-					settimeoutevent(Method(:AutoCompleteTimer))
-					start()
-				}
-				new RingCodeHighLighter(this.textedit1.document() ) {
-					if ismethod(self,:setkeywordsbold) 
-						setKeywordsbold(this.lKeywordsBold)
-					ok
-					setColors(
-						this.aStyleColors[:SyntaxKeywordsColor],
-						this.aStyleColors[:SyntaxClassNamesColor],
-						this.aStyleColors[:SyntaxCommentsColor],
-						this.aStyleColors[:SyntaxLiteralsColor],
-						this.aStyleColors[:SyntaxFunctionCallsColor]
-					)
-				}
-				this.oDockSourceCode = new qdockwidget(this.win1,0) {
-					setwidget(this.textedit1)
-					setwindowtitle("Source Code")
-					setminimumwidth(340)                                                     
-	                        }
+				this.CreateProjectFiles()	
+				this.CreateSourceCode()
 				this.oWebBrowser = new qWidget() {
 					setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
 					setWindowFlags(Qt_SubWindow)
@@ -913,4 +884,38 @@ class RNoteView
 				setwindowtitle("Project Files")
 				setwidget(this.tree1)
 			}
+		}
+
+	func CreateSourceCode
+		win1 {
+			this.textedit1 = new codeeditor(this.win1) {
+				setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
+				setLineWrapMode(QTextEdit_NoWrap)
+				setTextChangedEvent(Method(:pTextChanged))
+				setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
+				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
+			}
+			this.AutoComplete()
+			this.oACTimer = new qtimer(this.win1) {
+				setinterval(5000)
+				settimeoutevent(Method(:AutoCompleteTimer))
+				start()
+			}
+			new RingCodeHighLighter(this.textedit1.document() ) {
+				if ismethod(self,:setkeywordsbold) 
+					setKeywordsbold(this.lKeywordsBold)
+				ok
+				setColors(
+					this.aStyleColors[:SyntaxKeywordsColor],
+					this.aStyleColors[:SyntaxClassNamesColor],
+					this.aStyleColors[:SyntaxCommentsColor],
+					this.aStyleColors[:SyntaxLiteralsColor],
+					this.aStyleColors[:SyntaxFunctionCallsColor]
+				)
+			}
+			this.oDockSourceCode = new qdockwidget(this.win1,0) {
+				setwidget(this.textedit1)
+				setwindowtitle("Source Code")
+				setminimumwidth(340)                                                     
+                        }
 		}
