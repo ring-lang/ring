@@ -15,6 +15,344 @@ class RNoteView
 				installEventFilter(this.oFilter)
 				setwindowtitle("Ring Notepad")
 				this.CreateToolbars()	
+				this.CreateMenubar()
+				this.status1 = new qstatusbar(this.win1) {
+					showmessage("Ready!",0)
+				}
+				setstatusbar(this.status1)
+				this.tree1 = new qtreeview(this.win1) {
+					setStylesheet("font-size: 30")
+					setclickedEvent(Method(:pChangeFile))
+					setActivatedEvent(Method(:pChangeFile))
+					setGeometry(00,00,200,400)
+					setminimumwidth(250)
+	                		chdir(this.cStartUpFolder)
+					oDir = new QDir()
+					this.ofile = new QFileSystemModel() {
+						setrootpath(oDir.currentpath())
+						myfiles = new qstringlist() {
+							append("*.ring")
+							append("*.rh")
+							append("*.rform")
+							append("*.txt")
+							append("*.html")
+							append("*.rhtml")
+							append("*.css")
+							append("*.js")
+							append("*.xml")
+							append("*.data")
+							append("*.sh")
+							append("*.bat")
+							append("*.md")
+							append("*.cf")
+							append("*.qml")
+						}
+						setnamefilters(myfiles)
+						setNameFilterDisables(false)
+					}
+					setmodel(this.ofile)
+					myindex = this.ofile.index(oDir.currentpath(),0)
+					for x = 1 to this.ofile.columncount()
+						hidecolumn(x)
+					next
+					setcurrentindex(myindex)
+					setexpanded(myindex,true)
+					header().hide()
+					chdir(exefolder())
+					if not ismacosx()
+						this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
+					ok
+				}
+				this.oDockProjectFiles = new qdockwidget(this.win1,0) {
+					setGeometry(00,00,200,200)
+					setwindowtitle("Project Files")
+					setwidget(this.tree1)
+				}
+				this.textedit1 = new codeeditor(this.win1) {
+					setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
+					setLineWrapMode(QTextEdit_NoWrap)
+					setTextChangedEvent(Method(:pTextChanged))
+					setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
+					setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
+				}
+				this.AutoComplete()
+				this.oACTimer = new qtimer(this.win1) {
+					setinterval(5000)
+					settimeoutevent(Method(:AutoCompleteTimer))
+					start()
+				}
+				new RingCodeHighLighter(this.textedit1.document() ) {
+					if ismethod(self,:setkeywordsbold) 
+						setKeywordsbold(this.lKeywordsBold)
+					ok
+					setColors(
+						this.aStyleColors[:SyntaxKeywordsColor],
+						this.aStyleColors[:SyntaxClassNamesColor],
+						this.aStyleColors[:SyntaxCommentsColor],
+						this.aStyleColors[:SyntaxLiteralsColor],
+						this.aStyleColors[:SyntaxFunctionCallsColor]
+					)
+				}
+				this.oDockSourceCode = new qdockwidget(this.win1,0) {
+					setwidget(this.textedit1)
+					setwindowtitle("Source Code")
+					setminimumwidth(340)                                                     
+	                        }
+				this.oWebBrowser = new qWidget() {
+					setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
+					setWindowFlags(Qt_SubWindow)
+					oWBLabel = new qLabel(this.win1) {
+						setText("Website: ")
+					}
+					this.oWBText = new qLineEdit(this.win1) {
+						setText(this.cWebSite)
+						setReturnPressedEvent(Method(:pWebGo))
+					}
+					oWBGo = new qPushButton(this.win1) {
+						setText("Go")
+						setClickEvent(Method(:pWebGo))
+					}
+					oWBBack = new qPushButton(this.win1) {
+						setText("Back")
+						setClickEvent(Method(:pWebBack))
+					}
+					oWBLayout1 = new qHBoxLayout() {
+						addWidget(oWBLabel)
+						addWidget(this.oWBText)
+						addWidget(oWBGo)
+						addWidget(oWBBack)
+					}
+					this.oWebView = new qWebView(this.win1) {
+						loadpage(new qurl(this.cWebSite))
+					}
+					oWBlayout2 = new qVBoxLayout() {
+						addLayout(oWBLayout1)
+						addWidget(this.oWebView)
+					}
+					setLayout(oWBLayout2)
+				}
+				this.oDockWebBrowser = new qdockwidget(this.win1,0) {
+					setwidget(this.oWebBrowser)
+					setwindowtitle("Web Browser")
+				}
+				# Functions List
+				this.aFunctionsPos = []	# Lines Numbers for each function
+				this.oFunctionsList = new qListwidget(this.win1) {
+					setitemdoubleclickedEvent(Method(:pSelectFunction))
+					setitemactivatedEvent(Method(:pSelectFunction))
+				}
+				this.oDockFunctionsList = new qDockwidget(this.win1,0) {
+					setWidget(this.oFunctionsList)
+					setwindowtitle("Functions")
+				}
+				# Classes List
+				this.aClassesPos = []	# Lines Numbers for each class
+				this.oClassesList = new qListwidget(this.win1) {
+					setitemdoubleclickedEvent(Method(:pSelectClass))
+					setitemactivatedEvent(Method(:pSelectClass))
+				}
+				this.oDockClassesList = new qDockwidget(this.win1,0) {
+					setWidget(this.oClassesList)
+					setwindowtitle("Classes")
+				}
+				# Output Window
+				this.oProcess = NULL
+				this.oOutputWindow = new qWidget()
+				oProcessLabel = new qLabel(this.oOutputWindow) {
+					setText("Input :")
+				}
+				this.oProcessText = new qlineEdit(this.oOutputWindow) {
+					setreturnPressedEvent(Method(:pSendProcessData))
+				}
+				oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
+					setText("Send")
+					setClickEvent(Method(:pSendProcessData))
+				}
+				oClearbtn = new qpushbutton(this.oOutputWindow) {
+					setText("Clear")
+					setClickEvent(Method(:pClearProcess))
+				}
+				oProcessLayout1 = new qhboxlayout() {
+					AddWidget(oProcessLabel)
+					AddWidget(this.oProcessText)
+					Addwidget(oProcessbtnSend)
+	                		Addwidget(oClearbtn)
+				}
+				this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
+				oProcessLayout2 = new qvboxlayout() {
+					addWidget(this.oProcesseditbox)
+					addlayout(oProcesslayout1)
+				}
+				this.oOutputWindow.setlayout(oProcessLayout2)
+				this.oDockOutputWindow = new qDockWidget(this.win1,0) {
+					setwidget( this.oOutputWindow )
+					setwindowtitle("Output")
+				}
+				this.oDockFormDesigner = new qDockwidget(this.win1,0) {
+					setwindowtitle("Form Designer")
+				}
+				this.pformdesignerdock()
+				adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+				adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+				adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
+				adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
+				adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+				adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
+				adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
+				this.win1 {
+					tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+					tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				}
+				setwinicon(self,this.cCurrentDir + "/image/notepad.png")
+				this.oDockSourceCode.raise()
+				this.oDockFunctionsList.raise()
+			}
+			this {  
+				pSetMode(nDefaultMode) 
+				RestoreSettings()
+				win1.showmaximized()
+			}
+			exec()
+		}
+	
+	
+	func CreateToolBars
+		win1 {
+			aBtns = [
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/new.png")
+						setclickEvent(Method(:pNew))
+						settooltip("New File (Ctrl+N)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/open.png")
+						setclickEvent(Method(:pOpen))
+						settooltip("Open File (Ctrl+O)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/save.png")
+						setclickEvent(Method(:pSave))
+						settooltip("Save (Ctrl+S)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/saveas.png")
+						setclickEvent(Method(:pSaveAs))
+						settooltip("Save As (Ctrl+E)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/undo.png")
+						setclickEvent(Method(:pUndo))
+						settooltip("Undo (Ctrl+Z)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/cut.png")
+						setclickEvent(Method(:pCut))
+						settooltip("Cut (Ctrl+X)")
+					 } ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/copy.png")
+						setclickEvent(Method(:pCopy))
+						settooltip("Copy (Ctrl+C)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/paste.png")
+						setclickEvent(Method(:pPaste))
+						settooltip("Paste (Ctrl+V)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/font.png")
+						setclickEvent(Method(:pFont))
+						settooltip("Font (Ctrl+I)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/search.png")
+						setclickEvent(Method(:pFind))
+						settooltip("Find and Replace (Ctrl+F)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/print.png")
+						setclickEvent(Method(:pPrint))
+						settooltip("Print (Ctrl+P)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/debug.png")
+						setclickevent(Method(:pDebug)) 
+						settooltip("Debug - Run then wait! (Ctrl+D)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/run.png")
+						setclickEvent(Method(:pRun))
+						settooltip("Run the program (Ctrl+R) ")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/rungui.png")
+						setclickEvent(Method(:pRunNoConsole))
+						settooltip("Run GUI Application - No Console (Ctrl+F5)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/web.png")
+						setclickEvent(Method(:RunInBrowser))
+						settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
+					} ,
+					new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/close.png")
+						setclickEvent(Method(:pQuit))
+						settooltip("Quit (Ctrl+Q)")
+					}
+				]
+	
+			tool1 = addtoolbar("files")  {
+				for x in aBtns addwidget(x) addseparator() next
+			}
+	
+			# Main File Toolbar
+			tool2 = addtoolbar("mainfile")  {
+				oLblMainFile = new qLabel(this.win1) {
+					setText("Main File : ")
+				}
+				this.oTxtMainFile = new qLineEdit(this.win1) {
+					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
+					setReadOnly(True)
+				}
+				oBtnSetFile = new qtoolbutton(this.win1) {
+					setbtnimage(self,"image/open.png")
+					setclickEvent(Method(:pSetMainFile))
+					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
+				}
+				oBtnDebugMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/debug.png")
+						setclickevent(Method(:pDebugMainFile)) 
+						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
+				} 
+				oBtnRunMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/run.png")
+						setclickEvent(Method(:pRunMainFile))
+						settooltip("Main File : Run the program (Ctrl+Shift+R)")
+				} 
+				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/rungui.png")
+						setclickEvent(Method(:pRunGUIMainFile))
+						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
+				} 
+				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
+						setbtnimage(self,"image/web.png")
+						setclickEvent(Method(:RunInBrowserMainFile))
+						settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
+				} 
+				AddWidget(oLblMainFile)
+				AddWidget(this.oTxtMainFile)
+				AddWidget(oBtnSetFile)
+				AddWidget(oBtnDebugMainFile)
+				AddWidget(oBtnRunMainFile)
+				AddWidget(oBtnRunGUIMainFile)
+				AddWidget(oBtnRunWebMainFile)
+			}
+		}
+	
+	func CreateMenubar 
+		win1 {
 				menu1 = new qmenubar(this.win1) {
 					subFile 	= addmenu("File")
 					subEdit 	= addmenu("Edit")
@@ -565,338 +903,4 @@ class RNoteView
 					}
 				}
 				setmenubar(menu1)
-				this.status1 = new qstatusbar(this.win1) {
-					showmessage("Ready!",0)
-				}
-				setstatusbar(this.status1)
-				this.tree1 = new qtreeview(this.win1) {
-					setStylesheet("font-size: 30")
-					setclickedEvent(Method(:pChangeFile))
-					setActivatedEvent(Method(:pChangeFile))
-					setGeometry(00,00,200,400)
-					setminimumwidth(250)
-	                		chdir(this.cStartUpFolder)
-					oDir = new QDir()
-					this.ofile = new QFileSystemModel() {
-						setrootpath(oDir.currentpath())
-						myfiles = new qstringlist() {
-							append("*.ring")
-							append("*.rh")
-							append("*.rform")
-							append("*.txt")
-							append("*.html")
-							append("*.rhtml")
-							append("*.css")
-							append("*.js")
-							append("*.xml")
-							append("*.data")
-							append("*.sh")
-							append("*.bat")
-							append("*.md")
-							append("*.cf")
-							append("*.qml")
-						}
-						setnamefilters(myfiles)
-						setNameFilterDisables(false)
-					}
-					setmodel(this.ofile)
-					myindex = this.ofile.index(oDir.currentpath(),0)
-					for x = 1 to this.ofile.columncount()
-						hidecolumn(x)
-					next
-					setcurrentindex(myindex)
-					setexpanded(myindex,true)
-					header().hide()
-					chdir(exefolder())
-					if not ismacosx()
-						this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
-					ok
-				}
-				this.oDockProjectFiles = new qdockwidget(this.win1,0) {
-					setGeometry(00,00,200,200)
-					setwindowtitle("Project Files")
-					setwidget(this.tree1)
-				}
-				this.textedit1 = new codeeditor(this.win1) {
-					setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
-					setLineWrapMode(QTextEdit_NoWrap)
-					setTextChangedEvent(Method(:pTextChanged))
-					setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
-					setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
-				}
-				this.AutoComplete()
-				this.oACTimer = new qtimer(this.win1) {
-					setinterval(5000)
-					settimeoutevent(Method(:AutoCompleteTimer))
-					start()
-				}
-				new RingCodeHighLighter(this.textedit1.document() ) {
-					if ismethod(self,:setkeywordsbold) 
-						setKeywordsbold(this.lKeywordsBold)
-					ok
-					setColors(
-						this.aStyleColors[:SyntaxKeywordsColor],
-						this.aStyleColors[:SyntaxClassNamesColor],
-						this.aStyleColors[:SyntaxCommentsColor],
-						this.aStyleColors[:SyntaxLiteralsColor],
-						this.aStyleColors[:SyntaxFunctionCallsColor]
-					)
-				}
-				this.oDockSourceCode = new qdockwidget(this.win1,0) {
-					setwidget(this.textedit1)
-					setwindowtitle("Source Code")
-					setminimumwidth(340)                                                     
-	                        }
-				this.oWebBrowser = new qWidget() {
-					setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
-					setWindowFlags(Qt_SubWindow)
-					oWBLabel = new qLabel(this.win1) {
-						setText("Website: ")
-					}
-					this.oWBText = new qLineEdit(this.win1) {
-						setText(this.cWebSite)
-						setReturnPressedEvent(Method(:pWebGo))
-					}
-					oWBGo = new qPushButton(this.win1) {
-						setText("Go")
-						setClickEvent(Method(:pWebGo))
-					}
-					oWBBack = new qPushButton(this.win1) {
-						setText("Back")
-						setClickEvent(Method(:pWebBack))
-					}
-					oWBLayout1 = new qHBoxLayout() {
-						addWidget(oWBLabel)
-						addWidget(this.oWBText)
-						addWidget(oWBGo)
-						addWidget(oWBBack)
-					}
-					this.oWebView = new qWebView(this.win1) {
-						loadpage(new qurl(this.cWebSite))
-					}
-					oWBlayout2 = new qVBoxLayout() {
-						addLayout(oWBLayout1)
-						addWidget(this.oWebView)
-					}
-					setLayout(oWBLayout2)
-				}
-				this.oDockWebBrowser = new qdockwidget(this.win1,0) {
-					setwidget(this.oWebBrowser)
-					setwindowtitle("Web Browser")
-				}
-				# Functions List
-				this.aFunctionsPos = []	# Lines Numbers for each function
-				this.oFunctionsList = new qListwidget(this.win1) {
-					setitemdoubleclickedEvent(Method(:pSelectFunction))
-					setitemactivatedEvent(Method(:pSelectFunction))
-				}
-				this.oDockFunctionsList = new qDockwidget(this.win1,0) {
-					setWidget(this.oFunctionsList)
-					setwindowtitle("Functions")
-				}
-				# Classes List
-				this.aClassesPos = []	# Lines Numbers for each class
-				this.oClassesList = new qListwidget(this.win1) {
-					setitemdoubleclickedEvent(Method(:pSelectClass))
-					setitemactivatedEvent(Method(:pSelectClass))
-				}
-				this.oDockClassesList = new qDockwidget(this.win1,0) {
-					setWidget(this.oClassesList)
-					setwindowtitle("Classes")
-				}
-				# Output Window
-				this.oProcess = NULL
-				this.oOutputWindow = new qWidget()
-				oProcessLabel = new qLabel(this.oOutputWindow) {
-					setText("Input :")
-				}
-				this.oProcessText = new qlineEdit(this.oOutputWindow) {
-					setreturnPressedEvent(Method(:pSendProcessData))
-				}
-				oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
-					setText("Send")
-					setClickEvent(Method(:pSendProcessData))
-				}
-				oClearbtn = new qpushbutton(this.oOutputWindow) {
-					setText("Clear")
-					setClickEvent(Method(:pClearProcess))
-				}
-				oProcessLayout1 = new qhboxlayout() {
-					AddWidget(oProcessLabel)
-					AddWidget(this.oProcessText)
-					Addwidget(oProcessbtnSend)
-	                		Addwidget(oClearbtn)
-				}
-				this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
-				oProcessLayout2 = new qvboxlayout() {
-					addWidget(this.oProcesseditbox)
-					addlayout(oProcesslayout1)
-				}
-				this.oOutputWindow.setlayout(oProcessLayout2)
-				this.oDockOutputWindow = new qDockWidget(this.win1,0) {
-					setwidget( this.oOutputWindow )
-					setwindowtitle("Output")
-				}
-				this.oDockFormDesigner = new qDockwidget(this.win1,0) {
-					setwindowtitle("Form Designer")
-				}
-				this.pformdesignerdock()
-				adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
-				adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
-				adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
-				this.win1 {
-					tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
-					tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
-					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
-					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
-				}
-				setwinicon(self,this.cCurrentDir + "/image/notepad.png")
-				this.oDockSourceCode.raise()
-				this.oDockFunctionsList.raise()
-			}
-			this {  
-				pSetMode(nDefaultMode) 
-				RestoreSettings()
-				win1.showmaximized()
-			}
-			exec()
 		}
-	
-	
-	func CreateToolBars
-		win1 {
-			aBtns = [
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/new.png")
-						setclickEvent(Method(:pNew))
-						settooltip("New File (Ctrl+N)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/open.png")
-						setclickEvent(Method(:pOpen))
-						settooltip("Open File (Ctrl+O)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/save.png")
-						setclickEvent(Method(:pSave))
-						settooltip("Save (Ctrl+S)")
-					 } ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/saveas.png")
-						setclickEvent(Method(:pSaveAs))
-						settooltip("Save As (Ctrl+E)")
-					 } ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/undo.png")
-						setclickEvent(Method(:pUndo))
-						settooltip("Undo (Ctrl+Z)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/cut.png")
-						setclickEvent(Method(:pCut))
-						settooltip("Cut (Ctrl+X)")
-					 } ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/copy.png")
-						setclickEvent(Method(:pCopy))
-						settooltip("Copy (Ctrl+C)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/paste.png")
-						setclickEvent(Method(:pPaste))
-						settooltip("Paste (Ctrl+V)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/font.png")
-						setclickEvent(Method(:pFont))
-						settooltip("Font (Ctrl+I)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/search.png")
-						setclickEvent(Method(:pFind))
-						settooltip("Find and Replace (Ctrl+F)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/print.png")
-						setclickEvent(Method(:pPrint))
-						settooltip("Print (Ctrl+P)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/debug.png")
-						setclickevent(Method(:pDebug)) 
-						settooltip("Debug - Run then wait! (Ctrl+D)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/run.png")
-						setclickEvent(Method(:pRun))
-						settooltip("Run the program (Ctrl+R) ")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/rungui.png")
-						setclickEvent(Method(:pRunNoConsole))
-						settooltip("Run GUI Application - No Console (Ctrl+F5)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/web.png")
-						setclickEvent(Method(:RunInBrowser))
-						settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
-					} ,
-					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/close.png")
-						setclickEvent(Method(:pQuit))
-						settooltip("Quit (Ctrl+Q)")
-					}
-				]
-	
-			tool1 = addtoolbar("files")  {
-				for x in aBtns addwidget(x) addseparator() next
-			}
-	
-			# Main File Toolbar
-			tool2 = addtoolbar("mainfile")  {
-				oLblMainFile = new qLabel(this.win1) {
-					setText("Main File : ")
-				}
-				this.oTxtMainFile = new qLineEdit(this.win1) {
-					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
-					setReadOnly(True)
-				}
-				oBtnSetFile = new qtoolbutton(this.win1) {
-					setbtnimage(self,"image/open.png")
-					setclickEvent(Method(:pSetMainFile))
-					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
-				}
-				oBtnDebugMainFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/debug.png")
-						setclickevent(Method(:pDebugMainFile)) 
-						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
-				} 
-				oBtnRunMainFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/run.png")
-						setclickEvent(Method(:pRunMainFile))
-						settooltip("Main File : Run the program (Ctrl+Shift+R)")
-				} 
-				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/rungui.png")
-						setclickEvent(Method(:pRunGUIMainFile))
-						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
-				} 
-				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/web.png")
-						setclickEvent(Method(:RunInBrowserMainFile))
-						settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
-				} 
-				AddWidget(oLblMainFile)
-				AddWidget(this.oTxtMainFile)
-				AddWidget(oBtnSetFile)
-				AddWidget(oBtnDebugMainFile)
-				AddWidget(oBtnRunMainFile)
-				AddWidget(oBtnRunGUIMainFile)
-				AddWidget(oBtnRunWebMainFile)
-			}
-		}
-	
