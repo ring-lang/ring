@@ -13,6 +13,7 @@
 	Load "rnotelists.ring"
 	Load "rnotefind.ring"
 	Load "rnotesettings.ring"
+	Load "rnotefindinfiles.ring"
 
 # Load the Form Designer 
 	Load "../formdesigner/formdesigner.ring"
@@ -31,6 +32,7 @@
 	mergemethods(:RNoteController,:RnoteLists)
 	mergemethods(:RNoteController,:RnoteFind)
 	mergemethods(:RNoteController,:RNoteSettings)
+	mergemethods(:RNoteController,:RNoteFindInFiles)
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
@@ -825,21 +827,3 @@ Class RNoteController from WindowsControllerParent
 		OSFilesManager()
 		chdir(exefolder())
 
-	func pFindInFiles 
-		chdir(cCurrentDir+"../findinfiles")
-		open_WindowAndLink(:findinfilesController,self)
-		FindInFiles().setParentObject(self)
-		chdir(cCurrentDir)
-
-	func FindInFilesSelect cFile,nRow 
-		pCheckSaveBeforeChange()
-		cActiveFileName = cFile 
-		openFile(cFile)
-		GotoLine(nRow)		
-		AutoComplete()
-		lAsktoSave = False
-		cTextHash  = sha256(textedit1.toplaintext())
-		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
-		oDockClassesList.setWindowTitle("Classes (Loading...)")
-		DisplayFunctionsList()
-		DisplayClassesList()
