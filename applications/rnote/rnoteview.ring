@@ -17,54 +17,7 @@ class RNoteView
 				this.CreateToolbars()	
 				this.CreateMenubar()
 				this.CreateStatusbar()
-				this.tree1 = new qtreeview(this.win1) {
-					setStylesheet("font-size: 30")
-					setclickedEvent(Method(:pChangeFile))
-					setActivatedEvent(Method(:pChangeFile))
-					setGeometry(00,00,200,400)
-					setminimumwidth(250)
-	                		chdir(this.cStartUpFolder)
-					oDir = new QDir()
-					this.ofile = new QFileSystemModel() {
-						setrootpath(oDir.currentpath())
-						myfiles = new qstringlist() {
-							append("*.ring")
-							append("*.rh")
-							append("*.rform")
-							append("*.txt")
-							append("*.html")
-							append("*.rhtml")
-							append("*.css")
-							append("*.js")
-							append("*.xml")
-							append("*.data")
-							append("*.sh")
-							append("*.bat")
-							append("*.md")
-							append("*.cf")
-							append("*.qml")
-						}
-						setnamefilters(myfiles)
-						setNameFilterDisables(false)
-					}
-					setmodel(this.ofile)
-					myindex = this.ofile.index(oDir.currentpath(),0)
-					for x = 1 to this.ofile.columncount()
-						hidecolumn(x)
-					next
-					setcurrentindex(myindex)
-					setexpanded(myindex,true)
-					header().hide()
-					chdir(exefolder())
-					if not ismacosx()
-						this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
-					ok
-				}
-				this.oDockProjectFiles = new qdockwidget(this.win1,0) {
-					setGeometry(00,00,200,200)
-					setwindowtitle("Project Files")
-					setwidget(this.tree1)
-				}
+				this.CreateProjectFiles()
 				this.textedit1 = new codeeditor(this.win1) {
 					setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
 					setLineWrapMode(QTextEdit_NoWrap)
@@ -908,4 +861,56 @@ class RNoteView
 				showmessage("Ready!",0)
 			}
 			setstatusbar(this.status1)
+		}
+
+	func CreateProjectFiles
+		win1 {
+			this.tree1 = new qtreeview(this.win1) {
+				setStylesheet("font-size: 30")
+				setclickedEvent(Method(:pChangeFile))
+				setActivatedEvent(Method(:pChangeFile))
+				setGeometry(00,00,200,400)
+				setminimumwidth(250)
+                		chdir(this.cStartUpFolder)
+				oDir = new QDir()
+				this.ofile = new QFileSystemModel() {
+					setrootpath(oDir.currentpath())
+					myfiles = new qstringlist() {
+						append("*.ring")
+						append("*.rh")
+						append("*.rform")
+						append("*.txt")
+						append("*.html")
+						append("*.rhtml")
+						append("*.css")
+						append("*.js")
+						append("*.xml")
+						append("*.data")
+						append("*.sh")
+						append("*.bat")
+						append("*.md")
+						append("*.cf")
+						append("*.qml")
+					}
+					setnamefilters(myfiles)
+					setNameFilterDisables(false)
+				}
+				setmodel(this.ofile)
+				myindex = this.ofile.index(oDir.currentpath(),0)
+				for x = 1 to this.ofile.columncount()
+					hidecolumn(x)
+				next
+				setcurrentindex(myindex)
+				setexpanded(myindex,true)
+				header().hide()
+				chdir(exefolder())
+				if not ismacosx()
+					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
+				ok
+			}
+			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
+				setGeometry(00,00,200,200)
+				setwindowtitle("Project Files")
+				setwidget(this.tree1)
+			}
 		}
