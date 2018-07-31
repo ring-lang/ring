@@ -22,39 +22,7 @@ class RNoteView
 				this.CreateWebBrowser()	
 				this.CreateFunctionsList()
 				this.CreateClassesList()
-				# Output Window
-				this.oProcess = NULL
-				this.oOutputWindow = new qWidget()
-				oProcessLabel = new qLabel(this.oOutputWindow) {
-					setText("Input :")
-				}
-				this.oProcessText = new qlineEdit(this.oOutputWindow) {
-					setreturnPressedEvent(Method(:pSendProcessData))
-				}
-				oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
-					setText("Send")
-					setClickEvent(Method(:pSendProcessData))
-				}
-				oClearbtn = new qpushbutton(this.oOutputWindow) {
-					setText("Clear")
-					setClickEvent(Method(:pClearProcess))
-				}
-				oProcessLayout1 = new qhboxlayout() {
-					AddWidget(oProcessLabel)
-					AddWidget(this.oProcessText)
-					Addwidget(oProcessbtnSend)
-	                		Addwidget(oClearbtn)
-				}
-				this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
-				oProcessLayout2 = new qvboxlayout() {
-					addWidget(this.oProcesseditbox)
-					addlayout(oProcesslayout1)
-				}
-				this.oOutputWindow.setlayout(oProcessLayout2)
-				this.oDockOutputWindow = new qDockWidget(this.win1,0) {
-					setwidget( this.oOutputWindow )
-					setwindowtitle("Output")
-				}
+				this.CreateOutputWindow()
 				this.oDockFormDesigner = new qDockwidget(this.win1,0) {
 					setwindowtitle("Form Designer")
 				}
@@ -930,5 +898,41 @@ class RNoteView
 			this.oDockClassesList = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)
 				setwindowtitle("Classes")
+			}
+		}
+
+	func CreateOutputWindow
+		win1 {
+			this.oProcess = NULL
+			this.oOutputWindow = new qWidget()
+			oProcessLabel = new qLabel(this.oOutputWindow) {
+				setText("Input :")
+			}
+			this.oProcessText = new qlineEdit(this.oOutputWindow) {
+				setreturnPressedEvent(Method(:pSendProcessData))
+			}
+			oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
+				setText("Send")
+				setClickEvent(Method(:pSendProcessData))
+			}
+			oClearbtn = new qpushbutton(this.oOutputWindow) {
+				setText("Clear")
+				setClickEvent(Method(:pClearProcess))
+			}
+			oProcessLayout1 = new qhboxlayout() {
+				AddWidget(oProcessLabel)
+				AddWidget(this.oProcessText)
+				Addwidget(oProcessbtnSend)
+                		Addwidget(oClearbtn)
+			}
+			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
+			oProcessLayout2 = new qvboxlayout() {
+				addWidget(this.oProcesseditbox)
+				addlayout(oProcesslayout1)
+			}
+			this.oOutputWindow.setlayout(oProcessLayout2)
+			this.oDockOutputWindow = new qDockWidget(this.win1,0) {
+				setwidget( this.oOutputWindow )
+				setwindowtitle("Output")
 			}
 		}
