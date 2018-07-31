@@ -19,43 +19,7 @@ class RNoteView
 				this.CreateStatusbar()
 				this.CreateProjectFiles()	
 				this.CreateSourceCode()
-				this.oWebBrowser = new qWidget() {
-					setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
-					setWindowFlags(Qt_SubWindow)
-					oWBLabel = new qLabel(this.win1) {
-						setText("Website: ")
-					}
-					this.oWBText = new qLineEdit(this.win1) {
-						setText(this.cWebSite)
-						setReturnPressedEvent(Method(:pWebGo))
-					}
-					oWBGo = new qPushButton(this.win1) {
-						setText("Go")
-						setClickEvent(Method(:pWebGo))
-					}
-					oWBBack = new qPushButton(this.win1) {
-						setText("Back")
-						setClickEvent(Method(:pWebBack))
-					}
-					oWBLayout1 = new qHBoxLayout() {
-						addWidget(oWBLabel)
-						addWidget(this.oWBText)
-						addWidget(oWBGo)
-						addWidget(oWBBack)
-					}
-					this.oWebView = new qWebView(this.win1) {
-						loadpage(new qurl(this.cWebSite))
-					}
-					oWBlayout2 = new qVBoxLayout() {
-						addLayout(oWBLayout1)
-						addWidget(this.oWebView)
-					}
-					setLayout(oWBLayout2)
-				}
-				this.oDockWebBrowser = new qdockwidget(this.win1,0) {
-					setwidget(this.oWebBrowser)
-					setwindowtitle("Web Browser")
-				}
+				this.CreateWebBrowser()
 				# Functions List
 				this.aFunctionsPos = []	# Lines Numbers for each function
 				this.oFunctionsList = new qListwidget(this.win1) {
@@ -918,4 +882,45 @@ class RNoteView
 				setwindowtitle("Source Code")
 				setminimumwidth(340)                                                     
                         }
+		}
+
+	func CreateWebBrowser
+		win1 {
+			this.oWebBrowser = new qWidget() {
+				setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
+				setWindowFlags(Qt_SubWindow)
+				oWBLabel = new qLabel(this.win1) {
+					setText("Website: ")
+				}
+				this.oWBText = new qLineEdit(this.win1) {
+					setText(this.cWebSite)
+					setReturnPressedEvent(Method(:pWebGo))
+				}
+				oWBGo = new qPushButton(this.win1) {
+					setText("Go")
+					setClickEvent(Method(:pWebGo))
+				}
+				oWBBack = new qPushButton(this.win1) {
+					setText("Back")
+					setClickEvent(Method(:pWebBack))
+				}
+				oWBLayout1 = new qHBoxLayout() {
+					addWidget(oWBLabel)
+					addWidget(this.oWBText)
+					addWidget(oWBGo)
+					addWidget(oWBBack)
+				}
+				this.oWebView = new qWebView(this.win1) {
+					loadpage(new qurl(this.cWebSite))
+				}
+				oWBlayout2 = new qVBoxLayout() {
+					addLayout(oWBLayout1)
+					addWidget(this.oWebView)
+				}
+				setLayout(oWBLayout2)
+			}
+			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
+				setwidget(this.oWebBrowser)
+				setwindowtitle("Web Browser")
+			}
 		}
