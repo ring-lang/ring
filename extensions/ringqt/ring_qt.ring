@@ -22542,7 +22542,9 @@ Class QGeoAreaMonitorInfo
 		return pObject
 
 	Func area 
-		return QGeoAreaMonitorInfo_area(pObject)
+		pTempObj = new QGeoShape
+		pTempObj.pObject = QGeoAreaMonitorInfo_area(pObject)
+		return pTempObj
 
 	Func expiration 
 		pTempObj = new QDateTime
@@ -22730,6 +22732,43 @@ Class QGeoRectangle from QGeoShape
 
 	Func width 
 		return QGeoRectangle_width(pObject)
+
+Class QGeoShape
+
+	pObject
+
+	Func init 
+		pObject = QGeoShape_new()
+		return self
+
+	Func delete
+		pObject = QGeoShape_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func center 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoShape_center(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QGeoShape_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func extendShape P1
+		return QGeoShape_extendShape(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QGeoShape_isEmpty(pObject)
+
+	Func isValid 
+		return QGeoShape_isValid(pObject)
+
+	Func toString 
+		return QGeoShape_toString(pObject)
+
+	Func type 
+		return QGeoShape_type(pObject)
 
 Class QPixmap2 from QPixmap
 
