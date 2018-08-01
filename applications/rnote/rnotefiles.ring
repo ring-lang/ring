@@ -14,6 +14,7 @@
 	load "rnotesettings.ring"
 	load "rnotefindinfiles.ring"
 	load "rnotewebbrowser.ring"
+	load "rnotetools.ring"
 	load "rnotedistribute.ring"
 	load "rnotehelp.ring"
 
@@ -28,5 +29,6 @@
 	mergemethods(:RNoteController,:RNoteSettings)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
 	mergemethods(:RNoteController,:RNoteWebBrowser)
+	mergemethods(:RNoteController,:RNoteTools)
 	mergemethods(:RNoteController,:RNoteDistribute)
 	mergemethods(:RNoteController,:RNoteHelp)
