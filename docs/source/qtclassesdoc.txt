@@ -2550,6 +2550,30 @@ Parent Class : QFrame
 
 
 .. index::
+	pair: RingQt Classes Reference; QGeoCoordinate Class
+
+QGeoCoordinate Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoCoordinate.html
+
+
+Parameters : void
+
+* double altitude(void)
+* QGeoCoordinate atDistanceAndAzimuth(qreal distance, qreal azimuth, qreal distanceUp)
+* qreal azimuthTo(QGeoCoordinate other)
+* qreal distanceTo(QGeoCoordinate other)
+* bool isValid(void)
+* double latitude(void)
+* double longitude(void)
+* void setAltitude(double altitude)
+* void setLatitude(double latitude)
+* void setLongitude(double longitude)
+* QString toString(QGeoCoordinate::CoordinateFormat format)
+* QGeoCoordinate::CoordinateType type(void)
+.. index::
 	pair: RingQt Classes Reference; QGeoPositionInfo Class
 
 QGeoPositionInfo Class
@@ -2570,6 +2594,7 @@ Parameters : void
 * void setCoordinate(QGeoCoordinate coordinate)
 * void setTimestamp(QDateTime timestamp)
 * QDateTime timestamp(void)
+
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
