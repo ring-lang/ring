@@ -2550,6 +2550,39 @@ Parent Class : QFrame
 
 
 .. index::
+	pair: RingQt Classes Reference; QGeoAddress Class
+
+QGeoAddress Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoAddress.html
+
+
+Parameters : void
+
+* QString city(void)
+* void clear(void)
+* QString country(void)
+* QString countryCode(void)
+* QString county(void)
+* QString district(void)
+* bool isEmpty(void)
+* bool isTextGenerated(void)
+* QString postalCode(void)
+* void setCity(QString city)
+* void setCountry(QString country)
+* void setCountryCode(QString countryCode)
+* void setCounty(QString county)
+* void setDistrict(QString district)
+* void setPostalCode(QString postalCode)
+* void setState(QString state)
+* void setStreet(QString street)
+* void setText(QString text)
+* QString state(void)
+* QString street(void)
+* QString text(void)
+.. index::
 	pair: RingQt Classes Reference; QGeoCoordinate Class
 
 QGeoCoordinate Class
@@ -2573,6 +2606,7 @@ Parameters : void
 * void setLongitude(double longitude)
 * QString toString(QGeoCoordinate::CoordinateFormat format)
 * QGeoCoordinate::CoordinateType type(void)
+
 .. index::
 	pair: RingQt Classes Reference; QGeoPositionInfo Class
 
