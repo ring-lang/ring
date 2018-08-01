@@ -22371,7 +22371,9 @@ Class QGeoPositionInfo
 		return QGeoPositionInfo_attribute(pObject,P1)
 
 	Func coordinate 
-		return QGeoPositionInfo_coordinate(pObject)
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoPositionInfo_coordinate(pObject)
+		return pTempObj
 
 	Func hasAttribute P1
 		return QGeoPositionInfo_hasAttribute(pObject,P1)
@@ -22395,6 +22397,58 @@ Class QGeoPositionInfo
 		pTempObj = new QDateTime
 		pTempObj.pObject = QGeoPositionInfo_timestamp(pObject)
 		return pTempObj
+
+Class QGeoCoordinate
+
+	pObject
+
+	Func init 
+		pObject = QGeoCoordinate_new()
+		return self
+
+	Func delete
+		pObject = QGeoCoordinate_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func altitude 
+		return QGeoCoordinate_altitude(pObject)
+
+	Func atDistanceAndAzimuth P1,P2,P3
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoCoordinate_atDistanceAndAzimuth(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func azimuthTo P1
+		return QGeoCoordinate_azimuthTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func distanceTo P1
+		return QGeoCoordinate_distanceTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isValid 
+		return QGeoCoordinate_isValid(pObject)
+
+	Func latitude 
+		return QGeoCoordinate_latitude(pObject)
+
+	Func longitude 
+		return QGeoCoordinate_longitude(pObject)
+
+	Func setAltitude P1
+		return QGeoCoordinate_setAltitude(pObject,P1)
+
+	Func setLatitude P1
+		return QGeoCoordinate_setLatitude(pObject,P1)
+
+	Func setLongitude P1
+		return QGeoCoordinate_setLongitude(pObject,P1)
+
+	Func toString P1
+		return QGeoCoordinate_toString(pObject,P1)
+
+	Func type 
+		return QGeoCoordinate_type(pObject)
 
 Class QPixmap2 from QPixmap
 

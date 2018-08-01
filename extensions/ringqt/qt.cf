@@ -271,7 +271,7 @@ extern "C" {
 #include <QChildEvent>
 
 #include <QGeoPositionInfo>
-
+#include <QGeoCoordinate>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -718,6 +718,8 @@ aEnumTypes + "QChar::Script"
 aEnumTypes + "QChar::SpecialCharacter"
 aEnumTypes + "QChar::UnicodeVersion"
 aEnumTypes + "QGeoPositionInfo::Attribute"
+aEnumTypes + "QGeoCoordinate::CoordinateFormat"
+aEnumTypes + "QGeoCoordinate::CoordinateType"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -10019,3 +10021,21 @@ void setAttribute(QGeoPositionInfo::Attribute attribute, qreal value)
 void setCoordinate(QGeoCoordinate coordinate)
 void setTimestamp(QDateTime timestamp)
 QDateTime timestamp(void)
+
+<class>
+name: QGeoCoordinate
+para: void
+</class>
+
+double altitude(void)
+QGeoCoordinate atDistanceAndAzimuth(qreal distance, qreal azimuth, qreal distanceUp)
+qreal azimuthTo(QGeoCoordinate other)
+qreal distanceTo(QGeoCoordinate other)
+bool isValid(void)
+double latitude(void)
+double longitude(void)
+void setAltitude(double altitude)
+void setLatitude(double latitude)
+void setLongitude(double longitude)
+QString toString(QGeoCoordinate::CoordinateFormat format)
+QGeoCoordinate::CoordinateType type(void)
