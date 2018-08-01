@@ -22643,6 +22643,94 @@ Class QGeoPositionInfoSource from QObject
 	Func updateInterval 
 		return QGeoPositionInfoSource_updateInterval()
 
+Class QGeoRectangle from QGeoShape
+
+	pObject
+
+	Func init 
+		pObject = QGeoRectangle_new()
+		return self
+
+	Func delete
+		pObject = QGeoRectangle_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottomLeft 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoRectangle_bottomLeft(pObject)
+		return pTempObj
+
+	Func bottomRight 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoRectangle_bottomRight(pObject)
+		return pTempObj
+
+	Func center 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoRectangle_center(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QGeoRectangle_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func height 
+		return QGeoRectangle_height(pObject)
+
+	Func intersects P1
+		return QGeoRectangle_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBottomLeft P1
+		return QGeoRectangle_setBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBottomRight P1
+		return QGeoRectangle_setBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCenter P1
+		return QGeoRectangle_setCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHeight P1
+		return QGeoRectangle_setHeight(pObject,P1)
+
+	Func setTopLeft P1
+		return QGeoRectangle_setTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTopRight P1
+		return QGeoRectangle_setTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidth P1
+		return QGeoRectangle_setWidth(pObject,P1)
+
+	Func toString 
+		return QGeoRectangle_toString(pObject)
+
+	Func topLeft 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoRectangle_topLeft(pObject)
+		return pTempObj
+
+	Func topRight 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoRectangle_topRight(pObject)
+		return pTempObj
+
+	Func translate P1,P2
+		return QGeoRectangle_translate(pObject,P1,P2)
+
+	Func translated P1,P2
+		pTempObj = new QGeoRectangle
+		pTempObj.pObject = QGeoRectangle_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QGeoRectangle
+		pTempObj.pObject = QGeoRectangle_united(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func width 
+		return QGeoRectangle_width(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
