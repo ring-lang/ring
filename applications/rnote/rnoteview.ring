@@ -731,6 +731,9 @@ class RNoteView
 			setstatusbar(this.status1)
 		}
 
+	func StatusMessage cMsg
+		status1.showmessage(cMsg,0)
+
 	func CreateProjectFiles
 		win1 {
 			this.tree1 = new qtreeview(this.win1) {

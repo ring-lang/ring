@@ -106,6 +106,3 @@ class RNoteController from RNoteControllerBase
 	func pRingNotepadXButton
 		pSaveSettings() 
 
-	func StatusMessage cMsg
-		status1.showmessage(cMsg,0)
-
