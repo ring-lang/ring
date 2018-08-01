@@ -2769,6 +2769,18 @@ Parameters : void
 * void setSatelliteSystem(QGeoSatelliteInfo::SatelliteSystem system)
 * void setSignalStrength(int signalStrength)
 * int signalStrength(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoSatelliteInfoSource Class
+
+QGeoSatelliteInfoSource Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoSatelliteInfoSource.html
+
+* QString sourceName(void)
+* int updateInterval(void)
 .. index::
 	pair: RingQt Classes Reference; QGeoShape Class
 
