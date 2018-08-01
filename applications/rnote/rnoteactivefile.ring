@@ -4,11 +4,7 @@
 Class RNoteActiveFile
 
 	func pNofileopened
-		New qMessageBox(win1) {
-			setWindowTitle("Sorry")
-			setText("Save/Select the file first!")
-			show()
-		}
+		msginfo("Sorry","Save/Select the file first!")
 
 	func pSetActiveFileName
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
