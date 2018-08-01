@@ -17,6 +17,7 @@
 	load "rnotetools.ring"
 	load "rnotedistribute.ring"
 	load "rnotehelp.ring"
+	load "rnotemainfiletoolbar.ring"
 
 # Merge Classes 
 	mergemethods(:RNoteController,:RNoteView)
@@ -32,3 +33,4 @@
 	mergemethods(:RNoteController,:RNoteTools)
 	mergemethods(:RNoteController,:RNoteDistribute)
 	mergemethods(:RNoteController,:RNoteHelp)
+	mergemethods(:RNoteController,:RNoteMainFileToolbar)

@@ -1,9 +1,5 @@
 class RNoteTools
 
-	func pFormDesigner		
-		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
-		RunTool(cFormFileName)
-
 	func RunTool cFileName
 		oProcessEditbox.setplaintext("")
 		oProcessText.setFocus(0)
@@ -18,6 +14,10 @@ class RNoteTools
 			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			system(cCode)
 		ok
+
+	func pFormDesigner		
+		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
+		RunTool(cFormFileName)
 
 	func pREPLConsole
 		cAppFileName = cCurrentDir + "../ringrepl/repl.ring"
