@@ -15,6 +15,14 @@ class RNoteController from RNoteControllerBase
 		pSetFont()
 		pSetActiveLineColor()
 
+	func pCursorPositionChanged
+		nLine = textedit1.textcursor().blocknumber()+1
+		StatusMessage(" Line : "+nLine+
+					" Column : " +(textedit1.textcursor().columnnumber()+1) +
+					" Total Lines : " + textedit1.document().linecount())
+		pSetActiveLineColor()
+		aFilesLines[cActiveFileName] = nLine
+
 	func pCheckSaveBeforeChange
 		if cActiveFileName = NULL return ok
 		pSaveSettings()
@@ -73,14 +81,6 @@ class RNoteController from RNoteControllerBase
 	func pSetActiveFileName
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
 
-	func pCursorPositionChanged
-		nLine = textedit1.textcursor().blocknumber()+1
-		StatusMessage(" Line : "+nLine+
-					" Column : " +(textedit1.textcursor().columnnumber()+1) +
-					" Total Lines : " + textedit1.document().linecount())
-		pSetActiveLineColor()
-		aFilesLines[cActiveFileName] = nLine
-
 	func pNofileopened
 		New qMessageBox(win1) {
 			setWindowTitle("Sorry")
@@ -129,15 +129,6 @@ class RNoteController from RNoteControllerBase
 		new QDesktopServices {
 			OpenURL(new qURL("file:///"+substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
 		}
-
-	func pSetWindows
-		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok
-		if not lShowSourceCode  	oDockSourceCode.close() else oDockSourceCode.show() ok
-		if not lShowBrowser  		oDockWebBrowser.close() else oDockWebBrowser.show() ok
-		if not lShowFunctionsList 	oDockFunctionsList.close() else oDockFunctionsList.show() ok
-		if not lShowClassesList 	oDockClassesList.close() else oDockClassesList.show() ok
-		if not lShowOutputWindow 	oDockOutputWindow.close() else oDockOutputWindow.show() ok
-		if not lShowFormDesigner 	oDockFormDesigner.close() else oDockFormDesigner.show() ok
 
 	func pOpen
 		new qfiledialog(this.win1) {
@@ -190,9 +181,11 @@ class RNoteController from RNoteControllerBase
 			cStartupFolder = cFile
 		ok
 
+	func GetActiveFolder
+		return cStartUpFolder
+
 	func pRingNotepadXButton
 		pSaveSettings() 
-
 
 	func pQuit
 		pSaveSettings()
@@ -200,14 +193,4 @@ class RNoteController from RNoteControllerBase
 
 	func StatusMessage cMsg
 		status1.showmessage(cMsg,0)
-
-	func GetActiveFolder
-		return cStartUpFolder
-
-	func pCheckCustomColors
-		if True	# Switch to Use the Style or Not
-			pSelectStyleColor(nDefaultStyle)
-			LoadSettings()
-		ok
-
 

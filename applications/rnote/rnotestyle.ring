@@ -3,6 +3,12 @@
 
 class RNoteStyle
 
+	func pCheckCustomColors
+		if True	# Switch to Use the Style or Not
+			pSelectStyleColor(nDefaultStyle)
+			LoadSettings()
+		ok
+
 	func pSetStyleColor(nStyle)
 		pSelectStyleColor(nStyle)
 		RestoreSettings()

@@ -56,3 +56,13 @@ class RNoteSettings
 		pSetWindows()
 		pSetTabSpaces()
 		pSelectStyleColor2(nDefaultStyle)
+
+	func pSetWindows
+		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok
+		if not lShowSourceCode  	oDockSourceCode.close() else oDockSourceCode.show() ok
+		if not lShowBrowser  		oDockWebBrowser.close() else oDockWebBrowser.show() ok
+		if not lShowFunctionsList 	oDockFunctionsList.close() else oDockFunctionsList.show() ok
+		if not lShowClassesList 	oDockClassesList.close() else oDockClassesList.show() ok
+		if not lShowOutputWindow 	oDockOutputWindow.close() else oDockOutputWindow.show() ok
+		if not lShowFormDesigner 	oDockFormDesigner.close() else oDockFormDesigner.show() ok
+
