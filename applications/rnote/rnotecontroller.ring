@@ -7,19 +7,6 @@ class RNoteController from RNoteControllerBase
 
 	CreateMainWindow()
 
-	func pTextChanged
-		lAskToSave = true
-		pSetFont()
-		pSetActiveLineColor()
-
-	func pCursorPositionChanged
-		nLine = textedit1.textcursor().blocknumber()+1
-		StatusMessage(" Line : "+nLine+
-					" Column : " +(textedit1.textcursor().columnnumber()+1) +
-					" Total Lines : " + textedit1.document().linecount())
-		pSetActiveLineColor()
-		aFilesLines[cActiveFileName] = nLine
-
 
 	func pRingNotepadXButton
 		pSaveSettings() 
