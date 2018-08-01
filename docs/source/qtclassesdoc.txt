@@ -2644,7 +2644,6 @@ Parameters : void
 * qreal radius(void)
 * void setCenter(QGeoCoordinate center)
 * void setRadius(qreal radius)
-* QString toString(void)
 * void translate(double degreesLatitude, double degreesLongitude)
 * QGeoCircle translated(double degreesLatitude, double degreesLongitude)
 
@@ -2739,7 +2738,6 @@ Parent Class : QGeoShape
 * void setTopLeft(QGeoCoordinate topLeft)
 * void setTopRight(QGeoCoordinate topRight)
 * void setWidth(double degreesWidth)
-* QString toString(void)
 * QGeoCoordinate topLeft(void)
 * QGeoCoordinate topRight(void)
 * void translate(double degreesLatitude, double degreesLongitude)
@@ -2781,6 +2779,7 @@ C++ Reference : http://doc.qt.io/qt-5/QGeoSatelliteInfoSource.html
 
 * QString sourceName(void)
 * int updateInterval(void)
+
 .. index::
 	pair: RingQt Classes Reference; QGeoShape Class
 
@@ -2798,7 +2797,6 @@ Parameters : void
 * void extendShape(QGeoCoordinate coordinate)
 * bool isEmpty(void)
 * bool isValid(void)
-* QString toString(void)
 * QGeoShape::ShapeType type(void)
 
 .. index::
@@ -4415,6 +4413,26 @@ Parameters : QUrl
 * void swap(QNetworkRequest)
 * QUrl url(void)
 
+.. index::
+	pair: RingQt Classes Reference; QNmeaPositionInfoSource Class
+
+QNmeaPositionInfoSource Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QNmeaPositionInfoSource.html
+
+
+Parameters : QNmeaPositionInfoSource::UpdateMode,QObject *
+
+
+Parent Class : QGeoPositionInfoSource
+
+* QIODevice * device(void)
+* void setDevice(QIODevice * device)
+* void setUserEquivalentRangeError(double uere)
+* QNmeaPositionInfoSource::UpdateMode updateMode(void)
+* double userEquivalentRangeError(void)
 .. index::
 	pair: RingQt Classes Reference; QObject Class
 
