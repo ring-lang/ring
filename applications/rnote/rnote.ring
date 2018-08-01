@@ -2,28 +2,29 @@
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Load Standard Libraries
-	Load "guilib.ring"
-	Load "stdlib.ring"
+	load "guilib.ring"
+	load "stdlib.ring"
 
 # Load Ring Notepad Files 
-	Load "rnotebase.ring"
-	Load "rnoteview.ring"
-	Load "rnotemode.ring"
-	Load "rnotestyle.ring"
-	Load "rnoteautocomplete.ring"
-	Load "rnotelists.ring"
-	Load "rnotefind.ring"
-	Load "rnotesettings.ring"
-	Load "rnotefindinfiles.ring"
+	load "rnotebase.ring"
+	load "rnoteview.ring"
+	load "rnotemode.ring"
+	load "rnotestyle.ring"
+	load "rnoteautocomplete.ring"
+	load "rnotelists.ring"
+	load "rnotefind.ring"
+	load "rnotegoto.ring"
+	load "rnotesettings.ring"
+	load "rnotefindinfiles.ring"
 
 # Load the Form Designer 
-	Load "../formdesigner/formdesigner.ring"
+	load "../formdesigner/formdesigner.ring"
 
 # Load the Web Server - ServerPrepare Class
-	Load "../libdepwin/Apache2.2/ring/prepare.ring"
+	load "../libdepwin/Apache2.2/ring/prepare.ring"
 
 # Load the Find in files application 
-	Load "../findinfiles/findinfilesController.ring"
+	load "../findinfiles/findinfilesController.ring"
 
 # Merge Classes 
 	mergemethods(:RNoteController,:RNoteView)
@@ -32,13 +33,14 @@
 	mergemethods(:RNoteController,:RNoteAutoComplete)	
 	mergemethods(:RNoteController,:RnoteLists)
 	mergemethods(:RNoteController,:RnoteFind)
+	mergemethods(:RNoteController,:RnoteGoto)
 	mergemethods(:RNoteController,:RNoteSettings)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
 
-Class RNoteController from RNoteControllerBase 
+class RNoteController from RNoteControllerBase 
 
 	LoadSettings()
 
@@ -171,34 +173,6 @@ Class RNoteController from RNoteControllerBase
 					" Total Lines : " + textedit1.document().linecount())
 		pSetActiveLineColor()
 		aFilesLines[cActiveFileName] = nLine
-
-	func pGoto
-		oInput = New QInputDialog(win1)
-		{
-			setwindowtitle("Enter the line number?")
-			setgeometry(100,100,400,50)
-			setlabeltext("Line")
-			settextvalue("1")
-			r = exec()
-		}
-		if r=0 return ok
-		nLine = 0 + oInput.textvalue()
-		gotoline(nLine)
-
-	func gotoline nLine
-		nLine--
-		cStr = textedit1.toPlainText()
-		nSize = len(cStr)
-		for t=1 to nSize
-			if cStr[t] = nl nLine-- ok
-			if nLine = 0
-				oCursor = textedit1.textcursor()
-				oCursor.setposition(t,0)
-				textedit1.settextcursor(oCursor)
-				exit
-			ok
-		next
-
 
 	func pNofileopened
 		New qMessageBox(win1) {
