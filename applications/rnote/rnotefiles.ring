@@ -13,6 +13,7 @@
 	load "rnotegoto.ring"
 	load "rnotetabwidth.ring"
 	load "rnotesettings.ring"
+	load "rnoteactivefolder.ring"
 	load "rnotefindinfiles.ring"
 	load "rnotewebbrowser.ring"
 	load "rnotefilemenu.ring"
@@ -36,6 +37,7 @@
 	mergemethods(:RNoteController,:RNoteGoto)
 	mergemethods(:RNoteController,:RNoteTabWidth)
 	mergemethods(:RNoteController,:RNoteSettings)
+	mergemethods(:RNoteController,:RNoteActiveFolder)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
 	mergemethods(:RNoteController,:RNoteWebBrowser)
 	mergemethods(:RNoteController,:RNoteFileMenu)
