@@ -22770,6 +22770,50 @@ Class QGeoShape
 	Func type 
 		return QGeoShape_type(pObject)
 
+Class QGeoSatelliteInfo
+
+	pObject
+
+	Func init 
+		pObject = QGeoSatelliteInfo_new()
+		return self
+
+	Func delete
+		pObject = QGeoSatelliteInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func attribute P1
+		return QGeoSatelliteInfo_attribute(pObject,P1)
+
+	Func hasAttribute P1
+		return QGeoSatelliteInfo_hasAttribute(pObject,P1)
+
+	Func removeAttribute P1
+		return QGeoSatelliteInfo_removeAttribute(pObject,P1)
+
+	Func satelliteIdentifier 
+		return QGeoSatelliteInfo_satelliteIdentifier(pObject)
+
+	Func satelliteSystem 
+		return QGeoSatelliteInfo_satelliteSystem(pObject)
+
+	Func setAttribute P1,P2
+		return QGeoSatelliteInfo_setAttribute(pObject,P1,P2)
+
+	Func setSatelliteIdentifier P1
+		return QGeoSatelliteInfo_setSatelliteIdentifier(pObject,P1)
+
+	Func setSatelliteSystem P1
+		return QGeoSatelliteInfo_setSatelliteSystem(pObject,P1)
+
+	Func setSignalStrength P1
+		return QGeoSatelliteInfo_setSignalStrength(pObject,P1)
+
+	Func signalStrength 
+		return QGeoSatelliteInfo_signalStrength(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

@@ -279,6 +279,7 @@ extern "C" {
 #include <QGeoPositionInfoSource>
 #include <QGeoRectangle>
 #include <QGeoShape>
+#include <QGeoSatelliteInfo>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -731,6 +732,9 @@ aEnumTypes + "QGeoPositionInfoSource::Error"
 aEnumTypes + "QGeoPositionInfoSource::PositioningMethod"
 aEnumTypes + "QGeoPositionInfoSource::PositioningMethods"
 aEnumTypes + "QGeoShape::ShapeType"
+aEnumTypes + "QGeoSatelliteInfo::Attribute"
+aEnumTypes + "QGeoSatelliteInfo::SatelliteSystem"
+
 
 $aMallocClassesList + "QModelIndex"
 
@@ -10171,3 +10175,19 @@ bool isEmpty(void)
 bool isValid(void)
 QString toString(void)
 QGeoShape::ShapeType type(void)
+
+<class>
+name: QGeoSatelliteInfo
+para: void
+</class>
+
+qreal attribute(QGeoSatelliteInfo::Attribute attribute)
+bool hasAttribute(QGeoSatelliteInfo::Attribute attribute)
+void removeAttribute(QGeoSatelliteInfo::Attribute attribute)
+int satelliteIdentifier(void)
+QGeoSatelliteInfo::SatelliteSystem satelliteSystem(void)
+void setAttribute(QGeoSatelliteInfo::Attribute attribute, qreal value)
+void setSatelliteIdentifier(int satId)
+void setSatelliteSystem(QGeoSatelliteInfo::SatelliteSystem system)
+void setSignalStrength(int signalStrength)
+int signalStrength(void)
