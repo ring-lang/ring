@@ -22353,6 +22353,49 @@ Class QChildEvent from QEvent
 	Func removed 
 		return QChildEvent_removed(pObject)
 
+Class QGeoPositionInfo
+
+	pObject
+
+	Func init 
+		pObject = QGeoPositionInfo_new()
+		return self
+
+	Func delete
+		pObject = QGeoPositionInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func attribute P1
+		return QGeoPositionInfo_attribute(pObject,P1)
+
+	Func coordinate 
+		return QGeoPositionInfo_coordinate(pObject)
+
+	Func hasAttribute P1
+		return QGeoPositionInfo_hasAttribute(pObject,P1)
+
+	Func isValid 
+		return QGeoPositionInfo_isValid(pObject)
+
+	Func removeAttribute P1
+		return QGeoPositionInfo_removeAttribute(pObject,P1)
+
+	Func setAttribute P1,P2
+		return QGeoPositionInfo_setAttribute(pObject,P1,P2)
+
+	Func setCoordinate P1
+		return QGeoPositionInfo_setCoordinate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTimestamp P1
+		return QGeoPositionInfo_setTimestamp(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func timestamp 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QGeoPositionInfo_timestamp(pObject)
+		return pTempObj
+
 Class QPixmap2 from QPixmap
 
 	pObject
