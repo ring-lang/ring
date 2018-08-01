@@ -22450,6 +22450,83 @@ Class QGeoCoordinate
 	Func type 
 		return QGeoCoordinate_type(pObject)
 
+Class QGeoAddress
+
+	pObject
+
+	Func init 
+		pObject = QGeoAddress_new()
+		return self
+
+	Func delete
+		pObject = QGeoAddress_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func city 
+		return QGeoAddress_city(pObject)
+
+	Func clear 
+		return QGeoAddress_clear(pObject)
+
+	Func country 
+		return QGeoAddress_country(pObject)
+
+	Func countryCode 
+		return QGeoAddress_countryCode(pObject)
+
+	Func county 
+		return QGeoAddress_county(pObject)
+
+	Func district 
+		return QGeoAddress_district(pObject)
+
+	Func isEmpty 
+		return QGeoAddress_isEmpty(pObject)
+
+	Func isTextGenerated 
+		return QGeoAddress_isTextGenerated(pObject)
+
+	Func postalCode 
+		return QGeoAddress_postalCode(pObject)
+
+	Func setCity P1
+		return QGeoAddress_setCity(pObject,P1)
+
+	Func setCountry P1
+		return QGeoAddress_setCountry(pObject,P1)
+
+	Func setCountryCode P1
+		return QGeoAddress_setCountryCode(pObject,P1)
+
+	Func setCounty P1
+		return QGeoAddress_setCounty(pObject,P1)
+
+	Func setDistrict P1
+		return QGeoAddress_setDistrict(pObject,P1)
+
+	Func setPostalCode P1
+		return QGeoAddress_setPostalCode(pObject,P1)
+
+	Func setState P1
+		return QGeoAddress_setState(pObject,P1)
+
+	Func setStreet P1
+		return QGeoAddress_setStreet(pObject,P1)
+
+	Func setText P1
+		return QGeoAddress_setText(pObject,P1)
+
+	Func state 
+		return QGeoAddress_state(pObject)
+
+	Func street 
+		return QGeoAddress_street(pObject)
+
+	Func text 
+		return QGeoAddress_text(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
