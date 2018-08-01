@@ -280,6 +280,7 @@ extern "C" {
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
+#include <QGeoSatelliteInfoSource>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -10191,3 +10192,11 @@ void setSatelliteIdentifier(int satId)
 void setSatelliteSystem(QGeoSatelliteInfo::SatelliteSystem system)
 void setSignalStrength(int signalStrength)
 int signalStrength(void)
+
+<class>
+name: QGeoSatelliteInfoSource
+nonew
+</class>
+
+QString sourceName(void)
+int updateInterval(void)

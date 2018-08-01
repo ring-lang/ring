@@ -271,6 +271,7 @@ extern "C" {
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
+#include <QGeoSatelliteInfoSource>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -555,6 +556,7 @@ extern "C" {
 	void ring_QGeoRectangle_freefunc(void *pState,void *pPointer);
 	void ring_QGeoShape_freefunc(void *pState,void *pPointer);
 	void ring_QGeoSatelliteInfo_freefunc(void *pState,void *pPointer);
+	void ring_QGeoSatelliteInfoSource_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -128469,6 +128471,40 @@ RING_FUNC(ring_QGeoSatelliteInfo_signalStrength)
 	RING_API_RETNUMBER(pObject->signalStrength());
 }
 
+
+RING_FUNC(ring_QGeoSatelliteInfoSource_sourceName)
+{
+	QGeoSatelliteInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoSatelliteInfoSource *) RING_API_GETCPOINTER(1,"QGeoSatelliteInfoSource");
+	RING_API_RETSTRING(pObject->sourceName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoSatelliteInfoSource_updateInterval)
+{
+	QGeoSatelliteInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoSatelliteInfoSource *) RING_API_GETCPOINTER(1,"QGeoSatelliteInfoSource");
+	RING_API_RETNUMBER(pObject->updateInterval());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -142435,6 +142471,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeosatelliteinfo_setsatellitesystem",ring_QGeoSatelliteInfo_setSatelliteSystem);
 	ring_vm_funcregister("qgeosatelliteinfo_setsignalstrength",ring_QGeoSatelliteInfo_setSignalStrength);
 	ring_vm_funcregister("qgeosatelliteinfo_signalstrength",ring_QGeoSatelliteInfo_signalStrength);
+	ring_vm_funcregister("qgeosatelliteinfosource_sourcename",ring_QGeoSatelliteInfoSource_sourceName);
+	ring_vm_funcregister("qgeosatelliteinfosource_updateinterval",ring_QGeoSatelliteInfoSource_updateInterval);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

@@ -22814,6 +22814,13 @@ Class QGeoSatelliteInfo
 	Func signalStrength 
 		return QGeoSatelliteInfo_signalStrength(pObject)
 
+Class QGeoSatelliteInfoSource
+	Func sourceName 
+		return QGeoSatelliteInfoSource_sourceName()
+
+	Func updateInterval 
+		return QGeoSatelliteInfoSource_updateInterval()
+
 Class QPixmap2 from QPixmap
 
 	pObject
