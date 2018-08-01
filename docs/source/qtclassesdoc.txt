@@ -1199,6 +1199,7 @@ Parent Class : QEvent
 * QObject *child(void)
 * bool polished(void)
 * bool removed(void)
+
 .. index::
 	pair: RingQt Classes Reference; QClipboard Class
 
@@ -2548,6 +2549,27 @@ Parameters : QWidget *parent
 Parent Class : QFrame
 
 
+.. index::
+	pair: RingQt Classes Reference; QGeoPositionInfo Class
+
+QGeoPositionInfo Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoPositionInfo.html
+
+
+Parameters : void
+
+* qreal attribute(QGeoPositionInfo::Attribute attribute)
+* QGeoCoordinate coordinate(void)
+* bool hasAttribute(QGeoPositionInfo::Attribute attribute)
+* bool isValid(void)
+* void removeAttribute(QGeoPositionInfo::Attribute attribute)
+* void setAttribute(QGeoPositionInfo::Attribute attribute, qreal value)
+* void setCoordinate(QGeoCoordinate coordinate)
+* void setTimestamp(QDateTime timestamp)
+* QDateTime timestamp(void)
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
