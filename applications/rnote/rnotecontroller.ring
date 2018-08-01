@@ -15,13 +15,6 @@ class RNoteController from RNoteControllerBase
 		pSetFont()
 		pSetActiveLineColor()
 
-	func pWebGo
-		cWebsite = oWBText.text()
-		oWebView.LoadPage( new qurl( cWebSite ) )
-
-	func pWebBack
-		oWebView.Back()
-
 	func pProject
 		oDockProjectFiles { if isvisible() hide() else Show() ok }
 
@@ -352,10 +345,6 @@ class RNoteController from RNoteControllerBase
 	func pRingNotepadXButton
 		pSaveSettings() 
 
-	func pSetWebsite
-		oWebView { loadpage(new qurl(this.cWebSite)) }
-		oWBText  { setText(this.cWebSite) }
-
 
 	func pQuit
 		pSaveSettings()
@@ -379,14 +368,6 @@ class RNoteController from RNoteControllerBase
 		oFontMetrics = new QFontMetrics(oTempFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)
 		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
-
-	func pBrowserLink x
-		cLink = aBrowserLinks[x][2]
-		oWebView { loadpage(new qurl(cLink)) }
-		oWBText  { setText(cLink) }
-		oDockWebBrowser.Show()
-		oDockWebBrowser.raise()
-
 
 	func StatusMessage cMsg
 		status1.showmessage(cMsg,0)

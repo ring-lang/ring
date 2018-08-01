@@ -13,6 +13,7 @@
 	load "rnotegoto.ring"
 	load "rnotesettings.ring"
 	load "rnotefindinfiles.ring"
+	load "rnotewebbrowser.ring"
 	load "rnotehelp.ring"
 
 # Merge Classes 
@@ -25,4 +26,5 @@
 	mergemethods(:RNoteController,:RNoteGoto)
 	mergemethods(:RNoteController,:RNoteSettings)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
+	mergemethods(:RNoteController,:RNoteWebBrowser)
 	mergemethods(:RNoteController,:RNoteHelp)
