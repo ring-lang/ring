@@ -22594,6 +22594,45 @@ Class QGeoAreaMonitorSource from QObject
 	Func createSource P1,P2
 		return QGeoAreaMonitorSource_createSource(P1,GetObjectPointerFromRingObject(P2))
 
+Class QGeoCircle
+
+	pObject
+
+	Func init 
+		pObject = QGeoCircle_new()
+		return self
+
+	Func delete
+		pObject = QGeoCircle_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func center 
+		pTempObj = new QGeoCoordinate
+		pTempObj.pObject = QGeoCircle_center(pObject)
+		return pTempObj
+
+	Func radius 
+		return QGeoCircle_radius(pObject)
+
+	Func setCenter P1
+		return QGeoCircle_setCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRadius P1
+		return QGeoCircle_setRadius(pObject,P1)
+
+	Func toString 
+		return QGeoCircle_toString(pObject)
+
+	Func translate P1,P2
+		return QGeoCircle_translate(pObject,P1,P2)
+
+	Func translated P1,P2
+		pTempObj = new QGeoCircle
+		pTempObj.pObject = QGeoCircle_translated(pObject,P1,P2)
+		return pTempObj
+
 Class QPixmap2 from QPixmap
 
 	pObject

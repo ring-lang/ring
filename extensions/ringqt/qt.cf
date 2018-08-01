@@ -275,6 +275,7 @@ extern "C" {
 #include <QGeoAddress>
 #include <QGeoAreaMonitorInfo>
 #include <QGeoAreaMonitorSource>
+#include <QGeoCircle>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -10099,3 +10100,16 @@ QString sourceName(void)
 QStringList availableSources(void)
 QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
 QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)
+
+<class>
+name: QGeoCircle
+para: void
+</class>
+
+QGeoCoordinate center(void)
+qreal radius(void)
+void setCenter(QGeoCoordinate center)
+void setRadius(qreal radius)
+QString toString(void)
+void translate(double degreesLatitude, double degreesLongitude)
+QGeoCircle translated(double degreesLatitude, double degreesLongitude)
