@@ -2748,6 +2748,28 @@ Parent Class : QGeoShape
 * double width(void)
 
 .. index::
+	pair: RingQt Classes Reference; QGeoSatelliteInfo Class
+
+QGeoSatelliteInfo Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoSatelliteInfo.html
+
+
+Parameters : void
+
+* qreal attribute(QGeoSatelliteInfo::Attribute attribute)
+* bool hasAttribute(QGeoSatelliteInfo::Attribute attribute)
+* void removeAttribute(QGeoSatelliteInfo::Attribute attribute)
+* int satelliteIdentifier(void)
+* QGeoSatelliteInfo::SatelliteSystem satelliteSystem(void)
+* void setAttribute(QGeoSatelliteInfo::Attribute attribute, qreal value)
+* void setSatelliteIdentifier(int satId)
+* void setSatelliteSystem(QGeoSatelliteInfo::SatelliteSystem system)
+* void setSignalStrength(int signalStrength)
+* int signalStrength(void)
+.. index::
 	pair: RingQt Classes Reference; QGeoShape Class
 
 QGeoShape Class
@@ -2766,6 +2788,7 @@ Parameters : void
 * bool isValid(void)
 * QString toString(void)
 * QGeoShape::ShapeType type(void)
+
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
