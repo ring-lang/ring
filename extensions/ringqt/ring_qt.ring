@@ -22527,6 +22527,58 @@ Class QGeoAddress
 	Func text 
 		return QGeoAddress_text(pObject)
 
+Class QGeoAreaMonitorInfo
+
+	pObject
+
+	Func init P1
+		pObject = QGeoAreaMonitorInfo_new(P1)
+		return self
+
+	Func delete
+		pObject = QGeoAreaMonitorInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func area 
+		return QGeoAreaMonitorInfo_area(pObject)
+
+	Func expiration 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QGeoAreaMonitorInfo_expiration(pObject)
+		return pTempObj
+
+	Func identifier 
+		return QGeoAreaMonitorInfo_identifier(pObject)
+
+	Func isPersistent 
+		return QGeoAreaMonitorInfo_isPersistent(pObject)
+
+	Func isValid 
+		return QGeoAreaMonitorInfo_isValid(pObject)
+
+	Func name 
+		return QGeoAreaMonitorInfo_name(pObject)
+
+	Func notificationParameters 
+		return QGeoAreaMonitorInfo_notificationParameters(pObject)
+
+	Func setArea P1
+		return QGeoAreaMonitorInfo_setArea(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setExpiration P1
+		return QGeoAreaMonitorInfo_setExpiration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setName P1
+		return QGeoAreaMonitorInfo_setName(pObject,P1)
+
+	Func setNotificationParameters P1
+		return QGeoAreaMonitorInfo_setNotificationParameters(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPersistent P1
+		return QGeoAreaMonitorInfo_setPersistent(pObject,P1)
+
 Class QPixmap2 from QPixmap
 
 	pObject

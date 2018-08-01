@@ -273,6 +273,7 @@ extern "C" {
 #include <QGeoPositionInfo>
 #include <QGeoCoordinate>
 #include <QGeoAddress>
+#include <QGeoAreaMonitorInfo>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -10067,3 +10068,21 @@ void setText(QString text)
 QString state(void)
 QString street(void)
 QString text(void)
+
+<class>
+name: QGeoAreaMonitorInfo
+para: QString
+</class>
+
+QGeoShape area(void)
+QDateTime expiration(void)
+QString identifier(void)
+bool isPersistent(void)
+bool isValid(void)
+QString name(void)
+QVariantMap notificationParameters(void)
+void setArea(QGeoShape newShape)
+void setExpiration(QDateTime expiry)
+void setName(QString name)
+void setNotificationParameters(QVariantMap parameters)
+void setPersistent(bool isPersistent)
