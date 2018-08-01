@@ -6,8 +6,3 @@ class RNoteController from RNoteControllerBase
 	LoadSettings()
 
 	CreateMainWindow()
-
-
-	func pRingNotepadXButton
-		pSaveSettings() 
-

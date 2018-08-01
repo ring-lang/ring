@@ -949,3 +949,7 @@ class RNoteMainWindow
 			this.oDockSourceCode.raise()
 			this.oDockFunctionsList.raise()
 		}
+
+	func pRingNotepadXButton
+		pSaveSettings() 
+
