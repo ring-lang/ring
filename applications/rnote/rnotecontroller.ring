@@ -7,16 +7,6 @@ class RNoteController from RNoteControllerBase
 
 	CreateMainWindow()
 
-	func pNofileopened
-		New qMessageBox(win1) {
-			setWindowTitle("Sorry")
-			setText("Save/Select the file first!")
-			show()
-		}
-
-	func pSetActiveFileName
-		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
-
 	func pTextChanged
 		lAskToSave = true
 		pSetFont()
