@@ -15,6 +15,7 @@
 	load "rnotesettings.ring"
 	load "rnotefindinfiles.ring"
 	load "rnotewebbrowser.ring"
+	load "rnoteeditmenu.ring"
 	load "rnoteviewmenu.ring"
 	load "rnoteprogrammenu.ring"
 	load "rnotetools.ring"
@@ -34,6 +35,7 @@
 	mergemethods(:RNoteController,:RNoteSettings)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
 	mergemethods(:RNoteController,:RNoteWebBrowser)
+	mergemethods(:RNoteController,:RNoteEditMenu)
 	mergemethods(:RNoteController,:RNoteViewMenu)
 	mergemethods(:RNoteController,:RNoteProgramMenu)
 	mergemethods(:RNoteController,:RNoteTools)
