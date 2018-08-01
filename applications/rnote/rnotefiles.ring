@@ -4,7 +4,7 @@
 # Load Ring Notepad Files 
 	load "rnotebase.ring"
 	load "rnotecontroller.ring"
-	load "rnoteview.ring"
+	load "rnotemainwindow.ring"
 	load "rnotemode.ring"
 	load "rnotestyle.ring"
 	load "rnoteautocomplete.ring"
@@ -28,7 +28,7 @@
 	load "rnoteformdesigner.ring"
 
 # Merge Classes 
-	mergemethods(:RNoteController,:RNoteView)
+	mergemethods(:RNoteController,:RNoteMainWindow)
 	mergemethods(:RNoteController,:RNoteMode)
 	mergemethods(:RNoteController,:RNoteStyle)
 	mergemethods(:RNoteController,:RNoteAutoComplete)	

@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-class RNoteView 
+class RNoteMainWindow
 
 	func CreateMainWindow 
 
