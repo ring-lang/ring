@@ -2582,6 +2582,31 @@ Parameters : void
 * QString state(void)
 * QString street(void)
 * QString text(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoAreaMonitorInfo Class
+
+QGeoAreaMonitorInfo Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoAreaMonitorInfo.html
+
+
+Parameters : QString
+
+* QGeoShape area(void)
+* QDateTime expiration(void)
+* QString identifier(void)
+* bool isPersistent(void)
+* bool isValid(void)
+* QString name(void)
+* QVariantMap notificationParameters(void)
+* void setArea(QGeoShape newShape)
+* void setExpiration(QDateTime expiry)
+* void setName(QString name)
+* void setNotificationParameters(QVariantMap parameters)
+* void setPersistent(bool isPersistent)
 .. index::
 	pair: RingQt Classes Reference; QGeoCoordinate Class
 
