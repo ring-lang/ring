@@ -281,6 +281,7 @@ extern "C" {
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
 #include <QGeoSatelliteInfoSource>
+#include <QNmeaPositionInfoSource>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -735,7 +736,7 @@ aEnumTypes + "QGeoPositionInfoSource::PositioningMethods"
 aEnumTypes + "QGeoShape::ShapeType"
 aEnumTypes + "QGeoSatelliteInfo::Attribute"
 aEnumTypes + "QGeoSatelliteInfo::SatelliteSystem"
-
+aEnumTypes + "QNmeaPositionInfoSource::UpdateMode"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -10122,7 +10123,6 @@ QGeoCoordinate center(void)
 qreal radius(void)
 void setCenter(QGeoCoordinate center)
 void setRadius(qreal radius)
-QString toString(void)
 void translate(double degreesLatitude, double degreesLongitude)
 QGeoCircle translated(double degreesLatitude, double degreesLongitude)
 
@@ -10142,7 +10142,6 @@ para: void
 parent: QGeoShape
 </class>
 
-
 QGeoCoordinate bottomLeft(void)
 QGeoCoordinate bottomRight(void)
 QGeoCoordinate center(void)
@@ -10156,7 +10155,6 @@ void setHeight(double degreesHeight)
 void setTopLeft(QGeoCoordinate topLeft)
 void setTopRight(QGeoCoordinate topRight)
 void setWidth(double degreesWidth)
-QString toString(void)
 QGeoCoordinate topLeft(void)
 QGeoCoordinate topRight(void)
 void translate(double degreesLatitude, double degreesLongitude)
@@ -10174,7 +10172,6 @@ bool contains(QGeoCoordinate coordinate)
 void extendShape(QGeoCoordinate coordinate)
 bool isEmpty(void)
 bool isValid(void)
-QString toString(void)
 QGeoShape::ShapeType type(void)
 
 <class>
@@ -10200,3 +10197,15 @@ nonew
 
 QString sourceName(void)
 int updateInterval(void)
+
+<class>
+name: QNmeaPositionInfoSource
+para: QNmeaPositionInfoSource::UpdateMode,QObject *
+parent: QGeoPositionInfoSource
+</class>
+
+QIODevice * device(void)
+void setDevice(QIODevice * device)
+void setUserEquivalentRangeError(double uere)
+QNmeaPositionInfoSource::UpdateMode updateMode(void)
+double userEquivalentRangeError(void)

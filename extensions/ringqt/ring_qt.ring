@@ -22624,9 +22624,6 @@ Class QGeoCircle
 	Func setRadius P1
 		return QGeoCircle_setRadius(pObject,P1)
 
-	Func toString 
-		return QGeoCircle_toString(pObject)
-
 	Func translate P1,P2
 		return QGeoCircle_translate(pObject,P1,P2)
 
@@ -22704,9 +22701,6 @@ Class QGeoRectangle from QGeoShape
 	Func setWidth P1
 		return QGeoRectangle_setWidth(pObject,P1)
 
-	Func toString 
-		return QGeoRectangle_toString(pObject)
-
 	Func topLeft 
 		pTempObj = new QGeoCoordinate
 		pTempObj.pObject = QGeoRectangle_topLeft(pObject)
@@ -22764,9 +22758,6 @@ Class QGeoShape
 	Func isValid 
 		return QGeoShape_isValid(pObject)
 
-	Func toString 
-		return QGeoShape_toString(pObject)
-
 	Func type 
 		return QGeoShape_type(pObject)
 
@@ -22820,6 +22811,37 @@ Class QGeoSatelliteInfoSource
 
 	Func updateInterval 
 		return QGeoSatelliteInfoSource_updateInterval()
+
+Class QNmeaPositionInfoSource from QGeoPositionInfoSource
+
+	pObject
+
+	Func init P1,P2
+		pObject = QNmeaPositionInfoSource_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QNmeaPositionInfoSource_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QNmeaPositionInfoSource_device(pObject)
+		return pTempObj
+
+	Func setDevice P1
+		return QNmeaPositionInfoSource_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUserEquivalentRangeError P1
+		return QNmeaPositionInfoSource_setUserEquivalentRangeError(pObject,P1)
+
+	Func updateMode 
+		return QNmeaPositionInfoSource_updateMode(pObject)
+
+	Func userEquivalentRangeError 
+		return QNmeaPositionInfoSource_userEquivalentRangeError(pObject)
 
 Class QPixmap2 from QPixmap
 
