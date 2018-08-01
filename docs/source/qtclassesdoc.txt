@@ -2647,6 +2647,7 @@ Parameters : void
 * QString toString(void)
 * void translate(double degreesLatitude, double degreesLongitude)
 * QGeoCircle translated(double degreesLatitude, double degreesLongitude)
+
 .. index::
 	pair: RingQt Classes Reference; QGeoCoordinate Class
 
@@ -2694,6 +2695,21 @@ Parameters : void
 * void setTimestamp(QDateTime timestamp)
 * QDateTime timestamp(void)
 
+.. index::
+	pair: RingQt Classes Reference; QGeoPositionInfoSource Class
+
+QGeoPositionInfoSource Class
+============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoPositionInfoSource.html
+
+
+Parent Class : QObject
+
+* QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
+* QString sourceName(void)
+* int updateInterval(void)
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
