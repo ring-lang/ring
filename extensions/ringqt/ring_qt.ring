@@ -22633,6 +22633,16 @@ Class QGeoCircle
 		pTempObj.pObject = QGeoCircle_translated(pObject,P1,P2)
 		return pTempObj
 
+Class QGeoPositionInfoSource from QObject
+	Func preferredPositioningMethods 
+		return QGeoPositionInfoSource_preferredPositioningMethods()
+
+	Func sourceName 
+		return QGeoPositionInfoSource_sourceName()
+
+	Func updateInterval 
+		return QGeoPositionInfoSource_updateInterval()
+
 Class QPixmap2 from QPixmap
 
 	pObject

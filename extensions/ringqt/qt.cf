@@ -276,6 +276,8 @@ extern "C" {
 #include <QGeoAreaMonitorInfo>
 #include <QGeoAreaMonitorSource>
 #include <QGeoCircle>
+#include <QGeoPositionInfoSource>
+
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -724,6 +726,9 @@ aEnumTypes + "QChar::UnicodeVersion"
 aEnumTypes + "QGeoPositionInfo::Attribute"
 aEnumTypes + "QGeoCoordinate::CoordinateFormat"
 aEnumTypes + "QGeoCoordinate::CoordinateType"
+aEnumTypes + "QGeoPositionInfoSource::Error"
+aEnumTypes + "QGeoPositionInfoSource::PositioningMethod"
+aEnumTypes + "QGeoPositionInfoSource::PositioningMethods"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -10113,3 +10118,13 @@ void setRadius(qreal radius)
 QString toString(void)
 void translate(double degreesLatitude, double degreesLongitude)
 QGeoCircle translated(double degreesLatitude, double degreesLongitude)
+
+<class>
+name: QGeoPositionInfoSource
+parent: QObject
+nonew
+</class>
+
+QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
+QString sourceName(void)
+int updateInterval(void)
