@@ -7,9 +7,6 @@ class RNoteController from RNoteControllerBase
 
 	CreateMainWindow()
 
-	func pSetActiveLineColor
-		textedit1.SetActiveLineColor(aStyleColors[:ActiveLineBackColor])
-
 	func pTextChanged
 		lAskToSave = true
 		pSetFont()
@@ -78,6 +75,24 @@ class RNoteController from RNoteControllerBase
 		ok
 		StatusMessage("Ready!")
 
+	func pSaveCurrentFolder
+		oItem = tree1.currentindex()
+		if ofile.isdir(oItem)
+			cStartupFolder = ofile.filepath(oItem)
+		else
+			cFile = ofile.filepath(oItem)
+			for t = len(cFile) to 1 step -1
+				if cFile[t] = "/" or cFile[t] = "\"
+					cFile = left(cFile,t-1)
+					exit
+				ok
+			next
+			cStartupFolder = cFile
+		ok
+
+	func GetActiveFolder
+		return cStartUpFolder
+
 	func pSetActiveFileName
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
 
@@ -103,7 +118,6 @@ class RNoteController from RNoteControllerBase
 			ok
 			StatusMessage("Ready!")
 
-
 	func pSaveAs
 		new qfiledialog(win1) {
 			this.pSaveCurrentFolder()
@@ -116,18 +130,6 @@ class RNoteController from RNoteControllerBase
 				lAskToSave = false
 				cTextHash  = sha256(this.textedit1.toplaintext())
 			ok
-		}
-
-	func pPrint
-		StatusMessage("Printing to File : RingDoc.pdf")
-		printer1 = new qPrinter(0) {
-			setoutputformat(1)	# 1 = pdf
-			setoutputfilename(this.cCurrentDir+"RingDoc.pdf")
-			this.textedit1.print(printer1)
-		}
-		StatusMessage("Done!")
-		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
 		}
 
 	func pOpen
@@ -166,23 +168,17 @@ class RNoteController from RNoteControllerBase
 		next
 		fclose(fp)
 
-	func pSaveCurrentFolder
-		oItem = tree1.currentindex()
-		if ofile.isdir(oItem)
-			cStartupFolder = ofile.filepath(oItem)
-		else
-			cFile = ofile.filepath(oItem)
-			for t = len(cFile) to 1 step -1
-				if cFile[t] = "/" or cFile[t] = "\"
-					cFile = left(cFile,t-1)
-					exit
-				ok
-			next
-			cStartupFolder = cFile
-		ok
-
-	func GetActiveFolder
-		return cStartUpFolder
+	func pPrint
+		StatusMessage("Printing to File : RingDoc.pdf")
+		printer1 = new qPrinter(0) {
+			setoutputformat(1)	# 1 = pdf
+			setoutputfilename(this.cCurrentDir+"RingDoc.pdf")
+			this.textedit1.print(printer1)
+		}
+		StatusMessage("Done!")
+		new QDesktopServices {
+			OpenURL(new qURL("file:///"+substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
+		}
 
 	func pRingNotepadXButton
 		pSaveSettings() 

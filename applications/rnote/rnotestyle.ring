@@ -9,6 +9,9 @@ class RNoteStyle
 			LoadSettings()
 		ok
 
+	func pSetActiveLineColor
+		textedit1.SetActiveLineColor(aStyleColors[:ActiveLineBackColor])
+
 	func pSetStyleColor(nStyle)
 		pSelectStyleColor(nStyle)
 		RestoreSettings()
