@@ -2746,6 +2746,26 @@ Parent Class : QGeoShape
 * QGeoRectangle translated(double degreesLatitude, double degreesLongitude)
 * QGeoRectangle united(QGeoRectangle rectangle)
 * double width(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoShape Class
+
+QGeoShape Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoShape.html
+
+
+Parameters : void
+
+* QGeoCoordinate center(void)
+* bool contains(QGeoCoordinate coordinate)
+* void extendShape(QGeoCoordinate coordinate)
+* bool isEmpty(void)
+* bool isValid(void)
+* QString toString(void)
+* QGeoShape::ShapeType type(void)
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
