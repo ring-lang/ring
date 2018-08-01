@@ -22579,6 +22579,21 @@ Class QGeoAreaMonitorInfo
 	Func setPersistent P1
 		return QGeoAreaMonitorInfo_setPersistent(pObject,P1)
 
+Class QGeoAreaMonitorSource from QObject
+	Func sourceName 
+		return QGeoAreaMonitorSource_sourceName()
+
+	Func availableSources 
+		pTempObj = new QStringList
+		pTempObj.pObject = QGeoAreaMonitorSource_availableSources()
+		return pTempObj
+
+	Func createDefaultSource P1
+		return QGeoAreaMonitorSource_createDefaultSource(GetObjectPointerFromRingObject(P1))
+
+	Func createSource P1,P2
+		return QGeoAreaMonitorSource_createSource(P1,GetObjectPointerFromRingObject(P2))
+
 Class QPixmap2 from QPixmap
 
 	pObject

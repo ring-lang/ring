@@ -274,6 +274,7 @@ extern "C" {
 #include <QGeoCoordinate>
 #include <QGeoAddress>
 #include <QGeoAreaMonitorInfo>
+#include <QGeoAreaMonitorSource>
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
@@ -10086,3 +10087,15 @@ void setExpiration(QDateTime expiry)
 void setName(QString name)
 void setNotificationParameters(QVariantMap parameters)
 void setPersistent(bool isPersistent)
+
+<class>
+name: QGeoAreaMonitorSource
+para: QObject *
+parent: QObject
+nonew
+</class>
+
+QString sourceName(void)
+QStringList availableSources(void)
+QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
+QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)

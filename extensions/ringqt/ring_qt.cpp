@@ -265,6 +265,7 @@ extern "C" {
 #include <QGeoCoordinate>
 #include <QGeoAddress>
 #include <QGeoAreaMonitorInfo>
+#include <QGeoAreaMonitorSource>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -543,6 +544,7 @@ extern "C" {
 	void ring_QGeoCoordinate_freefunc(void *pState,void *pPointer);
 	void ring_QGeoAddress_freefunc(void *pState,void *pPointer);
 	void ring_QGeoAreaMonitorInfo_freefunc(void *pState,void *pPointer);
+	void ring_QGeoAreaMonitorSource_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -127425,6 +127427,91 @@ RING_FUNC(ring_QGeoAreaMonitorInfo_setPersistent)
 	pObject->setPersistent( (bool ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_QGeoAreaMonitorSource_sourceName)
+{
+	QGeoAreaMonitorSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAreaMonitorSource *) RING_API_GETCPOINTER(1,"QGeoAreaMonitorSource");
+	RING_API_RETSTRING(pObject->sourceName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAreaMonitorSource_availableSources)
+{
+	QGeoAreaMonitorSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAreaMonitorSource *) RING_API_GETCPOINTER(1,"QGeoAreaMonitorSource");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->availableSources();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGeoAreaMonitorSource_createDefaultSource)
+{
+	QGeoAreaMonitorSource *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAreaMonitorSource *) RING_API_GETCPOINTER(1,"QGeoAreaMonitorSource");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->createDefaultSource((QObject *) RING_API_GETCPOINTER(2,"QObject")),"QGeoAreaMonitorSource");
+}
+
+
+RING_FUNC(ring_QGeoAreaMonitorSource_createSource)
+{
+	QGeoAreaMonitorSource *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAreaMonitorSource *) RING_API_GETCPOINTER(1,"QGeoAreaMonitorSource");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->createSource(RING_API_GETSTRING(2),(QObject *) RING_API_GETCPOINTER(3,"QObject")),"QGeoAreaMonitorSource");
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -141200,6 +141287,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeoareamonitorinfo_setname",ring_QGeoAreaMonitorInfo_setName);
 	ring_vm_funcregister("qgeoareamonitorinfo_setnotificationparameters",ring_QGeoAreaMonitorInfo_setNotificationParameters);
 	ring_vm_funcregister("qgeoareamonitorinfo_setpersistent",ring_QGeoAreaMonitorInfo_setPersistent);
+	ring_vm_funcregister("qgeoareamonitorsource_sourcename",ring_QGeoAreaMonitorSource_sourceName);
+	ring_vm_funcregister("qgeoareamonitorsource_availablesources",ring_QGeoAreaMonitorSource_availableSources);
+	ring_vm_funcregister("qgeoareamonitorsource_createdefaultsource",ring_QGeoAreaMonitorSource_createDefaultSource);
+	ring_vm_funcregister("qgeoareamonitorsource_createsource",ring_QGeoAreaMonitorSource_createSource);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
