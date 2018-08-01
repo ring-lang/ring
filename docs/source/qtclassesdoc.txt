@@ -2627,6 +2627,26 @@ Parent Class : QObject
 * QStringList availableSources(void)
 * QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
 * QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoCircle Class
+
+QGeoCircle Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoCircle.html
+
+
+Parameters : void
+
+* QGeoCoordinate center(void)
+* qreal radius(void)
+* void setCenter(QGeoCoordinate center)
+* void setRadius(qreal radius)
+* QString toString(void)
+* void translate(double degreesLatitude, double degreesLongitude)
+* QGeoCircle translated(double degreesLatitude, double degreesLongitude)
 .. index::
 	pair: RingQt Classes Reference; QGeoCoordinate Class
 
