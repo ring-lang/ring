@@ -268,6 +268,7 @@ extern "C" {
 #include <QGeoCircle>
 #include <QGeoPositionInfoSource>
 #include <QGeoRectangle>
+#include <QGeoShape>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -501,6 +502,7 @@ extern "C" {
 	void ring_QGeoCircle_freefunc(void *pState,void *pPointer);
 	void ring_QGeoPositionInfoSource_freefunc(void *pState,void *pPointer);
 	void ring_QGeoRectangle_freefunc(void *pState,void *pPointer);
+	void ring_QGeoShape_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -104890,9 +104892,9 @@ RING_FUNC(ring_QGeoAreaMonitorInfo_area)
 	pObject = (QGeoAreaMonitorInfo *) RING_API_GETCPOINTER(1,"QGeoAreaMonitorInfo");
 	{
 		QGeoShape *pValue ; 
-		pValue = (QGeoShape *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QGeoShape)) ;
+		pValue = new QGeoShape() ;
 		*pValue = pObject->area();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QGeoShape",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QGeoShape",ring_QGeoShape_freefunc);
 	}
 }
 
@@ -105807,6 +105809,134 @@ RING_FUNC(ring_QGeoRectangle_width)
 	}
 	pObject = (QGeoRectangle *) RING_API_GETCPOINTER(1,"QGeoRectangle");
 	RING_API_RETNUMBER(pObject->width());
+}
+
+
+RING_FUNC(ring_QGeoShape_center)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	{
+		QGeoCoordinate *pValue ; 
+		pValue = new QGeoCoordinate() ;
+		*pValue = pObject->center();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QGeoCoordinate",ring_QGeoCoordinate_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGeoShape_contains)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	RING_API_RETNUMBER(pObject->contains(* (QGeoCoordinate  *) RING_API_GETCPOINTER(2,"QGeoCoordinate")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QGeoCoordinate"));
+}
+
+
+RING_FUNC(ring_QGeoShape_extendShape)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	pObject->extendShape(* (QGeoCoordinate  *) RING_API_GETCPOINTER(2,"QGeoCoordinate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QGeoCoordinate"));
+}
+
+
+RING_FUNC(ring_QGeoShape_isEmpty)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	RING_API_RETNUMBER(pObject->isEmpty());
+}
+
+
+RING_FUNC(ring_QGeoShape_isValid)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QGeoShape_toString)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoShape_type)
+{
+	QGeoShape *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+	RING_API_RETNUMBER(pObject->type());
 }
 
 RING_FUNC(ring_QObject_new)
@@ -108434,6 +108564,17 @@ RING_FUNC(ring_QGeoRectangle_new)
 	}
 	QGeoRectangle *pObject = new QGeoRectangle();
 	RING_API_RETCPOINTER(pObject,"QGeoRectangle");
+}
+
+RING_FUNC(ring_QGeoShape_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QGeoShape *pObject = new QGeoShape();
+	RING_API_RETCPOINTER(pObject,"QGeoShape");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -111581,6 +111722,23 @@ RING_FUNC(ring_QGeoRectangle_delete)
 	}
 }
 
+RING_FUNC(ring_QGeoShape_delete)
+{
+	QGeoShape *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -112873,6 +113031,13 @@ void ring_QGeoRectangle_freefunc(void *pState,void *pPointer)
 {
 	QGeoRectangle *pObject ; 
 	pObject = (QGeoRectangle *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGeoShape_freefunc(void *pState,void *pPointer)
+{
+	QGeoShape *pObject ; 
+	pObject = (QGeoShape *) pPointer;
 	delete pObject ;
 }
 
@@ -118061,6 +118226,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeorectangle_translated",ring_QGeoRectangle_translated);
 	ring_vm_funcregister("qgeorectangle_united",ring_QGeoRectangle_united);
 	ring_vm_funcregister("qgeorectangle_width",ring_QGeoRectangle_width);
+	ring_vm_funcregister("qgeoshape_center",ring_QGeoShape_center);
+	ring_vm_funcregister("qgeoshape_contains",ring_QGeoShape_contains);
+	ring_vm_funcregister("qgeoshape_extendshape",ring_QGeoShape_extendShape);
+	ring_vm_funcregister("qgeoshape_isempty",ring_QGeoShape_isEmpty);
+	ring_vm_funcregister("qgeoshape_isvalid",ring_QGeoShape_isValid);
+	ring_vm_funcregister("qgeoshape_tostring",ring_QGeoShape_toString);
+	ring_vm_funcregister("qgeoshape_type",ring_QGeoShape_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -118246,6 +118418,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeoareamonitorinfo_new",ring_QGeoAreaMonitorInfo_new);
 	ring_vm_funcregister("qgeocircle_new",ring_QGeoCircle_new);
 	ring_vm_funcregister("qgeorectangle_new",ring_QGeoRectangle_new);
+	ring_vm_funcregister("qgeoshape_new",ring_QGeoShape_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -118431,4 +118604,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeoareamonitorinfo_delete",ring_QGeoAreaMonitorInfo_delete);
 	ring_vm_funcregister("qgeocircle_delete",ring_QGeoCircle_delete);
 	ring_vm_funcregister("qgeorectangle_delete",ring_QGeoRectangle_delete);
+	ring_vm_funcregister("qgeoshape_delete",ring_QGeoShape_delete);
 }
