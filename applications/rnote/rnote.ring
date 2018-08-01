@@ -19,6 +19,18 @@
 	load "rnotefindinfiles.ring"
 	load "rnotehelp.ring"
 
+# Merge Classes 
+	mergemethods(:RNoteController,:RNoteView)
+	mergemethods(:RNoteController,:RNoteMode)
+	mergemethods(:RNoteController,:RNoteStyle)
+	mergemethods(:RNoteController,:RNoteAutoComplete)	
+	mergemethods(:RNoteController,:RNoteLists)
+	mergemethods(:RNoteController,:RNoteFind)
+	mergemethods(:RNoteController,:RNoteGoto)
+	mergemethods(:RNoteController,:RNoteSettings)
+	mergemethods(:RNoteController,:RNoteFindInFiles)
+	mergemethods(:RNoteController,:RNoteHelp)
+
 # Load the Form Designer 
 	load "../formdesigner/formdesigner.ring"
 
@@ -28,18 +40,7 @@
 # Load the Find in files application 
 	load "../findinfiles/findinfilesController.ring"
 
-# Merge Classes 
-	mergemethods(:RNoteController,:RNoteView)
-	mergemethods(:RNoteController,:RNoteMode)
-	mergemethods(:RNoteController,:RNoteStyle)
-	mergemethods(:RNoteController,:RNoteAutoComplete)	
-	mergemethods(:RNoteController,:RnoteLists)
-	mergemethods(:RNoteController,:RnoteFind)
-	mergemethods(:RNoteController,:RnoteGoto)
-	mergemethods(:RNoteController,:RNoteSettings)
-	mergemethods(:RNoteController,:RNoteFindInFiles)
-	mergemethods(:RNoteController,:RNoteHelp)
-
-# Create the Ring Notepad Object
-	Open_WindowNoShow(:RNoteController)
-
+	if isMainSourceFile() 
+		# Create the Ring Notepad Object
+			Open_WindowNoShow(:RNoteController)
+	ok
