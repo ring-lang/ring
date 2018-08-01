@@ -41,8 +41,6 @@ Class RNoteProgramMenu
 		oProcess = pRunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
 		chdir(exefolder())
 
-
-
 	func RunInBrowser
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()	

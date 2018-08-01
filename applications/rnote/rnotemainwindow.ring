@@ -5,36 +5,24 @@ class RNoteMainWindow
 
 	func CreateMainWindow 
 
-		MyApp = New qApp {
-			# Custom Editor Style Color
-			this.pCheckCustomColors()
-			this.PrepareAutoComplete()
-			this.win1 = new qMainWindow() {
-				setwindowtitle("Ring Notepad")
-				setwinicon(self,this.cCurrentDir + "/image/notepad.png")
-				this.oFilter = new qAllEvents(this.win1)
-				this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
-				installEventFilter(this.oFilter)
-				this.CreateToolbars()	
-				this.CreateMenubar()
-				this.CreateStatusbar()
-				this.CreateProjectFiles()	
-				this.CreateSourceCode()
-				this.CreateWebBrowser()	
-				this.CreateFunctionsList()
-				this.CreateClassesList()
-				this.CreateOutputWindow()
-				this.CreateFormDesigner()
-				this.PrepareDockableWindows()
-			}
-			this {  
-				pSetMode(nDefaultMode) 
-				RestoreSettings()
-				win1.showmaximized()
-			}
-			exec()
+		win1 = new qMainWindow() {
+			setwindowtitle("Ring Notepad")
+			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
+			this.oFilter = new qAllEvents(this.win1)
+			this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
+			installEventFilter(this.oFilter)
+			this.CreateToolbars()	
+			this.CreateMenubar()
+			this.CreateStatusbar()
+			this.CreateProjectFiles()	
+			this.CreateSourceCode()
+			this.CreateWebBrowser()	
+			this.CreateFunctionsList()
+			this.CreateClassesList()
+			this.CreateOutputWindow()
+			this.CreateFormDesigner()
+			this.PrepareDockableWindows()
 		}
-	
 	
 	func CreateToolBars
 		win1 {
