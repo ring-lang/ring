@@ -99,8 +99,9 @@ Class RNoteControllerBase from WindowsControllerParent
 		oSearch oSearchValue oSearchCase oSearchFilter oReplaceValue 	
 		cSearchText cReplaceText 	
 
-	lAskToSave 	= false
-	cTextHash	= sha256("")
+	# Ask to save before switching to another file 
+		lAskToSave 	= false
+		cTextHash	= sha256("")
 
 	# Hash Table contains the File Name and the Line Number
 	# Used to remember the current line when we switch between many files
