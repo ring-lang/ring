@@ -2710,6 +2710,42 @@ Parent Class : QObject
 * QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
 * QString sourceName(void)
 * int updateInterval(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoRectangle Class
+
+QGeoRectangle Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoRectangle.html
+
+
+Parameters : void
+
+
+Parent Class : QGeoShape
+
+* QGeoCoordinate bottomLeft(void)
+* QGeoCoordinate bottomRight(void)
+* QGeoCoordinate center(void)
+* bool contains(QGeoRectangle rectangle)
+* double height(void)
+* bool intersects(QGeoRectangle rectangle)
+* void setBottomLeft(QGeoCoordinate bottomLeft)
+* void setBottomRight(QGeoCoordinate bottomRight)
+* void setCenter(QGeoCoordinate center)
+* void setHeight(double degreesHeight)
+* void setTopLeft(QGeoCoordinate topLeft)
+* void setTopRight(QGeoCoordinate topRight)
+* void setWidth(double degreesWidth)
+* QString toString(void)
+* QGeoCoordinate topLeft(void)
+* QGeoCoordinate topRight(void)
+* void translate(double degreesLatitude, double degreesLongitude)
+* QGeoRectangle translated(double degreesLatitude, double degreesLongitude)
+* QGeoRectangle united(QGeoRectangle rectangle)
+* double width(void)
 .. index::
 	pair: RingQt Classes Reference; QGradient Class
 
