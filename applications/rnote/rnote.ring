@@ -16,6 +16,7 @@
 	load "rnotegoto.ring"
 	load "rnotesettings.ring"
 	load "rnotefindinfiles.ring"
+	load "rnotehelp.ring"
 
 # Load the Form Designer 
 	load "../formdesigner/formdesigner.ring"
@@ -36,6 +37,7 @@
 	mergemethods(:RNoteController,:RnoteGoto)
 	mergemethods(:RNoteController,:RNoteSettings)
 	mergemethods(:RNoteController,:RNoteFindInFiles)
+	mergemethods(:RNoteController,:RNoteHelp)
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
@@ -373,28 +375,6 @@ class RNoteController from RNoteControllerBase
 		next
 		fclose(fp)
 
-	func MsgBox cTitle,cMessage
-		win = new qMessagebox(win1) {
-			setwindowtitle(cTitle)
-			setText(cMessage)
-			setwinicon(win,this.cCurrentDir + "/image/notepad.png")
-			show()
-		}
-
-	func pLang
-		MsgBox("Programming Language",
-			"This application developed using the Ring programming language" + nl +
-			"Ring Version : " + version())
-
-	func pGUI
-		MsgBox("GUI Library",
-			"This application uses the Qt GUI Library through RingQt")
-
-	func pAbout
-		MsgBox("About",
-			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
-			"2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>")
-
 	func pSaveCurrentFolder
 		oItem = tree1.currentindex()
 		if ofile.isdir(oItem)
@@ -421,16 +401,6 @@ class RNoteController from RNoteControllerBase
 	func pQuit
 		pSaveSettings()
 		myapp.quit()
-
-	func pOpenCHM
-		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
-		}
-
-	func pOpenPDF
-		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
-		}
 
 	func pTabWidth
 		oInput = New QInputDialog(win1)
