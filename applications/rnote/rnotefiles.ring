@@ -23,6 +23,7 @@
 	load "rnotehelp.ring"
 	load "rnotemainfiletoolbar.ring"
 	load "rnoteoutputwindow.ring"
+	load "rnoteformdesigner.ring"
 
 # Merge Classes 
 	mergemethods(:RNoteController,:RNoteView)
@@ -44,3 +45,4 @@
 	mergemethods(:RNoteController,:RNoteHelp)
 	mergemethods(:RNoteController,:RNoteMainFileToolbar)
 	mergemethods(:RNoteController,:RNoteOutputWindow)
+	mergemethods(:RNoteController,:RNoteFormDesigner)
