@@ -29,6 +29,7 @@
 	load "rnoteformdesigner.ring"
 	load "rnotetreeviewevents.ring"
 	load "rnoteeditorevents.ring"
+	load "rnoterun.ring"
 
 # Merge Classes 
 	mergemethods(:RNoteController,:RNoteMainWindow)
@@ -56,3 +57,4 @@
 	mergemethods(:RNoteController,:RNoteFormDesigner)
 	mergemethods(:RNoteController,:RNoteTreeViewEvents)
 	mergemethods(:RNoteController,:RNoteEditorEvents)
+	mergemethods(:RNoteController,:RNoteRun)
