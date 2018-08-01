@@ -2607,6 +2607,26 @@ Parameters : QString
 * void setName(QString name)
 * void setNotificationParameters(QVariantMap parameters)
 * void setPersistent(bool isPersistent)
+
+.. index::
+	pair: RingQt Classes Reference; QGeoAreaMonitorSource Class
+
+QGeoAreaMonitorSource Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGeoAreaMonitorSource.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QString sourceName(void)
+* QStringList availableSources(void)
+* QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
+* QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)
 .. index::
 	pair: RingQt Classes Reference; QGeoCoordinate Class
 
