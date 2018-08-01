@@ -4,14 +4,19 @@
 Class RNoteControllerBase from WindowsControllerParent 
 
 	cActiveFileName 	= ""
+
 	aTextColor 		= [0,0,0]
 	aBackColor 		= [255,255,255]
+
 	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
 	oTempFont 		= new qfont("",0,0,0)
+
 	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
+
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
 	cRingEXE 		= exefilename()
+
 	lShowProject 		= True
 	lShowSourceCode 	= True
 	lShowBrowser 		= True
@@ -19,7 +24,9 @@ Class RNoteControllerBase from WindowsControllerParent
 	lShowOutputWindow 	= True
 	lShowClassesList 	= True
 	lShowFormDesigner 	= True
+
 	nTabSpaces 		= 8
+
 	aBrowserLinks 		= [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
 		["Localhost","http://localhost"],
@@ -77,54 +84,57 @@ Class RNoteControllerBase from WindowsControllerParent
 		lKeywordsBold 				= True
 
 	# Default Mode
-		VIEWMODE_GENERAL 	= 1
-		VIEWMODE_LEARNINGRING	= 2
-		VIEWMODE_CODING		= 3
-		VIEWMODE_CODING2	= 4
-		VIEWMODE_CODING3	= 5
-		VIEWMODE_GUIDEV		= 6
-		VIEWMODE_WEBDEV		= 7
-		VIEWMODE_TESTING	= 8
-		VIEWMODE_COMMON		= 9
-		nDefaultMode		= VIEWMODE_GENERAL
+		VIEWMODE_GENERAL 			= 1
+		VIEWMODE_LEARNINGRING			= 2
+		VIEWMODE_CODING				= 3
+		VIEWMODE_CODING2			= 4
+		VIEWMODE_CODING3			= 5
+		VIEWMODE_GUIDEV				= 6
+		VIEWMODE_WEBDEV				= 7
+		VIEWMODE_TESTING			= 8
+		VIEWMODE_COMMON				= 9
+		nDefaultMode				= VIEWMODE_GENERAL
 
-	oSearch 	= NULL
-	oSearchValue 	= NULL
-	oSearchCase 	= NULL
-	oSearchFilter 	= NULL
-	oReplaceValue 	= NULL
-
-	cSearchText 	= ""
-	cReplaceText 	= ""
+	# Search and Replace 
+		oSearch oSearchValue oSearchCase oSearchFilter oReplaceValue 	
+		cSearchText cReplaceText 	
 
 	lAskToSave 	= false
 	cTextHash	= sha256("")
 
 	# Hash Table contains the File Name and the Line Number
-
-	aFilesLines 	= []	# Used to remember the current line when we switch between many files
+	# Used to remember the current line when we switch between many files
+		aFilesLines 	= []	
 
 	# For Auto-Complete
-	oAutoCompleteList 	= NULL
-	nAutoCompleteListSize 	= 0
+		oAutoCompleteList  
+		nAutoCompleteListSize 	= 0
 
-	MyApp win1 oFilter aBtns tool1 menu1 status1
-	tool2 oTxtMainFile
-	Tree1 TextEdit1 oDockProjectFiles oDockSourceCode oDockWebBrowser 
-	oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
-	oWebBrowser oWebView  oWBText 
-	oFile oFunctionsList oClassesList
-	oOutputWindow oProcessEditbox oProcessText oProcess
-	aFunctionsPos aClassesPos
+	# Main Window 
+		MyApp win1 oFilter aBtns tool1 menu1 status1
+		tool2 oTxtMainFile
+		Tree1 TextEdit1 
+		oDockProjectFiles oDockSourceCode oDockWebBrowser 
+		oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
+		oWebBrowser oWebView  oWBText 
+		oFile oFunctionsList oClassesList
+		oOutputWindow oProcessEditbox oProcessText oProcess
+	
+	# Functions list & Classes List
+		aFunctionsPos aClassesPos
 
-	oACTimer=NULL			# Auto-Complete Timer 
-	oCompleter=NULL 		# The completer object
+	# Auto Complete
+		oACTimer=NULL			# Auto-Complete Timer 
+		oCompleter=NULL 		# The completer object
 
-	cFormFile = ""
+	# Active Form 
+		cFormFile = ""
 
-	# Methods 
-	   cpGetProcessData = Method(:pGetProcessData)
+	# Methods (For the Output Window)
+		cpGetProcessData = Method(:pGetProcessData)
 
-	cWebApplicationFolder = ""
+	# Web Applications 
+		cWebApplicationFolder = ""
 
-	cSettingsFile 	= cCurrentDir + "ringnotepad.ini"
+	# Settings 
+		cSettingsFile 	= cCurrentDir + "ringnotepad.ini"
