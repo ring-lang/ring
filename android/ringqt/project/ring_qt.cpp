@@ -262,6 +262,7 @@ extern "C" {
 
 #include <QGeoPositionInfo>
 #include <QGeoCoordinate>
+#include <QGeoAddress>
 
 #include <QQuickWidget>
 #include <QQmlError>
@@ -489,6 +490,7 @@ extern "C" {
 	void ring_QChildEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGeoPositionInfo_freefunc(void *pState,void *pPointer);
 	void ring_QGeoCoordinate_freefunc(void *pState,void *pPointer);
+	void ring_QGeoAddress_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -104469,6 +104471,399 @@ RING_FUNC(ring_QGeoCoordinate_type)
 	RING_API_RETNUMBER(pObject->type());
 }
 
+
+RING_FUNC(ring_QGeoAddress_city)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->city().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_clear)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QGeoAddress_country)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->country().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_countryCode)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->countryCode().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_county)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->county().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_district)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->district().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_isEmpty)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETNUMBER(pObject->isEmpty());
+}
+
+
+RING_FUNC(ring_QGeoAddress_isTextGenerated)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETNUMBER(pObject->isTextGenerated());
+}
+
+
+RING_FUNC(ring_QGeoAddress_postalCode)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->postalCode().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_setCity)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCity(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setCountry)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCountry(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setCountryCode)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCountryCode(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setCounty)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCounty(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setDistrict)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDistrict(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setPostalCode)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPostalCode(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setState)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setState(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setStreet)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setStreet(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_setText)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setText(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoAddress_state)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->state().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_street)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->street().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGeoAddress_text)
+{
+	QGeoAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+	RING_API_RETSTRING(pObject->text().toStdString().c_str());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -107046,6 +107441,17 @@ RING_FUNC(ring_QGeoCoordinate_new)
 	}
 	QGeoCoordinate *pObject = new QGeoCoordinate();
 	RING_API_RETCPOINTER(pObject,"QGeoCoordinate");
+}
+
+RING_FUNC(ring_QGeoAddress_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QGeoAddress *pObject = new QGeoAddress();
+	RING_API_RETCPOINTER(pObject,"QGeoAddress");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -110125,6 +110531,23 @@ RING_FUNC(ring_QGeoCoordinate_delete)
 	}
 }
 
+RING_FUNC(ring_QGeoAddress_delete)
+{
+	QGeoAddress *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QGeoAddress *) RING_API_GETCPOINTER(1,"QGeoAddress");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -111389,6 +111812,13 @@ void ring_QGeoCoordinate_freefunc(void *pState,void *pPointer)
 {
 	QGeoCoordinate *pObject ; 
 	pObject = (QGeoCoordinate *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGeoAddress_freefunc(void *pState,void *pPointer)
+{
+	QGeoAddress *pObject ; 
+	pObject = (QGeoAddress *) pPointer;
 	delete pObject ;
 }
 
@@ -116510,6 +116940,27 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeocoordinate_setlongitude",ring_QGeoCoordinate_setLongitude);
 	ring_vm_funcregister("qgeocoordinate_tostring",ring_QGeoCoordinate_toString);
 	ring_vm_funcregister("qgeocoordinate_type",ring_QGeoCoordinate_type);
+	ring_vm_funcregister("qgeoaddress_city",ring_QGeoAddress_city);
+	ring_vm_funcregister("qgeoaddress_clear",ring_QGeoAddress_clear);
+	ring_vm_funcregister("qgeoaddress_country",ring_QGeoAddress_country);
+	ring_vm_funcregister("qgeoaddress_countrycode",ring_QGeoAddress_countryCode);
+	ring_vm_funcregister("qgeoaddress_county",ring_QGeoAddress_county);
+	ring_vm_funcregister("qgeoaddress_district",ring_QGeoAddress_district);
+	ring_vm_funcregister("qgeoaddress_isempty",ring_QGeoAddress_isEmpty);
+	ring_vm_funcregister("qgeoaddress_istextgenerated",ring_QGeoAddress_isTextGenerated);
+	ring_vm_funcregister("qgeoaddress_postalcode",ring_QGeoAddress_postalCode);
+	ring_vm_funcregister("qgeoaddress_setcity",ring_QGeoAddress_setCity);
+	ring_vm_funcregister("qgeoaddress_setcountry",ring_QGeoAddress_setCountry);
+	ring_vm_funcregister("qgeoaddress_setcountrycode",ring_QGeoAddress_setCountryCode);
+	ring_vm_funcregister("qgeoaddress_setcounty",ring_QGeoAddress_setCounty);
+	ring_vm_funcregister("qgeoaddress_setdistrict",ring_QGeoAddress_setDistrict);
+	ring_vm_funcregister("qgeoaddress_setpostalcode",ring_QGeoAddress_setPostalCode);
+	ring_vm_funcregister("qgeoaddress_setstate",ring_QGeoAddress_setState);
+	ring_vm_funcregister("qgeoaddress_setstreet",ring_QGeoAddress_setStreet);
+	ring_vm_funcregister("qgeoaddress_settext",ring_QGeoAddress_setText);
+	ring_vm_funcregister("qgeoaddress_state",ring_QGeoAddress_state);
+	ring_vm_funcregister("qgeoaddress_street",ring_QGeoAddress_street);
+	ring_vm_funcregister("qgeoaddress_text",ring_QGeoAddress_text);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -116691,6 +117142,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchildevent_new",ring_QChildEvent_new);
 	ring_vm_funcregister("qgeopositioninfo_new",ring_QGeoPositionInfo_new);
 	ring_vm_funcregister("qgeocoordinate_new",ring_QGeoCoordinate_new);
+	ring_vm_funcregister("qgeoaddress_new",ring_QGeoAddress_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -116872,4 +117324,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchildevent_delete",ring_QChildEvent_delete);
 	ring_vm_funcregister("qgeopositioninfo_delete",ring_QGeoPositionInfo_delete);
 	ring_vm_funcregister("qgeocoordinate_delete",ring_QGeoCoordinate_delete);
+	ring_vm_funcregister("qgeoaddress_delete",ring_QGeoAddress_delete);
 }
