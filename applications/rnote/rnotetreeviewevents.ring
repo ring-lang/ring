@@ -5,7 +5,7 @@ Class RNoteTreeViewEvents
 
 	func pCheckSaveBeforeChange
 		if cActiveFileName = NULL return ok
-		pSaveSettings()
+		SaveSettings()
 
 	func pChangeFile
 		pCheckSaveBeforeChange()	# To ask to saving a file

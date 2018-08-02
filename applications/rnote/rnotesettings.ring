@@ -3,7 +3,7 @@
 
 class RNoteSettings
 
-	func pSaveSettingsToFile
+	func SaveSettingsToFile
 		SaveCurrentFolder()
 		cSettings = "aTextColor = ["+aTextColor[1]+","+aTextColor[2]+","+aTextColor[3]+"]" + nl +
 				"aBackColor = ["+aBackColor[1]+","+aBackColor[2]+","+aBackColor[3]+"]" + nl +
@@ -23,8 +23,8 @@ class RNoteSettings
 		cSettings = substr(cSettings,nl,char(13)+char(10))
 		write(cSettingsFile,cSettings)
 
-	func pSaveSettings
-		pSaveSettingsToFile()
+	func SaveSettings
+		SaveSettingsToFile()
 		if lAsktoSave and cTextHash != sha256(textedit1.toplaintext())
 			new qmessagebox(win1)
 			{
@@ -53,11 +53,11 @@ class RNoteSettings
 		pSetColors()
 		pSetFont()
 		pSetWebsite()
-		pSetWindows()
+		SetWindows()
 		pSetTabSpaces()
 		pSelectStyleColor2(nDefaultStyle)
 
-	func pSetWindows
+	func SetWindows
 		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok
 		if not lShowSourceCode  	oDockSourceCode.close() else oDockSourceCode.show() ok
 		if not lShowBrowser  		oDockWebBrowser.close() else oDockWebBrowser.show() ok

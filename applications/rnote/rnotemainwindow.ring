@@ -939,5 +939,5 @@ class RNoteMainWindow
 		}
 
 	func RingNotepadXButton
-		pSaveSettings() 
+		SaveSettings() 
 
