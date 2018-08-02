@@ -85,8 +85,8 @@ class findinfilesController from WindowsControllerParent
 						oItem.setFlags(Qt_ItemIsSelectable|Qt_ItemIsEnabled)
 						TableOutput.setItem(nRow,3,oItem)
 						this.aResult + [cFile,x]
-						if not find(aResultFiles,cFile) {
-							aResultFiles + cFile 
+						if not find(this.aResultFiles,cFile) {
+							this.aResultFiles + cFile 
 						}
 					}
 				}
