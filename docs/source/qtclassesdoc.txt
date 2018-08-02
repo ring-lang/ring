@@ -2715,19 +2715,6 @@ Parent Class : QObject
 * const char *geterrorEvent(void)
 * const char *getpositionUpdatedEvent(void)
 * const char *getupdateTimeoutEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QGeoPositionInfoSource2 Class
-
-QGeoPositionInfoSource2 Class
-=============================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QGeoPositionInfoSource2.html
-
-
-Parent Class : QObject
-
 * QStringList availableSources(void)
 * QGeoPositionInfoSource *createDefaultSource(QObject *parent)
 * QGeoPositionInfoSource *createSource(QString sourceName, QObject *parent)
