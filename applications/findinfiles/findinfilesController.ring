@@ -123,3 +123,7 @@ class findinfilesController from WindowsControllerParent
 		if isParent() {
 			parent().FindInFilesSelect(cFile,nRow)
 		}
+
+	func Replace 
+
+	func ReplaceAll
