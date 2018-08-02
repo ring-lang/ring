@@ -39,7 +39,7 @@ Class RNoteTreeViewEvents
 		textedit1.setPlaintext(read(cActiveFileName))
 		textedit1.setfocus(0)
 		pCursorPositionChanged()
-		pSetActiveFileName()
+		SetActiveFileName()
 		if nLine != NULL
 			gotoline(nLine)
 		ok

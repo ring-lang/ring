@@ -6,5 +6,5 @@ Class RNoteActiveFile
 	func Nofileopened
 		msginfo("Sorry","Save/Select the file first!")
 
-	func pSetActiveFileName
+	func SetActiveFileName
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)

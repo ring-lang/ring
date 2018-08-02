@@ -11,7 +11,7 @@ Class RNoteFileMenu
 				write(cName,"")
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
-				this.pSetActiveFileName()
+				this.SetActiveFileName()
 				this.oDockSourceCode.raise()
 			ok
 		}
@@ -29,7 +29,7 @@ Class RNoteFileMenu
 	func OpenFile cName
 		this.cActiveFileName = cName
 		this.textedit1.setPlaintext(read(this.cActiveFileName))
-		this.pSetActiveFileName()
+		this.SetActiveFileName()
 
 	func pSave
 		if cActiveFileName = NULL return pSaveAs() ok
@@ -54,7 +54,7 @@ Class RNoteFileMenu
 				this.cActiveFileName = cName
 				this.writefile(this.cActiveFileName,this.textedit1.toplaintext())
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
-				this.pSetActiveFileName()
+				this.SetActiveFileName()
 				lAskToSave = false
 				cTextHash  = sha256(this.textedit1.toplaintext())
 			ok
