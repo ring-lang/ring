@@ -3,7 +3,7 @@
 
 class RNoteDistribute
 
-	func pDistribute nOption
+	func Distribute nOption
 		if cActiveFileName = Null return Nofileopened() ok
 		pSave()
 		cAppToRun = exefolder()+"/ring2exe"
