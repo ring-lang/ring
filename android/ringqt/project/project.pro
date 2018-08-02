@@ -59,11 +59,12 @@ SOURCES +=   \
     gguiapplication.cpp \
     gtextbrowser.cpp \
     gdockwidget.cpp \
-	gstackedwidget.cpp \
-	gcalendarwidget.cpp \
-	gtabbar.cpp \
-	gquickwidget.cpp \
-	gdrag.cpp \
+    gstackedwidget.cpp \
+    gcalendarwidget.cpp \
+    gtabbar.cpp \
+    gquickwidget.cpp \
+    gdrag.cpp \
+    ggeopositioninfosource.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -111,12 +112,13 @@ HEADERS  += \
     gguiapplication.h \
     gtextbrowser.h \
     gwindow.h \
-	gstackedwidget.h \
-	gcalendarwidget.h \
+    gstackedwidget.h \
+    gcalendarwidget.h \
     gdockwidget.h \
-	gtabbar.h \
-	gquickwidget.h \
-	gdrag.h 
+    gtabbar.h \
+    gquickwidget.h \
+    gdrag.h \
+    ggeopositioninfosource.h
 
 CONFIG += warn_off
 

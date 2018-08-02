@@ -267,6 +267,7 @@ extern "C" {
 #include <QGeoAreaMonitorSource>
 #include <QGeoCircle>
 #include <QGeoPositionInfoSource>
+#include "ggeopositioninfosource.h"
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
@@ -105338,7 +105339,7 @@ RING_FUNC(ring_QGeoCircle_translated)
 
 RING_FUNC(ring_QGeoPositionInfoSource_preferredPositioningMethods)
 {
-	QGeoPositionInfoSource *pObject ;
+	GGeoPositionInfoSource *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -105348,14 +105349,14 @@ RING_FUNC(ring_QGeoPositionInfoSource_preferredPositioningMethods)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
 	RING_API_RETNUMBER(pObject->preferredPositioningMethods());
 }
 
 
 RING_FUNC(ring_QGeoPositionInfoSource_sourceName)
 {
-	QGeoPositionInfoSource *pObject ;
+	GGeoPositionInfoSource *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -105365,14 +105366,14 @@ RING_FUNC(ring_QGeoPositionInfoSource_sourceName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
 	RING_API_RETSTRING(pObject->sourceName().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QGeoPositionInfoSource_updateInterval)
 {
-	QGeoPositionInfoSource *pObject ;
+	GGeoPositionInfoSource *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -105382,8 +105383,122 @@ RING_FUNC(ring_QGeoPositionInfoSource_updateInterval)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
 	RING_API_RETNUMBER(pObject->updateInterval());
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_seterrorEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seterrorEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_setpositionUpdatedEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpositionUpdatedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_setupdateTimeoutEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setupdateTimeoutEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_geterrorEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	RING_API_RETSTRING(pObject->geterrorEvent());
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_getpositionUpdatedEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	RING_API_RETSTRING(pObject->getpositionUpdatedEvent());
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_getupdateTimeoutEvent)
+{
+	GGeoPositionInfoSource *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGeoPositionInfoSource *) RING_API_GETCPOINTER(1,"QGeoPositionInfoSource");
+	RING_API_RETSTRING(pObject->getupdateTimeoutEvent());
 }
 
 
@@ -118539,6 +118654,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeopositioninfosource_preferredpositioningmethods",ring_QGeoPositionInfoSource_preferredPositioningMethods);
 	ring_vm_funcregister("qgeopositioninfosource_sourcename",ring_QGeoPositionInfoSource_sourceName);
 	ring_vm_funcregister("qgeopositioninfosource_updateinterval",ring_QGeoPositionInfoSource_updateInterval);
+	ring_vm_funcregister("qgeopositioninfosource_seterrorevent",ring_QGeoPositionInfoSource_seterrorEvent);
+	ring_vm_funcregister("qgeopositioninfosource_setpositionupdatedevent",ring_QGeoPositionInfoSource_setpositionUpdatedEvent);
+	ring_vm_funcregister("qgeopositioninfosource_setupdatetimeoutevent",ring_QGeoPositionInfoSource_setupdateTimeoutEvent);
+	ring_vm_funcregister("qgeopositioninfosource_geterrorevent",ring_QGeoPositionInfoSource_geterrorEvent);
+	ring_vm_funcregister("qgeopositioninfosource_getpositionupdatedevent",ring_QGeoPositionInfoSource_getpositionUpdatedEvent);
+	ring_vm_funcregister("qgeopositioninfosource_getupdatetimeoutevent",ring_QGeoPositionInfoSource_getupdateTimeoutEvent);
 	ring_vm_funcregister("qgeopositioninfosource2_availablesources",ring_QGeoPositionInfoSource2_availableSources);
 	ring_vm_funcregister("qgeopositioninfosource2_createdefaultsource",ring_QGeoPositionInfoSource2_createDefaultSource);
 	ring_vm_funcregister("qgeopositioninfosource2_createsource",ring_QGeoPositionInfoSource2_createSource);
