@@ -10167,9 +10167,7 @@ name: QGeoShape
 para: void
 </class>
 
-QGeoCoordinate center(void)
 bool contains(QGeoCoordinate coordinate)
-void extendShape(QGeoCoordinate coordinate)
 bool isEmpty(void)
 bool isValid(void)
 QGeoShape::ShapeType type(void)
@@ -10206,6 +10204,4 @@ parent: QGeoPositionInfoSource
 
 QIODevice * device(void)
 void setDevice(QIODevice * device)
-void setUserEquivalentRangeError(double uere)
 QNmeaPositionInfoSource::UpdateMode updateMode(void)
-double userEquivalentRangeError(void)

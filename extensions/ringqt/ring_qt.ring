@@ -22741,16 +22741,8 @@ Class QGeoShape
 	Func ObjectPointer
 		return pObject
 
-	Func center 
-		pTempObj = new QGeoCoordinate
-		pTempObj.pObject = QGeoShape_center(pObject)
-		return pTempObj
-
 	Func contains P1
 		return QGeoShape_contains(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func extendShape P1
-		return QGeoShape_extendShape(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func isEmpty 
 		return QGeoShape_isEmpty(pObject)
@@ -22834,14 +22826,8 @@ Class QNmeaPositionInfoSource from QGeoPositionInfoSource
 	Func setDevice P1
 		return QNmeaPositionInfoSource_setDevice(pObject,GetObjectPointerFromRingObject(P1))
 
-	Func setUserEquivalentRangeError P1
-		return QNmeaPositionInfoSource_setUserEquivalentRangeError(pObject,P1)
-
 	Func updateMode 
 		return QNmeaPositionInfoSource_updateMode(pObject)
-
-	Func userEquivalentRangeError 
-		return QNmeaPositionInfoSource_userEquivalentRangeError(pObject)
 
 Class QPixmap2 from QPixmap
 
