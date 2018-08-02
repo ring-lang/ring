@@ -25,6 +25,8 @@ class findinfilesController from WindowsControllerParent
 	nMatches 	= 0
 	
 	aResultFiles	= []
+	
+	lShowNoOutputMessage = True	
 
 	func search
 		Qt_ItemIsSelectable 	= 1
@@ -92,8 +94,10 @@ class findinfilesController from WindowsControllerParent
 				}
 			}
 			if nRow = 0 { 
-				Statusbar1.ShowMessage("Done...",0)
-				msginfo("Sorry","No Output!")
+				if this.lShowNoOutputMessage {
+					Statusbar1.ShowMessage("Done...",0)
+					msginfo("Sorry","No Output!")
+				}
 				return 
 			}
 			Statusbar1.ShowMessage("" +
@@ -149,7 +153,9 @@ class findinfilesController from WindowsControllerParent
 			cContent = substr(cContent,nl,Windowsnl())
 		}
 		write(cFile,cContent)
+		lShowNoOutputMessage = False 
 		search()
+		lShowNoOutputMessage = True
 		oView.Statusbar1.ShowMessage("Replace operation done, In file : " + cFile,0)
 
 	func ReplaceAll
@@ -165,5 +171,10 @@ class findinfilesController from WindowsControllerParent
 			}		
 			write(cFile,cContent)	
 		}
+		# Calling search() will modify aResultFiles 
+			cMsg = "Replace All operation done, In " + len(aResultFiles) + " files"
+		lShowNoOutputMessage = False 
 		search()
-		oView.Statusbar1.ShowMessage("Replace All operation done, In " + len(aResultFiles) + " files",0)
+		lShowNoOutputMessage = True
+		oView.Statusbar1.ShowMessage(cMsg,0)
+
