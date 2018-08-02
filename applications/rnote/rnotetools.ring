@@ -18,15 +18,15 @@ class RNoteTools
 			system(cCode)
 		ok
 
-	func pFormDesigner		
+	func OpenFormDesigner		
 		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
 		RunTool(cFormFileName)
 
-	func pREPLConsole
+	func REPLConsole
 		cAppFileName = cCurrentDir + "../ringrepl/repl.ring"
 		RunToolConsole(cAppFileName)
 
-	func pREPLGUI
+	func REPLGUI
 		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
 		# RunTool will split parameters using "," as separator 
 		if nDefaultStyle <= 3 

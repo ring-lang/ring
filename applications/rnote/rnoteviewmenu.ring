@@ -41,7 +41,7 @@ Class RNoteViewMenu
 			ok	
 		}
 
-	func pFormDesignerWindow
+	func OpenFormDesignerWindow
 		oDockFormDesigner {
 			if isvisible()
 				hide()
