@@ -3,7 +3,7 @@
 
 Class RNoteActiveFile
 
-	func pNofileopened
+	func Nofileopened
 		msginfo("Sorry","Save/Select the file first!")
 
 	func pSetActiveFileName
