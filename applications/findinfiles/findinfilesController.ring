@@ -125,5 +125,25 @@ class findinfilesController from WindowsControllerParent
 		}
 
 	func Replace 
+		nIndex	  = oView.TableOutput.currentrow()
+		cFile  	  = aResult[nIndex][1]
+		nRow 	  = aResult[nIndex][2]
+		cText     = oView.txtFind.text()		
+		cReplace  = oView.txtReplace.text()
+		lCase	  = oView.checkMatchCase.checkstate()
+		cContent  = read(cFile)
+		aContentList = str2list(cContent)
+		if lCase 
+			aContentList[nRow] = substr(aContentList[nRow],cText,cReplace)
+		else 
+			aContentList[nRow] = substr(aContentList[nRow],cText,cReplace,True)
+		ok
+		cContent = list2str(aContentList)
+		if isWindows() 
+			cContent = substr(cContent,nl,Windowsnl())
+		ok
+		write(cFile,cContent)
+		search()
+		oView.Statusbar1.ShowMessage("Replace operation done, In file : " + cFile,0)
 
 	func ReplaceAll
