@@ -105784,28 +105784,6 @@ RING_FUNC(ring_QGeoRectangle_width)
 }
 
 
-RING_FUNC(ring_QGeoShape_center)
-{
-	QGeoShape *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
-	{
-		QGeoCoordinate *pValue ; 
-		pValue = new QGeoCoordinate() ;
-		*pValue = pObject->center();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QGeoCoordinate",ring_QGeoCoordinate_freefunc);
-	}
-}
-
-
 RING_FUNC(ring_QGeoShape_contains)
 {
 	QGeoShape *pObject ;
@@ -105820,25 +105798,6 @@ RING_FUNC(ring_QGeoShape_contains)
 	}
 	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
 	RING_API_RETNUMBER(pObject->contains(* (QGeoCoordinate  *) RING_API_GETCPOINTER(2,"QGeoCoordinate")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QGeoCoordinate"));
-}
-
-
-RING_FUNC(ring_QGeoShape_extendShape)
-{
-	QGeoShape *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QGeoShape *) RING_API_GETCPOINTER(1,"QGeoShape");
-	pObject->extendShape(* (QGeoCoordinate  *) RING_API_GETCPOINTER(2,"QGeoCoordinate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QGeoCoordinate"));
 }
@@ -106169,27 +106128,6 @@ RING_FUNC(ring_QNmeaPositionInfoSource_setDevice)
 }
 
 
-RING_FUNC(ring_QNmeaPositionInfoSource_setUserEquivalentRangeError)
-{
-	QNmeaPositionInfoSource *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QNmeaPositionInfoSource *) RING_API_GETCPOINTER(1,"QNmeaPositionInfoSource");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setUserEquivalentRangeError( (double ) RING_API_GETNUMBER(2));
-}
-
-
 RING_FUNC(ring_QNmeaPositionInfoSource_updateMode)
 {
 	QNmeaPositionInfoSource *pObject ;
@@ -106204,23 +106142,6 @@ RING_FUNC(ring_QNmeaPositionInfoSource_updateMode)
 	}
 	pObject = (QNmeaPositionInfoSource *) RING_API_GETCPOINTER(1,"QNmeaPositionInfoSource");
 	RING_API_RETNUMBER(pObject->updateMode());
-}
-
-
-RING_FUNC(ring_QNmeaPositionInfoSource_userEquivalentRangeError)
-{
-	QNmeaPositionInfoSource *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QNmeaPositionInfoSource *) RING_API_GETCPOINTER(1,"QNmeaPositionInfoSource");
-	RING_API_RETNUMBER(pObject->userEquivalentRangeError());
 }
 
 RING_FUNC(ring_QObject_new)
@@ -118586,9 +118507,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeorectangle_translated",ring_QGeoRectangle_translated);
 	ring_vm_funcregister("qgeorectangle_united",ring_QGeoRectangle_united);
 	ring_vm_funcregister("qgeorectangle_width",ring_QGeoRectangle_width);
-	ring_vm_funcregister("qgeoshape_center",ring_QGeoShape_center);
 	ring_vm_funcregister("qgeoshape_contains",ring_QGeoShape_contains);
-	ring_vm_funcregister("qgeoshape_extendshape",ring_QGeoShape_extendShape);
 	ring_vm_funcregister("qgeoshape_isempty",ring_QGeoShape_isEmpty);
 	ring_vm_funcregister("qgeoshape_isvalid",ring_QGeoShape_isValid);
 	ring_vm_funcregister("qgeoshape_type",ring_QGeoShape_type);
@@ -118606,9 +118525,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeosatelliteinfosource_updateinterval",ring_QGeoSatelliteInfoSource_updateInterval);
 	ring_vm_funcregister("qnmeapositioninfosource_device",ring_QNmeaPositionInfoSource_device);
 	ring_vm_funcregister("qnmeapositioninfosource_setdevice",ring_QNmeaPositionInfoSource_setDevice);
-	ring_vm_funcregister("qnmeapositioninfosource_setuserequivalentrangeerror",ring_QNmeaPositionInfoSource_setUserEquivalentRangeError);
 	ring_vm_funcregister("qnmeapositioninfosource_updatemode",ring_QNmeaPositionInfoSource_updateMode);
-	ring_vm_funcregister("qnmeapositioninfosource_userequivalentrangeerror",ring_QNmeaPositionInfoSource_userEquivalentRangeError);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
