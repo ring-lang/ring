@@ -2792,9 +2792,7 @@ C++ Reference : http://doc.qt.io/qt-5/QGeoShape.html
 
 Parameters : void
 
-* QGeoCoordinate center(void)
 * bool contains(QGeoCoordinate coordinate)
-* void extendShape(QGeoCoordinate coordinate)
 * bool isEmpty(void)
 * bool isValid(void)
 * QGeoShape::ShapeType type(void)
@@ -4430,9 +4428,7 @@ Parent Class : QGeoPositionInfoSource
 
 * QIODevice * device(void)
 * void setDevice(QIODevice * device)
-* void setUserEquivalentRangeError(double uere)
 * QNmeaPositionInfoSource::UpdateMode updateMode(void)
-* double userEquivalentRangeError(void)
 .. index::
 	pair: RingQt Classes Reference; QObject Class
 
