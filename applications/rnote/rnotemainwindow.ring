@@ -288,7 +288,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+h"))
 							settext("Set Tab Width")
-							setclickEvent(Method(:pTabWidth))
+							setclickEvent(Method(:TabWidth))
 						}
 						addaction(oAction)
 						addseparator()

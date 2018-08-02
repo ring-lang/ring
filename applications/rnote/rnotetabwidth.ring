@@ -3,7 +3,7 @@
 
 class RNoteTabWidth
 
-	func pTabWidth
+	func TabWidth
 		oInput = New QInputDialog(win1)
 		{
 			setwindowtitle("Set the Tab Width")
@@ -14,9 +14,9 @@ class RNoteTabWidth
 		}
 		if r=0 return ok
 		nTabSpaces = 0 + oInput.textvalue()
-		pSetTabSpaces()
+		SetTabSpaces()
 
-	func pSetTabSpaces
+	func SetTabSpaces
 		oTempFont.fromstring(cFont)
 		oFontMetrics = new QFontMetrics(oTempFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)

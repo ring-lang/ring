@@ -54,7 +54,7 @@ class RNoteSettings
 		pSetFont()
 		pSetWebsite()
 		SetWindows()
-		pSetTabSpaces()
+		SetTabSpaces()
 		pSelectStyleColor2(nDefaultStyle)
 
 	func SetWindows
