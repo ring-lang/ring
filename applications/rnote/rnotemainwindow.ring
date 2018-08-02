@@ -883,15 +883,15 @@ class RNoteMainWindow
 				setText("Input :")
 			}
 			this.oProcessText = new qlineEdit(this.oOutputWindow) {
-				setreturnPressedEvent(Method(:pSendProcessData))
+				setreturnPressedEvent(Method(:SendProcessData))
 			}
 			oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
 				setText("Send")
-				setClickEvent(Method(:pSendProcessData))
+				setClickEvent(Method(:SendProcessData))
 			}
 			oClearbtn = new qpushbutton(this.oOutputWindow) {
 				setText("Clear")
-				setClickEvent(Method(:pClearProcess))
+				setClickEvent(Method(:ClearProcess))
 			}
 			oProcessLayout1 = new qhboxlayout() {
 				AddWidget(oProcessLabel)

@@ -18,7 +18,7 @@ Class RNoteOutputWindow
 		}
 		return oProcess
 
-	func pGetProcessData 
+	func GetProcessData 
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
 		# Set the font
@@ -26,12 +26,12 @@ Class RNoteOutputWindow
 			oProcessEditbox.setFont(oTempFont)
 		oProcessEditbox.insertplaintext(cText)
 
-	func pSendProcessData
+	func SendProcessData
 		if ISNULL(oProcess) return ok
 		cText = oProcessText.text() + windowsnl()
 		oProcess.write(cText ,len(cText))
 		oProcessEditbox.insertplaintext(cText)
 		oProcessText.setText("")
 
-	func pClearProcess
+	func ClearProcess
 		oProcessEditbox.setPlainText("")

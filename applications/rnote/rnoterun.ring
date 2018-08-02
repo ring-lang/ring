@@ -28,7 +28,7 @@ Class RNoteRun
 	func RunGUIOperation cActiveFileName
 		oProcessEditbox.setplaintext("")
 		chdir(JustFilePath(cActiveFileName))
-		oProcess = RunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
+		oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
 		chdir(exefolder())
 
 	func RunWebApplication cFile
@@ -40,9 +40,9 @@ Class RNoteRun
 					PrepareConfigurationFile() 
 					cServerExe = getserverExeFile()
 				}	
-				oProcess = RunProcess(cCurrentDir + "batch\killwebserver.bat","",cpGetProcessData)			
+				oProcess = RunProcess(cCurrentDir + "batch\killwebserver.bat","",cGetProcessData)			
 				oProcess.waitForFinished(3000)
-				oWebServerProcess = RunProcess(cServerEXE,"",cpGetProcessData)			
+				oWebServerProcess = RunProcess(cServerEXE,"",cGetProcessData)			
 				sleep(3)
 				oProcessEditbox.setplaintext("")
 			ok

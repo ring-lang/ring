@@ -133,7 +133,7 @@ Class RNoteControllerBase from WindowsControllerParent
 		cFormFile = ""
 
 	# Methods (For the Output Window)
-		cpGetProcessData = Method(:pGetProcessData)
+		cGetProcessData = Method(:GetProcessData)
 
 	# Web Applications 
 		cWebApplicationFolder = ""
