@@ -16,7 +16,7 @@ Class RNoteFileMenu
 			ok
 		}
 
-	func pOpen
+	func Open
 		new qfiledialog(this.win1) {
 			this.SaveCurrentFolder()
 			cName = getopenfilename(this.win1,"open file",this.cStartupFolder,"source files(*.ring)")

@@ -34,7 +34,7 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/open.png")
-						setclickEvent(Method(:pOpen))
+						setclickEvent(Method(:Open))
 						settooltip("Open File (Ctrl+O)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -180,7 +180,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+o"))
 							setbtnimage(self,"image/open.png")
 							settext("Open")
-							setclickEvent(Method(:pOpen))
+							setclickEvent(Method(:Open))
 						}
 						addaction(oAction)
 						addseparator()
@@ -676,12 +676,12 @@ class RNoteMainWindow
 						subHelpLF {
 							oAction = new qAction(this.win1) {
 								settext("CHM File")
-								setclickEvent(Method(:pOpenCHM))
+								setclickEvent(Method(:OpenCHM))
 							}
 							addaction(oAction)
 							oAction = new qAction(this.win1) {
 								settext("PDF File")
-								setclickEvent(Method(:pOpenPDF))
+								setclickEvent(Method(:OpenPDF))
 							}
 							addaction(oAction)
 						}
@@ -691,12 +691,12 @@ class RNoteMainWindow
 	
 							oAction = new qAction(this.win1) {
 								settext("Programming Language")
-								setclickEvent(Method(:pLang))
+								setclickEvent(Method(:Lang))
 							}
 							addaction(oAction)
 							oAction = new qAction(this.win1) {
 								settext("GUI Library")
-								setclickEvent(Method(:pGUI))
+								setclickEvent(Method(:GUI))
 							}
 							addaction(oAction)
 						}
