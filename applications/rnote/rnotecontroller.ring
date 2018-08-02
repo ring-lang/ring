@@ -5,7 +5,7 @@ class RNoteController from RNoteControllerBase
 
 	LoadSettings()
 
-	MyApp = New qApp {
+	oApp = New qApp {
 		this {
 			# Custom Editor Style Color
 				CheckCustomColors()

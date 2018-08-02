@@ -37,7 +37,7 @@ class RNoteLists
 			ok
 			if nLineNumber % 100 = 0 
 				nOldCount = oFunctionsList.Count()
-				MyAPP.ProcessEvents()
+				oApp.ProcessEvents()
 				if oFunctionsList.Count() != nOldCount 
 					return
 				ok
@@ -86,7 +86,7 @@ class RNoteLists
 			ok
 			if nLineNumber % 100 = 0 
 				nOldCount = oClassesList.Count()
-				MyAPP.ProcessEvents()
+				oApp.ProcessEvents()
 				if oClassesList.Count() != nOldCount 
 					return 
 				ok

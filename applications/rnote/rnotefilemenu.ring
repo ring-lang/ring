@@ -82,5 +82,5 @@ Class RNoteFileMenu
 
 	func pQuit
 		SaveSettings()
-		myapp.quit()
+		oApp.quit()
 

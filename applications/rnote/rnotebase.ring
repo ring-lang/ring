@@ -113,7 +113,7 @@ Class RNoteControllerBase from WindowsControllerParent
 		nAutoCompleteListSize 	= 0
 
 	# Main Window 
-		MyApp win1 oFilter aBtns tool1 menu1 status1
+		oApp win1 oFilter aBtns tool1 menu1 status1
 		tool2 oTxtMainFile
 		Tree1 TextEdit1 
 		oDockProjectFiles oDockSourceCode oDockWebBrowser 

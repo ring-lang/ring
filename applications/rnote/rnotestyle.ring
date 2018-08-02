@@ -87,7 +87,7 @@ class RNoteStyle
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
 			aBackColor = [0,0,135]
-			MyApp.StylefusionCustom(
+			oApp.StylefusionCustom(
 				new qColor() { setrgb(0,0,128,255) },
 				new qColor() { setrgb(255,255,255,255) },
 				new qColor() { setrgb(0,0,128,255) },
@@ -104,7 +104,7 @@ class RNoteStyle
 
 	func StyleBlack()
 			nDefaultStyle  = STYLECOLOR_BLACK
-			MyApp.StyleFusionBlack()
+			oApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colorBlack,
@@ -121,7 +121,7 @@ class RNoteStyle
 
 	func StyleWhite()
 			nDefaultStyle  = STYLECOLOR_WHITE 
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			StyleWhiteColors()
 
 	func StyleWhiteColors
@@ -142,9 +142,9 @@ class RNoteStyle
 	func StyleWindows
 			nDefaultStyle  = STYLECOLOR_WINDOWS
 			if isWindows()
-				MyApp.StyleWindowsVista()
+				oApp.StyleWindowsVista()
 			else 
-				MyApp.StyleWindows()
+				oApp.StyleWindows()
 			ok
 			StyleWhiteColors()
 
@@ -163,7 +163,7 @@ class RNoteStyle
 			aStyleColors = aCustomStyleColors
 			aTextColor = [248,248,242]
 			aBackColor = [39,60,64]
-			MyApp.StylefusionCustom(
+			oApp.StylefusionCustom(
 				new qColor() { setrgb(39,60,64,255) 	},
 				new qColor() { setrgb(255,255,255,255) 	},
 				new qColor() { setrgb(39,60,64,255) 	},
@@ -180,7 +180,7 @@ class RNoteStyle
 
 	func StyleModernBlack()
 			nDefaultStyle  = STYLECOLOR_MODERNBLACK
-			MyApp.StyleFusionBlack()
+			oApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
@@ -197,7 +197,7 @@ class RNoteStyle
 
 	func StyleModernBlack2()
 			nDefaultStyle  = STYLECOLOR_MODERNBLACK2
-			MyApp.StyleFusionBlack()
+			oApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
@@ -214,7 +214,7 @@ class RNoteStyle
 
 	func StyleNotepadWhite()
 			nDefaultStyle  = STYLECOLOR_NOTEPADWHITE
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorBlack ,
 				:LineNumbersAreaBackColor 	= colorWhite,
@@ -231,7 +231,7 @@ class RNoteStyle
 
 	func StyleNotepadPurple()
 			nDefaultStyle  = STYLECOLOR_NOTEPADPURPLE
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colorPurple,
@@ -248,7 +248,7 @@ class RNoteStyle
 
 	func StyleNotepadDarkBlue()
 			nDefaultStyle  = STYLECOLOR_NOTEPADDARKBLUE
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colordarkBlue,
@@ -265,7 +265,7 @@ class RNoteStyle
 
 	func StyleNotepadBlack()
 			nDefaultStyle  = STYLECOLOR_NOTEPADBLACK
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colorBlack,
@@ -283,7 +283,7 @@ class RNoteStyle
 
 	func StyleArt()
 			nDefaultStyle  = STYLECOLOR_ART
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(50,50,42,255) 	},
@@ -300,7 +300,7 @@ class RNoteStyle
 
 	func StyleArt2()
 			nDefaultStyle  = STYLECOLOR_ART2
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
@@ -317,7 +317,7 @@ class RNoteStyle
 
 	func StyleArt3()
 			nDefaultStyle  = STYLECOLOR_ART3
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
@@ -334,7 +334,7 @@ class RNoteStyle
 
 	func StyleImage()
 			nDefaultStyle  = STYLECOLOR_IMAGE
-			MyApp.StyleFusionBlack()
+			oApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
@@ -351,7 +351,7 @@ class RNoteStyle
 
 	func StyleImage2()
 			nDefaultStyle  = STYLECOLOR_IMAGE2
-			MyApp.StyleFusion()
+			oApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
