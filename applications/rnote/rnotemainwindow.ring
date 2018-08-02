@@ -9,7 +9,7 @@ class RNoteMainWindow
 			setwindowtitle("Ring Notepad")
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oFilter = new qAllEvents(this.win1)
-			this.oFilter.setCloseEvent(Method(:pRingNotepadXButton))
+			this.oFilter.setCloseEvent(Method(:RingNotepadXButton))
 			installEventFilter(this.oFilter)
 			this.CreateToolbars()	
 			this.CreateMenubar()
@@ -938,6 +938,6 @@ class RNoteMainWindow
 			this.oDockFunctionsList.raise()
 		}
 
-	func pRingNotepadXButton
+	func RingNotepadXButton
 		pSaveSettings() 
 
