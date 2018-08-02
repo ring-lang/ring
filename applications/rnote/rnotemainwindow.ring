@@ -29,7 +29,7 @@ class RNoteMainWindow
 			aBtns = [
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
-						setclickEvent(Method(:New))
+						setclickEvent(Method(:NewFile))
 						settooltip("New File (Ctrl+N)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -173,7 +173,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+n"))
 							setbtnimage(self,"image/new.png")
 							settext("New")
-							setclickEvent(Method(:New))
+							setclickEvent(Method(:NewFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {

@@ -3,7 +3,7 @@
 
 Class RNoteFileMenu
 
-	func New
+	func NewFile
 		new qfiledialog(this.win1) {
 			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"New file",this.cStartupFolder,"source files(*.ring)")
