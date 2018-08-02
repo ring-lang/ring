@@ -10129,12 +10129,24 @@ QGeoCircle translated(double degreesLatitude, double degreesLongitude)
 <class>
 name: QGeoPositionInfoSource
 parent: QObject
-nonew
+abstract
 </class>
 
 QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
 QString sourceName(void)
 int updateInterval(void)
+
+<class>
+name: QGeoPositionInfoSource2
+codename: QGeoPositionInfoSource
+parent: QObject
+abstract
+staticmethods
+</class>
+
+QStringList availableSources(void)
+QGeoPositionInfoSource *createDefaultSource(QObject *parent)
+QGeoPositionInfoSource *createSource(QString sourceName, QObject *parent)
 
 <class>
 name: QGeoRectangle

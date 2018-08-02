@@ -22633,14 +22633,56 @@ Class QGeoCircle
 		return pTempObj
 
 Class QGeoPositionInfoSource from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGeoPositionInfoSource_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGeoPositionInfoSource_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
 	Func preferredPositioningMethods 
-		return QGeoPositionInfoSource_preferredPositioningMethods()
+		return QGeoPositionInfoSource_preferredPositioningMethods(pObject)
 
 	Func sourceName 
-		return QGeoPositionInfoSource_sourceName()
+		return QGeoPositionInfoSource_sourceName(pObject)
 
 	Func updateInterval 
-		return QGeoPositionInfoSource_updateInterval()
+		return QGeoPositionInfoSource_updateInterval(pObject)
+
+Class QGeoPositionInfoSource2 from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGeoPositionInfoSource2_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGeoPositionInfoSource2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func availableSources 
+		pTempObj = new QStringList
+		pTempObj.pObject = QGeoPositionInfoSource2_availableSources(pObject)
+		return pTempObj
+
+	Func createDefaultSource P1
+		pTempObj = new QGeoPositionInfoSource
+		pTempObj.pObject = QGeoPositionInfoSource2_createDefaultSource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func createSource P1,P2
+		pTempObj = new QGeoPositionInfoSource
+		pTempObj.pObject = QGeoPositionInfoSource2_createSource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 Class QGeoRectangle from QGeoShape
 
