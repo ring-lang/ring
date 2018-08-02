@@ -153,3 +153,17 @@ class findinfilesController from WindowsControllerParent
 		oView.Statusbar1.ShowMessage("Replace operation done, In file : " + cFile,0)
 
 	func ReplaceAll
+		cText     = oView.txtFind.text()		
+		cReplace  = oView.txtReplace.text()
+		lCase	  = oView.checkMatchCase.checkstate()
+		for cFile in aResultFiles {
+			cContent  = read(cFile)
+			if lCase {
+				cContent = substr(cContent,cText,cReplace)
+			else 
+				cContent = substr(cContent,cText,cReplace,True)
+			}		
+			write(cFile,cContent)	
+		}
+		search()
+		oView.Statusbar1.ShowMessage("Replace All operation done, In " + len(aResultFiles) + " files",0)
