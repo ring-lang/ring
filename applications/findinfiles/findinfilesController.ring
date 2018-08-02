@@ -23,11 +23,14 @@ class findinfilesController from WindowsControllerParent
 	aResult 	= []
 	nFilesCount 	= 0
 	nMatches 	= 0
+	
+	aResultFiles	= []
 
 	func search
 		Qt_ItemIsSelectable 	= 1
 		Qt_ItemIsEnabled 	= 32
 		aResult = []
+		aResultFiles	= []
 		oView {
 			cText = txtFind.text()
 			cFolder = trim(txtFolder.text())
@@ -82,6 +85,9 @@ class findinfilesController from WindowsControllerParent
 						oItem.setFlags(Qt_ItemIsSelectable|Qt_ItemIsEnabled)
 						TableOutput.setItem(nRow,3,oItem)
 						this.aResult + [cFile,x]
+						if not find(aResultFiles,cFile) {
+							aResultFiles + cFile 
+						}
 					}
 				}
 			}
@@ -133,15 +139,15 @@ class findinfilesController from WindowsControllerParent
 		lCase	  = oView.checkMatchCase.checkstate()
 		cContent  = read(cFile)
 		aContentList = str2list(cContent)
-		if lCase 
+		if lCase {
 			aContentList[nRow] = substr(aContentList[nRow],cText,cReplace)
 		else 
 			aContentList[nRow] = substr(aContentList[nRow],cText,cReplace,True)
-		ok
+		}
 		cContent = list2str(aContentList)
-		if isWindows() 
+		if isWindows() {
 			cContent = substr(cContent,nl,Windowsnl())
-		ok
+		}
 		write(cFile,cContent)
 		search()
 		oView.Statusbar1.ShowMessage("Replace operation done, In file : " + cFile,0)
