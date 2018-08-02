@@ -3,7 +3,7 @@
 
 class RNoteMode 
 
-	func pSetMode nMode
+	func SetMode nMode
 		switch nMode
 			on VIEWMODE_GENERAL	
 				oDockProjectFiles.Show()
@@ -51,7 +51,7 @@ class RNoteMode
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
 			on VIEWMODE_CODING2	# Coding (All Windows)
-				pSetMode(VIEWMODE_GENERAL)
+				SetMode(VIEWMODE_GENERAL)
 				win1 {
 					tabifydockwidget(this.oDockProjectFiles,this.oDockFunctionsList)
 					tabifydockwidget(this.oDockProjectFiles,this.oDockClassesList)
@@ -108,7 +108,7 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
 			on VIEWMODE_COMMON	
-				pSetMode(VIEWMODE_GENERAL)
+				SetMode(VIEWMODE_GENERAL)
 				win1 {
 					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,1)

@@ -461,55 +461,55 @@ class RNoteMainWindow
 						subStyle = addmenu("Mode")
 						subStyle {
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(1)"))
+								setclickEvent(Method("SetMode(1)"))
 								settext("General")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(2)"))
+								setclickEvent(Method("SetMode(2)"))
 								settext("Learning Ring (Editor + Documentation)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(3)"))
+								setclickEvent(Method("SetMode(3)"))
 								settext("Coding (Project File + Editor)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(4)"))
+								setclickEvent(Method("SetMode(4)"))
 								settext("Coding (All Windows)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(5)"))
+								setclickEvent(Method("SetMode(5)"))
 								settext("Coding (Code Editor)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(6)"))
+								setclickEvent(Method("SetMode(6)"))
 								settext("GUI Development (Code Editor + Form Designer)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(7)"))
+								setclickEvent(Method("SetMode(7)"))
 								settext("Web Development (Code Editor + Web Browser)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(8)"))
+								setclickEvent(Method("SetMode(8)"))
 								settext("Testing (Project Files + Code Editor + Output Window)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetMode(9)"))
+								setclickEvent(Method("SetMode(9)"))
 								settext("Common (All Windows + Output Window in the bottom)")
 							}
 							addaction(oAction)

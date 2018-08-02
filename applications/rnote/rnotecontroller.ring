@@ -13,7 +13,7 @@ class RNoteController from RNoteControllerBase
 			# Create the Main Window
 				CreateMainWindow()
 			# Default Settings
-				pSetMode(nDefaultMode) 
+				SetMode(nDefaultMode) 
 				RestoreSettings()
 				win1.showmaximized()
 		}
