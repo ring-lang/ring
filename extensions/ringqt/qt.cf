@@ -10135,7 +10135,6 @@ passvmpointer
 abstract
 </class>
 
-
 QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
 QString sourceName(void)
 int updateInterval(void)
@@ -10148,17 +10147,65 @@ const char *geterrorEvent(void)
 const char *getpositionUpdatedEvent(void)
 const char *getupdateTimeoutEvent(void)
 
-<class>
-name: QGeoPositionInfoSource2
-codename: QGeoPositionInfoSource
-parent: QObject
-abstract
-staticmethods
-</class>
-
+<register>
 QStringList availableSources(void)
 QGeoPositionInfoSource *createDefaultSource(QObject *parent)
 QGeoPositionInfoSource *createSource(QString sourceName, QObject *parent)
+</register>
+
+<code>
+RING_FUNC(ring_QGeoPositionInfoSource_availableSources)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = QGeoPositionInfoSource::availableSources();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_createDefaultSource)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(QGeoPositionInfoSource::createDefaultSource((QObject *) RING_API_GETCPOINTER(1,"QObject")),"QGeoPositionInfoSource");
+}
+
+
+RING_FUNC(ring_QGeoPositionInfoSource_createSource)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(QGeoPositionInfoSource::createSource(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject")),"QGeoPositionInfoSource");
+}
+
+
+
+</code>
 
 <class>
 name: QGeoRectangle

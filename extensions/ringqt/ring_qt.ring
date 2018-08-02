@@ -22673,33 +22673,19 @@ Class QGeoPositionInfoSource from QObject
 	Func getupdateTimeoutEvent 
 		return QGeoPositionInfoSource_getupdateTimeoutEvent(pObject)
 
-Class QGeoPositionInfoSource2 from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QGeoPositionInfoSource2_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QGeoPositionInfoSource2_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
 	Func availableSources 
 		pTempObj = new QStringList
-		pTempObj.pObject = QGeoPositionInfoSource2_availableSources(pObject)
+		pTempObj.pObject = QGeoPositionInfoSource_availableSources(pObject)
 		return pTempObj
 
 	Func createDefaultSource P1
 		pTempObj = new QGeoPositionInfoSource
-		pTempObj.pObject = QGeoPositionInfoSource2_createDefaultSource(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QGeoPositionInfoSource_createDefaultSource(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 	Func createSource P1,P2
 		pTempObj = new QGeoPositionInfoSource
-		pTempObj.pObject = QGeoPositionInfoSource2_createSource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QGeoPositionInfoSource_createSource(pObject,P1,GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 Class QGeoRectangle from QGeoShape

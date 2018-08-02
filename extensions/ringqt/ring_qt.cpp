@@ -555,7 +555,6 @@ extern "C" {
 	void ring_QGeoAreaMonitorSource_freefunc(void *pState,void *pPointer);
 	void ring_QGeoCircle_freefunc(void *pState,void *pPointer);
 	void ring_QGeoPositionInfoSource_freefunc(void *pState,void *pPointer);
-	void ring_QGeoPositionInfoSource2_freefunc(void *pState,void *pPointer);
 	void ring_QGeoRectangle_freefunc(void *pState,void *pPointer);
 	void ring_QGeoShape_freefunc(void *pState,void *pPointer);
 	void ring_QGeoSatelliteInfo_freefunc(void *pState,void *pPointer);
@@ -127827,8 +127826,7 @@ RING_FUNC(ring_QGeoPositionInfoSource_getupdateTimeoutEvent)
 	RING_API_RETSTRING(pObject->getupdateTimeoutEvent());
 }
 
-
-RING_FUNC(ring_QGeoPositionInfoSource2_availableSources)
+RING_FUNC(ring_QGeoPositionInfoSource_availableSources)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -127836,7 +127834,7 @@ RING_FUNC(ring_QGeoPositionInfoSource2_availableSources)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	{
-		QStringList *pValue ; 
+		QStringList *pValue ;
 		pValue = new QStringList() ;
 		*pValue = QGeoPositionInfoSource::availableSources();
 		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
@@ -127844,7 +127842,7 @@ RING_FUNC(ring_QGeoPositionInfoSource2_availableSources)
 }
 
 
-RING_FUNC(ring_QGeoPositionInfoSource2_createDefaultSource)
+RING_FUNC(ring_QGeoPositionInfoSource_createDefaultSource)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -127859,7 +127857,7 @@ RING_FUNC(ring_QGeoPositionInfoSource2_createDefaultSource)
 }
 
 
-RING_FUNC(ring_QGeoPositionInfoSource2_createSource)
+RING_FUNC(ring_QGeoPositionInfoSource_createSource)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -127876,6 +127874,8 @@ RING_FUNC(ring_QGeoPositionInfoSource2_createSource)
 	}
 	RING_API_RETCPOINTER(QGeoPositionInfoSource::createSource(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject")),"QGeoPositionInfoSource");
 }
+
+
 
 
 RING_FUNC(ring_QGeoRectangle_bottomLeft)
@@ -142613,9 +142613,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgeopositioninfosource_geterrorevent",ring_QGeoPositionInfoSource_geterrorEvent);
 	ring_vm_funcregister("qgeopositioninfosource_getpositionupdatedevent",ring_QGeoPositionInfoSource_getpositionUpdatedEvent);
 	ring_vm_funcregister("qgeopositioninfosource_getupdatetimeoutevent",ring_QGeoPositionInfoSource_getupdateTimeoutEvent);
-	ring_vm_funcregister("qgeopositioninfosource2_availablesources",ring_QGeoPositionInfoSource2_availableSources);
-	ring_vm_funcregister("qgeopositioninfosource2_createdefaultsource",ring_QGeoPositionInfoSource2_createDefaultSource);
-	ring_vm_funcregister("qgeopositioninfosource2_createsource",ring_QGeoPositionInfoSource2_createSource);
+	ring_vm_funcregister("qgeopositioninfosource_availablesources",ring_QGeoPositionInfoSource_availableSources);
+	ring_vm_funcregister("qgeopositioninfosource_createdefaultsource",ring_QGeoPositionInfoSource_createDefaultSource);
+	ring_vm_funcregister("qgeopositioninfosource_createsource",ring_QGeoPositionInfoSource_createSource);
 	ring_vm_funcregister("qgeorectangle_bottomleft",ring_QGeoRectangle_bottomLeft);
 	ring_vm_funcregister("qgeorectangle_bottomright",ring_QGeoRectangle_bottomRight);
 	ring_vm_funcregister("qgeorectangle_center",ring_QGeoRectangle_center);
