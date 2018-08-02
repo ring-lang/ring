@@ -277,6 +277,7 @@ extern "C" {
 #include <QGeoAreaMonitorSource>
 #include <QGeoCircle>
 #include <QGeoPositionInfoSource>
+#include "ggeopositioninfosource.h"
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
@@ -10129,12 +10130,23 @@ QGeoCircle translated(double degreesLatitude, double degreesLongitude)
 <class>
 name: QGeoPositionInfoSource
 parent: QObject
+codename: GGeoPositionInfoSource 
+passvmpointer
 abstract
 </class>
+
 
 QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
 QString sourceName(void)
 int updateInterval(void)
+
+void seterrorEvent(const char *)
+void setpositionUpdatedEvent(const char *)
+void setupdateTimeoutEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getpositionUpdatedEvent(void)
+const char *getupdateTimeoutEvent(void)
 
 <class>
 name: QGeoPositionInfoSource2

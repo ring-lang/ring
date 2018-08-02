@@ -22655,6 +22655,24 @@ Class QGeoPositionInfoSource from QObject
 	Func updateInterval 
 		return QGeoPositionInfoSource_updateInterval(pObject)
 
+	Func seterrorEvent P1
+		return QGeoPositionInfoSource_seterrorEvent(pObject,P1)
+
+	Func setpositionUpdatedEvent P1
+		return QGeoPositionInfoSource_setpositionUpdatedEvent(pObject,P1)
+
+	Func setupdateTimeoutEvent P1
+		return QGeoPositionInfoSource_setupdateTimeoutEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QGeoPositionInfoSource_geterrorEvent(pObject)
+
+	Func getpositionUpdatedEvent 
+		return QGeoPositionInfoSource_getpositionUpdatedEvent(pObject)
+
+	Func getupdateTimeoutEvent 
+		return QGeoPositionInfoSource_getupdateTimeoutEvent(pObject)
+
 Class QGeoPositionInfoSource2 from QObject
 
 	pObject

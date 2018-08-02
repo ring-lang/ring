@@ -48,6 +48,7 @@ INPUT(
 ./release\gcalendarwidget.o
 ./release\gtabbar.o
 ./release\gdrag.o
+./release\ggeopositioninfosource.o
 ./release\ring_qt.o
 ./release\openglwidget.o
 ./release\gquickwidget.o
@@ -100,6 +101,7 @@ INPUT(
 ./release\moc_gdockwidget.o
 ./release\moc_gtabbar.o
 ./release\moc_gdrag.o
+./release\moc_ggeopositioninfosource.o
 ./release\moc_openglwidget.o
 ./release\moc_gquickwidget.o
 );

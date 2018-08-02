@@ -61,6 +61,7 @@ SOURCES +=   \
     gcalendarwidget.cpp \
     gtabbar.cpp \
     gdrag.cpp \
+    ggeopositioninfosource.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -112,7 +113,8 @@ HEADERS  += \
     gcalendarwidget.h \
     gdockwidget.h \
     gtabbar.h \
-    gdrag.h 
+    gdrag.h \
+    ggeopositioninfosource.h
     
 
 INCLUDEPATH += ../../include

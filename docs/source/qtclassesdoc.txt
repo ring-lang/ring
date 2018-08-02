@@ -2709,6 +2709,12 @@ Parent Class : QObject
 * QGeoPositionInfoSource::PositioningMethods preferredPositioningMethods(void)
 * QString sourceName(void)
 * int updateInterval(void)
+* void seterrorEvent(const char *)
+* void setpositionUpdatedEvent(const char *)
+* void setupdateTimeoutEvent(const char *)
+* const char *geterrorEvent(void)
+* const char *getpositionUpdatedEvent(void)
+* const char *getupdateTimeoutEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QGeoPositionInfoSource2 Class

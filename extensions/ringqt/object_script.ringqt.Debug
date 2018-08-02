@@ -48,6 +48,7 @@ INPUT(
 ./debug\gcalendarwidget.o
 ./debug\gtabbar.o
 ./debug\gdrag.o
+./debug\ggeopositioninfosource.o
 ./debug\ring_qt.o
 ./debug\openglwidget.o
 ./debug\gquickwidget.o
@@ -100,6 +101,7 @@ INPUT(
 ./debug\moc_gdockwidget.o
 ./debug\moc_gtabbar.o
 ./debug\moc_gdrag.o
+./debug\moc_ggeopositioninfosource.o
 ./debug\moc_openglwidget.o
 ./debug\moc_gquickwidget.o
 );
