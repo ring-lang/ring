@@ -853,8 +853,8 @@ class RNoteMainWindow
 		win1 {
 			this.aFunctionsPos = []	# Lines Numbers for each function
 			this.oFunctionsList = new qListwidget(this.win1) {
-				setitemdoubleclickedEvent(Method(:pSelectFunction))
-				setitemactivatedEvent(Method(:pSelectFunction))
+				setitemdoubleclickedEvent(Method(:SelectFunction))
+				setitemactivatedEvent(Method(:SelectFunction))
 			}
 			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
@@ -866,8 +866,8 @@ class RNoteMainWindow
 		win1 {
 			this.aClassesPos = []	# Lines Numbers for each class
 			this.oClassesList = new qListwidget(this.win1) {
-				setitemdoubleclickedEvent(Method(:pSelectClass))
-				setitemactivatedEvent(Method(:pSelectClass))
+				setitemdoubleclickedEvent(Method(:SelectClass))
+				setitemactivatedEvent(Method(:SelectClass))
 			}
 			this.oDockClassesList = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)

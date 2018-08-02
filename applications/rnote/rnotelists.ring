@@ -54,7 +54,7 @@ class RNoteLists
 		oDockFunctionsList.setWindowTitle("Functions ("+oFunctionsList.Count()+")")
 		StatusMessage("Creating functions list ... Done!")
 
-	func pSelectFunction
+	func SelectFunction
 		nIndex = oFunctionsList.currentrow() + 1
 		nLine = aFunctionsPos[nIndex][2]
 		gotoline(nLine)
@@ -103,7 +103,7 @@ class RNoteLists
 		oDockClassesList.setWindowTitle("Classes ("+oClassesList.Count()+")")
 		StatusMessage("Creating classes list ... Done!")
 
-	func pSelectClass
+	func SelectClass
 		nIndex = oClassesList.currentrow() + 1
 		nLine = aClassesPos[nIndex][2]
 		gotoline(nLine)
