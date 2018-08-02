@@ -74,7 +74,7 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
-						setclickEvent(Method(:pFind))
+						setclickEvent(Method(:OpenFindWindow))
 						settooltip("Find and Replace (Ctrl+F)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -281,7 +281,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+f"))
 							setbtnimage(self,"image/search.png")
 							settext("Find and Replace")
-							setclickEvent(Method(:pFind))
+							setclickEvent(Method(:OpenFindWindow))
 						}
 						addaction(oAction)
 						addseparator()

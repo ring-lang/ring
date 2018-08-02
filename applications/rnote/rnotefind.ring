@@ -3,7 +3,7 @@
 
 class RNoteFind
 
-	func pFind
+	func OpenFindWindow
 		if isobject(oSearch)
 			oSearch.activatewindow()
 			return
@@ -17,7 +17,7 @@ class RNoteFind
 			this.oSearchValue = new qlineedit(this.oSearch)
 			{
 				setText(this.cSearchText)
-				setReturnPressedEvent(Method(:pFindValue))
+				setReturnPressedEvent(Method(:FindValue))
 			}
 			oLayout1 = new qHBoxLayout()
 			{
@@ -49,22 +49,22 @@ class RNoteFind
 			oBtnFind = new qPushButton(this.oSearch)
 			{
 				setText("Find/Find Next")
-				setclickEvent(Method(:pFindValue))
+				setclickEvent(Method(:FindValue))
 			}
 			oBtnReplace = new qPushButton(this.oSearch)
 			{
 				setText("Replace")
-				setclickEvent(Method(:pReplace))
+				setclickEvent(Method(:Replace))
 			}
 			oBtnReplaceAll = new qPushButton(this.oSearch)
 			{
 				setText("Replace All")
-				setclickEvent(Method(:pReplaceAll))
+				setclickEvent(Method(:ReplaceAll))
 			}
 			oBtnClose = new qPushButton(this.oSearch)
 			{
 				setText("Close")
-				setclickEvent(Method(:pSearchClose))
+				setclickEvent(Method(:SearchClose))
 			}
 			oLayout4 = new qHBoxLayout()
 			{
@@ -86,12 +86,12 @@ class RNoteFind
 			setFixedsize(550,160)
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint)
 			this.oSearchFilter = new qallevents(this.oSearch)
-			this.oSearchFilter.setKeyPressEvent(Method(:pSearchKeyPress))
+			this.oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
 			installeventfilter(this.oSearchFilter)
 			show()
 		}
 
-	func pReplace
+	func Replace
 		oCursor = textedit1.textCursor()
 		if oCursor.HasSelection() = false
 			new qMessagebox(oSearch)
@@ -123,9 +123,9 @@ class RNoteFind
 		cStr = textedit1.toPlainText()
 		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
 		textedit1.setPlainText(cStr)
-		return pFindValue()
+		return FindValue()
 
-	func pReplaceAll
+	func ReplaceAll
 		cStr = textedit1.toPlainText()
 		cOldValue = oSearchValue.text()
 		cNewValue = oReplaceValue.text()
@@ -144,19 +144,19 @@ class RNoteFind
 			show()
 		}
 
-	func pSearchClose
+	func SearchClose
 		oSearch.close()
 		oSearch = NULL
 		cSearchText = oSearchValue.text()
 		cReplaceText = oReplaceValue.text()
 
 
-	func pSearchKeyPress
+	func SearchKeyPress
 		if oSearchFilter.getKeyCode() = Qt_Key_Escape
-			pSearchClose()
+			SearchClose()
 		ok
 
-	func pFindValue
+	func FindValue
 		oCursor = textedit1.textcursor()
 		nPosStart = oCursor.Position() + 1
 		cValue = oSearchValue.text()
