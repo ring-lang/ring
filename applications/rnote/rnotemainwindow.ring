@@ -124,22 +124,22 @@ class RNoteMainWindow
 				}
 				oBtnSetFile = new qtoolbutton(this.win1) {
 					setbtnimage(self,"image/open.png")
-					setclickEvent(Method(:pSetMainFile))
+					setclickEvent(Method(:SetMainFile))
 					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
 				}
 				oBtnDebugMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
-						setclickevent(Method(:pDebugMainFile)) 
+						setclickevent(Method(:DebugMainFile)) 
 						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
 				} 
 				oBtnRunMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
-						setclickEvent(Method(:pRunMainFile))
+						setclickEvent(Method(:RunMainFile))
 						settooltip("Main File : Run the program (Ctrl+Shift+R)")
 				} 
 				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
-						setclickEvent(Method(:pRunGUIMainFile))
+						setclickEvent(Method(:RunGUIMainFile))
 						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
 				} 
 				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
@@ -549,28 +549,28 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+Shift+M"))
 							setbtnimage(self,"image/open.png")
 							settext("Set the Main File to be the current source file")
-							setclickEvent(Method(:pSetMainFile))
+							setclickEvent(Method(:SetMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+d"))
 							setbtnimage(self,"image/debug.png")
 							settext("Main File : Debug (Run then wait!)")
-							setclickEvent(Method(:pDebugMainFile))
+							setclickEvent(Method(:DebugMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+r"))
 							setbtnimage(self,"image/run.png")
 							settext("Main File : Run")
-							setclickEvent(Method(:pRunMainFile))
+							setclickEvent(Method(:RunMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+F5"))
 							setbtnimage(self,"image/rungui.png")
 							settext("Main File : Run GUI Application (No Console)")
-							setclickEvent(Method(:pRunGUIMainFile))
+							setclickEvent(Method(:RunGUIMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {

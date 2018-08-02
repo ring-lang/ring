@@ -3,32 +3,32 @@
 
 class RNoteMainFileToolbar
 
-	func pSetMainFile
+	func SetMainFile
 		oTxtMainFile.setText(cActiveFileName)
 
 	func GetMainFile
 		cMainFileName = trim(oTxtMainFile.text())
 		if cMainFileName = NULL 
-			pSetMainFile() 
+			SetMainFile() 
 			cMainFileName = trim(oTxtMainFile.text())
 		ok
 		return cMainFileName
 
-	func pDebugMainFile
+	func DebugMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pSave()
 		pDebugOperation(cMainFileName)
 
-	func pRunMainFile
+	func RunMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pSave()
 		pRunOperation(cMainFileName)
 
-	func pRunGUIMainFile
+	func RunGUIMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(cMainFileName) return ok
