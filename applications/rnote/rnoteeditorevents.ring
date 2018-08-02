@@ -6,13 +6,13 @@ Class RNoteEditorEvents
 	func pTextChanged
 		lAskToSave = true
 		pSetFont()
-		pSetActiveLineColor()
+		SetActiveLineColor()
 
 	func pCursorPositionChanged
 		nLine = textedit1.textcursor().blocknumber()+1
 		StatusMessage(" Line : "+nLine+
 					" Column : " +(textedit1.textcursor().columnnumber()+1) +
 					" Total Lines : " + textedit1.document().linecount())
-		pSetActiveLineColor()
+		SetActiveLineColor()
 		aFilesLines[cActiveFileName] = nLine
 

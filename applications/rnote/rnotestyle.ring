@@ -3,38 +3,38 @@
 
 class RNoteStyle
 
-	func pCheckCustomColors
+	func CheckCustomColors
 		if True	# Switch to Use the Style or Not
-			pSelectStyleColor(nDefaultStyle)
+			SelectStyleColor(nDefaultStyle)
 			LoadSettings()
 		ok
 
-	func pSetActiveLineColor
+	func SetActiveLineColor
 		textedit1.SetActiveLineColor(aStyleColors[:ActiveLineBackColor])
 
-	func pSetStyleColor(nStyle)
-		pSelectStyleColor(nStyle)
+	func SetStyleColor(nStyle)
+		SelectStyleColor(nStyle)
 		RestoreSettings()
-		pSetEditorColors()
+		SetEditorColors()
 
-	func pSelectStyleColor nStyle
+	func SelectStyleColor nStyle
 		switch nStyle
-		on 0 pStyleWindows()
-		on 1 pStyleWhite()
-		on 2 pStyleBlue()
-		on 3 pStyleBlack()
-		on 4 pStyleModern()
-		on 5 pStyleModernBlack()
-		on 6 pStyleModernBlack2()
-		on 7 pStyleNotepadWhite()
-		on 8 pStyleNotepadPurple()
-		on 9 pStyleNotepadDarkBlue()
-		on 10 pStyleNotepadBlack()
-		on 11 pStyleArt()
-		on 12 pStyleArt2()
-		on 13 pStyleArt3()
-		on 14 pStyleImage()
-		on 15 pStyleImage2()
+		on 0 StyleWindows()
+		on 1 StyleWhite()
+		on 2 StyleBlue()
+		on 3 StyleBlack()
+		on 4 StyleModern()
+		on 5 StyleModernBlack()
+		on 6 StyleModernBlack2()
+		on 7 StyleNotepadWhite()
+		on 8 StyleNotepadPurple()
+		on 9 StyleNotepadDarkBlue()
+		on 10 StyleNotepadBlack()
+		on 11 StyleArt()
+		on 12 StyleArt2()
+		on 13 StyleArt3()
+		on 14 StyleImage()
+		on 15 StyleImage2()
 		off
 		if nStyle >= 7 
 			lKeywordsBold = False 
@@ -42,21 +42,21 @@ class RNoteStyle
 			lKeywordsBold = True
 		ok
 
-	func pSelectStyleColor2 nStyle
+	func SelectStyleColor2 nStyle
 		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
 			oObj {
 				setstylesheet("")
 			}
 		next
 		if nStyle = STYLECOLOR_ART or nStyle = STYLECOLOR_ART2
-			pStyleArt_AfterControls()
+			StyleArt_AfterControls()
 		but nStyle = STYLECOLOR_IMAGE 
-			pStyleImage_AfterControls(1)
+			StyleImage_AfterControls(1)
 		but nStyle = STYLECOLOR_IMAGE2 
-			pStyleImage_AfterControls(2)
+			StyleImage_AfterControls(2)
 		ok
 
-	func pSetEditorColors
+	func SetEditorColors
 		textedit1.setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
 		textedit1.setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
 		new RingCodeHighLighter(textedit1.document() ) {
@@ -72,7 +72,7 @@ class RNoteStyle
 			)
 		}
 
-	func pStyleBlue()
+	func StyleBlue()
 			nDefaultStyle  = STYLECOLOR_BLUE
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
@@ -102,7 +102,7 @@ class RNoteStyle
 				new qColor() { setrgb(0,0,128,255)}
 			)
 
-	func pStyleBlack()
+	func StyleBlack()
 			nDefaultStyle  = STYLECOLOR_BLACK
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
@@ -119,12 +119,12 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [0,0,0]
 
-	func pStyleWhite()
+	func StyleWhite()
 			nDefaultStyle  = STYLECOLOR_WHITE 
 			MyApp.StyleFusion()
-			pStyleWhiteColors()
+			StyleWhiteColors()
 
-	func pStyleWhiteColors
+	func StyleWhiteColors
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorBlack ,
 				:LineNumbersAreaBackColor 	= colorCyan,
@@ -139,16 +139,16 @@ class RNoteStyle
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
 
-	func pStyleWindows
+	func StyleWindows
 			nDefaultStyle  = STYLECOLOR_WINDOWS
 			if isWindows()
 				MyApp.StyleWindowsVista()
 			else 
 				MyApp.StyleWindows()
 			ok
-			pStyleWhiteColors()
+			StyleWhiteColors()
 
-	func pStyleModern()
+	func StyleModern()
 			nDefaultStyle  = STYLECOLOR_MODERN
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(143,144,138,255) },
@@ -178,7 +178,7 @@ class RNoteStyle
 				new qColor() { setrgb(39,60,64,255)	}
 			)
 
-	func pStyleModernBlack()
+	func StyleModernBlack()
 			nDefaultStyle  = STYLECOLOR_MODERNBLACK
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
@@ -195,7 +195,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [33,33,33]
 
-	func pStyleModernBlack2()
+	func StyleModernBlack2()
 			nDefaultStyle  = STYLECOLOR_MODERNBLACK2
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
@@ -212,7 +212,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [0,0,0]
 
-	func pStyleNotepadWhite()
+	func StyleNotepadWhite()
 			nDefaultStyle  = STYLECOLOR_NOTEPADWHITE
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -229,7 +229,7 @@ class RNoteStyle
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
 
-	func pStyleNotepadPurple()
+	func StyleNotepadPurple()
 			nDefaultStyle  = STYLECOLOR_NOTEPADPURPLE
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -246,7 +246,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [128,0,128]
 
-	func pStyleNotepadDarkBlue()
+	func StyleNotepadDarkBlue()
 			nDefaultStyle  = STYLECOLOR_NOTEPADDARKBLUE
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -263,7 +263,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [0,0,128]
 
-	func pStyleNotepadBlack()
+	func StyleNotepadBlack()
 			nDefaultStyle  = STYLECOLOR_NOTEPADBLACK
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -281,7 +281,7 @@ class RNoteStyle
 			aBackColor = [0,0,0]
 
 
-	func pStyleArt()
+	func StyleArt()
 			nDefaultStyle  = STYLECOLOR_ART
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -298,7 +298,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [39,40,34]
 
-	func pStyleArt2()
+	func StyleArt2()
 			nDefaultStyle  = STYLECOLOR_ART2
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -315,7 +315,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
 
-	func pStyleArt3()
+	func StyleArt3()
 			nDefaultStyle  = STYLECOLOR_ART3
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -332,7 +332,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
 
-	func pStyleImage()
+	func StyleImage()
 			nDefaultStyle  = STYLECOLOR_IMAGE
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
@@ -349,7 +349,7 @@ class RNoteStyle
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
 
-	func pStyleImage2()
+	func StyleImage2()
 			nDefaultStyle  = STYLECOLOR_IMAGE2
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
@@ -367,7 +367,7 @@ class RNoteStyle
 			aBackColor = [11,11,11]
 
 
-	func pStyleArt_AfterControls
+	func StyleArt_AfterControls
 		# Called After we have all of the Ring Notepad Window Controls
 		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
 			oObj {
@@ -375,7 +375,7 @@ class RNoteStyle
 			}
 		next
 
-	func pStyleImage_AfterControls nIndex
+	func StyleImage_AfterControls nIndex
 		# Called After we have all of the Ring Notepad Window Controls
 		if nIndex = 1
 			cBackImage = cCurrentDir + "image/back.jpg"

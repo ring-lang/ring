@@ -55,7 +55,7 @@ class RNoteSettings
 		SetWebsite()
 		SetWindows()
 		SetTabSpaces()
-		pSelectStyleColor2(nDefaultStyle)
+		SelectStyleColor2(nDefaultStyle)
 
 	func SetWindows
 		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok

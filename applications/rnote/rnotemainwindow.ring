@@ -362,97 +362,97 @@ class RNoteMainWindow
 						subStyle {
 							setbtnimage(self,"image/colors.png")
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(0)"))
+								setclickEvent(Method("SetStyleColor(0)"))
 								settext("Windows")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(1)"))
+								setclickEvent(Method("SetStyleColor(1)"))
 								settext("Fusion : White")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(2)"))
+								setclickEvent(Method("SetStyleColor(2)"))
 								settext("Fusion : Blue")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(3)"))
+								setclickEvent(Method("SetStyleColor(3)"))
 								settext("Fusion : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(4)"))
+								setclickEvent(Method("SetStyleColor(4)"))
 								settext("Modern")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(5)"))
+								setclickEvent(Method("SetStyleColor(5)"))
 								settext("Modern : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(6)"))
+								setclickEvent(Method("SetStyleColor(6)"))
 								settext("Modern : Black 2")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(7)"))
+								setclickEvent(Method("SetStyleColor(7)"))
 								settext("Notepad : White")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(8)"))
+								setclickEvent(Method("SetStyleColor(8)"))
 								settext("Notepad : Purple")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(9)"))
+								setclickEvent(Method("SetStyleColor(9)"))
 								settext("Notepad : DarkBlue")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(10)"))
+								setclickEvent(Method("SetStyleColor(10)"))
 								settext("Notepad : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(11)"))
+								setclickEvent(Method("SetStyleColor(11)"))
 								settext("Art")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(12)"))
+								setclickEvent(Method("SetStyleColor(12)"))
 								settext("Art 2")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(13)"))
+								setclickEvent(Method("SetStyleColor(13)"))
 								settext("Art 3")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(14)"))
+								setclickEvent(Method("SetStyleColor(14)"))
 								settext("Image")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								setclickEvent(Method("pSetStyleColor(15)"))
+								setclickEvent(Method("SetStyleColor(15)"))
 								settext("Image 2")
 							}
 							addaction(oAction)

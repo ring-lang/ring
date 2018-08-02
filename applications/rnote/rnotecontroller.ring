@@ -8,7 +8,7 @@ class RNoteController from RNoteControllerBase
 	MyApp = New qApp {
 		this {
 			# Custom Editor Style Color
-				pCheckCustomColors()
+				CheckCustomColors()
 				PrepareAutoComplete()	
 			# Create the Main Window
 				CreateMainWindow()
