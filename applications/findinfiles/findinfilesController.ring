@@ -16,9 +16,9 @@ if isMainSourceFile() {
 class findinfilesController from WindowsControllerParent
 
 	oView = new findinfilesView
-	oView.txtFolder.setText(CurrentDir())
 
 	cCurrentDir 	= currentdir()
+	setFolder(cCurrentDir)
 
 	aResult 	= []
 	nFilesCount 	= 0
@@ -27,6 +27,9 @@ class findinfilesController from WindowsControllerParent
 	aResultFiles	= []
 	
 	lShowNoOutputMessage = True	
+
+	func setFolder cFolder 
+		oView.txtFolder.setText(cFolder)
 
 	func search
 		Qt_ItemIsSelectable 	= 1
