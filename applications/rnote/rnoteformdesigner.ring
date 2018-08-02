@@ -3,7 +3,7 @@
 
 Class RNoteFormDesigner
 
-	func pFormDesignerDock
+	func FormDesignerDock
 		cDir = CurrentDir()
 		chdir(exefolder() + "/../applications/formdesigner")
 		# Import Classes 

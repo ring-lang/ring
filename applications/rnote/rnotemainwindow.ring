@@ -916,7 +916,7 @@ class RNoteMainWindow
 			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
 				setwindowtitle("Form Designer")
 			}
-			this.pformdesignerdock()
+			this.FormDesignerDock()
 		}
 
 	func PrepareDockableWindows
