@@ -274,7 +274,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+g"))
 							settext("Go to line")
-							setclickEvent(Method(:pGoto))
+							setclickEvent(Method(:Goto))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {

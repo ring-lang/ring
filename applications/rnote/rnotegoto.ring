@@ -3,7 +3,7 @@
 
 class RNoteGoto
 
-	func pGoto
+	func Goto
 		oInput = New QInputDialog(win1)
 		{
 			setwindowtitle("Enter the line number?")
