@@ -5,22 +5,22 @@ Class RNoteProgramMenu
 
 	func Debug
 		if cActiveFileName = Null return Nofileopened() ok
-		pSave()
+		Save()
 		DebugOperation(cActiveFileName)
 
 	func Run
 		if cActiveFileName = Null return Nofileopened() ok
-		pSave()
+		Save()
 		RunOperation(cActiveFileName)
 
 	func RunNoConsole
 		if cActiveFileName = Null return Nofileopened() ok
-		pSave()
+		Save()
 		oDockOutputWindow { show() raise() }		
 		RunGUIOperation(cActiveFileName)
 
 	func RunInBrowser
 		if cActiveFileName = Null return Nofileopened() ok
-		pSave()	
+		Save()	
 		RunWebApplication(this.cActiveFileName)
 

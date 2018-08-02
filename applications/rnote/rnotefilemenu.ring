@@ -3,7 +3,7 @@
 
 Class RNoteFileMenu
 
-	func pNew
+	func New
 		new qfiledialog(this.win1) {
 			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"New file",this.cStartupFolder,"source files(*.ring)")
@@ -31,8 +31,8 @@ Class RNoteFileMenu
 		this.textedit1.setPlaintext(read(this.cActiveFileName))
 		this.SetActiveFileName()
 
-	func pSave
-		if cActiveFileName = NULL return pSaveAs() ok
+	func Save
+		if cActiveFileName = NULL return SaveAs() ok
 		writefile(cActiveFileName,textedit1.toplaintext())
 		StatusMessage("File : " + cActiveFileName + " saved!")
 		lAskToSave = false
@@ -46,7 +46,7 @@ Class RNoteFileMenu
 			ok
 			StatusMessage("Ready!")
 
-	func pSaveAs
+	func SaveAs
 		new qfiledialog(win1) {
 			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"Save As",this.cStartupFolder,"source files(*.ring)")
@@ -68,7 +68,7 @@ Class RNoteFileMenu
 		next
 		fclose(fp)
 
-	func pPrint
+	func Print
 		StatusMessage("Printing to File : RingDoc.pdf")
 		printer1 = new qPrinter(0) {
 			setoutputformat(1)	# 1 = pdf
@@ -80,7 +80,7 @@ Class RNoteFileMenu
 			OpenURL(new qURL("file:///"+substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
 		}
 
-	func pQuit
+	func Quit
 		SaveSettings()
 		oApp.quit()
 

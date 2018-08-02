@@ -35,7 +35,7 @@ class RNoteSettings
 				result = exec()
 				this.win1 {
 				if result = QMessageBox_Yes
-					this.pSave()
+					this.Save()
 				but result = QMessageBox_Cancel
 					return false
 				ok

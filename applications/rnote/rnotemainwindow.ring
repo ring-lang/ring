@@ -29,7 +29,7 @@ class RNoteMainWindow
 			aBtns = [
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
-						setclickEvent(Method(:pNew))
+						setclickEvent(Method(:New))
 						settooltip("New File (Ctrl+N)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -39,12 +39,12 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/save.png")
-						setclickEvent(Method(:pSave))
+						setclickEvent(Method(:Save))
 						settooltip("Save (Ctrl+S)")
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/saveas.png")
-						setclickEvent(Method(:pSaveAs))
+						setclickEvent(Method(:SaveAs))
 						settooltip("Save As (Ctrl+E)")
 					 } ,
 					new qtoolbutton(this.win1) {
@@ -79,7 +79,7 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/print.png")
-						setclickEvent(Method(:pPrint))
+						setclickEvent(Method(:Print))
 						settooltip("Print (Ctrl+P)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -104,7 +104,7 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/close.png")
-						setclickEvent(Method(:pQuit))
+						setclickEvent(Method(:Quit))
 						settooltip("Quit (Ctrl+Q)")
 					}
 				]
@@ -173,7 +173,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+n"))
 							setbtnimage(self,"image/new.png")
 							settext("New")
-							setclickEvent(Method(:pNew))
+							setclickEvent(Method(:New))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
@@ -188,7 +188,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+s"))
 							setbtnimage(self,"image/save.png")
 							settext("Save")
-							setclickEvent(Method(:pSave))
+							setclickEvent(Method(:Save))
 						}
 						addaction(oAction)
 						addseparator()
@@ -196,7 +196,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+e"))
 							setbtnimage(self,"image/saveas.png")
 							settext("Save As")
-							setclickEvent(Method(:pSaveAs))
+							setclickEvent(Method(:SaveAs))
 						}
 						addaction(oAction)
 						addseparator()
@@ -204,7 +204,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+p"))
 							setbtnimage(self,"image/print.png")
 							settext("Print to PDF")
-							setclickEvent(Method(:pPrint))
+							setclickEvent(Method(:Print))
 						}
 						addaction(oAction)
 						addseparator()
@@ -213,7 +213,7 @@ class RNoteMainWindow
 							setbtnimage(self,"image/close.png")
 							settext("Exit")
 							setstatustip("Exit")
-							setclickEvent(Method(:pQuit))
+							setclickEvent(Method(:Quit))
 						}
 						addaction(oAction)
 					}
