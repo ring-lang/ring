@@ -3,16 +3,16 @@
 
 Class RNoteViewMenu
 
-	func pProject
+	func ProjectWindowStatus
 		oDockProjectFiles { if isvisible() hide() else Show() ok }
 
-	func pSourceCode
+	func SourceCodeWindowStatus
 		oDockSourceCode   { if isvisible() hide() else Show() ok }
 
-	func pWebBrowser
+	func WebBrowserWindowStatus
 		oDockWebBrowser	  { if isvisible() hide() else Show() ok }
 
-	func pFunctionsList
+	func FunctionsListWindowStatus
 		oDockFunctionsList {
 			if isvisible()
 				hide()
@@ -22,7 +22,7 @@ Class RNoteViewMenu
 			ok
 		}
 
-	func pClassesList
+	func ClassesListWindowStatus
 		oDockClassesList {
 			if isvisible()
 				hide()
@@ -32,7 +32,7 @@ Class RNoteViewMenu
 			ok
 		}
 
-	func pOutputWindow
+	func OutputWindowStatus
 		oDockOutputWindow {
 			if isvisible()
 				hide()
@@ -41,7 +41,7 @@ Class RNoteViewMenu
 			ok	
 		}
 
-	func OpenFormDesignerWindow
+	func FormDesignerWindowStatus
 		oDockFormDesigner {
 			if isvisible()
 				hide()

@@ -306,14 +306,14 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+j"))
 							setbtnimage(self,"image/project.png")
 							settext("Project Files")
-							setclickEvent(Method(:pProject))
+							setclickEvent(Method(:ProjectWindowStatus))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+u"))
 							setbtnimage(self,"image/source.png")
-							setclickEvent(Method(:pSourceCode))
+							setclickEvent(Method(:SourceCodeWindowStatus))
 							settext("Source Code")
 						}
 						addaction(oAction)
@@ -321,7 +321,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+w"))
 							setbtnimage(self,"image/richtext.png")
-							setclickEvent(Method(:pWebBrowser))
+							setclickEvent(Method(:WebBrowserWindowStatus))
 							settext("Web Browser")
 						}
 						addaction(oAction)
@@ -329,7 +329,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Alt+f"))
 							setbtnimage(self,"image/source.png")
-							setclickEvent(Method(:pFunctionsList))
+							setclickEvent(Method(:FunctionsListWindowStatus))
 							settext("Functions List")
 						}
 						addaction(oAction)
@@ -337,7 +337,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Alt+c"))
 							setbtnimage(self,"image/source.png")
-							setclickEvent(Method(:pClassesList))
+							setclickEvent(Method(:ClassesListWindowStatus))
 							settext("Classes List")
 						}
 						addaction(oAction)
@@ -345,7 +345,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Alt+o"))
 							setbtnimage(self,"image/source.png")
-							setclickEvent(Method(:pOutputWindow))
+							setclickEvent(Method(:OutputWindowStatus))
 							settext("Output Window")
 						}
 						addaction(oAction)
@@ -353,7 +353,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("CTRL+SHIFT+f"))
 							setbtnimage(self,"image/formdesigner.png")
-							setclickEvent(Method(:OpenFormDesignerWindow))
+							setclickEvent(Method(:FormDesignerWindowStatus))
 							settext("Form Designer Window")
 						}
 						addaction(oAction)
