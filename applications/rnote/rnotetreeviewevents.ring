@@ -9,7 +9,7 @@ Class RNoteTreeViewEvents
 
 	func pChangeFile
 		pCheckSaveBeforeChange()	# To ask to saving a file
-		pSaveCurrentFolder()
+		SaveCurrentFolder()
 		oItem = tree1.currentindex()
 		if ofile.isdir(oItem)
 			return

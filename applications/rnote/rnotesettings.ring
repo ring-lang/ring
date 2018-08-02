@@ -4,7 +4,7 @@
 class RNoteSettings
 
 	func pSaveSettingsToFile
-		pSaveCurrentFolder()
+		SaveCurrentFolder()
 		cSettings = "aTextColor = ["+aTextColor[1]+","+aTextColor[2]+","+aTextColor[3]+"]" + nl +
 				"aBackColor = ["+aBackColor[1]+","+aBackColor[2]+","+aBackColor[3]+"]" + nl +
 				"cFont = '" + cFont + "'" + nl +

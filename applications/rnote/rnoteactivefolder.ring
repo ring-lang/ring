@@ -3,7 +3,7 @@
 
 class RNoteActiveFolder
 
-	func pSaveCurrentFolder
+	func SaveCurrentFolder
 		oItem = tree1.currentindex()
 		if ofile.isdir(oItem)
 			cStartupFolder = ofile.filepath(oItem)

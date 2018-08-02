@@ -5,7 +5,7 @@ Class RNoteFileMenu
 
 	func pNew
 		new qfiledialog(this.win1) {
-			this.pSaveCurrentFolder()
+			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"New file",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
 				write(cName,"")
@@ -18,7 +18,7 @@ Class RNoteFileMenu
 
 	func pOpen
 		new qfiledialog(this.win1) {
-			this.pSaveCurrentFolder()
+			this.SaveCurrentFolder()
 			cName = getopenfilename(this.win1,"open file",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
 				this.openFile(cName)
@@ -48,7 +48,7 @@ Class RNoteFileMenu
 
 	func pSaveAs
 		new qfiledialog(win1) {
-			this.pSaveCurrentFolder()
+			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"Save As",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
 				this.cActiveFileName = cName
