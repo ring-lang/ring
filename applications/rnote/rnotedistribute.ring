@@ -28,7 +28,7 @@ class RNoteDistribute
 		oDockOutputWindow { show() raise() }		
 		oProcessEditbox.setplaintext("")
 		chdir(JustFilePath(cActiveFileName))
-		oProcess = pRunProcess(cAppToRun,cPara,cpGetProcessData)
+		oProcess = RunProcess(cAppToRun,cPara,cpGetProcessData)
 		OSFilesManager()
 		chdir(exefolder())
 

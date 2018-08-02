@@ -3,21 +3,21 @@
 
 Class RNoteProgramMenu
 
-	func pDebug
+	func Debug
 		if cActiveFileName = Null return Nofileopened() ok
 		pSave()
-		pDebugOperation(cActiveFileName)
+		DebugOperation(cActiveFileName)
 
-	func pRun
+	func Run
 		if cActiveFileName = Null return Nofileopened() ok
 		pSave()
-		pRunOperation(cActiveFileName)
+		RunOperation(cActiveFileName)
 
-	func pRunNoConsole
+	func RunNoConsole
 		if cActiveFileName = Null return Nofileopened() ok
 		pSave()
 		oDockOutputWindow { show() raise() }		
-		pRunGUIOperation(cActiveFileName)
+		RunGUIOperation(cActiveFileName)
 
 	func RunInBrowser
 		if cActiveFileName = Null return Nofileopened() ok

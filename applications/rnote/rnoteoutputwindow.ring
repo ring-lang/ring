@@ -3,7 +3,7 @@
 
 Class RNoteOutputWindow
 
-	func pRunProcess cProgram,cArg,cGetDataFunc
+	func RunProcess cProgram,cArg,cGetDataFunc
 		aPara = split(cArg,",")
 		oStringList = new qStringlist() {
 			for cPara in aPara 

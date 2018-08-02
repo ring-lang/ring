@@ -7,7 +7,7 @@ class RNoteTools
 		oProcessEditbox.setplaintext("")
 		oProcessText.setFocus(0)
 		chdir(JustFilePath(cFileName))
-		oProcess = pRunProcess(cRingEXE,cFileName,cpGetProcessData)
+		oProcess = RunProcess(cRingEXE,cFileName,cpGetProcessData)
 		chdir(exefolder())
 
 	func RunToolConsole cFileName

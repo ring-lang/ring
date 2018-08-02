@@ -19,14 +19,14 @@ class RNoteMainFileToolbar
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pSave()
-		pDebugOperation(cMainFileName)
+		DebugOperation(cMainFileName)
 
 	func RunMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pSave()
-		pRunOperation(cMainFileName)
+		RunOperation(cMainFileName)
 
 	func RunGUIMainFile
 		cMainFileName = GetMainFile()
@@ -34,7 +34,7 @@ class RNoteMainFileToolbar
 		if not fexists(cMainFileName) return ok
 		oDockOutputWindow { show() raise() }		
 		pSave()
-		pRunGUIOperation(cMainFileName)
+		RunGUIOperation(cMainFileName)
 
 	func RunInBrowserMainFile
 		cMainFileName = GetMainFile()

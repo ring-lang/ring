@@ -3,7 +3,7 @@
 
 Class RNoteRun
 
-	func pDebugOperation cActiveFileName
+	func DebugOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
 		if iswindows()
@@ -14,7 +14,7 @@ Class RNoteRun
 		system(cCode)
 		chdir(cDir)
 
-	func pRunOperation cActiveFileName
+	func RunOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
 		if iswindows()
@@ -25,10 +25,10 @@ Class RNoteRun
 		system(cCode)
 		chdir(cDir)
 
-	func pRunGUIOperation cActiveFileName
+	func RunGUIOperation cActiveFileName
 		oProcessEditbox.setplaintext("")
 		chdir(JustFilePath(cActiveFileName))
-		oProcess = pRunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
+		oProcess = RunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
 		chdir(exefolder())
 
 	func RunWebApplication cFile
@@ -40,9 +40,9 @@ Class RNoteRun
 					PrepareConfigurationFile() 
 					cServerExe = getserverExeFile()
 				}	
-				oProcess = pRunProcess(cCurrentDir + "batch\killwebserver.bat","",cpGetProcessData)			
+				oProcess = RunProcess(cCurrentDir + "batch\killwebserver.bat","",cpGetProcessData)			
 				oProcess.waitForFinished(3000)
-				oWebServerProcess = pRunProcess(cServerEXE,"",cpGetProcessData)			
+				oWebServerProcess = RunProcess(cServerEXE,"",cpGetProcessData)			
 				sleep(3)
 				oProcessEditbox.setplaintext("")
 			ok

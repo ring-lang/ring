@@ -84,17 +84,17 @@ class RNoteMainWindow
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
-						setclickevent(Method(:pDebug)) 
+						setclickevent(Method(:Debug)) 
 						settooltip("Debug - Run then wait! (Ctrl+D)")
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
-						setclickEvent(Method(:pRun))
+						setclickEvent(Method(:Run))
 						settooltip("Run the program (Ctrl+R) ")
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
-						setclickEvent(Method(:pRunNoConsole))
+						setclickEvent(Method(:RunNoConsole))
 						settooltip("Run GUI Application - No Console (Ctrl+F5)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -520,21 +520,21 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+d"))
 							setbtnimage(self,"image/debug.png")
 							settext("Debug (Run then wait!)")
-							setclickEvent(Method(:pDebug))
+							setclickEvent(Method(:Debug))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+r"))
 							setbtnimage(self,"image/run.png")
 							settext("Run")
-							setclickEvent(Method(:pRun))
+							setclickEvent(Method(:Run))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+F5"))
 							setbtnimage(self,"image/rungui.png")
 							settext("Run GUI Application (No Console)")
-							setclickEvent(Method(:pRunNoConsole))
+							setclickEvent(Method(:RunNoConsole))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
