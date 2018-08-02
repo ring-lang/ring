@@ -296,7 +296,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
 							setbtnimage(self,"image/search.png")
 							settext("Find in Files")
-							setclickEvent(Method(:FindInFiles))
+							setclickEvent(Method(:OpenFindInFiles))
 						}
 						addaction(oAction)
 	

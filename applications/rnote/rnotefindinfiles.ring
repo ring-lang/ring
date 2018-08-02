@@ -3,7 +3,7 @@
 
 class RNoteFindInFiles 
 
-	func FindInFiles 
+	func OpenFindInFiles 
 		chdir(cCurrentDir+"../findinfiles")
 		open_WindowAndLink(:findinfilesController,self)
 		FindInFiles().setParentObject(self)
