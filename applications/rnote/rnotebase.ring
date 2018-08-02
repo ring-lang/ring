@@ -111,6 +111,8 @@ Class RNoteControllerBase from WindowsControllerParent
 	# For Auto-Complete
 		oAutoCompleteList  
 		nAutoCompleteListSize 	= 0
+		oACTimer=NULL			# Auto-Complete Timer 
+		oCompleter=NULL 		# The completer object
 
 	# Main Window 
 		oApp win1 oFilter aBtns tool1 menu1 status1
@@ -124,10 +126,6 @@ Class RNoteControllerBase from WindowsControllerParent
 	
 	# Functions list & Classes List
 		aFunctionsPos aClassesPos
-
-	# Auto Complete
-		oACTimer=NULL			# Auto-Complete Timer 
-		oCompleter=NULL 		# The completer object
 
 	# Active Form 
 		cFormFile = ""
