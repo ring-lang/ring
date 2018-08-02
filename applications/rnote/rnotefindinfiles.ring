@@ -7,6 +7,7 @@ class RNoteFindInFiles
 		chdir(cCurrentDir+"../findinfiles")
 		open_WindowAndLink(:findinfilesController,self)
 		FindInFiles().setParentObject(self)
+		FindInFiles().setFolder(cStartupFolder)
 		chdir(cCurrentDir)
 
 	func FindInFilesSelect cFile,nRow 
