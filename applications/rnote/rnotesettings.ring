@@ -52,7 +52,7 @@ class RNoteSettings
 	func RestoreSettings
 		pSetColors()
 		pSetFont()
-		pSetWebsite()
+		SetWebsite()
 		SetWindows()
 		SetTabSpaces()
 		pSelectStyleColor2(nDefaultStyle)

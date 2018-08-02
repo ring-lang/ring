@@ -41,7 +41,7 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
 				}
-				pBrowserLink(1)
+				BrowserLink(1)
 			on VIEWMODE_CODING	# Coding (Project Files + Editor)
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -89,7 +89,7 @@ class RNoteMode
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
-				pBrowserLink(2)
+				BrowserLink(2)
 				win1 {
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)

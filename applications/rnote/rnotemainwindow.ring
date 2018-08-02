@@ -586,7 +586,7 @@ class RNoteMainWindow
 							item = this.aBrowserLinks[x]
 							oAction = new qAction(this.win1) {
 								settext(item[1])
-								setclickEvent(Method(:pBrowserLink+"("+x+")"))
+								setclickEvent(Method(:BrowserLink+"("+x+")"))
 							}
 							addaction(oAction)
 							if x != len(this.aBrowserLinks)
@@ -818,15 +818,15 @@ class RNoteMainWindow
 				}
 				this.oWBText = new qLineEdit(this.win1) {
 					setText(this.cWebSite)
-					setReturnPressedEvent(Method(:pWebGo))
+					setReturnPressedEvent(Method(:WebGo))
 				}
 				oWBGo = new qPushButton(this.win1) {
 					setText("Go")
-					setClickEvent(Method(:pWebGo))
+					setClickEvent(Method(:WebGo))
 				}
 				oWBBack = new qPushButton(this.win1) {
 					setText("Back")
-					setClickEvent(Method(:pWebBack))
+					setClickEvent(Method(:WebBack))
 				}
 				oWBLayout1 = new qHBoxLayout() {
 					addWidget(oWBLabel)

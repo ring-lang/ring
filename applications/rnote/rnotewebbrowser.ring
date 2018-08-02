@@ -3,18 +3,18 @@
 
 Class RNoteWebBrowser
 
-	func pWebGo
+	func WebGo
 		cWebsite = oWBText.text()
 		oWebView.LoadPage( new qurl( cWebSite ) )
 
-	func pWebBack
+	func WebBack
 		oWebView.Back()
 
-	func pSetWebsite
+	func SetWebsite
 		oWebView { loadpage(new qurl(this.cWebSite)) }
 		oWBText  { setText(this.cWebSite) }
 
-	func pBrowserLink x
+	func BrowserLink x
 		cLink = aBrowserLinks[x][2]
 		oWebView { loadpage(new qurl(cLink)) }
 		oWBText  { setText(cLink) }
