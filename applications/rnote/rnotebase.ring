@@ -97,7 +97,8 @@ Class RNoteControllerBase from WindowsControllerParent
 
 	# Search and Replace 
 		oSearch oSearchValue oSearchCase oSearchFilter oReplaceValue 	
-		cSearchText cReplaceText 	
+		cSearchText	= NULL 
+		cReplaceText	= NULL	
 
 	# Ask to save before switching to another file 
 		lAskToSave 	= false
