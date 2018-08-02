@@ -3,12 +3,12 @@
 
 Class RNoteTreeViewEvents
 
-	func pCheckSaveBeforeChange
+	func CheckSaveBeforeChange
 		if cActiveFileName = NULL return ok
 		SaveSettings()
 
-	func pChangeFile
-		pCheckSaveBeforeChange()	# To ask to saving a file
+	func ChangeFile
+		CheckSaveBeforeChange()	# To ask to saving a file
 		SaveCurrentFolder()
 		oItem = tree1.currentindex()
 		if ofile.isdir(oItem)

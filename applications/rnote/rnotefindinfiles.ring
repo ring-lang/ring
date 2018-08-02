@@ -11,7 +11,7 @@ class RNoteFindInFiles
 		chdir(cCurrentDir)
 
 	func FindInFilesSelect cFile,nRow 
-		pCheckSaveBeforeChange()
+		CheckSaveBeforeChange()
 		cActiveFileName = cFile 
 		openFile(cFile)
 		GotoLine(nRow)		

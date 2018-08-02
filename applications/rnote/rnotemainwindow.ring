@@ -726,8 +726,8 @@ class RNoteMainWindow
 		win1 {
 			this.tree1 = new qtreeview(this.win1) {
 				setStylesheet("font-size: 30")
-				setclickedEvent(Method(:pChangeFile))
-				setActivatedEvent(Method(:pChangeFile))
+				setclickedEvent(Method(:ChangeFile))
+				setActivatedEvent(Method(:ChangeFile))
 				setGeometry(00,00,200,400)
 				setminimumwidth(250)
                 		chdir(this.cStartUpFolder)
