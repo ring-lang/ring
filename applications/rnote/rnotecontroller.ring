@@ -5,17 +5,14 @@ class RNoteController from RNoteControllerBase
 
 	LoadSettings()
 
-	oApp = New qApp {
-		this {
-			# Custom Editor Style Color
-				CheckCustomColors()
-				PrepareAutoComplete()	
-			# Create the Main Window
-				CreateMainWindow()
-			# Default Settings
-				SetMode(nDefaultMode) 
-				RestoreSettings()
-				win1.showmaximized()
-		}
-		exec()
-	}
+	oApp = New qApp 
+	# Custom Editor Style Color
+		CheckCustomColors()
+		PrepareAutoComplete()	
+	# Create the Main Window
+		CreateMainWindow()
+	# Default Settings
+		SetMode(nDefaultMode) 
+		RestoreSettings()
+		win1.showmaximized()
+	oApp.exec()
