@@ -22,8 +22,8 @@ Class RNoteOutputWindow
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
 		# Set the font
-			oTempFont.fromstring(cFont)
-			oProcessEditbox.setFont(oTempFont)
+			oTFont.fromstring(cFont)
+			oProcessEditbox.setFont(oTFont)
 		oProcessEditbox.insertplaintext(cText)
 
 	func SendProcessData

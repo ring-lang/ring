@@ -17,7 +17,7 @@ class RNoteTabWidth
 		SetTabSpaces()
 
 	func SetTabSpaces
-		oTempFont.fromstring(cFont)
-		oFontMetrics = new QFontMetrics(oTempFont)
+		oTFont.fromstring(cFont)
+		oFontMetrics = new QFontMetrics(oTFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)
 		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)

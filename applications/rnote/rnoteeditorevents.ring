@@ -5,7 +5,7 @@ Class RNoteEditorEvents
 
 	func TextChanged
 		lAskToSave = true
-		pSetFont()
+		SetFont()
 		SetActiveLineColor()
 
 	func CursorPositionChanged

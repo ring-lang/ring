@@ -49,27 +49,27 @@ class RNoteMainWindow
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/undo.png")
-						setclickEvent(Method(:pUndo))
+						setclickEvent(Method(:Undo))
 						settooltip("Undo (Ctrl+Z)")
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/cut.png")
-						setclickEvent(Method(:pCut))
+						setclickEvent(Method(:Cut))
 						settooltip("Cut (Ctrl+X)")
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/copy.png")
-						setclickEvent(Method(:pCopy))
+						setclickEvent(Method(:CopyText))
 						settooltip("Copy (Ctrl+C)")
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/paste.png")
-						setclickEvent(Method(:pPaste))
+						setclickEvent(Method(:Paste))
 						settooltip("Paste (Ctrl+V)")
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/font.png")
-						setclickEvent(Method(:pFont))
+						setclickEvent(Method(:Font))
 						settooltip("Font (Ctrl+I)")
 					} ,
 					new qtoolbutton(this.win1) {
@@ -222,7 +222,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+z"))
 							setbtnimage(self,"image/undo.png")
 							settext("Undo")
-							setclickEvent(Method(:pUndo))
+							setclickEvent(Method(:Undo))
 						}
 						addaction(oAction)
 						addseparator()
@@ -230,21 +230,21 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+x"))
 							setbtnimage(self,"image/cut.png")
 							settext("Cut")
-							setclickEvent(Method(:pCut))
+							setclickEvent(Method(:Cut))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+c"))
 							setbtnimage(self,"image/copy.png")
 							settext("Copy")
-							setclickEvent(Method(:pCopy))
+							setclickEvent(Method(:CopyText))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+v"))
 							setbtnimage(self,"image/paste.png")
 							settext("Paste")
-							setclickEvent(Method(:pPaste))
+							setclickEvent(Method(:Paste))
 						}
 						addaction(oAction)
 						addseparator()
@@ -252,7 +252,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+i"))
 							setbtnimage(self,"image/font.png")
 							settext("Font")
-							setclickEvent(Method(:pFont))
+							setclickEvent(Method(:Font))
 						}
 						addseparator()
 						addaction(oAction)
@@ -260,14 +260,14 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+t"))
 							setbtnimage(self,"image/colors.png")
 							settext("Text Color")
-							setclickEvent(Method(:pColor))
+							setclickEvent(Method(:SelectColor))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+b"))
 							setbtnimage(self,"image/colors.png")
 							settext("Back Color")
-							setclickEvent(Method(:pColor2))
+							setclickEvent(Method(:SelectColor2))
 						}
 						addaction(oAction)
 						addseparator()

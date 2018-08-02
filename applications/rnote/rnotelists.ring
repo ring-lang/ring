@@ -17,8 +17,8 @@ class RNoteLists
 		if cActiveFileName = NULL return ok
 		cTempActiveFile = cActiveFileName
 		# Set the font
-			oTempFont.fromstring(cFont)
-			oFunctionsList.setFont(oTempFont)
+			oTFont.fromstring(cFont)
+			oFunctionsList.setFont(oTFont)
 		StatusMessage("Creating functions list ... Please Wait!")
 		aFileContent = str2list(read(cActiveFileName))
 		nLineNumber = 0
@@ -67,8 +67,8 @@ class RNoteLists
 		if cActiveFileName = NULL return ok
 		cTempActiveFile = cActiveFileName
 		# Set the font
-			oTempFont.fromstring(cFont)
-			oClassesList.setFont(oTempFont)
+			oTFont.fromstring(cFont)
+			oClassesList.setFont(oTFont)
 		StatusMessage("Creating Classes list ... Please Wait!")
 		aFileContent = str2list(read(cActiveFileName))
 		nLineNumber = 0

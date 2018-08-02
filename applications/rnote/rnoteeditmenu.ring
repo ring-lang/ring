@@ -3,43 +3,43 @@
 
 Class RNoteEditMenu
 
-	func pUndo
+	func Undo
 		textedit1.undo()
 		StatusMessage("Undo!")
 
-	func pCut
+	func Cut
 		textedit1.cut()
 		StatusMessage("Cut!")
 
-	func pCopy
+	func CopyText
 		textedit1.copy()
 		StatusMessage("Copy!")
 
-	func pPaste
+	func Paste
 		textedit1.paste()
 		StatusMessage("Paste!")
 
-	func pFont
+	func Font
 		oFontDialog = new qfontdialog() {
 
-			this.oTempFont.fromstring(this.cFont)
-			setcurrentfont(this.oTempFont)
+			this.oTFont.fromstring(this.cFont)
+			setcurrentfont(this.oTFont)
 
 			aFont = getfont()
 		}
 		if aFont[1] != NULL
 			cFont = aFont[1]
-			pSetFont()	# set the new font
+			SetFont()	# set the new font
 		ok
 
-	func pSetFont
-		oTempFont.fromstring(cFont)
+	func SetFont
+		oTFont.fromstring(cFont)
 		oCursor = textedit1.textCursor()
 		oCursor.clearselection()
 		textedit1.settextcursor(oCursor)
-		textedit1.Document().setdefaultfont(oTempFont)
+		textedit1.Document().setdefaultfont(oTFont)
 
-	func pColor
+	func SelectColor
 		new qcolordialog() {
 			r = exec()
 			if r = 0 return ok
@@ -49,9 +49,9 @@ Class RNoteEditMenu
 			b = oColor.blue()
 		}
 		this.aTextColor = [r,g,b]
-		pSetColors()
+		SetColors()
 
-	func pColor2
+	func SelectColor2
 		new qcolordialog() {
 			r = exec()
 			if r = 0 return ok
@@ -61,9 +61,9 @@ Class RNoteEditMenu
 			b = oColor.blue()
 		}
 		this.aBackColor = [r,g,b]
-		pSetColors()
+		SetColors()
 
-	func pSetColors
+	func SetColors
 		this.textedit1.setstylesheet("QPlainTextEdit { color: rgb(" + aTextColor[1] + "," + aTextColor[2] +
 					"," + aTextColor[3] + ");" + "background-color: rgb(" +
 					aBackColor[1] + "," + aBackColor[2] + "," +

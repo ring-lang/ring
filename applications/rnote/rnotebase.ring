@@ -9,7 +9,7 @@ Class RNoteControllerBase from WindowsControllerParent
 	aBackColor 		= [255,255,255]
 
 	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
-	oTempFont 		= new qfont("",0,0,0)
+	oTFont 		= new qfont("",0,0,0)
 
 	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
 

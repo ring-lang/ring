@@ -50,8 +50,8 @@ class RNoteSettings
 		ok
 
 	func RestoreSettings
-		pSetColors()
-		pSetFont()
+		SetColors()
+		SetFont()
 		SetWebsite()
 		SetWindows()
 		SetTabSpaces()
