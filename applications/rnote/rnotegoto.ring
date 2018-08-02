@@ -16,7 +16,7 @@ class RNoteGoto
 		nLine = 0 + oInput.textvalue()
 		gotoline(nLine)
 
-	func gotoline nLine
+	func GotoLine nLine
 		nLine--
 		cStr = textedit1.toPlainText()
 		nSize = len(cStr)

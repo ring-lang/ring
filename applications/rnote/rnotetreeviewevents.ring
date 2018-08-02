@@ -38,7 +38,7 @@ Class RNoteTreeViewEvents
 			nLine =  aFilesLines[cActiveFileName]
 		textedit1.setPlaintext(read(cActiveFileName))
 		textedit1.setfocus(0)
-		pCursorPositionChanged()
+		CursorPositionChanged()
 		SetActiveFileName()
 		if nLine != NULL
 			gotoline(nLine)

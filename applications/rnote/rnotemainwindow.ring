@@ -777,9 +777,9 @@ class RNoteMainWindow
 	func CreateSourceCode
 		win1 {
 			this.textedit1 = new codeeditor(this.win1) {
-				setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
+				setCursorPositionChangedEvent(Method(:CursorPositionChanged))
 				setLineWrapMode(QTextEdit_NoWrap)
-				setTextChangedEvent(Method(:pTextChanged))
+				setTextChangedEvent(Method(:TextChanged))
 				setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
 				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
 			}

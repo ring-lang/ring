@@ -3,12 +3,12 @@
 
 Class RNoteEditorEvents
 
-	func pTextChanged
+	func TextChanged
 		lAskToSave = true
 		pSetFont()
 		SetActiveLineColor()
 
-	func pCursorPositionChanged
+	func CursorPositionChanged
 		nLine = textedit1.textcursor().blocknumber()+1
 		StatusMessage(" Line : "+nLine+
 					" Column : " +(textedit1.textcursor().columnnumber()+1) +
