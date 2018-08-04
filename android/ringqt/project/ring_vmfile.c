@@ -128,6 +128,8 @@ void ring_vm_file_tempname ( void *pPointer )
 {
 	#ifdef _WIN32
 	/* Windows */
+	#ifdef _MSC_VER
+	/* Visual C/C++ */
 	char _tmpfile[20]  ;
 	errno_t error  ;
 	error = tmpnam_s(_tmpfile,20);
@@ -137,6 +139,9 @@ void ring_vm_file_tempname ( void *pPointer )
 	else {
 		RING_API_RETSTRING(_tmpfile);
 	}
+	#else
+	RING_API_RETSTRING(tmpnam(NULL));
+	#endif
 	/* Mac OS X */
 	#elif __MACH__
 	RING_API_RETSTRING(tmpnam(NULL));
