@@ -38,11 +38,13 @@ Class RNoteEditMenu
 		oCursor.clearselection()
 		textedit1.settextcursor(oCursor)
 		textedit1.Document().setdefaultfont(oTFont)
-		oTFont.setFamily("Roboto")
-		oTFont.setStrikeout(False)
-		oTFont.setbold(False)
-		oTFont.setpointsize(max(oTFont.pointsize()-2,8))
-		tree1.setfont(oTFont)
+		if lSetProjectFilesFont 
+			oTFont.setFamily("Roboto")
+			oTFont.setStrikeout(False)
+			oTFont.setbold(False)
+			oTFont.setpointsize(max(oTFont.pointsize()-2,8))
+			tree1.setfont(oTFont)
+		ok
 
 	func SelectColor
 		new qcolordialog() {

@@ -10,6 +10,7 @@ Class RNoteControllerBase from WindowsControllerParent
 
 	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
 	oTFont 			= new qfont("",0,0,0)
+	lSetProjectFilesFont	= True
 
 	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
 
