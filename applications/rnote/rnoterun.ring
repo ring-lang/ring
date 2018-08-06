@@ -6,10 +6,14 @@ Class RNoteRun
 	func DebugOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
-		if iswindows()
-			cCode = 'start '+cCurrentDir+'batch\run "' + cActiveFileName + '"' + nl
-		else
-			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+		if isBatchFile(cActiveFileName)
+			cCode = RunBatchFile(cActiveFileName)
+		else 
+			if iswindows()
+				cCode = 'start '+cCurrentDir+'batch\run "' + cActiveFileName + '"' + nl
+			else
+				cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+			ok
 		ok
 		system(cCode)
 		chdir(cDir)
@@ -17,10 +21,14 @@ Class RNoteRun
 	func RunOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
-		if iswindows()
-			cCode = 'start '+cCurrentDir+'batch\run2 "' + cActiveFileName + '"' + nl
-		else
-			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+		if isBatchFile(cActiveFileName)
+			cCode = RunBatchFile(cActiveFileName)		
+		else 
+			if iswindows()
+				cCode = 'start '+cCurrentDir+'batch\run2 "' + cActiveFileName + '"' + nl
+			else
+				cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+			ok
 		ok
 		system(cCode)
 		chdir(cDir)
@@ -29,7 +37,12 @@ Class RNoteRun
 		oProcessEditbox.setplaintext("")
 		cDir = CurrentDir()
 		chdir(JustFilePath(cActiveFileName))
-		oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
+		if isBatchFile(cActiveFileName)
+			cCode = RunBatchFile(cActiveFileName)
+			oProcess = RunProcess(cCode,"",cGetProcessData)
+		else 
+			oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
+		ok
 		chdir(cDir)
 
 	func RunWebApplication cFile
@@ -59,4 +72,18 @@ Class RNoteRun
 			}
 		ok
 
+	func isBatchFile cFile 
+		if right(lower(trim(cFile)),4) = ".bat" or 
+			right(lower(trim(cFile)),3) = ".sh"
+			return True 
+		ok
+		return False 
 
+	func RunBatchFile cFile
+		if iswindows()
+			chdir(JustFilePath(cFile))
+			cCode = cFile
+		else
+			cCode = 'cd $(dirname "'+cFile+'") ; ' + './' + cFile +  nl
+		ok
+		return cCode 
