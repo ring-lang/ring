@@ -27,9 +27,10 @@ Class RNoteRun
 
 	func RunGUIOperation cActiveFileName
 		oProcessEditbox.setplaintext("")
+		cDir = CurrentDir()
 		chdir(JustFilePath(cActiveFileName))
 		oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
-		chdir(exefolder())
+		chdir(cDir)
 
 	func RunWebApplication cFile
 		if isWindows() 
