@@ -33,7 +33,7 @@ class RNoteFilesTabs
 			if nIndex > 0
 				filestabs.setcurrentindex(nIndex-1)
 			else 
-				filestabs.setcurrentindex(nIndex+1)
+				filestabs.setcurrentindex(nIndex)
 			ok
 			ChangeFileTab()
 		ok
