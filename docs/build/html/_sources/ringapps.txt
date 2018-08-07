@@ -234,6 +234,11 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "I'm loving this language!"
 	, Pablo Prieto
 
+"Ring Notepad is a an example of the power of Ring.
+It is like NotePad++ with built in form design capability, drag and drop, object attributes etc.
+It is a marvelous application"
+	,  Bert Mariani
+
 "Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages.
 Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages.
 The extent to which Ring has simplified the development database apps, web apps and GUI apps is a great credit to the Ring team.
