@@ -4,4 +4,8 @@
 class RNoteFilesTabs
 
 	func SetFileTab cFile 
-		filestabs.setTabText(0,cFile)
+		if len(aFilesLines) = 1
+			filestabs.setTabText(0,cFile)
+		else 
+			filestabs.addtab(new qWidget(),cFile)
+		ok
