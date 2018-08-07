@@ -9,3 +9,8 @@ class RNoteFilesTabs
 		else 
 			filestabs.addtab(new qWidget(),cFile)
 		ok
+
+	func ChangeFileTab
+
+	func CloseFileTab
+

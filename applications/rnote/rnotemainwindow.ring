@@ -780,6 +780,9 @@ class RNoteMainWindow
 				setFixedheight(35)
 				settabsclosable(True)
 				AddTab(new qWidget(),"noname")
+				setcurrentchangedevent(Method(:ChangeFileTab))
+				Settabcloserequestedevent(Method(:CloseFileTab))
+
 			}
 			this.textedit1 = new codeeditor(this.win1) {
 				setCursorPositionChangedEvent(Method(:CursorPositionChanged))
