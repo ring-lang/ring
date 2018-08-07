@@ -40,7 +40,7 @@ class GTabWidget : public QTabWidget
   public slots:
 
     void currentChangedSlot();
-    void tabCloseRequestedSlot();
+    void tabCloseRequestedSlot(int p1);
 
 };
 

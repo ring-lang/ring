@@ -22295,6 +22295,23 @@ RING_FUNC(ring_QTabWidget_gettabCloseRequestedEvent)
 }
 
 
+RING_FUNC(ring_QTabWidget_geteventparameters)
+{
+	GTabWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTabWidget *) RING_API_GETCPOINTER(1,"QTabWidget");
+	pObject->geteventparameters();
+}
+
+
 RING_FUNC(ring_QTableWidgetItem_background)
 {
 	QTableWidgetItem *pObject ;
@@ -137613,6 +137630,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtabwidget_settabcloserequestedevent",ring_QTabWidget_settabCloseRequestedEvent);
 	ring_vm_funcregister("qtabwidget_getcurrentchangedevent",ring_QTabWidget_getcurrentChangedEvent);
 	ring_vm_funcregister("qtabwidget_gettabcloserequestedevent",ring_QTabWidget_gettabCloseRequestedEvent);
+	ring_vm_funcregister("qtabwidget_geteventparameters",ring_QTabWidget_geteventparameters);
 	ring_vm_funcregister("qtablewidgetitem_background",ring_QTableWidgetItem_background);
 	ring_vm_funcregister("qtablewidgetitem_checkstate",ring_QTableWidgetItem_checkState);
 	ring_vm_funcregister("qtablewidgetitem_clone",ring_QTableWidgetItem_clone);

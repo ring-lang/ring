@@ -13,7 +13,7 @@ GTabWidget::GTabWidget(QWidget *parent,VM *pVM)  : QTabWidget(parent)
 	strcpy(this->ctabCloseRequestedEvent,"");
 
 	QObject::connect(this, SIGNAL(currentChanged(int)),this, SLOT(currentChangedSlot()));
-	QObject::connect(this, SIGNAL(tabCloseRequested(int)),this, SLOT(tabCloseRequestedSlot()));
+	QObject::connect(this, SIGNAL(tabCloseRequested(int)),this, SLOT(tabCloseRequestedSlot(int)));
 
 }
 
@@ -63,11 +63,14 @@ void GTabWidget::currentChangedSlot()
 	ring_vm_runcode(this->pVM,this->ccurrentChangedEvent);
 }
 
-void GTabWidget::tabCloseRequestedSlot()
+void GTabWidget::tabCloseRequestedSlot(int p1)
 {
 	if (strcmp(this->ctabCloseRequestedEvent,"")==0)
 		return ;
 
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_adddouble(this->pParaList, (double) p1 ) ;	
+	
 	ring_vm_runcode(this->pVM,this->ctabCloseRequestedEvent);
 }
 

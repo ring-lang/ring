@@ -2350,6 +2350,8 @@ void settabCloseRequestedEvent(const char *)
 const char *getcurrentChangedEvent(void)
 const char *gettabCloseRequestedEvent(void)
 
+void geteventparameters(void)
+
 <class>
 name: QTableWidgetItem
 para: QString
