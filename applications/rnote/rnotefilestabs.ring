@@ -5,10 +5,10 @@ class RNoteFilesTabs
 
 	func SetFileTab cFile 
 		if len(aFilesLines) = 1
-			filestabs.setTabText(0,cFile)
+			filestabs.setTabText(0,JustFileName(cFile))
 		else 
 			if filestabs.count() != len(aFilesLines)
-				filestabs.addtab(new qWidget(),cFile)
+				filestabs.addtab(new qWidget(),JustFileName(cFile))
 				filestabs { setcurrentindex( count() - 1 ) }
 			else 
 				nPos = find(aFilesLines,cFile,1)
