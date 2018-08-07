@@ -9,6 +9,7 @@ class RNoteFilesTabs
 		else 
 			if filestabs.count() != len(aFilesLines)
 				filestabs.addtab(new qWidget(),cFile)
+				filestabs { setcurrentindex( count() - 1 ) }
 			else 
 				nPos = find(aFilesLines,cFile,1)
 				filestabs.setcurrentindex(nPos-1)
@@ -25,7 +26,8 @@ class RNoteFilesTabs
 
 	func CloseFileTab
 		nIndex = filestabs.geteventparameters()[1]
-		filestabs.removetab(nIndex)
-		if filestabs.count() = 0
-			filestabs.addtab(new qWidget(),cActiveFileName)
+		if filestabs.count() != 1
+			filestabs.removetab(nIndex)
+			del(aFilesLines,nIndex+1)
+			ChangeFileTab()
 		ok
