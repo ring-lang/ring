@@ -25,9 +25,16 @@ class RNoteFilesTabs
 		GotoLine(nRow)		
 
 	func CloseFileTab
+		filestabs.blocksignals(True)
 		nIndex = filestabs.geteventparameters()[1]
 		if filestabs.count() != 1
 			filestabs.removetab(nIndex)
 			del(aFilesLines,nIndex+1)
+			if nIndex > 0
+				filestabs.setcurrentindex(nIndex-1)
+			else 
+				filestabs.setcurrentindex(nIndex+1)
+			ok
 			ChangeFileTab()
 		ok
+		filestabs.blocksignals(False)
