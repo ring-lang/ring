@@ -118,7 +118,7 @@ Class RNoteControllerBase from WindowsControllerParent
 	# Main Window 
 		oApp win1 oFilter aBtns tool1 menu1 status1
 		tool2 oTxtMainFile
-		Tree1 TextEdit1 
+		Tree1 filestabs TextEdit1 
 		oDockProjectFiles oDockSourceCode oDockWebBrowser 
 		oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
 		oWebBrowser oWebView  oWBText 

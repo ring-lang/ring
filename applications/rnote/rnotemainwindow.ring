@@ -776,6 +776,11 @@ class RNoteMainWindow
 
 	func CreateSourceCode
 		win1 {
+			this.filestabs = new qTabWidget(this.win1) {
+				setFixedheight(35)
+				settabsclosable(True)
+				AddTab(new qWidget(),"noname")
+			}
 			this.textedit1 = new codeeditor(this.win1) {
 				setCursorPositionChangedEvent(Method(:CursorPositionChanged))
 				setLineWrapMode(QTextEdit_NoWrap)
@@ -801,8 +806,15 @@ class RNoteMainWindow
 					this.aStyleColors[:SyntaxFunctionCallsColor]
 				)
 			}
+			oTabsAndText = new qWidget() {
+				oLayoutTabsText = new qVBoxlayout() {
+					AddWidget(this.filestabs)
+					AddWidget(this.textedit1)
+				}
+				setLayout(oLayoutTabsText)
+			}
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
-				setwidget(this.textedit1)
+				setwidget(oTabsAndText)
 				setwindowtitle("Source Code")
 				setminimumwidth(340)                                                     
                         }

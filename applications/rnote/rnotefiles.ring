@@ -5,6 +5,7 @@
 	load "rnotebase.ring"
 	load "rnotecontroller.ring"
 	load "rnotemainwindow.ring"
+	load "rnotefilestabs.ring"
 	load "rnotemode.ring"
 	load "rnotestyle.ring"
 	load "rnoteautocomplete.ring"
