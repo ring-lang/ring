@@ -3,3 +3,5 @@
 
 class RNoteFilesTabs
 
+	func SetFileTab cFile 
+		filestabs.setTabText(0,cFile)

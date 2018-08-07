@@ -35,6 +35,7 @@
 # Merge Classes 
 	for cClass in [
 		:RNoteMainWindow,
+		:RNoteFilesTabs,
 		:RNoteMode,
 		:RNoteStyle,
 		:RNoteAutoComplete,

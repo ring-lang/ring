@@ -8,3 +8,4 @@ Class RNoteActiveFile
 
 	func SetActiveFileName
 		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
+		setFileTab(cActiveFileName)
