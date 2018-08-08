@@ -813,6 +813,8 @@ class RNoteMainWindow
 				oLayoutTabsText = new qVBoxlayout() {
 					AddWidget(this.filestabs)
 					AddWidget(this.textedit1)
+					setContentsMargins(0,0,0,0)
+					setspacing(0)
 				}
 				setLayout(oLayoutTabsText)
 			}
