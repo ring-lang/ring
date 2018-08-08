@@ -4,6 +4,7 @@
 class RNoteFilesTabs
 
 	func SetFileTab cFile 
+		filestabs.blocksignals(True)
 		if len(aFilesLines) = 1
 			filestabs.setTabText(0,JustFileName(cFile))
 		else 
@@ -15,6 +16,7 @@ class RNoteFilesTabs
 				filestabs.setcurrentindex(nPos-1)
 			ok
 		ok
+		filestabs.blocksignals(False)
 
 	func ChangeFileTab
 		nIndex = filestabs.currentindex() + 1
@@ -36,5 +38,14 @@ class RNoteFilesTabs
 				filestabs.setcurrentindex(nIndex)
 			ok
 			ChangeFileTab()
+		else 
+			cActiveFileName  = ""
+			this.aFilesLines = []
+			lAskToSave 	 = false
+			cTextHash	 = sha256("")
+			filestabs.setTabText(0,"noname")
+			textedit1.blocksignals(True)
+			textedit1.setPlaintext("")
+			textedit1.blocksignals(False)
 		ok
 		filestabs.blocksignals(False)
