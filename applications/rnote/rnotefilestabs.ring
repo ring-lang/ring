@@ -12,7 +12,7 @@ class RNoteFilesTabs
 				filestabs.addtab(new qWidget(),JustFileName(cFile))
 				filestabs { setcurrentindex( count() - 1 ) }
 			else 
-				nPos = find(aFilesLines,lower(cFile),1)
+				nPos = find(aFilesLines,cFile,1)
 				filestabs.setcurrentindex(nPos-1)
 			ok
 		ok
