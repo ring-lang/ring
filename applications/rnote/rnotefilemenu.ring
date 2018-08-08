@@ -54,6 +54,7 @@ Class RNoteFileMenu
 				this.cActiveFileName = cName
 				this.writefile(this.cActiveFileName,this.textedit1.toplaintext())
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
+				nLine =  this.aFilesLines[this.cActiveFileName]
 				this.SetActiveFileName()
 				lAskToSave = false
 				cTextHash  = sha256(this.textedit1.toplaintext())
