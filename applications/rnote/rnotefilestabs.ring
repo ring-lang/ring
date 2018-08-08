@@ -12,7 +12,7 @@ class RNoteFilesTabs
 				filestabs.addtab(new qWidget(),JustFileName(cFile))
 				filestabs { setcurrentindex( count() - 1 ) }
 			else 
-				nPos = find(aFilesLines,cFile,1)
+				nPos = find(aFilesLines,lower(cFile),1)
 				filestabs.setcurrentindex(nPos-1)
 			ok
 		ok
@@ -25,6 +25,8 @@ class RNoteFilesTabs
 		cActiveFileName = cFile 
 		openFile(cFile)
 		GotoLine(nRow)		
+		displayFunctionsList()
+		displayClassesList()
 
 	func CloseFileTab
 		filestabs.blocksignals(True)
