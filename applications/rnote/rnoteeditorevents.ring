@@ -14,5 +14,6 @@ Class RNoteEditorEvents
 					" Column : " +(textedit1.textcursor().columnnumber()+1) +
 					" Total Lines : " + textedit1.document().linecount())
 		SetActiveLineColor()
-		aFilesLines[cActiveFileName] = nLine
-
+		if cActiveFileName != NULL
+			aFilesLines[cActiveFileName] = nLine
+		ok
