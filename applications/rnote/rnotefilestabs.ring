@@ -27,6 +27,8 @@ class RNoteFilesTabs
 		GotoLine(nRow)		
 		displayFunctionsList()
 		displayClassesList()
+		lAsktoSave = False
+		cTextHash  = sha256(textedit1.toplaintext())
 
 	func CloseFileTab
 		filestabs.blocksignals(True)
