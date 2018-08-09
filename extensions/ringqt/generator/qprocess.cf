@@ -1,0 +1,48 @@
+<class>
+name: QProcess
+para: QObject *
+parent: QIODevice
+codename: GProcess
+passvmpointer
+</class>
+
+QStringList arguments(void)
+void closeReadChannel(QProcess::ProcessChannel channel)
+void closeWriteChannel(void)
+QProcess::ProcessError error(void)
+int exitCode(void)
+QProcess::ExitStatus exitStatus(void)
+QProcess::InputChannelMode inputChannelMode(void)
+QProcess::ProcessChannelMode processChannelMode(void)
+QProcessEnvironment processEnvironment(void)
+QString program(void)
+QByteArray readAllStandardError(void)
+QByteArray readAllStandardOutput(void)
+QProcess::ProcessChannel readChannel(void)
+void setArguments( QStringList  arguments)
+void setInputChannelMode(QProcess::InputChannelMode mode)
+void setProcessChannelMode(QProcess::ProcessChannelMode mode)
+void setProcessEnvironment( QProcessEnvironment  environment)
+void setProgram( QString  program)
+void setReadChannel(QProcess::ProcessChannel channel)
+void setStandardErrorFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardInputFile( QString  fileName)
+void setStandardOutputFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardOutputProcess(QProcess *destination)
+void setWorkingDirectory( QString  dir)
+void start( QString  program,  QStringList  arguments, QIODevice::OpenMode mode )
+void start@2( QString  command, QIODevice::OpenMode mode )
+void start@3(QIODevice::OpenMode mode )
+QProcess::ProcessState state(void)
+bool waitForFinished(int msecs )
+bool waitForStarted(int msecs )
+QString workingDirectory(void)
+
+void kill(void)
+void terminate(void)
+
+void setreadyReadStandardErrorEvent(const char *)
+void setreadyReadStandardOutputEvent(const char *)
+
+const char *getreadyReadStandardErrorEvent(void)
+const char *getreadyReadStandardOutputEvent(void)
