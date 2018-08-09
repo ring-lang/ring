@@ -1,0 +1,14 @@
+<class>
+name: QGeoPositionInfo
+para: void
+</class>
+
+qreal attribute(QGeoPositionInfo::Attribute attribute)
+QGeoCoordinate coordinate(void)
+bool hasAttribute(QGeoPositionInfo::Attribute attribute)
+bool isValid(void)
+void removeAttribute(QGeoPositionInfo::Attribute attribute)
+void setAttribute(QGeoPositionInfo::Attribute attribute, qreal value)
+void setCoordinate(QGeoCoordinate coordinate)
+void setTimestamp(QDateTime timestamp)
+QDateTime timestamp(void)
