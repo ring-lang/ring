@@ -17,7 +17,9 @@ bool testOption(QFontDialog::FontDialogOption option)
 <register>
 int getfont(void)
 </register>
+
 <code>
+
 RING_FUNC(ring_QFontDialog_getfont)
 {
 	List *pList;
