@@ -35,6 +35,8 @@
 	Using <loadfile> filename.cf  we can separate the configuration to many files
 */
 
+load "stdlibcore.ring"
+
 C_INS_FUNCTION  	= 1
 C_INS_CODE		= 2
 C_INS_REGISTER  	= 3
@@ -142,7 +144,10 @@ Func Main
 	cStr = read(cFile)
 	aList = str2list(cStr)
 	aData = []
+	cDir = currentdir()
+	chdir( JustFilePath(cFile) )
 	ProcessCommands(aData,aList)
+	chdir(cDir)
 	cCode = GenCode(aData)
 	if len(sysargv) = 3
 		see cCode
@@ -251,7 +256,10 @@ Func ProcessCommands aData,aList
 			cSubFileName = trim(substr(cLine,11))
 			cSubFileStr = read(cSubFileName)
 			aSubList = str2list(cSubFileStr)
+			cDir = currentdir()
+			chdir( JustFilePath(cSubFileName) )
 			ProcessCommands(aData,aSubList)
+			chdir(cDir)
 			loop
 		ok
 		if lFlag = C_INS_FUNCTION 
