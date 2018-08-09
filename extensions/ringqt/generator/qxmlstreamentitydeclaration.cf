@@ -1,0 +1,10 @@
+<class>
+name: QXmlStreamEntityDeclaration
+para: void
+</class>
+
+QStringRef name(void)
+QStringRef notationName(void)
+QStringRef publicId(void)
+QStringRef systemId(void)
+QStringRef value(void)
