@@ -779,27 +779,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qframe.cf
 <loadfile> qframe2.cf
 <loadfile> qframe3.cf
+<loadfile> qabstractscrollarea.cf
 
-<class>
-name: QAbstractScrollArea
-para: QWidget *parent
-parent: QFrame
-</class>
-void addScrollBarWidget(QWidget *widget, Qt::AlignmentFlag alignment)
-QWidget *cornerWidget(void)
-QScrollBar *horizontalScrollBar(void)
-int horizontalScrollBarPolicy(void)
-QSize maximumViewportSize(void)
-QWidgetList scrollBarWidgets(Qt::AlignmentFlag)
-void setCornerWidget(QWidget *widget)
-void setHorizontalScrollBar(QScrollBar *scrollBar)
-void setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy)
-void setVerticalScrollBar(QScrollBar *scrollBar)
-void setVerticalScrollBarPolicy(Qt::ScrollBarPolicy)
-void setViewport(QWidget *widget)
-QScrollBar *verticalScrollBar(void)
-int verticalScrollBarPolicy(void)
-QWidget *viewport(void)
 
 <class>
 name: QAbstractItemView
