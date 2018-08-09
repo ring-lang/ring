@@ -1,0 +1,24 @@
+<class>
+name: QRegularExpressionMatch
+para: void
+</class>
+
+QString captured(int nth)
+QString captured@2(const QString  name)
+int capturedEnd(int nth)
+int capturedEnd@2(const QString  name)
+int capturedLength(int nth)
+int capturedLength@2(const QString  name)
+QStringRef capturedRef(int nth)
+QStringRef capturedRef@2(const QString  name)
+int capturedStart(int nth)
+int capturedStart@2(const QString  name)
+QStringList capturedTexts(void)
+bool hasMatch(void)
+bool hasPartialMatch(void)
+bool isValid(void)
+int lastCapturedIndex(void)
+QRegularExpression::MatchOptions matchOptions(void)
+QRegularExpression::MatchType matchType(void)
+QRegularExpression regularExpression(void)
+void swap(QRegularExpressionMatch  other)
