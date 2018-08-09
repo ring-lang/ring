@@ -1,11 +1,15 @@
 # Generate Documentation from Configuration File
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 # Date : 2016.09.22
-
 #===============================================
+
+load "stdlibcore.ring"
+
 C_OUTPUTFILE = "qtclassesdoc.txt"
 C_CHAPTERNAME = "RingQt Classes Reference"
-cFile = read("generator/qt.cf")
+cDir = currentdir()
+chdir("generator")
+cFile = read("qt.cf")
 lStart = False		# False = Classes Doc.   True = Functions Doc.
 
 # The next list for RingQt classes that are not defined in Qt
@@ -32,3 +36,4 @@ funcAfterClass = func cClassName {
 #===============================================
 
 load "../codegen/gendoc.ring"
+chdir(cDir)
