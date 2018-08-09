@@ -5,11 +5,15 @@
 
 load "stdlibcore.ring"
 
-C_OUTPUTFILE = "qtclassesdoc.txt"
-C_CHAPTERNAME = "RingQt Classes Reference"
 cDir = currentdir()
 chdir("generator")
 cFile = read("qt.cf")
+if isWindows()
+	C_OUTPUTFILE = "..\qtclassesdoc.txt"
+else 
+	C_OUTPUTFILE = "../qtclassesdoc.txt"
+ok
+C_CHAPTERNAME = "RingQt Classes Reference"
 lStart = False		# False = Classes Doc.   True = Functions Doc.
 
 # The next list for RingQt classes that are not defined in Qt
