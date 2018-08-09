@@ -1,0 +1,28 @@
+<class>
+name: QToolButton
+para: QWidget *
+parent: QAbstractButton
+codename: GToolButton
+passvmpointer
+</class>
+
+Qt::ArrowType arrowType(void)
+bool autoRaise(void)
+QAction * defaultAction(void)
+QMenu * menu(void)
+QToolButton::ToolButtonPopupMode popupMode(void)
+void setArrowType(Qt::ArrowType type)
+void setAutoRaise(bool enable)
+void setMenu(QMenu * menu)
+void setPopupMode(QToolButton::ToolButtonPopupMode mode)
+Qt::ToolButtonStyle toolButtonStyle(void)
+void setDefaultAction(QAction * action)
+void setToolButtonStyle(Qt::ToolButtonStyle style)
+void showMenu(void)
+
+void settriggeredEvent(const char *)
+const char *gettriggeredEvent(void)
+
+void setClickEvent(const char *)
+const char *getClickEvent(void)
+
