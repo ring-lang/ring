@@ -849,20 +849,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsqldriver.cf
 <loadfile> qsqlquery.cf
 <loadfile> qsqlerror.cf
-
-<class>
-name: QSqlIndex
-para: QString, QString 
-parent: QSqlRecord
-</class>
-
-void append(QSqlField, bool)
-QString cursorName(void)
-bool isDescending(int i)
-QString name(void)
-void setCursorName(QString)
-void setDescending(int i, bool desc)
-void setName(QString)
+<loadfile> qsqlindex.cf
 
 <class>
 name: QSqlRecord
