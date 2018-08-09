@@ -800,32 +800,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qcheckbox.cf
 <loadfile> qabstractbutton.cf
 <loadfile> qradiobutton.cf
-
-<class>
-name: QButtonGroup
-para: QObject *parent
-codename: GButtonGroup
-passvmpointer
-</class>
-
-void addButton(QAbstractButton *button, int id)
-QAbstractButton *button(int id)
-QAbstractButton *checkedButton(void)
-int checkedId(void)
-bool exclusive(void)
-int id(QAbstractButton *button)
-void removeButton(QAbstractButton *button)
-void setExclusive(bool)
-void setId(QAbstractButton *button, int id)
-
-void setbuttonClickedEvent(const char *)
-void setbuttonPressedEvent(const char *)
-void setbuttonReleasedEvent(const char *)
-
-const char *getbuttonClickedEvent(void)
-const char *getbuttonPressedEvent(void)
-const char *getbuttonReleasedEvent(void)
-
+<loadfile> qbuttongroup.cf
 
 <class>
 name: QMediaPlayer
