@@ -1,0 +1,35 @@
+<class>
+name: QListView
+para: QWidget *
+parent: QAbstractItemView
+</class>
+
+int  batchSize(void)
+void  clearPropertyFlags(void)
+QListView::Flow  flow(void)
+QSize  gridSize(void)
+bool  isRowHidden(int row)
+bool  isSelectionRectVisible(void)
+bool  isWrapping(void)
+QListView::LayoutMode  layoutMode(void)
+int  modelColumn(void)
+QListView::Movement  movement(void)
+QListView::ResizeMode  resizeMode(void)
+void  setBatchSize(int batchSize)
+void  setFlow(QListView::Flow flow)
+void  setGridSize( QSize   size)
+void  setLayoutMode(QListView::LayoutMode mode)
+void  setModelColumn(int column)
+void  setMovement(QListView::Movement movement)
+void  setResizeMode(QListView::ResizeMode mode)
+void  setRowHidden(int row, bool hide)
+void  setSelectionRectVisible(bool show)
+void  setSpacing(int space)
+void  setUniformItemSizes(bool enable)
+void  setViewMode(QListView::ViewMode mode)
+void  setWordWrap(bool on)
+void  setWrapping(bool enable)
+int  spacing(void)
+bool  uniformItemSizes(void)
+QListView::ViewMode  viewMode(void)
+bool  wordWrap(void)
