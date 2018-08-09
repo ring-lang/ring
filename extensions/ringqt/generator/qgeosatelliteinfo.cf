@@ -1,0 +1,16 @@
+<class>
+name: QGeoSatelliteInfo
+para: void
+</class>
+
+qreal attribute(QGeoSatelliteInfo::Attribute attribute)
+bool hasAttribute(QGeoSatelliteInfo::Attribute attribute)
+void removeAttribute(QGeoSatelliteInfo::Attribute attribute)
+int satelliteIdentifier(void)
+QGeoSatelliteInfo::SatelliteSystem satelliteSystem(void)
+void setAttribute(QGeoSatelliteInfo::Attribute attribute, qreal value)
+void setSatelliteIdentifier(int satId)
+void setSatelliteSystem(QGeoSatelliteInfo::SatelliteSystem system)
+void setSignalStrength(int signalStrength)
+int signalStrength(void)
+
