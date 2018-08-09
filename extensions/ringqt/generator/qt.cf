@@ -950,17 +950,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qmutexlocker.cf
 
 <loadfile> qbuffer.cf
+<loadfile> qbluetoothaddress.cf
 
-
-<class>
-name: QBluetoothAddress
-para: void
-</class>
-
-void clear(void)
-bool isNull(void)
-QString toString(void)
-quint64 toUInt64(void)
 
 <class>
 name: QBluetoothDeviceDiscoveryAgent
