@@ -1,0 +1,21 @@
+<class>
+name: QFileDevice
+parent: QIODevice
+nonew
+</class>
+
+QFileDevice::FileError error(void)
+bool flush(void)
+int handle(void)
+uchar * map(qint64 offset, qint64 size, QFileDevice::MemoryMapFlags flags)
+QFileDevice::Permissions permissions(void)
+bool resize(qint64 sz)
+QString fileName(void)
+<comment>
+QDateTime fileTime(QFileDevice::FileTime time)
+bool setFileTime(QDateTime newDate, QFileDevice::FileTime fileTime)
+</comment>
+bool setPermissions(QFileDevice::Permissions permissions)
+bool unmap(uchar *address)
+void unsetError(void)
+
