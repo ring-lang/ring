@@ -1,0 +1,19 @@
+<class>
+name: QOpenGLPaintDevice
+para: void
+parent: QPaintDevice
+</class>
+
+
+QOpenGLContext * context(void)
+qreal dotsPerMeterX(void)
+qreal dotsPerMeterY(void)
+void ensureActiveTarget(void)
+bool paintFlipped(void)
+void setDevicePixelRatio(qreal devicePixelRatio)
+void setDotsPerMeterX(qreal dpmx)
+void setDotsPerMeterY(qreal dpmy)
+void setPaintFlipped(bool flipped)
+void setSize(QSize size)
+QSize size(void)
+
