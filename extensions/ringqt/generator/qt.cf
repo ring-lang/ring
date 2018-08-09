@@ -820,34 +820,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qbytearray.cf
 <loadfile> qiodevice.cf
 <loadfile> qabstractsocket.cf
+<loadfile> qnetworkproxy.cf
 
-<class>
-name: QNetworkProxy
-para: void
-</class>
-
-int capabilities(void)
-bool hasRawHeader(QByteArray headerName)
-QVariant header(QNetworkRequest::KnownHeaders header)
-QString hostName(void)
-bool isCachingProxy(void)
-bool isTransparentProxy(void)
-QString password(void)
-int port(void)
-QByteArray rawHeader(QByteArray headerName)
-void setCapabilities(QNetworkProxy::Capability capabilities)
-void setHeader(QNetworkRequest::KnownHeaders header,  QVariant value)
-void setHostName(QString hostName)
-void setPassword(QString password)
-void setPort(int port)
-void setRawHeader(QByteArray headerName, QByteArray headerValue)
-void setType(QNetworkProxy::ProxyType type)
-void setUser(QString user)
-void swap(QNetworkProxy  other)
-int type(void)
-QString user(void)
-QNetworkProxy applicationProxy(void)
-void setApplicationProxy(QNetworkProxy  networkProxy)
 
 <class>
 name: QTcpSocket
