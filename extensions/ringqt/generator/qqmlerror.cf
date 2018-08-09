@@ -1,0 +1,17 @@
+<class>
+name: QQmlError
+para: void
+</class>
+
+int column(void)
+QString description(void)
+bool isValid(void)
+int line(void)
+QObject * object(void)
+void setColumn(int column)
+void setDescription(QString description)
+void setLine(int line)
+void setObject(QObject *object)
+void setUrl(QUrl url)
+QString toString(void)
+QUrl url(void)
