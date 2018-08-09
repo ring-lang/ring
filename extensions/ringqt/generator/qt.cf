@@ -768,40 +768,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtreewidget.cf
 <loadfile> qtreewidgetitem.cf
 <loadfile> qcombobox.cf
-
-<class>
-name: QMenuBar
-para: QWidget *
-parent: QWidget
-</class>
-
-QAction *actionAt(QPoint)
-QRect actionGeometry(QAction *act)
-QAction *activeAction(void)
-QAction *addAction(QString)
-<comment>
-void addAction(QAction *action)
-QAction *addMenu(QMenu *menu)
-</comment>
-QMenu *addMenu(QString)
-QAction *addSeparator(void)
-void clear(void)
-QWidget *cornerWidget(Qt::Corner)
-<comment>
-QAction *defaultAction(void)
-</comment>
-QAction *insertMenu(QAction *before, QMenu *menu)
-QAction *insertSeparator(QAction *before)
-bool isDefaultUp(void)
-bool isNativeMenuBar(void)
-void setActiveAction(QAction *act)
-void setCornerWidget(QWidget *widget, Qt::Corner)
-<comment>
-void setDefaultAction(QAction *act)
-</comment>
-void setDefaultUp(bool)
-void setNativeMenuBar(bool nativeMenuBar)
-
+<loadfile> qmenubar.cf
 
 <class>
 name: QMenu
