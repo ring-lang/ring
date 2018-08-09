@@ -6,9 +6,6 @@ passvmpointer
 </class>
 
 QBluetoothAddress address(void)
-<comment>
-QList<QBluetoothAddress> connectedDevices(void)
-<comment>
 QBluetoothLocalDevice::HostMode hostMode(void)
 bool isValid(void)
 QString name(void)
