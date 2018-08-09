@@ -1026,20 +1026,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qdrag.cf
 <loadfile> qmimedata.cf
 <loadfile> qdropevent.cf
+<loadfile> qdragmoveevent.cf
 
-
-<class>
-name: QDragMoveEvent
-para: QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
-parent: QDropEvent
-</class>
-
-
-void accept(QRect rectangle)
-void accept@2(void)
-QRect answerRect(void)
-void ignore(QRect rectangle)
-void ignore@2(void)
 
 <class>
 name: QDragEnterEvent
