@@ -883,21 +883,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qgridlayout.cf
 <loadfile> qtextcharformat.cf
 <loadfile> qcameraviewfinder.cf
+<loadfile> qgraphicsvideoitem.cf
 
-
-
-<class>
-name: QGraphicsVideoItem
-para: void
-</class>
-
-Qt::AspectRatioMode aspectRatioMode(void)
-QSizeF nativeSize(void)
-QPointF offset(void)
-void setAspectRatioMode(Qt::AspectRatioMode mode)
-void setOffset(QPointF offset)
-void setSize(QSizeF size)
-QSizeF size(void)
 
 <class>
 name: QVideoWidgetControl
