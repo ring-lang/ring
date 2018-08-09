@@ -953,16 +953,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qbluetoothaddress.cf
 <loadfile> qbluetoothdevicediscoveryagent.cf
 <loadfile> qbluetoothdeviceinfo.cf
+<loadfile> qbluetoothhostinfo.cf
 
-<class>
-name: QBluetoothHostInfo
-para: void
-</class>
-
-QBluetoothAddress address(void)
-QString name(void)
-void setAddress(QBluetoothAddress address)
-void setName(QString name)
 
 <class>
 name: QBluetoothLocalDevice
