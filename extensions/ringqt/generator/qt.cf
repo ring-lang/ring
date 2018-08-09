@@ -882,13 +882,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> codeedit.cf
 <loadfile> qgridlayout.cf
 <loadfile> qtextcharformat.cf
+<loadfile> qcameraviewfinder.cf
 
-
-<class>
-name: QCameraViewfinder
-para: QWidget *
-parent: QVideoWidget
-</class>
 
 
 <class>
