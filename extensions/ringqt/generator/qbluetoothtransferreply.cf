@@ -1,0 +1,20 @@
+<class>
+name: QBluetoothTransferReply
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferReply
+passvmpointer
+abstract
+</class>
+
+QBluetoothTransferManager * manager(void)
+QBluetoothTransferRequest request(void)
+void abort(void)
+
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void settransferProgressEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *gettransferProgressEvent(void)
