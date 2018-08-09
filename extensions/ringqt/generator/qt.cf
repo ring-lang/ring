@@ -759,14 +759,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsize.cf
 <loadfile> qlineedit.cf
 <loadfile> qvboxlayout.cf
+<loadfile> qhboxlayout.cf
 
-<class>
-name: QHBoxLayout
-para: void
-parent: QBoxLayout
-</class>
-void addWidget(QWidget *)
-void addLayout(QLayout *)
 
 <class>
 name: QTextEdit
