@@ -5,7 +5,7 @@
 #===============================================
 C_OUTPUTFILE = "qtclassesdoc.txt"
 C_CHAPTERNAME = "RingQt Classes Reference"
-cFile = read("qt.cf")
+cFile = read("generator/qt.cf")
 lStart = False		# False = Classes Doc.   True = Functions Doc.
 
 # The next list for RingQt classes that are not defined in Qt
