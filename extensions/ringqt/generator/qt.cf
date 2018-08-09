@@ -761,68 +761,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qvboxlayout.cf
 <loadfile> qhboxlayout.cf
 <loadfile> qtextedit.cf
-
-<class>
-name: QListWidget
-para: QWidget *
-parent: QListView
-codename: GListWidget
-passvmpointer
-</class>
-
-void addItem(QString)
-int count(void)
-<comment>
-QListWidgetItem *currentitem(void)
-</comment>
-int currentRow(void)
-void editItem(QListWidgetItem *item)
-<comment>
-QList findItems(QString, int flags)
-</comment>
-void insertItem(int, QString)
-bool isSortingEnabled(void)
-QListWidgetItem *item(int row)
-QListWidgetItem *itemAt(int x, int y)
-QWidget *itemWidget(QListWidgetItem *item)
-void openPersistentEditor(QListWidgetItem *item)
-void removeItemWidget(QListWidgetItem *item)
-int row(QListWidgetItem *item)
-<comment>
-QList selectedItems(void)
-</comment>
-void setCurrentItem(QListWidgetItem *item, QItemSelectionModel::SelectionFlag command)
-void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
-void setItemWidget(QListWidgetItem *item, QWidget *widget)
-void setSortingEnabled(bool enable)
-void sortItems(Qt::SortOrder order)
-QListWidgetItem *takeItem(int row)
-QRect visualItemRect(QListWidgetItem *item)
-
-void clear(void)
-void scrollToItem(QListWidgetItem *item,QAbstractItemView::ScrollHint hint)
-
-void setcurrentItemChangedEvent(const char *)
-void setcurrentRowChangedEvent(const char *)
-void setcurrentTextChangedEvent(const char *)
-void setitemActivatedEvent(const char *)
-void setitemChangedEvent(const char *)
-void setitemClickedEvent(const char *)
-void setitemDoubleClickedEvent(const char *)
-void setitemEnteredEvent(const char *)
-void setitemPressedEvent(const char *)
-void setitemSelectionChangedEvent(const char *)
-
-const char *getcurrentItemChangedEvent(void)
-const char *getcurrentRowChangedEvent(void)
-const char *getcurrentTextChangedEvent(void)
-const char *getitemActivatedEvent(void)
-const char *getitemChangedEvent(void)
-const char *getitemClickedEvent(void)
-const char *getitemDoubleClickedEvent(void)
-const char *getitemEnteredEvent(void)
-const char *getitemPressedEvent(void)
-const char *getitemSelectionChangedEvent(void)
+<loadfile> qlistwidget.cf
 
 <class>
 name: QTreeView
