@@ -1027,13 +1027,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qmimedata.cf
 <loadfile> qdropevent.cf
 <loadfile> qdragmoveevent.cf
+<loadfile> qdragenterevent.cf
 
-
-<class>
-name: QDragEnterEvent
-para: QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers
-parent: QDragMoveEvent
-</class>
 
 
 <class>
