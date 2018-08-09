@@ -1,0 +1,25 @@
+<class>
+name: QAxBase
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+QVariant asVariant(void)
+QString control(void)
+void disableClassInfo(void)
+void disableEventSink(void)
+void disableMetaObject(void)
+QVariant dynamicCall( char *function)
+QVariant dynamicCall@2( char *function,QString)
+QString generateDocumentation(void)
+bool isNull(void)
+QAxObject * querySubObject( char *name)
+bool setControl( QString  )
+QStringList verbs(void)
+
+<comment>
+QAxBase::PropertyBag propertyBag(void)
+void setPropertyBag(QAxBase::PropertyBag bag)
+long queryInterface( QUuid  uuid, void **iface)
+</comment>
