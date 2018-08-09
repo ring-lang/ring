@@ -807,26 +807,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qaction.cf
 <loadfile> qevent.cf
 <loadfile> qmessagebox.cf
-
-<class>
-name: QTimer
-para: QObject *parent
-codename: GTimer
-passvmpointer
-</class>
-
-int interval(void) 
-bool isActive(void) 
-bool isSingleShot(void) 
-void setInterval(int msec)
-void setSingleShot(bool singleShot)
-int timerId(void) 
-void start(void)
-void stop(void)
-
-void settimeoutEvent(const char *)
-
-const char *gettimeoutEvent(void)
+<loadfile> qtimer.cf
 
 <class>
 name: QFileDialog
