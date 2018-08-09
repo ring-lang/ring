@@ -1,0 +1,20 @@
+<class>
+name: QFrame
+para: QWidget *parent, Qt::WindowType flag
+parent: QWidget
+</class>
+
+QRect frameRect(void)
+int frameShadow(void)
+int frameShape(void)
+int frameStyle(void)
+int frameWidth(void)
+int lineWidth(void)
+int midLineWidth(void)
+void setFrameRect(QRect)
+void setFrameShadow(QFrame::Shadow)
+void setFrameShape(QFrame::Shape)
+void setFrameStyle(int style)
+void setLineWidth(int)
+void setMidLineWidth(int)
+QSize sizeHint(void)
