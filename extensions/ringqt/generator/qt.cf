@@ -830,47 +830,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qfontdialog.cf
 <loadfile> qdialog.cf
 <loadfile> qtextcursor.cf
-
-
-<class>
-name: QColorDialog
-para: void
-parent: QDialog
-</class>
-
-QColor currentColor(void)
-void open(void)
-int options(void)
-QColor selectedColor(void)
-void setCurrentColor(QColor)
-void setOption(QColorDialog::ColorDialogOption option, bool on )
-void setOptions(QColorDialog::ColorDialogOption options)
-bool testOption(QColorDialog::ColorDialogOption option)
-QColor customColor(int index)
-int customCount(void)
-void setCustomColor(int index, int color)
-void setStandardColor(int index, int color)
-
-<comment>
-void setcolorSelectedEvent(const char *)
-void setcurrentColorChangedEvent(const char *)
-</comment>
-
-<register>
-int getcolor(void)
-</register>
-<code>
-RING_FUNC(ring_QColorDialog_getcolor)
-{
-	List *pList;
-	pList = RING_API_NEWLIST ;
-	QColor pValue = QColorDialog::getColor();		
-	ring_list_adddouble(pList,pValue.red());
-	ring_list_adddouble(pList,pValue.green());
-	ring_list_adddouble(pList,pValue.blue());
-	RING_API_RETLIST(pList);
-}
-</code>
+<loadfile> qcolordialog.cf
 
 
 <class>
