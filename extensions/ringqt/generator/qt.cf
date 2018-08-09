@@ -784,35 +784,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtableview.cf
 <loadfile> qtablewidget.cf
 <loadfile> qprogressbar.cf
+<loadfile> qspinbox.cf
 
-<class>
-name: QSpinBox
-para: QWidget *parent
-parent: QWidget
-codename: GSpinBox
-passvmpointer
-</class>
-
-QString cleanText(void)
-int displayIntegerBase(void)
-int maximum(void)
-int minimum(void)
-QString prefix(void)
-void setDisplayIntegerBase(int base)
-void setMaximum(int max)
-void setMinimum(int min)
-void setPrefix(QString)
-void setRange(int minimum, int maximum)
-void setSingleStep(int val)
-void setSuffix(QString)
-int singleStep(void)
-QString suffix(void)
-int value(void)
-void setValue(int val)
-
-void setvalueChangedEvent(const char *)
-
-const char *getvalueChangedEvent(void)
 
 <class>
 name: QAbstractSlider
