@@ -1,0 +1,25 @@
+<class>
+name: QOpenGLBuffer
+para: void
+</class>
+
+void allocate(void *data, int count)
+void allocate@2(int count)
+bool bind(void)
+GLuint bufferId(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+void * map(QOpenGLBuffer::Access access)
+<comment>
+void * mapRange(int offset, int count, QOpenGLBuffer::RangeAccessFlags access)
+</comment>
+bool read(int offset, void *data, int count)
+void release(void)
+void setUsagePattern(QOpenGLBuffer::UsagePattern value)
+int size(void)
+QOpenGLBuffer::Type type(void)
+bool unmap(void)
+QOpenGLBuffer::UsagePattern usagePattern(void)
+void write(int offset, void *data, int count)
+void release@2(QOpenGLBuffer::Type type)
