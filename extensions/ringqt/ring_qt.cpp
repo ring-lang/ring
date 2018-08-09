@@ -443,8 +443,8 @@ extern "C" {
 	void ring_QXmlStreamWriter_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamNotationDeclaration_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamNamespaceDeclaration_freefunc(void *pState,void *pPointer);
-	void ring_QXmlStreamEntityResolver_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamEntityDeclaration_freefunc(void *pState,void *pPointer);
+	void ring_QXmlStreamEntityResolver_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamAttributes_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamAttribute_freefunc(void *pState,void *pPointer);
 	void ring_QThread_freefunc(void *pState,void *pPointer);
@@ -50673,6 +50673,7 @@ RING_FUNC(ring_QFontDialog_testOption)
 	RING_API_RETNUMBER(pObject->testOption( (QFontDialog::FontDialogOption )  (int) RING_API_GETNUMBER(2)));
 }
 
+
 RING_FUNC(ring_QFontDialog_getfont)
 {
 	List *pList;
@@ -52249,6 +52250,7 @@ RING_FUNC(ring_QColorDialog_setStandardColor)
 	pObject->setStandardColor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
+
 RING_FUNC(ring_QColorDialog_getcolor)
 {
 	List *pList;
@@ -52259,6 +52261,7 @@ RING_FUNC(ring_QColorDialog_getcolor)
 	ring_list_adddouble(pList,pValue.blue());
 	RING_API_RETLIST(pList);
 }
+
 
 RING_FUNC(ring_QStringList_join)
 {
@@ -130077,17 +130080,6 @@ RING_FUNC(ring_QXmlStreamNamespaceDeclaration_new)
 	RING_API_RETCPOINTER(pObject,"QXmlStreamNamespaceDeclaration");
 }
 
-RING_FUNC(ring_QXmlStreamEntityResolver_new)
-{
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	QXmlStreamEntityResolver *pObject = new QXmlStreamEntityResolver();
-	RING_API_RETCPOINTER(pObject,"QXmlStreamEntityResolver");
-}
-
 RING_FUNC(ring_QXmlStreamEntityDeclaration_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -130097,6 +130089,17 @@ RING_FUNC(ring_QXmlStreamEntityDeclaration_new)
 	}
 	QXmlStreamEntityDeclaration *pObject = new QXmlStreamEntityDeclaration();
 	RING_API_RETCPOINTER(pObject,"QXmlStreamEntityDeclaration");
+}
+
+RING_FUNC(ring_QXmlStreamEntityResolver_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QXmlStreamEntityResolver *pObject = new QXmlStreamEntityResolver();
+	RING_API_RETCPOINTER(pObject,"QXmlStreamEntityResolver");
 }
 
 RING_FUNC(ring_QXmlStreamAttributes_new)
@@ -133366,23 +133369,6 @@ RING_FUNC(ring_QXmlStreamNamespaceDeclaration_delete)
 	}
 }
 
-RING_FUNC(ring_QXmlStreamEntityResolver_delete)
-{
-	QXmlStreamEntityResolver *pObject ; 
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 1 )
-	{
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISPOINTER(1) )
-	{
-		pObject = (QXmlStreamEntityResolver *) RING_API_GETCPOINTER(1,"QXmlStreamEntityResolver");
-		delete pObject ;
-		RING_API_SETNULLPOINTER(1);
-	}
-}
-
 RING_FUNC(ring_QXmlStreamEntityDeclaration_delete)
 {
 	QXmlStreamEntityDeclaration *pObject ; 
@@ -133395,6 +133381,23 @@ RING_FUNC(ring_QXmlStreamEntityDeclaration_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QXmlStreamEntityDeclaration *) RING_API_GETCPOINTER(1,"QXmlStreamEntityDeclaration");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QXmlStreamEntityResolver_delete)
+{
+	QXmlStreamEntityResolver *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QXmlStreamEntityResolver *) RING_API_GETCPOINTER(1,"QXmlStreamEntityResolver");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -135845,17 +135848,17 @@ void ring_QXmlStreamNamespaceDeclaration_freefunc(void *pState,void *pPointer)
 	delete pObject ;
 }
 
-void ring_QXmlStreamEntityResolver_freefunc(void *pState,void *pPointer)
-{
-	QXmlStreamEntityResolver *pObject ; 
-	pObject = (QXmlStreamEntityResolver *) pPointer;
-	delete pObject ;
-}
-
 void ring_QXmlStreamEntityDeclaration_freefunc(void *pState,void *pPointer)
 {
 	QXmlStreamEntityDeclaration *pObject ; 
 	pObject = (QXmlStreamEntityDeclaration *) pPointer;
+	delete pObject ;
+}
+
+void ring_QXmlStreamEntityResolver_freefunc(void *pState,void *pPointer)
+{
+	QXmlStreamEntityResolver *pObject ; 
+	pObject = (QXmlStreamEntityResolver *) pPointer;
 	delete pObject ;
 }
 
@@ -142784,8 +142787,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qxmlstreamwriter_new",ring_QXmlStreamWriter_new);
 	ring_vm_funcregister("qxmlstreamnotationdeclaration_new",ring_QXmlStreamNotationDeclaration_new);
 	ring_vm_funcregister("qxmlstreamnamespacedeclaration_new",ring_QXmlStreamNamespaceDeclaration_new);
-	ring_vm_funcregister("qxmlstreamentityresolver_new",ring_QXmlStreamEntityResolver_new);
 	ring_vm_funcregister("qxmlstreamentitydeclaration_new",ring_QXmlStreamEntityDeclaration_new);
+	ring_vm_funcregister("qxmlstreamentityresolver_new",ring_QXmlStreamEntityResolver_new);
 	ring_vm_funcregister("qxmlstreamattributes_new",ring_QXmlStreamAttributes_new);
 	ring_vm_funcregister("qxmlstreamattribute_new",ring_QXmlStreamAttribute_new);
 	ring_vm_funcregister("qthread_new",ring_QThread_new);
@@ -142991,8 +142994,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qxmlstreamwriter_delete",ring_QXmlStreamWriter_delete);
 	ring_vm_funcregister("qxmlstreamnotationdeclaration_delete",ring_QXmlStreamNotationDeclaration_delete);
 	ring_vm_funcregister("qxmlstreamnamespacedeclaration_delete",ring_QXmlStreamNamespaceDeclaration_delete);
-	ring_vm_funcregister("qxmlstreamentityresolver_delete",ring_QXmlStreamEntityResolver_delete);
 	ring_vm_funcregister("qxmlstreamentitydeclaration_delete",ring_QXmlStreamEntityDeclaration_delete);
+	ring_vm_funcregister("qxmlstreamentityresolver_delete",ring_QXmlStreamEntityResolver_delete);
 	ring_vm_funcregister("qxmlstreamattributes_delete",ring_QXmlStreamAttributes_delete);
 	ring_vm_funcregister("qxmlstreamattribute_delete",ring_QXmlStreamAttribute_delete);
 	ring_vm_funcregister("qthread_delete",ring_QThread_delete);

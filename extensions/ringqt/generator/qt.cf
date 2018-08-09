@@ -861,9 +861,10 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qimage.cf
 <loadfile> ringcodehighlighter.cf
 <loadfile> qxmlstreamreader.cf
-<loadfile> qxmlstreamwrite.cf
+<loadfile> qxmlstreamwriter.cf
 <loadfile> qxmlstreamnotationdeclaration.cf
-<loadfile> qxmlstramnamespacedeclaration.cf
+<loadfile> qxmlstreamnamespacedeclaration.cf
+<loadfile> qxmlstreamentitydeclaration.cf
 <loadfile> qxmlstreamentityresolver.cf
 <loadfile> qxmlstreamattributes.cf
 <loadfile> qxmlstreamattribute.cf
