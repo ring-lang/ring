@@ -851,37 +851,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsqlerror.cf
 <loadfile> qsqlindex.cf
 <loadfile> qsqlrecord.cf
+<loadfile> qsqlfield.cf
 
-
-<class>
-name: QSqlField
-para:  QString,QVariant::Type
-</class>
-
-void clear(void)
-QVariant defaultValue(void)
-bool isAutoValue(void)
-bool isGenerated(void)
-bool isNull(void)
-bool isReadOnly(void)
-bool isValid(void)
-int length(void)
-QString name(void)
-int precision(void)
-RequiredStatus requiredStatus(void)
-void setAutoValue(bool autoVal)
-void setDefaultValue(QVariant)
-void setGenerated(bool gen)
-void setLength(int fieldLength)
-void setName(QString)
-void setPrecision(int precision)
-void setReadOnly(bool readOnly)
-void setRequired(bool required)
-void setRequiredStatus(QSqlField::RequiredStatus required)
-void setType(QVariant::Type type)
-void setValue(QVariant)
-QVariant::Type type(void)
-QVariant value(void)
 
 <class>
 name: QSqlDriverCreatorBase
