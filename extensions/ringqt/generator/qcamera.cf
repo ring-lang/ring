@@ -1,0 +1,47 @@
+<class>
+name: QCamera
+para: void
+parent: QMediaObject
+</class>
+
+QCamera::CaptureModes captureMode(void)
+QCamera::Error error(void)
+QString errorString(void)
+QCameraExposure * exposure(void)
+QCameraFocus * focus(void)
+QCameraImageProcessing * imageProcessing(void)
+bool isCaptureModeSupported(QCamera::CaptureModes mode)
+QCamera::LockStatus lockStatus(void)
+QCamera::LockStatus lockStatus@2(QCamera::LockType lockType)
+QCamera::LockTypes requestedLocks(void)
+void setViewfinder(QVideoWidget * viewfinder)
+void setViewfinder@2(QGraphicsVideoItem * viewfinder)
+void setViewfinder@3(QAbstractVideoSurface * surface)
+
+<comment>
+void setViewfinderSettings( QCameraViewfinderSettings   settings)
+</comment>
+
+QCamera::State state(void)
+QCamera::Status status(void)
+QCamera::LockTypes supportedLocks(void)
+
+<comment>
+QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfinderSettings   settings )
+QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
+QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
+QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
+QCameraViewfinderSettings viewfinderSettings(void)
+</comment>
+
+void load(void)
+void searchAndLock(void)
+void searchAndLock@2(QCamera::LockTypes locks)
+void setCaptureMode(QCamera::CaptureModes mode)
+void start(void)
+void stop(void)
+void unload(void)
+void unlock(void)
+void unlock@2(QCamera::LockTypes locks)
+
+
