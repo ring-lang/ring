@@ -788,58 +788,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qabstractslider.cf
 <loadfile> qslider.cf
 <loadfile> qdateedit.cf
-
-
-<class>
-name: QDateTimeEdit
-para: QWidget *parent
-parent:  QAbstractSpinBox
-</class>
-
-bool calendarPopup(void)
-QCalendarWidget *calendarWidget(void)
-void clearMaximumDate(void)
-void clearMaximumDateTime(void)
-void clearMaximumTime(void)
-void clearMinimumDate(void)
-void clearMinimumDateTime(void)
-void clearMinimumTime(void)
-int currentSection(void)
-int currentSectionIndex(void)
-QDate date(void)
-QDateTime dateTime(void)
-QString displayFormat(void)
-int displayedSections(void)
-QDate maximumDate(void)
-QDateTime maximumDateTime(void)
-QTime maximumTime(void)
-QDate minimumDate(void)
-QDateTime minimumDateTime(void)
-QTime minimumTime(void)
-int sectionAt(int index)
-int sectionCount(void)
-QString sectionText(QDateTimeEdit::Section section)
-void setCalendarPopup(bool enable)
-void setCalendarWidget(QCalendarWidget *calendarWidget)
-void setCurrentSection(QDateTimeEdit::Section section)
-void setCurrentSectionIndex(int index)
-void setDateRange(QDate,QDate)
-void setDateTimeRange(QDateTime,QDateTime)
-void setDisplayFormat(QString)
-void setMaximumDate(QDate)
-void setMaximumDateTime(QDateTime)
-void setMaximumTime(QTime)
-void setMinimumDate(QDate)
-void setMinimumDateTime(QDateTime)
-void setMinimumTime(QTime)
-void setSelectedSection(QDateTimeEdit::Section section)
-void setTimeRange(QTime,QTime)
-void setTimeSpec(Qt::TimeSpec spec)
-QTime time(void)
-Qt::TimeSpec timeSpec(void)
-void setDate(QDate)
-void setDateTime(QDateTime)
-void setTime(QTime)
+<loadfile> qdatetimeedit.cf
 
 <class>
 name: QAbstractSpinBox
