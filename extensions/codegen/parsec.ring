@@ -141,6 +141,27 @@ Func Main
 	cStr = read(cFile)
 	aList = str2list(cStr)
 	aData = []
+	ProcessCommands(aData,aList)
+	cCode = GenCode(aData)
+	if len(sysargv) = 3
+		see cCode
+	else
+		WriteFile(sysargv[4],cCode)
+	ok
+	if len(sysargv) = 5  # Generate Ring Classes for C++ Classes
+		cCode = GenRingCode(aData)
+		WriteFile(sysargv[5],cCode)
+	ok
+
+	if len($aClassesList) > 0
+		cCode = ""
+		for x in $aClassesList
+			cCode += x[1] + nl
+		next
+		WriteFile("classes.txt",cCode)
+	ok
+
+Func ProcessCommands aData,aList
 	lFlag = C_INS_FUNCTION
 	nMax = len(aList)
 	for t = 1 to nMax 
@@ -251,24 +272,7 @@ Func Main
 			aData + [C_INS_CONSTANT,cLine]
 		ok
 	next
-	cCode = GenCode(aData)
-	if len(sysargv) = 3
-		see cCode
-	else
-		WriteFile(sysargv[4],cCode)
-	ok
-	if len(sysargv) = 5  # Generate Ring Classes for C++ Classes
-		cCode = GenRingCode(aData)
-		WriteFile(sysargv[5],cCode)
-	ok
 
-	if len($aClassesList) > 0
-		cCode = ""
-		for x in $aClassesList
-			cCode += x[1] + nl
-		next
-		WriteFile("classes.txt",cCode)
-	ok
 
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl + 
