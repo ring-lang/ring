@@ -1,0 +1,9 @@
+<class>
+name: QMutex
+para: QMutex::RecursionMode
+</class>
+
+bool isRecursive(void)
+void lock(void)
+void unlock(void)
+

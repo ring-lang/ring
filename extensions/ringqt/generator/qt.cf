@@ -946,16 +946,7 @@ QModelIndex sibling(int row, int column)
 </filter>
 
 <loadfile> qstringref.cf
-
-
-<class>
-name: QMutex
-para: QMutex::RecursionMode
-</class>
-
-bool isRecursive(void)
-void lock(void)
-void unlock(void)
+<loadfile> qmutex.cf
 
 <class>
 name: QMutexLocker
