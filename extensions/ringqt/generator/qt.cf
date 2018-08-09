@@ -855,47 +855,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsqldrivercreatorbase.cf
 <loadfile> qvariant.cf
 <loadfile> qnetworkrequest.cf
+<loadfile> qnetworkaccessmanager.cf
 
-
-<class>
-name: QNetworkAccessManager
-para: QObject *
-parent: QObject
-codename: GNetworkAccessManager
-passvmpointer
-</class>
-
-void setfinishedEvent(const char *)
-
-const char *getfinishedEvent(void)
-
-QNetworkConfiguration activeConfiguration(void)
-QAbstractNetworkCache *cache(void)
-void clearAccessCache(void)
-QNetworkConfiguration configuration(void)
-void connectToHost(QString, quint16)
-<comment>
-void connectToHostEncrypted(QString, quint16, QSslConfiguration)
-</comment>
-QNetworkCookieJar *cookieJar(void)
-QNetworkReply *deleteResource(QNetworkRequest)
-QNetworkReply *get(QNetworkRequest) # In RingQt use : QNetworkReply *getvalue(QNetworkRequest)
-QNetworkReply *head(QNetworkRequest)
-QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
-QNetworkReply *post(QNetworkRequest, QByteArray)
-QNetworkProxy proxy(void)
-QNetworkProxyFactory *proxyFactory(void)
-QNetworkReply *put(QNetworkRequest, QByteArray) # In RingQt use : QNetworkReply *putvalue(QNetworkRequest, QByteArray)
-QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
-void setCache(QAbstractNetworkCache *cache)
-void setConfiguration(QNetworkConfiguration)
-void setCookieJar(QNetworkCookieJar *cookieJar)
-void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
-void setProxy(QNetworkProxy)
-void setProxyFactory(QNetworkProxyFactory *factory)
-QStringList supportedSchemes(void)
-
-void geteventparameters(void)
 
 <class>
 name: QNetworkReply
