@@ -1,0 +1,30 @@
+<class>
+name: QDirModel
+para: void
+</class>
+
+QIcon fileIcon(QModelIndex)
+QFileInfo fileInfo(QModelIndex)
+QString fileName(QModelIndex)
+QString filePath(QModelIndex)
+int filter(void)
+QFileIconProvider *iconProvider(void)
+QModelIndex index(QString path, int column)
+bool isDir(QModelIndex)
+bool isReadOnly(void)
+bool lazyChildCount(void)
+QModelIndex mkdir(QModelIndex parent, QString name)
+QStringList nameFilters(void)
+bool remove(QModelIndex index)
+bool resolveSymlinks(void)
+bool rmdir(QModelIndex index)
+void setFilter(QDir::Filter filters)
+void setIconProvider(QFileIconProvider *provider)
+void setLazyChildCount(bool enable)
+void setNameFilters(QStringList filters)
+void setReadOnly(bool enable)
+void setResolveSymlinks(bool enable)
+void setSorting(QDir::SortFlag sort)
+int sorting(void)
+void refresh(QModelIndex parent)
+
