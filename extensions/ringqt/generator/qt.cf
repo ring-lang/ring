@@ -847,47 +847,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtextcodec.cf
 <loadfile> qsqldatabase.cf
 <loadfile> qsqldriver.cf
+<loadfile> qsqlquery.cf
 
-
-<class>
-name: QSqlQuery
-para: void
-</class>
-
-void addBindValue(QVariant, QSql::ParamType paramType)
-int at(void)
-void bindValue(QString, QVariant, QSql::ParamType paramType)
-QVariant boundValue(QString)
-void clear(void)
-QSqlDriver * driver(void)
-bool exec(QString)
-bool exec@2(void)
-bool execBatch(QSqlQuery::BatchExecutionMode mode)
-QString executedQuery(void)
-void finish(void)
-bool first(void)
-bool isActive(void)
-bool isForwardOnly(void)
-bool isNull(int field)
-bool isSelect(void)
-bool isValid(void)
-bool last(void)
-QSqlError lastError(void)
-QVariant lastInsertId(void)
-QString lastQuery(void)
-bool next(void) # In RingQt use : bool movenext(void)
-bool nextResult(void)
-int numRowsAffected(void)
-QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
-bool prepare(QString)
-bool previous(void)
-QSqlRecord record(void)
-QSqlResult *result(void)
-bool seek(int index, bool relative)
-void setForwardOnly(bool forward)
-void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
-int size(void)
-QVariant value(int index)
 
 <class>
 name: QSqlError
