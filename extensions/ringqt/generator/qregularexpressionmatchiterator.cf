@@ -1,0 +1,14 @@
+<class>
+name: QRegularExpressionMatchIterator
+para: void
+</class>
+
+bool hasNext(void)
+bool isValid(void)
+QRegularExpression::MatchOptions matchOptions(void)
+QRegularExpression::MatchType matchType(void)
+QRegularExpressionMatch next(void) # In RingQt use : QRegularExpressionMatch nextitem(void)
+QRegularExpressionMatch peekNext(void)
+QRegularExpression regularExpression(void)
+void swap(QRegularExpressionMatchIterator other)
+
