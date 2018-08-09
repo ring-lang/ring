@@ -32,6 +32,7 @@
 		    </filter>
 	in method prototype - when we use @ in the method name
 	we mean that we have the same method with different parameters (As in C++)	
+	Using <loadfile> filename.cf  we can separate the configuration to many files
 */
 
 C_INS_FUNCTION  	= 1
@@ -245,6 +246,12 @@ Func ProcessCommands aData,aList
 		    cLine = "</funcstart>" or cLine = "</runcode>" or
 		    cLine = "</class>"
 			lFlag = C_INS_FUNCTION			
+			loop
+		but left(cLine,10) = "<loadfile>"
+			cSubFileName = trim(substr(cLine,11))
+			cSubFileStr = read(cSubFileName)
+			aSubList = str2list(cSubFileStr)
+			ProcessCommands(aData,aSubList)
 			loop
 		ok
 		if lFlag = C_INS_FUNCTION 
