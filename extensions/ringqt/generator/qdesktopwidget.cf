@@ -1,0 +1,13 @@
+<class>
+name: QDesktopWidget
+para: void
+parent: QWidget
+</class>
+
+QRect availableGeometry(int screen)
+bool isVirtualDesktop(void)
+int primaryScreen(void)
+QWidget *screen(int screen)
+int screenCount(void)
+QRect screenGeometry(int screen)
+int screenNumber(QWidget *widget)
