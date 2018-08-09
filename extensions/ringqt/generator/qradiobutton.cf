@@ -1,0 +1,22 @@
+<class>
+name: QRadioButton
+para: QWidget *parent
+parent: QAbstractButton
+codename: GRadioButton
+passvmpointer
+</class>
+
+QSize minimumSizeHint(void)
+QSize sizeHint(void)
+
+void setclickedEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+void settoggledEvent(const char *)
+
+const char *getclickedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *gettoggledEvent(void)
+
+
