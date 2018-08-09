@@ -783,42 +783,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qabstractitemview.cf
 <loadfile> qtableview.cf
 <loadfile> qtablewidget.cf
-
-
-<class>
-name: QProgressBar
-para: QWidget *parent
-parent: QWidget
-codename: GProgressBar
-passvmpointer
-</class>
-
-int alignment(void)
-QString format(void)
-bool invertedAppearance(void)
-bool isTextVisible(void)
-int maximum(void)
-int minimum(void)
-int orientation(void)
-void resetFormat(void)
-void setAlignment(Qt::AlignmentFlag alignment)
-void setFormat(QString)
-void setInvertedAppearance(bool invert)
-void setTextDirection(QProgressBar::Direction textDirection)
-void setTextVisible(bool visible)
-QString text(void)
-int textDirection(void)
-int value(void)
-void reset(void)
-void setMaximum(int maximum)
-void setMinimum(int minimum)
-void setOrientation(Qt::Orientation)
-void setRange(int minimum, int maximum)
-void setValue(int value)
-
-void setvalueChangedEvent(const char *)
-
-const char *getvalueChangedEvent(void)
+<loadfile> qprogressbar.cf
 
 <class>
 name: QSpinBox
