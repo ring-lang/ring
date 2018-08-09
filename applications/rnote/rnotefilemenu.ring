@@ -60,6 +60,8 @@ Class RNoteFileMenu
 			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"Save As",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
+				# Check removing .ring if we have another extension 
+					cName = this.OneExtension(cName)
 				this.cActiveFileName = cName
 				this.writefile(this.cActiveFileName,this.textedit1.toplaintext())
 				this.StatusMessage("File : " + this.cActiveFileName + " saved!")
