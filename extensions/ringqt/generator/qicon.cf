@@ -1,0 +1,5 @@
+<class>
+name: QIcon
+para: QPixmap
+managed
+</class>
