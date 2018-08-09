@@ -879,7 +879,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qjsonparseerror.cf
 <loadfile> qjsonvalue.cf
 <loadfile> qplaintextedit.cf
-<loadfile> codeeditor.cf
+<loadfile> codeedit.cf
 <loadfile> qgridlayout.cf
 <loadfile> qtextcharformat.cf
 <loadfile> qcameraviewfinder.cf
@@ -934,11 +934,8 @@ QModelIndex sibling(int row, int column)
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
-<class>
-name: QAxObject
-para: QString
-parent: QAxBase
-</class>
+<loadfile> qaxobject.cf
+
 
 <class>
 name: QAxBase

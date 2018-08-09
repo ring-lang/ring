@@ -1,0 +1,5 @@
+<class>
+name: QAxObject
+para: QString
+parent: QAxBase
+</class>
