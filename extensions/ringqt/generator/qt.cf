@@ -995,28 +995,8 @@ QModelIndex sibling(int row, int column)
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
 <loadfile> qopenglpaintdevice.cf
+<loadfile> qpaintdevice.cf
 
-<class>
-name: QPaintDevice
-nonew
-</class>
-
-int colorCount(void)
-int depth(void)
-int devicePixelRatio(void)
-<comment>
-qreal devicePixelRatioF(void)
-</comment>
-int height(void)
-int heightMM(void)
-int logicalDpiX(void)
-int logicalDpiY(void)
-QPaintEngine * paintEngine(void)
-bool paintingActive(void)
-int physicalDpiX(void)
-int physicalDpiY(void)
-int width(void)
-int widthMM(void)
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 
