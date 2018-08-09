@@ -961,16 +961,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qbluetoothsocket.cf
 <loadfile> qbluetoothtransfermanager.cf
 <loadfile> qbluetoothtransferreply.cf
-
-
-<class>
-name: QBluetoothTransferRequest
-para: QBluetoothAddress
-</class>
-
-QBluetoothAddress address(void)
-QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
-void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
+<loadfile> qbluetoothtransferrequest.cf
 
 <class>
 name: QBluetoothUuid
