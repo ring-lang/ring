@@ -947,15 +947,8 @@ QModelIndex sibling(int row, int column)
 
 <loadfile> qstringref.cf
 <loadfile> qmutex.cf
+<loadfile> qmutexlocker.cf
 
-<class>
-name: QMutexLocker
-para: QMutex *
-</class>
-
-QMutex * mutex(void)
-void relock(void)
-void unlock(void)
 
 <class>
 name: QBuffer
