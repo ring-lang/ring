@@ -1043,14 +1043,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qgeorectangle.cf
 <loadfile> qgeoshape.cf
 <loadfile> qgeosatelliteinfo.cf
+<loadfile> qgeosatelliteinfosource.cf
 
-<class>
-name: QGeoSatelliteInfoSource
-nonew
-</class>
-
-QString sourceName(void)
-int updateInterval(void)
 
 <class>
 name: QNmeaPositionInfoSource
