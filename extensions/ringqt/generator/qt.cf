@@ -764,57 +764,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qlistwidget.cf
 <loadfile> qtreeview.cf
 <loadfile> qdir.cf
-
-<class>
-name: QFileSystemModel
-para: void
-</class>
-
-QIcon fileIcon(QModelIndex)
-QFileInfo fileInfo(QModelIndex)
-QString fileName(QModelIndex)
-QString filePath(QModelIndex)
-int filter(void)
-QFileIconProvider *iconProvider(void)
-QModelIndex index(QString, int column)
-bool isDir(QModelIndex)
-bool isReadOnly(void)
-QDateTime lastModified(QModelIndex)
-QModelIndex mkdir(QModelIndex,QString)
-QVariant myComputer(int role)
-bool nameFilterDisables(void)
-QStringList nameFilters(void)
-int permissions(QModelIndex)
-bool remove(QModelIndex)
-bool resolveSymlinks(void)
-bool rmdir(QModelIndex)
-QDir rootDirectory(void)
-QString rootPath(void)
-void setFilter(QDir::Filter filters)
-void setIconProvider(QFileIconProvider *provider)
-void setNameFilterDisables(bool enable)
-void setNameFilters(QStringList)
-void setReadOnly(bool enable)
-void setResolveSymlinks(bool enable)
-QModelIndex setRootPath(QString)
-int size(QModelIndex)
-QString type(QModelIndex)
-
-bool canFetchMore(QModelIndex)
-int columnCount(void)
-QVariant data( QModelIndex index, int role)
-bool dropMimeData( QMimeData *data, Qt::DropAction action, int row, int column, QModelIndex parent)
-void fetchMore( QModelIndex parent)
-int flags( QModelIndex index)
-bool hasChildren( QModelIndex parent )
-QVariant headerData(int section, Qt::Orientation orientation, int role )
-QMimeData * mimeData( QModelIndexList indexes)
-QStringList mimeTypes(void)
-QModelIndex parent( QModelIndex index)
-int rowCount( QModelIndex parent)
-bool setData( QModelIndex idx,  QVariant value, int role)
-void sort(int column, Qt::SortOrder order )
-int supportedDropActions(void)
+<loadfile> qfilesystemmodel.cf
 
 
 <class>
