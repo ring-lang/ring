@@ -1,0 +1,40 @@
+<class>
+name: QMessageBox
+para: QWidget *parent
+parent: QDialog
+</class>
+
+void addButton(QAbstractButton *button, QMessageBox::ButtonRole role)
+QAbstractButton *button(QMessageBox::StandardButton which)
+int buttonRole(QAbstractButton *button)
+QAbstractButton *clickedButton(void)
+QPushButton *defaultButton(void)
+QString detailedText(void)
+QAbstractButton *escapeButton(void)
+QPixmap iconPixmap(void)
+QString informativeText(void)
+void open(QObject *receiver, const char *member)
+void removeButton(QAbstractButton *button)
+void setDefaultButton(QPushButton *button)
+void setDetailedText(QString)
+void setEscapeButton(QAbstractButton *button)
+void setIconPixmap(QPixmap)
+void setInformativeText(QString)
+void setStandardButtons(QMessageBox::StandardButton buttons)
+void setText(QString)
+void setTextFormat(Qt::TextFormat format)
+void setWindowModality(Qt::WindowModality windowModality)
+void setWindowTitle(QString)
+int standardButton(QAbstractButton *button)
+int standardButtons(void)
+QString text(void)
+int textFormat(void)
+int exec(void)
+
+void about(QWidget *parent, QString,QString)
+void aboutQt(QWidget *parent, QString)
+int critical(QWidget * parent, QString , QString, int buttons, int defaultButton)
+int information(QWidget * parent, QString ,QString, int buttons,int defaultButton)
+int question(QWidget * parent,QString,QString, int buttons ,int  defaultButton)
+int warning(QWidget *parent, QString,QString, int buttons,int defaultButton)
+
