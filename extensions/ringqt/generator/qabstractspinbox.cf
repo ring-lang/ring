@@ -1,0 +1,39 @@
+<class>
+name: QAbstractSpinBox
+para: QWidget *parent
+parent: QWidget
+</class>
+
+int alignment(void)
+int buttonSymbols(void)
+int correctionMode(void)
+bool hasAcceptableInput(void)
+bool hasFrame(void)
+void interpretText(void)
+bool isAccelerated(void)
+<comment>
+bool isGroupSeparatorShown(void)
+</comment>
+bool isReadOnly(void)
+bool keyboardTracking(void)
+void setAccelerated(bool on)
+void setAlignment(Qt::AlignmentFlag flag)
+void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
+void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
+void setFrame(bool)
+<comment>
+void setGroupSeparatorShown(bool shown)
+</comment>
+void setKeyboardTracking(bool kt)
+void setReadOnly(bool r)
+void setSpecialValueText(QString)
+void setWrapping(bool w)
+QString specialValueText(void)
+void stepBy(int steps)
+QString text(void)
+bool wrapping(void)
+void clear(void)
+void selectAll(void)
+void stepDown(void)
+void stepUp(void)
+
