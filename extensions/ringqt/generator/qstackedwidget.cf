@@ -1,0 +1,25 @@
+<class>
+name: QStackedWidget
+para: QWidget *
+parent: QFrame
+codename: GStackedWidget
+passvmpointer
+</class>
+
+int addWidget(QWidget *widget)
+int count(void)
+int currentIndex(void)
+QWidget * currentWidget(void)
+int indexOf(QWidget *widget)
+int insertWidget(int index, QWidget *widget)
+void removeWidget(QWidget *widget)
+QWidget * widget(int index)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+void setwidgetRemovedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *getwidgetRemovedEvent(void)
+
