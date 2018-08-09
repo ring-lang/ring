@@ -616,7 +616,7 @@ that wraps C++ functions for using C++ classes and objects.
 
 .. code-block:: ring
 
-	ring parsec.ring qt.cf ring_qt.cpp ring_qt.ring
+	ring parsec.ring generator\qt.cf ring_qt.cpp ring_qt.ring
 
 
 .. index:: 
@@ -1216,7 +1216,7 @@ Configuration Files Examples
 You can learn from the next examples
 
 * RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
-* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/qt.cf
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/generator/qt.cf
 * RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf
 
 After modifing the configuration file, You will need to generate the code, You can learn from
