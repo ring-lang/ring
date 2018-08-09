@@ -818,61 +818,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qfont.cf
 <loadfile> qbrush.cf
 <loadfile> qbytearray.cf
+<loadfile> qiodevice.cf
 
-
-
-<class>
-name: QIODevice
-para: void
-parent: QObject
-codename: GIODevice
-passvmpointer
-abstract
-</class>
-
-QString errorString(void)
-bool getChar(char *c)
-bool isOpen(void)
-bool isReadable(void)
-bool isTextModeEnabled(void) 
-bool isWritable(void)
-int openMode(void)
-int peek(char *data, int maxSize)
-<comment>
-QByteArray peek(int maxSize)
-</comment>
-bool putChar(char c)
-int read(char *data, int maxSize)
-<comment>
-QByteArray read(int maxSize)
-</comment>
-QByteArray readAll(void)
-int readLine(char *data, int maxSize)
-<comment>
-QByteArray readLine(int maxSize)
-</comment>
-void setTextModeEnabled(bool enabled)
-void ungetChar(char c)
-int write(const char *data, int maxSize)
-
-
-bool atEnd(void)
-bool canReadLine(void)
-void close(void)
-bool open(QIODevice::OpenMode flags)
-qint64 pos(void)
-bool seek(qint64 pos)
-qint64 size(void)
-
-void setaboutToCloseEvent(const char *)
-void setbytesWrittenEvent(const char *)
-void setreadChannelFinishedEvent(const char *)
-void setreadyReadEvent(const char *)
-
-const char *getaboutToCloseEvent(void)
-const char *getbytesWrittenEvent(void)
-const char *getreadChannelFinishedEvent(void)
-const char *getreadyReadEvent(void)
 
 <class>
 name: QAbstractSocket
