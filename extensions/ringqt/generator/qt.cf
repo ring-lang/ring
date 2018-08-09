@@ -856,31 +856,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qvariant.cf
 <loadfile> qnetworkrequest.cf
 <loadfile> qnetworkaccessmanager.cf
-
-
-<class>
-name: QNetworkReply
-para: void
-parent: QIODevice
-abstract
-</class>
-
-QVariant attribute(QNetworkRequest::Attribute code)
-QNetworkReply::NetworkError error(void)
-bool hasRawHeader(QByteArray)
-QVariant header(QNetworkRequest::KnownHeaders header)
-bool isFinished(void)
-bool isRunning(void)
-QNetworkAccessManager *manager(void)
-QNetworkAccessManager::Operation operation(void)
-QByteArray rawHeader(QByteArray)
-qint64 readBufferSize(void)
-QNetworkRequest request(void)
-<comment>
-void setSslConfiguration(QSslConfiguration)
-QSslConfiguration sslConfiguration(void)
-</comment>
-QUrl url(void)
+<loadfile> qnetworkreply.cf
 
 <class>
 name: QPainterPath
