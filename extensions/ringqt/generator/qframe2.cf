@@ -1,0 +1,7 @@
+<class>
+name: QFrame2
+para: void
+parent: QFrame
+codename: QFrame
+</class>
+
