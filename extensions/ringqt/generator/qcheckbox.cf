@@ -1,0 +1,28 @@
+<class>
+name: QCheckBox
+para: QWidget *parent
+parent: QAbstractButton
+codename: GCheckBox
+passvmpointer
+</class>
+
+int checkState(void)
+bool isTristate(void)
+void setCheckState(Qt::CheckState state)
+void setTristate(bool y)
+QSize minimumSizeHint(void)
+QSize sizeHint(void)
+
+void setstateChangedEvent(const char *)
+void setclickedEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+void settoggledEvent(const char *)
+
+const char *getstateChangedEvent(void)
+const char *getclickedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *gettoggledEvent(void)
+
+
