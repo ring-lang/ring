@@ -805,19 +805,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qmediaplaylist.cf
 <loadfile> qvideowidget.cf
 <loadfile> qaction.cf
-
-
-<class>
-name: QEvent
-para: QEvent::Type Type
-</class>
-
-void accept(void)
-void ignore(void)
-bool isAccepted(void) 
-void setAccepted(bool accepted)
-bool spontaneous(void)
-int type(void) 
+<loadfile> qevent.cf
 
 <class>
 name: QMessageBox
