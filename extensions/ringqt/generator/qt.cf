@@ -756,12 +756,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qpixmap.cf
 <loadfile> qpixmap2.cf
 <loadfile> qicon.cf
-
-<class>
-name: QSize
-para: int width, int height
-managed
-</class>
+<loadfile> qsize.cf
 
 <class>
 name: QLineEdit

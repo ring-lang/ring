@@ -1,0 +1,6 @@
+<class>
+name: QSize
+para: int width, int height
+managed
+</class>
+
