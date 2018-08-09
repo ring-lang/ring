@@ -1,0 +1,55 @@
+<class>
+name: QTabWidget
+para: QWidget *parent
+parent: QWidget
+codename: GTabWidget
+passvmpointer
+</class>
+
+int addTab(QWidget *page, QString)
+void clear(void)
+QWidget *cornerWidget(Qt::Corner corner)
+int count(void)
+int currentIndex(void)
+QWidget *currentWidget(void)
+bool documentMode(void)
+int elideMode(void)
+QSize iconSize(void)
+int indexOf(QWidget *w)
+int insertTab(int index, QWidget *page,QString)
+bool isMovable(void)
+bool isTabEnabled(int index)
+void removeTab(int index)
+void setCornerWidget(QWidget *widget, Qt::Corner corner)
+void setDocumentMode(bool set)
+void setElideMode(Qt::TextElideMode)
+void setIconSize(QSize)
+void setMovable(bool movable)
+void setTabEnabled(int index, bool enable)
+void setTabIcon(int index, QIcon)
+void setTabText(int index,QString)
+void setTabToolTip(int index, QString)
+void setTabWhatsThis(int index, QString)
+void setTabsClosable(bool closeable)
+void setUsesScrollButtons(bool useButtons)
+QIcon tabIcon(int index)
+QString tabText(int index)
+QString tabToolTip(int index)
+QString tabWhatsThis(int index)
+bool tabsClosable(void)
+bool usesScrollButtons(void)
+QWidget *widget(int index)
+int heightForWidth(int width)
+QSize minimumSizeHint(void)
+QSize sizeHint(void)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+void settabCloseRequestedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *gettabCloseRequestedEvent(void)
+
+void geteventparameters(void)
+
