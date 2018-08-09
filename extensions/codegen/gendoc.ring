@@ -105,7 +105,6 @@ func avoidblock cStr,cLine,x
 			cLine = trim(aList[x])
 			x++
 		again left(lower(cLine),len(cStr)+3) !="</"+cStr+">"
-		x++
 		lLoop = True
 	ok
 	return x
