@@ -1,0 +1,64 @@
+<class>
+name: QPrinter
+para: QPrinter::PrinterMode
+</class>
+
+bool abort(void)
+bool collateCopies(void)
+int colorMode(void)
+int copyCount(void)
+QString creator(void)
+QString docName(void)
+int duplex(void)
+bool fontEmbeddingEnabled(void)
+int fromPage(void)
+bool fullPage(void)
+bool isValid(void)
+QString outputFileName(void)
+int outputFormat(void)
+<comment>
+QPageLayout pageLayout(void)
+</comment>
+int pageOrder(void)
+QRectF pageRect(QPrinter::Unit unit)
+QRectF paperRect(QPrinter::Unit unit)
+int paperSource(void)
+QPrintEngine *printEngine(void)
+QString printProgram(void)
+int printRange(void)
+QString printerName(void)
+QString printerSelectionOption(void)
+int printerState(void)
+int resolution(void)
+void setCollateCopies(bool collate)
+void setColorMode(QPrinter::ColorMode newColorMode)
+void setCopyCount(int count)
+void setCreator(QString)
+void setDocName(QString)
+void setDuplex(QPrinter::DuplexMode duplex)
+void setFontEmbeddingEnabled(bool enable)
+void setFromTo(int from, int to)
+void setFullPage(bool fp)
+void setOutputFileName(QString)
+void setOutputFormat(QPrinter::OutputFormat format)
+<comment>
+bool setPageLayout(QPageLayout)
+bool setPageMargins(QMarginsF, QPageLayout::Unit units)
+</comment>
+void setPageOrder(QPrinter::PageOrder pageOrder)
+<comment>
+bool setPageOrientation(QPageLayout::Orientation orientation)
+bool setPageSize(QPageSize)
+</comment>
+void setPaperSource(QPrinter::PaperSource source)
+void setPrintProgram(QString)
+void setPrintRange(QPrinter::PrintRange)
+void setPrinterName(QString)
+void setPrinterSelectionOption(QString)
+void setResolution(int dpi)
+bool supportsMultipleCopies(void)
+int toPage(void)
+bool newPage(void)
+QPaintEngine *paintEngine(void)
+void setPageSizeMM(QSizeF)
+
