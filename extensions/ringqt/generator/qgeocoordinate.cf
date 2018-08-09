@@ -1,0 +1,18 @@
+<class>
+name: QGeoCoordinate
+para: void
+</class>
+
+double altitude(void)
+QGeoCoordinate atDistanceAndAzimuth(qreal distance, qreal azimuth, qreal distanceUp)
+qreal azimuthTo(QGeoCoordinate other)
+qreal distanceTo(QGeoCoordinate other)
+bool isValid(void)
+double latitude(void)
+double longitude(void)
+void setAltitude(double altitude)
+void setLatitude(double latitude)
+void setLongitude(double longitude)
+QString toString(QGeoCoordinate::CoordinateFormat format)
+QGeoCoordinate::CoordinateType type(void)
+
