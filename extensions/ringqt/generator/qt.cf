@@ -879,7 +879,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qjsonparseerror.cf
 <loadfile> qjsonvalue.cf
 <loadfile> qplaintextedit.cf
-<loadfile> codeedit.cf
+<loadfile> codeeditor.cf
 <loadfile> qgridlayout.cf
 <loadfile> qtextcharformat.cf
 <loadfile> qcameraviewfinder.cf
