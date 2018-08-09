@@ -870,39 +870,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qxmlstreamattribute.cf
 <loadfile> qthread.cf
 <loadfile> qthreadpool.cf
-
-<class>
-name: QRegularExpression
-para: void
-</class>
-
-int captureCount(void)
-QString errorString(void)
-QRegularExpressionMatchIterator globalMatch(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-
-<comment>
-QRegularExpressionMatchIterator globalMatch@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-</comment>
-
-bool isValid(void)
-QRegularExpressionMatch match(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-
-<comment>
-QRegularExpressionMatch match@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-</comment>
-
-QStringList namedCaptureGroups(void)
-
-<comment>
-void optimize(void)
-</comment>
-
-QString pattern(void)
-int patternErrorOffset(void)
-QRegularExpression::PatternOptions patternOptions(void)
-void setPattern(QString  pattern)
-void setPatternOptions(QRegularExpression::PatternOptions options)
-void swap(QRegularExpression  other)
+<loadfile> qregularexpression.cf
 
 <class>
 name: QRegularExpressionMatch
