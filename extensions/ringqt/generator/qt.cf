@@ -766,65 +766,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qdir.cf
 <loadfile> qfilesystemmodel.cf
 <loadfile> qtreewidget.cf
+<loadfile> qtreewidgetitem.cf
 
-<class>
-name: QTreeWidgetItem
-para: void
-</class>
-
-void addChild(QTreeWidgetItem *child)
-QBrush background(int column)
-int checkState(int column)
-QTreeWidgetItem *child(int index)
-int childCount(void)
-int childIndicatorPolicy(void)
-QTreeWidgetItem *clone(void)
-int columnCount(void)
-QVariant data(int column, int role)
-int flags(void)
-QFont font(int column)
-QBrush foreground(int column)
-QIcon icon(int column)
-int indexOfChild(QTreeWidgetItem *child)
-void insertChild(int index, QTreeWidgetItem *child)
-bool isDisabled(void)
-bool isExpanded(void)
-bool isFirstColumnSpanned(void)
-bool isHidden(void)
-bool isSelected(void)
-QTreeWidgetItem *parent(void)
-void read(QDataStream)
-void removeChild(QTreeWidgetItem *child)
-void setBackground(int column,QBrush)
-void setCheckState(int column, Qt::CheckState state)
-void setChildIndicatorPolicy(QTreeWidgetItem::ChildIndicatorPolicy policy)
-void setData(int column, int role,QVariant)
-void setDisabled(bool disabled)
-void setExpanded(bool expand)
-void setFirstColumnSpanned(bool span)
-void setFlags(Qt::ItemFlag flags)
-void setFont(int column, QFont)
-void setForeground(int column, QBrush)
-void setHidden(bool hide)
-void setIcon(int column, QIcon)
-void setSelected(bool select)
-void setSizeHint(int column, QSize)
-void setStatusTip(int column, QString)
-void setText(int column, QString)
-void setTextAlignment(int column, int alignment)
-void setToolTip(int column, QString)
-void setWhatsThis(int column, QString)
-QSize sizeHint(int column)
-void sortChildren(int column, Qt::SortOrder order)
-QString statusTip(int column)
-QTreeWidgetItem *takeChild(int index)
-QString text(int column)
-int textAlignment(int column)
-QString toolTip(int column)
-QTreeWidget *treeWidget(void) 
-int type(void)
-QString whatsThis(int column)
-void write(QDataStream) 
 
 <class>
 name: QComboBox
