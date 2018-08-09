@@ -1,0 +1,25 @@
+<class>
+name: QGeoRectangle
+para: void
+parent: QGeoShape
+</class>
+
+QGeoCoordinate bottomLeft(void)
+QGeoCoordinate bottomRight(void)
+QGeoCoordinate center(void)
+bool contains(QGeoRectangle rectangle)
+double height(void)
+bool intersects(QGeoRectangle rectangle)
+void setBottomLeft(QGeoCoordinate bottomLeft)
+void setBottomRight(QGeoCoordinate bottomRight)
+void setCenter(QGeoCoordinate center)
+void setHeight(double degreesHeight)
+void setTopLeft(QGeoCoordinate topLeft)
+void setTopRight(QGeoCoordinate topRight)
+void setWidth(double degreesWidth)
+QGeoCoordinate topLeft(void)
+QGeoCoordinate topRight(void)
+void translate(double degreesLatitude, double degreesLongitude)
+QGeoRectangle translated(double degreesLatitude, double degreesLongitude)
+QGeoRectangle united(QGeoRectangle rectangle)
+double width(void)
