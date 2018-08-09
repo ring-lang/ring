@@ -845,52 +845,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsystemtrayicon.cf
 <loadfile> qdate.cf
 <loadfile> qtextcodec.cf
+<loadfile> qsqldatabase.cf
 
-
-<class>
-name: QSqlDatabase
-para: void
-</class>
-
-void close(void)
-bool commit(void)
-QString connectOptions(void)
-QString connectionName(void)
-QString databaseName(void)
-QSqlDriver *driver(void)
-QString driverName(void)
-QSqlQuery exec(QString)
-QString hostName(void)
-bool isOpen(void)
-bool isOpenError(void)
-bool isValid(void)
-QSqlError lastError(void)
-QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
-bool open(void)
-QString password(void)
-int port(void)
-QSqlIndex primaryIndex(QString)
-QSqlRecord record(QString)
-bool rollback(void)
-void setConnectOptions(QString)
-void setDatabaseName(QString)
-void setHostName(QString)
-void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
-void setPassword(QString)
-void setPort(int port)
-void setUserName(QString)
-QStringList tables(QSql::TableType type)
-bool transaction(void)
-QString userName(void)
-QSqlDatabase addDatabase(QString)
-QSqlDatabase cloneDatabase(QSqlDatabase, QString)
-QStringList connectionNames(void)
-bool contains(QString)
-QSqlDatabase database(QString , bool)
-QStringList drivers(void)
-bool isDriverAvailable(QString)
-void registerSqlDriver(QString, QSqlDriverCreatorBase *)
-void removeDatabase(QString)
 
 <class>
 name: QSqlDriver
