@@ -1,0 +1,16 @@
+<class>
+name: QOpenGLShader
+para: QOpenGLShader::ShaderType,QObject *
+</class>
+
+bool compileSourceCode(char *source)
+bool compileSourceCode@2(QByteArray source)
+bool compileSourceCode@3(QString source)
+bool compileSourceFile(QString fileName)
+bool isCompiled(void)
+QString log(void)
+GLuint shaderId(void)
+QOpenGLShader::ShaderType shaderType(void)
+QByteArray sourceCode(void)
+bool hasOpenGLShaders(QOpenGLShader::ShaderType type, QOpenGLContext *context)
+
