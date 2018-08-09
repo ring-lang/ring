@@ -923,14 +923,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qsplitter.cf
 <loadfile> qcompleter.cf
 <loadfile> qcompleter2.cf
+<loadfile> qcompleter3.cf
 
-
-<class>
-name: QCompleter3
-para: QStringList list, QObject *parent
-parent: QCompleter
-codename: QCompleter
-</class>
 
 <class>
 name: QString2
