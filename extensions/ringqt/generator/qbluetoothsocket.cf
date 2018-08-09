@@ -1,0 +1,36 @@
+<class>
+name: QBluetoothSocket
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QIODevice
+codename: GBluetoothSocket
+passvmpointer
+</class>
+
+void abort(void)
+void connectToService(QBluetoothServiceInfo service, QIODevice::OpenMode openMode)
+void connectToService@2(QBluetoothAddress address, QBluetoothUuid uuid, QIODevice::OpenMode openMode)
+void connectToService@3(QBluetoothAddress address, quint16 port, QIODevice::OpenMode openMode)
+void disconnectFromService(void)
+QBluetoothSocket::SocketError error(void)
+QString errorString(void)
+QBluetoothAddress localAddress(void)
+QString localName(void)
+quint16 localPort(void)
+QBluetoothAddress peerAddress(void)
+QString peerName(void)
+quint16 peerPort(void)
+bool setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType, QBluetoothSocket::SocketState socketState, QIODevice::OpenMode openMode)
+int socketDescriptor(void)
+QBluetoothServiceInfo::Protocol socketType(void)
+QBluetoothSocket::SocketState state(void)
+
+void setconnectedEvent(const char *)
+void setdisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void setstateChangedEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *getstateChangedEvent(void)
+
