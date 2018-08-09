@@ -786,36 +786,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qprogressbar.cf
 <loadfile> qspinbox.cf
 <loadfile> qabstractslider.cf
-
-
-<class>
-name: QSlider
-para: QWidget *parent
-parent: QAbstractSlider
-codename: GSlider
-passvmpointer
-</class>
-
-void setTickInterval(int ti)
-void setTickPosition(QSlider::TickPosition position)
-int tickInterval(void)
-int tickPosition(void)
-QSize minimumSizeHint(void)
-QSize sizeHint(void)
-
-void setactionTriggeredEvent(const char *)
-void setrangeChangedEvent(const char *)
-void setsliderMovedEvent(const char *)
-void setsliderPressedEvent(const char *)
-void setsliderReleasedEvent(const char *)
-void setvalueChangedEvent(const char *)
-
-const char *getactionTriggeredEvent(void)
-const char *getrangeChangedEvent(void)
-const char *getsliderMovedEvent(void)
-const char *getsliderPressedEvent(void)
-const char *getsliderReleasedEvent(void)
-const char *getvalueChangedEvent(void)
+<loadfile> qslider.cf
 
 
 <class>
