@@ -801,50 +801,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qabstractbutton.cf
 <loadfile> qradiobutton.cf
 <loadfile> qbuttongroup.cf
-
-<class>
-name: QMediaPlayer
-para: void
-</class>
-
-int bufferStatus(void)
-QMediaContent currentMedia(void)
-QNetworkConfiguration currentNetworkConfiguration(void)
-int duration(void)
-int error(void)
-QString errorString(void)
-bool isAudioAvailable(void)
-bool isMuted(void)
-bool isSeekable(void)
-bool isVideoAvailable(void)
-QMediaContent media(void)
-int mediaStatus(void)
-QIODevice *mediaStream(void)
-qreal playbackRate(void)
-QMediaPlaylist *playlist(void)
-int position(void)
-void setVideoOutput(QVideoWidget *output)
-<comment>
-void setVideoOutput(QGraphicsVideoItem *output)
-void setVideoOutput(QAbstractVideoSurface *surface)
-</comment>
-int state(void)
-int volume(void)
-void pause(void)
-void play(void)
-<comment>
-void setMedia(QMediaContent, QIODevice *stream)
-</comment>
-void setMedia(QUrl)
-void setMuted(bool muted)
-<comment>
-void setNetworkConfigurations(const QList<QNetworkConfiguration> & configurations)
-</comment>
-void setPlaybackRate(qreal rate)
-void setPlaylist(QMediaPlaylist *playlist)
-void setPosition(int position)
-void setVolume(int volume)
-void stop(void)
+<loadfile> qmediaplayer.cf
 
 <class>
 name: QMediaPlaylist
