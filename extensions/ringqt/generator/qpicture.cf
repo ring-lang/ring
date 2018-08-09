@@ -1,0 +1,15 @@
+<class>
+name: QPicture
+para: void
+</class>
+
+QRect boundingRect(void)
+const char *data(void)
+bool isNull(void)
+bool load(QString, const char *format) # In RingQt use : bool loadfile(QString, const char *format)
+bool play(QPainter *painter)
+bool save(QString , const char *format)
+void setBoundingRect(QRect)
+int size(void)
+void swap(QPicture)
+
