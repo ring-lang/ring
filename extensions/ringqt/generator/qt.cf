@@ -775,47 +775,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qstatusbar.cf
 <loadfile> qdockwidget.cf
 <loadfile> qtabwidget.cf
+<loadfile> qtablewidgetitem.cf
 
-<class>
-name: QTableWidgetItem
-para: QString
-</class>
-
-QBrush background(void)
-int checkState(void)
-QTableWidgetItem *clone(void)
-int column(void)
-QVariant data(int role)
-int flags(void)
-QFont font(void)
-QBrush foreground(void)
-QIcon icon(void)
-bool isSelected(void)
-void read(QDataStream)
-int row(void)
-void setBackground(QBrush)
-void setCheckState(Qt::CheckState state)
-void setData(int role, QVariant)
-void setFlags(Qt::ItemFlag flags)
-void setFont(QFont)
-void setForeground(QBrush)
-void setIcon(QIcon)
-void setSelected(bool select)
-void setSizeHint(QSize)
-void setStatusTip(QString)
-void setText(QString)
-void setTextAlignment(int alignment)
-void setToolTip(QString)
-void setWhatsThis(QString)
-QSize sizeHint(void)
-QString statusTip(void)
-QTableWidget *tableWidget(void)
-QString text(void)
-int textAlignment(void)
-QString toolTip(void)
-int type(void)
-QString whatsThis(void)
-void write(QDataStream)
 
 <class>
 name: QFrame
