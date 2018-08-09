@@ -933,19 +933,11 @@ QModelIndex sibling(int row, int column)
 
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-
 <loadfile> qaxobject.cf
 <loadfile> qaxbase.cf
-
-
 </filter>
 
-<class>
-name: QUuid
-para: void
-</class>
-
-QString toString(void) 
+<loadfile> quuid.cf
 
 
 <class>

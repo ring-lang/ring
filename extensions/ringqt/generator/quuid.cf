@@ -1,0 +1,7 @@
+<class>
+name: QUuid
+para: void
+</class>
+
+QString toString(void) 
+
