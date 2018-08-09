@@ -1,0 +1,71 @@
+<class>
+name: QAbstractSocket
+para: void
+parent: QIODevice
+abstract
+codename: GAbstractSocket
+passvmpointer
+</class>
+
+void abort(void)
+bool bind(QHostAddress address, int port, QAbstractSocket::BindFlag mode)
+void connectToHost(QString  hostName, int port, QIODevice::OpenModeFlag openMode, QAbstractSocket::NetworkLayerProtocol protocol)
+void disconnectFromHost(void)
+int error(void)
+bool flush(void)
+bool isValid(void)
+QHostAddress localAddress(void)
+int localPort(void)
+int pauseMode(void)
+QHostAddress peerAddress(void)
+QString peerName(void)
+int peerPort(void)
+QNetworkProxy proxy(void)
+int readBufferSize(void)
+void resume(void)
+void setPauseMode(QAbstractSocket::PauseMode pauseMode)
+void setProxy(QNetworkProxy  networkProxy)
+void setReadBufferSize(int size)
+bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, QIODevice::OpenModeFlag openMode)
+void setSocketOption(QAbstractSocket::SocketOption option,  QVariant  value)
+int *socketDescriptor(void)
+QVariant socketOption(QAbstractSocket::SocketOption option)
+int socketType(void)
+int state(void)
+bool waitForConnected(int msecs)
+bool waitForDisconnected(int msecs)
+bool atEnd(void)
+int bytesAvailable(void)
+int bytesToWrite(void)
+bool canReadLine(void)
+void close(void)
+bool isSequential(void)
+bool waitForBytesWritten(int msecs)
+bool waitForReadyRead(int msecs)
+<comment>
+void setLocalAddress(QHostAddress  address)
+void setLocalPort(int port)
+void setPeerAddress(QHostAddress  address)
+void setPeerName(QString name)
+void setPeerPort(int port)
+void setSocketError(int socketError)
+void setSocketState(int state)
+int readData(char *data, int maxSize)
+int readLineData(char *data, int maxlen)
+int writeData(char *data, int size)
+</comment>
+
+void setconnectedEvent(const char *)
+void setdisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void sethostFoundEvent(const char *)
+void setproxyAuthenticationRequiredEvent(const char *)
+void setstateChangedEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostFoundEvent(void)
+const char *getproxyAuthenticationRequiredEvent(void)
+const char *getstateChangedEvent(void)
+
