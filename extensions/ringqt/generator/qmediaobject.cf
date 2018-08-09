@@ -1,0 +1,13 @@
+<class>
+name: QMediaObject
+para: void
+parent: QWidget
+abstract
+</class>
+
+QStringList availableMetaData(void)
+bool isMetaDataAvailable(void)
+QVariant metaData( QString   key)
+int notifyInterval(void)
+void setNotifyInterval(int milliSeconds)
+
