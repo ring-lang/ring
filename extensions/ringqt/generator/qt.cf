@@ -869,32 +869,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qxmlstreamattributes.cf
 <loadfile> qxmlstreamattribute.cf
 <loadfile> qthread.cf
-
-
-<class>
-name: QThreadPool
-para: void
-parent: QObject
-</class>
-
-int activeThreadCount(void)
-
-<comment>
-void cancel(QRunnable * runnable)
-</comment>
-
-void clear(void)
-int expiryTimeout(void)
-int maxThreadCount(void)
-void releaseThread(void)
-void reserveThread(void)
-void setExpiryTimeout(int expiryTimeout)
-void setMaxThreadCount(int maxThreadCount)
-void start(QRunnable * runnable, int priority)
-bool tryStart(QRunnable * runnable)
-bool waitForDone(int msecs)
-QThreadPool *globalInstance(void)
-
+<loadfile> qthreadpool.cf
 
 <class>
 name: QRegularExpression
