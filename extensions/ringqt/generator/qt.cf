@@ -840,33 +840,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qrect.cf
 <loadfile> qtextdocument.cf
 <loadfile> qtextblock.cf
-
-
-<class>
-name: QTime
-para: void
-</class>
-
-QTime addMSecs(int ms)
-QTime addSecs(int s)
-int elapsed(void)
-int hour(void)
-bool isNull(void)
-bool isValid(void)
-int minute(void)
-int msec(void)
-int msecsSinceStartOfDay(void)
-int msecsTo(QTime)
-int restart(void)
-int second(void)
-int secsTo(QTime)
-bool setHMS(int h, int m, int s, int ms)
-void start(void)
-QString toString(QString)
-QTime currentTime(void)
-QTime fromMSecsSinceStartOfDay(int msecs)
-QTime fromString(QString,QString)
-
+<loadfile> qtime.cf
 
 <class>
 name: QListWidgetItem
