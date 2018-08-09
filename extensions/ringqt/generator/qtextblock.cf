@@ -1,0 +1,40 @@
+<class>
+name: QTextBlock
+para: void
+</class>
+
+<comment>
+iterator begin(void)
+</comment>
+QTextBlockFormat blockFormat(void)
+int blockFormatIndex(void)
+int blockNumber(void)
+QTextCharFormat charFormat(void)
+int charFormatIndex(void)
+void clearLayout(void)
+bool contains(int position)
+QTextDocument *document(void)
+<comment>
+iterator end(void)
+</comment>
+int firstLineNumber(void)
+bool isValid(void)
+bool isVisible(void)
+QTextLayout * layout(void)
+int length(void)
+int lineCount(void)
+QTextBlock next(void) # In RingQt use :  QTextBlock nextblock(void)
+int position(void)
+QTextBlock previous(void)
+int revision(void)
+void setLineCount(int count)
+void setRevision(int rev)
+void setUserData(QTextBlockUserData * data)
+void setUserState(int state)
+void setVisible(bool visible)
+QString text(void)
+int textDirection(void)
+QTextList * textList(void)
+QTextBlockUserData * userData(void)
+int userState(void)
+
