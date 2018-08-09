@@ -997,25 +997,9 @@ QModelIndex sibling(int row, int column)
 <loadfile> qopenglpaintdevice.cf
 <loadfile> qpaintdevice.cf
 
-
 <filter> (sysget("RINGQT_ANDROID") = "")
 
-<class>
-name: QOpenGLTimerQuery
-para: QObject *
-</class>
-
-void begin(void)
-bool create(void)
-void destroy(void)
-void end(void)
-bool isCreated(void)
-bool isResultAvailable(void)
-GLuint objectId(void)
-void recordTimestamp(void)
-GLuint64 waitForResult(void)
-GLuint64 waitForTimestamp(void)
-
+<loadfile> qopengltimerquery.cf
 <class>
 name: QOpenGLDebugLogger
 para: QObject *

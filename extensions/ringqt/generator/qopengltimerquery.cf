@@ -1,0 +1,16 @@
+<class>
+name: QOpenGLTimerQuery
+para: QObject *
+</class>
+
+void begin(void)
+bool create(void)
+void destroy(void)
+void end(void)
+bool isCreated(void)
+bool isResultAvailable(void)
+GLuint objectId(void)
+void recordTimestamp(void)
+GLuint64 waitForResult(void)
+GLuint64 waitForTimestamp(void)
+
