@@ -1,0 +1,125 @@
+<class>
+name: QOpenGLTexture
+para: QOpenGLTexture::Target
+</class>
+
+void allocateStorage(void)
+<comment>
+void allocateStorage@2(QOpenGLTexture::PixelFormat pixelFormat, QOpenGLTexture::PixelType pixelType)
+</comment>
+void bind(void)
+void bind@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+QColor borderColor(void)
+void borderColor@2(float *border)
+void borderColor@3(int *border)
+void borderColor@4(unsigned int *border)
+<comment>
+QOpenGLTexture::ComparisonFunction comparisonFunction(void)
+QOpenGLTexture::ComparisonMode comparisonMode(void)
+</comment>
+bool create(void)
+QOpenGLTexture * createTextureView(QOpenGLTexture::Target target, QOpenGLTexture::TextureFormat viewFormat, int minimumMipmapLevel, int maximumMipmapLevel, int minimumLayer, int maximumLayer)
+int depth(void)
+QOpenGLTexture::DepthStencilMode depthStencilMode(void)
+void destroy(void)
+int faces(void)
+QOpenGLTexture::TextureFormat format(void)
+void generateMipMaps(void)
+void generateMipMaps@2(int baseLevel, bool resetBaseLevel)
+int height(void)
+bool isAutoMipMapGenerationEnabled(void)
+bool isBound(void)
+bool isBound@2(uint unit)
+bool isCreated(void)
+<comment>
+bool isFixedSamplePositions(void)
+</comment>
+bool isStorageAllocated(void)
+bool isTextureView(void)
+int layers(void)
+QPair<float, float> levelOfDetailRange(void)
+float levelofDetailBias(void)
+QOpenGLTexture::Filter magnificationFilter(void)
+float maximumAnisotropy(void)
+float maximumLevelOfDetail(void)
+int maximumMipLevels(void)
+<comment>
+QPair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> minMagQOpenGLTexture::Filters(void)
+</comment>
+QOpenGLTexture::Filter minificationFilter(void)
+float minimumLevelOfDetail(void)
+int mipBaseLevel(void)
+<comment>
+QPair<int, int> mipLevelRange(void)
+</comment>
+int mipLevels(void)
+int mipMaxLevel(void)
+void release(void)
+void release@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+<comment>
+int samples(void)
+</comment>
+void setAutoMipMapGenerationEnabled(bool enabled)
+void setBorderColor(QColor color)
+<comment>
+void setBorderColor@2(float r, float g, float b, float a)
+</comment>
+void setBorderColor@3(int r, int g, int b, int a)
+void setBorderColor@4(uint r, uint g, uint b, uint a)
+<comment>
+void setComparisonFunction(QOpenGLTexture::ComparisonFunction function)
+void setComparisonMode(QOpenGLTexture::ComparisonMode mode)
+</comment>
+void setCompressedData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setCompressedData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setCompressedData@3(int mipLevel, int layer, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@4(int mipLevel, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@5(int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setData@3(int mipLevel, int layer, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@4(int mipLevel, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@5(QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@6(QImage image, QOpenGLTexture::MipMapGeneration genMipMaps)
+void setDepthStencilMode(QOpenGLTexture::DepthStencilMode mode)
+<comment>
+void setFixedSamplePositions(bool fixed)
+</comment>
+void setFormat(QOpenGLTexture::TextureFormat format)
+void setLayers(int layers)
+void setLevelOfDetailRange(float min, float max)
+void setLevelofDetailBias(float bias)
+void setMagnificationFilter(QOpenGLTexture::Filter filter)
+void setMaximumAnisotropy(float anisotropy)
+void setMaximumLevelOfDetail(float value)
+void setMinMagFilters(QOpenGLTexture::Filter minificationQOpenGLTexture::Filter, QOpenGLTexture::Filter magnificationQOpenGLTexture::Filter)
+void setMinificationFilter(QOpenGLTexture::Filter filter)
+void setMinimumLevelOfDetail(float value)
+void setMipBaseLevel(int baseLevel)
+void setMipLevelRange(int baseLevel, int maxLevel)
+void setMipLevels(int levels)
+void setMipMaxLevel(int maxLevel)
+<comment>
+void setSamples(int samples)
+</comment>
+void setSize(int width, int height, int depth)
+void setSwizzleMask(QOpenGLTexture::SwizzleComponent component, QOpenGLTexture::SwizzleValue value)
+void setSwizzleMask@2(QOpenGLTexture::SwizzleValue r, QOpenGLTexture::SwizzleValue g, QOpenGLTexture::SwizzleValue b, QOpenGLTexture::SwizzleValue a)
+void setWrapMode(QOpenGLTexture::WrapMode mode)
+void setWrapMode@2(QOpenGLTexture::CoordinateDirection direction, QOpenGLTexture::WrapMode mode)
+QOpenGLTexture::SwizzleValue swizzleMask(QOpenGLTexture::SwizzleComponent component)
+<comment>
+QOpenGLTexture::Target target(void)
+</comment>
+GLuint textureId(void)
+int width(void)
+QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
+GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
+<comment>
+GLuint boundTextureId@2(uint unit, QOpenGLTexture::Target target)
+</comment>
+bool hasFeature(QOpenGLTexture::Feature feature)
