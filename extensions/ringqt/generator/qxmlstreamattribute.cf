@@ -1,0 +1,11 @@
+<class>
+name: QXmlStreamAttribute
+para: void
+</class>
+
+bool isDefault(void)
+QStringRef name(void)
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+QStringRef qualifiedName(void)
+QStringRef value(void)
