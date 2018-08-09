@@ -686,6 +686,7 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
+
 RING_FUNC(ring_QDesktopServices_openUrl)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -695,6 +696,7 @@ RING_FUNC(ring_QDesktopServices_openUrl)
 	}
 	RING_API_RETNUMBER(QDesktopServices::openUrl(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"))) ;
 }
+
 RING_FUNC(ring_QDesktopServices_setUrlHandler)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -704,6 +706,7 @@ RING_FUNC(ring_QDesktopServices_setUrlHandler)
 	}
 	QDesktopServices::setUrlHandler(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject *"),RING_API_GETSTRING(3));
 }
+
 RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -712,10 +715,13 @@ RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
 	}
 	QDesktopServices::unsetUrlHandler(RING_API_GETSTRING(1));
 }
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
 }
+
 
 RING_FUNC(ring_QObject_blockSignals)
 {
