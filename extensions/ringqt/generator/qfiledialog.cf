@@ -1,0 +1,70 @@
+<class>
+name: QFileDialog
+para: QWidget *parent 
+parent: QWidget
+</class>
+
+int acceptMode(void)
+QString defaultSuffix(void)
+QDir directory(void)
+QUrl directoryUrl(void)
+int fileMode(void)
+int filter(void)
+QStringList history(void)
+QFileIconProvider *iconProvider(void)
+QAbstractItemDelegate *itemDelegate(void)
+QString labelText(QFileDialog::DialogLabel label)
+QStringList mimeTypeFilters(void)
+QStringList nameFilters(void)
+void open(QObject *receiver, const char *member)
+int options(void)
+QAbstractProxyModel *proxyModel(void)
+bool restoreState(QByteArray)
+QByteArray saveState(void)
+void selectFile(QString)
+void selectMimeTypeFilter(QString)
+void selectNameFilter(QString)
+void selectUrl(QUrl)
+QStringList selectedFiles(void)
+QString selectedNameFilter(void)
+<comment>
+QList<QUrl> selectedUrls(void)
+</comment>
+void setAcceptMode(QFileDialog::AcceptMode mode)
+void setDefaultSuffix(QString)
+void setDirectory(QString)
+void setDirectoryUrl(QUrl)
+void setFileMode(QFileDialog::FileMode mode)
+void setFilter(QDir::Filter filters)
+void setHistory(QStringList)
+void setIconProvider(QFileIconProvider *provider)
+void setItemDelegate(QAbstractItemDelegate *delegate)
+void setLabelText(QFileDialog::DialogLabel label, QString)
+void setMimeTypeFilters(QStringList)
+void setNameFilter(QString)
+void setNameFilters(QStringList)
+void setOption(QFileDialog::Option option, bool)
+void setOptions(QFileDialog::Option options)
+void setProxyModel(QAbstractProxyModel *proxyModel)
+<comment>
+void setSidebarUrls(const QList<QUrl> & urls)
+</comment>
+void setViewMode(QFileDialog::ViewMode mode)
+<comment>
+QList<QUrl> sidebarUrls(void)
+</comment>
+bool testOption(QFileDialog::Option option)
+int viewMode(void)
+QString getExistingDirectory(QWidget *,QString,QString, QFileDialog::Option)
+QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, QFileDialog::Option,QStringList)
+QString getOpenFileName(QWidget *,QString,QString,QString)
+<comment>
+QStringList getOpenFileNames(QWidget *,QString,QString,QString, QString, QString)
+</comment>
+QUrl getOpenFileUrl(QWidget *,QString,QUrl,QString, QString *,QFileDialog::Option options,QStringList)
+<comment>
+QList<QUrl> getOpenFileUrls(QWidget * parent = 0, const QString & caption = QString(void), const QUrl & dir = QUrl(void), const QString & filter = QString(void), QString * selectedFilter = 0, Options options = 0, const QStringList & supportedSchemes = QStringList(void))
+</comment>
+QString getSaveFileName(QWidget *,QString,QString,QString)
+QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, QFileDialog::Option options,QStringList)
+
