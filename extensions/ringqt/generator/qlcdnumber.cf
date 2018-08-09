@@ -1,0 +1,22 @@
+<class>
+name: QLCDNumber
+para: QWidget *
+parent: QFrame
+</class>
+
+bool checkOverflow(double num)
+int digitCount(void)
+int intValue(void)
+int mode(void)
+int segmentStyle(void)
+void setDigitCount(int numDigits)
+void setMode(QLCDNumber::Mode)
+void setSegmentStyle(QLCDNumber::SegmentStyle)
+bool smallDecimalPoint(void)
+double value(void)
+void display(double)
+void setBinMode(void)
+void setDecMode(void)
+void setHexMode(void)
+void setOctMode(void)
+void setSmallDecimalPoint(bool)
