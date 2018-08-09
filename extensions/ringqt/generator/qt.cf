@@ -951,33 +951,8 @@ QModelIndex sibling(int row, int column)
 
 <loadfile> qbuffer.cf
 <loadfile> qbluetoothaddress.cf
+<loadfile> qbluetoothdevicediscoveryagent.cf
 
-
-<class>
-name: QBluetoothDeviceDiscoveryAgent
-para: QObject *
-codename: GBluetoothDeviceDiscoveryAgent
-passvmpointer
-</class>
-
-QList<QBluetoothDeviceInfo> discoveredDevices(void)
-QBluetoothDeviceDiscoveryAgent::Error error(void)
-QString errorString(void)
-QBluetoothDeviceDiscoveryAgent::InquiryType inquiryType(void)
-bool isActive(void)
-void setInquiryType(QBluetoothDeviceDiscoveryAgent::InquiryType type)
-void start(void)
-void stop(void)
-
-void setcanceledEvent(const char *)
-void setdeviceDiscoveredEvent(const char *)
-void seterrorEvent(const char *)
-void setfinishedEvent(const char *)
-
-const char *getcanceledEvent(void)
-const char *getdeviceDiscoveredEvent(void)
-const char *geterrorEvent(void)
-const char *getfinishedEvent(void)
 
 <class>
 name: QBluetoothDeviceInfo
