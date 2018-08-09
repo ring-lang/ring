@@ -1,0 +1,25 @@
+<class>
+name: QObject
+para: void
+</class>
+
+bool blockSignals(bool block)
+QObjectList children(void)
+void dumpObjectInfo(void)
+void dumpObjectTree(void)
+bool inherits(const char *className)
+void installEventFilter(QObject *filterObj)
+bool isWidgetType(void)
+void killTimer(int id)
+void moveToThread(QThread *targetThread)
+QString objectName(void)
+QObject *parent(void)
+QVariant property(const char *name)
+void removeEventFilter(QObject *obj)
+void setObjectName(QString)
+void setParent(QObject *parent)
+bool setProperty(const char *name, QVariant)
+bool signalsBlocked(void)
+int startTimer(int interval)
+QThread *thread(void)
+void deleteLater(void)
