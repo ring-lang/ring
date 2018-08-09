@@ -1,0 +1,5 @@
+<class>
+name: QDateEdit
+para: QWidget *parent
+parent: QDateTimeEdit
+</class>

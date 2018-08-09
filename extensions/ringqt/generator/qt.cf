@@ -787,13 +787,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qspinbox.cf
 <loadfile> qabstractslider.cf
 <loadfile> qslider.cf
+<loadfile> qdateedit.cf
 
-
-<class>
-name: QDateEdit
-para: QWidget *parent
-parent: QDateTimeEdit
-</class>
 
 <class>
 name: QDateTimeEdit
