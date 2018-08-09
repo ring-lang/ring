@@ -1,0 +1,14 @@
+<class>
+name: QPoint
+para: void
+</class>
+
+bool isNull(void)
+int manhattanLength(void)
+int rx(void)
+int ry(void)
+void setX(int x)
+void setY(int y)
+int x(void)
+int y(void)
+
