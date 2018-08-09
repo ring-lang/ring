@@ -1,0 +1,8 @@
+<class>
+name: QXmlStreamNamespaceDeclaration
+para: void
+</class>
+
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+
