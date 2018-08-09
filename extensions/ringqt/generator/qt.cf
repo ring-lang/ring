@@ -752,18 +752,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qwidget.cf
 <loadfile> qlabel.cf
 <loadfile> qpushbutton.cf
-
-<class>
-name: QBitmap
-para: void
-parent: QPixmap
-</class>
-
-void clear(void)
-void swap(QBitmap)
-QBitmap transformed(QTransform)
-QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
-QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
+<loadfile> qbitmap.cf
 
 <class>
 name: QPixmap
