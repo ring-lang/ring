@@ -1028,14 +1028,8 @@ QModelIndex sibling(int row, int column)
 <loadfile> qdropevent.cf
 <loadfile> qdragmoveevent.cf
 <loadfile> qdragenterevent.cf
+<loadfile> qdragleaveevent.cf
 
-
-
-<class>
-name: QDragLeaveEvent
-para: void
-parent: QEvent
-</class>
 
 
 <class>

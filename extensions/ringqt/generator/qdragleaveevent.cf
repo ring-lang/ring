@@ -1,0 +1,5 @@
+<class>
+name: QDragLeaveEvent
+para: void
+parent: QEvent
+</class>
