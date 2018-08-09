@@ -1,0 +1,173 @@
+<class>
+name: QPlainTextEdit
+para: QWidget *
+parent: QAbstractScrollArea
+codename: GPlainTextEdit
+passvmpointer
+</class>
+
+QString anchorAt(QPoint pos)
+bool backgroundVisible(void)
+int blockCount(void)
+bool canPaste(void)
+bool centerOnScroll(void)
+QMenu * createStandardContextMenu(void)
+
+<comment>
+QMenu * createStandardContextMenu@2(QPoint position)
+</comment>
+
+QTextCharFormat currentCharFormat(void)
+QTextCursor cursorForPosition(QPoint pos)
+QRect cursorRect(QTextCursor cursor)
+QRect cursorRect@2(void)
+int cursorWidth(void)
+QTextDocument * document(void)
+QString documentTitle(void)
+void ensureCursorVisible(void)
+QList<QTextEdit::ExtraSelection> extraSelections(void)
+bool find(QString exp, QTextDocument::FindFlags options)
+
+<comment>
+bool find@2(QRegExp exp, QTextDocument::FindFlags options)
+</comment>
+
+bool isReadOnly(void)
+bool isUndoRedoEnabled(void)
+QPlainTextEdit::LineWrapMode lineWrapMode(void)
+
+<comment>
+virtual QVariant loadResource(int type, QUrl name)
+</comment>
+
+int maximumBlockCount(void)
+void mergeCurrentCharFormat(QTextCharFormat modifier)
+void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
+bool overwriteMode(void)
+
+<comment>
+QString placeholderText(void)
+</comment>
+
+void print(QPagedPaintDevice *printer)
+void setBackgroundVisible(bool visible)
+void setCenterOnScroll(bool enabled)
+void setCurrentCharFormat(QTextCharFormat format)
+void setCursorWidth(int width)
+void setDocument(QTextDocument *document)
+void setDocumentTitle(QString title)
+void setExtraSelections(QList<QTextEdit::ExtraSelection> selections)
+void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
+void setMaximumBlockCount(int maximum)
+void setOverwriteMode(bool overwrite)
+
+<comment>
+void setPlaceholderText(QString placeholderText)
+</comment>
+
+void setReadOnly(bool ro)
+void setTabChangesFocus(bool b)
+void setTabStopWidth(int width)
+void setTextCursor(QTextCursor cursor)
+void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+void setUndoRedoEnabled(bool enable)
+void setWordWrapMode(QTextOption::WrapMode policy)
+bool tabChangesFocus(void)
+int tabStopWidth(void)
+QTextCursor textCursor(void)
+Qt::TextInteractionFlags textInteractionFlags(void)
+QString toPlainText(void)
+QTextOption::WrapMode wordWrapMode(void)
+
+void appendHtml(QString html)
+void appendPlainText(QString text)
+void centerCursor(void)
+void clear(void)
+void copy(void)
+void cut(void)
+void insertPlainText(QString text)
+void paste(void)
+void redo(void)
+void selectAll(void)
+void setPlainText(QString text)
+void undo(void)
+void zoomIn(int range)
+void zoomOut(int range)
+
+void setblockCountChangedEvent(const char *cStr)
+void setcopyAvailableEvent(const char *cStr)
+void setcursorPositionChangedEvent(const char *cStr)
+void setmodificationChangedEvent(const char *cStr)
+void setredoAvailableEvent(const char *cStr)
+void setselectionChangedEvent(const char *cStr)
+void settextChangedEvent(const char *cStr)
+void setundoAvailableEvent(const char *cStr)
+void setupdateRequestEvent(const char *cStr)
+
+const char *getblockCountChangedEvent(void)
+const char *getcopyAvailableEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *getmodificationChangedEvent(void)
+const char *getredoAvailableEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextChangedEvent(void)
+const char *getundoAvailableEvent(void)
+const char *getupdateRequestEvent(void)
+
+<register>
+void cyanline(void)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
