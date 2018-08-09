@@ -89955,6 +89955,446 @@ RING_FUNC(ring_QBluetoothLocalDevice_address)
 }
 
 
+RING_FUNC(ring_QBluetoothLocalDevice_hostMode)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETNUMBER(pObject->hostMode());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_isValid)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_name)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_pairingStatus)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETNUMBER(pObject->pairingStatus(* (QBluetoothAddress  *) RING_API_GETCPOINTER(2,"QBluetoothAddress")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBluetoothAddress"));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_powerOn)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	pObject->powerOn();
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_requestPairing)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->requestPairing(* (QBluetoothAddress  *) RING_API_GETCPOINTER(2,"QBluetoothAddress"), (QBluetoothLocalDevice::Pairing )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBluetoothAddress"));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setHostMode)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHostMode( (QBluetoothLocalDevice::HostMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_pairingConfirmation)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->pairingConfirmation( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_allDevices)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	{
+		QList<QBluetoothHostInfo> *pValue ; 
+		pValue = (QList<QBluetoothHostInfo> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QBluetoothHostInfo>)) ;
+		*pValue = pObject->allDevices();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QBluetoothHostInfo>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setdeviceConnectedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdeviceConnectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setdeviceDisconnectedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdeviceDisconnectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_seterrorEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seterrorEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_sethostModeStateChangedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethostModeStateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setpairingDisplayConfirmationEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpairingDisplayConfirmationEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setpairingDisplayPinCodeEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpairingDisplayPinCodeEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_setpairingFinishedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpairingFinishedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_getdeviceConnectedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->getdeviceConnectedEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_getdeviceDisconnectedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->getdeviceDisconnectedEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_geterrorEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->geterrorEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_gethostModeStateChangedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->gethostModeStateChangedEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_getpairingDisplayConfirmationEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->getpairingDisplayConfirmationEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_getpairingDisplayPinCodeEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->getpairingDisplayPinCodeEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothLocalDevice_getpairingFinishedEvent)
+{
+	GBluetoothLocalDevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"QBluetoothLocalDevice");
+	RING_API_RETSTRING(pObject->getpairingFinishedEvent());
+}
+
+
 RING_FUNC(ring_QBluetoothServer_close)
 {
 	GBluetoothServer *pObject ;
@@ -143422,6 +143862,29 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothhostinfo_setaddress",ring_QBluetoothHostInfo_setAddress);
 	ring_vm_funcregister("qbluetoothhostinfo_setname",ring_QBluetoothHostInfo_setName);
 	ring_vm_funcregister("qbluetoothlocaldevice_address",ring_QBluetoothLocalDevice_address);
+	ring_vm_funcregister("qbluetoothlocaldevice_hostmode",ring_QBluetoothLocalDevice_hostMode);
+	ring_vm_funcregister("qbluetoothlocaldevice_isvalid",ring_QBluetoothLocalDevice_isValid);
+	ring_vm_funcregister("qbluetoothlocaldevice_name",ring_QBluetoothLocalDevice_name);
+	ring_vm_funcregister("qbluetoothlocaldevice_pairingstatus",ring_QBluetoothLocalDevice_pairingStatus);
+	ring_vm_funcregister("qbluetoothlocaldevice_poweron",ring_QBluetoothLocalDevice_powerOn);
+	ring_vm_funcregister("qbluetoothlocaldevice_requestpairing",ring_QBluetoothLocalDevice_requestPairing);
+	ring_vm_funcregister("qbluetoothlocaldevice_sethostmode",ring_QBluetoothLocalDevice_setHostMode);
+	ring_vm_funcregister("qbluetoothlocaldevice_pairingconfirmation",ring_QBluetoothLocalDevice_pairingConfirmation);
+	ring_vm_funcregister("qbluetoothlocaldevice_alldevices",ring_QBluetoothLocalDevice_allDevices);
+	ring_vm_funcregister("qbluetoothlocaldevice_setdeviceconnectedevent",ring_QBluetoothLocalDevice_setdeviceConnectedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_setdevicedisconnectedevent",ring_QBluetoothLocalDevice_setdeviceDisconnectedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_seterrorevent",ring_QBluetoothLocalDevice_seterrorEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_sethostmodestatechangedevent",ring_QBluetoothLocalDevice_sethostModeStateChangedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_setpairingdisplayconfirmationevent",ring_QBluetoothLocalDevice_setpairingDisplayConfirmationEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_setpairingdisplaypincodeevent",ring_QBluetoothLocalDevice_setpairingDisplayPinCodeEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_setpairingfinishedevent",ring_QBluetoothLocalDevice_setpairingFinishedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_getdeviceconnectedevent",ring_QBluetoothLocalDevice_getdeviceConnectedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_getdevicedisconnectedevent",ring_QBluetoothLocalDevice_getdeviceDisconnectedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_geterrorevent",ring_QBluetoothLocalDevice_geterrorEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_gethostmodestatechangedevent",ring_QBluetoothLocalDevice_gethostModeStateChangedEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_getpairingdisplayconfirmationevent",ring_QBluetoothLocalDevice_getpairingDisplayConfirmationEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_getpairingdisplaypincodeevent",ring_QBluetoothLocalDevice_getpairingDisplayPinCodeEvent);
+	ring_vm_funcregister("qbluetoothlocaldevice_getpairingfinishedevent",ring_QBluetoothLocalDevice_getpairingFinishedEvent);
 	ring_vm_funcregister("qbluetoothserver_close",ring_QBluetoothServer_close);
 	ring_vm_funcregister("qbluetoothserver_error",ring_QBluetoothServer_error);
 	ring_vm_funcregister("qbluetoothserver_haspendingconnections",ring_QBluetoothServer_hasPendingConnections);
