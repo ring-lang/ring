@@ -1,0 +1,30 @@
+<class>
+name: QQuickWidget
+para: QWidget *
+parent: QWidget
+codename: GQuickWidget
+passvmpointer
+</class>
+
+QQmlEngine *engine(void)
+QList<QQmlError> errors(void)
+QSurfaceFormat format(void)
+QImage grabFramebuffer(void)
+QSize initialSize(void)
+QQuickWindow *quickWindow(void)
+QQuickWidget::ResizeMode resizeMode(void)
+QQmlContext *rootContext(void)
+QQuickItem *rootObject(void)
+void setClearColor(QColor color)
+void setFormat(QSurfaceFormat format)
+void setResizeMode(QQuickWidget::ResizeMode)
+QUrl source(void)
+QQuickWidget::Status status(void)
+void setSource(QUrl url)
+
+void setsceneGraphErrorEvent(const char *)
+void setstatusChangedEvent(const char *)
+
+const char *getsceneGraphErrorEvent(void)
+const char *getstatusChangedEvent(void)
+
