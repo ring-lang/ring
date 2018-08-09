@@ -943,25 +943,8 @@ QModelIndex sibling(int row, int column)
 <filter> (sysget("RINGQT_ANDROID") = "")
 
 <loadfile> qserialport.cf
+<loadfile> qserialportinfo.cf
 
-
-
-<class>
-name: QSerialPortInfo
-para: void
-</class>
-
-QString description(void)
-bool hasProductIdentifier(void)
-bool hasVendorIdentifier(void)
-bool isBusy(void)
-bool isNull(void)
-QString manufacturer(void)
-QString portName(void)
-quint16 productIdentifier(void)
-void swap(QSerialPortInfo other)
-QString systemLocation(void)
-quint16 vendorIdentifier(void)
 
 </filter>
 
