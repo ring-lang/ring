@@ -1,0 +1,27 @@
+<class>
+name: QBluetoothDeviceInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+<comment>
+QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
+QBluetoothUuid deviceUuid(void)
+</comment>
+bool isCached(void)
+bool isValid(void)
+QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
+quint8 minorDeviceClass(void)
+QString name(void)
+qint16 rssi(void)
+QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
+QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
+QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
+void setCached(bool cached)
+<comment>
+void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
+void setDeviceUuid(QBluetoothUuid uuid)
+</comment>
+void setRssi(qint16 signal)
+void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
