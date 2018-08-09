@@ -1,0 +1,5 @@
+<class>
+name: QScrollBar
+para: QWidget *parent
+parent: QAbstractSlider
+</class>

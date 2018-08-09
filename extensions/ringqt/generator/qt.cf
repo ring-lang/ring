@@ -1020,15 +1020,10 @@ QModelIndex sibling(int row, int column)
 
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
 <loadfile> qwebengineview.cf
-
-
 </filter>
 
-<class>
-name: QScrollBar
-para: QWidget *parent
-parent: QAbstractSlider
-</class>
+<loadfile> qscrollbar.cf
+
 
 <class>
 name: QDrag
