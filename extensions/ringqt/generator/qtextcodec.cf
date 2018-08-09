@@ -1,0 +1,24 @@
+<class>
+name: QTextCodec
+nonew
+</class>
+
+<register>
+QTextCodec *codecForName(const char *name)
+void setCodecForLocale(QTextCodec *c)
+</register>
+
+<code>
+
+RING_FUNC(ring_QTextCodec_codecForName)
+{
+	RING_API_RETCPOINTER( QTextCodec::codecForName(RING_API_GETSTRING(1)) , "QTextCodec");
+}
+
+RING_FUNC(ring_QTextCodec_setCodecForLocale)
+{
+	 QTextCodec::setCodecForLocale( (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec"));
+}
+
+</code>
+
