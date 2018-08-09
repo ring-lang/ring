@@ -884,13 +884,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtextcharformat.cf
 <loadfile> qcameraviewfinder.cf
 <loadfile> qgraphicsvideoitem.cf
+<loadfile> qvideowidgetcontrol.cf
 
-
-<class>
-name: QVideoWidgetControl
-parent: QMediaControl
-abstract
-</class>
 
 <class>
 name: QCamera
