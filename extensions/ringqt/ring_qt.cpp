@@ -17245,6 +17245,7 @@ RING_FUNC(ring_QTreeWidgetItem_write)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDataStream"));
 }
 
+
 RING_FUNC(ring_QComboBox_addItem)
 {
 	QComboBox *pObject ;
@@ -17264,6 +17265,7 @@ RING_FUNC(ring_QComboBox_addItem)
 	}
 	pObject->addItem(RING_API_GETSTRING(2),QVariant(RING_API_GETNUMBER(3)));
 }
+
 
 RING_FUNC(ring_QComboBox_completer)
 {
