@@ -1,0 +1,19 @@
+<class>
+name: QClipboard
+nonew
+</class>
+
+void clear(QClipboard::Mode mode)
+QImage image(QClipboard::Mode mode)
+QMimeData * mimeData(QClipboard::Mode mode)
+bool ownsClipboard(void)
+bool ownsFindBuffer(void)
+bool ownsSelection(void)
+QPixmap pixmap(QClipboard::Mode mode)
+void setImage(QImage image, QClipboard::Mode mode)
+void setMimeData(QMimeData * src, QClipboard::Mode mode)
+void setPixmap(QPixmap pixmap, QClipboard::Mode mode)
+void setText(QString text, QClipboard::Mode mode)
+bool supportsFindBuffer(void)
+bool supportsSelection(void)
+QString text(QClipboard::Mode mode)
