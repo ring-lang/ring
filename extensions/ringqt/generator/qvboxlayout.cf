@@ -1,0 +1,9 @@
+<class>
+name: QVBoxLayout
+para: void
+parent: QBoxLayout
+</class>
+
+void addWidget(QWidget *)
+void addLayout(QLayout *)
+
