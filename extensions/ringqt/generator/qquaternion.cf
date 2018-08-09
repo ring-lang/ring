@@ -1,0 +1,50 @@
+<class>
+name: QQuaternion
+para: float,float,float,float
+</class>
+
+<comment>
+QQuaternion conjugated(void)
+void getAxes(QVector3D *xAxis, QVector3D *yAxis, QVector3D *zAxis)
+void getAxisAndAngle(float *x, float *y, float *z, float *angle)
+void getAxisAndAngle@2(QVector3D *axis, float *angle)
+void getEulerAngles(float *pitch, float *yaw, float *roll)
+QQuaternion inverted(void)
+</comment>
+bool isIdentity(void)
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QQuaternion normalized(void)
+QVector3D rotatedVector(QVector3D vector)
+float scalar(void)
+void setScalar(float scalar)
+void setVector(QVector3D vector)
+void setVector@2(float x, float y, float z)
+void setX(float x)
+void setY(float y)
+void setZ(float z)
+<comment>
+QVector3D toEulerAngles(void)
+QMatrix3x3 toRotationMatrix(void)
+</comment>
+QVector4D toVector4D(void)
+QVector3D vector(void)
+float x(void)
+float y(void)
+float z(void)
+<comment>
+float dotProduct(QQuaternion q1, QQuaternion q2)
+QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+QQuaternion fromDirection(QVector3D direction, QVector3D up)
+QQuaternion fromEulerAngles(float pitch, float yaw, float roll)
+QQuaternion fromEulerAngles@2(QVector3D eulerAngles)
+QQuaternion fromRotationMatrix(QMatrix3x3 rot3x3)
+QQuaternion rotationTo(QVector3D from, QVector3D to)
+</comment>
+QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+QQuaternion fromAxisAndAngle@2(float x, float y, float z, float angle)
+QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
+QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+
