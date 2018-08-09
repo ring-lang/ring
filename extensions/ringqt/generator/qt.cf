@@ -876,13 +876,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qjsonarray.cf
 <loadfile> qjsondocument.cf
 <loadfile> qjsonobject.cf
-
-<class>
-name: QJsonParseError
-para: void
-</class>
-
-QString errorString(void)
+<loadfile> qjsonparseerror.cf
 
 <class>
 name: QJsonValue

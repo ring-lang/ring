@@ -1,0 +1,7 @@
+<class>
+name: QJsonParseError
+para: void
+</class>
+
+QString errorString(void)
+
