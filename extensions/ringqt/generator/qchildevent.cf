@@ -1,0 +1,11 @@
+<class>
+name: QChildEvent
+para: QEvent::Type,QObject *
+parent: QEvent
+</class>
+
+bool added(void)
+QObject *child(void)
+bool polished(void)
+bool removed(void)
+

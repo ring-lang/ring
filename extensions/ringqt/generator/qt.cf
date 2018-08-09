@@ -1031,18 +1031,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qdragleaveevent.cf
 <loadfile> qclipboard.cf
 <loadfile> qchar.cf
-
-
-<class>
-name: QChildEvent
-para: QEvent::Type,QObject *
-parent: QEvent
-</class>
-
-bool added(void)
-QObject *child(void)
-bool polished(void)
-bool removed(void)
+<loadfile> qchildevent.cf
 
 
 <class>
