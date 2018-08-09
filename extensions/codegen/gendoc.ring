@@ -20,8 +20,6 @@ cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl()
 cOutput += C_CHAPTERNAME + windowsnl()
 cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl() + windowsnl()
 
-lLoop = False
-
 process_file(aList)
 
 write(C_OUTPUTFILE,cOutput)
@@ -72,23 +70,27 @@ func process_file(aList)
 			again left(lower(cLine),8) !="</class>"
 			loop
 		ok
-		if left(lower(cLine),9)="<comment>"		 
-			x++
-			do 
-				cLine = trim(aList[x])
+		aAvoidBlocks = ["comment","code","funcstart","runcode","struct"]
+		for cAvoid in aAvoidBlocks
+			if left(lower(cLine),len(cAvoid)+2)="<"+cAvoid+">"		 
 				x++
-			again left(lower(cLine),10) !="</comment>"
-			loop
-		ok
-		x = avoidblock("code",cLine,x)		checkloop()
-		x = avoidblock("funcstart",cLine,x)	checkloop()
-		x = avoidblock("runcode",cLine,x)	checkloop()
-		x = avoidblock("struct",cLine,x)	checkloop()
+				do 
+					cLine = trim(aList[x])
+					x++
+				again left(lower(cLine),len(cAvoid)+3) !="</"+cAvoid+">"
+				loop
+			ok
+		next
 		avoidline("constant",cLine)
 		avoidline("ignorecpointertype",cLine)
 		avoidline("register",cLine)
 		avoidline("filter",cLine)
-	
+		
+		avoidline("/comment",cLine)
+		avoidline("/code",cLine)
+		avoidline("/runcode",cLine)
+		avoidline("/struct",cLine)
+
 		if lStart
 			if (cLine != NULL ) and len(cLine) > 1
 				cLine = substr(cLine,"@","_")
@@ -97,24 +99,6 @@ func process_file(aList)
 		ok
 	next
 	
-
-func avoidblock cStr,cLine,x
-	if left(lower(cLine),len(cStr)+2)="<"+cStr +">"		 
-		x++
-		do 
-			cLine = trim(aList[x])
-			x++
-		again left(lower(cLine),len(cStr)+3) !="</"+cStr+">"
-		lLoop = True
-	ok
-	return x
-
-func checkloop
-	if lLoop = True
-		lLoop = False
-		loop 
-	ok
-
 func avoidline cStr,cLine
 	if ( left(lower(cLine),len(cStr)+2)="<"+cStr + ">" ) or ( left(lower(cLine),len(cStr)+3)="</"+cStr + ">"  )
 		loop
