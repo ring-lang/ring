@@ -1,0 +1,16 @@
+<class>
+name: QSqlError
+para: QString, QString, QSqlError::ErrorType
+</class>
+
+QString databaseText(void)
+QString driverText(void)
+bool isValid(void)
+int number(void)
+void setDatabaseText(QString)
+void setDriverText(QString)
+void setNumber(int number)
+void setType(QSqlError::ErrorType type)
+QString text(void)
+QSqlError::ErrorType type(void)
+
