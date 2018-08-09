@@ -959,19 +959,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qbluetoothservicediscoveryagent.cf
 <loadfile> qbluetoothserviceinfo.cf
 <loadfile> qbluetoothsocket.cf
-
-<class>
-name: QBluetoothTransferManager
-para: QObject *
-parent: QObject
-codename: GBluetoothTransferManager
-passvmpointer
-</class>
-
-
-QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
-void setfinishedEvent(const char *)
-const char *getfinishedEvent(void)
+<loadfile> qbluetoothtransfermanager.cf
 
 <class>
 name: QBluetoothTransferReply
