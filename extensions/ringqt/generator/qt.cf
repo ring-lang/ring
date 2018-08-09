@@ -850,30 +850,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsqlquery.cf
 <loadfile> qsqlerror.cf
 <loadfile> qsqlindex.cf
+<loadfile> qsqlrecord.cf
 
-<class>
-name: QSqlRecord
-para: void
-</class>
-
-void append(QSqlField)
-void clear(void)
-void clearValues(void)
-bool contains(QString)
-int count(void)
-QSqlField field(int index)
-QString fieldName(int index)
-int indexOf(QString)
-void insert(int pos, QSqlField)
-bool isEmpty(void)
-bool isGenerated(QString)
-bool isNull(QString)
-void remove(int pos)
-void replace(int pos, QSqlField)
-void setGenerated(QString, bool generated)
-void setNull(int index)
-void setValue(int index, QVariant)
-QVariant value(int index)
 
 <class>
 name: QSqlField
