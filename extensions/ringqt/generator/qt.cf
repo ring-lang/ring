@@ -778,14 +778,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtablewidgetitem.cf
 <loadfile> qframe.cf
 <loadfile> qframe2.cf
-
-<class>
-name: QFrame3
-para: QWidget *parent
-parent: QFrame
-codename: QFrame
-</class>
-
+<loadfile> qframe3.cf
 
 <class>
 name: QAbstractScrollArea
