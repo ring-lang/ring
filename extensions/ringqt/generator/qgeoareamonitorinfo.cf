@@ -1,0 +1,18 @@
+<class>
+name: QGeoAreaMonitorInfo
+para: QString
+</class>
+
+QGeoShape area(void)
+QDateTime expiration(void)
+QString identifier(void)
+bool isPersistent(void)
+bool isValid(void)
+QString name(void)
+QVariantMap notificationParameters(void)
+void setArea(QGeoShape newShape)
+void setExpiration(QDateTime expiry)
+void setName(QString name)
+void setNotificationParameters(QVariantMap parameters)
+void setPersistent(bool isPersistent)
+
