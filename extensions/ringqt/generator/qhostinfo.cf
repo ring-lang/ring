@@ -1,0 +1,21 @@
+<class>
+name: QHostInfo
+para: void
+</class>
+
+int error(void)
+QString errorString(void)
+QString hostName(void)
+int lookupId(void)
+void setError(QHostInfo::HostInfoError error)
+void setErrorString(QString)
+void setHostName(QString)
+void setLookupId(int id)
+void abortHostLookup(int id)
+QHostInfo fromName(QString)
+QString localDomainName(void)
+QString localHostName(void)
+<comment>
+int lookupHost(QString, QObject *receiver, const char *member)
+</comment>
+
