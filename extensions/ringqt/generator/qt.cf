@@ -754,14 +754,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qpushbutton.cf
 <loadfile> qbitmap.cf
 <loadfile> qpixmap.cf
+<loadfile> qpixmap2.cf
 
-
-<class>
-name: QPixmap2
-para: int width, int height
-parent: QPixmap
-codename: QPixmap
-</class>
 
 <class>
 name: QIcon
