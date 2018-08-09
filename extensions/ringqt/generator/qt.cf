@@ -862,16 +862,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> ringcodehighlighter.cf
 <loadfile> qxmlstreamreader.cf
 <loadfile> qxmlstreamwrite.cf
+<loadfile> qxmlstreamnotationdeclaration.cf
 
-
-<class>
-name: QXmlStreamNotationDeclaration
-para: void
-</class>
-
-QStringRef name(void)
-QStringRef publicId(void)
-QStringRef systemId(void)
 
 <class>
 name: QXmlStreamNamespaceDeclaration
