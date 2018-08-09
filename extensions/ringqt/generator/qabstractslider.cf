@@ -1,0 +1,30 @@
+<class>
+name: QAbstractSlider
+para: QWidget *parent
+parent: QWidget
+</class>
+
+bool hasTracking(void)
+bool invertedAppearance(void)
+bool invertedControls(void)
+bool isSliderDown(void)
+int maximum(void)
+int minimum(void)
+int orientation(void)
+int pageStep(void)
+void setInvertedAppearance(bool)
+void setInvertedControls(bool)
+void setMaximum(int)
+void setMinimum(int)
+void setPageStep(int)
+void setSingleStep(int)
+void setSliderDown(bool)
+void setSliderPosition(int)
+void setTracking(bool enable)
+int singleStep(void)
+int sliderPosition(void)
+void triggerAction(QAbstractSlider::SliderAction action)
+int value(void)
+void setOrientation(Qt::Orientation)
+void setRange(int min, int max)
+void setValue(int)
