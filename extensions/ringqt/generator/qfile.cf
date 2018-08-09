@@ -1,0 +1,27 @@
+<class>
+name: QFile
+para: void
+parent: QFileDevice
+</class>
+
+bool copy(QString newName)
+bool exists(void)
+bool link(QString linkName)
+bool open(FILE *fh, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+bool open@2(int fd, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+bool remove(void)
+bool rename(QString newName)
+void setFileName(QString name)
+QString symLinkTarget(void)
+bool copy@2(QString fileName, QString newName)
+QString decodeName(QByteArray localFileName)
+QString decodeName@2(char *localFileName)
+QByteArray encodeName(QString fileName)
+bool exists@2(QString fileName)
+bool link@2(QString fileName, QString linkName)
+QFile::Permissions permissions(QString fileName)
+bool remove@2(QString fileName)
+bool rename@2(QString oldName, QString newName)
+bool resize(QString fileName, qint64 sz)
+bool setPermissions(QString fileName, QFile::Permissions permissions)
+QString symLinkTarget@2(QString fileName)
