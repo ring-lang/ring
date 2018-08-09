@@ -1,9 +1,9 @@
-
 <class>
 name: QLabel
 para: QWidget *
 parent: QWidget
 </class>
+
 int alignment(void)
 QWidget *buddy(void)
 bool hasScaledContents(void)

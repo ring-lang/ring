@@ -1,4 +1,3 @@
-
 <class>
 name: QTest
 nonew
@@ -9,8 +8,10 @@ void qsleep(int)
 </register>
 
 <code>
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
 }
+
 </code>
