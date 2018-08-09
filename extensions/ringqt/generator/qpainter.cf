@@ -1,0 +1,225 @@
+<class>
+name: QPainter
+para: void
+</class>
+
+QBrush background(void)
+int backgroundMode(void)
+bool begin(QPaintDevice *device)
+void beginNativePainting(void)
+QRect boundingRect(int x, int y, int w, int h, int flags, QString text)
+QBrush brush(void)
+QPoint brushOrigin(void)
+QRectF clipBoundingRect(void)
+QPainterPath clipPath(void)
+QRegion clipRegion(void)
+QTransform combinedTransform(void)
+int compositionMode(void)
+QPaintDevice *device(void)
+QTransform deviceTransform(void)
+void drawArc(int x, int y, int width, int height, int startAngle, int spanAngle)
+void drawChord(int x, int y, int width, int height, int startAngle, int spanAngle)
+void drawEllipse(int x, int y, int width, int height)
+void drawGlyphRun(QPointF  position,  QGlyphRun  glyphs)
+void drawImage(int x, int y,  QImage image)
+void drawLine(int x1, int y1, int x2, int y2)
+void drawLines(QLine *lines, int lineCount)
+void drawPath(QPainterPath path)
+void drawPicture(int x, int y,  QPicture  picture)
+void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
+void drawPixmap(int x, int y,  QPixmap)
+void drawPoint(int x, int y)
+void drawRect(int x, int y, int width, int height)
+void drawRects(QRectF *rectangles, int rectCount)
+void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
+void drawStaticText(int left, int top,  QStaticText  staticText)
+void drawText(int x, int y, QString  text)
+void drawTiledPixmap(int x, int y, int width, int height,  QPixmap  pixmap, int sx, int sy)
+bool end(void) # In RingQt use : bool endpaint(void)
+void endNativePainting(void)
+void eraseRect(int x, int y, int width, int height)
+void fillPath(QPainterPath  path,  QBrush  brush)
+void fillRect(int x, int y, int width, int height, QBrush)
+QFont font(void)
+QFontInfo fontInfo(void)
+bool hasClipping(void)
+void initFrom(QWidget *widget)
+bool isActive(void)
+int layoutDirection(void)
+double opacity(void)
+QPaintEngine *paintEngine(void)
+QPen pen(void)
+int renderHints(void)
+void resetTransform(void)
+void restore(void)
+void rotate(qreal angle)
+void save(void)
+void scale(double sx, double sy)
+void setBackground(QBrush  brush)
+void setBackgroundMode(Qt::BGMode mode)
+void setBrush(QBrush brush)
+void setBrushOrigin(int x, int y)
+void setClipPath(QPainterPath  path, Qt::ClipOperation operation)
+void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
+void setClipRegion(QRegion  region, Qt::ClipOperation operation)
+void setClipping(bool enable)
+void setCompositionMode(QPainter::CompositionMode mode)
+void setFont(QFont font)
+void setLayoutDirection(Qt::LayoutDirection direction)
+void setOpacity(qreal opacity)
+void setPen(QPen pen)
+void setRenderHint(QPainter::RenderHint hint, bool on)
+void setTransform(QTransform  transform, bool combine)
+void setViewTransformEnabled(bool enable)
+void setViewport(int x, int y, int width, int height)
+void setWindow(int x, int y, int width, int height)
+void setWorldMatrixEnabled(bool enable)
+void setWorldTransform( QTransform  matrix, bool combine)
+void shear(double sh, double sv)
+void strokePath(QPainterPath  path,  QPen  pen)
+bool testRenderHint(QPainter::RenderHint hint)
+QTransform transform(void)
+void translate(double dx, double dy)
+bool viewTransformEnabled(void)
+QRect viewport(void)
+QRect window(void)
+bool worldMatrixEnabled(void)
+QTransform  worldTransform(void)
+
+<register>
+void drawPolygon(List *pPoints, Qt::FillRule fillRule)
+void drawConvexPolygon(List *pPoints)
+void drawPoints(List *pPoints)
+void drawPolyline(List *pPoints)
+</register>
+
+<code>
+RING_FUNC(ring_QPainter_drawPolygon)
+{
+	QPainter *pObject;
+	List *pList,*pList2;
+	int x,nSize;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));	
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawConvexPolygon)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPoint *points = new QPoint[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawConvexPolygon(points, nSize);
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawPoints)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPoints(points, nSize);
+	delete [] points;
+}
+
+RING_FUNC(ring_QPainter_drawPolyline)
+{
+	QPainter *pObject ;
+	List *pList,*pList2;
+	int x,nSize;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolyline(points, nSize);
+	delete [] points;
+}
+
+</code>
