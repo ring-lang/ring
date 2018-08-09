@@ -879,19 +879,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qjsonparseerror.cf
 <loadfile> qjsonvalue.cf
 <loadfile> qplaintextedit.cf
-
-
-<class>
-name: CodeEditor
-para: QWidget *
-parent: QPlainTextEdit
-passvmpointer
-</class>
-
-void setCompleter(QCompleter *c)
-QCompleter *completer(void)
-void setLineNumbersAreaColor(QColor oColor)
-void setLineNumbersAreaBackColor(QColor oColor)
+<loadfile> codeedit.cf
 
 
 <class>
