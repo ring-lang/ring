@@ -861,47 +861,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qimage.cf
 <loadfile> ringcodehighlighter.cf
 <loadfile> qxmlstreamreader.cf
+<loadfile> qxmlstreamwrite.cf
 
-
-<class>
-name: QXmlStreamWriter
-para: void
-</class>
-
-bool autoFormatting(void)
-int autoFormattingIndent(void)
-QTextCodec *codec(void)
-QIODevice *device(void)
-bool hasError(void)
-void setAutoFormatting(bool enable)
-void setAutoFormattingIndent(int spacesOrTabs)
-void setCodec(QTextCodec *codec)
-void setCodec@2(const char *codecName)
-void setDevice(QIODevice *device)
-void writeAttribute(QString, QString,QString)
-void writeAttribute@2(QString, QString)
-void writeAttribute@3(QXmlStreamAttribute)
-void writeAttributes(QXmlStreamAttributes)
-void writeCDATA(QString text)
-void writeCharacters(QString text)
-void writeComment(QString text)
-void writeCurrentToken(QXmlStreamReader reader)
-void writeDTD(QString dtd)
-void writeDefaultNamespace(QString namespaceUri)
-void writeEmptyElement(QString namespaceUri, QString name)
-void writeEmptyElement@2(QString qualifiedName)
-void writeEndDocument(void)
-void writeEndElement(void)
-void writeEntityReference(QString name)
-void writeNamespace(QString namespaceUri, QString prefix)
-void writeProcessingInstruction(QString target, QString data)
-void writeStartDocument(QString version)
-void writeStartDocument@2(QString version, bool standalone)
-void writeStartDocument@3(void)
-void writeStartElement(QString namespaceUri, QString name)
-void writeStartElement@2(QString qualifiedName)
-void writeTextElement(QString namespaceUri, QString name, QString text)
-void writeTextElement@2(QString qualifiedName, QString text)
 
 <class>
 name: QXmlStreamNotationDeclaration
