@@ -1,0 +1,38 @@
+
+<class>
+name: QLabel
+para: QWidget *
+parent: QWidget
+</class>
+int alignment(void)
+QWidget *buddy(void)
+bool hasScaledContents(void)
+bool hasSelectedText(void)
+int indent(void)
+int margin(void)
+QMovie *movie(void)
+bool openExternalLinks(void)
+QPicture *picture(void)
+QPixmap *pixmap(void)
+QString selectedText(void)
+int selectionStart(void)
+void setAlignment(Qt::AlignmentFlag)
+void setBuddy(QWidget *buddy)
+void setIndent(int)
+void setMargin(int)
+void setOpenExternalLinks(bool open)
+void setScaledContents(bool)
+void setSelection(int start, int length)
+void setTextFormat(Qt::TextFormat)
+void setTextInteractionFlags(Qt::TextInteractionFlag flags)
+void setWordWrap(bool on)
+QString text(void)
+int textFormat(void)
+int textInteractionFlags(void)
+bool wordWrap(void)
+void clear(void)
+void setMovie(QMovie *movie)
+void setNum(double num)
+void setPicture(QPicture)
+void setPixmap(QPixmap)
+void setText(QString)
