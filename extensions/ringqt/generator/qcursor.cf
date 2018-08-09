@@ -1,0 +1,18 @@
+<class>
+name: QCursor
+para: void
+</class>
+
+QBitmap *bitmap(void)
+QPoint hotSpot(void)
+QBitmap *mask(void)
+QPixmap pixmap(void)
+void setShape(Qt::CursorShape shape)
+Qt::CursorShape shape(void)
+QPoint pos(void)
+QPoint pos@2(QScreen *)
+void setPos(int x, int y)
+void setPos@2(QScreen *screen, int x, int y)
+void setPos@3(QPoint)
+void setPos@4(QScreen *screen, QPoint)
+
