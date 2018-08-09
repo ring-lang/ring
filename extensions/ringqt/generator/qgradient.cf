@@ -1,0 +1,16 @@
+<class>
+name: QGradient
+para: void
+abstract
+</class>
+
+
+QGradient::CoordinateMode coordinateMode(void)
+void setColorAt(qreal position,  QColor   color)
+void setCoordinateMode(QGradient::CoordinateMode mode)
+void setSpread(QGradient::Spread method)
+void setStops(QGradientStops stopPoints)
+QGradient::Spread spread(void)
+QGradientStops stops(void)
+QGradient::Type type(void)
+
