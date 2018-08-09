@@ -810,15 +810,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtimer.cf
 <loadfile> qfiledialog.cf
 <loadfile> qpainter.cf
-
-
-<class>
-name: QPainter2
-para: QPaintDevice *
-parent: QPainter
-codename: QPainter
-</class>
-
+<loadfile> qpainter2.cf
 
 <class>
 name: QPicture
