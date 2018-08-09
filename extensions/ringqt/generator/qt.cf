@@ -816,28 +816,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qcolor.cf
 <loadfile> qprinter.cf
 <loadfile> qfont.cf
-
-
-<class>
-name: QBrush
-para: void
-</class>
-
-QColor color(void)
-QGradient *gradient(void)
-bool isOpaque(void)
-QMatrix matrix(void)
-void setColor(QColor)
-void setMatrix(QMatrix)
-void setStyle(Qt::BrushStyle style)
-void setTexture(QPixmap)
-void setTextureImage(QImage)
-void setTransform(QTransform)
-int style(void)
-void swap(QBrush)
-QPixmap texture(void)
-QImage textureImage(void)
-QTransform transform(void)
+<loadfile> qbrush.cf
 
 <class>
 name: QByteArray
