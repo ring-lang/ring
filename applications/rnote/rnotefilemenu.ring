@@ -8,6 +8,8 @@ Class RNoteFileMenu
 			this.SaveCurrentFolder()
 			cName = getsavefilename(this.win1,"New file",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
+				# Check removing .ring if we have another extension 
+					cName = this.OneExtension(cName)
 				write(cName,"")
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
@@ -15,6 +17,13 @@ Class RNoteFileMenu
 				this.oDockSourceCode.raise()
 			ok
 		}
+
+	func OneExtension cName
+		# Check removing .ring if we have another extension 
+			if substr(cName,".") < len(cName)-4
+				cName = left(cName,len(cName)-5)
+			ok
+		return cName
 
 	func Open
 		new qfiledialog(this.win1) {
