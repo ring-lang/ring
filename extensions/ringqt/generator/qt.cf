@@ -798,40 +798,7 @@ $aMallocClassesList + "QModelIndex"
 
 <loadfile> qurl.cf
 <loadfile> qcheckbox.cf
-
-<class>
-name: QAbstractButton
-para: QWidget *parent
-parent: QWidget
-abstract
-</class>
-
-bool autoExclusive(void)
-bool autoRepeat(void)
-int autoRepeatDelay(void)
-int autoRepeatInterval(void)
-QButtonGroup *group(void)
-QIcon icon(void)
-QSize iconSize(void)
-bool isCheckable(void)
-bool isChecked(void)
-bool isDown(void)
-void setAutoExclusive(bool)
-void setAutoRepeat(bool)
-void setAutoRepeatDelay(int)
-void setAutoRepeatInterval(int)
-void setCheckable(bool)
-void setDown(bool)
-void setIcon(QIcon)
-void setShortcut(QKeySequence)
-void setText(QString)
-QKeySequence shortcut(void)
-QString text(void)
-void animateClick(int msec)
-void click(void)
-void setChecked(bool)
-void setIconSize(QSize)
-void toggle(void)
+<loadfile> qabstractbutton.cf
 
 <class>
 name: QRadioButton
