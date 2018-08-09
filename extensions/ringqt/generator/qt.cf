@@ -829,70 +829,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qdirmodel.cf
 <loadfile> qfontdialog.cf
 <loadfile> qdialog.cf
+<loadfile> qtextcursor.cf
 
-<class>
-name: QTextCursor
-para: void
-</class>
-
-int anchor(void)
-bool atBlockEnd(void)
-bool atBlockStart(void)
-bool atEnd(void)
-bool atStart(void)
-void beginEditBlock(void)
-QTextBlock block(void)
-QTextCharFormat blockCharFormat(void)
-QTextBlockFormat blockFormat(void)
-int blockNumber(void)
-QTextCharFormat charFormat(void)
-void clearSelection(void)
-int columnNumber(void)
-QTextList *createList(QTextListFormat)
-QTextFrame *currentFrame(void)
-QTextList *currentList(void)
-QTextTable *currentTable(void)
-void deleteChar(void)
-void deletePreviousChar(void)
-QTextDocument *document(void)
-void endEditBlock(void)
-bool hasComplexSelection(void)
-bool hasSelection(void)
-void insertBlock(void)
-void insertFragment(QTextDocumentFragment)
-QTextFrame *insertFrame(QTextFrameFormat)
-void insertHtml(QString)
-void insertImage(QTextImageFormat)
-QTextList *insertList(QTextListFormat)
-QTextTable * insertTable(int rows, int columns, QTextTableFormat)
-void insertText(QString)
-void insertText@2(QString,QTextCharFormat)
-bool isCopyOf(QTextCursor)
-bool isNull(void)
-void joinPreviousEditBlock(void)
-bool keepPositionOnInsert(void)
-void mergeBlockCharFormat(QTextCharFormat)
-void mergeBlockFormat(QTextBlockFormat)
-void mergeCharFormat(QTextCharFormat)
-bool movePosition(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode, int n)
-int position(void)
-int positionInBlock(void)
-void removeSelectedText(void)
-void select(QTextCursor::SelectionType selection)
-void selectedTableCells(int *firstRow, int *numRows, int *firstColumn, int *numColumns)
-QString selectedText(void)
-QTextDocumentFragment selection(void)
-int selectionEnd(void)
-int selectionStart(void)
-void setBlockCharFormat(QTextCharFormat)
-void setBlockFormat(QTextBlockFormat)
-void setCharFormat(QTextCharFormat)
-void setKeepPositionOnInsert(bool b)
-void setPosition(int pos, QTextCursor::MoveMode m)
-void setVerticalMovementX(int x)
-void setVisualNavigation(bool b)
-int verticalMovementX(void)
-bool visualNavigation(void)
 
 <class>
 name: QColorDialog
