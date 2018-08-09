@@ -1,0 +1,28 @@
+<class>
+name: QPen
+para: void
+</class>
+
+QBrush brush(void)
+int capStyle(void)
+QColor color(void)
+double dashOffset(void)
+bool isCosmetic(void)
+bool isSolid(void)
+int joinStyle(void)
+double miterLimit(void)
+void setBrush(QBrush)
+void setCapStyle(Qt::PenCapStyle style)
+void setColor(QColor)
+void setCosmetic(bool cosmetic)
+void setDashOffset(double offset)
+void setJoinStyle(Qt::PenJoinStyle style)
+void setMiterLimit(double limit)
+void setStyle(Qt::PenStyle style)
+void setWidth(int width)
+void setWidthF(double width)
+int style(void)
+void swap(QPen)
+int width(void)
+double widthF(void)
+
