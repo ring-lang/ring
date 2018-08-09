@@ -1002,19 +1002,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qopengltimerquery.cf
 <loadfile> qopengldebuglogger.cf
 <loadfile> qopenglframebufferobject.cf
-
-
-<class>
-name: QOpenGLVertexArrayObject
-para: QObject *
-</class>
-
-void bind(void)
-bool create(void)
-void destroy(void)
-bool isCreated(void)
-GLuint objectId(void)
-void release(void)
+<loadfile> qopenglvertexarrayobject.cf
 
 <class>
 name: QOpenGLBuffer
