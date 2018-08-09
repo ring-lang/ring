@@ -1,0 +1,17 @@
+<class>
+name: QDropEvent
+para: QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
+parent: QEvent
+</class>
+
+void acceptProposedAction(void)
+Qt::DropAction dropAction(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
+QMimeData * mimeData(void)
+Qt::MouseButtons mouseButtons(void)
+QPoint pos(void)
+QPointF posF(void)
+Qt::DropActions possibleActions(void)
+Qt::DropAction proposedAction(void)
+void setDropAction(Qt::DropAction action)
+QObject * source(void)
