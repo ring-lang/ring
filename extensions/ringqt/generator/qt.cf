@@ -827,48 +827,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qhostinfo.cf
 <loadfile> qfileinfo.cf
 <loadfile> qdirmodel.cf
-
-
-<class>
-name: QFontDialog
-para: void
-parent: QDialog
-</class>
-
-QFont currentFont(void)
-void open(QObject *receiver, const char *member)
-int options(void)
-QFont selectedFont(void)
-void setCurrentFont(QFont)
-void setOption(QFontDialog::FontDialogOption option, bool on)
-void setOptions(QFontDialog::FontDialogOption options)
-bool testOption(QFontDialog::FontDialogOption option)
-
-
-<register>
-int getfont(void)
-</register>
-<code>
-RING_FUNC(ring_QFontDialog_getfont)
-{
-	List *pList;
-	pList = RING_API_NEWLIST ;
-	bool lok ;
-	QFont pFont ;
-	QFont pValue = QFontDialog::getFont(&lok,pFont,NULL);		
-	if (lok) {
-		ring_list_addstring(pList,pValue.toString().toStdString().c_str());
-		ring_list_adddouble(pList,pValue.pointSize());
-   	}
-	else {
-		ring_list_addstring(pList,"");
-		ring_list_adddouble(pList,10);
-	}
-	RING_API_RETLIST(pList);
-}
-
-</code>
-
+<loadfile> qfontdialog.cf
 
 
 <class>
