@@ -981,38 +981,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qopenglcontext.cf
 <loadfile> qopenglfunctions_3_2_core.cf
 <loadfile> qsurfaceformat.cf
-
-
-<class>
-name: QOpenGLWidget
-para: QWidget *
-parent: QWidget
-codename: OpenGLWidget
-passvmpointer
-</class>
-
-void geteventparameters(void) 
-void setInitEvent(const char *cStr)
-const char *getInitEvent(void)
-void setPaintEvent(const char *cStr)
-const char *getPaintEvent(void)
-void setResizeEvent(const char *cStr)
-const char *getResizeEvent(void)
-
-QOpenGLContext * context(void)
-GLuint defaultFramebufferObject(void)
-void doneCurrent(void)
-QSurfaceFormat format(void)
-QImage grabFramebuffer(void)
-bool isValid(void)
-void makeCurrent(void)
-void setFormat(QSurfaceFormat format)
-<comment>
-void setTextureFormat(GLenum texFormat)
-GLenum textureFormat(void)
-</comment>
-void setUpdateBehavior(QOpenGLWidget::UpdateBehavior updateBehavior)
-QOpenGLWidget::UpdateBehavior updateBehavior(void)
+<loadfile> qopenglwidget.cf
 
 <class>
 name: QOpenGLVersionProfile
