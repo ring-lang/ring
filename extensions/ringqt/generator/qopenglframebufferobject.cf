@@ -1,0 +1,43 @@
+<class>
+name: QOpenGLFramebufferObject
+para: int,int,GLenum
+</class>
+
+<comment>
+void addColorAttachment(QSize size, GLenum internalFormat)
+void addColorAttachment@2(int width, int height, GLenum internalFormat)
+</comment>
+QOpenGLFramebufferObject::Attachment attachment(void)
+bool bind(void)
+QOpenGLFramebufferObjectFormat format(void)
+GLuint handle(void)
+int height(void)
+bool isBound(void)
+bool isValid(void)
+bool release(void)
+void setAttachment(QOpenGLFramebufferObject::Attachment attachment)
+QSize size(void)
+<comment>
+QVector<QSize> sizes(void)
+GLuint takeTexture(void)
+GLuint takeTexture@2(int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+GLuint texture(void)
+<comment>
+QVector<GLuint> textures(void)
+</comment>
+<comment>
+QImage toImage(bool flipped)
+QImage toImage@3(bool flipped, int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+QImage toImage@2(void)
+int width(void)
+bool bindDefault(void)
+<comment>
+void blitFramebuffer(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex, QOpenGLFramebufferObject::FramebufferRestorePolicy restorePolicy)
+void blitFramebuffer@2(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex)
+void blitFramebuffer@3(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter)
+void blitFramebuffer@4(QOpenGLFramebufferObject *target, QOpenGLFramebufferObject *source, GLbitfield buffers, GLenum filter)
+</comment>
+bool hasOpenGLFramebufferBlit(void)
+bool hasOpenGLFramebufferObjects(void)
