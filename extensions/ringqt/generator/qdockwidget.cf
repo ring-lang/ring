@@ -1,0 +1,38 @@
+<class>
+name: QDockWidget
+para: QWidget *parent,Qt::WindowType flag
+parent: QWidget
+codename: GDockWidget
+passvmpointer
+</class>
+
+int allowedAreas(void)
+int features(void)
+bool isAreaAllowed(Qt::DockWidgetArea area)
+bool isFloating(void)
+void setAllowedAreas(Qt::DockWidgetArea areas)
+void setFeatures(QDockWidget::DockWidgetFeature features)
+void setFloating(bool floating)
+void setTitleBarWidget(QWidget *widget)
+void setWidget(QWidget *widget)
+QWidget *titleBarWidget(void)
+QAction *toggleViewAction(void)
+QWidget *widget(void)
+void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
+void dockLocationChanged(Qt::DockWidgetArea area)
+void featuresChanged(QDockWidget::DockWidgetFeature features)
+void topLevelChanged(bool topLevel)
+void visibilityChanged(bool visible)
+
+void setallowedAreasChangedEvent(const char *)
+void setdockLocationChangedEvent(const char *)
+void setfeaturesChangedEvent(const char *)
+void settopLevelChangedEvent(const char *)
+void setvisibilityChangedEvent(const char *)
+
+const char *getallowedAreasChangedEvent(void)
+const char *getdockLocationChangedEvent(void)
+const char *getfeaturesChangedEvent(void)
+const char *gettopLevelChangedEvent(void)
+const char *getvisibilityChangedEvent(void)
+
