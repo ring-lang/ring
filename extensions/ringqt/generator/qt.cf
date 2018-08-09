@@ -852,13 +852,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qsqlindex.cf
 <loadfile> qsqlrecord.cf
 <loadfile> qsqlfield.cf
+<loadfile> qsqldrivercreatorbase.cf
 
-
-<class>
-name: QSqlDriverCreatorBase
-para: void
-nonew
-</class>
 
 <class>
 name: QVariant
