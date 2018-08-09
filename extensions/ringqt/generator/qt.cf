@@ -1041,17 +1041,7 @@ QModelIndex sibling(int row, int column)
 <loadfile> qgeocircle.cf
 <loadfile> qgeopositioninfosource.cf
 <loadfile> qgeorectangle.cf
-
-
-<class>
-name: QGeoShape
-para: void
-</class>
-
-bool contains(QGeoCoordinate coordinate)
-bool isEmpty(void)
-bool isValid(void)
-QGeoShape::ShapeType type(void)
+<loadfile> qgeoshape.cf
 
 <class>
 name: QGeoSatelliteInfo
