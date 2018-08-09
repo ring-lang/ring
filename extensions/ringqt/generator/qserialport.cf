@@ -1,0 +1,67 @@
+<class>
+name: QSerialPort
+para: QObject *
+parent: QIODevice
+codename: GSerialPort
+passvmpointer
+</class>
+
+<runcode>
+aEnumTypes + "QSerialPort::BaudRate"
+aEnumTypes + "QSerialPort::DataBits"
+aEnumTypes + "QSerialPort::Direction"
+aEnumTypes + "QSerialPort::Directions"
+aEnumTypes + "QSerialPort::FlowControl"
+aEnumTypes + "QSerialPort::Parity"
+aEnumTypes + "QSerialPort::PinoutSignal"
+aEnumTypes + "QSerialPort::PinoutSignals"
+aEnumTypes + "QSerialPort::SerialPortError"
+aEnumTypes + "QSerialPort::StopBits"
+</runcode>
+
+qint32 baudRate(QSerialPort::Directions directions)
+bool clear(QSerialPort::Directions directions)
+void clearError(void)
+QSerialPort::DataBits dataBits(void)
+QSerialPort::SerialPortError error(void)
+QSerialPort::FlowControl flowControl(void)
+bool flush(void)
+void *handle(void)
+bool isDataTerminalReady(void)
+bool isRequestToSend(void)
+QSerialPort::Parity parity(void)
+QSerialPort::PinoutSignals pinoutSignals(void)
+QString portName(void)
+qint64 readBufferSize(void)
+bool setBaudRate(qint32 baudRate, QSerialPort::Directions directions)
+bool setBreakEnabled(bool set)
+bool setDataBits(QSerialPort::DataBits dataBits)
+bool setDataTerminalReady(bool set)
+bool setFlowControl(QSerialPort::FlowControl flowControl)
+bool setParity(QSerialPort::Parity parity)
+void setPort(QSerialPortInfo serialPortInfo)
+void setPortName(QString name)
+void setReadBufferSize(qint64 size)
+bool setRequestToSend(bool set)
+bool setStopBits(QSerialPort::StopBits stopBits)
+QSerialPort::StopBits stopBits(void)
+
+void setbaudRateChangedEvent(const char *)
+void setbreakEnabledChangedEvent(const char *)
+void setdataBitsChangedEvent(const char *)
+void setdataTerminalReadyChangedEvent(const char *)
+void seterrorEvent(const char *)
+void setflowControlChangedEvent(const char *)
+void setparityChangedEvent(const char *)
+void setrequestToSendChangedEvent(const char *)
+void setstopBitsChangedEvent(const char *)
+
+const char *getbaudRateChangedEvent(void)
+const char *getbreakEnabledChangedEvent(void)
+const char *getdataBitsChangedEvent(void)
+const char *getdataTerminalReadyChangedEvent(void)
+const char *geterrorEvent(void)
+const char *getflowControlChangedEvent(void)
+const char *getparityChangedEvent(void)
+const char *getrequestToSendChangedEvent(void)
+const char *getstopBitsChangedEvent(void)
