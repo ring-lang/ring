@@ -1036,19 +1036,9 @@ QModelIndex sibling(int row, int column)
 <loadfile> qgeopositioninfo.cf
 <loadfile> qgeocoordinate.cf
 <loadfile> qgeoaddress.cf
-<loadfile> qgeoareamonitorinfo
+<loadfile> qgeoareamonitorinfo.cf
+<loadfile> qgeoareamonitorsource.cf
 
-<class>
-name: QGeoAreaMonitorSource
-para: QObject *
-parent: QObject
-nonew
-</class>
-
-QString sourceName(void)
-QStringList availableSources(void)
-QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
-QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)
 
 <class>
 name: QGeoCircle
