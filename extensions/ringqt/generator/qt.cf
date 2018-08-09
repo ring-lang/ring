@@ -1013,57 +1013,13 @@ QModelIndex sibling(int row, int column)
 <loadfile> qstandardpaths.cf
 
 <filter> (iswindows() or ismacosx()) 
-
 <loadfile> qquickwidget.cf
 <loadfile> qqmlerror.cf
-
-
 </filter>
 
 
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
-<class>
-name: QWebEngineView
-para: QWidget *parent
-parent: QWidget
-codename: GWebEngineView
-passvmpointer
-</class>
-
-bool hasSelection(void)
-QWebEngineHistory *history(void)
-void load(QUrl) # In RingQt use : void loadpage(QUrl) 
-QWebEnginePage *page(void)
-QAction *pageAction(QWebEnginePage::WebAction action)
-QString selectedText(void)
-void setContent(QByteArray,QString,QUrl)
-void setHtml(QString,QUrl)
-void setPage(QWebEnginePage *page)
-void setUrl(QUrl)
-void setZoomFactor(qreal factor)
-QWebSettings *settings(void)
-QString title(void)
-void triggerPageAction(QWebEnginePage::WebAction action, bool checked)
-QUrl url(void)
-qreal zoomFactor(void)
-void back(void)
-void forward(void)
-void reload(void)
-void stop(void)
-
-void setloadFinishedEvent(const char *)
-void setloadProgressEvent(const char *)
-void setloadStartedEvent(const char *)
-void setselectionChangedEvent(const char *)
-void settitleChangedEvent(const char *)
-void seturlChangedEvent(const char *)
-
-const char *getloadFinishedEvent(void)
-const char *getloadProgressEvent(void)
-const char *getloadStartedEvent(void)
-const char *getselectionChangedEvent(void)
-const char *gettitleChangedEvent(void)
-const char *geturlChangedEvent(void)
+<loadfile> qwebengineview.cf
 
 
 </filter>
