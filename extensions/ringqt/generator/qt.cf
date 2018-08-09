@@ -771,57 +771,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qmenubar.cf
 <loadfile> qmenu.cf
 <loadfile> qtoolbar.cf
-
-<class>
-name: QMainWindow
-para: void
-parent: QWidget
-</class>
-
-void addDockWidget(Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
-QToolBar *addToolBar(QString)
-void addToolBar@2(Qt::ToolBarArea area, QToolBar *toolbar)
-void addToolBarBreak(Qt::ToolBarArea)
-QWidget *centralWidget(void)
-int corner(Qt::Corner corner)
-QMenu *createPopupMenu(void)
-int dockOptions(void)
-int dockWidgetArea(QDockWidget *dockwidget)
-bool documentMode(void)
-QSize iconSize(void)
-void insertToolBar(QToolBar *before, QToolBar *toolbar)
-void insertToolBarBreak(QToolBar *before)
-bool isAnimated(void)
-bool isDockNestingEnabled(void)
-QMenuBar *menuBar(void)
-QWidget *menuWidget(void)
-void removeDockWidget(QDockWidget *dockwidget)
-void removeToolBar(QToolBar *toolbar)
-void removeToolBarBreak(QToolBar *before)
-bool restoreDockWidget(QDockWidget *dockwidget)
-bool restoreState(QByteArray state, int version)
-QByteArray saveState(int version)
-void setCentralWidget(QWidget *widget)
-void setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
-void setDockOptions(QMainWindow::DockOption options)
-void setDocumentMode(bool enabled)
-void setIconSize(QSize)
-void setMenuBar(QMenuBar *menuBar)
-void setMenuWidget(QWidget *menuBar)
-void setStatusBar(QStatusBar *statusbar)
-void setTabPosition(Qt::DockWidgetArea areas, QTabWidget::TabPosition tabPosition)
-void setTabShape(QTabWidget::TabShape tabShape)
-void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
-void setUnifiedTitleAndToolBarOnMac(bool set)
-void splitDockWidget(QDockWidget *first, QDockWidget *second, Qt::Orientation orientation)
-QStatusBar *statusBar(void)
-int tabPosition(Qt::DockWidgetArea area) 
-int tabShape(void)
-void tabifyDockWidget(QDockWidget *first, QDockWidget *second)
-int toolBarArea(QToolBar *toolbar)
-bool toolBarBreak(QToolBar *toolbar)
-int toolButtonStyle(void)
-bool unifiedTitleAndToolBarOnMac(void)
+<loadfile> qmainwindow.cf
 
 <class>
 name: QStatusBar
