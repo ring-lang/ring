@@ -832,13 +832,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qtextcursor.cf
 <loadfile> qcolordialog.cf
 <loadfile> qstringlist.cf
-
-
-<class>
-name: QKeySequence
-para: QString 
-managed
-</class>
+<loadfile> qkeysequence.cf
 
 <class>
 name: QLCDNumber
