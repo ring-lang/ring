@@ -828,24 +828,7 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qfileinfo.cf
 <loadfile> qdirmodel.cf
 <loadfile> qfontdialog.cf
-
-
-<class>
-name: QDialog
-para: QWidget *parent 
-parent: QWidget
-</class>
-
-bool isSizeGripEnabled(void)
-int result(void)
-void setModal(bool modal)
-void setResult(int i)
-void setSizeGripEnabled(bool)
-void accept(void)
-void done(int r) # In RingQt use : void donedialog(int r)
-int exec(void)
-void open(void)
-void reject(void)
+<loadfile> qdialog.cf
 
 <class>
 name: QTextCursor
