@@ -1,0 +1,17 @@
+<class>
+name: QBluetoothUuid
+para: void
+parent: QUuid
+</class>
+
+int minimumSize(void)
+quint16 toUInt16(bool *ok)
+quint32 toUInt32(bool *ok)
+quint128 toUInt128(void)
+<comment>
+QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
+QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
+QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
+QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
+</comment>
+
