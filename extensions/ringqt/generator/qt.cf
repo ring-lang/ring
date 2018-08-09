@@ -864,11 +864,8 @@ $aMallocClassesList + "QModelIndex"
 <loadfile> qxmlstreamwrite.cf
 <loadfile> qxmlstreamnotationdeclaration.cf
 <loadfile> qxmlstramnamespacedeclaration.cf
+<loadfile> qxmlstreamentityresolver.cf
 
-<class>
-name: QXmlStreamEntityResolver
-para: void
-</class>
 
 <class>
 name: QXmlStreamEntityDeclaration
