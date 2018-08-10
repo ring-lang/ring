@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport bluetooth opengl webenginewidgets
+QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport bluetooth opengl positioning webenginewidgets
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -60,6 +60,8 @@ SOURCES +=   \
     gstackedwidget.cpp \
     gcalendarwidget.cpp \
     gtabbar.cpp \
+    gdrag.cpp \
+    ggeopositioninfosource.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -110,7 +112,10 @@ HEADERS  += \
     gstackedwidget.h \
     gcalendarwidget.h \
     gdockwidget.h \
-    gtabbar.h 
+    gtabbar.h \
+    gdrag.h \
+    ggeopositioninfosource.h
+
     
 
 INCLUDEPATH += ../../include
