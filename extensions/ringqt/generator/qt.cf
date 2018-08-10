@@ -248,9 +248,6 @@
 <loadfile> qsurfaceformat.cf
 <loadfile> qopenglwidget.cf
 <loadfile> qopenglversionprofile.cf
-</filter>
-
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 <loadfile> qopenglpaintdevice.cf
 <loadfile> qpaintdevice.cf
 <loadfile> qopengltimerquery.cf
