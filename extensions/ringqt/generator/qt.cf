@@ -46,11 +46,6 @@
 <loadfile> qdatetimeedit.cf
 <loadfile> qabstractspinbox.cf
 <loadfile> qdial.cf
-
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
-<loadfile> qwebview.cf
-</filter>
-
 <loadfile> qurl.cf
 <loadfile> qcheckbox.cf
 <loadfile> qabstractbutton.cf
@@ -152,7 +147,6 @@
 <loadfile> qgradient.cf
 <loadfile> qpointf.cf
 <loadfile> qpoint.cf
-
 <loadfile> qscrollarea.cf
 <loadfile> qsplitter.cf
 <loadfile> qcompleter.cf
@@ -164,25 +158,11 @@
 <loadfile> qmdisubwindow.cf
 <loadfile> qcursor.cf
 <loadfile> qlistview.cf
-
-
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-<loadfile> qaxobject.cf
-<loadfile> qaxbase.cf
-</filter>
-
 <loadfile> quuid.cf
 <loadfile> qtoolbutton.cf
-
-<filter> (sysget("RINGQT_ANDROID") = "")
-<loadfile> qserialport.cf
-<loadfile> qserialportinfo.cf
-</filter>
-
 <loadfile> qstringref.cf
 <loadfile> qmutex.cf
 <loadfile> qmutexlocker.cf
-
 <loadfile> qbuffer.cf
 <loadfile> qbluetoothaddress.cf
 <loadfile> qbluetoothdevicediscoveryagent.cf
@@ -197,7 +177,6 @@
 <loadfile> qbluetoothtransferreply.cf
 <loadfile> qbluetoothtransferrequest.cf
 <loadfile> qbluetoothuuid.cf
-
 <loadfile> qdatetime.cf
 <loadfile> qscreen.cf
 <loadfile> qwindow.cf
@@ -207,55 +186,15 @@
 <loadfile> qregion.cf
 <loadfile> qstackedwidget.cf
 <loadfile> qcalenderwidget.cf
-
-
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
-
-<loadfile> qopenglfunctions.cf
-<loadfile> qopenglcontext.cf
-<loadfile> qopenglfunctions_3_2_core.cf
-<loadfile> qsurfaceformat.cf
-<loadfile> qopenglwidget.cf
-<loadfile> qopenglversionprofile.cf
-
-</filter>
-
 <loadfile> qvector2d.cf
 <loadfile> qvector3d.cf
 <loadfile> qvector4d.cf
 <loadfile> qquaternion.cf
 <loadfile> qmatrix4x4.cf
-
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-
-<loadfile> qopenglpaintdevice.cf
-<loadfile> qpaintdevice.cf
-<loadfile> qopengltimerquery.cf
-<loadfile> qopengldebuglogger.cf
-<loadfile> qopenglframebufferobject.cf
-<loadfile> qopenglvertexarrayobject.cf
-<loadfile> qopenglbuffer.cf
-<loadfile> qopenglshaderprogram.cf
-<loadfile> qopenglshader.cf
-<loadfile> qopengltexture.cf
-
-</filter>
-
 <loadfile> qtabbar.cf
 <loadfile> qfile.cf
 <loadfile> qfiledevice.cf
 <loadfile> qstandardpaths.cf
-
-<filter> (iswindows() or ismacosx()) 
-<loadfile> qquickwidget.cf
-<loadfile> qqmlerror.cf
-</filter>
-
-
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
-<loadfile> qwebengineview.cf
-</filter>
-
 <loadfile> qscrollbar.cf
 <loadfile> qdrag.cf
 <loadfile> qmimedata.cf
@@ -266,7 +205,6 @@
 <loadfile> qclipboard.cf
 <loadfile> qchar.cf
 <loadfile> qchildevent.cf
-
 <loadfile> qgeopositioninfo.cf
 <loadfile> qgeocoordinate.cf
 <loadfile> qgeoaddress.cf
@@ -279,4 +217,49 @@
 <loadfile> qgeosatelliteinfo.cf
 <loadfile> qgeosatelliteinfosource.cf
 <loadfile> qnmeapositioninfosource.cf
+
+<filter> (iswindows() or ismacosx()) 
+<loadfile> qquickwidget.cf
+<loadfile> qqmlerror.cf
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
+<loadfile> qwebview.cf
+</filter>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+<loadfile> qaxobject.cf
+<loadfile> qaxbase.cf
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+<loadfile> qserialport.cf
+<loadfile> qserialportinfo.cf
+</filter>
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<loadfile> qopenglfunctions.cf
+<loadfile> qopenglcontext.cf
+<loadfile> qopenglfunctions_3_2_core.cf
+<loadfile> qsurfaceformat.cf
+<loadfile> qopenglwidget.cf
+<loadfile> qopenglversionprofile.cf
+</filter>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+<loadfile> qopenglpaintdevice.cf
+<loadfile> qpaintdevice.cf
+<loadfile> qopengltimerquery.cf
+<loadfile> qopengldebuglogger.cf
+<loadfile> qopenglframebufferobject.cf
+<loadfile> qopenglvertexarrayobject.cf
+<loadfile> qopenglbuffer.cf
+<loadfile> qopenglshaderprogram.cf
+<loadfile> qopenglshader.cf
+<loadfile> qopengltexture.cf
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
+<loadfile> qwebengineview.cf
+</filter>
 
