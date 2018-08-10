@@ -1,0 +1,14 @@
+<nodllstartup>
+
+<ignorecpointertype>
+
+<loadfile> qt_copyright.cf
+<loadfile> qt_headerfiles.cf
+<loadfile> qt_startup.cf
+<loadfile> qt_string.cf
+<loadfile> qt_newmethodname.cf
+<loadfile> qt_numbertypes.cf
+<loadfile> qt_enumtypes.cf
+<loadfile> qt_malloc.cf
+
+<addfreefunctionsprototype>
