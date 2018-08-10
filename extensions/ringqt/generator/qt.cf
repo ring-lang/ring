@@ -9,22 +9,8 @@
 </code>
 
 <loadfile> qt_headerfiles.cf
+<loadfile> qt_startup.cf
 
-
-<code>
-extern "C" {
-
-	RING_API void ring_qt_start(RingState *pRingState);
-
-	RING_API void ringlib_init(RingState *pRingState)
-	{
-
-		new QApplication(pRingState->argc,pRingState->argv);
- 	   	ring_qt_start(pRingState) ;
-	}
-
-}
-</code>
 
 
 <runcode>
