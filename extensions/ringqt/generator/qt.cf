@@ -227,6 +227,10 @@
 <loadfile> qwebview.cf
 </filter>
 
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
+<loadfile> qwebengineview.cf
+</filter>
+
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 <loadfile> qaxobject.cf
 <loadfile> qaxbase.cf
@@ -259,7 +263,4 @@
 <loadfile> qopengltexture.cf
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
-<loadfile> qwebengineview.cf
-</filter>
 
