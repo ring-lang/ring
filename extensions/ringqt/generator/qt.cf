@@ -1,24 +1,19 @@
 <loadfile> qt_settings.cf
 
+<comment>
+				Module (widgets)
+</comment>
+
 <loadfile> qapp.cf
-<loadfile> qdesktopservices.cf
-<loadfile> qtest.cf
-<loadfile> qobject.cf
 <loadfile> qwidget.cf
 <loadfile> qlabel.cf
 <loadfile> qpushbutton.cf
-<loadfile> qbitmap.cf
-<loadfile> qpixmap.cf
-<loadfile> qpixmap2.cf
-<loadfile> qicon.cf
-<loadfile> qsize.cf
 <loadfile> qlineedit.cf
 <loadfile> qvboxlayout.cf
 <loadfile> qhboxlayout.cf
 <loadfile> qtextedit.cf
 <loadfile> qlistwidget.cf
 <loadfile> qtreeview.cf
-<loadfile> qdir.cf
 <loadfile> qfilesystemmodel.cf
 <loadfile> qtreewidget.cf
 <loadfile> qtreewidgetitem.cf
@@ -42,74 +37,141 @@
 <loadfile> qspinbox.cf
 <loadfile> qabstractslider.cf
 <loadfile> qslider.cf
-<loadfile> qdateedit.cf
 <loadfile> qdatetimeedit.cf
 <loadfile> qabstractspinbox.cf
 <loadfile> qdial.cf
-<loadfile> qurl.cf
 <loadfile> qcheckbox.cf
 <loadfile> qabstractbutton.cf
 <loadfile> qradiobutton.cf
 <loadfile> qbuttongroup.cf
-<loadfile> qmediaplayer.cf
-<loadfile> qmediaplaylist.cf
-<loadfile> qvideowidget.cf
 <loadfile> qaction.cf
-<loadfile> qevent.cf
 <loadfile> qmessagebox.cf
-<loadfile> qtimer.cf
 <loadfile> qfiledialog.cf
+<loadfile> qdirmodel.cf
+<loadfile> qfontdialog.cf
+<loadfile> qdialog.cf
+<loadfile> qcolordialog.cf
+<loadfile> qlcdnumber.cf
+<loadfile> qinputdialog.cf
+<loadfile> qallevents.cf
+<loadfile> qdesktopwidget.cf
+<loadfile> qlistwidgetitem.cf
+<loadfile> qsystemtrayicon.cf
+<loadfile> ringcodehighlighter.cf
+<loadfile> qplaintextedit.cf
+<loadfile> codeeditor.cf
+<loadfile> qgridlayout.cf
+<loadfile> qheaderview.cf
+<loadfile> qsplashscreen.cf
+<loadfile> qboxlayout.cf
+<loadfile> qlayout.cf
+<loadfile> qscrollarea.cf
+<loadfile> qsplitter.cf
+<loadfile> qcompleter.cf
+<loadfile> qcompleter2.cf
+<loadfile> qcompleter3.cf
+<loadfile> qmdiarea.cf
+<loadfile> qmdisubwindow.cf
+<loadfile> qlistview.cf
+<loadfile> qtoolbutton.cf
+<loadfile> qtextbrowser.cf
+<loadfile> qstackedwidget.cf
+<loadfile> qcalenderwidget.cf
+<loadfile> qtabbar.cf
+<loadfile> qscrollbar.cf
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<loadfile> qopenglwidget.cf
+</filter>
+
+<comment>
+				Module ( gui )
+</comment>
+
+<loadfile> qdesktopservices.cf
+<loadfile> qbitmap.cf
+<loadfile> qpixmap.cf
+<loadfile> qpixmap2.cf
+<loadfile> qicon.cf
 <loadfile> qpainter.cf
 <loadfile> qpainter2.cf
 <loadfile> qpicture.cf
 <loadfile> qpen.cf
 <loadfile> qcolor.cf
-<loadfile> qprinter.cf
 <loadfile> qfont.cf
 <loadfile> qbrush.cf
-<loadfile> qbytearray.cf
-<loadfile> qiodevice.cf
-<loadfile> qabstractsocket.cf
-<loadfile> qnetworkproxy.cf
-<loadfile> qtcpsocket.cf
-<loadfile> qtcpserver.cf
-<loadfile> qhostaddress.cf
-<loadfile> qhostinfo.cf
-<loadfile> qfileinfo.cf
-<loadfile> qdirmodel.cf
-<loadfile> qfontdialog.cf
-<loadfile> qdialog.cf
 <loadfile> qtextcursor.cf
-<loadfile> qcolordialog.cf
-<loadfile> qstringlist.cf
 <loadfile> qkeysequence.cf
-<loadfile> qlcdnumber.cf
-<loadfile> qinputdialog.cf
-<loadfile> qallevents.cf
-<loadfile> qdesktopwidget.cf
-<loadfile> qrect.cf
 <loadfile> qtextdocument.cf
 <loadfile> qtextblock.cf
-<loadfile> qtime.cf
-<loadfile> qlistwidgetitem.cf
-<loadfile> qsystemtrayicon.cf
-<loadfile> qdate.cf
-<loadfile> qtextcodec.cf
-<loadfile> qsqldatabase.cf
-<loadfile> qsqldriver.cf
-<loadfile> qsqlquery.cf
-<loadfile> qsqlerror.cf
-<loadfile> qsqlindex.cf
-<loadfile> qsqlrecord.cf
-<loadfile> qsqlfield.cf
-<loadfile> qsqldrivercreatorbase.cf
-<loadfile> qvariant.cf
-<loadfile> qnetworkrequest.cf
-<loadfile> qnetworkaccessmanager.cf
-<loadfile> qnetworkreply.cf
 <loadfile> qpainterpath.cf
 <loadfile> qimage.cf
-<loadfile> ringcodehighlighter.cf
+<loadfile> qtextcharformat.cf
+<loadfile> qfontmetrics.cf
+<loadfile> qlineargradient.cf
+<loadfile> qgradient.cf
+<loadfile> qcursor.cf
+<loadfile> qscreen.cf
+<loadfile> qwindow.cf
+<loadfile> qguiapplication.cf
+<loadfile> qregion.cf
+<loadfile> qvector2d.cf
+<loadfile> qvector3d.cf
+<loadfile> qvector4d.cf
+<loadfile> qquaternion.cf
+<loadfile> qmatrix4x4.cf
+<loadfile> qdrag.cf
+<loadfile> qdropevent.cf
+<loadfile> qdragmoveevent.cf
+<loadfile> qdragenterevent.cf
+<loadfile> qdragleaveevent.cf
+<loadfile> qclipboard.cf
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<loadfile> qopenglfunctions.cf
+<loadfile> qopenglcontext.cf
+<loadfile> qopenglfunctions_3_2_core.cf
+<loadfile> qsurfaceformat.cf
+<loadfile> qopenglversionprofile.cf
+<loadfile> qopenglpaintdevice.cf
+<loadfile> qpaintdevice.cf
+<loadfile> qopengltimerquery.cf
+<loadfile> qopengldebuglogger.cf
+<loadfile> qopenglframebufferobject.cf
+<loadfile> qopenglvertexarrayobject.cf
+<loadfile> qopenglbuffer.cf
+<loadfile> qopenglshaderprogram.cf
+<loadfile> qopenglshader.cf
+<loadfile> qopengltexture.cf
+</filter>
+
+
+<comment>
+				Module ( testlib )
+</comment>
+
+<loadfile> qtest.cf
+
+<comment>
+				Module (core)
+</comment>
+
+<loadfile> qobject.cf
+<loadfile> qsize.cf
+<loadfile> qdir.cf
+<loadfile> qdateedit.cf
+<loadfile> qurl.cf
+<loadfile> qevent.cf
+<loadfile> qtimer.cf
+<loadfile> qbytearray.cf
+<loadfile> qiodevice.cf
+<loadfile> qfileinfo.cf
+<loadfile> qstringlist.cf
+<loadfile> qrect.cf
+<loadfile> qtime.cf
+<loadfile> qdate.cf
+<loadfile> qtextcodec.cf
+<loadfile> qvariant.cf
 <loadfile> qxmlstreamreader.cf
 <loadfile> qxmlstreamwriter.cf
 <loadfile> qxmlstreamnotationdeclaration.cf
@@ -128,42 +190,84 @@
 <loadfile> qjsonobject.cf
 <loadfile> qjsonparseerror.cf
 <loadfile> qjsonvalue.cf
-<loadfile> qplaintextedit.cf
-<loadfile> codeeditor.cf
-<loadfile> qgridlayout.cf
-<loadfile> qtextcharformat.cf
-<loadfile> qcameraviewfinder.cf
-<loadfile> qgraphicsvideoitem.cf
-<loadfile> qvideowidgetcontrol.cf
-<loadfile> qcamera.cf
-<loadfile> qcameraimagecapture.cf
-<loadfile> qmediaobject.cf
-<loadfile> qheaderview.cf
-<loadfile> qfontmetrics.cf
-<loadfile> qsplashscreen.cf
-<loadfile> qboxlayout.cf
-<loadfile> qlayout.cf
-<loadfile> qlineargradient.cf
-<loadfile> qgradient.cf
 <loadfile> qpointf.cf
 <loadfile> qpoint.cf
-<loadfile> qscrollarea.cf
-<loadfile> qsplitter.cf
-<loadfile> qcompleter.cf
-<loadfile> qcompleter2.cf
-<loadfile> qcompleter3.cf
 <loadfile> qstring2.cf
 <loadfile> qprocess.cf
-<loadfile> qmdiarea.cf
-<loadfile> qmdisubwindow.cf
-<loadfile> qcursor.cf
-<loadfile> qlistview.cf
 <loadfile> quuid.cf
-<loadfile> qtoolbutton.cf
 <loadfile> qstringref.cf
 <loadfile> qmutex.cf
 <loadfile> qmutexlocker.cf
 <loadfile> qbuffer.cf
+<loadfile> qdatetime.cf
+<loadfile> qcoreapplication.cf
+<loadfile> qfile.cf
+<loadfile> qfiledevice.cf
+<loadfile> qstandardpaths.cf
+<loadfile> qmimedata.cf
+<loadfile> qchar.cf
+<loadfile> qchildevent.cf
+
+<comment>
+				Module (multimedia)
+</comment>
+
+<loadfile> qmediaplayer.cf
+<loadfile> qmediaplaylist.cf
+<loadfile> qcamera.cf
+<loadfile> qcameraimagecapture.cf
+<loadfile> qmediaobject.cf
+
+
+<comment>
+				Module (multimediawidgets)
+</comment>
+
+<loadfile> qvideowidget.cf
+<loadfile> qcameraviewfinder.cf
+<loadfile> qgraphicsvideoitem.cf
+<loadfile> qvideowidgetcontrol.cf
+
+<comment>
+				Module (printsupport)
+</comment>
+
+<loadfile> qprinter.cf
+
+
+<comment>
+				Module (network)
+</comment>
+
+<loadfile> qabstractsocket.cf
+<loadfile> qnetworkproxy.cf
+<loadfile> qtcpsocket.cf
+<loadfile> qtcpserver.cf
+<loadfile> qhostaddress.cf
+<loadfile> qhostinfo.cf
+<loadfile> qnetworkrequest.cf
+<loadfile> qnetworkaccessmanager.cf
+<loadfile> qnetworkreply.cf
+
+
+<comment>
+				Module (sql)
+</comment>
+
+<loadfile> qsqldatabase.cf
+<loadfile> qsqldriver.cf
+<loadfile> qsqlquery.cf
+<loadfile> qsqlerror.cf
+<loadfile> qsqlindex.cf
+<loadfile> qsqlrecord.cf
+<loadfile> qsqlfield.cf
+<loadfile> qsqldrivercreatorbase.cf
+
+
+<comment>
+				Module (bluetooth)
+</comment>
+
 <loadfile> qbluetoothaddress.cf
 <loadfile> qbluetoothdevicediscoveryagent.cf
 <loadfile> qbluetoothdeviceinfo.cf
@@ -177,34 +281,13 @@
 <loadfile> qbluetoothtransferreply.cf
 <loadfile> qbluetoothtransferrequest.cf
 <loadfile> qbluetoothuuid.cf
-<loadfile> qdatetime.cf
-<loadfile> qscreen.cf
-<loadfile> qwindow.cf
-<loadfile> qguiapplication.cf
-<loadfile> qcoreapplication.cf
-<loadfile> qtextbrowser.cf
-<loadfile> qregion.cf
-<loadfile> qstackedwidget.cf
-<loadfile> qcalenderwidget.cf
-<loadfile> qvector2d.cf
-<loadfile> qvector3d.cf
-<loadfile> qvector4d.cf
-<loadfile> qquaternion.cf
-<loadfile> qmatrix4x4.cf
-<loadfile> qtabbar.cf
-<loadfile> qfile.cf
-<loadfile> qfiledevice.cf
-<loadfile> qstandardpaths.cf
-<loadfile> qscrollbar.cf
-<loadfile> qdrag.cf
-<loadfile> qmimedata.cf
-<loadfile> qdropevent.cf
-<loadfile> qdragmoveevent.cf
-<loadfile> qdragenterevent.cf
-<loadfile> qdragleaveevent.cf
-<loadfile> qclipboard.cf
-<loadfile> qchar.cf
-<loadfile> qchildevent.cf
+
+
+<comment>
+				Module (positioning)
+</comment>
+
+
 <loadfile> qgeopositioninfo.cf
 <loadfile> qgeocoordinate.cf
 <loadfile> qgeoaddress.cf
@@ -218,46 +301,62 @@
 <loadfile> qgeosatelliteinfosource.cf
 <loadfile> qnmeapositioninfosource.cf
 
+
+<comment>
+				Module (webkitwidgets)
+</comment>
+
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
 <loadfile> qwebview.cf
 </filter>
 
+<comment>
+				Module (webenginewidgets)
+</comment>
+
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
 <loadfile> qwebengineview.cf
 </filter>
+
+<comment>
+				Module (serialport)
+</comment>
 
 <filter> (sysget("RINGQT_ANDROID") = "")
 <loadfile> qserialport.cf
 <loadfile> qserialportinfo.cf
 </filter>
 
+<comment>
+				Module (axcontainer)
+</comment>
+
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 <loadfile> qaxobject.cf
 <loadfile> qaxbase.cf
 </filter>
 
+
+<comment>
+				Module (quickwidgets)
+</comment>
+
+
 <filter> (iswindows() or ismacosx()) 
 <loadfile> qquickwidget.cf
+</filter>
+
+
+<comment>
+				Module (qml)
+</comment>
+
+
+<filter> (iswindows() or ismacosx()) 
 <loadfile> qqmlerror.cf
 </filter>
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
-<loadfile> qopenglfunctions.cf
-<loadfile> qopenglcontext.cf
-<loadfile> qopenglfunctions_3_2_core.cf
-<loadfile> qsurfaceformat.cf
-<loadfile> qopenglwidget.cf
-<loadfile> qopenglversionprofile.cf
-<loadfile> qopenglpaintdevice.cf
-<loadfile> qpaintdevice.cf
-<loadfile> qopengltimerquery.cf
-<loadfile> qopengldebuglogger.cf
-<loadfile> qopenglframebufferobject.cf
-<loadfile> qopenglvertexarrayobject.cf
-<loadfile> qopenglbuffer.cf
-<loadfile> qopenglshaderprogram.cf
-<loadfile> qopenglshader.cf
-<loadfile> qopengltexture.cf
-</filter>
+
+
 
 

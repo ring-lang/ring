@@ -4698,6 +4698,7 @@ Parent Class : QGeoPositionInfoSource
 * QIODevice * device(void)
 * void setDevice(QIODevice * device)
 * QNmeaPositionInfoSource::UpdateMode updateMode(void)
+
 .. index::
 	pair: RingQt Classes Reference; QObject Class
 
@@ -6296,7 +6297,6 @@ Parameters : void
 * void setUrl(QUrl url)
 * QString toString(void)
 * QUrl url(void)
-
 .. index::
 	pair: RingQt Classes Reference; QQuaternion Class
 
