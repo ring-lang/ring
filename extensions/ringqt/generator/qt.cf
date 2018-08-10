@@ -4,10 +4,7 @@
 
 <ignorecpointertype>
 
-<code>
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
-</code>
-
+<loadfile> qt_copyright.cf
 <loadfile> qt_headerfiles.cf
 <loadfile> qt_startup.cf
 <loadfile> qt_string.cf
@@ -15,7 +12,6 @@
 <loadfile> qt_numbertypes.cf
 <loadfile> qt_enumtypes.cf
 <loadfile> qt_malloc.cf
-
 
 <addfreefunctionsprototype>
 
