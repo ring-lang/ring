@@ -1,3 +1,5 @@
+<libinitfunc> ring_qt_start
+
 <code>
 extern "C" {
 
