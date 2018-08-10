@@ -218,11 +218,6 @@
 <loadfile> qgeosatelliteinfosource.cf
 <loadfile> qnmeapositioninfosource.cf
 
-<filter> (iswindows() or ismacosx()) 
-<loadfile> qquickwidget.cf
-<loadfile> qqmlerror.cf
-</filter>
-
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
 <loadfile> qwebview.cf
 </filter>
@@ -231,14 +226,19 @@
 <loadfile> qwebengineview.cf
 </filter>
 
+<filter> (sysget("RINGQT_ANDROID") = "")
+<loadfile> qserialport.cf
+<loadfile> qserialportinfo.cf
+</filter>
+
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 <loadfile> qaxobject.cf
 <loadfile> qaxbase.cf
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "")
-<loadfile> qserialport.cf
-<loadfile> qserialportinfo.cf
+<filter> (iswindows() or ismacosx()) 
+<loadfile> qquickwidget.cf
+<loadfile> qqmlerror.cf
 </filter>
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
