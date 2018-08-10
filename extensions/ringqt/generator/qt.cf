@@ -11,13 +11,7 @@
 <loadfile> qt_headerfiles.cf
 <loadfile> qt_startup.cf
 
-
-
 <runcode>
-
-aStringTypes + "QString"
-
-aBeforeReturn + ["QString",".toStdString().c_str()"]
 
 aNewMethodName + ["QWebView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
