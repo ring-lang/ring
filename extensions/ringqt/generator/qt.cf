@@ -12,13 +12,9 @@
 <loadfile> qt_startup.cf
 <loadfile> qt_string.cf
 <loadfile> qt_newmethodname.cf
+<loadfile> qt_numbertypes.cf
 
 <runcode>
-
-aNumberTypes + "qreal"
-aNumberTypes + "qint64"
-aNumberTypes + "ushort"
-aNumberTypes + "ulong"
 
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
