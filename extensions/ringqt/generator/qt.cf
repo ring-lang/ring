@@ -10,29 +10,10 @@
 
 <loadfile> qt_headerfiles.cf
 <loadfile> qt_startup.cf
+<loadfile> qt_string.cf
+<loadfile> qt_newmethodname.cf
 
 <runcode>
-
-aNewMethodName + ["QWebView","load","loadpage"]
-aNewMethodName + ["QMediaPlaylist","load","loadfile"]
-aNewMethodName + ["QMediaPlaylist","next","movenext"]
-aNewMethodName + ["QPainter","end","endpaint"]
-aNewMethodName + ["QPicture","load","loadfile"]
-aNewMethodName + ["QLineEdit","end","endtext"]
-aNewMethodName + ["QDialog","done","donedialog"]
-aNewMethodName + ["QTextDocument","end","enddoc"]
-aNewMethodName + ["QTextBlock","next","nextblock"]
-aNewMethodName + ["QSqlQuery","next","movenext"]
-aNewMethodName + ["QImage","load","loadimage"]
-aNewMethodName + ["QNetworkAccessManager","get","getvalue"]
-aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
-aNewMethodName + ["QThread","exit","exitfromthread"]
-aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
-aNewMethodName + ["QCamera","load","loadcamera"]
-aNewMethodName + ["QPixmap","load","loadpixmap"]
-aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
-aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
-aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
