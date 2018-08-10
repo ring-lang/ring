@@ -1,0 +1,336 @@
+<code>
+
+extern "C" {
+	#include "ring.h"
+}
+
+#include "gpushbutton.h"
+#include "gaction.h"
+#include "glineedit.h"
+#include "gtextedit.h"
+#include "glistwidget.h"
+#include "gtreeview.h"
+#include "gtreewidget.h"
+#include "gcombobox.h"
+#include "gtabwidget.h"
+#include "gtablewidget.h"
+#include "gprogressbar.h"
+#include "gspinbox.h"
+#include "gslider.h"
+#include "gdial.h"
+#include "gnetworkaccessmanager.h"
+#include "gcheckbox.h"
+#include "gradiobutton.h"
+#include "gbuttongroup.h"
+#include "gvideowidget.h"
+#include "gtimer.h"
+#include "gtcpserver.h"
+#include "giodevice.h"
+#include "gabstractsocket.h"
+#include "gtcpsocket.h"
+#include "gcolordialog.h"
+#include "gallevents.h"
+#include "gthread.h"
+#include "gplaintextedit.h"
+#include "gheaderview.h"
+#include "gprocess.h"
+#include "codeeditor.h"
+#include "highlighter.h"
+#include "gtoolbutton.h"
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gtextbrowser.h"
+#include "gdockwidget.h"
+#include "gstackedwidget.h"
+#include "gcalendarwidget.h"
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+#include "openglwidget.h"
+</filter>
+
+#include <QApplication>
+#include <QObject>
+#include <QWidget>
+#include <QLabel>
+#include <QPixmap>
+#include <QIcon>
+#include <QSize>
+#include <QPushButton>
+#include <QMainWindow>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QListWidget>
+#include <QTreeView>
+#include <QDir>
+#include <QFileSystemModel>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QComboBox>
+#include <QVariant>
+#include <QMenuBar>
+#include <QMenu>
+#include <QToolBar>
+#include <QMainWindow>
+#include <QStatusBar>
+#include <QDockWidget>
+#include <QTabWidget>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QSizePolicy>
+#include <QFrame>
+#include <QAbstractScrollArea>
+#include <QAbstractItemView>
+#include <QProgressBar>
+#include <QSpinBox>
+#include <QSlider>
+#include <QAbstractSlider>
+#include <QDateEdit>
+#include <QDateTimeEdit>
+#include <QAbstractSpinBox>
+#include <QDial>
+#include <QUrl>
+#include <QCheckBox>
+#include <QRadioButton>
+#include <QButtonGroup>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QVideoWidget>
+#include <QPrinter>
+#include <QAction>
+#include <QEvent>
+#include <QMessageBox>
+#include <QTimer>
+#include <QFileDialog>
+#include <QPainter>
+#include <QPicture>
+#include <QPen>
+#include <QColor>
+#include <QPrinter>
+#include <QFont>
+#include <QBrush>
+#include <QByteArray>
+#include <QIODevice>
+#include <QAbstractSocket>
+#include <QTcpSocket>
+#include <QTcpServer>
+#include <QNetworkProxy>
+#include <QHostAddress>
+#include <QHostInfo>
+#include <QList>
+#include <QFileInfo>
+#include <QDirModel>
+#include <QModelIndex>
+#include <QFontDialog>
+#include <QDialog>
+#include <QTextCursor>
+#include <QTextBlock>
+#include <QTextDocumentFragment>
+#include <QColorDialog>
+#include <QHeaderView>
+#include <QStringList>
+#include <QKeySequence>
+#include <QLCDNumber>
+#include <QInputDialog>
+#include <QDesktopWidget>
+#include <QRect>
+#include <QTextDocument>
+#include <QTime>
+#include <QTest>
+#include <QListWidgetItem>
+#include <QSystemTrayIcon>
+#include <QDate>
+#include <QTextCodec>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPainterPath>
+#include <QImage>
+#include <QBitmap>
+#include <QMediaContent>
+#include <QTableView>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QXmlStreamNotationDeclaration>
+#include <QXmlStreamNamespaceDeclaration>
+#include <QXmlStreamEntityResolver>
+#include <QXmlStreamEntityDeclaration>
+#include <QXmlStreamAttributes>
+#include <QXmlStreamAttribute>
+#include <QThread>
+#include <QThreadPool>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
+#include <QJsonValue>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <iterator>
+#include <QPlainTextEdit>
+#include <QGridLayout>
+#include <QTextCharFormat>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
+#include <QVideoWidgetControl>
+#include <QCamera>
+#include <QCameraImageCapture>
+#include <QFontMetrics>
+#include <QList>
+#include <QSplashScreen>
+#include <QBoxLayout>
+#include <QLayout>
+#include <QLinearGradient>
+#include <QGradient>
+#include <QPointF>
+#include <QPoint>
+#include <QStyleFactory>
+#include <QScrollArea>
+#include <QSplitter>
+#include <QCompleter>
+#include <QString>
+#include <QProcess>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QCursor>
+#include <QListView>
+#include <QUuid>
+#include <QDesktopServices>
+#include <QToolButton>
+#include <QStringRef>
+#include <QMutex>
+#include <QMutexLocker>
+#include <QBuffer>
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothServer>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothServiceInfo>
+#include <QBluetoothSocket>
+#include <QBluetoothTransferManager>
+#include <QBluetoothTransferReply>
+#include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
+#include <QDateTime>
+#include <QScreen>
+#include <QWindow>
+#include <QGuiApplication>
+#include <QTextBrowser>
+#include <QRegion>
+#include <QStackedWidget>
+#include <QCalendarWidget>
+#include <QVector2D>
+#include <QVector3D>
+#include <QVector4D>
+#include <QQuaternion>
+#include <QMatrix4x4>
+
+#include <QTabBar>
+#include "gtabbar.h"
+#include <QFile>
+#include <QFileDevice>
+#include <QStandardPaths>
+
+#include <QDrag>
+#include "gdrag.h"
+#include <QMimeData>
+#include <QDropEvent>
+#include <QDragMoveEvent>
+#include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QClipboard>
+#include <QChar>
+#include <QChildEvent>
+
+#include <QGeoPositionInfo>
+#include <QGeoCoordinate>
+#include <QGeoAddress>
+#include <QGeoAreaMonitorInfo>
+#include <QGeoAreaMonitorSource>
+#include <QGeoCircle>
+#include <QGeoPositionInfoSource>
+#include "ggeopositioninfosource.h"
+#include <QGeoRectangle>
+#include <QGeoShape>
+#include <QGeoSatelliteInfo>
+#include <QGeoSatelliteInfoSource>
+#include <QNmeaPositionInfoSource>
+
+<filter> (iswindows() or ismacosx())
+#include <QQuickWidget>
+#include <QQmlError>
+#include "gquickwidget.h"
+</filter>
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
+#include <QOpenGLPaintDevice>
+#include <QPaintDevice>
+#include <QOpenGLTimerQuery>
+#include <QOpenGLDebugLogger>
+#include <QOpenGLFramebufferObject>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLShader>
+#include <QOpenGLTexture>
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+#include "gserialport.h"
+#include <QSerialPort>
+#include <QSerialPortInfo>
+
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
+#include "gwebview.h"
+#include <QWebSettings>
+#include <QWebView>
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
+#include "gwebengineview.h"
+#include <QWebEngineSettings>
+#include <QWebEngineView>
+#include <QWebEnginePage>
+#include <QWebEngineHistory>
+</filter>
+
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+#include <QAxObject>
+#include <QAxBase>
+
+</filter>
+
+</code>
+
