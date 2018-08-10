@@ -14,12 +14,8 @@
 <loadfile> qt_newmethodname.cf
 <loadfile> qt_numbertypes.cf
 <loadfile> qt_enumtypes.cf
+<loadfile> qt_malloc.cf
 
-<runcode>
-
-$aMallocClassesList + "QModelIndex"
-
-</runcode>
 
 <addfreefunctionsprototype>
 
