@@ -15,17 +15,9 @@
 <loadfile> qt_module_webenginewidgets.cf
 <loadfile> qt_module_serialport.cf
 <loadfile> qt_module_axcontainer.cf
+<loadfile> qt_module_quickwidgets.cf
 
 
-
-<comment>
-				Module (quickwidgets)
-</comment>
-
-
-<filter> (iswindows() or ismacosx()) 
-<loadfile> qquickwidget.cf
-</filter>
 
 
 <comment>
