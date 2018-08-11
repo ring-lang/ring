@@ -44,21 +44,8 @@ load "qwindow.ring"
 load "qguiapplication.ring"
 load "qtextbrowser.ring"
 load "qdockwidget.ring"
+load "qstackedwidget.ring"
 
-aClasses +	[	:name = "GStackedWidget" ,
-			:realname = "QStackedWidget" ,
-			:initpara = "QWidget *",
-			:events = [
-					[ 	:signal = "currentChanged(int)" ,
-						:slot = "currentChangedSlot()" ,
-						:event = "currentChanged"
-					],
-					[ 	:signal = "widgetRemoved(int)" ,
-						:slot = "widgetRemovedSlot()" ,
-						:event = "widgetRemoved"
-					]
-				]
-		]
 aClasses +	[	:name = "GCalendarWidget" ,
 			:realname = "QCalendarWidget" ,
 			:initpara = "QWidget *",
