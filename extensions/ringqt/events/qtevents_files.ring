@@ -47,21 +47,8 @@ load "qdockwidget.ring"
 load "qstackedwidget.ring"
 load "qcalenderwidget.ring"
 load "qtabbar.ring"
+load "qquickwidget.ring"
 
-aClasses +	[	:name = "GQuickWidget" ,
-			:realname = "QQuickWidget" ,
-			:initpara = "QWidget *",
-			:events = [
-					[ 	:signal = "sceneGraphError(QQuickWindow::SceneGraphError,const QString)" ,
-						:slot = "sceneGraphErrorSlot()" ,
-						:event = "sceneGraphError"
-					],
-					[ 	:signal = "statusChanged(QQuickWidget::Status)" ,
-						:slot = "statusChangedSlot()" ,
-						:event = "statusChanged"
-					]
-				]
-		]
 aClasses +	[	:name = "GDrag" ,
 			:realname = "QDrag" ,
 			:initpara = "QObject *",
