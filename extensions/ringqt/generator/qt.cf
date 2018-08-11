@@ -1,68 +1,7 @@
 <loadfile> qt_settings.cf
 
 <loadfile> qt_module_widgets.cf
-
-
-<comment>
-				Module ( gui )
-</comment>
-
-<loadfile> qdesktopservices.cf
-<loadfile> qbitmap.cf
-<loadfile> qpixmap.cf
-<loadfile> qpixmap2.cf
-<loadfile> qicon.cf
-<loadfile> qpainter.cf
-<loadfile> qpainter2.cf
-<loadfile> qpicture.cf
-<loadfile> qpen.cf
-<loadfile> qcolor.cf
-<loadfile> qfont.cf
-<loadfile> qbrush.cf
-<loadfile> qtextcursor.cf
-<loadfile> qkeysequence.cf
-<loadfile> qtextdocument.cf
-<loadfile> qtextblock.cf
-<loadfile> qpainterpath.cf
-<loadfile> qimage.cf
-<loadfile> qtextcharformat.cf
-<loadfile> qfontmetrics.cf
-<loadfile> qlineargradient.cf
-<loadfile> qgradient.cf
-<loadfile> qcursor.cf
-<loadfile> qscreen.cf
-<loadfile> qwindow.cf
-<loadfile> qguiapplication.cf
-<loadfile> qregion.cf
-<loadfile> qvector2d.cf
-<loadfile> qvector3d.cf
-<loadfile> qvector4d.cf
-<loadfile> qquaternion.cf
-<loadfile> qmatrix4x4.cf
-<loadfile> qdrag.cf
-<loadfile> qdropevent.cf
-<loadfile> qdragmoveevent.cf
-<loadfile> qdragenterevent.cf
-<loadfile> qdragleaveevent.cf
-<loadfile> qclipboard.cf
-
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
-<loadfile> qopenglfunctions.cf
-<loadfile> qopenglcontext.cf
-<loadfile> qopenglfunctions_3_2_core.cf
-<loadfile> qsurfaceformat.cf
-<loadfile> qopenglversionprofile.cf
-<loadfile> qopenglpaintdevice.cf
-<loadfile> qpaintdevice.cf
-<loadfile> qopengltimerquery.cf
-<loadfile> qopengldebuglogger.cf
-<loadfile> qopenglframebufferobject.cf
-<loadfile> qopenglvertexarrayobject.cf
-<loadfile> qopenglbuffer.cf
-<loadfile> qopenglshaderprogram.cf
-<loadfile> qopenglshader.cf
-<loadfile> qopengltexture.cf
-</filter>
+<loadfile> qt_module_gui.cf
 
 
 <comment>
