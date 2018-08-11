@@ -4,17 +4,8 @@
 <loadfile> qt_module_gui.cf
 <loadfile> qt_module_testlib.cf
 <loadfile> qt_module_core.cf
+<loadfile> qt_module_multimedia.cf
 
-
-<comment>
-				Module (multimedia)
-</comment>
-
-<loadfile> qmediaplayer.cf
-<loadfile> qmediaplaylist.cf
-<loadfile> qcamera.cf
-<loadfile> qcameraimagecapture.cf
-<loadfile> qmediaobject.cf
 
 
 <comment>
