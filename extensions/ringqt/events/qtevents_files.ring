@@ -31,21 +31,8 @@ load "qthread.ring"
 load "qplaintextedit.ring"
 load "qheaderview.ring"
 load "qprocess.ring"
+load "qtoolbutton.ring"
 
-aClasses +	[	:name = "GToolButton" ,
-			:realname = "QToolButton" ,
-			:initpara = "QWidget *",
-			:events = [
-					[ 	:signal = "triggered(QAction *)" ,
-						:slot = "triggeredSlot()" ,
-						:event = "triggered"
-					],
-					[ 	:signal = "clicked()" ,
-						:slot = "clickedSlot()" ,
-						:event = "Click"
-					]
-				  ]
-		]
 aClasses +	[	:name = "GSerialPort" ,
 			:realname = "QSerialPort" ,
 			:initpara = "QObject *",
