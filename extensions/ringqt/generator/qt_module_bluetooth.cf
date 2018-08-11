@@ -1,0 +1,18 @@
+<comment>
+				Module (bluetooth)
+</comment>
+
+<loadfile> qbluetoothaddress.cf
+<loadfile> qbluetoothdevicediscoveryagent.cf
+<loadfile> qbluetoothdeviceinfo.cf
+<loadfile> qbluetoothhostinfo.cf
+<loadfile> qbluetoothlocaldevice.cf
+<loadfile> qbluetoothserver.cf
+<loadfile> qbluetoothservicediscoveryagent.cf
+<loadfile> qbluetoothserviceinfo.cf
+<loadfile> qbluetoothsocket.cf
+<loadfile> qbluetoothtransfermanager.cf
+<loadfile> qbluetoothtransferreply.cf
+<loadfile> qbluetoothtransferrequest.cf
+<loadfile> qbluetoothuuid.cf
+

@@ -9,26 +9,7 @@
 <loadfile> qt_module_printsupport.cf
 <loadfile> qt_module_network.cf
 <loadfile> qt_module_sql.cf
-
-
-
-<comment>
-				Module (bluetooth)
-</comment>
-
-<loadfile> qbluetoothaddress.cf
-<loadfile> qbluetoothdevicediscoveryagent.cf
-<loadfile> qbluetoothdeviceinfo.cf
-<loadfile> qbluetoothhostinfo.cf
-<loadfile> qbluetoothlocaldevice.cf
-<loadfile> qbluetoothserver.cf
-<loadfile> qbluetoothservicediscoveryagent.cf
-<loadfile> qbluetoothserviceinfo.cf
-<loadfile> qbluetoothsocket.cf
-<loadfile> qbluetoothtransfermanager.cf
-<loadfile> qbluetoothtransferreply.cf
-<loadfile> qbluetoothtransferrequest.cf
-<loadfile> qbluetoothuuid.cf
+<loadfile> qt_module_bluetooth.cf
 
 
 <comment>
