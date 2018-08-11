@@ -48,21 +48,8 @@ load "qstackedwidget.ring"
 load "qcalenderwidget.ring"
 load "qtabbar.ring"
 load "qquickwidget.ring"
+load "qdrag.ring"
 
-aClasses +	[	:name = "GDrag" ,
-			:realname = "QDrag" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "actionChanged(Qt::DropAction)" ,
-						:slot = "actionChangedSlot()" ,
-						:event = "actionChanged"
-					],
-					[ 	:signal = "targetChanged(QObject *)" ,
-						:slot = "targetChangedSlot()" ,
-						:event = "targetChanged"
-					]
-			]
-		]
 aClasses +	[	:name = "GGeoPositionInfoSource" ,
 			:realname = "QGeoPositionInfoSource" ,
 			:initpara = "QObject *",
