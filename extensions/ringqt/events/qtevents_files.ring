@@ -19,32 +19,8 @@ load "qwebengineview.ring"
 load "qcheckbox.ring"
 load "qradiobutton.ring"
 load "qbuttongroup.ring"
+load "qvideowidget.ring"
 
-aClasses +	[	:name = "GVideoWidget" ,
-			:realname = "QVideoWidget" ,
-			:events = [
-					[ 	:signal = "brightnessChanged(int)" ,
-						:slot = "brightnessChangedSlot()" ,
-						:event = "brightnessChanged"
-					] ,
-					[ 	:signal = "contrastChanged(int)" ,
-						:slot = "contrastChangedSlot()" ,
-						:event = "contrastChanged"
-					] ,
-					[ 	:signal = "fullScreenChanged(bool)" ,
-						:slot = "fullScreenChangedSlot()" ,
-						:event = "fullScreenChanged"
-					] ,
-					[ 	:signal = "hueChanged(int)" ,
-						:slot = "hueChangedSlot()" ,
-						:event = "hueChanged"
-					] ,
-					[ 	:signal = "saturationChanged(int)" ,
-						:slot = "saturationChangedSlot()" ,
-						:event = "saturationChanged"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GTimer" ,
 			:realname = "QTimer" ,
 			:initpara = "QObject *",
