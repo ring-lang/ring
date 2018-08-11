@@ -1,5 +1,7 @@
-aclasses = [
-		[	:name = "GPushButton" ,
+aClasses = []
+
+
+aClasses +	[	:name = "GPushButton" ,
 			:realname = "QPushButton" ,
 			:events = [
 					[ 	:signal = "clicked()" ,
@@ -7,8 +9,8 @@ aclasses = [
 						:event = "Click"
 					]
 				  ]
-		] ,
-		[	:name = "GAction" ,
+		]
+aClasses +	[	:name = "GAction" ,
 			:realname = "QAction" ,
 			:events = [
 					[ 	:signal = "triggered()" ,
@@ -16,8 +18,8 @@ aclasses = [
 						:event = "Click"
 					]
 				  ]
-		] ,
-		[	:name = "GLineEdit" ,
+		] 
+aClasses +	[	:name = "GLineEdit" ,
 			:realname = "QLineEdit" ,
 			:events = [
 					[ 	:signal = "textChanged(QString)" ,
@@ -45,8 +47,8 @@ aclasses = [
 						:event = "textEdited"
 					]
 				  ]
-		] ,
-		[	:name = "GTextEdit" ,
+		] 
+aClasses +	[	:name = "GTextEdit" ,
 			:realname = "QTextEdit" ,
 			:events = [
 					[ 	:signal = "copyAvailable(bool)" ,
@@ -78,8 +80,8 @@ aclasses = [
 						:event = "undoAvailable"
 					]
 				  ]
-		] ,
-		[	:name = "GListWidget" ,
+		] 
+aClasses +	[	:name = "GListWidget" ,
 			:realname = "QListWidget" ,
 			:events = [
 					[ 	:signal = "currentItemChanged(QListWidgetItem*,QListWidgetItem*)" ,
@@ -123,8 +125,8 @@ aclasses = [
 						:event = "itemSelectionChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GTreeView" ,
+		] 
+aClasses +	[	:name = "GTreeView" ,
 			:realname = "QTreeView" ,
 			:events = [
 					[ 	:signal = "collapsed(QModelIndex)" ,
@@ -160,8 +162,8 @@ aclasses = [
 						:event = "viewportEntered"
 					]
 				  ]
-		] ,
-		[	:name = "GTreeWidget" ,
+		] 
+aClasses +	[	:name = "GTreeWidget" ,
 			:realname = "QTreeWidget" ,
 			:events = [
 					[ 	:signal = "collapsed(QModelIndex)" ,
@@ -237,8 +239,8 @@ aclasses = [
 						:event = "itemSelectionChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GComboBox" ,
+		] 
+aClasses +	[	:name = "GComboBox" ,
 			:realname = "QComboBox" ,
 			:events = [
 					[ 	:signal = "activated(int)" ,
@@ -258,8 +260,8 @@ aclasses = [
 						:event = "highlighted"
 					]
 				  ]
-		] ,
-		[	:name = "GTabWidget" ,
+		] 
+aClasses +	[	:name = "GTabWidget" ,
 			:realname = "QTabWidget" ,
 			:events = [
 					[ 	:signal = "currentChanged(int)" ,
@@ -274,8 +276,8 @@ aclasses = [
 						:event = "tabCloseRequested"
 					]
 				  ]
-		] ,
-		[	:name = "GTableWidget" ,
+		] 
+aClasses +	[	:name = "GTableWidget" ,
 			:realname = "QTableWidget" ,
 			:events = [
 					[ 	:signal = "cellActivated(int,int)" ,
@@ -339,8 +341,8 @@ aclasses = [
 						:event = "itemSelectionChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GProgressBar" ,
+		] 
+aClasses +	[	:name = "GProgressBar" ,
 			:realname = "QProgressBar" ,
 			:events = [
 					[ 	:signal = "valueChanged(int)" ,
@@ -348,8 +350,8 @@ aclasses = [
 						:event = "valueChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GSpinBox" ,
+		] 
+aClasses +	[	:name = "GSpinBox" ,
 			:realname = "QSpinBox" ,
 			:events = [
 					[ 	:signal = "valueChanged(int)" ,
@@ -357,8 +359,8 @@ aclasses = [
 						:event = "valueChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GSlider" ,
+		] 
+aClasses +	[	:name = "GSlider" ,
 			:realname = "QSlider" ,
 			:events = [
 					[ 	:signal = "actionTriggered(int)" ,
@@ -386,8 +388,8 @@ aclasses = [
 						:event = "valueChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GDial" ,
+		] 
+aClasses +	[	:name = "GDial" ,
 			:realname = "QDial" ,
 			:events = [
 					[ 	:signal = "actionTriggered(int)" ,
@@ -415,8 +417,8 @@ aclasses = [
 						:event = "valueChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GWebView" ,
+		] 
+aClasses +	[	:name = "GWebView" ,
 			:realname = "QWebView" ,
 			:events = [
 					[ 	:signal = "loadFinished(bool)" ,
@@ -444,8 +446,8 @@ aclasses = [
 						:event = "urlChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GWebEngineView" ,
+		] 
+aClasses +	[	:name = "GWebEngineView" ,
 			:realname = "QWebEngineView" ,
 			:events = [
 					[ 	:signal = "loadFinished(bool)" ,
@@ -473,8 +475,8 @@ aclasses = [
 						:event = "urlChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GCheckBox" ,
+		] 
+aClasses +	[	:name = "GCheckBox" ,
 			:realname = "QCheckBox" ,
 			:events = [
 					[ 	:signal = "stateChanged(int)" ,
@@ -498,8 +500,8 @@ aclasses = [
 						:event = "toggled"
 					]
 				  ]
-		] ,
-		[	:name = "GRadioButton" ,
+		] 
+aClasses +	[	:name = "GRadioButton" ,
 			:realname = "QRadioButton" ,
 			:events = [
 					[ 	:signal = "clicked(bool)" ,
@@ -519,8 +521,8 @@ aclasses = [
 						:event = "toggled"
 					]
 				  ]
-		] ,
-		[	:name = "GButtonGroup" ,
+		] 
+aClasses +	[	:name = "GButtonGroup" ,
 			:realname = "QButtonGroup" ,
 			:initpara = "QObject *",
 			:events = [
@@ -537,8 +539,8 @@ aclasses = [
 						:event = "buttonReleased"
 					]
 				  ]
-		] ,
-		[	:name = "GVideoWidget" ,
+		] 
+aClasses +	[	:name = "GVideoWidget" ,
 			:realname = "QVideoWidget" ,
 			:events = [
 					[ 	:signal = "brightnessChanged(int)" ,
@@ -562,8 +564,8 @@ aclasses = [
 						:event = "saturationChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GTimer" ,
+		] 
+aClasses +	[	:name = "GTimer" ,
 			:realname = "QTimer" ,
 			:initpara = "QObject *",
 			:events = [
@@ -572,8 +574,8 @@ aclasses = [
 						:event = "timeout"
 					]
 				  ]
-		] ,
-		[	:name = "GTcpServer" ,
+		] 
+aClasses +	[	:name = "GTcpServer" ,
 			:realname = "QTcpServer" ,
 			:initpara = "QObject *",
 			:events = [
@@ -586,8 +588,8 @@ aclasses = [
 						:event = "newConnection"
 					]
 				  ]
-		] ,
-		[	:name = "GIODevice" ,
+		] 
+aClasses +	[	:name = "GIODevice" ,
 			:realname = "QIODevice" ,
 			:initpara = "QObject *",
 			:events = [
@@ -608,8 +610,8 @@ aclasses = [
 						:event = "readyRead"
 					]
 				  ]
-		] ,
-		[	:name = "GAbstractSocket" ,
+		] 
+aClasses +	[	:name = "GAbstractSocket" ,
 			:realname = "QAbstractSocket" ,
 			:initpara = "QAbstractSocket::SocketType x,QObject *",
 			:initparaparent = "x,",
@@ -639,8 +641,8 @@ aclasses = [
 						:event = "stateChanged"
 					]
 				  ]
-		] ,
-		[	:name = "GTcpSocket" ,
+		] 
+aClasses +	[	:name = "GTcpSocket" ,
 			:realname = "QTcpSocket" ,
 			:initpara = "QObject *",
 			:events = [
@@ -685,8 +687,8 @@ aclasses = [
 						:event = "readyRead"
 					]
 				  ]
-		],
-		[	:name = "GColorDialog" ,
+		]
+aClasses +	[	:name = "GColorDialog" ,
 			:realname = "QColorDialog" ,
 			:events = [
 					[ 	:signal = "colorSelected(QColor)" ,
@@ -698,8 +700,8 @@ aclasses = [
 						:event = "currentColorChanged"
 					]
 				  ]
-		],
-		[	:name = "GNetworkAccessManager" ,
+		]
+aClasses +	[	:name = "GNetworkAccessManager" ,
 			:realname = "QNetworkAccessManager" ,
 			:initpara = "QObject *",
 			:events = [
@@ -711,8 +713,8 @@ aclasses = [
 						:slotparacode = SlotParaGetPointer("QNetworkReply *")
 					] 
 				  ]
-		],
-		[	:name = "GThread" ,
+		]
+aClasses +	[	:name = "GThread" ,
 			:realname = "QThread" ,
 			:initpara = "QObject *",
 			:events = [
@@ -727,8 +729,8 @@ aclasses = [
 						:thread = True
 					] 
 				  ]
-		],
-		[	:name = "GPlainTextEdit" ,
+		]
+aClasses +	[	:name = "GPlainTextEdit" ,
 			:realname = "QPlainTextEdit" ,
 			:events = [
 					[ 	:signal = "blockCountChanged(int)" ,
@@ -768,8 +770,8 @@ aclasses = [
 						:event = "updateRequest"
 					]
 				  ]
-		] ,
-		[	:name = "GHeaderView" ,
+		] 
+aClasses +	[	:name = "GHeaderView" ,
 			:initpara = "Qt::Orientation x, QWidget *",
 			:initparaparent = "x,",
 			:realname = "QHeaderView" ,
@@ -818,8 +820,8 @@ aclasses = [
 						:event = "sortIndicatorChanged"
 					] 		
 			  ]
-		] ,
-		[	:name = "GProcess" ,
+		] 
+aClasses +	[	:name = "GProcess" ,
 			:realname = "QProcess" ,
 			:initpara = "QObject *",
 			:events = [
@@ -832,8 +834,8 @@ aclasses = [
 						:event = "readyReadStandardOutput"
 					] 
 				  ]
-		],
-		[	:name = "GToolButton" ,
+		]
+aClasses +	[	:name = "GToolButton" ,
 			:realname = "QToolButton" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -846,8 +848,8 @@ aclasses = [
 						:event = "Click"
 					]
 				  ]
-		],
-		[	:name = "GSerialPort" ,
+		]
+aClasses +	[	:name = "GSerialPort" ,
 			:realname = "QSerialPort" ,
 			:initpara = "QObject *",
 			:events = [
@@ -888,8 +890,8 @@ aclasses = [
 						:event = "stopBitsChanged"
 					]
 			]
-		],
-		[	:name = "GBluetoothDeviceDiscoveryAgent" ,
+		]
+aClasses +	[	:name = "GBluetoothDeviceDiscoveryAgent" ,
 			:realname = "QBluetoothDeviceDiscoveryAgent" ,
 			:initpara = "QObject *",
 			:events = [
@@ -910,8 +912,8 @@ aclasses = [
 						:event = "finished"
 					]
 				]
-		],
-		[	:name = "GBluetoothLocalDevice" ,
+		]
+aClasses +	[	:name = "GBluetoothLocalDevice" ,
 			:realname = "QBluetoothLocalDevice" ,
 			:initpara = "QObject *",
 			:events = [
@@ -944,8 +946,8 @@ aclasses = [
 						:event = "pairingFinished"
 					]
 				]
-		],
-		[	:name = "GBluetoothServer" ,
+		]
+aClasses +	[	:name = "GBluetoothServer" ,
 			:realname = "QBluetoothServer" ,
 			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
 			:initparaparent = "x,",
@@ -959,8 +961,8 @@ aclasses = [
 						:event = "newConnection"
 					]
 				]
-		],
-		[	:name = "GBluetoothServiceDiscoveryAgent" ,
+		]
+aClasses +	[	:name = "GBluetoothServiceDiscoveryAgent" ,
 			:realname = "QBluetoothServiceDiscoveryAgent" ,
 			:initpara = "QObject *",
 			:events = [
@@ -981,8 +983,8 @@ aclasses = [
 						:event = "serviceDiscovered"
 					]
 				]
-		],
-		[	:name = "GBluetoothSocket" ,
+		]
+aClasses +	[	:name = "GBluetoothSocket" ,
 			:realname = "QBluetoothSocket" ,
 			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
 			:initparaparent = "x,",
@@ -1004,8 +1006,8 @@ aclasses = [
 						:event = "stateChanged"
 					]
 				]
-		],
-		[	:name = "GBluetoothTransferManager" ,
+		]
+aClasses +	[	:name = "GBluetoothTransferManager" ,
 			:realname = "QBluetoothTransferManager" ,
 			:initpara = "QObject *",
 			:events = [
@@ -1014,8 +1016,8 @@ aclasses = [
 						:event = "finished"
 					]
 				]
-		],
-		[	:name = "GBluetoothTransferReply" ,
+		]
+aClasses +	[	:name = "GBluetoothTransferReply" ,
 			:realname = "QBluetoothTransferReply" ,
 			:initpara = "QObject *",
 			:events = [
@@ -1032,8 +1034,8 @@ aclasses = [
 						:event = "transferProgress"
 					]
 				]
-		],
-		[	:name = "GWindow" ,
+		]
+aClasses +	[	:name = "GWindow" ,
 			:realname = "QWindow" ,
 			:initpara = "QScreen *",
 			:events = [
@@ -1110,8 +1112,8 @@ aclasses = [
 						:event = "yChanged"
 					]
 				 ]
-		],
-		[	:name = "GGuiApplication" ,
+		]
+aClasses +	[	:name = "GGuiApplication" ,
 			:realname = "QGuiApplication" ,
 			:initpara = "int argc,char **",
 			:initparaparent = "argc,",
@@ -1169,8 +1171,8 @@ aclasses = [
 						:event = "screenRemoved"
 					]
 				]
-		],
-		[	:name = "GTextBrowser" ,
+		]
+aClasses +	[	:name = "GTextBrowser" ,
 			:realname = "QTextBrowser" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -1199,8 +1201,8 @@ aclasses = [
 						:event = "sourceChanged"
 					]
 				]
-		],
-		[	:name = "GDockWidget" ,
+		]
+aClasses +	[	:name = "GDockWidget" ,
 			:realname = "QDockWidget" ,
 			:initpara = "QWidget *x,Qt::WindowFlags ",
 			:initparaparent = "x,",
@@ -1226,8 +1228,8 @@ aclasses = [
 						:event = "visibilityChanged"
 					]
 				]
-		],
-		[	:name = "GStackedWidget" ,
+		]
+aClasses +	[	:name = "GStackedWidget" ,
 			:realname = "QStackedWidget" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -1240,8 +1242,8 @@ aclasses = [
 						:event = "widgetRemoved"
 					]
 				]
-		],
-		[	:name = "GCalendarWidget" ,
+		]
+aClasses +	[	:name = "GCalendarWidget" ,
 			:realname = "QCalendarWidget" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -1262,8 +1264,8 @@ aclasses = [
 						:event = "selectionChanged"
 					]
 				]
-		],
-		[	:name = "GTabBar" ,
+		]
+aClasses +	[	:name = "GTabBar" ,
 			:realname = "QTabBar" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -1280,8 +1282,8 @@ aclasses = [
 						:event = "tabMoved"
 					]
 				]
-		],
-		[	:name = "GQuickWidget" ,
+		]
+aClasses +	[	:name = "GQuickWidget" ,
 			:realname = "QQuickWidget" ,
 			:initpara = "QWidget *",
 			:events = [
@@ -1294,8 +1296,8 @@ aclasses = [
 						:event = "statusChanged"
 					]
 				]
-		],
-		[	:name = "GDrag" ,
+		]
+aClasses +	[	:name = "GDrag" ,
 			:realname = "QDrag" ,
 			:initpara = "QObject *",
 			:events = [
@@ -1308,8 +1310,8 @@ aclasses = [
 						:event = "targetChanged"
 					]
 			]
-		],
-		[	:name = "GGeoPositionInfoSource" ,
+		]
+aClasses +	[	:name = "GGeoPositionInfoSource" ,
 			:realname = "QGeoPositionInfoSource" ,
 			:initpara = "QObject *",
 			:events = [
@@ -1327,4 +1329,4 @@ aclasses = [
 					]
 			]
 		]
-	    ]
+	    
