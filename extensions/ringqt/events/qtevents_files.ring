@@ -12,36 +12,8 @@ load "qtabwidget.ring"
 load "qtablewidget.ring"
 load "qprogressbar.ring"
 load "qspinbox.ring"
+load "qslider.ring"
 
-aClasses +	[	:name = "GSlider" ,
-			:realname = "QSlider" ,
-			:events = [
-					[ 	:signal = "actionTriggered(int)" ,
-						:slot = "actionTriggeredSlot()" ,
-						:event = "actionTriggered"
-					] ,
-					[ 	:signal = "rangeChanged(int,int)" ,
-						:slot = "rangeChangedSlot()" ,
-						:event = "rangeChanged"
-					] ,
-					[ 	:signal = "sliderMoved(int)" ,
-						:slot = "sliderMovedSlot()" ,
-						:event = "sliderMoved"
-					] ,
-					[ 	:signal = "sliderPressed()" ,
-						:slot = "sliderPressedSlot()" ,
-						:event = "sliderPressed"
-					] ,
-					[ 	:signal = "sliderReleased()" ,
-						:slot = "sliderReleasedSlot()" ,
-						:event = "sliderReleased"
-					] ,
-					[ 	:signal = "valueChanged(int)" ,
-						:slot = "valueChangedSlot()" ,
-						:event = "valueChanged"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GDial" ,
 			:realname = "QDial" ,
 			:events = [
