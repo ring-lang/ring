@@ -25,20 +25,9 @@ load "qtcpserver.ring"
 load "qiodevice.ring"
 load "qabstractsocket.ring"
 load "qobject.ring"
+load "qcolordialog.ring"
 
-aClasses +	[	:name = "GColorDialog" ,
-			:realname = "QColorDialog" ,
-			:events = [
-					[ 	:signal = "colorSelected(QColor)" ,
-						:slot = "colorSelectedSlot()" ,
-						:event = "colorSelected"
-					] ,
-					[ 	:signal = "currentColorChanged(QColor)" ,
-						:slot = "currentColorChangedSlot()" ,
-						:event = "currentColorChanged"
-					]
-				  ]
-		]
+
 aClasses +	[	:name = "GNetworkAccessManager" ,
 			:realname = "QNetworkAccessManager" ,
 			:initpara = "QObject *",
