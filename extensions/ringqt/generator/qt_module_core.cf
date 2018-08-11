@@ -1,0 +1,55 @@
+<comment>
+				Module (core)
+</comment>
+
+<loadfile> qobject.cf
+<loadfile> qsize.cf
+<loadfile> qdir.cf
+<loadfile> qdateedit.cf
+<loadfile> qurl.cf
+<loadfile> qevent.cf
+<loadfile> qtimer.cf
+<loadfile> qbytearray.cf
+<loadfile> qiodevice.cf
+<loadfile> qfileinfo.cf
+<loadfile> qstringlist.cf
+<loadfile> qrect.cf
+<loadfile> qtime.cf
+<loadfile> qdate.cf
+<loadfile> qtextcodec.cf
+<loadfile> qvariant.cf
+<loadfile> qxmlstreamreader.cf
+<loadfile> qxmlstreamwriter.cf
+<loadfile> qxmlstreamnotationdeclaration.cf
+<loadfile> qxmlstreamnamespacedeclaration.cf
+<loadfile> qxmlstreamentitydeclaration.cf
+<loadfile> qxmlstreamentityresolver.cf
+<loadfile> qxmlstreamattributes.cf
+<loadfile> qxmlstreamattribute.cf
+<loadfile> qthread.cf
+<loadfile> qthreadpool.cf
+<loadfile> qregularexpression.cf
+<loadfile> qregularexpressionmatch.cf
+<loadfile> qregularexpressionmatchiterator.cf
+<loadfile> qjsonarray.cf
+<loadfile> qjsondocument.cf
+<loadfile> qjsonobject.cf
+<loadfile> qjsonparseerror.cf
+<loadfile> qjsonvalue.cf
+<loadfile> qpointf.cf
+<loadfile> qpoint.cf
+<loadfile> qstring2.cf
+<loadfile> qprocess.cf
+<loadfile> quuid.cf
+<loadfile> qstringref.cf
+<loadfile> qmutex.cf
+<loadfile> qmutexlocker.cf
+<loadfile> qbuffer.cf
+<loadfile> qdatetime.cf
+<loadfile> qcoreapplication.cf
+<loadfile> qfile.cf
+<loadfile> qfiledevice.cf
+<loadfile> qstandardpaths.cf
+<loadfile> qmimedata.cf
+<loadfile> qchar.cf
+<loadfile> qchildevent.cf
