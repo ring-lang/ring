@@ -2,13 +2,8 @@
 
 <loadfile> qt_module_widgets.cf
 <loadfile> qt_module_gui.cf
+<loadfile> qt_module_testlib.cf
 
-
-<comment>
-				Module ( testlib )
-</comment>
-
-<loadfile> qtest.cf
 
 <comment>
 				Module (core)
