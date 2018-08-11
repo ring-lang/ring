@@ -11,15 +11,8 @@
 <loadfile> qt_module_sql.cf
 <loadfile> qt_module_bluetooth.cf
 <loadfile> qt_module_positioning.cf
+<loadfile> qt_module_webkitwidgets.cf
 
-
-<comment>
-				Module (webkitwidgets)
-</comment>
-
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
-<loadfile> qwebview.cf
-</filter>
 
 <comment>
 				Module (webenginewidgets)
