@@ -15,36 +15,8 @@ load "qspinbox.ring"
 load "qslider.ring"
 load "qdial.ring"
 load "qwebview.ring"
+load "qwebengineview.ring"
 
-aClasses +	[	:name = "GWebEngineView" ,
-			:realname = "QWebEngineView" ,
-			:events = [
-					[ 	:signal = "loadFinished(bool)" ,
-						:slot = "loadFinishedSlot()" ,
-						:event = "loadFinished"
-					] ,
-					[ 	:signal = "loadProgress(int)" ,
-						:slot = "loadProgressSlot()" ,
-						:event = "loadProgress"
-					] ,
-					[ 	:signal = "loadStarted()" ,
-						:slot = "loadStartedSlot()" ,
-						:event = "loadStarted"
-					] ,
-					[ 	:signal = "selectionChanged()" ,
-						:slot = "selectionChangedSlot()" ,
-						:event = "selectionChanged"
-					] ,					
-					[ 	:signal = "titleChanged(QString)" ,
-						:slot = "titleChangedSlot()" ,
-						:event = "titleChanged"
-					] ,
-					[ 	:signal = "urlChanged(QUrl)" ,
-						:slot = "urlChangedSlot()" ,
-						:event = "urlChanged"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GCheckBox" ,
 			:realname = "QCheckBox" ,
 			:events = [
