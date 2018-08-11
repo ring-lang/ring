@@ -1,0 +1,18 @@
+<comment>
+				Module (positioning)
+</comment>
+
+
+<loadfile> qgeopositioninfo.cf
+<loadfile> qgeocoordinate.cf
+<loadfile> qgeoaddress.cf
+<loadfile> qgeoareamonitorinfo.cf
+<loadfile> qgeoareamonitorsource.cf
+<loadfile> qgeocircle.cf
+<loadfile> qgeopositioninfosource.cf
+<loadfile> qgeorectangle.cf
+<loadfile> qgeoshape.cf
+<loadfile> qgeosatelliteinfo.cf
+<loadfile> qgeosatelliteinfosource.cf
+<loadfile> qnmeapositioninfosource.cf
+
