@@ -12,15 +12,7 @@
 <loadfile> qt_module_bluetooth.cf
 <loadfile> qt_module_positioning.cf
 <loadfile> qt_module_webkitwidgets.cf
-
-
-<comment>
-				Module (webenginewidgets)
-</comment>
-
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
-<loadfile> qwebengineview.cf
-</filter>
+<loadfile> qt_module_webenginewidgets.cf
 
 <comment>
 				Module (serialport)
