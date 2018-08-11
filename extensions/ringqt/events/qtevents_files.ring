@@ -36,29 +36,8 @@ load "qserialport.ring"
 load "qbluetoothdevicediscoveryagent.ring"
 load "qbluetoothlocaldevice.ring"
 load "qbluetoothserver.ring"
+load "qbluetoothservicediscoveryagent.ring"
 
-aClasses +	[	:name = "GBluetoothServiceDiscoveryAgent" ,
-			:realname = "QBluetoothServiceDiscoveryAgent" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "canceled()" ,
-						:slot = "canceledSlot()" ,
-						:event = "canceled"
-					],
-					[ 	:signal = "error(QBluetoothServiceDiscoveryAgent::Error)" ,
-						:slot = "errorSlot()" ,
-						:event = "error"
-					],
-					[ 	:signal = "finished()" ,
-						:slot = "finishedSlot()" ,
-						:event = "finished"
-					],
-					[ 	:signal = "serviceDiscovered(const QBluetoothServiceInfo)" ,
-						:slot = "serviceDiscoveredSlot()" ,
-						:event = "serviceDiscovered"
-					]
-				]
-		]
 aClasses +	[	:name = "GBluetoothSocket" ,
 			:realname = "QBluetoothSocket" ,
 			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
