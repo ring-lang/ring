@@ -6,14 +6,7 @@
 <loadfile> qt_module_core.cf
 <loadfile> qt_module_multimedia.cf
 <loadfile> qt_module_multimediawidgets.cf
-
-
-<comment>
-				Module (printsupport)
-</comment>
-
-<loadfile> qprinter.cf
-
+<loadfile> qt_module_printsupport.cf
 
 <comment>
 				Module (network)

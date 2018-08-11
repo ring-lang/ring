@@ -1,0 +1,7 @@
+<comment>
+				Module (printsupport)
+</comment>
+
+<loadfile> qprinter.cf
+
+
