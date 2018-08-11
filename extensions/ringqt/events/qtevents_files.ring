@@ -27,24 +27,8 @@ load "qabstractsocket.ring"
 load "qobject.ring"
 load "qcolordialog.ring"
 load "qnetworkaccessmanager.ring"
+load "qthread.ring"
 
-
-aClasses +	[	:name = "GThread" ,
-			:realname = "QThread" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "started()" ,
-						:slot = "startedSlot()" ,
-						:event = "Started",
-						:thread = True
-					] ,
-					[ 	:signal = "finished()" ,
-						:slot = "finishedSlot()" ,
-						:event = "Finished",
-						:thread = True
-					] 
-				  ]
-		]
 aClasses +	[	:name = "GPlainTextEdit" ,
 			:realname = "QPlainTextEdit" ,
 			:events = [
