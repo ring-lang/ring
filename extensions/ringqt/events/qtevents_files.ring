@@ -46,25 +46,8 @@ load "qtextbrowser.ring"
 load "qdockwidget.ring"
 load "qstackedwidget.ring"
 load "qcalenderwidget.ring"
+load "qtabbar.ring"
 
-aClasses +	[	:name = "GTabBar" ,
-			:realname = "QTabBar" ,
-			:initpara = "QWidget *",
-			:events = [
-					[ 	:signal = "currentChanged(int)" ,
-						:slot = "currentChangedSlot()" ,
-						:event = "currentChanged"
-					],
-					[ 	:signal = "tabCloseRequested(int)" ,
-						:slot = "tabCloseRequestedSlot()" ,
-						:event = "tabCloseRequested"
-					],
-					[ 	:signal = "tabMoved(int,int)" ,
-						:slot = "tabMovedSlot()" ,
-						:event = "tabMoved"
-					]
-				]
-		]
 aClasses +	[	:name = "GQuickWidget" ,
 			:realname = "QQuickWidget" ,
 			:initpara = "QWidget *",
