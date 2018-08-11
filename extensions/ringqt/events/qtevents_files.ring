@@ -22,29 +22,8 @@ load "qbuttongroup.ring"
 load "qvideowidget.ring"
 load "qtimer.ring"
 load "qtcpserver.ring"
+load "qiodevice.ring"
 
-aClasses +	[	:name = "GIODevice" ,
-			:realname = "QIODevice" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "aboutToClose()" ,
-						:slot = "aboutToCloseSlot()" ,
-						:event = "aboutToClose"
-					] ,
-					[ 	:signal = "bytesWritten(qint64)" ,
-						:slot = "bytesWrittenSlot()" ,
-						:event = "bytesWritten"
-					] ,
-					[ 	:signal = "readChannelFinished()" ,
-						:slot = "readChannelFinishedSlot()" ,
-						:event = "readChannelFinished"
-					] ,
-					[ 	:signal = "readyRead()" ,
-						:slot = "readyReadSlot()" ,
-						:event = "readyRead"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GAbstractSocket" ,
 			:realname = "QAbstractSocket" ,
 			:initpara = "QAbstractSocket::SocketType x,QObject *",
