@@ -1,17 +1,9 @@
 aClasses = []
 
 load "qpushbutton.ring"
+load "qaction.ring"
 
 
-aClasses +	[	:name = "GAction" ,
-			:realname = "QAction" ,
-			:events = [
-					[ 	:signal = "triggered()" ,
-						:slot = "clickedSlot()" ,
-						:event = "Click"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GLineEdit" ,
 			:realname = "QLineEdit" ,
 			:events = [
