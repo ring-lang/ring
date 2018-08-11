@@ -14,16 +14,8 @@
 <loadfile> qt_module_webkitwidgets.cf
 <loadfile> qt_module_webenginewidgets.cf
 <loadfile> qt_module_serialport.cf
+<loadfile> qt_module_axcontainer.cf
 
-
-<comment>
-				Module (axcontainer)
-</comment>
-
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-<loadfile> qaxobject.cf
-<loadfile> qaxbase.cf
-</filter>
 
 
 <comment>
