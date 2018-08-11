@@ -26,21 +26,9 @@ load "qiodevice.ring"
 load "qabstractsocket.ring"
 load "qobject.ring"
 load "qcolordialog.ring"
+load "qnetworkaccessmanager.ring"
 
 
-aClasses +	[	:name = "GNetworkAccessManager" ,
-			:realname = "QNetworkAccessManager" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "finished(QNetworkReply*)" ,
-						:slot = "finishedSlot()" ,
-						:event = "finished",
-						:slotparaconnect = "QNetworkReply*",
-						:slotparafunction = "QNetworkReply *p1",
-						:slotparacode = SlotParaGetPointer("QNetworkReply *")
-					] 
-				  ]
-		]
 aClasses +	[	:name = "GThread" ,
 			:realname = "QThread" ,
 			:initpara = "QObject *",
