@@ -7,20 +7,8 @@
 <loadfile> qt_module_multimedia.cf
 <loadfile> qt_module_multimediawidgets.cf
 <loadfile> qt_module_printsupport.cf
+<loadfile> qt_module_network.cf
 
-<comment>
-				Module (network)
-</comment>
-
-<loadfile> qabstractsocket.cf
-<loadfile> qnetworkproxy.cf
-<loadfile> qtcpsocket.cf
-<loadfile> qtcpserver.cf
-<loadfile> qhostaddress.cf
-<loadfile> qhostinfo.cf
-<loadfile> qnetworkrequest.cf
-<loadfile> qnetworkaccessmanager.cf
-<loadfile> qnetworkreply.cf
 
 
 <comment>

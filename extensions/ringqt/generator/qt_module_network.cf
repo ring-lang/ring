@@ -1,0 +1,13 @@
+<comment>
+				Module (network)
+</comment>
+
+<loadfile> qabstractsocket.cf
+<loadfile> qnetworkproxy.cf
+<loadfile> qtcpsocket.cf
+<loadfile> qtcpserver.cf
+<loadfile> qhostaddress.cf
+<loadfile> qhostinfo.cf
+<loadfile> qnetworkrequest.cf
+<loadfile> qnetworkaccessmanager.cf
+<loadfile> qnetworkreply.cf
