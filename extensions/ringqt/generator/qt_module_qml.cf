@@ -1,0 +1,8 @@
+<comment>
+				Module (qml)
+</comment>
+
+
+<filter> (iswindows() or ismacosx()) 
+<loadfile> qqmlerror.cf
+</filter>

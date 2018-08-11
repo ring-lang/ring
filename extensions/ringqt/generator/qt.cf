@@ -16,20 +16,5 @@
 <loadfile> qt_module_serialport.cf
 <loadfile> qt_module_axcontainer.cf
 <loadfile> qt_module_quickwidgets.cf
-
-
-
-
-<comment>
-				Module (qml)
-</comment>
-
-
-<filter> (iswindows() or ismacosx()) 
-<loadfile> qqmlerror.cf
-</filter>
-
-
-
-
+<loadfile> qt_module_qml.cf
 
