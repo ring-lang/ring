@@ -20,17 +20,8 @@ load "qcheckbox.ring"
 load "qradiobutton.ring"
 load "qbuttongroup.ring"
 load "qvideowidget.ring"
+load "qtimer.ring"
 
-aClasses +	[	:name = "GTimer" ,
-			:realname = "QTimer" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "timeout()" ,
-						:slot = "timeoutSlot()" ,
-						:event = "timeout"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GTcpServer" ,
 			:realname = "QTcpServer" ,
 			:initpara = "QObject *",
