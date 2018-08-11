@@ -38,17 +38,8 @@ load "qbluetoothlocaldevice.ring"
 load "qbluetoothserver.ring"
 load "qbluetoothservicediscoveryagent.ring"
 load "qbluetoothsocket.ring"
+load "qbluetoothtransfermanager.ring"
 
-aClasses +	[	:name = "GBluetoothTransferManager" ,
-			:realname = "QBluetoothTransferManager" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "finished(QBluetoothTransferReply *)" ,
-						:slot = "finishedSlot()" ,
-						:event = "finished"
-					]
-				]
-		]
 aClasses +	[	:name = "GBluetoothTransferReply" ,
 			:realname = "QBluetoothTransferReply" ,
 			:initpara = "QObject *",
