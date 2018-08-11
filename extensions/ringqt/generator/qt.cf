@@ -13,15 +13,8 @@
 <loadfile> qt_module_positioning.cf
 <loadfile> qt_module_webkitwidgets.cf
 <loadfile> qt_module_webenginewidgets.cf
+<loadfile> qt_module_serialport.cf
 
-<comment>
-				Module (serialport)
-</comment>
-
-<filter> (sysget("RINGQT_ANDROID") = "")
-<loadfile> qserialport.cf
-<loadfile> qserialportinfo.cf
-</filter>
 
 <comment>
 				Module (axcontainer)
