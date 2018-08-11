@@ -39,25 +39,8 @@ load "qbluetoothserver.ring"
 load "qbluetoothservicediscoveryagent.ring"
 load "qbluetoothsocket.ring"
 load "qbluetoothtransfermanager.ring"
+load "qbluetoothtransferreply.ring"
 
-aClasses +	[	:name = "GBluetoothTransferReply" ,
-			:realname = "QBluetoothTransferReply" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "error(QBluetoothTransferReply::TransferError)" ,
-						:slot = "errorSlot()" ,
-						:event = "error"
-					],
-					[ 	:signal = "finished(QBluetoothTransferReply *)" ,
-						:slot = "finishedSlot()" ,
-						:event = "finished"
-					],
-					[ 	:signal = "transferProgress(qint64,qint64)" ,
-						:slot = "transferProgressSlot()" ,
-						:event = "transferProgress"
-					]
-				]
-		]
 aClasses +	[	:name = "GWindow" ,
 			:realname = "QWindow" ,
 			:initpara = "QScreen *",
