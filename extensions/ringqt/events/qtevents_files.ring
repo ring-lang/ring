@@ -21,21 +21,8 @@ load "qradiobutton.ring"
 load "qbuttongroup.ring"
 load "qvideowidget.ring"
 load "qtimer.ring"
+load "qtcpserver.ring"
 
-aClasses +	[	:name = "GTcpServer" ,
-			:realname = "QTcpServer" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "acceptError(QAbstractSocket::SocketError)" ,
-						:slot = "acceptErrorSlot()" ,
-						:event = "acceptError"
-					] ,
-					[ 	:signal = "newConnection()" ,
-						:slot = "newConnectionSlot()" ,
-						:event = "newConnection"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GIODevice" ,
 			:realname = "QIODevice" ,
 			:initpara = "QObject *",
