@@ -11,16 +11,8 @@ load "qcombobox.ring"
 load "qtabwidget.ring"
 load "qtablewidget.ring"
 load "qprogressbar.ring"
+load "qspinbox.ring"
 
-aClasses +	[	:name = "GSpinBox" ,
-			:realname = "QSpinBox" ,
-			:events = [
-					[ 	:signal = "valueChanged(int)" ,
-						:slot = "valueChangedSlot()" ,
-						:event = "valueChanged"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GSlider" ,
 			:realname = "QSlider" ,
 			:events = [
