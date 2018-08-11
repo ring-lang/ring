@@ -30,21 +30,8 @@ load "qnetworkaccessmanager.ring"
 load "qthread.ring"
 load "qplaintextedit.ring"
 load "qheaderview.ring"
+load "qprocess.ring"
 
-aClasses +	[	:name = "GProcess" ,
-			:realname = "QProcess" ,
-			:initpara = "QObject *",
-			:events = [
-					[ 	:signal = "readyReadStandardError()" ,
-						:slot = "readyReadStandardErrorSlot()" ,
-						:event = "readyReadStandardError"
-					] ,
-					[ 	:signal = "readyReadStandardOutput()" ,
-						:slot = "readyReadStandardOutputSlot()" ,
-						:event = "readyReadStandardOutput"
-					] 
-				  ]
-		]
 aClasses +	[	:name = "GToolButton" ,
 			:realname = "QToolButton" ,
 			:initpara = "QWidget *",
