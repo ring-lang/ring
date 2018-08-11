@@ -1,15 +1,8 @@
 aClasses = []
 
+load "qpushbutton.ring"
 
-aClasses +	[	:name = "GPushButton" ,
-			:realname = "QPushButton" ,
-			:events = [
-					[ 	:signal = "clicked()" ,
-						:slot = "clickedSlot()" ,
-						:event = "Click"
-					]
-				  ]
-		]
+
 aClasses +	[	:name = "GAction" ,
 			:realname = "QAction" ,
 			:events = [
