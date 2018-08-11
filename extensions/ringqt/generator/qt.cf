@@ -8,21 +8,8 @@
 <loadfile> qt_module_multimediawidgets.cf
 <loadfile> qt_module_printsupport.cf
 <loadfile> qt_module_network.cf
+<loadfile> qt_module_sql.cf
 
-
-
-<comment>
-				Module (sql)
-</comment>
-
-<loadfile> qsqldatabase.cf
-<loadfile> qsqldriver.cf
-<loadfile> qsqlquery.cf
-<loadfile> qsqlerror.cf
-<loadfile> qsqlindex.cf
-<loadfile> qsqlrecord.cf
-<loadfile> qsqlfield.cf
-<loadfile> qsqldrivercreatorbase.cf
 
 
 <comment>

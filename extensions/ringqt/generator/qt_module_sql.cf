@@ -1,0 +1,13 @@
+<comment>
+				Module (sql)
+</comment>
+
+<loadfile> qsqldatabase.cf
+<loadfile> qsqldriver.cf
+<loadfile> qsqlquery.cf
+<loadfile> qsqlerror.cf
+<loadfile> qsqlindex.cf
+<loadfile> qsqlrecord.cf
+<loadfile> qsqlfield.cf
+<loadfile> qsqldrivercreatorbase.cf
+
