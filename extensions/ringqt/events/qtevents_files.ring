@@ -33,6 +33,7 @@ load "qheaderview.ring"
 load "qprocess.ring"
 load "qtoolbutton.ring"
 load "qserialport.ring"
+load "qbluetoothdevicediscoveryagent.ring"
 
 aClasses +	[	:name = "GBluetoothLocalDevice" ,
 			:realname = "QBluetoothLocalDevice" ,
