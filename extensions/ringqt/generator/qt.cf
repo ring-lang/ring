@@ -1,9 +1,9 @@
 <loadfile> qt_settings.cf
 
-<loadfile> qt_module_widgets.cf
-<loadfile> qt_module_gui.cf
-<loadfile> qt_module_testlib.cf
 <loadfile> qt_module_core.cf
+<loadfile> qt_module_gui.cf
+<loadfile> qt_module_widgets.cf
+<loadfile> qt_module_testlib.cf
 <loadfile> qt_module_multimedia.cf
 <loadfile> qt_module_multimediawidgets.cf
 <loadfile> qt_module_printsupport.cf
@@ -17,4 +17,3 @@
 <loadfile> qt_module_axcontainer.cf
 <loadfile> qt_module_quickwidgets.cf
 <loadfile> qt_module_qml.cf
-
