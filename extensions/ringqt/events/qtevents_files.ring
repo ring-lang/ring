@@ -10,16 +10,8 @@ load "qtreewidget.ring"
 load "qcombobox.ring"
 load "qtabwidget.ring"
 load "qtablewidget.ring"
+load "qprogressbar.ring"
 
-aClasses +	[	:name = "GProgressBar" ,
-			:realname = "QProgressBar" ,
-			:events = [
-					[ 	:signal = "valueChanged(int)" ,
-						:slot = "valueChangedSlot()" ,
-						:event = "valueChanged"
-					]
-				  ]
-		] 
 aClasses +	[	:name = "GSpinBox" ,
 			:realname = "QSpinBox" ,
 			:events = [
