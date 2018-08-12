@@ -7,7 +7,7 @@ copy ..\..\..\include\*.h ..\project\
 copy ring_ext.h ..\project\
 cd ..\..\..\extensions\ringqt\
 call gencodeandroid.bat
-copy *.cpp ..\..\android\ringqt\project\
-copy *.h ..\..\android\ringqt\project\
+copy cpp\src\*.cpp ..\..\android\ringqt\project\
+copy cpp\include\*.h ..\..\android\ringqt\project\
 call gencode.bat
 cd ..\..\android\ringqt\update_ring
