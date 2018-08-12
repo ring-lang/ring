@@ -4,6 +4,13 @@
 
 load "events/qtevents_files.ring"
 
+if isWindows()
+	cHeaderFolder = "cpp\include\"
+	cSrcFolder = "cpp\src\"
+else
+	cHeaderFolder = "cpp/include/"
+	cSrcFolder = "cpp/src/"
+ok
 
 Func Main
 
@@ -125,7 +132,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	cCode = substr(cCode,"<T_SLOTS>", cEventsSlots)
 
 	cFileName = lower(aClass[:name]) + ".h"
-	writefile(cFileName,cCode)
+	writefile(cHeaderFolder+cFileName,cCode)
 
 Func GenSource aClass
 
@@ -265,7 +272,7 @@ void '+aClass[:name]+'::'
 	cCode = substr(cCode,"<T_SLOTS>", cSlots)
 
 	cFileName = lower(aClass[:name]) + ".cpp"
-	writefile(cFileName,cCode)
+	writefile(cSrcFolder+cFileName,cCode)
 
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl +
