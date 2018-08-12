@@ -237,7 +237,7 @@ ps: Thanks for keeping array index to start with 1. It means a lot."
 "Ring Notepad is a an example of the power of Ring.
 It is like NotePad++ with built in form design capability, drag and drop, object attributes etc.
 It is a marvelous application"
-	,  Bert Mariani
+	,  Bert Mariani (Italy)
 
 "Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages.
 Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages.
@@ -246,6 +246,9 @@ Ring's implementation of OOP and GUI based apps is far superior to C++ and C#.
 Another major achievement of the Ring team is the ease at which programmers can get on-line access to Ring documentation, compared to on-line C++ and C# documentation.
 The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of credit for such an impressive bit of software."
 	, L Godioleskky
+
+"Strongly speaking, it is a strong and new game programming language."
+	, IsVowel (Japan)
 
 
 .. index:: 
