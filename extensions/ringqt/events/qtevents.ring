@@ -2,14 +2,14 @@
 # To execute : ring qtevents.ring
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "events/qtevents_files.ring"
+load "qtevents_files.ring"
 
 if isWindows()
-	cHeaderFolder = "cpp\include\"
-	cSrcFolder = "cpp\src\"
+	cHeaderFolder = "..\cpp\include\"
+	cSrcFolder = "..\cpp\src\"
 else
-	cHeaderFolder = "cpp/include/"
-	cSrcFolder = "cpp/src/"
+	cHeaderFolder = "../cpp/include/"
+	cSrcFolder = "../cpp/src/"
 ok
 
 Func Main

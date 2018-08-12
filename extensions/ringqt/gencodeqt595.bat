@@ -1,5 +1,7 @@
 set RINGQT_ANDROID=
 set RINGQT_NOWEBKIT=1
-ring ..\codegen\parsec.ring generator\qt.cf ring_qt.cpp ring_qt.ring
+ring ..\codegen\parsec.ring generator\qt.cf cpp\src\ring_qt.cpp ring_qt.ring
+cd events
 ring qtevents.ring
+cd ..
 
