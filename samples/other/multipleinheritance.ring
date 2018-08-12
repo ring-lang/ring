@@ -22,7 +22,7 @@ func AddParentClassAttributes oObject,cClass
 class Camera
 	Name = "Camera"
 	func testCamera
-		? "message from testCamera"
+		? "Message from testCamera"
 
 class MobilePhone
 	Type = "Android"
