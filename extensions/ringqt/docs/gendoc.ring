@@ -6,12 +6,12 @@
 load "stdlibcore.ring"
 
 cDir = currentdir()
-chdir("generator")
+chdir("../generator")
 cFile = read("qt.cf")
 if isWindows()
-	C_OUTPUTFILE = "..\qtclassesdoc.txt"
+	C_OUTPUTFILE = "..\docs\qtclassesdoc.txt"
 else 
-	C_OUTPUTFILE = "../qtclassesdoc.txt"
+	C_OUTPUTFILE = "../docs/qtclassesdoc.txt"
 ok
 C_CHAPTERNAME = "RingQt Classes Reference"
 lStart = False		# False = Classes Doc.   True = Functions Doc.
@@ -39,5 +39,5 @@ funcAfterClass = func cClassName {
 }
 #===============================================
 
-load "../codegen/gendoc.ring"
+load "../../codegen/gendoc.ring"
 chdir(cDir)
