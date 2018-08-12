@@ -1,1 +1,3 @@
-start ringw ../../samples/tools/qtclass2ringcodegen/qtclass2ringcodegen.ring
+cd %cd%/../../samples/tools/qtclassconverter
+start start.bat
+cd %cd%/../../../extensions/ringqt
