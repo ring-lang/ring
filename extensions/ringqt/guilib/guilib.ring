@@ -10,7 +10,7 @@
 	load "qt.rh"
 	load "ring_qt.ring"
 # Load the Objects Library 
-	load "../objectslib/objects.ring"
-	load "../objectslib/subwindows.ring"
+	load "objectslib/objects.ring"
+	load "objectslib/subwindows.ring"
 # Load the modern library (Better functions and classes)	
-	load "../modernlib/modernlib.ring"
+	load "modernlib/modernlib.ring"
