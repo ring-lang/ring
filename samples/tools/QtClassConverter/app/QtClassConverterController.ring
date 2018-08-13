@@ -333,7 +333,7 @@ Func pSignalsProcess aList
 		ok
 	next
 
-	cOutput = 'aClasses += [
+	cOutput = 'aClasses + [
 			:name = "<classcodename>" ,
 			:realname = "<realclassname>" ,<classparas>
 			:events = ['
