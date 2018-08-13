@@ -69,21 +69,9 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 13. Click "Convert" button to get output.
 
-![08](images/08.jpg)
+14. In the output textbox on the right side above. The first part above the line has to be copied and appended to included files list in "ringqt/classes/qt_headerfiles.cf" file. The output below line should be copied and append to a separate cf file in ringqt/classes folder. This cf file must be loaded from another cf file like ringqt/classes/qt_module_widgets.cf
 
-
-
-14. In the output textbox on the right side above. The first part above the line has to be copied and appended to included files list at the beginning of the "qt.cf" file. The output below line should be copied and append to the end of "qt.cf" file. "qt.cf" file is located in the "ringqt" extension folder.
-
-![09](images/09.jpg)
-
-![10](images/10.jpg)
-
-
-15. The next output textbox on the right side below, should be copied and appended to the classes list in the "qtevents.ring" file that's located also in the "ringqt" extension folder. (just before the last square bracket, at the red point on the next picture)
-
-![11](images/11.jpg)
-
+15. The next output textbox on the right side below, should be copied and appended to a new ring file in the "ringqt/events" folder. This new file must be loaded from the file ringqt/events/qtevents_files.ring 
 
 16. Run the "gencode.bat" or "gencode.sh" to generate "ringqt" extension code with your new class included.
 
