@@ -118,18 +118,7 @@ func ConvertBtnAction
 func TrimAll str 
 	return substr(substr(substr(str,char(9), ""), nl, ""), " ", "")
 
-/*func TrimAll str 		# This will be activated at ring 1.4 release
-	str = substr(substr(str,char(9), ""), nl, "")
-	while True
-		if substr(str, "  ") 
-			str = substr(str, "  ", " ")
-		else
-			exit
-		ok
-	end
-	return trim(str)*/
-
-Func pFunctionsProcess aList
+func pFunctionsProcess aList
 	if TrimAll(oView.FunctionsTE.toPlaintext()) = NULL And TrimAll(oView.EnumsFlagsTE.toPlaintext()) = NULL
 		return
 	ok
@@ -344,8 +333,8 @@ Func pSignalsProcess aList
 		ok
 	next
 
-	cOutput = ',
-		[	:name = "<classcodename>" ,
+	cOutput = 'aClasses += [
+			:name = "<classcodename>" ,
 			:realname = "<realclassname>" ,<classparas>
 			:events = ['
 	cOutput = substr(cOutput, "<realclassname>", cClassRealName)
