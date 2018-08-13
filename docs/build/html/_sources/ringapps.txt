@@ -250,6 +250,8 @@ The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of cre
 "Strongly speaking, it is a strong and new game programming language."
 	, IsVowel (Japan)
 
+"The language seems to have some interesting features, specially the use of braces to access object fields and methods."
+	, Nuaua (Reddit)
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
