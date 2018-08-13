@@ -36,9 +36,9 @@ Class RNoteFileMenu
 		}
 
 	func OpenFile cName
-		this.cActiveFileName = cName
-		this.textedit1.setPlaintext(read(this.cActiveFileName))
-		this.SetActiveFileName()
+		cActiveFileName = cName
+		textedit1.setPlaintext(read(this.cActiveFileName))
+		SetActiveFileName()
 
 	func Save
 		if cActiveFileName = NULL return SaveAs() ok

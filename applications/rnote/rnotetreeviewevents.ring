@@ -24,7 +24,7 @@ Class RNoteTreeViewEvents
 			ok
 			StatusMessage("Ready!")
 			oDockFormDesigner.raise()
-			cSourceFile = substr(cFormFile,".rform","controller.ring")
+			cSourceFile = substr(cFormFile,".rform","Controller.ring")
 			if fexists(cSourceFile)
 				cActiveFileName = cSourceFile
 			else 
