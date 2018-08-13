@@ -5,7 +5,7 @@ aObjectsList = [
 		 :width =  1263 , :height = 716 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
-		 :windowflags =  "Qt_dialog | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowSystemMenuHint | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
@@ -14,7 +14,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Lablel1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 183 , : y = 12  , 
+		 :x = 168 , : y = 22  , 
 		 :width =  152 , :height = 22 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -25,7 +25,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label2" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 635 , : y = 46  , 
+		 :x = 620 , : y = 56  , 
 		 :width =  144 , :height = 35 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -36,7 +36,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ClassNameLE" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 375 , : y = 5  , 
+		 :x = 360 , : y = 15  , 
 		 :width =  223 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -52,7 +52,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ClassCodeNameLE" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 798 , : y = 44  , 
+		 :x = 783 , : y = 54  , 
 		 :width =  225 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -68,8 +68,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ClassParaL" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 378 , : y = 96  , 
-		 :width =  500 , :height = 17 , 
+		 :x = 363 , : y = 96  , 
+		 :width =  500 , :height = 16 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
@@ -79,7 +79,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "RBNormal" , :id = 7 , :classname = "formdesigner_qradiobutton" , :data = [
-		 :x = 374 , : y = 133  , 
+		 :x = 359 , : y = 123  , 
 		 :width =  111 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -93,7 +93,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "RBNoNew" , :id = 8 , :classname = "formdesigner_qradiobutton" , :data = [
-		 :x = 495 , : y = 133  , 
+		 :x = 480 , : y = 123  , 
 		 :width =  110 , :height = 19 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -107,7 +107,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "RBAbstract" , :id = 9 , :classname = "formdesigner_qradiobutton" , :data = [
-		 :x = 611 , : y = 134  , 
+		 :x = 596 , : y = 124  , 
 		 :width =  115 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -121,7 +121,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "PassVMPointerCB" , :id = 10 , :classname = "formdesigner_qcheckbox" , :data = [
-		 :x = 761 , : y = 134  , 
+		 :x = 746 , : y = 124  , 
 		 :width =  158 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -136,7 +136,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Lablel10" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 633 , : y = 8  , 
+		 :x = 618 , : y = 18  , 
 		 :width =  152 , :height = 35 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -147,7 +147,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ClassParentLE" , :id = 12 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 798 , : y = 4  , 
+		 :x = 783 , : y = 14  , 
 		 :width =  225 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -163,7 +163,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label12" , :id = 13 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 182 , : y = 50  , 
+		 :x = 167 , : y = 60  , 
 		 :width =  184 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -174,7 +174,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ClassParaLE" , :id = 14 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 381 , : y = 47  , 
+		 :x = 366 , : y = 57  , 
 		 :width =  218 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -190,7 +190,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label6" , :id = 15 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 116 , : y = 163  , 
+		 :x = 101 , : y = 173  , 
 		 :width =  117 , :height = 31 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -201,7 +201,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "EnumsFlagsTE" , :id = 16 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 42 , : y = 200  , 
+		 :x = 27 , : y = 210  , 
 		 :width =  254 , :height = 58 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -218,7 +218,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label16" , :id = 17 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 77 , : y = 273  , 
+		 :x = 62 , : y = 283  , 
 		 :width =  177 , :height = 31 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -229,7 +229,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "FunctionsTE" , :id = 18 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 41 , : y = 310  , 
+		 :x = 26 , : y = 320  , 
 		 :width =  254 , :height = 134 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -246,7 +246,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label18" , :id = 19 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 126 , : y = 462  , 
+		 :x = 111 , : y = 472  , 
 		 :width =  67 , :height = 28 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -257,7 +257,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label9" , :id = 20 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 632 , : y = 168  , 
+		 :x = 617 , : y = 178  , 
 		 :width =  240 , :height = 19 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -268,7 +268,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "QtcfOutputTE" , :id = 21 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 310 , : y = 200  , 
+		 :x = 295 , : y = 210  , 
 		 :width =  933 , :height = 190 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -285,7 +285,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label22" , :id = 22 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 612 , : y = 404  , 
+		 :x = 597 , : y = 414  , 
 		 :width =  310 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -296,7 +296,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "QtEventsOutputTE" , :id = 23 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 310 , : y = 435  , 
+		 :x = 295 , : y = 445  , 
 		 :width =  933 , :height = 170 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -313,7 +313,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label11" , :id = 24 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 252 , : y = 130  , 
+		 :x = 237 , : y = 120  , 
 		 :width =  108 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -324,7 +324,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn" , :id = 25 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 39 , : y = 620  , 
+		 :x = 24 , : y = 630  , 
 		 :width =  255 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -336,7 +336,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "SignalsTE" , :id = 26 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 41 , : y = 496  , 
+		 :x = 26 , : y = 506  , 
 		 :width =  254 , :height = 109 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -353,7 +353,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label122" , :id = 27 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 1105 , : y = 640  , 
+		 :x = 1090 , : y = 644  , 
 		 :width =  128 , :height = 23 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
