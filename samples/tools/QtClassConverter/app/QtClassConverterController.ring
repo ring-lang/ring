@@ -308,7 +308,7 @@ Func pSignalsProcess aList
 		return
 	ok
 	/* Output Example :
-		 ,
+		aClasses + 
 		[	:name = "GTextEdit" ,
 			:realname = "QTextEdit" ,
 			:events = [
@@ -316,6 +316,7 @@ Func pSignalsProcess aList
 					:slot = "collapsedSlot()" ,
 					:event = "collapsed"
 				] 
+			]
 		]
 	*/
 
@@ -334,9 +335,9 @@ Func pSignalsProcess aList
 	next
 
 	cOutput = 'aClasses + [
-			:name = "<classcodename>" ,
-			:realname = "<realclassname>" ,<classparas>
-			:events = ['
+		:name = "<classcodename>" ,
+		:realname = "<realclassname>" ,<classparas>
+		:events = ['
 	cOutput = substr(cOutput, "<realclassname>", cClassRealName)
 	cOutput = substr(cOutput, "<classcodename>", cClassName)
 	if oView.RBNormal.ischecked() and TrimAll(oView.ClassParaLE.text()) != NULL
@@ -392,10 +393,10 @@ Func pSignalsProcess aList
 		ok
 		cProtoType = cName + "(" + cParas + ")"
 		cOutput = '
-					[ 	:signal = "<prototype>" ,
-						:slot = "<name>Slot()" ,
-						:event = "<name>"
-					]'
+				[ 	:signal = "<prototype>" ,
+					:slot = "<name>Slot()" ,
+					:event = "<name>"
+				]'
 
 		if not x=len(aList) cOutput += "," ok
 		cOutput = substr(cOutput,"<prototype>",cProtoType)
@@ -407,8 +408,8 @@ Func pSignalsProcess aList
 	
 	oView{
 		QtEventsOutputTE.setText(QtEventsOutputTE.toPlainText() + '
-					  ]
-		]')
+		]
+	]')
 
 		QtcfOutputTE.setText(QtcfOutputTE.toPlainText() + nl + nl + cSetEvents + nl + cGetEvents)
 	}
