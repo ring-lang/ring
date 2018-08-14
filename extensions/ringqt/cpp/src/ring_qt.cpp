@@ -319,7 +319,6 @@ extern "C" {
 
 	RING_API void ringlib_init(RingState *pRingState)
 	{
-
 		new QApplication(pRingState->argc,pRingState->argv);
 	   	ring_qt_start(pRingState) ;
 	}
