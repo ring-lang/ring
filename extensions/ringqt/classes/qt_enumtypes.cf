@@ -352,5 +352,7 @@ aEnumTypes + "QGeoShape::ShapeType"
 aEnumTypes + "QGeoSatelliteInfo::Attribute"
 aEnumTypes + "QGeoSatelliteInfo::SatelliteSystem"
 aEnumTypes + "QNmeaPositionInfoSource::UpdateMode"
+aEnumTypes + "QPrintPreviewWidget::ViewMode"
+aEnumTypes + "QPrintPreviewWidget::ZoomMode"
 
 </runcode>
