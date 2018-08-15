@@ -50,4 +50,5 @@ load "qtabbar.ring"
 load "qquickwidget.ring"
 load "qdrag.ring"
 load "qgeopositioninfosource.ring"
+load "qprintpreviewwidget.ring"
 
