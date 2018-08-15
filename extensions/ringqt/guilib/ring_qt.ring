@@ -20502,17 +20502,6 @@ Class QPrinterInfo
 	Func printerName 
 		return QPrinterInfo_printerName(pObject)
 
-	Func state 
-		return QPrinterInfo_state(pObject)
-
-	Func availablePrinterNames 
-		pTempObj = new QStringList
-		pTempObj.pObject = QPrinterInfo_availablePrinterNames(pObject)
-		return pTempObj
-
-	Func defaultPrinterName 
-		return QPrinterInfo_defaultPrinterName(pObject)
-
 	Func printerInfo P1
 		pTempObj = new QPrinterInfo
 		pTempObj.pObject = QPrinterInfo_printerInfo(pObject,P1)

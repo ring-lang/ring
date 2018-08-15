@@ -15,6 +15,9 @@ QList<int> supportedResolutions(void)
 bool supportsCustomPageSizes(void)
 QList<QPrinterInfo> availablePrinters(void)
 QPrinterInfo defaultPrinter(void)
+QPrinter::PrinterState state(void)
+QStringList availablePrinterNames(void)
+QString defaultPrinterName(void)
 </comment>
 
 QString description(void)
@@ -24,7 +27,4 @@ bool isNull(void)
 QString location(void)
 QString makeAndModel(void)
 QString printerName(void)
-QPrinter::PrinterState state(void)
-QStringList availablePrinterNames(void)
-QString defaultPrinterName(void)
 QPrinterInfo printerInfo(QString printerName
