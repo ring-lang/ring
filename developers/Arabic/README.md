@@ -374,7 +374,7 @@
 		</td>
 	</tr>
 
-</div>
+</table>
 
 
 <h1 id="dev"> المطورين المعتمدين </h1> 
@@ -410,7 +410,9 @@
 			Mahmoud Mohmmad Kibreet
 		</td>
 		<td>
-	<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الشهادة </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الشهادة </a>
 		</td>
 	</tr>
 </table>
+
+</div>
