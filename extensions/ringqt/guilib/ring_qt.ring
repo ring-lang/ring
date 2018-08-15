@@ -20378,6 +20378,89 @@ Class QPrinter
 	Func setPageSizeMM P1
 		return QPrinter_setPageSizeMM(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QPrinterInfo
+
+	pObject
+
+	Func init 
+		pObject = QPrinterInfo_new()
+		return self
+
+	Func delete
+		pObject = QPrinterInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func defaultDuplexMode 
+		return QPrinterInfo_defaultDuplexMode(pObject)
+
+	Func defaultPageSize 
+		return QPrinterInfo_defaultPageSize(pObject)
+
+	Func description 
+		return QPrinterInfo_description(pObject)
+
+	Func isDefault 
+		return QPrinterInfo_isDefault(pObject)
+
+	Func isNull 
+		return QPrinterInfo_isNull(pObject)
+
+	Func isRemote 
+		return QPrinterInfo_isRemote(pObject)
+
+	Func location 
+		return QPrinterInfo_location(pObject)
+
+	Func makeAndModel 
+		return QPrinterInfo_makeAndModel(pObject)
+
+	Func maximumPhysicalPageSize 
+		return QPrinterInfo_maximumPhysicalPageSize(pObject)
+
+	Func minimumPhysicalPageSize 
+		return QPrinterInfo_minimumPhysicalPageSize(pObject)
+
+	Func printerName 
+		return QPrinterInfo_printerName(pObject)
+
+	Func state 
+		return QPrinterInfo_state(pObject)
+
+	Func supportedDuplexModes 
+		return QPrinterInfo_supportedDuplexModes(pObject)
+
+	Func supportedPageSizes 
+		return QPrinterInfo_supportedPageSizes(pObject)
+
+	Func supportedResolutions 
+		return QPrinterInfo_supportedResolutions(pObject)
+
+	Func supportsCustomPageSizes 
+		return QPrinterInfo_supportsCustomPageSizes(pObject)
+
+	Func availablePrinterNames 
+		pTempObj = new QStringList
+		pTempObj.pObject = QPrinterInfo_availablePrinterNames(pObject)
+		return pTempObj
+
+	Func availablePrinters 
+		return QPrinterInfo_availablePrinters(pObject)
+
+	Func defaultPrinter 
+		pTempObj = new QPrinterInfo
+		pTempObj.pObject = QPrinterInfo_defaultPrinter(pObject)
+		return pTempObj
+
+	Func defaultPrinterName 
+		return QPrinterInfo_defaultPrinterName(pObject)
+
+	Func printerInfo P1
+		pTempObj = new QPrinterInfo
+		pTempObj.pObject = QPrinterInfo_printerInfo(pObject,P1)
+		return pTempObj
+
 Class QAbstractSocket from QIODevice
 
 	pObject
