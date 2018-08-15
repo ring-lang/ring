@@ -2,6 +2,7 @@
 				Module (printsupport)
 </comment>
 
+<loadfile> qprintpreviewwidget.cf
 <loadfile> qprinter.cf
 <loadfile> qprinterinfo.cf
 

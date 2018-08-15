@@ -278,6 +278,8 @@ extern "C" {
 #include <QNmeaPositionInfoSource>
 
 #include <QPrinterInfo>
+#include <QPrintPreviewWidget>
+#include "gprintpreviewwidget.h"
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
