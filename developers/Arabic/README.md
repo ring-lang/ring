@@ -35,6 +35,15 @@
 			<a href="#lessons"    > الدروس التعليمية 	</a> <br/>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			5
+		</td>
+		<td>
+			<a href="#dev"    > المطورين المعتمدين	</a> <br/>
+		</td>
+	</tr>
+
 </table>
 
 <h2 id="invitation"> دعوة الإنضمام </h2> 
@@ -368,3 +377,40 @@
 </div>
 
 
+<h1 id="dev"> المطورين المعتمدين </h1> 
+
+
+<table>
+	<tr>	
+		<th>الرقم</th>
+		<th>الاسم</th>
+		<th>الشهادة</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>
+			Khalid Abid Ben Houari
+		</td>
+		<td>
+			![c1](Cert/c1.png)
+		</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>
+			Sara Abozeina
+		</td>
+		<td>
+			![c2](Cert/c2.png)
+		</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>
+			Mahmoud Mohmmad Kibreet
+		</td>
+		<td>
+			![c3](Cert/c3.png)
+		</td>
+	</tr>
+</table>
