@@ -20223,6 +20223,98 @@ Class QGraphicsVideoItem
 	Func size 
 		return QGraphicsVideoItem_size(pObject)
 
+Class QPrintPreviewWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QPrintPreviewWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPrintPreviewWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func currentPage 
+		return QPrintPreviewWidget_currentPage(pObject)
+
+	Func orientation 
+		return QPrintPreviewWidget_orientation(pObject)
+
+	Func pageCount 
+		return QPrintPreviewWidget_pageCount(pObject)
+
+	Func viewMode 
+		return QPrintPreviewWidget_viewMode(pObject)
+
+	Func zoomFactor 
+		return QPrintPreviewWidget_zoomFactor(pObject)
+
+	Func zoomMode 
+		return QPrintPreviewWidget_zoomMode(pObject)
+
+	Func fitInView 
+		return QPrintPreviewWidget_fitInView(pObject)
+
+	Func fitToWidth 
+		return QPrintPreviewWidget_fitToWidth(pObject)
+
+	Func print 
+		return QPrintPreviewWidget_print(pObject)
+
+	Func setAllPagesViewMode 
+		return QPrintPreviewWidget_setAllPagesViewMode(pObject)
+
+	Func setCurrentPage P1
+		return QPrintPreviewWidget_setCurrentPage(pObject,P1)
+
+	Func setFacingPagesViewMode 
+		return QPrintPreviewWidget_setFacingPagesViewMode(pObject)
+
+	Func setLandscapeOrientation 
+		return QPrintPreviewWidget_setLandscapeOrientation(pObject)
+
+	Func setOrientation P1
+		return QPrintPreviewWidget_setOrientation(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPortraitOrientation 
+		return QPrintPreviewWidget_setPortraitOrientation(pObject)
+
+	Func setSinglePageViewMode 
+		return QPrintPreviewWidget_setSinglePageViewMode(pObject)
+
+	Func setViewMode P1
+		return QPrintPreviewWidget_setViewMode(pObject,P1)
+
+	Func setZoomFactor P1
+		return QPrintPreviewWidget_setZoomFactor(pObject,P1)
+
+	Func setZoomMode P1
+		return QPrintPreviewWidget_setZoomMode(pObject,P1)
+
+	Func updatePreview 
+		return QPrintPreviewWidget_updatePreview(pObject)
+
+	Func zoomIn P1
+		return QPrintPreviewWidget_zoomIn(pObject,P1)
+
+	Func zoomOut P1
+		return QPrintPreviewWidget_zoomOut(pObject,P1)
+
+	Func setpaintRequestedEvent P1
+		return QPrintPreviewWidget_setpaintRequestedEvent(pObject,P1)
+
+	Func setpreviewChangedEvent P1
+		return QPrintPreviewWidget_setpreviewChangedEvent(pObject,P1)
+
+	Func getpaintRequestedEvent 
+		return QPrintPreviewWidget_getpaintRequestedEvent(pObject)
+
+	Func getpreviewChangedEvent 
+		return QPrintPreviewWidget_getpreviewChangedEvent(pObject)
+
 Class QPrinter
 
 	pObject
@@ -20392,12 +20484,6 @@ Class QPrinterInfo
 	Func ObjectPointer
 		return pObject
 
-	Func defaultDuplexMode 
-		return QPrinterInfo_defaultDuplexMode(pObject)
-
-	Func defaultPageSize 
-		return QPrinterInfo_defaultPageSize(pObject)
-
 	Func description 
 		return QPrinterInfo_description(pObject)
 
@@ -20407,20 +20493,11 @@ Class QPrinterInfo
 	Func isNull 
 		return QPrinterInfo_isNull(pObject)
 
-	Func isRemote 
-		return QPrinterInfo_isRemote(pObject)
-
 	Func location 
 		return QPrinterInfo_location(pObject)
 
 	Func makeAndModel 
 		return QPrinterInfo_makeAndModel(pObject)
-
-	Func maximumPhysicalPageSize 
-		return QPrinterInfo_maximumPhysicalPageSize(pObject)
-
-	Func minimumPhysicalPageSize 
-		return QPrinterInfo_minimumPhysicalPageSize(pObject)
 
 	Func printerName 
 		return QPrinterInfo_printerName(pObject)
@@ -20428,29 +20505,9 @@ Class QPrinterInfo
 	Func state 
 		return QPrinterInfo_state(pObject)
 
-	Func supportedDuplexModes 
-		return QPrinterInfo_supportedDuplexModes(pObject)
-
-	Func supportedPageSizes 
-		return QPrinterInfo_supportedPageSizes(pObject)
-
-	Func supportedResolutions 
-		return QPrinterInfo_supportedResolutions(pObject)
-
-	Func supportsCustomPageSizes 
-		return QPrinterInfo_supportsCustomPageSizes(pObject)
-
 	Func availablePrinterNames 
 		pTempObj = new QStringList
 		pTempObj.pObject = QPrinterInfo_availablePrinterNames(pObject)
-		return pTempObj
-
-	Func availablePrinters 
-		return QPrinterInfo_availablePrinters(pObject)
-
-	Func defaultPrinter 
-		pTempObj = new QPrinterInfo
-		pTempObj.pObject = QPrinterInfo_defaultPrinter(pObject)
 		return pTempObj
 
 	Func defaultPrinterName 
