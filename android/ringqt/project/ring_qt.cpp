@@ -274,6 +274,8 @@ extern "C" {
 #include <QGeoSatelliteInfoSource>
 #include <QNmeaPositionInfoSource>
 
+#include <QPrinterInfo>
+
 #include <QQuickWidget>
 #include <QQmlError>
 #include "gquickwidget.h"
@@ -290,7 +292,6 @@ extern "C" {
 
 	RING_API void ringlib_init(RingState *pRingState)
 	{
-
 		new QApplication(pRingState->argc,pRingState->argv);
 	   	ring_qt_start(pRingState) ;
 	}
@@ -474,6 +475,7 @@ extern "C" {
 	void ring_QGraphicsVideoItem_freefunc(void *pState,void *pPointer);
 	void ring_QVideoWidgetControl_freefunc(void *pState,void *pPointer);
 	void ring_QPrinter_freefunc(void *pState,void *pPointer);
+	void ring_QPrinterInfo_freefunc(void *pState,void *pPointer);
 	void ring_QAbstractSocket_freefunc(void *pState,void *pPointer);
 	void ring_QNetworkProxy_freefunc(void *pState,void *pPointer);
 	void ring_QTcpSocket_freefunc(void *pState,void *pPointer);
@@ -96492,6 +96494,422 @@ RING_FUNC(ring_QPrinter_setPageSizeMM)
 }
 
 
+RING_FUNC(ring_QPrinterInfo_defaultDuplexMode)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETNUMBER(pObject->defaultDuplexMode());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_defaultPageSize)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QPageSize *pValue ; 
+		pValue = (QPageSize *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPageSize)) ;
+		*pValue = pObject->defaultPageSize();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPageSize",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_description)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETSTRING(pObject->description().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_isDefault)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETNUMBER(pObject->isDefault());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_isNull)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_isRemote)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETNUMBER(pObject->isRemote());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_location)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETSTRING(pObject->location().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_makeAndModel)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETSTRING(pObject->makeAndModel().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_maximumPhysicalPageSize)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QPageSize *pValue ; 
+		pValue = (QPageSize *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPageSize)) ;
+		*pValue = pObject->maximumPhysicalPageSize();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPageSize",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_minimumPhysicalPageSize)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QPageSize *pValue ; 
+		pValue = (QPageSize *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPageSize)) ;
+		*pValue = pObject->minimumPhysicalPageSize();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPageSize",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_printerName)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETSTRING(pObject->printerName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_state)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QPrinter::PrinterState *pValue ; 
+		pValue = (QPrinter::PrinterState *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPrinter::PrinterState)) ;
+		*pValue = pObject->state();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPrinter::PrinterState",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_supportedDuplexModes)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QList<QPrinter::DuplexMode> *pValue ; 
+		pValue = (QList<QPrinter::DuplexMode> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QPrinter::DuplexMode>)) ;
+		*pValue = pObject->supportedDuplexModes();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QPrinter::DuplexMode>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_supportedPageSizes)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QList<QPageSize> *pValue ; 
+		pValue = (QList<QPageSize> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QPageSize>)) ;
+		*pValue = pObject->supportedPageSizes();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QPageSize>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_supportedResolutions)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QList<int> *pValue ; 
+		pValue = (QList<int> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<int>)) ;
+		*pValue = pObject->supportedResolutions();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<int>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_supportsCustomPageSizes)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETNUMBER(pObject->supportsCustomPageSizes());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_availablePrinterNames)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->availablePrinterNames();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_availablePrinters)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QList<QPrinterInfo> *pValue ; 
+		pValue = (QList<QPrinterInfo> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QPrinterInfo>)) ;
+		*pValue = pObject->availablePrinters();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QPrinterInfo>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_defaultPrinter)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	{
+		QPrinterInfo *pValue ; 
+		pValue = new QPrinterInfo() ;
+		*pValue = pObject->defaultPrinter();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPrinterInfo",ring_QPrinterInfo_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QPrinterInfo_defaultPrinterName)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	RING_API_RETSTRING(pObject->defaultPrinterName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QPrinterInfo_printerInfo)
+{
+	QPrinterInfo *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPrinterInfo *pValue ; 
+		pValue = new QPrinterInfo() ;
+		*pValue = pObject->printerInfo(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPrinterInfo",ring_QPrinterInfo_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QAbstractSocket_abort)
 {
 	GAbstractSocket *pObject ;
@@ -111249,6 +111667,17 @@ RING_FUNC(ring_QPrinter_new)
 	RING_API_RETCPOINTER(pObject,"QPrinter");
 }
 
+RING_FUNC(ring_QPrinterInfo_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QPrinterInfo *pObject = new QPrinterInfo();
+	RING_API_RETCPOINTER(pObject,"QPrinterInfo");
+}
+
 RING_FUNC(ring_QNetworkProxy_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -114436,6 +114865,23 @@ RING_FUNC(ring_QPrinter_delete)
 	}
 }
 
+RING_FUNC(ring_QPrinterInfo_delete)
+{
+	QPrinterInfo *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QNetworkProxy_delete)
 {
 	QNetworkProxy *pObject ; 
@@ -116158,6 +116604,13 @@ void ring_QPrinter_freefunc(void *pState,void *pPointer)
 {
 	QPrinter *pObject ; 
 	pObject = (QPrinter *) pPointer;
+	delete pObject ;
+}
+
+void ring_QPrinterInfo_freefunc(void *pState,void *pPointer)
+{
+	QPrinterInfo *pObject ; 
+	pObject = (QPrinterInfo *) pPointer;
 	delete pObject ;
 }
 
@@ -121123,6 +121576,27 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprinter_newpage",ring_QPrinter_newPage);
 	ring_vm_funcregister("qprinter_paintengine",ring_QPrinter_paintEngine);
 	ring_vm_funcregister("qprinter_setpagesizemm",ring_QPrinter_setPageSizeMM);
+	ring_vm_funcregister("qprinterinfo_defaultduplexmode",ring_QPrinterInfo_defaultDuplexMode);
+	ring_vm_funcregister("qprinterinfo_defaultpagesize",ring_QPrinterInfo_defaultPageSize);
+	ring_vm_funcregister("qprinterinfo_description",ring_QPrinterInfo_description);
+	ring_vm_funcregister("qprinterinfo_isdefault",ring_QPrinterInfo_isDefault);
+	ring_vm_funcregister("qprinterinfo_isnull",ring_QPrinterInfo_isNull);
+	ring_vm_funcregister("qprinterinfo_isremote",ring_QPrinterInfo_isRemote);
+	ring_vm_funcregister("qprinterinfo_location",ring_QPrinterInfo_location);
+	ring_vm_funcregister("qprinterinfo_makeandmodel",ring_QPrinterInfo_makeAndModel);
+	ring_vm_funcregister("qprinterinfo_maximumphysicalpagesize",ring_QPrinterInfo_maximumPhysicalPageSize);
+	ring_vm_funcregister("qprinterinfo_minimumphysicalpagesize",ring_QPrinterInfo_minimumPhysicalPageSize);
+	ring_vm_funcregister("qprinterinfo_printername",ring_QPrinterInfo_printerName);
+	ring_vm_funcregister("qprinterinfo_state",ring_QPrinterInfo_state);
+	ring_vm_funcregister("qprinterinfo_supportedduplexmodes",ring_QPrinterInfo_supportedDuplexModes);
+	ring_vm_funcregister("qprinterinfo_supportedpagesizes",ring_QPrinterInfo_supportedPageSizes);
+	ring_vm_funcregister("qprinterinfo_supportedresolutions",ring_QPrinterInfo_supportedResolutions);
+	ring_vm_funcregister("qprinterinfo_supportscustompagesizes",ring_QPrinterInfo_supportsCustomPageSizes);
+	ring_vm_funcregister("qprinterinfo_availableprinternames",ring_QPrinterInfo_availablePrinterNames);
+	ring_vm_funcregister("qprinterinfo_availableprinters",ring_QPrinterInfo_availablePrinters);
+	ring_vm_funcregister("qprinterinfo_defaultprinter",ring_QPrinterInfo_defaultPrinter);
+	ring_vm_funcregister("qprinterinfo_defaultprintername",ring_QPrinterInfo_defaultPrinterName);
+	ring_vm_funcregister("qprinterinfo_printerinfo",ring_QPrinterInfo_printerInfo);
 	ring_vm_funcregister("qabstractsocket_abort",ring_QAbstractSocket_abort);
 	ring_vm_funcregister("qabstractsocket_bind",ring_QAbstractSocket_bind);
 	ring_vm_funcregister("qabstractsocket_connecttohost",ring_QAbstractSocket_connectToHost);
@@ -121917,6 +122391,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraviewfinder_new",ring_QCameraViewfinder_new);
 	ring_vm_funcregister("qgraphicsvideoitem_new",ring_QGraphicsVideoItem_new);
 	ring_vm_funcregister("qprinter_new",ring_QPrinter_new);
+	ring_vm_funcregister("qprinterinfo_new",ring_QPrinterInfo_new);
 	ring_vm_funcregister("qnetworkproxy_new",ring_QNetworkProxy_new);
 	ring_vm_funcregister("qtcpsocket_new",ring_QTcpSocket_new);
 	ring_vm_funcregister("qtcpserver_new",ring_QTcpServer_new);
@@ -122112,6 +122587,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraviewfinder_delete",ring_QCameraViewfinder_delete);
 	ring_vm_funcregister("qgraphicsvideoitem_delete",ring_QGraphicsVideoItem_delete);
 	ring_vm_funcregister("qprinter_delete",ring_QPrinter_delete);
+	ring_vm_funcregister("qprinterinfo_delete",ring_QPrinterInfo_delete);
 	ring_vm_funcregister("qnetworkproxy_delete",ring_QNetworkProxy_delete);
 	ring_vm_funcregister("qtcpsocket_delete",ring_QTcpSocket_delete);
 	ring_vm_funcregister("qtcpserver_delete",ring_QTcpServer_delete);
