@@ -6,7 +6,7 @@
 load "stdlibcore.ring"
 
 cDir = currentdir()
-chdir("../generator")
+chdir("../classes")
 cFile = read("qt.cf")
 if isWindows()
 	C_OUTPUTFILE = "..\docs\qtclassesdoc.txt"
