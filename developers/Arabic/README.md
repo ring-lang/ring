@@ -392,7 +392,7 @@
 			Khalid Abid Ben Houari
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c1.png"> الشهادة </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c1.png"> الرابط </a>
 		</td>
 	</tr>
 	<tr>
@@ -401,7 +401,7 @@
 			Sara Abozeina
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c2.png"> الشهادة </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c2.png"> الرابط </a>
 		</td>
 	</tr>
 	<tr>
@@ -410,7 +410,7 @@
 			Mahmoud Mohmmad Kibreet
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الشهادة </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الرابط </a>
 		</td>
 	</tr>
 </table>
