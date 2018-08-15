@@ -277,6 +277,8 @@ extern "C" {
 #include <QGeoSatelliteInfoSource>
 #include <QNmeaPositionInfoSource>
 
+#include <QPrinterInfo>
+
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
 #include <QQmlError>

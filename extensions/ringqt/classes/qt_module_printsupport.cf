@@ -3,5 +3,6 @@
 </comment>
 
 <loadfile> qprinter.cf
+<loadfile> qprinterinfo.cf
 
 
