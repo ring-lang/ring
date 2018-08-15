@@ -6103,6 +6103,48 @@ Parameters : void
 * qreal y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPrintPreviewWidget Class
+
+QPrintPreviewWidget Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewWidget.html
+
+
+Parameters : QPrinter *
+
+
+Parent Class : QWidget
+
+* int currentPage(void)
+* QPrinter::Orientation orientation(void)
+* int pageCount(void)
+* QPrintPreviewWidget::ViewMode viewMode(void)
+* qreal zoomFactor(void)
+* QPrintPreviewWidget::ZoomMode zoomMode(void)
+* void fitInView(void)
+* void fitToWidth(void)
+* void print(void)
+* void setAllPagesViewMode(void)
+* void setCurrentPage(int page)
+* void setFacingPagesViewMode(void)
+* void setLandscapeOrientation(void)
+* void setOrientation(QPrinter::Orientation orientation)
+* void setPortraitOrientation(void)
+* void setSinglePageViewMode(void)
+* void setViewMode(QPrintPreviewWidget::ViewMode mode)
+* void setZoomFactor(qreal factor)
+* void setZoomMode(QPrintPreviewWidget::ZoomMode zoomMode)
+* void updatePreview(void)
+* void zoomIn(qreal factor)
+* void zoomOut(qreal factor)
+* void setpaintRequestedEvent(const char *)
+* void setpreviewChangedEvent(const char *)
+* const char *getpaintRequestedEvent(void)
+* const char *getpreviewChangedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPrinter Class
 
 QPrinter Class
@@ -6171,25 +6213,14 @@ C++ Reference : http://doc.qt.io/qt-5/QPrinterInfo.html
 
 Parameters : void
 
-* QPrinter::DuplexMode defaultDuplexMode(void)
-* QPageSize defaultPageSize(void)
 * QString description(void)
 * bool isDefault(void)
 * bool isNull(void)
-* bool isRemote(void)
 * QString location(void)
 * QString makeAndModel(void)
-* QPageSize maximumPhysicalPageSize(void)
-* QPageSize minimumPhysicalPageSize(void)
 * QString printerName(void)
 * QPrinter::PrinterState state(void)
-* QList<QPrinter::DuplexMode> supportedDuplexModes(void)
-* QList<QPageSize> supportedPageSizes(void)
-* QList<int> supportedResolutions(void)
-* bool supportsCustomPageSizes(void)
 * QStringList availablePrinterNames(void)
-* QList<QPrinterInfo> availablePrinters(void)
-* QPrinterInfo defaultPrinter(void)
 * QString defaultPrinterName(void)
 * QPrinterInfo printerInfo(QString printerName
 
