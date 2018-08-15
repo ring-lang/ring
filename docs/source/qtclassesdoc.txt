@@ -6219,9 +6219,6 @@ Parameters : void
 * QString location(void)
 * QString makeAndModel(void)
 * QString printerName(void)
-* QPrinter::PrinterState state(void)
-* QStringList availablePrinterNames(void)
-* QString defaultPrinterName(void)
 * QPrinterInfo printerInfo(QString printerName
 
 .. index::
