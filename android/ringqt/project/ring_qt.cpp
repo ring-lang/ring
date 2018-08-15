@@ -97080,67 +97080,6 @@ RING_FUNC(ring_QPrinterInfo_printerName)
 }
 
 
-RING_FUNC(ring_QPrinterInfo_state)
-{
-	QPrinterInfo *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
-	{
-		QPrinter::PrinterState *pValue ; 
-		pValue = (QPrinter::PrinterState *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPrinter::PrinterState)) ;
-		*pValue = pObject->state();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QPrinter::PrinterState",ring_state_free);
-	}
-}
-
-
-RING_FUNC(ring_QPrinterInfo_availablePrinterNames)
-{
-	QPrinterInfo *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
-	{
-		QStringList *pValue ; 
-		pValue = new QStringList() ;
-		*pValue = pObject->availablePrinterNames();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
-	}
-}
-
-
-RING_FUNC(ring_QPrinterInfo_defaultPrinterName)
-{
-	QPrinterInfo *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinterInfo *) RING_API_GETCPOINTER(1,"QPrinterInfo");
-	RING_API_RETSTRING(pObject->defaultPrinterName().toStdString().c_str());
-}
-
-
 RING_FUNC(ring_QPrinterInfo_printerInfo)
 {
 	QPrinterInfo *pObject ;
@@ -121904,9 +121843,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprinterinfo_location",ring_QPrinterInfo_location);
 	ring_vm_funcregister("qprinterinfo_makeandmodel",ring_QPrinterInfo_makeAndModel);
 	ring_vm_funcregister("qprinterinfo_printername",ring_QPrinterInfo_printerName);
-	ring_vm_funcregister("qprinterinfo_state",ring_QPrinterInfo_state);
-	ring_vm_funcregister("qprinterinfo_availableprinternames",ring_QPrinterInfo_availablePrinterNames);
-	ring_vm_funcregister("qprinterinfo_defaultprintername",ring_QPrinterInfo_defaultPrinterName);
 	ring_vm_funcregister("qprinterinfo_printerinfo",ring_QPrinterInfo_printerInfo);
 	ring_vm_funcregister("qabstractsocket_abort",ring_QAbstractSocket_abort);
 	ring_vm_funcregister("qabstractsocket_bind",ring_QAbstractSocket_bind);
