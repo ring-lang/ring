@@ -253,6 +253,9 @@ The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of cre
 "The language seems to have some interesting features, specially the use of braces to access object fields and methods."
 	, Nuaua (Reddit)
 
+"The code that implements the Ring VM actually looks quite nice. There is a bunch of test code -- great!"
+	, Peterfirefly (Reddit)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
