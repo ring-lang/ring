@@ -2,7 +2,7 @@
 # Author  : Mahmoud Fayed <msfclipper@yahoo.com>
 # Date    : 2017.10.30
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 
 # Use the Default Settings
 	if isMainSourceFile() 

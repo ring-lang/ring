@@ -28,7 +28,7 @@
 
 # Load Standard Libraries
 	load "guilib.ring"
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 
 # Load The Translation File
 	load "translation/english.ring"
