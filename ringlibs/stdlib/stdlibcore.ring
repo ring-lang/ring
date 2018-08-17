@@ -4,6 +4,7 @@
 # 2016-2017, CalmoSoft <calmosoft@gmail.com>
 
 Load "stdlib.rh"
+Load "stdfunctions.ring"
 
 /*
 	Function Name	: puts
