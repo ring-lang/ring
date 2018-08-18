@@ -1015,6 +1015,11 @@ void al_draw_soft_line(ALLEGRO_VERTEX* v1, ALLEGRO_VERTEX* v2, uintptr_t state, 
 Shader
 </comment>
 
+<runcode>
+aEnumTypes + "ALLEGRO_SHADER_TYPE"
+aEnumTypes + "ALLEGRO_SHADER_PLATFORM"
+</runcode>
+
 ALLEGRO_SHADER *al_create_shader(ALLEGRO_SHADER_PLATFORM platform)
 bool al_attach_shader_source(ALLEGRO_SHADER *shader, ALLEGRO_SHADER_TYPE type,const char *source)
 bool al_attach_shader_source_file(ALLEGRO_SHADER *shader,ALLEGRO_SHADER_TYPE type, const char *filename)
