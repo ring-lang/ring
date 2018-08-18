@@ -1016,3 +1016,4 @@ Shader
 </comment>
 
 ALLEGRO_SHADER *al_create_shader(ALLEGRO_SHADER_PLATFORM platform)
+bool al_attach_shader_source(ALLEGRO_SHADER *shader, ALLEGRO_SHADER_TYPE type,const char *source)
