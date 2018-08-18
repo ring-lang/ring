@@ -11722,6 +11722,20 @@ RING_FUNC(ring_al_attach_shader_source_file)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_SHADER_TYPE"));
 }
 
+
+RING_FUNC(ring_al_build_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_build_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
@@ -12363,6 +12377,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_create_shader",ring_al_create_shader);
 	ring_vm_funcregister("al_attach_shader_source",ring_al_attach_shader_source);
 	ring_vm_funcregister("al_attach_shader_source_file",ring_al_attach_shader_source_file);
+	ring_vm_funcregister("al_build_shader",ring_al_build_shader);
 	ring_vm_funcregister("al_new_allegro_event",ring_al_new_allegro_event);
 	ring_vm_funcregister("al_destroy_allegro_event",ring_al_destroy_allegro_event);
 	ring_vm_funcregister("al_get_allegro_event_type",ring_al_get_allegro_event_type);

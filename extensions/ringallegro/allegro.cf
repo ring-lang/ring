@@ -1018,3 +1018,4 @@ Shader
 ALLEGRO_SHADER *al_create_shader(ALLEGRO_SHADER_PLATFORM platform)
 bool al_attach_shader_source(ALLEGRO_SHADER *shader, ALLEGRO_SHADER_TYPE type,const char *source)
 bool al_attach_shader_source_file(ALLEGRO_SHADER *shader,ALLEGRO_SHADER_TYPE type, const char *filename)
+bool al_build_shader(ALLEGRO_SHADER *shader)
