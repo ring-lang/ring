@@ -22,6 +22,7 @@ class RNoteFilesTabs
 		nIndex = filestabs.currentindex() + 1
 		cFile = aFilesLines[nIndex][1]
 		nRow = aFilesLines[nIndex][2]		
+		if not fexists(cFile) return ok
 		cActiveFileName = cFile 
 		openFile(cFile)
 		GotoLine(nRow)		
