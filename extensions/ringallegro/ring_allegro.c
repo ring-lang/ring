@@ -11736,6 +11736,228 @@ RING_FUNC(ring_al_build_shader)
 	RING_API_RETNUMBER(al_build_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
 }
 
+
+RING_FUNC(ring_al_get_shader_log)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(al_get_shader_log((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_get_shader_platform)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		ALLEGRO_SHADER_PLATFORM *pValue ; 
+		pValue = (ALLEGRO_SHADER_PLATFORM *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_SHADER_PLATFORM)) ;
+		*pValue = al_get_shader_platform((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER"));
+		RING_API_RETCPOINTER(pValue,"ALLEGRO_SHADER_PLATFORM");
+	}
+}
+
+
+RING_FUNC(ring_al_use_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_use_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_destroy_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	al_destroy_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER"));
+}
+
+
+RING_FUNC(ring_al_set_shader_sampler)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_sampler(RING_API_GETSTRING(1),(ALLEGRO_BITMAP *) RING_API_GETCPOINTER(2,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_al_set_shader_matrix)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_matrix(RING_API_GETSTRING(1),(ALLEGRO_TRANSFORM *) RING_API_GETCPOINTER(2,"ALLEGRO_TRANSFORM")));
+}
+
+
+RING_FUNC(ring_al_set_shader_int)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_int(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_float)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_float(RING_API_GETSTRING(1), (float ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_bool)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_bool(RING_API_GETSTRING(1), (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_int_vector)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_int_vector(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_al_set_shader_float_vector)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_float_vector(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),(float *) RING_API_GETCPOINTER(3,"float"), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_al_get_default_shader_source)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETSTRING(al_get_default_shader_source(* (ALLEGRO_SHADER_PLATFORM  *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER_PLATFORM"),* (ALLEGRO_SHADER_TYPE  *) RING_API_GETCPOINTER(2,"ALLEGRO_SHADER_TYPE")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_SHADER_PLATFORM"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_SHADER_TYPE"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
@@ -12378,6 +12600,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_attach_shader_source",ring_al_attach_shader_source);
 	ring_vm_funcregister("al_attach_shader_source_file",ring_al_attach_shader_source_file);
 	ring_vm_funcregister("al_build_shader",ring_al_build_shader);
+	ring_vm_funcregister("al_get_shader_log",ring_al_get_shader_log);
+	ring_vm_funcregister("al_get_shader_platform",ring_al_get_shader_platform);
+	ring_vm_funcregister("al_use_shader",ring_al_use_shader);
+	ring_vm_funcregister("al_destroy_shader",ring_al_destroy_shader);
+	ring_vm_funcregister("al_set_shader_sampler",ring_al_set_shader_sampler);
+	ring_vm_funcregister("al_set_shader_matrix",ring_al_set_shader_matrix);
+	ring_vm_funcregister("al_set_shader_int",ring_al_set_shader_int);
+	ring_vm_funcregister("al_set_shader_float",ring_al_set_shader_float);
+	ring_vm_funcregister("al_set_shader_bool",ring_al_set_shader_bool);
+	ring_vm_funcregister("al_set_shader_int_vector",ring_al_set_shader_int_vector);
+	ring_vm_funcregister("al_set_shader_float_vector",ring_al_set_shader_float_vector);
+	ring_vm_funcregister("al_get_default_shader_source",ring_al_get_default_shader_source);
 	ring_vm_funcregister("al_new_allegro_event",ring_al_new_allegro_event);
 	ring_vm_funcregister("al_destroy_allegro_event",ring_al_destroy_allegro_event);
 	ring_vm_funcregister("al_get_allegro_event_type",ring_al_get_allegro_event_type);
