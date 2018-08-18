@@ -11670,6 +11670,18 @@ RING_FUNC(ring_al_destroy_vertex_decl)
 	al_destroy_vertex_decl((ALLEGRO_VERTEX_DECL *) RING_API_GETCPOINTER(1,"ALLEGRO_VERTEX_DECL"));
 }
 
+
+RING_FUNC(ring_al_create_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_create_shader(* (ALLEGRO_SHADER_PLATFORM  *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER_PLATFORM")),"ALLEGRO_SHADER");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_SHADER_PLATFORM"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
@@ -12308,6 +12320,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_draw_indexed_prim",ring_al_draw_indexed_prim);
 	ring_vm_funcregister("al_create_vertex_decl",ring_al_create_vertex_decl);
 	ring_vm_funcregister("al_destroy_vertex_decl",ring_al_destroy_vertex_decl);
+	ring_vm_funcregister("al_create_shader",ring_al_create_shader);
 	ring_vm_funcregister("al_new_allegro_event",ring_al_new_allegro_event);
 	ring_vm_funcregister("al_destroy_allegro_event",ring_al_destroy_allegro_event);
 	ring_vm_funcregister("al_get_allegro_event_type",ring_al_get_allegro_event_type);
