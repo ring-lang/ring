@@ -1020,6 +1020,8 @@ aEnumTypes + "ALLEGRO_SHADER_TYPE"
 aEnumTypes + "ALLEGRO_SHADER_PLATFORM"
 </runcode>
 
+<filter> isWindows() or ismacOSX()
+
 ALLEGRO_SHADER *al_create_shader(ALLEGRO_SHADER_PLATFORM platform)
 bool al_attach_shader_source(ALLEGRO_SHADER *shader, ALLEGRO_SHADER_TYPE type,const char *source)
 bool al_attach_shader_source_file(ALLEGRO_SHADER *shader,ALLEGRO_SHADER_TYPE type, const char *filename)
@@ -1037,3 +1039,4 @@ bool al_set_shader_int_vector(const char *name,int num_components, const int *i,
 bool al_set_shader_float_vector(const char *name,int num_components, const float *f, int num_elems)
 char const *al_get_default_shader_source(ALLEGRO_SHADER_PLATFORM platform,ALLEGRO_SHADER_TYPE type)
 
+</filter>
