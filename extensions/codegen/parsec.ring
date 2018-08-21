@@ -612,8 +612,10 @@ Func GenFuncCodeCallFunc aList
 	cCode +=  ";" + nl
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + C_TABS_1 + "}" + nl
+		cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+			'",ring_state_free' +
+			 ');' + nl + C_TABS_1 + "}" + nl
+
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
