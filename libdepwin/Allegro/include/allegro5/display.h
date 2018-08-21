@@ -24,7 +24,9 @@ enum {
    ALLEGRO_FULLSCREEN_WINDOW           = 1 << 9,
    ALLEGRO_MINIMIZED                   = 1 << 10,
    ALLEGRO_PROGRAMMABLE_PIPELINE       = 1 << 11,
-   ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12
+   ALLEGRO_GTK_TOPLEVEL_INTERNAL       = 1 << 12,
+   ALLEGRO_MAXIMIZED                   = 1 << 13,
+   ALLEGRO_OPENGL_ES_PROFILE           = 1 << 14,
 };
 
 /* Possible parameters for al_set_display_option.
@@ -65,6 +67,8 @@ enum ALLEGRO_DISPLAY_OPTIONS {
    ALLEGRO_SUPPORT_SEPARATE_ALPHA = 30,
    ALLEGRO_AUTO_CONVERT_BITMAPS = 31,
    ALLEGRO_SUPPORTED_ORIENTATIONS = 32,
+   ALLEGRO_OPENGL_MAJOR_VERSION = 33,
+   ALLEGRO_OPENGL_MINOR_VERSION = 34,
    ALLEGRO_DISPLAY_OPTIONS_COUNT
 };
 
@@ -104,10 +108,17 @@ enum
 typedef struct ALLEGRO_DISPLAY ALLEGRO_DISPLAY;
 
 
+/* Enum: ALLEGRO_NEW_WINDOW_TITLE_MAX_SIZE
+*/
+#define ALLEGRO_NEW_WINDOW_TITLE_MAX_SIZE 255
+
 AL_FUNC(void, al_set_new_display_refresh_rate, (int refresh_rate));
 AL_FUNC(void, al_set_new_display_flags, (int flags));
 AL_FUNC(int,  al_get_new_display_refresh_rate, (void));
 AL_FUNC(int,  al_get_new_display_flags, (void));
+
+AL_FUNC(void, al_set_new_window_title, (const char *title));
+AL_FUNC(const char *, al_get_new_window_title, (void));
 
 AL_FUNC(int, al_get_display_width,  (ALLEGRO_DISPLAY *display));
 AL_FUNC(int, al_get_display_height, (ALLEGRO_DISPLAY *display));
@@ -147,6 +158,7 @@ AL_FUNC(void, al_set_window_position, (ALLEGRO_DISPLAY *display, int x, int y));
 AL_FUNC(void, al_get_window_position, (ALLEGRO_DISPLAY *display, int *x, int *y));
 AL_FUNC(bool, al_set_window_constraints, (ALLEGRO_DISPLAY *display, int min_w, int min_h, int max_w, int max_h));
 AL_FUNC(bool, al_get_window_constraints, (ALLEGRO_DISPLAY *display, int *min_w, int *min_h, int *max_w, int *max_h));
+AL_FUNC(void, al_apply_window_constraints, (ALLEGRO_DISPLAY *display, bool onoff));
 
 AL_FUNC(void, al_set_window_title, (ALLEGRO_DISPLAY *display, const char *title));
 
@@ -161,8 +173,12 @@ AL_FUNC(int, al_get_display_option, (ALLEGRO_DISPLAY *display, int option));
 AL_FUNC(void, al_hold_bitmap_drawing, (bool hold));
 AL_FUNC(bool, al_is_bitmap_drawing_held, (void));
 
+/* Miscellaneous */
 AL_FUNC(void, al_acknowledge_drawing_halt, (ALLEGRO_DISPLAY *display));
 AL_FUNC(void, al_acknowledge_drawing_resume, (ALLEGRO_DISPLAY *display));
+#if defined(ALLEGRO_UNSTABLE) || defined(ALLEGRO_INTERNAL_UNSTABLE) || defined(ALLEGRO_SRC)
+AL_FUNC(void, al_backup_dirty_bitmaps, (ALLEGRO_DISPLAY *display));
+#endif
 
 #ifdef __cplusplus
    }

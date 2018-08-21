@@ -40,7 +40,6 @@
    #import <CoreAudio/CoreAudio.h>
    #import <AudioUnit/AudioUnit.h>
    #import <AudioToolbox/AudioToolbox.h>
-   #import <QuickTime/QuickTime.h>
    #import <IOKit/IOKitLib.h>
    #import <IOKit/IOCFPlugIn.h>
    #import <IOKit/hid/IOHIDLib.h>
@@ -54,7 +53,7 @@ ALLEGRO_PATH *_al_osx_get_path(int id);
    #ifndef ALLEGRO_NO_MAGIC_MAIN
       #define ALLEGRO_MAGIC_MAIN
       #if __GNUC__ >= 4
-         #define main __attribute__ ((visibility("default"))) _al_mangled_main
+         #define main __attribute__ ((visibility("default"),used)) _al_mangled_main
       #else
          #define main _al_mangled_main
       #endif

@@ -17,6 +17,7 @@
 #define __al_included_allegro5_timer_h
 
 #include "allegro5/base.h"
+#include "allegro5/events.h"
 
 #ifdef __cplusplus
    extern "C" {
@@ -49,6 +50,7 @@ AL_FUNC(ALLEGRO_TIMER*, al_create_timer, (double speed_secs));
 AL_FUNC(void, al_destroy_timer, (ALLEGRO_TIMER *timer));
 AL_FUNC(void, al_start_timer, (ALLEGRO_TIMER *timer));
 AL_FUNC(void, al_stop_timer, (ALLEGRO_TIMER *timer));
+AL_FUNC(void, al_resume_timer, (ALLEGRO_TIMER *timer));
 AL_FUNC(bool, al_get_timer_started, (const ALLEGRO_TIMER *timer));
 AL_FUNC(double, al_get_timer_speed, (const ALLEGRO_TIMER *timer));
 AL_FUNC(void, al_set_timer_speed, (ALLEGRO_TIMER *timer, double speed_secs));

@@ -19,10 +19,10 @@
 #define ALLEGRO_CFG_OPENGL
 /* #undef ALLEGRO_CFG_OPENGLES */
 /* #undef ALLEGRO_CFG_OPENGLES2 */
+/* #undef ALLEGRO_CFG_OPENGLES3 */
 #define ALLEGRO_CFG_OPENGL_PROGRAMMABLE_PIPELINE
 #define ALLEGRO_CFG_SHADER_GLSL
 #define ALLEGRO_CFG_SHADER_HLSL
-/* #undef ALLEGRO_CFG_OPENGL_S3TC_LOCKING */
 
 /* #undef ALLEGRO_CFG_ANDROID_LEGACY */
 
@@ -57,11 +57,15 @@
 /* #undef ALLEGRO_HAVE_MPROTECT */
 /* #undef ALLEGRO_HAVE_SCHED_YIELD */
 /* #undef ALLEGRO_HAVE_SYSCONF */
+/* #undef ALLEGRO_HAVE_SYSCTL */
+
 /* #undef ALLEGRO_HAVE_FSEEKO */
 /* #undef ALLEGRO_HAVE_FTELLO */
 /* #undef ALLEGRO_HAVE_STRERROR_R */
 #define ALLEGRO_HAVE_STRERROR_S
 #define ALLEGRO_HAVE_VA_COPY
+#define ALLEGRO_HAVE_FTELLI64
+#define ALLEGRO_HAVE_FSEEKI64
 
 /* Define to 1 if procfs reveals argc and argv */
 /* #undef ALLEGRO_HAVE_PROCFS_ARGCV */
@@ -96,6 +100,12 @@
 
 /* Define if XIM extension is supported. */
 /* #undef ALLEGRO_XWINDOWS_WITH_XIM */
+
+/* Define if XInput 2.2 X11 extension is supported. */
+/* #undef ALLEGRO_XWINDOWS_WITH_XINPUT2 */
+
+/* Define if Xpm is found. Useful on Ubuntu Unity to set icon. */
+/* #undef ALLEGRO_XWINDOWS_WITH_XPM */
 
 /*---------------------------------------------------------------------------*/
 
