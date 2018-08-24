@@ -67,8 +67,7 @@ SDL_GL_SetSwapInterval(1)
                         glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
                 glEnd()
 
-
-SDL_GL_SwapWindow(win);
+SDL_GL_SwapWindow(win)
 SDL_Delay(2000)
 SDL_DestroyWindow(win)
 SDL_Quit()
