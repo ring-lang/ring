@@ -55,7 +55,7 @@ al
 </funcstart>
 
 <struct>
-ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y }
+ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y , ALLEGRO_TIMER *timer.source}
 ALLEGRO_TIMEOUT
 ALLEGRO_SAMPLE_ID
 ALLEGRO_COLOR

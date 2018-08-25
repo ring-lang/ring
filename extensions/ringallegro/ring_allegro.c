@@ -183,6 +183,40 @@ RING_FUNC(ring_al_set_allegro_event_mouse_y)
 	pMyPointer->mouse.y = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_al_get_allegro_event_timer_source)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETCPOINTER(pMyPointer->timer.source,"ALLEGRO_TIMER");
+}
+
+RING_FUNC(ring_al_set_allegro_event_timer_source)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->timer.source = (ALLEGRO_TIMER *) RING_API_GETCPOINTER(2,"ALLEGRO_TIMER *");
+}
+
 RING_FUNC(ring_al_new_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
@@ -12627,6 +12661,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_set_allegro_event_mouse_x",ring_al_set_allegro_event_mouse_x);
 	ring_vm_funcregister("al_get_allegro_event_mouse_y",ring_al_get_allegro_event_mouse_y);
 	ring_vm_funcregister("al_set_allegro_event_mouse_y",ring_al_set_allegro_event_mouse_y);
+	ring_vm_funcregister("al_get_allegro_event_timer_source",ring_al_get_allegro_event_timer_source);
+	ring_vm_funcregister("al_set_allegro_event_timer_source",ring_al_set_allegro_event_timer_source);
 	ring_vm_funcregister("al_new_allegro_timeout",ring_al_new_allegro_timeout);
 	ring_vm_funcregister("al_destroy_allegro_timeout",ring_al_destroy_allegro_timeout);
 	ring_vm_funcregister("al_new_allegro_sample_id",ring_al_new_allegro_sample_id);
