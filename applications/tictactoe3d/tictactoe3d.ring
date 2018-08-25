@@ -28,7 +28,7 @@ func main
 
 class TicTacToe3D from GameLogic
 
-	FPS = 60
+	FPS = 120
 	TITLE = "TicTacToe 3D"
 
 	oBackground = new GameBackground
