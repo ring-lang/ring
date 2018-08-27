@@ -1,1 +1,1 @@
-buildvc_allegro5.1.11.bat
+buildvc_allegro5.2.4.bat
