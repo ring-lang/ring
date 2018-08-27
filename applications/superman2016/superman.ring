@@ -132,6 +132,7 @@ func playstart oGame
 	oGame {
 		FPS = 15
 		FixedFPS = 15
+		nTimeOut = 0
 		Title = "Super Man 2016"
 		Sprite {
 			file = "images/supermancity.jpg"

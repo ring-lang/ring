@@ -129,6 +129,7 @@ func playstart oGame
 	oGame {
 		FPS = 60
 		FixedFPS = 120
+		nTimeOut = 0
 		Title = "Flappy Bird 3000"
 		Sprite {
 			file = "images/fbback.png"

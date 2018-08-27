@@ -107,6 +107,7 @@ func play oGame
 	{
 		FPS = 60
 		FixedFPS = 120
+		nTimeOut = 0.01
 		title = "Stars Fighter!"
 		sprite
 		{
