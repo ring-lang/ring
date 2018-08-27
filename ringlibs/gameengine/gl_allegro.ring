@@ -102,6 +102,8 @@ func gl_events display,event_queue,ev,timer,timeout
 	GL_SYS_EventsQueue = event_queue
 	GL_SYS_Event = ev
 
+func gl_init_timeout oTimeout,nValue 
+	al_init_timeout(oTimeout, nValue)
 
 func gl_new_glib_event
 	return al_new_allegro_event()

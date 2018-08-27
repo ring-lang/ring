@@ -53,7 +53,7 @@ class resources
 
 class game from gamebase
 
-	display event_queue ev timeout timer
+	display event_queue ev timeout timer nTimeOut = 0.06
 	fps = 60 	redraw = true
 	FixedFPS = fps
 	gClock = 0
@@ -131,6 +131,7 @@ class game from gamebase
 		gClock = clock()
 
 		while shutdown = false
+			gl_init_timeout(timeout, nTimeOut)
 			gl_wait_for_event_until(event_queue, ev, timeout)
 			switch gl_get_glib_event_type(ev)
 					on gl_event_display_close

@@ -113,6 +113,8 @@ func gl_set_new_display_flags nFlags
 
 func gl_events display,event_queue,ev,timer,timeout
 
+func gl_init_timeout oTimeout,nValue 
+
 func gl_new_glib_event
 
 func gl_new_glib_timeout
