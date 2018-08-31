@@ -1085,6 +1085,7 @@ void ring_vmlib_type ( void *pPointer )
 void ring_vmlib_isnull ( void *pPointer )
 {
 	char *cStr  ;
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1102,8 +1103,8 @@ void ring_vmlib_isnull ( void *pPointer )
 			}
 		}
 	}
-	else if ( RING_API_ISPOINTER(1) ) {
-		if ( RING_API_GETPOINTER(1) == NULL ) {
+	else if ( RING_API_ISCPOINTER(1) ) {
+		if ( RING_API_GETCPOINTER(1,"void *") == NULL ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
