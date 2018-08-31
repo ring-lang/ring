@@ -1,0 +1,36 @@
+.. index:: 
+	single: What is new in Ring 1.9?; Introduction
+
+========================
+What is new in Ring 1.9?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.9 release.
+
+.. index:: 
+	pair: What is new in Ring 1.9?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.9 comes with the next features!
+
+* Better Ring Notepad
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better Ring Notepad 
+
+Better Ring Notepad
+===================
+
+(1) New Style
+
+(2) New Mode
+
+(3) Tabs for opened files 
+
+(4) Support executing batch files 
+
+(5) Code refactoring 
+
+
