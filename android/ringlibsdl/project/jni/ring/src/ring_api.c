@@ -1104,7 +1104,7 @@ void ring_vmlib_isnull ( void *pPointer )
 		}
 	}
 	else if ( RING_API_ISCPOINTER(1) ) {
-		if ( RING_API_GETCPOINTER(1,"void *") == NULL ) {
+		if ( ring_list_getpointer(RING_API_GETLIST(1),RING_CPOINTER_POINTER) == NULL ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
