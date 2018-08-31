@@ -24,13 +24,12 @@ Better Ring Notepad
 ===================
 
 (1) New Style
-
 (2) New Mode
-
 (3) Tabs for opened files 
-
 (4) Support executing batch files 
-
 (5) Code refactoring 
+
+.. image:: rnote19.jpg
+	:alt: Ring Notepad
 
 
