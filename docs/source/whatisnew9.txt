@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.9 comes with the next features!
 
 * Better Ring Notepad
+* RingPostgreSQL Extension
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Ring Notepad 
@@ -33,3 +34,10 @@ Better Ring Notepad
 	:alt: Ring Notepad
 
 
+.. index:: 
+	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
+
+RingPostgreSQL Extension
+========================
+
+Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.
