@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/26
+# Date    : 2018/08/28
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -8,7 +8,6 @@ load "guilib.ring"
 
 size = 4
 limit = 6
-flag = 0
 numbers = [2,4,8,16,32,64]
 button = newlist(size,size)
 moveleft = []
@@ -83,9 +82,6 @@ func pdown()
           return
        ok
        pmovedown()
-       if flag = 0
-          pmovedown()
-       ok
        newnum()
 
 func pup()
@@ -93,9 +89,6 @@ func pup()
           return
        ok
        pmoveup()
-       if flag = 0
-          pmoveup()
-       ok
        newnum()
 
 func pleft()
@@ -103,9 +96,6 @@ func pleft()
           return
        ok
        pmoveleft()
-       if flag = 0
-          pmoveleft()
-       ok
        newnum()
 
 func pright()
@@ -113,9 +103,6 @@ func pright()
           return
        ok
        pmoveright()
-       if flag = 0
-          pmoveright()
-       ok
        newnum()
 
 func pmoveleft()
@@ -128,26 +115,19 @@ func pmoveleft()
                  ok
             next
             movetilesleft(n,moveleft)
-        next
+       next
 
 func movetilesleft(nr,moveleft)
-       flag = 0
-       for p = 1 to (len(moveleft) - 1)
-            button[p][nr] {temp1 = text()}
-            button[p+1][nr] {temp2 = text()}
+       for p = 1 to len(moveleft) - 1
+            temp1 = moveleft[p]
+            temp2 = moveleft[p+1]
+            temp = string(number(temp1) + number(temp2))
             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
-               temp = string(number(temp1) + number(temp2))
-               moveleft[p] = temp
-               del(moveleft,p+1)
-               exit
-            ok
-       next
-       for n = 1 to len(moveleft)
-            c1 = (moveleft[n] = '')
-            c2 = (moveleft[n] = '0')
-            if  c1 or c2
-               flag = 1
-               del(moveleft,n)
+               if temp != '0' and temp != ''
+                  moveleft[p] = temp
+                  del(moveleft,p+1)
+                  exit
+               ok
             ok
        next
        for n = 1 to len(moveleft)
@@ -176,12 +156,12 @@ func pmoveright()
 
 func movetilesright(nr,moveright)
        flag = 0
-       for p = 2 to len(moveright)
-            button[size-p+2][nr] {temp1 = text()}
-            button[size-p+1][nr] {temp2 = text()}
+       for p = len(moveright) to 2 step -1
+            temp1 = moveright[p]
+            temp2 = moveright[p-1]
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != '0'
+               if temp != '0' and temp != ''
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
@@ -215,11 +195,11 @@ func pmoveup()
 func movetilesup(nr,moveup)
         flag = 0
         for p = 1 to len(moveup) - 1
-             button[nr][p] {temp1 = text()}
-             button[nr][p+1] {temp2 = text()}
+             temp1 = moveup[p] 
+             temp2 = moveup[p+1]
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != '0'
+               if temp != '0' and temp != ''
                   flag = 1
                   moveup[p] = temp
                   del(moveup,p+1)
@@ -253,11 +233,11 @@ func pmovedown()
 func movetilesdown(nr,movedown)
         flag = 0
         for p = 1 to len(movedown) - 1
-             button[nr][size-p+1] {temp1 = text()}
-             button[nr][size-p] {temp2 = text()}
+             temp1 = movedown[p]
+             temp2 = movedown[p+1]
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != '0'
+               if temp != '0' and temp != ''
                   flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
