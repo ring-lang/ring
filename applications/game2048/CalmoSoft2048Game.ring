@@ -15,6 +15,7 @@ moveleft = []
 moveright = []
 moveup = []
 movedown = []
+myfilter2 = null
 
 app = new qApp {
           StyleFusion()
@@ -26,6 +27,7 @@ app = new qApp {
                             button[n][m] = new MyButton(win)
                        next
                   next
+                  arrow = new qLineedit(win)
                   mup = new qPushButton(win)
                   mdown = new qPushButton(win)
                   mleft = new qPushButton(win)
@@ -43,6 +45,15 @@ app = new qApp {
 func pResize()
                   winwidth = win.width()
                   winheight = win.height()
+                  arrow.close()
+                  arrow = new qLineedit(win) {
+                              setGeometry(0,7*floor(winheight/8),winwidth,floor(winheight/8))
+                              arrow.setfocus(true)
+                              myfilter2 = new qAllEvents(win) {
+                              setkeypressevent("keypress()")
+                  }
+                  installeventfilter(myfilter2)
+                  }
                   for n = 1 to size
                        for m = 1 to size
                             button[n][m].close()
@@ -97,6 +108,14 @@ func pResize()
                   win.show()
                   pbegin()
 
+func keypress() 
+        nKey = myfilter2.getkeycode() 
+        switch nKey
+                   on 16777234 pleft()
+                   on 16777236 pright()
+                   on 16777235 pup()
+                   on 16777237 pdown()
+        off
 
 func pbegin()
        for n = 1 to size
@@ -110,6 +129,7 @@ func pbegin()
              rm = random(size - 1) + 1
              button[rn][rm].settext('2')
          next
+         arrow.setfocus(true)
 
 func pdown()
         num = gameover()
