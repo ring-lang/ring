@@ -3,7 +3,6 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-
 load "stdlib.ring"
 load "guilib.ring"
 
@@ -12,7 +11,7 @@ limit = 6
 flag = 0
 nn = 0
 mm = 0
-num = [2,4,8,16,32,64]
+numbers = [2,4,8,16,32,64]
 button = newlist(size,size)
 mdown = list(size)
 mup = list(size)
@@ -95,129 +94,99 @@ func pbegin()
              rn = random(size - 1) + 1
              rm = random(size - 1) + 1
              ran = random(limit - 1) + 1
-             button[rn][rm].settext(string(num[ran]))
+             button[rn][rm].settext(string(numbers[ran]))
          next
 
 func pdown()
-       if flag = 0
+       if gameover() = 1
           return
        ok
-       button[nn][mm] {temp = text()}
-       if temp = ""
-          pmovedown()
-          return
-       ok
-       if mm = 4
-          msgBox("bad move")
-          return
-       ok
-       for m = mm + 1 to size 
-            button[nn][m] {move = text()}
-            if move != ""
-               button[nn][mm] {temp = text()}
-               if move = temp
-                  res = string(number(move) + number(temp))
-                  button[nn][m].settext(res)
-                  setStylesheet("background-color: orange")
-                  button[nn][mm].settext("")
-                  exit
+       if flag = 1
+          button[nn][mm] {temp = text()}
+          for m = mm + 1 to size 
+               button[nn][m] {move = text()}
+               if move != ""
+                  button[nn][mm] {temp = text()}
+                  if move = temp
+                     res = string(number(move) + number(temp))
+                     button[nn][m].settext(res)
+                     button[nn][mm].setStylesheet("background-color: orange")
+                     button[nn][mm].settext("")
+                     exit
+                  ok
                ok
-            ok
-       next
+          next
+       ok
+       pmovedown()
 
 func pup()
-       if flag = 0
+       if gameover() = 1
           return
        ok
-       button[nn][mm] {temp = text()}
-       if temp = ""
-          pmoveup()
-          return
-       ok
-       if mm = 1
-          msgBox("bad move")
-          return
-       ok
-       for m = mm - 1 to 1 step -1
-            button[nn][m] {move = text()}
-            if move != ""
-               button[nn][mm] {temp = text()}
-               if move = temp
-                  res = string(number(move) + number(temp))
-                  button[nn][m].settext(res)
-                  setStylesheet("background-color: orange")
-                  button[nn][mm].settext("")
-                  newnum()
-                  exit
+       if flag = 1
+          button[nn][mm] {temp = text()}
+          for m = mm - 1 to 1 step -1
+               button[nn][m] {move = text()}
+               if move != ""
+                  button[nn][mm] {temp = text()}
+                  if move = temp
+                     res = string(number(move) + number(temp))
+                     button[nn][m].settext(res)
+                     button[nn][mm].setStylesheet("background-color: orange")
+                     button[nn][mm].settext("")
+                     newnum()
+                     exit
+                  ok
                ok
-            ok
-       next
+          next
+       ok
+       pmoveup()
 
 func pleft()
-       if flag = 0
+       if gameover() = 1
           return
        ok
-       button[nn][mm] {temp = text()}
-       if temp = ""
-          pmoveleft()
-          return
-       ok
-       if nn = 1 and temp != ""
-          msgBox("bad move")
-          return
-       ok
-       for n = mm - 1 to 1 step -1
-            button[n][mm] {move = text()}
-            if move != ""
-               button[nn][mm] {temp = text()}
-               if move = temp
-                  res = string(number(move) + number(temp))
-                  button[n][mm].settext(res)
-                  setStylesheet("background-color: orange")
-                  button[nn][mm].settext("")
-                  exit
+       if flag = 1
+          button[nn][mm] {temp = text()}
+          for n = mm - 1 to 1 step -1
+               button[n][mm] {move = text()}
+               if move != ""
+                  button[nn][mm] {temp = text()}
+                  if move = temp
+                     res = string(number(move) + number(temp))
+                     button[n][mm].settext(res)
+                     button[nn][mm].setStylesheet("background-color: orange")
+                     button[nn][mm].settext("")
+                     exit
+                  ok
                ok
-            ok
-       next
+          next
+       ok
+       pmoveleft()
+       return
 
 func pright()
-       if flag = 0
+       if gameover() = 1
           return
        ok
-       button[nn][mm] {temp = text()}
-       if temp = ""
-          pmoveright()
-          return
-       ok
-       if nn = 4
-          msgBox("bad move")
-          return
-       ok
-       for n = nn + 1 to size 
-            button[n][mm] {move = text()}
-            if move != ""
-               button[nn][mm] {temp = text()}
-               if move = temp
-                  res = string(number(move) + number(temp))
-                  button[n][mm].settext(res)
-                  setStylesheet("background-color: orange")
-                  button[nn][mm].settext("")
-                  exit
+       if flag = 1
+          button[nn][mm] {temp = text()}
+          for n = nn + 1 to size 
+               button[n][mm] {move = text()}
+               if move != ""
+                  button[nn][mm] {temp = text()}
+                  if move = temp
+                     res = string(number(move) + number(temp))
+                     button[n][mm].settext(res)
+                     button[nn][mm].setStylesheet("background-color: orange")
+                     button[nn][mm].settext("")
+                     exit
+                  ok
                ok
-            ok
-       next
-
-func newnum()
-        nums = [2,4]
-        while true
-                rn = random(size - 1) + 1
-                rm = random(size - 1) + 1
-                ran = random(len(nums) - 1) + 1
-                if button[rn][rm].text() = ""
-                   button[rn][rm].settext(string(nums[ran]))
-                   exit
-                ok
-        end
+          next
+       ok
+       pmoveright()
+       return
 
 func pmoveleft()
        for n = 1 to size
@@ -366,6 +335,33 @@ func movetilesdown(nr,movedown)
                button[nr][n].settext("")
             ok
        next
+
+func newnum()
+        nums = [2,4]
+        while true
+                rn = random(size - 1) + 1
+                rm = random(size - 1) + 1
+                ran = random(len(nums) - 1) + 1
+                if button[rn][rm].text() = ""
+                   button[rn][rm].settext(string(nums[ran]))
+                   exit
+                ok
+        end
+
+func gameover()
+        num = 0
+        for n = 1 to size
+             for m = 1 to size 
+                  if button[n][m].text() != ""
+                     num = num + 1
+                  ok
+              next
+        next
+        if num = size*size
+           msgBox("You lost!")
+        return 1
+        ok
+        return
 
 func msgBox(text) {
 	m = new qMessageBox(win) {
