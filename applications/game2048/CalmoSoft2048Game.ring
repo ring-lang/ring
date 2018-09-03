@@ -44,9 +44,6 @@ app = new qApp {
                   next
                   newgame = new qLabel(win)
                   playerscore = new qLabel(win)
-                  myfilter = new qallevents(win)
-                  myfilter.setResizeEvent("pResize()")
-                  installeventfilter(myfilter)
                   myfilter3 = new qAllEvents(win) {
                   setMouseButtonPressEvent("pPress()")
                   setMouseButtonReleaseEvent("pRelease()")}
@@ -54,39 +51,6 @@ app = new qApp {
                   myfilter2 = new qAllEvents(win) {
                   setkeypressevent("keypress()") }
                   installeventfilter(myfilter2)
-                  pResize() 
-                  pbegin()  
-                  show()
-         }
-    exec()
-}
-
-func pPress()
-        x1 = myfilter3.getglobalx()
-        y1 = myfilter3.getglobaly()
- 
-func pRelease()
-        x2 = myfilter3.getglobalx()
-        y2 = myfilter3.getglobaly()
-        xx1 = floor(x1/floor(winwidth/4)) - 2
-        xx2 = floor(x2/floor(winwidth/4)) - 2
-        yy1 = floor(y1/floor(winheight/6)) - 1
-        yy2 = floor(y2/floor(winheight/6)) - 1
-        bool = (yy1 <= size) and (yy2 <= size)
-        if (yy1 = yy2) and (xx2 < xx1) and bool
-           pleft()
-        ok
-        if (yy1 = yy2) and (xx1 < xx2) and bool
-           pright()
-        ok
-        if (xx1 = xx2) and (yy2 < yy1) and bool
-           pup()
-        ok
-        if (xx1 = xx2) and (yy1 < yy2) and bool
-           pdown()
-        ok
-
-func pResize()
                   winwidth = win.width()
                   winheight = win.height()
                   for n = 1 to size + 2
@@ -147,7 +111,36 @@ func pResize()
                                                next }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
-                  return
+                  pbegin()  
+                  show()
+         }
+    exec()
+}
+
+func pPress()
+        x1 = myfilter3.getglobalx()
+        y1 = myfilter3.getglobaly()
+ 
+func pRelease()
+        x2 = myfilter3.getglobalx()
+        y2 = myfilter3.getglobaly()
+        xx1 = floor(x1/floor(winwidth/4)) - 2
+        xx2 = floor(x2/floor(winwidth/4)) - 2
+        yy1 = floor(y1/floor(winheight/6)) - 1
+        yy2 = floor(y2/floor(winheight/6)) - 1
+        bool = (yy1 <= size) and (yy2 <= size)
+        if (yy1 = yy2) and (xx2 < xx1) and bool
+           pleft()
+        ok
+        if (yy1 = yy2) and (xx1 < xx2) and bool
+           pright()
+        ok
+        if (xx1 = xx2) and (yy2 < yy1) and bool
+           pup()
+        ok
+        if (xx1 = xx2) and (yy1 < yy2) and bool
+           pdown()
+        ok
 
 func keypress() 
         nKey = myfilter2.getkeycode() 
