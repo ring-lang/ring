@@ -29,6 +29,7 @@ winwidth = 0
 
 app = new qApp {
           StyleFusion()
+          app.processevents()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
                   setgeometry(100,100,800,600)
@@ -223,6 +224,7 @@ func pmoveleft()
                     add(moveleft,temp)
                  ok
             next
+            sleep(0.2)
             movetilesleft(n,moveleft)
        next
 
@@ -247,8 +249,6 @@ func movetilesleft(nr,moveleft)
        for n = len(moveleft) + 1 to size 
             if n <= size
                button[n][nr].setStylesheet('background-color: orange')
-               app.processevents()
-               sleep(0.5)
                button[n][nr].settext('')
             ok
        next
@@ -263,6 +263,7 @@ func pmoveright()
                     add(moveright,temp)
                  ok
             next
+            sleep(0.2)
             movetilesright(n,moveright)
         next
         return
@@ -289,8 +290,6 @@ func movetilesright(nr,moveright)
        for n = 1 to size - len(moveright)
             if n <= size
                button[n][nr].setStylesheet('background-color: orange')
-               app.processevents()
-               sleep(0.5)
                button[n][nr].settext('')
             ok
        next
@@ -304,6 +303,7 @@ func pmoveup()
                     add(moveup,temp)
                  ok
             next
+            sleep(0.2)
             movetilesup(n,moveup)
         next
         return
@@ -330,8 +330,6 @@ func movetilesup(nr,moveup)
        for n = len(moveup) + 1 to size 
             if n <= size
                button[nr][n].setStylesheet('background-color: orange')
-               app.processevents()
-               sleep(0.5)
                button[nr][n].settext('')
             ok
        next
@@ -345,6 +343,7 @@ func pmovedown()
                     add(movedown,temp)
                  ok
             next
+            sleep(0.2)
             movetilesdown(n,movedown)
         next
         return
@@ -372,7 +371,6 @@ func movetilesdown(nr,movedown)
             if n <= size
                button[nr][n].setStylesheet('background-color: orange')
                app.processevents()
-               sleep(0.5)
                button[nr][n].settext('')
             ok
        next
