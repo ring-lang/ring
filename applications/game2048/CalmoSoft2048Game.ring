@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/31
+# Date    : 2018/09/02
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -24,7 +24,6 @@ moveup = []
 movedown = []
 myfilter2 = null
 myfilter3 = null
-arrow = null
 winheight = 0
 winwidth = 0
 
@@ -32,18 +31,17 @@ app = new qApp {
           StyleFusion()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
+                  setgeometry(100,100,800,600)
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
                   setstylesheet('background-color:white')
                   move(490,100) 
-                  resize(300,300)
                   for n = 1 to size
                        for m = 1 to size
                             button[n][m] = new MyButton(win)
                        next
                   next
-                  arrow = new qLineedit(win)
                   newgame = new qLabel(win)
                   playerscore = new qLabel(win)
                   myfilter = new qallevents(win)
@@ -58,8 +56,7 @@ app = new qApp {
                   installeventfilter(myfilter2)
                   pResize() 
                   pbegin()  
-                  arrow.setfocus(true)               
-           show()
+                  show()
          }
     exec()
 }
@@ -92,15 +89,14 @@ func pRelease()
 func pResize()
                   winwidth = win.width()
                   winheight = win.height()
-                  arrow.close()
                   for n = 1 to size
                        for m = 1 to size
-                            temp = button[n][m] 
+                            button[n][m] { temp = text() }
                             buttonsave[n][m] = temp
                        next
                   next
                   for n = 1 to size + 2
-		       LayoutButtonRow[n] = new QVBoxLayout() {
+		       LayoutButtonRow[n] = new QHBoxLayout() {
                                                         setSpacing(3) }
                   next
                   for n = 1 to size
@@ -113,13 +109,18 @@ func pResize()
                                                    setstylesheet('background-color:orange')
                                                    show()
                                                    }
-		            LayoutButtonRow[n].AddWidget(button[n][m])
+                       next
+                  next
+                  for n = 1 to size
+                       for m = 1 to size
+                            LayoutButtonRow[n].AddWidget(button[n][m])
+                            win.show()
                        next
                   next
                   for n = 1 to size
                        for m = 1 to size
                             temp = buttonsave[n][m]
-                            button[n][m] = temp
+                            button[n][m].settext(temp)
                        next
                   next
                   playerscore.close()
@@ -128,7 +129,6 @@ func pResize()
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext('Player Score: ')
-                                    arrow.setfocus(true)
                                     show()
                                     }
                   playerscore.settext('Play Score: ' + nScore)
@@ -143,14 +143,15 @@ func pResize()
                                     myfilter4 = new qallevents(newgame)
                                     myfilter4.setMouseButtonPressEvent("pbegin()")
                                     installeventfilter(myfilter4)
-                                    arrow.setfocus(true)
                                     show()
                                     }
                   LayoutButtonRow[size+1].AddWidget(playerscore)
                   LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
+                                               setSpacing(3)
                                                for n = 1 to size+2
                                                     AddLayout(LayoutButtonRow[n])
+                                                    win.show()
                                                next }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
@@ -176,8 +177,8 @@ func pbegin()
              rn = random(size - 1) + 1
              rm = random(size - 1) + 1
              button[rn][rm].settext('2')
+
          next
-         arrow.setfocus(true)
          nScore = 0
          playerscore.settext('Play Score: ')
 
@@ -192,7 +193,6 @@ func pdown()
            pmovedown()
            newnum()
         ok
-        arrow.setfocus(true)
 
 func pup()
         num = gameover()
@@ -205,7 +205,6 @@ func pup()
            pmoveup()
            newnum()
         ok
-        arrow.setfocus(true)
 
 func pleft()
         num = gameover()
@@ -218,7 +217,6 @@ func pleft()
            pmoveleft()
            newnum()
         ok
-        arrow.setfocus(true)
 
 func pright()
         num = gameover()
@@ -231,7 +229,6 @@ func pright()
            pmoveright()
            newnum()
         ok
-        arrow.setfocus(true)
 
 func pmoveleft()
        for n = 1 to size
