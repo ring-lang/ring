@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/30
+# Date    : 2018/08/31
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -17,6 +17,7 @@ y2 = 0
 nScore = 0
 button = newlist(size,size)
 buttonsave = newlist(size,size)
+LayoutButtonRow = list(size)
 moveleft = []
 moveright = []
 moveup = []
@@ -34,6 +35,7 @@ app = new qApp {
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
+                  setstylesheet('background-color:orange')
                   move(490,100) 
                   resize(300,300)
                   for n = 1 to size
@@ -93,33 +95,38 @@ func pResize()
                   arrow.close()
                   for n = 1 to size
                        for m = 1 to size
-                            button[n][m] {temp = text()}
+                            temp = button[n][m] 
                             buttonsave[n][m] = temp
                        next
                   next
                   for n = 1 to size
-                       for m = 1 to size
-                            button[n][m].close()
-                            col = (n-1)*floor(winwidth/4)
-                            row = (m-1)*floor(winheight/6)
-                            fontsize = 10 + (winheight/16)
-                            fontsize2 = 10 + (winheight/50)
-                            button[n][m] = new MyButton(win) {
-                                                   setGeometry(col,row,winwidth/4,winheight/6)
-                                                   setFont(new qFont("Verdana",fontsize,100,0))
-                                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:orange')
-                                                   show()
-                                                   }
-                           next
+		       LayoutButtonRow[n] = new QVBoxLayout() {
+                                                        setSpacing(3) }
                   next
                   for n = 1 to size
                        for m = 1 to size
-                            temp = buttonsave[n][m] 
-                            button[n][m].settext(temp)
+                            fontsize = 10 + (winheight/16)
+                            fontsize2 = 10 + (winheight/50)
+                            button[n][m] = new MyButton(win) {
+                                                   setFont(new qFont("Verdana",fontsize,100,0))
+                                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                                   setstylesheet('background-color:yellow')
+                                                   show()
+                                                   }
+		            LayoutButtonRow[n].AddWidget(button[n][m])
                        next
                   next
-
+                  for n = 1 to size
+                       for m = 1 to size
+                            temp = buttonsave[n][m]
+                            button[n][m] = temp
+                       next
+                  next
+                  LayoutButtonMain = new QVBoxLayout() {
+                                               for n = 1 to size
+                                                    AddLayout(LayoutButtonRow[n])
+                                               next }
+		  oLayoutWidget = new qWidget() { setLayout(LayoutButtonMain) }
                   playerscore.close()
                   playerscore = new qLabel(win) {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
