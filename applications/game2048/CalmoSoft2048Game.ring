@@ -126,7 +126,6 @@ func movetilesleft(nr,moveleft)
                if temp != '0' and temp != ''
                   moveleft[p] = temp
                   del(moveleft,p+1)
-                  exit
                ok
             ok
        next
@@ -165,7 +164,6 @@ func movetilesright(nr,moveright)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
-                  exit
                ok
             ok
        next
@@ -203,7 +201,6 @@ func movetilesup(nr,moveup)
                   flag = 1
                   moveup[p] = temp
                   del(moveup,p+1)
-                  exit 
                ok
             ok
        next
@@ -241,7 +238,6 @@ func movetilesdown(nr,movedown)
                   flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
-                  exit
                ok
             ok
        next
