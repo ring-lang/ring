@@ -89,18 +89,15 @@ func pRelease()
 func pResize()
                   winwidth = win.width()
                   winheight = win.height()
-                  for n = 1 to size
-                       for m = 1 to size
-                            button[n][m] { temp = text() }
-                            buttonsave[n][m] = temp
-                       next
-                  next
                   for n = 1 to size + 2
 		       LayoutButtonRow[n] = new QHBoxLayout() {
                                                         setSpacing(3) }
                   next
                   for n = 1 to size
                        for m = 1 to size
+                            button[n][m] { temp = text() }
+                            buttonsave[n][m] = temp
+                            buttonsave[n][m] = temp
                             fontsize = 10 + (winheight/16)
                             fontsize2 = 10 + (winheight/50)
                             button[n][m] = new MyButton(win) {
@@ -113,38 +110,33 @@ func pResize()
                   next
                   for n = 1 to size
                        for m = 1 to size
-                            LayoutButtonRow[n].AddWidget(button[n][m])
+                            LayoutButtonRow[n].AddWidget(button[m][n])
                             win.show()
-                       next
-                  next
-                  for n = 1 to size
-                       for m = 1 to size
                             temp = buttonsave[n][m]
                             button[n][m].settext(temp)
                        next
                   next
                   playerscore.close()
-                  playerscore = new qLabel(win) {
+                  playerscore {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    settext('Player Score: ')
+                                    settext('Play Score: ' + nScore)
                                     show()
                                     }
-                  playerscore.settext('Play Score: ' + nScore)
 
                   newgame.close()
-                  newgame = new qLabel(win) {
-                                    setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
-                                    setFont(new qFont("Verdana",fontsize2,100,0))
-                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    setstylesheet('background-color:violet')
-                                    settext('New Game')
-                                    myfilter4 = new qallevents(newgame)
-                                    myfilter4.setMouseButtonPressEvent("pbegin()")
-                                    installeventfilter(myfilter4)
-                                    show()
-                                    }
+                  newgame  {
+                                  setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
+                                  setFont(new qFont("Verdana",fontsize2,100,0))
+                                  setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                  setstylesheet('background-color:violet')
+                                  settext('New Game')
+                                  myfilter4 = new qallevents(newgame)
+                                  myfilter4.setMouseButtonPressEvent("pbegin()")
+                                  installeventfilter(myfilter4)
+                                  show()
+                                  }
                   LayoutButtonRow[size+1].AddWidget(playerscore)
                   LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
