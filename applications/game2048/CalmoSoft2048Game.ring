@@ -21,50 +21,82 @@ app = new qApp {
           win = new qWidget() {
                   setWindowTitle('2048 Game')
                   move(490,100) 
-                  resize(450,500)
                   for n = 1 to size
                        for m = 1 to size
-                            col = 100 + n*40
-                            row = 100 + m*40
-                            button[n][m] = new MyButton(win) {
-                                                   setGeometry(col,row,40,40)
-                                                   setFont(new qFont("Verdana",14,100,0))
-                                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:orange')
-                                                   }
-                        next
+                            button[n][m] = new MyButton(win)
+                       next
                   next
-                  newgame = new qPushButton(win) {
-                                    setGeometry(180,380,80,40)
-                                    setstylesheet('background-color:violet')
-                                    settext('New Game')
-                                    setClickEvent('pbegin()')
-                                    }
-                  mup = new qPushButton(win) {
-                             setGeometry(140,300,40,40)
-                             settext('up')
-                             setClickEvent('pup()')
-                             }
-                  mdown = new qPushButton(win) {
-                                 setGeometry(180,300,40,40)
-                                 settext('down')
-                                 setClickEvent('pdown()')
-                                 }
-                  mleft = new qPushButton(win) {
-                              setGeometry(220,300,40,40)
-                              settext('left')
-                              setClickEvent('pleft()')
-                              }
-                  mright = new qPushButton(win) {
-                                setGeometry(260,300,40,40)
-                                settext('right')
-                                setClickEvent('pright()')
-                                }
-                  pbegin()
+                  mup = new qPushButton(win)
+                  mdown = new qPushButton(win)
+                  mleft = new qPushButton(win)
+                  mright = new qPushButton(win)
+                  newgame = new qPushButton(win)
+                  myfilter = new qallevents(win)
+                  myfilter.setResizeEvent("pResize()")
+                  installeventfilter(myfilter)
+                  pResize()
            show()
          }
     exec()
 }
+
+func pResize()
+                  winwidth = win.width()
+                  winheight = win.height()
+                  for n = 1 to size
+                       for m = 1 to size
+                            button[n][m].close()
+                            col = (n-1)*floor(winwidth/4)
+                            row = (m-1)*floor(winheight/8)
+                            fontsize = 10 + (winheight/16)
+                            button[n][m] = new MyButton(win) {
+                                                   setGeometry(col,row,winwidth/4,winheight/8)
+                                                   setFont(new qFont("Verdana",fontsize,100,0))
+                                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                                   setstylesheet('background-color:orange')
+                                                   show()
+                                                   }
+                           next
+                  next
+                  newgame.close()
+                  newgame = new qPushButton(win) {
+                                    setGeometry(0,7*floor(winheight/8),winwidth,floor(winheight/8))
+                                    setstylesheet('background-color:violet')
+                                    settext('New Game')
+                                    setClickEvent('pbegin()')
+                                    show()
+                                    }
+                  mup.close()
+                  mup = new qPushButton(win) {
+                             setGeometry(0,5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                             settext('up')
+                             setClickEvent('pup()')
+                             show()
+                             }
+                  mdown.close()
+                  mdown = new qPushButton(win) {
+                                 setGeometry(floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                                 settext('down')
+                                 setClickEvent('pdown()')
+                                 show()
+                                 }
+                  mleft.close()
+                  mleft = new qPushButton(win) {
+                              setGeometry(2*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                              settext('left')
+                              setClickEvent('pleft()')
+                              show()
+                              }
+                  mright.close()
+                  mright = new qPushButton(win) {
+                                setGeometry(3*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                                settext('right')
+                                setClickEvent('pright()')
+                                show()
+                                }
+                  win.show()
+                  pbegin()
+
 
 func pbegin()
        for n = 1 to size
