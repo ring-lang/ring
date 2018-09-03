@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/25
+# Date    : 2018/08/26
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -151,8 +151,9 @@ func movetilesleft(nr,moveleft)
             button[p+1][nr] {temp2 = text()}
             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-                moveleft[p] = temp
+               moveleft[p] = temp
                del(moveleft,p+1)
+               exit
             ok
        next
        for n = 1 to len(moveleft)
@@ -187,14 +188,14 @@ func pmoveright()
         return
 
 func movetilesright(nr,moveright)
-       for p = len(moveright) - 1 to 1 step -1
-            button[p][nr] {temp1 = text()}
-            button[p+1][nr] {temp2 = text()}
+       for p = 2 to len(moveright)
+            button[size-p+2][nr] {temp1 = text()}
+            button[size-p+1][nr] {temp2 = text()}
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0'
                   moveright[p] = temp
-                  del(moveright,p+1)
+                  del(moveright,p-1)
                   exit
                ok
             ok
@@ -224,13 +225,13 @@ func pmoveup()
 
 func movetilesup(nr,moveup)
         for p = 1 to len(moveup) - 1
-            button[nr][p] {temp1 = text()}
-            button[nr][p+1] {temp2 = text()}
+            button[nr][size-p+1] {temp1 = text()}
+            button[nr][size-p] {temp2 = text()}
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0'
-                  moveup[p] = temp
-                  del(moveup,p+1)
+                  moveup[p+1] = temp
+                  del(moveup,p)
                   exit
                ok
             ok
@@ -316,6 +317,16 @@ func msgBox(text) {
 	       show()
 	       }
         }
+
+func showarray(vect)
+        see "["
+        svect = ""
+        for n = 1 to len(vect)
+              svect = svect + vect[n] + " "
+        next
+        svect = left(svect, len(svect) - 1)
+        see svect
+        see "]" + nl
 
 class MyButton from qPushButton
        func setText cValue 
