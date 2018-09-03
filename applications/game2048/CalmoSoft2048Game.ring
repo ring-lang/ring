@@ -17,7 +17,7 @@ y2 = 0
 nScore = 0
 button = newlist(size,size)
 buttonsave = newlist(size,size)
-LayoutButtonRow = list(size)
+LayoutButtonRow = list(size+2)
 moveleft = []
 moveright = []
 moveup = []
@@ -35,7 +35,7 @@ app = new qApp {
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
-                  setstylesheet('background-color:orange')
+                  setstylesheet('background-color:white')
                   move(490,100) 
                   resize(300,300)
                   for n = 1 to size
@@ -99,7 +99,7 @@ func pResize()
                             buttonsave[n][m] = temp
                        next
                   next
-                  for n = 1 to size
+                  for n = 1 to size + 2
 		       LayoutButtonRow[n] = new QVBoxLayout() {
                                                         setSpacing(3) }
                   next
@@ -122,14 +122,9 @@ func pResize()
                             button[n][m] = temp
                        next
                   next
-                  LayoutButtonMain = new QVBoxLayout() {
-                                               for n = 1 to size
-                                                    AddLayout(LayoutButtonRow[n])
-                                               next }
-		  oLayoutWidget = new qWidget() { setLayout(LayoutButtonMain) }
                   playerscore.close()
                   playerscore = new qLabel(win) {
-                                    setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
+                                    //setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext('Player Score: ')
@@ -140,10 +135,10 @@ func pResize()
 
                   newgame.close()
                   newgame = new qLabel(win) {
-                                    setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
+                                    //setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    setstylesheet('background-color:violet')
+                                    setstylesheet('background-color:purple')
                                     settext('New Game')
                                     myfilter4 = new qallevents(newgame)
                                     myfilter4.setMouseButtonPressEvent("pbegin()")
@@ -151,6 +146,13 @@ func pResize()
                                     arrow.setfocus(true)
                                     show()
                                     }
+                  LayoutButtonRow[size+1].AddWidget(playerscore)
+                  LayoutButtonRow[size+2].AddWidget(newgame)
+                  LayoutButtonMain = new QVBoxLayout() {
+                                               for n = 1 to size+2
+                                                    AddLayout(LayoutButtonRow[n])
+                                               next }
+		  oLayoutWidget = new qWidget() { setLayout(LayoutButtonMain) }
                   win.show()
                   return
 
