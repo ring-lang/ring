@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/29
+# Date    : 2018/08/30
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -10,17 +10,26 @@ size = 4
 limit = 6
 num = 0
 flag = 0
+x1 = 0
+x2 = 0
+y1 = 0
+y2 = 0
 button = newlist(size,size)
 moveleft = []
 moveright = []
 moveup = []
 movedown = []
 myfilter2 = null
+myfilter3 = null
+winheight = 0
+winwidth = 0
 
 app = new qApp {
           StyleFusion()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
+                  setminimumwidth(300)
+                  setminimumheight(300)
                   move(490,100) 
                   for n = 1 to size
                        for m = 1 to size
@@ -36,11 +45,40 @@ app = new qApp {
                   myfilter = new qallevents(win)
                   myfilter.setResizeEvent("pResize()")
                   installeventfilter(myfilter)
+                  myfilter3 = new qAllEvents(win) {
+                  setMouseButtonPressEvent("pPress()")
+                  setMouseButtonReleaseEvent("pRelease()")}
+                  installeventfilter(myfilter3)
                   pResize()
            show()
          }
     exec()
 }
+
+func pPress()
+        x1 = myfilter3.getglobalx()
+        y1 = myfilter3.getglobaly()
+ 
+func pRelease()
+        x2 = myfilter3.getglobalx()
+        y2 = myfilter3.getglobaly()
+        xx1 = floor(x1/floor(winwidth/4)) - 2
+        xx2 = floor(x2/floor(winwidth/4)) - 2
+        yy1 = floor(y1/floor(winheight/8)) - 1
+        yy2 = floor(y2/floor(winheight/8)) - 1
+        bool = (yy1 <= size) and (yy2 <= size)
+        if (yy1 = yy2) and (xx2 < xx1) and bool
+           pleft()
+        ok
+        if (yy1 = yy2) and (xx1 < xx2) and bool
+           pright()
+        ok
+        if (xx1 = xx2) and (yy2 < yy1) and bool
+           pup()
+        ok
+        if (xx1 = xx2) and (yy1 < yy2) and bool
+           pdown()
+        ok
 
 func pResize()
                   winwidth = win.width()
@@ -60,6 +98,7 @@ func pResize()
                             col = (n-1)*floor(winwidth/4)
                             row = (m-1)*floor(winheight/8)
                             fontsize = 10 + (winheight/16)
+                            fontsize2 = 10 + (winheight/50)
                             button[n][m] = new MyButton(win) {
                                                    setGeometry(col,row,winwidth/4,winheight/8)
                                                    setFont(new qFont("Verdana",fontsize,100,0))
@@ -72,6 +111,7 @@ func pResize()
                   newgame.close()
                   newgame = new qPushButton(win) {
                                     setGeometry(0,7*floor(winheight/8),winwidth,floor(winheight/8))
+                                    setFont(new qFont("Verdana",fontsize2,100,0))
                                     setstylesheet('background-color:violet')
                                     settext('New Game')
                                     setClickEvent('pbegin()')
@@ -80,6 +120,7 @@ func pResize()
                   mup.close()
                   mup = new qPushButton(win) {
                              setGeometry(0,5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                             setFont(new qFont("Verdana",fontsize2,100,0))
                              settext('up')
                              setClickEvent('pup()')
                              show()
@@ -87,6 +128,7 @@ func pResize()
                   mdown.close()
                   mdown = new qPushButton(win) {
                                  setGeometry(floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                                 setFont(new qFont("Verdana",fontsize2,100,0))
                                  settext('down')
                                  setClickEvent('pdown()')
                                  show()
@@ -94,6 +136,7 @@ func pResize()
                   mleft.close()
                   mleft = new qPushButton(win) {
                               setGeometry(2*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                              setFont(new qFont("Verdana",fontsize2,100,0))
                               settext('left')
                               setClickEvent('pleft()')
                               show()
@@ -101,6 +144,7 @@ func pResize()
                   mright.close()
                   mright = new qPushButton(win) {
                                 setGeometry(3*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
+                                setFont(new qFont("Verdana",fontsize2,100,0))
                                 settext('right')
                                 setClickEvent('pright()')
                                 show()
@@ -372,7 +416,7 @@ func showarray(vect)
         see "]" + nl
 
 class MyButton from qLabel
-       func setText cValue 
+       func setText(cValue)
               Super.setText(cValue)
               switch cValue 
                         on '2' setStyleSheet('foreground-color:blue; background-color: yellow')
