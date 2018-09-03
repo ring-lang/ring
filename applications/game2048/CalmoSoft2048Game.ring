@@ -167,7 +167,6 @@ func pbegin()
          playerscore.settext('Play Score: ')
 
 func pdown()
-        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -180,7 +179,6 @@ func pdown()
         ok
 
 func pup()
-        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -193,7 +191,6 @@ func pup()
         ok
 
 func pleft()
-        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -206,7 +203,6 @@ func pleft()
         ok
 
 func pright()
-        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -251,6 +247,8 @@ func movetilesleft(nr,moveleft)
        for n = len(moveleft) + 1 to size 
             if n <= size
                button[n][nr].setStylesheet('background-color: orange')
+               app.processevents()
+               sleep(0.5)
                button[n][nr].settext('')
             ok
        next
@@ -291,6 +289,8 @@ func movetilesright(nr,moveright)
        for n = 1 to size - len(moveright)
             if n <= size
                button[n][nr].setStylesheet('background-color: orange')
+               app.processevents()
+               sleep(0.5)
                button[n][nr].settext('')
             ok
        next
@@ -330,6 +330,8 @@ func movetilesup(nr,moveup)
        for n = len(moveup) + 1 to size 
             if n <= size
                button[nr][n].setStylesheet('background-color: orange')
+               app.processevents()
+               sleep(0.5)
                button[nr][n].settext('')
             ok
        next
@@ -369,6 +371,8 @@ func movetilesdown(nr,movedown)
        for n = size - len(movedown) to 1 step -1 
             if n <= size
                button[nr][n].setStylesheet('background-color: orange')
+               app.processevents()
+               sleep(0.5)
                button[nr][n].settext('')
             ok
        next
