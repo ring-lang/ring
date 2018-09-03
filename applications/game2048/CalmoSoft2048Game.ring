@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/09/02
+# Date    : 2018/09/03
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -62,7 +62,7 @@ app = new qApp {
                             button[n][m] { temp = text() }
                             buttonsave[n][m] = temp
                             buttonsave[n][m] = temp
-                            fontsize = 10 + (winheight/16)
+                            fontsize = 10 + (winheight/25)
                             fontsize2 = 10 + (winheight/50)
                             button[n][m] = new MyButton(win) {
                                                    setFont(new qFont("Verdana",fontsize,100,0))
@@ -162,12 +162,12 @@ func pbegin()
              rn = random(size - 1) + 1
              rm = random(size - 1) + 1
              button[rn][rm].settext('2')
-
          next
          nScore = 0
          playerscore.settext('Play Score: ')
 
 func pdown()
+        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -180,6 +180,7 @@ func pdown()
         ok
 
 func pup()
+        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -192,6 +193,7 @@ func pup()
         ok
 
 func pleft()
+        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -204,6 +206,7 @@ func pleft()
         ok
 
 func pright()
+        sleep(0.5)
         num = gameover()
         if num = size*size
            flag = 1
@@ -279,9 +282,6 @@ func movetilesright(nr,moveright)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
-                  if moveright[p-1] = temp
-                     p = p - 1
-                  ok
                ok
             ok
        next
