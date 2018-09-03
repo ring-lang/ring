@@ -110,7 +110,7 @@ func pResize()
                             button[n][m] = new MyButton(win) {
                                                    setFont(new qFont("Verdana",fontsize,100,0))
                                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:yellow')
+                                                   setstylesheet('background-color:orange')
                                                    show()
                                                    }
 		            LayoutButtonRow[n].AddWidget(button[n][m])
@@ -124,7 +124,7 @@ func pResize()
                   next
                   playerscore.close()
                   playerscore = new qLabel(win) {
-                                    //setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
+                                    setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext('Player Score: ')
@@ -135,10 +135,10 @@ func pResize()
 
                   newgame.close()
                   newgame = new qLabel(win) {
-                                    //setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
+                                    setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    setstylesheet('background-color:purple')
+                                    setstylesheet('background-color:violet')
                                     settext('New Game')
                                     myfilter4 = new qallevents(newgame)
                                     myfilter4.setMouseButtonPressEvent("pbegin()")
@@ -152,7 +152,7 @@ func pResize()
                                                for n = 1 to size+2
                                                     AddLayout(LayoutButtonRow[n])
                                                next }
-		  oLayoutWidget = new qWidget() { setLayout(LayoutButtonMain) }
+		  win.setLayout(LayoutButtonMain)
                   win.show()
                   return
 
