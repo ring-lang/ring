@@ -164,6 +164,9 @@ func movetilesright(nr,moveright)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
+                  if moveright[p-1] = temp
+                     p = p - 1
+                  ok
                ok
             ok
        next
