@@ -15,6 +15,7 @@ x2 = 0
 y1 = 0
 y2 = 0
 button = newlist(size,size)
+buttonsave = newlist(size,size)
 moveleft = []
 moveright = []
 moveup = []
@@ -31,17 +32,14 @@ app = new qApp {
                   setminimumwidth(300)
                   setminimumheight(300)
                   move(490,100) 
+                  resize(300,300)
                   for n = 1 to size
                        for m = 1 to size
                             button[n][m] = new MyButton(win)
                        next
                   next
                   arrow = new qLineedit(win)
-                  mup = new qPushButton(win)
-                  mdown = new qPushButton(win)
-                  mleft = new qPushButton(win)
-                  mright = new qPushButton(win)
-                  newgame = new qPushButton(win)
+                  newgame = new qLabel(win)
                   myfilter = new qallevents(win)
                   myfilter.setResizeEvent("pResize()")
                   installeventfilter(myfilter)
@@ -49,7 +47,12 @@ app = new qApp {
                   setMouseButtonPressEvent("pPress()")
                   setMouseButtonReleaseEvent("pRelease()")}
                   installeventfilter(myfilter3)
-                  pResize()
+                  myfilter2 = new qAllEvents(win) {
+                  setkeypressevent("keypress()") }
+                  installeventfilter(myfilter2)
+                  pResize() 
+                  pbegin()  
+                  arrow.setfocus(true)               
            show()
          }
     exec()
@@ -64,8 +67,8 @@ func pRelease()
         y2 = myfilter3.getglobaly()
         xx1 = floor(x1/floor(winwidth/4)) - 2
         xx2 = floor(x2/floor(winwidth/4)) - 2
-        yy1 = floor(y1/floor(winheight/8)) - 1
-        yy2 = floor(y2/floor(winheight/8)) - 1
+        yy1 = floor(y1/floor(winheight/6)) - 1
+        yy2 = floor(y2/floor(winheight/6)) - 1
         bool = (yy1 <= size) and (yy2 <= size)
         if (yy1 = yy2) and (xx2 < xx1) and bool
            pleft()
@@ -84,23 +87,21 @@ func pResize()
                   winwidth = win.width()
                   winheight = win.height()
                   arrow.close()
-                  arrow = new qLineedit(win) {
-                              setGeometry(0,7*floor(winheight/8),winwidth,floor(winheight/8))
-                              arrow.setfocus(true)
-                              myfilter2 = new qAllEvents(win) {
-                              setkeypressevent("keypress()")
-                  }
-                  installeventfilter(myfilter2)
-                  }
+                  for n = 1 to size
+                       for m = 1 to size
+                            button[n][m] {temp = text()}
+                            buttonsave[n][m] = temp
+                       next
+                  next
                   for n = 1 to size
                        for m = 1 to size
                             button[n][m].close()
                             col = (n-1)*floor(winwidth/4)
-                            row = (m-1)*floor(winheight/8)
+                            row = (m-1)*floor(winheight/6)
                             fontsize = 10 + (winheight/16)
                             fontsize2 = 10 + (winheight/50)
                             button[n][m] = new MyButton(win) {
-                                                   setGeometry(col,row,winwidth/4,winheight/8)
+                                                   setGeometry(col,row,winwidth/4,winheight/6)
                                                    setFont(new qFont("Verdana",fontsize,100,0))
                                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                                    setstylesheet('background-color:orange')
@@ -108,49 +109,27 @@ func pResize()
                                                    }
                            next
                   next
+                  for n = 1 to size
+                       for m = 1 to size
+                            temp = buttonsave[n][m] 
+                            button[n][m].settext(temp)
+                       next
+                  next
                   newgame.close()
-                  newgame = new qPushButton(win) {
-                                    setGeometry(0,7*floor(winheight/8),winwidth,floor(winheight/8))
+                  newgame = new qLabel(win) {
+                                    setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
                                     setFont(new qFont("Verdana",fontsize2,100,0))
+                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     setstylesheet('background-color:violet')
                                     settext('New Game')
-                                    setClickEvent('pbegin()')
+                                    myfilter4 = new qallevents(newgame)
+                                    myfilter4.setMouseButtonPressEvent("pbegin()")
+                                    installeventfilter(myfilter4)
+                                    arrow.setfocus(true)
                                     show()
                                     }
-                  mup.close()
-                  mup = new qPushButton(win) {
-                             setGeometry(0,5*floor(winheight/8),winwidth/4,floor(winheight/8))
-                             setFont(new qFont("Verdana",fontsize2,100,0))
-                             settext('up')
-                             setClickEvent('pup()')
-                             show()
-                             }
-                  mdown.close()
-                  mdown = new qPushButton(win) {
-                                 setGeometry(floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
-                                 setFont(new qFont("Verdana",fontsize2,100,0))
-                                 settext('down')
-                                 setClickEvent('pdown()')
-                                 show()
-                                 }
-                  mleft.close()
-                  mleft = new qPushButton(win) {
-                              setGeometry(2*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
-                              setFont(new qFont("Verdana",fontsize2,100,0))
-                              settext('left')
-                              setClickEvent('pleft()')
-                              show()
-                              }
-                  mright.close()
-                  mright = new qPushButton(win) {
-                                setGeometry(3*floor(winwidth/4),5*floor(winheight/8),winwidth/4,floor(winheight/8))
-                                setFont(new qFont("Verdana",fontsize2,100,0))
-                                settext('right')
-                                setClickEvent('pright()')
-                                show()
-                                }
                   win.show()
-                  pbegin()
+                  return
 
 func keypress() 
         nKey = myfilter2.getkeycode() 
@@ -186,6 +165,7 @@ func pdown()
            pmovedown()
            newnum()
         ok
+        arrow.setfocus(true)
 
 func pup()
         num = gameover()
@@ -198,6 +178,7 @@ func pup()
            pmoveup()
            newnum()
         ok
+        arrow.setfocus(true)
 
 func pleft()
         num = gameover()
@@ -210,6 +191,7 @@ func pleft()
            pmoveleft()
            newnum()
         ok
+        arrow.setfocus(true)
 
 func pright()
         num = gameover()
@@ -222,6 +204,7 @@ func pright()
            pmoveright()
            newnum()
         ok
+        arrow.setfocus(true)
 
 func pmoveleft()
        for n = 1 to size
