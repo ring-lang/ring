@@ -342,6 +342,7 @@ CURLINFO_TLS_SESSION
 
 <runcode>
 aNumberTypes + "CURLoption"
+aNumberTypes + "long"
 aEnumTypes + "CURLINFO"
 aEnumTypes + "CURLformoption"
 </runcode>
