@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/23
+# Date    : 2018/08/24
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -17,9 +17,14 @@ mdown = list(size)
 mup = list(size)
 mleft = list(size)
 mright = list(size)
+moveleft = []
+moveright = []
+moveup = []
+movedown = []
+
 app = new qApp {
           win = new qWidget() {
-                  setWindowTitle("Don't accept Spaces")
+                  setWindowTitle("2048 Game")
                   move(490,100) 
                   resize(450,500)
                   for n = 1 to size
@@ -89,8 +94,13 @@ func pbegin()
          next
 
 func pdown()
+       button[nn][mm] {temp = text()}
+       if temp = ""
+          pmovedown()
+          return
+       ok
        if mm = 4
-          see "bad move" + nl
+          msgBox("bad move")
           return
        ok
        for m = mm + 1 to size 
@@ -107,8 +117,13 @@ func pdown()
        next
 
 func pup()
+       button[nn][mm] {temp = text()}
+       if temp = ""
+          pmoveup()
+          return
+       ok
        if mm = 1
-          see "bad move" + nl
+          msgBox("bad move")
           return
        ok
        for m = mm - 1 to 1 step -1
@@ -126,8 +141,13 @@ func pup()
        next
 
 func pleft()
-       if nn = 1
-          see "bad move" + nl
+       button[nn][mm] {temp = text()}
+       if temp = ""
+          pmoveleft()
+          return
+       ok
+       if nn = 1 and temp != ""
+          msgBox("bad move")
           return
        ok
        for n = mm - 1 to 1 step -1
@@ -144,8 +164,13 @@ func pleft()
        next
 
 func pright()
+       button[nn][mm] {temp = text()}
+       if temp = ""
+          pmoveright()
+          return
+       ok
        if nn = 4
-          see "bad move" + nl
+          msgBox("bad move")
           return
        ok
        for n = nn + 1 to size 
@@ -172,3 +197,155 @@ func newnum()
                 exit
              ok
         end
+
+func pmoveleft()
+       for n = 1 to size
+            moveleft = []
+            for m = 1 to size
+                 button[m][n] {temp = text()}
+                 if temp != ""
+                    add(moveleft,temp)
+                 ok
+            next
+            movetilesleft(n,moveleft)
+        next
+        newnum()
+        return
+
+func movetilesleft(nr,moveleft)
+       for p = 1 to len(moveleft) - 1
+            button[p][nr] {temp1 = text()}
+            button[p+1][nr] {temp2 = text()}
+            if temp1 = temp2
+               temp = string(number(temp1) + number(temp2))
+               if temp != "0"
+                  moveleft[p] = temp
+                  del(moveleft,p+1)
+                  exit
+               ok
+            ok
+       next
+       for n = 1 to len(moveleft)
+            button[n][nr].settext(moveleft[n])
+       next
+       for n = len(moveleft) + 1 to size 
+            if n <= size
+               button[n][nr].settext("")
+            ok
+       next
+
+func pmoveright()
+       for n = 1 to size
+            moveright = []
+            for m = size to 1 step -1
+                 button[m][n] {temp = text()}
+                 if temp != ""
+                    add(moveright,temp)
+                 ok
+            next
+            movetilesright(n,moveright)
+        next
+        newnum()
+        return
+
+func movetilesright(nr,moveright)
+       for p = len(moveright) - 1 to 1 step -1
+            button[p][nr] {temp1 = text()}
+            button[p+1][nr] {temp2 = text()}
+            if temp1 = temp2
+               temp = string(number(temp1) + number(temp2))
+               if temp != "0"
+                  moveright[p] = temp
+                  del(moveright,p+1)
+                  exit
+               ok
+            ok
+       next
+       for n = 1 to len(moveright)
+            button[size-n+1][nr].settext(moveright[n])
+       next
+       for n = 1 to size - len(moveright)
+            if n <= size
+               button[n][nr].settext("")
+            ok
+       next
+
+func pmoveup()
+       for n = 1 to size
+            moveup = []
+            for m = 1 to size
+                 button[n][m] {temp = text()}
+                 if temp != ""
+                    add(moveup,temp)
+                 ok
+            next
+            movetilesup(n,moveup)
+        next
+        newnum()
+        return
+
+func movetilesup(nr,moveup)
+        for p = 1 to len(moveup) - 1
+            button[nr][p] {temp1 = text()}
+            button[nr][p+1] {temp2 = text()}
+            if temp1 = temp2
+               temp = string(number(temp1) + number(temp2))
+               if temp != "0"
+                  moveup[p] = temp
+                  del(moveup,p+1)
+                  exit
+               ok
+            ok
+       next
+       for n = 1 to len(moveup)
+            button[nr][n].settext(moveup[n])
+       next
+       for n = len(moveup) + 1 to size 
+            if n <= size
+               button[nr][n].settext("")
+            ok
+       next
+
+func pmovedown()
+       for n = 1 to size
+            movedown = []
+            for m = size to 1 step -1
+                 button[n][m] {temp = text()}
+                 if temp != ""
+                    add(movedown,temp)
+                 ok
+            next
+            movetilesdown(n,movedown)
+        next
+        newnum()
+        return
+
+func movetilesdown(nr,movedown)
+        for p = 1 to len(movedown) - 1
+            button[nr][p] {temp1 = text()}
+            button[nr][p+1] {temp2 = text()}
+            if temp1 = temp2
+               temp = string(number(temp1) + number(temp2))
+               if temp != "0"
+                  movedown[p] = temp
+                  del(movedown,p+1)
+                  exit
+               ok
+            ok
+       next
+       for n = 1 to len(movedown)
+            button[nr][size-n+1].settext(movedown[n])
+       next
+       for n = size - len(movedown) to 1 step -1 
+            if n <= size
+               button[nr][n].settext("")
+            ok
+       next
+
+func msgBox(text) {
+	m = new qMessageBox(win) {
+	       setWindowTitle("21 Game")
+	       setText(text)
+	       show()
+	       }
+        }
