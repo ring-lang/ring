@@ -7,7 +7,7 @@ load "stdlib.ring"
 load "guilib.ring"
 
 size = 4
-limit = 6
+limit = 2
 num = 0
 flag = 0
 x1 = 0
@@ -29,7 +29,7 @@ winwidth = 0
 
 app = new qApp {
           StyleFusion()
-          app.processevents()
+          processevents()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
                   setgeometry(100,100,800,600)
@@ -153,19 +153,29 @@ func keypress()
         off
 
 func pbegin()
+       numbers = [['2','2'],['2','4']]
+       randnew = newlist(2,2)
        for n = 1 to size
             for m = 1 to size
                  button[n][m].setStylesheet('background-color: orange')
                  button[n][m].settext('')
             next
         next
-        for n = 1 to limit
-             rn = random(size - 1) + 1
-             rm = random(size - 1) + 1
-             button[rn][rm].settext('2')
-         next
-         nScore = 0
-         playerscore.settext('Play Score: ')
+        while true
+                rn1 = random(size - 1) + 1
+                rm1 = random(size - 1) + 1
+                rn2 = random(size - 1) + 1
+                rm2 = random(size - 1) + 1
+                bool = (rn1 = rn2) and (rm1 = rm2)
+                if not bool
+                   exit
+                ok
+        end
+        rand = random(limit - 1) + 1
+        button[rn1][rm1].settext(numbers[rand][1])
+        button[rn2][rm2].settext(numbers[rand][2])
+        nScore = 0
+        playerscore.settext('Play Score: ')
 
 func pdown()
         num = gameover()
@@ -176,6 +186,7 @@ func pdown()
         ok
         if flag = 0
            pmovedown()
+           sleep(0.5)
            newnum()
         ok
 
@@ -188,6 +199,7 @@ func pup()
         ok
         if flag = 0
            pmoveup()
+           sleep(0.5)
            newnum()
         ok
 
@@ -200,6 +212,7 @@ func pleft()
         ok
         if flag = 0
            pmoveleft()
+           sleep(0.5)
            newnum()
         ok
 
@@ -212,6 +225,7 @@ func pright()
         ok
         if flag = 0
            pmoveright()
+           sleep(0.5)
            newnum()
         ok
 
@@ -224,7 +238,6 @@ func pmoveleft()
                     add(moveleft,temp)
                  ok
             next
-            sleep(0.2)
             movetilesleft(n,moveleft)
        next
 
@@ -263,14 +276,13 @@ func pmoveright()
                     add(moveright,temp)
                  ok
             next
-            sleep(0.2)
             movetilesright(n,moveright)
         next
         return
 
 func movetilesright(nr,moveright)
        flag = 0
-       for p = len(moveright) to 2 step -1
+       for p = 2 to len(moveright)
             temp1 = moveright[p]
             temp2 = moveright[p-1]
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
@@ -303,7 +315,6 @@ func pmoveup()
                     add(moveup,temp)
                  ok
             next
-            sleep(0.2)
             movetilesup(n,moveup)
         next
         return
@@ -343,7 +354,6 @@ func pmovedown()
                     add(movedown,temp)
                  ok
             next
-            sleep(0.2)
             movetilesdown(n,movedown)
         next
         return
@@ -376,13 +386,11 @@ func movetilesdown(nr,movedown)
        next
 
 func newnum()
-        nums = [2,4]
         while true
                 rn = random(size - 1) + 1
                 rm = random(size - 1) + 1
-                ran = random(len(nums) - 1) + 1
                 if button[rn][rm].text() = ''
-                   button[rn][rm].settext(string(nums[ran]))
+                   button[rn][rm].settext('2')
                    exit
                 ok
         end
