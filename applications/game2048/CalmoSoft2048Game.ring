@@ -23,6 +23,7 @@ moveup = []
 movedown = []
 
 app = new qApp {
+          StyleFusion()
           win = new qWidget() {
                   setWindowTitle("2048 Game")
                   move(490,100) 
@@ -33,6 +34,7 @@ app = new qApp {
                             row = 100 + m*40
                             button[n][m] = new qPushButton(win) {
                                                    setGeometry(col,row,40,40)
+                                                   setstylesheet("forground-color:white; background-color:orange")
                                                    setClickEvent("keypress(" + string(n) + "," + string(m) + ")")
                                                    }
                         next
