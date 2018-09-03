@@ -14,6 +14,7 @@ x1 = 0
 x2 = 0
 y1 = 0
 y2 = 0
+nScore = 0
 button = newlist(size,size)
 buttonsave = newlist(size,size)
 moveleft = []
@@ -22,6 +23,7 @@ moveup = []
 movedown = []
 myfilter2 = null
 myfilter3 = null
+arrow = null
 winheight = 0
 winwidth = 0
 
@@ -31,6 +33,7 @@ app = new qApp {
                   setWindowTitle('2048 Game')
                   setminimumwidth(300)
                   setminimumheight(300)
+                  grabkeyboard()
                   move(490,100) 
                   resize(300,300)
                   for n = 1 to size
@@ -40,6 +43,7 @@ app = new qApp {
                   next
                   arrow = new qLineedit(win)
                   newgame = new qLabel(win)
+                  playerscore = new qLabel(win)
                   myfilter = new qallevents(win)
                   myfilter.setResizeEvent("pResize()")
                   installeventfilter(myfilter)
@@ -115,6 +119,18 @@ func pResize()
                             button[n][m].settext(temp)
                        next
                   next
+
+                  playerscore.close()
+                  playerscore = new qLabel(win) {
+                                    setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
+                                    setFont(new qFont("Verdana",fontsize2,100,0))
+                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                    settext('Player Score: ')
+                                    arrow.setfocus(true)
+                                    show()
+                                    }
+                  playerscore.settext('Play Score: ' + nScore)
+
                   newgame.close()
                   newgame = new qLabel(win) {
                                     setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
@@ -153,6 +169,8 @@ func pbegin()
              button[rn][rm].settext('2')
          next
          arrow.setfocus(true)
+         nScore = 0
+         playerscore.settext('Play Score: ')
 
 func pdown()
         num = gameover()
@@ -225,6 +243,9 @@ func movetilesleft(nr,moveleft)
             temp = string(number(temp1) + number(temp2))
             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                if temp != '0' and temp != ''
+                  nScore = nScore + temp
+                  playerscore.settext('Play Score: ' + nScore)
+                  flag = 1
                   moveleft[p] = temp
                   del(moveleft,p+1)
                ok
@@ -262,6 +283,8 @@ func movetilesright(nr,moveright)
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
+                  nScore = nScore + temp
+                  playerscore.settext('Play Score: ' + nScore)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
@@ -302,6 +325,8 @@ func movetilesup(nr,moveup)
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
+                  nScore = nScore + temp
+                  playerscore.settext('Play Score: ' + nScore)
                   flag = 1
                   moveup[p] = temp
                   del(moveup,p+1)
@@ -339,6 +364,8 @@ func movetilesdown(nr,movedown)
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
+                  nScore = nScore + temp
+                  playerscore.settext('Play Score: ' + nScore)
                   flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
