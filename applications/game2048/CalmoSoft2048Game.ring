@@ -8,6 +8,7 @@ load "guilib.ring"
 
 size = 4
 limit = 6
+flag = 0
 numbers = [2,4,8,16,32,64]
 button = newlist(size,size)
 moveleft = []
@@ -81,57 +82,41 @@ func pdown()
        if gameover() = 1
           return
        ok
-       pdownnew()
        pmovedown()
-       newnum()
-
-func pdownnew()
-       if gameover() = 1
-          return
+       if flag = 0
+          pmovedown()
        ok
-       pmovedown()
+       newnum()
 
 func pup()
        if gameover() = 1
           return
        ok
-       pupnew()
        pmoveup()
-       newnum()
-
-func pupnew()
-       if gameover() = 1
-          return
+       if flag = 0
+          pmoveup()
        ok
-       pmoveup()
+       newnum()
 
 func pleft()
        if gameover() = 1
           return
        ok
-       pleftnew()
        pmoveleft()
-       newnum()
-
-func pleftnew()
-       if gameover() = 1
-          return
+       if flag = 0
+          pmoveleft()
        ok
-       pmoveleft()
+       newnum()
 
 func pright()
        if gameover() = 1
           return
        ok
-       prightnew()
        pmoveright()
-       newnum()
-
-func prightnew()
-       if gameover() = 1
-          return
+       if flag = 0
+          pmoveright()
        ok
-       pmoveright()
+       newnum()
 
 func pmoveleft()
        for n = 1 to size
@@ -146,6 +131,7 @@ func pmoveleft()
         next
 
 func movetilesleft(nr,moveleft)
+       flag = 0
        for p = 1 to (len(moveleft) - 1)
             button[p][nr] {temp1 = text()}
             button[p+1][nr] {temp2 = text()}
@@ -160,6 +146,7 @@ func movetilesleft(nr,moveleft)
             c1 = (moveleft[n] = '')
             c2 = (moveleft[n] = '0')
             if  c1 or c2
+               flag = 1
                del(moveleft,n)
             ok
        next
@@ -188,12 +175,14 @@ func pmoveright()
         return
 
 func movetilesright(nr,moveright)
+       flag = 0
        for p = 2 to len(moveright)
             button[size-p+2][nr] {temp1 = text()}
             button[size-p+1][nr] {temp2 = text()}
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0'
+                  flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
                   exit
@@ -224,15 +213,17 @@ func pmoveup()
         return
 
 func movetilesup(nr,moveup)
+        flag = 0
         for p = 1 to len(moveup) - 1
-            button[nr][size-p+1] {temp1 = text()}
-            button[nr][size-p] {temp2 = text()}
+             button[nr][p] {temp1 = text()}
+             button[nr][p+1] {temp2 = text()}
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0'
-                  moveup[p+1] = temp
-                  del(moveup,p)
-                  exit
+                  flag = 1
+                  moveup[p] = temp
+                  del(moveup,p+1)
+                  exit 
                ok
             ok
        next
@@ -260,12 +251,14 @@ func pmovedown()
         return
 
 func movetilesdown(nr,movedown)
+        flag = 0
         for p = 1 to len(movedown) - 1
              button[nr][size-p+1] {temp1 = text()}
              button[nr][size-p] {temp2 = text()}
              if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                if temp != '0'
+                  flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
                   exit
