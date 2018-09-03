@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/28
+# Date    : 2018/08/29
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -8,7 +8,8 @@ load "guilib.ring"
 
 size = 4
 limit = 6
-numbers = [2,4,8,16,32,64]
+num = 0
+flag = 0
 button = newlist(size,size)
 moveleft = []
 moveright = []
@@ -27,6 +28,8 @@ app = new qApp {
                             row = 100 + m*40
                             button[n][m] = new MyButton(win) {
                                                    setGeometry(col,row,40,40)
+                                                   setFont(new qFont("Verdana",14,100,0))
+                                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                                    setstylesheet('background-color:orange')
                                                    }
                         next
@@ -73,37 +76,56 @@ func pbegin()
         for n = 1 to limit
              rn = random(size - 1) + 1
              rm = random(size - 1) + 1
-             ran = random(limit - 1) + 1
-             button[rn][rm].settext(string(numbers[ran]))
+             button[rn][rm].settext('2')
          next
 
 func pdown()
-       if gameover() = 1
-          return
-       ok
-       pmovedown()
-       newnum()
+        num = gameover()
+        if num = size*size
+           flag = 1
+           msgBox('You lost!')
+           pbegin()
+        ok
+        if flag = 0
+           pmovedown()
+           newnum()
+        ok
 
 func pup()
-       if gameover() = 1
-          return
-       ok
-       pmoveup()
-       newnum()
+        num = gameover()
+        if num = size*size
+           flag = 1
+           msgBox('You lost!')
+           pbegin()
+        ok
+        if flag = 0
+           pmoveup()
+           newnum()
+        ok
 
 func pleft()
-       if gameover() = 1
-          return
-       ok
-       pmoveleft()
-       newnum()
+        num = gameover()
+        if num = size*size
+           flag = 1
+           msgBox('You lost!')
+           pbegin()
+        ok
+        if flag = 0
+           pmoveleft()
+           newnum()
+        ok
 
 func pright()
-       if gameover() = 1
-          return
-       ok
-       pmoveright()
-       newnum()
+        num = gameover()
+        if num = size*size
+           flag = 1
+           msgBox('You lost!')
+           pbegin()
+        ok
+        if flag = 0
+           pmoveright()
+           newnum()
+        ok
 
 func pmoveleft()
        for n = 1 to size
@@ -269,6 +291,7 @@ func newnum()
 
 func gameover()
         num = 0
+        flag = 0
         for n = 1 to size
              for m = 1 to size 
                   if button[n][m].text() != ''
@@ -276,15 +299,11 @@ func gameover()
                   ok
               next
         next
-        if num = size*size
-           msgBox('You lost!')
-           return 1
-        ok
-        return
+        return num
 
 func msgBox(text) {
 	m = new qMessageBox(win) {
-	       setWindowTitle('21 Game')
+	       setWindowTitle('2048 Game')
 	       setText(text)
 	       show()
 	       }
@@ -300,7 +319,7 @@ func showarray(vect)
         see svect
         see "]" + nl
 
-class MyButton from qPushButton
+class MyButton from qLabel
        func setText cValue 
               Super.setText(cValue)
               switch cValue 
