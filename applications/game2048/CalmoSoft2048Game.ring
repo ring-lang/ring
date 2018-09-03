@@ -1,5 +1,5 @@
 # Project : 2048 Game
-# Date    : 2018/08/24
+# Date    : 2018/08/25
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -32,7 +32,7 @@ app = new qApp {
                        for m = 1 to size
                             col = 100 + n*40
                             row = 100 + m*40
-                            button[n][m] = new qPushButton(win) {
+                            button[n][m] = new MyButton(win) {
                                                    setGeometry(col,row,40,40)
                                                    setstylesheet("forground-color:white; background-color:orange")
                                                    setClickEvent("keypress(" + string(n) + "," + string(m) + ")")
@@ -85,6 +85,7 @@ func keypress(np,mp)
 func pbegin()
        for n = 1 to size
             for m = 1 to size
+                 button[n][m].setStylesheet("background-color: orange")
                  button[n][m].settext("")
             next
         next
@@ -112,6 +113,7 @@ func pdown()
                if move = temp
                   res = string(number(move) + number(temp))
                   button[nn][m].settext(res)
+                  setStylesheet("background-color: orange")
                   button[nn][mm].settext("")
                   exit
                ok
@@ -135,6 +137,7 @@ func pup()
                if move = temp
                   res = string(number(move) + number(temp))
                   button[nn][m].settext(res)
+                  setStylesheet("background-color: orange")
                   button[nn][mm].settext("")
                   newnum()
                   exit
@@ -159,6 +162,7 @@ func pleft()
                if move = temp
                   res = string(number(move) + number(temp))
                   button[n][mm].settext(res)
+                  setStylesheet("background-color: orange")
                   button[nn][mm].settext("")
                   exit
                ok
@@ -182,6 +186,7 @@ func pright()
                if move = temp
                   res = string(number(move) + number(temp))
                   button[n][mm].settext(res)
+                  setStylesheet("background-color: orange")
                   button[nn][mm].settext("")
                   exit
                ok
@@ -232,6 +237,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = len(moveleft) + 1 to size 
             if n <= size
+               button[n][nr].setStylesheet("background-color: orange")
                button[n][nr].settext("")
             ok
        next
@@ -268,6 +274,7 @@ func movetilesright(nr,moveright)
        next
        for n = 1 to size - len(moveright)
             if n <= size
+               button[n][nr].setStylesheet("background-color: orange")
                button[n][nr].settext("")
             ok
        next
@@ -304,6 +311,7 @@ func movetilesup(nr,moveup)
        next
        for n = len(moveup) + 1 to size 
             if n <= size
+               button[nr][n].setStylesheet("background-color: orange")
                button[nr][n].settext("")
             ok
        next
@@ -340,7 +348,8 @@ func movetilesdown(nr,movedown)
        next
        for n = size - len(movedown) to 1 step -1 
             if n <= size
-               button[nr][n].settext("")
+               button[nr][n].setStylesheet("background-color: orange")
+               settext("")
             ok
        next
 
@@ -351,3 +360,15 @@ func msgBox(text) {
 	       show()
 	       }
         }
+
+class MyButton from qPushButton
+       func setText cValue 
+              Super.setText(cValue)
+              switch cValue 
+                        on "2" setStyleSheet("foreground-color:blue; background-color: yellow")
+                        on "4" setStylesheet("foreground-color:white; background-color: violet")
+                        on "8" setStylesheet("foreground-color:white; background-color: blue")
+                        on "16" setStylesheet("foreground-color:yellow; background-color: gray")
+                        on "32" setStylesheet("foreground-color:white; background-color: red")
+                        on "64" setStylesheet("foreground-color:white; background-color: gray")
+              off
