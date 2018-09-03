@@ -9,6 +9,7 @@ load "guilib.ring"
 
 size = 4
 limit = 6
+flag = 0
 nn = 0
 mm = 0
 num = [2,4,8,16,32,64]
@@ -79,6 +80,7 @@ app = new qApp {
 }
 
 func keypress(np,mp)
+       flag = 1
        nn = np
        mm = mp
 
@@ -97,6 +99,9 @@ func pbegin()
          next
 
 func pdown()
+       if flag = 0
+          return
+       ok
        button[nn][mm] {temp = text()}
        if temp = ""
           pmovedown()
@@ -121,6 +126,9 @@ func pdown()
        next
 
 func pup()
+       if flag = 0
+          return
+       ok
        button[nn][mm] {temp = text()}
        if temp = ""
           pmoveup()
@@ -146,6 +154,9 @@ func pup()
        next
 
 func pleft()
+       if flag = 0
+          return
+       ok
        button[nn][mm] {temp = text()}
        if temp = ""
           pmoveleft()
@@ -170,6 +181,9 @@ func pleft()
        next
 
 func pright()
+       if flag = 0
+          return
+       ok
        button[nn][mm] {temp = text()}
        if temp = ""
           pmoveright()
@@ -196,13 +210,13 @@ func pright()
 func newnum()
         nums = [2,4]
         while true
-             rn = random(size - 1) + 1
-             rm = random(size - 1) + 1
-             ran = random(len(nums) - 1) + 1
-             if button[rn][rm].text() = ""
-                button[rn][rm].settext(string(nums[ran]))
-                exit
-             ok
+                rn = random(size - 1) + 1
+                rm = random(size - 1) + 1
+                ran = random(len(nums) - 1) + 1
+                if button[rn][rm].text() = ""
+                   button[rn][rm].settext(string(nums[ran]))
+                   exit
+                ok
         end
 
 func pmoveleft()
@@ -349,7 +363,7 @@ func movetilesdown(nr,movedown)
        for n = size - len(movedown) to 1 step -1 
             if n <= size
                button[nr][n].setStylesheet("background-color: orange")
-               settext("")
+               button[nr][n].settext("")
             ok
        next
 
