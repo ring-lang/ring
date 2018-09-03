@@ -8,15 +8,8 @@ load "guilib.ring"
 
 size = 4
 limit = 6
-flag = 0
-nn = 0
-mm = 0
 numbers = [2,4,8,16,32,64]
 button = newlist(size,size)
-mdown = list(size)
-mup = list(size)
-mleft = list(size)
-mright = list(size)
 moveleft = []
 moveright = []
 moveup = []
@@ -25,7 +18,7 @@ movedown = []
 app = new qApp {
           StyleFusion()
           win = new qWidget() {
-                  setWindowTitle("2048 Game")
+                  setWindowTitle('2048 Game')
                   move(490,100) 
                   resize(450,500)
                   for n = 1 to size
@@ -34,35 +27,35 @@ app = new qApp {
                             row = 100 + m*40
                             button[n][m] = new MyButton(win) {
                                                    setGeometry(col,row,40,40)
-                                                   setstylesheet("background-color:orange")
+                                                   setstylesheet('background-color:orange')
                                                    }
                         next
                   next
                   newgame = new qPushButton(win) {
                                     setGeometry(180,380,80,40)
-                                    setstylesheet("background-color:violet")
-                                    settext("New Game")
-                                    setClickEvent("pbegin()")
+                                    setstylesheet('background-color:violet')
+                                    settext('New Game')
+                                    setClickEvent('pbegin()')
                                     }
                   mup = new qPushButton(win) {
                              setGeometry(140,300,40,40)
-                             settext("up")
-                             setClickEvent("pup()")
+                             settext('up')
+                             setClickEvent('pup()')
                              }
                   mdown = new qPushButton(win) {
                                  setGeometry(180,300,40,40)
-                                 settext("down")
-                                 setClickEvent("pdown()")
+                                 settext('down')
+                                 setClickEvent('pdown()')
                                  }
                   mleft = new qPushButton(win) {
                               setGeometry(220,300,40,40)
-                              settext("left")
-                              setClickEvent("pleft()")
+                              settext('left')
+                              setClickEvent('pleft()')
                               }
                   mright = new qPushButton(win) {
                                 setGeometry(260,300,40,40)
-                                settext("right")
-                                setClickEvent("pright()")
+                                settext('right')
+                                setClickEvent('pright()')
                                 }
                   pbegin()
            show()
@@ -70,15 +63,10 @@ app = new qApp {
     exec()
 }
 
-func keypress(np,mp)
-       flag = 1
-       nn = np
-       mm = mp
-
 func pbegin()
        for n = 1 to size
             for m = 1 to size
-                 button[n][m].setStylesheet("background-color: orange")
+                 button[n][m].setStylesheet('background-color: orange')
                  button[n][m].settext('')
             next
         next
@@ -116,7 +104,6 @@ func pupnew()
           return
        ok
        pmoveup()
-
 
 func pleft()
        if gameover() = 1
@@ -162,7 +149,7 @@ func movetilesleft(nr,moveleft)
        for p = 1 to (len(moveleft) - 1)
             button[p][nr] {temp1 = text()}
             button[p+1][nr] {temp2 = text()}
-            if (temp1 = temp2) and (temp1 != "0") and (temp2 != "0") and (temp1 != '') and (temp2 != '')
+            if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
                 moveleft[p] = temp
                del(moveleft,p+1)
@@ -170,7 +157,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = 1 to len(moveleft)
             c1 = (moveleft[n] = '')
-            c2 = (moveleft[n] = "0")
+            c2 = (moveleft[n] = '0')
             if  c1 or c2
                del(moveleft,n)
             ok
@@ -180,7 +167,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = len(moveleft) + 1 to size 
             if n <= size
-               button[n][nr].setStylesheet("background-color: orange")
+               button[n][nr].setStylesheet('background-color: orange')
                button[n][nr].settext('')
             ok
        next
@@ -203,9 +190,9 @@ func movetilesright(nr,moveright)
        for p = len(moveright) - 1 to 1 step -1
             button[p][nr] {temp1 = text()}
             button[p+1][nr] {temp2 = text()}
-             if (temp1 = temp2) and (temp1 != "0") and (temp2 != "0") and (temp1 != '') and (temp2 != '')
+             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != "0"
+               if temp != '0'
                   moveright[p] = temp
                   del(moveright,p+1)
                   exit
@@ -217,7 +204,7 @@ func movetilesright(nr,moveright)
        next
        for n = 1 to size - len(moveright)
             if n <= size
-               button[n][nr].setStylesheet("background-color: orange")
+               button[n][nr].setStylesheet('background-color: orange')
                button[n][nr].settext('')
             ok
        next
@@ -239,9 +226,9 @@ func movetilesup(nr,moveup)
         for p = 1 to len(moveup) - 1
             button[nr][p] {temp1 = text()}
             button[nr][p+1] {temp2 = text()}
-             if (temp1 = temp2) and (temp1 != "0") and (temp2 != "0") and (temp1 != '') and (temp2 != '')
+             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != "0"
+               if temp != '0'
                   moveup[p] = temp
                   del(moveup,p+1)
                   exit
@@ -253,7 +240,7 @@ func movetilesup(nr,moveup)
        next
        for n = len(moveup) + 1 to size 
             if n <= size
-               button[nr][n].setStylesheet("background-color: orange")
+               button[nr][n].setStylesheet('background-color: orange')
                button[nr][n].settext('')
             ok
        next
@@ -273,11 +260,11 @@ func pmovedown()
 
 func movetilesdown(nr,movedown)
         for p = 1 to len(movedown) - 1
-            button[nr][p] {temp1 = text()}
-            button[nr][p+1] {temp2 = text()}
-             if (temp1 = temp2) and (temp1 != "0") and (temp2 != "0") and (temp1 != '') and (temp2 != '')
+             button[nr][size-p+1] {temp1 = text()}
+             button[nr][size-p] {temp2 = text()}
+             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                temp = string(number(temp1) + number(temp2))
-               if temp != "0"
+               if temp != '0'
                   movedown[p] = temp
                   del(movedown,p+1)
                   exit
@@ -289,7 +276,7 @@ func movetilesdown(nr,movedown)
        next
        for n = size - len(movedown) to 1 step -1 
             if n <= size
-               button[nr][n].setStylesheet("background-color: orange")
+               button[nr][n].setStylesheet('background-color: orange')
                button[nr][n].settext('')
             ok
        next
@@ -317,38 +304,28 @@ func gameover()
               next
         next
         if num = size*size
-           msgBox("You lost!")
+           msgBox('You lost!')
            return 1
         ok
         return
 
 func msgBox(text) {
 	m = new qMessageBox(win) {
-	       setWindowTitle("21 Game")
+	       setWindowTitle('21 Game')
 	       setText(text)
 	       show()
 	       }
         }
 
-func showarray(vect)
-        see "["
-        svect = ''
-        for n = 1 to len(vect)
-             svect = svect + vect[n] + " "
-        next
-        svect = left(svect, len(svect) - 1)
-        see svect
-        see "]"
-
 class MyButton from qPushButton
        func setText cValue 
               Super.setText(cValue)
               switch cValue 
-                        on "2" setStyleSheet("foreground-color:blue; background-color: yellow")
-                        on "4" setStylesheet("foreground-color:white; background-color: violet")
-                        on "8" setStylesheet("foreground-color:white; background-color: blue")
-                        on "16" setStylesheet("foreground-color:black; background-color: green")
-                        on "32" setStylesheet("foreground-color:white; background-color: red")
-                        on "64" setStylesheet("foreground-color:white; background-color: gray")
-                        on "128" setStylesheet("foreground-color:violet; background-color: white")
+                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow')
+                        on '4' setStylesheet('foreground-color:white; background-color: violet')
+                        on '8' setStylesheet('foreground-color:white; background-color: blue')
+                        on '16' setStylesheet('foreground-color:black; background-color: green')
+                        on '32' setStylesheet('foreground-color:white; background-color: red')
+                        on '64' setStylesheet('foreground-color:white; background-color: gray')
+                        on '128' setStylesheet('foreground-color:violet; background-color: white')
               off
