@@ -6,6 +6,8 @@
 load "stdlib.ring"
 load "guilib.ring"
 
+C_WINDOWBACKGROUND	= 'background-color:white'
+C_PLAYERSCOREFONTSIZE	= "font-size:50px;"
 C_NEWGAMESTYLE		= 'background-color:violet;font-size:50px;'
 C_EMPTYBUTTONSTYLE 	= 'background-color: orange;font-size:80px;'
 C_BUTTON2STYLE 		= 'foreground-color:blue; background-color: yellow ; font-size:80px;'
@@ -47,7 +49,7 @@ app = new qApp {
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
-                  setstylesheet('background-color:white')
+                  setstylesheet(C_WINDOWBACKGROUND)
                   move(490,100) 
                   for n = 1 to size
                        for m = 1 to size
@@ -94,7 +96,7 @@ app = new qApp {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext('Player Score :  ' + nScore)
-				    setStylesheet("font-size:50px;")
+				    setStylesheet(C_PLAYERSCOREFONTSIZE)
                                     show()
 		  }
 
