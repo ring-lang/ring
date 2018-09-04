@@ -32,7 +32,7 @@ app = new qApp {
           processevents()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
-                  setgeometry(100,100,550,700)
+                  setgeometry(100,100,600,700)
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
@@ -65,7 +65,7 @@ app = new qApp {
                             buttonsave[n][m] = temp
                             button[n][m] = new MyButton(win) {
                                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:orange;font-size:100px;')
+                                                   setstylesheet('background-color:orange;font-size:80px;')
                                                    show()
                                            }
                        next
@@ -153,7 +153,7 @@ func pbegin()
        randnew = newlist(2,2)
        for n = 1 to size
             for m = 1 to size
-                 button[n][m].setStylesheet('background-color: orange;font-size:100px;')
+                 button[n][m].setStylesheet('background-color: orange;font-size:80px;')
                  button[n][m].settext('')
             next
         next
@@ -257,7 +257,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = len(moveleft) + 1 to size 
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange;font-size:100px;')
+               button[n][nr].setStylesheet('background-color: orange;font-size:80px;')
                button[n][nr].settext('')
             ok
        next
@@ -297,7 +297,7 @@ func movetilesright(nr,moveright)
        next
        for n = 1 to size - len(moveright)
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange;font-size:100px;')
+               button[n][nr].setStylesheet('background-color: orange;font-size:80px;')
                button[n][nr].settext('')
             ok
        next
@@ -336,7 +336,7 @@ func movetilesup(nr,moveup)
        next
        for n = len(moveup) + 1 to size 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange;font-size:100px;')
+               button[nr][n].setStylesheet('background-color: orange;font-size:80px;')
                button[nr][n].settext('')
             ok
        next
@@ -375,7 +375,7 @@ func movetilesdown(nr,movedown)
        next
        for n = size - len(movedown) to 1 step -1 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange;font-size:100px;')
+               button[nr][n].setStylesheet('background-color: orange;font-size:80px;')
                app.processevents()
                button[nr][n].settext('')
             ok
@@ -426,11 +426,11 @@ class MyButton from qLabel
        func setText(cValue)
               Super.setText(cValue)
               switch cValue 
-                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow ; font-size:100px;')
-                        on '4' setStylesheet('foreground-color:white; background-color: violet ; font-size:100px;')
-                        on '8' setStylesheet('foreground-color:white; background-color: blue ; font-size:100px;')
-                        on '16' setStylesheet('foreground-color:black; background-color: green ; font-size:100px;')
-                        on '32' setStylesheet('foreground-color:white; background-color: red ; font-size:100px;')
-                        on '64' setStylesheet('foreground-color:white; background-color: gray ; font-size:100px;')
-                        on '128' setStylesheet('foreground-color:violet; background-color: white ; font-size:100px;')
+                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow ; font-size:80px;')
+                        on '4' setStylesheet('foreground-color:white; background-color: violet ; font-size:80px;')
+                        on '8' setStylesheet('foreground-color:white; background-color: blue ; font-size:80px;')
+                        on '16' setStylesheet('foreground-color:black; background-color: green ; font-size:80px;')
+                        on '32' setStylesheet('foreground-color:white; background-color: red ; font-size:80px;')
+                        on '64' setStylesheet('foreground-color:white; background-color: gray ; font-size:80px;')
+                        on '128' setStylesheet('foreground-color:violet; background-color: white ; font-size:80px;')
               off
