@@ -9,15 +9,15 @@ load "guilib.ring"
 C_WINDOWBACKGROUND	= 'background-color:white'
 C_PLAYERSCOREFONTSIZE	= "font-size:50px;"
 C_NEWGAMESTYLE		= 'background-color:violet;font-size:50px;'
-C_EMPTYBUTTONSTYLE 	= 'background-color: orange;font-size:80px;'
-C_BUTTON2STYLE 		= 'foreground-color:blue; background-color: yellow ; font-size:80px;'
-C_BUTTON4STYLE 		= 'foreground-color:white; background-color: violet ; font-size:80px;'
-C_BUTTON8STYLE 		= 'foreground-color:white; background-color: blue ; font-size:80px;'
-C_BUTTON16STYLE 	= 'foreground-color:black; background-color: green ; font-size:80px;'
-C_BUTTON32STYLE 	= 'foreground-color:white; background-color: red ; font-size:80px;'
-C_BUTTON64STYLE 	= 'foreground-color:white; background-color: gray ; font-size:80px;'
+C_EMPTYBUTTONSTYLE 	= 'border-radius:17px;background-color: orange;font-size:80px;'
+C_BUTTON2STYLE 		= 'border-radius:17px;foreground-color:blue; background-color: yellow ; font-size:80px;'
+C_BUTTON4STYLE 		= 'border-radius:17px;foreground-color:white; background-color: violet ; font-size:80px;'
+C_BUTTON8STYLE 		= 'border-radius:17px;foreground-color:white; background-color: blue ; font-size:80px;'
+C_BUTTON16STYLE 	= 'border-radius:17px;foreground-color:black; background-color: green ; font-size:80px;'
+C_BUTTON32STYLE 	= 'border-radius:17px;foreground-color:white; background-color: red ; font-size:80px;'
+C_BUTTON64STYLE 	= 'border-radius:17px;foreground-color:white; background-color: gray ; font-size:80px;'
 C_BUTTON128STYLE 	= 'foreground-color:violet; background-color: white ; font-size:80px;'
-C_LAYOUTSPACING		= 13
+C_LAYOUTSPACING		= 10
 
 size = 4
 limit = 2
@@ -92,7 +92,6 @@ app = new qApp {
                        next
   		       LayoutButtonRow[n].setSpacing(C_LAYOUTSPACING)
                   next
-                  playerscore.close()
                   playerscore {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
@@ -100,8 +99,6 @@ app = new qApp {
 				    setStylesheet(C_PLAYERSCOREFONTSIZE)
                                     show()
 		  }
-
-                  //newgame.close()
                   newgame  {
                                   setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
