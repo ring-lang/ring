@@ -6,6 +6,8 @@
 load "stdlib.ring"
 load "guilib.ring"
 
+C_EMPTYBUTTONSTYLE = 'background-color: orange;font-size:80px;'
+
 size = 4
 limit = 2
 num = 0
@@ -153,7 +155,7 @@ func pbegin()
        randnew = newlist(2,2)
        for n = 1 to size
             for m = 1 to size
-                 button[n][m].setStylesheet('background-color: orange;font-size:80px;')
+                 button[n][m].setStylesheet(C_EMPTYBUTTONSTYLE)
                  button[n][m].settext('')
             next
         next
@@ -257,7 +259,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = len(moveleft) + 1 to size 
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange;font-size:80px;')
+               button[n][nr].setStylesheet(C_EMPTYBUTTONSTYLE)
                button[n][nr].settext('')
             ok
        next
@@ -297,7 +299,7 @@ func movetilesright(nr,moveright)
        next
        for n = 1 to size - len(moveright)
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange;font-size:80px;')
+               button[n][nr].setStylesheet(C_EMPTYBUTTONSTYLE)
                button[n][nr].settext('')
             ok
        next
@@ -336,7 +338,7 @@ func movetilesup(nr,moveup)
        next
        for n = len(moveup) + 1 to size 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange;font-size:80px;')
+               button[nr][n].setStylesheet(C_EMPTYBUTTONSTYLE)
                button[nr][n].settext('')
             ok
        next
@@ -375,7 +377,7 @@ func movetilesdown(nr,movedown)
        next
        for n = size - len(movedown) to 1 step -1 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange;font-size:80px;')
+               button[nr][n].setStylesheet(C_EMPTYBUTTONSTYLE)
                app.processevents()
                button[nr][n].settext('')
             ok
