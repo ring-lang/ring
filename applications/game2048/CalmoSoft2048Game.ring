@@ -6,6 +6,7 @@
 load "stdlib.ring"
 load "guilib.ring"
 
+C_NEWGAMESTYLE		= 'background-color:violet;font-size:50px;'
 C_EMPTYBUTTONSTYLE 	= 'background-color: orange;font-size:80px;'
 C_BUTTON2STYLE 		= 'foreground-color:blue; background-color: yellow ; font-size:80px;'
 C_BUTTON4STYLE 		= 'foreground-color:white; background-color: violet ; font-size:80px;'
@@ -14,6 +15,7 @@ C_BUTTON16STYLE 	= 'foreground-color:black; background-color: green ; font-size:
 C_BUTTON32STYLE 	= 'foreground-color:white; background-color: red ; font-size:80px;'
 C_BUTTON64STYLE 	= 'foreground-color:white; background-color: gray ; font-size:80px;'
 C_BUTTON128STYLE 	= 'foreground-color:violet; background-color: white ; font-size:80px;'
+C_LAYOUTSPACING		= 13
 
 size = 4
 limit = 2
@@ -71,10 +73,9 @@ app = new qApp {
                        for m = 1 to size
                             button[n][m] { temp = text() }
                             buttonsave[n][m] = temp
-                            buttonsave[n][m] = temp
                             button[n][m] = new MyButton(win) {
                                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:orange;font-size:80px;')
+                                                   setstylesheet(C_EMPTYBUTTONSTYLE)
                                                    show()
                                            }
                        next
@@ -86,6 +87,7 @@ app = new qApp {
                             temp = buttonsave[n][m]
                             button[n][m].settext(temp)
                        next
+  		       LayoutButtonRow[n].setSpacing(C_LAYOUTSPACING)
                   next
                   playerscore.close()
                   playerscore {
@@ -96,11 +98,11 @@ app = new qApp {
                                     show()
 		  }
 
-                  newgame.close()
+                  //newgame.close()
                   newgame  {
                                   setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                  setstylesheet('background-color:violet;font-size:50px;')
+                                  setstylesheet(C_NEWGAMESTYLE)
                                   settext('New Game')
                                   myfilter4 = new qallevents(newgame)
                                   myfilter4.setMouseButtonPressEvent("pbegin()")
@@ -110,7 +112,7 @@ app = new qApp {
                   LayoutButtonRow[size+1].AddWidget(playerscore)
                   LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
-                                               setSpacing(3)
+                                               setSpacing(C_LAYOUTSPACING)
                                                for n = 1 to size+2
                                                     AddLayout(LayoutButtonRow[n])
                                                     win.show()
