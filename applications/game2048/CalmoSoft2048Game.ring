@@ -32,7 +32,7 @@ app = new qApp {
           processevents()
           win = new qWidget() {
                   setWindowTitle('2048 Game')
-                  setgeometry(100,100,800,600)
+                  setgeometry(100,100,550,700)
                   setminimumwidth(300)
                   setminimumheight(300)
                   grabkeyboard()
