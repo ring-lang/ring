@@ -63,14 +63,11 @@ app = new qApp {
                             button[n][m] { temp = text() }
                             buttonsave[n][m] = temp
                             buttonsave[n][m] = temp
-                            fontsize = 10 + (winheight/25)
-                            fontsize2 = 10 + (winheight/50)
                             button[n][m] = new MyButton(win) {
-                                                   setFont(new qFont("Verdana",fontsize,100,0))
                                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                                   setstylesheet('background-color:orange')
+                                                   setstylesheet('background-color:orange;font-size:100px;')
                                                    show()
-                                                   }
+                                           }
                        next
                   next
                   for n = 1 to size
@@ -84,18 +81,17 @@ app = new qApp {
                   playerscore.close()
                   playerscore {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
-                                    setFont(new qFont("Verdana",fontsize2,100,0))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext('Play Score: ' + nScore)
+				    setStylesheet("font-size:50px;")
                                     show()
-                                    }
+		  }
 
                   newgame.close()
                   newgame  {
                                   setGeometry(0,5*floor(winheight/6),winwidth,floor(winheight/6))
-                                  setFont(new qFont("Verdana",fontsize2,100,0))
                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                  setstylesheet('background-color:violet')
+                                  setstylesheet('background-color:violet;font-size:50px;')
                                   settext('New Game')
                                   myfilter4 = new qallevents(newgame)
                                   myfilter4.setMouseButtonPressEvent("pbegin()")
@@ -157,7 +153,7 @@ func pbegin()
        randnew = newlist(2,2)
        for n = 1 to size
             for m = 1 to size
-                 button[n][m].setStylesheet('background-color: orange')
+                 button[n][m].setStylesheet('background-color: orange;font-size:100px;')
                  button[n][m].settext('')
             next
         next
@@ -261,7 +257,7 @@ func movetilesleft(nr,moveleft)
        next
        for n = len(moveleft) + 1 to size 
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange')
+               button[n][nr].setStylesheet('background-color: orange;font-size:100px;')
                button[n][nr].settext('')
             ok
        next
@@ -301,7 +297,7 @@ func movetilesright(nr,moveright)
        next
        for n = 1 to size - len(moveright)
             if n <= size
-               button[n][nr].setStylesheet('background-color: orange')
+               button[n][nr].setStylesheet('background-color: orange;font-size:100px;')
                button[n][nr].settext('')
             ok
        next
@@ -340,7 +336,7 @@ func movetilesup(nr,moveup)
        next
        for n = len(moveup) + 1 to size 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange')
+               button[nr][n].setStylesheet('background-color: orange;font-size:100px;')
                button[nr][n].settext('')
             ok
        next
@@ -379,7 +375,7 @@ func movetilesdown(nr,movedown)
        next
        for n = size - len(movedown) to 1 step -1 
             if n <= size
-               button[nr][n].setStylesheet('background-color: orange')
+               button[nr][n].setStylesheet('background-color: orange;font-size:100px;')
                app.processevents()
                button[nr][n].settext('')
             ok
@@ -430,11 +426,11 @@ class MyButton from qLabel
        func setText(cValue)
               Super.setText(cValue)
               switch cValue 
-                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow')
-                        on '4' setStylesheet('foreground-color:white; background-color: violet')
-                        on '8' setStylesheet('foreground-color:white; background-color: blue')
-                        on '16' setStylesheet('foreground-color:black; background-color: green')
-                        on '32' setStylesheet('foreground-color:white; background-color: red')
-                        on '64' setStylesheet('foreground-color:white; background-color: gray')
-                        on '128' setStylesheet('foreground-color:violet; background-color: white')
+                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow ; font-size:100px;')
+                        on '4' setStylesheet('foreground-color:white; background-color: violet ; font-size:100px;')
+                        on '8' setStylesheet('foreground-color:white; background-color: blue ; font-size:100px;')
+                        on '16' setStylesheet('foreground-color:black; background-color: green ; font-size:100px;')
+                        on '32' setStylesheet('foreground-color:white; background-color: red ; font-size:100px;')
+                        on '64' setStylesheet('foreground-color:white; background-color: gray ; font-size:100px;')
+                        on '128' setStylesheet('foreground-color:violet; background-color: white ; font-size:100px;')
               off
