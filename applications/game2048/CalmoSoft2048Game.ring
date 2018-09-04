@@ -16,11 +16,11 @@ C_BUTTON8STYLE 		= 'border-radius:17px;color:white; background-color: purple ; f
 C_BUTTON16STYLE 	= 'border-radius:17px;color:white; background-color: blue ; font-size:80px;'
 C_BUTTON32STYLE 	= 'border-radius:17px;color:white; background-color: red ; font-size:80px;'
 C_BUTTON64STYLE 	= 'border-radius:17px;color:black; background-color: lightgray ; font-size:80px;'
-C_BUTTON128STYLE 	= 'color:black; background-color: white ; font-size:80px;'
-C_BUTTON256STYLE 	= 'color:white; background-color: black ; font-size:80px;'
-C_BUTTON512STYLE 	= 'color:white; background-color: Purple ; font-size:80px;'
-C_BUTTON1024STYLE 	= 'color:black; background-color: Yellow ; font-size:80px;'
-C_BUTTON2048STYLE 	= 'color:white; background-color: Green ; font-size:80px;'
+C_BUTTON128STYLE 	= 'border-radius:17px;color:black; background-color: white ; font-size:80px;'
+C_BUTTON256STYLE 	= 'border-radius:17px;color:white; background-color: black ; font-size:80px;'
+C_BUTTON512STYLE 	= 'border-radius:17px;color:white; background-color: Purple ; font-size:80px;'
+C_BUTTON1024STYLE 	= 'border-radius:17px;color:black; background-color: Yellow ; font-size:80px;'
+C_BUTTON2048STYLE 	= 'border-radius:17px;color:white; background-color: Green ; font-size:80px;'
 C_LAYOUTSPACING		= 10
 
 size = 4
@@ -226,6 +226,45 @@ func pmoveleft()
             movetilesleft(n,moveleft)
        next
 
+func pmoveright()
+       for n = 1 to size
+            moveright = []
+            for m = size to 1 step -1
+                 button[m][n] {temp = text()}
+                 if temp != ''
+                    add(moveright,temp)
+                 ok
+            next
+            movetilesright(n,moveright)
+        next
+        return
+
+func pmoveup()
+       for n = 1 to size
+            moveup = []
+            for m = 1 to size
+                 button[n][m] {temp = text()}
+                 if temp != ''
+                    add(moveup,temp)
+                 ok
+            next
+            movetilesup(n,moveup)
+        next
+        return
+
+func pmovedown()
+       for n = 1 to size
+            movedown = []
+            for m = size to 1 step -1
+                 button[n][m] {temp = text()}
+                 if temp != ''
+                    add(movedown,temp)
+                 ok
+            next
+            movetilesdown(n,movedown)
+        next
+        return
+
 func movetilesleft(nr,moveleft)
        for p = 1 to len(moveleft) - 1
             temp1 = moveleft[p]
@@ -251,19 +290,6 @@ func movetilesleft(nr,moveleft)
             ok
        next
        return
-
-func pmoveright()
-       for n = 1 to size
-            moveright = []
-            for m = size to 1 step -1
-                 button[m][n] {temp = text()}
-                 if temp != ''
-                    add(moveright,temp)
-                 ok
-            next
-            movetilesright(n,moveright)
-        next
-        return
 
 func movetilesright(nr,moveright)
        flag = 0
@@ -291,18 +317,6 @@ func movetilesright(nr,moveright)
             ok
        next
 
-func pmoveup()
-       for n = 1 to size
-            moveup = []
-            for m = 1 to size
-                 button[n][m] {temp = text()}
-                 if temp != ''
-                    add(moveup,temp)
-                 ok
-            next
-            movetilesup(n,moveup)
-        next
-        return
 
 func movetilesup(nr,moveup)
         flag = 0
@@ -329,19 +343,6 @@ func movetilesup(nr,moveup)
                button[nr][n].settext('')
             ok
        next
-
-func pmovedown()
-       for n = 1 to size
-            movedown = []
-            for m = size to 1 step -1
-                 button[n][m] {temp = text()}
-                 if temp != ''
-                    add(movedown,temp)
-                 ok
-            next
-            movetilesdown(n,movedown)
-        next
-        return
 
 func movetilesdown(nr,movedown)
         flag = 0
