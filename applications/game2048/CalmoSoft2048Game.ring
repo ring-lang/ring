@@ -68,8 +68,9 @@ app = new qApp {
                   winwidth = win.width()
                   winheight = win.height()
                   for n = 1 to size + 2
-		       LayoutButtonRow[n] = new QHBoxLayout() {
-                                                        setSpacing(3) }
+			LayoutButtonRow[n] = new QHBoxLayout() {
+				setSpacing(C_LAYOUTSPACING) 
+			}
                   next
                   for n = 1 to size
                        for m = 1 to size
@@ -114,11 +115,12 @@ app = new qApp {
                   LayoutButtonRow[size+1].AddWidget(playerscore)
                   LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
-                                               setSpacing(C_LAYOUTSPACING)
-                                               for n = 1 to size+2
-                                                    AddLayout(LayoutButtonRow[n])
-                                                    win.show()
-                                               next }
+			setSpacing(C_LAYOUTSPACING)
+			for n = 1 to size+2
+				AddLayout(LayoutButtonRow[n])
+				win.show()
+			next
+		  }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
                   pbegin()  
