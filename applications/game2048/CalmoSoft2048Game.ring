@@ -6,7 +6,6 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-C_WINDOWBACKGROUND	= 'background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #888, stop: 1 #AAA);'
 C_WINDOWBACKGROUND 	= "background-color: gray;"
 C_PLAYERSCOREFONTSIZE	= "color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;"
 C_NEWGAMESTYLE		= 'color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;'
