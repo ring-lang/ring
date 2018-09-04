@@ -6,17 +6,22 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-C_WINDOWBACKGROUND	= 'background-color:white'
-C_PLAYERSCOREFONTSIZE	= "font-size:50px;"
-C_NEWGAMESTYLE		= 'background-color:violet;font-size:50px;'
-C_EMPTYBUTTONSTYLE 	= 'border-radius:17px;background-color: orange;font-size:80px;'
-C_BUTTON2STYLE 		= 'border-radius:17px;foreground-color:blue; background-color: yellow ; font-size:80px;'
-C_BUTTON4STYLE 		= 'border-radius:17px;foreground-color:white; background-color: violet ; font-size:80px;'
-C_BUTTON8STYLE 		= 'border-radius:17px;foreground-color:white; background-color: blue ; font-size:80px;'
-C_BUTTON16STYLE 	= 'border-radius:17px;foreground-color:black; background-color: green ; font-size:80px;'
-C_BUTTON32STYLE 	= 'border-radius:17px;foreground-color:white; background-color: red ; font-size:80px;'
-C_BUTTON64STYLE 	= 'border-radius:17px;foreground-color:white; background-color: gray ; font-size:80px;'
-C_BUTTON128STYLE 	= 'foreground-color:violet; background-color: white ; font-size:80px;'
+C_WINDOWBACKGROUND	= 'background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #888, stop: 1 #AAA);'
+C_WINDOWBACKGROUND 	= "background-color: gray;"
+C_PLAYERSCOREFONTSIZE	= "color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;"
+C_NEWGAMESTYLE		= 'color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;'
+C_EMPTYBUTTONSTYLE 	= 'border-radius:17px;background-color:silver;font-size:80px;'
+C_BUTTON2STYLE 		= 'border-radius:17px;color:black; background-color: yellow ; font-size:80px;'
+C_BUTTON4STYLE 		= 'border-radius:17px;color:black; background-color: violet ; font-size:80px;'
+C_BUTTON8STYLE 		= 'border-radius:17px;color:white; background-color: purple ; font-size:80px;'
+C_BUTTON16STYLE 	= 'border-radius:17px;color:white; background-color: blue ; font-size:80px;'
+C_BUTTON32STYLE 	= 'border-radius:17px;color:white; background-color: red ; font-size:80px;'
+C_BUTTON64STYLE 	= 'border-radius:17px;color:black; background-color: lightgray ; font-size:80px;'
+C_BUTTON128STYLE 	= 'color:black; background-color: white ; font-size:80px;'
+C_BUTTON256STYLE 	= 'color:white; background-color: black ; font-size:80px;'
+C_BUTTON512STYLE 	= 'color:white; background-color: Purple ; font-size:80px;'
+C_BUTTON1024STYLE 	= 'color:black; background-color: Yellow ; font-size:80px;'
+C_BUTTON2048STYLE 	= 'color:white; background-color: Green ; font-size:80px;'
 C_LAYOUTSPACING		= 10
 
 size = 4
@@ -445,4 +450,8 @@ class MyButton from qLabel
                         on '32' 	setStylesheet(C_BUTTON32STYLE)
                         on '64' 	setStylesheet(C_BUTTON64STYLE)
                         on '128' 	setStylesheet(C_BUTTON128STYLE)
+			on '256'	setStylesheet(C_BUTTON256STYLE)
+			on '512'	setStylesheet(C_BUTTON512STYLE)
+			on '1024'	setStylesheet(C_BUTTON1024STYLE)
+			on '2048'	setStylesheet(C_BUTTON2048STYLE)
               off
