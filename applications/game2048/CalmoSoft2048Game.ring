@@ -189,7 +189,7 @@ func pbegin()
         nScore = 0
         playerscore.settext('Player Score :  ')
 
-func pdown()
+func pMoveInDirection cFunc 
         num = gameover()
         if num = size*size
            flag = 1
@@ -197,49 +197,22 @@ func pdown()
            pbegin()
         ok
         if flag = 0
-           pmovedown()
+           call cFunc()
            sleep(0.5)
            newnum()
         ok
+
+func pdown()
+	pMoveInDirection(:pMoveDown)
 
 func pup()
-        num = gameover()
-        if num = size*size
-           flag = 1
-           msgBox('You lost!')
-           pbegin()
-        ok
-        if flag = 0
-           pmoveup()
-           sleep(0.5)
-           newnum()
-        ok
+	pMoveInDirection(:pMoveUp)
 
 func pleft()
-        num = gameover()
-        if num = size*size
-           flag = 1
-           msgBox('You lost!')
-           pbegin()
-        ok
-        if flag = 0
-           pmoveleft()
-           sleep(0.5)
-           newnum()
-        ok
+	pMoveInDirection(:pMoveLeft)
 
 func pright()
-        num = gameover()
-        if num = size*size
-           flag = 1
-           msgBox('You lost!')
-           pbegin()
-        ok
-        if flag = 0
-           pmoveright()
-           sleep(0.5)
-           newnum()
-        ok
+	pMoveInDirection(:pMoveRight)
 
 func pmoveleft()
        for n = 1 to size
