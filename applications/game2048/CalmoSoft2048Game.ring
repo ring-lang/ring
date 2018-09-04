@@ -6,6 +6,7 @@
 load "stdlib.ring"
 load "guilib.ring"
 
+C_GAMETITLE		= '2048 Game'
 C_WINDOWBACKGROUND 	= "background-color: gray;"
 C_PLAYERSCOREFONTSIZE	= "color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;"
 C_NEWGAMESTYLE		= 'color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;'
@@ -22,6 +23,7 @@ C_BUTTON512STYLE 	= 'border-radius:17px;color:white; background-color: Purple ; 
 C_BUTTON1024STYLE 	= 'border-radius:17px;color:black; background-color: Yellow ; font-size:80px;'
 C_BUTTON2048STYLE 	= 'border-radius:17px;color:white; background-color: Green ; font-size:80px;'
 C_LAYOUTSPACING		= 10
+C_PLAYERSCORE		= 'Player Score :  '
 
 size = 4
 limit = 2
@@ -48,7 +50,7 @@ app = new qApp {
           StyleFusion()
           processevents()
           win = new qWidget() {
-                  setWindowTitle('2048 Game')
+                  setWindowTitle(C_GAMETITLE)
                   setgeometry(100,100,600,700)
                   setminimumwidth(300)
                   setminimumheight(300)
@@ -99,7 +101,7 @@ app = new qApp {
                   playerscore {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    settext('Player Score :  ' + nScore)
+                                    settext(C_PLAYERSCORE + nScore)
 				    setStylesheet(C_PLAYERSCOREFONTSIZE)
                                     show()
 		  }
@@ -187,7 +189,7 @@ func pbegin()
         button[rn1][rm1].settext(numbers[rand][1])
         button[rn2][rm2].settext(numbers[rand][2])
         nScore = 0
-        playerscore.settext('Player Score :  ')
+        playerscore.settext(C_PLAYERSCORE)
 
 func pMoveInDirection cFunc 
         num = gameover()
@@ -273,7 +275,7 @@ func movetilesleft(nr,moveleft)
             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Player Score :  ' + nScore)
+                  playerscore.settext(C_PLAYERSCORE + nScore)
                   flag = 1
                   moveleft[p] = temp
                   del(moveleft,p+1)
@@ -300,7 +302,7 @@ func movetilesright(nr,moveright)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Player Score :  ' + nScore)
+                  playerscore.settext(C_PLAYERSCORE + nScore)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
@@ -327,7 +329,7 @@ func movetilesup(nr,moveup)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Player Score :  ' + nScore)
+                  playerscore.settext(C_PLAYERSCORE + nScore)
                   flag = 1
                   moveup[p] = temp
                   del(moveup,p+1)
@@ -353,7 +355,7 @@ func movetilesdown(nr,movedown)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Player Score :  ' + nScore)
+                  playerscore.settext(C_PLAYERSCORE + nScore)
                   flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
