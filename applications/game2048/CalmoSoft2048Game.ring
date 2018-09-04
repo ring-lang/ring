@@ -6,7 +6,14 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-C_EMPTYBUTTONSTYLE = 'background-color: orange;font-size:80px;'
+C_EMPTYBUTTONSTYLE 	= 'background-color: orange;font-size:80px;'
+C_BUTTON2STYLE 		= 'foreground-color:blue; background-color: yellow ; font-size:80px;'
+C_BUTTON4STYLE 		= 'foreground-color:white; background-color: violet ; font-size:80px;'
+C_BUTTON8STYLE 		= 'foreground-color:white; background-color: blue ; font-size:80px;'
+C_BUTTON16STYLE 	= 'foreground-color:black; background-color: green ; font-size:80px;'
+C_BUTTON32STYLE 	= 'foreground-color:white; background-color: red ; font-size:80px;'
+C_BUTTON64STYLE 	= 'foreground-color:white; background-color: gray ; font-size:80px;'
+C_BUTTON128STYLE 	= 'foreground-color:violet; background-color: white ; font-size:80px;'
 
 size = 4
 limit = 2
@@ -428,11 +435,11 @@ class MyButton from qLabel
        func setText(cValue)
               Super.setText(cValue)
               switch cValue 
-                        on '2' setStyleSheet('foreground-color:blue; background-color: yellow ; font-size:80px;')
-                        on '4' setStylesheet('foreground-color:white; background-color: violet ; font-size:80px;')
-                        on '8' setStylesheet('foreground-color:white; background-color: blue ; font-size:80px;')
-                        on '16' setStylesheet('foreground-color:black; background-color: green ; font-size:80px;')
-                        on '32' setStylesheet('foreground-color:white; background-color: red ; font-size:80px;')
-                        on '64' setStylesheet('foreground-color:white; background-color: gray ; font-size:80px;')
-                        on '128' setStylesheet('foreground-color:violet; background-color: white ; font-size:80px;')
+                        on '2' 		setStyleSheet(C_BUTTON2STYLE)
+                        on '4' 		setStylesheet(C_BUTTON4STYLE)
+                        on '8' 		setStylesheet(C_BUTTON8STYLE)
+                        on '16' 	setStylesheet(C_BUTTON16STYLE)
+                        on '32' 	setStylesheet(C_BUTTON32STYLE)
+                        on '64' 	setStylesheet(C_BUTTON64STYLE)
+                        on '128' 	setStylesheet(C_BUTTON128STYLE)
               off
