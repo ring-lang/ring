@@ -82,7 +82,7 @@ app = new qApp {
                   playerscore {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    settext('Play Score: ' + nScore)
+                                    settext('Player Score :  ' + nScore)
 				    setStylesheet("font-size:50px;")
                                     show()
 		  }
@@ -171,7 +171,7 @@ func pbegin()
         button[rn1][rm1].settext(numbers[rand][1])
         button[rn2][rm2].settext(numbers[rand][2])
         nScore = 0
-        playerscore.settext('Play Score: ')
+        playerscore.settext('Player Score :  ')
 
 func pdown()
         num = gameover()
@@ -245,7 +245,7 @@ func movetilesleft(nr,moveleft)
             if (temp1 = temp2) and (temp1 != '0') and (temp2 != '0') and (temp1 != '') and (temp2 != '')
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Play Score: ' + nScore)
+                  playerscore.settext('Player Score :  ' + nScore)
                   flag = 1
                   moveleft[p] = temp
                   del(moveleft,p+1)
@@ -285,7 +285,7 @@ func movetilesright(nr,moveright)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Play Score: ' + nScore)
+                  playerscore.settext('Player Score :  ' + nScore)
                   flag = 1
                   moveright[p] = temp
                   del(moveright,p-1)
@@ -324,7 +324,7 @@ func movetilesup(nr,moveup)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Play Score: ' + nScore)
+                  playerscore.settext('Player Score :  ' + nScore)
                   flag = 1
                   moveup[p] = temp
                   del(moveup,p+1)
@@ -363,7 +363,7 @@ func movetilesdown(nr,movedown)
                temp = string(number(temp1) + number(temp2))
                if temp != '0' and temp != ''
                   nScore = nScore + temp
-                  playerscore.settext('Play Score: ' + nScore)
+                  playerscore.settext('Player Score :  ' + nScore)
                   flag = 1
                   movedown[p] = temp
                   del(movedown,p+1)
