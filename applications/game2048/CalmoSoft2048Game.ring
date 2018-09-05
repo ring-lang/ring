@@ -54,7 +54,9 @@ app = new qApp {
                   setgeometry(100,100,600,700)
                   setminimumwidth(300)
                   setminimumheight(300)
-                  grabkeyboard()
+		  if not isAndroid()
+	                  grabkeyboard()
+		  ok
                   setstylesheet(C_WINDOWBACKGROUND)
                   move(490,100) 
                   for n = 1 to size
