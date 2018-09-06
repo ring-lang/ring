@@ -127,8 +127,11 @@ func pplay(n,m)
        playerscore.settext("Play Score: " + nScore)
        if buttonnew[n][m] = 1
           bsumnew = bsumnew + 1
-          buttonold[n][m] {setstylesheet('background-color:orange')}
-          buttonold[n][m].setenabled(false)
+          buttonold[n][m] {setstylesheet('background-color:orange')
+                                   setenabled(false)}
+       else
+          buttonold[n][m] {setstylesheet('background-color:white')
+                                   setenabled(false)}
        ok
        if bsumold = bsumnew
           msgBox("You won!")
@@ -141,4 +144,3 @@ func msgBox(text) {
 	       show()
 	       }
         }
-       
