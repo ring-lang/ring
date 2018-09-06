@@ -139,12 +139,11 @@ func pplay(n,m)
        ok
        playerscore.settext("Play Score: " + nScore)
 
-func msgBox(text) {
+func msgBox cText 
 	mb = new qMessageBox(win) {
 	        setWindowTitle('Memory Game')
-	        setText(text)
-                setstandardbuttons(QMessageBox_Yes | QMessageBox_No | QMessageBox_Close) 
+	        setText(cText)
+                setstandardbuttons(QMessageBox_OK) 
                 result = exec()
-                win { if result = QMessageBox_Yes pbegin() ok } 
-	        }
+                pbegin() 
         }
