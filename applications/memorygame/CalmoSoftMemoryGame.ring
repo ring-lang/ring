@@ -43,7 +43,6 @@ app = new qApp {
                   next
                   for n = 1 to size
                        for m = 1 to size
-                            buttonnew[n][m] = new QPushButton(win)
                             buttonnew[n][m] = 0
                        next
                   next
@@ -54,6 +53,7 @@ app = new qApp {
                   for n = 1 to size
                        for m = 1 to size
                             LayoutButtonRow[n].AddWidget(buttonold[m][n])
+                            win.show()
                        next
                   next
                   playerscore = new QLabel(win) {
@@ -77,6 +77,7 @@ app = new qApp {
                                                setSpacing(3)
                                                for n = 1 to size+2
                                                     AddLayout(LayoutButtonRow[n])
+                                                    win.show()
                                                next }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
@@ -95,6 +96,11 @@ func pbegin()
             rx = random(size-1)+1
             ry = random(size-1)+1
             buttonnew[rx][ry] = 1
+       next
+       for n = 1 to size
+            for m = 1 to size
+                 buttonold[n][m] {setstylesheet('background-color:gray')}
+            next
        next
        for n = 1 to size
             for m = 1 to size
@@ -122,6 +128,7 @@ func pplay(n,m)
        if buttonnew[n][m] = 1
           bsumnew = bsumnew + 1
           buttonold[n][m] {setstylesheet('background-color:orange')}
+          buttonold[n][m].setenabled(false)
        ok
        if bsumold = bsumnew
           msgBox("You won!")
