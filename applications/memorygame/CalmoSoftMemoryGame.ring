@@ -10,7 +10,7 @@ size = 8
 limit = 5
 nScore = 0
 bsumold = 0
-bsumnew = 0
+bsumnew = 1
 buttonold = newlist(size,size)
 buttonnew = newlist(size,size)
 LayoutButtonRow = list(size+2)
@@ -99,7 +99,8 @@ func pbegin()
        next
        for n = 1 to size
             for m = 1 to size
-                 buttonold[n][m] {setstylesheet('background-color:gray')}
+                 buttonold[n][m] {setstylesheet('background-color:gray')
+                                          setenabled(true)}
             next
        next
        for n = 1 to size
@@ -123,24 +124,27 @@ func pbegin()
          next
 
 func pplay(n,m) 
-       nScore = nScore + 1
-       playerscore.settext("Play Score: " + nScore)
        if buttonnew[n][m] = 1
+          nScore = nScore + 1
           bsumnew = bsumnew + 1
           buttonold[n][m] {setstylesheet('background-color:orange')
                                    setenabled(false)}
+          if bsumold = bsumnew and bsumold != 0 and bsumnew != 0
+             msgBox("You won!")
+          ok
        else
+          nScore = nScore - 1
           buttonold[n][m] {setstylesheet('background-color:white')
                                    setenabled(false)}
        ok
-       if bsumold = bsumnew
-          msgBox("You won!")
-       ok
+       playerscore.settext("Play Score: " + nScore)
 
 func msgBox(text) {
-	m = new qMessageBox(win) {
-	       setWindowTitle('2048 Game')
-	       setText(text)
-	       show()
-	       }
+	mb = new qMessageBox(win) {
+	        setWindowTitle('Memory Game')
+	        setText(text)
+                setstandardbuttons(QMessageBox_Yes | QMessageBox_No | QMessageBox_Close) 
+                result = exec()
+                win { if result = QMessageBox_Yes pbegin() ok } 
+	        }
         }
