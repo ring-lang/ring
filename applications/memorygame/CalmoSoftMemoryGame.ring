@@ -1,5 +1,5 @@
 # Project : Memory Game
-# Date    : 2018/09/05
+# Date    : 2018/09/06
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -8,25 +8,31 @@ load "guilib.ring"
 
 size = 8
 limit = 5
+nScore = 0
 buttonold = newlist(size,size)
 buttonnew = newlist(size,size)
-LayoutButtonRow = list(size)
+LayoutButtonRow = list(size+2)
+winwidth = 0
+winheight = 0
 
 app = new qApp {
           StyleFusion()
           processevents()
           win = new qWidget() {
                   setWindowTitle('Memory Game')
-                  setgeometry(100,100,300,300)
+                  setgeometry(100,100,600,600)
                   setminimumwidth(300)
                   setminimumheight(300)
-                  setstylesheet('background-color:white')
+                  setmaximumwidth(600)
+                  setmaximumheight(600)
                   move(490,100) 
                   winwidth = win.width()
                   winheight = win.height()
+                  setstylesheet('background-color:white')
+                  fontsize = 10 + (winheight/25)
+                  fontsize2 = 8 + (winheight/70)
                   for n = 1 to size
                        for m = 1 to size
-                            fontsize = 10 + (winheight/25)
                             buttonold[n][m] = new QPushButton(win) {
                                                        setFont(new qFont("Verdana",fontsize,100,0))
                                                        setstylesheet('background-color:gray')
@@ -40,7 +46,7 @@ app = new qApp {
                             buttonnew[n][m] = 0
                        next
                   next
-                  for n = 1 to size
+                  for n = 1 to size+2
 		       LayoutButtonRow[n] = new QHBoxLayout() {
                                                         setSpacing(3) }
                   next
@@ -49,19 +55,39 @@ app = new qApp {
                             LayoutButtonRow[n].AddWidget(buttonold[m][n])
                        next
                   next
+                  playerscore = new QLabel(win) {
+                                      setGeometry(0,8*floor(winheight/10),winwidth,floor(winheight/10))
+                                      setFont(new qFont("Verdana",fontsize2,100,0))
+                                      setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                      settext("Play Score:")
+                                      show()
+                                      }
+                  newgame  = new QPushButton(win) {
+                                     setGeometry(0,9*floor(winheight/10),winwidth,floor(winheight/10))
+                                     setFont(new qFont("Verdana",fontsize2,100,0))
+                                     setstylesheet("background-color:violet")
+                                     settext("New Game")
+                                     setclickevent("pbegin()")
+                                     show()
+                                     }
+                  LayoutButtonRow[size+1].AddWidget(playerscore)
+                  LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
                                                setSpacing(3)
-                                               for n = 1 to size
+                                               for n = 1 to size+2
                                                     AddLayout(LayoutButtonRow[n])
                                                next }
 		  win.setLayout(LayoutButtonMain)
+                  win.show()
                   pbegin()  
-                  show()
          }
     exec()
 }
 
 func pbegin() 
+       nScore = 0
+       playerscore.settext("Play Score:")
+       buttonnew = newlist(size,size)
        for n = 1 to limit
             rx = random(size-1)+1
             ry = random(size-1)+1
@@ -70,13 +96,14 @@ func pbegin()
        for n = 1 to size
             for m = 1 to size
                  if buttonnew[n][m] = 1
-                    see "n = " + n + " m = " + m + nl
-                    buttonold[n][m] {setstylesheet('background-color:orange')}
-                                             //show()}
+                    see "x = " + n + " y = " + m + nl
+                    buttonold[n][m].setstylesheet('background-color:orange')
+                    buttonold[n][m].show()
                  ok
              next
         next
-        sleep(2)
+        see nl
+        sleep(3)
         for n = 1 to size
              for m = 1 to size
                   if buttonnew[n][m] = 1
@@ -86,6 +113,8 @@ func pbegin()
          next
 
 func pplay(n,m) 
+       nScore = nScore + 1
+       playerscore.settext("Play Score: " + nScore)
        if buttonnew[n][m] = 1
           buttonold[n][m] {setstylesheet('background-color:orange')}
        ok
