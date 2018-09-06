@@ -9,6 +9,8 @@ load "guilib.ring"
 size = 8
 limit = 5
 nScore = 0
+bsumold = 0
+bsumnew = 0
 buttonold = newlist(size,size)
 buttonnew = newlist(size,size)
 LayoutButtonRow = list(size+2)
@@ -17,7 +19,6 @@ winheight = 0
 
 app = new qApp {
           StyleFusion()
-          processevents()
           win = new qWidget() {
                   setWindowTitle('Memory Game')
                   setgeometry(100,100,600,600)
@@ -86,6 +87,8 @@ app = new qApp {
 
 func pbegin() 
        nScore = 0
+       bsumold = 0
+       bsumnew = 0
        playerscore.settext("Play Score:")
        buttonnew = newlist(size,size)
        for n = 1 to limit
@@ -96,13 +99,14 @@ func pbegin()
        for n = 1 to size
             for m = 1 to size
                  if buttonnew[n][m] = 1
-                    see "x = " + n + " y = " + m + nl
+                    bsumold = bsumold + 1
                     buttonold[n][m].setstylesheet('background-color:orange')
                     buttonold[n][m].show()
                  ok
              next
         next
         see nl
+        app.processevents()
         sleep(3)
         for n = 1 to size
              for m = 1 to size
@@ -116,5 +120,18 @@ func pplay(n,m)
        nScore = nScore + 1
        playerscore.settext("Play Score: " + nScore)
        if buttonnew[n][m] = 1
+          bsumnew = bsumnew + 1
           buttonold[n][m] {setstylesheet('background-color:orange')}
        ok
+       if bsumold = bsumnew
+          msgBox("You won!")
+       ok
+
+func msgBox(text) {
+	m = new qMessageBox(win) {
+	       setWindowTitle('2048 Game')
+	       setText(text)
+	       show()
+	       }
+        }
+       
