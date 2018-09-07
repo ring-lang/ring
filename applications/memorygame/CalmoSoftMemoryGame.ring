@@ -37,6 +37,7 @@ app = new qApp {
                                                        setFont(new qFont("Verdana",fontsize,100,0))
                                                        setstylesheet('background-color:gray')
                                                        setclickevent("pplay(" + string(n) + "," + string(m) + ")")
+							setSizePolicy(1,1)
                                                        }
                        next
                   next
@@ -55,14 +56,14 @@ app = new qApp {
                        next
                   next
                   playerscore = new QLabel(win) {
-                                      setGeometry(0,8*floor(winheight/10),winwidth,floor(winheight/10))
+                                      //setGeometry(0,8*floor(winheight/10),winwidth,floor(winheight/10))
                                       setFont(new qFont("Verdana",fontsize2,100,0))
                                       setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                       settext("Play Score:")
                                       show()
                                       }
                   newgame  = new QPushButton(win) {
-                                     setGeometry(0,9*floor(winheight/10),winwidth,floor(winheight/10))
+                                     //setGeometry(0,9*floor(winheight/10),winwidth,floor(winheight/10))
                                      setFont(new qFont("Verdana",fontsize2,100,0))
                                      setstylesheet("background-color:violet")
                                      settext("New Game")
