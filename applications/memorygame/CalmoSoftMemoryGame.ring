@@ -25,8 +25,6 @@ app = new qApp {
                   setgeometry(100,100,600,600)
                   setminimumwidth(300)
                   setminimumheight(300)
-                  setmaximumwidth(600)
-                  setmaximumheight(600)
                   move(490,100) 
                   winwidth = win.width()
                   winheight = win.height()
