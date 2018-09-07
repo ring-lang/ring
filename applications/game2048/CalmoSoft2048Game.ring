@@ -137,28 +137,26 @@ app = new qApp {
 func pPress()
         x1 = myfilter3.getglobalx()
         y1 = myfilter3.getglobaly()
- 
+
 func pRelease()
         x2 = myfilter3.getglobalx()
         y2 = myfilter3.getglobaly()
-        xx1 = floor(x1/floor(winwidth/4)) - 2
-        xx2 = floor(x2/floor(winwidth/4)) - 2
-        yy1 = floor(y1/floor(winheight/6)) - 1
-        yy2 = floor(y2/floor(winheight/6)) - 1
-        bool = (yy1 <= size) and (yy2 <= size)
-        if (yy1 = yy2) and (xx2 < xx1) and bool
-           pleft()
-        ok
-        if (yy1 = yy2) and (xx1 < xx2) and bool
-           pright()
-        ok
-        if (xx1 = xx2) and (yy2 < yy1) and bool
-           pup()
-        ok
-        if (xx1 = xx2) and (yy1 < yy2) and bool
-           pdown()
-        ok
-
+        difx = x2 - x1
+	dify = y2 - y1
+	if fabs(difx) > fabs(dify)
+		if difx < 0
+			pleft()
+		else 
+			pRight()
+		ok
+	else 
+		if dify < 0
+			pUp()
+		else 
+			pDown()
+		ok
+	ok
+ 
 func keypress() 
         nKey = myfilter2.getkeycode() 
         switch nKey
