@@ -19,6 +19,7 @@ winheight = 0
 
 app = new qApp {
           StyleFusion()
+          processevents()
           win = new qWidget() {
                   setWindowTitle('Memory Game')
                   setgeometry(100,100,600,600)
@@ -74,8 +75,8 @@ app = new qApp {
                                                for n = 1 to size
                                                     AddLayout(LayoutButtonRow[n])
                                                next
-                                               AddLayout(playerscore)
-                                               AddLayout(newgame)
+                                               AddWidget(playerscore)
+                                               AddWidget(newgame)
                                                win.show() }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
