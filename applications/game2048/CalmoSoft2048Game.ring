@@ -8,7 +8,7 @@ load "guilib.ring"
 
 C_GAMETITLE		= '2048 Game'
 C_WINDOWBACKGROUND 	= "background-color: gray;"
-C_PLAYERSCOREFONTSIZE	= "color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;"
+C_PLAYERSCORESTYLE	= "color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;"
 C_NEWGAMESTYLE		= 'color:white;background-color:rgb(50,50,50);font-size:50px;border-radius:17px;'
 C_EMPTYBUTTONSTYLE 	= 'border-radius:17px;background-color:silver;font-size:80px;'
 C_BUTTON2STYLE 		= 'border-radius:17px;color:black; background-color: yellow ; font-size:80px;'
@@ -54,7 +54,7 @@ app = new qApp {
                   setgeometry(100,100,600,700)
                   setminimumwidth(300)
                   setminimumheight(300)
-		  if not isAndroid()
+		  if not isMobile()
 	                  grabkeyboard()
 		  ok
                   setstylesheet(C_WINDOWBACKGROUND)
@@ -104,7 +104,7 @@ app = new qApp {
                                     setGeometry(0,4*floor(winheight/6),winwidth,floor(winheight/6))
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                                     settext(C_PLAYERSCORE + nScore)
-				    setStylesheet(C_PLAYERSCOREFONTSIZE)
+				    setStylesheet(C_PLAYERSCORESTYLE)
                                     show()
 		  }
                   newgame  {
