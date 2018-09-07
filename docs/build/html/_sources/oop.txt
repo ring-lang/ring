@@ -147,111 +147,6 @@ Also we can write the same program in another way
 
 .. index:: 
 	pair: Object Oriented Programming; Access Objects Using Braces
-	
-	
-Class Example showing Operator, Para
-======================================
-
-Example showing behaviour of Class objects
-Class: Operator, Para, Type: Object, String, Number
-
-.. code-block:: ring
-
-	func main 
-
-	See "----1"+nl
-	    a1 = new BigNumber( "123" )
-	    a2 = new BigNumber( "456" )
-	    a3 = new BigNumber( "789" )
-
-	See nl+"----2"+nl  
-		a1.print()
-		a2.print()
-		a3.print()
-
-	See nl+"----3"+nl      
-	    a2 = a1 + "45"  ### 1st - string"168" = string "123" + string "45" 
-
-	See nl+"----4"+nl  
-	    a2.print()      ### 1st pass - a2 is String "168"
-
-	See nl+"----5"+nl  
-	    a3 = a1 + a2    ### 2nd pass - a2 is Object 168 ???  Depends on Class "return = self)
-
-	See nl+"----6"+nl  
-	    a3.print()      ### a3 = 291  ( isString or isNumber depending on FuncAdd return type)
-
-	See nl+"----7"+nl
-
-	###==================================
-
-	Func FuncAdd( num1, num2)
-	   Sum = 0 + num1 + num2    ### Para.aData isNumber
-	   Sum = "" +Sum            ### Para.adata isString
-	return Sum                  ### return to Class
-
-	###===================================
-
-	class BigNumber 
-
-	    ### Variables
-	    aData = "468"
-
-	    ### Functions INIT default values
-	    func init aPara 
-		? "INIT aPara: " ? aPara
-
-		if isString(aPara)
-		    aData = aPara 
-		else 
-		    aData = "" + aPara
-		ok
-
-	    ### Other Functions
-	    func operator cOperator, Para
-
-		    whatType = Type(Para)
-
-		    ? nl+"WhatType-PARA: "+ whatType ? Para 
-		    ? nl+"Operator: " ? cOperator  ? nl+"PARA: " ? Para ? "    ______" ? nl
-
-				    if whatType = "STRING"
-				       dataInfo = Para
-				       ? "dataInfo String: " ? dataInfo
-
-				    but whatType = "NUMBER"
-				       datinfo  = "" + Para
-				       ? "dataInfo Number: " ? dataInfo
-
-				    else whatType = "OBJECT"
-				       dataInfo = "" + para.aData  
-				       ? "dataInfo OBJECT: " ? dataInfo
-				    ok
-
-				  ? "dataInfo USING: " ? dataInfo  
-
-		    ### Para.aData does NOT exist on first pass ( Object with member)
-		    ### Result isObject when assigned "self"
-
-		    result = self   
-
-		    switch cOperator
-			on "+"
-
-			     answer = FuncAdd( aData, dataInfo )
-			     ? nl+"AnswerString - FunAdd aData, dataInfo: " ? answer  
-
-			     ### result = self, is Object, populate Object with aData member
-			     result.aData = answer
-
-			off
-
-		    ### Result = Self is Object
-		    return result   
-
-	    func print 
-		? nl+"ClassPrint aData: " ? aData 	
-
 
 Access Objects Using Braces
 ===========================
@@ -571,6 +466,83 @@ The "len" operator is used with (for in) control structure.
 The "[]" operator is used when we try to access the list items, In this case we use the & operator
 to return the item values like strings an numbers by reference, so we can update it when we access the
 items.
+
+Another Example
+
+.. code-block:: ring
+
+	func main 
+
+	See "----1"+nl
+	    a1 = new BigNumber( "123" )
+	    a2 = new BigNumber( "456" )
+	    a3 = new BigNumber( "789" )
+	See nl+"----2"+nl  
+		a1.print()
+		a2.print()
+		a3.print()
+	See nl+"----3"+nl      
+	    a2 = a1 + "45"  ### 1st - string"168" = string "123" + string "45" 
+	See nl+"----4"+nl  
+	    a2.print()      ### 1st pass - a2 is String "168"
+	See nl+"----5"+nl  
+	    a3 = a1 + a2    ### 2nd pass - a2 is Object 168 ???  Depends on Class "return = self)
+	See nl+"----6"+nl  
+	    a3.print()      ### a3 = 291  ( isString or isNumber depending on FuncAdd return type)
+	See nl+"----7"+nl
+
+	###==================================
+	Func FuncAdd( num1, num2)
+	   Sum = 0 + num1 + num2    ### Para.aData isNumber
+	   Sum = "" +Sum            ### Para.adata isString
+	return Sum                  ### return to Class
+	###===================================
+
+	class BigNumber 
+
+	    ### Variables
+	    aData = "468"
+
+	    ### Functions INIT default values
+	    func init aPara 
+		? "INIT aPara: " ? aPara
+		if isString(aPara)
+		    aData = aPara 
+		else 
+		    aData = "" + aPara
+		ok
+
+	    ### Other Functions
+	    func operator cOperator, Para
+		    whatType = Type(Para)
+		    ? nl+"WhatType-PARA: "+ whatType ? Para 
+		    ? nl+"Operator: " ? cOperator  ? nl+"PARA: " ? Para ? "    ______" ? nl
+				    if whatType = "STRING"
+				       dataInfo = Para
+				       ? "dataInfo String: " ? dataInfo
+				    but whatType = "NUMBER"
+				       datinfo  = "" + Para
+				       ? "dataInfo Number: " ? dataInfo
+				    else whatType = "OBJECT"
+				       dataInfo = "" + para.aData  
+				       ? "dataInfo OBJECT: " ? dataInfo
+				    ok
+				  ? "dataInfo USING: " ? dataInfo  
+		    ### Para.aData does NOT exist on first pass ( Object with member)
+		    ### Result isObject when assigned "self"
+		    result = self   
+		    switch cOperator
+			on "+"
+			     answer = FuncAdd( aData, dataInfo )
+			     ? nl+"AnswerString - FunAdd aData, dataInfo: " ? answer  
+			     ### result = self, is Object, populate Object with aData member
+			     result.aData = answer
+			off
+		    ### Result = Self is Object
+		    return result   
+
+	    func print 
+		? nl+"ClassPrint aData: " ? aData 	
 
 .. index:: 
 	pair: Object Oriented Programming; Inheritance
