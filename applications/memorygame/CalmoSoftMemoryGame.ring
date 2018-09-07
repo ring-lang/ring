@@ -1,5 +1,5 @@
 # Project : Memory Game
-# Date    : 2018/09/06
+# Date    : 2018/09/07
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -13,7 +13,7 @@ bsumold = 0
 bsumnew = 1
 buttonold = newlist(size,size)
 buttonnew = newlist(size,size)
-LayoutButtonRow = list(size+2)
+LayoutButtonRow = list(size)
 winwidth = 0
 winheight = 0
 
@@ -46,9 +46,8 @@ app = new qApp {
                             buttonnew[n][m] = 0
                        next
                   next
-                  for n = 1 to size+2
-		       LayoutButtonRow[n] = new QHBoxLayout() {
-                                                        setSpacing(3) }
+                  for n = 1 to size
+		       LayoutButtonRow[n] = new QHBoxLayout() 
                   next
                   for n = 1 to size
                        for m = 1 to size
@@ -71,14 +70,13 @@ app = new qApp {
                                      setclickevent("pbegin()")
                                      show()
                                      }
-                  LayoutButtonRow[size+1].AddWidget(playerscore)
-                  LayoutButtonRow[size+2].AddWidget(newgame)
                   LayoutButtonMain = new QVBoxLayout() {
-                                               setSpacing(3)
-                                               for n = 1 to size+2
+                                               for n = 1 to size
                                                     AddLayout(LayoutButtonRow[n])
-                                                    win.show()
-                                               next }
+                                               next
+                                               AddLayout(playerscore)
+                                               AddLayout(newgame)
+                                               win.show() }
 		  win.setLayout(LayoutButtonMain)
                   win.show()
                   pbegin()  
@@ -138,6 +136,12 @@ func pplay(n,m)
                                    setenabled(false)}
        ok
        playerscore.settext("Play Score: " + nScore)
+       gameover()
+
+func gameover()
+       if nScore = -3
+          msgBox("Game Over!")
+       ok
 
 func msgBox cText 
 	mb = new qMessageBox(win) {
