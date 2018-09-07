@@ -1,6 +1,6 @@
 # Project : 2048 Game
 # Date    : 2018/09/03
-# Author : Gal Zsolt (~ CalmoSoft ~)
+# Author : Gal Zsolt (~ CalmoSoft ~), Mahmoud Fayed
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
