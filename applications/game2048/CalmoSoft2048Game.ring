@@ -8,8 +8,13 @@ load "guilib.ring"
 
 C_GAMETITLE		= '2048 Game'
 C_WINDOWBACKGROUND 	= "background-color: gray;"
-C_LABELFONTSIZE 	= "font-size:50px;"
-C_BUTTONFONTSIZE 	= "font-size:80px;"
+if isMobile()
+	C_LABELFONTSIZE 	= "font-size:120px;"
+	C_BUTTONFONTSIZE 	= "font-size:160px;"
+else 
+	C_LABELFONTSIZE 	= "font-size:50px;"
+	C_BUTTONFONTSIZE 	= "font-size:80px;"
+ok
 C_PLAYERSCORESTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px;" + C_LABELFONTSIZE
 C_NEWGAMESTYLE		= 'color:white;background-color:rgb(50,50,50);border-radius:17px;' + C_LABELFONTSIZE
 C_EMPTYBUTTONSTYLE 	= 'border-radius:17px;background-color:silver;' + C_BUTTONFONTSIZE
