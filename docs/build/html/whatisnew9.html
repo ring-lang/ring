@@ -59,6 +59,7 @@
 <ul class="simple">
 <li>Better Ring Notepad</li>
 <li>Better RingQt</li>
+<li>Better Code Generator for Extensions</li>
 <li>RingPostgreSQL Extension</li>
 <li>More Improvements</li>
 </ul>
@@ -110,8 +111,33 @@
 <li>QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.</li>
 </ul>
 </div>
+<div class="section" id="better-code-generator-for-extensions">
+<span id="index-4"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+<p>This is useful to separate the extension configuraition file to many files</p>
+<p>Example:</p>
+<p>The file : qt_module_network.cf in the RingQt Extension</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+                                <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="ringpostgresql-extension">
-<span id="index-4"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
@@ -218,7 +244,7 @@ salary
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-5"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>IsNULL() function is updated to check pointers too.</li>
 <li>RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.</li>
@@ -244,6 +270,7 @@ salary
 <li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li><a class="reference internal" href="#ringpostgresql-extension">RingPostgreSQL Extension</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>

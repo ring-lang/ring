@@ -17,6 +17,7 @@ Ring 1.9 comes with the next features!
 
 * Better Ring Notepad
 * Better RingQt
+* Better Code Generator for Extensions
 * RingPostgreSQL Extension
 * More Improvements
 
@@ -70,6 +71,41 @@ Better RingQt
 
 * QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
 * QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
+
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better Code Generator for Extensions
+
+Better Code Generator for Extensions
+====================================
+
+The code generator for extensions is updated to support the <loadfile> command
+
+.. code-block:: ring
+
+	<loadfile> filename.cf
+
+This is useful to separate the extension configuraition file to many files
+
+Example:
+
+The file : qt_module_network.cf in the RingQt Extension
+
+.. code-block:: ring
+
+	<comment>
+					Module (network)
+	</comment>
+
+	<loadfile> qabstractsocket.cf
+	<loadfile> qnetworkproxy.cf
+	<loadfile> qtcpsocket.cf
+	<loadfile> qtcpserver.cf
+	<loadfile> qhostaddress.cf
+	<loadfile> qhostinfo.cf
+	<loadfile> qnetworkrequest.cf
+	<loadfile> qnetworkaccessmanager.cf
+	<loadfile> qnetworkreply.cf
 
 .. index:: 
 	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
