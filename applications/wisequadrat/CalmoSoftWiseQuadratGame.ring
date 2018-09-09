@@ -1,6 +1,6 @@
 # Project : Wise Quadrat Game
-# Date    : 2018/09/07
-# Author : Gal Zsolt (~ CalmoSoft ~), Mahmoud Fayed
+# Date    : 2018/09/08
+# Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
@@ -69,6 +69,7 @@ func pplay(n,m)
         gameover()
 
 func gameover()
+        buttonsum = 0
         for p = 1 to size-1
              for n = 1 to size-p
                   for m = 1 to size-p
@@ -93,6 +94,17 @@ func gameover()
                   next
              next
         next
+        for n = 1 to size
+             for m = 1 to size
+                  bool = (buttonsum1[n][m][1] = 1) or (buttonsum2[n][m][1] = 2)
+                  if bool = 1
+                     buttonsum = buttonsum + 1
+                  ok
+             next
+        next
+        if buttonsum = size*size     
+           msgBox("Game Over!")
+        ok
 
 func pbegin()
        player1 = 1
