@@ -33,6 +33,7 @@ The next games are added to Ring Applications
 (1) The 2048 Game
 (2) The Memory Game
 (3) The Wise Quadrat Game 
+(4) The Tessera Game
 
 Developer : Gal Zsolt
 
