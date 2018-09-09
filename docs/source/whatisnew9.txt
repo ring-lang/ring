@@ -18,6 +18,7 @@ Ring 1.9 comes with the next features!
 * Better Ring Notepad
 * Better RingQt
 * RingPostgreSQL Extension
+* More Improvements
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Ring Notepad 
@@ -29,7 +30,6 @@ Better Ring Notepad
 (2) New Mode
 (3) Tabs for opened files 
 (4) Support executing batch files 
-(5) Code refactoring 
 
 .. image:: rnote19.jpg
 	:alt: Ring Notepad
@@ -71,8 +71,6 @@ Better RingQt
 * QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
 * QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
 
-(3) Code Refactoring
-
 .. index:: 
 	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
 
@@ -80,3 +78,18 @@ RingPostgreSQL Extension
 ========================
 
 Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.
+
+.. index:: 
+	pair: What is new in Ring 1.9?; More Improvements
+
+More Improvements
+=================
+
+(1) IsNULL() function is updated to check pointers too.
+(2) RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(3) Shader Functions are added to RingAllegro.
+(4) Network functions are added to RingLibSDL.
+(5) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(6) Form Designer - Nice Aliginment for Toolbox Icons.
+(7) Find in Files - Replace and Replace All options.
+(8) Code Refactoring for Ring Notepad and RingQt 
