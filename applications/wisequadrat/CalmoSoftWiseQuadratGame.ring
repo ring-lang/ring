@@ -1,5 +1,5 @@
 # Project : Wise Quadrat Game
-# Date    : 2018/09/08
+# Date    : 2018/09/09
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -12,14 +12,14 @@ player2 = 0
 C_ROWCOUNT = 6
 C_COLCOUNT = 6
 C_SPACING = 5
+C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:silver'
+C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
+C_BUTTONBLUESTYLE = 'border-radius:17px;color:black; background-color: blue'
+C_BUTTONORANGESTYLE = 'border-radius:17px;color:black; background-color: orange'
 button = newlist(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT)
 buttonsum1 = dimlist([size,size,1])
 buttonsum2 = dimlist([size,size,1])
-colorgray = 'background-color:gray'
-colorviolet = 'background-color:violet'
-colorwhite = 'background-color:white'
-colororange = 'background-color:orange'
 
 app = new qApp {
          StyleFusion()
@@ -38,7 +38,7 @@ app = new qApp {
                        }
                        for Col = 1 to C_COLCOUNT
                             button[Row][Col] = new QPushButton(win) {
-                            setstylesheet(colorgray)
+                            setstylesheet(C_EMPTYBUTTONSTYLE)
                             setclickevent("pplay(" + string(Row) + "," + string(Col) + ")")
                             setSizePolicy(1,1)
                             }
@@ -54,13 +54,13 @@ app = new qApp {
 
 func pplay(n,m)
         if player1 = 1 
-           button[n][m] {setstylesheet(colororange)
+           button[n][m] {setstylesheet(C_BUTTONORANGESTYLE)
                                 player1 = 0
                                 player2 = 1
                                 setenabled(false)}
                                 buttonsum1[n][m][1] = 1
         else
-           button[n][m] {setstylesheet(colorwhite)
+           button[n][m] {setstylesheet(C_BUTTONBLUESTYLE)
                                 player1 = 1
                                 player2 = 0
                                 setenabled(false)}
@@ -78,17 +78,17 @@ func gameover()
                        bool3 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n+p][m][1] = 2)
                        bool4 = (buttonsum2[n][m+p][1] = 2) and (buttonsum2[n+p][m+p][1] = 2)
                        if bool1 and bool2
-                          button[n][m].setstylesheet(colorviolet)
-                          button[n+p][m].setstylesheet(colorviolet)
-                          button[n][m+p].setstylesheet(colorviolet)
-                          button[n+p][m+p].setstylesheet(colorviolet)
+                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n+p][m].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
                           msgBox("Player1 won!")
                        ok
                        if bool3 and bool4
-                          button[n][m].setstylesheet(colorviolet)
-                          button[n+p][m].setstylesheet(colorviolet)
-                          button[n][m+p].setstylesheet(colorviolet)
-                          button[n+p][m+p].setstylesheet(colorviolet)
+                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n+p][m].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
+                          button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
                           msgBox("Player2 won!")
                        ok
                   next
@@ -111,7 +111,7 @@ func pbegin()
        player2 = 0
        for n = 1 to size
             for m = 1 to size
-                 button[n][m] { setstylesheet(colorgray)
+                 button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
                                        buttonsum1[n][m][1] = 0
                                        buttonsum2[n][m][1] = 0
                                        button[n][m].setenabled(true)
