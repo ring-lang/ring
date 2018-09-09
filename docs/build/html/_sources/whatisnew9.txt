@@ -15,11 +15,31 @@ List of changes and new features
 
 Ring 1.9 comes with the next features!
 
+* More Games
 * Better Ring Notepad
 * Better RingQt
 * Better Code Generator for Extensions
 * RingPostgreSQL Extension
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.9?; More Games 
+
+More Games
+==========
+
+The next games are added to Ring Applications 
+
+(1) The 2048 Game
+(2) The Memory Game
+(3) The Wise Quadrat Game 
+
+Developer : Gal Zsolt
+
+The next screen shots for the 2048 game on Android 
+
+.. image:: game2048_shot1.png
+	:alt: Ring Notepad
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Ring Notepad 
