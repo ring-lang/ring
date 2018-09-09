@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.9 comes with the next features!
 
 * Better Ring Notepad
+* Better RingQt
 * RingPostgreSQL Extension
 
 .. index:: 
@@ -33,6 +34,44 @@ Better Ring Notepad
 .. image:: rnote19.jpg
 	:alt: Ring Notepad
 
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better RingQt
+
+Better RingQt
+=============
+
+(1) The next classes are added to RingQt 
+
+* QDrag
+* QMimeData
+* QDropEvent
+* QDragMoveEvent
+* QDragEnterEvent
+* QDragLeaveEvent
+* QClipboard
+* QChildEvent
+* QGeoPositionInfo
+* QGeoCoordinate
+* QGeoAddress
+* QGeoAreaMonitorInfo
+* QGeoAreaMonitorSource
+* QGeoCircle
+* QGeoPositionInfoSource
+* QGeoRectangle
+* QGeoShape
+* QGeoSatelliteInfo
+* QGeoSatelliteInfoSource
+* QNmeaPositionInfoSource
+* QPrinterInfo
+* QPrintPreviewWidget
+
+(2) The next classes are updated
+
+* QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
+* QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
+
+(3) Code Refactoring
 
 .. index:: 
 	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
