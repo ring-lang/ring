@@ -65,6 +65,7 @@
 <li>Deploying Web applications in the Cloud</li>
 <li>Better RingQt</li>
 <li>Better Code Generator for Extensions</li>
+<li>Better Memory Management</li>
 <li>More Improvements</li>
 </ul>
 </div>
@@ -368,8 +369,62 @@ salary
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-memory-management">
+<span id="index-10"></span><h2>Better Memory Management<a class="headerlink" href="#better-memory-management" title="Permalink to this headline">¶</a></h2>
+<p>The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()</p>
+<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a Managed
+pointer to Ring. This pointer can be controlled by the Ring VM using Reference Counting.</p>
+<p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
+<p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">pPointer</span><span class="p">,</span><span class="n">cType</span><span class="p">,</span><span class="n">pFreeFunction</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>RING_FUNC(ring_QPixmap_scaled)
+{
+        QPixmap *pObject ;
+        if ( RING_API_PARACOUNT != 5 ) {
+                RING_API_ERROR(RING_API_BADPARACOUNT);
+                return ;
+        }
+        RING_API_IGNORECPOINTERTYPE ;
+        if ( ! RING_API_ISPOINTER(1) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        pObject = (QPixmap *) RING_API_GETCPOINTER(1,&quot;QPixmap&quot;);
+        if ( ! RING_API_ISNUMBER(2) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(3) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(4) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(5) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        {
+                QPixmap *pValue ;
+                pValue = new QPixmap() ;
+                *pValue = pObject-&gt;scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),
+                         (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(4),
+                         (Qt::TransformationMode )  (int) RING_API_GETNUMBER(5));
+                RING_API_RETMANAGEDCPOINTER(pValue,&quot;QPixmap&quot;,ring_QPixmap_freefunc);
+        }
+}
+</pre></div>
+</div>
+</div>
 <div class="section" id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>IsNULL() function is updated to check pointers too.</li>
 <li>Better code for ringvm_evalinscope()</li>
@@ -402,6 +457,7 @@ salary
 <li><a class="reference internal" href="#deploying-web-applications-in-the-cloud">Deploying Web applications in the Cloud</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
+<li><a class="reference internal" href="#better-memory-management">Better Memory Management</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
