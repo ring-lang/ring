@@ -644,8 +644,8 @@ Output:
 Using RING_API_RETMANAGEDCPOINTER()
 ===================================
 
-Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a Managed
-pointer to Ring. This pointer can be controlled by the Ring VM using Reference Counting.
+Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.
 
 This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.
 

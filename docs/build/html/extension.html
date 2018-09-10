@@ -551,8 +551,8 @@ for all of the module functions.</p>
 </div>
 <div class="section" id="using-ring-api-retmanagedcpointer">
 <span id="index-17"></span><h2>Using RING_API_RETMANAGEDCPOINTER()<a class="headerlink" href="#using-ring-api-retmanagedcpointer" title="Permalink to this headline">¶</a></h2>
-<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a Managed
-pointer to Ring. This pointer can be controlled by the Ring VM using Reference Counting.</p>
+<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
