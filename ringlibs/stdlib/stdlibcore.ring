@@ -1032,3 +1032,26 @@ func OSRenameFile cOldFile,cNewFile
 	but isLinux() or isMacosx()
 		systemSilent("mv " + cOldFile + " " + cNewFile)
 	ok
+
+/*
+	Convert a Ring List to Ring source code 
+*/
+func List2Code aList
+	cCode = "["+Windowsnl()
+	lStart = True
+	for item in aList 
+		if !lStart 
+			cCode += ","
+		else 
+			lStart = False
+		ok
+		if isString(item) 
+			cCode += '"' + item + '"' 
+		but isnumber(item)
+			cCode += (""+item)
+		but islist(item)
+			cCode += List2Code(item)
+		ok
+	next
+	cCode += windowsnl()+"]"
+	return cCode
