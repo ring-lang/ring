@@ -97,6 +97,7 @@ Contents:
    RingQt Classes and Methods Reference <qtclassesdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    FoxRing Functions Reference <foxringfuncsdoc>
+   BigNumber Functions Reference <bignumber>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>

@@ -177,6 +177,8 @@ Output:
 	3
 	242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
 
+For more information check the BigNumber Library Chapter in the documentation
+
 .. index:: 
 	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
 
