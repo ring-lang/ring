@@ -1,5 +1,5 @@
 # Project : Tessera Game
-# Date    : 2018/09/09
+# Date    : 2018/09/10
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -63,107 +63,120 @@ func pplay(m,n)
         if player1 = 1 
            button[row][n] {setstylesheet(C_BUTTONREDSTYLE)
                                 player1 = 0
-                                player2 = 1
-                                setenabled(false)}
+                                player2 = 1}
                                 buttonsum1[n][row][1] = 1
         else
            button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)
                                 player1 = 1
-                                player2 = 0
-                                setenabled(false)}
+                                player2 = 0}
                                 buttonsum2[n][row][1] = 2
+        ok
+        if row = 1
+           button[row][n].setenabled(false)
         ok
         gameover()
 
 func gameover()
         buttonsum = 0
-              for n = 1 to size-3
-                  for m = 1 to size-3
-                       bool1 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n+1][m][1] = 1)
-                       bool2 = (buttonsum1[n+2][m][1] = 1) and (buttonsum1[n+3][m][1] = 1)
-                       bool3 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n][m+1][1] = 1)
-                       bool4 = (buttonsum1[n][m+2][1] = 1) and (buttonsum1[n][m+3][1] = 1)
-                       bool5 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n+1][m+1][1] = 1)
-                       bool6 = (buttonsum1[n+2][m+2][1] = 1) and (buttonsum1[n+3][m+3][1] = 1)
-                       bool7 = (buttonsum1[n+3][m][1] = 1) and (buttonsum1[n+2][m+1][1] = 1)
-                       bool8 = (buttonsum1[n+1][m+2][1] = 1) and (buttonsum1[n][m+3][1] = 1)
-                       bool9 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n+1][m][1] = 2)
-                       bool10 = (buttonsum2[n+2][m][1] = 2) and (buttonsum2[n+3][m][1] = 2)
-                       bool11 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n][m+1][1] = 2)
-                       bool12 = (buttonsum2[n][m+2][1] = 2) and (buttonsum2[n][m+3][1] = 2)
-                       bool13 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n+1][m+1][1] = 2)
-                       bool14 = (buttonsum2[n+2][m+2][1] = 2) and (buttonsum2[n+3][m+3][1] = 2)
-                       bool15 = (buttonsum2[n+3][m][1] = 2) and (buttonsum2[n+2][m+1][1] = 2)
-                       bool16 = (buttonsum2[n+1][m+2][1] = 2) and (buttonsum2[n][m+3][1] = 2)
-                       if bool1 and bool2
-                           button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+1][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+2][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+3][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           msgBox("Player1 won!")
-                       ok
-                       if bool3 and bool4
-                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player1 won!")
-                       ok
-                       if bool5 and bool6
-                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+1][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+2][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+3][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player1 won!")
-                       ok
-                       if bool7 and bool8
-                          button[n+3][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+2][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+1][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player1 won!")
-                       ok
-                       if bool9 and bool10
-                           button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+1][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+2][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           button[n+3][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                           msgBox("Player2 won!")
-                       ok
-                       if bool11 and bool12
-                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player2 won!")
-                       ok
-                       if bool13 and bool14
-                          button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+1][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+2][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+3][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player2 won!")
-                       ok
-                       if bool15 and bool16
-                          button[n+3][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+2][m+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n+1][m+2].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          button[n][m+3].setstylesheet(C_BUTTONVIOLETSTYLE)
-                          msgBox("Player2 won!")
-                       ok
-                  next
+        for n = 1 to size-3
+             for m = 1 to size
+                  bool1 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n+1][m][1] = 1)
+                  bool2 = (buttonsum1[n+2][m][1] = 1) and (buttonsum1[n+3][m][1] = 1)
+                  bool9 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n+1][m][1] = 2)
+                  bool10 = (buttonsum2[n+2][m][1] = 2) and (buttonsum2[n+3][m][1] = 2)
+                  if bool1 and bool2
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player1 won!")
+                  ok
+                  if bool9 and bool10
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player2 won!")
+                  ok
              next
-             for n = 1 to size
-                  for m = 1 to size
-                       bool = (buttonsum1[n][m][1] = 1) or (buttonsum2[n][m][1] = 2)
-                       if bool = 1
-                          buttonsum = buttonsum + 1
-                      ok
-                  next
+        next
+        for n = 1 to size
+             for m = 1 to size-3
+                  bool3 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n][m+1][1] = 1)
+                  bool4 = (buttonsum1[n][m+2][1] = 1) and (buttonsum1[n][m+3][1] = 1)
+                  bool11 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n][m+1][1] = 2)
+                  bool12 = (buttonsum2[n][m+2][1] = 2) and (buttonsum2[n][m+3][1] = 2)
+                  if bool3 and bool4
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player1 won!")
+                  ok
+                  if bool11 and bool12
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player2 won!")
+                  ok
              next
-             if buttonsum = size*size     
-                msgBox("Game Over!")
-             ok
+        next
+        for n = 1 to size-3
+             for m = 1 to size-3
+                  bool5 = (buttonsum1[n][m][1] = 1) and (buttonsum1[n+1][m+1][1] = 1)
+                  bool6 = (buttonsum1[n+2][m+2][1] = 1) and (buttonsum1[n+3][m+3][1] = 1)
+                  bool13 = (buttonsum2[n][m][1] = 2) and (buttonsum2[n+1][m+1][1] = 2)
+                  bool14 = (buttonsum2[n+2][m+2][1] = 2) and (buttonsum2[n+3][m+3][1] = 2)
+                  if bool5 and bool6
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player1 won!")
+                  ok
+                  if bool13 and bool14
+                     button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player2 won!")
+                  ok
+             next
+        next
+        for n = 1 to size-3
+             for m = 1 to size-3
+                  bool7 = (buttonsum1[n+3][m][1] = 1) and (buttonsum1[n+2][m+1][1] = 1)
+                  bool8 = (buttonsum1[n+1][m+2][1] = 1) and (buttonsum1[n][m+3][1] = 1)
+                  bool15 = (buttonsum2[n+3][m][1] = 2) and (buttonsum2[n+2][m+1][1] = 2)
+                  bool16 = (buttonsum2[n+1][m+2][1] = 2) and (buttonsum2[n][m+3][1] = 2)
+                  if bool7 and bool8
+                     button[m][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player1 won!")
+                  ok
+                  if bool15 and bool16
+                     button[m][n+3].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+1][n+2].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+2][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     button[m+3][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+                     msgBox("Player2 won!")
+                  ok
+             next
+        next
+        for n = 1 to size
+             for m = 1 to size
+                  bool = (buttonsum1[n][m][1] = 1) or (buttonsum2[n][m][1] = 2)
+                  if bool = 1
+                     buttonsum = buttonsum + 1
+                  ok
+             next
+        next
+        if buttonsum = size*size     
+           msgBox("Game Over!")
+        ok
 
 func pbegin()
        player1 = 1
@@ -173,7 +186,7 @@ func pbegin()
                  button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
                                        buttonsum1[n][m][1] = 0
                                        buttonsum2[n][m][1] = 0
-                                       button[n][m].setenabled(true)
+                                       setenabled(true)
                                        win.show() }
             next
        next
@@ -195,7 +208,7 @@ func dimlist(dimArray)
 
 func msgBox(cText) 
 	mb = new qMessageBox(win) {
-	        setWindowTitle('Memory Game')
+	        setWindowTitle('Tessera Game')
 	        setText(cText)
                 setstandardbuttons(QMessageBox_OK) 
                 result = exec()
