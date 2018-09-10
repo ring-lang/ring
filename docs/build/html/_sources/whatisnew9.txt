@@ -22,6 +22,7 @@ Ring 1.9 comes with the next features!
 * Better RingQt
 * Better Code Generator for Extensions
 * RingPostgreSQL Extension
+* Deploying Web applications in the Cloud
 * More Improvements
 
 .. index:: 
@@ -368,6 +369,24 @@ Output:
 	3 Mohammed 31 Egypt   30
 	4 Ibrahim  24 Egypt   40	
 	
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Deploying Web applications in the Cloud
+
+Deploying Web applications in the Cloud
+=======================================
+
+We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku
+
+Demo : http://testring.herokuapp.com/
+
+Project : https://github.com/ring-lang/RingWebAppOnHeroku
+
+Heroku Website : https://www.heroku.com/
+
+.. image:: ringincloud.png
+	:alt: Ring Web Application in the Cloud
+
 .. index:: 
 	pair: What is new in Ring 1.9?; More Improvements
 
