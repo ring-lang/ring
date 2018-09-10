@@ -63,6 +63,7 @@ Contents:
    Natural language programming	<natural>
    Using the Natural Library <naturallibrary>
    Web Development (CGI Library) <web>
+   Deploying Web Applications in the Cloud <deployincloud>
    Using RingLibCurl <libcurl>
    Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
