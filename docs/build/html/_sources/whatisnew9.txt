@@ -314,6 +314,8 @@ Heroku Website : https://www.heroku.com/
 .. image:: ringincloud.png
 	:alt: Ring Web Application in the Cloud
 
+For more information check the Deploying Web Applications In The Cloud chapter in the documentation.
+
 .. index:: 
 	pair: What is new in Ring 1.9?; Better RingQt
 
