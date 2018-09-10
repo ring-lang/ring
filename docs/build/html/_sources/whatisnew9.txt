@@ -18,6 +18,7 @@ Ring 1.9 comes with the next features!
 * More Games
 * Better Ring Notepad
 * Better StdLib
+* BigNumber Library
 * Better RingQt
 * Better Code Generator for Extensions
 * RingPostgreSQL Extension
@@ -85,6 +86,101 @@ Output:
 	[
 		1,2,3,4,5,6,7,8,9,10
 	]
+
+
+.. index:: 
+	pair: What is new in Ring 1.9?; BigNumber Library
+
+BigNumber Library
+=================
+
+Using the BigNumber library we can do arithmetic operations on huge numbers.
+
+Developer : Bert Mariani
+
+Example:
+
+.. code-block:: ring
+
+	load "bignumber.ring"
+
+	num1 = "62345678901234567891678345123456789"    ### Big
+	num2 =  "1237894567890123419871236545"          ### Small
+	num3 =     "64"                                 ### Divide Small
+	num4 = "765432"                 
+	num5 =      "3"                                 ### Power            
+    
+	? "Add big numbers:" 
+	a1 = new BigNumber(num1)        a1.Print()
+	a2 = new BigNumber(num2)        a2.Print()
+	a3 = a1 + a2                    a3.Print() ? nl
+
+	? "Substract big numbers:" 
+	a1 = new BigNumber(num1)        a1.Print()
+	a2 = new BigNumber(num2)        a2.Print()
+	a3 = a1 - a2                    a3.Print() ? nl
+
+	? "Multiply big numbers:" 
+	a1 = new BigNumber(num1)        a1.print()
+	a2 = new BigNumber(num2)        a2.print()      
+	a3 = a1 * a2                    a3.print() ? nl
+
+	? "Divide big numbers:" 
+	a1 = new BigNumber(num1)        a1.print()
+	a2 = new BigNumber(num2)        a2.print()
+	a3 = a1 / a2                    a3.print() ? nl
+    
+	? "Divide big numbers: by very small number" 
+	a1 = new BigNumber(num1)        a1.print()
+	a2 = new BigNumber(num3)        a2.print()
+	a3 = a1 / a2                    a3.print() ? nl
+
+	? "Power of big number:" 
+	a1 = new BigNumber(num1)        a1.print()
+	a2 = new BigNumber(num5)        a2.print()
+	a3 = a1 ^ a2                    a3.print() ? nl
+    
+Output:
+
+.. code-block:: none
+
+	Add big numbers:
+	62345678901234567891678345123456789
+	1237894567890123419871236545
+	62345680139129135781801764994693334
+
+
+	Substract big numbers:
+	62345678901234567891678345123456789
+	1237894567890123419871236545
+	52345687663340000001554925252220244
+
+
+	Multiply big numbers:
+	62345678901234567891678345123456789
+	1237894567890123419871236545
+	77177377243260150103462178714197454736432472780119682305154005
+
+
+	Divide big numbers:
+	62345678901234567891678345123456789
+	1237894567890123419871236545
+	50364288
+
+
+	Divide big numbers: by very small number
+	62345678901234567891678345123456789
+	64
+	974151232831790123307474142554012
+
+
+	Power of big number:
+	62345678901234567891678345123456789
+	3
+	242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
+
+
+
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better RingQt

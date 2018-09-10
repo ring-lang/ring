@@ -60,6 +60,7 @@
 <li>More Games</li>
 <li>Better Ring Notepad</li>
 <li>Better StdLib</li>
+<li>BigNumber Library</li>
 <li>Better RingQt</li>
 <li>Better Code Generator for Extensions</li>
 <li>RingPostgreSQL Extension</li>
@@ -107,8 +108,90 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="bignumber-library">
+<span id="index-5"></span><h2>BigNumber Library<a class="headerlink" href="#bignumber-library" title="Permalink to this headline">¶</a></h2>
+<p>Using the BigNumber library we can do arithmetic operations on huge numbers.</p>
+<p>Developer : Bert Mariani</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="s">&quot;62345678901234567891678345123456789&quot;</span>    <span class="sd">### Big</span>
+<span class="n">num2</span> <span class="o">=</span>  <span class="s">&quot;1237894567890123419871236545&quot;</span>          <span class="sd">### Small</span>
+<span class="n">num3</span> <span class="o">=</span>     <span class="s">&quot;64&quot;</span>                                 <span class="sd">### Divide Small</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="s">&quot;765432&quot;</span>
+<span class="n">num5</span> <span class="o">=</span>      <span class="s">&quot;3&quot;</span>                                 <span class="sd">### Power</span>
+
+<span class="o">?</span> <span class="s">&quot;Add big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Substract big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Multiply big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers: by very small number&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Power of big number:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="p">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Add big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+62345680139129135781801764994693334
+
+
+Substract big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+52345687663340000001554925252220244
+
+
+Multiply big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+77177377243260150103462178714197454736432472780119682305154005
+
+
+Divide big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+50364288
+
+
+Divide big numbers: by very small number
+62345678901234567891678345123456789
+64
+974151232831790123307474142554012
+
+
+Power of big number:
+62345678901234567891678345123456789
+3
+242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
+</pre></div>
+</div>
+</div>
 <div class="section" id="better-ringqt">
-<span id="index-5"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>The next classes are added to RingQt</li>
 </ol>
@@ -145,7 +228,7 @@
 </ul>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-6"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
 </pre></div>
@@ -170,7 +253,7 @@
 </div>
 </div>
 <div class="section" id="ringpostgresql-extension">
-<span id="index-7"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
@@ -277,7 +360,7 @@ salary
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>IsNULL() function is updated to check pointers too.</li>
 <li>Better code for ringvm_evalinscope()</li>
@@ -305,6 +388,7 @@ salary
 <li><a class="reference internal" href="#more-games">More Games</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
 <li><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li><a class="reference internal" href="#bignumber-library">BigNumber Library</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li><a class="reference internal" href="#ringpostgresql-extension">RingPostgreSQL Extension</a></li>
