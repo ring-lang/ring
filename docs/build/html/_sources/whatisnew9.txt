@@ -19,10 +19,10 @@ Ring 1.9 comes with the next features!
 * Better Ring Notepad
 * Better StdLib
 * BigNumber Library
-* Better RingQt
-* Better Code Generator for Extensions
 * RingPostgreSQL Extension
 * Deploying Web applications in the Cloud
+* Better RingQt
+* Better Code Generator for Extensions
 * More Improvements
 
 .. index:: 
@@ -180,80 +180,6 @@ Output:
 	3
 	242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
 
-
-
-
-.. index:: 
-	pair: What is new in Ring 1.9?; Better RingQt
-
-Better RingQt
-=============
-
-(1) The next classes are added to RingQt 
-
-* QDrag
-* QMimeData
-* QDropEvent
-* QDragMoveEvent
-* QDragEnterEvent
-* QDragLeaveEvent
-* QClipboard
-* QChildEvent
-* QGeoPositionInfo
-* QGeoCoordinate
-* QGeoAddress
-* QGeoAreaMonitorInfo
-* QGeoAreaMonitorSource
-* QGeoCircle
-* QGeoPositionInfoSource
-* QGeoRectangle
-* QGeoShape
-* QGeoSatelliteInfo
-* QGeoSatelliteInfoSource
-* QNmeaPositionInfoSource
-* QPrinterInfo
-* QPrintPreviewWidget
-
-(2) The next classes are updated
-
-* QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
-* QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
-
-
-.. index:: 
-	pair: What is new in Ring 1.9?; Better Code Generator for Extensions
-
-Better Code Generator for Extensions
-====================================
-
-The code generator for extensions is updated to support the <loadfile> command
-
-.. code-block:: ring
-
-	<loadfile> filename.cf
-
-This is useful to separate the extension configuraition file to many files
-
-Example:
-
-The file : qt_module_network.cf in the RingQt Extension
-
-.. code-block:: ring
-
-	<comment>
-					Module (network)
-	</comment>
-
-	<loadfile> qabstractsocket.cf
-	<loadfile> qnetworkproxy.cf
-	<loadfile> qtcpsocket.cf
-	<loadfile> qtcpserver.cf
-	<loadfile> qhostaddress.cf
-	<loadfile> qhostinfo.cf
-	<loadfile> qnetworkrequest.cf
-	<loadfile> qnetworkaccessmanager.cf
-	<loadfile> qnetworkreply.cf
-
 .. index:: 
 	pair: What is new in Ring 1.9?; RingPostgreSQL Extension
 
@@ -386,6 +312,77 @@ Heroku Website : https://www.heroku.com/
 
 .. image:: ringincloud.png
 	:alt: Ring Web Application in the Cloud
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better RingQt
+
+Better RingQt
+=============
+
+(1) The next classes are added to RingQt 
+
+* QDrag
+* QMimeData
+* QDropEvent
+* QDragMoveEvent
+* QDragEnterEvent
+* QDragLeaveEvent
+* QClipboard
+* QChildEvent
+* QGeoPositionInfo
+* QGeoCoordinate
+* QGeoAddress
+* QGeoAreaMonitorInfo
+* QGeoAreaMonitorSource
+* QGeoCircle
+* QGeoPositionInfoSource
+* QGeoRectangle
+* QGeoShape
+* QGeoSatelliteInfo
+* QGeoSatelliteInfoSource
+* QNmeaPositionInfoSource
+* QPrinterInfo
+* QPrintPreviewWidget
+
+(2) The next classes are updated
+
+* QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
+* QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
+
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better Code Generator for Extensions
+
+Better Code Generator for Extensions
+====================================
+
+The code generator for extensions is updated to support the <loadfile> command
+
+.. code-block:: ring
+
+	<loadfile> filename.cf
+
+This is useful to separate the extension configuraition file to many files
+
+Example:
+
+The file : qt_module_network.cf in the RingQt Extension
+
+.. code-block:: ring
+
+	<comment>
+					Module (network)
+	</comment>
+
+	<loadfile> qabstractsocket.cf
+	<loadfile> qnetworkproxy.cf
+	<loadfile> qtcpsocket.cf
+	<loadfile> qtcpserver.cf
+	<loadfile> qhostaddress.cf
+	<loadfile> qhostinfo.cf
+	<loadfile> qnetworkrequest.cf
+	<loadfile> qnetworkaccessmanager.cf
+	<loadfile> qnetworkreply.cf
 
 .. index:: 
 	pair: What is new in Ring 1.9?; More Improvements
