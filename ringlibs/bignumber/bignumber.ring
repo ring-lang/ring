@@ -797,7 +797,11 @@ class BigNumber
             
 
     func print 
-        ? nl+"ClassPrint aData: " ? aData 
+        ? aData 
+
+    func Value 
+        return aData 
+	
 
 ###========================================================
 ###=========================================================
