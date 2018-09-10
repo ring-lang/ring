@@ -1412,6 +1412,29 @@ Syntax:
 	OSRenameFile(cOldFileName,cNewFileName)
 
 
+.. index:: 
+	pair: Stdlib Functions; List2Code() Function 
 
+List2Code() Function 
+====================
 
+This function covert a Ring list during the runtime to Ring source code that we can save to source files.
+
+The list may contains strings, numbers or sub lists.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	aList = 1:10
+	? list2Code(aList)
+
+Output:
+
+.. code-block:: ring
+
+	[
+		1,2,3,4,5,6,7,8,9,10
+	]
 
