@@ -39,8 +39,6 @@ The next games are added to Ring Applications
 (3) The Wise Quadrat Game 
 (4) The Tessera Game
 
-Developer : Gal Zsolt
-
 The next screen shots for the 2048 game on Android 
 
 .. image:: game2048_shot1.png
@@ -97,8 +95,6 @@ BigNumber Library
 =================
 
 Using the BigNumber library we can do arithmetic operations on huge numbers.
-
-Developer : Bert Mariani
 
 Example:
 
@@ -416,12 +412,13 @@ See the "Extension using the C/C++ languages" Chapter in the documentation
 More Improvements
 =================
 
-(1) IsNULL() function is updated to check pointers too.
-(2) Better code for ringvm_evalinscope() 
-(3) RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
-(4) Shader Functions are added to RingAllegro.
-(5) Network functions are added to RingLibSDL.
-(6) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(7) Form Designer - Nice Aliginment for Toolbox Icons.
-(8) Find in Files - Replace and Replace All options.
-(9) Code Refactoring for Ring Notepad and RingQt 
+(1)  IsNULL() function is updated to check pointers too.
+(2)  Better code for ringvm_evalinscope() 
+(3)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(4)  Shader Functions are added to RingAllegro.
+(5)  Network functions are added to RingLibSDL.
+(6)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(7)  Form Designer - Nice Aliginment for Toolbox Icons.
+(8)  Find in Files - Replace and Replace All options.
+(9)  Code Refactoring for Ring Notepad and RingQt 
+(10) Qt Class Converter is updated for better conversion results 
