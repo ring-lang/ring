@@ -59,6 +59,7 @@
 <ul class="simple">
 <li>More Games</li>
 <li>Better Ring Notepad</li>
+<li>Better StdLib</li>
 <li>Better RingQt</li>
 <li>Better Code Generator for Extensions</li>
 <li>RingPostgreSQL Extension</li>
@@ -88,8 +89,28 @@
 </ol>
 <img alt="Ring Notepad" src="_images/rnote19.jpg" />
 </div>
+<div class="section" id="better-stdlib">
+<span id="index-4"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>List2Code() Function</li>
+</ol>
+<p>This function covert a Ring list during the runtime to Ring source code that we can save to source files.</p>
+<p>The list may contains strings, numbers or sub lists.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="o">?</span> <span class="n">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">[</span>
+        <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="better-ringqt">
-<span id="index-4"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>The next classes are added to RingQt</li>
 </ol>
@@ -126,7 +147,7 @@
 </ul>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-5"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
 </pre></div>
@@ -151,7 +172,7 @@
 </div>
 </div>
 <div class="section" id="ringpostgresql-extension">
-<span id="index-6"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
@@ -258,9 +279,10 @@ salary
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>IsNULL() function is updated to check pointers too.</li>
+<li>Better code for ringvm_evalinscope()</li>
 <li>RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.</li>
 <li>Shader Functions are added to RingAllegro.</li>
 <li>Network functions are added to RingLibSDL.</li>
@@ -284,6 +306,7 @@ salary
 <li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li><a class="reference internal" href="#more-games">More Games</a></li>
 <li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li><a class="reference internal" href="#ringpostgresql-extension">RingPostgreSQL Extension</a></li>

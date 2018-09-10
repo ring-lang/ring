@@ -17,6 +17,7 @@ Ring 1.9 comes with the next features!
 
 * More Games
 * Better Ring Notepad
+* Better StdLib
 * Better RingQt
 * Better Code Generator for Extensions
 * RingPostgreSQL Extension
@@ -56,6 +57,34 @@ Better Ring Notepad
 .. image:: rnote19.jpg
 	:alt: Ring Notepad
 
+
+.. index:: 
+	pair: What is new in Ring 1.9?; Better StdLib
+
+Better StdLib
+=============
+
+(1) List2Code() Function 
+
+This function covert a Ring list during the runtime to Ring source code that we can save to source files.
+
+The list may contains strings, numbers or sub lists.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	aList = 1:10
+	? list2Code(aList)
+
+Output:
+
+.. code-block:: ring
+
+	[
+		1,2,3,4,5,6,7,8,9,10
+	]
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better RingQt
@@ -250,10 +279,11 @@ More Improvements
 =================
 
 (1) IsNULL() function is updated to check pointers too.
-(2) RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
-(3) Shader Functions are added to RingAllegro.
-(4) Network functions are added to RingLibSDL.
-(5) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(6) Form Designer - Nice Aliginment for Toolbox Icons.
-(7) Find in Files - Replace and Replace All options.
-(8) Code Refactoring for Ring Notepad and RingQt 
+(2) Better code for ringvm_evalinscope() 
+(3) RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(4) Shader Functions are added to RingAllegro.
+(5) Network functions are added to RingLibSDL.
+(6) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(7) Form Designer - Nice Aliginment for Toolbox Icons.
+(8) Find in Files - Replace and Replace All options.
+(9) Code Refactoring for Ring Notepad and RingQt 
