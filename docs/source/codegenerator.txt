@@ -1216,7 +1216,7 @@ Configuration Files Examples
 You can learn from the next examples
 
 * RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
-* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/generator/qt.cf
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf
 * RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf
 
 After modifing the configuration file, You will need to generate the code, You can learn from
