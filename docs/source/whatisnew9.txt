@@ -64,7 +64,7 @@ Better Ring Notepad
 Better StdLib
 =============
 
-(1) List2Code() Function 
+The List2Code() function is added to the StdLib 
 
 This function covert a Ring list during the runtime to Ring source code that we can save to source files.
 
