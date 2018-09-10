@@ -7,7 +7,7 @@ BigNumber Library
 
 In this chapter we will learn about using the Big Number library in the Ring programming language.
 
-Developer : Bert Mariani, Gal Zsolt (~ CalmoSoft ~)
+Developers : Bert Mariani, Gal Zsolt (~ CalmoSoft ~)
 
 .. index:: 
 	pair: bignumber; Loading the library
