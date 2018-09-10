@@ -52,6 +52,7 @@ Contents:
    ODBC Functions <odbc>
    MySQL Functions <mysql>
    SQLite Functions <sqlite>	
+   PostgreSQL Functions <postgresql>
    Security and Internet Functions <secfunc>
    Object Oriented Programming (OOP) <oop>
    Functional Programming (FP) <fp>
