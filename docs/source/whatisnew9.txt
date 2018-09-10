@@ -293,6 +293,8 @@ Output:
 	4 Ibrahim  24 Egypt   40	
 	
 
+For more information check the PostgreSQL Chapter in the documentation
+
 .. index:: 
 	pair: What is new in Ring 1.9?; Deploying Web applications in the Cloud
 
