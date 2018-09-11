@@ -427,8 +427,9 @@ More Improvements
 (7)  Shader Functions are added to RingAllegro.
 (8)  Network functions are added to RingLibSDL.
 (9)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(10)  Form Designer - Nice Aliginment for Toolbox Icons.
+(10) Form Designer - Nice Aliginment for Toolbox Icons.
 (11) Find in Files - Replace and Replace All options.
 (12) Code Refactoring for Ring Notepad and RingQt.
 (13) Qt Class Converter is updated for better conversion results.
 (14) SRandom() function - Initialize random number generator. 
+(15) More samples are added to ring/samples/other folder.
