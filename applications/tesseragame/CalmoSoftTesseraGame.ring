@@ -32,19 +32,22 @@ app = new qApp {
                   resize(600,600)
                   setstylesheet('background-color:white')
                   playcomp = new QPushButton(win)
-                  playcomp { setstylesheet(C_MENUSTYLE)  
+                  playcomp { setstylesheet(C_MENUSTYLE)
+                                   setstylesheet("font-size:30px")   
                                    settext("Play with computer")
                                    setclickevent("pcomputer()")
                                    setSizePolicy(1,1)
                                    show() }
                   playtwo = new QPushButton(win)
                   playtwo { setstylesheet(C_MENUSTYLE)  
+                                setstylesheet("font-size:30px") 
                                 settext("Two players")
                                 setclickevent("ptwo()")
                                 setSizePolicy(1,1)
                                 show() }
                   playexit = new QPushButton(win)
-                  playexit { setstylesheet(C_MENUSTYLE)  
+                  playexit { setstylesheet(C_MENUSTYLE)
+                                setstylesheet("font-size:30px")   
                                 settext("Exit")
                                 setclickevent("pexit()")
                                 setSizePolicy(1,1)
@@ -90,10 +93,21 @@ func compenter()
                 exit
              ok
         next 
+        pcolor(n,row,C_BUTTONYELLOWSTYLE)
         button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)
                                 playercomp = 0
                                 player = 1}
                                 buttonsum2[n][row][1] = 2
+
+func pcolor(n,row,bcolor)
+        for x = 1 to row - 1
+             app.processevents()
+             sleep(0.1) 
+             button[x][n].setstylesheet(bcolor)
+             app.processevents() 
+             sleep(0.1)
+             button[x][n].setstylesheet(C_EMPTYBUTTONSTYLE)
+        next
 
 func pplay(m,n) 
         if playercomp = 1
@@ -105,12 +119,19 @@ func pplay(m,n)
                 row = x
                 exit
              ok
-        next  
+        next
+        if player = 1 or  player1 = 1
+           pcolor(n,row,C_BUTTONREDSTYLE)
+        ok
+        if player2 = 1
+           pcolor(n,row,C_BUTTONYELLOWSTYLE)
+        ok
         if player = 1            
            button[row][n] {setstylesheet(C_BUTTONREDSTYLE)
                                   player = 0
                                   playercomp = 1}
                                   buttonsum1[n][row][1] = 1
+        gameover()
         compenter() 
         ok
         if player1 = 1 
