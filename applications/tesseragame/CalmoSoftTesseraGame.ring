@@ -1,5 +1,5 @@
 # Project : Tessera Game
-# Date    : 2018/09/10
+# Date    : 2018/09/11
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -7,8 +7,10 @@ load "stdlib.ring"
 load "guilib.ring"
 
 size = 7
-player1 = 1
+player1 = 0
 player2 = 0
+player = 0
+playercomp = 1
 C_ROWCOUNT = 7
 C_COLCOUNT = 7
 C_SPACING = 5
@@ -32,20 +34,20 @@ app = new qApp {
                   playcomp = new QPushButton(win)
                   playcomp { setstylesheet(C_MENUSTYLE)  
                                    settext("Play with computer")
-                                   setSizePolicy(1,1)
                                    setclickevent("pcomputer()")
+                                   setSizePolicy(1,1)
                                    show() }
                   playtwo = new QPushButton(win)
                   playtwo { setstylesheet(C_MENUSTYLE)  
                                 settext("Two players")
-                                setSizePolicy(1,1)
                                 setclickevent("ptwo()")
+                                setSizePolicy(1,1)
                                 show() }
                   playexit = new QPushButton(win)
                   playexit { setstylesheet(C_MENUSTYLE)  
                                 settext("Exit")
-                                setSizePolicy(1,1)
                                 setclickevent("pexit()")
+                                setSizePolicy(1,1)
                                 show() }
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
@@ -63,7 +65,6 @@ app = new qApp {
                             }
                             LayoutButtonRow[Row].AddWidget(button[Row][Col])
                             if Row = C_ROWCOUNT and Col = C_COLCOUNT
-                               //LayoutButtonRow[size+1].addwidget(playcomp) 
                             ok
                        next
                        LayoutButtonMain.AddLayout(LayoutButtonRow[Row])
@@ -80,24 +81,52 @@ app = new qApp {
         exec()
          }
 
-func pplay(m,n)
+func compenter()
+        n = random(size-1)+1 
         for x = size to 1 step -1
              bool =  (buttonsum1[n][x][1] != 1) and (buttonsum2[n][x][1] != 2)
              if bool = 1
                 row = x
                 exit
              ok
-        next             
-        if player1 = 1 
-           button[row][n] {setstylesheet(C_BUTTONREDSTYLE)
-                                player1 = 0
-                                player2 = 1}
-                                buttonsum1[n][row][1] = 1
-        else
-           button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)
-                                player1 = 1
-                                player2 = 0}
+        next 
+        button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)
+                                playercomp = 0
+                                player = 1}
                                 buttonsum2[n][row][1] = 2
+
+func pplay(m,n) 
+        if playercomp = 1
+           n = random(size-1)+1 
+        ok
+        for x = size to 1 step -1
+             bool =  (buttonsum1[n][x][1] != 1) and (buttonsum2[n][x][1] != 2)
+             if bool = 1
+                row = x
+                exit
+             ok
+        next  
+        if player = 1            
+           button[row][n] {setstylesheet(C_BUTTONREDSTYLE)
+                                  player = 0
+                                  playercomp = 1}
+                                  buttonsum1[n][row][1] = 1
+        compenter() 
+        ok
+        if player1 = 1 
+           button[row][n] {setstylesheet(C_BUTTONREDSTYLE)}
+                                   buttonsum1[n][row][1] = 1
+        ok
+        if player2 = 1
+           button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)}
+                                  buttonsum2[n][row][1] = 2
+        ok
+        if player1 = 1 and player = 0 and playercomp = 0
+           player1 = 0
+           player2 = 1
+        but player1 = 0 and player = 0 and playercomp = 0
+           player1 = 1
+           player2 = 0
         ok
         if row = 1
            button[row][n].setenabled(false)
@@ -207,8 +236,8 @@ func gameover()
         ok
 
 func pbegin()
-       player1 = 1
-       player2 = 0
+       buttonsum1 = dimlist([size,size,1])
+       buttonsum2 = dimlist([size,size,1])
        for n = 1 to size
             for m = 1 to size
                  button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
@@ -220,13 +249,22 @@ func pbegin()
        next
 
 func pcomputer()
-        see "pcomputer" + nl
+       player = 1
+       playercomp = 0
+       player1 = 0
+       player2 = 0
+       pbegin()
 
 func ptwo()
-        see "ptwo" + nl
+       player1 = 1
+       player2 = 0
+       player = 0
+       playercomp = 0
+       pbegin()
 
 func pexit()
-        see "pexit" + nl
+	win.close()
+	app.quit()
 
 func dimlist(dimArray)
         sizeList = len(dimArray)
