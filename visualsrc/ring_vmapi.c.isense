@@ -221,6 +221,9 @@ pList
 Type: int
 nNum1,nNum2,nSize
 ring_vmlib_shutdown
+ring_vmlib_srandom
+Type: int
+nNum1
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
