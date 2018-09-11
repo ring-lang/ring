@@ -419,13 +419,14 @@ More Improvements
 =================
 
 (1)  IsNULL() function is updated to check pointers too.
-(2)  Better code for ringvm_evalinscope() 
-(3)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
-(4)  Shader Functions are added to RingAllegro.
-(5)  Network functions are added to RingLibSDL.
-(6)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(7)  Form Designer - Nice Aliginment for Toolbox Icons.
-(8)  Find in Files - Replace and Replace All options.
-(9)  Code Refactoring for Ring Notepad and RingQt.
-(10) Qt Class Converter is updated for better conversion results.
-(11) SRandom() function - Initialize random number generator. 
+(2)  Better code for ringvm_evalinscope() function - used by the Trace Library.
+(3)  Better code for space() function.
+(4)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(5)  Shader Functions are added to RingAllegro.
+(6)  Network functions are added to RingLibSDL.
+(7)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(8)  Form Designer - Nice Aliginment for Toolbox Icons.
+(9)  Find in Files - Replace and Replace All options.
+(10) Code Refactoring for Ring Notepad and RingQt.
+(11) Qt Class Converter is updated for better conversion results.
+(12) SRandom() function - Initialize random number generator. 
