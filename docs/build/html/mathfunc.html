@@ -124,10 +124,13 @@
 <tr class="row-even"><td>random(x)</td>
 <td>Returns a random number in the range [0,x]</td>
 </tr>
-<tr class="row-odd"><td>unsigned(n,n,c)</td>
+<tr class="row-odd"><td>srandom(x)</td>
+<td>Initialize random number generator</td>
+</tr>
+<tr class="row-even"><td>unsigned(n,n,c)</td>
 <td>Perform operation using unsigned numbers</td>
 </tr>
-<tr class="row-even"><td>decimals(n)</td>
+<tr class="row-odd"><td>decimals(n)</td>
 <td>Determine the decimals digits after the point in float/double numbers</td>
 </tr>
 </tbody>
@@ -279,8 +282,16 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="srandom-function">
+<span id="index-4"></span><h2>SRandom() Function<a class="headerlink" href="#srandom-function" title="Permalink to this headline">¶</a></h2>
+<p>The SRandom() function initialize random number generator.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SRandom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="unsigned-function">
-<span id="index-4"></span><h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this headline">¶</a></h2>
 <p>We can use unsigned numbers using the Unsigned() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">result</span> <span class="n">of</span> <span class="n">cOperator</span> <span class="n">operation</span> <span class="k">on</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span>
@@ -310,7 +321,7 @@
 </div>
 </div>
 <div class="section" id="decimals-functions">
-<span id="index-5"></span><h2>Decimals() Functions<a class="headerlink" href="#decimals-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Decimals() Functions<a class="headerlink" href="#decimals-functions" title="Permalink to this headline">¶</a></h2>
 <p>We can determine the decimals numbers count after the point in float/double numbers using the decimals() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="n">nDecimalsCount</span><span class="p">)</span>
@@ -344,7 +355,7 @@
 </div>
 </div>
 <div class="section" id="using-in-numbers">
-<span id="index-6"></span><h2>Using _ in numbers<a class="headerlink" href="#using-in-numbers" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Using _ in numbers<a class="headerlink" href="#using-in-numbers" title="Permalink to this headline">¶</a></h2>
 <p>We can use _ between numbers digits.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
@@ -359,7 +370,7 @@
 </div>
 </div>
 <div class="section" id="using-f-after-numbers">
-<span id="index-7"></span><h2>Using f after numbers<a class="headerlink" href="#using-f-after-numbers" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Using f after numbers<a class="headerlink" href="#using-f-after-numbers" title="Permalink to this headline">¶</a></h2>
 <p>We can use the &#8216;f&#8217; letter after numbers.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span>x = 19.99f
@@ -385,6 +396,7 @@ see type(x) + nl
 <li><a class="reference internal" href="#list-of-functions">List of functions</a></li>
 <li><a class="reference internal" href="#example">Example</a></li>
 <li><a class="reference internal" href="#random-function">Random() Function</a></li>
+<li><a class="reference internal" href="#srandom-function">SRandom() Function</a></li>
 <li><a class="reference internal" href="#unsigned-function">Unsigned() Function</a></li>
 <li><a class="reference internal" href="#decimals-functions">Decimals() Functions</a></li>
 <li><a class="reference internal" href="#using-in-numbers">Using _ in numbers</a></li>
