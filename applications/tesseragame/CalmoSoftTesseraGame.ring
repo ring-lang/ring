@@ -16,8 +16,9 @@ C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:blue'
 C_BUTTONREDSTYLE = 'border-radius:17px;color:black; background-color: red'
 C_BUTTONYELLOWSTYLE = 'border-radius:17px;color:black; background-color: yellow'
 C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
+C_MENUSTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px"
 button = newlist(C_ROWCOUNT,C_COLCOUNT)
-LayoutButtonRow = list(C_ROWCOUNT)
+LayoutButtonRow = list(C_ROWCOUNT+3)
 buttonsum1 = dimlist([size,size,1])
 buttonsum2 = dimlist([size,size,1])
 
@@ -28,6 +29,24 @@ app = new qApp {
                   move(490,100)
                   resize(600,600)
                   setstylesheet('background-color:white')
+                  playcomp = new QPushButton(win)
+                  playcomp { setstylesheet(C_MENUSTYLE)  
+                                   settext("Play with computer")
+                                   setSizePolicy(1,1)
+                                   setclickevent("pcomputer()")
+                                   show() }
+                  playtwo = new QPushButton(win)
+                  playtwo { setstylesheet(C_MENUSTYLE)  
+                                settext("Two players")
+                                setSizePolicy(1,1)
+                                setclickevent("ptwo()")
+                                show() }
+                  playexit = new QPushButton(win)
+                  playexit { setstylesheet(C_MENUSTYLE)  
+                                settext("Exit")
+                                setSizePolicy(1,1)
+                                setclickevent("pexit()")
+                                show() }
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
                   LayoutButtonMain.setContentsmargins(0,0,0,0)
@@ -43,9 +62,18 @@ app = new qApp {
                             setSizePolicy(1,1)
                             }
                             LayoutButtonRow[Row].AddWidget(button[Row][Col])
+                            if Row = C_ROWCOUNT and Col = C_COLCOUNT
+                               //LayoutButtonRow[size+1].addwidget(playcomp) 
+                            ok
                        next
                        LayoutButtonMain.AddLayout(LayoutButtonRow[Row])
-                  next
+                  next      
+		  oMainLayout = new qVBoxlayout() {
+		                        AddWidget(playcomp)
+		                        AddWidget(playtwo)
+		                        AddWidget(playexit)
+			                }
+                  LayoutButtonMain.AddLayout(oMainLayout)
                   setLayout(LayoutButtonMain)
                   show()
          }
@@ -190,6 +218,15 @@ func pbegin()
                                        win.show() }
             next
        next
+
+func pcomputer()
+        see "pcomputer" + nl
+
+func ptwo()
+        see "ptwo" + nl
+
+func pexit()
+        see "pexit" + nl
 
 func dimlist(dimArray)
         sizeList = len(dimArray)
