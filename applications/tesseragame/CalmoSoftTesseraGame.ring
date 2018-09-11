@@ -10,7 +10,7 @@ size = 7
 player1 = 0
 player2 = 0
 player = 0
-playercomp = 1
+playercomp = 0
 C_ROWCOUNT = 7
 C_COLCOUNT = 7
 C_SPACING = 5
@@ -85,20 +85,28 @@ app = new qApp {
          }
 
 func compenter()
-        n = random(size-1)+1 
-        for x = size to 1 step -1
-             bool =  (buttonsum1[n][x][1] != 1) and (buttonsum2[n][x][1] != 2)
-             if bool = 1
-                row = x
-                exit
-             ok
-        next 
-        pcolor(n,row,C_BUTTONYELLOWSTYLE)
-        button[row][n] {setstylesheet(C_BUTTONYELLOWSTYLE)
+       row2 = 0
+        while row2 = 0
+                n2 = random(size-1)+1 
+                for x = size to 1 step -1
+                     bool =  (buttonsum1[n2][x][1] != 1) and (buttonsum2[n2][x][1] != 2)
+                     if bool = 1
+                        row2 = x
+                        exit 2
+                     ok
+                next 
+        end
+        pcolor(n2,row2,C_BUTTONYELLOWSTYLE)
+        button[row2][n2] {setstylesheet(C_BUTTONYELLOWSTYLE)
                                 playercomp = 0
                                 player = 1}
-                                buttonsum2[n][row][1] = 2
-
+                                buttonsum2[n2][row2][1] = 2
+        if row2 = 1 
+           for nr = 1 to size
+                button[nr][n2].setenabled(false)
+           next
+        ok
+ 
 func pcolor(n,row,bcolor)
         for x = 1 to row - 1
              app.processevents()
@@ -118,7 +126,7 @@ func pplay(m,n)
              if bool = 1
                 row = x
                 exit
-             ok
+             ok    
         next
         if player = 1 or  player1 = 1
            pcolor(n,row,C_BUTTONREDSTYLE)
@@ -131,8 +139,8 @@ func pplay(m,n)
                                   player = 0
                                   playercomp = 1}
                                   buttonsum1[n][row][1] = 1
-        gameover()
-        compenter() 
+           gameover()
+           compenter() 
         ok
         if player1 = 1 
            button[row][n] {setstylesheet(C_BUTTONREDSTYLE)}
@@ -149,8 +157,10 @@ func pplay(m,n)
            player1 = 1
            player2 = 0
         ok
-        if row = 1
-           button[row][n].setenabled(false)
+        if row = 1 
+           for nr = 1 to size
+                button[nr][n].setenabled(false)
+           next
         ok
         gameover()
 
