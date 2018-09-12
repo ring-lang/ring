@@ -84,3 +84,138 @@ other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.
 All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).
 
 
+.. index:: 
+	pair: General Information; Data Representation
+
+Data Representation
+===================
+
+(1) In Ring, The String is just (Array of bytes)
+
+Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)
+
+So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.
+
+Also we can store binary data in strings
+
+.. code-block:: ring
+
+	mystring = read("myfile.exe")
+
+(2) Remember this, when you think about variables
+
+* Value ---> What we have (What we are storing in the computer memory as data) - Low Level Concept
+* Type  ---> What we can do with what we have or how we do things with what we have (Just a Logical Concept)
+
+Computer memory ----> Just store [Bytes] - Each byte is 8-bit - (Here we avoid the memory word concept)
+
+These bytes could be grouped together when moved between the memory and the processor registers.
+Here we have (The register size) and things like 32-bit and 64-bit for example.
+Also we have the bytes order.
+
+Programming Languages ----> Add Types (Just as a concept) to these bytes so we can determine what to do with them and how operations should be done.
+
+And programming language could allow (Type Conversion) ---> Because the Type is a logical concept in most cases, What we really have is just data (Bytes, Bytes Count, Bytes Order, etc)
+
+Ring Stings ----> You have these bytes (each byte is 8-bit) and Ring know the string size (stored as number in the String structure) 
+
+So we don't check the NULL character or add it to the end of the string (Not Required)
+
+All operations inside Ring VM, will check the Ring size and deal with the string as binary data (each character is 8-bit)
+
+In the C language ---> The normal case is adding NULL character (\0) to the end of each string
+
+And the string functions check this character, This is not suitable for binary data.
+
+Signed vs Unsigned ---> Is a logical concept which is important when you do arithmetic operations on the data, but when storing the data, if you will include all of the (8-bits) and will not ignore any of them ---> Then don't care.
+
+In Ring, don't think about these details, we are hiding it from you, so you can focus on your application and what you will do.
+
+Think in C when you write C code which could be (based on need) low level code to have control on everything.
+ ----> Good for performance and memory management
+
+Think in Ring when you write Ring code which let you ignore a lot of details and concentrate only on the result
+-----> Good for productivity and delivering software quickly
+
+The good news (We can mix between Ring and C in our projects)
+
+
+(3) The functions Int2Bytes(), Float2Bytes() and Double2Bytes()
+
+These function take input as (Number) ---> Convert it to group of bytes based on the number type (int|float|double) ---> Then return a Ring string that contains these bytes
+
+Int2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(int)
+Float2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(float)
+Double2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(double)
+
+Example:
+
+.. code-block:: ring
+
+	? len( int2bytes(1) )
+	? len( float2bytes(1) )
+	? len( double2bytes(1) )
+
+Output:
+
+.. code-block:: none
+
+	4
+	4
+	8
+
+(4) Storing Numbers
+
+When we use a number, Ring always use the (Double) data type for representing these numbers in memory.
+This is important to know when we do arithmetic operations on numbers.
+
+But when we convert the number to a String using "" + number  or using string(number) we get a string where each digit is represented in 1 byte (Not good idea for storage, but useful for string processing)
+
+If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.
+
+Ring Number (double) ----> int2bytes()  - will cast the number from double to int then return the bytes ----> 4 bytes (Ring String)
+Ring Number (double) ----> float2bytes()  - will cast the number from double to float then return the bytes ----> 4 bytes (Ring String)
+Ring Number (double) ----> double2bytes()  - will use the number (double) to return the bytes ----> 8 bytes (Ring String)
+ 
+The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.
+
+(5) The Unsigned() Function
+
+The function unsigned() expect the first and the second parameters as numbers
+
+.. code-block:: ring
+
+	unsigned(nNumber1,nNumber2,cOperator)
+
+We can use the bytes2int() function to convert the bytes to a number
+
+Example:
+
+.. code-block:: ring 
+
+	B = list(4)
+
+	for k=1 to 4
+	{  
+		B[k]= Space(4)
+		for kk=1 to 4 { B[k][kk]= char(60+4*k +kk) }
+		? " B" +k +": " +B[k]
+	}
+
+	A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])      		? "A12: " +string(A12)  
+	A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])      		? "A34: " +string(A34)
+	A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),"^") 	? "unsigned A12: " +A12
+	A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),"^") 	? "unsigned A34: " +A34
+
+Output:
+
+.. code-block:: none
+
+	B1: ABCD
+	B2: EFGH
+	B3: IJKL
+	B4: MNOP
+	A12: 201589764
+	A34: 470025220
+	unsigned A12: 201589764
+	unsigned A34: 470025220

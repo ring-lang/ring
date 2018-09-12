@@ -108,6 +108,110 @@ So we don&#8217;t have to care about using fclose() when we use fopen() for exam
 other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
 <p>All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).</p>
 </div>
+<div class="section" id="data-representation">
+<span id="index-3"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>In Ring, The String is just (Array of bytes)</li>
+</ol>
+<p>Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)</p>
+<p>So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.</p>
+<p>Also we can store binary data in strings</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myfile.exe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Remember this, when you think about variables</li>
+</ol>
+<ul class="simple">
+<li>Value &#8212;&gt; What we have (What we are storing in the computer memory as data) - Low Level Concept</li>
+<li>Type  &#8212;&gt; What we can do with what we have or how we do things with what we have (Just a Logical Concept)</li>
+</ul>
+<p>Computer memory &#8212;-&gt; Just store [Bytes] - Each byte is 8-bit - (Here we avoid the memory word concept)</p>
+<p>These bytes could be grouped together when moved between the memory and the processor registers.
+Here we have (The register size) and things like 32-bit and 64-bit for example.
+Also we have the bytes order.</p>
+<p>Programming Languages &#8212;-&gt; Add Types (Just as a concept) to these bytes so we can determine what to do with them and how operations should be done.</p>
+<p>And programming language could allow (Type Conversion) &#8212;&gt; Because the Type is a logical concept in most cases, What we really have is just data (Bytes, Bytes Count, Bytes Order, etc)</p>
+<p>Ring Stings &#8212;-&gt; You have these bytes (each byte is 8-bit) and Ring know the string size (stored as number in the String structure)</p>
+<p>So we don&#8217;t check the NULL character or add it to the end of the string (Not Required)</p>
+<p>All operations inside Ring VM, will check the Ring size and deal with the string as binary data (each character is 8-bit)</p>
+<p>In the C language &#8212;&gt; The normal case is adding NULL character (0) to the end of each string</p>
+<p>And the string functions check this character, This is not suitable for binary data.</p>
+<p>Signed vs Unsigned &#8212;&gt; Is a logical concept which is important when you do arithmetic operations on the data, but when storing the data, if you will include all of the (8-bits) and will not ignore any of them &#8212;&gt; Then don&#8217;t care.</p>
+<p>In Ring, don&#8217;t think about these details, we are hiding it from you, so you can focus on your application and what you will do.</p>
+<dl class="docutils">
+<dt>Think in C when you write C code which could be (based on need) low level code to have control on everything.</dt>
+<dd>&#8212;-&gt; Good for performance and memory management</dd>
+</dl>
+<p>Think in Ring when you write Ring code which let you ignore a lot of details and concentrate only on the result
+&#8212;&#8211;&gt; Good for productivity and delivering software quickly</p>
+<p>The good news (We can mix between Ring and C in our projects)</p>
+<ol class="arabic simple" start="3">
+<li>The functions Int2Bytes(), Float2Bytes() and Double2Bytes()</li>
+</ol>
+<p>These function take input as (Number) &#8212;&gt; Convert it to group of bytes based on the number type (int|float|double) &#8212;&gt; Then return a Ring string that contains these bytes</p>
+<p>Int2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(int)
+Float2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(float)
+Double2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">int2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">float2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">double2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>4
+4
+8
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Storing Numbers</li>
+</ol>
+<p>When we use a number, Ring always use the (Double) data type for representing these numbers in memory.
+This is important to know when we do arithmetic operations on numbers.</p>
+<p>But when we convert the number to a String using &#8220;&#8221; + number  or using string(number) we get a string where each digit is represented in 1 byte (Not good idea for storage, but useful for string processing)</p>
+<p>If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.</p>
+<p>Ring Number (double) &#8212;-&gt; int2bytes()  - will cast the number from double to int then return the bytes &#8212;-&gt; 4 bytes (Ring String)
+Ring Number (double) &#8212;-&gt; float2bytes()  - will cast the number from double to float then return the bytes &#8212;-&gt; 4 bytes (Ring String)
+Ring Number (double) &#8212;-&gt; double2bytes()  - will use the number (double) to return the bytes &#8212;-&gt; 8 bytes (Ring String)</p>
+<p>The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.</p>
+<ol class="arabic simple" start="5">
+<li>The Unsigned() Function</li>
+</ol>
+<p>The function unsigned() expect the first and the second parameters as numbers</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">unsigned</span><span class="p">(</span><span class="n">nNumber1</span><span class="p">,</span><span class="n">nNumber2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can use the bytes2int() function to convert the bytes to a number</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span>
+<span class="p">{</span>
+        <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">kk</span><span class="o">]=</span> <span class="n">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
+        <span class="o">?</span> <span class="s">&quot; B&quot;</span> <span class="o">+</span><span class="n">k</span> <span class="o">+</span><span class="s">&quot;: &quot;</span> <span class="o">+</span><span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]</span>
+<span class="p">}</span>
+
+<span class="n">A12</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>                <span class="o">?</span> <span class="s">&quot;A12: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">)</span>                <span class="o">?</span> <span class="s">&quot;A34: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A34</span><span class="p">)</span>
+<span class="n">A12</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>    <span class="o">?</span> <span class="s">&quot;unsigned A12: &quot;</span> <span class="o">+</span><span class="n">A12</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>    <span class="o">?</span> <span class="s">&quot;unsigned A34: &quot;</span> <span class="o">+</span><span class="n">A34</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>B1: ABCD
+B2: EFGH
+B3: IJKL
+B4: MNOP
+A12: 201589764
+A34: 470025220
+unsigned A12: 201589764
+unsigned A34: 470025220
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -121,6 +225,7 @@ other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
 <li><a class="reference internal" href="#">General Information</a><ul>
 <li><a class="reference internal" href="#ring-architecture">Ring Architecture</a></li>
 <li><a class="reference internal" href="#memory-management">Memory Management</a></li>
+<li><a class="reference internal" href="#data-representation">Data Representation</a></li>
 </ul>
 </li>
 </ul>
