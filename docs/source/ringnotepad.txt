@@ -206,10 +206,10 @@ To run the project (Main File) at any time press Ctrl+Shift+F5 (GUI) or Ctrl+Shi
 
 Screen Shots:
 
-.. image:: rnote15shot2.png
+.. image:: urn_shot11.png
 	:alt: Ring Notepad
 
-.. image:: rnote15shot3.png
+.. image:: urn_shot12.png
 	:alt: Ring Notepad
 
 

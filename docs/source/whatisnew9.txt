@@ -39,7 +39,7 @@ The next games are added to Ring Applications
 (3) The Wise Quadrat Game 
 (4) The Tessera Game
 
-The next screen shots for the 2048 game on Android 
+The next screen shot for the 2048 game on Android 
 
 .. image:: game2048_shot1.png
 	:alt: Ring Notepad
