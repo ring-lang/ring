@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General Information &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Language Reference" href="reference.html" />
+    <link rel="prev" title="Frequently Asked Questions (FAQ)" href="faq.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Language Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="faq.html" title="Frequently Asked Questions (FAQ)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="general-information">
+<span id="index-0"></span><h1>General Information<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h1>
+<p>This chapter contains general information about the Ring programming language</p>
+<ol class="arabic simple">
+<li>Ring Architecture</li>
+<li>Memory Management</li>
+<li>Data Representation</li>
+</ol>
+<div class="section" id="ring-architecture">
+<span id="index-1"></span><h2>Ring Architecture<a class="headerlink" href="#ring-architecture" title="Permalink to this headline">¶</a></h2>
+<p>We have the next architecture</p>
+<ol class="arabic simple">
+<li>Ring Applications (Your Code)  - Written in Ring - See folder : ring/applications</li>
+<li>Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/ringlibs</li>
+<li>Ring Extensions (RingAllegro, RingQt, etc) - Written in C/C++ (may include Ring code) - See folder : ring/extensions</li>
+<li>Ring Virtual Machine (Ring VM) - Written in C language</li>
+<li>Operating System (Current Platform) - (Windows, Linux, macOS, Android, etc)</li>
+</ol>
+<p>The extensions are just dynamic libraries (DLL, So, Dylib)
+You can update the extensions without the need to update your code.</p>
+<p>ringlibdepwin ====&gt; C libraries used for building Ring Extensions (written in C) on Windows platform.</p>
+<p>ringringlibs ====&gt; Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)</p>
+<p>ringrnoteexe ====&gt; Just C source file to create executable file that will run rnote.ring</p>
+<p>ringvisualsrc ====&gt; The Visual Source Code of the Ring Compiler &amp; Ring VM developed using Programming Without Coding Technology (PWCT)</p>
+<p>We use the term Ring Library &#8212;&gt; When the library code is written in Ring
+We use the term Ring Extension &#8212;&gt; When the library code is Written in C or C++</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">General Information</a><ul>
+<li><a class="reference internal" href="#ring-architecture">Ring Architecture</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="faq.html"
+                        title="previous chapter">Frequently Asked Questions (FAQ)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="next chapter">Language Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/generalinfo.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Language Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="faq.html" title="Frequently Asked Questions (FAQ)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+﻿.. index:: 
+	single: General Information; Introduction
+
+===================
+General Information
+===================
+
+This chapter contains general information about the Ring programming language
+
+(1) Ring Architecture
+(2) Memory Management
+(3) Data Representation
+
+.. index:: 
+	pair: General Information; Ring Architecture
+
+Ring Architecture
+=================
+
+We have the next architecture
+
+(1) Ring Applications (Your Code)  - Written in Ring - See folder : ring/applications
+(2) Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/ringlibs
+(3) Ring Extensions (RingAllegro, RingQt, etc) - Written in C/C++ (may include Ring code) - See folder : ring/extensions
+(4) Ring Virtual Machine (Ring VM) - Written in C language
+(5) Operating System (Current Platform) - (Windows, Linux, macOS, Android, etc)
+
+The extensions are just dynamic libraries (DLL, So, Dylib)
+You can update the extensions without the need to update your code.
+
+
+ring\libdepwin ====> C libraries used for building Ring Extensions (written in C) on Windows platform.
+
+ring\ringlibs ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
+
+ring\rnoteexe ====> Just C source file to create executable file that will run rnote.ring
+
+ring\visualsrc ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
+
+We use the term Ring Library ---> When the library code is written in Ring
+We use the term Ring Extension ---> When the library code is Written in C or C++
