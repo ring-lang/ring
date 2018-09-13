@@ -447,7 +447,7 @@ The next samples are developed in little hours and we will introduce them throug
 
 The next screen shot for he Ring Notepad application
 
-.. image:: shotringnotepad.png
+.. image:: ringnotepad_screenshot.png
 	:alt: Ring Application
 
 The next screen shot for the Cards Game
