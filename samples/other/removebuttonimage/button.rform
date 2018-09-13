@@ -1,0 +1,29 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 46 , : y = 56  , 
+		 :width =  140 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button1",
+		 :BtnImage =  "C:/Users/samir/Desktop/Minesweeper/mine.png",
+		 :setClickEvent =  "test"
+		]
+	]
+]
+# End Form Designer File
