@@ -137,7 +137,7 @@ Syntax:
 
 .. code-block:: ring
 
-	Rename(cOldFileName,cNewFileName)
+	Rename(cOldFileName,cNewFileName) ---> Number ( Status: Success (0) , Error (-1) )
 
 Example:
 
