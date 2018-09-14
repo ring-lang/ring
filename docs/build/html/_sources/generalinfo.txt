@@ -202,10 +202,14 @@ Example:
 		? " B" +k +": " +B[k]
 	}
 
-	A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])      		? "A12: " +string(A12)  
-	A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])      		? "A34: " +string(A34)
-	A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),"^") 	? "unsigned A12: " +A12
-	A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),"^") 	? "unsigned A34: " +A34
+	A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])      		
+	? "A12: " +string(A12)  
+	A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])      		
+	? "A34: " +string(A34)
+	A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),"^") 	
+	? "unsigned A12: " +A12
+	A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),"^") 	
+	? "unsigned A34: " +A34
 
 Output:
 
