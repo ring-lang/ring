@@ -126,7 +126,7 @@ func _BreakPoint
 	"Command (Locals)      : Print local variables names" + nl +
 	"Command (LocalsData)  : Print local variables data" + nl +
 	"Command (Globals)     : Print global variables names" + nl +
-	"Command (CallStack)  : Print call stack" + nl +
+	"Command (CallStack)   : Print call stack" + nl +
 	"We can execute Ring code" + nl +
 	Copy("=",60) + nl 
 	while true
