@@ -1,5 +1,6 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
+# FindPrevValue() Added by Gal Zsolt 
 
 class RNoteFind
 
