@@ -482,13 +482,13 @@ Another Example
 		a2.print()
 		a3.print()
 	See nl+"----3"+nl      
-	    a2 = a1 + "45"  ### 1st - string"168" = string "123" + string "45" 
+	    a2 = a1 + "45"  
 	See nl+"----4"+nl  
-	    a2.print()      ### 1st pass - a2 is String "168"
+	    a2.print()      
 	See nl+"----5"+nl  
-	    a3 = a1 + a2    ### 2nd pass - a2 is Object 168 ???  Depends on Class "return = self)
+	    a3 = a1 + a2    
 	See nl+"----6"+nl  
-	    a3.print()      ### a3 = 291  ( isString or isNumber depending on FuncAdd return type)
+	    a3.print()      
 	See nl+"----7"+nl
 
 	###==================================
