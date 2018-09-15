@@ -433,3 +433,4 @@ More Improvements
 (13) Qt Class Converter is updated for better conversion results.
 (14) SRandom() function - Initialize random number generator. 
 (15) More samples are added to ring/samples/other folder.
+(16) Ring Notepad - Find Previous Feature.
