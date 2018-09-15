@@ -70,6 +70,12 @@ We provide instructions for building on the next platforms :-
 	cd ../extensions/ringsqlite
 	buildvc.bat
 
+### Build RingPostgreSQL
+	
+	cd ../extensions/ringpostgresql
+	gencode.bat
+	buildvc.bat
+
 ### Build RingOpenSSL
 	
 	cd ../extensions/ringopenssl
@@ -130,12 +136,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	gencode.bat
 	buildvc.bat
 	
-### Build RingPostgreSQL
-	
-	cd ../extensions/ringpostgresql
-	gencode.bat
-	buildvc.bat
-
 ### Generate RingQt Source Code and Build
 
 	Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
@@ -197,6 +197,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Build RingSQLite
 	
 	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+### Generate RingPostgreSQL Source Code and Build 
+	
+	cd ../extensions/ringpostgresql
+	./gencode.sh
 	./buildgcc.sh
 
 ### Build RingOpenSSL
@@ -271,12 +277,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildgcc.sh
 
-### Generate RingPostgreSQL Source Code and Build 
-	
-	cd ../extensions/ringpostgresql
-	./gencode.sh
-	./buildgcc.sh
-
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
@@ -326,6 +326,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Build RingSQLite
 	
 	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+### Generate RingPostgreSQL Source Code and Build 
+	
+	cd ../extensions/ringpostgresql
+	./gencode.sh
 	./buildgcc.sh
 
 ### Build RingOpenSSL
@@ -400,12 +406,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildgcc.sh
 
-### Generate RingPostgreSQL Source Code and Build 
-	
-	cd ../extensions/ringpostgresql
-	./gencode.sh
-	./buildgcc.sh
-
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
@@ -457,6 +457,12 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Build RingSQLite
 	
 	cd ../extensions/ringsqlite
+	./buildclang.sh
+
+### Generate RingPostgreSQL Source Code and Build 
+	
+	cd ../extensions/ringpostgresql
+	./gencode.sh
 	./buildclang.sh
 
 ### Build RingOpenSSL
@@ -520,12 +526,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	./gencode.sh
 	./buildclang.sh
 	
-### Generate RingPostgreSQL Source Code and Build 
-	
-	cd ../extensions/ringpostgresql
-	./gencode.sh
-	./buildclang.sh
-
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
