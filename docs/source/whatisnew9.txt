@@ -434,3 +434,4 @@ More Improvements
 (14) SRandom() function - Initialize random number generator. 
 (15) More samples are added to ring/samples/other folder.
 (16) Ring Notepad - Find Previous Feature.
+(17) Game Engine for 2D Games - Text Class - Check the font object before usage.
