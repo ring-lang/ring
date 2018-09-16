@@ -21,5 +21,5 @@ Load "stdinternet.ring"
 Load "stdhashtable.ring"
 Load "stdtree.ring"
 Load "stdsqlite.ring"
-
+Load "stdpostgresql.ring"
 		
