@@ -71,6 +71,7 @@
 <li>ODBC CLass</li>
 <li>MySQL Class</li>
 <li>SQLite Class</li>
+<li>PostgreSQL Class</li>
 <li>Security Class</li>
 <li>Internet Class</li>
 </ul>
@@ -1749,8 +1750,102 @@ Hello
 </pre></div>
 </div>
 </div>
+<div class="section" id="postgresql-class">
+<span id="index-18"></span><h2>PostgreSQL Class<a class="headerlink" href="#postgresql-class" title="Permalink to this headline">¶</a></h2>
+<p>Methods:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Description/Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>init(cConString)</td>
+<td>Open Database.</td>
+</tr>
+<tr class="row-odd"><td>close()</td>
+<td>Close Database.</td>
+</tr>
+<tr class="row-even"><td>execute(cSQL)</td>
+<td>Execute Query.</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">oPostgreSQL</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostgreSQL</span><span class="p">(</span><span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span><span class="p">)</span>
+
+<span class="k">See</span> <span class="s">&quot;Test the PostgreSQL Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="n">oPostgreSQL</span> <span class="p">{</span>
+
+        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY_TEST(&quot;</span>  <span class="o">+</span>
+                <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;SALARY         REAL );&quot;</span>
+
+        <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
+                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
+
+        <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+
+        <span class="o">?</span>  <span class="n">execute</span><span class="p">(</span><span class="s">&quot;select * from COMPANY_TEST&quot;</span><span class="p">)</span>
+
+        <span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+        <span class="n">close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Test the PostgreSQL Class Methods
+id
+name
+age
+address
+salary
+1
+Mahmoud
+29
+Jeddah
+20000
+2
+Ahmed
+27
+Jeddah
+15000
+3
+Mohammed
+31
+Egypt
+20000
+4
+Ibrahim
+24
+Egypt
+65000
+
+**************************************************
+</pre></div>
+</div>
+</div>
 <div class="section" id="security-class">
-<span id="index-18"></span><h2>Security Class<a class="headerlink" href="#security-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>Security Class<a class="headerlink" href="#security-class" title="Permalink to this headline">¶</a></h2>
 <p>Methods:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1811,7 +1906,7 @@ Hello
 </div>
 </div>
 <div class="section" id="internet-class">
-<span id="index-19"></span><h2>Internet Class<a class="headerlink" href="#internet-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Internet Class<a class="headerlink" href="#internet-class" title="Permalink to this headline">¶</a></h2>
 <p>Methods:</p>
 <ul class="simple">
 <li>download(cURL)</li>
@@ -1856,6 +1951,7 @@ Hello
 <li><a class="reference internal" href="#odbc-class">ODBC Class</a></li>
 <li><a class="reference internal" href="#mysql-class">MySQL Class</a></li>
 <li><a class="reference internal" href="#sqlite-class">SQLite Class</a></li>
+<li><a class="reference internal" href="#postgresql-class">PostgreSQL Class</a></li>
 <li><a class="reference internal" href="#security-class">Security Class</a></li>
 <li><a class="reference internal" href="#internet-class">Internet Class</a></li>
 </ul>
