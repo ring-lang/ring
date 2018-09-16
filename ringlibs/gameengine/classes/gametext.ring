@@ -8,6 +8,9 @@ class text from sprite
 		cfontfile = cfilename
 
 	func draw oGame
+		if isNULL(font)
+			raise("The font object is NULL - be sure to set the font and that the font file exist")
+		ok
 		gl_draw_text(font, color, x, y,GL_ALIGN_LEFT,text)		
 
 	func delete
