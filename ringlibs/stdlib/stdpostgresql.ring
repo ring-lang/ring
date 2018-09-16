@@ -6,6 +6,7 @@ Load "stdfunctions.ring"
 Load "stdlibcore.ring"
 
 if IsMainSourceFile() 
+	load "postgresqllib.ring"
 	postgresql_class_test()
 ok
 
@@ -57,8 +58,8 @@ Class PostgreSQL
 	Func close
 		return PQfinish(con)
 
-	Func execute cQuery
-		res = PQexec(con,cQuery)
+	Func execute cSQL
+		res = PQexec(con,cSQL)
 		aMyQueryResult = []
 		aResultRow = []
 		nFields = PQnfields(res)
