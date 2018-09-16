@@ -65,7 +65,7 @@ Better Ring Notepad
 Better StdLib
 =============
 
-The List2Code() function is added to the StdLib 
+(1) The List2Code() function is added to the StdLib 
 
 This function covert a Ring list during the runtime to Ring source code that we can save to source files.
 
@@ -86,6 +86,42 @@ Output:
 	[
 		1,2,3,4,5,6,7,8,9,10
 	]
+
+
+(2) The Str2ASCIIList() and ASCIIList2Str() are added to the StdLib
+
+Using these functions we can convert between string of bytes and a list of numbers where each item represent
+the ASCII code of one byte in the string.
+
+So we may convert a string of bytes to ASCII List then do some operations on the list numbers (Like XOR)
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	cStr = "MmMm"
+
+	aList = Str2ASCIILIST(cStr)
+	? aList 
+
+	cStr2 = ASCIIList2Str(aList)
+	? cStr2
+	? len(cStr2)
+
+Output:
+
+.. code-block:: none
+
+	77
+	109
+	77
+	109
+
+	MmMm
+	4
+
 
 
 .. index:: 
