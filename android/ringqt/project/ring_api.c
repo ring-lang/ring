@@ -1554,7 +1554,7 @@ void ring_vmlib_substr ( void *pPointer )
 {
 	char *cStr,*cStr2,*cStr3,*cString  ;
 	double nNum1,nNum2  ;
-	unsigned int x,nPos,nMark,nSize,nTransform,nSize2  ;
+	unsigned int nParaCount,x,nPos,nMark,nSize,nTransform,nSize2  ;
 	String *pString  ;
 	/*
 	**  Usage 
@@ -1563,8 +1563,18 @@ void ring_vmlib_substr ( void *pPointer )
 	**  Substr(str,10,15) get substring from 10 , get 15 characters 
 	**  Substr(str,"nice","good") replace "nice" with "good" 
 	**  Substr(str,"nice","good",true) replace "nice" with "good" - not case sensitive 
-	**  Get String  (First Parameter) 
+	**  Parameters Count 
 	*/
+	nParaCount = RING_API_PARACOUNT ;
+	/* If parameter no. 4 is not True, Treat the case as we get 3 paramters only */
+	if ( nParaCount == 4 ) {
+		if ( RING_API_ISNUMBER(4) ) {
+			if ( RING_API_GETNUMBER(4)  == 0.0 ) {
+				nParaCount = 3 ;
+			}
+		}
+	}
+	/* Get String  (First Parameter) */
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
@@ -1574,7 +1584,7 @@ void ring_vmlib_substr ( void *pPointer )
 	}
 	/* Process */
 	nTransform = 0 ;
-	if ( RING_API_PARACOUNT == 2 ) {
+	if ( nParaCount == 2 ) {
 		if ( RING_API_ISNUMBER(2) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( nNum1 > 0 && nNum1 <= nSize ) {
@@ -1598,7 +1608,7 @@ void ring_vmlib_substr ( void *pPointer )
 			return ;
 		}
 	}
-	else if ( RING_API_PARACOUNT == 3 ) {
+	else if ( nParaCount == 3 ) {
 		if ( RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nNum2 = RING_API_GETNUMBER(3) ;
@@ -1622,7 +1632,7 @@ void ring_vmlib_substr ( void *pPointer )
 			return ;
 		}
 	}
-	else if ( RING_API_PARACOUNT == 4 ) {
+	else if ( nParaCount == 4 ) {
 		if ( RING_API_ISSTRING(2) && RING_API_ISSTRING(3) && RING_API_ISNUMBER(4) ) {
 			if ( RING_API_GETNUMBER(4)  == 1.0 ) {
 				nTransform = 2 ;
