@@ -423,15 +423,16 @@ More Improvements
 (3)  Better code for space() function.
 (4)  Better code for Hex() and Dec() functions.
 (5)  Better code for Download() function.
-(6)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
-(7)  Shader Functions are added to RingAllegro.
-(8)  Network functions are added to RingLibSDL.
-(9)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(10) Form Designer - Nice Aliginment for Toolbox Icons.
-(11) Find in Files - Replace and Replace All options.
-(12) Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.
-(13) Qt Class Converter is updated for better conversion results.
-(14) SRandom() function - Initialize random number generator. 
-(15) More samples are added to ring/samples/other folder.
-(16) Ring Notepad - Find Previous Feature.
-(17) Game Engine for 2D Games - Text Class - Check the font object before usage.
+(6)  Better code for SubStr() function.
+(7)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(8)  Shader Functions are added to RingAllegro.
+(9)  Network functions are added to RingLibSDL.
+(10)  RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(11) Form Designer - Nice Aliginment for Toolbox Icons.
+(12) Find in Files - Replace and Replace All options.
+(13) Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.
+(14) Qt Class Converter is updated for better conversion results.
+(15) SRandom() function - Initialize random number generator. 
+(16) More samples are added to ring/samples/other folder.
+(17) Ring Notepad - Find Previous Feature.
+(18) Game Engine for 2D Games - Text Class - Check the font object before usage.
