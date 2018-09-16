@@ -971,6 +971,47 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="str2asciilist">
+<span id="index-63"></span><h2>Str2ASCIIList()<a class="headerlink" href="#str2asciilist" title="Permalink to this headline">¶</a></h2>
+<p>Convert a string of bytes to a list of numbers where each item represent
+the ASCII code of one byte in the string.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Str2ASCIIList</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asciilist2str">
+<span id="index-64"></span><h2>ASCIIList2Str()<a class="headerlink" href="#asciilist2str" title="Permalink to this headline">¶</a></h2>
+<p>Convert a list of numbers where each item represent
+the ASCII code of one byte to a string of bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ASCIIList2Str</span><span class="p">(</span><span class="kt">List</span> <span class="n">of</span> <span class="n">numbers</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;MmMm&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>
+
+<span class="n">cStr2</span> <span class="o">=</span> <span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">cStr2</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>77
+109
+77
+109
+
+MmMm
+4
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -1044,6 +1085,8 @@
 <li><a class="reference internal" href="#osdeletefile-function">OSDeleteFile() Function</a></li>
 <li><a class="reference internal" href="#osrenamefile-function">OSRenameFile() Function</a></li>
 <li><a class="reference internal" href="#list2code-function">List2Code() Function</a></li>
+<li><a class="reference internal" href="#str2asciilist">Str2ASCIIList()</a></li>
+<li><a class="reference internal" href="#asciilist2str">ASCIIList2Str()</a></li>
 </ul>
 </li>
 </ul>
