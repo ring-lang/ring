@@ -488,3 +488,4 @@ More Improvements
 (21) New Function : IsPointer()
 (22) IsList() will not return True for C Pointers, we have now the IsPointer() function. 
 (23) Scripts to run Ring tests on Linux and macOS (Not only Windows).
+(24) The ? Operator is updated to respect the ringvm_see() function.
