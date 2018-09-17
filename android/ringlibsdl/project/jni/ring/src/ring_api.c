@@ -48,6 +48,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("type",ring_vmlib_type);
 	ring_vm_funcregister("isnull",ring_vmlib_isnull);
 	ring_vm_funcregister("isobject",ring_vmlib_isobject);
+	ring_vm_funcregister("ispointer",ring_vmlib_ispointer);
 	/* Conversion */
 	ring_vm_funcregister("hex",ring_vmlib_hex);
 	ring_vm_funcregister("dec",ring_vmlib_dec);
@@ -1143,6 +1144,21 @@ void ring_vmlib_isobject ( void *pPointer )
 	}
 	if ( RING_API_ISLIST(1) ) {
 		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 1 ) {
+			RING_API_RETNUMBER(1);
+			return ;
+		}
+	}
+	RING_API_RETNUMBER(0);
+}
+
+void ring_vmlib_ispointer ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISLIST(1) ) {
+		if ( RING_API_ISCPOINTER(1) ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}

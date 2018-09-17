@@ -116,6 +116,8 @@ void ring_vmlib_type ( void *pPointer ) ;
 void ring_vmlib_isnull ( void *pPointer ) ;
 
 void ring_vmlib_isobject ( void *pPointer ) ;
+
+void ring_vmlib_ispointer ( void *pPointer ) ;
 /* Conversion */
 
 void ring_vmlib_hex ( void *pPointer ) ;
