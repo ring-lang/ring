@@ -20223,6 +20223,34 @@ Class QGraphicsVideoItem
 	Func size 
 		return QGraphicsVideoItem_size(pObject)
 
+Class QPrintPreviewDialog from QDialog
+
+	pObject
+
+	Func init P1
+		pObject = QPrintPreviewDialog_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPrintPreviewDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func open P1,P2
+		return QPrintPreviewDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QPrintPreviewDialog_printer(pObject)
+		return pTempObj
+
+	Func setpaintRequestedEvent P1
+		return QPrintPreviewDialog_setpaintRequestedEvent(pObject,P1)
+
+	Func getpaintRequestedEvent 
+		return QPrintPreviewDialog_getpaintRequestedEvent(pObject)
+
 Class QPrintPreviewWidget from QWidget
 
 	pObject
