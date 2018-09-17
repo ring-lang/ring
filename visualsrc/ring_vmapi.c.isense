@@ -234,6 +234,7 @@ ring_vmlib_isnull
 Type: char *
 cStr
 ring_vmlib_isobject
+ring_vmlib_ispointer
 ring_vmlib_hex
 cStr
 ring_vmlib_dec
