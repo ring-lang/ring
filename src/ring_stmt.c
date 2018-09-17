@@ -359,17 +359,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_IGNORENEWLINE ;
 		#if RING_USESEEFUNCTION
 		/* Generate code to use the SEE function */
-		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-		ring_parser_icg_newoperand(pParser,"ringvm_see");
-		/* Parameters */
-		nFlag = pParser->nAssignmentFlag ;
-		pParser->nAssignmentFlag = 0 ;
-		x = ring_parser_expr(pParser);
-		pParser->nAssignmentFlag = nFlag ;
-		ring_parser_icg_newoperation(pParser,ICO_CALL);
-		ring_parser_icg_newoperandint(pParser,0);
-		ring_parser_icg_newoperation(pParser,ICO_NOOP);
-		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+		x = ring_parser_gencallringvmsee(pParser);
 		#else
 		/*
 		**  Generate code using the SEE Command Instruction 
@@ -398,17 +388,7 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Generate code to use the See function 
 		**  Print the Expression 
 		*/
-		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-		ring_parser_icg_newoperand(pParser,"ringvm_see");
-		/* Parameters */
-		nFlag = pParser->nAssignmentFlag ;
-		pParser->nAssignmentFlag = 0 ;
-		x = ring_parser_expr(pParser);
-		pParser->nAssignmentFlag = nFlag ;
-		ring_parser_icg_newoperation(pParser,ICO_CALL);
-		ring_parser_icg_newoperandint(pParser,0);
-		ring_parser_icg_newoperation(pParser,ICO_NOOP);
-		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+		x = ring_parser_gencallringvmsee(pParser);
 		/* Print the New Line */
 		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
 		ring_parser_icg_newoperand(pParser,"ringvm_see");
@@ -1500,4 +1480,22 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
 		#endif
 	}
 	return 1 ;
+}
+
+int ring_parser_gencallringvmsee ( Parser *pParser )
+{
+	int x,nFlag  ;
+	/* Generate code to use the SEE function */
+	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+	ring_parser_icg_newoperand(pParser,"ringvm_see");
+	/* Parameters */
+	nFlag = pParser->nAssignmentFlag ;
+	pParser->nAssignmentFlag = 0 ;
+	x = ring_parser_expr(pParser);
+	pParser->nAssignmentFlag = nFlag ;
+	ring_parser_icg_newoperation(pParser,ICO_CALL);
+	ring_parser_icg_newoperandint(pParser,0);
+	ring_parser_icg_newoperation(pParser,ICO_NOOP);
+	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+	return x ;
 }
