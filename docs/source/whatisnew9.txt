@@ -476,3 +476,4 @@ More Improvements
 (20) Game Engine for 2D Games - Text Class - Check the font object before usage.
 (21) New Function : IsPointer()
 (22) IsList() will not return True for C Pointers, we have now the IsPointer() function. 
+(23) Scripts to run Ring tests on Linux and macOS (Not only Windows).
