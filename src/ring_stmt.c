@@ -393,7 +393,37 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_isoperator(pParser,"?") ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		/* Generate Code */
+		#if RING_USESEEFUNCTION
+		/*
+		**  Generate code to use the See function 
+		**  Print the Expression 
+		*/
+		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+		ring_parser_icg_newoperand(pParser,"ringvm_see");
+		/* Parameters */
+		nFlag = pParser->nAssignmentFlag ;
+		pParser->nAssignmentFlag = 0 ;
+		x = ring_parser_expr(pParser);
+		pParser->nAssignmentFlag = nFlag ;
+		ring_parser_icg_newoperation(pParser,ICO_CALL);
+		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperation(pParser,ICO_NOOP);
+		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+		/* Print the New Line */
+		ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+		ring_parser_icg_newoperand(pParser,"ringvm_see");
+		/* Parameters */
+		ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+		ring_parser_icg_newoperand(pParser,"\n");
+		ring_parser_icg_newoperation(pParser,ICO_CALL);
+		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperation(pParser,ICO_NOOP);
+		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+		#else
+		/*
+		**  Generate Code using the See comman instructions 
+		**  Generate Code 
+		*/
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 		pParser->nAssignmentFlag = 0 ;
 		x = ring_parser_expr(pParser);
@@ -404,6 +434,7 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 		ring_parser_icg_newoperand(pParser,"\n");
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
+		#endif
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
 		
