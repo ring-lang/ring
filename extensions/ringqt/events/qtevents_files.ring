@@ -51,4 +51,4 @@ load "qquickwidget.ring"
 load "qdrag.ring"
 load "qgeopositioninfosource.ring"
 load "qprintpreviewwidget.ring"
-
+load "qprintpreviewdialog.ring"
