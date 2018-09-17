@@ -33,6 +33,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * ringvm_callfunc()
 * ringvm_see()
 * ringvm_give()
+* ringvm_info()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1364,3 +1365,20 @@ Output:
 
 	Name: Mahmoud
 	Hello Mahmoud
+
+.. index:: 
+	pair: Low Level Functions; ringvm_info()
+
+ringvm_info() function
+======================
+
+The ringvm_info() is an internal function that return a list of information about the Ring VM structure.
+
+It's used only by the Ring Team in advanced tests to check the VM status.
+
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_info() ---> List of information about the VM structure
+
