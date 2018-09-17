@@ -474,3 +474,4 @@ More Improvements
 (18) More samples are added to ring/samples/other folder.
 (19) Ring Notepad - Find Previous Feature.
 (20) Game Engine for 2D Games - Text Class - Check the font object before usage.
+(21) New Function : IsPointer() 
