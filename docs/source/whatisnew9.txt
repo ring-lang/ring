@@ -383,6 +383,7 @@ Better RingQt
 * QNmeaPositionInfoSource
 * QPrinterInfo
 * QPrintPreviewWidget
+* QPrintPreviewDialog
 
 (2) The next classes are updated
 
