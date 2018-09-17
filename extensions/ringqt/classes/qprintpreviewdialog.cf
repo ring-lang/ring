@@ -1,0 +1,15 @@
+<class>
+name: QPrintPreviewDialog
+para: QPrinter *
+parent: QDialog
+codename: GPrintPreviewDialog
+passvmpointer
+</class>
+
+
+void open(QObject * receiver, char * member)
+QPrinter * printer(void)
+
+void setpaintRequestedEvent(const char *)
+
+const char *getpaintRequestedEvent(void)
