@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -174 , : y = 19  , 
+		 :x = 3 , : y = 14  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
@@ -121,7 +121,7 @@ aObjectsList = [
 		 :setitemSelectionChangedEvent =  ""
 		]
 	],
-	[ :name = "LabelReplace" , :id = 20 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "LabelReplace" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 154 , : y = 217  , 
 		 :width =  89 , :height = 23 , 
 		 :textcolor =  "black" , 
@@ -132,7 +132,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "txtReplace" , :id = 21 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "txtReplace" , :id = 10 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 263 , : y = 203  , 
 		 :width =  294 , :height = 52 , 
 		 :textcolor =  "black" , 
@@ -148,7 +148,7 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "btnReplace" , :id = 23 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnReplace" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 569 , : y = 204  , 
 		 :width =  108 , :height = 41 , 
 		 :textcolor =  "black" , 
@@ -160,7 +160,7 @@ aObjectsList = [
 		 :setClickEvent =  "Replace"
 		]
 	],
-	[ :name = "btnReplaceAll" , :id = 24 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnReplaceAll" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 699 , : y = 206  , 
 		 :width =  126 , :height = 37 , 
 		 :textcolor =  "black" , 
@@ -172,7 +172,7 @@ aObjectsList = [
 		 :setClickEvent =  "ReplaceAll"
 		]
 	],
-	[ :name = "btnSearch" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnSearch" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 12  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "" , 
@@ -184,7 +184,7 @@ aObjectsList = [
 		 :setClickEvent =  "search"
 		]
 	],
-	[ :name = "btnBrowse" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnBrowse" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 907 , : y = 76  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "" , 
@@ -196,7 +196,7 @@ aObjectsList = [
 		 :setClickEvent =  "browse"
 		]
 	],
-	[ :name = "btnClose" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnClose" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 905 , : y = 529  , 
 		 :width =  137 , :height = 42 , 
 		 :textcolor =  "" , 
@@ -208,7 +208,7 @@ aObjectsList = [
 		 :setClickEvent =  "Close"
 		]
 	],
-	[ :name = "LayoutFind" , :id = 12 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutFind" , :id = 16 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 38 , : y = 556  , 
 		 :width =  249 , :height = 15 , 
 		 :textcolor =  "black" , 
@@ -219,7 +219,7 @@ aObjectsList = [
 		 :LayoutObjects =  "lblfind,txtFind,btnSearch"
 		]
 	],
-	[ :name = "LayoutInFolder" , :id = 13 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutInFolder" , :id = 17 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 31 , : y = 590  , 
 		 :width =  318 , :height = 32 , 
 		 :textcolor =  "black" , 
@@ -230,7 +230,7 @@ aObjectsList = [
 		 :LayoutObjects =  "lblinfolder,txtFolder,btnBrowse"
 		]
 	],
-	[ :name = "LayoutOutput" , :id = 14 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutOutput" , :id = 18 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 38 , : y = 637  , 
 		 :width =  266 , :height = 40 , 
 		 :textcolor =  "black" , 
@@ -241,7 +241,7 @@ aObjectsList = [
 		 :LayoutObjects =  "lblOutput,TableOutput"
 		]
 	],
-	[ :name = "LayoutReplace" , :id = 22 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutReplace" , :id = 19 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 185 , : y = 531  , 
 		 :width =  158 , :height = 38 , 
 		 :textcolor =  "black" , 
@@ -252,7 +252,7 @@ aObjectsList = [
 		 :LayoutObjects =  "LabelReplace,txtReplace,btnReplace,btnReplaceAll"
 		]
 	],
-	[ :name = "txtExtension" , :id = 15 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "txtExtension" , :id = 20 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 119 , : y = 131  , 
 		 :width =  787 , :height = 48 , 
 		 :textcolor =  "black" , 
@@ -268,7 +268,7 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "LayoutExtension" , :id = 16 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutExtension" , :id = 21 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 352 , : y = 574  , 
 		 :width =  232 , :height = 42 , 
 		 :textcolor =  "black" , 
@@ -279,7 +279,7 @@ aObjectsList = [
 		 :LayoutObjects =  "lblExtension,txtExtension"
 		]
 	],
-	[ :name = "checkMatchCase" , :id = 17 , :classname = "formdesigner_qcheckbox" , :data = [
+	[ :name = "checkMatchCase" , :id = 22 , :classname = "formdesigner_qcheckbox" , :data = [
 		 :x = 11 , : y = 204  , 
 		 :width =  117 , :height = 36 , 
 		 :textcolor =  "" , 
@@ -294,7 +294,7 @@ aObjectsList = [
 		 :settoggledEvent =  ""
 		]
 	],
-	[ :name = "LayoutMain" , :id = 18 , :classname = "formdesigner_qlayout" , :data = [
+	[ :name = "LayoutMain" , :id = 23 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 406 , : y = 619  , 
 		 :width =  204 , :height = 56 , 
 		 :textcolor =  "black" , 
@@ -305,7 +305,7 @@ aObjectsList = [
 		 :LayoutObjects =  "LayoutFind,LayoutInFolder,LayoutExtension,checkMatchCase,LayoutOutput,LayoutReplace,btnClose"
 		]
 	],
-	[ :name = "Statusbar1" , :id = 19 , :classname = "formdesigner_qstatusbar" , :data = [
+	[ :name = "Statusbar1" , :id = 24 , :classname = "formdesigner_qstatusbar" , :data = [
 		 :x = 810 , : y = 612  , 
 		 :width =  99 , :height = 31 , 
 		 :textcolor =  "" , 
