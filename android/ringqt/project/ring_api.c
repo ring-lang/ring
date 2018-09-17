@@ -1070,7 +1070,7 @@ void ring_vmlib_islist ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISLIST(1) ) {
-		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0 ) {
+		if ( (ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0) && (RING_API_ISCPOINTER(1) == 0) ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
