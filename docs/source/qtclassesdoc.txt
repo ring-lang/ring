@@ -6103,6 +6103,26 @@ Parameters : void
 * qreal y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPrintPreviewDialog Class
+
+QPrintPreviewDialog Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewDialog.html
+
+
+Parameters : QPrinter *
+
+
+Parent Class : QDialog
+
+* void open(QObject * receiver, char * member)
+* QPrinter * printer(void)
+* void setpaintRequestedEvent(const char *)
+* const char *getpaintRequestedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPrintPreviewWidget Class
 
 QPrintPreviewWidget Class
