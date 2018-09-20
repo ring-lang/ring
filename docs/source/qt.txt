@@ -2043,6 +2043,11 @@ Example:
 					}
 			}
 
+Screen Shot:
+
+.. image:: printpreviewdialog.png
+	:alt: Print Preview Dialog
+
 
 .. index:: 
 	pair: Desktop and Mobile Development; Creating more than one window
