@@ -217,6 +217,176 @@ RING_FUNC(ring_al_set_allegro_event_timer_source)
 	pMyPointer->timer.source = (ALLEGRO_TIMER *) RING_API_GETCPOINTER(2,"ALLEGRO_TIMER *");
 }
 
+RING_FUNC(ring_al_get_allegro_event_joystick_id)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETCPOINTER(pMyPointer->joystick.id,"ALLEGRO_JOYSTICK");
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_id)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.id = (ALLEGRO_JOYSTICK *) RING_API_GETCPOINTER(2,"ALLEGRO_JOYSTICK *");
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_stick)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.stick);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_stick)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.stick = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_axis)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.axis);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_axis)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.axis = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_pos)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.pos);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_pos)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.pos = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_button)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.button);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_button)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.button = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_al_new_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
@@ -12693,6 +12863,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_set_allegro_event_mouse_y",ring_al_set_allegro_event_mouse_y);
 	ring_vm_funcregister("al_get_allegro_event_timer_source",ring_al_get_allegro_event_timer_source);
 	ring_vm_funcregister("al_set_allegro_event_timer_source",ring_al_set_allegro_event_timer_source);
+	ring_vm_funcregister("al_get_allegro_event_joystick_id",ring_al_get_allegro_event_joystick_id);
+	ring_vm_funcregister("al_set_allegro_event_joystick_id",ring_al_set_allegro_event_joystick_id);
+	ring_vm_funcregister("al_get_allegro_event_joystick_stick",ring_al_get_allegro_event_joystick_stick);
+	ring_vm_funcregister("al_set_allegro_event_joystick_stick",ring_al_set_allegro_event_joystick_stick);
+	ring_vm_funcregister("al_get_allegro_event_joystick_axis",ring_al_get_allegro_event_joystick_axis);
+	ring_vm_funcregister("al_set_allegro_event_joystick_axis",ring_al_set_allegro_event_joystick_axis);
+	ring_vm_funcregister("al_get_allegro_event_joystick_pos",ring_al_get_allegro_event_joystick_pos);
+	ring_vm_funcregister("al_set_allegro_event_joystick_pos",ring_al_set_allegro_event_joystick_pos);
+	ring_vm_funcregister("al_get_allegro_event_joystick_button",ring_al_get_allegro_event_joystick_button);
+	ring_vm_funcregister("al_set_allegro_event_joystick_button",ring_al_set_allegro_event_joystick_button);
 	ring_vm_funcregister("al_new_allegro_timeout",ring_al_new_allegro_timeout);
 	ring_vm_funcregister("al_destroy_allegro_timeout",ring_al_destroy_allegro_timeout);
 	ring_vm_funcregister("al_new_allegro_sample_id",ring_al_new_allegro_sample_id);

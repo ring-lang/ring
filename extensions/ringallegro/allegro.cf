@@ -44,6 +44,7 @@ aEnumTypes + "GLclampf"
 
 
 aNumberTypes + "unsigned int"
+aNumberTypes + "float"
 
 aEnumTypes + "ALLEGRO_AUDIO_DEPTH"
 aEnumTypes + "ALLEGRO_CHANNEL_CONF"
@@ -57,7 +58,7 @@ al
 </funcstart>
 
 <struct>
-ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y , ALLEGRO_TIMER *timer.source}
+ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y , ALLEGRO_TIMER *timer.source , ALLEGRO_JOYSTICK *joystick.id , joystick.stick, joystick.axis, joystick.pos , joystick.button}
 ALLEGRO_TIMEOUT
 ALLEGRO_SAMPLE_ID
 ALLEGRO_COLOR
