@@ -307,6 +307,36 @@ RING_FUNC(ring_al_destroy_allegro_color)
 	}
 }
 
+RING_FUNC(ring_al_new_allegro_joystick_state)
+{
+	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
+	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_JOYSTICK_STATE)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"ALLEGRO_JOYSTICK_STATE");
+}
+
+RING_FUNC(ring_al_destroy_allegro_joystick_state)
+{
+	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_JOYSTICK_STATE");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_al_exit)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -12669,4 +12699,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_destroy_allegro_sample_id",ring_al_destroy_allegro_sample_id);
 	ring_vm_funcregister("al_new_allegro_color",ring_al_new_allegro_color);
 	ring_vm_funcregister("al_destroy_allegro_color",ring_al_destroy_allegro_color);
+	ring_vm_funcregister("al_new_allegro_joystick_state",ring_al_new_allegro_joystick_state);
+	ring_vm_funcregister("al_destroy_allegro_joystick_state",ring_al_destroy_allegro_joystick_state);
 }

@@ -48,6 +48,8 @@ aNumberTypes + "unsigned int"
 aEnumTypes + "ALLEGRO_AUDIO_DEPTH"
 aEnumTypes + "ALLEGRO_CHANNEL_CONF"
 
+aEnumTypes + "ALLEGRO_JOYFLAGS"
+
 </runcode>
 
 <funcstart>
@@ -59,6 +61,7 @@ ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y , ALLEGRO_TIMER *tim
 ALLEGRO_TIMEOUT
 ALLEGRO_SAMPLE_ID
 ALLEGRO_COLOR
+ALLEGRO_JOYSTICK_STATE
 </struct>
 
 <register>
