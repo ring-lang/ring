@@ -6,7 +6,7 @@ Developed using Ring, RingAllegro and RingOpenGL
 
 Steam Page : https://store.steampowered.com/app/939200/Gold_Magic_800/
 
-Demo Version : https://goldmagic800.sf.net/
+Demo Version : https://goldmagic800.sourceforge.io/
 
 The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.
 
