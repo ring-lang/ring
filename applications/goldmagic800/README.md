@@ -10,6 +10,14 @@ Demo Version (18 Levels Only) : https://goldmagic800.sourceforge.io/
 
 The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.
 
+Your friend discovered a unique and special box, created by the best wizard in the world 7000 years ago
+When you close this box and move it; you will find a new gold under the box
+It's an infinite source of gold. The Box exists in a special environment full of puzzles
+No one can enter this environment because it's protected by the magic. 
+Your friend created a new robot using nanotechnology that can move the box using a remote control device.
+Your mission is to solve all of these puzzles and get this box forever to be the richest people in the world.
+
+
 The game is based on moving your box around to get gold score (=800) to open the First Door (Box Number 1) 
 Then directly put your box on the Door (this will open the next door), Then continue to put your box on all of the next doors in the level
 You need the score (800) only for the first door, The next doors doesn't require this condition, but your way of gold will be converted to a wall 
