@@ -350,6 +350,10 @@ extern "C" {
 	void ring_QDate_freefunc(void *pState,void *pPointer);
 	void ring_QTextCodec_freefunc(void *pState,void *pPointer);
 	void ring_QVariant_freefunc(void *pState,void *pPointer);
+	void ring_QVariant2_freefunc(void *pState,void *pPointer);
+	void ring_QVariant3_freefunc(void *pState,void *pPointer);
+	void ring_QVariant4_freefunc(void *pState,void *pPointer);
+	void ring_QVariant5_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamReader_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamWriter_freefunc(void *pState,void *pPointer);
 	void ring_QXmlStreamNotationDeclaration_freefunc(void *pState,void *pPointer);
@@ -132468,6 +132472,246 @@ RING_FUNC(ring_QAxBase_querySubObject_31)
 }
 
 
+RING_FUNC(ring_QAxBase_querySubObject_32)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(6,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(7,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(8,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(9,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(10,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(8,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(9))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(9,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_33)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(6,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(7,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(8,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(9,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(8,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_34)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(6,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(7,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(8,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_35)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(6,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(7,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_36)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(6,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_37)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(5,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_38)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
+}
+
+
+RING_FUNC(ring_QAxBase_querySubObject_39)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->querySubObject(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant")),"QAxObject");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
+}
+
+
 RING_FUNC(ring_QAxBase_setControl)
 {
 	QAxBase *pObject ;
@@ -133321,6 +133565,66 @@ RING_FUNC(ring_QVariant_new)
 	}
 	QVariant *pObject = new QVariant();
 	RING_API_RETCPOINTER(pObject,"QVariant");
+}
+
+RING_FUNC(ring_QVariant2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant( (int) RING_API_GETNUMBER(1));
+	RING_API_RETCPOINTER(pObject,"QVariant2");
+}
+
+RING_FUNC(ring_QVariant3_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant( (float) RING_API_GETNUMBER(1));
+	RING_API_RETCPOINTER(pObject,"QVariant3");
+}
+
+RING_FUNC(ring_QVariant4_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant( (double) RING_API_GETNUMBER(1));
+	RING_API_RETCPOINTER(pObject,"QVariant4");
+}
+
+RING_FUNC(ring_QVariant5_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QVariant *pObject = new QVariant(RING_API_GETSTRING(1));
+	RING_API_RETCPOINTER(pObject,"QVariant5");
 }
 
 RING_FUNC(ring_QXmlStreamReader_new)
@@ -136465,6 +136769,74 @@ RING_FUNC(ring_QDate_delete)
 }
 
 RING_FUNC(ring_QVariant_delete)
+{
+	QVariant *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QVariant2_delete)
+{
+	QVariant *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QVariant3_delete)
+{
+	QVariant *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QVariant4_delete)
+{
+	QVariant *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QVariant5_delete)
 {
 	QVariant *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -140041,6 +140413,34 @@ void ring_QDate_freefunc(void *pState,void *pPointer)
 }
 
 void ring_QVariant_freefunc(void *pState,void *pPointer)
+{
+	QVariant *pObject ; 
+	pObject = (QVariant *) pPointer;
+	delete pObject ;
+}
+
+void ring_QVariant2_freefunc(void *pState,void *pPointer)
+{
+	QVariant *pObject ; 
+	pObject = (QVariant *) pPointer;
+	delete pObject ;
+}
+
+void ring_QVariant3_freefunc(void *pState,void *pPointer)
+{
+	QVariant *pObject ; 
+	pObject = (QVariant *) pPointer;
+	delete pObject ;
+}
+
+void ring_QVariant4_freefunc(void *pState,void *pPointer)
+{
+	QVariant *pObject ; 
+	pObject = (QVariant *) pPointer;
+	delete pObject ;
+}
+
+void ring_QVariant5_freefunc(void *pState,void *pPointer)
 {
 	QVariant *pObject ; 
 	pObject = (QVariant *) pPointer;
@@ -147762,6 +148162,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaxbase_querysubobject_29",ring_QAxBase_querySubObject_29);
 	ring_vm_funcregister("qaxbase_querysubobject_30",ring_QAxBase_querySubObject_30);
 	ring_vm_funcregister("qaxbase_querysubobject_31",ring_QAxBase_querySubObject_31);
+	ring_vm_funcregister("qaxbase_querysubobject_32",ring_QAxBase_querySubObject_32);
+	ring_vm_funcregister("qaxbase_querysubobject_33",ring_QAxBase_querySubObject_33);
+	ring_vm_funcregister("qaxbase_querysubobject_34",ring_QAxBase_querySubObject_34);
+	ring_vm_funcregister("qaxbase_querysubobject_35",ring_QAxBase_querySubObject_35);
+	ring_vm_funcregister("qaxbase_querysubobject_36",ring_QAxBase_querySubObject_36);
+	ring_vm_funcregister("qaxbase_querysubobject_37",ring_QAxBase_querySubObject_37);
+	ring_vm_funcregister("qaxbase_querysubobject_38",ring_QAxBase_querySubObject_38);
+	ring_vm_funcregister("qaxbase_querysubobject_39",ring_QAxBase_querySubObject_39);
 	ring_vm_funcregister("qaxbase_setcontrol",ring_QAxBase_setControl);
 	ring_vm_funcregister("qaxbase_verbs",ring_QAxBase_verbs);
 	ring_vm_funcregister("qaxobject_doverb",ring_QAxObject_doVerb);
@@ -147811,6 +148219,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtime_new",ring_QTime_new);
 	ring_vm_funcregister("qdate_new",ring_QDate_new);
 	ring_vm_funcregister("qvariant_new",ring_QVariant_new);
+	ring_vm_funcregister("qvariant2_new",ring_QVariant2_new);
+	ring_vm_funcregister("qvariant3_new",ring_QVariant3_new);
+	ring_vm_funcregister("qvariant4_new",ring_QVariant4_new);
+	ring_vm_funcregister("qvariant5_new",ring_QVariant5_new);
 	ring_vm_funcregister("qxmlstreamreader_new",ring_QXmlStreamReader_new);
 	ring_vm_funcregister("qxmlstreamwriter_new",ring_QXmlStreamWriter_new);
 	ring_vm_funcregister("qxmlstreamnotationdeclaration_new",ring_QXmlStreamNotationDeclaration_new);
@@ -148029,6 +148441,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtime_delete",ring_QTime_delete);
 	ring_vm_funcregister("qdate_delete",ring_QDate_delete);
 	ring_vm_funcregister("qvariant_delete",ring_QVariant_delete);
+	ring_vm_funcregister("qvariant2_delete",ring_QVariant2_delete);
+	ring_vm_funcregister("qvariant3_delete",ring_QVariant3_delete);
+	ring_vm_funcregister("qvariant4_delete",ring_QVariant4_delete);
+	ring_vm_funcregister("qvariant5_delete",ring_QVariant5_delete);
 	ring_vm_funcregister("qxmlstreamreader_delete",ring_QXmlStreamReader_delete);
 	ring_vm_funcregister("qxmlstreamwriter_delete",ring_QXmlStreamWriter_delete);
 	ring_vm_funcregister("qxmlstreamnotationdeclaration_delete",ring_QXmlStreamNotationDeclaration_delete);

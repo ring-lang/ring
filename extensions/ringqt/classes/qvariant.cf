@@ -50,3 +50,31 @@ QVariant::Type type(void)
 const char *typeName(void)
 int userType(void)
 QString toString(void)
+
+<class>
+name: QVariant2
+parent: QVariant
+para: int
+codename: QVariant
+</class>
+
+<class>
+name: QVariant3
+parent: QVariant
+para: float
+codename: QVariant
+</class>
+
+<class>
+name: QVariant4
+parent: QVariant
+para: double
+codename: QVariant
+</class>
+
+<class>
+name: QVariant5
+parent: QVariant
+para: QString
+codename: QVariant
+</class>

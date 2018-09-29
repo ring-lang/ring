@@ -23605,6 +23605,46 @@ Class QAxBase from QObject
 		pTempObj.pObject = QAxBase_querySubObject_31(pObject,P1,P2,P3,P4,P5)
 		return pTempObj
 
+	Func querySubObject_32 P1,P2,P3,P4,P5,P6,P7,P8,P9
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_32(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8),GetObjectPointerFromRingObject(P9))
+		return pTempObj
+
+	Func querySubObject_33 P1,P2,P3,P4,P5,P6,P7,P8
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_33(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8))
+		return pTempObj
+
+	Func querySubObject_34 P1,P2,P3,P4,P5,P6,P7
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_34(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+		return pTempObj
+
+	Func querySubObject_35 P1,P2,P3,P4,P5,P6
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_35(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
+
+	Func querySubObject_36 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_36(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+		return pTempObj
+
+	Func querySubObject_37 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_37(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func querySubObject_38 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_38(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func querySubObject_39 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_39(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
 	Func setControl P1
 		return QAxBase_setControl(pObject,P1)
 
@@ -23804,6 +23844,62 @@ Class QDateEdit from QDateTimeEdit
 
 	Func delete
 		pObject = QDateEdit_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant2 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant2_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant3 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant3_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant3_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant4 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant4_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant4_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant5 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant5_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant5_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
