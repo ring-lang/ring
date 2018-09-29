@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.9 comes with the next features!
 
+* New Game : Gold Magic 800
 * More Games
 * Better Ring Notepad
 * Better StdLib
@@ -26,6 +27,40 @@ Ring 1.9 comes with the next features!
 * Better Memory Management 
 * Better Documentation
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.9?; New Game : Gold Magic 800
+
+New Game : Gold Magic 800
+=========================
+
+The Gold Magic 800 is a new puzzle game.
+
+Ring 1.9 comes with the Demo Version (18 Levels) and the game source code.
+
+Steam Page (44 Levels) : https://store.steampowered.com/app/939200/Gold_Magic_800/
+
+The next screen shot for the main menu
+
+.. image:: gmshot1.png
+	:width: 1024pt
+	:height: 768pt
+	:alt: Gold Magic 800 - Screen Shot 1
+
+We can select the level
+
+.. image:: gmshot2.png
+	:alt: Gold Magic 800 - Screen Shot 2
+
+The next screen shot for level (1)
+
+.. image:: gmshot3.png
+	:alt: Gold Magic 800 - Screen Shot 3
+
+The Gold Magic 800 Level Editor 
+
+.. image:: gmleveleditor.png
+	:alt: Gold Magic 800 Level Editor
 
 .. index:: 
 	pair: What is new in Ring 1.9?; More Games 
