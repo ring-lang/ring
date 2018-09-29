@@ -1,4 +1,8 @@
-see "Ring"  +nl
-see "Programming language" +nl
-see "Tripoli,Libya"+nl
-see "Softwares"
+/*
+  Application:My first application.
+  Auther:Abdulwahab Benkher.
+   Date:2018.9.28
+
+*/
+
+see "Hello ,Ring"
