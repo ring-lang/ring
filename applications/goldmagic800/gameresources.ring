@@ -1,5 +1,6 @@
 # Gold Magic 800 3D Game
 # 2018, Etqan Company
+# 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
 class GameResources
 

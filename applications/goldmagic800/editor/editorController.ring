@@ -1,5 +1,6 @@
 # Gold Magic 800 3D Game - Level Editor
 # 2018, Etqan Company
+# 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 # Form/Window Controller - Source Code File
 
 load "editorView.ring"
