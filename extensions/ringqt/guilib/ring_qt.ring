@@ -75,6 +75,18 @@ Class QObject
 	Func setProperty P1,P2
 		return QObject_setProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
 
+	Func setProperty_2 P1,P2
+		return QObject_setProperty_2(pObject,P1,P2)
+
+	Func setProperty_3 P1,P2
+		return QObject_setProperty_3(pObject,P1,P2)
+
+	Func setProperty_4 P1,P2
+		return QObject_setProperty_4(pObject,P1,P2)
+
+	Func setProperty_5 P1,P2
+		return QObject_setProperty_5(pObject,P1,P2)
+
 	Func signalsBlocked 
 		return QObject_signalsBlocked(pObject)
 
@@ -23427,6 +23439,11 @@ Class QAxBase from QObject
 		pTempObj.pObject = QAxBase_dynamicCall_3(pObject,P1,GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
+	Func dynamicCall_4 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_4(pObject,P1,P2)
+		return pTempObj
+
 	Func generateDocumentation 
 		return QAxBase_generateDocumentation(pObject)
 
@@ -23436,6 +23453,156 @@ Class QAxBase from QObject
 	Func querySubObject P1
 		pTempObj = new QAxObject
 		pTempObj.pObject = QAxBase_querySubObject(pObject,P1)
+		return pTempObj
+
+	Func querySubObject_2 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func querySubObject_3 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_3(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_4 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_4(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_5 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_5(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_6 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_6(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_7 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_7(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_8 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_8(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_9 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_9(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_10 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_10(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_11 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_11(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_12 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_12(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_13 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_13(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_14 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_14(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_15 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_15(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_16 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_16(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_17 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_17(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_18 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_18(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_19 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_19(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_20 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_20(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_21 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_21(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_22 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_22(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_23 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_23(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_24 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_24(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_25 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_25(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_26 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_26(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_27 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_27(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_28 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_28(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_29 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_29(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_30 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_30(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_31 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_31(pObject,P1,P2,P3,P4,P5)
 		return pTempObj
 
 	Func setControl P1
