@@ -40,13 +40,6 @@ Ring 1.9 comes with the Demo Version (18 Levels) and the game source code.
 
 Steam Page (44 Levels) : https://store.steampowered.com/app/939200/Gold_Magic_800/
 
-The next screen shot for the main menu
-
-.. image:: gmshot1.png
-	:width: 1024pt
-	:height: 768pt
-	:alt: Gold Magic 800 - Screen Shot 1
-
 We can select the level
 
 .. image:: gmshot2.png
