@@ -131151,6 +131151,27 @@ RING_FUNC(ring_QSerialPortInfo_vendorIdentifier)
 }
 
 
+RING_FUNC(ring_QAxObject_doVerb)
+{
+	QAxObject *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxObject *) RING_API_GETCPOINTER(1,"QAxObject");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->doVerb(RING_API_GETSTRING(2)));
+}
+
+
 RING_FUNC(ring_QAxBase_asVariant)
 {
 	QAxBase *pObject ;
@@ -146515,6 +146536,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialportinfo_swap",ring_QSerialPortInfo_swap);
 	ring_vm_funcregister("qserialportinfo_systemlocation",ring_QSerialPortInfo_systemLocation);
 	ring_vm_funcregister("qserialportinfo_vendoridentifier",ring_QSerialPortInfo_vendorIdentifier);
+	ring_vm_funcregister("qaxobject_doverb",ring_QAxObject_doVerb);
 	ring_vm_funcregister("qaxbase_asvariant",ring_QAxBase_asVariant);
 	ring_vm_funcregister("qaxbase_control",ring_QAxBase_control);
 	ring_vm_funcregister("qaxbase_disableclassinfo",ring_QAxBase_disableClassInfo);

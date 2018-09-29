@@ -23381,6 +23381,23 @@ Class QSerialPortInfo
 	Func vendorIdentifier 
 		return QSerialPortInfo_vendorIdentifier(pObject)
 
+Class QAxObject from QAxBase
+
+	pObject
+
+	Func init P1
+		pObject = QAxObject_new(P1)
+		return self
+
+	Func delete
+		pObject = QAxObject_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func doVerb P1
+		return QAxObject_doVerb(pObject,P1)
+
 Class QAxBase from QObject
 
 	pObject
@@ -23780,20 +23797,6 @@ Class QCameraViewfinder from QVideoWidget
 
 	Func delete
 		pObject = QCameraViewfinder_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-Class QAxObject from QAxBase
-
-	pObject
-
-	Func init P1
-		pObject = QAxObject_new(P1)
-		return self
-
-	Func delete
-		pObject = QAxObject_delete(pObject)
 
 	Func ObjectPointer
 		return pObject

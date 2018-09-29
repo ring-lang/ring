@@ -3,3 +3,5 @@ name: QAxObject
 para: QString
 parent: QAxBase
 </class>
+
+bool doVerb(QString)
