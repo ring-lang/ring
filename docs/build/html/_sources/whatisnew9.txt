@@ -412,11 +412,14 @@ Better RingQt
 * QPrinterInfo
 * QPrintPreviewWidget
 * QPrintPreviewDialog
+* QAxWidget
 
 (2) The next classes are updated
 
-* QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved)
+* QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved).
 * QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.
+* QVariant : More versions that accept different parameters when creating the object.
+* QAxBase : Different versions for the dynamicCall() and querySubObject() methods.
 
 The next example for using the QPrintPreviewDialog class
 
