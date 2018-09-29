@@ -131318,6 +131318,34 @@ RING_FUNC(ring_QAxBase_dynamicCall_2)
 }
 
 
+RING_FUNC(ring_QAxBase_dynamicCall_3)
+{
+	QAxBase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAxBase *) RING_API_GETCPOINTER(1,"QAxBase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->dynamicCall(RING_API_GETSTRING(2),* (QList<QVariant> *) RING_API_GETCPOINTER(3,"QList<QVariant>"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QList<QVariant>"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVariant",ring_QVariant_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QAxBase_generateDocumentation)
 {
 	QAxBase *pObject ;
@@ -146544,6 +146572,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaxbase_disablemetaobject",ring_QAxBase_disableMetaObject);
 	ring_vm_funcregister("qaxbase_dynamiccall",ring_QAxBase_dynamicCall);
 	ring_vm_funcregister("qaxbase_dynamiccall_2",ring_QAxBase_dynamicCall_2);
+	ring_vm_funcregister("qaxbase_dynamiccall_3",ring_QAxBase_dynamicCall_3);
 	ring_vm_funcregister("qaxbase_generatedocumentation",ring_QAxBase_generateDocumentation);
 	ring_vm_funcregister("qaxbase_isnull",ring_QAxBase_isNull);
 	ring_vm_funcregister("qaxbase_querysubobject",ring_QAxBase_querySubObject);

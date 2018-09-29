@@ -23439,6 +23439,11 @@ Class QAxBase from QObject
 		pTempObj.pObject = QAxBase_dynamicCall_2(pObject,P1,P2)
 		return pTempObj
 
+	Func dynamicCall_3 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_3(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
 	Func generateDocumentation 
 		return QAxBase_generateDocumentation(pObject)
 
