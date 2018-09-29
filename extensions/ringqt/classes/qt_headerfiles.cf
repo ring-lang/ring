@@ -333,8 +333,9 @@ extern "C" {
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
-#include <QAxObject>
 #include <QAxBase>
+#include <QAxObject>
+#include <QAxWidget>
 
 </filter>
 

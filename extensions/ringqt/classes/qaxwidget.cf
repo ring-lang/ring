@@ -1,0 +1,7 @@
+<class>
+name: QAxWidget
+para: QWidget *parent, Qt::WindowFlags f 
+parent: QAxBase
+</class>
+
+bool doVerb(QString)

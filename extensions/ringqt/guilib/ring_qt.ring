@@ -23381,23 +23381,6 @@ Class QSerialPortInfo
 	Func vendorIdentifier 
 		return QSerialPortInfo_vendorIdentifier(pObject)
 
-Class QAxObject from QAxBase
-
-	pObject
-
-	Func init P1
-		pObject = QAxObject_new(P1)
-		return self
-
-	Func delete
-		pObject = QAxObject_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func doVerb P1
-		return QAxObject_doVerb(pObject,P1)
-
 Class QAxBase from QObject
 
 	pObject
@@ -23462,6 +23445,40 @@ Class QAxBase from QObject
 		pTempObj = new QStringList
 		pTempObj.pObject = QAxBase_verbs(pObject)
 		return pTempObj
+
+Class QAxObject from QAxBase
+
+	pObject
+
+	Func init P1
+		pObject = QAxObject_new(P1)
+		return self
+
+	Func delete
+		pObject = QAxObject_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func doVerb P1
+		return QAxObject_doVerb(pObject,P1)
+
+Class QAxWidget from QAxBase
+
+	pObject
+
+	Func init P1,P2
+		pObject = QAxWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QAxWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func doVerb P1
+		return QAxWidget_doVerb(pObject,P1)
 
 Class QQuickWidget from QWidget
 
