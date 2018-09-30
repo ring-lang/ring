@@ -409,10 +409,12 @@ Better RingQt
 * QGeoSatelliteInfo
 * QGeoSatelliteInfoSource
 * QNmeaPositionInfoSource
+* QAxWidget
 * QPrinterInfo
 * QPrintPreviewWidget
 * QPrintPreviewDialog
-* QAxWidget
+* QPageSetupDialog
+* QAbstractPrintDialog
 
 (2) The next classes are updated
 

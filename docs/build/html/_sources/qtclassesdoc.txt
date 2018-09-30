@@ -146,6 +146,32 @@ Parent Class : QAbstractScrollArea
 * void update(QModelIndex)
 
 .. index::
+	pair: RingQt Classes Reference; QAbstractPrintDialog Class
+
+QAbstractPrintDialog Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractPrintDialog.html
+
+
+Parameters : QPrinter *,QWidget *
+
+
+Parent Class : QDialog
+
+* int fromPage(void)
+* int maxPage(void)
+* int minPage(void)
+* QAbstractPrintDialog::PrintRange printRange(void)
+* QPrinter * printer(void)
+* void setFromTo(int from, int to)
+* void setMinMax(int min, int max)
+* void setOptionTabs(QList<QWidget *> tabs)
+* void setPrintRange(QAbstractPrintDialog::PrintRange range)
+* int toPage(void)
+
+.. index::
 	pair: RingQt Classes Reference; QAbstractScrollArea Class
 
 QAbstractScrollArea Class
@@ -5705,6 +5731,24 @@ Parent Class : QWidget
 * void makeCurrent(void)
 * void setFormat(QSurfaceFormat format)
 * QOpenGLWidget::UpdateBehavior updateBehavior(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPageSetupDialog Class
+
+QPageSetupDialog Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPageSetupDialog.html
+
+
+Parameters : QPrinter *,QWidget *
+
+
+Parent Class : QDialog
+
+* void open(QObject * receiver, char * member)
+* QPrinter * printer(void)
 
 .. index::
 	pair: RingQt Classes Reference; QPaintDevice Class
