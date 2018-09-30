@@ -7,6 +7,7 @@ class game from gamebase
 	nid = 0
 	key = [false,false,false,false,false]
 	nkeycode=0
+
 	aobjects = []
 	lbraceend = true
 	shutdown = false
@@ -76,6 +77,7 @@ class game from gamebase
 	func start
 
 		gClock = clock()
+		lMouseDown = False
 
 		while shutdown = false
 			gl_init_timeout(timeout, nTimeOut)
@@ -112,9 +114,13 @@ class game from gamebase
 					on GL_event_mouse_button_down
 						aMouselist = [gl_mouse_x(),gl_mouse_y()]
 						for t in aobjects  t.mouse(self,GL_event_mouse_button_down,aMouseList)  next
+						lMouseDown = True
 					on GL_event_mouse_button_up
-						aMouselist = [gl_mouse_x(),gl_mouse_y()]
-						for t in aobjects  t.mouse(self,GL_event_mouse_button_up,aMouseList)  next					
+						if lMouseDown = True
+							lMouseDown = False
+							aMouselist = [gl_mouse_x(),gl_mouse_y()]
+							for t in aobjects  t.mouse(self,GL_event_mouse_button_up,aMouseList)  next					
+						ok
 					on GL_EVENT_FINGER_DOWN
 						for t in aobjects  t.finger(self,GL_EVENT_FINGER_DOWN)  next
 					on GL_EVENT_FINGER_UP
