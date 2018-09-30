@@ -67,6 +67,7 @@ SOURCES +=   \
     ggeopositioninfosource.cpp \
     gprintpreviewwidget.cpp \
 	gprintpreviewdialog.cpp \
+	gprintdialog.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -122,7 +123,8 @@ HEADERS  += \
     gdrag.h \
     ggeopositioninfosource.h \
     gprintpreviewwidget.h \
-	gprintpreviewdialog.h 
+	gprintpreviewdialog.h \
+	gprintdialog.h
 
 CONFIG += warn_off
 
