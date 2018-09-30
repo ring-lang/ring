@@ -4,6 +4,8 @@
 
 load "gamelib.ring"
 
+GL_LIBNAME = :Allegro
+
 # Keyboard
 GL_SPACE = 75 
 GL_ESC = 59 
@@ -99,6 +101,11 @@ func gl_events display,event_queue,ev,timer,timeout
 	al_register_event_source(event_queue, al_get_mouse_event_source())
 	al_install_keyboard()
 	al_register_event_source(event_queue, al_get_keyboard_event_source())
+	al_install_joystick()
+	if al_is_joystick_installed()
+		al_register_event_source(event_queue,
+		al_get_joystick_event_source())
+	ok
 	GL_SYS_EventsQueue = event_queue
 	GL_SYS_Event = ev
 

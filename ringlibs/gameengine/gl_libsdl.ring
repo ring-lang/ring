@@ -4,6 +4,8 @@
 
 load "libsdl.ring"
 
+GL_LIBNAME = :LibSDL
+
 # Keyboard
 GL_SPACE = SDLK_SPACE
 GL_ESC = SDLK_ESCAPE

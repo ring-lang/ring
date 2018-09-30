@@ -78,6 +78,8 @@ class game from gamebase
 
 		gClock = clock()
 		lMouseDown = False
+		lJoyKey2Down = False
+		lJoyKey3Down = False
 
 		while shutdown = false
 			gl_init_timeout(timeout, nTimeOut)
@@ -152,7 +154,60 @@ class game from gamebase
 								other
 										key[key_other] = true
 						off
+			off
+
+			if GL_LIBNAME = :Allegro and not isAndroid() 
+		
+				Switch gl_get_glib_event_type(ev)
+				on ALLEGRO_EVENT_JOYSTICK_AXIS
+					nAxis = al_get_allegro_event_joystick_axis(ev)
+					nPos  = al_get_allegro_event_joystick_pos(ev)
+					if nAxis = 0
+						if nPos = 1	# Right
+							Key[KEY_RIGHT] 	= True
+						but nPos = -1	# Left
+							Key[KEY_LEFT] 	= True
+						but nPos = 0
+							Key[KEY_LEFT] 	= False
+							Key[KEY_Right] 	= False
+						ok
+					but nAxis = 1 
+						if nPos = 1	# Down
+							Key[KEY_DOWN] 	= True
+						but nPos = -1	# Up
+							Key[KEY_UP] 	= True
+						but nPos = 0
+							Key[KEY_UP] 	= False
+							Key[KEY_DOWN] 	= False
+						ok
+					ok
+				on ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN
+					nJoyStickButton = al_get_allegro_event_joystick_button(ev)
+					switch nJoyStickButton
+					on 2
+						lJoyKey2Down = True
+					on 3
+						lJoyKey3Down = True
 					off
+				on ALLEGRO_EVENT_JOYSTICK_BUTTON_UP
+					nJoyStickButton = al_get_allegro_event_joystick_button(ev)
+					switch nJoyStickButton
+					on 2
+						if lJoyKey2Down = True 
+							lJoyKey2Down = False
+							nKeyCode = GL_SPACE
+							for t in aobjects  t.keyboard(self,nkeycode)  next
+						ok
+					on 3
+						if lJoyKey3Down = True 
+							lJoyKey3Down = False
+							nKeyCode = GL_ESC
+							for t in aobjects  t.keyboard(self,nkeycode)  next
+						ok
+					off
+				off
+			ok
+
 
 			drawdone = false
 			if redraw and gl_is_event_queue_empty(event_queue)
