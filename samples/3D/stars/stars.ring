@@ -70,7 +70,26 @@ next
 nFPS  = 0
 t1 = clock()
 
-for t = 1 to 1000
+event_queue = al_create_event_queue()
+al_register_event_source(event_queue, al_get_display_event_source(display))
+ev = al_new_allegro_event()
+timeout = al_new_allegro_timeout()
+al_init_timeout(timeout, 0.01)
+while true
+        al_wait_for_event_until(event_queue, ev, timeout)
+        switch al_get_allegro_event_type(ev)
+        on ALLEGRO_EVENT_DISPLAY_CLOSE
+                exit
+	off
+	DrawScene()
+	al_flip_display()
+	calcfps()
+end
+
+al_destroy_display(display)
+
+
+func DrawScene
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)	// Clear The Screen And The Depth Buffer
 	glBindTexture(GL_TEXTURE_2D, texture)			// Select Our Texture
@@ -116,13 +135,6 @@ for t = 1 to 1000
 			star[nloop].b = random(255)
 		ok
 	next
-	
-	al_flip_display()
-	calcfps()
-next
-
-al_destroy_display(display)
-
 
 func calcfps
 	nFPs++
