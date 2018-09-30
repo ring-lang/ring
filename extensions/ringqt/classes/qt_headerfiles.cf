@@ -283,6 +283,7 @@ extern "C" {
 #include <QPrintPreviewDialog>
 #include "gprintpreviewdialog.h"
 #include <QPageSetupDialog>
+#include <QAbstractPrintDialog>
 
 
 <filter> (iswindows() or ismacosx())

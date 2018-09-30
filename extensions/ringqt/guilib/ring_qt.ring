@@ -20547,6 +20547,74 @@ Class QPrinterInfo
 		pTempObj.pObject = QPrinterInfo_printerInfo(pObject,P1)
 		return pTempObj
 
+Class QPageSetupDialog from QDialog
+
+	pObject
+
+	Func init P1,P2
+		pObject = QPageSetupDialog_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QPageSetupDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func open P1,P2
+		return QPageSetupDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QPageSetupDialog_printer(pObject)
+		return pTempObj
+
+Class QAbstractPrintDialog from QDialog
+
+	pObject
+
+	Func init P1,P2
+		pObject = QAbstractPrintDialog_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QAbstractPrintDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func fromPage 
+		return QAbstractPrintDialog_fromPage(pObject)
+
+	Func maxPage 
+		return QAbstractPrintDialog_maxPage(pObject)
+
+	Func minPage 
+		return QAbstractPrintDialog_minPage(pObject)
+
+	Func printRange 
+		return QAbstractPrintDialog_printRange(pObject)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QAbstractPrintDialog_printer(pObject)
+		return pTempObj
+
+	Func setFromTo P1,P2
+		return QAbstractPrintDialog_setFromTo(pObject,P1,P2)
+
+	Func setMinMax P1,P2
+		return QAbstractPrintDialog_setMinMax(pObject,P1,P2)
+
+	Func setOptionTabs P1
+		return QAbstractPrintDialog_setOptionTabs(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPrintRange P1
+		return QAbstractPrintDialog_setPrintRange(pObject,P1)
+
+	Func toPage 
+		return QAbstractPrintDialog_toPage(pObject)
+
 Class QAbstractSocket from QIODevice
 
 	pObject
