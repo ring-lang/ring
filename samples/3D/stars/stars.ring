@@ -75,6 +75,7 @@ al_register_event_source(event_queue, al_get_display_event_source(display))
 ev = al_new_allegro_event()
 timeout = al_new_allegro_timeout()
 al_init_timeout(timeout, 0.01)
+
 while true
         al_wait_for_event_until(event_queue, ev, timeout)
         switch al_get_allegro_event_type(ev)
