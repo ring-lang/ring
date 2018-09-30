@@ -282,6 +282,8 @@ extern "C" {
 #include "gprintpreviewwidget.h"
 #include <QPrintPreviewDialog>
 #include "gprintpreviewdialog.h"
+#include <QPageSetupDialog>
+
 
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
