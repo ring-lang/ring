@@ -673,7 +673,6 @@ void ring_vmlib_filename ( void *pPointer )
 		}
 	}
 	if ( lFunctionCall ) {
-		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
 	}
 	else {
