@@ -28,7 +28,7 @@ func printPreview
 			 printer1.newpage()
                         myfont2 = new qfont("Times",14,-1,0)
                         setfont(myfont2)
-			for x = 1 to 50
+			for x = 1 to 30
 				drawtext(100,100+(20*x),"Number : " + x)
 			next 
                         endpaint()
