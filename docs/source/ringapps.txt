@@ -500,6 +500,12 @@ Screen Shot:
 	:height: 350pt
 	:alt: TicTacToe 3D Game
 
+The next screen shot for the Gold Magic 800 Game
+
+.. image:: gmshot3.png
+	:alt: Gold Magic 800 
+
+
 .. index:: 
 	pair: Applications developed in little hours; Innovative
 
