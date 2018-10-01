@@ -283,7 +283,7 @@ extern "C" {
 #include <QPageSetupDialog>
 #include <QAbstractPrintDialog>
 #include <QPrintDialog>
-#include "gqprintdialog.h"
+#include "gprintdialog.h"
 
 #include <QQuickWidget>
 #include <QQmlError>
