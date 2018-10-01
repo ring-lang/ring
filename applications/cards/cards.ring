@@ -77,7 +77,7 @@ func CloseGame
 
 func LoadCardsGame 
 	# Load Images	
-		oPic 		= new QPixmap("cards.jpg")
+		oPic 		= new QPixmap(AppFile("cards.jpg"))
 		oPic2 		= oPic.copy(0,(124*4)+1,79,124)
 		Player1EatPic 	= oPic.copy(80,(124*4)+1,79,124)
 		Player2EatPic	= oPic.copy(160,(124*4)+1,79,124)		

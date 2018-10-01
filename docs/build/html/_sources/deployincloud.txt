@@ -1,0 +1,199 @@
+.. index:: 
+	single: Deploying Web Applications in the Cloud; Introduction
+
+=======================================
+Deploying Web Applications in the Cloud
+=======================================
+
+In this chapter we will learn about deploying Ring Web Applications in the Cloud using Heroku
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Introduction
+
+Introduction
+============
+
+We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku
+
+Demo : http://testring.herokuapp.com/
+
+Project : https://github.com/ring-lang/RingWebAppOnHeroku
+
+Heroku Website : https://www.heroku.com/
+
+.. image:: ringincloud.png
+	:alt: Ring Web Application in the Cloud
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Usage
+
+Usage
+=====
+
+To use this project and deploy it on Heroku
+
+(1) Create Heroku account
+
+(2) Open your Heroku account and create new application
+
+Example : testring
+
+Note (You have to select a unique name for your application)
+
+(3) Open the command prompt, Create new folder : MyApp
+
+.. code-block:: none
+
+	md MyApp
+
+(4) Open the application folder
+
+.. code-block:: none
+
+	cd MyApp	
+
+(5) Clone this projet using Git (Don't forget the dot in the end to clone in the current directory)
+
+.. code-block:: none
+
+	git clone https://github.com/ring-lang/RingWebAppOnHeroku .
+
+(6) Login to Heroku (Enter your Email and Password)
+
+.. code-block:: none
+
+	heroku login
+
+(7) Add heroku (remote) to your Git project
+
+change testring to your application name
+
+.. code-block:: none
+
+	heroku git:remote -a testring
+
+(8) Set the buildpacks (So Heroku can know how to support your project)
+
+.. code-block:: none
+
+	heroku buildpacks:add --index 1 https://github.com/ring-lang/heroku-buildpack-apt
+	heroku buildpacks:add --index 2 https://github.com/ring-lang/heroku-buildpack-ring
+
+(9) Now build your project and deploy it
+
+.. code-block:: none
+
+	git push heroku master
+
+(10) Test your project (In the browser)
+
+.. code-block:: none
+
+	heroku open
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Ring source code files and permissions
+
+Ring source code files and permissions
+======================================
+
+To be able to run your new Ring scripts, Set the permission of the file to be executable using Git
+
+For example, if you created a file : myscript.ring
+
+.. code-block:: none
+
+	git update-index --chmod=+x myscript.ring 
+	git commit -m "Update file permission" 	
+
+If you are using TortoiseGit, From windows explorer, select the file
+
+Right click ---> Properties ---> Git ---> Executable (+x)
+
+Then commit and deploy!
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Hello World program
+
+Hello World program
+===================
+
+file : ringapp/helloworld.ring
+
+To run it : http://testring.herokuapp.com/ringapp/helloworld.ring
+
+.. code-block:: ring
+
+	#!/app/runring.sh -cgi
+
+	see "content-type: text/html" +nl+nl	
+	see "Hello, World!" + nl
+
+file : ringapp/helloworld2.ring
+
+To run it : http://testring.herokuapp.com/ringapp/helloworld2.ring
+
+.. code-block:: ring
+
+	#!/app/runring.sh -cgi
+	load "weblib.ring"
+	import System.Web
+	new page {
+		text("Hello, World!")
+	}
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Application Database
+
+Application Database
+====================
+
+When you depoly the application, Everything will works directly!
+
+No change is required, but in practice, You will need to update the next files to use your database
+
+There are two scripts to interact with the database (We are using PostgreSQL in the cloud)
+
+You will need to update the connection string in these files if you will use another database
+
+* file: ringapp/database/newdb.ring (We run it using the browser for one time to create the tables)
+* file: ringapp/datalib.ring (Class: Database)
+
+In your practical projects, You can write better code (To be able to change the database)
+
+Also you can create configuration file (To write the connection string in one place)
+
+Database service : https://www.heroku.com/postgres
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Deploying after updates
+
+Deploying after updates
+=======================
+
+Just use Git and commit then push to heroku
+
+file: build.bat contains the next commands for quick tests
+
+.. code-block:: none
+
+	git add .
+	git commit -m "Update RingWebAppOnHeroku"
+	git push heroku master
+	heroku open
+
+.. index:: 
+	pair: Deploying Web Applications in the Cloud; Local Tests
+
+Local Tests
+===========
+
+Local tests using Ring Notepad on Windows (Using local Apache Web Server)
+
+Replace the first line in the file : ringapp/index.ring with
+
+.. code-block:: ring
+
+	#!ring -cgi 
+	
+Then run it from Ring Notepad (Ctrl+F6)

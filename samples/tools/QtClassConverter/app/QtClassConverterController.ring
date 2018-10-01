@@ -129,7 +129,7 @@ func pFunctionsProcess aList
 
 	for itr = len(aList) to 1 step -1
 		curFunc = TrimAll(left(aList[itr], substr(aList[itr], "(")-1))
-		if (curFunc = cClassName) Or (curFunc = "~" + cClassName) Or (substr(aList[itr], "operator"))
+		if (curFunc = cClassName) Or (substr(aList[itr], "~" + cClassName)) Or (substr(aList[itr], "operator"))
 			del(aList, itr)
 		ok
 	next
@@ -210,6 +210,7 @@ func pFunctionsProcess aList
 			cLine = trim(left(cLine,nPos-1)) + substr(cLine,nPos+nPos2)
 			nPos = substr(cLine,"=")
 		end
+		cLine = substr(cLine,"))",")")
 		while True
 			if substr(cLine, "  ")
 				cLine = substr(cLine, "  ", " ")
@@ -263,8 +264,8 @@ func pFunctionsProcess aList
 		for num in aEnum
 			for fun in aFunctions
 				jnum = right(num, len(num) - (substr(num, "::") + 1))
-				if substr(fun, jnum)
-					fun = substr(fun, jnum, num)
+				if substr(fun, '(' + jnum)
+					fun = substr(fun, '(' + jnum, '(' + num)
 					# Avoid ClassName::ClassName::EnumName 
 					fun = substr(fun, left(num,substr(num, "::") + 1 ) + num , num )
 				ok

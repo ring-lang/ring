@@ -145,6 +145,7 @@ input from the keyboard and the mouse.</p>
 <span class="n">Key</span> <span class="o">=</span> <span class="o">[</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="o">]</span>
 
 <span class="k">while</span> <span class="kp">true</span>
+        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
         <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
         <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>

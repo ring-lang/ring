@@ -322,7 +322,7 @@ void ring_vm_file_rename ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
-		rename(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETNUMBER(rename(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

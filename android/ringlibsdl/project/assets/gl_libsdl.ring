@@ -4,6 +4,8 @@
 
 load "libsdl.ring"
 
+GL_LIBNAME = :LibSDL
+
 # Keyboard
 GL_SPACE = SDLK_SPACE
 GL_ESC = SDLK_ESCAPE
@@ -112,6 +114,8 @@ func gl_create_display screen_w,screen_h
 func gl_set_new_display_flags nFlags
 
 func gl_events display,event_queue,ev,timer,timeout
+
+func gl_init_timeout oTimeout,nValue 
 
 func gl_new_glib_event
 

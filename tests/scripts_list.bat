@@ -285,3 +285,5 @@ call ring scripts/nullptr.ring
 call ring scripts/spaceinlist.ring 
 call ring scripts/xortest.ring
 call ring scripts/nestednew.ring
+call ring scripts/ispointer.ring
+call ring scripts/testringvmsee.ring

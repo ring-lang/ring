@@ -26,7 +26,7 @@ class FormDesignerCodeGenerator
 					"# Date : " + date() + nl +
 					"# Time : " + time() + nl + nl
 		# Write general code to show the window
-			cOutput += 'Load "stdlib.ring"' + nl +
+			cOutput += 'Load "stdlibcore.ring"' + nl +
 					'Load "guilib.ring"' + nl + nl 
 			if lIndexStartFrom1 {
 					cOutput += 'import System.GUI' + nl + nl 

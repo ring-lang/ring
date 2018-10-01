@@ -1,0 +1,30 @@
+<class>
+name: QPrinterInfo
+para: void
+</class>
+
+<comment>
+QPrinter::DuplexMode defaultDuplexMode(void)
+QPageSize defaultPageSize(void)
+bool isRemote(void)
+QPageSize maximumPhysicalPageSize(void)
+QPageSize minimumPhysicalPageSize(void)
+QList<QPrinter::DuplexMode> supportedDuplexModes(void)
+QList<QPageSize> supportedPageSizes(void)
+QList<int> supportedResolutions(void)
+bool supportsCustomPageSizes(void)
+QList<QPrinterInfo> availablePrinters(void)
+QPrinterInfo defaultPrinter(void)
+QPrinter::PrinterState state(void)
+QStringList availablePrinterNames(void)
+QString defaultPrinterName(void)
+</comment>
+
+QString description(void)
+bool isDefault(void)
+bool isNull(void)
+
+QString location(void)
+QString makeAndModel(void)
+QString printerName(void)
+QPrinterInfo printerInfo(QString printerName

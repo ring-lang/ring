@@ -5,7 +5,7 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-Load "stdlib.ring"
+Load "stdlibcore.ring"
 Load "guilib.ring"
 
 import System.GUI

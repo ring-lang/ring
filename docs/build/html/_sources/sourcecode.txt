@@ -59,6 +59,14 @@ Build RingSQLite
 	cd ../extensions/ringsqlite
 	buildvc.bat
 
+Build RingPostgreSQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringpostgresql
+	gencode.bat
+	buildvc.bat
+
 Build RingOpenSSL
 
 .. code-block:: ring
@@ -237,6 +245,14 @@ Build RingSQLite
 	cd ../extensions/ringsqlite
 	./buildgcc.sh
 
+Build RingPostgreSQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringpostgresql
+	gencode.sh
+	buildgcc.sh
+
 Build RingOpenSSL
 
 .. code-block:: ring
@@ -414,6 +430,14 @@ Build RingSQLite
 	
 	cd ../extensions/ringsqlite
 	./buildgcc.sh
+
+Build RingPostgreSQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringpostgresql
+	gencode.sh
+	buildgcc.sh
 
 Build RingOpenSSL
 
@@ -595,6 +619,14 @@ Build RingSQLite
 	
 	cd ../extensions/ringsqlite
 	./buildclang.sh
+
+Build RingPostgreSQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringpostgresql
+	gencode.sh
+	buildclang.sh
 
 Build RingOpenSSL
 

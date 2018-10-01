@@ -9,6 +9,10 @@ ok
 Load "ring_libcurl.rh"
 
 func curl_easy_setopt p1,p2,p3
+	# Use CURLOPT_COPYPOSTFIELDS to avoid using deleted memory by LibCurl
+		if p2 = CURLOPT_POSTFIELDS
+			p2 = CURLOPT_COPYPOSTFIELDS
+		ok
 	if isnumber(p3)
 		curl_easy_setopt_1(p1,p2,p3)
 	but isstring(p3)

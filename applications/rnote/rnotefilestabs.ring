@@ -22,6 +22,14 @@ class RNoteFilesTabs
 		nIndex = filestabs.currentindex() + 1
 		cFile = aFilesLines[nIndex][1]
 		nRow = aFilesLines[nIndex][2]		
+		if cFile != NULL
+			if not fexists(cFile) 
+				filestabs.blocksignals(True)
+				CloseFileTabByIndex(filestabs.currentindex())
+				filestabs.blocksignals(False)
+				return 
+			ok
+		ok
 		cActiveFileName = cFile 
 		openFile(cFile)
 		GotoLine(nRow)		
@@ -33,6 +41,10 @@ class RNoteFilesTabs
 	func CloseFileTab
 		filestabs.blocksignals(True)
 		nIndex = filestabs.geteventparameters()[1]
+		CloseFileTabByIndex(nIndex)
+		filestabs.blocksignals(False)
+
+	func CloseFileTabByIndex nIndex
 		if filestabs.count() != 1
 			filestabs.removetab(nIndex)
 			del(aFilesLines,nIndex+1)
@@ -52,4 +64,3 @@ class RNoteFilesTabs
 			textedit1.setPlaintext("")
 			textedit1.blocksignals(False)
 		ok
-		filestabs.blocksignals(False)

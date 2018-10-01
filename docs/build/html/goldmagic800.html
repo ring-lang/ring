@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Gold Magic 800 Game &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Desktop and Mobile development using RingQt" href="qt.html" />
+    <link rel="prev" title="Using RingOpenGL and RingAllegro for 3D Graphics" href="usingopengl2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="qt.html" title="Desktop and Mobile development using RingQt"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="usingopengl2.html" title="Using RingOpenGL and RingAllegro for 3D Graphics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-gold-magic-800-game">
+<span id="index-0"></span><h1>The Gold Magic 800 Game<a class="headerlink" href="#the-gold-magic-800-game" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the Gold Magic 800 Game</p>
+<p>The game is developed using Ring, RingAllegro and RingOpenGL</p>
+<p>Steam Page (44 Levels) : <a class="reference external" href="https://store.steampowered.com/app/939200/Gold_Magic_800/">https://store.steampowered.com/app/939200/Gold_Magic_800/</a></p>
+<p>Demo Version (18 Levels Only) : <a class="reference external" href="https://goldmagic800.sourceforge.io/">https://goldmagic800.sourceforge.io/</a></p>
+<p>You will find the game in ring/applications/goldmagic800 folder</p>
+<div class="section" id="the-game-story">
+<span id="index-1"></span><h2>The Game Story<a class="headerlink" href="#the-game-story" title="Permalink to this headline">¶</a></h2>
+<p>Your friend discovered a unique and special box, created by the best wizard in the world 7000 years ago,
+when you close this box and move it; you will find a new gold under the box, it&#8217;s an infinite source
+of gold.
+The Box exists in a special environment full of puzzles, no one can enter this environment
+because it&#8217;s protected by the magic.
+Your friend created a new robot using nanotechnology that can move the box using a remote control device.
+Your mission is to solve all of these puzzles and get this box forever to be the richest people in the world.</p>
+</div>
+<div class="section" id="how-to-play">
+<span id="index-2"></span><h2>How to play?<a class="headerlink" href="#how-to-play" title="Permalink to this headline">¶</a></h2>
+<p>The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.</p>
+<p>The game is based on moving your box around to get gold score (=800) to open the
+First Door (Box Number 1) Then directly put your box on the Door (this will open the next door),
+Then continue to put your box on all of the next doors in the level, You need the score (800) only
+for the first door, The next doors doesn&#8217;t require this condition, but your way of gold will be
+converted to a wall once you put the Box on any door, so select your path carefully.</p>
+</div>
+<div class="section" id="what-will-you-learn">
+<span id="index-3"></span><h2>What will you learn?<a class="headerlink" href="#what-will-you-learn" title="Permalink to this headline">¶</a></h2>
+<p>1- Plan First</p>
+<p>2- Move to your target directly then go to get the required resources</p>
+<p>3- Look to the future when you evaluate the different solutions</p>
+<p>4- Try to avoid mistakes, Also learn from them</p>
+<p>5- Respect the Cost (800)</p>
+<p>6- Focus and be careful</p>
+<p>7- Be patient and Enjoy!</p>
+</div>
+<div class="section" id="screen-shots">
+<span id="index-4"></span><h2>Screen Shots<a class="headerlink" href="#screen-shots" title="Permalink to this headline">¶</a></h2>
+<p>We can select the level</p>
+<img alt="Gold Magic 800 - Screen Shot 2" src="_images/gmshot2.png" />
+<p>The next screen shot for level (1)</p>
+<img alt="Gold Magic 800 - Screen Shot 3" src="_images/gmshot3.png" />
+<p>The Gold Magic 800 Level Editor</p>
+<img alt="Gold Magic 800 Level Editor" src="_images/gmleveleditor.png" />
+</div>
+<div class="section" id="source-code">
+<span id="index-5"></span><h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>You will find the Level Editor source code in this folder</p>
+<p><a class="reference external" href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor">https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor</a></p>
+<p>The user interface of the Level Editor is designed using the Ring Form Designer.</p>
+<img alt="Gold Magic 800 Level Editor" src="_images/gm800lefd.png" />
+<p>The next file contains the Level Editor Controller Class</p>
+<p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/goldmagic800/editor/editorController.ring">https://github.com/ring-lang/ring/blob/master/applications/goldmagic800/editor/editorController.ring</a></p>
+<p>You will find the Game Engine source code in this folder</p>
+<p><a class="reference external" href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800">https://github.com/ring-lang/ring/tree/master/applications/goldmagic800</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Gold Magic 800 Game</a><ul>
+<li><a class="reference internal" href="#the-game-story">The Game Story</a></li>
+<li><a class="reference internal" href="#how-to-play">How to play?</a></li>
+<li><a class="reference internal" href="#what-will-you-learn">What will you learn?</a></li>
+<li><a class="reference internal" href="#screen-shots">Screen Shots</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="usingopengl2.html"
+                        title="previous chapter">Using RingOpenGL and RingAllegro for 3D  Graphics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="qt.html"
+                        title="next chapter">Desktop and Mobile development using RingQt</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/goldmagic800.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="qt.html" title="Desktop and Mobile development using RingQt"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="usingopengl2.html" title="Using RingOpenGL and RingAllegro for 3D Graphics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

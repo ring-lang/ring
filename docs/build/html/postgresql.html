@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PostgreSQL Functions &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Security and Internet Functions" href="secfunc.html" />
+    <link rel="prev" title="SQLite Functions" href="sqlite.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="secfunc.html" title="Security and Internet Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sqlite.html" title="SQLite Functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="postgresql-functions">
+<span id="index-0"></span><h1>PostgreSQL Functions<a class="headerlink" href="#postgresql-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the PostgreSQL database in the Ring programming language.</p>
+<div class="section" id="loading-the-library">
+<span id="index-1"></span><h2>Loading the library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
+<p>Before using the next function load the postgresqllib.ring library</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+<span class="c"># Use PostgreSQL functions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<span id="index-2"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Example (1):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = postgres&quot;</span>
+
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;select * from pg_database&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>datname
+datdba
+encoding
+datcollate
+datctype
+datistemplate
+datallowconn
+datconnlimit
+datlastsysoid
+datfrozenxid
+datminmxid
+dattablespace
+datacl
+************************************************************
+postgres 10 6 English_United States.1252
+        English_United States.1252 f t -1 12937 549 1 1663
+template1 10 6 English_United States.1252 English_United States.1252
+        t t -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+template0 10 6 English_United States.1252 English_United States.1252
+        t f -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+mahdb 10 6 English_United States.1252 English_United States.1252
+        f t -1 12937 549 1 1663
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
+
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+        <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">mahdb</span><span class="p">;</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">COMPANY</span> <span class="p">(</span>
+                 <span class="n">ID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">NAME</span>           <span class="n">TEXT</span>    <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">AGE</span>            <span class="n">INT</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">ADDRESS</span>        <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+                 <span class="n">SALARY</span>         <span class="n">REAL</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+                <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">COMPANY</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">AGE</span><span class="p">,</span><span class="n">ADDRESS</span><span class="p">,</span><span class="n">SALARY</span><span class="p">)</span>
+                <span class="n">VALUES</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;Mahmoud&#39;</span> <span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">10.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;Ahmed&#39;</span>   <span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">20.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;Mohammed&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="sc">&#39;Egypt&#39;</span> <span class="p">,</span> <span class="mf">30.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39;Ibrahim&#39;</span> <span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="sc">&#39;Egypt &#39;</span><span class="p">,</span> <span class="mf">40.00</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+           <span class="n">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">COMPANY</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>id
+name
+age
+address
+salary
+************************************************************
+1 Mahmoud  31 Jeddah  10
+2 Ahmed    27 Jeddah  20
+3 Mohammed 31 Egypt   30
+4 Ibrahim  24 Egypt   40
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringpostgresql-constants">
+<span id="index-3"></span><h2>RingPostgreSQL Constants<a class="headerlink" href="#ringpostgresql-constants" title="Permalink to this headline">¶</a></h2>
+<p>The next constants are define by the RingPostgreSQL Library</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>CONNECTION_STARTED
+CONNECTION_MADE
+CONNECTION_AWAITING_RESPONSE
+CONNECTION_AUTH_OK
+CONNECTION_SSL_STARTUP
+CONNECTION_SETENV
+CONNECTION_OK
+
+PQPING_OK
+PQPING_REJECT
+PQPING_NO_RESPONSE
+PQPING_NO_ATTEMPT
+
+PGRES_EMPTY_QUERY
+PGRES_COMMAND_OK
+PGRES_TUPLES_OK
+PGRES_COPY_OUT
+PGRES_COPY_IN
+PGRES_BAD_RESPONSE
+PGRES_NONFATAL_ERROR
+PGRES_FATAL_ERROR
+PGRES_COPY_BOTH
+PGRES_SINGLE_TUPLE
+
+PG_DIAG_SEVERITY
+PG_DIAG_SQLSTATE
+PG_DIAG_MESSAGE_PRIMARY
+PG_DIAG_MESSAGE_DETAIL
+PG_DIAG_MESSAGE_HINT
+PG_DIAG_STATEMENT_POSITION
+PG_DIAG_INTERNAL_POSITION
+PG_DIAG_INTERNAL_QUERY
+PG_DIAG_CONTEXT
+PG_DIAG_SCHEMA_NAME
+PG_DIAG_TABLE_NAME
+PG_DIAG_COLUMN_NAME
+PG_DIAG_DATATYPE_NAME
+PG_DIAG_CONSTRAINT_NAME
+PG_DIAG_SOURCE_FILE
+PG_DIAG_SOURCE_LINE
+PG_DIAG_SOURCE_FUNCTION
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringpostgresql-functions">
+<span id="index-4"></span><h2>RingPostgreSQL Functions<a class="headerlink" href="#ringpostgresql-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are define by the RingPostgreSQL Library</p>
+<p>Reference : <a class="reference external" href="https://www.postgresql.org/docs/9.1/static/libpq.html">https://www.postgresql.org/docs/9.1/static/libpq.html</a></p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>PGconn *PQconnectdbParams(const char **keywords,
+        const char **values,int expand_dbname);
+PGconn *PQconnectdb(const char *conninfo)
+PGconn *PQsetdbLogin(const char *pghost,const char *pgport,
+        const char *pgoptions,const char *pgtty,
+        const char *dbName,const char *login,const char *pwd)
+PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,
+        char *pgtty,char *dbName)
+PGconn *PQconnectStartParams(const char **keywords,
+        const char **values,int expand_dbname)
+PGconn *PQconnectStart(const char *conninfo)
+PostgresPollingStatusType PQconnectPoll(PGconn *conn)
+PQconninfoOption *PQconndefaults(void)
+PQconninfoOption *PQconninfo(PGconn *conn)
+PQconninfoOption *PQconninfoParse(const char *conninfo, char **errmsg)
+void PQfinish(PGconn *conn)
+void PQreset(PGconn *conn)
+int PQresetStart(PGconn *conn)
+PostgresPollingStatusType PQresetPoll(PGconn *conn)
+PGPing PQpingParams(const char **keywords,const char **values,
+        int expand_dbname)
+PGPing PQping(const char *conninfo)
+char *PQdb(const PGconn *conn)
+char *PQuser(const PGconn *conn)
+char *PQpass(const PGconn *conn)
+char *PQhost(const PGconn *conn)
+char *PQport(const PGconn *conn)
+char *PQtty(const PGconn *conn)
+char *PQoptions(const PGconn *conn)
+ConnStatusType PQstatus(const PGconn *conn)
+PGTransactionStatusType PQtransactionStatus(const PGconn *conn)
+const char *PQparameterStatus(const PGconn *conn, const char *paramName)
+int PQprotocolVersion(const PGconn *conn)
+int PQserverVersion(const PGconn *conn)
+char *PQerrorMessage(const PGconn *conn)
+int PQsocket(const PGconn *conn)
+int PQbackendPID(const PGconn *conn)
+int PQconnectionNeedsPassword(const PGconn *conn)
+int PQconnectionUsedPassword(const PGconn *conn)
+int PQsslInUse(const PGconn *conn)
+const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
+const char **PQsslAttributeNames(const PGconn *conn)
+void *PQsslStruct(const PGconn *conn, const char *struct_name)
+void *PQgetssl(const PGconn *conn)
+PGresult *PQexec(PGconn *conn, const char *command);
+PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,
+        const Oid *paramTypes,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQprepare(PGconn *conn,const char *stmtName,
+        const char *query,int nParams,const Oid *paramTypes)
+PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,
+        int nParams,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
+PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
+ExecStatusType PQresultStatus(const PGresult *res)
+char *PQresStatus(ExecStatusType status)
+char *PQresultErrorMessage(const PGresult *res)
+char *PQresultErrorField(const PGresult *res, int fieldcode)
+void PQclear(PGresult *res)
+int PQntuples(const PGresult *res)
+int PQnfields(const PGresult *res)
+char *PQfname(const PGresult *res,int column_number)
+int PQfnumber(const PGresult *res,const char *column_name)
+Oid PQftable(const PGresult *res,int column_number)
+int PQftablecol(const PGresult *res,int column_number)
+int PQfformat(const PGresult *res,int column_number)
+Oid PQftype(const PGresult *res,int column_number)
+int PQfmod(const PGresult *res,int column_number)
+int PQfsize(const PGresult *res,int column_number)
+int PQbinaryTuples(const PGresult *res)
+char *PQgetvalue(const PGresult *res,int row_number,int column_number)
+int PQgetisnull(const PGresult *res,int row_number,int column_number)
+int PQgetlength(const PGresult *res,int row_number,int column_number)
+int PQnparams(const PGresult *res)
+Oid PQparamtype(const PGresult *res, int param_number)
+void PQprint(FILE *fout,const PGresult *res,const PQprintOpt *po)
+char *PQcmdStatus(PGresult *res)
+char *PQcmdTuples(PGresult *res)
+Oid PQoidValue(const PGresult *res)
+char *PQoidStatus(const PGresult *res)
+char *PQescapeLiteral(PGconn *conn, const char *str, size_t length)
+char *PQescapeIdentifier(PGconn *conn, const char *str, size_t length)
+size_t PQescapeStringConn(PGconn *conn,char *to,
+        const char *from, size_t length,int *error)
+size_t PQescapeString(char *to, const char *from, size_t length)
+unsigned char *PQescapeByteaConn(PGconn *conn,
+        const unsigned char *from,size_t from_length,size_t *to_length)
+unsigned char *PQescapeBytea(const unsigned char *from,
+        size_t from_length,size_t *to_length)
+unsigned char *PQunescapeBytea(const unsigned char *from, size_t *to_length)
+int PQsendQuery(PGconn *conn, const char *command)
+int PQsendQueryParams(PGconn *conn,const char *command,
+        int nParams,const Oid *paramTypes,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendPrepare(PGconn *conn,const char *stmtName,
+        const char *query,int nParams,const Oid *paramTypes)
+int PQsendQueryPrepared(PGconn *conn,const char *stmtName,
+        int nParams,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendDescribePrepared(PGconn *conn, const char *stmtName)
+int PQsendDescribePortal(PGconn *conn, const char *portalName)
+PGresult *PQgetResult(PGconn *conn)
+int PQconsumeInput(PGconn *conn)
+int PQisBusy(PGconn *conn)
+int PQsetnonblocking(PGconn *conn, int arg)
+int PQisnonblocking(const PGconn *conn)
+int PQflush(PGconn *conn)
+int PQsetSingleRowMode(PGconn *conn)
+PGcancel *PQgetCancel(PGconn *conn)
+void PQfreeCancel(PGcancel *cancel)
+int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
+int PQrequestCancel(PGconn *conn)
+PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,
+        int *result_len,int result_is_int,const PQArgBlock *args,int nargs)
+PGnotify *PQnotifies(PGconn *conn)
+int PQputCopyData(PGconn *conn,const char *buffer,int nbytes)
+int PQputCopyEnd(PGconn *conn,const char *errormsg)
+int PQgetCopyData(PGconn *conn,char **buffer,int async)
+int PQgetline(PGconn *conn,char *buffer,int length)
+int PQgetlineAsync(PGconn *conn,char *buffer,int bufsize)
+int PQputline(PGconn *conn,const char *string)
+int PQputnbytes(PGconn *conn,const char *buffer,int nbytes)
+int PQendcopy(PGconn *conn)
+int PQclientEncoding(const PGconn *conn)
+char *pg_encoding_to_char(int encoding_id)
+int PQsetClientEncoding(PGconn *conn, const char *encoding)
+void PQtrace(PGconn *conn, FILE *stream)
+void PQuntrace(PGconn *conn)
+void PQfreemem(void *ptr)
+void PQconninfoFree(PQconninfoOption *connOptions)
+char *PQencryptPasswordConn(PGconn *conn, const char *passwd,
+         const char *user, const char *algorithm)
+char *PQencryptPassword(const char *passwd, const char *user)
+PGresult *PQmakeEmptyPGresult(PGconn *conn, ExecStatusType status)
+int PQfireResultCreateEvents(PGconn *conn, PGresult *res)
+PGresult *PQcopyResult(const PGresult *src, int flags)
+int PQsetResultAttrs(PGresult *res, int numAttributes, PGresAttDesc *attDescs)
+int PQsetvalue(PGresult *res, int tup_num, int field_num,
+                char *value, int len)
+void *PQresultAlloc(PGresult *res, size_t nBytes)
+int PQlibVersion(void)
+PQnoticeReceiver PQsetNoticeReceiver(PGconn *conn,
+                PQnoticeReceiver proc,void *arg)
+PQnoticeProcessor PQsetNoticeProcessor(PGconn *conn,
+                PQnoticeProcessor proc,void *arg)
+void PQinitOpenSSL(int do_ssl, int do_crypto)
+void PQinitSSL(int do_ssl)
+int PQisthreadsafe(void)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PostgreSQL Functions</a><ul>
+<li><a class="reference internal" href="#loading-the-library">Loading the library</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#ringpostgresql-constants">RingPostgreSQL Constants</a></li>
+<li><a class="reference internal" href="#ringpostgresql-functions">RingPostgreSQL Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sqlite.html"
+                        title="previous chapter">SQLite Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="secfunc.html"
+                        title="next chapter">Security and Internet Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/postgresql.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="secfunc.html" title="Security and Internet Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sqlite.html" title="SQLite Functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

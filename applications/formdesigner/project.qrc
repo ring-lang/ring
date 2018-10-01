@@ -40,6 +40,7 @@
 		<file>image/duplicate.png</file>
 		<file>image/bring_to_front.png</file>
 		<file>image/send_to_back.png</file>
-		<file>image/delete.png</file>		
+		<file>image/delete.png</file>
+		<file>image/selectobjects.png</file>				
     </qresource>
 </RCC>

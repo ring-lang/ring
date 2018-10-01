@@ -263,7 +263,7 @@ void ring_vm_math_sqrt ( void *pPointer )
 
 void ring_vm_math_unsigned ( void *pPointer )
 {
-	unsigned int nNum1,nNum2  ;
+	unsigned long nNum1,nNum2  ;
 	double nNum3  ;
 	const char *cStr  ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -271,8 +271,8 @@ void ring_vm_math_unsigned ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) && RING_API_ISSTRING(3) ) {
-		nNum1 = (unsigned int) RING_API_GETNUMBER(1) ;
-		nNum2 = (unsigned int ) RING_API_GETNUMBER(2) ;
+		nNum1 = (unsigned long) RING_API_GETNUMBER(1) ;
+		nNum2 = (unsigned long) RING_API_GETNUMBER(2) ;
 		cStr = RING_API_GETSTRING(3) ;
 		if ( strcmp(cStr,">>") == 0 ) {
 			nNum3 = nNum1 >> nNum2 ;

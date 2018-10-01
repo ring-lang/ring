@@ -132,6 +132,7 @@ func playstart oGame
 	oGame {
 		FPS = 15
 		FixedFPS = 15
+		nTimeOut = 0
 		Title = "Super Man 2016"
 		Sprite {
 			file = "images/supermancity.jpg"
@@ -232,7 +233,7 @@ func playstart oGame
 				if oGameState.gameresult = false
 
 					oself {
-						if nkey = key_up  and checkwall(oGame,oSelf,0,-40)
+						if nkey = key_up and checkwall(oGame,oSelf,0,-40)
 							oGameState.value -= 1
 							checkgameover(oGame)
 							file = "images/supermanup.png"

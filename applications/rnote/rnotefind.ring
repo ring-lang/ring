@@ -1,5 +1,6 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
+# FindPrevValue() Added by Gal Zsolt 
 
 class RNoteFind
 
@@ -51,6 +52,11 @@ class RNoteFind
 				setText("Find/Find Next")
 				setclickEvent(Method(:FindValue))
 			}
+			oBtnFindPrev = new qPushButton(this.oSearch)
+			{
+				setText("Find/Find Prev")
+				setclickEvent(Method(:FindPrevValue))
+			}
 			oBtnReplace = new qPushButton(this.oSearch)
 			{
 				setText("Replace")
@@ -69,6 +75,7 @@ class RNoteFind
 			oLayout4 = new qHBoxLayout()
 			{
 				addWidget(oBtnFind)
+				addWidget(oBtnFindPrev)
 				addWidget(oBtnReplace)
 				addWidget(oBtnReplaceAll)
 				addWidget(oBtnClose)
@@ -184,3 +191,46 @@ class RNoteFind
 			}
 			return false
 		ok
+
+	func FindPrevValue
+		oCursor = textedit1.textcursor()
+		nPosStart = oCursor.Position()
+		cValue = oSearchValue.text()
+		cStr = textedit1.toplaintext()
+		cStr = substr(cStr,1,nPosStart-1)
+		if oSearchCase.checkState() = Qt_Unchecked
+			cStr = lower(cStr)  cValue = lower(cValue)
+		ok
+                cnt = count(cStr,cValue)
+                postemp = 1
+		nPos = 0
+                for n = 1 to cnt
+                      nPos = substring(cStr,cValue,postemp+1)
+                      postemp = nPos
+                next
+		if nPos > 0
+                        nPos = nPos - 1
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nPos,0)
+			textedit1.settextcursor(oCursor)
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nPos+len(cValue),1)
+			textedit1.settextcursor(oCursor)
+			return true
+		else
+			new qMessagebox(oSearch)
+			{
+				SetWindowTitle("Search")
+				SetText("Cannot find :" + cValue)
+				show()
+			}
+			return false
+		ok
+
+        func count(cString,dString)
+             sum = 0
+             while substr(cString,dString) > 0
+                   sum = sum + 1
+                   cString = substr(cString,substr(cString,dString)+len(string(sum)))
+             end
+             return sum

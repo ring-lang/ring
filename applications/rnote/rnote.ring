@@ -3,7 +3,8 @@
 
 # Load Standard Libraries
 	load "guilib.ring"
-	load "stdlib.ring"
+	load "stdlibcore.ring"
+	load "openssllib.ring"
 
 # Load Ring Notepad Files 
 	load "rnotefiles.ring"

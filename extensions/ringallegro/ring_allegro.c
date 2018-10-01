@@ -183,6 +183,210 @@ RING_FUNC(ring_al_set_allegro_event_mouse_y)
 	pMyPointer->mouse.y = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_al_get_allegro_event_timer_source)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETCPOINTER(pMyPointer->timer.source,"ALLEGRO_TIMER");
+}
+
+RING_FUNC(ring_al_set_allegro_event_timer_source)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->timer.source = (ALLEGRO_TIMER *) RING_API_GETCPOINTER(2,"ALLEGRO_TIMER *");
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_id)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETCPOINTER(pMyPointer->joystick.id,"ALLEGRO_JOYSTICK");
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_id)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.id = (ALLEGRO_JOYSTICK *) RING_API_GETCPOINTER(2,"ALLEGRO_JOYSTICK *");
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_stick)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.stick);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_stick)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.stick = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_axis)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.axis);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_axis)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.axis = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_pos)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.pos);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_pos)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.pos = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_al_get_allegro_event_joystick_button)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	RING_API_RETNUMBER(pMyPointer->joystick.button);
+}
+
+RING_FUNC(ring_al_set_allegro_event_joystick_button)
+{
+	ALLEGRO_EVENT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer->joystick.button = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_al_new_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
@@ -267,6 +471,36 @@ RING_FUNC(ring_al_destroy_allegro_color)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_COLOR");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_al_new_allegro_joystick_state)
+{
+	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
+	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_JOYSTICK_STATE)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"ALLEGRO_JOYSTICK_STATE");
+}
+
+RING_FUNC(ring_al_destroy_allegro_joystick_state)
+{
+	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_JOYSTICK_STATE");
 	if (pMyPointer != NULL) {
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
@@ -1478,7 +1712,7 @@ RING_FUNC(ring_al_get_event_source_data)
 		intptr_t *pValue ; 
 		pValue = (intptr_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(intptr_t)) ;
 		*pValue = al_get_event_source_data((ALLEGRO_EVENT_SOURCE *) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT_SOURCE"));
-		RING_API_RETCPOINTER(pValue,"intptr_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"intptr_t",ring_state_free);
 	}
 }
 
@@ -2141,7 +2375,7 @@ RING_FUNC(ring_al_get_fs_entry_atime)
 		time_t *pValue ; 
 		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_atime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETCPOINTER(pValue,"time_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
 	}
 }
 
@@ -2160,7 +2394,7 @@ RING_FUNC(ring_al_get_fs_entry_ctime)
 		time_t *pValue ; 
 		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_ctime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETCPOINTER(pValue,"time_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
 	}
 }
 
@@ -2179,7 +2413,7 @@ RING_FUNC(ring_al_get_fs_entry_mtime)
 		time_t *pValue ; 
 		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_mtime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETCPOINTER(pValue,"time_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
 	}
 }
 
@@ -2198,7 +2432,7 @@ RING_FUNC(ring_al_get_fs_entry_size)
 		off_t *pValue ; 
 		pValue = (off_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(off_t)) ;
 		*pValue = al_get_fs_entry_size((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETCPOINTER(pValue,"off_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"off_t",ring_state_free);
 	}
 }
 
@@ -2731,7 +2965,7 @@ RING_FUNC(ring_al_map_rgb)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -2758,7 +2992,7 @@ RING_FUNC(ring_al_map_rgb_f)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -2789,7 +3023,7 @@ RING_FUNC(ring_al_map_rgba)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3), (unsigned char ) RING_API_GETNUMBER(4));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -2820,7 +3054,7 @@ RING_FUNC(ring_al_map_rgba_f)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -3247,7 +3481,7 @@ RING_FUNC(ring_al_get_pixel)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_get_pixel((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -7522,7 +7756,7 @@ RING_FUNC(ring_al_get_d3d_device)
 		LPDIRECT3DDEVICE9 *pValue ; 
 		pValue = (LPDIRECT3DDEVICE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DDEVICE9)) ;
 		*pValue = al_get_d3d_device((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"));
-		RING_API_RETCPOINTER(pValue,"LPDIRECT3DDEVICE9");
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DDEVICE9",ring_state_free);
 	}
 }
 
@@ -7541,7 +7775,7 @@ RING_FUNC(ring_al_get_d3d_system_texture)
 		LPDIRECT3DTEXTURE9 *pValue ; 
 		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_system_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"LPDIRECT3DTEXTURE9");
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",ring_state_free);
 	}
 }
 
@@ -7560,7 +7794,7 @@ RING_FUNC(ring_al_get_d3d_video_texture)
 		LPDIRECT3DTEXTURE9 *pValue ; 
 		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_video_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"LPDIRECT3DTEXTURE9");
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",ring_state_free);
 	}
 }
 
@@ -8539,7 +8773,7 @@ RING_FUNC(ring_al_get_sample_instance_playmode)
 		ALLEGRO_PLAYMODE *pValue ; 
 		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_sample_instance_playmode((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_PLAYMODE");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",ring_state_free);
 	}
 }
 
@@ -8882,7 +9116,7 @@ RING_FUNC(ring_al_get_mixer_quality)
 		ALLEGRO_MIXER_QUALITY *pValue ; 
 		pValue = (ALLEGRO_MIXER_QUALITY *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_MIXER_QUALITY)) ;
 		*pValue = al_get_mixer_quality((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_MIXER_QUALITY");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_MIXER_QUALITY",ring_state_free);
 	}
 }
 
@@ -9247,7 +9481,7 @@ RING_FUNC(ring_al_get_audio_stream_playmode)
 		ALLEGRO_PLAYMODE *pValue ; 
 		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_audio_stream_playmode((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_PLAYMODE");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",ring_state_free);
 	}
 }
 
@@ -9590,7 +9824,7 @@ RING_FUNC(ring_al_color_cmyk)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_cmyk( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -9655,7 +9889,7 @@ RING_FUNC(ring_al_color_hsl)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsl( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -9716,7 +9950,7 @@ RING_FUNC(ring_al_color_hsv)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -9769,7 +10003,7 @@ RING_FUNC(ring_al_color_html)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_html(RING_API_GETSTRING(1));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -9840,7 +10074,7 @@ RING_FUNC(ring_al_color_name)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_name(RING_API_GETSTRING(1));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -10055,7 +10289,7 @@ RING_FUNC(ring_al_color_yuv)
 		ALLEGRO_COLOR *pValue ; 
 		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_yuv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETCPOINTER(pValue,"ALLEGRO_COLOR");
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
 	}
 }
 
@@ -11670,6 +11904,299 @@ RING_FUNC(ring_al_destroy_vertex_decl)
 	al_destroy_vertex_decl((ALLEGRO_VERTEX_DECL *) RING_API_GETCPOINTER(1,"ALLEGRO_VERTEX_DECL"));
 }
 
+
+RING_FUNC(ring_al_create_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(al_create_shader( (ALLEGRO_SHADER_PLATFORM )  (int) RING_API_GETNUMBER(1)),"ALLEGRO_SHADER");
+}
+
+
+RING_FUNC(ring_al_attach_shader_source)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_attach_shader_source((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER"), (ALLEGRO_SHADER_TYPE )  (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_al_attach_shader_source_file)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_attach_shader_source_file((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER"), (ALLEGRO_SHADER_TYPE )  (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_al_build_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_build_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_get_shader_log)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(al_get_shader_log((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_get_shader_platform)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_get_shader_platform((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_use_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_use_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER")));
+}
+
+
+RING_FUNC(ring_al_destroy_shader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	al_destroy_shader((ALLEGRO_SHADER *) RING_API_GETCPOINTER(1,"ALLEGRO_SHADER"));
+}
+
+
+RING_FUNC(ring_al_set_shader_sampler)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_sampler(RING_API_GETSTRING(1),(ALLEGRO_BITMAP *) RING_API_GETCPOINTER(2,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_al_set_shader_matrix)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_matrix(RING_API_GETSTRING(1),(ALLEGRO_TRANSFORM *) RING_API_GETCPOINTER(2,"ALLEGRO_TRANSFORM")));
+}
+
+
+RING_FUNC(ring_al_set_shader_int)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_int(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_float)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_float(RING_API_GETSTRING(1), (float ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_bool)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_bool(RING_API_GETSTRING(1), (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_al_set_shader_int_vector)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_int_vector(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_al_set_shader_float_vector)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_shader_float_vector(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),(float *) RING_API_GETCPOINTER(3,"float"), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_al_get_default_shader_source)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(al_get_default_shader_source( (ALLEGRO_SHADER_PLATFORM )  (int) RING_API_GETNUMBER(1), (ALLEGRO_SHADER_TYPE )  (int) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
@@ -12308,6 +12835,22 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_draw_indexed_prim",ring_al_draw_indexed_prim);
 	ring_vm_funcregister("al_create_vertex_decl",ring_al_create_vertex_decl);
 	ring_vm_funcregister("al_destroy_vertex_decl",ring_al_destroy_vertex_decl);
+	ring_vm_funcregister("al_create_shader",ring_al_create_shader);
+	ring_vm_funcregister("al_attach_shader_source",ring_al_attach_shader_source);
+	ring_vm_funcregister("al_attach_shader_source_file",ring_al_attach_shader_source_file);
+	ring_vm_funcregister("al_build_shader",ring_al_build_shader);
+	ring_vm_funcregister("al_get_shader_log",ring_al_get_shader_log);
+	ring_vm_funcregister("al_get_shader_platform",ring_al_get_shader_platform);
+	ring_vm_funcregister("al_use_shader",ring_al_use_shader);
+	ring_vm_funcregister("al_destroy_shader",ring_al_destroy_shader);
+	ring_vm_funcregister("al_set_shader_sampler",ring_al_set_shader_sampler);
+	ring_vm_funcregister("al_set_shader_matrix",ring_al_set_shader_matrix);
+	ring_vm_funcregister("al_set_shader_int",ring_al_set_shader_int);
+	ring_vm_funcregister("al_set_shader_float",ring_al_set_shader_float);
+	ring_vm_funcregister("al_set_shader_bool",ring_al_set_shader_bool);
+	ring_vm_funcregister("al_set_shader_int_vector",ring_al_set_shader_int_vector);
+	ring_vm_funcregister("al_set_shader_float_vector",ring_al_set_shader_float_vector);
+	ring_vm_funcregister("al_get_default_shader_source",ring_al_get_default_shader_source);
 	ring_vm_funcregister("al_new_allegro_event",ring_al_new_allegro_event);
 	ring_vm_funcregister("al_destroy_allegro_event",ring_al_destroy_allegro_event);
 	ring_vm_funcregister("al_get_allegro_event_type",ring_al_get_allegro_event_type);
@@ -12318,10 +12861,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_set_allegro_event_mouse_x",ring_al_set_allegro_event_mouse_x);
 	ring_vm_funcregister("al_get_allegro_event_mouse_y",ring_al_get_allegro_event_mouse_y);
 	ring_vm_funcregister("al_set_allegro_event_mouse_y",ring_al_set_allegro_event_mouse_y);
+	ring_vm_funcregister("al_get_allegro_event_timer_source",ring_al_get_allegro_event_timer_source);
+	ring_vm_funcregister("al_set_allegro_event_timer_source",ring_al_set_allegro_event_timer_source);
+	ring_vm_funcregister("al_get_allegro_event_joystick_id",ring_al_get_allegro_event_joystick_id);
+	ring_vm_funcregister("al_set_allegro_event_joystick_id",ring_al_set_allegro_event_joystick_id);
+	ring_vm_funcregister("al_get_allegro_event_joystick_stick",ring_al_get_allegro_event_joystick_stick);
+	ring_vm_funcregister("al_set_allegro_event_joystick_stick",ring_al_set_allegro_event_joystick_stick);
+	ring_vm_funcregister("al_get_allegro_event_joystick_axis",ring_al_get_allegro_event_joystick_axis);
+	ring_vm_funcregister("al_set_allegro_event_joystick_axis",ring_al_set_allegro_event_joystick_axis);
+	ring_vm_funcregister("al_get_allegro_event_joystick_pos",ring_al_get_allegro_event_joystick_pos);
+	ring_vm_funcregister("al_set_allegro_event_joystick_pos",ring_al_set_allegro_event_joystick_pos);
+	ring_vm_funcregister("al_get_allegro_event_joystick_button",ring_al_get_allegro_event_joystick_button);
+	ring_vm_funcregister("al_set_allegro_event_joystick_button",ring_al_set_allegro_event_joystick_button);
 	ring_vm_funcregister("al_new_allegro_timeout",ring_al_new_allegro_timeout);
 	ring_vm_funcregister("al_destroy_allegro_timeout",ring_al_destroy_allegro_timeout);
 	ring_vm_funcregister("al_new_allegro_sample_id",ring_al_new_allegro_sample_id);
 	ring_vm_funcregister("al_destroy_allegro_sample_id",ring_al_destroy_allegro_sample_id);
 	ring_vm_funcregister("al_new_allegro_color",ring_al_new_allegro_color);
 	ring_vm_funcregister("al_destroy_allegro_color",ring_al_destroy_allegro_color);
+	ring_vm_funcregister("al_new_allegro_joystick_state",ring_al_new_allegro_joystick_state);
+	ring_vm_funcregister("al_destroy_allegro_joystick_state",ring_al_destroy_allegro_joystick_state);
 }

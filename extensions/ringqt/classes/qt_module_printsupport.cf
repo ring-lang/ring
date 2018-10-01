@@ -2,6 +2,12 @@
 				Module (printsupport)
 </comment>
 
+<loadfile> qprintpreviewdialog.cf
+<loadfile> qprintpreviewwidget.cf
 <loadfile> qprinter.cf
+<loadfile> qprinterinfo.cf
+<loadfile> qpagesetupdialog.cf
+<loadfile> qabstractprintdialog.cf
+
 
 

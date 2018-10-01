@@ -2,7 +2,7 @@
 **
 **	Game  	: CalmoSoft Fifteen Puzzle Game 3D 
 **	Date   	: 2017/09/01
-**  	Author 	: CalmoSoft <calmosoft@gmail.com>, Mahmoud Fayed
+**  	Author 	: CalmoSoft <calmosoft@gmail.com>
 **
 */
 

@@ -250,6 +250,14 @@ The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of cre
 "Strongly speaking, it is a strong and new game programming language."
 	, IsVowel (Japan)
 
+"The language seems to have some interesting features, specially the use of braces to access object fields and methods."
+	, Nuaua (Reddit)
+
+"The code that implements the Ring VM actually looks quite nice. There is a bunch of test code -- great!"
+	, Peterfirefly (Reddit)
+
+"Ring seems promising. It first appeared in 2016 although it's concept is older. It is meant to be portable and can be embedded in C/C++ projects"
+	, Wim ten Brink (Quora - Top Writer (2018))
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
@@ -442,7 +450,7 @@ The next samples are developed in little hours and we will introduce them throug
 
 The next screen shot for he Ring Notepad application
 
-.. image:: shotringnotepad.png
+.. image:: ringnotepad_screenshot.png
 	:alt: Ring Application
 
 The next screen shot for the Cards Game
@@ -491,6 +499,12 @@ Screen Shot:
 	:width: 450pt
 	:height: 350pt
 	:alt: TicTacToe 3D Game
+
+The next screen shot for the Gold Magic 800 Game
+
+.. image:: gmshot3.png
+	:alt: Gold Magic 800 
+
 
 .. index:: 
 	pair: Applications developed in little hours; Innovative

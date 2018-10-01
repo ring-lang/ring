@@ -1412,6 +1412,87 @@ Syntax:
 	OSRenameFile(cOldFileName,cNewFileName)
 
 
+.. index:: 
+	pair: Stdlib Functions; List2Code() Function 
+
+List2Code() Function 
+====================
+
+This function covert a Ring list during the runtime to Ring source code that we can save to source files.
+
+The list may contains strings, numbers or sub lists.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	aList = 1:10
+	? list2Code(aList)
+
+Output:
+
+.. code-block:: ring
+
+	[
+		1,2,3,4,5,6,7,8,9,10
+	]
 
 
+.. index:: 
+	pair: Stdlib Functions; Str2ASCIIList()
 
+Str2ASCIIList()
+===============
+
+Convert a string of bytes to a list of numbers where each item represent
+the ASCII code of one byte in the string.
+
+Syntax:
+
+.. code-block:: ring
+
+	Str2ASCIIList(String) ---> List of numbers
+
+.. index:: 
+	pair: Stdlib Functions; ASCIIList2Str()
+
+ASCIIList2Str()
+===============
+
+Convert a list of numbers where each item represent
+the ASCII code of one byte to a string of bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	ASCIIList2Str(List of numbers) ---> String
+
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	cStr = "MmMm"
+
+	aList = Str2ASCIILIST(cStr)
+	? aList 
+
+	cStr2 = ASCIIList2Str(aList)
+	? cStr2
+	? len(cStr2)
+
+Output:
+
+.. code-block:: none
+
+	77
+	109
+	77
+	109
+
+	MmMm
+	4

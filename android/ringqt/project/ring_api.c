@@ -40,6 +40,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("prevfilename",ring_vmlib_prevfilename);
 	ring_vm_funcregister("swap",ring_vmlib_swap);
 	ring_vm_funcregister("shutdown",ring_vmlib_shutdown);
+	ring_vm_funcregister("srandom",ring_vmlib_srandom);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -47,6 +48,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("type",ring_vmlib_type);
 	ring_vm_funcregister("isnull",ring_vmlib_isnull);
 	ring_vm_funcregister("isobject",ring_vmlib_isobject);
+	ring_vm_funcregister("ispointer",ring_vmlib_ispointer);
 	/* Conversion */
 	ring_vm_funcregister("hex",ring_vmlib_hex);
 	ring_vm_funcregister("dec",ring_vmlib_dec);
@@ -1011,6 +1013,28 @@ void ring_vmlib_shutdown ( void *pPointer )
 	}
 	exit(0);
 }
+
+void ring_vmlib_srandom ( void *pPointer )
+{
+	int nNum1  ;
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			nNum1 = RING_API_GETNUMBER(1) ;
+			if ( nNum1 >= 0 ) {
+				srand(nNum1);
+			}
+			else {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+			}
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+	}
+}
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer )
@@ -1046,7 +1070,7 @@ void ring_vmlib_islist ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISLIST(1) ) {
-		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0 ) {
+		if ( (ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0) && (RING_API_ISCPOINTER(1) == 0) ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
@@ -1085,6 +1109,7 @@ void ring_vmlib_type ( void *pPointer )
 void ring_vmlib_isnull ( void *pPointer )
 {
 	char *cStr  ;
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1102,8 +1127,8 @@ void ring_vmlib_isnull ( void *pPointer )
 			}
 		}
 	}
-	else if ( RING_API_ISPOINTER(1) ) {
-		if ( RING_API_GETPOINTER(1) == NULL ) {
+	else if ( RING_API_ISCPOINTER(1) ) {
+		if ( ring_list_getpointer(RING_API_GETLIST(1),RING_CPOINTER_POINTER) == NULL ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
@@ -1119,6 +1144,21 @@ void ring_vmlib_isobject ( void *pPointer )
 	}
 	if ( RING_API_ISLIST(1) ) {
 		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 1 ) {
+			RING_API_RETNUMBER(1);
+			return ;
+		}
+	}
+	RING_API_RETNUMBER(0);
+}
+
+void ring_vmlib_ispointer ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISLIST(1) ) {
+		if ( RING_API_ISCPOINTER(1) ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
@@ -1530,7 +1570,7 @@ void ring_vmlib_substr ( void *pPointer )
 {
 	char *cStr,*cStr2,*cStr3,*cString  ;
 	double nNum1,nNum2  ;
-	unsigned int x,nPos,nMark,nSize,nTransform,nSize2  ;
+	unsigned int nParaCount,x,nPos,nMark,nSize,nTransform,nSize2  ;
 	String *pString  ;
 	/*
 	**  Usage 
@@ -1539,8 +1579,18 @@ void ring_vmlib_substr ( void *pPointer )
 	**  Substr(str,10,15) get substring from 10 , get 15 characters 
 	**  Substr(str,"nice","good") replace "nice" with "good" 
 	**  Substr(str,"nice","good",true) replace "nice" with "good" - not case sensitive 
-	**  Get String  (First Parameter) 
+	**  Parameters Count 
 	*/
+	nParaCount = RING_API_PARACOUNT ;
+	/* If parameter no. 4 is not True, Treat the case as we get 3 paramters only */
+	if ( nParaCount == 4 ) {
+		if ( RING_API_ISNUMBER(4) ) {
+			if ( RING_API_GETNUMBER(4)  == 0.0 ) {
+				nParaCount = 3 ;
+			}
+		}
+	}
+	/* Get String  (First Parameter) */
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
@@ -1550,7 +1600,7 @@ void ring_vmlib_substr ( void *pPointer )
 	}
 	/* Process */
 	nTransform = 0 ;
-	if ( RING_API_PARACOUNT == 2 ) {
+	if ( nParaCount == 2 ) {
 		if ( RING_API_ISNUMBER(2) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( nNum1 > 0 && nNum1 <= nSize ) {
@@ -1574,7 +1624,7 @@ void ring_vmlib_substr ( void *pPointer )
 			return ;
 		}
 	}
-	else if ( RING_API_PARACOUNT == 3 ) {
+	else if ( nParaCount == 3 ) {
 		if ( RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nNum2 = RING_API_GETNUMBER(3) ;
@@ -1598,7 +1648,7 @@ void ring_vmlib_substr ( void *pPointer )
 			return ;
 		}
 	}
-	else if ( RING_API_PARACOUNT == 4 ) {
+	else if ( nParaCount == 4 ) {
 		if ( RING_API_ISSTRING(2) && RING_API_ISSTRING(3) && RING_API_ISNUMBER(4) ) {
 			if ( RING_API_GETNUMBER(4)  == 1.0 ) {
 				nTransform = 2 ;
@@ -1924,7 +1974,15 @@ void ring_vmlib_space ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) < 1.0 ) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return ;
+		}
 		pString = (char *) ring_state_calloc(((VM *) pPointer)->pRingState,1,RING_API_GETNUMBER(1));
+		if ( pString == NULL ) {
+			printf( RING_OOM ) ;
+			exit(0);
+		}
 		RING_API_RETSTRING2(pString,RING_API_GETNUMBER(1));
 		ring_state_free(((VM *) pPointer)->pRingState,pString);
 	} else {

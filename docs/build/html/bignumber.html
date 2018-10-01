@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BigNumber Library &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="RingLibCurl Functions Reference" href="ringlibcurlfuncsdoc.html" />
+    <link rel="prev" title="FoxRing Functions Reference" href="foxringfuncsdoc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="foxringfuncsdoc.html" title="FoxRing Functions Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bignumber-library">
+<span id="index-0"></span><h1>BigNumber Library<a class="headerlink" href="#bignumber-library" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the Big Number library in the Ring programming language.</p>
+<p>Developers : Bert Mariani, Gal Zsolt (~ CalmoSoft ~)</p>
+<div class="section" id="loading-the-library">
+<span id="index-1"></span><h2>Loading the library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
+<p>Before using the next function load the bignumber.ring library</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+<span class="c"># Use Big Number library functions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<span id="index-2"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Using the BigNumber library we can do arithmetic operations on huge numbers.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="s">&quot;62345678901234567891678345123456789&quot;</span>    <span class="sd">### Big</span>
+<span class="n">num2</span> <span class="o">=</span>  <span class="s">&quot;1237894567890123419871236545&quot;</span>          <span class="sd">### Small</span>
+<span class="n">num3</span> <span class="o">=</span>     <span class="s">&quot;64&quot;</span>                                 <span class="sd">### Divide Small</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="s">&quot;765432&quot;</span>
+<span class="n">num5</span> <span class="o">=</span>      <span class="s">&quot;3&quot;</span>                                 <span class="sd">### Power</span>
+
+<span class="o">?</span> <span class="s">&quot;Add big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Substract big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Multiply big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers: by very small number&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Power of big number:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="p">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Add big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+62345680139129135781801764994693334
+
+
+Substract big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+52345687663340000001554925252220244
+
+
+Multiply big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+77177377243260150103462178714197454736432472780119682305154005
+
+
+Divide big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+50364288
+
+
+Divide big numbers: by very small number
+62345678901234567891678345123456789
+64
+974151232831790123307474142554012
+
+
+Power of big number:
+62345678901234567891678345123456789
+3
+242336636261471172092347146031727004 (Output continue in next line)
+371698195628343934238988256152289508 (Output continue in next line)
+493964611043228971692389860897069
+</pre></div>
+</div>
+</div>
+<div class="section" id="bignumber-functions">
+<span id="index-3"></span><h2>BigNumber Functions<a class="headerlink" href="#bignumber-functions" title="Permalink to this headline">¶</a></h2>
+<p>The library contains the next functions</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>FuncAdd(num1,num2)
+FuncSubtract(num1,num2)
+FuncCompare(num1,num2)
+FuncDivide(num1,num2)
+FuncMultiply(num1,num2)
+FuncPower(num1,num2)
+FuncBinaryToDecimal(num1)
+FuncDecimalToBinary(num1)
+printBinaryDigits(binList)
+printDecimalDigits(decList)
+</pre></div>
+</div>
+</div>
+<div class="section" id="bignumber-class">
+<span id="index-4"></span><h2>BigNumber Class<a class="headerlink" href="#bignumber-class" title="Permalink to this headline">¶</a></h2>
+<p>The library contains the next class</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">BigNumber</span>
+        <span class="k">func</span> <span class="n">init</span> <span class="n">aPara</span>
+        <span class="k">func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span> <span class="n">Para</span>
+        <span class="k">func</span> <span class="n">print</span>
+        <span class="k">func</span> <span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="library-source-code">
+<span id="index-5"></span><h2>Library Source Code<a class="headerlink" href="#library-source-code" title="Permalink to this headline">¶</a></h2>
+<p>You can see the library source code in : ring/ringlibs/bignumber folder</p>
+<p>Source Code : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/ringlibs/bignumber/bignumber.ring">https://github.com/ring-lang/ring/blob/master/ringlibs/bignumber/bignumber.ring</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">BigNumber Library</a><ul>
+<li><a class="reference internal" href="#loading-the-library">Loading the library</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#bignumber-functions">BigNumber Functions</a></li>
+<li><a class="reference internal" href="#bignumber-class">BigNumber Class</a></li>
+<li><a class="reference internal" href="#library-source-code">Library Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="foxringfuncsdoc.html"
+                        title="previous chapter">FoxRing Functions Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringlibcurlfuncsdoc.html"
+                        title="next chapter">RingLibCurl Functions Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bignumber.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringlibcurlfuncsdoc.html" title="RingLibCurl Functions Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="foxringfuncsdoc.html" title="FoxRing Functions Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

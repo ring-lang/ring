@@ -33,6 +33,8 @@
 	in method prototype - when we use @ in the method name
 	we mean that we have the same method with different parameters (As in C++)	
 	Using <loadfile> filename.cf  we can separate the configuration to many files
+	Using <runcodenow> we can execute code directly to defined variables for <filter>
+	Using $globals we have global list for variables used by <runcodenow>
 */
 
 load "stdlibcore.ring"
@@ -135,6 +137,10 @@ if isWindows()
 	nl = Windowsnl()
 ok
 
+# Global list to be used by command <runcodenow> when needed 
+
+$globals = []
+
 Func Main
 	if len(sysargv) < 3
 		See "Input : filename.cf is missing!" + nl
@@ -226,7 +232,7 @@ Func ProcessCommands aData,aList
 			$lIgnoreCPointerTypeCheck = true
 			loop
 		but left(cLine,8) = "<filter>"
-			cFilter = "lInclude = " + trim(substr(cLine,9))
+			cFilter = "lInclude = (" + trim(substr(cLine,9)) + ")"
 			see "Execute Filter : " + cFilter + nl
 			eval(cFilter)
 			See "Filter output : " + lInclude + nl
@@ -260,6 +266,10 @@ Func ProcessCommands aData,aList
 			chdir( JustFilePath(cSubFileName) )
 			ProcessCommands(aData,aSubList)
 			chdir(cDir)
+			loop
+		but left(lower(cLine),12)="<runcodenow>"		 
+			cCodeNow = trim(substr(cLine,13))
+			eval(cCodeNow)
 			loop
 		ok
 		if lFlag = C_INS_FUNCTION 
@@ -602,8 +612,10 @@ Func GenFuncCodeCallFunc aList
 	cCode +=  ";" + nl
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 	if lUNKNOWN 	# Generate code to convert struct to struct *
-		cCode += C_TABS_2 + 'RING_API_RETCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			 '");' + nl + C_TABS_1 + "}" + nl
+		cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
+			'",ring_state_free' +
+			 ');' + nl + C_TABS_1 + "}" + nl
+
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)

@@ -277,6 +277,16 @@ extern "C" {
 #include <QGeoSatelliteInfoSource>
 #include <QNmeaPositionInfoSource>
 
+#include <QPrinterInfo>
+#include <QPrintPreviewWidget>
+#include "gprintpreviewwidget.h"
+#include <QPrintPreviewDialog>
+#include "gprintpreviewdialog.h"
+#include <QPageSetupDialog>
+#include <QAbstractPrintDialog>
+#include <QPrintDialog>
+#include "gprintdialog.h"
+
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
 #include <QQmlError>
@@ -327,8 +337,9 @@ extern "C" {
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
 
-#include <QAxObject>
 #include <QAxBase>
+#include <QAxObject>
+#include <QAxWidget>
 
 </filter>
 

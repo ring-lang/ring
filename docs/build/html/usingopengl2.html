@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Ring 1.9 documentation" href="index.html" />
-    <link rel="next" title="Desktop and Mobile development using RingQt" href="qt.html" />
+    <link rel="next" title="The Gold Magic 800 Game" href="goldmagic800.html" />
     <link rel="prev" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics" href="usingopengl.html" /> 
   </head>
   <body role="document">
@@ -36,7 +36,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="qt.html" title="Desktop and Mobile development using RingQt"
+          <a href="goldmagic800.html" title="The Gold Magic 800 Game"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="usingopengl.html" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics"
@@ -217,6 +217,7 @@
         <span class="k">func</span> <span class="n">eventsLoop</span>
 
                 <span class="k">while</span> <span class="kp">true</span>
+                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
                         <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
                         <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
@@ -490,6 +491,7 @@
         <span class="k">func</span> <span class="n">eventsLoop</span>
 
                 <span class="k">while</span> <span class="kp">true</span>
+                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
                         <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
                         <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
@@ -1020,6 +1022,7 @@
 
         <span class="k">func</span> <span class="n">eventsLoop</span>
                 <span class="k">while</span> <span class="kp">true</span>
+                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
                         <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
                         <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
@@ -1130,8 +1133,8 @@
   <p class="topless"><a href="usingopengl.html"
                         title="previous chapter">Using RingOpenGL and RingFreeGLUT for 3D  Graphics</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="qt.html"
-                        title="next chapter">Desktop and Mobile development using RingQt</a></p>
+  <p class="topless"><a href="goldmagic800.html"
+                        title="next chapter">The Gold Magic 800 Game</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1163,7 +1166,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="qt.html" title="Desktop and Mobile development using RingQt"
+          <a href="goldmagic800.html" title="The Gold Magic 800 Game"
              >next</a> |</li>
         <li class="right" >
           <a href="usingopengl.html" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics"

@@ -75,6 +75,18 @@ Class QObject
 	Func setProperty P1,P2
 		return QObject_setProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
 
+	Func setProperty_2 P1,P2
+		return QObject_setProperty_2(pObject,P1,P2)
+
+	Func setProperty_3 P1,P2
+		return QObject_setProperty_3(pObject,P1,P2)
+
+	Func setProperty_4 P1,P2
+		return QObject_setProperty_4(pObject,P1,P2)
+
+	Func setProperty_5 P1,P2
+		return QObject_setProperty_5(pObject,P1,P2)
+
 	Func signalsBlocked 
 		return QObject_signalsBlocked(pObject)
 
@@ -20223,6 +20235,126 @@ Class QGraphicsVideoItem
 	Func size 
 		return QGraphicsVideoItem_size(pObject)
 
+Class QPrintPreviewDialog from QDialog
+
+	pObject
+
+	Func init P1
+		pObject = QPrintPreviewDialog_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPrintPreviewDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func open P1,P2
+		return QPrintPreviewDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QPrintPreviewDialog_printer(pObject)
+		return pTempObj
+
+	Func setpaintRequestedEvent P1
+		return QPrintPreviewDialog_setpaintRequestedEvent(pObject,P1)
+
+	Func getpaintRequestedEvent 
+		return QPrintPreviewDialog_getpaintRequestedEvent(pObject)
+
+Class QPrintPreviewWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QPrintPreviewWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPrintPreviewWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func currentPage 
+		return QPrintPreviewWidget_currentPage(pObject)
+
+	Func orientation 
+		return QPrintPreviewWidget_orientation(pObject)
+
+	Func pageCount 
+		return QPrintPreviewWidget_pageCount(pObject)
+
+	Func viewMode 
+		return QPrintPreviewWidget_viewMode(pObject)
+
+	Func zoomFactor 
+		return QPrintPreviewWidget_zoomFactor(pObject)
+
+	Func zoomMode 
+		return QPrintPreviewWidget_zoomMode(pObject)
+
+	Func fitInView 
+		return QPrintPreviewWidget_fitInView(pObject)
+
+	Func fitToWidth 
+		return QPrintPreviewWidget_fitToWidth(pObject)
+
+	Func print 
+		return QPrintPreviewWidget_print(pObject)
+
+	Func setAllPagesViewMode 
+		return QPrintPreviewWidget_setAllPagesViewMode(pObject)
+
+	Func setCurrentPage P1
+		return QPrintPreviewWidget_setCurrentPage(pObject,P1)
+
+	Func setFacingPagesViewMode 
+		return QPrintPreviewWidget_setFacingPagesViewMode(pObject)
+
+	Func setLandscapeOrientation 
+		return QPrintPreviewWidget_setLandscapeOrientation(pObject)
+
+	Func setOrientation P1
+		return QPrintPreviewWidget_setOrientation(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPortraitOrientation 
+		return QPrintPreviewWidget_setPortraitOrientation(pObject)
+
+	Func setSinglePageViewMode 
+		return QPrintPreviewWidget_setSinglePageViewMode(pObject)
+
+	Func setViewMode P1
+		return QPrintPreviewWidget_setViewMode(pObject,P1)
+
+	Func setZoomFactor P1
+		return QPrintPreviewWidget_setZoomFactor(pObject,P1)
+
+	Func setZoomMode P1
+		return QPrintPreviewWidget_setZoomMode(pObject,P1)
+
+	Func updatePreview 
+		return QPrintPreviewWidget_updatePreview(pObject)
+
+	Func zoomIn P1
+		return QPrintPreviewWidget_zoomIn(pObject,P1)
+
+	Func zoomOut P1
+		return QPrintPreviewWidget_zoomOut(pObject,P1)
+
+	Func setpaintRequestedEvent P1
+		return QPrintPreviewWidget_setpaintRequestedEvent(pObject,P1)
+
+	Func setpreviewChangedEvent P1
+		return QPrintPreviewWidget_setpreviewChangedEvent(pObject,P1)
+
+	Func getpaintRequestedEvent 
+		return QPrintPreviewWidget_getpaintRequestedEvent(pObject)
+
+	Func getpreviewChangedEvent 
+		return QPrintPreviewWidget_getpreviewChangedEvent(pObject)
+
 Class QPrinter
 
 	pObject
@@ -20377,6 +20509,111 @@ Class QPrinter
 
 	Func setPageSizeMM P1
 		return QPrinter_setPageSizeMM(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QPrinterInfo
+
+	pObject
+
+	Func init 
+		pObject = QPrinterInfo_new()
+		return self
+
+	Func delete
+		pObject = QPrinterInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func description 
+		return QPrinterInfo_description(pObject)
+
+	Func isDefault 
+		return QPrinterInfo_isDefault(pObject)
+
+	Func isNull 
+		return QPrinterInfo_isNull(pObject)
+
+	Func location 
+		return QPrinterInfo_location(pObject)
+
+	Func makeAndModel 
+		return QPrinterInfo_makeAndModel(pObject)
+
+	Func printerName 
+		return QPrinterInfo_printerName(pObject)
+
+	Func printerInfo P1
+		pTempObj = new QPrinterInfo
+		pTempObj.pObject = QPrinterInfo_printerInfo(pObject,P1)
+		return pTempObj
+
+Class QPageSetupDialog from QDialog
+
+	pObject
+
+	Func init P1,P2
+		pObject = QPageSetupDialog_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QPageSetupDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func open P1,P2
+		return QPageSetupDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QPageSetupDialog_printer(pObject)
+		return pTempObj
+
+Class QAbstractPrintDialog from QDialog
+
+	pObject
+
+	Func init P1,P2
+		pObject = QAbstractPrintDialog_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QAbstractPrintDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func fromPage 
+		return QAbstractPrintDialog_fromPage(pObject)
+
+	Func maxPage 
+		return QAbstractPrintDialog_maxPage(pObject)
+
+	Func minPage 
+		return QAbstractPrintDialog_minPage(pObject)
+
+	Func printRange 
+		return QAbstractPrintDialog_printRange(pObject)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QAbstractPrintDialog_printer(pObject)
+		return pTempObj
+
+	Func setFromTo P1,P2
+		return QAbstractPrintDialog_setFromTo(pObject,P1,P2)
+
+	Func setMinMax P1,P2
+		return QAbstractPrintDialog_setMinMax(pObject,P1,P2)
+
+	Func setOptionTabs P1
+		return QAbstractPrintDialog_setOptionTabs(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPrintRange P1
+		return QAbstractPrintDialog_setPrintRange(pObject,P1)
+
+	Func toPage 
+		return QAbstractPrintDialog_toPage(pObject)
 
 Class QAbstractSocket from QIODevice
 
@@ -23265,6 +23502,16 @@ Class QAxBase from QObject
 		pTempObj.pObject = QAxBase_dynamicCall_2(pObject,P1,P2)
 		return pTempObj
 
+	Func dynamicCall_3 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_3(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func dynamicCall_4 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_4(pObject,P1,P2)
+		return pTempObj
+
 	Func generateDocumentation 
 		return QAxBase_generateDocumentation(pObject)
 
@@ -23276,6 +23523,196 @@ Class QAxBase from QObject
 		pTempObj.pObject = QAxBase_querySubObject(pObject,P1)
 		return pTempObj
 
+	Func querySubObject_2 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func querySubObject_3 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_3(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_4 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_4(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_5 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_5(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_6 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_6(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_7 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_7(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_8 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_8(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_9 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_9(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_10 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_10(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_11 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_11(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_12 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_12(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_13 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_13(pObject,P1,P2)
+		return pTempObj
+
+	Func querySubObject_14 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_14(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_15 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_15(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_16 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_16(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_17 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_17(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_18 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_18(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_19 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_19(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_20 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_20(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_21 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_21(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_22 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_22(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_23 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_23(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_24 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_24(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_25 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_25(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_26 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_26(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_27 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_27(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func querySubObject_28 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_28(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func querySubObject_29 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_29(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_30 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_30(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_31 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_31(pObject,P1,P2,P3,P4,P5)
+		return pTempObj
+
+	Func querySubObject_32 P1,P2,P3,P4,P5,P6,P7,P8,P9
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_32(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8),GetObjectPointerFromRingObject(P9))
+		return pTempObj
+
+	Func querySubObject_33 P1,P2,P3,P4,P5,P6,P7,P8
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_33(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8))
+		return pTempObj
+
+	Func querySubObject_34 P1,P2,P3,P4,P5,P6,P7
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_34(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7))
+		return pTempObj
+
+	Func querySubObject_35 P1,P2,P3,P4,P5,P6
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_35(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
+
+	Func querySubObject_36 P1,P2,P3,P4,P5
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_36(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+		return pTempObj
+
+	Func querySubObject_37 P1,P2,P3,P4
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_37(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func querySubObject_38 P1,P2,P3
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_38(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func querySubObject_39 P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject_39(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
 	Func setControl P1
 		return QAxBase_setControl(pObject,P1)
 
@@ -23283,6 +23720,40 @@ Class QAxBase from QObject
 		pTempObj = new QStringList
 		pTempObj.pObject = QAxBase_verbs(pObject)
 		return pTempObj
+
+Class QAxObject from QAxBase
+
+	pObject
+
+	Func init P1
+		pObject = QAxObject_new(P1)
+		return self
+
+	Func delete
+		pObject = QAxObject_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func doVerb P1
+		return QAxObject_doVerb(pObject,P1)
+
+Class QAxWidget from QAxBase
+
+	pObject
+
+	Func init P1,P2
+		pObject = QAxWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QAxWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func doVerb P1
+		return QAxWidget_doVerb(pObject,P1)
 
 Class QQuickWidget from QWidget
 
@@ -23441,6 +23912,62 @@ Class QDateEdit from QDateTimeEdit
 
 	Func delete
 		pObject = QDateEdit_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant2 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant2_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant3 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant3_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant3_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant4 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant4_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant4_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QVariant5 from QVariant
+
+	pObject
+
+	Func init P1
+		pObject = QVariant5_new(P1)
+		return self
+
+	Func delete
+		pObject = QVariant5_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
@@ -23623,20 +24150,6 @@ Class QCameraViewfinder from QVideoWidget
 
 	Func delete
 		pObject = QCameraViewfinder_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-Class QAxObject from QAxBase
-
-	pObject
-
-	Func init P1
-		pObject = QAxObject_new(P1)
-		return self
-
-	Func delete
-		pObject = QAxObject_delete(pObject)
 
 	Func ObjectPointer
 		return pObject

@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deploying Web Applications in the Cloud &mdash; Ring 1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.9 documentation" href="index.html" />
+    <link rel="next" title="Using RingLibCurl" href="libcurl.html" />
+    <link rel="prev" title="Web Development (CGI Library)" href="web.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="libcurl.html" title="Using RingLibCurl"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="web.html" title="Web Development (CGI Library)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="deploying-web-applications-in-the-cloud">
+<span id="index-0"></span><h1>Deploying Web Applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about deploying Ring Web Applications in the Cloud using Heroku</p>
+<div class="section" id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku</p>
+<p>Demo : <a class="reference external" href="http://testring.herokuapp.com/">http://testring.herokuapp.com/</a></p>
+<p>Project : <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
+<p>Heroku Website : <a class="reference external" href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<img alt="Ring Web Application in the Cloud" src="_images/ringincloud.png" />
+</div>
+<div class="section" id="usage">
+<span id="index-2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To use this project and deploy it on Heroku</p>
+<ol class="arabic simple">
+<li>Create Heroku account</li>
+<li>Open your Heroku account and create new application</li>
+</ol>
+<p>Example : testring</p>
+<p>Note (You have to select a unique name for your application)</p>
+<ol class="arabic simple" start="3">
+<li>Open the command prompt, Create new folder : MyApp</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>md MyApp
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Open the application folder</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd MyApp
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Clone this projet using Git (Don&#8217;t forget the dot in the end to clone in the current directory)</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>git clone https://github.com/ring-lang/RingWebAppOnHeroku .
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Login to Heroku (Enter your Email and Password)</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>heroku login
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li>Add heroku (remote) to your Git project</li>
+</ol>
+<p>change testring to your application name</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>heroku git:remote -a testring
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li>Set the buildpacks (So Heroku can know how to support your project)</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>heroku buildpacks:add --index 1 https://github.com/ring-lang/heroku-buildpack-apt
+heroku buildpacks:add --index 2 https://github.com/ring-lang/heroku-buildpack-ring
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li>Now build your project and deploy it</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>git push heroku master
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li>Test your project (In the browser)</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>heroku open
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-source-code-files-and-permissions">
+<span id="index-3"></span><h2>Ring source code files and permissions<a class="headerlink" href="#ring-source-code-files-and-permissions" title="Permalink to this headline">¶</a></h2>
+<p>To be able to run your new Ring scripts, Set the permission of the file to be executable using Git</p>
+<p>For example, if you created a file : myscript.ring</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>git update-index --chmod=+x myscript.ring
+git commit -m &quot;Update file permission&quot;
+</pre></div>
+</div>
+<p>If you are using TortoiseGit, From windows explorer, select the file</p>
+<p>Right click &#8212;&gt; Properties &#8212;&gt; Git &#8212;&gt; Executable (+x)</p>
+<p>Then commit and deploy!</p>
+</div>
+<div class="section" id="hello-world-program">
+<span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Permalink to this headline">¶</a></h2>
+<p>file : ringapp/helloworld.ring</p>
+<p>To run it : <a class="reference external" href="http://testring.herokuapp.com/ringapp/helloworld.ring">http://testring.herokuapp.com/ringapp/helloworld.ring</a></p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
+
+<span class="k">see</span> <span class="s">&quot;content-type: text/html&quot;</span> <span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>file : ringapp/helloworld2.ring</p>
+<p>To run it : <a class="reference external" href="http://testring.herokuapp.com/ringapp/helloworld2.ring">http://testring.herokuapp.com/ringapp/helloworld2.ring</a></p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
+<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<span class="k">new</span> <span class="n">page</span> <span class="p">{</span>
+        <span class="n">text</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="application-database">
+<span id="index-5"></span><h2>Application Database<a class="headerlink" href="#application-database" title="Permalink to this headline">¶</a></h2>
+<p>When you depoly the application, Everything will works directly!</p>
+<p>No change is required, but in practice, You will need to update the next files to use your database</p>
+<p>There are two scripts to interact with the database (We are using PostgreSQL in the cloud)</p>
+<p>You will need to update the connection string in these files if you will use another database</p>
+<ul class="simple">
+<li>file: ringapp/database/newdb.ring (We run it using the browser for one time to create the tables)</li>
+<li>file: ringapp/datalib.ring (Class: Database)</li>
+</ul>
+<p>In your practical projects, You can write better code (To be able to change the database)</p>
+<p>Also you can create configuration file (To write the connection string in one place)</p>
+<p>Database service : <a class="reference external" href="https://www.heroku.com/postgres">https://www.heroku.com/postgres</a></p>
+</div>
+<div class="section" id="deploying-after-updates">
+<span id="index-6"></span><h2>Deploying after updates<a class="headerlink" href="#deploying-after-updates" title="Permalink to this headline">¶</a></h2>
+<p>Just use Git and commit then push to heroku</p>
+<p>file: build.bat contains the next commands for quick tests</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>git add .
+git commit -m &quot;Update RingWebAppOnHeroku&quot;
+git push heroku master
+heroku open
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-tests">
+<span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Permalink to this headline">¶</a></h2>
+<p>Local tests using Ring Notepad on Windows (Using local Apache Web Server)</p>
+<p>Replace the first line in the file : ringapp/index.ring with</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
+</pre></div>
+</div>
+<p>Then run it from Ring Notepad (Ctrl+F6)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deploying Web Applications in the Cloud</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#ring-source-code-files-and-permissions">Ring source code files and permissions</a></li>
+<li><a class="reference internal" href="#hello-world-program">Hello World program</a></li>
+<li><a class="reference internal" href="#application-database">Application Database</a></li>
+<li><a class="reference internal" href="#deploying-after-updates">Deploying after updates</a></li>
+<li><a class="reference internal" href="#local-tests">Local Tests</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="web.html"
+                        title="previous chapter">Web Development (CGI Library)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="libcurl.html"
+                        title="next chapter">Using RingLibCurl</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/deployincloud.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="libcurl.html" title="Using RingLibCurl"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="web.html" title="Web Development (CGI Library)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

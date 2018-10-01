@@ -4,6 +4,7 @@
 # 2016-2017, CalmoSoft <calmosoft@gmail.com>
 
 Load "stdlib.rh"
+Load "stdfunctions.ring"
 
 /*
 	Function Name	: puts
@@ -1031,3 +1032,58 @@ func OSRenameFile cOldFile,cNewFile
 	but isLinux() or isMacosx()
 		systemSilent("mv " + cOldFile + " " + cNewFile)
 	ok
+
+/*
+	Convert a Ring List to Ring source code 
+*/
+func List2Code aList
+	cCode = "["+Windowsnl()
+	lStart = True
+	for item in aList 
+		if !lStart 
+			cCode += ","
+		else 
+			lStart = False
+		ok
+		if isString(item) 
+			cCode += '"' + item + '"' 
+		but isnumber(item)
+			cCode += (""+item)
+		but islist(item)
+			cCode += List2Code(item)
+		ok
+	next
+	cCode += windowsnl()+"]"
+	return cCode
+
+
+/*
+	Convert string to a List of numbers 
+	Where each number is the ASCII code of a character 
+*/
+	func Str2ASCIIList cStr 
+		if not isString(cStr)
+			raise("Type Error in Str2ASCIIList() function")
+		ok
+		aList = []
+		for cChar in cStr 
+			aList + ASCII(cChar)
+		next 
+		return aList 
+
+/*
+	Convert List of numbers where each number is the ASCII code of character 
+	To String 
+*/
+	func ASCIIList2Str aList 
+		if not isList(aList)
+			raise("Type Error in ASCIIList2Str() function")
+		ok
+		cStr = ""
+		for nNum in aList 
+			if not isNumber(nNum)
+				raise("Type Error in ASCIIList2Str() function - Item is not a number!")
+			ok
+			cStr += char(nNum)
+		next 
+		return cStr 

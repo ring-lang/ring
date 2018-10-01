@@ -16,6 +16,13 @@ CURLLIST
 
 
 <constant>
+CURL_GLOBAL_ALL
+CURL_GLOBAL_SSL
+CURL_GLOBAL_WIN32
+CURL_GLOBAL_NOTHING
+CURL_GLOBAL_DEFAULT
+CURL_GLOBAL_ACK_EINTR
+
 CURLOPT_VERBOSE
 CURLOPT_HEADER
 CURLOPT_NOPROGRESS
@@ -335,9 +342,12 @@ CURLINFO_TLS_SESSION
 
 <runcode>
 aNumberTypes + "CURLoption"
+aNumberTypes + "long"
 aEnumTypes + "CURLINFO"
 aEnumTypes + "CURLformoption"
 </runcode>
+
+CURLcode curl_global_init(long flags)
 
 CURL *curl_easy_init(void)
 void curl_easy_cleanup(CURL * handle )
@@ -410,4 +420,6 @@ CURLLIST *curl_slist_append(CURLLIST * list, const char * string )
 void curl_slist_free_all(CURLLIST * list)
 char *curl_easy_escape( CURL * curl , const char * string , int length )
 char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )
+
+
 

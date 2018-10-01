@@ -62,6 +62,9 @@ SOURCES +=   \
     cpp/src/gtabbar.cpp \
     cpp/src/gdrag.cpp \
     cpp/src/ggeopositioninfosource.cpp \
+    cpp/src/gprintpreviewwidget.cpp \
+    cpp/src/gprintpreviewdialog.cpp \
+    cpp/src/gprintdialog.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -114,7 +117,10 @@ HEADERS  += \
     cpp/include/gdockwidget.h \
     cpp/include/gtabbar.h \
     cpp/include/gdrag.h \
-    cpp/include/ggeopositioninfosource.h
+    cpp/include/ggeopositioninfosource.h \
+    cpp/include/gprintpreviewwidget.h \
+    cpp/include/gprintpreviewdialog.h \
+    cpp/include/gprintdialog.h
 
     
 

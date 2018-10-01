@@ -221,6 +221,9 @@ pList
 Type: int
 nNum1,nNum2,nSize
 ring_vmlib_shutdown
+ring_vmlib_srandom
+Type: int
+nNum1
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
@@ -231,6 +234,7 @@ ring_vmlib_isnull
 Type: char *
 cStr
 ring_vmlib_isobject
+ring_vmlib_ispointer
 ring_vmlib_hex
 cStr
 ring_vmlib_dec
@@ -323,7 +327,7 @@ cStr,*cStr2,*cStr3,*cString
 Type: double
 nNum1,nNum2
 Type: unsigned int
-x,nPos,nMark,nSize,nTransform,nSize2
+nParaCount,x,nPos,nMark,nSize,nTransform,nSize2
 Type: String *
 pString
 ring_vmlib_lower

@@ -14,6 +14,7 @@ Contents:
    Applications developed in little hours <ringapps>
    Introduction <introduction>
    Language Design <languagedesign>
+   What is new in Ring 1.9? <whatisnew9>
    What is new in Ring 1.8? <whatisnew8>
    What is new in Ring 1.7? <whatisnew7>
    What is new in Ring 1.6? <whatisnew6>
@@ -51,6 +52,7 @@ Contents:
    ODBC Functions <odbc>
    MySQL Functions <mysql>
    SQLite Functions <sqlite>	
+   PostgreSQL Functions <postgresql>
    Security and Internet Functions <secfunc>
    Object Oriented Programming (OOP) <oop>
    Functional Programming (FP) <fp>
@@ -61,6 +63,7 @@ Contents:
    Natural language programming	<natural>
    Using the Natural Library <naturallibrary>
    Web Development (CGI Library) <web>
+   Deploying Web Applications in the Cloud <deployincloud>
    Using RingLibCurl <libcurl>
    Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
@@ -70,6 +73,7 @@ Contents:
    Building Games For Android <gameengineandorid>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
    Using RingOpenGL and RingAllegro for 3D Graphics <usingopengl2>
+   Demo Project - The Gold Magic 800 Game <goldmagic800>
    Desktop and Mobile development using RingQt <qt>
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
@@ -91,10 +95,12 @@ Contents:
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Create your first extension <ringbeep>
    Frequently Asked Questions (FAQ) <faq>
+   General Information <generalinfo>
    Language Reference <reference>
    RingQt Classes and Methods Reference <qtclassesdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    FoxRing Functions Reference <foxringfuncsdoc>
+   BigNumber Functions Reference <bignumber>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>

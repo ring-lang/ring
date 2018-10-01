@@ -1,0 +1,23 @@
+<class>
+name: QAbstractPrintDialog
+para: QPrinter *,QWidget *
+parent:  QDialog
+abstract
+</class>
+
+<runcode>
+ aEnumTypes + "QAbstractPrintDialog::PrintDialogOption"
+ aEnumTypes + "QAbstractPrintDialog::PrintDialogOptions"
+ aEnumTypes + "QAbstractPrintDialog::PrintRange"
+</runcode>
+
+int fromPage(void)
+int maxPage(void)
+int minPage(void)
+QAbstractPrintDialog::PrintRange printRange(void)
+QPrinter * printer(void)
+void setFromTo(int from, int to)
+void setMinMax(int min, int max)
+void setOptionTabs(QList<QWidget *> tabs)
+void setPrintRange(QAbstractPrintDialog::PrintRange range)
+int toPage(void)

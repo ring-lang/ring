@@ -21,9 +21,9 @@ value will be updated by adding "Hello " to the name.
 
 .. code-block:: ring
 
-	Load "guilib.ring"
+	load "guilib.ring"
 
-	MyApp = New qApp {
+	oApp = new qApp {
 
 		win1 = new qWidget() {
 
@@ -36,19 +36,19 @@ value will be updated by adding "Hello " to the name.
 				setalignment(Qt_AlignHCenter)
 			}
 
-			btn1 = new qpushbutton(win1) {
+			btn1 = new qPushButton(win1) {
 				setGeometry(10,200,100,30)
 				settext("Say Hello")
 				setclickevent("pHello()")
 			}
 
-			btn1 = new qpushbutton(win1) {
+			btn1 = new qPushButton(win1) {
 				setGeometry(150,200,100,30)
 				settext("Close")
 				setclickevent("pClose()")
 			}
 
-			lineedit1 = new qlineedit(win1) {
+			lineedit1 = new qLineEdit(win1) {
 				setGeometry(10,100,350,30)
 			}
 
@@ -62,7 +62,7 @@ value will be updated by adding "Hello " to the name.
 		lineedit1.settext( "Hello " + lineedit1.text())
 
 	Func pClose 
-		MyApp.quit()
+		oApp.quit()
 
 Program Output:
 
@@ -75,6 +75,48 @@ Then we click on the say hello button
 
 .. image:: ringqt_shot2.jpg
 	:alt: Click on the button
+
+.. index:: 
+	pair: Desktop and Mobile Development; The Events Loop
+
+The Events Loop
+===============
+
+Qt uses Event-Driven and the events loop get the control when we call the exec() method from the qApp class.
+
+Once we call exec(), The events loop starts, and the Widgets starts responding to the different events (Mouse, Keyboard, Timers, etc). 
+
+You get the control back again when an event is fired and your callback function is called.
+
+Once the execution of your callback function is done, the control go back again to the events loop.
+
+Useful things to remember
+
+(1) We can do most of the work using normal events (Events provided directly by each widget).
+
+(2) We can add more events to any widget using the Events Filter.
+
+(3) Using Timers we can easily get the control back and check for more things to do.
+
+Also when our callback function is busy with doing time consuming operations, we can call the ProcessEvents() method from the qApp class
+to avoid stoping the GUI.
+
+.. code-block:: ring
+
+	oApp.processevents()
+
+We can avoid calling the exec() method, and create our main loop
+
+It's not recommended to do that, It's just an option.
+
+.. code-block:: ring
+
+	# Instead of calling the exec() method 
+		while true
+			oApp.processevents()	# Respond to GUI Events 
+			# More Thing to do, We have the control!
+			# .....
+		end 
 
 .. index:: 
 	pair: Desktop and Mobile Development; Using Layout
@@ -1950,6 +1992,62 @@ In this example we will learn how to print to PDF file using QPrinter
 
 		system ("test.pdf")
 		system ("test2.pdf")
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QPrintPreviewDialog
+
+
+Using QPrintPreviewDialog
+=========================
+
+In this example we will learn how to use the QPrintPreviewDialog class.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		win1 = new qwidget() {
+			setwindowtitle("Printer Preview Dialog")
+			setgeometry(100,100,800,880)
+			printer1 = new qPrinter(0)
+			show()
+			oPreview = new qPrintPreviewDialog(printer1) {
+				setParent(win1)
+				move(10,10) 
+				setPaintrequestedevent("printPreview()")
+				exec()
+			}
+		}
+		exec()
+	}
+
+	func printPreview
+		printer1  {
+			painter = new qpainter() {
+				begin(printer1)
+				myfont = new qfont("Times",50,-1,0)
+				setfont(myfont)
+				drawtext(100,100,"Test - Page (1)")
+				printer1.newpage()
+				drawtext(100,100,"Test - Page (2)")
+				printer1.newpage()
+				myfont2 = new qfont("Times",14,-1,0)
+				setfont(myfont2)
+				for x = 1 to 30
+					drawtext(100,100+(20*x),"Number : " + x)
+				next 
+				endpaint()
+			}
+		}
+
+Screen Shot:
+
+.. image:: printpreviewdialog.png
+	:alt: Print Preview Dialog
+
 
 .. index:: 
 	pair: Desktop and Mobile Development; Creating more than one window

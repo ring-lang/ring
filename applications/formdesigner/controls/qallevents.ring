@@ -300,7 +300,7 @@ class FormDesigner_QAllEvents from QLabel
 				case C_AFTERCOMMON+3
 					setMouseButtonReleaseEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setMouseButtonDbllickEventCode(cValue)
+					setMouseButtonDblClickEventCode(cValue)
 				case C_AFTERCOMMON+5
 					setMouseMoveEventCode(cValue)
 				case C_AFTERCOMMON+6

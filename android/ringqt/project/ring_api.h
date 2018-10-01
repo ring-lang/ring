@@ -101,6 +101,8 @@ int ring_vmlib_adddays_isleapyear ( int nYear ) ;
 void ring_vmlib_swap ( void *pPointer ) ;
 
 void ring_vmlib_shutdown ( void *pPointer ) ;
+
+void ring_vmlib_srandom ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;
@@ -114,6 +116,8 @@ void ring_vmlib_type ( void *pPointer ) ;
 void ring_vmlib_isnull ( void *pPointer ) ;
 
 void ring_vmlib_isobject ( void *pPointer ) ;
+
+void ring_vmlib_ispointer ( void *pPointer ) ;
 /* Conversion */
 
 void ring_vmlib_hex ( void *pPointer ) ;

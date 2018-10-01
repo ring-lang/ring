@@ -146,6 +146,32 @@ Parent Class : QAbstractScrollArea
 * void update(QModelIndex)
 
 .. index::
+	pair: RingQt Classes Reference; QAbstractPrintDialog Class
+
+QAbstractPrintDialog Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractPrintDialog.html
+
+
+Parameters : QPrinter *,QWidget *
+
+
+Parent Class : QDialog
+
+* int fromPage(void)
+* int maxPage(void)
+* int minPage(void)
+* QAbstractPrintDialog::PrintRange printRange(void)
+* QPrinter * printer(void)
+* void setFromTo(int from, int to)
+* void setMinMax(int min, int max)
+* void setOptionTabs(QList<QWidget *> tabs)
+* void setPrintRange(QAbstractPrintDialog::PrintRange range)
+* int toPage(void)
+
+.. index::
 	pair: RingQt Classes Reference; QAbstractScrollArea Class
 
 QAbstractScrollArea Class
@@ -585,9 +611,49 @@ Parent Class : QObject
 * void disableMetaObject(void)
 * QVariant dynamicCall( char *function)
 * QVariant dynamicCall_2( char *function,QString)
+* QVariant dynamicCall_3(const char *function, QList<QVariant> )
+* QVariant dynamicCall_4( char *function,int)
 * QString generateDocumentation(void)
 * bool isNull(void)
-* QAxObject * querySubObject( char *name)
+* QAxObject *querySubObject(const char *name)
+* QAxObject *querySubObject_2(const char * name, QList<QVariant>)
+* QAxObject *querySubObject_3(const char * name,const char *)
+* QAxObject *querySubObject_4(const char * name,int)
+* QAxObject *querySubObject_5(const char * name,const char *,int)
+* QAxObject *querySubObject_6(const char * name,const char *,const char *)
+* QAxObject *querySubObject_7(const char * name,const char *,const char *,int)
+* QAxObject *querySubObject_8(const char * name,const char *,int,int)
+* QAxObject *querySubObject_9(const char * name,float)
+* QAxObject *querySubObject_10(const char * name,const char *,float)
+* QAxObject *querySubObject_11(const char * name,const char *,const char *,float)
+* QAxObject *querySubObject_12(const char * name,const char *,float,float)
+* QAxObject *querySubObject_13(const char * name,double)
+* QAxObject *querySubObject_14(const char * name,const char *,double)
+* QAxObject *querySubObject_15(const char * name,const char *,const char *,double)
+* QAxObject *querySubObject_16(const char * name,const char *,double,double)
+* QAxObject *querySubObject_17(const char * name,int,const char *)
+* QAxObject *querySubObject_18(const char * name,int,const char *,const char *)
+* QAxObject *querySubObject_19(const char * name,int,const char *,const char *,const char *)
+* QAxObject *querySubObject_20(const char * name,int,const char *,const char *,int)
+* QAxObject *querySubObject_21(const char * name,int,const char *,int,const char *)
+* QAxObject *querySubObject_22(const char * name,float,const char *)
+* QAxObject *querySubObject_23(const char * name,float,const char *,const char *)
+* QAxObject *querySubObject_24(const char * name,float,const char *,const char *,const char *)
+* QAxObject *querySubObject_25(const char * name,float,const char *,const char *,float)
+* QAxObject *querySubObject_26(const char * name,float,const char *,float,const char *)
+* QAxObject *querySubObject_27(const char * name,double,const char *)
+* QAxObject *querySubObject_28(const char * name,double,const char *,const char *)
+* QAxObject *querySubObject_29(const char * name,double,const char *,const char *,const char *)
+* QAxObject *querySubObject_30(const char * name,double,const char *,const char *,double)
+* QAxObject *querySubObject_31(const char * name,double,const char *,double,const char *)
+* QAxObject *querySubObject_32(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_33(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_34(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_35(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_36(const char *name,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_37(const char *name,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_38(const char *name,QVariant,QVariant)
+* QAxObject *querySubObject_39(const char *name,QVariant)
 * bool setControl( QString  )
 * QStringList verbs(void)
 
@@ -606,6 +672,24 @@ Parameters : QString
 
 Parent Class : QAxBase
 
+* bool doVerb(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QAxWidget Class
+
+QAxWidget Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAxWidget.html
+
+
+Parameters : QWidget *parent, Qt::WindowFlags f
+
+
+Parent Class : QAxBase
+
+* bool doVerb(QString)
 
 .. index::
 	pair: RingQt Classes Reference; QBitmap Class
@@ -4727,6 +4811,10 @@ Parameters : void
 * void setObjectName(QString)
 * void setParent(QObject *parent)
 * bool setProperty(const char *name, QVariant)
+* bool setProperty_2(const char *name, int)
+* bool setProperty_3(const char *name, float)
+* bool setProperty_4(const char *name, double)
+* bool setProperty_5(const char *name, QString)
 * bool signalsBlocked(void)
 * int startTimer(int interval)
 * QThread *thread(void)
@@ -5645,6 +5733,24 @@ Parent Class : QWidget
 * QOpenGLWidget::UpdateBehavior updateBehavior(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPageSetupDialog Class
+
+QPageSetupDialog Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPageSetupDialog.html
+
+
+Parameters : QPrinter *,QWidget *
+
+
+Parent Class : QDialog
+
+* void open(QObject * receiver, char * member)
+* QPrinter * printer(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPaintDevice Class
 
 QPaintDevice Class
@@ -6103,6 +6209,68 @@ Parameters : void
 * qreal y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPrintPreviewDialog Class
+
+QPrintPreviewDialog Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewDialog.html
+
+
+Parameters : QPrinter *
+
+
+Parent Class : QDialog
+
+* void open(QObject * receiver, char * member)
+* QPrinter * printer(void)
+* void setpaintRequestedEvent(const char *)
+* const char *getpaintRequestedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPrintPreviewWidget Class
+
+QPrintPreviewWidget Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewWidget.html
+
+
+Parameters : QPrinter *
+
+
+Parent Class : QWidget
+
+* int currentPage(void)
+* QPrinter::Orientation orientation(void)
+* int pageCount(void)
+* QPrintPreviewWidget::ViewMode viewMode(void)
+* qreal zoomFactor(void)
+* QPrintPreviewWidget::ZoomMode zoomMode(void)
+* void fitInView(void)
+* void fitToWidth(void)
+* void print(void)
+* void setAllPagesViewMode(void)
+* void setCurrentPage(int page)
+* void setFacingPagesViewMode(void)
+* void setLandscapeOrientation(void)
+* void setOrientation(QPrinter::Orientation orientation)
+* void setPortraitOrientation(void)
+* void setSinglePageViewMode(void)
+* void setViewMode(QPrintPreviewWidget::ViewMode mode)
+* void setZoomFactor(qreal factor)
+* void setZoomMode(QPrintPreviewWidget::ZoomMode zoomMode)
+* void updatePreview(void)
+* void zoomIn(qreal factor)
+* void zoomOut(qreal factor)
+* void setpaintRequestedEvent(const char *)
+* void setpreviewChangedEvent(const char *)
+* const char *getpaintRequestedEvent(void)
+* const char *getpreviewChangedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPrinter Class
 
 QPrinter Class
@@ -6158,6 +6326,26 @@ Parameters : QPrinter::PrinterMode
 * bool newPage(void)
 * QPaintEngine *paintEngine(void)
 * void setPageSizeMM(QSizeF)
+
+.. index::
+	pair: RingQt Classes Reference; QPrinterInfo Class
+
+QPrinterInfo Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrinterInfo.html
+
+
+Parameters : void
+
+* QString description(void)
+* bool isDefault(void)
+* bool isNull(void)
+* QString location(void)
+* QString makeAndModel(void)
+* QString printerName(void)
+* QPrinterInfo printerInfo(QString printerName
 
 .. index::
 	pair: RingQt Classes Reference; QProcess Class
@@ -8799,6 +8987,70 @@ Parameters : void
 * const char *typeName(void)
 * int userType(void)
 * QString toString(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVariant2 Class
+
+QVariant2 Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariant2.html
+
+
+Parent Class : QVariant
+
+
+Parameters : int
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariant3 Class
+
+QVariant3 Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariant3.html
+
+
+Parent Class : QVariant
+
+
+Parameters : float
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariant4 Class
+
+QVariant4 Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariant4.html
+
+
+Parent Class : QVariant
+
+
+Parameters : double
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariant5 Class
+
+QVariant5 Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariant5.html
+
+
+Parent Class : QVariant
+
+
+Parameters : QString
+
 
 .. index::
 	pair: RingQt Classes Reference; QVector2D Class

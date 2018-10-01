@@ -13,6 +13,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * nullpointer()
 * object2pointer()
 * pointer2object()
+* ispointer()
 * ptrcmp()
 * ringvm_cfunctionslist() 
 * ringvm_functionslist() 
@@ -32,6 +33,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * ringvm_callfunc()
 * ringvm_see()
 * ringvm_give()
+* ringvm_info()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -227,11 +229,43 @@ Output:
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
          to create a reference for the parent node (object) in the child node (another object).
 
+
+.. index:: 
+	pair: Low Level Functions; ispointer()
+
+ispointer() function
+====================
+
+Check if the parameter is a pointer (C Object) or not.
+
+Syntax:
+
+.. code-block:: none
+
+	IsPointer(vPara) ---> True|False
+
+Example :
+
+.. code-block:: ring
+
+	fp = fopen(filename(),"r")
+
+	? type(fp)
+
+	? ispointer(fp)
+
+Output :
+
+.. code-block:: none
+
+	file
+	1
+
 .. index:: 
 	pair: Low Level Functions; ptrcmp()
 
 ptrcmp() function
-================================
+=================
 
 We can compare between two pointers (C Objects) using the ptrcmp() function.
 
@@ -1331,3 +1365,20 @@ Output:
 
 	Name: Mahmoud
 	Hello Mahmoud
+
+.. index:: 
+	pair: Low Level Functions; ringvm_info()
+
+ringvm_info() function
+======================
+
+The ringvm_info() is an internal function that return a list of information about the Ring VM structure.
+
+It's used only by the Ring Team in advanced tests to check the VM status.
+
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_info() ---> List of information about the VM structure
+

@@ -28,7 +28,7 @@ func main
 
 class TicTacToe3D from GameLogic
 
-	FPS = 60
+	FPS = 120
 	TITLE = "TicTacToe 3D"
 
 	oBackground = new GameBackground
@@ -484,6 +484,7 @@ class GraphicsAppBase
 
 	func eventsLoop
 		while true
+			al_init_timeout(timeout, 0.06)
 			al_wait_for_event_until(event_queue, ev, timeout)
 			switch al_get_allegro_event_type(ev)
 			on ALLEGRO_EVENT_DISPLAY_CLOSE

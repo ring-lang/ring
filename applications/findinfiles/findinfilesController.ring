@@ -28,6 +28,12 @@ class findinfilesController from WindowsControllerParent
 	
 	lShowNoOutputMessage = True	
 
+	oSearchFilter = new qallevents(oView.win)
+	oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
+	oView.win.installeventfilter(oSearchFilter)
+
+
+
 	func setFolder cFolder 
 		oView.txtFolder.setText(cFolder)
 
@@ -181,3 +187,7 @@ class findinfilesController from WindowsControllerParent
 		lShowNoOutputMessage = True
 		oView.Statusbar1.ShowMessage(cMsg,0)
 
+	func SearchKeyPress
+		if oSearchFilter.getKeyCode() = Qt_Key_Escape
+			Close()
+		ok

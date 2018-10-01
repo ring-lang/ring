@@ -1,0 +1,422 @@
+.. index:: 
+	single: PostgreSQL; Introduction
+
+====================
+PostgreSQL Functions
+====================
+
+In this chapter we will learn about using the PostgreSQL database in the Ring programming language.
+
+.. index:: 
+	pair: PostgreSQL; Loading the library
+
+Loading the library
+===================
+
+Before using the next function load the postgresqllib.ring library
+
+.. code-block:: ring
+
+	load "postgresqllib.ring"
+	# Use PostgreSQL functions
+
+.. index:: 
+	pair: PostgreSQL; Examples
+
+Examples
+========
+
+Example (1):
+
+.. code-block:: ring
+
+		load "postgresqllib.ring"
+
+		conninfo = "user=postgres password=sa dbname = postgres"
+
+		exit_nicely = func conn {
+			PQfinish(conn)
+			shutdown(1)
+		}
+
+		conn = PQconnectdb(conninfo)
+
+		if (PQstatus(conn) != CONNECTION_OK)
+			fputs(stderr, "Connection to database failed: "+PQerrorMessage(conn))
+				call exit_nicely(conn)
+		ok
+
+		res = PQexec(conn, "select * from pg_database")
+		if PQresultStatus(res) != PGRES_TUPLES_OK
+			fputs(stderr, "Select failed: " + PQerrorMessage(conn))
+			PQclear(res)
+			exit_nicely(conn)
+		ok
+
+		nFields = PQnfields(res)
+		for i = 1 to nFields
+				? PQfname(res, i-1) 
+		next
+
+		? copy("*",60)
+
+		for i = 1 to PQntuples(res)
+			for j=1 to nFields
+				see PQgetvalue(res, i-1, j-1) + " "
+			next
+			see nl
+		next
+
+		PQclear(res)
+
+		PQfinish(conn)
+
+Output:
+
+.. code-block:: none 
+
+	datname
+	datdba
+	encoding
+	datcollate
+	datctype
+	datistemplate
+	datallowconn
+	datconnlimit
+	datlastsysoid
+	datfrozenxid
+	datminmxid
+	dattablespace
+	datacl
+	************************************************************
+	postgres 10 6 English_United States.1252 
+		English_United States.1252 f t -1 12937 549 1 1663
+	template1 10 6 English_United States.1252 English_United States.1252 
+		t t -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+	template0 10 6 English_United States.1252 English_United States.1252 
+		t f -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+	mahdb 10 6 English_United States.1252 English_United States.1252 
+		f t -1 12937 549 1 1663
+		
+Example(2):
+
+.. code-block:: ring
+
+	load "postgresqllib.ring"
+
+	conninfo = "user=postgres password=sa dbname = mahdb"
+
+	exit_nicely = func conn {
+		PQfinish(conn)
+		shutdown(1)
+	}
+
+	conn = PQconnectdb(conninfo)
+
+	if (PQstatus(conn) != CONNECTION_OK)
+		fputs(stderr, "Connection to database failed: "+PQerrorMessage(conn))
+			call exit_nicely(conn)
+	ok
+
+	res = PQexec(conn, "
+		DROP DATABASE mahdb;
+	")
+	if PQresultStatus(res) != PGRES_TUPLES_OK
+		fputs(stderr, "Remove failed: " + PQerrorMessage(conn))
+		PQclear(res)
+	ok
+	PQclear(res)
+
+
+	res = PQexec(conn, "CREATE DATABASE mahdb;")
+	if PQresultStatus(res) != PGRES_TUPLES_OK
+		fputs(stderr, "Create database failed: " + PQerrorMessage(conn))
+		PQclear(res)
+	ok
+
+
+	res = PQexec(conn, "
+	CREATE TABLE COMPANY (
+			 ID INT PRIMARY KEY     NOT NULL,
+			 NAME           TEXT    NOT NULL,
+			 AGE            INT     NOT NULL,
+			 ADDRESS        CHAR(50),
+			 SALARY         REAL );
+	")
+	if PQresultStatus(res) != PGRES_TUPLES_OK
+		fputs(stderr, "Create Table failed: " + PQerrorMessage(conn))
+		PQclear(res)
+	ok
+	PQclear(res)
+
+	res = PQexec(conn, "
+			INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
+			VALUES  (1, 'Mahmoud' , 31, 'Jeddah', 10.00 ),
+					(2, 'Ahmed'   , 27, 'Jeddah', 20.00 ),
+					(3, 'Mohammed', 33, 'Egypt' , 30.00 ),
+					(4, 'Ibrahim' , 24, 'Egypt ', 40.00 );
+	")
+	if PQresultStatus(res) != PGRES_TUPLES_OK
+		fputs(stderr, "Insert Table failed: " + PQerrorMessage(conn))
+		PQclear(res)
+	ok
+	PQclear(res)
+
+	res = PQexec(conn, "
+		   select * from COMPANY
+	")
+	if PQresultStatus(res) != PGRES_TUPLES_OK
+		fputs(stderr, "Select failed: " + PQerrorMessage(conn))
+		PQclear(res)
+		call exit_nicely(conn)
+	ok
+
+
+	nFields = PQnfields(res)
+	for i = 1 to nFields
+			? PQfname(res, i-1) 
+	next
+
+	? copy("*",60)
+
+	for i = 1 to PQntuples(res)
+		for j=1 to nFields
+			see PQgetvalue(res, i-1, j-1) + " "
+		next
+		see nl
+	next
+
+	PQclear(res)
+
+	PQfinish(conn)
+
+Output:
+
+.. code-block:: none
+
+	id
+	name
+	age
+	address
+	salary
+	************************************************************
+	1 Mahmoud  31 Jeddah  10
+	2 Ahmed    27 Jeddah  20
+	3 Mohammed 31 Egypt   30
+	4 Ibrahim  24 Egypt   40	
+	
+
+.. index:: 
+	pair: PostgreSQL; RingPostgreSQL Constants
+
+RingPostgreSQL Constants
+========================
+
+The next constants are define by the RingPostgreSQL Library
+
+.. code-block:: none
+
+	CONNECTION_STARTED
+	CONNECTION_MADE
+	CONNECTION_AWAITING_RESPONSE
+	CONNECTION_AUTH_OK
+	CONNECTION_SSL_STARTUP
+	CONNECTION_SETENV
+	CONNECTION_OK
+
+	PQPING_OK
+	PQPING_REJECT
+	PQPING_NO_RESPONSE
+	PQPING_NO_ATTEMPT
+
+	PGRES_EMPTY_QUERY
+	PGRES_COMMAND_OK
+	PGRES_TUPLES_OK
+	PGRES_COPY_OUT
+	PGRES_COPY_IN
+	PGRES_BAD_RESPONSE
+	PGRES_NONFATAL_ERROR
+	PGRES_FATAL_ERROR
+	PGRES_COPY_BOTH
+	PGRES_SINGLE_TUPLE
+
+	PG_DIAG_SEVERITY
+	PG_DIAG_SQLSTATE
+	PG_DIAG_MESSAGE_PRIMARY
+	PG_DIAG_MESSAGE_DETAIL
+	PG_DIAG_MESSAGE_HINT
+	PG_DIAG_STATEMENT_POSITION
+	PG_DIAG_INTERNAL_POSITION
+	PG_DIAG_INTERNAL_QUERY
+	PG_DIAG_CONTEXT
+	PG_DIAG_SCHEMA_NAME
+	PG_DIAG_TABLE_NAME
+	PG_DIAG_COLUMN_NAME
+	PG_DIAG_DATATYPE_NAME
+	PG_DIAG_CONSTRAINT_NAME
+	PG_DIAG_SOURCE_FILE
+	PG_DIAG_SOURCE_LINE
+	PG_DIAG_SOURCE_FUNCTION
+
+
+.. index:: 
+	pair: PostgreSQL; RingPostgreSQL Functions
+
+RingPostgreSQL Functions
+========================
+
+The next functions are define by the RingPostgreSQL Library
+
+Reference : https://www.postgresql.org/docs/9.1/static/libpq.html
+
+.. code-block:: none
+
+	PGconn *PQconnectdbParams(const char **keywords,
+		const char **values,int expand_dbname);
+	PGconn *PQconnectdb(const char *conninfo)
+	PGconn *PQsetdbLogin(const char *pghost,const char *pgport,
+		const char *pgoptions,const char *pgtty,
+		const char *dbName,const char *login,const char *pwd)
+	PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,
+		char *pgtty,char *dbName)
+	PGconn *PQconnectStartParams(const char **keywords,
+		const char **values,int expand_dbname)
+	PGconn *PQconnectStart(const char *conninfo)
+	PostgresPollingStatusType PQconnectPoll(PGconn *conn)
+	PQconninfoOption *PQconndefaults(void)
+	PQconninfoOption *PQconninfo(PGconn *conn)
+	PQconninfoOption *PQconninfoParse(const char *conninfo, char **errmsg)
+	void PQfinish(PGconn *conn)
+	void PQreset(PGconn *conn)
+	int PQresetStart(PGconn *conn)
+	PostgresPollingStatusType PQresetPoll(PGconn *conn)
+	PGPing PQpingParams(const char **keywords,const char **values,
+		int expand_dbname)
+	PGPing PQping(const char *conninfo)
+	char *PQdb(const PGconn *conn)
+	char *PQuser(const PGconn *conn)
+	char *PQpass(const PGconn *conn)
+	char *PQhost(const PGconn *conn)
+	char *PQport(const PGconn *conn)
+	char *PQtty(const PGconn *conn)
+	char *PQoptions(const PGconn *conn)
+	ConnStatusType PQstatus(const PGconn *conn)
+	PGTransactionStatusType PQtransactionStatus(const PGconn *conn)
+	const char *PQparameterStatus(const PGconn *conn, const char *paramName)
+	int PQprotocolVersion(const PGconn *conn)
+	int PQserverVersion(const PGconn *conn)
+	char *PQerrorMessage(const PGconn *conn)
+	int PQsocket(const PGconn *conn)
+	int PQbackendPID(const PGconn *conn)
+	int PQconnectionNeedsPassword(const PGconn *conn)
+	int PQconnectionUsedPassword(const PGconn *conn)
+	int PQsslInUse(const PGconn *conn)
+	const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
+	const char **PQsslAttributeNames(const PGconn *conn)
+	void *PQsslStruct(const PGconn *conn, const char *struct_name)
+	void *PQgetssl(const PGconn *conn)
+	PGresult *PQexec(PGconn *conn, const char *command);
+	PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,
+		const Oid *paramTypes,const char **paramValues,
+		const int *paramLengths,const int *paramFormats,int resultFormat)
+	PGresult *PQprepare(PGconn *conn,const char *stmtName,
+		const char *query,int nParams,const Oid *paramTypes)
+	PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,
+		int nParams,const char **paramValues,
+		const int *paramLengths,const int *paramFormats,int resultFormat)
+	PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
+	PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
+	ExecStatusType PQresultStatus(const PGresult *res)
+	char *PQresStatus(ExecStatusType status)
+	char *PQresultErrorMessage(const PGresult *res)
+	char *PQresultErrorField(const PGresult *res, int fieldcode)
+	void PQclear(PGresult *res)
+	int PQntuples(const PGresult *res)
+	int PQnfields(const PGresult *res)
+	char *PQfname(const PGresult *res,int column_number)
+	int PQfnumber(const PGresult *res,const char *column_name)
+	Oid PQftable(const PGresult *res,int column_number)
+	int PQftablecol(const PGresult *res,int column_number)
+	int PQfformat(const PGresult *res,int column_number)
+	Oid PQftype(const PGresult *res,int column_number)
+	int PQfmod(const PGresult *res,int column_number)
+	int PQfsize(const PGresult *res,int column_number)
+	int PQbinaryTuples(const PGresult *res)
+	char *PQgetvalue(const PGresult *res,int row_number,int column_number)
+	int PQgetisnull(const PGresult *res,int row_number,int column_number)
+	int PQgetlength(const PGresult *res,int row_number,int column_number)
+	int PQnparams(const PGresult *res)
+	Oid PQparamtype(const PGresult *res, int param_number)
+	void PQprint(FILE *fout,const PGresult *res,const PQprintOpt *po)
+	char *PQcmdStatus(PGresult *res)
+	char *PQcmdTuples(PGresult *res)
+	Oid PQoidValue(const PGresult *res)
+	char *PQoidStatus(const PGresult *res)
+	char *PQescapeLiteral(PGconn *conn, const char *str, size_t length)
+	char *PQescapeIdentifier(PGconn *conn, const char *str, size_t length)
+	size_t PQescapeStringConn(PGconn *conn,char *to, 
+		const char *from, size_t length,int *error)
+	size_t PQescapeString(char *to, const char *from, size_t length)
+	unsigned char *PQescapeByteaConn(PGconn *conn,
+		const unsigned char *from,size_t from_length,size_t *to_length)
+	unsigned char *PQescapeBytea(const unsigned char *from,
+		size_t from_length,size_t *to_length)
+	unsigned char *PQunescapeBytea(const unsigned char *from, size_t *to_length)
+	int PQsendQuery(PGconn *conn, const char *command)
+	int PQsendQueryParams(PGconn *conn,const char *command,
+		int nParams,const Oid *paramTypes,const char **paramValues,
+		const int *paramLengths,const int *paramFormats,int resultFormat)
+	int PQsendPrepare(PGconn *conn,const char *stmtName,
+		const char *query,int nParams,const Oid *paramTypes)
+	int PQsendQueryPrepared(PGconn *conn,const char *stmtName,
+		int nParams,const char **paramValues,
+		const int *paramLengths,const int *paramFormats,int resultFormat)
+	int PQsendDescribePrepared(PGconn *conn, const char *stmtName)
+	int PQsendDescribePortal(PGconn *conn, const char *portalName)
+	PGresult *PQgetResult(PGconn *conn)
+	int PQconsumeInput(PGconn *conn)
+	int PQisBusy(PGconn *conn)
+	int PQsetnonblocking(PGconn *conn, int arg)
+	int PQisnonblocking(const PGconn *conn)
+	int PQflush(PGconn *conn)
+	int PQsetSingleRowMode(PGconn *conn)
+	PGcancel *PQgetCancel(PGconn *conn)
+	void PQfreeCancel(PGcancel *cancel)
+	int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
+	int PQrequestCancel(PGconn *conn)
+	PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,
+		int *result_len,int result_is_int,const PQArgBlock *args,int nargs)
+	PGnotify *PQnotifies(PGconn *conn)
+	int PQputCopyData(PGconn *conn,const char *buffer,int nbytes)
+	int PQputCopyEnd(PGconn *conn,const char *errormsg)
+	int PQgetCopyData(PGconn *conn,char **buffer,int async)
+	int PQgetline(PGconn *conn,char *buffer,int length)
+	int PQgetlineAsync(PGconn *conn,char *buffer,int bufsize)
+	int PQputline(PGconn *conn,const char *string)
+	int PQputnbytes(PGconn *conn,const char *buffer,int nbytes)
+	int PQendcopy(PGconn *conn)
+	int PQclientEncoding(const PGconn *conn)
+	char *pg_encoding_to_char(int encoding_id)
+	int PQsetClientEncoding(PGconn *conn, const char *encoding)
+	void PQtrace(PGconn *conn, FILE *stream)
+	void PQuntrace(PGconn *conn)
+	void PQfreemem(void *ptr)
+	void PQconninfoFree(PQconninfoOption *connOptions)
+	char *PQencryptPasswordConn(PGconn *conn, const char *passwd,
+		 const char *user, const char *algorithm)
+	char *PQencryptPassword(const char *passwd, const char *user)
+	PGresult *PQmakeEmptyPGresult(PGconn *conn, ExecStatusType status)
+	int PQfireResultCreateEvents(PGconn *conn, PGresult *res)
+	PGresult *PQcopyResult(const PGresult *src, int flags)
+	int PQsetResultAttrs(PGresult *res, int numAttributes, PGresAttDesc *attDescs)
+	int PQsetvalue(PGresult *res, int tup_num, int field_num, 
+			char *value, int len)
+	void *PQresultAlloc(PGresult *res, size_t nBytes)
+	int PQlibVersion(void)
+	PQnoticeReceiver PQsetNoticeReceiver(PGconn *conn,
+			PQnoticeReceiver proc,void *arg)
+	PQnoticeProcessor PQsetNoticeProcessor(PGconn *conn,
+			PQnoticeProcessor proc,void *arg)
+	void PQinitOpenSSL(int do_ssl, int do_crypto)
+	void PQinitSSL(int do_ssl)
+	int PQisthreadsafe(void)

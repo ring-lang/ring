@@ -284,6 +284,7 @@ We can return values from our function using the next functions.
 	RING_API_RETSTRING2(const char *cString,int nStringSize);
 	RING_API_RETLIST(List *pList);
 	RING_API_RETCPOINTER(void *pValue,const char *cPointerType);
+	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
 
 .. index:: 
 	pair: Extension; Function Prototype
@@ -637,6 +638,80 @@ Output:
 	Message from dlfunc
 
 
+.. index:: 
+	pair: Extension; Using RING_API_RETMANAGEDCPOINTER()
 
+Using RING_API_RETMANAGEDCPOINTER()
+===================================
 
+Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.
+
+This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.
+
+Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.
+
+Syntax:
+
+.. code-block:: ring
+
+		RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
+
+Example:
+
+The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.
+
+.. code-block:: none
+
+	RING_FUNC(ring_QPixmap_scaled)
+	{
+		QPixmap *pObject ;
+		if ( RING_API_PARACOUNT != 5 ) {
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return ;
+		}
+		RING_API_IGNORECPOINTERTYPE ;
+		if ( ! RING_API_ISPOINTER(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+		if ( ! RING_API_ISNUMBER(2) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(3) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(4) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(5) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		{
+			QPixmap *pValue ; 
+			pValue = new QPixmap() ;
+			*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),
+				 (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(4),
+				 (Qt::TransformationMode )  (int) RING_API_GETNUMBER(5));
+			RING_API_RETMANAGEDCPOINTER(pValue,"QPixmap",ring_QPixmap_freefunc);
+		}
+	}
+
+The function that will free the memory takes two parameters (Ring State and the allocated Memory Pointer)
+
+Example:
+
+.. code-block:: none
+
+	void ring_QPixmap_freefunc(void *pState,void *pPointer)
+	{
+		QPixmap *pObject ; 
+		pObject = (QPixmap *) pPointer;
+		delete pObject ;
+	}
 

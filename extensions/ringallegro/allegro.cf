@@ -44,9 +44,12 @@ aEnumTypes + "GLclampf"
 
 
 aNumberTypes + "unsigned int"
+aNumberTypes + "float"
 
 aEnumTypes + "ALLEGRO_AUDIO_DEPTH"
 aEnumTypes + "ALLEGRO_CHANNEL_CONF"
+
+aEnumTypes + "ALLEGRO_JOYFLAGS"
 
 </runcode>
 
@@ -55,10 +58,11 @@ al
 </funcstart>
 
 <struct>
-ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y }
+ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y , ALLEGRO_TIMER *timer.source , ALLEGRO_JOYSTICK *joystick.id , joystick.stick, joystick.axis, joystick.pos , joystick.button}
 ALLEGRO_TIMEOUT
 ALLEGRO_SAMPLE_ID
 ALLEGRO_COLOR
+ALLEGRO_JOYSTICK_STATE
 </struct>
 
 <register>
@@ -1010,3 +1014,33 @@ void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl)
 void al_draw_soft_triangle(ALLEGRO_VERTEX* v1, ALLEGRO_VERTEX* v2, ALLEGRO_VERTEX* v3, uintptr_t state,void (*init)(uintptr_t, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*),void (*first)(uintptr_t, int, int, int, int),void (*step)(uintptr_t, int),void (*draw)(uintptr_t, int, int, int))
 void al_draw_soft_line(ALLEGRO_VERTEX* v1, ALLEGRO_VERTEX* v2, uintptr_t state,   void (*first)(uintptr_t, int, int, ALLEGRO_VERTEX*, ALLEGRO_VERTEX*),   void (*step)(uintptr_t, int), void (*draw)(uintptr_t, int, int))
 </comment>
+
+<comment>
+Shader
+</comment>
+
+<runcode>
+aEnumTypes + "ALLEGRO_SHADER_TYPE"
+aEnumTypes + "ALLEGRO_SHADER_PLATFORM"
+</runcode>
+
+<filter> isWindows() or ismacOSX()
+
+ALLEGRO_SHADER *al_create_shader(ALLEGRO_SHADER_PLATFORM platform)
+bool al_attach_shader_source(ALLEGRO_SHADER *shader, ALLEGRO_SHADER_TYPE type,const char *source)
+bool al_attach_shader_source_file(ALLEGRO_SHADER *shader,ALLEGRO_SHADER_TYPE type, const char *filename)
+bool al_build_shader(ALLEGRO_SHADER *shader)
+const char *al_get_shader_log(ALLEGRO_SHADER *shader)
+ALLEGRO_SHADER_PLATFORM al_get_shader_platform(ALLEGRO_SHADER *shader)
+bool al_use_shader(ALLEGRO_SHADER *shader)
+void al_destroy_shader(ALLEGRO_SHADER *shader)
+bool al_set_shader_sampler(const char *name,ALLEGRO_BITMAP *bitmap, int unit)
+bool al_set_shader_matrix(const char *name,const ALLEGRO_TRANSFORM *matrix)
+bool al_set_shader_int(const char *name, int i)
+bool al_set_shader_float(const char *name, float f)
+bool al_set_shader_bool(const char *name, bool b)
+bool al_set_shader_int_vector(const char *name,int num_components, const int *i, int num_elems)
+bool al_set_shader_float_vector(const char *name,int num_components, const float *f, int num_elems)
+char const *al_get_default_shader_source(ALLEGRO_SHADER_PLATFORM platform,ALLEGRO_SHADER_TYPE type)
+
+</filter>

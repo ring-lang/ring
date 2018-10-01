@@ -3,7 +3,7 @@
 # Date : 14/06/2018
 # Time : 17:16:10
 
-Load "stdlib.ring"
+Load "stdlibcore.ring"
 Load "guilib.ring"
 
 import System.GUI

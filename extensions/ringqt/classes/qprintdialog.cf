@@ -1,0 +1,19 @@
+<class>
+name: QPrintDialog
+para: QPrinter *,QWidget *
+parent:  QAbstractPrintDialog
+codename: GQPrintDialog
+passvmpointer
+</class>
+
+
+void open(QObject * receiver, char * member)
+PrintDialogOptions options(void)
+QPrinter * printer(void)
+void setOption(PrintDialogOption option, bool on)
+void setOptions(PrintDialogOptions options)
+bool testOption(PrintDialogOption option)
+
+void setacceptedEvent(const char *)
+
+const char *getacceptedEvent(void)

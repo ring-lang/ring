@@ -108,12 +108,16 @@
 					'<img src="findinfiles.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/string2constant" target="_blank">String2Constant</a>',
+					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/string2constant" target="_blank">String To Constant</a>',
 					'<img src="string2constant.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">StopWatch</a>',
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
 					'<img src="stopwatch.png" width="40%">'
+				],
+				[
+					'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
+					'<img src="goldmagic800.png" width="40%">'
 				]
 			    ]
                  ],

@@ -79,6 +79,19 @@ Step 2:
 When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.
 
 .. index:: 
+	pair: Distributing Ring Application; The files ring.ring and ring.ringo
+
+The files ring.ring and ring.ringo
+==================================
+
+Ring will run ring.ring or ring.ringo only when
+
+(1) The file exist in the current directory
+(2) No file is passed to (ring.exe) to execute
+
+We added the support to ring.ring (and ring.ringo) for a way to distribute Ring apps (before Ring2EXE)
+
+.. index:: 
 	pair: Distributing Ring Application; Creating Windows Installer
 
 Creating Windows Installer
