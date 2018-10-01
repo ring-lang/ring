@@ -29,7 +29,7 @@ class GameBase
 		lGraphicsMode	 = ALLEGRO_WINDOWED
 	ok
 
-	lClearScreen = False
+	lClearScreen = True
 
 	bitmapScreen2D
 	SCREEN_W_2D	= 1920 
@@ -270,6 +270,8 @@ class GameBase
 
 		if lClearScreen
 			al_clear_to_color(al_map_rgb(0,0,0))
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+			glLoadIdentity()
 		ok
 		redraw = false
 		lFlipDisplay = True 
