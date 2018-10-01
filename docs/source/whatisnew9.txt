@@ -569,9 +569,10 @@ More Improvements
 (19) More samples are added to ring/samples/other folder.
 (20) Ring Notepad - Find Previous Feature.
 (21) Game Engine for 2D Games - Text Class - Check the font object before usage.
-(22) Game Engine for 2D Games - Automatic support for Joystick
-(23) New Function : IsPointer()
+(22) Game Engine for 2D Games - Automatic support for Joystick.
+(23) New Function : IsPointer().
 (24) IsList() will not return True for C Pointers, we have now the IsPointer() function. 
 (25) Scripts to run Ring tests on Linux and macOS (Not only Windows).
 (26) The ? Operator is updated to respect the ringvm_see() function.
-(27) Ring Notepad - Default Style 
+(27) Ring Notepad - Default Style. 
+(28) Ring VM - Better Error Message.
