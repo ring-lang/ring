@@ -1148,7 +1148,8 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			lFunctionCall = 1 ;
 		}
 		else {
-			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+			printf( "In %s() ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+			lFunctionCall = 1 ;
 		}
 	}
 	if ( lFunctionCall ) {
