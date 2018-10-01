@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-19
-94
-75
+16
+103
+87
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 1159
+Time 1322
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-01184338
+01856338
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 17/09/2018
-time: 06:58:41
+date: 01/10/2018
+time: 22:52:19
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3143,7 +3143,7 @@ eval Line (1) Syntax error
 eval errors count : 1 
 
 Line 11 Error in eval! 
-In eval in file scripts/dotcrash.ring 
+In eval() in file scripts/dotcrash.ring 
 B:\ring\tests>call ring scripts/braceinlist.ring 
 
 scripts/braceinlist.ring Line (22) Error (C7) : Error in list items
@@ -3182,7 +3182,7 @@ wow
 B:\ring\tests>call ring scripts/equalobjobj.ring 
 
 Line 13 Object does not support operator overloading 
-In raise in file scripts/equalobjobj.ring 
+In raise() in file scripts/equalobjobj.ring 
 B:\ring\tests>call ring scripts/nullpointer.ring 
 
 B:\ring\tests>call ring scripts/ptrcmp2.ring 
