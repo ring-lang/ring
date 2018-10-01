@@ -124,7 +124,6 @@ class GameCamera
 
 		glClearColor(0.0, 0.0, 0.0, 0.0)
 		glClearDepth(1)			
-
 		glClear( GL_DEPTH_BUFFER_BIT)	 
 
 		glLoadIdentity()									

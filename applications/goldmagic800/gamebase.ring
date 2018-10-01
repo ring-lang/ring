@@ -211,9 +211,6 @@ class GameBase
 					# Left  (Axis = 0 , Pos = -1)
 					# Up    (Axis = 1 , Pos = -1)
 					# Down  (Axis = 1 , Pos = 1)
-					//? "AXIS Event"
-					//? "AXIS : " + al_get_allegro_event_joystick_axis(ev)
-					//? "Pos  : " + al_get_allegro_event_joystick_pos(ev)
 					nAxis = al_get_allegro_event_joystick_axis(ev)
 					nPos  = al_get_allegro_event_joystick_pos(ev)
 					if nAxis = 0
@@ -236,7 +233,6 @@ class GameBase
 						ok
 					ok
 				on ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN
-					//? "Joystick Button Down : " + al_get_allegro_event_joystick_button(ev)
 					nJoyStickButton = al_get_allegro_event_joystick_button(ev)
 					switch nJoyStickButton
 					on 1 
@@ -247,7 +243,6 @@ class GameBase
 						Key[KEY_ESCAPE]	= True
 					off
 				on ALLEGRO_EVENT_JOYSTICK_BUTTON_UP
-					//? "Joystick Button Up : " + al_get_allegro_event_joystick_button(ev)
 					nJoyStickButton = al_get_allegro_event_joystick_button(ev)
 					switch nJoyStickButton
 					on 1 
@@ -273,6 +268,9 @@ class GameBase
 
 	func FrameOperations
 
+		if lClearScreen
+			al_clear_to_color(al_map_rgb(0,0,0))
+		ok
 		redraw = false
 		lFlipDisplay = True 
 		PlaySound()
