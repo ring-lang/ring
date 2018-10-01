@@ -60,9 +60,9 @@ All of this will be deleted directly after the end of the function call (end of 
 
 2.3 Use callgc() function (delete temp. lists only)
 
-(3) Ring garbage collection uses Escape Analysis and Reference Counting
+(3) Ring Garbage Collector uses Escape Analysis and Reference Counting
 
-In 90% of cases, the escape analysis is used so we don't waste time in running the garbage collection
+In 90% of cases, the Escape Analysis is used so we don't waste time in running the garbage collector
 We directly know what will be deleted and what will remain in the memory.
 
 https://en.wikipedia.org/wiki/Escape_analysis
@@ -70,14 +70,14 @@ https://en.wikipedia.org/wiki/Escape_analysis
 In 10% of cases (or less than that) Ring may use Reference Counting.
 
 For example when we pass a list and sub list to a function
-Ring will pass the lists by reference, but what will happens if we deleted the parent list?
-In this case, the sub list will use Reference Counting, and when deleting the parent list, it will stay in memory until the end of the called function.
+Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
+In this case, the Sub List will use reference counting, and when deleting the Parent List, it will stay in memory until the end of the function.
 
 Remember that Ring encourage us to avoid using references, and the
-assignment operator will copy lists by value, so Ring usage of reference counting is
-very limited to special cases and in most cases Escape Analysis is enough which is very fast.
+Assignment Operator will copy lists by value, so Ring usage of reference counting is
+very limited to special cases and in most cases the Escape Analysis is enough which is very fast.
 
-Starting from Ring 1.9 we extended the reference counting support to Ring Extensions and low level C pointers.
+Starting from Ring 1.9 we extended the Reference Counting support to Ring Extensions and low level C pointers.
 So we don't have to care about using fclose() when we use fopen() for example. and the same for
 other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.
 
