@@ -2987,6 +2987,21 @@ Class QString2
 	Func append P1
 		return QString2_append(pObject,P1)
 
+	Func toUtf8 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QString2_toUtf8(pObject)
+		return pTempObj
+
+	Func toLatin1 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QString2_toLatin1(pObject)
+		return pTempObj
+
+	Func toLocal8Bit 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QString2_toLocal8Bit(pObject)
+		return pTempObj
+
 	Func split P1,P2,P3
 		pTempObj = new QStringList
 		pTempObj.pObject = QString2_split(pObject,P1,P2,P3)
