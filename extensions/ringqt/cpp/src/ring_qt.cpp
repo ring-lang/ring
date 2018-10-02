@@ -285,6 +285,9 @@ extern "C" {
 #include <QPrintDialog>
 #include "gprintdialog.h"
 
+#include <QTextStream>
+
+
 #include <QQuickWidget>
 #include <QQmlError>
 #include "gquickwidget.h"
@@ -393,6 +396,11 @@ extern "C" {
 	void ring_QMimeData_freefunc(void *pState,void *pPointer);
 	void ring_QChar_freefunc(void *pState,void *pPointer);
 	void ring_QChildEvent_freefunc(void *pState,void *pPointer);
+	void ring_QTextStream_freefunc(void *pState,void *pPointer);
+	void ring_QTextStream2_freefunc(void *pState,void *pPointer);
+	void ring_QTextStream3_freefunc(void *pState,void *pPointer);
+	void ring_QTextStream4_freefunc(void *pState,void *pPointer);
+	void ring_QTextStream5_freefunc(void *pState,void *pPointer);
 	void ring_QDesktopServices_freefunc(void *pState,void *pPointer);
 	void ring_QBitmap_freefunc(void *pState,void *pPointer);
 	void ring_QPixmap_freefunc(void *pState,void *pPointer);
@@ -22101,6 +22109,776 @@ RING_FUNC(ring_QChildEvent_removed)
 	}
 	pObject = (QChildEvent *) RING_API_GETCPOINTER(1,"QChildEvent");
 	RING_API_RETNUMBER(pObject->removed());
+}
+
+
+RING_FUNC(ring_QTextStream_atEnd)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->atEnd());
+}
+
+
+RING_FUNC(ring_QTextStream_autoDetectUnicode)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->autoDetectUnicode());
+}
+
+
+RING_FUNC(ring_QTextStream_codec)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETCPOINTER(pObject->codec(),"QTextCodec");
+}
+
+
+RING_FUNC(ring_QTextStream_device)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETCPOINTER(pObject->device(),"QIODevice");
+}
+
+
+RING_FUNC(ring_QTextStream_fieldAlignment)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->fieldAlignment());
+}
+
+
+RING_FUNC(ring_QTextStream_fieldWidth)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->fieldWidth());
+}
+
+
+RING_FUNC(ring_QTextStream_flush)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->flush();
+}
+
+
+RING_FUNC(ring_QTextStream_generateByteOrderMark)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->generateByteOrderMark());
+}
+
+
+RING_FUNC(ring_QTextStream_integerBase)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->integerBase());
+}
+
+
+RING_FUNC(ring_QTextStream_locale)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	{
+		QLocale *pValue ; 
+		pValue = (QLocale *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLocale)) ;
+		*pValue = pObject->locale();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLocale",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QTextStream_numberFlags)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->numberFlags());
+}
+
+
+RING_FUNC(ring_QTextStream_padChar)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	{
+		QChar *pValue ; 
+		pValue = new QChar() ;
+		*pValue = pObject->padChar();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QChar",ring_QChar_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QTextStream_pos)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->pos());
+}
+
+
+RING_FUNC(ring_QTextStream_read)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->read( (qint64 ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextStream_readAll)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETSTRING(pObject->readAll().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextStream_readLine)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->readLine( (qint64 ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextStream_readLineInto)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->readLineInto((QString *) RING_API_GETCPOINTER(2,"QString"), (qint64 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QTextStream_realNumberNotation)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->realNumberNotation());
+}
+
+
+RING_FUNC(ring_QTextStream_realNumberPrecision)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->realNumberPrecision());
+}
+
+
+RING_FUNC(ring_QTextStream_reset)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->reset();
+}
+
+
+RING_FUNC(ring_QTextStream_resetStatus)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->resetStatus();
+}
+
+
+RING_FUNC(ring_QTextStream_seek)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->seek( (qint64 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTextStream_setAutoDetectUnicode)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAutoDetectUnicode( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setCodec)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCodec((QTextCodec *) RING_API_GETCPOINTER(2,"QTextCodec"));
+}
+
+
+RING_FUNC(ring_QTextStream_setCodec_2)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCodec(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setDevice)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDevice((QIODevice *) RING_API_GETCPOINTER(2,"QIODevice"));
+}
+
+
+RING_FUNC(ring_QTextStream_setFieldAlignment)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFieldAlignment( (QTextStream::FieldAlignment )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setFieldWidth)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFieldWidth( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setGenerateByteOrderMark)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setGenerateByteOrderMark( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setIntegerBase)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setIntegerBase( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setLocale)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->setLocale(* (QLocale  *) RING_API_GETCPOINTER(2,"QLocale"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLocale"));
+}
+
+
+RING_FUNC(ring_QTextStream_setNumberFlags)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNumberFlags( (QTextStream::NumberFlags )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setPadChar)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->setPadChar(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
+}
+
+
+RING_FUNC(ring_QTextStream_setRealNumberNotation)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRealNumberNotation( (QTextStream::RealNumberNotation )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setRealNumberPrecision)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRealNumberPrecision( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setStatus)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setStatus( (QTextStream::Status )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextStream_setString)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setString((QString *) RING_API_GETCPOINTER(2,"QString"), (QIODevice::OpenMode )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTextStream_skipWhiteSpace)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	pObject->skipWhiteSpace();
+}
+
+
+RING_FUNC(ring_QTextStream_status)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETNUMBER(pObject->status());
+}
+
+
+RING_FUNC(ring_QTextStream_string)
+{
+	QTextStream *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+	RING_API_RETCPOINTER(pObject->string(),"QString");
 }
 
 
@@ -134251,6 +135029,89 @@ RING_FUNC(ring_QChildEvent_new)
 	RING_API_RETCPOINTER(pObject,"QChildEvent");
 }
 
+RING_FUNC(ring_QTextStream_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QTextStream *pObject = new QTextStream();
+	RING_API_RETCPOINTER(pObject,"QTextStream");
+}
+
+RING_FUNC(ring_QTextStream2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QTextStream *pObject = new QTextStream((QIODevice *) RING_API_GETCPOINTER(1,"QIODevice"));
+	RING_API_RETCPOINTER(pObject,"QTextStream2");
+}
+
+RING_FUNC(ring_QTextStream3_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QTextStream *pObject = new QTextStream((FILE *) RING_API_GETCPOINTER(1,"FILE"), (QIODevice::OpenMode)  (int) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QTextStream3");
+}
+
+RING_FUNC(ring_QTextStream4_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QTextStream *pObject = new QTextStream((QString *) RING_API_GETCPOINTER(1,"QString"), (QIODevice::OpenMode)  (int) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QTextStream4");
+}
+
+RING_FUNC(ring_QTextStream5_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QTextStream *pObject = new QTextStream((QByteArray *) RING_API_GETCPOINTER(1,"QByteArray"), (QIODevice::OpenMode)  (int) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QTextStream5");
+}
+
 RING_FUNC(ring_QBitmap_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -137656,6 +138517,91 @@ RING_FUNC(ring_QChildEvent_delete)
 	}
 }
 
+RING_FUNC(ring_QTextStream_delete)
+{
+	QTextStream *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QTextStream2_delete)
+{
+	QTextStream *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QTextStream3_delete)
+{
+	QTextStream *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QTextStream4_delete)
+{
+	QTextStream *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QTextStream5_delete)
+{
+	QTextStream *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QBitmap_delete)
 {
 	QBitmap *pObject ; 
@@ -140947,6 +141893,41 @@ void ring_QChildEvent_freefunc(void *pState,void *pPointer)
 	delete pObject ;
 }
 
+void ring_QTextStream_freefunc(void *pState,void *pPointer)
+{
+	QTextStream *pObject ; 
+	pObject = (QTextStream *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTextStream2_freefunc(void *pState,void *pPointer)
+{
+	QTextStream *pObject ; 
+	pObject = (QTextStream *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTextStream3_freefunc(void *pState,void *pPointer)
+{
+	QTextStream *pObject ; 
+	pObject = (QTextStream *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTextStream4_freefunc(void *pState,void *pPointer)
+{
+	QTextStream *pObject ; 
+	pObject = (QTextStream *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTextStream5_freefunc(void *pState,void *pPointer)
+{
+	QTextStream *pObject ; 
+	pObject = (QTextStream *) pPointer;
+	delete pObject ;
+}
+
 void ring_QBitmap_freefunc(void *pState,void *pPointer)
 {
 	QBitmap *pObject ; 
@@ -143203,6 +144184,46 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchildevent_child",ring_QChildEvent_child);
 	ring_vm_funcregister("qchildevent_polished",ring_QChildEvent_polished);
 	ring_vm_funcregister("qchildevent_removed",ring_QChildEvent_removed);
+	ring_vm_funcregister("qtextstream_atend",ring_QTextStream_atEnd);
+	ring_vm_funcregister("qtextstream_autodetectunicode",ring_QTextStream_autoDetectUnicode);
+	ring_vm_funcregister("qtextstream_codec",ring_QTextStream_codec);
+	ring_vm_funcregister("qtextstream_device",ring_QTextStream_device);
+	ring_vm_funcregister("qtextstream_fieldalignment",ring_QTextStream_fieldAlignment);
+	ring_vm_funcregister("qtextstream_fieldwidth",ring_QTextStream_fieldWidth);
+	ring_vm_funcregister("qtextstream_flush",ring_QTextStream_flush);
+	ring_vm_funcregister("qtextstream_generatebyteordermark",ring_QTextStream_generateByteOrderMark);
+	ring_vm_funcregister("qtextstream_integerbase",ring_QTextStream_integerBase);
+	ring_vm_funcregister("qtextstream_locale",ring_QTextStream_locale);
+	ring_vm_funcregister("qtextstream_numberflags",ring_QTextStream_numberFlags);
+	ring_vm_funcregister("qtextstream_padchar",ring_QTextStream_padChar);
+	ring_vm_funcregister("qtextstream_pos",ring_QTextStream_pos);
+	ring_vm_funcregister("qtextstream_read",ring_QTextStream_read);
+	ring_vm_funcregister("qtextstream_readall",ring_QTextStream_readAll);
+	ring_vm_funcregister("qtextstream_readline",ring_QTextStream_readLine);
+	ring_vm_funcregister("qtextstream_readlineinto",ring_QTextStream_readLineInto);
+	ring_vm_funcregister("qtextstream_realnumbernotation",ring_QTextStream_realNumberNotation);
+	ring_vm_funcregister("qtextstream_realnumberprecision",ring_QTextStream_realNumberPrecision);
+	ring_vm_funcregister("qtextstream_reset",ring_QTextStream_reset);
+	ring_vm_funcregister("qtextstream_resetstatus",ring_QTextStream_resetStatus);
+	ring_vm_funcregister("qtextstream_seek",ring_QTextStream_seek);
+	ring_vm_funcregister("qtextstream_setautodetectunicode",ring_QTextStream_setAutoDetectUnicode);
+	ring_vm_funcregister("qtextstream_setcodec",ring_QTextStream_setCodec);
+	ring_vm_funcregister("qtextstream_setcodec_2",ring_QTextStream_setCodec_2);
+	ring_vm_funcregister("qtextstream_setdevice",ring_QTextStream_setDevice);
+	ring_vm_funcregister("qtextstream_setfieldalignment",ring_QTextStream_setFieldAlignment);
+	ring_vm_funcregister("qtextstream_setfieldwidth",ring_QTextStream_setFieldWidth);
+	ring_vm_funcregister("qtextstream_setgeneratebyteordermark",ring_QTextStream_setGenerateByteOrderMark);
+	ring_vm_funcregister("qtextstream_setintegerbase",ring_QTextStream_setIntegerBase);
+	ring_vm_funcregister("qtextstream_setlocale",ring_QTextStream_setLocale);
+	ring_vm_funcregister("qtextstream_setnumberflags",ring_QTextStream_setNumberFlags);
+	ring_vm_funcregister("qtextstream_setpadchar",ring_QTextStream_setPadChar);
+	ring_vm_funcregister("qtextstream_setrealnumbernotation",ring_QTextStream_setRealNumberNotation);
+	ring_vm_funcregister("qtextstream_setrealnumberprecision",ring_QTextStream_setRealNumberPrecision);
+	ring_vm_funcregister("qtextstream_setstatus",ring_QTextStream_setStatus);
+	ring_vm_funcregister("qtextstream_setstring",ring_QTextStream_setString);
+	ring_vm_funcregister("qtextstream_skipwhitespace",ring_QTextStream_skipWhiteSpace);
+	ring_vm_funcregister("qtextstream_status",ring_QTextStream_status);
+	ring_vm_funcregister("qtextstream_string",ring_QTextStream_string);
 	ring_vm_funcregister("qdesktopservices_openurl",ring_QDesktopServices_openUrl);
 	ring_vm_funcregister("qdesktopservices_seturlhandler",ring_QDesktopServices_setUrlHandler);
 	ring_vm_funcregister("qdesktopservices_unseturlhandler",ring_QDesktopServices_unsetUrlHandler);
@@ -148550,6 +149571,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmimedata_new",ring_QMimeData_new);
 	ring_vm_funcregister("qchar_new",ring_QChar_new);
 	ring_vm_funcregister("qchildevent_new",ring_QChildEvent_new);
+	ring_vm_funcregister("qtextstream_new",ring_QTextStream_new);
+	ring_vm_funcregister("qtextstream2_new",ring_QTextStream2_new);
+	ring_vm_funcregister("qtextstream3_new",ring_QTextStream3_new);
+	ring_vm_funcregister("qtextstream4_new",ring_QTextStream4_new);
+	ring_vm_funcregister("qtextstream5_new",ring_QTextStream5_new);
 	ring_vm_funcregister("qbitmap_new",ring_QBitmap_new);
 	ring_vm_funcregister("qpixmap_new",ring_QPixmap_new);
 	ring_vm_funcregister("qpixmap2_new",ring_QPixmap2_new);
@@ -148773,6 +149799,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmimedata_delete",ring_QMimeData_delete);
 	ring_vm_funcregister("qchar_delete",ring_QChar_delete);
 	ring_vm_funcregister("qchildevent_delete",ring_QChildEvent_delete);
+	ring_vm_funcregister("qtextstream_delete",ring_QTextStream_delete);
+	ring_vm_funcregister("qtextstream2_delete",ring_QTextStream2_delete);
+	ring_vm_funcregister("qtextstream3_delete",ring_QTextStream3_delete);
+	ring_vm_funcregister("qtextstream4_delete",ring_QTextStream4_delete);
+	ring_vm_funcregister("qtextstream5_delete",ring_QTextStream5_delete);
 	ring_vm_funcregister("qbitmap_delete",ring_QBitmap_delete);
 	ring_vm_funcregister("qpixmap_delete",ring_QPixmap_delete);
 	ring_vm_funcregister("qpixmap2_delete",ring_QPixmap2_delete);
