@@ -14,6 +14,8 @@ Class RNoteTreeViewEvents
 		if ofile.isdir(oItem)
 			return
 		ok
+		# Save the old file 
+			cOldActiveFileName = cActiveFileName
 		# Open Form Designer File 
 		lActivateFormDesigner = False
 		if right(ofile.filepath(oItem),6) = ".rform"
@@ -36,7 +38,13 @@ Class RNoteTreeViewEvents
 		ok
 		# We get nLine before using textedit1.settext() to get the value before aFilesLines update
 			nLine =  aFilesLines[cActiveFileName]
-		textedit1.setPlaintext(read(cActiveFileName))
+		try 
+			textedit1.setPlaintext(read(cActiveFileName))
+		catch 
+			msginfo("Sorry","Can't open the file " + cActiveFileName)
+			cActiveFileName = cOldActiveFileName
+			return 
+		end 
 		textedit1.setfocus(0)
 		CursorPositionChanged()
 		SetActiveFileName()

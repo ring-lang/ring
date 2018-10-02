@@ -36,9 +36,13 @@ Class RNoteFileMenu
 		}
 
 	func OpenFile cName
-		cActiveFileName = cName
-		textedit1.setPlaintext(read(this.cActiveFileName))
-		SetActiveFileName()
+		try
+			textedit1.setPlaintext(read(cName))
+			cActiveFileName = cName
+			SetActiveFileName()
+		catch 
+			msginfo("Sorry","Can't open the file : " + cName)
+		done
 
 	func Save
 		if cActiveFileName = NULL return SaveAs() ok
