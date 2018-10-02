@@ -8416,6 +8416,123 @@ Parent Class : QAbstractScrollArea
 * void setactivelinecolor(QColor)
 
 .. index::
+	pair: RingQt Classes Reference; QTextStream Class
+
+QTextStream Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextStream.html
+
+
+Parameters : void
+
+* bool atEnd(void)
+* bool autoDetectUnicode(void)
+* QTextCodec * codec(void)
+* QIODevice * device(void)
+* QTextStream::FieldAlignment fieldAlignment(void)
+* int fieldWidth(void)
+* void flush(void)
+* bool generateByteOrderMark(void)
+* int integerBase(void)
+* QLocale locale(void)
+* QTextStream::NumberFlags numberFlags(void)
+* QChar padChar(void)
+* qint64 pos(void)
+* QString read(qint64 maxlen)
+* QString readAll(void)
+* QString readLine(qint64 maxlen)
+* bool readLineInto(QString * line, qint64 maxlen)
+* QTextStream::RealNumberNotation realNumberNotation(void)
+* int realNumberPrecision(void)
+* void reset(void)
+* void resetStatus(void)
+* bool seek(qint64 pos)
+* void setAutoDetectUnicode(bool enabled)
+* void setCodec(QTextCodec * codec)
+* void setCodec_2(char * codecName)
+* void setDevice(QIODevice * device)
+* void setFieldAlignment(QTextStream::FieldAlignment mode)
+* void setFieldWidth(int width)
+* void setGenerateByteOrderMark(bool generate)
+* void setIntegerBase(int base)
+* void setLocale(QLocale locale)
+* void setNumberFlags(QTextStream::NumberFlags flags)
+* void setPadChar(QChar ch)
+* void setRealNumberNotation(QTextStream::RealNumberNotation notation)
+* void setRealNumberPrecision(int precision)
+* void setStatus(QTextStream::Status status)
+* void setString(QString * string, QIODevice::OpenMode openMode)
+* void skipWhiteSpace(void)
+* QTextStream::Status status(void)
+* QString * string(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTextStream2 Class
+
+QTextStream2 Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextStream2.html
+
+
+Parameters : QIODevice * device
+
+
+Parent Class : QTextStream
+
+
+.. index::
+	pair: RingQt Classes Reference; QTextStream3 Class
+
+QTextStream3 Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextStream3.html
+
+
+Parameters : FILE * fileHandle, QIODevice::OpenMode
+
+
+Parent Class : QTextStream
+
+
+.. index::
+	pair: RingQt Classes Reference; QTextStream4 Class
+
+QTextStream4 Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextStream4.html
+
+
+Parameters : QString *, QIODevice::OpenMode
+
+
+Parent Class : QTextStream
+
+
+.. index::
+	pair: RingQt Classes Reference; QTextStream5 Class
+
+QTextStream5 Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextStream5.html
+
+
+Parameters : QByteArray *, QIODevice::OpenMode
+
+
+Parent Class : QTextStream
+
+
+.. index::
 	pair: RingQt Classes Reference; QThread Class
 
 QThread Class
