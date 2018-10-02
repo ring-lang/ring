@@ -1,0 +1,6 @@
+<class>
+name: QTextStream4
+para: QString *, QIODevice::OpenMode
+parent: QTextStream
+codename: QTextStream
+</class>
