@@ -2478,6 +2478,7 @@ Parent Class : QFileDevice
 * bool link(QString linkName)
 * bool open(FILE *fh, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
 * bool open_2(int fd, QIODevice::OpenMode mode, QFile::FileHandleFlags handleFlags)
+* bool open_3(QIODevice::OpenMode mode)
 * bool remove(void)
 * bool rename(QString newName)
 * void setFileName(QString name)
@@ -2494,6 +2495,22 @@ Parent Class : QFileDevice
 * bool resize(QString fileName, qint64 sz)
 * bool setPermissions(QString fileName, QFile::Permissions permissions)
 * QString symLinkTarget_2(QString fileName)
+
+.. index::
+	pair: RingQt Classes Reference; QFile2 Class
+
+QFile2 Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFile2.html
+
+
+Parameters : QString
+
+
+Parent Class : QFile
+
 
 .. index::
 	pair: RingQt Classes Reference; QFileDevice Class
