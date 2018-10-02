@@ -22402,31 +22402,6 @@ RING_FUNC(ring_QTextStream_readLine)
 }
 
 
-RING_FUNC(ring_QTextStream_readLineInto)
-{
-	QTextStream *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QTextStream *) RING_API_GETCPOINTER(1,"QTextStream");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->readLineInto((QString *) RING_API_GETCPOINTER(2,"QString"), (qint64 ) RING_API_GETNUMBER(3)));
-}
-
-
 RING_FUNC(ring_QTextStream_realNumberNotation)
 {
 	QTextStream *pObject ;
@@ -144200,7 +144175,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextstream_read",ring_QTextStream_read);
 	ring_vm_funcregister("qtextstream_readall",ring_QTextStream_readAll);
 	ring_vm_funcregister("qtextstream_readline",ring_QTextStream_readLine);
-	ring_vm_funcregister("qtextstream_readlineinto",ring_QTextStream_readLineInto);
 	ring_vm_funcregister("qtextstream_realnumbernotation",ring_QTextStream_realNumberNotation);
 	ring_vm_funcregister("qtextstream_realnumberprecision",ring_QTextStream_realNumberPrecision);
 	ring_vm_funcregister("qtextstream_reset",ring_QTextStream_reset);

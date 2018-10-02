@@ -4248,9 +4248,6 @@ Class QTextStream
 	Func readLine P1
 		return QTextStream_readLine(pObject,P1)
 
-	Func readLineInto P1,P2
-		return QTextStream_readLineInto(pObject,GetObjectPointerFromRingObject(P1),P2)
-
 	Func realNumberNotation 
 		return QTextStream_realNumberNotation(pObject)
 
