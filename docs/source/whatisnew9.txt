@@ -415,7 +415,7 @@ Better RingQt
 * QPrintPreviewDialog
 * QPageSetupDialog
 * QAbstractPrintDialog
-* QPringDialog
+* QPrintDialog
 
 (2) The next classes are updated
 
