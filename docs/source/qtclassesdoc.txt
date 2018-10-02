@@ -7412,6 +7412,9 @@ C++ Reference : http://doc.qt.io/qt-5/QString2.html
 Parameters : void
 
 * QString append( QString  str)
+* QByteArray toUtf8(void)
+* QByteArray toLatin1(void)
+* QByteArray toLocal8Bit(void)
 * QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 * QStringList split_2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 * QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
