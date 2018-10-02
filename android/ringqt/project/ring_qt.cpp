@@ -15622,6 +15622,72 @@ RING_FUNC(ring_QString2_append)
 }
 
 
+RING_FUNC(ring_QString2_toUtf8)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->toUtf8();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QByteArray",ring_QByteArray_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QString2_toLatin1)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->toLatin1();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QByteArray",ring_QByteArray_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QString2_toLocal8Bit)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->toLocal8Bit();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QByteArray",ring_QByteArray_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QString2_split)
 {
 	QString *pObject ;
@@ -119516,6 +119582,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpoint_x",ring_QPoint_x);
 	ring_vm_funcregister("qpoint_y",ring_QPoint_y);
 	ring_vm_funcregister("qstring2_append",ring_QString2_append);
+	ring_vm_funcregister("qstring2_toutf8",ring_QString2_toUtf8);
+	ring_vm_funcregister("qstring2_tolatin1",ring_QString2_toLatin1);
+	ring_vm_funcregister("qstring2_tolocal8bit",ring_QString2_toLocal8Bit);
 	ring_vm_funcregister("qstring2_split",ring_QString2_split);
 	ring_vm_funcregister("qstring2_split_2",ring_QString2_split_2);
 	ring_vm_funcregister("qstring2_split_3",ring_QString2_split_3);
