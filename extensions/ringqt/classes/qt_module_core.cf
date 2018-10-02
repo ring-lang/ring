@@ -48,6 +48,7 @@
 <loadfile> qdatetime.cf
 <loadfile> qcoreapplication.cf
 <loadfile> qfile.cf
+<loadfile> qfile2.cf
 <loadfile> qfiledevice.cf
 <loadfile> qstandardpaths.cf
 <loadfile> qmimedata.cf
