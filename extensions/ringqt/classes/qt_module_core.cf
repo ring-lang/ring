@@ -53,3 +53,8 @@
 <loadfile> qmimedata.cf
 <loadfile> qchar.cf
 <loadfile> qchildevent.cf
+<loadfile> qtextstream.cf
+<loadfile> qtextstream2.cf
+<loadfile> qtextstream3.cf
+<loadfile> qtextstream4.cf
+<loadfile> qtextstream5.cf
