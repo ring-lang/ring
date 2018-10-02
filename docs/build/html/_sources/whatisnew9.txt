@@ -410,6 +410,7 @@ Better RingQt
 * QGeoSatelliteInfoSource
 * QNmeaPositionInfoSource
 * QAxWidget
+* QTextStream
 * QPrinterInfo
 * QPrintPreviewWidget
 * QPrintPreviewDialog
