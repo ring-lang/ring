@@ -4182,6 +4182,144 @@ Class QChildEvent from QEvent
 	Func removed 
 		return QChildEvent_removed(pObject)
 
+Class QTextStream
+
+	pObject
+
+	Func init 
+		pObject = QTextStream_new()
+		return self
+
+	Func delete
+		pObject = QTextStream_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func atEnd 
+		return QTextStream_atEnd(pObject)
+
+	Func autoDetectUnicode 
+		return QTextStream_autoDetectUnicode(pObject)
+
+	Func codec 
+		return QTextStream_codec(pObject)
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QTextStream_device(pObject)
+		return pTempObj
+
+	Func fieldAlignment 
+		return QTextStream_fieldAlignment(pObject)
+
+	Func fieldWidth 
+		return QTextStream_fieldWidth(pObject)
+
+	Func flush 
+		return QTextStream_flush(pObject)
+
+	Func generateByteOrderMark 
+		return QTextStream_generateByteOrderMark(pObject)
+
+	Func integerBase 
+		return QTextStream_integerBase(pObject)
+
+	Func locale 
+		return QTextStream_locale(pObject)
+
+	Func numberFlags 
+		return QTextStream_numberFlags(pObject)
+
+	Func padChar 
+		pTempObj = new QChar
+		pTempObj.pObject = QTextStream_padChar(pObject)
+		return pTempObj
+
+	Func pos 
+		return QTextStream_pos(pObject)
+
+	Func read P1
+		return QTextStream_read(pObject,P1)
+
+	Func readAll 
+		return QTextStream_readAll(pObject)
+
+	Func readLine P1
+		return QTextStream_readLine(pObject,P1)
+
+	Func readLineInto P1,P2
+		return QTextStream_readLineInto(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func realNumberNotation 
+		return QTextStream_realNumberNotation(pObject)
+
+	Func realNumberPrecision 
+		return QTextStream_realNumberPrecision(pObject)
+
+	Func reset 
+		return QTextStream_reset(pObject)
+
+	Func resetStatus 
+		return QTextStream_resetStatus(pObject)
+
+	Func seek P1
+		return QTextStream_seek(pObject,P1)
+
+	Func setAutoDetectUnicode P1
+		return QTextStream_setAutoDetectUnicode(pObject,P1)
+
+	Func setCodec P1
+		return QTextStream_setCodec(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCodec_2 P1
+		return QTextStream_setCodec_2(pObject,P1)
+
+	Func setDevice P1
+		return QTextStream_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFieldAlignment P1
+		return QTextStream_setFieldAlignment(pObject,P1)
+
+	Func setFieldWidth P1
+		return QTextStream_setFieldWidth(pObject,P1)
+
+	Func setGenerateByteOrderMark P1
+		return QTextStream_setGenerateByteOrderMark(pObject,P1)
+
+	Func setIntegerBase P1
+		return QTextStream_setIntegerBase(pObject,P1)
+
+	Func setLocale P1
+		return QTextStream_setLocale(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNumberFlags P1
+		return QTextStream_setNumberFlags(pObject,P1)
+
+	Func setPadChar P1
+		return QTextStream_setPadChar(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRealNumberNotation P1
+		return QTextStream_setRealNumberNotation(pObject,P1)
+
+	Func setRealNumberPrecision P1
+		return QTextStream_setRealNumberPrecision(pObject,P1)
+
+	Func setStatus P1
+		return QTextStream_setStatus(pObject,P1)
+
+	Func setString P1,P2
+		return QTextStream_setString(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func skipWhiteSpace 
+		return QTextStream_skipWhiteSpace(pObject)
+
+	Func status 
+		return QTextStream_status(pObject)
+
+	Func string 
+		return QTextStream_string(pObject)
+
 Class QDesktopServices
 	Func openUrl P1
 		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
@@ -23982,6 +24120,62 @@ Class QXmlStreamEntityResolver
 
 	Func delete
 		pObject = QXmlStreamEntityResolver_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QTextStream2 from QTextStream
+
+	pObject
+
+	Func init P1
+		pObject = QTextStream2_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTextStream2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QTextStream3 from QTextStream
+
+	pObject
+
+	Func init P1,P2
+		pObject = QTextStream3_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QTextStream3_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QTextStream4 from QTextStream
+
+	pObject
+
+	Func init P1,P2
+		pObject = QTextStream4_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QTextStream4_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QTextStream5 from QTextStream
+
+	pObject
+
+	Func init P1,P2
+		pObject = QTextStream5_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QTextStream5_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
