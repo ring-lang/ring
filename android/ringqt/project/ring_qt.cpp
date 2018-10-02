@@ -361,6 +361,7 @@ extern "C" {
 	void ring_QDateTime_freefunc(void *pState,void *pPointer);
 	void ring_QCoreApplication_freefunc(void *pState,void *pPointer);
 	void ring_QFile_freefunc(void *pState,void *pPointer);
+	void ring_QFile2_freefunc(void *pState,void *pPointer);
 	void ring_QFileDevice_freefunc(void *pState,void *pPointer);
 	void ring_QStandardPaths_freefunc(void *pState,void *pPointer);
 	void ring_QMimeData_freefunc(void *pState,void *pPointer);
@@ -19496,6 +19497,27 @@ RING_FUNC(ring_QFile_open_2)
 		return ;
 	}
 	RING_API_RETNUMBER(pObject->open( (int ) RING_API_GETNUMBER(2), (QIODevice::OpenMode )  (int) RING_API_GETNUMBER(3), (QFile::FileHandleFlags )  (int) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_QFile_open_3)
+{
+	QFile *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFile *) RING_API_GETCPOINTER(1,"QFile");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->open( (QIODevice::OpenMode )  (int) RING_API_GETNUMBER(2)));
 }
 
 
@@ -111335,6 +111357,21 @@ RING_FUNC(ring_QFile_new)
 	RING_API_RETCPOINTER(pObject,"QFile");
 }
 
+RING_FUNC(ring_QFile2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QFile *pObject = new QFile(RING_API_GETSTRING(1));
+	RING_API_RETCPOINTER(pObject,"QFile2");
+}
+
 RING_FUNC(ring_QMimeData_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -114529,6 +114566,23 @@ RING_FUNC(ring_QFile_delete)
 	}
 }
 
+RING_FUNC(ring_QFile2_delete)
+{
+	QFile *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QFile *) RING_API_GETCPOINTER(1,"QFile");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QMimeData_delete)
 {
 	QMimeData *pObject ; 
@@ -117595,6 +117649,13 @@ void ring_QFile_freefunc(void *pState,void *pPointer)
 	delete pObject ;
 }
 
+void ring_QFile2_freefunc(void *pState,void *pPointer)
+{
+	QFile *pObject ; 
+	pObject = (QFile *) pPointer;
+	delete pObject ;
+}
+
 void ring_QMimeData_freefunc(void *pState,void *pPointer)
 {
 	QMimeData *pObject ; 
@@ -119636,6 +119697,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfile_link",ring_QFile_link);
 	ring_vm_funcregister("qfile_open",ring_QFile_open);
 	ring_vm_funcregister("qfile_open_2",ring_QFile_open_2);
+	ring_vm_funcregister("qfile_open_3",ring_QFile_open_3);
 	ring_vm_funcregister("qfile_remove",ring_QFile_remove);
 	ring_vm_funcregister("qfile_rename",ring_QFile_rename);
 	ring_vm_funcregister("qfile_setfilename",ring_QFile_setFileName);
@@ -124206,6 +124268,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbuffer_new",ring_QBuffer_new);
 	ring_vm_funcregister("qdatetime_new",ring_QDateTime_new);
 	ring_vm_funcregister("qfile_new",ring_QFile_new);
+	ring_vm_funcregister("qfile2_new",ring_QFile2_new);
 	ring_vm_funcregister("qmimedata_new",ring_QMimeData_new);
 	ring_vm_funcregister("qchar_new",ring_QChar_new);
 	ring_vm_funcregister("qchildevent_new",ring_QChildEvent_new);
@@ -124414,6 +124477,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbuffer_delete",ring_QBuffer_delete);
 	ring_vm_funcregister("qdatetime_delete",ring_QDateTime_delete);
 	ring_vm_funcregister("qfile_delete",ring_QFile_delete);
+	ring_vm_funcregister("qfile2_delete",ring_QFile2_delete);
 	ring_vm_funcregister("qmimedata_delete",ring_QMimeData_delete);
 	ring_vm_funcregister("qchar_delete",ring_QChar_delete);
 	ring_vm_funcregister("qchildevent_delete",ring_QChildEvent_delete);
