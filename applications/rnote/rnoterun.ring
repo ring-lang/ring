@@ -41,7 +41,7 @@ Class RNoteRun
 			cCode = RunBatchFile(cActiveFileName)
 			oProcess = RunProcess(cCode,"",cGetProcessData)
 		else 
-			oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
+			oProcess = RunProcess(cRingEXE,'"'+cActiveFileName+'"',cGetProcessData)
 		ok
 		chdir(cDir)
 
