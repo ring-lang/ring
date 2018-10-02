@@ -3717,6 +3717,9 @@ Class QFile from QFileDevice
 	Func open_2 P1,P2,P3
 		return QFile_open_2(pObject,P1,P2,P3)
 
+	Func open_3 P1
+		return QFile_open_3(pObject,P1)
+
 	Func remove 
 		return QFile_remove(pObject)
 
@@ -24117,6 +24120,20 @@ Class QXmlStreamEntityResolver
 
 	Func delete
 		pObject = QXmlStreamEntityResolver_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QFile2 from QFile
+
+	pObject
+
+	Func init P1
+		pObject = QFile2_new(P1)
+		return self
+
+	Func delete
+		pObject = QFile2_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
