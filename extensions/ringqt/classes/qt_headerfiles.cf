@@ -287,6 +287,9 @@ extern "C" {
 #include <QPrintDialog>
 #include "gprintdialog.h"
 
+#include <QTextStream>
+
+
 <filter> (iswindows() or ismacosx())
 #include <QQuickWidget>
 #include <QQmlError>
