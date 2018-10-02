@@ -1,0 +1,53 @@
+<class>
+name: QTextStream
+para: void
+</class>
+
+<runcode>
+ aEnumTypes + "QTextStream::FieldAlignment"
+ aEnumTypes + "QTextStream::NumberFlag"
+ aEnumTypes + "QTextStream::NumberFlags"
+ aEnumTypes + "QTextStream::RealNumberNotation"
+ aEnumTypes + "QTextStream::Status"
+</runcode>
+
+bool atEnd(void)
+bool autoDetectUnicode(void)
+QTextCodec * codec(void)
+QIODevice * device(void)
+QTextStream::FieldAlignment fieldAlignment(void)
+int fieldWidth(void)
+void flush(void)
+bool generateByteOrderMark(void)
+int integerBase(void)
+QLocale locale(void)
+QTextStream::NumberFlags numberFlags(void)
+QChar padChar(void)
+qint64 pos(void)
+QString read(qint64 maxlen)
+QString readAll(void)
+QString readLine(qint64 maxlen)
+bool readLineInto(QString * line, qint64 maxlen)
+QTextStream::RealNumberNotation realNumberNotation(void)
+int realNumberPrecision(void)
+void reset(void)
+void resetStatus(void)
+bool seek(qint64 pos)
+void setAutoDetectUnicode(bool enabled)
+void setCodec(QTextCodec * codec)
+void setCodec@2(char * codecName)
+void setDevice(QIODevice * device)
+void setFieldAlignment(QTextStream::FieldAlignment mode)
+void setFieldWidth(int width)
+void setGenerateByteOrderMark(bool generate)
+void setIntegerBase(int base)
+void setLocale(QLocale locale)
+void setNumberFlags(QTextStream::NumberFlags flags)
+void setPadChar(QChar ch)
+void setRealNumberNotation(QTextStream::RealNumberNotation notation)
+void setRealNumberPrecision(int precision)
+void setStatus(QTextStream::Status status)
+void setString(QString * string, QIODevice::OpenMode openMode)
+void skipWhiteSpace(void)
+QTextStream::Status status(void)
+QString * string(void)
