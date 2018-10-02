@@ -1,0 +1,6 @@
+<class>
+name: QTextStream3
+para: FILE * fileHandle, QIODevice::OpenMode
+parent: QTextStream
+codename: QTextStream
+</class>
