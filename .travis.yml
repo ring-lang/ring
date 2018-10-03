@@ -16,7 +16,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install glew ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt55 ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt55 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt ; fi
  
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && sudo ./buildgcc.sh ; fi
@@ -32,7 +32,7 @@ script:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringopengl/opengl21 && ./gencode.sh && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencodemacos.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringcurl && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringfreeglut && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringopengl/opengl21 && ./gencode.sh && ./buildclang.sh ; fi
