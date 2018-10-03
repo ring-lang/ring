@@ -78,11 +78,17 @@ Class RNoteFileMenu
 
 	func WriteFile cFileName,cCode
 		aCode = str2list(cCode)
+		cFileName = FileNameEncoding(cFileName)
 		fp = fopen(cFileName,"wb")
 		for cLine in aCode
 			fwrite(fp,cLine+char(13)+char(10))
 		next
 		fclose(fp)
+
+	func FileNameEncoding cFileName
+		oString = new qString2()
+		oString.Append(cFileName)
+		return oString.tolocal8bit().data()
 
 	func Print
 		StatusMessage("Printing to File : RingDoc.pdf")
