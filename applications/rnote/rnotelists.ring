@@ -20,7 +20,7 @@ class RNoteLists
 			oTFont.fromstring(cFont)
 			oFunctionsList.setFont(oTFont)
 		StatusMessage("Creating functions list ... Please Wait!")
-		aFileContent = str2list(read(cActiveFileName))
+		aFileContent = str2list(read(FileNameEncoding(cActiveFileName)))
 		nLineNumber = 0
 		for cLine in aFileContent
 			nLineNumber++
@@ -70,7 +70,7 @@ class RNoteLists
 			oTFont.fromstring(cFont)
 			oClassesList.setFont(oTFont)
 		StatusMessage("Creating Classes list ... Please Wait!")
-		aFileContent = str2list(read(cActiveFileName))
+		aFileContent = str2list(read(FileNameEncoding(cActiveFileName)))
 		nLineNumber = 0
 		for cLine in aFileContent
 			nLineNumber++
