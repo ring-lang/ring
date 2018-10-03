@@ -78,6 +78,6 @@
 <loadfile> qtabbar.cf
 <loadfile> qscrollbar.cf
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> ((iswindows()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> qopenglwidget.cf
 </filter>
