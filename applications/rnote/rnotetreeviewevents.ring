@@ -27,7 +27,7 @@ Class RNoteTreeViewEvents
 			StatusMessage("Ready!")
 			oDockFormDesigner.raise()
 			cSourceFile = substr(cFormFile,".rform","Controller.ring")
-			if fexists(cSourceFile)
+			if fexists(FileNameEncoding(cSourceFile))
 				cActiveFileName = cSourceFile
 			else 
 				return 
@@ -39,7 +39,7 @@ Class RNoteTreeViewEvents
 		# We get nLine before using textedit1.settext() to get the value before aFilesLines update
 			nLine =  aFilesLines[cActiveFileName]
 		try 
-			textedit1.setPlaintext(read(cActiveFileName))
+			textedit1.setPlaintext(read(FileNameEncoding(cActiveFileName)))
 		catch 
 			msginfo("Sorry","Can't open the file " + cActiveFileName)
 			cActiveFileName = cOldActiveFileName

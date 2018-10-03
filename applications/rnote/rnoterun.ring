@@ -6,13 +6,14 @@ Class RNoteRun
 	func DebugOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
-		if isBatchFile(cActiveFileName)
-			cCode = RunBatchFile(cActiveFileName)
+		cFileName = FileNameEncoding(cActiveFileName)
+		if isBatchFile(cFileName)
+			cCode = RunBatchFile(cFileName)
 		else 
 			if iswindows()
-				cCode = 'start '+cCurrentDir+'batch\run "' + cActiveFileName + '"' + nl
+				cCode = 'start '+cCurrentDir+'batch\run "' + cFileName + '"' + nl
 			else
-				cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+				cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			ok
 		ok
 		system(cCode)
@@ -21,13 +22,14 @@ Class RNoteRun
 	func RunOperation cActiveFileName
 		cDir = CurrentDir()
 		chdir(exefolder())
-		if isBatchFile(cActiveFileName)
-			cCode = RunBatchFile(cActiveFileName)		
+		cFileName = FileNameEncoding(cActiveFileName)
+		if isBatchFile(cFileName)
+			cCode = RunBatchFile(cFileName)		
 		else 
 			if iswindows()
-				cCode = 'start '+cCurrentDir+'batch\run2 "' + cActiveFileName + '"' + nl
+				cCode = 'start '+cCurrentDir+'batch\run2 "' + cFileName + '"' + nl
 			else
-				cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
+				cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			ok
 		ok
 		system(cCode)
@@ -41,14 +43,15 @@ Class RNoteRun
 			cCode = RunBatchFile(cActiveFileName)
 			oProcess = RunProcess(cCode,"",cGetProcessData)
 		else 
-			oProcess = RunProcess(cRingEXE,'"'+cActiveFileName+'"',cGetProcessData)
+			oProcess = RunProcess(cRingEXE,cActiveFileName,cGetProcessData)
 		ok
 		chdir(cDir)
 
 	func RunWebApplication cFile
+		cFileName = FileNameEncoding(cFile)
 		if isWindows() 
-			if cWebApplicationFolder != JustFilePath(cFile)
-				cWebApplicationFolder = JustFilePath(cFile)
+			if cWebApplicationFolder != JustFilePath(cFileName)
+				cWebApplicationFolder = JustFilePath(cFileName)
 				new ServerPrepare { 
 					setApplicationPath(this.cWebApplicationFolder)
 					PrepareConfigurationFile() 
@@ -64,7 +67,7 @@ Class RNoteRun
 				OpenURL(new qURL("http://localhost:8080/"+JustFileName(cFile)))
 			}
 		else 
-			cWebURL = cFile
+			cWebURL = cFileName
 			nPos = substr(cWebURL,"htdocs")
 			cWebURL = substr(cWebURL,nPOS+7)
 			new QDesktopServices {
