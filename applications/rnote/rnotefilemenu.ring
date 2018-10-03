@@ -86,9 +86,12 @@ Class RNoteFileMenu
 		fclose(fp)
 
 	func FileNameEncoding cFileName
-		oString = new qString2()
-		oString.Append(cFileName)
-		return oString.tolocal8bit().data()
+		if isWindows()
+			oString = new qString2()
+			oString.Append(cFileName)
+			return oString.tolocal8bit().data()
+		ok
+		return cFileName
 
 	func Print
 		StatusMessage("Printing to File : RingDoc.pdf")
