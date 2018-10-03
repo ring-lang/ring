@@ -40,3 +40,15 @@ const char *getloadStartedEvent(void)
 const char *getselectionChangedEvent(void)
 const char *gettitleChangedEvent(void)
 const char *geturlChangedEvent(void)
+
+<comment>
+To support code based on old versions of Qt that provides QWebView
+</comment>
+
+<class>
+name: QWebView
+para: QWidget *parent
+parent: QWidget
+codename: GWebEngineView
+passvmpointer
+</class>
