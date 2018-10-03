@@ -134940,7 +134940,7 @@ RING_FUNC(ring_QString2_new)
 		return ;
 	}
 	QString *pObject = new QString();
-	RING_API_RETCPOINTER(pObject,"QString2");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QString2",ring_QString2_freefunc);
 }
 
 RING_FUNC(ring_QProcess_new)

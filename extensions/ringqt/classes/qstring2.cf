@@ -2,6 +2,7 @@
 name: QString2
 para: void
 codename: QString
+managed
 </class>
 
 QString append( QString  str)
