@@ -23,7 +23,7 @@ class RNoteFilesTabs
 		cFile = aFilesLines[nIndex][1]
 		nRow = aFilesLines[nIndex][2]		
 		if cFile != NULL
-			if not fexists(cFile) 
+			if not fexists(FileNameEncoding(cFile))
 				filestabs.blocksignals(True)
 				CloseFileTabByIndex(filestabs.currentindex())
 				filestabs.blocksignals(False)
