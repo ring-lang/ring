@@ -577,3 +577,4 @@ More Improvements
 (26) The ? Operator is updated to respect the ringvm_see() function.
 (27) Ring Notepad - Default Style. 
 (28) Ring VM - Better Error Message.
+(29) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
