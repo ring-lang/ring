@@ -10,9 +10,9 @@ Class RNoteFileMenu
 			if cName != NULL
 				# Check removing .ring if we have another extension 
 					cName = this.OneExtension(cName)
-				write(cName,"")
+				write(this.FileNameEncoding(cName),"")
 				this.cActiveFileName = cName
-				this.textedit1.setPlaintext(read(this.cActiveFileName))
+				this.textedit1.setPlaintext(read(this.FileNameEncoding(this.cActiveFileName)))
 				this.SetActiveFileName()
 				this.oDockSourceCode.raise()
 			ok
@@ -37,7 +37,7 @@ Class RNoteFileMenu
 
 	func OpenFile cName
 		try
-			textedit1.setPlaintext(read(cName))
+			textedit1.setPlaintext(read(FileNameEncoding(cName)))
 			cActiveFileName = cName
 			SetActiveFileName()
 		catch 
