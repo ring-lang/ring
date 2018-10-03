@@ -15,7 +15,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install allegro ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install glew ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt55 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt ; fi
  
 script: 
