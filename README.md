@@ -529,7 +529,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
-	./gencode.sh
+	./gencodemacos.sh
 	./buildclang.sh
 
 ### To be able to call ring from any folder 
