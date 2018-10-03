@@ -17,21 +17,21 @@ class RNoteMainFileToolbar
 	func DebugMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
-		if not fexists(cMainFileName) return ok
+		if not fexists(FileNameEncoding(cMainFileName)) return ok
 		Save()
 		DebugOperation(cMainFileName)
 
 	func RunMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
-		if not fexists(cMainFileName) return ok
+		if not fexists(FileNameEncoding(cMainFileName)) return ok
 		Save()
 		RunOperation(cMainFileName)
 
 	func RunGUIMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
-		if not fexists(cMainFileName) return ok
+		if not fexists(FileNameEncoding(cMainFileName)) return ok
 		oDockOutputWindow { show() raise() }		
 		Save()
 		RunGUIOperation(cMainFileName)
@@ -39,7 +39,7 @@ class RNoteMainFileToolbar
 	func RunInBrowserMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return Nofileopened() ok
-		if not fexists(cMainFileName) return ok
+		if not fexists(FileNameEncoding(cMainFileName)) return ok
 		Save()
 		RunWebApplication(cMainFileName)
 
