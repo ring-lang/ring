@@ -1137,8 +1137,47 @@ QString findExecutable(QString executableName, QStringList paths))
 </pre></div>
 </div>
 </div>
+<div class="section" id="loading-files">
+<span id="index-21"></span><h2>Loading Files<a class="headerlink" href="#loading-files" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.9 the code generator support the &lt;loadfile&gt; command.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+<p>This is useful to separate the extension configuraition file to many files</p>
+<p>Example:</p>
+<p>The file : qt_module_network.cf in the RingQt Extension</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+                                <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="managed-classes">
+<span id="index-22"></span><h2>Managed Classes<a class="headerlink" href="#managed-classes" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.9 the code generator support the &lt;managed&gt; option when defining classes.</p>
+<p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
+<p>So the Garabage Collector will manage these C pointers.</p>
+<p>Example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="p">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<span class="n">managed</span>
+<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="configuration-files-examples">
-<span id="index-21"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this headline">¶</a></h2>
 <p>You can learn from the next examples</p>
 <ul class="simple">
 <li>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf</a></li>
@@ -1190,6 +1229,8 @@ the next examples</p>
 <li><a class="reference internal" href="#using-configuration-file-that-wrap-c-library">Using configuration file that wrap C++ Library</a></li>
 <li><a class="reference internal" href="#configuration-file-for-the-qt-framework">Configuration file for the Qt Framework</a></li>
 <li><a class="reference internal" href="#static-methods">Static Methods</a></li>
+<li><a class="reference internal" href="#loading-files">Loading Files</a></li>
+<li><a class="reference internal" href="#managed-classes">Managed Classes</a></li>
 <li><a class="reference internal" href="#configuration-files-examples">Configuration Files Examples</a></li>
 </ul>
 </li>

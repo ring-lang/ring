@@ -1206,6 +1206,62 @@ Example:
 	QString displayName(QStandardPaths::StandardLocation type)
 	QString findExecutable(QString executableName, QStringList paths))
 
+.. index:: 
+	pair: Code Generator; Loading Files
+
+Loading Files
+=============
+
+Starting from Ring 1.9 the code generator support the <loadfile> command.
+
+.. code-block:: ring
+
+	<loadfile> filename.cf
+
+This is useful to separate the extension configuraition file to many files
+
+Example:
+
+The file : qt_module_network.cf in the RingQt Extension
+
+.. code-block:: ring
+
+	<comment>
+					Module (network)
+	</comment>
+
+	<loadfile> qabstractsocket.cf
+	<loadfile> qnetworkproxy.cf
+	<loadfile> qtcpsocket.cf
+	<loadfile> qtcpserver.cf
+	<loadfile> qhostaddress.cf
+	<loadfile> qhostinfo.cf
+	<loadfile> qnetworkrequest.cf
+	<loadfile> qnetworkaccessmanager.cf
+	<loadfile> qnetworkreply.cf
+
+.. index:: 
+	pair: Code Generator; Managed Classes
+
+Managed Classes
+===============
+
+Starting from Ring 1.9 the code generator support the <managed> option when defining classes.
+
+Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.
+
+So the Garabage Collector will manage these C pointers.
+
+Example
+
+.. code-block:: ring
+
+	<class>
+	name: QFont
+	para: QString, int, int, bool
+	managed
+	</class>
+
 
 .. index:: 
 	pair: Code Generator; Configuration Files Examples
