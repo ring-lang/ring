@@ -721,7 +721,7 @@ Generate RingQt Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringqt
-	./gencodemacos.sh
+	./gencodemac.sh
 	./buildclang.sh
 
 To be able to call ring from any folder
