@@ -48,7 +48,7 @@ To support code based on old versions of Qt that provides QWebView
 <class>
 name: QWebView
 para: QWidget *parent
-parent: QWidget
+parent: QWebEngineView
 codename: GWebEngineView
 passvmpointer
 </class>
