@@ -61,6 +61,7 @@
 		-nomysql    	 : Remove RingMySQL from distribution
 		-noodbc     	 : Remove RingODBC from distribution
 		-nosqlite   	 : Remove RingSQLite from distribution
+		-nopostgresql  	 : Remove RingPostgreSQL from distribution
 		-noopengl   	 : Remove RingOpenGL from distribution
 		-nofreeglut 	 : Remove RingFreeGLUT from distribution
 		-nolibzip   	 : Remove RingLibZip from distribution
@@ -74,6 +75,7 @@
 		-mysql    	 : Add RingMySQL to distribution
 		-odbc     	 : Add RingODBC to distribution
 		-sqlite   	 : Add RingSQLite to distribution
+		-postgresql   	 : Add RingPostgreSQL to distribution
 		-opengl   	 : Add RingOpenGL to distribution
 		-freeglut 	 : Add RingFreeGLUT to distribution
 		-libzip   	 : Add RingLibZip to distribution
