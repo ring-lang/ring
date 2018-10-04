@@ -1,6 +1,7 @@
 <runcode>
 
 aNewMethodName + ["QWebView","load","loadpage"]
+aNewMethodName + ["QWebEngineView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
 aNewMethodName + ["QMediaPlaylist","next","movenext"]
 aNewMethodName + ["QPainter","end","endpaint"]
