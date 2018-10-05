@@ -23,9 +23,8 @@ button = newlist(size+1,size)
 btnblack = newlist(size,size)
 btnwhite = newlist(size,size)
 LayoutButtonRow = list(size+4)
-cols = list(size)
+cols = list(size+1)
 rows = list(size)
-//colcells = "A":"H"
 colcells = [" ","A","B","C","D","E","F","G","H"]
 
 app = new qApp {
@@ -64,7 +63,7 @@ app = new qApp {
                                      setclickevent("pstart()")
                                      show()
                                      }
-                  for n = 1 to size
+                  for n = 1 to size+1
                        cols[n] = new QLabel(win) {
                                     setFont(new qFont("Verdana",fontsize,100,0))
                                     setstylesheet(C_BUTTONBLUESTYLE)
@@ -86,7 +85,7 @@ app = new qApp {
                   LayoutButtonColCells = new QHBoxLayout()
                   LayoutButtonColCells.setSpacing(C_SPACING)
                   LayoutButtonColCells.setContentsmargins(0,0,0,0)
-                  for n = 1 to size
+                  for n = 1 to size+1
                        LayoutButtonColCells.AddWidget(cols[n])
                   next
                   LayoutButtonMain.AddLayout(LayoutButtonColCells)
