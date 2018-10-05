@@ -128,6 +128,8 @@ Ring 1.7 is released on January 25, 2018
 
 Ring 1.8 is released on June 25, 2018
 
+Ring 1.9 is released on October 6, 2018
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -148,7 +150,7 @@ The Ring language comes with the next features
 * Transparent Implementation 
 * Visual Implementation - Developed using Visual Programming (PWCT) 
 * A small language
-	* The compiler + The Virtual Machine are 15,000 lines of C code
+	* The compiler + The Virtual Machine are 20,000 lines of C code
 	* The other 500,000 lines of code are related to libraries!
 * Writen in ANSI C (The code is generated)
 * Optional Printing for Tokens/Grammar/Byte-Code during execution
@@ -199,7 +201,7 @@ The Ring language comes with the next features
 * String functions
 * List functions
 * File processing functions
-* Database support (ODBC, SQLite & MySQL)
+* Database support (ODBC, SQLite, MySQL & PostgreSQL)
 * Security Functions (OpenSSL)
 * Internet Functions (LibCurl)
 * Zip Functions
@@ -217,6 +219,7 @@ The Ring language comes with the next features
 	* CRUD Example (using MVC)
 	* Users Example (Register, Login and Check)
 
+* Deploying web applications in the Cloud using Heroku
 * Extension using C/C++ (Simple API)
 * Embedding the language in C/C++ programs
 * Embedding Ring in Ring
@@ -233,10 +236,12 @@ The Ring language comes with the next features
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
 * RingREPL (Read-Eval-Print-Loop)
 * Tracing and Debugging
-* Type Hints
+* Type Hints Library
 * Comes with Ring2EXE to distribute applications
 * RingLibuv Extension
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
+* Many Samples and Applications
+* Complete Documentation.
 
 License
 =======
