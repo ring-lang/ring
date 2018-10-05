@@ -68,6 +68,13 @@ Type: char *
 cStr4
 Type: char *
 pOutput
+ring_strdup
+Type: char *
+cString
+Type: int
+nSize
+Type: int
+x
 ring_string_test
 nMaxValue
 Type: String *
