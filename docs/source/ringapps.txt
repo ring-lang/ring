@@ -260,18 +260,6 @@ The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of cre
 	, Wim ten Brink (Quora - Top Writer (2018))
 
 .. index:: 
-	pair: Applications developed in little hours; Special Thanks
-
-Special Thanks to Matz
-======================
-
-Special Thanks to Matz (Yukihiro Matsumoto - The Creator of Ruby Programming Language) for spreading
-the word. 
-
-.. image:: matzring.png
-	:alt: Yukihiro Matsumoto tweet about the Ring language
-
-.. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
 FetchStockData Application

@@ -94,6 +94,19 @@ Also Ring is influenced by the next programming languages
 * Supernova
 
 .. index:: 
+	pair: Introduction; Special Thanks
+
+Special Thanks to Matz
+======================
+
+Special Thanks to Matz (Yukihiro Matsumoto - The Creator of Ruby Programming Language) for spreading
+the word. 
+
+.. image:: matzring.png
+	:alt: Yukihiro Matsumoto tweet about the Ring language
+
+
+.. index:: 
 	pair: Introduction ; History
 
 History
