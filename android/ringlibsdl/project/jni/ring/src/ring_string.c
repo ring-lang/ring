@@ -233,6 +233,24 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
 	return pOutput ;
 }
 
+RING_API char * ring_strdup ( void *pState,const char *cStr )
+{
+	char *cString  ;
+	int nSize  ;
+	int x  ;
+	nSize = strlen(cStr) ;
+	cString = (char *) ring_state_malloc(pState,nSize+1);
+	if ( cString == NULL ) {
+		printf( RING_OOM ) ;
+		exit(0);
+	}
+	for ( x = 0 ; x < nSize ; x++ ) {
+		cString[x] = cStr[x] ;
+	}
+	cString[nSize] = '\0' ;
+	return cString ;
+}
+
 void ring_string_test ( void )
 {
 	#define nMaxValue 10
