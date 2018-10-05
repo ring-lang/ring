@@ -11,6 +11,8 @@ move = 1
 score = 0
 flagblack = 0
 flagwhite = 0
+summoveblack = 0
+summovewhite = 0
 C_SPACING = 5
 C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:gray'
 C_BUTTONBLACKSTYLE = 'border-radius:17px;color:black; background-color: black'
@@ -29,13 +31,27 @@ app = new qApp {
                   resize(600,600)
                   winheight = win.height()
                   fontsize = 8 + (winheight/70)
-                  playscore = new QLabel(win) {
-                                   setFont(new qFont("Verdana",fontsize,100,0))
-                                   setstylesheet(C_BUTTONORANGESTYLE)
-                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                   settext("Play Score:")
-                                   show()
-                                   }
+                  playscoreblack = new QLabel(win) {
+                                          setFont(new qFont("Verdana",fontsize,100,0))
+                                          setstylesheet(C_BUTTONORANGESTYLE)
+                                          setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                          settext("Black Player Score: 2")
+                                          show()
+                                          }
+                  playscorewhite = new QLabel(win) {
+                                           setFont(new qFont("Verdana",fontsize,100,0))
+                                           setstylesheet(C_BUTTONORANGESTYLE)
+                                           setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                           settext("White Player Score: 2")
+                                           show()
+                                           }
+                  nextmove = new QLabel(win) {
+                                    setFont(new qFont("Verdana",fontsize,100,0))
+                                    setstylesheet(C_BUTTONORANGESTYLE)
+                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                    settext("Next Move: Black Player")
+                                    show()
+                                    }
                   newgame  = new QPushButton(win) {
                                      setFont(new qFont("Verdana",fontsize,100,0))
                                      setstylesheet("background-color:violet")
@@ -61,7 +77,9 @@ app = new qApp {
                        next
                        LayoutButtonMain.AddLayout(LayoutButtonRow[Col])
                   next    
-                  LayoutButtonMain.AddWidget(playscore)  
+                  LayoutButtonMain.AddWidget(playscoreblack) 
+                  LayoutButtonMain.AddWidget(playscorewhite) 
+                  LayoutButtonMain.AddWidget(nextmove) 
                   LayoutButtonMain.AddWidget(newgame)  
                   setLayout(LayoutButtonMain)
                   pstart()
@@ -83,7 +101,9 @@ func pstart()
                  button[col][row] { setstylesheet(C_EMPTYBUTTONSTYLE) }
             next
        next
-       playscore.settext('Play score:')
+       nextmove.settext("Next Move: Black Player")
+       playscoreblack.settext("Black Player Score: 2")
+       playscorewhite.settext("White Player Score: 2")
        button[4][4].setenabled(false)
        button[5][5].setenabled(false)
        button[4][5].setenabled(false)
@@ -97,51 +117,78 @@ func pstart()
        btnwhite[4][5] = 1
        btnwhite[5][4] = 1
 
-func pplay(n,m) 
+func summove()
+       summoveblack = 0
+       summovewhite = 0
+       for col = 1 to size
+            for row = 1 to size
+                 if btnblack[col][row] = 1
+                    summoveblack = summoveblack + 1
+                 ok
+                 if btnwhite[col][row] = 1
+                    summovewhite = summovewhite + 1
+                 ok 
+            next
+       next
+       playscoreblack.settext("Black Player Score: " + string(summoveblack))
+       playscorewhite.settext("White Player Score: " + string(summovewhite))
+
+func pplay(n,m)
+       if move = 1
+          nextmove.settext("Next Move: White Player")    
+       else
+          nextmove.settext("Next Move: Black Player") 
+       ok              
        if move = 1
           move = 0
-          score = score + 1
           button[n][m] { setstylesheet(C_BUTTONBLACKSTYLE) }
           btnblack[n][m] = 1
-          playscore.settext('Play score: ' + string(score))
           pcheckrightblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckleftblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdownblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckupblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagdownrightblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagdownleftblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiaguprightblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagupleftblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           if flagblack = 0
@@ -152,48 +199,54 @@ func pplay(n,m)
        ok
        if move = 0
           move = 1
-          score = score + 1
           button[n][m] { setstylesheet(C_BUTTONWHITESTYLE) }
           btnwhite[n][m] = 1
-          playscore.settext('Play score: ' + string(score))
           pcheckrightwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckleftwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdownwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckupwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagdownrightwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagdownleftwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiaguprightwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           pcheckdiagupleftwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
+             summove()
              return
           ok
           if flagwhite = 0
@@ -372,7 +425,7 @@ func pcheckdiaguprightblack(n,m)
        whiteno1 = 0
        whiteno2 = 0
        for x = 1 to size
-            if (n+x) > 1 and (m-x) > 1
+            if (n+x) > 1 and (m-x) > 1 and (n+x) < size and (m-x) < size
                if btnwhite[n+x][m-x] = 1
                   yesflag = 1
                   loop
