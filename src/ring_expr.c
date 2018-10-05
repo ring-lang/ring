@@ -611,7 +611,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark  ;
+	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2  ;
 	List *pLoadAPos, *pList, *pMark  ;
 	char lSetProperty,lequal,nBeforeEqual  ;
 	char cFuncName[100]  ;
@@ -863,10 +863,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			return 1 ;
 		}
 	}
-	/* Factor --> Negative (-) Expr */
+	/* Factor --> Negative (-) Factor */
 	if ( ring_parser_isoperator2(pParser,OP_MINUS) ) {
 		ring_parser_nexttoken(pParser);
-		x = ring_parser_expr(pParser);
+		x = ring_parser_factor(pParser,&nFlag2);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_NEG);
 		/* Generate Location for nPC for Operator Overloading */
@@ -874,7 +874,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
 		
-		puts("Rule : Factor --> '-' Expr");
+		puts("Rule : Factor --> '-' Factor");
 		#endif
 		return x ;
 	}

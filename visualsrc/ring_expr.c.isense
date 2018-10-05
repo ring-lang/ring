@@ -32,7 +32,7 @@ Type: int
 x,nFlag
 ring_parser_factor
 Type: int
-x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark
+x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2
 Type: List *
 pLoadAPos, *pList, *pMark
 Type: char
@@ -40,7 +40,7 @@ lSetProperty,lequal,nBeforeEqual
 Type: char
 cFuncName[100]
 Type: char
-cKeyword
+cKeyword[100]
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag
