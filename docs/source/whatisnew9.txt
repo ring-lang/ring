@@ -23,8 +23,8 @@ Ring 1.9 comes with the next features!
 * RingPostgreSQL Extension
 * Deploying Web applications in the Cloud
 * Better RingQt
-* Better Code Generator for Extensions
 * Better Memory Management 
+* Better Code Generator for Extensions
 * Better Documentation
 * More Improvements
 
@@ -480,12 +480,37 @@ Screen Shot:
 
 
 .. index:: 
+	pair: What is new in Ring 1.9?; Better Memory Management
+
+Better Memory Management
+========================
+
+The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()
+
+Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.
+
+This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.
+
+Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.
+
+Syntax:
+
+.. code-block:: ring
+
+	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
+
+For more information about RING_API_RETMANAGEDCPOINTER()
+
+See the "Extension using the C/C++ languages" Chapter in the documentation 
+
+.. index:: 
 	pair: What is new in Ring 1.9?; Better Code Generator for Extensions
 
 Better Code Generator for Extensions
 ====================================
 
-The code generator for extensions is updated to support the <loadfile> command
+(1) The code generator for extensions is updated to support the <loadfile> command
 
 .. code-block:: ring
 
@@ -513,30 +538,21 @@ The file : qt_module_network.cf in the RingQt Extension
 	<loadfile> qnetworkaccessmanager.cf
 	<loadfile> qnetworkreply.cf
 
-.. index:: 
-	pair: What is new in Ring 1.9?; Better Memory Management
+(2) The code generator support the <managed> option when defining classes.
 
-Better Memory Management
-========================
+Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.
 
-The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()
+So the Garabage Collector will manage these C pointers.
 
-Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
-pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.
-
-This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.
-
-Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.
-
-Syntax:
+Example
 
 .. code-block:: ring
 
-	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
-
-For more information about RING_API_RETMANAGEDCPOINTER()
-
-See the "Extension using the C/C++ languages" Chapter in the documentation 
+	<class>
+	name: QFont
+	para: QString, int, int, bool
+	managed
+	</class>
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Documentation

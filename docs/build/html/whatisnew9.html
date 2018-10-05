@@ -65,8 +65,8 @@
 <li>RingPostgreSQL Extension</li>
 <li>Deploying Web applications in the Cloud</li>
 <li>Better RingQt</li>
-<li>Better Code Generator for Extensions</li>
 <li>Better Memory Management</li>
+<li>Better Code Generator for Extensions</li>
 <li>Better Documentation</li>
 <li>More Improvements</li>
 </ul>
@@ -442,9 +442,25 @@ salary
 <p>Screen Shot:</p>
 <img alt="Print Preview Dialog" src="_images/printpreviewdialog.png" />
 </div>
+<div class="section" id="better-memory-management">
+<span id="index-10"></span><h2>Better Memory Management<a class="headerlink" href="#better-memory-management" title="Permalink to this headline">¶</a></h2>
+<p>The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()</p>
+<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
+<p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
+<p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span><span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For more information about RING_API_RETMANAGEDCPOINTER()</p>
+<p>See the &#8220;Extension using the C/C++ languages&#8221; Chapter in the documentation</p>
+</div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-10"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
-<p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p>
+<span id="index-11"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>The code generator for extensions is updated to support the &lt;loadfile&gt; command</li>
+</ol>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
 </pre></div>
 </div>
@@ -466,20 +482,19 @@ salary
 <span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="better-memory-management">
-<span id="index-11"></span><h2>Better Memory Management<a class="headerlink" href="#better-memory-management" title="Permalink to this headline">¶</a></h2>
-<p>The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()</p>
-<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
-pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
-<p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
-<p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
-<p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span><span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<ol class="arabic simple" start="2">
+<li>The code generator support the &lt;managed&gt; option when defining classes.</li>
+</ol>
+<p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
+<p>So the Garabage Collector will manage these C pointers.</p>
+<p>Example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="p">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<span class="n">managed</span>
+<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>For more information about RING_API_RETMANAGEDCPOINTER()</p>
-<p>See the &#8220;Extension using the C/C++ languages&#8221; Chapter in the documentation</p>
 </div>
 <div class="section" id="better-documentation">
 <span id="index-12"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
@@ -543,8 +558,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <li><a class="reference internal" href="#ringpostgresql-extension">RingPostgreSQL Extension</a></li>
 <li><a class="reference internal" href="#deploying-web-applications-in-the-cloud">Deploying Web applications in the Cloud</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
-<li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li><a class="reference internal" href="#better-memory-management">Better Memory Management</a></li>
+<li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
