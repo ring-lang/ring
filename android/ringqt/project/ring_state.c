@@ -382,7 +382,18 @@ int ring_exefilename ( char *cDirPath )
 
 int ring_chdir ( const char *cDir )
 {
+	#ifdef _WIN32
+	/* Windows only */
+	#ifdef __BORLANDC__
+	/* Borland C/C++ */
 	return chdir(cDir) ;
+	#else
+	/* Modern Compilers Like Visual C/C++ */
+	return _chdir(cDir) ;
+	#endif
+	#else
+	return chdir(cDir) ;
+	#endif
 }
 
 void ring_exefolder ( char *cDirPath )
