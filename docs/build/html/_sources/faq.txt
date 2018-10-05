@@ -186,7 +186,7 @@ for example you can create a game engine using object-oriented programming but w
 
 (5) The Garbage collector is generational (escape analysis) and also uses reference counting. it's very fast and still provides control to the programmer who can delete memory at any time.
 
-(6) Ring's compiler and virtual machine are just 15,000 lines of ANSI C code that can be compiled and used in any platform.
+(6) Ring's compiler and virtual machine are just 20,000 lines of ANSI C code that can be compiled and used in any platform.
 
 (7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
 
