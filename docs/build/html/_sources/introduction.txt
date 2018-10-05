@@ -149,27 +149,30 @@ The Ring language comes with the next features
 * Using braces { } we can access objects and use attributes/methods as variables/functions
 * Transparent Implementation 
 * Visual Implementation - Developed using Visual Programming (PWCT) 
+* Writen in ANSI C (The code is generated + Looks the same as Handwritten Code)
 * A small language
 	* The compiler + The Virtual Machine are 20,000 lines of C code
 	* The other 500,000 lines of code are related to libraries!
-* Writen in ANSI C (The code is generated)
 * Optional Printing for Tokens/Grammar/Byte-Code during execution
-* Portable (Windows, Linux & Mac OS X)
+* Portable (Windows, Linux & macOS)
 * Comments (One line & Multi-lines)
 * Not Case-Sensitive
 * Dynamic Typing
-* Weakly typed 
+* Weakly typed (Automatic conversion between numbers and strings only)
 * Lexical Scoping (Global, Local & Object State)
 * Default scope for variables inside functions (Local)
 * Default scope for variables outside functions (global)
+* We can have separate global scope for each library or sub project
 * Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)
+* In most cases (90%) using Escape Analysis we don't need to run the Garbage Collector (Faster)
 * Structure Programming
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
-* Use exit to go outside from more than one loop 
+* Use exit to go outside from more than one loop (For programming in the small)
+* Use exit to go outside from loop in the Caller function (For programming in the small)
 * Procedures/Functions
-* Main Function (optional)
-* Call Function before the definition
+* Main Function (Optional - To avoid using the Global Scope)
+* Call Function before the definition (Top-Down Programming)
 * Recursion
 * Multi-line literals
 * Access (read/write) string letter by index
@@ -219,7 +222,7 @@ The Ring language comes with the next features
 	* CRUD Example (using MVC)
 	* Users Example (Register, Login and Check)
 
-* Deploying web applications in the Cloud using Heroku
+* Deploying web applications in the Cloud
 * Extension using C/C++ (Simple API)
 * Embedding the language in C/C++ programs
 * Embedding Ring in Ring
