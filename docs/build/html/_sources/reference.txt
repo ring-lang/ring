@@ -314,7 +314,7 @@ Factor ---> <Literal>
 
 Factor ---> ':' <Identifier>
 
-Factor ---> '-' <Expr>
+Factor ---> '-' <Factor>
 
 Factor ---> '(' <Expr> ')'
 
