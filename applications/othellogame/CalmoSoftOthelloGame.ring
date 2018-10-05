@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/09/26
+# Date    : 2018/10/03
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -190,9 +190,8 @@ SEE nl+ "===== START START ====="+nl+nl
 
 	MoveNumber  = 1
 	TransScript = list(1)
-
  
-	      NextMove.settext("Next Move: Black ")
+	NextMove.settext("Next Move: Black ")
 	PlayScoreBlack.settext("Black Score: 2")
 	PlayScoreWhite.settext("White Score: 2")
 
@@ -201,6 +200,7 @@ SEE nl+ "===== START START ====="+nl+nl
 	Button[5][4].setenabled(false)
 	Button[5][5].setenabled(false)
 
+	//Button[4][4] { setbtnimage(self,"black.png") }
 	Button[4][4] { setstylesheet(C_ButtonBlackStyle) }
 	Button[5][5] { setstylesheet(C_ButtonBlackStyle) }	 
 	Button[4][5] { setstylesheet(C_ButtonWhiteStyle) }	   
