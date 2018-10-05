@@ -284,7 +284,8 @@ We can return values from our function using the next functions.
 	RING_API_RETSTRING2(const char *cString,int nStringSize);
 	RING_API_RETLIST(List *pList);
 	RING_API_RETCPOINTER(void *pValue,const char *cPointerType);
-	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
+	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,
+					void (* pFreeFunc)(void *,void *))
 
 .. index:: 
 	pair: Extension; Function Prototype
@@ -655,7 +656,8 @@ Syntax:
 
 .. code-block:: ring
 
-		RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
+		RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,
+						void (* pFreeFunc)(void *,void *))
 
 Example:
 
@@ -695,7 +697,8 @@ The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.
 		{
 			QPixmap *pValue ; 
 			pValue = new QPixmap() ;
-			*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),
+			*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2),
+				 (int ) RING_API_GETNUMBER(3),
 				 (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(4),
 				 (Qt::TransformationMode )  (int) RING_API_GETNUMBER(5));
 			RING_API_RETMANAGEDCPOINTER(pValue,"QPixmap",ring_QPixmap_freefunc);

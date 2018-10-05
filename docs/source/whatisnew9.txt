@@ -251,7 +251,9 @@ Output:
 	Power of big number:
 	62345678901234567891678345123456789
 	3
-	242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
+	242336636261471172092347146031727004 (Output continue in next line)
+	371698195628343934238988256152289508 (Output continue in next line)
+	493964611043228971692389860897069
 
 For more information check the BigNumber Library Chapter in the documentation
 
@@ -504,7 +506,8 @@ Syntax:
 
 .. code-block:: ring
 
-	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,void (* pFreeFunc)(void *,void *))
+	RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,
+					void (* pFreeFunc)(void *,void *))
 
 For more information about RING_API_RETMANAGEDCPOINTER()
 

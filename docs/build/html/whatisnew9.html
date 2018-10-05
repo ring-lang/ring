@@ -235,7 +235,9 @@ Divide big numbers: by very small number
 Power of big number:
 62345678901234567891678345123456789
 3
-242336636261471172092347146031727004371698195628343934238988256152289508493964611043228971692389860897069
+242336636261471172092347146031727004 (Output continue in next line)
+371698195628343934238988256152289508 (Output continue in next line)
+493964611043228971692389860897069
 </pre></div>
 </div>
 <p>For more information check the BigNumber Library Chapter in the documentation</p>
@@ -452,7 +454,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span><span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>For more information about RING_API_RETMANAGEDCPOINTER()</p>

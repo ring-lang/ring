@@ -259,7 +259,8 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <span class="n">RING_API_RETSTRING2</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStringSize</span><span class="p">);</span>
 <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">);</span>
 <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">);</span>
-<span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="p">))</span>
+<span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -556,7 +557,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span><span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -593,7 +595,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
         {
                 QPixmap *pValue ;
                 pValue = new QPixmap() ;
-                *pValue = pObject-&gt;scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),
+                *pValue = pObject-&gt;scaled( (int ) RING_API_GETNUMBER(2),
+                         (int ) RING_API_GETNUMBER(3),
                          (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(4),
                          (Qt::TransformationMode )  (int) RING_API_GETNUMBER(5));
                 RING_API_RETMANAGEDCPOINTER(pValue,&quot;QPixmap&quot;,ring_QPixmap_freefunc);

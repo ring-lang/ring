@@ -11,6 +11,7 @@ Starting from Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itse
 
 Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
 
+.. note:: We can use the Distribute Menu in the Ring Notepad application (More Easy)
 
 .. index:: 
 	pair: Distributing Ring Application using Ring2EXE; Using Ring2EXE
@@ -125,6 +126,7 @@ Options
 		-mysql    	 : Add RingMySQL to distribution
 		-odbc     	 : Add RingODBC to distribution
 		-sqlite   	 : Add RingSQLite to distribution
+		-postgresql	 : Add RingPostgreSQL to distribution
 		-opengl   	 : Add RingOpenGL to distribution
 		-freeglut 	 : Add RingFreeGLUT to distribution
 		-libzip   	 : Add RingLibZip to distribution
