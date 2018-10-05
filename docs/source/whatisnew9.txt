@@ -71,7 +71,12 @@ The next games are added to Ring Applications
 The next screen shot for the 2048 game on Android 
 
 .. image:: game2048_shot1.png
-	:alt: Ring Notepad
+	:alt: 2048 Game
+
+The next screen shot for the Tessera game
+
+.. image:: tesseragame.png
+	:alt: Tessera Game
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Ring Notepad 
