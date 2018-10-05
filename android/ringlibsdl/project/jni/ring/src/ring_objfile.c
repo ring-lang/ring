@@ -133,8 +133,8 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	char *cString  ;
 	char cKey[11]  ;
 	char cFileType[100]  ;
-	strcpy(cKey,"ringstring");
 	List *pList  ;
+	strcpy(cKey,"ringstring");
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
@@ -297,8 +297,8 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	char *cString, *cData  ;
 	char cKey[11]  ;
 	char cFileType[100]  ;
-	strcpy(cKey,"ringstring");
 	List *pList  ;
+	strcpy(cKey,"ringstring");
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
