@@ -287,3 +287,4 @@ call ring scripts/xortest.ring
 call ring scripts/nestednew.ring
 call ring scripts/ispointer.ring
 call ring scripts/testringvmsee.ring
+call ring scripts/minusminus.ring
