@@ -143,18 +143,20 @@ The Ring language comes with the next features
 * Free Open Source (MIT License)
 * Hybrid Implementation (Compiler + Virtual Machine) 
 * Declarative programming on the top of Object-Oriented programming
-* Natural Language programming on the top of Object-Oriented programming
+* Natural Language Programming on the top of Object-Oriented programming
+* Natural Language Programming Library
+* Three different styles for writing the code and you can create your style 
 * Syntax Flexibility (You can change the language keywords and operators)
+* The language keywords can be translated from English to other languages (Arabic, French, etc)
 * Compact Syntax, No explicit end for statements (No ; or ENTER is required)
 * Using braces { } we can access objects and use attributes/methods as variables/functions
-* Transparent Implementation 
+* Transparent Implementation (See the Tokens, Grammar, and Byte Code for each program) 
 * Visual Implementation - Developed using Visual Programming (PWCT) 
-* Writen in ANSI C (The code is generated + Looks the same as Handwritten Code)
+* Writen in ANSI C (The code is generated + Looks identical to Handwritten Code)
 * A small language
-	* The compiler + The Virtual Machine are 20,000 lines of C code
+	* The compiler + The Virtual Machine (20,000 lines of C code)
 	* The other 500,000 lines of code are related to libraries!
-* Optional Printing for Tokens/Grammar/Byte-Code during execution
-* Portable (Windows, Linux & macOS)
+* Portable (Windows, Linux, macOS, Android, etc)
 * Comments (One line & Multi-lines)
 * Not Case-Sensitive
 * Dynamic Typing
@@ -168,8 +170,8 @@ The Ring language comes with the next features
 * Structure Programming
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
-* Use exit to go outside from more than one loop (For programming in the small)
-* Use exit to go outside from loop in the Caller function (For programming in the small)
+* Use exit to go outside from more than one loop (Use it for programming in the small only)
+* Use exit to go outside from loop in the Caller function (Use it for programming in the small only)
 * Procedures/Functions
 * Main Function (Optional - To avoid using the Global Scope)
 * Call Function before the definition (Top-Down Programming)
