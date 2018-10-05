@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/09/26
+# Date    : 2018/09/27
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -9,10 +9,7 @@ load "guilib.ring"
 size = 8
 move = 1
 score = 0
-
-
-flagblack = 0
-flagwhite = 0
+flag = 0
 
 summoveblack = 0
 summovewhite = 0
@@ -45,7 +42,7 @@ app = new qApp {
          STYLEFusion()
          win = new qWidget() {
                   setWindowTitle('Othello Game')
-				  setStyleSheet('background-color:green')
+		  setStyleSheet('background-color:green')
 				  
                   move(490,100)
                   resize(600,600)
@@ -119,7 +116,10 @@ app = new qApp {
 
 		for Col = 1 to 9
 			Letter = hex2str( hex(Number))
-			TitleLet[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
+			TitleLet[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0))
+                                            setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) 
+                                            setStyleSheet("background-color:darkgray") 
+                                            setText(Letter) } 
 			Number++				
 		next
 				
@@ -128,7 +128,8 @@ app = new qApp {
 			### Horizontal ROWS - 1 2 3 4 5 6 7 8
 		
 	
-			LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+			LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing)
+                                                 setContentsMargins(0,0,0,0) }
 
 				for Col = 1 to 9				
 					LayoutTitleRow.AddWidget(TitleLet[Col])			
@@ -144,7 +145,10 @@ app = new qApp {
 
 		for Col = 1 to 8
 			Letter = ""+ Col
-			TitleNum[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
+			TitleNum[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0)) 
+                                               setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) 
+                                               setStyleSheet("background-color:darkgray")
+                                               setText(Letter) } 
 			Number++			
 			
 		next
@@ -199,13 +203,9 @@ app = new qApp {
 func pstart()
        move = 1
        score = 0 
-
-       flagblack = 0
-       flagwhite = 0
-
+       flag = 0
        MoveNumber  = 1
        TransScript = list(1)
-
        for col = 1 to size
             for row = 1 to size
                  btnblack[col][row] = 0
@@ -254,159 +254,54 @@ func summove()
 ###---------------------------------------------
 
 func pplay(n,m)
-
-       flagblack = 0
-       flagwhite = 0
-
+       flag = 0
        Letter = char(64 + m)
        if move = 1
-			MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ n +"-"+ Letter
-			nextmove.settext("Next Move: White ")    
+	  MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ n +"-"+ Letter
+	  nextmove.settext("Next Move: White ")    
        else
-			MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ n +"-"+ Letter 
-			nextmove.settext("Next Move: Black ") 
-       ok      
+	  MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ n +"-"+ Letter 
+	  nextmove.settext("Next Move: Black ") 
+       ok 
+       TranScript = Add(TransScript, MovePlayed)
+       MoveNumber++
+       see "TransScript: "+nl  see TransScript  see nl+nl
 
-		TranScript = Add(TransScript, MovePlayed)
-		MoveNumber++
-		SEE "TransScript: "+nl  SEE TransScript  SEE nl+nl
-
-
-        
        if move = 1
           move = 0
+          button[n][m].setenabled(false)
           button[n][m] { setstylesheet(C_BUTTONBLACKSTYLE) }
           btnblack[n][m] = 1
-
-          pcheckrightblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckleftblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdownblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckupblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagdownrightblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagdownleftblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiaguprightblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagupleftblack(n,m)
-          if flagblack = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          if flagblack = 0
-             move = 0
-             return
-          ok
+          pcheck(n,m,"black")
+          summove()
+          return
        ok
-
        if move = 0
           move = 1
+          button[n][m].setenabled(false)
           button[n][m] { setstylesheet(C_BUTTONWHITESTYLE) }
           btnwhite[n][m] = 1
-
-          pcheckrightwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckleftwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdownwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckupwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagdownrightwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagdownleftwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiaguprightwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          pcheckdiagupleftwhite(n,m)
-          if flagwhite = 1
-             button[n][m].setenabled(false)
-             summove()
-             return
-          ok
-          if flagwhite = 0
-             move = 1
-             return
-          ok
+          pcheck(n,m,"white")
+          summove()
+          return
        ok
 
-func pcheckrightblack(n,m)
-       yesflag = 0
-       whiteno = 0
-       for x = n+1 to size-1
+func pcheckright(n,m,bw)
+       if bw = "black"
+       pos = 0
+       for x = n+1 to size
             if btnwhite[x][m] = 1
-               yesflag = 1
                loop
-            else
-               whiteno = x
+            ok
+            if btnblack[x][m] = 1
+               pos = x
                exit
             ok
        next
-       if whiteno > n+1 and btnblack[whiteno][m] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nc = n+1 to whiteno - 1
+       if pos > n+1 and btnblack[pos][m] = 1 
+          flag = 1
+          for nc = n+1 to pos - 1
+               see "nc = " + nc + " m = " + m + nl
                button[nc][m].setenabled(false)
                app.processevents()
                sleep(0.5)
@@ -415,23 +310,44 @@ func pcheckrightblack(n,m)
                btnblack[nc][m] = 1
           next
        ok
+       ok
+       if bw = "white"
+       pos = 0
+       for x = n+1 to size-1
+            if btnblack[x][m] = 1
+               loop
+            else
+               pos = x
+               exit
+            ok
+       next
+       if pos > n+1 and btnwhite[pos][m] = 1 
+          flag = 1
+          for nc = n+1 to pos - 1
+               button[nc][m].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[nc][m] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[nc][m] = 0
+               btnwhite[nc][m] = 1
+          next
+       ok
+       ok
 
-func pcheckleftblack(n,m)
-       yesflag = 0
-       whiteno = 0
+func pcheckleft(n,m,bw)
+       if bw = "black"
+       pos = 0
        for x = n-1 to 1 step -1
             if btnwhite[x][m] = 1
-               yesflag = 1
                loop
             else
-               whiteno = x
+               pos = x
                exit
             ok
        next
-       if whiteno < n-1 and btnblack[whiteno][m] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nc = n-1 to whiteno step -1
+       if pos < n-1 and btnblack[pos][m] = 1 
+          flag = 1
+          for nc = n-1 to pos step -1
                button[nc][m].setenabled(false)
                app.processevents()
                sleep(0.5)
@@ -440,23 +356,44 @@ func pcheckleftblack(n,m)
                btnblack[nc][m] = 1
           next
        ok
-
-func pcheckdownblack(n,m)
-       yesflag = 0
-       whiteno = 0
-       for y = m+1 to size-1
-            if btnwhite[n][y] = 1
-               yesflag = 1
+       ok
+       if bw = "white"
+       pos = 0
+       for x = n-1 to 1 step -1
+            if btnblack[x][m] = 1
                loop
             else
-               whiteno = y
+               pos = x
                exit
             ok
        next
-       if whiteno > m+1 and btnblack[n][whiteno] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nr = m+1 to whiteno - 1
+       if pos < n-1 and btnwhite[pos][m] = 1 
+          flag = 1
+          for nc = n-1 to pos step -1
+               button[nc][m].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[nc][m] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[nc][m] = 0
+               btnwhite[nc][m] = 1
+          next
+       ok
+       ok
+
+func pcheckdown(n,m,bw)
+       if bw = "black"
+       pos = 0
+       for y = m+1 to size-1
+            if btnwhite[n][y] = 1
+               loop
+            else
+               pos = y
+               exit
+            ok
+       next
+       if pos > m+1 and btnblack[n][pos] = 1 
+          flag = 1
+          for nr = m+1 to pos - 1
                button[nr][m].setenabled(false)
                app.processevents()
                sleep(0.5)
@@ -465,23 +402,44 @@ func pcheckdownblack(n,m)
                btnblack[n][nr] = 1
           next
        ok
-
-func pcheckupblack(n,m)
-       yesflag = 0
-       whiteno = 0
-       for x = m-1 to 1 step -1
-            if btnwhite[n][x] = 1
-               yesflag = 1
+       ok
+       if bw = "white"
+       pos = 0
+       for y = m+1 to size-1
+            if btnblack[n][y] = 1
                loop
             else
-               whiteno = x
+               pos = y
                exit
             ok
        next
-       if whiteno < m-1 and btnblack[n][whiteno] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nc = m-1 to whiteno step -1
+       if pos > m+1 and btnwhite[n][pos] = 1 
+          flag = 1
+          for nr = m+1 to pos - 1
+               button[n][nr].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[n][nr] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[n][nr] = 0
+               btnwhite[n][nr] = 1
+          next
+       ok
+       ok
+
+func pcheckup(n,m,bw)
+       if bw = "black"
+       pos = 0
+       for x = m-1 to 1 step -1
+            if btnwhite[n][x] = 1
+               loop
+            else
+               pos = x
+               exit
+            ok
+       next
+       if pos < m-1 and btnblack[n][pos] = 1 
+          flag = 1
+          for nc = m-1 to pos step -1
                button[nc][m].setenabled(false)
                app.processevents()
                sleep(0.5)
@@ -490,28 +448,49 @@ func pcheckupblack(n,m)
                btnblack[n][nc] = 1
           next
        ok
+       ok
+       if bw = "white"
+       pos = 0
+       for x = m-1 to 1 step -1
+            if btnblack[n][x] = 1
+               loop
+            else
+               pos = x
+               exit
+            ok
+       next
+       if pos < m-1 and btnwhite[n][pos] = 1 
+          flag = 1
+          for nc = m-1 to pos step -1
+               button[n][nc].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[n][nc] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[n][nc] = 0
+               btnwhite[n][nc] = 1
+          next
+       ok
+       ok
 
-func pcheckdiagdownrightblack(n,m)
-       yesflag = 0
-       whiteno1 = 0
-       whiteno2 = 0
+func pcheckdiagdownright(n,m,bw)
+       if bw = "black"
+       pos1 = 0
+       pos2 = 0
        for x = 1 to size
             if (n+x) < size and (m+x) < size
                if btnwhite[n+x][m+x] = 1
-                  yesflag = 1
                   loop
                else
-                  whiteno1 = n+x
-                  whiteno2 = m+x
+                  pos1 = n+x
+                  pos2 = m+x
                   exit
                ok
             else
                exit
             ok
        next
-       if whiteno1 > n and btnblack[whiteno1][whiteno2] = 1 # # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
+       if pos1 > n and btnblack[pos1][pos2] = 1 
+          flag = 1
           for nc = 1 to x
                button[n+nc][m+nc].setenabled(false)
                app.processevents()
@@ -521,29 +500,56 @@ func pcheckdiagdownrightblack(n,m)
                btnblack[n+nc][m+nc] = 1
           next
        ok
-
-func pcheckdiagdownleftblack(n,m)
-       yesflag = 0
-       whiteno1 = 0
-       whiteno2 = 0
+       ok
+       if bw = "white"
+       pos1 = 0
+       pos2 = 0
        for x = 1 to size
-            if (n-x) < size and (m+x) < size and (n-x) > 0
-               if btnwhite[n-x][m+x] = 1
-                  yesflag = 1
+            if (n+x) < (size+1) and (m+x) < (size+1)
+               if btnblack[n+x][m+x] = 1
                   loop
                else
-                  whiteno1 = n-x
-                  whiteno2 = m+x
+                  pos1 = n+x
+                  pos2 = m+x
                   exit
                ok
             else
                exit
             ok
        next
-       if whiteno1 > 0 and whiteno2 > 0
-          if whiteno1 < n-1 and btnblack[whiteno1][whiteno2] = 1 # and yesflag = 1
-             flagblack = 1
-             flagwhite = 0
+       if pos1 > n and btnwhite[pos1][pos2] = 1 
+          flag = 1
+          for nc = 1 to x
+               button[n+nc][m+nc].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[n+nc][m+nc] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[n+nc][m+nc] = 0
+               btnwhite[n+nc][m+nc] = 1
+          next
+       ok
+       ok
+
+func pcheckdiagdownleft(n,m,bw)
+       if bw = "black"
+       pos1 = 0
+       pos2 = 0
+       for x = 1 to size
+            if (n-x) < size and (m+x) < size and (n-x) > 0
+               if btnwhite[n-x][m+x] = 1
+                  loop
+               else
+                  pos1 = n-x
+                  pos2 = m+x
+                  exit
+               ok
+            else
+               exit
+            ok
+       next
+       if pos1 > 0 and pos2 > 0
+          if pos1 < n-1 and btnblack[pos1][pos2] = 1 
+             flag = 1
              for nc = 1 to x
                   button[n-nc][m+nc].setenabled(false)
                   app.processevents()
@@ -554,222 +560,26 @@ func pcheckdiagdownleftblack(n,m)
              next
           ok
        ok
-
-func pcheckdiaguprightblack(n,m)
-       yesflag = 0
-       whiteno1 = 0
-       whiteno2 = 0
-       for x = 1 to size
-            if (n+x) > 1 and (m-x) > 1 and (n+x) < size and (m-x) < size
-               if btnwhite[n+x][m-x] = 1
-                  yesflag = 1
-                  loop
-               else
-                  whiteno1 = n+x
-                  whiteno2 = m-x
-                  exit
-               ok
-            else
-               exit
-            ok
-       next
-       if whiteno1 > n+1 and btnblack[whiteno1][whiteno2] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nc = 1 to x
-               button[n+nc][m-nc].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[n+nc][m-nc] { setstylesheet(C_BUTTONBLACKSTYLE) }
-               btnwhite[n+nc][m-nc] = 0
-               btnblack[n+nc][m-nc] = 1
-          next
        ok
-
-func pcheckdiagupleftblack(n,m)
-       yesflag = 0
-       whiteno1 = 0
-       whiteno2 = 0
-       for x = 1 to size
-            if (n-x) > 0 and (m-x) > 0
-               if btnwhite[n-x][m-x] = 1
-                  yesflag = 1
-                  loop
-               else
-                  whiteno1 = n-x
-                  whiteno2 = m-x
-                  exit
-               ok
-            else
-               exit
-            ok
-       next
-       if whiteno1 > 0 and btnblack[whiteno1][whiteno2] = 1 # and yesflag = 1
-          flagblack = 1
-          flagwhite = 0
-          for nc = 1 to x
-               button[n-nc][m-nc].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[n-nc][m-nc] { setstylesheet(C_BUTTONBLACKSTYLE) }
-               btnwhite[n-nc][m-nc] = 0
-               btnblack[n-nc][m-nc] = 1
-          next
-       ok
-
-func pcheckrightwhite(n,m)
-       yesflag = 0
-       blackno = 0
-       for x = n+1 to size-1
-            if btnblack[x][m] = 1
-               yesflag = 1
-               loop
-            else
-               blackno = x
-               exit
-            ok
-       next
-       if blackno > n+1 and btnwhite[blackno][m] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
-          for nc = n+1 to blackno - 1
-               button[nc][m].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[nc][m] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[nc][m] = 0
-               btnwhite[nc][m] = 1
-          next
-       ok
-
-func pcheckleftwhite(n,m)
-       yesflag = 0
-       blackno = 0
-       for x = n-1 to 1 step -1
-            if btnblack[x][m] = 1
-               yesflag = 1
-               loop
-            else
-               blackno = x
-               exit
-            ok
-       next
-       if blackno < n-1 and btnwhite[blackno][m] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
-          for nc = n-1 to blackno step -1
-               button[nc][m].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[nc][m] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[nc][m] = 0
-               btnwhite[nc][m] = 1
-          next
-       ok
-
-func pcheckdownwhite(n,m)
-       yesflag = 0
-       blackno = 0
-       for y = m+1 to size-1
-            if btnblack[n][y] = 1
-               yesflag = 1
-               loop
-            else
-               blackno = y
-               exit
-            ok
-       next
-       if blackno > m+1 and btnwhite[n][blackno] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
-          for nr = m+1 to blackno - 1
-               button[n][nr].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[n][nr] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[n][nr] = 0
-               btnwhite[n][nr] = 1
-          next
-       ok
-
-func pcheckupwhite(n,m)
-       yesflag = 0
-       blackno = 0
-       for x = m-1 to 1 step -1
-            if btnblack[n][x] = 1
-               yesflag = 1
-               loop
-            else
-               blackno = x
-               exit
-            ok
-       next
-       if blackno < m-1 and btnwhite[n][blackno] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
-          for nc = m-1 to blackno step -1
-               button[n][nc].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[n][nc] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[n][nc] = 0
-               btnwhite[n][nc] = 1
-          next
-       ok
-
-func pcheckdiagdownrightwhite(n,m)
-       yesflag = 0
-       blackno1 = 0
-       blackno2 = 0
-       for x = 1 to size
-            if (n+x) < (size+1) and (m+x) < (size+1)
-               if btnblack[n+x][m+x] = 1
-                  yesflag = 1
-                  loop
-               else
-                  blackno1 = n+x
-                  blackno2 = m+x
-                  exit
-               ok
-            else
-               exit
-            ok
-       next
-       if blackno1 > n and btnwhite[blackno1][blackno2] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
-          for nc = 1 to x
-               button[n+nc][m+nc].setenabled(false)
-               app.processevents()
-               sleep(0.5)
-               button[n+nc][m+nc] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[n+nc][m+nc] = 0
-               btnwhite[n+nc][m+nc] = 1
-          next
-       ok
-
-func pcheckdiagdownleftwhite(n,m)
-       yesflag = 0
-       blackno1 = 0
-       blackno2 = 0
+       if bw = "white"
+       pos1 = 0
+       pos2 = 0
        for x = 1 to size
             if (n-x) < size and (m+x) < size and (n-x) > 0
                if btnblack[n-x][m+x] = 1
-                  yesflag = 1
                   loop
                else
-                  blackno1 = n-x
-                  blackno2 = m+x
+                  pos1 = n-x
+                  pos2 = m+x
                   exit
                ok
             else
                exit
             ok
        next
-       if blackno1 > 0 and blackno2 > 0
-          if blackno1 < n-1 and btnwhite[blackno1][blackno2] = 1 # and yesflag = 1
-             flagwhite = 1
-             flagblack = 0
+       if pos1 > 0 and pos2 > 0
+          if pos1 < n-1 and btnwhite[pos1][pos2] = 1 
+             flag = 1
              for nc = 1 to x
                   button[n-nc][m+nc].setenabled(false)
                   app.processevents()
@@ -780,59 +590,55 @@ func pcheckdiagdownleftwhite(n,m)
              next
           ok
        ok
+       ok
 
-func pcheckdiaguprightwhite(n,m)
-       yesflag = 0
-       blackno1 = 0
-       blackno2 = 0
+func pcheckdiagupright(n,m,bw)
+       if bw = "black"
+       pos1 = 0
+       pos2 = 0
        for x = 1 to size
             if (n+x) > 1 and (m-x) > 1 and (n+x) < size and (m-x) < size
-               if btnblack[n+x][m-x] = 1
-                  yesflag = 1
+               if btnwhite[n+x][m-x] = 1
                   loop
                else
-                  blackno1 = n+x
-                  blackno2 = m-x
+                  pos1 = n+x
+                  pos2 = m-x
                   exit
                ok
             else
                exit
             ok
        next
-       if blackno1 > n+1 and btnwhite[blackno1][blackno2] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
+       if pos1 > n+1 and btnblack[pos1][pos2] = 1 
+          flag = 1
           for nc = 1 to x
                button[n+nc][m-nc].setenabled(false)
                app.processevents()
                sleep(0.5)
-               button[n+nc][m-nc] { setstylesheet(C_BUTTONWHITESTYLE) }
-               btnblack[n+nc][m-nc] = 0
-               btnwhite[n+nc][m-nc] = 1
+               button[n+nc][m-nc] { setstylesheet(C_BUTTONBLACKSTYLE) }
+               btnwhite[n+nc][m-nc] = 0
+               btnblack[n+nc][m-nc] = 1
           next
        ok
-
-func pcheckdiagupleftwhite(n,m)
-       yesflag = 0
-       blackno1 = 0
-       blackno2 = 0
+       ok
+       if bw = "white"
+       pos1 = 0
+       pos2 = 0
        for x = 1 to size
             if (n-x) > 0 and (m-x) > 0
                if btnblack[n-x][m-x] = 1
-                  yesflag = 1
                   loop
                else
-                  blackno1 = n-x
-                  blackno2 = m-x
+                  pos1 = n-x
+                  pos2 = m-x
                   exit
                ok
             else
                exit
             ok
        next
-       if blackno1 > 0 and btnwhite[blackno1][blackno2] = 1 # and yesflag = 1
-          flagwhite = 1
-          flagblack = 0
+       if pos1 > 0 and btnwhite[pos1][pos2] = 1 
+          flag = 1
           for nc = 1 to x
                button[n-nc][m-nc].setenabled(false)
                app.processevents()
@@ -841,6 +647,90 @@ func pcheckdiagupleftwhite(n,m)
                btnblack[n-nc][m-nc] = 0
                btnwhite[n-nc][m-nc] = 1
           next
+       ok
+       ok
+
+func pcheckdiagupleft(n,m,bw)
+       if bw = "black"
+       pos1 = 0
+       pos2 = 0
+       for x = 1 to size
+            if (n-x) > 0 and (m-x) > 0
+               if btnwhite[n-x][m-x] = 1
+                  loop
+               else
+                  pos1 = n-x
+                  pos2 = m-x
+                  exit
+               ok
+            else
+               exit
+            ok
+       next
+       if pos1 > 0 and btnblack[pos1][pos2] = 1 
+          flag = 1
+          for nc = 1 to x
+               button[n-nc][m-nc].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[n-nc][m-nc] { setstylesheet(C_BUTTONBLACKSTYLE) }
+               btnwhite[n-nc][m-nc] = 0
+               btnblack[n-nc][m-nc] = 1
+          next
+       ok
+       ok
+       if bw = "white"
+       pos1 = 0
+       pos2 = 0
+       for x = 1 to size
+            if (n-x) > 0 and (m-x) > 0
+               if btnblack[n-x][m-x] = 1
+                  loop
+               else
+                  pos1 = n-x
+                  pos2 = m-x
+                  exit
+               ok
+            else
+               exit
+            ok
+       next
+       if pos1 > 0 and btnwhite[pos1][pos2] = 1 
+          flag = 1
+          for nc = 1 to x
+               button[n-nc][m-nc].setenabled(false)
+               app.processevents()
+               sleep(0.5)
+               button[n-nc][m-nc] { setstylesheet(C_BUTTONWHITESTYLE) }
+               btnblack[n-nc][m-nc] = 0
+               btnwhite[n-nc][m-nc] = 1
+          next
+       ok
+       ok
+
+func pcheck(n,m,bw)
+       pcheckright(n,m,bw)
+       pcheckok(n,m)
+       pcheckleft(n,m,bw)
+       pcheckok(n,m)
+       pcheckok(n,m)
+       pcheckdown(n,m,bw)
+       pcheckok(n,m)
+       pcheckup(n,m,bw)
+       pcheckok(n,m)
+       pcheckdiagdownright(n,m,bw)
+       pcheckok(n,m)
+       pcheckdiagdownleft(n,m,bw)
+       pcheckok(n,m)
+       pcheckdiagupright(n,m,bw)
+       pcheckok(n,m)
+       pcheckdiagupleft(n,m,bw)
+       pcheckok(n,m)
+
+func pcheckok(n,m)
+       if flag = 1
+          button[n][m].setenabled(false)
+          return
        ok
 
 func msgBox(cText) 
