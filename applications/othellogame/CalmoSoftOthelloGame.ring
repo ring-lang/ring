@@ -1,6 +1,6 @@
 # Project : Othello Game
-# Date    : 2018/09/25
-# Author : Gal Zsolt (~ CalmoSoft ~)
+# Date    : 2018/09/26
+# Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
@@ -255,7 +255,9 @@ func summove()
 
 func pplay(n,m)
 
-       
+       flagblack = 0
+       flagwhite = 0
+
        Letter = char(64 + m)
        if move = 1
 			MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ n +"-"+ Letter
@@ -325,9 +327,8 @@ func pplay(n,m)
              return
           ok
           if flagblack = 0
-             msgBox('Bad move')
-             move = 1
-             button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE) }
+             move = 0
+             return
           ok
        ok
 
@@ -385,9 +386,8 @@ func pplay(n,m)
              return
           ok
           if flagwhite = 0
-             msgBox('Bad move')
-             move = 0
-             button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE) }
+             move = 1
+             return
           ok
        ok
 
