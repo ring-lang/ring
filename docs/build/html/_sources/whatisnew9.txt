@@ -67,6 +67,7 @@ The next games are added to Ring Applications
 (2) The Memory Game
 (3) The Wise Quadrat Game 
 (4) The Tessera Game
+(5) The Othello Game
 
 The next screen shot for the 2048 game on Android 
 
@@ -77,6 +78,12 @@ The next screen shot for the Tessera game
 
 .. image:: tesseragame.png
 	:alt: Tessera Game
+
+The next screen shot for the Othello game
+
+.. image:: othellogame.png
+	:alt: Othello Game
+
 
 .. index:: 
 	pair: What is new in Ring 1.9?; Better Ring Notepad 
