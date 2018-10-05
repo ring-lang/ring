@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/10/01
+# Date    : 2018/09/26
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -26,16 +26,13 @@ C_ButtonYellowStyle = 'border-radius:6px;color:black; background-color: Yellow'
 Button          = newlist(Size+1,Size)
 LayoutButtonRow = list(Size+4)
 
-Cols = list(Size+1)
-Rows = list(Size)
-curColor  = "B"	### B" or "W"
-
+curColor  	= "B"	### "B" or "W"
 
 TransScript = list(1)
 MoveNumber  = 1
-bArray	    = newList(8,8)
-dArray      = list(8)
-
+dArray      = list(8)			### Flat destination array for diagnal analysis
+bArray	    = newList(8,8)		### Internal button array
+oldArray    = newList(8,8)		### Save bArray as oldArray, See who flip for Animation
 
 ###=====================================================
 
@@ -50,33 +47,37 @@ app = new qApp
 		winheight = win.height()
 		fontSize = 8 + (winheight / 100)
 
-		PlayScoreBlack = new QLabel(win) {
+		PlayScoreBlack = new QLabel(win) 
+						{
 							setFont(new qFont("Verdana",fontSize,100,0))
 							setstylesheet(C_ButtonBlueStyle)
 							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
 							settext("Black Score: 2")
 						}
 
-		PlayScoreWhite = new QLabel(win) {
+		PlayScoreWhite = new QLabel(win) 
+						{
 							setFont(new qFont("Verdana",fontSize,100,0))
 							setstylesheet(C_ButtonYellowStyle)
 							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
 							settext("White Score: 2")
 						}
 
-		NextMove = new QLabel(win) {
-						setFont(new qFont("Verdana",fontSize,100,0))
-						setstylesheet(C_ButtonOrangestyle)
-						setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-						settext("Next Move: Black ")
-					} 
+		NextMove = new QLabel(win) 
+						{
+							setFont(new qFont("Verdana",fontSize,100,0))
+							setstylesheet(C_ButtonOrangestyle)
+							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+							settext("Next Move: Black ")
+						} 
 
-		NewGame  = new QPushButton(win) {
-						setFont(new qFont("Verdana",fontSize,100,0))
-						setstylesheet("background-color:violet")
-						settext("New Game")
-						setclickevent("pStart()")		### CLICK
-					}
+		NewGame  = new QPushButton(win) 
+						{
+							setFont(new qFont("Verdana",fontSize,100,0))
+							setstylesheet("background-color:violet")
+							settext("New Game")
+							setclickevent("pStart()")				### CLICK NEW GAME >>> pStart
+						}
 
         ##------------------------------------------------------------------------------
 		### QVBoxLayout lays out Button Widgets in a vertical column, from top to bottom.
@@ -137,7 +138,7 @@ app = new qApp
 					Button[Row][Col] = new QPushButton(win)	### Create PUSH BUTTONS
 					{
 						setStyleSheet(C_EmptyButtonStyle)			
-						setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ###<<< CLICK
+						setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
 						setSizePolicy(1,1)
 					}
 					
@@ -173,7 +174,7 @@ app = new qApp
 
 func pStart()
 
-SEE nl+ "START START START==========="+nl+nl
+SEE nl+ "===== START START ====="+nl+nl
 	bArray	= newList(8,8)
 
 	for Row = 1 to Size
@@ -185,10 +186,7 @@ SEE nl+ "START START START==========="+nl+nl
 	next
 	
 	curColor  = "B"	### 1
-	Score =  0 
-
-	flagBlack = 0
-	flagWhite = 0
+	Score     =  0 
 
 	MoveNumber  = 1
 	TransScript = list(1)
@@ -212,6 +210,7 @@ SEE nl+ "START START START==========="+nl+nl
 	bArray[5][5] = "B"	
 	bArray[4][5] = "W"	
 	bArray[5][4] = "W"	
+	
 return
 
 ###--------------------------------
@@ -235,11 +234,13 @@ func sumMove()
        PlayScoreWhite.settext("White Score: " + sumMoveWhite)
 return
 
-###--------------------------------
+###-----------------------------------
+### Play a Move - qPushButton Clicked
 	
 Func pPlay(Row,Col)
 
-	SEE "Row-Col: "+ Row +"-"+ Col +nl
+    SEE nl+"------------------------"+nl+nl
+	SEE "CLICK Row-Col: "+ Row +"-"+ Col +nl
 	
 			###---------------------------
 			### TransScript Record Moves
@@ -258,53 +259,70 @@ Func pPlay(Row,Col)
 
 			TranScript = Add(TransScript, MovePlayed)
 			MoveNumber++
-			SEE "TransScript: "+nl  SEE TransScript  SEE nl+nl
+			SEE "TransScript: "+nl  SEE TransScript  SEE nl
 			
 			###-------------------------
 
+	###-------------------------------------------------
+	### Make a Copy of Current Board for Flip Animation	
+	
+	for h = 1 to Size
+		for v = 1 to Size
+			oldArray[h][v] = bArray[h][v]
+		next
+	next	
         
-	if curColor = "B"  ### Current Black   
+	###---------------------------------
+	
+	if curColor = "B"  									### Current BLACK   
 		bArray[Row][Col] = "B"
 		Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
 		Button[Row][Col].setenabled(false)	
-		CheckDiagonals(Row,Col,curColor)
+		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
 
-		curColor = "W"  ### Next Move is White
-		#sumMove()
-		#return
+		curColor = "W"  								### Next Move is White
 		
-	elseif  curColor = "W"  ### Current White   
+	elseif  curColor = "W"  							### Current WHITE  
 		bArray[Row][Col] = "W"
 		Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
 		Button[Row][Col].setenabled(false)
-		CheckDiagonals(Row,Col,curColor)
+		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
 		
-		curColor = "B"  ### Next Move is Black
-		#sumMove()
-		#return		  
+		curColor = "B"  								### Next Move is Black
+		
 	ok
 
 	
 	###-------------------------------------
 	### Color the Buttons and Disable Click
 	
-	SEE nl+"Color bArray_____"+nl
+	SEE "Color bArray_____"+nl
 	for Row = 1 to Size
 	See nl + row +" "
 		for  Col = 1 to Size
 			 
 			if bArray[Row][Col] = "W"
 				SEE "W "
-                                app.processevents()
-                                sleep(0.2)
+
+				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
+					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl
+					app.processevents()
+					sleep(0.2)				
+				ok
+				
 				Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
 				Button[Row][Col].setenabled(false)				
 			ok
 
 			if bArray[Row][Col] = "B"
 				SEE "B "
-                                app.processevents()
-                                sleep(0.2)
+
+				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
+					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl
+					app.processevents()
+					sleep(0.2)				
+				ok
+				
 				Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
 				Button[Row][Col].setenabled(false)				
 			ok
@@ -326,8 +344,8 @@ return
 
 Func CheckDiagonals(Row,Col,curColor)
 
-SEE nl+ "##################################"+nl
-SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
+#SEE nl+ "##################################"+nl
+#SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 
 	###---------------------------
 	### Diag-  NORTH-SOUTH Col
@@ -336,23 +354,23 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 	dArray = list(9) 
 	for Cell = 1 to 9  dArray[Cell] = "E"  	next
 	
-				See nl+"Copy-NORTH-SOUTH-To-dArray---->>>: "					
+				#See nl+"Copy-NORTH-SOUTH-To-dArray---->>>: "					
 			for Cell = 1 to 8	 
 				dArray[Cell] = bArray[Cell][Col]  		### ROW ---> FLAT
-				SEE " "+ dArray[Cell]
+				#SEE " "+ dArray[Cell]
 			next	
-				See nl
+				#See nl
 	
 	CheckFlips(Row,curColor)
 	
 
 			### COPY BACK FLAT to COL 
-				See "Copy-dArray-To-NORTH-SOUTH----<<<: "	 	
+				#See "Copy-dArray-To-NORTH-SOUTH----<<<: "	 	
 			for Cell = 1 to 8	 
 				bArray[Cell][Col] = dArray[Cell]  		### ROW <--- FLAT
-				See " "+ dArray[Cell] 
+				#See " "+ dArray[Cell] 
 			next	
-				see nl
+				#see nl
 		
 		
 	###---------------------------
@@ -362,23 +380,23 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 	dArray = list(9)  
 	for Cell = 1 to 9  dArray[Cell] = "E" 	next
 
-				See nl+"Copy-EAST-WEST-To-dArray---->>>  : "	 	
+				#See nl+"Copy-EAST-WEST-To-dArray---->>>  : "	 	
 			for Cell = 1 to 8	 
 				dArray[Cell] = bArray[ROW][Cell]  		###  COL ----> FLAT
-				SEE " "+ dArray[Cell]
+				#SEE " "+ dArray[Cell]
 			next	
-				see nl
+				#see nl
 		
 	CheckFlips(Col,curColor)
 
 	
 			### COPY BACK FLAT to ROW 
-				See "Copy-dArray-To-EAST-WEST------<<<: "		
+				#See "Copy-dArray-To-EAST-WEST------<<<: "		
 			for Cell = 1 to 8	 
 				bArray[Row][Cell] = dArray[Cell]		###  COL <---- FLAT
-				See " "+ dArray[Cell] 
+				#See " "+ dArray[Cell] 
 			next	
-				see nl	
+				#see nl	
 				
 
 	###================================================
@@ -398,19 +416,19 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 			DRow = StartRow   
 			DCol = StartCol
 			
-			SEE nl+"DECLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
+			#SEE nl+"DECLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
 			
 			
-				See "Copy-DECLINE-To-dArray ------->>>: "
+				#See "Copy-DECLINE-To-dArray ------->>>: "
 			for Cell = 1 to 8	 
 				dArray[Cell] = bArray[DRow][DCol]  		### ROW\COL ---> FLAT
 				DRow++  DCol++
 				
-				SEE " "+ dArray[Cell]
+				#SEE " "+ dArray[Cell]
 				
 				if DRow > 8 OR DCol > 8  exit  ok				
 			next	
-				See nl
+				#See nl
 
 				
 	CheckFlips((Row-StartRow+1),curColor)				### Line up dArray and Row for Cell Clicked
@@ -419,15 +437,15 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 			### COPY BACK FLAT to ROW 
 			DRow = StartRow   DCol = StartCol
 			
-				See "Copy-dArray-To-DECLINE--------<<<: "	
+				#See "Copy-dArray-To-DECLINE--------<<<: "	
 			for Cell = 1 to 8	 
 				bArray[DRow][DCol] = dArray[Cell]  		### ROW\COL <--- FLAT
-				See " "+ dArray[Cell] 
+				#See " "+ dArray[Cell] 
 				DRow++  DCol++
 				
 				if DRow > 8 OR DCol > 8  exit  ok  	
 			next	
-				see nl
+				#see nl
 				
 	
 
@@ -449,18 +467,18 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 			DRow = StartRow   
 			DCol = StartCol
 	
-			SEE nl+"INCLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
+			#SEE nl+"INCLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
 			
-				See "Copy-INCLINE-To-dArray-------->>>: "				
+				#See "Copy-INCLINE-To-dArray-------->>>: "				
 			for Cell = 1 to 8		
 				dArray[Cell] = bArray[DRow][DCol]  		### ROW\COL ---> FLAT
 				DRow--  DCol++
 								
-				SEE " "+ dArray[Cell]
+				#SEE " "+ dArray[Cell]
 		
 				if DRow < 1 OR DCol > 8  exit  ok	
 			next	
-				See nl
+				#See nl
 	
 	
 	CheckFlips((Col-StartCol+1),curColor)				### Line up dArray and Col for Cell Clicked
@@ -469,15 +487,15 @@ SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 			### COPY BACK FLAT to ROW 
 			DRow = StartRow   DCol = StartCol
 			
-				See "Copy-dArray-To-INCLINE--------<<<: "			
+				#See "Copy-dArray-To-INCLINE--------<<<: "			
 			for Cell = 1 to 8	 
 				bArray[DRow][DCol] = dArray[Cell]  		### ROW\COL <--- FLAT
-				See " "+ dArray[Cell] 
+				#See " "+ dArray[Cell] 
 				DRow--  DCol++
 				
 				if DRow < 1 OR DCol > 8  exit  ok	
 			next	
-				see nl
+				#see nl
 				
 	###--------------------------------------------			
 		
@@ -504,7 +522,7 @@ return
 
 Func CheckFlips(cellClick,curColor)
 
-SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
+#SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
 
     aFlip       = list(9)			### Which Cells to Flip, OverFlop when Cell +1 = 9
 	aFlip[9]    =  "."              ### Use Dot, NOT B,W,E on Edge +1
@@ -523,25 +541,25 @@ SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
 			cellStart = cell											###  ..^...  FlagStart = 1
 			
 			FlagStart = 1                                             		
-			See "Start__: "+ FlagStart +" "+ cellStart +nl	
+			#SEE "Start__: "+ FlagStart +" "+ cellStart +nl	
 	
 		### END ---
 		elseif  dArray[cell] = otherColor AND dArray[cell+1] = curColor  ###  ..WB..
 			cellEnd = cell+1  											###  ...^..
 			
-			See "End____: "+ FlagStart +" "+ cellEnd +nl
+			#SEE "End____: "+ FlagStart +" "+ cellEnd +nl
 			
 			if FlagStart = 1 AND ( (cellStart = cellClick) OR (cellEnd = cellClick) )
 				
 				FlipStart = cellStart +1  								###  ..BWB..  
 				FlipEnd   = cellEnd   -1								###  ..^v^.. 				
-				SEE "FLIPPER: "+ FlipStart +"-"+ FlipEnd + " >>> "
+				#SEE "FLIPPER: "+ FlipStart +"-"+ FlipEnd + " >>> "
 				
 				for n = (FlipStart) to (FlipEnd)     
 					aFlip[n] = 1 
-					See " "+ n 
+					#SEE " "+ n 
 				next	
-					See nl
+					#SEE nl
 			
 			FlagStart = 0
 									
@@ -550,22 +568,22 @@ SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
 		### CANCEL ---	
 		elseif	dArray[cell] = "E" AND FlagStart = 1           			###  EB, EW, EE => FlagStart = 0
 		    FlagStart = 0
-		    See "Start_v: "+ FlagStart +" "+ cell +nl
+		    #SEE "Start_v: "+ FlagStart +" "+ cell +nl
 		ok		
 		
 	next
 
-	SEE "FLIP___: "
+	#SEE "FLIP___: "
 	for n = 1 to 9
-		See  aFlip[n] 
+		#SEE  aFlip[n] 
 			if aFlip[n] = 1
- 			   dArray[n] = curColor	### FLIP color
+				dArray[n] = curColor	### FLIP color
 			ok
 	next
-	SEE nl
+	#SEE nl
 
-	See "dArray-Changed-Now_______________: " 	
-	for n = 1 to 8  See " "+ dArray[n]  next See nl
+	#SEE "dArray-Changed-Now_______________: " 	
+	#for n = 1 to 8  SEE " "+ dArray[n]  next #SEE nl
 	
 
 #See "EndCheck:"+nl	
