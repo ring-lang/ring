@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/09/26
+# Date    : 2018/10/05
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -12,6 +12,12 @@ Score = 0
 
 sumMoveBlack = 0 
 sumMoveWhite = 0
+
+bwidth = 50 
+bheight = 50 
+oPicBlack = new QPixmap("black.png")
+oPicWhite = new QPixmap("white.png")
+oPicEmpty = new QPixmap("empty.png")
 
 C_Spacing = 1 ### was 5
 
@@ -143,7 +149,7 @@ app = new qApp
 			   for Col = 1 to Size
 					Button[Row][Col] = new QPushButton(win)	### Create PUSH BUTTONS
 					{
-						setStyleSheet(C_EmptyButtonStyle)			
+						setButtonImage(Button[Row][Col],oPicEmpty,bwidth,bheight)			
 						setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
 						setSizePolicy(1,1)
 					}
@@ -188,7 +194,7 @@ SEE nl+ "===== START START ====="+nl+nl
 		for Col = 1 to Size
 			bArray[Row][Col] = "E"		### E-Empty cell
 			Button[Row][Col].setenabled(true)
-			Button[Row][Col] { setstylesheet(C_EmptyButtonStyle) }
+			setButtonImage(Button[Row][Col],oPicEmpty,bwidth,bheight)
 		next
 	next
 	
@@ -197,9 +203,8 @@ SEE nl+ "===== START START ====="+nl+nl
 
 	MoveNumber  = 1
 	TransScript = list(1)
-
  
-	      NextMove.settext("Next Move: Black ")
+	NextMove.settext("Next Move: Black ")
 	PlayScoreBlack.settext("Black Score: 2")
 	PlayScoreWhite.settext("White Score: 2")
 
@@ -208,10 +213,10 @@ SEE nl+ "===== START START ====="+nl+nl
 	Button[5][4].setenabled(false)
 	Button[5][5].setenabled(false)
 
-	Button[4][4] { setstylesheet(C_ButtonBlackStyle) }
-	Button[5][5] { setstylesheet(C_ButtonBlackStyle) }	 
-	Button[4][5] { setstylesheet(C_ButtonWhiteStyle) }	   
-	Button[5][4] { setstylesheet(C_ButtonWhiteStyle) }
+        setButtonImage(Button[4][4],oPicBlack,bwidth,bheight)
+        setButtonImage(Button[5][5],oPicBlack,bwidth,bheight)
+        setButtonImage(Button[4][5],oPicWhite,bwidth,bheight)
+        setButtonImage(Button[5][4],oPicWhite,bwidth,bheight)
 
 	bArray[4][4] = "B"	
 	bArray[5][5] = "B"	
@@ -308,13 +313,13 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 	FlagFlip = 0
 	if curColor = "B"  									### Current BLACK   
 		bArray[Row][Col] = "B"
-		Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
+		setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
 		Button[Row][Col].setenabled(false)	
 		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
  							
 	elseif  curColor = "W"  							### Current WHITE  
 		bArray[Row][Col] = "W"
-		Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
+		setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
 		Button[Row][Col].setenabled(false)
 		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals					
 	ok
@@ -335,7 +340,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 		###----------------------------------------------------
 		### MsgBox - Clicked Discard - RETURN OtherColor Turn
 		if  SkipTurn = 1  
-			Button[RowPlayed][ColPlayed] { setstylesheet(C_EmptyButtonStyle) }	### CELL PLAYED - Put Back to Empty Color
+			setButtonImage(Button[RowPlayed][4],oPicEmpty,bwidth,bheight)	### CELL PLAYED - Put Back to Empty Color
 			Button[RowPlayed][ColPlayed].setenabled(true)
 			curColor = otherColor
 			return
@@ -359,7 +364,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 				NextMove.settext("Next Move: White.... ") 
 		ok
 		
-		Button[RowPlayed][ColPlayed] { setstylesheet(C_EmptyButtonStyle) }	### CELL PLAYED - Put Back to Empty Color
+		setButtonImage(Button[RowPlayed][ColPlayed],oPicEmpty,bwidth,bheight)	### CELL PLAYED - Put Back to Empty Color
 		Button[RowPlayed][ColPlayed].setenabled(true)
 		
 		return	### INVALID - NO FLIPS
@@ -387,7 +392,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
 				
-				Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
+		                setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
 				Button[Row][Col].setenabled(false)				
 			ok
 
@@ -400,7 +405,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
 				
-				Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
+		                setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
 				Button[Row][Col].setenabled(false)				
 			ok
 			
@@ -700,3 +705,6 @@ Func msgBox(cText)
 
 ###--------------------------------
 	
+func setButtonImage(oBtn,oPixmap,bwidth,bheight)
+       oBtn { setIcon(new qicon(oPixmap.scaled(bwidth,bheight,0,0)))
+                 setIconSize(new QSize(bwidth,bheight)) }
