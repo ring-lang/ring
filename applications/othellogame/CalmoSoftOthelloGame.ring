@@ -13,16 +13,21 @@ flagblack = 0
 flagwhite = 0
 summoveblack = 0
 summovewhite = 0
-C_SPACING = 5
-C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:gray'
-C_BUTTONBLACKSTYLE = 'border-radius:17px;color:black; background-color: black'
-C_BUTTONWHITESTYLE = 'border-radius:17px;color:black; background-color: white'
-C_BUTTONORANGESTYLE = 'border-radius:17px;color:black; background-color: orange'
-C_BUTTONBLUESTYLE = 'border-radius:17px;color:black; background-color: blue'
+C_SPACING = 2 ### was5
+
+C_EMPTYBUTTONSTYLE  = 'border-radius:5px;background-color:gray'
+C_BUTTONBLACKSTYLE  = 'border-radius:5px;color:black; background-color: black'
+C_BUTTONWHITESTYLE  = 'border-radius:5px;color:black; background-color: white'
+C_BUTTONORANGESTYLE = 'border-radius:5px;color:black; background-color: orange'
+
+C_ButtonBlueStyle     = 'border-radius:5px;color:black; background-color: Cyan'
+C_ButtonYellowStyle   = 'border-radius:5px;color:black; background-color: Yellow'
+
 button = newlist(size+1,size)
 btnblack = newlist(size,size)
 btnwhite = newlist(size,size)
 LayoutButtonRow = list(size+4)
+
 cols = list(size+1)
 rows = list(size)
 colcells = [" ","A","B","C","D","E","F","G","H"]
@@ -31,31 +36,37 @@ app = new qApp {
          STYLEFusion()
          win = new qWidget() {
                   setWindowTitle('Othello Game')
+				  setStyleSheet('background-color:green')
+				  
                   move(490,100)
                   resize(600,600)
                   winheight = win.height()
                   fontsize = 8 + (winheight/70)
+				  
                   playscoreblack = new QLabel(win) {
                                           setFont(new qFont("Verdana",fontsize,100,0))
-                                          setstylesheet(C_BUTTONORANGESTYLE)
+                                          setstylesheet(C_ButtonBlueStyle)
                                           setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                          settext("Black Player Score: 2")
+                                          settext("Black Score: 2")
                                           show()
                                           }
+
                   playscorewhite = new QLabel(win) {
                                            setFont(new qFont("Verdana",fontsize,100,0))
-                                           setstylesheet(C_BUTTONORANGESTYLE)
+                                           setstylesheet(C_ButtonYellowStyle)
                                            setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                           settext("White Player Score: 2")
+                                           settext("White Score: 2")
                                            show()
                                            }
+
                   nextmove = new QLabel(win) {
                                     setFont(new qFont("Verdana",fontsize,100,0))
                                     setstylesheet(C_BUTTONORANGESTYLE)
                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-                                    settext("Next Move: Black Player")
+                                    settext("Next Move: Black ")
                                     show()
-                                    }
+                                    } 
+
                   newgame  = new QPushButton(win) {
                                      setFont(new qFont("Verdana",fontsize,100,0))
                                      setstylesheet("background-color:violet")
@@ -63,6 +74,7 @@ app = new qApp {
                                      setclickevent("pstart()")
                                      show()
                                      }
+
                   for n = 1 to size+1
                        cols[n] = new QLabel(win) {
                                     setFont(new qFont("Verdana",fontsize,100,0))
@@ -79,43 +91,102 @@ app = new qApp {
                                      settext(string(n))
                                      }
                   next
+	
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
                   LayoutButtonMain.setContentsmargins(0,0,0,0)
+				  
                   LayoutButtonColCells = new QHBoxLayout()
                   LayoutButtonColCells.setSpacing(C_SPACING)
                   LayoutButtonColCells.setContentsmargins(0,0,0,0)
-                  for n = 1 to size+1
-                       LayoutButtonColCells.AddWidget(cols[n])
-                  next
-                  LayoutButtonMain.AddLayout(LayoutButtonColCells)
-                  for Col = 1 to size
-                       LayoutButtonRow[Col] = new QHBoxLayout() {
-                       setSpacing(C_SPACING)
-                       setContentsmargins(0,0,0,0)
-                       }
-                       LayoutButtonRow[Col].AddWidget(rows[Col])
-                       for Row = 1 to size
-                            button[Row][Col] = new QPushButton(win) {
-                            setstylesheet(C_EMPTYBUTTONSTYLE)
-                            setclickevent("pplay(" + string(Row) + "," + string(Col) + ")")
-                            setSizePolicy(1,1)
-                            }
-                            LayoutButtonRow[Col].AddWidget(button[Row][Col])
-                       next
-                       LayoutButtonMain.AddLayout(LayoutButtonRow[Col])
-                  next    
-                  LayoutButtonMain.AddWidget(playscoreblack) 
-                  LayoutButtonMain.AddWidget(playscorewhite) 
-                  LayoutButtonMain.AddWidget(nextmove) 
-                  LayoutButtonMain.AddWidget(newgame)  
-                  setLayout(LayoutButtonMain)
-                  pstart()
-                  show()
-         }
-        exec()
-         }
+				  
 
+		###=================================================
+		### Title Top Row - LETTERS  @ A B C D E F G H
+		
+		TitleLet = list(9)	### Array of qLabel Object
+		
+		Number = 64  			### @ A B .. H
+
+		for Col = 1 to 9
+			Letter = hex2str( hex(Number))
+			TitleLet[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
+			Number++				
+		next
+				
+			###------------------------------------------------------------------------------
+			### QVBoxLayout lays out BUTTON Widgets in a vertical column, from top to bottom.
+			### Horizontal ROWS - 1 2 3 4 5 6 7 8
+		
+	
+			LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+
+				for Col = 1 to 9				
+					LayoutTitleRow.AddWidget(TitleLet[Col])			
+				next
+							
+			LayoutButtonMain.AddLayout(LayoutTitleRow)	### Layout - Add  TITLE-ROW on TOP
+			
+
+		###----------------------------------------------
+		### BUTTON ROWS
+
+		TitleNum = list(9)	### Array of qLabel Object
+
+		for Col = 1 to 8
+			Letter = ""+ Col
+			TitleNum[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontsize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
+			Number++			
+			
+		next
+	  
+
+			###-----------------------------------------------------------------------
+			### QHBoxLayout lays out widgets in a horizontal row, from left to right
+				
+			for Row = 1 to size
+				LayoutButtonRow[Row] = new QHBoxLayout()	### Horizontal
+				{
+					setSpacing(C_Spacing)
+					setContentsmargins(0,0,0,0)
+				} 
+
+			   LayoutButtonRow[Row].AddWidget(TitleNum[Row])
+			   
+			   for Col = 1 to size
+					Button[Row][Col] = new QPushButton(win)	### Create Buttons
+					{
+						setStyleSheet(C_EmptyButtonStyle)			
+						setClickEvent("pplay(" + string(Row) + "," + string(Col) + ")")
+						setSizePolicy(1,1)
+					}
+					
+					LayoutButtonRow[Row].AddWidget(Button[Row][Col])	### Widget - Add HORZ BOTTON
+			   next
+			   
+			   LayoutButtonMain.AddLayout(LayoutButtonRow[Row])		### Layout - Add ROW of BUTTONS
+			next
+
+			###=======================================================
+			### Horizontal Row Bottom
+				LayoutDataRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+				  
+					LayoutDataRow.AddWidget(playscoreblack) 
+					LayoutDataRow.AddWidget(playscorewhite) 
+					LayoutDataRow.AddWidget(nextmove) 
+  
+
+				LayoutButtonMain.AddLayout(LayoutDataRow)
+				LayoutButtonMain.AddWidget(newgame)
+
+            setLayout(LayoutButtonMain)
+            pstart()
+            show()
+   }
+   exec()
+ }
+
+###---------------------------------------
 func pstart()
        move = 1
        score = 0 
@@ -129,9 +200,9 @@ func pstart()
                  button[col][row] { setstylesheet(C_EMPTYBUTTONSTYLE) }
             next
        next
-       nextmove.settext("Next Move: Black Player")
-       playscoreblack.settext("Black Player Score: 2")
-       playscorewhite.settext("White Player Score: 2")
+       nextmove.settext("Next Move: Black ")
+       playscoreblack.settext("Black Score: 2")
+       playscorewhite.settext("White Score: 2")
        button[4][4].setenabled(false)
        button[5][5].setenabled(false)
        button[4][5].setenabled(false)
@@ -158,14 +229,14 @@ func summove()
                  ok 
             next
        next
-       playscoreblack.settext("Black Player Score: " + string(summoveblack))
-       playscorewhite.settext("White Player Score: " + string(summovewhite))
+       playscoreblack.settext("Black Score: " + string(summoveblack))
+       playscorewhite.settext("White Score: " + string(summovewhite))
 
 func pplay(n,m)
        if move = 1
-          nextmove.settext("Next Move: White Player")    
+          nextmove.settext("Next Move: White ")    
        else
-          nextmove.settext("Next Move: Black Player") 
+          nextmove.settext("Next Move: Black ") 
        ok              
        if move = 1
           move = 0
