@@ -67,7 +67,6 @@
 <li>Better RingQt</li>
 <li>Better Memory Management</li>
 <li>Better Code Generator for Extensions</li>
-<li>Better Documentation</li>
 <li>More Improvements</li>
 </ul>
 </div>
@@ -499,46 +498,44 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 </pre></div>
 </div>
 </div>
-<div class="section" id="better-documentation">
-<span id="index-12"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Many images are updated to reflect the current state of Ring Environment</li>
-<li>More chapters are added to the documentation</li>
-</ol>
-</div>
 <div class="section" id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>IsNULL() function is updated to check pointers too.</li>
+<li>Ring Compiler - The Rule (Factor -&gt; &#8216;-&#8216; Expr) changed to (Factor -&gt; &#8216;-&#8216; Factor).</li>
+<li>Ring VM - Better Error Message.</li>
+<li>Better code for IsNULL() function - updated to check pointers too.</li>
 <li>Better code for ringvm_evalinscope() function - used by the Trace Library.</li>
-<li>Better code for space() function.</li>
+<li>Better code for Space() function.</li>
 <li>Better code for Hex() and Dec() functions.</li>
 <li>Better code for Download() function.</li>
 <li>Better code for SubStr() function.</li>
 <li>Better code for the Unsigned() function.</li>
+<li>Better code for Chdir() function.</li>
+<li>Better code for Tempname() function.</li>
+<li>Better code for HashTable - New Key (using ring_strdup() instead of strdup() function).</li>
+<li>New Function : SRandom() - Initialize random number generator.</li>
+<li>New Function : IsPointer().</li>
+<li>IsList() will not return True for C Pointers, we have now the IsPointer() function.</li>
+<li>The ? Operator is updated to respect the ringvm_see() function.</li>
+<li>Scripts to run Ring tests on Linux and macOS (Not only Windows).</li>
 <li>RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.</li>
 <li>Shader Functions are added to RingAllegro.</li>
 <li>Joystick Functions are added to RingAllegro.</li>
 <li>Network functions are added to RingLibSDL.</li>
+<li>Game Engine for 2D Games - Text Class - Check the font object before usage.</li>
+<li>Game Engine for 2D Games - Automatic support for Joystick.</li>
 <li>RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.</li>
+<li>Ring Notepad - Find Previous Feature.</li>
+<li>Ring Notepad - Default Style.</li>
+<li>Ring Notepad - Support using Non-English language (Like Arabic) in file names.</li>
 <li>Form Designer - Nice Aliginment for Toolbox Icons.</li>
 <li>Form Desginer - QAllEvents Class - Mouse Double Click Event.</li>
 <li>Find in Files - Replace and Replace All options.</li>
-<li>Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.</li>
 <li>Qt Class Converter is updated for better conversion results.</li>
-<li>SRandom() function - Initialize random number generator.</li>
 <li>More samples are added to ring/samples/other folder.</li>
-<li>Ring Notepad - Find Previous Feature.</li>
-<li>Game Engine for 2D Games - Text Class - Check the font object before usage.</li>
-<li>Game Engine for 2D Games - Automatic support for Joystick.</li>
-<li>New Function : IsPointer().</li>
-<li>IsList() will not return True for C Pointers, we have now the IsPointer() function.</li>
-<li>Scripts to run Ring tests on Linux and macOS (Not only Windows).</li>
-<li>The ? Operator is updated to respect the ringvm_see() function.</li>
-<li>Ring Notepad - Default Style.</li>
-<li>Ring VM - Better Error Message.</li>
-<li>Ring Notepad - Support using Non-English language (Like Arabic) in file names.</li>
-<li>Ring Compiler - The Rule (Factor -&gt; &#8216;-&#8216; Expr) changed to (Factor -&gt; &#8216;-&#8216; Factor).</li>
+<li>Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.</li>
+<li>Better Documentation - Many images are updated to reflect the current state of Ring Environment.</li>
+<li>Better Documentation - More chapters are added to the documentation.</li>
 </ol>
 </div>
 </div>
@@ -563,7 +560,6 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-memory-management">Better Memory Management</a></li>
 <li><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
-<li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>

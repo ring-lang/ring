@@ -25,7 +25,6 @@ Ring 1.9 comes with the next features!
 * Better RingQt
 * Better Memory Management 
 * Better Code Generator for Extensions
-* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -562,48 +561,43 @@ Example
 	</class>
 
 .. index:: 
-	pair: What is new in Ring 1.9?; Better Documentation
-
-Better Documentation
-====================
-
-(1) Many images are updated to reflect the current state of Ring Environment 
-
-(2) More chapters are added to the documentation
-
-.. index:: 
 	pair: What is new in Ring 1.9?; More Improvements
 
 More Improvements
 =================
 
-(1)  IsNULL() function is updated to check pointers too.
-(2)  Better code for ringvm_evalinscope() function - used by the Trace Library.
-(3)  Better code for space() function.
-(4)  Better code for Hex() and Dec() functions.
-(5)  Better code for Download() function.
-(6)  Better code for SubStr() function.
-(7)  Better code for the Unsigned() function.
-(8)  RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
-(9)  Shader Functions are added to RingAllegro.
-(10) Joystick Functions are added to RingAllegro.
-(11) Network functions are added to RingLibSDL.
-(12) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
-(13) Form Designer - Nice Aliginment for Toolbox Icons.
-(14) Form Desginer - QAllEvents Class - Mouse Double Click Event.
-(15) Find in Files - Replace and Replace All options.
-(16) Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.
-(17) Qt Class Converter is updated for better conversion results.
-(18) SRandom() function - Initialize random number generator. 
-(19) More samples are added to ring/samples/other folder.
-(20) Ring Notepad - Find Previous Feature.
-(21) Game Engine for 2D Games - Text Class - Check the font object before usage.
-(22) Game Engine for 2D Games - Automatic support for Joystick.
-(23) New Function : IsPointer().
-(24) IsList() will not return True for C Pointers, we have now the IsPointer() function. 
-(25) Scripts to run Ring tests on Linux and macOS (Not only Windows).
-(26) The ? Operator is updated to respect the ringvm_see() function.
-(27) Ring Notepad - Default Style. 
-(28) Ring VM - Better Error Message.
-(29) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
-(30) Ring Compiler - The Rule (Factor -> '-' Expr) changed to (Factor -> '-' Factor).
+(1)  Ring Compiler - The Rule (Factor -> '-' Expr) changed to (Factor -> '-' Factor).
+(2)  Ring VM - Better Error Message.
+(3)  Better code for IsNULL() function - updated to check pointers too.
+(4)  Better code for ringvm_evalinscope() function - used by the Trace Library.
+(5)  Better code for Space() function.
+(6)  Better code for Hex() and Dec() functions.
+(7)  Better code for Download() function.
+(8)  Better code for SubStr() function.
+(9)  Better code for the Unsigned() function.
+(10) Better code for Chdir() function.
+(11) Better code for Tempname() function.
+(12) Better code for HashTable - New Key (using ring_strdup() instead of strdup() function).
+(13) New Function : SRandom() - Initialize random number generator. 
+(14) New Function : IsPointer().
+(15) IsList() will not return True for C Pointers, we have now the IsPointer() function. 
+(16) The ? Operator is updated to respect the ringvm_see() function.
+(17) Scripts to run Ring tests on Linux and macOS (Not only Windows).
+(18) RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.
+(19) Shader Functions are added to RingAllegro.
+(20) Joystick Functions are added to RingAllegro.
+(21) Network functions are added to RingLibSDL.
+(22) Game Engine for 2D Games - Text Class - Check the font object before usage.
+(23) Game Engine for 2D Games - Automatic support for Joystick.
+(24) RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.
+(25) Ring Notepad - Find Previous Feature.
+(26) Ring Notepad - Default Style. 
+(27) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
+(28) Form Designer - Nice Aliginment for Toolbox Icons.
+(29) Form Desginer - QAllEvents Class - Mouse Double Click Event.
+(30) Find in Files - Replace and Replace All options.
+(31) Qt Class Converter is updated for better conversion results.
+(32) More samples are added to ring/samples/other folder.
+(33) Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.
+(34) Better Documentation - Many images are updated to reflect the current state of Ring Environment.
+(35) Better Documentation - More chapters are added to the documentation.
