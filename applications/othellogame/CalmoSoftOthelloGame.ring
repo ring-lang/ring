@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/09/26
+# Date    : 2018/10/01
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -295,12 +295,16 @@ Func pPlay(Row,Col)
 			 
 			if bArray[Row][Col] = "W"
 				SEE "W "
+                                app.processevents()
+                                sleep(0.2)
 				Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
 				Button[Row][Col].setenabled(false)				
 			ok
 
 			if bArray[Row][Col] = "B"
 				SEE "B "
+                                app.processevents()
+                                sleep(0.2)
 				Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
 				Button[Row][Col].setenabled(false)				
 			ok
@@ -555,7 +559,7 @@ SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
 	for n = 1 to 9
 		See  aFlip[n] 
 			if aFlip[n] = 1
-				dArray[n] = curColor	### FLIP color
+ 			   dArray[n] = curColor	### FLIP color
 			ok
 	next
 	SEE nl
