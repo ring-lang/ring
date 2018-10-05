@@ -1072,7 +1072,7 @@ aList = "nice"
 
 		<ul>
 		<li>Hybrid Implementation (Compiler+VM)</li>
-		<li>The compiler + The Virtual Machine are 15,000 lines of C code</li>
+		<li>The compiler + The Virtual Machine are 20,000 lines of C code</li>
 		<li>The other 500,000 lines of code are related to libraries!</li>
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
