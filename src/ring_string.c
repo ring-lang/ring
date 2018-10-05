@@ -236,8 +236,7 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
 RING_API char * ring_strdup ( void *pState,const char *cStr )
 {
 	char *cString  ;
-	int nSize  ;
-	int x  ;
+	int x,nSize  ;
 	nSize = strlen(cStr) ;
 	cString = (char *) ring_state_malloc(pState,nSize+1);
 	if ( cString == NULL ) {
