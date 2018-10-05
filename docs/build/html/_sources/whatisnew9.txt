@@ -578,3 +578,4 @@ More Improvements
 (27) Ring Notepad - Default Style. 
 (28) Ring VM - Better Error Message.
 (29) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
+(30) Ring Compiler - The Rule (Factor -> '-' Expr) changed to (Factor -> '-' Factor).
