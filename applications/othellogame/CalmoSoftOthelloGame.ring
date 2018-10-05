@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/09/24
+# Date    : 2018/09/25
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -18,10 +18,15 @@ C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:gray'
 C_BUTTONBLACKSTYLE = 'border-radius:17px;color:black; background-color: black'
 C_BUTTONWHITESTYLE = 'border-radius:17px;color:black; background-color: white'
 C_BUTTONORANGESTYLE = 'border-radius:17px;color:black; background-color: orange'
-button = newlist(size,size)
+C_BUTTONBLUESTYLE = 'border-radius:17px;color:black; background-color: blue'
+button = newlist(size+1,size)
 btnblack = newlist(size,size)
 btnwhite = newlist(size,size)
-LayoutButtonRow = list(size+2)
+LayoutButtonRow = list(size+4)
+cols = list(size)
+rows = list(size)
+//colcells = "A":"H"
+colcells = [" ","A","B","C","D","E","F","G","H"]
 
 app = new qApp {
          STYLEFusion()
@@ -59,14 +64,38 @@ app = new qApp {
                                      setclickevent("pstart()")
                                      show()
                                      }
+                  for n = 1 to size
+                       cols[n] = new QLabel(win) {
+                                    setFont(new qFont("Verdana",fontsize,100,0))
+                                    setstylesheet(C_BUTTONBLUESTYLE)
+                                    setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                    settext(colcells[n])
+                                    }
+                  next
+                  for n = 1 to size
+                       rows[n] = new QLabel(win) {
+                                     setFont(new qFont("Verdana",fontsize,100,0))
+                                     setstylesheet(C_BUTTONBLUESTYLE)
+                                     setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                     settext(string(n))
+                                     }
+                  next
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
                   LayoutButtonMain.setContentsmargins(0,0,0,0)
+                  LayoutButtonColCells = new QHBoxLayout()
+                  LayoutButtonColCells.setSpacing(C_SPACING)
+                  LayoutButtonColCells.setContentsmargins(0,0,0,0)
+                  for n = 1 to size
+                       LayoutButtonColCells.AddWidget(cols[n])
+                  next
+                  LayoutButtonMain.AddLayout(LayoutButtonColCells)
                   for Col = 1 to size
                        LayoutButtonRow[Col] = new QHBoxLayout() {
                        setSpacing(C_SPACING)
                        setContentsmargins(0,0,0,0)
                        }
+                       LayoutButtonRow[Col].AddWidget(rows[Col])
                        for Row = 1 to size
                             button[Row][Col] = new QPushButton(win) {
                             setstylesheet(C_EMPTYBUTTONSTYLE)
@@ -651,7 +680,7 @@ func pcheckdiaguprightwhite(n,m)
        blackno1 = 0
        blackno2 = 0
        for x = 1 to size
-            if (n+x) > 1 and (m-x) > 1
+            if (n+x) > 1 and (m-x) > 1 and (n+x) < size and (m-x) < size
                if btnblack[n+x][m-x] = 1
                   yesflag = 1
                   loop
