@@ -1,5 +1,5 @@
 # Project : Othello Game
-# Date    : 2018/10/03
+# Date    : 2018/09/26
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -10,23 +10,30 @@ load "guilib.ring"
 Size  = 8
 Score = 0
 
-sumMoveBlack = 0
+sumMoveBlack = 0 
 sumMoveWhite = 0
 
-C_Spacing = 3 ### was 5
+C_Spacing = 1 ### was 5
 
-C_EmptyButtonStyle  = 'border-radius:6px;background-color:gray'
-C_ButtonBlackStyle  = 'border-radius:6px;color:black; background-color: black'
-C_ButtonWhiteStyle  = 'border-radius:6px;color:black; background-color: white'
-C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: orange'
+C_EmptyButtonStyle  = 'border-radius: 1px; background-color: Green; border-style: outset; border-width 16px; border-color: Green; '
+C_ButtonBlackStyle  = 'border-radius: 1px; background-color: Black; border-style: outset; border-width 16px; border-color: Green; '
+C_ButtonWhiteStyle  = 'border-radius: 1px; background-color: White; border-style: outset; border-width 16px; border-color: Green; '
+
+#C_ButtonBlackStyle  = 'border-radius: 18px; background-color: Black; border-style: outset; border-width 16px; border-color: Yellow; '
+
 
 C_ButtonBlueStyle   = 'border-radius:6px;color:black; background-color: Cyan'
 C_ButtonYellowStyle = 'border-radius:6px;color:black; background-color: Yellow'
+C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: Orange'
+C_ButtonGrayStyle = 'border-radius:6px;color:black; background-color: darkGray'
 
 Button          = newlist(Size+1,Size)
 LayoutButtonRow = list(Size+4)
 
 curColor  	= "B"	### "B" or "W"
+otherColor  = "W"
+FlagFlip    =  0
+SkipTurn    =  0 	### Player has No Possible Valid Move
 
 TransScript = list(1)
 MoveNumber  = 1
@@ -40,7 +47,6 @@ app = new qApp
 {
 	win = new qWidget() {
 		setWindowTitle('Othello Game')
-		setStyleSheet('background-color:green')
 
 		  move(500,100)
 		reSize(600,600)
@@ -171,6 +177,7 @@ app = new qApp
 
 ###======================================== 
 ###========================================
+### GAME START
 
 func pStart()
 
@@ -190,8 +197,9 @@ SEE nl+ "===== START START ====="+nl+nl
 
 	MoveNumber  = 1
 	TransScript = list(1)
+
  
-	NextMove.settext("Next Move: Black ")
+	      NextMove.settext("Next Move: Black ")
 	PlayScoreBlack.settext("Black Score: 2")
 	PlayScoreWhite.settext("White Score: 2")
 
@@ -200,7 +208,6 @@ SEE nl+ "===== START START ====="+nl+nl
 	Button[5][4].setenabled(false)
 	Button[5][5].setenabled(false)
 
-	//Button[4][4] { setbtnimage(self,"black.png") }
 	Button[4][4] { setstylesheet(C_ButtonBlackStyle) }
 	Button[5][5] { setstylesheet(C_ButtonBlackStyle) }	 
 	Button[4][5] { setstylesheet(C_ButtonWhiteStyle) }	   
@@ -214,30 +221,52 @@ SEE nl+ "===== START START ====="+nl+nl
 return
 
 ###--------------------------------
-	   
+### SCORE DISPLAY
+
 func sumMove()
-       sumMoveBlack = 0
-       sumMoveWhite = 0
+	sumMoveBlack = 0
+	sumMoveWhite = 0
+	sumEmptyCells = 0
 
-       for Row = 1 to Size
-            for  Col = 1 to Size
-                 if bArray[Row][Col] = "B"
-                    sumMoveBlack++
-                 ok
-                 if bArray[Row][Col] = "W"
-                    sumMoveWhite++
-                 ok 
-            next
-       next
+	for Row = 1 to Size
+		for  Col = 1 to Size
+			if bArray[Row][Col] = "B"
+			sumMoveBlack++
+			ok
+			if bArray[Row][Col] = "W"
+			sumMoveWhite++
+			ok 
 
-       PlayScoreBlack.settext("Black Score: " + sumMoveBlack)
-       PlayScoreWhite.settext("White Score: " + sumMoveWhite)
+			if bArray[Row][Col] = "E"
+			sumEmptyCells++
+			ok 				 
+		next
+	next
+
+	###---------------------------------
+	###Check is any Cells left to Play 
+
+	if sumEmptyCells = 0
+		Msg = "Game Over." +nl+ "No more squares left to Play."
+		MsgBox(Msg)	
+		return
+	ok
+
+
+	PlayScoreBlack.settext("Black Score: " + sumMoveBlack)
+	PlayScoreWhite.settext("White Score: " + sumMoveWhite)
 return
 
 ###-----------------------------------
-### Play a Move - qPushButton Clicked
+### PLAY MOVE - qPushButton Clicked
 	
 Func pPlay(Row,Col)
+
+RowPlayed   = Row
+ColPlayed   = Col
+ColorPlayed = curColor
+
+if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 
     SEE nl+"------------------------"+nl+nl
 	SEE "CLICK Row-Col: "+ Row +"-"+ Col +nl
@@ -249,11 +278,11 @@ Func pPlay(Row,Col)
 			if curColor = "B"  ###
 			
 				MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ Row +"-"+ Letter
-				NextMove.setstylesheet(C_ButtonWhitestyle)
+				NextMove.setstylesheet(C_ButtonGrayStyle)
 				NextMove.settext("Next Move: White ")    
 			else
 				MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ Row +"-"+ Letter 
-				NextMove.setstylesheet(C_ButtonOrangestyle)
+				NextMove.setstylesheet(C_ButtonOrangeStyle)
 				NextMove.settext("Next Move: Black ") 
 			ok      
 
@@ -272,42 +301,90 @@ Func pPlay(Row,Col)
 		next
 	next	
         
-	###---------------------------------
+	###------------------------------------
+	### COLOR PLAYED Button and Disable
+	### RECORD the button in bArray
 	
+	FlagFlip = 0
 	if curColor = "B"  									### Current BLACK   
 		bArray[Row][Col] = "B"
 		Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
 		Button[Row][Col].setenabled(false)	
 		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
-
-		curColor = "W"  								### Next Move is White
-		
+ 							
 	elseif  curColor = "W"  							### Current WHITE  
 		bArray[Row][Col] = "W"
 		Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
 		Button[Row][Col].setenabled(false)
-		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
-		
-		curColor = "B"  								### Next Move is Black
-		
+		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals					
 	ok
 
+	###======================================================================================
+
+	###-----------------------------------------------
+	### Check if FlagFlip was SET , Else Illegal Move
+	### Restore NextMove
+	### Restore EmptyCell Color and EnableEvents
+
+	See "FlagFlip: "+ FlagFlip +nl
+	if FlagFlip = 0			### Report Move returned INVALID=0 - No Flips Possible
 	
-	###-------------------------------------
-	### Color the Buttons and Disable Click
+		Msg = "Move: "+ bArray[RowPlayed][ColPlayed] +" "+ RowPlayed +"-"+ ColPlayed +" INVALID" +nl+ "No Flips Possible: " + nl+ "Click DISCARD to Skip Turn"
+		MsgBox(Msg)	
+		
+		###----------------------------------------------------
+		### MsgBox - Clicked Discard - RETURN OtherColor Turn
+		if  SkipTurn = 1  
+			Button[RowPlayed][ColPlayed] { setstylesheet(C_EmptyButtonStyle) }	### CELL PLAYED - Put Back to Empty Color
+			Button[RowPlayed][ColPlayed].setenabled(true)
+			curColor = otherColor
+			return
+		ok	
+
+		### Restore OLD Board array
+		for h = 1 to Size
+			for v = 1 to Size
+				bArray[h][v] = oldArray[h][v]
+			next
+		next	
+
+		SEE "ColorPlayed: "+ curColor +" "+  RowPlayed +"-"+ ColPlayed +nl
+		if curColor = "B" 								    ### NO Flip -- Stay with same Color
+				NextMove.setstylesheet(C_ButtonOrangestyle)
+				NextMove.settext("Next Move: Black.... ") 
+		ok
+		
+		if curColor = "W"									### NO Flip -- Stay with same Color		
+				NextMove.setstylesheet(C_ButtonWhitestyle)
+				NextMove.settext("Next Move: White.... ") 
+		ok
+		
+		Button[RowPlayed][ColPlayed] { setstylesheet(C_EmptyButtonStyle) }	### CELL PLAYED - Put Back to Empty Color
+		Button[RowPlayed][ColPlayed].setenabled(true)
+		
+		return	### INVALID - NO FLIPS
+	ok
+
+###======================================================================================
+	
+	###----------------------------------------
+	### COLOR FLIPPED Buttons and Disable Click
+	### ANIMATION of FLIPS
+	### DRAW DOS Chart
 	
 	SEE "Color bArray_____"+nl
 	for Row = 1 to Size
-	See nl + row +" "
+		See nl + row +" "
+		
 		for  Col = 1 to Size
 			 
 			if bArray[Row][Col] = "W"
 				SEE "W "
 
 				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
-					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl
 					app.processevents()
-					sleep(0.2)				
+					sleep(0.2)		
+					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
 				
 				Button[Row][Col] { setstylesheet(C_ButtonWhiteStyle) }
@@ -318,9 +395,9 @@ Func pPlay(Row,Col)
 				SEE "B "
 
 				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
-					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl
 					app.processevents()
-					sleep(0.2)				
+					sleep(0.2)	
+					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
 				
 				Button[Row][Col] { setstylesheet(C_ButtonBlackStyle) }
@@ -335,12 +412,17 @@ Func pPlay(Row,Col)
 
 	next
 	See nl
-		
+	
+	###------------------
+	### NEXT COLOR Turn
+	curColor = otherColor
+	
 	sumMove()
 return
 
 
 ###=============================================
+### CHECK ALL DIRECTIONS 
 
 Func CheckDiagonals(Row,Col,curColor)
 
@@ -504,6 +586,8 @@ Func CheckDiagonals(Row,Col,curColor)
 return
 
 ###======================================================
+### CHECK FLIPS
+###
 ### dArray  Pattern to Check 
 ###               v              Click 4  
 ###         1 2 3 4 5 6 7 8 .
@@ -577,6 +661,7 @@ Func CheckFlips(cellClick,curColor)
 	for n = 1 to 9
 		#SEE  aFlip[n] 
 			if aFlip[n] = 1
+				FlagFlip = 1
 				dArray[n] = curColor	### FLIP color
 			ok
 	next
@@ -594,16 +679,23 @@ return
 ###============================================
 
 
-#
+
 ###--------------------------------
+### MESSAGE BOX
 	
 Func msgBox(cText) 
-	mb = new qMessageBox(win) {
+	mb = new qMessageBox(win) 
+		{
 	        setWindowTitle('Othello Game')
-	        setText(cText)
-                setstandardButtons(QMessageBox_OK) 
-                result = exec()
+	        setText(cText )
+			setstylesheet(C_ButtonWhitestyle)
+                setstandardButtons(QMessageBox_Discard | QMessageBox_OK) 
+                result = exec()			
         }
+		
+		SkipTurn = 0
+		if QMessageBox_OK      = result	 SkipTurn = 0  ok
+		if QMessageBox_Discard = result  SkipTurn = 1  ok
         return
 
 ###--------------------------------
