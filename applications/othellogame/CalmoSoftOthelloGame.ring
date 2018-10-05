@@ -91,6 +91,10 @@ app = new qApp
 							setclickevent("pStart()")				### CLICK NEW GAME >>> pStart
 						}
 
+                Statusbar1 = new qstatusbar(win) {
+					  setstylesheet(C_ButtonBlueStyle)
+                                          setFont(new qFont("Verdana",fontSize,100,0)) }
+
         ##------------------------------------------------------------------------------
 		### QVBoxLayout lays out Button Widgets in a vertical column, from top to bottom.
 		
@@ -170,6 +174,7 @@ app = new qApp
   
 				LayoutButtonMain.AddLayout(LayoutDataRow)
 				LayoutButtonMain.AddWidget(NewGame)
+				LayoutButtonMain.AddWidget(statusBar1) 
 
             setLayout(LayoutButtonMain)
 			
@@ -197,6 +202,8 @@ SEE nl+ "===== START START ====="+nl+nl
 			setButtonImage(Button[Row][Col],oPicEmpty,bwidth,bheight)
 		next
 	next
+
+        Statusbar1.showMessage("Message:",0)
 	
 	curColor  = "B"	### 1
 	Score     =  0 
@@ -313,12 +320,14 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 	FlagFlip = 0
 	if curColor = "B"  									### Current BLACK   
 		bArray[Row][Col] = "B"
+                Statusbar1.showMessage("Message:",0)
 		setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
 		Button[Row][Col].setenabled(false)	
 		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
  							
 	elseif  curColor = "W"  							### Current WHITE  
 		bArray[Row][Col] = "W"
+                Statusbar1.showMessage("Message:",0)
 		setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
 		Button[Row][Col].setenabled(false)
 		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals					
@@ -334,8 +343,9 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 	See "FlagFlip: "+ FlagFlip +nl
 	if FlagFlip = 0			### Report Move returned INVALID=0 - No Flips Possible
 	
-		Msg = "Move: "+ bArray[RowPlayed][ColPlayed] +" "+ RowPlayed +"-"+ ColPlayed +" INVALID" +nl+ "No Flips Possible: " + nl+ "Click DISCARD to Skip Turn"
-		MsgBox(Msg)	
+		Msg = "Message: " + bArray[RowPlayed][ColPlayed] + " "+
+                           ColPlayed + "-" + RowPlayed + " Move INVALID. " + "No Flips Possible"
+		Statusbar1.showMessage(Msg,0)	
 		
 		###----------------------------------------------------
 		### MsgBox - Clicked Discard - RETURN OtherColor Turn
@@ -391,7 +401,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 					sleep(0.2)		
 					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
-				
+				Statusbar1.showMessage("Message:",0)
 		                setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
 				Button[Row][Col].setenabled(false)				
 			ok
@@ -404,7 +414,7 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 					sleep(0.2)	
 					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
 				ok
-				
+                                Statusbar1.showMessage("Message:",0)				
 		                setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
 				Button[Row][Col].setenabled(false)				
 			ok
