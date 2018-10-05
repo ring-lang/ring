@@ -13,8 +13,8 @@ Score = 0
 sumMoveBlack = 0 
 sumMoveWhite = 0
 
-bwidth = 50 
-bheight = 50 
+bwidth = 80 
+bheight = 80 
 oPicBlack = new QPixmap("black.png")
 oPicWhite = new QPixmap("white.png")
 oPicEmpty = new QPixmap("empty.png")
@@ -55,7 +55,7 @@ app = new qApp
 		setWindowTitle('Othello Game')
 
 		  move(500,100)
-		reSize(600,600)
+		reSize(850,600)
 		winheight = win.height()
 		fontSize = 8 + (winheight / 100)
 
