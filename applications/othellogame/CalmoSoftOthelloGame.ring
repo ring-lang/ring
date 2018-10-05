@@ -9,11 +9,15 @@ load "guilib.ring"
 size = 8
 move = 1
 score = 0
+
+
 flagblack = 0
 flagwhite = 0
+
 summoveblack = 0
 summovewhite = 0
-C_SPACING = 2 ### was5
+
+C_SPACING = 2 ### was 5
 
 C_EMPTYBUTTONSTYLE  = 'border-radius:5px;background-color:gray'
 C_BUTTONBLACKSTYLE  = 'border-radius:5px;color:black; background-color: black'
@@ -31,6 +35,11 @@ LayoutButtonRow = list(size+4)
 cols = list(size+1)
 rows = list(size)
 colcells = [" ","A","B","C","D","E","F","G","H"]
+
+TransScript = list(1)
+MoveNumber  = 1
+
+###=====================================================
 
 app = new qApp {
          STYLEFusion()
@@ -190,8 +199,13 @@ app = new qApp {
 func pstart()
        move = 1
        score = 0 
+
        flagblack = 0
        flagwhite = 0
+
+       MoveNumber  = 1
+       TransScript = list(1)
+
        for col = 1 to size
             for row = 1 to size
                  btnblack[col][row] = 0
@@ -203,14 +217,17 @@ func pstart()
        nextmove.settext("Next Move: Black ")
        playscoreblack.settext("Black Score: 2")
        playscorewhite.settext("White Score: 2")
+
        button[4][4].setenabled(false)
        button[5][5].setenabled(false)
        button[4][5].setenabled(false)
        button[5][4].setenabled(false)
+
        button[4][4] { setstylesheet(C_BUTTONBLACKSTYLE) }
        button[5][5] { setstylesheet(C_BUTTONBLACKSTYLE) }
        button[4][5] { setstylesheet(C_BUTTONWHITESTYLE) }
        button[5][4] { setstylesheet(C_BUTTONWHITESTYLE) }
+
        btnblack[4][4] = 1
        btnblack[5][5] = 1
        btnwhite[4][5] = 1
@@ -219,6 +236,7 @@ func pstart()
 func summove()
        summoveblack = 0
        summovewhite = 0
+
        for col = 1 to size
             for row = 1 to size
                  if btnblack[col][row] = 1
@@ -229,19 +247,35 @@ func summove()
                  ok 
             next
        next
+
        playscoreblack.settext("Black Score: " + string(summoveblack))
        playscorewhite.settext("White Score: " + string(summovewhite))
 
+###---------------------------------------------
+
 func pplay(n,m)
+
+       
+       Letter = char(64 + m)
        if move = 1
-          nextmove.settext("Next Move: White ")    
+			MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ n +"-"+ Letter
+			nextmove.settext("Next Move: White ")    
        else
-          nextmove.settext("Next Move: Black ") 
-       ok              
+			MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ n +"-"+ Letter 
+			nextmove.settext("Next Move: Black ") 
+       ok      
+
+		TranScript = Add(TransScript, MovePlayed)
+		MoveNumber++
+		SEE "TransScript: "+nl  SEE TransScript  SEE nl+nl
+
+
+        
        if move = 1
           move = 0
           button[n][m] { setstylesheet(C_BUTTONBLACKSTYLE) }
           btnblack[n][m] = 1
+
           pcheckrightblack(n,m)
           if flagblack = 1
              button[n][m].setenabled(false)
@@ -296,10 +330,12 @@ func pplay(n,m)
              button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE) }
           ok
        ok
+
        if move = 0
           move = 1
           button[n][m] { setstylesheet(C_BUTTONWHITESTYLE) }
           btnwhite[n][m] = 1
+
           pcheckrightwhite(n,m)
           if flagwhite = 1
              button[n][m].setenabled(false)
