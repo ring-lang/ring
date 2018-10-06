@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteTreeViewEvents
+class RNoteTreeViewEvents
 
 	func CheckSaveBeforeChange
 		if cActiveFileName = NULL return ok

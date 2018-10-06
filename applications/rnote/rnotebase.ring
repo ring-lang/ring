@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteControllerBase from WindowsControllerParent 
+class RNoteControllerBase from WindowsControllerParent 
 
 	cActiveFileName 	= ""
 

@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteOutputWindow
+class RNoteOutputWindow
 
 	func RunProcess cProgram,cArg,cGetDataFunc
 		aPara = split(cArg,",")

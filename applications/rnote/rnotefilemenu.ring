@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteFileMenu
+class RNoteFileMenu
 
 	func NewFile
 		new qfiledialog(this.win1) {
@@ -39,6 +39,7 @@ Class RNoteFileMenu
 		try
 			textedit1.setPlaintext(read(FileNameEncoding(cName)))
 			cActiveFileName = cName
+			this.aFilesLines[this.cActiveFileName] = 1
 			SetActiveFileName()
 		catch 
 			msginfo("Sorry","Can't open the file : " + cName)

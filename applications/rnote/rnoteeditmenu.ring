@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteEditMenu
+class RNoteEditMenu
 
 	func Undo
 		textedit1.undo()

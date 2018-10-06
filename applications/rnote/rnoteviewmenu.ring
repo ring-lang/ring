@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteViewMenu
+class RNoteViewMenu
 
 	func ProjectWindowStatus
 		oDockProjectFiles { if isvisible() hide() else Show() ok }

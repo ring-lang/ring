@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteEditorEvents
+class RNoteEditorEvents
 
 	func TextChanged
 		lAskToSave = true

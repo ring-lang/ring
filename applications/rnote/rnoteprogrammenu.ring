@@ -1,7 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Class RNoteProgramMenu
+class RNoteProgramMenu
 
 	func Debug
 		if cActiveFileName = Null return Nofileopened() ok
