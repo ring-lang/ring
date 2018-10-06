@@ -7638,7 +7638,7 @@ RING_FUNC(ring_SDL_GetDefaultAssertionHandler)
 		SDL_AssertionHandler *pValue ; 
 		pValue = (SDL_AssertionHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_AssertionHandler)) ;
 		*pValue = SDL_GetDefaultAssertionHandler();
-		RING_API_RETCPOINTER(pValue,"SDL_AssertionHandler");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_AssertionHandler",ring_state_free);
 	}
 }
 
@@ -7851,7 +7851,7 @@ RING_FUNC(ring_SDL_GL_CreateContext)
 		SDL_GLContext *pValue ; 
 		pValue = (SDL_GLContext *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_GLContext)) ;
 		*pValue = SDL_GL_CreateContext((SDL_Window *) RING_API_GETCPOINTER(1,"SDL_Window"));
-		RING_API_RETCPOINTER(pValue,"SDL_GLContext");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_GLContext",ring_state_free);
 	}
 }
 
@@ -7911,7 +7911,7 @@ RING_FUNC(ring_SDL_GL_GetCurrentContext)
 		SDL_GLContext *pValue ; 
 		pValue = (SDL_GLContext *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_GLContext)) ;
 		*pValue = SDL_GL_GetCurrentContext();
-		RING_API_RETCPOINTER(pValue,"SDL_GLContext");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_GLContext",ring_state_free);
 	}
 }
 
@@ -11425,7 +11425,7 @@ RING_FUNC(ring_SDL_GetTouchDevice)
 		SDL_TouchID *pValue ; 
 		pValue = (SDL_TouchID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_TouchID)) ;
 		*pValue = SDL_GetTouchDevice( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"SDL_TouchID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_TouchID",ring_state_free);
 	}
 }
 
@@ -12209,7 +12209,7 @@ RING_FUNC(ring_SDL_JoystickGetDeviceGUID)
 		SDL_JoystickGUID *pValue ; 
 		pValue = (SDL_JoystickGUID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_JoystickGUID)) ;
 		*pValue = SDL_JoystickGetDeviceGUID( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_JoystickGUID",ring_state_free);
 	}
 }
 
@@ -12228,7 +12228,7 @@ RING_FUNC(ring_SDL_JoystickGetGUID)
 		SDL_JoystickGUID *pValue ; 
 		pValue = (SDL_JoystickGUID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_JoystickGUID)) ;
 		*pValue = SDL_JoystickGetGUID((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"));
-		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_JoystickGUID",ring_state_free);
 	}
 }
 
@@ -12247,7 +12247,7 @@ RING_FUNC(ring_SDL_JoystickGetGUIDFromString)
 		SDL_JoystickGUID *pValue ; 
 		pValue = (SDL_JoystickGUID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_JoystickGUID)) ;
 		*pValue = SDL_JoystickGetGUIDFromString(RING_API_GETSTRING(1));
-		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_JoystickGUID",ring_state_free);
 	}
 }
 
@@ -12304,7 +12304,7 @@ RING_FUNC(ring_SDL_JoystickInstanceID)
 		SDL_JoystickID *pValue ; 
 		pValue = (SDL_JoystickID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_JoystickID)) ;
 		*pValue = SDL_JoystickInstanceID((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"));
-		RING_API_RETCPOINTER(pValue,"SDL_JoystickID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_JoystickID",ring_state_free);
 	}
 }
 
@@ -12565,7 +12565,7 @@ RING_FUNC(ring_SDL_GameControllerGetBindForAxis)
 		SDL_GameControllerButtonBind *pValue ; 
 		pValue = (SDL_GameControllerButtonBind *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_GameControllerButtonBind)) ;
 		*pValue = SDL_GameControllerGetBindForAxis((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerAxis )  (int) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"SDL_GameControllerButtonBind");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_GameControllerButtonBind",ring_state_free);
 	}
 }
 
@@ -12588,7 +12588,7 @@ RING_FUNC(ring_SDL_GameControllerGetBindForButton)
 		SDL_GameControllerButtonBind *pValue ; 
 		pValue = (SDL_GameControllerButtonBind *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_GameControllerButtonBind)) ;
 		*pValue = SDL_GameControllerGetBindForButton((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerButton )  (int) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"SDL_GameControllerButtonBind");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_GameControllerButtonBind",ring_state_free);
 	}
 }
 
@@ -12995,7 +12995,7 @@ RING_FUNC(ring_SDL_HapticQuery)
 		unsigned int *pValue ; 
 		pValue = (unsigned int *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(unsigned int)) ;
 		*pValue = SDL_HapticQuery((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"));
-		RING_API_RETCPOINTER(pValue,"unsigned int");
+		RING_API_RETMANAGEDCPOINTER(pValue,"unsigned int",ring_state_free);
 	}
 }
 
@@ -13606,7 +13606,7 @@ RING_FUNC(ring_SDL_OpenAudioDevice)
 		SDL_AudioDeviceID *pValue ; 
 		pValue = (SDL_AudioDeviceID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDL_AudioDeviceID)) ;
 		*pValue = SDL_OpenAudioDevice(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),(SDL_AudioSpec *) RING_API_GETCPOINTER(3,"SDL_AudioSpec"),(SDL_AudioSpec *) RING_API_GETCPOINTER(4,"SDL_AudioSpec"), (int ) RING_API_GETNUMBER(5));
-		RING_API_RETCPOINTER(pValue,"SDL_AudioDeviceID");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDL_AudioDeviceID",ring_state_free);
 	}
 }
 
@@ -13847,7 +13847,7 @@ RING_FUNC(ring_SDL_RWseek)
 		*pValue = SDL_RWseek((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"),* (Sint64  *) RING_API_GETCPOINTER(2,"Sint64"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Sint64"));
-		RING_API_RETCPOINTER(pValue,"Sint64");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sint64",ring_state_free);
 	}
 }
 
@@ -13866,7 +13866,7 @@ RING_FUNC(ring_SDL_RWsize)
 		Sint64 *pValue ; 
 		pValue = (Sint64 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sint64)) ;
 		*pValue = SDL_RWsize((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"));
-		RING_API_RETCPOINTER(pValue,"Sint64");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sint64",ring_state_free);
 	}
 }
 
@@ -13885,7 +13885,7 @@ RING_FUNC(ring_SDL_RWtell)
 		Sint64 *pValue ; 
 		pValue = (Sint64 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sint64)) ;
 		*pValue = SDL_RWtell((struct SDL_RWops *) RING_API_GETCPOINTER(1,"struct SDL_RWops"));
-		RING_API_RETCPOINTER(pValue,"Sint64");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sint64",ring_state_free);
 	}
 }
 
@@ -15156,7 +15156,7 @@ RING_FUNC(ring_TTF_FontFaces)
 		long *pValue ; 
 		pValue = (long *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(long)) ;
 		*pValue = TTF_FontFaces((TTF_Font *) RING_API_GETCPOINTER(1,"TTF_Font"));
-		RING_API_RETCPOINTER(pValue,"long");
+		RING_API_RETMANAGEDCPOINTER(pValue,"long",ring_state_free);
 	}
 }
 
@@ -16048,7 +16048,7 @@ RING_FUNC(ring_Mix_FadingChannel)
 		Mix_Fading *pValue ; 
 		pValue = (Mix_Fading *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mix_Fading)) ;
 		*pValue = Mix_FadingChannel( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"Mix_Fading");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mix_Fading",ring_state_free);
 	}
 }
 
@@ -16341,7 +16341,7 @@ RING_FUNC(ring_Mix_GetMusicType)
 		Mix_MusicType *pValue ; 
 		pValue = (Mix_MusicType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mix_MusicType)) ;
 		*pValue = Mix_GetMusicType((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"));
-		RING_API_RETCPOINTER(pValue,"Mix_MusicType");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mix_MusicType",ring_state_free);
 	}
 }
 
@@ -16376,7 +16376,7 @@ RING_FUNC(ring_Mix_FadingMusic)
 		Mix_Fading *pValue ; 
 		pValue = (Mix_Fading *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mix_Fading)) ;
 		*pValue = Mix_FadingMusic();
-		RING_API_RETCPOINTER(pValue,"Mix_Fading");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mix_Fading",ring_state_free);
 	}
 }
 
@@ -16667,7 +16667,7 @@ RING_FUNC(ring_SDLNet_TCP_Open)
 		TCPsocket *pValue ; 
 		pValue = (TCPsocket *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TCPsocket)) ;
 		*pValue = SDLNet_TCP_Open((IPaddress *) RING_API_GETCPOINTER(1,"IPaddress"));
-		RING_API_RETCPOINTER(pValue,"TCPsocket");
+		RING_API_RETMANAGEDCPOINTER(pValue,"TCPsocket",ring_state_free);
 	}
 }
 
@@ -16774,7 +16774,7 @@ RING_FUNC(ring_SDLNet_UDP_Open)
 		UDPsocket *pValue ; 
 		pValue = (UDPsocket *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(UDPsocket)) ;
 		*pValue = SDLNet_UDP_Open( (Uint16 ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"UDPsocket");
+		RING_API_RETMANAGEDCPOINTER(pValue,"UDPsocket",ring_state_free);
 	}
 }
 
@@ -17007,7 +17007,7 @@ RING_FUNC(ring_SDLNet_AllocSocketSet)
 		SDLNet_SocketSet *pValue ; 
 		pValue = (SDLNet_SocketSet *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SDLNet_SocketSet)) ;
 		*pValue = SDLNet_AllocSocketSet( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"SDLNet_SocketSet");
+		RING_API_RETMANAGEDCPOINTER(pValue,"SDLNet_SocketSet",ring_state_free);
 	}
 }
 

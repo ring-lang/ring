@@ -7350,7 +7350,7 @@ RING_FUNC(ring_uv_get_osfhandle)
 		uv_os_fd_t *pValue ; 
 		pValue = (uv_os_fd_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_os_fd_t)) ;
 		*pValue = uv_get_osfhandle( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETCPOINTER(pValue,"uv_os_fd_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"uv_os_fd_t",ring_state_free);
 	}
 }
 
@@ -8025,7 +8025,7 @@ RING_FUNC(ring_uv_thread_self)
 		uv_thread_t *pValue ; 
 		pValue = (uv_thread_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_thread_t)) ;
 		*pValue = uv_thread_self();
-		RING_API_RETCPOINTER(pValue,"uv_thread_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"uv_thread_t",ring_state_free);
 	}
 }
 
@@ -8957,7 +8957,7 @@ RING_FUNC(ring_uv_buf_init)
 		uv_buf_t *pValue ; 
 		pValue = (uv_buf_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_buf_t)) ;
 		*pValue = uv_buf_init((char *) RING_API_GETCPOINTER(1,"char"), (unsigned int ) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"uv_buf_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"uv_buf_t",ring_state_free);
 	}
 }
 
@@ -9071,7 +9071,7 @@ RING_FUNC(ring_uv_os_getpid)
 		uv_pid_t *pValue ; 
 		pValue = (uv_pid_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_pid_t)) ;
 		*pValue = uv_os_getpid();
-		RING_API_RETCPOINTER(pValue,"uv_pid_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"uv_pid_t",ring_state_free);
 	}
 }
 
@@ -9087,7 +9087,7 @@ RING_FUNC(ring_uv_os_getppid)
 		uv_pid_t *pValue ; 
 		pValue = (uv_pid_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uv_pid_t)) ;
 		*pValue = uv_os_getppid();
-		RING_API_RETCPOINTER(pValue,"uv_pid_t");
+		RING_API_RETMANAGEDCPOINTER(pValue,"uv_pid_t",ring_state_free);
 	}
 }
 
