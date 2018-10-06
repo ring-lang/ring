@@ -205,7 +205,7 @@ aLibsInfo = [
 	 :macosxfiles = [
 		"libring_freeglut.dylib"
 	 ],
-	 :ubuntudep = "freeglut3-dev libglew-dev",
+	 :ubuntudep = "freeglut3-dev",
 	 :fedoradep = "freeglut freeglut-devel glew-devel",
 	 :macosxdep = "glew" 
 	],
