@@ -29,7 +29,7 @@ class RNoteTools
 	func REPLGUI
 		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
 		# RunTool will split parameters using "," as separator 
-		if nDefaultStyle <= 3 
+		if nDefaultStyle <= 3 or nDefaultStyle = STYLECOLOR_IMAGE2
 			cAppFileName += ",1"	# Style Fusion White
 		else
 			cAppFileName += ",2"	# Style Fusion Black
