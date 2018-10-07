@@ -107,7 +107,7 @@ Better StdLib
 
 (1) The List2Code() function is added to the StdLib 
 
-This function covert a Ring list during the runtime to Ring source code that we can save to source files.
+This function convert a Ring list during the runtime to Ring source code that we can save to source files.
 
 The list may contains strings, numbers or sub lists.
 

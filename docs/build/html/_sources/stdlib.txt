@@ -1418,7 +1418,7 @@ Syntax:
 List2Code() Function 
 ====================
 
-This function covert a Ring list during the runtime to Ring source code that we can save to source files.
+This function convert a Ring list during the runtime to Ring source code that we can save to source files.
 
 The list may contains strings, numbers or sub lists.
 
