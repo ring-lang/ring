@@ -333,6 +333,16 @@
 			<a href="https://www.youtube.com/watch?v=uDGeHq_gJPI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=20">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td>21</td>
+		<td>
+			نتعرف على الاصدار 1.9 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156149395750345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=48Mv774RS2g&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=21">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 دروس تشرح تطوير تطبيقات الموبايل Mobile وتطبيقات سطح المكتب Desktop 
