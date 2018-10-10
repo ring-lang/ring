@@ -1054,7 +1054,11 @@
                     'mawkopavel@gmail.com',
                     'Tester',
                     'Active'
+                  ],
+   				  [
+                    'Chris Bruner',
+                    'cwbruner@gmail.com',
+                    'Tester',
+                    'Active'
                   ]
-
-
 ]
