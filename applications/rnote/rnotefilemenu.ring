@@ -24,7 +24,7 @@ class RNoteFileMenu
 			if nPos > 0 and nPos < len(cName)-4
 				cName = left(cName,len(cName)-5)
 			else 
-				if substr(cName,".") = 0
+				if nPos = 0
 					cName += ".ring"
 				ok
 			ok
