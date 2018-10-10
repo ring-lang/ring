@@ -19,9 +19,14 @@ class RNoteFileMenu
 		}
 
 	func OneExtension cName
-		# Check removing .ring if we have another extension 
-			if substr(cName,".") < len(cName)-4
+		# Check removing .ring if we have another extension
+			nPos = substr(cName,".")
+			if nPos > 0 and nPos < len(cName)-4
 				cName = left(cName,len(cName)-5)
+			else 
+				if substr(cName,".") = 0
+					cName += ".ring"
+				ok
 			ok
 		return cName
 
