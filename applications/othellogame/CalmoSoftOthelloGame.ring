@@ -13,173 +13,176 @@ Score = 0
 sumMoveBlack = 0 
 sumMoveWhite = 0
 
-bwidth = 80 
-bheight = 80 
-oPicBlack = new QPixmap("black.png")
-oPicWhite = new QPixmap("white.png")
-oPicEmpty = new QPixmap("empty.png")
+oPicBlack = new QPixmap("black2.jpg")
+oPicWhite = new QPixmap("white2.jpg")
+oPicEmpty = new QPixmap("empty2.jpg")
 
-C_Spacing = 1 ### was 5
+bWidth  = oPicBlack.width()    ### 80 
+bHeight = oPicBlack.height()   ### 80 
 
-C_EmptyButtonStyle  = 'border-radius: 1px; background-color: Green; border-style: outset; border-width 16px; border-color: Green; '
-C_ButtonBlackStyle  = 'border-radius: 1px; background-color: Black; border-style: outset; border-width 16px; border-color: Green; '
-C_ButtonWhiteStyle  = 'border-radius: 1px; background-color: White; border-style: outset; border-width 16px; border-color: Green; '
+C_Spacing = 2 ### was 5
 
-#C_ButtonBlackStyle  = 'border-radius: 18px; background-color: Black; border-style: outset; border-width 16px; border-color: Yellow; '
+C_ButtonEmptyStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
+C_ButtonBlackStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
+C_ButtonWhiteStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
 
 
 C_ButtonBlueStyle   = 'border-radius:6px;color:black; background-color: Cyan'
 C_ButtonYellowStyle = 'border-radius:6px;color:black; background-color: Yellow'
 C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: Orange'
-C_ButtonGrayStyle = 'border-radius:6px;color:black; background-color: darkGray'
+C_ButtonGrayStyle   = 'border-radius:6px;color:black; background-color: darkGray'
 
 Button          = newlist(Size+1,Size)
-LayoutButtonRow = list(Size+4)
+LayoutButtonRow =    list(Size+4)
 
-curColor  	= "B"	### "B" or "W"
+curColor    = "B"   ### "B" or "W"
 otherColor  = "W"
 FlagFlip    =  0
-SkipTurn    =  0 	### Player has No Possible Valid Move
+SkipTurn    =  0    ### Player has No Possible Valid Move
 
 TransScript = list(1)
 MoveNumber  = 1
-dArray      = list(8)			### Flat destination array for diagnal analysis
-bArray	    = newList(8,8)		### Internal button array
-oldArray    = newList(8,8)		### Save bArray as oldArray, See who flip for Animation
+dArray      = list(8)           ### Flat destination array for diagnal analysis
+bArray      = newList(8,8)      ### Internal button array
+oldArray    = newList(8,8)      ### Save bArray as oldArray, See who flip for Animation
 
+###=====================================================
 ###=====================================================
 
 app = new qApp 
 {
-	win = new qWidget() {
-		setWindowTitle('Othello Game')
+    win = new qWidget() {
+        setWindowTitle('Othello Game')
+        setStyleSheet('background-color:White')
 
-		  move(500,100)
-		reSize(850,600)
-		winheight = win.height()
-		fontSize = 8 + (winheight / 100)
+          move(500,100)
+        reSize(800,800)
+        winheight = win.height()
+        fontSize = 8 + (winheight / 100)
 
-		PlayScoreBlack = new QLabel(win) 
-						{
-							setFont(new qFont("Verdana",fontSize,100,0))
-							setstylesheet(C_ButtonBlueStyle)
-							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-							settext("Black Score: 2")
-						}
+        PlayScoreBlack = new QLabel(win) 
+                        {
+                            setFont(new qFont("Verdana",fontSize,100,0))
+                            setstylesheet(C_ButtonBlueStyle)
+                            setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                            settext("Black Score: 2")
+                        }
 
-		PlayScoreWhite = new QLabel(win) 
-						{
-							setFont(new qFont("Verdana",fontSize,100,0))
-							setstylesheet(C_ButtonYellowStyle)
-							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-							settext("White Score: 2")
-						}
+        PlayScoreWhite = new QLabel(win) 
+                        {
+                            setFont(new qFont("Verdana",fontSize,100,0))
+                            setstylesheet(C_ButtonYellowStyle)
+                            setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                            settext("White Score: 2")
+                        }
 
-		NextMove = new QLabel(win) 
-						{
-							setFont(new qFont("Verdana",fontSize,100,0))
-							setstylesheet(C_ButtonOrangestyle)
-							setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-							settext("Next Move: Black ")
-						} 
+        NextMove = new QLabel(win) 
+                        {
+                            setFont(new qFont("Verdana",fontSize,100,0))
+                            setstylesheet(C_ButtonOrangestyle)
+                            setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                            settext("Next Move: Black ")
+                        } 
 
-		NewGame  = new QPushButton(win) 
-						{
-							setFont(new qFont("Verdana",fontSize,100,0))
-							setstylesheet("background-color:violet")
-							settext("New Game")
-							setclickevent("pStart()")				### CLICK NEW GAME >>> pStart
-						}
+        NewGame  = new QPushButton(win) 
+                        {
+                            setFont(new qFont("Verdana",fontSize,100,0))
+                            setstylesheet("background-color:violet")
+                            settext("New Game")
+                            setclickevent("pStart()")               ### CLICK NEW GAME >>> pStart
+                        }
 
-                Statusbar1 = new qstatusbar(win) {
-					  setstylesheet(C_ButtonBlueStyle)
-                                          setFont(new qFont("Verdana",fontSize,100,0)) }
+        Statusbar1 = new qstatusbar(win) 
+                        {
+                            setstylesheet(C_ButtonBlueStyle)
+                            setFont(new qFont("Verdana",fontSize,100,0)) 
+                        }
 
         ##------------------------------------------------------------------------------
-		### QVBoxLayout lays out Button Widgets in a vertical column, from top to bottom.
-		
-		LayoutButtonMain = new QVBoxLayout()			### VERTICAL
-		LayoutButtonMain.setSpacing(C_Spacing)
-		LayoutButtonMain.setContentsmargins(0,0,0,0)
+        ### QVBoxLayout lays out Button Widgets in a vertical column, from top to bottom.
+        
+        LayoutButtonMain = new QVBoxLayout()            ### VERTICAL
+        LayoutButtonMain.setSpacing(C_Spacing)
+        LayoutButtonMain.setContentsmargins(0,0,0,0)
 
-		
-			###-------------------------------------------
-			### Title Top Row - LETTERS  @ A B C D E F G H
-			
-			TitleLet = list(9)		### Array of qLabel Object		
-			Number = 64  			### 64=@ A B .. H
+        
+            ###-------------------------------------------
+            ### Title Top Row - LETTERS  @ A B C D E F G H
+            
+            TitleLet = list(9)      ### Array of qLabel Object      
+            Number = 64             ### 64=@ A B .. H
 
-			for Col = 1 to 9
-				Letter = hex2str( hex(Number))
-				TitleLet[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontSize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
-				Number++				
-			next
-				
-			###-----------------------------------
-			### Horizontal Rows - 1 2 3 4 5 6 7 8
-		
-			LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+            for Col = 1 to 9
+                Letter = hex2str( hex(Number))
+                TitleLet[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontSize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray")   setText(Letter) } 
+                Number++                
+            next
+                
+            ###-----------------------------------
+            ### Horizontal Rows - 1 2 3 4 5 6 7 8
+        
+            LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
 
-				for Col = 1 to 9				
-					LayoutTitleRow.AddWidget(TitleLet[Col])			
-				next
-							
-			LayoutButtonMain.AddLayout(LayoutTitleRow)	### Layout - Add  TITLE-ROW on TOP
-			
-			###----------------------------------------------
-			### Horizontal Button Rows
+                for Col = 1 to 9                
+                    LayoutTitleRow.AddWidget(TitleLet[Col])         
+                next
+                            
+            LayoutButtonMain.AddLayout(LayoutTitleRow)  ### Layout - Add  TITLE-ROW on TOP
+            
+            ###----------------------------------------------
+            ### Horizontal Button Rows
 
-			TitleNum = list(9)	### Array of qLabel Object
+            TitleNum = list(9)  ### Array of qLabel Object
 
-			for Col = 1 to 8
-				Letter = ""+ Col
-				TitleNum[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontSize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray") 	setText(Letter) } 
-				Number++			
-				
-			next
-	  
-			###-----------------------------------------------------------------------
-			### QHBoxLayout lays out widgets in a horizontal row, from left to right
-				
-			for Row = 1 to Size
-				LayoutButtonRow[Row] = new QHBoxLayout()	### Horizontal
-				{
-					setSpacing(C_Spacing)
-					setContentsmargins(0,0,0,0)
-				} 
+            for Col = 1 to 8
+                Letter = ""+ Col
+                TitleNum[Col] = new qLabel(win) { setFont(new qFont("Verdana",fontSize,100,0)) setAlignment(Qt_AlignHCenter | Qt_AlignVCenter) setStyleSheet("background-color:darkgray")   setText(Letter) } 
+                Number++            
+                
+            next
+      
+            ###-----------------------------------------------------------------------
+            ### QHBoxLayout lays out widgets in a horizontal row, from left to right
+                
+            for Row = 1 to Size
+                LayoutButtonRow[Row] = new QHBoxLayout()    ### Horizontal
+                {
+                    setSpacing(C_Spacing)
+                    setContentsmargins(0,0,0,0)
+                } 
 
-			   LayoutButtonRow[Row].AddWidget(TitleNum[Row])
-			   
-			   for Col = 1 to Size
-					Button[Row][Col] = new QPushButton(win)	### Create PUSH BUTTONS
-					{
-						setButtonImage(Button[Row][Col],oPicEmpty,bwidth,bheight)			
-						setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
-						setSizePolicy(1,1)
-					}
-					
-					LayoutButtonRow[Row].AddWidget(Button[Row][Col])	### Widget - Add HORZ BOTTON
-			   next
-			   
-			   LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			### Layout - Add ROW of ButtonS
-			next
+               LayoutButtonRow[Row].AddWidget(TitleNum[Row])
+               
+               for Col = 1 to Size
+                    Button[Row][Col] = new QPushButton(win) ### Create PUSH BUTTONS
+                    {
+                        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }        
+                        setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
+                        setSizePolicy(1,1)
+                    }
+                    
+                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+               next
+               
+               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+            next
 
-			###------------------------------------------------
-			### Horizontal Row Bottom
-				LayoutDataRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
-				  
-					LayoutDataRow.AddWidget(PlayScoreBlack) 
-					LayoutDataRow.AddWidget(PlayScoreWhite) 
-					LayoutDataRow.AddWidget(NextMove) 
+            ###------------------------------------------------
+            ### Horizontal Row Bottom
+                LayoutDataRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+                  
+                    LayoutDataRow.AddWidget(PlayScoreBlack) 
+                    LayoutDataRow.AddWidget(PlayScoreWhite) 
+                    LayoutDataRow.AddWidget(NextMove) 
   
-				LayoutButtonMain.AddLayout(LayoutDataRow)
-				LayoutButtonMain.AddWidget(NewGame)
-				LayoutButtonMain.AddWidget(statusBar1) 
+                LayoutButtonMain.AddLayout(LayoutDataRow)
+                LayoutButtonMain.AddWidget(NewGame)
+                LayoutButtonMain.AddWidget(statusBar1) 
 
             setLayout(LayoutButtonMain)
-			
-			###---------------------------------------------
-			
+            
+            ###---------------------------------------------
+            
             pStart()
             show()
    }
@@ -190,88 +193,97 @@ app = new qApp
 ###========================================
 ### GAME START
 
-func pStart()
+Func pStart()
 
 SEE nl+ "===== START START ====="+nl+nl
-	bArray	= newList(8,8)
+    bArray  = newList(8,8)
 
-	for Row = 1 to Size
-		for Col = 1 to Size
-			bArray[Row][Col] = "E"		### E-Empty cell
-			Button[Row][Col].setenabled(true)
-			setButtonImage(Button[Row][Col],oPicEmpty,bwidth,bheight)
-		next
-	next
+    for Row = 1 to Size
+        for Col = 1 to Size
+            bArray[Row][Col] = "E"      ### E-Empty cell
+
+            Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+            Button[Row][Col].setenabled(true)
+        next
+    next
 
         Statusbar1.showMessage("Message:",0)
-	
-	curColor  = "B"	### 1
-	Score     =  0 
+    
+    curColor  = "B" ### 1
+    Score     =  0 
 
-	MoveNumber  = 1
-	TransScript = list(1)
+    MoveNumber  = 1
+    TransScript = list(1)
  
-	NextMove.settext("Next Move: Black ")
-	PlayScoreBlack.settext("Black Score: 2")
-	PlayScoreWhite.settext("White Score: 2")
+    NextMove.settext("Next Move: Black ")
+    PlayScoreBlack.settext("Black Score: 2")
+    PlayScoreWhite.settext("White Score: 2")
 
-	Button[4][4].setenabled(false)
-	Button[4][5].setenabled(false)
-	Button[5][4].setenabled(false)
-	Button[5][5].setenabled(false)
 
-        setButtonImage(Button[4][4],oPicBlack,bwidth,bheight)
-        setButtonImage(Button[5][5],oPicBlack,bwidth,bheight)
-        setButtonImage(Button[4][5],oPicWhite,bwidth,bheight)
-        setButtonImage(Button[5][4],oPicWhite,bwidth,bheight)
+    Button[4][4] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][5] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[4][5] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][4] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
 
-	bArray[4][4] = "B"	
-	bArray[5][5] = "B"	
-	bArray[4][5] = "W"	
-	bArray[5][4] = "W"	
-	
+    Button[4][4] { setStyleSheet(C_ButtonEmptyStyle) }
+    Button[5][5] { setStyleSheet(C_ButtonEmptyStyle) }
+    Button[4][5] { setStyleSheet(C_ButtonEmptyStyle) }
+    Button[5][4] { setStyleSheet(C_ButtonEmptyStyle) }
+
+    Button[4][4].setenabled(true)   ### Leave True Color
+    Button[4][5].setenabled(true)   ### Leave True Color
+    Button[5][4].setenabled(true)   ### Leave True Color
+    Button[5][5].setenabled(true)   ### Leave True Color
+    
+    bArray[4][4] = "B"  
+    bArray[5][5] = "B"  
+    bArray[4][5] = "W"  
+    bArray[5][4] = "W"  
+    
+ 
+    
 return
 
 ###--------------------------------
 ### SCORE DISPLAY
 
 func sumMove()
-	sumMoveBlack = 0
-	sumMoveWhite = 0
-	sumEmptyCells = 0
+    sumMoveBlack = 0
+    sumMoveWhite = 0
+    sumEmptyCells = 0
 
-	for Row = 1 to Size
-		for  Col = 1 to Size
-			if bArray[Row][Col] = "B"
-			sumMoveBlack++
-			ok
-			if bArray[Row][Col] = "W"
-			sumMoveWhite++
-			ok 
+    for Row = 1 to Size
+        for  Col = 1 to Size
+            if bArray[Row][Col] = "B"
+            sumMoveBlack++
+            ok
+            if bArray[Row][Col] = "W"
+            sumMoveWhite++
+            ok 
 
-			if bArray[Row][Col] = "E"
-			sumEmptyCells++
-			ok 				 
-		next
-	next
+            if bArray[Row][Col] = "E"
+            sumEmptyCells++
+            ok               
+        next
+    next
 
-	###---------------------------------
-	###Check is any Cells left to Play 
+    ###---------------------------------
+    ###Check is any Cells left to Play 
 
-	if sumEmptyCells = 0
-		Msg = "Game Over." +nl+ "No more squares left to Play."
-		MsgBox(Msg)	
-		return
-	ok
+    if sumEmptyCells = 0
+        Msg = "Game Over." +nl+ "No more squares left to Play."
+        MsgBox(Msg) 
+        return
+    ok
 
 
-	PlayScoreBlack.settext("Black Score: " + sumMoveBlack)
-	PlayScoreWhite.settext("White Score: " + sumMoveWhite)
+    PlayScoreBlack.settext("Black Score: " + sumMoveBlack)
+    PlayScoreWhite.settext("White Score: " + sumMoveWhite)
 return
 
-###-----------------------------------
+###=======================================================
 ### PLAY MOVE - qPushButton Clicked
-	
+    
 Func pPlay(Row,Col)
 
 RowPlayed   = Row
@@ -281,158 +293,174 @@ ColorPlayed = curColor
 if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
 
     SEE nl+"------------------------"+nl+nl
-	SEE "CLICK Row-Col: "+ Row +"-"+ Col +nl
-	
-			###---------------------------
-			### TransScript Record Moves
-			
-			Letter = char(64 + Col)
-			if curColor = "B"  ###
-			
-				MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ Row +"-"+ Letter
-				NextMove.setstylesheet(C_ButtonGrayStyle)
-				NextMove.settext("Next Move: White ")    
-			else
-				MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ Row +"-"+ Letter 
-				NextMove.setstylesheet(C_ButtonOrangeStyle)
-				NextMove.settext("Next Move: Black ") 
-			ok      
+    SEE "CLICK Row-Col: "+ColorPlayed +" "+ Row +"-"+ Col +nl
+    
+            ###---------------------------
+            ### TransScript Record Moves
+            
+            Letter = char(64 + Col)
+            if curColor = "B"  ###
+            
+                MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ Row +"-"+ Letter
+                NextMove.setstylesheet(C_ButtonGrayStyle)
+                NextMove.settext("Next Move: White ")    
+            else
+                MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ Row +"-"+ Letter 
+                NextMove.setstylesheet(C_ButtonOrangeStyle)
+                NextMove.settext("Next Move: Black ") 
+            ok      
 
-			TranScript = Add(TransScript, MovePlayed)
-			MoveNumber++
-			SEE "TransScript: "+nl  SEE TransScript  SEE nl
-			
-			###-------------------------
+            TranScript = Add(TransScript, MovePlayed)
+            MoveNumber++
+            SEE "TransScript: "+nl  SEE TransScript  SEE nl
+            
+            ###-------------------------
 
-	###-------------------------------------------------
-	### Make a Copy of Current Board for Flip Animation	
-	
-	for h = 1 to Size
-		for v = 1 to Size
-			oldArray[h][v] = bArray[h][v]
-		next
-	next	
+    ###-------------------------------------------------
+    ### Make a Copy of Current Board for Flip Animation 
+    
+    for h = 1 to Size
+        for v = 1 to Size
+            oldArray[h][v] = bArray[h][v]
+        next
+    next    
         
-	###------------------------------------
-	### COLOR PLAYED Button and Disable
-	### RECORD the button in bArray
-	
-	FlagFlip = 0
-	if curColor = "B"  									### Current BLACK   
-		bArray[Row][Col] = "B"
-                Statusbar1.showMessage("Message:",0)
-		setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
-		Button[Row][Col].setenabled(false)	
-		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals
- 							
-	elseif  curColor = "W"  							### Current WHITE  
-		bArray[Row][Col] = "W"
-                Statusbar1.showMessage("Message:",0)
-		setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
-		Button[Row][Col].setenabled(false)
-		CheckDiagonals(Row,Col,curColor)				### >>>> CHECK Diagonals					
-	ok
+    ###------------------------------------
+    ### COLOR PLAYED Button and Disable
+    ### RECORD the button in bArray
+    
+    FlagFlip = 0
+    if curColor = "B"                                   ### Current BLACK   
+        bArray[Row][Col] = "B"
+        
+        Statusbar1.showMessage("Message:",0)
 
-	###======================================================================================
+        Button[Row][Col] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
+        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
+        # Button[Row]Col].setenabled(false) ### Not true color ??!!
+        
+        CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals
+                            
+    elseif  curColor = "W"                              ### Current WHITE  
+        bArray[Row][Col] = "W"
+                
+        Statusbar1.showMessage("Message:",0)
+    
+        Button[Row][Col] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
+        # Button[Row]Col].setenabled(false) ### Not true color ??!!
+        
+        CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals                    
+    ok
 
-	###-----------------------------------------------
-	### Check if FlagFlip was SET , Else Illegal Move
-	### Restore NextMove
-	### Restore EmptyCell Color and EnableEvents
+    ###======================================================================================
 
-	See "FlagFlip: "+ FlagFlip +nl
-	if FlagFlip = 0			### Report Move returned INVALID=0 - No Flips Possible
-	
-		Msg = "Message: " + bArray[RowPlayed][ColPlayed] + " "+
+    ###-----------------------------------------------
+    ### Check if FlagFlip was SET , Else Illegal Move
+    ### Restore NextMove
+    ### Restore EmptyCell Color and EnableEvents
+
+    See "FlagFlip: "+ FlagFlip +nl
+    if FlagFlip = 0         ### Report Move returned INVALID=0 - No Flips Possible
+    
+        Msg = "Message: "+ bArray[RowPlayed][ColPlayed] + " "+
                            ColPlayed + "-" + RowPlayed + " Move INVALID. " + "No Flips Possible"
-		Statusbar1.showMessage(Msg,0)	
-		
-		###----------------------------------------------------
-		### MsgBox - Clicked Discard - RETURN OtherColor Turn
-		if  SkipTurn = 1  
-			setButtonImage(Button[RowPlayed][4],oPicEmpty,bwidth,bheight)	### CELL PLAYED - Put Back to Empty Color
-			Button[RowPlayed][ColPlayed].setenabled(true)
-			curColor = otherColor
-			return
-		ok	
+        Statusbar1.showMessage(Msg,0)   
+        
 
-		### Restore OLD Board array
-		for h = 1 to Size
-			for v = 1 to Size
-				bArray[h][v] = oldArray[h][v]
-			next
-		next	
+        ### Restore OLD Board array
+        for h = 1 to Size
+            for v = 1 to Size
+                bArray[h][v] = oldArray[h][v]
+            next
+        next    
 
-		SEE "ColorPlayed: "+ curColor +" "+  RowPlayed +"-"+ ColPlayed +nl
-		if curColor = "B" 								    ### NO Flip -- Stay with same Color
-				NextMove.setstylesheet(C_ButtonOrangestyle)
-				NextMove.settext("Next Move: Black.... ") 
-		ok
-		
-		if curColor = "W"									### NO Flip -- Stay with same Color		
-				NextMove.setstylesheet(C_ButtonWhitestyle)
-				NextMove.settext("Next Move: White.... ") 
-		ok
-		
-		setButtonImage(Button[RowPlayed][ColPlayed],oPicEmpty,bwidth,bheight)	### CELL PLAYED - Put Back to Empty Color
-		Button[RowPlayed][ColPlayed].setenabled(true)
-		
-		return	### INVALID - NO FLIPS
-	ok
+        SEE "ColorPlayed: "+ curColor +" "+  RowPlayed +"-"+ ColPlayed +nl
+        if curColor = "B"                                   ### NO Flip -- Stay with same Color
+                NextMove.setstylesheet(C_ButtonOrangestyle)
+                NextMove.settext("Next Move: Black.... ") 
+        ok
+        
+        if curColor = "W"                                   ### NO Flip -- Stay with same Color     
+                NextMove.setstylesheet(C_ButtonWhitestyle)
+                NextMove.settext("Next Move: White.... ") 
+        ok
+        
+   
+        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
+        ###Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
+        Button[RowPlayed][ColPlayed].setenabled(true)
+        
+        return  ### INVALID - NO FLIPS
+    ok
 
-###======================================================================================
+    ###======================================================================================
+    
+    ###----------------------------------------
+    ### COLOR FLIPPED Buttons and Disable Click
+    ### ANIMATION of FLIPS
+    ### DRAW DOS Chart
+    
+	Statusbar1.showMessage("Message:",0)
 	
-	###----------------------------------------
-	### COLOR FLIPPED Buttons and Disable Click
-	### ANIMATION of FLIPS
-	### DRAW DOS Chart
-	
-	SEE "Color bArray_____"+nl
-	for Row = 1 to Size
-		See nl + row +" "
-		
-		for  Col = 1 to Size
-			 
-			if bArray[Row][Col] = "W"
-				SEE "W "
+    SEE "Color bArray_____"+nl
+    for Row = 1 to Size
+        See nl + row +" "
+        
+        for  Col = 1 to Size
+             
+            if bArray[Row][Col] = "W"
+                SEE "W "
 
-				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
-					app.processevents()
-					sleep(0.2)		
-					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
-				ok
-				Statusbar1.showMessage("Message:",0)
-		                setButtonImage(Button[Row][Col],oPicWhite,bwidth,bheight)
-				Button[Row][Col].setenabled(false)				
-			ok
+                if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
+                    app.processevents()
+                    sleep(0.2)                         
+                ok
+                
+                Button[Row][Col] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }            
+                Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }          
+                # Button[Row]Col].setenabled(false) ### Not true color ??!!
+            ok
 
-			if bArray[Row][Col] = "B"
-				SEE "B "
+            if bArray[Row][Col] = "B"
+                SEE "B "
 
-				if oldArray[Row][Col] != bArray[Row][Col]	### Flip ANIMATION
-					app.processevents()
-					sleep(0.2)	
-					#SEE "FlipAnimation: "+ Row +"-"+ Col +" "+ bArray[Row][Col] +nl					
-				ok
-                                Statusbar1.showMessage("Message:",0)				
-		                setButtonImage(Button[Row][Col],oPicBlack,bwidth,bheight)
-				Button[Row][Col].setenabled(false)				
-			ok
-			
-			if bArray[Row][Col] = "E"
-				SEE ". "
-			ok	
-			
-		next
+                if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
+                    app.processevents()
+                    sleep(0.2)                    
+                ok
+                
+                Button[Row][Col] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }                
+                Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
+                # Button[Row]Col].setenabled(false) ### Not true color ??!!
+            ok
+            
+            if bArray[Row][Col] = "E"
+                SEE ". "
+            ok  
+            
+        next
 
-	next
-	See nl
-	
-	###------------------
-	### NEXT COLOR Turn
-	curColor = otherColor
-	
-	sumMove()
+    next
+		See nl
+    
+    ###-------------------------------------------------
+    ### TRUE COLORS
+            
+        for h = 1 to Size
+            for v = 1 to Size
+                if bArray[h][v] != "E"
+                    ### Button[h][v].setenabled(false) ### ??? Goes back to Complement Color ???
+                ok
+            next
+        next    
+ 
+    ###------------------
+    ### NEXT COLOR Turn
+    curColor = otherColor
+    
+    sumMove() 
+    
 return
 
 
@@ -444,160 +472,160 @@ Func CheckDiagonals(Row,Col,curColor)
 #SEE nl+ "##################################"+nl
 #SEE "CellCLICK: Row-Col-Color: "+ Row + "-"+ Col +" "+ curColor  +nl
 
-	###---------------------------
-	### Diag-  NORTH-SOUTH Col
-	### COPY to ROW to FLAT
-	
-	dArray = list(9) 
-	for Cell = 1 to 9  dArray[Cell] = "E"  	next
-	
-				#See nl+"Copy-NORTH-SOUTH-To-dArray---->>>: "					
-			for Cell = 1 to 8	 
-				dArray[Cell] = bArray[Cell][Col]  		### ROW ---> FLAT
-				#SEE " "+ dArray[Cell]
-			next	
-				#See nl
-	
-	CheckFlips(Row,curColor)
-	
+    ###---------------------------
+    ### Diag-  NORTH-SOUTH Col
+    ### COPY to ROW to FLAT
+    
+    dArray = list(9) 
+    for Cell = 1 to 9  dArray[Cell] = "E"   next
+    
+                #See nl+"Copy-NORTH-SOUTH-To-dArray---->>>: "                   
+            for Cell = 1 to 8    
+                dArray[Cell] = bArray[Cell][Col]        ### ROW ---> FLAT
+                #SEE " "+ dArray[Cell]
+            next    
+                #See nl
+    
+    CheckFlips(Row,curColor)
+    
 
-			### COPY BACK FLAT to COL 
-				#See "Copy-dArray-To-NORTH-SOUTH----<<<: "	 	
-			for Cell = 1 to 8	 
-				bArray[Cell][Col] = dArray[Cell]  		### ROW <--- FLAT
-				#See " "+ dArray[Cell] 
-			next	
-				#see nl
-		
-		
-	###---------------------------
-	### Diag-  EAST-WEST Row
-	### COPY to ROW to FLAT
-	
-	dArray = list(9)  
-	for Cell = 1 to 9  dArray[Cell] = "E" 	next
+            ### COPY BACK FLAT to COL 
+                #See "Copy-dArray-To-NORTH-SOUTH----<<<: "      
+            for Cell = 1 to 8    
+                bArray[Cell][Col] = dArray[Cell]        ### ROW <--- FLAT
+                #See " "+ dArray[Cell] 
+            next    
+                #see nl
+        
+        
+    ###---------------------------
+    ### Diag-  EAST-WEST Row
+    ### COPY to ROW to FLAT
+    
+    dArray = list(9)  
+    for Cell = 1 to 9  dArray[Cell] = "E"   next
 
-				#See nl+"Copy-EAST-WEST-To-dArray---->>>  : "	 	
-			for Cell = 1 to 8	 
-				dArray[Cell] = bArray[ROW][Cell]  		###  COL ----> FLAT
-				#SEE " "+ dArray[Cell]
-			next	
-				#see nl
-		
-	CheckFlips(Col,curColor)
+                #See nl+"Copy-EAST-WEST-To-dArray---->>>  : "       
+            for Cell = 1 to 8    
+                dArray[Cell] = bArray[ROW][Cell]        ###  COL ----> FLAT
+                #SEE " "+ dArray[Cell]
+            next    
+                #see nl
+        
+    CheckFlips(Col,curColor)
 
-	
-			### COPY BACK FLAT to ROW 
-				#See "Copy-dArray-To-EAST-WEST------<<<: "		
-			for Cell = 1 to 8	 
-				bArray[Row][Cell] = dArray[Cell]		###  COL <---- FLAT
-				#See " "+ dArray[Cell] 
-			next	
-				#see nl	
-				
+    
+            ### COPY BACK FLAT to ROW 
+                #See "Copy-dArray-To-EAST-WEST------<<<: "      
+            for Cell = 1 to 8    
+                bArray[Row][Cell] = dArray[Cell]        ###  COL <---- FLAT
+                #See " "+ dArray[Cell] 
+            next    
+                #see nl 
+                
 
-	###================================================
-	### Diag- DECLINE \ 1-A to 8-H
-	### COPY to ROW to FLAT
-	
-	dArray = list(9)  
-	for Cell = 1 to 9  dArray[Cell] = "E" 	next
-	
-			### Backup from current Row-Col till one of them = 1
-			Diff = Row - Col
-			
-			if Diff = 0  StartRow = 1             StartCol = 1             ok
-			if Diff > 0  StartRow = Row - Col +1  StartCol = 1             ok
-			if Diff < 0  StartRow = 1             StartCol = Col - Row +1  ok
-			
-			DRow = StartRow   
-			DCol = StartCol
-			
-			#SEE nl+"DECLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
-			
-			
-				#See "Copy-DECLINE-To-dArray ------->>>: "
-			for Cell = 1 to 8	 
-				dArray[Cell] = bArray[DRow][DCol]  		### ROW\COL ---> FLAT
-				DRow++  DCol++
-				
-				#SEE " "+ dArray[Cell]
-				
-				if DRow > 8 OR DCol > 8  exit  ok				
-			next	
-				#See nl
+    ###================================================
+    ### Diag- DECLINE \ 1-A to 8-H
+    ### COPY to ROW to FLAT
+    
+    dArray = list(9)  
+    for Cell = 1 to 9  dArray[Cell] = "E"   next
+    
+            ### Backup from current Row-Col till one of them = 1
+            Diff = Row - Col
+            
+            if Diff = 0  StartRow = 1             StartCol = 1             ok
+            if Diff > 0  StartRow = Row - Col +1  StartCol = 1             ok
+            if Diff < 0  StartRow = 1             StartCol = Col - Row +1  ok
+            
+            DRow = StartRow   
+            DCol = StartCol
+            
+            #SEE nl+"DECLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
+            
+            
+                #See "Copy-DECLINE-To-dArray ------->>>: "
+            for Cell = 1 to 8    
+                dArray[Cell] = bArray[DRow][DCol]       ### ROW\COL ---> FLAT
+                DRow++  DCol++
+                
+                #SEE " "+ dArray[Cell]
+                
+                if DRow > 8 OR DCol > 8  exit  ok               
+            next    
+                #See nl
 
-				
-	CheckFlips((Row-StartRow+1),curColor)				### Line up dArray and Row for Cell Clicked
-	
-	
-			### COPY BACK FLAT to ROW 
-			DRow = StartRow   DCol = StartCol
-			
-				#See "Copy-dArray-To-DECLINE--------<<<: "	
-			for Cell = 1 to 8	 
-				bArray[DRow][DCol] = dArray[Cell]  		### ROW\COL <--- FLAT
-				#See " "+ dArray[Cell] 
-				DRow++  DCol++
-				
-				if DRow > 8 OR DCol > 8  exit  ok  	
-			next	
-				#see nl
-				
-	
+                
+    CheckFlips((Row-StartRow+1),curColor)               ### Line up dArray and Row for Cell Clicked
+    
+    
+            ### COPY BACK FLAT to ROW 
+            DRow = StartRow   DCol = StartCol
+            
+                #See "Copy-dArray-To-DECLINE--------<<<: "  
+            for Cell = 1 to 8    
+                bArray[DRow][DCol] = dArray[Cell]       ### ROW\COL <--- FLAT
+                #See " "+ dArray[Cell] 
+                DRow++  DCol++
+                
+                if DRow > 8 OR DCol > 8  exit  ok   
+            next    
+                #see nl
+                
+    
 
-	###===============================================
-	### Diag- INCLINE / 8-A to 1-H
-	### COPY to ROW to FLAT
+    ###===============================================
+    ### Diag- INCLINE / 8-A to 1-H
+    ### COPY to ROW to FLAT
 
-	
-	dArray = list(9) 
-	for Cell = 1 to 9  dArray[Cell] = "E" 	next
-	
-			### Backup from current Row-Col till one of them = 1
-			Diff = Row - (9 -Col)
-						
-			if Diff = 0  StartRow = 8             StartCol = 1             ok
-			if Diff > 0  StartRow = 8             StartCol = Col - (8-Row) ok
-			if Diff < 0  StartRow = Col + (Row-1) StartCol = 1             ok
-			
-			DRow = StartRow   
-			DCol = StartCol
-	
-			#SEE nl+"INCLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
-			
-				#See "Copy-INCLINE-To-dArray-------->>>: "				
-			for Cell = 1 to 8		
-				dArray[Cell] = bArray[DRow][DCol]  		### ROW\COL ---> FLAT
-				DRow--  DCol++
-								
-				#SEE " "+ dArray[Cell]
-		
-				if DRow < 1 OR DCol > 8  exit  ok	
-			next	
-				#See nl
-	
-	
-	CheckFlips((Col-StartCol+1),curColor)				### Line up dArray and Col for Cell Clicked
-	
-	
-			### COPY BACK FLAT to ROW 
-			DRow = StartRow   DCol = StartCol
-			
-				#See "Copy-dArray-To-INCLINE--------<<<: "			
-			for Cell = 1 to 8	 
-				bArray[DRow][DCol] = dArray[Cell]  		### ROW\COL <--- FLAT
-				#See " "+ dArray[Cell] 
-				DRow--  DCol++
-				
-				if DRow < 1 OR DCol > 8  exit  ok	
-			next	
-				#see nl
-				
-	###--------------------------------------------			
-		
+    
+    dArray = list(9) 
+    for Cell = 1 to 9  dArray[Cell] = "E"   next
+    
+            ### Backup from current Row-Col till one of them = 1
+            Diff = Row - (9 -Col)
+                        
+            if Diff = 0  StartRow = 8             StartCol = 1             ok
+            if Diff > 0  StartRow = 8             StartCol = Col - (8-Row) ok
+            if Diff < 0  StartRow = Col + (Row-1) StartCol = 1             ok
+            
+            DRow = StartRow   
+            DCol = StartCol
+    
+            #SEE nl+"INCLINE Diff: "+ Diff +" StartRow: "+ StartRow +" StartCol "+ StartCol +nl
+            
+                #See "Copy-INCLINE-To-dArray-------->>>: "              
+            for Cell = 1 to 8       
+                dArray[Cell] = bArray[DRow][DCol]       ### ROW\COL ---> FLAT
+                DRow--  DCol++
+                                
+                #SEE " "+ dArray[Cell]
+        
+                if DRow < 1 OR DCol > 8  exit  ok   
+            next    
+                #See nl
+    
+    
+    CheckFlips((Col-StartCol+1),curColor)               ### Line up dArray and Col for Cell Clicked
+    
+    
+            ### COPY BACK FLAT to ROW 
+            DRow = StartRow   DCol = StartCol
+            
+                #See "Copy-dArray-To-INCLINE--------<<<: "          
+            for Cell = 1 to 8    
+                bArray[DRow][DCol] = dArray[Cell]       ### ROW\COL <--- FLAT
+                #See " "+ dArray[Cell] 
+                DRow--  DCol++
+                
+                if DRow < 1 OR DCol > 8  exit  ok   
+            next    
+                #see nl
+                
+    ###--------------------------------------------         
+        
 
-	
+    
 return
 
 ###======================================================
@@ -606,7 +634,7 @@ return
 ### dArray  Pattern to Check 
 ###               v              Click 4  
 ###         1 2 3 4 5 6 7 8 .
-###         e e B B W W B e .	
+###         e e B B W W B e .   
 ###               s     f        4--7  Right match
 ###
 ###         B W W B W . B e    
@@ -623,70 +651,70 @@ Func CheckFlips(cellClick,curColor)
 
 #SEE "CheckFlips: CellClick "+ cellClick +" "+ curColor +nl
 
-    aFlip       = list(9)			### Which Cells to Flip, OverFlop when Cell +1 = 9
-	aFlip[9]    =  "."              ### Use Dot, NOT B,W,E on Edge +1
-	
+    aFlip       = list(9)           ### Which Cells to Flip, OverFlop when Cell +1 = 9
+    aFlip[9]    =  "."              ### Use Dot, NOT B,W,E on Edge +1
+    
     FlipCell    =  0
-	otherColor  = "E"
-	if curColor = "B" otherColor = "W" ok  
-	if curColor = "W" otherColor = "B" ok
+    otherColor  = "E"
+    if curColor = "B" otherColor = "W" ok  
+    if curColor = "W" otherColor = "B" ok
 
-	FlagStart  = 0														### dArray = [9]
-	
-	for cell = 1 to 8													### 8 => OverFlow on array[8+1]	
-	
-		### START ---
-		if dArray[cell] = curColor 	AND dArray[cell+1] = otherColor  	###  ..BW.. 
-			cellStart = cell											###  ..^...  FlagStart = 1
-			
-			FlagStart = 1                                             		
-			#SEE "Start__: "+ FlagStart +" "+ cellStart +nl	
-	
-		### END ---
-		elseif  dArray[cell] = otherColor AND dArray[cell+1] = curColor  ###  ..WB..
-			cellEnd = cell+1  											###  ...^..
-			
-			#SEE "End____: "+ FlagStart +" "+ cellEnd +nl
-			
-			if FlagStart = 1 AND ( (cellStart = cellClick) OR (cellEnd = cellClick) )
-				
-				FlipStart = cellStart +1  								###  ..BWB..  
-				FlipEnd   = cellEnd   -1								###  ..^v^.. 				
-				#SEE "FLIPPER: "+ FlipStart +"-"+ FlipEnd + " >>> "
-				
-				for n = (FlipStart) to (FlipEnd)     
-					aFlip[n] = 1 
-					#SEE " "+ n 
-				next	
-					#SEE nl
-			
-			FlagStart = 0
-									
-			ok	
-			
-		### CANCEL ---	
-		elseif	dArray[cell] = "E" AND FlagStart = 1           			###  EB, EW, EE => FlagStart = 0
-		    FlagStart = 0
-		    #SEE "Start_v: "+ FlagStart +" "+ cell +nl
-		ok		
-		
-	next
+    FlagStart  = 0                                                      ### dArray = [9]
+    
+    for cell = 1 to 8                                                   ### 8 => OverFlow on array[8+1] 
+    
+        ### START ---
+        if dArray[cell] = curColor  AND dArray[cell+1] = otherColor     ###  ..BW.. 
+            cellStart = cell                                            ###  ..^...  FlagStart = 1
+            
+            FlagStart = 1                                                   
+            #SEE "Start__: "+ FlagStart +" "+ cellStart +nl 
+    
+        ### END ---
+        elseif  dArray[cell] = otherColor AND dArray[cell+1] = curColor  ###  ..WB..
+            cellEnd = cell+1                                            ###  ...^..
+            
+            #SEE "End____: "+ FlagStart +" "+ cellEnd +nl
+            
+            if FlagStart = 1 AND ( (cellStart = cellClick) OR (cellEnd = cellClick) )
+                
+                FlipStart = cellStart +1                                ###  ..BWB..  
+                FlipEnd   = cellEnd   -1                                ###  ..^v^..                
+                #SEE "FLIPPER: "+ FlipStart +"-"+ FlipEnd + " >>> "
+                
+                for n = (FlipStart) to (FlipEnd)     
+                    aFlip[n] = 1 
+                    #SEE " "+ n 
+                next    
+                    #SEE nl
+            
+            FlagStart = 0
+                                    
+            ok  
+            
+        ### CANCEL ---  
+        elseif  dArray[cell] = "E" AND FlagStart = 1                    ###  EB, EW, EE => FlagStart = 0
+            FlagStart = 0
+            #SEE "Start_v: "+ FlagStart +" "+ cell +nl
+        ok      
+        
+    next
 
-	#SEE "FLIP___: "
-	for n = 1 to 9
-		#SEE  aFlip[n] 
-			if aFlip[n] = 1
-				FlagFlip = 1
-				dArray[n] = curColor	### FLIP color
-			ok
-	next
-	#SEE nl
+    #SEE "FLIP___: "
+    for n = 1 to 9
+        #SEE  aFlip[n] 
+            if aFlip[n] = 1
+                FlagFlip = 1
+                dArray[n] = curColor    ### FLIP color
+            ok
+    next
+    #SEE nl
 
-	#SEE "dArray-Changed-Now_______________: " 	
-	#for n = 1 to 8  SEE " "+ dArray[n]  next #SEE nl
-	
+    #SEE "dArray-Changed-Now_______________: "  
+    #for n = 1 to 8  SEE " "+ dArray[n]  next #SEE nl
+    
 
-#See "EndCheck:"+nl	
+#See "EndCheck:"+nl 
 
 return
 
@@ -697,24 +725,20 @@ return
 
 ###--------------------------------
 ### MESSAGE BOX
-	
+    
 Func msgBox(cText) 
-	mb = new qMessageBox(win) 
-		{
-	        setWindowTitle('Othello Game')
-	        setText(cText )
-			setstylesheet(C_ButtonWhitestyle)
+    mb = new qMessageBox(win) 
+        {
+            setWindowTitle('Othello Game')
+            setText(cText )
+            setstylesheet(C_ButtonWhitestyle)
                 setstandardButtons(QMessageBox_Discard | QMessageBox_OK) 
-                result = exec()			
+                result = exec()         
         }
-		
-		SkipTurn = 0
-		if QMessageBox_OK      = result	 SkipTurn = 0  ok
-		if QMessageBox_Discard = result  SkipTurn = 1  ok
-        return
+        
+
+        
+return
 
 ###--------------------------------
-	
-func setButtonImage(oBtn,oPixmap,bwidth,bheight)
-       oBtn { setIcon(new qicon(oPixmap.scaled(bwidth,bheight,0,0)))
-                 setIconSize(new QSize(bwidth,bheight)) }
+    
