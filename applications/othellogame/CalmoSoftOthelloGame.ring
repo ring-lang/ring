@@ -13,18 +13,18 @@ Score = 0
 sumMoveBlack = 0 
 sumMoveWhite = 0
 
-oPicBlack = new QPixmap("black2.jpg")
-oPicWhite = new QPixmap("white2.jpg")
-oPicEmpty = new QPixmap("empty2.jpg")
+oPicBlack = new QPixmap("black.jpg")
+oPicWhite = new QPixmap("white.jpg")
+oPicEmpty = new QPixmap("empty.jpg")
 
 bWidth  = oPicBlack.width()    ### 80 
 bHeight = oPicBlack.height()   ### 80 
 
 C_Spacing = 2 ### was 5
 
-C_ButtonEmptyStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
-C_ButtonBlackStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
-C_ButtonWhiteStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
+C_ButtonEmptyStyle  = ' background-color: Green; border-radius: 8px; ' ### border-style: outset; border-width: 0px; border-color: Green; '
+### C_ButtonBlackStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
+### C_ButtonWhiteStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
 
 
 C_ButtonBlueStyle   = 'border-radius:6px;color:black; background-color: Cyan'
@@ -38,7 +38,7 @@ LayoutButtonRow =    list(Size+4)
 curColor    = "B"   ### "B" or "W"
 otherColor  = "W"
 FlagFlip    =  0
-SkipTurn    =  0    ### Player has No Possible Valid Move
+FlagSkipTurn =  0    ### Player has No Possible Valid Move
 
 TransScript = list(1)
 MoveNumber  = 1
@@ -88,11 +88,19 @@ app = new qApp
                         {
                             setFont(new qFont("Verdana",fontSize,100,0))
                             setstylesheet("background-color:violet")
-                            settext("New Game")
+                            settext("New Game:")
                             setclickevent("pStart()")               ### CLICK NEW GAME >>> pStart
                         }
 
-        Statusbar1 = new qstatusbar(win) 
+        SkipTurn  = new QPushButton(win) 
+                        {
+                            setFont(new qFont("Verdana",fontSize,100,0))
+                            setstylesheet("background-color:violet")
+                            settext("Skip Turn:")
+                            setclickevent("pSkipTurn()")            ### CLICK SKIP TURN >>> pSkipTurn
+                        }
+                        
+        StatusBar1 = new qstatusbar(win) 
                         {
                             setstylesheet(C_ButtonBlueStyle)
                             setFont(new qFont("Verdana",fontSize,100,0)) 
@@ -156,7 +164,8 @@ app = new qApp
                for Col = 1 to Size
                     Button[Row][Col] = new QPushButton(win) ### Create PUSH BUTTONS
                     {
-                        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }        
+                        ### Button[Row][Col] { setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }  
+                        ### Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }                      
                         setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
                         setSizePolicy(1,1)
                     }
@@ -174,10 +183,14 @@ app = new qApp
                     LayoutDataRow.AddWidget(PlayScoreBlack) 
                     LayoutDataRow.AddWidget(PlayScoreWhite) 
                     LayoutDataRow.AddWidget(NextMove) 
-  
-                LayoutButtonMain.AddLayout(LayoutDataRow)
-                LayoutButtonMain.AddWidget(NewGame)
-                LayoutButtonMain.AddWidget(statusBar1) 
+                  LayoutButtonMain.AddLayout(LayoutDataRow)
+                  
+                LayoutNewGameRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
+                    LayoutNewGameRow.AddWidget(NewGame)
+                    LayoutNewGameRow.AddWidget(SkipTurn)
+                LayoutButtonMain.AddLayout(LayoutNewGameRow)    
+                    
+                LayoutButtonMain.AddWidget(StatusBar1) 
 
             setLayout(LayoutButtonMain)
             
@@ -196,18 +209,23 @@ app = new qApp
 Func pStart()
 
 SEE nl+ "===== START START ====="+nl+nl
+
+    FlagSkipTurn = 1
     bArray  = newList(8,8)
 
     for Row = 1 to Size
         for Col = 1 to Size
             bArray[Row][Col] = "E"      ### E-Empty cell
 
-            Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+            Button[Row][Col] { setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+            Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }      ### Needed to fill Square, image too small
             Button[Row][Col].setenabled(true)
+            Button[Row][Col].blockSignals(false)                        ### ??? Goes back to Complement Color ???
+            
         next
     next
 
-        Statusbar1.showMessage("Message:",0)
+    Statusbar1.showMessage("Message:",0)
     
     curColor  = "B" ### 1
     Score     =  0 
@@ -220,34 +238,28 @@ SEE nl+ "===== START START ====="+nl+nl
     PlayScoreWhite.settext("White Score: 2")
 
 
-    Button[4][4] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[5][5] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[4][5] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[5][4] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[4][4] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][5] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[4][5] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][4] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
 
-    Button[4][4] { setStyleSheet(C_ButtonEmptyStyle) }
-    Button[5][5] { setStyleSheet(C_ButtonEmptyStyle) }
-    Button[4][5] { setStyleSheet(C_ButtonEmptyStyle) }
-    Button[5][4] { setStyleSheet(C_ButtonEmptyStyle) }
-
-    Button[4][4].setenabled(true)   ### Leave True Color
-    Button[4][5].setenabled(true)   ### Leave True Color
-    Button[5][4].setenabled(true)   ### Leave True Color
-    Button[5][5].setenabled(true)   ### Leave True Color
+    Button[4][4].blockSignals(true)   ### Leave True Color
+    Button[4][5].blockSignals(true)   ### Leave True Color
+    Button[5][4].blockSignals(true)   ### Leave True Color
+    Button[5][5].blockSignals(true)   ### Leave True Color
     
     bArray[4][4] = "B"  
     bArray[5][5] = "B"  
     bArray[4][5] = "W"  
     bArray[5][4] = "W"  
     
- 
     
 return
 
 ###--------------------------------
 ### SCORE DISPLAY
 
-func sumMove()
+Func sumMove()
     sumMoveBlack = 0
     sumMoveWhite = 0
     sumEmptyCells = 0
@@ -289,8 +301,20 @@ Func pPlay(Row,Col)
 RowPlayed   = Row
 ColPlayed   = Col
 ColorPlayed = curColor
+FlagSkipTurn =  0       
 
-if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
+    if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
+
+    ###------------------------
+    ### SKIP TURN CHECK
+    
+    if FlagSkipTurn = 1     ### Set by PushButton-SkipTurn call to Func pSkipTurn 
+        FlagSkipTurn = 0
+            
+        return
+    ok
+
+
 
     SEE nl+"------------------------"+nl+nl
     SEE "CLICK Row-Col: "+ColorPlayed +" "+ Row +"-"+ Col +nl
@@ -316,6 +340,8 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
             
             ###-------------------------
 
+            
+            
     ###-------------------------------------------------
     ### Make a Copy of Current Board for Flip Animation 
     
@@ -330,25 +356,17 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
     ### RECORD the button in bArray
     
     FlagFlip = 0
+    Statusbar1.showMessage("Message:",0)
+    
     if curColor = "B"                                   ### Current BLACK   
         bArray[Row][Col] = "B"
-        
-        Statusbar1.showMessage("Message:",0)
-
-        Button[Row][Col] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
-        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
-        # Button[Row]Col].setenabled(false) ### Not true color ??!!
-        
+        Button[Row][Col] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
+     
         CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals
                             
     elseif  curColor = "W"                              ### Current WHITE  
-        bArray[Row][Col] = "W"
-                
-        Statusbar1.showMessage("Message:",0)
-    
-        Button[Row][Col] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
-        # Button[Row]Col].setenabled(false) ### Not true color ??!!
+        bArray[Row][Col] = "W"      
+        Button[Row][Col] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
         
         CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals                    
     ok
@@ -382,13 +400,11 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
         ok
         
         if curColor = "W"                                   ### NO Flip -- Stay with same Color     
-                NextMove.setstylesheet(C_ButtonWhitestyle)
+                NextMove.setstylesheet(C_ButtonGrayStyle)
                 NextMove.settext("Next Move: White.... ") 
         ok
         
-   
-        Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qPixMap("empty2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
-        ###Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
+        Button[Row][Col] {  setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
         Button[RowPlayed][ColPlayed].setenabled(true)
         
         return  ### INVALID - NO FLIPS
@@ -401,56 +417,45 @@ if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
     ### ANIMATION of FLIPS
     ### DRAW DOS Chart
     
-	Statusbar1.showMessage("Message:",0)
-	
+    Statusbar1.showMessage("Message:",0)
+    
     SEE "Color bArray_____"+nl
     for Row = 1 to Size
-        See nl + row +" "
-        
+        See nl + row +" "      
         for  Col = 1 to Size
              
             if bArray[Row][Col] = "W"
                 SEE "W "
-
                 if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
                     app.processevents()
                     sleep(0.2)                         
-                ok
-                
-                Button[Row][Col] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qPixMap("white2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }            
-                Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }          
-                # Button[Row]Col].setenabled(false) ### Not true color ??!!
+                ok                
+                Button[Row][Col] {  setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }            
             ok
 
             if bArray[Row][Col] = "B"
                 SEE "B "
-
                 if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
                     app.processevents()
                     sleep(0.2)                    
-                ok
-                
-                Button[Row][Col] { setStyleSheet(C_ButtonBlackStyle) setIcon(new qIcon(new qPixMap("black2.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }                
-                Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }
-                # Button[Row]Col].setenabled(false) ### Not true color ??!!
+                ok               
+                Button[Row][Col] {  setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }                
             ok
             
             if bArray[Row][Col] = "E"
                 SEE ". "
-            ok  
-            
+            ok            
         next
-
     next
-		See nl
+        See nl
     
-    ###-------------------------------------------------
+    ###------------------------------------------------- 
     ### TRUE COLORS
             
         for h = 1 to Size
             for v = 1 to Size
                 if bArray[h][v] != "E"
-                    ### Button[h][v].setenabled(false) ### ??? Goes back to Complement Color ???
+                    Button[h][v].blockSignals(true) ### ??? Goes back to Complement Color ???
                 ok
             next
         next    
@@ -731,14 +736,40 @@ Func msgBox(cText)
         {
             setWindowTitle('Othello Game')
             setText(cText )
-            setstylesheet(C_ButtonWhitestyle)
-                setstandardButtons(QMessageBox_Discard | QMessageBox_OK) 
-                result = exec()         
+            setstylesheet(C_ButtonBlueStyle)
+            setstandardButtons(QMessageBox_Discard | QMessageBox_OK) 
+            result = exec()         
         }
         
 
         
 return
 
-###--------------------------------
+###---------------------------------------------------------------------
+### SKIP TURN - Player can skip turn when there are no playable squares
+Func pSkipTurn  
+
+    FlagSkipTurn = 1
     
+    if curColor = "B"          
+        MovePlayed = ""+ MoveNumber +"-"+ "B" +"-"+ Row +"-"+ Letter
+        NextMove.setstylesheet(C_ButtonGrayStyle)
+        NextMove.settext("Next Move: White ")  
+        curColor = "W"
+    else
+        MovePlayed = ""+ MoveNumber +"-"+ "W" +"-"+ Row +"-"+ Letter 
+        NextMove.setstylesheet(C_ButtonOrangeStyle)
+        NextMove.settext("Next Move: Black ") 
+        curColor = "B"
+    ok  
+    
+	if curColor = "B"  otherColor = "W" else otherColor = "B"  ok
+	
+    MovePlayed = ""+ MoveNumber +"-"+ otherColor +"-Skipped-Move"         
+    TranScript = Add(TransScript, MovePlayed)
+    MoveNumber++
+    SEE "TransScript: "+nl  SEE TransScript  SEE nl
+
+return
+###--------------------------------
+
