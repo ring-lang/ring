@@ -1,5 +1,5 @@
 # Project : Minesweeper Game
-# Date    : 2018/09/12
+# Date    : 2018/09/13
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -19,6 +19,7 @@ C_BUTTONGRAYSTYLE = 'border-radius:17px;color:black; background-color: gray'
 C_MENUSTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px"
 button = newlist(C_ROWCOUNT,C_COLCOUNT)
 mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
+minesum = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
 LayoutButtonRow = list(C_ROWCOUNT+3)
 
 app = new qApp {
@@ -35,6 +36,13 @@ app = new qApp {
                                       settext("Play Score:")
                                       show()
                                       }
+                  newgame  = new QPushButton(win) {
+                                     setFont(new qFont("Verdana",fontsize,100,0))
+                                     setstylesheet("background-color:violet")
+                                     settext("New Game")
+                                     setclickevent("pbegin()")
+                                     show()
+                                     }
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
                   LayoutButtonMain.setContentsmargins(0,0,0,0)
@@ -54,8 +62,9 @@ app = new qApp {
                             ok
                        next
                        LayoutButtonMain.AddLayout(LayoutButtonRow[Row])
-                  next  
-                  LayoutButtonMain.AddWidget(playerscore)    
+                  next    
+                  LayoutButtonMain.AddWidget(playerscore)  
+                  LayoutButtonMain.AddWidget(newgame)  
                   setLayout(LayoutButtonMain)
                   pbegin()
                   show()
@@ -63,35 +72,62 @@ app = new qApp {
         exec()
          }
 
+func pplay2(m,n) 
+       pnumber2()
+       if minesum[m][n-1][1] != 0
+          button[m][n-1].settext(string(minesum[m][n-1][1]))
+       ok
+       if minesum[m][n+1][1] != 0
+          button[m][n+1].settext(string(minesum[m][n+1][1]))
+       ok
+       if minesum[m-1][n][1] != 0
+          button[m-1][n].settext(string(minesum[m-1][n][1]))
+       ok
+       if minesum[m+1][n][1] != 0
+          button[m+1][n].settext(string(minesum[m+1][n][1]))
+       ok
+       if minesum[m-1][n-1][1] != 0
+          button[m-1][n-1].settext(string(minesum[m-1][n-1][1]))
+       ok
+       if minesum[m+1][n-1][1] != 0
+          button[m+1][n-1].settext(string(minesum[m+1][n-1][1]))
+       ok
+       if minesum[m-1][n+1][1] != 0
+          button[m-1][n+1].settext(string(minesum[m-1][n+1][1]))
+       ok
+       if minesum[m+1][n+1][1] != 0
+          button[m+1][n+1].settext(string(minesum[m+1][n+1][1]))
+       ok
+
 func pnumber()
        for m = 2 to C_COLCOUNT-1
             for n = 2 to C_ROWCOUNT-1
-                 minesum = 0
+                 minenum = 0
                  if mines[n][m-1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n][m+1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n-1][m][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n+1][m][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n-1][m-1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n+1][m-1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n-1][m+1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
                  if mines[n+1][m+1][1] = 1
-                    minesum = minesum + 1
+                    minenum = minenum + 1
                  ok
-                 if minesum = 0
+                 if minenum = 0
                     button[n][m].settext("")
                     if mines[n][m][1] = 1
                        button[n][m] {setbtnimage(self,"mine.png")}
@@ -99,7 +135,8 @@ func pnumber()
                     ok
                  else
                     if mines[n][m][1] != 1
-                       button[n][m].settext(string(minesum))
+                       button[n][m].settext(string(minenum))
+                       minesum[n][m][1] = minenum
                     else
                        button[n][m] {setbtnimage(self,"mine.png")}
                        win.show()
@@ -107,17 +144,17 @@ func pnumber()
                  ok
             next
        next
-       minesum = 0
+       minenum = 0
        if mines[2][1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[1][2][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[2][2][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
-       if minesum = 0
+       if minenum = 0
           button[1][1].settext("")
           if mines[1][1][1] = 1
              button[n][m] {setbtnimage(self,"mine.png")}
@@ -125,23 +162,24 @@ func pnumber()
           ok
        else
           if mines[1][1][1] = 0
-             button[1][1].settext(string(minesum))
+             button[1][1].settext(string(minenum))
+             minesum[1][1][1] = minenum
           else
              button[1][1] {setbtnimage(self,"mine.png")}
              win.show()
           ok
        ok
-       minesum = 0
+       minenum = 0
        if mines[C_ROWCOUNT-1][1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[C_ROWCOUNT-1][2][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[C_ROWCOUNT][2][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
-       if minesum = 0
+       if minenum = 0
           button[C_ROWCOUNT][1].settext("")
           if mines[C_ROWCOUNT][1][1] = 1
              button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
@@ -149,23 +187,24 @@ func pnumber()
           ok
        else
           if mines[C_ROWCOUNT][1][1] = 0
-             button[C_ROWCOUNT][1].settext(string(minesum))
+             button[C_ROWCOUNT][1].settext(string(minenum))
+             minesum[C_ROWCOUNT][1][1] = minenum
           else
              button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
              win.show()
           ok
        ok
-       minesum = 0
+       minenum = 0
        if mines[1][C_COLCOUNT-1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[2][C_COLCOUNT-1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[2][C_COLCOUNT][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
-       if minesum = 0
+       if minenum = 0
           button[1][C_COLCOUNT].settext("")
           if mines[1][C_COLCOUNT][1] = 1
              button[1][C_COLCOUNT] {setbtnimage(self,"mine.png")}
@@ -173,23 +212,24 @@ func pnumber()
           ok
        else
           if mines[1][C_COLCOUNT][1] = 0
-             button[1][C_COLCOUNT].settext(string(minesum))
+             button[1][C_COLCOUNT].settext(string(minenum))
+             minesum[1][C_COLCOUNT][1] = minenum
           else
              button[1][C_COLCOUNT] {setbtnimage(self,"mine.png")}
              win.show()
           ok
        ok
-       minesum = 0
+       minenum = 0
        if mines[C_ROWCOUNT][C_COLCOUNT-1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[C_ROWCOUNT-1][C_COLCOUNT-1][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
        if mines[C_ROWCOUNT-1][C_COLCOUNT][1] = 1
-          minesum = minesum + 1
+          minenum = minenum + 1
        ok
-       if minesum = 0
+       if minenum = 0
           button[C_ROWCOUNT][C_COLCOUNT].settext("")
           if mines[C_ROWCOUNT][C_COLCOUNT][1] = 1
              button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
@@ -197,30 +237,31 @@ func pnumber()
           ok
        else
           if mines[C_ROWCOUNT][C_COLCOUNT][1] = 0
-             button[C_ROWCOUNT][C_COLCOUNT].settext(string(minesum))
+             button[C_ROWCOUNT][C_COLCOUNT].settext(string(minenum))
+             minesum[C_ROWCOUNT][C_COLCOUNT][1] = minenum
           else
              button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
              win.show()
           ok
        ok
        for n = 2 to C_COLCOUNT-1
-            minesum = 0
+            minenum = 0
             if mines[1][n-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[1][n+1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[2][n-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[2][n+1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[2][n][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
-            if minesum = 0
+            if minenum = 0
                button[1][n].settext("")
                if mines[1][n][1] = 1
                   button[1][n] {setbtnimage(self,"mine.png")}
@@ -228,28 +269,35 @@ func pnumber()
                ok
             else
                if mines[1][n][1] != 1
-                  button[1][n].settext(string(minesum))
+                  button[1][n].settext(string(minenum))
+                  minesum[1][n][1] = minenum
                else
                   button[1][n] {setbtnimage(self,"mine.png")}
                   win.show()
                ok
             ok
        next
-       for n = 2 to C_ROWCOUNT-1
-            minesum = 0
+       for n = 2 to C_COLCOUNT-1
+            minenum = 0
+            if mines[C_ROWCOUNT][n][1] = 1
+               minenum = minenum + 1
+            ok
             if mines[C_ROWCOUNT][n-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[C_ROWCOUNT][n+1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[C_ROWCOUNT-1][n-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[C_ROWCOUNT-1][n+1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
-            if minesum = 0
+            if mines[C_ROWCOUNT-1][n][1] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
                button[C_ROWCOUNT][n].settext("")
                if mines[C_ROWCOUNT][n][1] = 1
                   button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
@@ -257,7 +305,8 @@ func pnumber()
                ok
             else
                if mines[C_ROWCOUNT][n][1] != 1
-                  button[C_ROWCOUNT][n].settext(string(minesum))
+                  button[C_ROWCOUNT][n].settext(string(minenum))
+                  minesum[C_ROWCOUNT][n][1] = minenum
                else
                   button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -265,20 +314,23 @@ func pnumber()
             ok
        next
        for n = 2 to C_ROWCOUNT-1
-            minesum = 0
+            minenum = 0
             if mines[n-1][1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n+1][1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n-1][2][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n+1][2][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
-            if minesum = 0
+            if mines[n][2][1] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
                button[n][1].settext("")
                if mines[n][1][1] = 1
                   button[n][1] {setbtnimage(self,"mine.png")}
@@ -286,7 +338,8 @@ func pnumber()
                ok
             else
                if mines[n][1][1] != 1
-                  button[n][1].settext(string(minesum))
+                  button[n][1].settext(string(minenum))
+                  minesum[n][1][1] = minenum
                else
                   button[n][1] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -294,20 +347,23 @@ func pnumber()
             ok
        next
        for n = 2 to C_ROWCOUNT-1
-            minesum = 0
+            minenum = 0
             if mines[n-1][C_COLCOUNT][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n+1][C_COLCOUNT][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n-1][C_COLCOUNT-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
             if mines[n+1][C_COLCOUNT-1][1] = 1
-               minesum = minesum + 1
+               minenum = minenum + 1
             ok
-            if minesum = 0
+            if mines[n][C_COLCOUNT-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
                button[n][C_COLCOUNT].settext("")
                if mines[n][C_COLCOUNT][1] = 1
                   button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
@@ -315,17 +371,18 @@ func pnumber()
                ok
             else
                if mines[n][C_COLCOUNT][1] != 1
-                  button[n][C_COLCOUNT].settext(string(minesum))
+                  button[n][C_COLCOUNT].settext(string(minenum))
+                  minesum[n][C_COLCOUNT][1] = minenum
                else
                   button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
                   win.show()
                ok
             ok
-       next            
+       next         
 
 func pplay(m,n) 
        score = score + 1
-       playerscore.settext('Player score: ' + string(score))
+       playerscore.settext('Play score: ' + string(score))
        if mines[m][n][1] = 1
           button[m][n].setstylesheet(C_BUTTONREDSTYLE)
           button[m][n] {setbtnimage(self,"mine.png")}
@@ -333,14 +390,26 @@ func pplay(m,n)
           win.show()
        else
           button[m][n].setstylesheet(C_BUTTONGRAYSTYLE)
+          pplay2(m,n)
        ok
 
 func pbegin()
+       score = 0       
+       playerscore.settext('Play score: ')
+       mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
        for n = 1 to limit
             x = random(C_COLCOUNT - 1) + 1
             y = random(C_ROWCOUNT - 1) + 1
             mines[y][x][1] = 1
             win.show() 
+       next
+       for n = 1 to C_ROWCOUNT
+            for m = 1 to C_COLCOUNT
+                 button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
+                                       settext('')
+                                       setIcon(new qIcon(new qPixMap2(0,0))) }
+                 win.show() 
+            next
        next
 
 func dimlist(dimArray)
@@ -366,3 +435,176 @@ func msgBox(cText)
                 result = exec()
                 pbegin() 
         }
+
+func pnumber2()
+       for m = 2 to C_COLCOUNT-1
+            for n = 2 to C_ROWCOUNT-1
+                 minenum = 0
+                 if mines[n][m-1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n][m+1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m-1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m-1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m+1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m+1][1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n][m][1] != 1
+                    minesum[n][m][1] = minenum
+                 ok
+            next
+       next
+       minenum = 0
+       if mines[2][1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[1][2][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][2][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[1][1][1] = 0
+          minesum[1][1][1] = minenum
+       ok
+       minenum = 0
+       if mines[C_ROWCOUNT-1][1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][2][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT][2][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT][1][1] = 0
+          minesum[C_ROWCOUNT][1][1] = minenum
+       ok
+       minenum = 0
+       if mines[1][C_COLCOUNT-1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][C_COLCOUNT-1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][C_COLCOUNT][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[1][C_COLCOUNT][1] = 0
+          minesum[1][C_COLCOUNT][1] = minenum
+       ok
+       minenum = 0
+       if mines[C_ROWCOUNT][C_COLCOUNT-1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][C_COLCOUNT-1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][C_COLCOUNT][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT][C_COLCOUNT][1] = 0
+          minesum[C_ROWCOUNT][C_COLCOUNT][1] = minenum
+       ok
+       for n = 2 to C_COLCOUNT-1
+            minenum = 0
+            if mines[1][n-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[1][n+1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n+1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[1][n][1] != 1
+               minesum[1][n][1] = minenum
+            ok
+       next
+       for n = 2 to C_COLCOUNT-1
+            minenum = 0
+            if mines[C_ROWCOUNT][n][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT][n-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT][n+1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n+1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT][n][1] != 1
+               minesum[C_ROWCOUNT][n][1] = minenum
+            ok
+       next
+       for n = 2 to C_ROWCOUNT-1
+            minenum = 0
+            if mines[n-1][1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n-1][2][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][2][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][2][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][1][1] != 1
+               minesum[n][1][1] = minenum
+            ok
+       next
+       for n = 2 to C_ROWCOUNT-1
+            minenum = 0
+            if mines[n-1][C_COLCOUNT][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][C_COLCOUNT][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n-1][C_COLCOUNT-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][C_COLCOUNT-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][C_COLCOUNT-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][C_COLCOUNT][1] != 1
+               minesum[n][C_COLCOUNT][1] = minenum
+            ok
+       next         
