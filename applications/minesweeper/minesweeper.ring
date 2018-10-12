@@ -6,22 +6,25 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-limit = 79
+limit = 50
 score = 0
-flag = 0
-C_ROWCOUNT = 16
-C_COLCOUNT = 30
-C_SPACING = 5
-C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:gray'
-C_BUTTONREDSTYLE = 'border-radius:17px;color:black; background-color: red'
+flag  = 0
+C_ROWCOUNT = 20
+C_COLCOUNT = 20
+C_SPACING  = 5
+
+C_EMPTYBUTTONSTYLE  =  'border-radius:17px;background-color:gray'
+C_BUTTONREDSTYLE    = 'border-radius:17px;color:black; background-color: red'
 C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
-C_BUTTONWHITESTYLE = 'border-radius:17px;color:black; background-color: white'
-button = newlist(C_ROWCOUNT,C_COLCOUNT)
-mines = newlist(C_ROWCOUNT,C_COLCOUNT)
+C_BUTTONWHITESTYLE  = 'border-radius:17px;color:black; background-color: white'
+
+button  = newlist(C_ROWCOUNT,C_COLCOUNT)
+mines   = newlist(C_ROWCOUNT,C_COLCOUNT)
 minesok = newlist(C_ROWCOUNT,C_COLCOUNT)
 minesum = newlist(C_ROWCOUNT,C_COLCOUNT)
 tilesok = newlist(C_ROWCOUNT,C_COLCOUNT)
-T = newlist(C_ROWCOUNT,C_COLCOUNT)
+T       = newlist(C_ROWCOUNT,C_COLCOUNT)
+
 LayoutButtonRow = list(C_ROWCOUNT+3)
 
 app = new qApp {
@@ -73,39 +76,51 @@ app = new qApp {
          }
         exec()
          }
+###==========================
 
 func pbegin()
        score = 0       
        playerscore.settext('Play score: ')
        mines = newlist(C_ROWCOUNT,C_COLCOUNT)
+	   
        for n = 1 to limit
             x = random(C_COLCOUNT - 1) + 1
             y = random(C_ROWCOUNT - 1) + 1
             mines[y][x] = 1
             win.show() 
        next
+	   
        for n = 1 to C_ROWCOUNT
             for m = 1 to C_COLCOUNT
                  button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
-                                       settext('')
+                                       settext('A')
                                        setenabled(true)
                                        setIcon(new qIcon(new qPixMap2(0,0))) }
                  win.show() 
             next
        next
+	   
        for col = 1 to C_COLCOUNT
             for row = 1 to C_ROWCOUNT
-                 if minesok[row][col] = 0
-                    button[row][col].settext('')
-                 ok
+                if minesok[row][col] = 0
+                    button[row][col].settext('.')  ### Blanks - Fill the cells
+				ok
+				
+                if mines[row][col] = 1
+                    button[row][col].settext('M')  ### No M's ???, After Game Over shows M for empty cells		
+				ok				
+              
             next
        next
+	   
        for col = 1 to C_COLCOUNT
             for row = 1 to C_ROWCOUNT
                  tilesok[row][col] = 0
             next
        next
 
+###============================
+	   
 func cellsenabled()
        for n = 1 to C_ROWCOUNT
             for m = 1 to C_COLCOUNT
@@ -137,12 +152,12 @@ func pplaynext(m,n)
        next
        emptycells(m,n)
        button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
-       button[m][n].settext('')
+       button[m][n].settext('B')      ### B - Cell Clicked
        tilesok[m][n] = 1
 
 func emptycells(x,y)
        minesok[x][y] = 1
-       button[x][y].settext('')
+       button[x][y].settext('C')      ### C - Next to "B" Clicked Cell, no Nbr for Mines
        if mines[x][y] = 1
           return
        else
@@ -151,13 +166,13 @@ func emptycells(x,y)
               button[x][y].settext(string(minesum[x][y]))
            else
               button[x][y].setstylesheet(C_BUTTONVIOLETSTYLE)
-              button[x][y].settext('')
+              button[x][y].settext('D')
               tilesok[x][y] = 1
            ok
        ok
        T[x][y] = 1
        button[x][y].setstylesheet(C_BUTTONVIOLETSTYLE) 
-       button[x][y].settext('')
+       button[x][y].settext('E')       ### E Empty Cells around "B"  clicked cell
        tilesok[x][y] = 1
        if x > 1
           xx = x - 1
@@ -435,7 +450,7 @@ func pnumbernew(pos1,pos2)
                  ok
                  if minenum = 0
                     if mines[n][m] = 1
-                       button[n][m].settext('')
+                       button[n][m].settext('F')
                        button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
                        button[n][m] {setbtnimage(self,"mine.png")}
                        win.show()
@@ -445,7 +460,7 @@ func pnumbernew(pos1,pos2)
                        button[n][m].settext(string(minenum))
                        minesum[n][m] = minenum
                     else
-                       button[n][m].settext('')
+                       button[n][m].settext('G')        ### G  - Mines ? After Game over
                        button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
                        button[n][m] {setbtnimage(self,"mine.png")}
                        win.show()
@@ -464,9 +479,9 @@ func pnumbernew(pos1,pos2)
           minenum = minenum + 1
        ok
        if minenum = 0
-          button[1][1].settext("")
+          button[1][1].settext("H")
           if mines[1][1] = 1
-             button[n][m].settext('')
+             button[n][m].settext('I')
              button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
              button[n][m] {setbtnimage(self,"mine.png")}
              win.show()
@@ -476,7 +491,7 @@ func pnumbernew(pos1,pos2)
              button[1][1].settext(string(minenum))
              minesum[1][1] = minenum
           else
-             button[1][1].settext('')
+             button[1][1].settext('J')
              button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
              button[1][1] {setbtnimage(self,"mine.png")}
              win.show()
@@ -493,9 +508,9 @@ func pnumbernew(pos1,pos2)
           minenum = minenum + 1
        ok
        if minenum = 0
-          button[C_ROWCOUNT][1].settext("")
+          button[C_ROWCOUNT][1].settext("K")
           if mines[C_ROWCOUNT][1] = 1
-             button[C_ROWCOUNT][1].settext('')
+             button[C_ROWCOUNT][1].settext('L')
              button[C_ROWCOUNT][1].setstylesheet(C_BUTTONWHITESTYLE)
              button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
              win.show()
@@ -505,7 +520,7 @@ func pnumbernew(pos1,pos2)
              button[C_ROWCOUNT][1].settext(string(minenum))
              minesum[C_ROWCOUNT][1] = minenum
           else
-             button[C_ROWCOUNT][1].settext('')
+             button[C_ROWCOUNT][1].settext('N')
              button[C_ROWCOUNT][1].setstylesheet(C_BUTTONWHITESTYLE)
              button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
              win.show()
@@ -522,7 +537,7 @@ func pnumbernew(pos1,pos2)
           minenum = minenum + 1
        ok
        if minenum = 0
-          button[1][C_COLCOUNT].settext("")
+          button[1][C_COLCOUNT].settext("O")
           if mines[1][C_COLCOUNT] = 1
              button[1][C_COLCOUNT].settext('')
              button[1][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
@@ -534,7 +549,7 @@ func pnumbernew(pos1,pos2)
              button[1][C_COLCOUNT].settext(string(minenum))
              minesum[1][C_COLCOUNT] = minenum
           else
-             button[1][C_COLCOUNT].settext('')
+             button[1][C_COLCOUNT].settext('P')
              button[1][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
              button[1][C_COLCOUNT] {setbtnimage(self,"mine.png")}
              win.show()
@@ -551,9 +566,9 @@ func pnumbernew(pos1,pos2)
           minenum = minenum + 1
        ok
        if minenum = 0
-          button[C_ROWCOUNT][C_COLCOUNT].settext("")
+          button[C_ROWCOUNT][C_COLCOUNT].settext("Q")
           if mines[C_ROWCOUNT][C_COLCOUNT] = 1
-             button[C_ROWCOUNT][C_COLCOUNT].settext('')
+             button[C_ROWCOUNT][C_COLCOUNT].settext('R')
              button[C_ROWCOUNT][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
              button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
              win.show()
@@ -563,7 +578,7 @@ func pnumbernew(pos1,pos2)
              button[C_ROWCOUNT][C_COLCOUNT].settext(string(minenum))
              minesum[C_ROWCOUNT][C_COLCOUNT] = minenum
           else
-             button[C_ROWCOUNT][C_COLCOUNT].settext('')
+             button[C_ROWCOUNT][C_COLCOUNT].settext('S')
              button[C_ROWCOUNT][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
              button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
              win.show()
@@ -587,9 +602,9 @@ func pnumbernew(pos1,pos2)
                minenum = minenum + 1
             ok
             if minenum = 0
-               button[1][n].settext("")
+               button[1][n].settext("T")
                if mines[1][n] = 1
-                  button[1][n].settext("")
+                  button[1][n].settext("U")
                   button[1][n].setstylesheet(C_BUTTONWHITESTYLE)
                   button[1][n] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -599,7 +614,7 @@ func pnumbernew(pos1,pos2)
                   button[1][n].settext(string(minenum))
                   minesum[1][n] = minenum
                else
-                  button[1][n].settext('')
+                  button[1][n].settext('V')
                   button[1][n].setstylesheet(C_BUTTONWHITESTYLE)
                   button[1][n] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -627,9 +642,9 @@ func pnumbernew(pos1,pos2)
                minenum = minenum + 1
             ok
             if minenum = 0
-               button[C_ROWCOUNT][n].settext("")
+               button[C_ROWCOUNT][n].settext("W")
                if mines[C_ROWCOUNT][n] = 1
-                  button[C_ROWCOUNT][n].settext('')
+                  button[C_ROWCOUNT][n].settext('X')
                   button[C_ROWCOUNT][n].setstylesheet(C_BUTTONWHITESTYLE)
                   button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -639,7 +654,7 @@ func pnumbernew(pos1,pos2)
                   button[C_ROWCOUNT][n].settext(string(minenum))
                   minesum[C_ROWCOUNT][n] = minenum
                else
-                  button[C_ROWCOUNT][n].settext('')
+                  button[C_ROWCOUNT][n].settext('Y')
                   button[C_ROWCOUNT][n].setstylesheet(C_BUTTONWHITESTYLE)
                   button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -664,9 +679,9 @@ func pnumbernew(pos1,pos2)
                minenum = minenum + 1
             ok
             if minenum = 0
-               button[n][1].settext("")
+               button[n][1].settext("Z")
                if mines[n][1] = 1
-                  button[n][1].settext('')
+                  button[n][1].settext('<')
                   button[n][1].setstylesheet(C_BUTTONWHITESTYLE)
                   button[n][1] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -676,7 +691,7 @@ func pnumbernew(pos1,pos2)
                   button[n][1].settext(string(minenum))
                   minesum[n][1] = minenum
                else
-                  button[n][1].settext('')
+                  button[n][1].settext('>')
                   button[n][1].setstylesheet(C_BUTTONWHITESTYLE)
                   button[n][1] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -701,9 +716,9 @@ func pnumbernew(pos1,pos2)
                minenum = minenum + 1
             ok
             if minenum = 0
-               button[n][C_COLCOUNT].settext("")
+               button[n][C_COLCOUNT].settext("aa")
                if mines[n][C_COLCOUNT] = 1
-                  button[n][C_COLCOUNT].settext('')
+                  button[n][C_COLCOUNT].settext('ab')
                   button[n][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
                   button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -713,7 +728,7 @@ func pnumbernew(pos1,pos2)
                   button[n][C_COLCOUNT].settext(string(minenum))
                   minesum[n][C_COLCOUNT] = minenum
                else
-                  button[n][C_COLCOUNT].settext('')
+                  button[n][C_COLCOUNT].settext('ac')
                   button[n][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
                   button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
                   win.show()
@@ -722,12 +737,12 @@ func pnumbernew(pos1,pos2)
        next    
        cellsenabled()
        button[pos1][pos2].setstylesheet(C_BUTTONREDSTYLE) 
-       button[pos1][pos2].settext('')   
+       button[pos1][pos2].settext('ad')                     ### ad - red - game over
        button[pos1][pos2] {setbtnimage(self,"mine.png")} 
        for col = 1 to C_COLCOUNT
             for row = 1 to C_ROWCOUNT
                  if tilesok[row][col] = 1
-                    button[row][col].settext('')
+                    button[row][col].settext('ae')    ###  ae  After game over - blank cells discovered
                  ok
             next
        next
