@@ -33,18 +33,21 @@ IgnoreMines		= null
 LayoutButtonRow = null
  
 C_Spacing  = 1
+C_Spacing0 = 0
 C_Spacing5 = 5
 
-C_EmptyButtonStyle  = 'border-radius:3px; background-color:blue'
-C_ButtonRedStyle    = 'border-radius:3px; color:black; background-color: red'
+C_ButtonEmptyStyle  = 'border-radius:1px; color:black; background-color: darkGray ; border-style: outset; border-width: 2px; border-radius: 6px; border-color: gray; '
+C_ButtonWhiteStyle  = 'border-radius:1px; color:black; background-color: white;     border-style: outset; border-width: 1px; border-radius: 1px; border-color: darkGray; '
+
+C_ButtonBlueStyle   = 'border-radius:1px; color:black; background-color: blue; '     
+C_ButtonRedStyle    = 'border-radius:3px; color:black; background-color: red '
 C_ButtonPinkStyle   = 'border-radius:3px; color:black; background-color: darkRed'
 C_ButtonYellowStyle = 'border-radius:3px; color:black; background-color: yellow'
 C_ButtonVioletStyle = 'border-radius:3px; color:black; background-color: violet'
-
-C_ButtonWhiteStyle  = 'border-radius:3px; color:black; background-color: silver'
 C_ButtonGreenStyle  = 'border-radius:3px; color:black; background-color: lime'
 C_ButtonOrangeStyle = 'border-radius:3px; color:black; background-color: orange'
-C_ButtonBlueStyle   = 'border-radius:3px; color:black; background-color: blue'
+
+###C_ButtonBlueStyle   = 'border-radius:3px; color:black; background-color: blue'
 
 ###-----------------------------------------------------------
 ### Statistics Button Count, Used for nScore, nMines, nClicks
@@ -52,6 +55,9 @@ C_ButtonBlueStyle   = 'border-radius:3px; color:black; background-color: blue'
 	ce = 0 cM = 0 cF = 0 cC = 0 c1 = 0 c2 = 0 
 	c3 = 0 c4 = 0 c5 = 0 c6 = 0 c7 = 0 c8 = 0 
 
+###---------------------
+### Icons for Bombs
+UserIcons = CurrentDir() +"/"
 
 
 ###=============================================================================
@@ -90,7 +96,7 @@ Func DrawWidget()
 		PopulateArray()
 
 		setWindowTitle('Game MinesSweeper')
-		setStyleSheet('background-color:white')
+		setStyleSheet('background-color:gray')
 
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
@@ -106,29 +112,31 @@ Func DrawWidget()
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-					setStyleSheet("background-color:violet")
+					setStyleSheet("background-color:darkGray")
 					setText("   Mines:   ")
 				}
 				
 				TitleMines = new qLineEdit(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
 					setText(""+ nMines)
 				}				
 	
 				TitleClicksMsg = new qLabel(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-					setStyleSheet("background-color:violet")
+				   setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+					setStyleSheet("background-color:darkGray")
 					setText("   Clicks:   ")
 				}
 				
 				TitleClicks = new qLineEdit(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
 					setText(""+ nClicks)
 				}	
 
@@ -136,14 +144,14 @@ Func DrawWidget()
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-					setStyleSheet("background-color:violet")
+					setStyleSheet("background-color:darkGray")
 					setText("   Score:   ")
 				}
 				
 				TitleScore = new qLineEdit(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
 					setText(""+ nScore)
 				}	
 
@@ -186,14 +194,14 @@ Func DrawWidget()
 				#See "Row: "+ Row +nl
 				LayoutButtonRow[Row] = new QHBoxLayout()	### Horizontal
 				{
-					setSpacing(C_Spacing)
+					setSpacing(C_Spacing0)
 					setContentsmargins(0,0,0,0)
 				}
 			   
 			   for Col = 2 to vSize -1
 					aButton[Row][Col] = new QPushButton(workWidget)	### Create Buttons
 					{
-						setStyleSheet(C_EmptyButtonStyle)
+						setStyleSheet(C_ButtonEmptyStyle)			
 						setClickEvent("GetUserInput(" + string(Row) + "," + string(Col) + ")")  ### CLICK
 						setSizePolicy(1,1)
 					}
@@ -348,7 +356,7 @@ Func Play(h,v)
 	
 		if aArray[h][v] = 'e'       ### e-Empty
 			aArray[h][v] = 'C'      ### C-Chosen
-			aButton[h][v] { setStyleSheet(C_ButtonGreenStyle) setText("C") }	
+			aButton[h][v] { setStyleSheet(C_ButtonWhiteStyle) setText("") }	
 			
 			nClicks++
 		
@@ -367,7 +375,7 @@ Func Play(h,v)
 		if aArray[h][v] = 'M'      ### M-Mine
 
 			aArray[h][v] = 'B'      ### Boom !!! 
-			aButton[h][v] { setStyleSheet(C_ButtonRedStyle) setText("B") }			
+			aButton[h][v] { setStyleSheet(C_ButtonWhiteStyle) setIcon(new qIcon(new qpixmap(UserIcons +"Mine.jpg"))) }			
 			
 			nMines--
 			TitleMines.setText(""+nMines)
@@ -397,35 +405,44 @@ Func ShowMines()
 		for h = 2 to hSize -1
 
 			if aArray[h][v] = 'M'      ### M-Mine
-				aButton[h][v] { setStyleSheet(C_ButtonPinkStyle) setText("M") }			
+				aButton[h][v] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qpixmap(UserIcons +"Mine.jpg"))) }			
 			ok
 
 		next
 	next
 
 	
-	Msg = "Game Over !!!" +nl +
-			"Left:  "+ ce +nl +
-			"Mines: "+ cM +nl +
-			"Empty: "+ cF +nl +
-			"Click: "+ cC +nl +
-			"1's :  "+ c1 +nl +
-			"2's :  "+ c2 +nl +
-			"3's :  "+ c3 +nl +
-			"4's :  "+ c4 +nl +
-			"5-8 :  "+ c5 +"-"+ c6 +"-"+ c7 +"-"+ c8 +nl
+	Msg = "Game Over !!!" +nl 
 	
+	    #   "Stat:"
+		#	"Left:  "+ ce +nl +
+		#	"Mines: "+ cM +nl +
+		#	"Empty: "+ cF +nl +
+		#	"Click: "+ cC +nl +
+		#	"1's :  "+ c1 +nl +
+		#	"2's :  "+ c2 +nl +
+		#	"3's :  "+ c3 +nl +
+		#	"4's :  "+ c4 +nl +
+		#	"5-8 :  "+ c5 +"-"+ c6 +"-"+ c7 +"-"+ c8 +nl
+	
+	MsgBox(Msg)
+
+			
+return
+
+###------------------------------------------
+### Message Box - Lost or Won
+
+Func MsgBox(Msg)
+
 	mb = new qMessageBox(workWidget) 
 			{
-				setFont(new qFont("Courier",16,100,0))
+				setFont(new qFont("Courier",12,50,0))
 				setWindowTitle('Minesweeper Game')
 				setText(Msg)
 				setstandardbuttons(QMessageBox_OK) 
 				result = exec()	### Needed to show Popup window
 			}
-
-return
-
 
 ###-------------------------------------
 ### Check 8 Neighbors of C cell clicked
@@ -442,14 +459,14 @@ Func CheckCellChosen(h,v)
             if aArray[horz][vert] = 'e'
                 aArray[horz][vert] = "E" 
 				
-				aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText("E") }
+				aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText("") }
 
                 ### Count number of Mines around the E cell
                 MineCount = CheckMines(horz,vert)
 				
                 if MineCount != 0   
                     aArray[horz][vert] = MineCount 
-					 aButton[horz][vert] { setStyleSheet(C_ButtonYellowStyle) setText(""+ MineCount) }
+					 aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText(""+ MineCount) }
                 ok 
 
                 ### Flip e-Cells around E-Cell
@@ -494,7 +511,7 @@ Func CheckAroundE(h,v)
     
             if aArray[horz][vert] = 'e'
                 aArray[horz][vert] = "E" 
-				    aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText("E") }
+				    aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText("") }
 										
 
                 ### Count number of Mines around the E cell
@@ -502,7 +519,7 @@ Func CheckAroundE(h,v)
 				
                 if MineCount != 0   
                     aArray[horz][vert] = MineCount 
-					     aButton[horz][vert] { setStyleSheet(C_ButtonYellowStyle) setText(""+ MineCount) }					 
+					     aButton[horz][vert] { setStyleSheet(C_ButtonWhiteStyle) setText(""+ MineCount) }					 
                 ok 
 
                 ### Recursive - check around New E's
@@ -546,6 +563,12 @@ Func CountCellsOpened()
 	
 	#SEE "Cells Opened: "+ ce +"-"+ cM +"-"+ cF +"-"+ cC +"-"+ c1 +"-"+ c2 +"-"+ c3 +"-"+ c4 +"-"+ c5 +"-"+ c6 +"-"+ c7 +"-"+ c8 +nl
 	count = cF +cC +c1 +c2 +c3 +c4 +c5 +c6 +c7 +c8
+	
+	if ce = 0
+	    Msg = "You Won !!!"
+		MsgBox(Msg)
+	ok
+	
 return count
 	
 ###--------------------------------------------------
