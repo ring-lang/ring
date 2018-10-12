@@ -7,6 +7,7 @@ load "stdlib.ring"
 load "guilib.ring"
 
 limit = 99
+score = 0
 C_ROWCOUNT = 16
 C_COLCOUNT = 30
 C_SPACING = 5
@@ -26,6 +27,14 @@ app = new qApp {
                   setWindowTitle('Minesweeper Game')
                   move(490,100)
                   resize(800,600)
+                  winheight = win.height()
+                  fontsize = 8 + (winheight/70)
+                  playerscore = new QLabel(win) {
+                                      setFont(new qFont("Verdana",fontsize,100,0))
+                                      setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                                      settext("Play Score:")
+                                      show()
+                                      }
                   LayoutButtonMain = new QVBoxLayout()
                   LayoutButtonMain.setSpacing(C_SPACING)
                   LayoutButtonMain.setContentsmargins(0,0,0,0)
@@ -45,7 +54,8 @@ app = new qApp {
                             ok
                        next
                        LayoutButtonMain.AddLayout(LayoutButtonRow[Row])
-                  next      
+                  next  
+                  LayoutButtonMain.AddWidget(playerscore)    
                   setLayout(LayoutButtonMain)
                   pbegin()
                   show()
@@ -314,6 +324,8 @@ func pnumber()
        next            
 
 func pplay(m,n) 
+       score = score + 1
+       playerscore.settext('Player score: ' + string(score))
        if mines[m][n][1] = 1
           button[m][n].setstylesheet(C_BUTTONREDSTYLE)
           button[m][n] {setbtnimage(self,"mine.png")}
