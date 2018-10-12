@@ -1,5 +1,5 @@
 # Project : Minesweeper Game
-# Date    : 2018/09/14
+# Date    : 2018/09/15
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -13,10 +13,8 @@ C_COLCOUNT = 30
 C_SPACING = 5
 C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:white'
 C_BUTTONREDSTYLE = 'border-radius:17px;color:black; background-color: red'
-C_BUTTONYELLOWSTYLE = 'border-radius:17px;color:black; background-color: yellow'
 C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
 C_BUTTONGRAYSTYLE = 'border-radius:17px;color:black; background-color: gray'
-C_MENUSTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px"
 button = newlist(C_ROWCOUNT,C_COLCOUNT)
 mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
 minesum = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
@@ -24,7 +22,7 @@ T = newlist(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT+3)
 
 app = new qApp {
-         StyleFusion()
+         STYLEFusion()
          win = new qWidget() {
                   setWindowTitle('Minesweeper Game')
                   move(490,100)
@@ -39,7 +37,7 @@ app = new qApp {
                                       }
                   newgame  = new QPushButton(win) {
                                      setFont(new qFont("Verdana",fontsize,100,0))
-                                     setstylesheet("background-color:violet")
+                                     setSTYLEsheet("background-color:violet")
                                      settext("New Game")
                                      setclickevent("pbegin()")
                                      show()
@@ -54,7 +52,7 @@ app = new qApp {
                        }
                        for Col = 1 to C_COLCOUNT
                             button[Row][Col] = new QPushButton(win) {
-                            setstylesheet(C_EMPTYBUTTONSTYLE)
+                            setSTYLEsheet(C_EMPTYBUTTONSTYLE)
                             setclickevent("pplay(" + string(Row) + "," + string(Col) + ")")
                             setSizePolicy(1,1)
                             }
@@ -85,7 +83,7 @@ func pbegin()
        next
        for n = 1 to C_ROWCOUNT
             for m = 1 to C_COLCOUNT
-                 button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
+                 button[n][m] { setSTYLEsheet(C_EMPTYBUTTONSTYLE)
                                        settext('')
                                        setenabled(true)
                                        setIcon(new qIcon(new qPixMap2(0,0))) }
@@ -106,11 +104,11 @@ func pplay(m,n)
        playerscore.settext('Play score: ' + string(score))
        if mines[m][n][1] = 1
           pnumber()
-          button[m][n].setstylesheet(C_BUTTONREDSTYLE)
+          button[m][n].setSTYLEsheet(C_BUTTONREDSTYLE)
           button[m][n] {setbtnimage(self,"mine.png")}
           win.show()
        else
-          button[m][n].setstylesheet(C_BUTTONGRAYSTYLE)
+          button[m][n].setSTYLEsheet(C_BUTTONGRAySTYLE)
           pplay2(m,n)
        ok
 
@@ -123,23 +121,67 @@ func pplay2(m,n)
        next
        emptycells(m,n)
 
-func emptycells(X,Y)
-       if mines[X][Y][1] = 1
+func emptycells(x,y)
+       if mines[x][y][1] = 1
           pnumber()
-          button[X][Y] {setbtnimage(self,"mine.png")}
+          button[x][y] {setbtnimage(self,"mine.png")}
           return
        else
-           button[X][Y].settext('')
+           button[x][y].settext('')
        ok
-       T[X][Y] = 1
-       button[X][Y].setstylesheet(C_BUTTONVIOLETSTYLE)       
-       if minesum[X][Y][1] = 0
-          button[X][Y].settext('')
+       T[x][y] = 1
+       button[x][y].setSTYLEsheet(C_BUTTONVIOLETSTYLE) 
+       if minesum[x][y][1] = 0
+          button[x][y].settext('')
        ok
-       if X>1 and T[X-1][Y ] = 0 emptycells(X-1,Y) ok
-       if X<C_ROWCOUNT and T[X+1][Y] = 0 emptycells(X+1,Y) ok
-       if Y>1 and T[X][Y-1] = 0 emptycells(X,Y-1) ok
-       if Y<C_COLCOUNT and T[X][Y+1] = 0 emptycells(X,Y+1) ok
+       if x > 1
+          xx = x - 1
+       else
+          return
+       ok
+       if x > 1 and T[xx][y ] = 0 emptycells(xx,y) 
+          else if minesum[xx][y][1] != 0 button[xx][y].settext(string(minesum[xx][y][1])) 
+          button[xx][y].setenabled(false) ok ok
+       if x < C_ROWCOUNT
+          xx = x + 1
+       else
+          return
+       ok
+       if x < C_ROWCOUNT and T[xx][y] = 0 emptycells(xx,y) 
+          else if minesum[xx][y][1] != 0 button[xx][y].settext(string(minesum[xx][y][1])) 
+          button[xx][y].setenabled(false) ok ok
+       if y > 1
+          yy = y - 1
+       else
+          return
+       ok
+       if y > 1 and T[x][yy] = 0 emptycells(x,yy) 
+          else if minesum[x][yy][1] != 0 button[x][yy].settext(string(minesum[x][yy][1]))
+          button[x][yy].setenabled(false) ok ok
+       if y < C_COLCOUNT
+          yy = y + 1
+       else
+          return
+       ok
+       if yy < C_COLCOUNT and T[x][yy] = 0 emptycells(x,yy) 
+          else if minesum[x][yy][1] != 0 button[x][yy].settext(string(minesum[x][yy][1])) 
+          button[x][yy].setenabled(false) ok ok
+       if minesum[x-1][y-1][1] != 0
+          button[x-1][y-1].settext(string(minesum[x-1][y-1][1]))
+          button[x-1][y-1].setenabled(false) 
+       ok
+       if minesum[x+1][y-1][1] != 0
+          button[x+1][y-1].settext(string(minesum[x+1][y-1][1]))
+          button[x+1][y-1].setenabled(false)
+       ok
+       if minesum[x-1][y+1][1] != 0
+          button[x-1][y+1].settext(string(minesum[x-1][y+1][1]))
+          button[x-1][y+1].setenabled(false)
+       ok
+       if minesum[x+1][y+1][1] != 0
+          button[x+1][y+1].settext(string(minesum[x+1][y+1][1]))
+          button[x+1][y+1].setenabled(false)
+       ok
 
 func pnumber()
        for m = 2 to C_COLCOUNT-1
