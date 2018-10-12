@@ -119,8 +119,8 @@ func pplay(m,n)
        score = score + 1
        playerscore.settext('Play score: ' + string(score))
        if mines[m][n] = 1
-          //msgBox('Game Over')
-          pnumber(m,n)
+          msgBox('Game Over')
+          //pnumber(m,n)
           flag = 0
        else
           pplay2(m,n)
