@@ -20,6 +20,7 @@ button = newlist(C_ROWCOUNT,C_COLCOUNT)
 mines = newlist(C_ROWCOUNT,C_COLCOUNT)
 minesok = newlist(C_ROWCOUNT,C_COLCOUNT)
 minesum = newlist(C_ROWCOUNT,C_COLCOUNT)
+tilesok = newlist(C_ROWCOUNT,C_COLCOUNT)
 T = newlist(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT+3)
 
@@ -101,7 +102,7 @@ func pbegin()
        next
        for col = 1 to C_COLCOUNT
             for row = 1 to C_ROWCOUNT
-                 minesum[row][col] = 0
+                 tilesok[row][col] = 0
             next
        next
 
@@ -120,6 +121,7 @@ func pplaybegin(m,n)
        if mines[m][n] = 1
           button[m][n].setstylesheet(C_BUTTONREDSTYLE)    
           button[m][n] {setbtnimage(self,"mine.png")}
+          pnumbernew(m,n)
           msgBox('Game Over')
           flag = 0
        else
@@ -136,6 +138,7 @@ func pplaynext(m,n)
        emptycells(m,n)
        button[m][n].setstylesheet(C_BUTTONVIOLETSTYLE)
        button[m][n].settext('')
+       tilesok[m][n] = 1
 
 func emptycells(x,y)
        minesok[x][y] = 1
@@ -149,11 +152,13 @@ func emptycells(x,y)
            else
               button[x][y].setstylesheet(C_BUTTONVIOLETSTYLE)
               button[x][y].settext('')
+              tilesok[x][y] = 1
            ok
        ok
        T[x][y] = 1
        button[x][y].setstylesheet(C_BUTTONVIOLETSTYLE) 
        button[x][y].settext('')
+       tilesok[x][y] = 1
        if x > 1
           xx = x - 1
        else
@@ -395,4 +400,334 @@ func pnumber()
             if mines[n][C_COLCOUNT] != 1
                minesum[n][C_COLCOUNT] = minenum
             ok
+       next
+
+func pnumbernew(pos1,pos2)
+       for m = 2 to C_COLCOUNT-1
+            for n = 2 to C_ROWCOUNT-1
+                 minenum = 0
+                 if mines[n][m-1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n][m+1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m-1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m-1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n-1][m+1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n+1][m+1] = 1
+                    minenum = minenum + 1
+                 ok
+                 if mines[n][m] = 1
+                    minenum = minenum + 1
+                 ok
+                 if minenum = 0
+                    if mines[n][m] = 1
+                       button[n][m].settext('')
+                       button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
+                       button[n][m] {setbtnimage(self,"mine.png")}
+                       win.show()
+                    ok
+                 else
+                    if mines[n][m] = 0
+                       button[n][m].settext(string(minenum))
+                       minesum[n][m] = minenum
+                    else
+                       button[n][m].settext('')
+                       button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
+                       button[n][m] {setbtnimage(self,"mine.png")}
+                       win.show()
+                    ok
+                 ok
+            next
+       next
+       minenum = 0
+       if mines[2][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[1][2] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][2] = 1
+          minenum = minenum + 1
+       ok
+       if minenum = 0
+          button[1][1].settext("")
+          if mines[1][1] = 1
+             button[n][m].settext('')
+             button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
+             button[n][m] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       else
+          if mines[1][1] = 0
+             button[1][1].settext(string(minenum))
+             minesum[1][1] = minenum
+          else
+             button[1][1].settext('')
+             button[n][m].setstylesheet(C_BUTTONWHITESTYLE)
+             button[1][1] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       ok
+       minenum = 0
+       if mines[C_ROWCOUNT-1][1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][2] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT][2] = 1
+          minenum = minenum + 1
+       ok
+       if minenum = 0
+          button[C_ROWCOUNT][1].settext("")
+          if mines[C_ROWCOUNT][1] = 1
+             button[C_ROWCOUNT][1].settext('')
+             button[C_ROWCOUNT][1].setstylesheet(C_BUTTONWHITESTYLE)
+             button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       else
+          if mines[C_ROWCOUNT][1] = 0
+             button[C_ROWCOUNT][1].settext(string(minenum))
+             minesum[C_ROWCOUNT][1] = minenum
+          else
+             button[C_ROWCOUNT][1].settext('')
+             button[C_ROWCOUNT][1].setstylesheet(C_BUTTONWHITESTYLE)
+             button[C_ROWCOUNT][1] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       ok
+       minenum = 0
+       if mines[1][C_COLCOUNT-1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][C_COLCOUNT-1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[2][C_COLCOUNT] = 1
+          minenum = minenum + 1
+       ok
+       if minenum = 0
+          button[1][C_COLCOUNT].settext("")
+          if mines[1][C_COLCOUNT] = 1
+             button[1][C_COLCOUNT].settext('')
+             button[1][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+             button[1][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       else
+          if mines[1][C_COLCOUNT] = 0
+             button[1][C_COLCOUNT].settext(string(minenum))
+             minesum[1][C_COLCOUNT] = minenum
+          else
+             button[1][C_COLCOUNT].settext('')
+             button[1][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+             button[1][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       ok
+       minenum = 0
+       if mines[C_ROWCOUNT][C_COLCOUNT-1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][C_COLCOUNT-1] = 1
+          minenum = minenum + 1
+       ok
+       if mines[C_ROWCOUNT-1][C_COLCOUNT] = 1
+          minenum = minenum + 1
+       ok
+       if minenum = 0
+          button[C_ROWCOUNT][C_COLCOUNT].settext("")
+          if mines[C_ROWCOUNT][C_COLCOUNT] = 1
+             button[C_ROWCOUNT][C_COLCOUNT].settext('')
+             button[C_ROWCOUNT][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+             button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       else
+          if mines[C_ROWCOUNT][C_COLCOUNT] = 0
+             button[C_ROWCOUNT][C_COLCOUNT].settext(string(minenum))
+             minesum[C_ROWCOUNT][C_COLCOUNT] = minenum
+          else
+             button[C_ROWCOUNT][C_COLCOUNT].settext('')
+             button[C_ROWCOUNT][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+             button[C_ROWCOUNT][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+             win.show()
+          ok
+       ok
+       for n = 2 to C_COLCOUNT-1
+            minenum = 0
+            if mines[1][n-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[1][n+1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n+1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[2][n] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
+               button[1][n].settext("")
+               if mines[1][n] = 1
+                  button[1][n].settext("")
+                  button[1][n].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[1][n] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            else
+               if mines[1][n] != 1
+                  button[1][n].settext(string(minenum))
+                  minesum[1][n] = minenum
+               else
+                  button[1][n].settext('')
+                  button[1][n].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[1][n] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            ok
+       next
+       for n = 2 to C_COLCOUNT-1
+            minenum = 0
+            if mines[C_ROWCOUNT][n] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT][n-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT][n+1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n+1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[C_ROWCOUNT-1][n] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
+               button[C_ROWCOUNT][n].settext("")
+               if mines[C_ROWCOUNT][n] = 1
+                  button[C_ROWCOUNT][n].settext('')
+                  button[C_ROWCOUNT][n].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            else
+               if mines[C_ROWCOUNT][n] != 1
+                  button[C_ROWCOUNT][n].settext(string(minenum))
+                  minesum[C_ROWCOUNT][n] = minenum
+               else
+                  button[C_ROWCOUNT][n].settext('')
+                  button[C_ROWCOUNT][n].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[C_ROWCOUNT][n] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            ok
+       next
+       for n = 2 to C_ROWCOUNT-1
+            minenum = 0
+            if mines[n-1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n-1][2] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][2] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][2] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
+               button[n][1].settext("")
+               if mines[n][1] = 1
+                  button[n][1].settext('')
+                  button[n][1].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[n][1] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            else
+               if mines[n][1] != 1
+                  button[n][1].settext(string(minenum))
+                  minesum[n][1] = minenum
+               else
+                  button[n][1].settext('')
+                  button[n][1].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[n][1] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            ok
+       next
+       for n = 2 to C_ROWCOUNT-1
+            minenum = 0
+            if mines[n-1][C_COLCOUNT] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][C_COLCOUNT] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n-1][C_COLCOUNT-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n+1][C_COLCOUNT-1] = 1
+               minenum = minenum + 1
+            ok
+            if mines[n][C_COLCOUNT-1] = 1
+               minenum = minenum + 1
+            ok
+            if minenum = 0
+               button[n][C_COLCOUNT].settext("")
+               if mines[n][C_COLCOUNT] = 1
+                  button[n][C_COLCOUNT].settext('')
+                  button[n][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            else
+               if mines[n][C_COLCOUNT] != 1
+                  button[n][C_COLCOUNT].settext(string(minenum))
+                  minesum[n][C_COLCOUNT] = minenum
+               else
+                  button[n][C_COLCOUNT].settext('')
+                  button[n][C_COLCOUNT].setstylesheet(C_BUTTONWHITESTYLE)
+                  button[n][C_COLCOUNT] {setbtnimage(self,"mine.png")}
+                  win.show()
+               ok
+            ok
+       next    
+       cellsenabled()
+       button[pos1][pos2].setstylesheet(C_BUTTONREDSTYLE) 
+       button[pos1][pos2].settext('')   
+       button[pos1][pos2] {setbtnimage(self,"mine.png")} 
+       for col = 1 to C_COLCOUNT
+            for row = 1 to C_ROWCOUNT
+                 if tilesok[row][col] = 1
+                    button[row][col].settext('')
+                 ok
+            next
        next
