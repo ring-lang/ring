@@ -1,5 +1,5 @@
 # Project : Minesweeper Game
-# Date    : 2018/09/13
+# Date    : 2018/09/14
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -74,29 +74,61 @@ app = new qApp {
 
 func pplay2(m,n) 
        pnumber2()
-       if minesum[m][n-1][1] != 0
-          button[m][n-1].settext(string(minesum[m][n-1][1]))
+       if n != 1
+          if minesum[m][n-1][1] != '' 
+             button[m][n-1].settext(string(minesum[m][n-1][1]))
+          else
+             button[m][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m][n+1][1] != 0
-          button[m][n+1].settext(string(minesum[m][n+1][1]))
+       if n != C_COLCOUNT
+          if minesum[m][n+1][1] != ''
+             button[m][n+1].settext(string(minesum[m][n+1][1]))
+          else
+             button[m][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m-1][n][1] != 0
-          button[m-1][n].settext(string(minesum[m-1][n][1]))
+       if m != 1
+          if minesum[m-1][n][1] != ''
+             button[m-1][n].settext(string(minesum[m-1][n][1]))
+          else
+             button[m-1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m+1][n][1] != 0
-          button[m+1][n].settext(string(minesum[m+1][n][1]))
+       if m != C_ROWCOUNT
+          if minesum[m+1][n][1] != ''
+             button[m+1][n].settext(string(minesum[m+1][n][1]))
+          else
+             button[m+1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m-1][n-1][1] != 0
-          button[m-1][n-1].settext(string(minesum[m-1][n-1][1]))
+       if n != 1 and m != 1
+          if minesum[m-1][n-1][1] != ''
+             button[m-1][n-1].settext(string(minesum[m-1][n-1][1]))
+          else
+             button[m-1][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m+1][n-1][1] != 0
-          button[m+1][n-1].settext(string(minesum[m+1][n-1][1]))
+       if n != 1 and m != C_ROWCOUNT
+          if minesum[m+1][n-1][1] != ''
+             button[m+1][n-1].settext(string(minesum[m+1][n-1][1]))
+          else
+             button[m+1][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m-1][n+1][1] != 0
-          button[m-1][n+1].settext(string(minesum[m-1][n+1][1]))
+       if m != 1 and n != C_COLCOUNT
+          if minesum[m-1][n+1][1] != ''
+             button[m-1][n+1].settext(string(minesum[m-1][n+1][1]))
+          else
+             button[m-1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+          ok
        ok
-       if minesum[m+1][n+1][1] != 0
-          button[m+1][n+1].settext(string(minesum[m+1][n+1][1]))
+       if  n != C_COLCOUNT and m != C_ROWCOUNT
+           if minesum[m+1][n+1][1] != ''
+              button[m+1][n+1].settext(string(minesum[m+1][n+1][1]))
+          else
+              button[m+1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
+           ok
        ok
 
 func pnumber()
