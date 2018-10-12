@@ -20,6 +20,7 @@ C_MENUSTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px"
 button = newlist(C_ROWCOUNT,C_COLCOUNT)
 mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
 minesum = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
+T = newlist(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT+3)
 
 app = new qApp {
@@ -72,64 +73,73 @@ app = new qApp {
         exec()
          }
 
+func pbegin()
+       score = 0       
+       playerscore.settext('Play score: ')
+       mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
+       for n = 1 to limit
+            x = random(C_COLCOUNT - 1) + 1
+            y = random(C_ROWCOUNT - 1) + 1
+            mines[y][x][1] = 1
+            win.show() 
+       next
+       for n = 1 to C_ROWCOUNT
+            for m = 1 to C_COLCOUNT
+                 button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
+                                       settext('')
+                                       setenabled(true)
+                                       setIcon(new qIcon(new qPixMap2(0,0))) }
+                 win.show() 
+            next
+       next
+
+func cellsenabled()
+       for n = 1 to C_ROWCOUNT
+            for m = 1 to C_COLCOUNT
+                 button[n][m].setenabled(false)
+                 win.show() 
+            next
+       next
+
+func pplay(m,n) 
+       score = score + 1
+       playerscore.settext('Play score: ' + string(score))
+       if mines[m][n][1] = 1
+          pnumber()
+          button[m][n].setstylesheet(C_BUTTONREDSTYLE)
+          button[m][n] {setbtnimage(self,"mine.png")}
+          win.show()
+       else
+          button[m][n].setstylesheet(C_BUTTONGRAYSTYLE)
+          pplay2(m,n)
+       ok
+
 func pplay2(m,n) 
        pnumber2()
-       if n != 1
-          if minesum[m][n-1][1] != '' 
-             button[m][n-1].settext(string(minesum[m][n-1][1]))
-          else
-             button[m][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
+       for n1 = 1 to C_COLCOUNT
+            for n2 = 2 to C_ROWCOUNT
+                 T[n2][n1] = minesum[n2][n1][1]
+            next
+       next
+       emptycells(m,n)
+
+func emptycells(X,Y)
+       if mines[X][Y][1] = 1
+          pnumber()
+          button[X][Y] {setbtnimage(self,"mine.png")}
+          return
+       else
+           button[X][Y].settext('')
        ok
-       if n != C_COLCOUNT
-          if minesum[m][n+1][1] != ''
-             button[m][n+1].settext(string(minesum[m][n+1][1]))
-          else
-             button[m][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
+       T[X][Y] = 1
+       button[X][Y].setstylesheet(C_BUTTONVIOLETSTYLE)       
+       if minesum[X][Y][1] = 0
+          button[X][Y].settext('')
        ok
-       if m != 1
-          if minesum[m-1][n][1] != ''
-             button[m-1][n].settext(string(minesum[m-1][n][1]))
-          else
-             button[m-1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
-       ok
-       if m != C_ROWCOUNT
-          if minesum[m+1][n][1] != ''
-             button[m+1][n].settext(string(minesum[m+1][n][1]))
-          else
-             button[m+1][n].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
-       ok
-       if n != 1 and m != 1
-          if minesum[m-1][n-1][1] != ''
-             button[m-1][n-1].settext(string(minesum[m-1][n-1][1]))
-          else
-             button[m-1][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
-       ok
-       if n != 1 and m != C_ROWCOUNT
-          if minesum[m+1][n-1][1] != ''
-             button[m+1][n-1].settext(string(minesum[m+1][n-1][1]))
-          else
-             button[m+1][n-1].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
-       ok
-       if m != 1 and n != C_COLCOUNT
-          if minesum[m-1][n+1][1] != ''
-             button[m-1][n+1].settext(string(minesum[m-1][n+1][1]))
-          else
-             button[m-1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-          ok
-       ok
-       if  n != C_COLCOUNT and m != C_ROWCOUNT
-           if minesum[m+1][n+1][1] != ''
-              button[m+1][n+1].settext(string(minesum[m+1][n+1][1]))
-          else
-              button[m+1][n+1].setstylesheet(C_BUTTONVIOLETSTYLE)
-           ok
-       ok
+       if X>1 and T[X-1][Y ] = 0 emptycells(X-1,Y) ok
+       if X<C_ROWCOUNT and T[X+1][Y] = 0 emptycells(X+1,Y) ok
+       if Y>1 and T[X][Y-1] = 0 emptycells(X,Y-1) ok
+       if Y<C_COLCOUNT and T[X][Y+1] = 0 emptycells(X,Y+1) ok
 
 func pnumber()
        for m = 2 to C_COLCOUNT-1
@@ -159,6 +169,9 @@ func pnumber()
                  if mines[n+1][m+1][1] = 1
                     minenum = minenum + 1
                  ok
+                 if mines[n][m][1] = 1
+                    minenum = minenum + 1
+                 ok
                  if minenum = 0
                     button[n][m].settext("")
                     if mines[n][m][1] = 1
@@ -166,7 +179,7 @@ func pnumber()
                        win.show()
                     ok
                  else
-                    if mines[n][m][1] != 1
+                    if mines[n][m][1] = 0
                        button[n][m].settext(string(minenum))
                        minesum[n][m][1] = minenum
                     else
@@ -410,39 +423,8 @@ func pnumber()
                   win.show()
                ok
             ok
-       next         
-
-func pplay(m,n) 
-       score = score + 1
-       playerscore.settext('Play score: ' + string(score))
-       if mines[m][n][1] = 1
-          button[m][n].setstylesheet(C_BUTTONREDSTYLE)
-          button[m][n] {setbtnimage(self,"mine.png")}
-          pnumber()
-          win.show()
-       else
-          button[m][n].setstylesheet(C_BUTTONGRAYSTYLE)
-          pplay2(m,n)
-       ok
-
-func pbegin()
-       score = 0       
-       playerscore.settext('Play score: ')
-       mines = dimlist([C_ROWCOUNT,C_COLCOUNT,1])
-       for n = 1 to limit
-            x = random(C_COLCOUNT - 1) + 1
-            y = random(C_ROWCOUNT - 1) + 1
-            mines[y][x][1] = 1
-            win.show() 
-       next
-       for n = 1 to C_ROWCOUNT
-            for m = 1 to C_COLCOUNT
-                 button[n][m] { setstylesheet(C_EMPTYBUTTONSTYLE)
-                                       settext('')
-                                       setIcon(new qIcon(new qPixMap2(0,0))) }
-                 win.show() 
-            next
-       next
+       next    
+       cellsenabled()     
 
 func dimlist(dimArray)
         sizeList = len(dimArray)
