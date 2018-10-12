@@ -12,7 +12,7 @@ load "guilib.ring"
 ### WINDOW SIZE
 
 moveX  = 200 moveY	= 100		### Open Window on Screen Position
-sizeX  = 600 sizeY	= 600		### Size of Window
+sizeX  = 800 sizeY	= 850		### Size of Window
 
 hSize	= 10 +2	  ### Size of array, Display -2 smaller
 vSize	= 10 +2	  ### Size of array, Display -2 smaller
@@ -308,9 +308,9 @@ Func NewGameStart(L)
 		nClicks = 0
 		nScore	= 0
 
-		TitleScore.setText(""+ nScore) 
+		 TitleScore.setText(""+ nScore) 
 		TitleClicks.setText(""+ nClicks)
-		TitleMines.setText(""+ nMines)
+		 TitleMines.setText(""+ nMines)
 		
 		questionList = list(1)				### Cell in Question - Cyan
 
@@ -348,6 +348,16 @@ Func PopulateArray()
 		aArray[h][v] = 'M'			### M - Mine
 	next
 
+	nMines = 0
+	for v = 1 to vSize
+		for h = 1 to hSize	
+			if	aArray[h][v] = 'M'	### Cont actual Mines, Random overlaps
+				nMines++
+			ok
+		next
+	next
+	
+	
 return
 
 
@@ -356,11 +366,11 @@ return
 ### START GAME !!!
 ### Get user to choose cell Horz-Vert
 
-Func GetUserInput(m,n)	
+Func GetUserInput(Row, Col)	
 #See "GetUserInput: "+ m +"-"+ n +nl
 	
-	h = 0+ m		### convert to number
-	v = 0+ n
+	h = 0+ Row		### convert to number
+	v = 0+ Col
 
 	Play(h,v)
 	
@@ -380,9 +390,9 @@ Func Play(h,v)
 			CheckCellChosen(h,v)		
 			nScore = CountCellsOpened()
 
-			TitleScore.setText(""+ nScore) 
+			 TitleScore.setText(""+ nScore) 
 			TitleClicks.setText(""+ nClicks)
-			TitleMines.setText(""+ nMines)	### Random generates ovlapping Mines
+			 TitleMines.setText(""+ nMines)	### Random generates ovlapping Mines
 
 		ok
 
@@ -392,7 +402,16 @@ Func Play(h,v)
 		if aArray[h][v] = 'M'	   ### M-Mine
 
 			aArray[h][v] = 'B'		### Boom !!! 
-			aButton[h][v] { setStyleSheet(C_ButtonYellowStyle) setIcon(new qIcon(new qpixmap(Mine))) } ### setIconSize(new qSize(bWidth-4, bHeight-4))	}			
+
+			aButton[h][v] { 
+				setStyleSheet(C_ButtonYellowStyle)			
+				nImageWidth	 = Width()	-10
+				nImageHeight = Height() -10
+				oMine = new qpixmap(Mine)
+				oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+				setIcon(new qIcon(oMine))
+				setIconSize(new qSize(nImageWidth, nImageHeight))
+			}
 			
 			nMines--
 			TitleMines.setText(""+nMines)
@@ -422,7 +441,17 @@ Func ShowMines()
 		for h = 2 to hSize -1
 
 			if aArray[h][v] = 'M'	   ### M-Mine
-				aButton[h][v] { setStyleSheet(C_ButtonEmptyStyle) setIcon(new qIcon(new qpixmap(Mine))) } ### setIconSize(new qSize(bWidth-4, bHeight-4)) }			
+
+				aButton[h][v] { 
+					setStyleSheet(C_ButtonEmptyStyle) 
+					nImageWidth	 = Width()	-16
+					nImageHeight = Height() -16		
+					oMine = new qpixmap(Mine)
+					oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+					setIcon(new qIcon(oMine))
+					setIconSize(new qSize(nImageWidth, nImageHeight))
+				}
+
 			ok
 
 		next
