@@ -21,33 +21,48 @@ v      = 0     ### V-coord of Cell
 moveX  = 200 moveY  = 100		### Open Window on Screen Position
 sizeX  = 600 sizeY  = 600		### Size of Window
 
-aArray          = null
-aButton         = null
-workWidget      = null 
+###----------------------------------------------------------
+### Global so other functions can access the workWidget items
+aArray			= null
+aButton			= null
+workWidget		= null
+TitleMines		= null
+TitleClicks		= null
+TitleScore		= null
+IgnoreMines		= null
 LayoutButtonRow = null
  
 C_Spacing  = 1
 C_Spacing5 = 5
 
-C_EmptyButtonStyle  = 'border-radius:4px; background-color:blue'
-C_ButtonRedStyle    = 'border-radius:4px; color:black; background-color: red'
-C_ButtonYellowStyle = 'border-radius:4px; color:black; background-color: yellow'
-C_ButtonVioletStyle = 'border-radius:4px; color:black; background-color: violet'
+C_EmptyButtonStyle  = 'border-radius:3px; background-color:blue'
+C_ButtonRedStyle    = 'border-radius:3px; color:black; background-color: red'
+C_ButtonPinkStyle   = 'border-radius:3px; color:black; background-color: darkRed'
+C_ButtonYellowStyle = 'border-radius:3px; color:black; background-color: yellow'
+C_ButtonVioletStyle = 'border-radius:3px; color:black; background-color: violet'
 
-C_ButtonWhiteStyle  = 'border-radius:4px; color:black; background-color: silver'
-C_ButtonGreenStyle  = 'border-radius:4px; color:black; background-color: lime'
-C_ButtonOrangeStyle = 'border-radius:4px; color:black; background-color: orange'
-C_ButtonBlueStyle   = 'border-radius:4px; color:black; background-color: blue'
+C_ButtonWhiteStyle  = 'border-radius:3px; color:black; background-color: silver'
+C_ButtonGreenStyle  = 'border-radius:3px; color:black; background-color: lime'
+C_ButtonOrangeStyle = 'border-radius:3px; color:black; background-color: orange'
+C_ButtonBlueStyle   = 'border-radius:3px; color:black; background-color: blue'
+
+###-----------------------------------------------------------
+### Statistics Button Count, Used for nScore, nMines, nClicks
+### Also used when Game Over !!!
+	ce = 0 cM = 0 cF = 0 cC = 0 c1 = 0 c2 = 0 
+	c3 = 0 c4 = 0 c5 = 0 c6 = 0 c7 = 0 c8 = 0 
+
 
 
 ###=============================================================================
+### The shortest app function you ever seen !
+### The DrawWidget function does what is normally in this section
 
 app = new qApp 
 {
-
 	DrawWidget()
 	
-    exec()
+	exec()
 }
 	
 ###---------------------
@@ -59,13 +74,14 @@ app = new qApp
 
 ### FUNCTIONS 
 
-###-------------------------------------------------
+###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
+### workWidget items need to be made Global. Mke available toother functions
 
 Func DrawWidget()
-See "DrawWidget: "+ nl
+#See "DrawWidget: "+ nl
 	 
-	workWidget = new qWidget() 
+	workWidget = new qWidget()				### Global definition for workWidget
 	{
 	
 		aArray  = newList(hSize, vSize)	### Internal Array with Letters
@@ -159,7 +175,7 @@ See "DrawWidget: "+ nl
 			LayoutButtonMain.AddLayout(LayoutTitleRow)	### Layout - Add  TITLE-ROW on TOP
 			
 		###----------------------------------------------
-		### Button Rows 
+		### BUTTON ROWS
 
 		LayoutButtonRow = list(hSize)		  
 			for Row = 2 to hSize -1
@@ -220,12 +236,21 @@ See "DrawWidget: "+ nl
 					setStyleSheet("background-color:violet")
 					setText(" Expert ")
 					setClickEvent("NewGameStart(3)")      
-				}				
+				}	
 
+				###---------------------------------------------------
+				### Continue playing CheckBox - Ignore Mines - Checked			
+				IgnoreMines = new qcheckbox(workWidget) 
+				{
+					setFont(new qFont("Calibri",fontsize,100,0))
+					setStyleSheet("background-color:orange")
+					setText(" IgnoreMines: ")
+				}
 
 			LayoutDataRow.AddWidget(BeginnerGame)	
 			LayoutDataRow.AddWidget(IntermediateGame)
 			LayoutDataRow.AddWidget(ExpertGame)
+			LayoutDataRow.AddWidget(IgnoreMines)
 
 			LayoutButtonMain.AddLayout(LayoutDataRow)			### Layout - Add BOTTOM ROW
 			
@@ -233,10 +258,6 @@ See "DrawWidget: "+ nl
 			###-------------------------------------------------			
 			
 		setLayout(LayoutButtonMain)
-
-###DEBUG TEST
-TitleScore.setText("xyz") +nl
-SEE "DEBUG TitleScore: "+ TitleScore.text() +nl
 
 		show()
     }
@@ -248,15 +269,9 @@ return
 ### Level L: 1-Beginner, 2-Intermediate, 3-Expert, 4-Custom
 
 Func NewGameStart(L)
-See "NewGameStart: "+ nl
+#See "NewGameStart: "+ nl
 
-###DEBUG TEST
-workWidget.TitleScore.setText("abc") +nl
-SEE "DEBUG TitleScore: "+ workWidget.TitleScore.text() +nl
-
- 		
-		nClicks = 0
-		nScore  = 0
+	workWidget.Close()
 
 		if  L = 1
 		 		hSize = 12  vSize = 12  nMines  = 24
@@ -266,7 +281,14 @@ SEE "DEBUG TitleScore: "+ workWidget.TitleScore.text() +nl
 		 		hSize = 42  vSize = 42  nMines  = 384
 		ok
 
-	workWidget.Close()
+		nClicks = 0
+		nScore  = 0
+
+		TitleScore.setText(""+ nScore) 
+		TitleClicks.setText(""+ nClicks)
+		TitleMines.setText(""+ nMines)
+		
+
 	DrawWidget()
 	
 return
@@ -276,7 +298,7 @@ return
 ### Populate Internal Array and Mines
 
 Func PopulateArray()
-See "PopulateArray: "+ nl
+#See "PopulateArray: "+ nl
 
 	n = 1
 	for v = 1 to vSize
@@ -312,13 +334,10 @@ return
 Func GetUserInput(m,n)  
 #See "GetUserInput: "+ m +"-"+ n +nl
 	
-    h = 0+ m                ### convert to number
-    v = 0+ n
+	h = 0+ m		### convert to number
+	v = 0+ n
 
-	Letter = aArray[h][v]
-	### SEE "Letter: "+ Letter + " MN: "+ m +"-"+ n +" HV: "+ h +"-"+ v +nl
-	
-   Play(h,v)
+	Play(h,v)
 	
 return
 
@@ -332,29 +351,80 @@ Func Play(h,v)
 			aButton[h][v] { setStyleSheet(C_ButtonGreenStyle) setText("C") }	
 			
 			nClicks++
-			#TitleClicks.setText("99")
-			
+		
 			CheckCellChosen(h,v)		
 			nScore = CountCellsOpened()
 
-         See "Score Clicks: "+ nClicks +"-"+ nScore +nl
-			#workWidget.TitleScore.setText(""+ nScore)	
-	
+			TitleScore.setText(""+ nScore) 
+			TitleClicks.setText(""+ nClicks)
+			TitleMines.setText(""+ nMines)	### Random generates ovlapping Mines
+
 		ok
 
-		if aArray[h][v] = 'M'       ### M-Mine
-			### aArray[h][v] = 'B'      ### Boom !!! 
-             aButton[h][v] { setStyleSheet(C_ButtonRedStyle) setText("M") }			
+		###---------------------------------------
+      ### MINE Explosion.  Continue Play Check
+
+		if aArray[h][v] = 'M'      ### M-Mine
+
+			aArray[h][v] = 'B'      ### Boom !!! 
+			aButton[h][v] { setStyleSheet(C_ButtonRedStyle) setText("B") }			
+			
+			nMines--
+			TitleMines.setText(""+nMines)
+
 			See "Boom !!!" +nl
-		ok
 
-	###end
+			if ignoreMines.isChecked()
+				return					### Continue Play
+			else
+				ShowMines()				### Show rest of Mine positons
+         ok
+
+		ok
 
 	###---------------------------------------
 	### BOOM !!! Mine was chosen - END of GAME
 
-
 Return
+
+###-----------------------------------------------
+### Boom ! Mine Hit. Show rest of Mine positions
+
+Func ShowMines()
+#See "ShowMines: "+nl
+
+	for v = 2 to vSize -1
+		for h = 2 to hSize -1
+
+			if aArray[h][v] = 'M'      ### M-Mine
+				aButton[h][v] { setStyleSheet(C_ButtonPinkStyle) setText("M") }			
+			ok
+
+		next
+	next
+
+	
+	Msg = "Game Over !!!" +nl +
+			"Left:  "+ ce +nl +
+			"Mines: "+ cM +nl +
+			"Empty: "+ cF +nl +
+			"Click: "+ cC +nl +
+			"1's :  "+ c1 +nl +
+			"2's :  "+ c2 +nl +
+			"3's :  "+ c3 +nl +
+			"4's :  "+ c4 +nl +
+			"5-8 :  "+ c5 +"-"+ c6 +"-"+ c7 +"-"+ c8 +nl
+	
+	mb = new qMessageBox(workWidget) 
+			{
+				setFont(new qFont("Courier",16,100,0))
+				setWindowTitle('Minesweeper Game')
+				setText(Msg)
+				setstandardbuttons(QMessageBox_OK) 
+				result = exec()	### Needed to show Popup window
+			}
+
+return
 
 
 ###-------------------------------------
@@ -364,7 +434,7 @@ Return
 Func CheckCellChosen(h,v)
 #SEE "CheckCellChosen: "+ h +"-"+ v +nl
 
-    See "HV:"+h +"-"+v +" "+ aArray[h][v] +nl
+    #See "HV:"+h +"-"+v +" "+ aArray[h][v] +nl
 
     for vert = v-1 to v+1
         for horz = h-1 to h+1
@@ -447,20 +517,22 @@ Func CheckAroundE(h,v)
 
 return
 
-###--------------------------------------------------
-### Count Cells that were opened for playerScore
+###-----------------------------------------------------------
+### Count Cells that were opened -Global - for nScore, Statistic count
 
 Func CountCellsOpened()
-   ce = 0 cM = 0 cF = 0 cC = 0 c1 = 0 c2 = 0 
-	c3 = 0 c4 = 0 c5 = 0 c6 = 0 c7 = 0 c8 = 0 
 	
+		### Statistics Reset to 0. Fresh Count
+		ce = 0 cM = 0 cF = 0 cC = 0 c1 = 0 c2 = 0 
+		c3 = 0 c4 = 0 c5 = 0 c6 = 0 c7 = 0 c8 = 0 
+
 	cells = (hSize-2) * ( vSize-2)
 	for v = 2 to vSize -1
 		for h = 2 to hSize -1
 			if aArray[h][v] = "e"  ce++  ok
 			if aArray[h][v] = "M"  cM++  ok
 			if aArray[h][v] = "E"  cF++  ok
-         if aArray[h][v] = "C"  cC++  ok
+			if aArray[h][v] = "C"  cC++  ok
 			if aArray[h][v] = "1"  c1++  ok
 			if aArray[h][v] = "2"  c2++  ok
 			if aArray[h][v] = "3"  c3++  ok
@@ -472,8 +544,7 @@ Func CountCellsOpened()
 		next 
 	next
 	
-	#SEE "Cells Opened: "+ ce +" "+ cM +" "+ cF +" "+ cC +" "+ c1 +" "+ c2 +" "+ c3 +" "+ c4 +" "+ c5 +" "+ c6 +" "+ c7 +" "+ c8 +nl
-	
+	#SEE "Cells Opened: "+ ce +"-"+ cM +"-"+ cF +"-"+ cC +"-"+ c1 +"-"+ c2 +"-"+ c3 +"-"+ c4 +"-"+ c5 +"-"+ c6 +"-"+ c7 +"-"+ c8 +nl
 	count = cF +cC +c1 +c2 +c3 +c4 +c5 +c6 +c7 +c8
 return count
 	
