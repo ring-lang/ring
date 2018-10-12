@@ -128,7 +128,7 @@ func msg cMsg
 func BuildApp cFileName,aOptions
 	msg("Start building the application...")
 	# Generate the Object File 
-		systemSilent(exefolder()+"../bin/ring " + cFileName + " -go -norun")
+		systemSilent('"' + exefolder()+"../bin/ring" + '" ' + cFileName + " -go -norun")
 	# Generate the C Source Code File 
 		cFile = substr(cFileName,".ring","")
 		GenerateCFile(cFile,aOptions)
