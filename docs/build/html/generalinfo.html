@@ -150,9 +150,9 @@ Also we have the bytes order.</p>
 <li>The functions Int2Bytes(), Float2Bytes() and Double2Bytes()</li>
 </ol>
 <p>These function take input as (Number) &#8212;&gt; Convert it to group of bytes based on the number type (int|float|double) &#8212;&gt; Then return a Ring string that contains these bytes</p>
-<p>Int2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(int)
-Float2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(float)
-Double2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
+<p>Int2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(int)</p>
+<p>Float2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(float)</p>
+<p>Double2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">int2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 <span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">float2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
@@ -172,9 +172,9 @@ Double2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = si
 This is important to know when we do arithmetic operations on numbers.</p>
 <p>But when we convert the number to a String using &#8220;&#8221; + number  or using string(number) we get a string where each digit is represented in 1 byte (Not good idea for storage, but useful for string processing)</p>
 <p>If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.</p>
-<p>Ring Number (double) &#8212;-&gt; int2bytes()  - will cast the number from double to int then return the bytes &#8212;-&gt; 4 bytes (Ring String)
-Ring Number (double) &#8212;-&gt; float2bytes()  - will cast the number from double to float then return the bytes &#8212;-&gt; 4 bytes (Ring String)
-Ring Number (double) &#8212;-&gt; double2bytes()  - will use the number (double) to return the bytes &#8212;-&gt; 8 bytes (Ring String)</p>
+<p>Ring Number (double) &#8212;-&gt; int2bytes()  - will cast the number from double to int then return the bytes &#8212;-&gt; 4 bytes (Ring String)</p>
+<p>Ring Number (double) &#8212;-&gt; float2bytes()  - will cast the number from double to float then return the bytes &#8212;-&gt; 4 bytes (Ring String)</p>
+<p>Ring Number (double) &#8212;-&gt; double2bytes()  - will use the number (double) to return the bytes &#8212;-&gt; 8 bytes (Ring String)</p>
 <p>The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.</p>
 <ol class="arabic simple" start="5">
 <li>The Unsigned() Function</li>
