@@ -12,10 +12,10 @@ load "guilib.ring"
 ### WINDOW SIZE
 
 moveX  = 200 moveY	= 100		### Open Window on Screen Position
-sizeX  = 800 sizeY	= 850		### Size of Window
+sizeX  = 800 sizeY	= 820		### Size of Window
 
-hSize	= 8 +2	  ### Size of array, Display -2 smaller
-vSize	= 8 +2	  ### Size of array, Display -2 smaller
+hSize	= 8 +2 +2  ### Size of array, Display -4 smaller
+vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
 h		= 0		 ### H-coord of Cell
 v		= 0		 ### V-coord of Cell
@@ -27,8 +27,10 @@ v		= 0		 ### V-coord of Cell
 aArray			= null
 aButton			= null
 workWidget		= null
-TitleKnightMoves = null
-LayoutButtonRow	 = null
+ManualGame		= null
+TitleKnightMoves		= null
+TitleKnightInvalidMove	= null
+LayoutButtonRow			= null
  
 
 Knight	  = "Knight.jpg"
@@ -36,10 +38,16 @@ oKnight	  =	 new QPixmap(Knight)
 bWidth	  =	 oKnight.width()	  ### 50 
 bHeight	  =	 oKnight.height()	  ### 50
 nMoves	  =	 0 
+
+oldH = 0
+oldV = 0
  
 C_Spacing  = 2
 C_ButtonGrayStyle		= 'border-radius:1px; color:black; background-color: darkGray ; border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray; '
-C_ButtonDarkGrayStyle	= 'border-radius:1px; color:black; background-color: Gray;		border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
+C_ButtonDarkGrayStyle	= 'border-radius:1px; color:black; background-color: Gray;		border-style: outset; border-width:	 2px; border-radius: 2px; border-color: darkGray; '
+
+C_ButtonCyanLStyle		= 'border-radius:1px; color:black; background-color: Cyan;	border-style: solid; border-width: 12px; border-radius: 2px; border-color: Gray; '
+C_ButtonCyanDStyle		= 'border-radius:1px; color:black; background-color: Cyan;	border-style: solid; border-width: 12px; border-radius: 2px; border-color: darkGray; '
 
 
 ###=============================================================================
@@ -101,7 +109,30 @@ Func DrawWidget()
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment( Qt_AlignVCenter)
 					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
-					setText(""+ nMoves)
+					setText(" "+ nMoves)
+				}	
+
+				TitleKnightInvalidMove = new qLineEdit(workWidget) 
+				{
+					setFont(new qFont("Calibri",fontsize,100,0))
+					setAlignment( Qt_AlignVCenter)
+					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
+					setText("Msg:					 ")
+				}	
+				
+				ManualGame = new qcheckbox(workWidget) 
+				{
+					setFont(new qFont("Calibri",fontsize,100,0))
+					setStyleSheet("background-color:darkGray")
+					setText(" Manual Game: ")
+				}			
+				
+				NewGame	 = new QPushButton(workWidget) 
+					{
+					setFont(new qFont("Calibri",fontsize,100,0))
+					setStyleSheet("background-color:darkGray")
+					setText(" New Game ")
+					setClickEvent("NewGameStart()")	  
 				}				
 	
 
@@ -124,8 +155,12 @@ Func DrawWidget()
 				setContentsMargins(0,0,0,0)
 			}
 				
+				LayoutTitleRow.AddWidget(ManualGame)
 				LayoutTitleRow.AddWidget(TitleKnightMsg)	
-				LayoutTitleRow.AddWidget(TitleKnightMoves)		
+				LayoutTitleRow.AddWidget(TitleKnightMoves)
+				LayoutTitleRow.AddWidget(TitleKnightInvalidMove)
+				
+				LayoutTitleRow.AddWidget(NewGame)		
 										
 			LayoutButtonMain.AddLayout(LayoutTitleRow)		### Layout - Add  TITLE-ROW on TOP
 			
@@ -137,7 +172,8 @@ Func DrawWidget()
 			###---------------------------------------------------------------------
 			### QHBoxLayout lays out widgets in a horizontal row, from left to right		
 			
-			for Row = 2 to hSize -1
+			odd = 1
+			for Row = 3 to hSize -2
 						
 				LayoutButtonRow[Row] = new QHBoxLayout()	### Horizontal
 				{
@@ -145,17 +181,26 @@ Func DrawWidget()
 					setContentsmargins(0,0,0,0)
 				}
 			   
-			   for Col = 2 to vSize -1
+			   
+			   for Col = 3 to vSize -2
 			   
 					aButton[Row][Col] = new QPushButton(workWidget)		### Create Buttons
 					{
-						setStyleSheet(C_ButtonGrayStyle)			
+						if odd % 2
+							setStyleSheet(C_ButtonGrayStyle)
+							odd++
+						else
+							setStyleSheet(C_ButtonDarkGrayStyle)
+							odd++
+						ok
+						
 						setClickEvent("UserLeftClick(" + string(Row) + "," + string(Col) + ")")	### CLICK ===>>>>>>>>
 						setSizePolicy(1,1)									
 					}
 					
 					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORZ BOTTON
 			   next
+			   odd++
 			   
 			   LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			### Layout - Add ROW of BUTTONS
 			next
@@ -164,7 +209,17 @@ Func DrawWidget()
 			
 			
 		setLayout(LayoutButtonMain)
-		NewGameStart()
+		###NewGameStart()
+		
+		for h = 1 to hSize
+			for v = 1 to vSize
+				aArray[h][v] = 'e'				### e - empty Visible Squares  3--10
+				
+				if h < 3 OR h > 10 or V < 3 or V > 10
+					aArray[h][v] = '.'			### "." - dot InVisible Squares	 1-2,  3--10,  11-12
+				ok
+			next
+		next
 		
 		show()
 	}
@@ -180,8 +235,10 @@ Func NewGameStart()
 
 	workWidget.Close()
 
-		hSize = 8 + 2	
-		vSize = 8 + 2
+		hSize = 8 + 2 + 2	
+		vSize = 8 + 2 + 2 
+		oldH = 0
+		oldV = 0
 
 		nMoves = 0
 		TitleKnightMoves.setText(""+ nMoves)
@@ -192,7 +249,11 @@ Func NewGameStart()
 			next
 		next
 		
-	### DrawWidget()
+		if ManualGame.isChecked()
+				### Ignore for now					### Continue Play
+		ok
+		
+	DrawWidget()
 	
 return
 
@@ -214,25 +275,77 @@ return
 ### PLAYED MOVE		 
 
 Func Play(h,v)
+
+	#See "aArray: "+ h +"-"+ v +" "+ aArray[h][v] +nl
 	
-		if aArray[h][v] = 'e'
-		
-			nMoves++			
-			aButton[h][v] { 
-					setStyleSheet(C_ButtonDarkGrayStyle) 
-					setText(""+nMoves)
-					nImageWidth	 = Width()	-24
-					nImageHeight = Height() -8		
-					oMine = new qpixmap(Knight)
-					oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
-					setIcon(new qIcon(oMine))
-					setIconSize(new qSize(nImageWidth, nImageHeight))
-				}			
-			
-			TitleKnightMoves.setText(""+ nMoves)	### Random generates ovlapping Mines
+	###---------------------------
+	### Clear Square -- Old Move
+	
+	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
+	
+		MoveGood = ValidMove(oldH, oldV, h, v)
+		if MoveGood = 0
+			return			### Move BAD - not valid
 		ok
 		
+
+		aButton[oldh][oldv] { 
+				### setStyleSheet(C_ButtonCyanLStyle) 
+				nImageWidth	 = Width()	-70
+				nImageHeight = Height() -70	
+				oMine = new qpixmap(Knight)
+				oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+				setIcon(new qIcon(oMine))
+				setIconSize(new qSize(nImageWidth, nImageHeight))
+				}	
+
+	ok
+
+	
+	#if aArray[h][v] = 'e'
+	
+	
+		nMoves++			
+		aButton[h][v] { 
+				### setStyleSheet(C_ButtonDarkGrayStyle) 
+				setText(""+nMoves)
+				nImageWidth	 = Width()	-24
+				nImageHeight = Height() -24		
+				oMine = new qpixmap(Knight)
+				oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+				setIcon(new qIcon(oMine))
+				setIconSize(new qSize(nImageWidth, nImageHeight))
+			}			
+		
+		TitleKnightMoves.setText(""+ nMoves)	### Random generates ovlapping Mines
+	#ok
+		
+	oldH = h
+	oldV = v
+		
 return
+
+###------------------------------------------
+### ValidMove are L shaped in 8 directions
+
+Func ValidMove( oldH, oldV, h, v)
+
+	### ClockWise-LD	  LU  -- UL	   UR -- RU	   RD --- RU	  DL	  
+	PosMove	 = [[-2,-1],[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2]] 
+	
+	FlagValidMove = 0
+	TitleKnightInvalidMove.setText("Msg:  Invalid Move ")
+	
+	for i = 1 to 8
+		if h = oldH + PosMove[i][1] AND	 v = oldV + PosMove[i][2]
+			FlagValidMove = 1
+			TitleKnightInvalidMove.setText("Msg:			   ")
+			exit
+		ok
+	next
+	
+return FlagValidMove
+
 
 ###------------------------------------------
 ### Message Box - Lost or Won
