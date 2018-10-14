@@ -39,8 +39,10 @@ oldH = 0
 oldV = 0
  
 C_Spacing  = 2
-C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ; border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray; '
-C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93);		border-style: outset; border-width:	 2px; border-radius: 2px; border-color: darkGray; '
+C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'+
+			  'border-style: outset;border-width: 2px; border-radius: 2px; border-color: gray;'
+C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93); border-style: outset;'+
+			  'border-width: 2px; border-radius: 2px; border-color: darkGray; '
 
 ###=============================================================================
 ###=============================================================================
@@ -87,67 +89,70 @@ Func DrawWidget()
 		###----------------------------------------------
 		### Title Top Row - Moves Count
 			
-				TitleKnightMsg = new qLabel(workWidget) 
-				{
-					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-					setText("	Moves:	 ")
-				}
-				
-				TitleKnightMoves = new qLineEdit(workWidget) 
-				{
-					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment( Qt_AlignVCenter)
-					setAlignment( Qt_AlignVCenter)
-					setText(" "+ nMoves)
-				}	
+			TitleKnightMsg = new qLabel(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+				setText("	Moves:	 ")
+			}
+			
+			TitleKnightMoves = new qLineEdit(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setAlignment( Qt_AlignVCenter)
+				setAlignment( Qt_AlignVCenter)
+				setText(" "+ nMoves)
+			}	
 
-				TitleKnightInvalidMove = new qLineEdit(workWidget) 
+			TitleKnightInvalidMove = new qLineEdit(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setAlignment( Qt_AlignVCenter)
+				setAlignment( Qt_AlignVCenter)
+				setText("Msg:					 ")
+			}	
+			
+			ManualGame = new qcheckbox(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setText(" Manual Game: ")
+			}			
+			
+			NewGame	 = new QPushButton(workWidget) 
 				{
-					setFont(new qFont("Calibri",fontsize,100,0))
-					setAlignment( Qt_AlignVCenter)
-					setAlignment( Qt_AlignVCenter)
-					setText("Msg:					 ")
-				}	
-				
-				ManualGame = new qcheckbox(workWidget) 
-				{
-					setFont(new qFont("Calibri",fontsize,100,0))
-					setText(" Manual Game: ")
-				}			
-				
-				NewGame	 = new QPushButton(workWidget) 
-					{
-					setFont(new qFont("Calibri",fontsize,100,0))
-					setText(" New Game ")
-					setClickEvent("NewGameStart()")	  
-				}				
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setText(" New Game ")
+				setClickEvent("NewGameStart()")	  
+			}				
 
 		###------------------------------------------------
 
 		###-----------------------------------------------------------------------
 		### QVBoxLayout lays out widgets in a vertical column, from top to bottom.
 		
-		LayoutButtonMain = new QVBoxLayout()				### Vertical
+		### Vertical
+			LayoutButtonMain = new QVBoxLayout()				
 		
 		LayoutButtonMain.setSpacing(C_Spacing)
 		LayoutButtonMain.setContentsMargins(5,5,5,5)
 		
 
-			LayoutTitleRow = new QHBoxLayout()				### Horizontal - TOP ROW
-			{
-				setSpacing(C_Spacing)
-				setContentsMargins(0,0,0,0)
-			}
-				
+			### Horizontal - TOP ROW
+				LayoutTitleRow = new QHBoxLayout()				
+				{
+					setSpacing(C_Spacing)
+					setContentsMargins(0,0,0,0)
+				}
+					
 				LayoutTitleRow.AddWidget(ManualGame)
 				LayoutTitleRow.AddWidget(TitleKnightMsg)	
 				LayoutTitleRow.AddWidget(TitleKnightMoves)
 				LayoutTitleRow.AddWidget(TitleKnightInvalidMove)
 				
 				LayoutTitleRow.AddWidget(NewGame)		
-										
-			LayoutButtonMain.AddLayout(LayoutTitleRow)		### Layout - Add  TITLE-ROW on TOP
+
+			### Layout - Add  TITLE-ROW on TOP										
+				LayoutButtonMain.AddLayout(LayoutTitleRow)		
 			
 		###----------------------------------------------
 		### BUTTON ROWS
@@ -169,25 +174,28 @@ Func DrawWidget()
 			   
 			   for Col = 3 to vSize -2
 			   
-					aButton[Row][Col] = new QPushButton(workWidget)		### Create Buttons
-					{
-						if odd % 2
-							setStyleSheet(C_ButtonFirstStyle)
-							odd++
-						else
-							setStyleSheet(C_ButtonSecondStyle)
-							odd++
-						ok
+					### Create Buttons
+						aButton[Row][Col] = new QPushButton(workWidget)		
+						{
+							if odd % 2
+								setStyleSheet(C_ButtonFirstStyle)
+								odd++
+							else
+								setStyleSheet(C_ButtonSecondStyle)
+								odd++
+							ok
+							setClickEvent("UserLeftClick(" + string(Row) +
+									 "," + string(Col) + ")")	
+							setSizePolicy(1,1)									
+						}
 						
-						setClickEvent("UserLeftClick(" + string(Row) + "," + string(Col) + ")")	### CLICK ===>>>>>>>>
-						setSizePolicy(1,1)									
-					}
-					
-					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORZ BOTTON
+					### Widget - Add HORZ BOTTON
+						LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	
 			   next
 			   odd++
-			   
-			   LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			### Layout - Add ROW of BUTTONS
+
+			   ### Layout - Add ROW of BUTTONS			   
+			   	LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			
 			next
 			
 			###-------------------------------------------------
@@ -197,10 +205,11 @@ Func DrawWidget()
 		
 		for h = 1 to hSize
 			for v = 1 to vSize
-				aArray[h][v] = 'e'				### e - empty Visible Squares  3--10
-				
+				### e - empty Visible Squares  3--10
+					aArray[h][v] = 'e'							
 				if h < 3 OR h > 10 or V < 3 or V > 10
-					aArray[h][v] = '.'			### "." - dot InVisible Squares	 1-2,  3--10,  11-12
+					### "." - dot InVisible Squares	 1-2,  3--10,  11-12
+						aArray[h][v] = '.'			
 				ok
 			next
 		next
@@ -229,7 +238,7 @@ Func NewGameStart()
 
 		for h = 1 to hSize
 			for v = 1 to vSize
-				aArray[h][v] = 'e'			### e - empty
+				aArray[h][v] = 'e'	### e - empty
 			next
 		next
 		
