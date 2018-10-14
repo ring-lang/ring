@@ -29,7 +29,7 @@ TitleKnightMoves	= null
 TitleKnightInvalidMove	= null
 LayoutButtonRow		= null
  
-Knight	  = "Knight.png"
+Knight	  = AppFile("knight.png")
 oKnight	  = new QPixmap(Knight)
 bWidth	  = oKnight.width()	  ### 50 
 bHeight	  = oKnight.height()	  ### 50
