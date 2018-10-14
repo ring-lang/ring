@@ -1,9 +1,6 @@
-## Program:	 MineSweeper - Button Screen
+## Program:	 Knight Tour 
 ### Author:	 Bert Mariani, Gal Zsolt ~ CalmoSoft ~
-### Date:	 2018-09-18
-###
-### TAB set to 3 Spaces
-### aArray Letters: "."-Edge, e-empty, E-EmptyVisited, C-Chosen, M-Mine, B-Boom
+### Date:	 2018-10-14
 
 load "stdlib.ring"
 load "guilib.ring"	
@@ -14,11 +11,11 @@ load "guilib.ring"
 moveX  = 200 moveY	= 100		### Open Window on Screen Position
 sizeX  = 800 sizeY	= 820		### Size of Window
 
-hSize	= 8 +2 +2  ### Size of array, Display -4 smaller
+hSize	= 8 +2 +2  	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
-h		= 0		 ### H-coord of Cell
-v		= 0		 ### V-coord of Cell
+h	= 0	### H-coord of Cell
+v	= 0	### V-coord of Cell
 
 
 ###----------------------------------------------------------
@@ -28,27 +25,22 @@ aArray			= null
 aButton			= null
 workWidget		= null
 ManualGame		= null
-TitleKnightMoves		= null
+TitleKnightMoves	= null
 TitleKnightInvalidMove	= null
-LayoutButtonRow			= null
+LayoutButtonRow		= null
  
-
-Knight	  = "Knight.jpg"
-oKnight	  =	 new QPixmap(Knight)
-bWidth	  =	 oKnight.width()	  ### 50 
-bHeight	  =	 oKnight.height()	  ### 50
-nMoves	  =	 0 
+Knight	  = "Knight.png"
+oKnight	  = new QPixmap(Knight)
+bWidth	  = oKnight.width()	  ### 50 
+bHeight	  = oKnight.height()	  ### 50
+nMoves	  = 0 
 
 oldH = 0
 oldV = 0
  
 C_Spacing  = 2
-C_ButtonGrayStyle		= 'border-radius:1px; color:black; background-color: darkGray ; border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray; '
-C_ButtonDarkGrayStyle	= 'border-radius:1px; color:black; background-color: Gray;		border-style: outset; border-width:	 2px; border-radius: 2px; border-color: darkGray; '
-
-C_ButtonCyanLStyle		= 'border-radius:1px; color:black; background-color: Cyan;	border-style: solid; border-width: 12px; border-radius: 2px; border-color: Gray; '
-C_ButtonCyanDStyle		= 'border-radius:1px; color:black; background-color: Cyan;	border-style: solid; border-width: 12px; border-radius: 2px; border-color: darkGray; '
-
+C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ; border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray; '
+C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93);		border-style: outset; border-width:	 2px; border-radius: 2px; border-color: darkGray; '
 
 ###=============================================================================
 ###=============================================================================
@@ -58,12 +50,10 @@ C_ButtonCyanDStyle		= 'border-radius:1px; color:black; background-color: Cyan;	b
 app = new qApp 
 {
 	DrawWidget()
-	
 	exec()
 }
 	
 ###---------------------
-
 
 
 ###=================================================
@@ -79,28 +69,28 @@ Func DrawWidget()
 	 
 	workWidget = new qWidget()				### Global definition for workWidget
 	{
-	
+		# Set the Window Icon
+			setWindowIcon(new qIcon(new qPixmap(KNIGHT)))
 		aArray	= newList(hSize, vSize)	### Internal Array with Letters
 		aButton = newList(hSize, vSize)	### Internal Array with Letters
 		
 		setWindowTitle('Knight Tour')
-		setStyleSheet('background-color:gray')
+		setStyleSheet('background-color:White')
 
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		  move(moveX, moveY)
+		move(moveX, moveY)
 		resize(sizeX, sizeY)
 	 
 
 		###----------------------------------------------
-		### Title Top Row - Mines, Score, Time
+		### Title Top Row - Moves Count
 			
 				TitleKnightMsg = new qLabel(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-					setStyleSheet("background-color:darkGray")
 					setText("	Moves:	 ")
 				}
 				
@@ -108,7 +98,7 @@ Func DrawWidget()
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment( Qt_AlignVCenter)
-					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
+					setAlignment( Qt_AlignVCenter)
 					setText(" "+ nMoves)
 				}	
 
@@ -116,28 +106,23 @@ Func DrawWidget()
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
 					setAlignment( Qt_AlignVCenter)
-					setAlignment( Qt_AlignVCenter)setStyleSheet("background-color:white")
+					setAlignment( Qt_AlignVCenter)
 					setText("Msg:					 ")
 				}	
 				
 				ManualGame = new qcheckbox(workWidget) 
 				{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setStyleSheet("background-color:darkGray")
 					setText(" Manual Game: ")
 				}			
 				
 				NewGame	 = new QPushButton(workWidget) 
 					{
 					setFont(new qFont("Calibri",fontsize,100,0))
-					setStyleSheet("background-color:darkGray")
 					setText(" New Game ")
 					setClickEvent("NewGameStart()")	  
 				}				
-	
 
-
-				
 		###------------------------------------------------
 
 		###-----------------------------------------------------------------------
@@ -187,10 +172,10 @@ Func DrawWidget()
 					aButton[Row][Col] = new QPushButton(workWidget)		### Create Buttons
 					{
 						if odd % 2
-							setStyleSheet(C_ButtonGrayStyle)
+							setStyleSheet(C_ButtonFirstStyle)
 							odd++
 						else
-							setStyleSheet(C_ButtonDarkGrayStyle)
+							setStyleSheet(C_ButtonSecondStyle)
 							odd++
 						ok
 						
@@ -209,7 +194,6 @@ Func DrawWidget()
 			
 			
 		setLayout(LayoutButtonMain)
-		###NewGameStart()
 		
 		for h = 1 to hSize
 			for v = 1 to vSize
@@ -221,6 +205,7 @@ Func DrawWidget()
 			next
 		next
 		
+
 		show()
 	}
 
@@ -231,7 +216,6 @@ return
 ### Level L: 1-Beginner, 2-Intermediate, 3-Expert, 4-Custom
 
 Func NewGameStart()
-#See "NewGameStart: "+ nl
 
 	workWidget.Close()
 
@@ -248,10 +232,6 @@ Func NewGameStart()
 				aArray[h][v] = 'e'			### e - empty
 			next
 		next
-		
-		if ManualGame.isChecked()
-				### Ignore for now					### Continue Play
-		ok
 		
 	DrawWidget()
 	
@@ -276,8 +256,6 @@ return
 
 Func Play(h,v)
 
-	#See "aArray: "+ h +"-"+ v +" "+ aArray[h][v] +nl
-	
 	###---------------------------
 	### Clear Square -- Old Move
 	
@@ -290,35 +268,26 @@ Func Play(h,v)
 		
 
 		aButton[oldh][oldv] { 
-				### setStyleSheet(C_ButtonCyanLStyle) 
 				nImageWidth	 = Width()	-70
 				nImageHeight = Height() -70	
-				oMine = new qpixmap(Knight)
-				oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+				oMine = new qpixmap2(0,0)
 				setIcon(new qIcon(oMine))
-				setIconSize(new qSize(nImageWidth, nImageHeight))
-				}	
+				setStylesheet("background-color:rgb(0,255,100);")
+		}	
 
 	ok
 
-	
-	#if aArray[h][v] = 'e'
-	
-	
-		nMoves++			
-		aButton[h][v] { 
-				### setStyleSheet(C_ButtonDarkGrayStyle) 
-				setText(""+nMoves)
-				nImageWidth	 = Width()	-24
-				nImageHeight = Height() -24		
-				oMine = new qpixmap(Knight)
-				oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
-				setIcon(new qIcon(oMine))
-				setIconSize(new qSize(nImageWidth, nImageHeight))
-			}			
+	nMoves++			
+	aButton[h][v] { 
+		nImageWidth  = Width()	-24
+		nImageHeight = Height() -24		
+		oMine = new qpixmap(Knight)
+		oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+		setIcon(new qIcon(oMine))
+		setIconSize(new qSize(nImageWidth, nImageHeight))
+	}			
 		
-		TitleKnightMoves.setText(""+ nMoves)	### Random generates ovlapping Mines
-	#ok
+	TitleKnightMoves.setText("" + nMoves)
 		
 	oldH = h
 	oldV = v
@@ -353,18 +322,13 @@ return FlagValidMove
 Func MsgBox(Msg)
 
 	mb = new qMessageBox(workWidget) 
-			{
-				setFont(new qFont("Courier",12,50,0))
-				setWindowTitle('Knight Tour')
-				setStyleSheet(C_ButtonYellowStyle)
-				setText(Msg)
-				setstandardbuttons(QMessageBox_OK) 
-				result = exec()	### Needed to show Popup window
-			}
+	{
+		setFont(new qFont("Courier",12,50,0))
+		setWindowTitle('Knight Tour')
+		setStyleSheet(C_ButtonYellowStyle)
+		setText(Msg)
+		setstandardbuttons(QMessageBox_OK) 
+		result = exec()	### Needed to show Popup window
+	}
 
 ###-------------------------------------
-
-
-
-
-
