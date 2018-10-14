@@ -275,7 +275,6 @@ Func Play(h,v)
 	
 Func ClearOldMove()
 	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
-	
 		aButton[oldh][oldv] { 
 			nImageWidth  = Width() - 70
 			nImageHeight = Height() - 70	
@@ -283,10 +282,7 @@ Func ClearOldMove()
 			setIcon(new qIcon(oMine))
 			setStylesheet("background-color:rgb(0,255,100);")
 		}	
-
 	ok
-	
-Return True
 
 ###------------------------------------------
 ### Increase Moves Counter 
@@ -309,8 +305,6 @@ Func NewLocation(h,v)
 	}			
 	oldH = h
 	oldV = v
-		
-return
 
 ###------------------------------------------
 ### ValidMove are L shaped in 8 directions
