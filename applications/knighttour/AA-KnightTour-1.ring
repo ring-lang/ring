@@ -250,36 +250,32 @@ Func NewGameStart()
 	
 return
 
-
 ###-----------------------------------------------
 ### START GAME !!!
 ### Get User - Cell Clicked - Horz-Vert
 
 Func UserLeftClick(Row, Col)	
-
 	h = 0+ Row		### convert to number
 	v = 0+ Col
-
 	Play(h,v)
-	
 return
 
 ###-----------------------------------------
 ### PLAYED MOVE		 
 
 Func Play(h,v)
+	if ValidMove(oldH, oldV, h, v)
+		ClearOldMove()	
+		NewLocation(h,v)
+		RecordNewMove()
+	ok
 
-	###---------------------------
-	### Clear Square -- Old Move
+###---------------------------
+### Clear Square -- Old Move
 	
+Func ClearOldMove()
 	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
 	
-		MoveGood = ValidMove(oldH, oldV, h, v)
-		if MoveGood = 0
-			return			### Move BAD - not valid
-		ok
-		
-
 		aButton[oldh][oldv] { 
 			nImageWidth  = Width() - 70
 			nImageHeight = Height() - 70	
@@ -289,9 +285,13 @@ Func Play(h,v)
 		}	
 
 	ok
+	
+Return True
 
-	newLocation(h,v)
+###------------------------------------------
+### Increase Moves Counter 
 
+Func RecordNewMove
 	nMoves++			
 	TitleKnightMoves.setText("" + nMoves)
 
