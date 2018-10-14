@@ -265,9 +265,11 @@ return
 
 Func Play(h,v)
 	if ValidMove(oldH, oldV, h, v)
+		if CheckEndOfGame() return ok
 		ClearOldMove()	
 		NewLocation(h,v)
 		RecordNewMove()
+		if CheckEndOfGame() return ok
 	ok
 
 ###---------------------------
@@ -292,6 +294,24 @@ Func RecordNewMove
 	TitleKnightMoves.setText("" + nMoves)
 
 ###------------------------------------------
+### Check that all cells are visited
+
+Func CheckEndOfGame()
+	for Row = 3 to vSize -2
+		for Col = 3 to vSize -2
+			if aArray[Row][Col] != 'v'
+				return False 
+			ok
+		next
+	next
+	cMsg = "You completed the game in " + nMoves + " moves" 
+	if nMoves > 63
+		cMsg += ", but can you do it in a fewer?" 
+	ok
+	MsgInfo("Knight Tour",cMsg)
+return True
+
+###------------------------------------------
 ### Move the Knight to a new location
 
 Func NewLocation(h,v)
@@ -305,6 +325,7 @@ Func NewLocation(h,v)
 	}			
 	oldH = h
 	oldV = v
+	aArray[h][v] = 'v'
 
 ###------------------------------------------
 ### ValidMove are L shaped in 8 directions
@@ -326,21 +347,5 @@ Func ValidMove( oldH, oldV, h, v)
 	next
 	
 return FlagValidMove
-
-
-###------------------------------------------
-### Message Box - Lost or Won
-
-Func MsgBox(Msg)
-
-	mb = new qMessageBox(workWidget) 
-	{
-		setFont(new qFont("Courier",12,50,0))
-		setWindowTitle('Knight Tour')
-		setStyleSheet(C_ButtonYellowStyle)
-		setText(Msg)
-		setstandardbuttons(QMessageBox_OK) 
-		result = exec()	### Needed to show Popup window
-	}
 
 ###-------------------------------------
