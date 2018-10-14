@@ -1,5 +1,5 @@
 ## Program:	 Knight Tour 
-### Author:	 Bert Mariani, Gal Zsolt ~ CalmoSoft ~
+### Author:	 Bert Mariani
 ### Date:	 2018-10-14
 
 load "stdlib.ring"
