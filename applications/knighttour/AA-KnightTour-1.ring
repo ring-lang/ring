@@ -115,12 +115,6 @@ Func DrawWidget()
 				setText("Msg:					 ")
 			}	
 			
-			ManualGame = new qcheckbox(workWidget) 
-			{
-				setFont(new qFont("Calibri",fontsize,100,0))
-				setText(" Manual Game: ")
-			}			
-			
 			NewGame	 = new QPushButton(workWidget) 
 				{
 				setFont(new qFont("Calibri",fontsize,100,0))
@@ -147,7 +141,6 @@ Func DrawWidget()
 				setContentsMargins(0,0,0,0)
 			}
 				
-			LayoutTitleRow.AddWidget(ManualGame)
 			LayoutTitleRow.AddWidget(TitleKnightMsg)	
 			LayoutTitleRow.AddWidget(TitleKnightMoves)
 			LayoutTitleRow.AddWidget(TitleKnightInvalidMove)
