@@ -6,12 +6,17 @@ load "stdlib.ring"
 load "guilib.ring"	
 
 ###-------------------
+### Track Moves
+
+lTrackMoves = False
+
+###-------------------
 ### WINDOW SIZE
 
 moveX  = 200 moveY	= 100		### Open Window on Screen Position
 sizeX  = 800 sizeY	= 820		### Size of Window
 
-hSize	= 8 +2 +2  	### Size of array, Display -4 smaller
+hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
 h	= 0	### H-coord of Cell
@@ -25,9 +30,9 @@ aArray			= null
 aButton			= null
 workWidget		= null
 ManualGame		= null
-TitleKnightMoves	= null
+TitleKnightMoves		= null
 TitleKnightInvalidMove	= null
-LayoutButtonRow		= null
+LayoutButtonRow			= null
  
 Knight	  = AppFile("knight.png")
 oKnight	  = new QPixmap(Knight)
@@ -40,9 +45,9 @@ oldV = 0
  
 C_Spacing  = 2
 C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'+
-			  'border-style: outset;border-width: 2px; border-radius: 2px; border-color: gray;'
-C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93); border-style: outset;'+
-			  'border-width: 2px; border-radius: 2px; border-color: darkGray; '
+			  'border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray;'
+C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93); '+
+			  'border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
 
 ###=============================================================================
 ###=============================================================================
@@ -74,7 +79,7 @@ Func DrawWidget()
 	workWidget = new qWidget()				
 	{
 		# Set the Window Icon
-			setWindowIcon(new qIcon(new qPixmap(KNIGHT)))
+		setWindowIcon(new qIcon(new qPixmap(KNIGHT)))
 
 		aArray	= newList(hSize, vSize)	### Internal Array with Letters
 		aButton = newList(hSize, vSize)	### Internal Array with Letters
@@ -85,7 +90,7 @@ Func DrawWidget()
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		move(moveX, moveY)
+		  move(moveX, moveY)
 		resize(sizeX, sizeY)
 	 
 
@@ -116,7 +121,7 @@ Func DrawWidget()
 			}	
 			
 			NewGame	 = new QPushButton(workWidget) 
-				{
+			{
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setText(" New Game ")
 				setClickEvent("NewGameStart()")	  
@@ -128,7 +133,7 @@ Func DrawWidget()
 		### QVBoxLayout lays out widgets in a vertical column, from top to bottom.
 		
 		### Vertical
-			LayoutButtonMain = new QVBoxLayout()				
+		LayoutButtonMain = new QVBoxLayout()				
 		
 		LayoutButtonMain.setSpacing(C_Spacing)
 		LayoutButtonMain.setContentsMargins(5,5,5,5)
@@ -169,7 +174,7 @@ Func DrawWidget()
 			}
 		   
 		   
-		   for Col = 3 to vSize -2
+			for Col = 3 to vSize -2
 		   
 				### Create Buttons
 					aButton[Row][Col] = new QPushButton(workWidget)		
@@ -188,11 +193,11 @@ Func DrawWidget()
 					
 				### Widget - Add HORZ BOTTON
 					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	
-		   next
-		   odd++
+			next
+			odd++
 
 		   ### Layout - Add ROW of BUTTONS			   
-		   	LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			
+				LayoutButtonMain.AddLayout(LayoutButtonRow[Row])			
 		next
 		
 		###-------------------------------------------------
@@ -202,10 +207,11 @@ Func DrawWidget()
 		
 		for h = 1 to hSize
 			for v = 1 to vSize
-				### e - empty Visible Squares  3--10
-					aArray[h][v] = 'e'							
+					### e - empty Visible Squares  3--10
+					aArray[h][v] = 'e'	
+					
 				if h < 3 OR h > 10 or V < 3 or V > 10
-					### "." - dot InVisible Squares	 1-2,  3--10,  11-12
+						### "." - dot InVisible Squares	 1-2,  3--10,  11-12
 						aArray[h][v] = '.'			
 				ok
 			next
@@ -271,11 +277,18 @@ Func Play(h,v)
 Func ClearOldMove()
 	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
 		aButton[oldh][oldv] { 
-			nImageWidth  = Width() - 70
-			nImageHeight = Height() - 70	
-			oMine = new qpixmap2(0,0)
-			setIcon(new qIcon(oMine))
-			setStylesheet("background-color:rgb(0,255,100);")
+			if lTrackMoves
+				nImageWidth  = Width() - 70
+				nImageHeight = Height() - 70	
+				oMine = new qpixmap(Knight)
+				setIcon(new qIcon(oMine))
+				setIconSize(new qSize(nImageWidth, nImageHeight))
+				setText(""+ nMoves)			
+			else 
+				oMine = new qpixmap2(0,0)
+				setIcon(new qIcon(oMine))
+				setStylesheet("background-color:rgb(0,255,100);")
+			ok
 		}	
 	ok
 
@@ -308,8 +321,9 @@ return True
 ### Move the Knight to a new location
 
 Func NewLocation(h,v)
+
 	aButton[h][v] { 
-		nImageWidth  = Width()	-24
+		nImageWidth	 = Width()	-24
 		nImageHeight = Height() -24		
 		oMine = new qpixmap(Knight)
 		oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
