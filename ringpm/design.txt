@@ -1,0 +1,17 @@
+========================
+Package Manager (RingPM)
+========================
+
+Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl]	< 2 Mbyte
+	   Without (Libraries|Extensions|Applications)		> 1.1 GByte
+
+Features	(Common Cases - Not General)
+========
+
+(1) Install [Application|Library|Extension]
+	---> Install Related Packages 
+(2) Remove 
+(3) Update (To New|Old Version)
+(4) List of installed packages 
+
+		
