@@ -4,7 +4,7 @@ Support the Ring programming language in Visual Studio Code
 
 # How to Install
 
-Copy the Ring folder to : C:\Users\YourUserName\.vscode\extensions\ folder
+Copy the Ring folder to : C:\Users\YourUserName\\.vscode\extensions\ folder
 
 
 
