@@ -1,5 +1,5 @@
 ## Program:	 Knight Tour 
-### Author:	 Bert Mariani
+### Author:	 Bert Mariani, Nestor Kuka
 ### Date:	 2018-10-14
 
 load "stdlib.ring"
@@ -8,7 +8,7 @@ load "guilib.ring"
 ###-------------------
 ### Track Moves
 
-lTrackMoves = False
+lTrackMoves =  False	 ### True = Knight / False = SolidColor
 
 ###-------------------
 ### WINDOW SIZE
@@ -30,6 +30,7 @@ aArray			= null
 aButton			= null
 workWidget		= null
 ManualGame		= null
+OldMoveColor	= null
 TitleKnightMoves		= null
 TitleKnightInvalidMove	= null
 LayoutButtonRow			= null
@@ -56,7 +57,9 @@ C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179
 
 app = new qApp 
 {
+	
 	DrawWidget()
+	NewGameStart()
 	exec()
 }
 	
@@ -97,31 +100,43 @@ Func DrawWidget()
 		###----------------------------------------------
 		### Title Top Row - Moves Count
 			
-			TitleKnightMsg = new qLabel(workWidget) 
-			{
-				setFont(new qFont("Calibri",fontsize,100,0))
-				setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-				setText("	Moves:	 ")
-			}
-			
+							
 			TitleKnightMoves = new qLineEdit(workWidget) 
 			{
+				setStyleSheet("background-color:rgb(255,255,204)")
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setAlignment( Qt_AlignVCenter)
 				setAlignment( Qt_AlignVCenter)
-				setText(" "+ nMoves)
+				setText(" Moves: "+ nMoves)
 			}	
 
 			TitleKnightInvalidMove = new qLineEdit(workWidget) 
 			{
+				setStyleSheet("background-color:rgb(255,255,204)")
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setAlignment( Qt_AlignVCenter)
 				setAlignment( Qt_AlignVCenter)
-				setText("Msg:					 ")
+				setText("Click on Square ")
 			}	
+	
+
+			OldMoveColor = new qcheckbox(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setStyleSheet("background-color:rgb(204,255,229)")
+				setText("Knight-0 / Solid-1")
+			}
+			
+			ManualGame = new qcheckbox(workWidget) 
+			{
+				setFont(new qFont("Calibri",fontsize,100,0))
+				setStyleSheet("background-color:rgb(204,255,229)")
+				setText("Manual-0 / CPU-1")
+			}
 			
 			NewGame	 = new QPushButton(workWidget) 
 			{
+				setStyleSheet("background-color:rgb(255,204,229)")
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setText(" New Game ")
 				setClickEvent("NewGameStart()")	  
@@ -146,10 +161,11 @@ Func DrawWidget()
 				setContentsMargins(0,0,0,0)
 			}
 				
-			LayoutTitleRow.AddWidget(TitleKnightMsg)	
+			
 			LayoutTitleRow.AddWidget(TitleKnightMoves)
 			LayoutTitleRow.AddWidget(TitleKnightInvalidMove)
-			
+			LayoutTitleRow.AddWidget(OldMoveColor)
+			LayoutTitleRow.AddWidget(ManualGame)
 			LayoutTitleRow.AddWidget(NewGame)		
 
 		### Layout - Add  TITLE-ROW on TOP	
@@ -219,7 +235,8 @@ Func DrawWidget()
 		show()
 	}
 
-	NewLocation(3,3)
+	###NewLocation(3,3)
+
 
 return
 
@@ -233,11 +250,11 @@ Func NewGameStart()
 
 	hSize = 8 + 2 + 2	
 	vSize = 8 + 2 + 2 
-	oldH = 0
-	oldV = 0
+	
+	NewLocation(0, 0)	### Indicate start game - User Picks Starting Square
 
 	nMoves = 0
-	TitleKnightMoves.setText(""+ nMoves)
+	TitleKnightMoves.setText(" Moves: "+ nMoves)
 
 	for h = 1 to hSize
 		for v = 1 to vSize
@@ -254,15 +271,31 @@ return
 ### Get User - Cell Clicked - Horz-Vert
 
 Func UserLeftClick(Row, Col)	
+
 	h = 0+ Row		### convert to number
 	v = 0+ Col
-	Play(h,v)
+	
+	if OldMoveColor.isChecked()
+		lTrackMoves = False
+	else
+		lTrackMoves = True
+	ok
+	
+	if ManualGame.isChecked() 
+		ComputerPlay(h,v)	### Then ===>>> Calls Play(h,v)
+	else
+		Play(h,v)
+	ok
+	
 return
 
 ###-----------------------------------------
 ### PLAYED MOVE		 
 
 Func Play(h,v)
+
+#See "Func-Play: "+h +"-"+ v +nl
+
 	if ValidMove(oldH, oldV, h, v)
 		if CheckEndOfGame() return ok
 		ClearOldMove()	
@@ -270,6 +303,7 @@ Func Play(h,v)
 		RecordNewMove()
 		if CheckEndOfGame() return ok
 	ok
+return	
 
 ###---------------------------
 ### Clear Square -- Old Move
@@ -277,27 +311,33 @@ Func Play(h,v)
 Func ClearOldMove()
 	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
 		aButton[oldh][oldv] { 
-			if lTrackMoves
-				nImageWidth  = Width() - 70
+			if lTrackMoves						### True - show Knight
+			
+				nImageWidth	 = Width()	- 70
 				nImageHeight = Height() - 70	
 				oMine = new qpixmap(Knight)
 				setIcon(new qIcon(oMine))
 				setIconSize(new qSize(nImageWidth, nImageHeight))
+				setFont(new qFont("Calibri",14,100,0))
 				setText(""+ nMoves)			
-			else 
+			else								### False show Solid Color
 				oMine = new qpixmap2(0,0)
 				setIcon(new qIcon(oMine))
-				setStylesheet("background-color:rgb(0,255,100);")
+				setStylesheet("background-color:rgb(64,128,128);")	### Color blind people have problem with rgb(0,255,100);") 
+				setFont(new qFont("Calibri",14,100,0))
+				setText(""+ nMoves)
 			ok
 		}	
 	ok
+return
 
 ###------------------------------------------
 ### Increase Moves Counter 
 
 Func RecordNewMove
 	nMoves++			
-	TitleKnightMoves.setText("" + nMoves)
+	TitleKnightMoves.setText(" Moves: " + nMoves)
+return
 
 ###------------------------------------------
 ### Check that all cells are visited
@@ -322,18 +362,26 @@ return True
 
 Func NewLocation(h,v)
 
-	aButton[h][v] { 
-		nImageWidth	 = Width()	-24
-		nImageHeight = Height() -24		
-		oMine = new qpixmap(Knight)
-		oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
-		setIcon(new qIcon(oMine))
-		setIconSize(new qSize(nImageWidth, nImageHeight))
-	}			
+	if h = 0 and V = 0
+		### Ignore
+	else
+		aButton[h][v] { 
+			nImageWidth	 = Width()	-24
+			nImageHeight = Height() -24		
+			oMine = new qpixmap(Knight)
+			oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+			setIcon(new qIcon(oMine))
+			setIconSize(new qSize(nImageWidth, nImageHeight))
+		}		
+	
+
+		aArray[h][v] = 'v'
+	ok
+
 	oldH = h
 	oldV = v
-	aArray[h][v] = 'v'
-
+return
+		
 ###------------------------------------------
 ### ValidMove are L shaped in 8 directions
 
@@ -353,6 +401,185 @@ Func ValidMove( oldH, oldV, h, v)
 		ok
 	next
 	
+	###---------------------
+	### Debug
+	if FlagValidMove = 0
+		See "InvalidMove: "+ oldH +"-"+ oldV +" >>> "+ h +"-"+ v +nl
+		
+		if oldH = 0 AND oldV = 0		### Ignore. User selects First Move
+			FlagValidMove = 1
+		ok
+	ok
+	
 return FlagValidMove
 
 ###-------------------------------------
+
+###================================================
+###================================================
+###================================================
+
+### Nestor Kuka 
+### Knights Tour version - 1  derived from: C:\euphoria\myWork\kt-main.eux 
+### which is based on the py version recipe..
+### funzt (finally) version without graphics
+
+### Load "stdlib.ring"
+
+Func ComputerPlay(horz,vert)
+
+### Possible Moves
+PosMoves = [[-2,1],[-1,2],[1,2],[2,1],[-2,-1],[-1,-2],[1,-2],[2,-1]]
+
+Size	= 8				### number rows/collons
+BoardX	= Size			### rows
+BoardY	= Size			### colls
+
+### Start field - Random generator (to test)
+Kx	= random(Size)			### funzt
+Ky	= random(Size)
+
+### critical start point (wernsdoff wrong?)
+### Kx	= 2 
+### Ky	= 2
+
+###---------------------------------
+### Randomizer works from 0 to ...
+
+if Kx = 0 Kx = Kx +1 ok		### arrays are not NULL based!
+if Ky = 0 Ky = Ky +1 ok
+
+###-------------------------------------------------------
+### OverRide Random. USER Picks Starting Square. 
+### By Calling this function ComputerPlay(horz.vert)
+
+Kx = horz -2
+Ky = vert -2
+NewLocation(Kx+2, Ky+2)		### Board to Internal
+
+see "Start-field Kx-Ky: "+Kx +"-"+ Ky +nl
+
+###-----------------------
+### Make Board Size*Size
+
+ChessB = list(BoardY) 
+for x in ChessB	 
+	x = list(BoardX)  
+next
+
+JumpCnt = 0								### Jumps-counter 
+while JumpCnt <= BoardX * BoardY
+	ChessB[Ky][Kx]	= JumpCnt +1
+	PriorityQueue	= []					### Priority Queue
+	
+	for i = 1 to Size						### Row
+		NextX = Kx + PosMoves[i][1]
+		NextY = Ky + PosMoves[i][2]	 
+		
+		if Between(NextX, 1, BoardX) and Between(NextY, 1, BoardY)	### Func ===>>>
+			if ChessB[NextY][NextX] = 0	 Counter = 0
+			
+				for j = 1 to Size			### Col
+				
+					plusNextX = NextX + PosMoves[j][1]
+					plusNextY = NextY + PosMoves[j][2]
+					
+					if Between(plusNextX, 1, BoardX) and Between(plusNextY, 1, BoardY)	### funzt
+						if ChessB[plusNextY][plusNextX] = 0	 Counter++ ok
+					ok
+				next						
+				
+				add(PriorityQueue,(Counter * 100) +i)		### format zB: 302
+			ok								
+			
+		ok									
+	next								
+	
+	###	 -- Warnsdorff�s algorithmus;  
+	###		Move to the neighbor that has min number of available neighbors
+	###		Randomization:	we could take it - or not
+	
+	if len(PriorityQueue) > 0
+		PriorityQueue = sort(PriorityQueue)					### min-value at the beginning
+		x  = PriorityQueue[1]								### min-value 
+		p  = floor(x / 100)									### Counter-value
+		m  = x % 10											### i - value (Row)
+
+		if p = m > 0 and random(10) < 5						### ring-array is not 0-based! 
+			m = m % 10			
+		elseif p < m 
+			m = m % 10		
+		ok
+
+		Kx = Kx + PosMoves[m][1]
+		Ky = Ky + PosMoves[m][2]
+		
+		###------------------------------------------
+		### Call Func PLAY for this move
+
+		Sleep(0.0001)		### Need Delay
+		
+		horz =		kx +2	### Internal move = Board +2
+		vert =		ky +2 
+		
+		SEE "Kx-Ky: "+JumpCnt +" "+ kx +"-"+ ky  SEE "  --- Play: "+horz +"-"+ vert +nl
+		Play(horz, vert)
+		
+		####------------------------------------------
+		
+	else 
+		if JumpCnt < 63
+			see "Error in Field No..: "+JumpCnt +nl+nl
+			exit
+		else
+			see "Sucess." +nl+nl
+			exit
+		ok
+	ok
+	JumpCnt++
+	
+end ### while
+
+	### END PROGRAM	  **************************************
+
+	###----------------------------------------
+	### Control-edition:
+
+	for r = 1 to Size					### row
+		for c = 1 to Size				### col
+		
+			see	 "|"					### disconnect sign
+			if ChessB[c][r] <= (Size+1)
+				see "_"					### Protected blank: old 255 (not enough)		
+				see	 ChessB[c][r]		
+			else
+				see	 ChessB[c][r]		### Get content from ChessB
+			ok
+			
+		next 
+		see "|"	+nl						### disconnect sign		
+	next   
+
+
+###----------------------------------------
+### min & max sind keywords
+
+Func Between x, mi, mx	
+	between = (x >= mi) AND (x <= mx)
+return between
+
+
+/* beispiel:
+### resultat aus kt-01.ring 
+|46|19|16|_1|30|43|14|11|
+|17|_2|45|56|15|12|29|42|
+|20|47|18|31|44|55|10|13|
+|_3|34|57|54|59|32|41|28|
+|50|21|48|33|62|27|60|_9|
+|35|_4|51|58|53|40|63|26|
+|22|49|_6|37|24|61|_8|39|
+|_5|36|23|52|_7|38|25|64|
+*/
+
+
+###=====================================
