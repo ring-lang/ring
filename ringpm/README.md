@@ -17,7 +17,7 @@ Also we will publish the live streams on (YouTube)
 	<tr>
 		<td id="lesson1">1</td>
 		<td>
-			Simple Start
+			Simple Start, We will start the project, Try to implement the Install, Remove and List commands (Initial Implementation).
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156167595515345/?type=2&video_source=user_video_tab">Facebook</a> <br />
