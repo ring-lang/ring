@@ -517,7 +517,8 @@ while JumpCnt <= BoardX * BoardY
 		###------------------------------------------
 		### Call Func PLAY for this move
 
-		Sleep(0.0001)		### Need Delay
+                app.processevents()
+		Sleep(0.1)		### Need Delay
 		
 		horz =		kx +2	### Internal move = Board +2
 		vert =		ky +2 
