@@ -31,6 +31,7 @@ aButton			= null
 workWidget		= null
 ManualGame		= null
 OldMoveColor	= null
+Slider1			= null
 TitleKnightMoves		= null
 TitleKnightInvalidMove	= null
 LayoutButtonRow			= null
@@ -50,6 +51,9 @@ C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,
 C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93); '+
 			  'border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
 
+			  
+animationDelay = 0.5	###	 Sleep 1 sec bewteen Computer Moves display
+	
 ###=============================================================================
 ###=============================================================================
 ### The shortest app function you ever seen !
@@ -116,22 +120,31 @@ Func DrawWidget()
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setAlignment( Qt_AlignVCenter)
 				setAlignment( Qt_AlignVCenter)
-				setText("Click on Square ")
+				setText("Click on Square to Start")
 			}	
-	
+
+
+		   Slider1 = new qslider(workWidget) 
+		   {
+				setorientation(Qt_Horizontal)
+				setTickInterval(50)					### Remember setting on New Game
+				setvalue(animationDelay * 100 )		### 50 / 100 = 0.5 sec delay between moves
+				setValueChangedEvent("SliderEventValueChg()")
+
+			}			
 
 			OldMoveColor = new qcheckbox(workWidget) 
 			{
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setStyleSheet("background-color:rgb(204,255,229)")
-				setText("Knight-0 / Solid-1")
+				setText("SolidColor")
 			}
 			
 			ManualGame = new qcheckbox(workWidget) 
 			{
 				setFont(new qFont("Calibri",fontsize,100,0))
 				setStyleSheet("background-color:rgb(204,255,229)")
-				setText("Manual-0 / CPU-1")
+				setText("Computer")
 			}
 			
 			NewGame	 = new QPushButton(workWidget) 
@@ -164,6 +177,7 @@ Func DrawWidget()
 			
 			LayoutTitleRow.AddWidget(TitleKnightMoves)
 			LayoutTitleRow.AddWidget(TitleKnightInvalidMove)
+			LayoutTitleRow.AddWidget(Slider1)		
 			LayoutTitleRow.AddWidget(OldMoveColor)
 			LayoutTitleRow.AddWidget(ManualGame)
 			LayoutTitleRow.AddWidget(NewGame)		
@@ -253,16 +267,38 @@ Func NewGameStart()
 	
 	NewLocation(0, 0)	### Indicate start game - User Picks Starting Square
 
+	
+	###--------------------------------------------------
+	### What were previous setting
+	
+	FlagOldMoveColor	= 0
+	FlagManualGame		= 0
+	oldAnimationDelay	= animationDelay 
+	
+	if OldMoveColor.isChecked() FlagOldMoveColor = 1  ok
+	if ManualGame.isChecked()	FlagManualGame	 = 1  ok
+
+	
 	nMoves = 0
 	TitleKnightMoves.setText(" Moves: "+ nMoves)
-
+	TitleKnightInvalidMove.setText(" Click a Square to Start")
+	
+	
 	for h = 1 to hSize
 		for v = 1 to vSize
 			aArray[h][v] = 'e'	### e - empty
 		next
 	next
 		
-	DrawWidget()
+	DrawWidget()	### ===>>>
+	
+	###--------------------------------------------------
+	### Restore previous settings
+	
+	if FlagOldMoveColor = 1 OldMoveColor.setChecked(True) ok
+	if FlagManualGame	= 1 ManualGame.setChecked(True)	  ok
+
+
 	
 return
 
@@ -298,9 +334,11 @@ Func Play(h,v)
 
 	if ValidMove(oldH, oldV, h, v)
 		if CheckEndOfGame() return ok
+		
 		ClearOldMove()	
 		NewLocation(h,v)
 		RecordNewMove()
+		
 		if CheckEndOfGame() return ok
 	ok
 return	
@@ -313,8 +351,8 @@ Func ClearOldMove()
 		aButton[oldh][oldv] { 
 			if lTrackMoves						### True - show Knight
 			
-				nImageWidth	 = Width()	- 70
-				nImageHeight = Height() - 70	
+				nImageWidth	 = Width()	- 65
+				nImageHeight = Height() - 65	
 				oMine = new qpixmap(Knight)
 				setIcon(new qIcon(oMine))
 				setIconSize(new qSize(nImageWidth, nImageHeight))
@@ -391,12 +429,12 @@ Func ValidMove( oldH, oldV, h, v)
 	PosMove	 = [[-2,-1],[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2]] 
 	
 	FlagValidMove = 0
-	TitleKnightInvalidMove.setText("Msg:  Invalid Move ")
+	TitleKnightInvalidMove.setText(" Msg:  Invalid Move ")
 	
 	for i = 1 to 8
 		if h = oldH + PosMove[i][1] AND	 v = oldV + PosMove[i][2]
 			FlagValidMove = 1
-			TitleKnightInvalidMove.setText("Msg:			   ")
+			TitleKnightInvalidMove.setText(" Msg:			   ")
 			exit
 		ok
 	next
@@ -414,6 +452,13 @@ Func ValidMove( oldH, oldV, h, v)
 return FlagValidMove
 
 ###-------------------------------------
+### Speed of Move Animation
+
+Func SliderEventValueChg()
+
+	#See "Change: "+ Slider1.value() +nl
+	animationDelay = Slider1.value() / 100
+return
 
 ###================================================
 ###================================================
@@ -517,13 +562,13 @@ while JumpCnt <= BoardX * BoardY
 		###------------------------------------------
 		### Call Func PLAY for this move
 
-                app.processevents()
-		Sleep(0.1)		### Need Delay
+		app.processevents()
+		Sleep(animationDelay)			### Need Delay - Read from Slider1
 		
 		horz =		kx +2	### Internal move = Board +2
 		vert =		ky +2 
 		
-		SEE "Kx-Ky: "+JumpCnt +" "+ kx +"-"+ ky  SEE "  --- Play: "+horz +"-"+ vert +nl
+		SEE "Kx-Ky: "+JumpCnt +" "+ kx +"-"+ ky	 SEE "	--- Play: "+horz +"-"+ vert +nl
 		Play(horz, vert)
 		
 		####------------------------------------------
