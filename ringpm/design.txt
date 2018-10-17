@@ -8,8 +8,8 @@ Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl + RingInternet] < 2 Mb
 Advices
 =======
 
-1 - (Common Cases - Not General)
-2 - (Start with simple methods)
+1 - (Start working on Common Cases First - Not General)
+2 - (Start with simple methods and simple soltions)
 
 Features	
 ========
@@ -17,7 +17,10 @@ Features
 (1) Install [Application|Library|Extension]
 	---> Install Related Packages 
 (2) Remove 
+	---> Delete the Related Package if it's not used by other packages 
 (3) Update (To New|Old Version)
+	---> Delete current version, Then install new version 
+	---> Install new version, Keep the old version too 
 (4) List of installed packages 
 
 		
