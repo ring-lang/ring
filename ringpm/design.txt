@@ -2,10 +2,16 @@
 Package Manager (RingPM)
 ========================
 
-Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl]	< 2 Mbyte
+Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl + RingInternet] < 2 Mbyte
 	   Without (Libraries|Extensions|Applications)		> 1.1 GByte
 
-Features	(Common Cases - Not General)
+Advices
+=======
+
+1 - (Common Cases - Not General)
+2 - (Start with simple methods)
+
+Features	
 ========
 
 (1) Install [Application|Library|Extension]
@@ -15,3 +21,14 @@ Features	(Common Cases - Not General)
 (4) List of installed packages 
 
 		
+How we will know about the installed packages 
+=============================================
+
+(1) Get list of "package.ring" files ---> Know installed packages from these files 
+
+	Good 	--> (1) Easy to implement
+		    (2) Easy to insert packages 
+		    (3) We don't repeat the package information 
+	Bad 	--> (1) Depend on folders structures 
+		    (2) Folders and Files processing to get the info (Slow?)
+				---> Not big problem (We have fast machines)
