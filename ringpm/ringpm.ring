@@ -140,6 +140,10 @@ func PrintInstalledPackages
 			eval(read(cFile))
 			? "Package : " + aPackageInfo[:name]
 		next 
+	# Print message if we don't have packages 
+		if len(aPackagesInfoFiles) = 0
+			? "No installed packages!"
+		ok
 
 func RemovePackage cPackageName
 	cCurrentDir = CurrentDir()
