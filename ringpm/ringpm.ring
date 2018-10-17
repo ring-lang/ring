@@ -14,8 +14,12 @@
 # The parameters of our command 	
 	aCommand	   = []
 # Errors 
-	C_ERROR_NOPACKAGENAME	= "Error(1) : No package name!"
-	C_ERROR_NOPACKAGEINFO 	= "Error(2) : No package info!"
+	C_ERROR_NOPACKAGENAME			= "Error(1) : No package name!"
+	C_ERROR_NOPACKAGEINFO 			= "Error(2) : No package info!"
+	C_ERROR_WEDONTHAVETHISPACKAGE		= "Error(3) : We don't have this package"
+	C_ERROR_PACKAGEINFOISNOTCORRECT 	= "Error(4) : Package info is not correct"
+	C_ERROR_CANTDOWNLOADTHEPACKAGEFILE 	= "Error(5) : Can't download the package file"
+
 # Folders
 	cMainPackagesFolder 	= "/packages"
 	cPackageURL		= ""
@@ -40,8 +44,9 @@ func Line
 func Instructions
 	# Don't display instruction if we have commands
 		if len(aCommand) >= 1 return ok
-	? "Usage   : ringpm <command>"
+	? "Usage   : ringpm  <command>"
 	? "Command : install <packagename>"
+	? "Command : remove  <packagename>"
 	? "Command : list"
 	
 func GetParameters
@@ -68,6 +73,9 @@ func ExecuteInstructions
 				InstallPackage(cPackageName)
 			on "list"
 				PrintInstalledPackages()
+			on "remove"
+				cPackageName = aCommand[2]
+				RemovePackage(cPackageName)
 		off
 	
 func InstallPackage cPackageName
@@ -76,7 +84,17 @@ func InstallPackage cPackageName
 	cPackageFileURL = cPackageURL + "package.ring"
 	cPackageInfo 	= Download(cPackageFileURL)
 	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
-	eval( cPackageInfo )
+	if substr(cPackageInfo,"404")
+		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
+		? "File URL : " + cPackageFileURL
+		return 
+	ok
+	try
+		eval( cPackageInfo )
+	catch
+		? C_ERROR_PACKAGEINFOISNOTCORRECT
+		return 
+	done 
 	if ! islocal(:aPackageInfo)
 		? C_ERROR_NOPACKAGEINFO
 		return 
@@ -122,3 +140,19 @@ func PrintInstalledPackages
 			eval(read(cFile))
 			? "Package : " + aPackageInfo[:name]
 		next 
+
+func RemovePackage cPackageName
+	cCurrentDir = CurrentDir()
+	# Check if we have the package 
+		cPackageFolder = "packages/"+cPackageName
+		cPath = cPackageFolder+"/package.ring"
+		if ! fexists(cPath)
+			? C_ERROR_WEDONTHAVETHISPACKAGE
+			return
+		ok
+	# Delete the package 
+		? "Deleting Package : " + cPackageName
+		chdir("packages")
+		OSDeleteFolder(cPackageName)
+	? "Operation done!"
+	chdir(cCurrentDir)
