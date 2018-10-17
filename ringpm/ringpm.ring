@@ -93,6 +93,7 @@ func InstallPackage cPackageName
 		eval( cPackageInfo )
 	catch
 		? C_ERROR_PACKAGEINFOISNOTCORRECT
+		? cPackageInfo
 		return 
 	done 
 	if ! islocal(:aPackageInfo)
@@ -101,6 +102,7 @@ func InstallPackage cPackageName
 	ok
 	DisplayPackageInformation(aPackageInfo)
 	DownloadPackageFiles(aPackageInfo,cPackageInfo)
+	DownloadRelatedPackages(aPackageInfo,cPackageInfo)
 
 func DisplayPackageInformation aPackageInfo
 	? "Package Name         : " + aPackageInfo[:name]
@@ -124,6 +126,12 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 		next
 	? "Operation done!"
 	chdir(cCurrentDir)
+
+func DownloadRelatedPackages aPackageInfo,cPackageInfo
+	for aRelatedPackage in aPackageInfo[:libs]
+		InstallPackage(aRelatedPackage[:name])
+	next
+
 
 func PrintInstalledPackages
 	# Get Files
@@ -160,3 +168,4 @@ func RemovePackage cPackageName
 		OSDeleteFolder(cPackageName)
 	? "Operation done!"
 	chdir(cCurrentDir)
+
