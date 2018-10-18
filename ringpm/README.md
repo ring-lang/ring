@@ -34,5 +34,16 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=RWlo8Eiyo0s&index=2&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson3">3</td>
+		<td>
+			We will know the difference between SystemSilent() and System() functions, Then we will work faster using Batch Files, Then We will improve the style of the test output using spaces and colors.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170776415345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0">YouTube</a>
+		</td>
+	</tr>
+
 </table>
 
