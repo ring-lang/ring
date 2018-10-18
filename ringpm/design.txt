@@ -35,3 +35,28 @@ How we will know about the installed packages
 	Bad 	--> (1) Depend on folders structures 
 		    (2) Folders and Files processing to get the info (Slow?)
 				---> Not big problem (We have fast machines)
+
+
+==================
+RingPM Executable		---> DONE
+==================
+
+sysargv list ---> Get parameters from the command line 
+
+(1) When we run the app. using ring.exe 
+
+	ring ringpm.ring  <para>
+		first para : ring.exe 
+		second para : ringpm.ring 
+		<our program parameters> 
+
+	ringpm <para> 
+		first para : ringpm.exe 
+		<our program parameters>
+
+(2) ringpm.exe ----> Will need runtime files 
+			ring.dll	---> We can avoid it using -static option in Ring2EXE
+			libCurl dlls
+	ring/bin folder (Beside the runtime files)
+
+	We have ring/bin in System PATH	
