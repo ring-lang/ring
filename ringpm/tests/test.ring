@@ -27,11 +27,13 @@ C_CURRENT_FOLDER	= "current"
 nTestMode	=	 C_MODE_TESTING
 
 
+cOutputFolder = "tests/"
+
 switch nTestMode 
 	on C_MODE_UPDATETESTS
-		cOutputFolder = "tests/correct"
+		cOutputFolder += C_CORRECT_FOLDER
 	on C_MODE_TESTING
-		cOutputFolder = "tests/current"
+		cOutputFolder += C_CURRENT_FOLDER
 off
 
 cDir = CurrentDir()
