@@ -6,7 +6,7 @@
 
 aTests = [
 	[ :name = "Test Printing the Program Name" ,
-	  :Command = "ringpm.exe" ],
+	  :Command = "ringpm" ],
 	[ :name = "Test Installing the First Package" ,
 	  :Command = "ringpm install firstpackage" ] ,
 	[ :name = "Test Listing the Packages after installing the first package" ,

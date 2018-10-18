@@ -19,6 +19,10 @@ Advices
 				---> Manage Complexity
 4 - Testing is important ---> Start writing tests in early stages as possible 
 5 - Select good names for (File, Functions, Variables, etc)	
+6 - Using (ring filename.ring) is faster for development 
+	---> We move from coding to execution (fast)
+	But writing the file name is slow
+	---> Batch Files is faster 
 
 Features	
 ========

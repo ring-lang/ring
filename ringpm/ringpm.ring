@@ -4,9 +4,12 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-# Load Libraries 
+# Load Global Libraries 
 	load "stdlibcore.ring"
 	load "internetlib.ring"		# Download() Function
+
+# Load Local Libraries 
+	load "cuilib.ring"
 
 # Load Application Files 
 	load "globals.ring"

@@ -1,4 +1,6 @@
-Installing package   : thirdpackage
+
+B:\ring\ringpm>echo off 
+Installing package   : thirdpackage
 Package Name         : The Third Package
 Package Description  : Our Third package using the RingPM
 Package Developer    : Mahmoud Fayed

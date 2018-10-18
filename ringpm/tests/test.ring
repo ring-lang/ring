@@ -16,10 +16,17 @@
 	We may need a lot of tests!
 */
 
-load "stdlibcore.ring"
-load "globals.ring"
-load "tests.ring"
-load "../getpara.ring"
+# Load Libraries
+	load "stdlibcore.ring"
+	load "consolecolors.ring"
+# Load Local Libraries 
+	load "../cuilib.ring"
+
+
+# Load Files
+	load "globals.ring"
+	load "tests.ring"
+	load "../getpara.ring"
 
 SelectMode()
 SetTestingMode()
@@ -39,13 +46,16 @@ func SelectMode
 
 func RunTests()	
 	nMax = len(aTests)
+	line()
 	? "Tests Count : " + nMax
+	line()
 	for x = 1 to nMax
 		aTest = aTests[x]
 		RunTest(x,aTest)
-		ShowTestResult(x,aTest)
+		ShowTestResult(x,aTest)		
 	next
-	
+	? "" line()	
+
 func SetTestingMode
 	switch nTestMode 
 		on C_MODE_UPDATETESTS
@@ -55,7 +65,8 @@ func SetTestingMode
 	off
 	
 func RunTest nIndex,aTest
-	See nl + "Test ("+nIndex+") : " + aTest[:Name] 
+	See nl + Width("Test ("+nIndex+") ",11) + " : " + 
+		 Width(aTest[:Name],65)
 	cDir = CurrentDir()
 	ChDir("../")
 		System(aTest[:Command]+" > "+cOutputFolder+
@@ -74,9 +85,9 @@ func ShowTestResult  nIndex,aTest
 		ok
 		see " --- " 
 		if read(cFileNameCorrect) = read(cFileNameCurrent)
-			See "PASS"
+			style("PASS",:YellowBlack)
 		else 
-			See "FAIL"
+			style("FAIL",:WhiteBlue)
 		ok
 	ok
-	
+

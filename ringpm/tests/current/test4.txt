@@ -1,4 +1,6 @@
-Installing package   : secondpackage
+
+B:\ring\ringpm>echo off 
+Installing package   : secondpackage
 Package Name         : The Second Package
 Package Description  : Our second package using the RingPM
 Package Developer    : Mahmoud Fayed

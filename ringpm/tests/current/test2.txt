@@ -1,4 +1,6 @@
-Installing package   : firstpackage
+
+B:\ring\ringpm>echo off 
+Installing package   : firstpackage
 Package Name         : The First Package
 Package Description  : Our first package using the RingPM
 Package Developer    : Mahmoud Fayed

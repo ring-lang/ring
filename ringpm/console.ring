@@ -7,13 +7,10 @@
 func Title
 	# Don't display instruction if we have commands
 		if len(aCommand) >= 1 return ok
-	Line()
+	Line70()
 	? "Ring Package Manager (RingPM)" 
 	? "2018, Mahmoud Fayed <msfclipper@yahoo.com>"
-	Line()
-
-func Line
-	? copy("=",70)
+	Line70()
 
 func Commands
 	# Don't display instruction if we have commands
