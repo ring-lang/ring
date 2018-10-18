@@ -16,7 +16,9 @@ Advices
 		(2) You will Enjoy more!
 	Using (ringpm) instead of (ring ringpm.ring) ---> Faster 
 	Using different files 	---> More Organization 
-
+				---> Manage Complexity
+4 - Test is important ---> Start writing tests as easly as possible 
+5 - Select good names for (File, Functions, Variables, etc)	
 
 Features	
 ========
