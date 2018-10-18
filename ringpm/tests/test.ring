@@ -19,9 +19,23 @@
 load "stdlibcore.ring"
 load "globals.ring"
 load "tests.ring"
+load "../getpara.ring"
 
+SelectMode()
 SetTestingMode()
 RunTests()
+
+func SelectMode
+	aCommand = GetParameters("test")
+	if len(aCommand) >= 1
+		cCommand = lower(trim(aCommand[1]))
+		switch cCommand 
+			on "test"
+				nTestMode = C_MODE_TESTING
+			on "update"
+				nTestMode = C_MODE_UPDATETESTS
+		off
+	ok
 
 func RunTests()	
 	nMax = len(aTests)
