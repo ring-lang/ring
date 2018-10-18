@@ -17,37 +17,40 @@
 */
 
 load "stdlibcore.ring"
+load "globals.ring"
+load "tests.ring"
 
-C_MODE_UPDATETESTS	= 1
-C_MODE_TESTING		= 2
-C_CORRECT_FOLDER 	= "correct"
-C_CURRENT_FOLDER	= "current"
+SetTestingMode()
+for x = 1 to len(aTests)
+	aTest = aTests[x]
+	RunTest(x,aTest)
+	ShowTestResult(x,aTest)
+next
 
+func SetTestingMode
+	switch nTestMode 
+		on C_MODE_UPDATETESTS
+			cOutputFolder += C_CORRECT_FOLDER
+		on C_MODE_TESTING
+			cOutputFolder += C_CURRENT_FOLDER
+	off
+	
+func RunTest nIndex,aTest
+	cDir = CurrentDir()
+	ChDir("../")
+		System(aTest[:Command]+" > "+cOutputFolder+
+				"/test"+nIndex+".txt")
+	chDir(cDir)
 
-nTestMode	=	 C_MODE_TESTING
-
-
-cOutputFolder = "tests/"
-
-switch nTestMode 
-	on C_MODE_UPDATETESTS
-		cOutputFolder += C_CORRECT_FOLDER
-	on C_MODE_TESTING
-		cOutputFolder += C_CURRENT_FOLDER
-off
-
-cDir = CurrentDir()
-ChDir("../")
-	System("ringpm.exe > "+cOutputFolder+"/test1.txt")
-chDir(cDir)
-
-if nTestMode = C_MODE_TESTING
-	See "Test (1) --- " 
-	cFileNameCorrect = C_CORRECT_FOLDER+"/test1.txt"
-	cFileNameCurrent = C_CURRENT_FOLDER +"/test1.txt"
-	if read(cFileNameCorrect) = read(cFileNameCurrent)
-		? "PASS"
-	else 
-		? "FAIL"
+func ShowTestResult  nIndex,aTest
+	if nTestMode = C_MODE_TESTING
+		See "Test ("+nIndex+") --- " 
+		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
+		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
+		if read(cFileNameCorrect) = read(cFileNameCurrent)
+			? "PASS"
+		else 
+			? "FAIL"
+		ok
 	ok
-ok
+	
