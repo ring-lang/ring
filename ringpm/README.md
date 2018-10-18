@@ -37,7 +37,7 @@ Also we will publish the live streams on (YouTube)
 	<tr>
 		<td id="lesson3">3</td>
 		<td>
-			We will know the difference between SystemSilent() and System() functions, Then we will work faster using Batch Files, Then We will improve the style of the test output using spaces and colors.
+			We will know the difference between SystemSilent() and System() functions, Then we will work faster using Batch Files, Then We will improve the style of the tests output using spaces and colors.
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170776415345/?type=2&video_source=user_video_tab">Facebook</a> <br />

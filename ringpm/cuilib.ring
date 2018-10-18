@@ -8,8 +8,9 @@ func Width cString,nWidth
 	# Accept String or Number (Will be converted to a String)
 		if isNumber(cString) cString = "" + cString  ok
 	# Add Spaces
-		if len(cString) < nWidth
-			cString += Copy(" ",nWidth-len(cString))
+		nMax = len(cString)
+		if nMax < nWidth
+			cString += Copy(" ",nWidth-nMax)
 		ok
 	return cString 
 
@@ -21,7 +22,6 @@ func Line90
 
 func Line70
 	? copy("=",70)
-
 
 func style cText,nStyle
 	switch nStyle
