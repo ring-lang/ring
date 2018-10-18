@@ -12,7 +12,7 @@ C_MODE_TESTING		= 2
 C_CORRECT_FOLDER 	= "correct"
 C_CURRENT_FOLDER	= "current"
 
-nTestMode	=	 C_MODE_TESTING
+nTestMode		= C_MODE_UPDATETESTS
 
-cOutputFolder = "tests/"
+cOutputFolder 		= "tests/"
 

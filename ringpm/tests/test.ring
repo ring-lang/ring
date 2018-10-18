@@ -41,6 +41,7 @@ func SetTestingMode
 	off
 	
 func RunTest nIndex,aTest
+	See nl + "Test ("+nIndex+") : " + aTest[:Name] 
 	cDir = CurrentDir()
 	ChDir("../")
 		System(aTest[:Command]+" > "+cOutputFolder+
@@ -49,7 +50,6 @@ func RunTest nIndex,aTest
 
 func ShowTestResult  nIndex,aTest
 	if nTestMode = C_MODE_TESTING
-		See "Test ("+nIndex+") : " + aTest[:Name] 
 		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
 		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
 		if ! fexists(cFileNameCorrect)
@@ -60,9 +60,9 @@ func ShowTestResult  nIndex,aTest
 		ok
 		see " --- " 
 		if read(cFileNameCorrect) = read(cFileNameCurrent)
-			? "PASS"
+			See "PASS"
 		else 
-			? "FAIL"
+			See "FAIL"
 		ok
 	ok
 	
