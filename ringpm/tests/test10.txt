@@ -1,2 +1,0 @@
-Deleting Package : secondpackage
-Operation done!
