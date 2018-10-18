@@ -15,7 +15,7 @@
 	load "commands.ring"
 
 func Main 
-	GetParameters()
+	aCommand = GetParameters("ringpm")
 	Title()
 	Commands()	
 	ExecuteCommands()

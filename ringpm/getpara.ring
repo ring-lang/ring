@@ -4,21 +4,22 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-func GetParameters
+func GetParameters cProgramName
 	aPara = sysargv
 	cEXEFileName = JustFileName(exefilename())
 	# Windows ---> ring.exe | ringw.exe 
 	# Linux | macOS --->  ring 
 	# Remove .exe from the file name 
 		cEXEFileName = substr(cEXEFileName,".exe","")
-	if cEXEFileName != "ringpm"
+	if cEXEFileName != cProgramName
 		nStart = 3
 	else			# ringpm.exe 
 		nStart = 2
 	ok
+	aList = []
 	if len(aPara) >= nStart
 		for x = nStart to len(aPara)
-			aCommand + aPara[x]
+			aList + aPara[x]
 		next
 	ok
-	
+	return aList
