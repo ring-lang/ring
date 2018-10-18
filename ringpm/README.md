@@ -24,5 +24,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=EDyrgo-0BIg&index=1&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson2">2</td>
+		<td>
+			Update the program to support working as executable file, Separate project to many files and Write some tests.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170147090345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=RWlo8Eiyo0s&index=2&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
