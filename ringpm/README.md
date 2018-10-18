@@ -41,7 +41,7 @@ Also we will publish the live streams on (YouTube)
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170776415345/?type=2&video_source=user_video_tab">Facebook</a> <br />
-			<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0">YouTube</a>
+			<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=3">YouTube</a>
 		</td>
 	</tr>
 
