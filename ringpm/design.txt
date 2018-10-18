@@ -10,6 +10,13 @@ Advices
 
 1 - (Start working on Common Cases First - Not General)
 2 - (Start with simple methods and simple soltions)
+3 - (Don't keep attacking the main problem (Development) )
+ 	---> After each step - Stop and revise your work first!
+		(1) Your next steps will be faster 
+		(2) You will Enjoy more!
+	Using (ringpm) instead of (ring ringpm.ring) ---> Faster 
+	Using different files 	---> More Organization 
+
 
 Features	
 ========
