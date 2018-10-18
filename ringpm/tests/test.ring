@@ -21,12 +21,17 @@ load "globals.ring"
 load "tests.ring"
 
 SetTestingMode()
-for x = 1 to len(aTests)
-	aTest = aTests[x]
-	RunTest(x,aTest)
-	ShowTestResult(x,aTest)
-next
+RunTests()
 
+func RunTests()	
+	nMax = len(aTests)
+	? "Tests Count : " + nMax
+	for x = 1 to nMax
+		aTest = aTests[x]
+		RunTest(x,aTest)
+		ShowTestResult(x,aTest)
+	next
+	
 func SetTestingMode
 	switch nTestMode 
 		on C_MODE_UPDATETESTS
@@ -44,9 +49,16 @@ func RunTest nIndex,aTest
 
 func ShowTestResult  nIndex,aTest
 	if nTestMode = C_MODE_TESTING
-		See "Test ("+nIndex+") --- " 
+		See "Test ("+nIndex+") : " + aTest[:Name] 
 		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
 		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
+		if ! fexists(cFileNameCorrect)
+			? ""
+			? C_ERROR_FILEDOESNOTEXIST + " - File Name : " +
+					 cFileNameCorrect 
+			return 
+		ok
+		see " --- " 
 		if read(cFileNameCorrect) = read(cFileNameCurrent)
 			? "PASS"
 		else 
