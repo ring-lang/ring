@@ -1,0 +1,118 @@
+/*
+	Title :	The Ring Package Manager 
+	Date  : 2018.10.18
+	Author: Mahmoud Fayed <msfclipper@yahoo.com>
+*/
+
+func ExecuteCommands
+	# Check if we don't have commands
+		if len(aCommand) < 1 return ok
+	# The command is not case-sensitive
+		cCommand = lower(trim(aCommand[1]))
+	# Execute Commands
+		switch cCommand 
+			on "install"
+				if len(aCommand) < 2 
+					? C_ERROR_NOPACKAGENAME
+					return 
+				ok 
+				cPackageName = aCommand[2]
+				InstallPackage(cPackageName)
+			on "list"
+				PrintInstalledPackages()
+			on "remove"
+				cPackageName = aCommand[2]
+				RemovePackage(cPackageName)
+		off
+	
+func InstallPackage cPackageName
+	? "Installing package   : " + cPackageName
+	cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
+	cPackageFileURL = cPackageURL + "package.ring"
+	cPackageInfo 	= Download(cPackageFileURL)
+	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
+	if substr(cPackageInfo,"404")
+		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
+		? "File URL : " + cPackageFileURL
+		return 
+	ok
+	try
+		eval( cPackageInfo )
+	catch
+		? C_ERROR_PACKAGEINFOISNOTCORRECT
+		? cPackageInfo
+		return 
+	done 
+	if ! islocal(:aPackageInfo)
+		? C_ERROR_NOPACKAGEINFO
+		return 
+	ok
+	DisplayPackageInformation(aPackageInfo)
+	DownloadPackageFiles(aPackageInfo,cPackageInfo)
+	DownloadRelatedPackages(aPackageInfo,cPackageInfo)
+
+func DisplayPackageInformation aPackageInfo
+	? "Package Name         : " + aPackageInfo[:name]
+	? "Package Description  : " + aPackageInfo[:Description]
+	? "Package Developer    : " + aPackageInfo[:developer]
+	? "Package License      : " + aPackageInfo[:license]
+
+func DownloadPackageFiles aPackageInfo,cPackageInfo
+	cCurrentDir = CurrentDir()
+	# Create the package folder
+		chdir("packages")
+		OSCreateOpenFolder(aPackageInfo[:folder])
+	# Write the Package File 	
+		write("package.ring",cPackageInfo)
+	# Download package files 
+		for cFileName in aPackageInfo[:Files]
+			? "Download File : " + cFileName 
+			cFileURL 	= cPackageURL + cFileName
+			cFileContent 	= Download(cFileURL)
+			write(cFileName,cFileContent)
+		next
+	? "Operation done!"
+	chdir(cCurrentDir)
+
+func DownloadRelatedPackages aPackageInfo,cPackageInfo
+	for aRelatedPackage in aPackageInfo[:libs]
+		InstallPackage(aRelatedPackage[:name])
+	next
+
+
+func PrintInstalledPackages
+	# Get Files
+		aFiles 			= ListAllFiles("packages","ring")
+	# Get Package Info Files
+		aPackagesInfoFiles 	= []
+		for cFile in aFiles
+			if JustFileName(cFile) = "package.ring"
+				aPackagesInfoFiles + cFile 
+			ok
+		next
+	# Print Packages 
+		for cFile in aPackagesInfoFiles 
+			eval(read(cFile))
+			? "Package : " + aPackageInfo[:name]
+		next 
+	# Print message if we don't have packages 
+		if len(aPackagesInfoFiles) = 0
+			? "No installed packages!"
+		ok
+
+func RemovePackage cPackageName
+	cCurrentDir = CurrentDir()
+	# Check if we have the package 
+		cPackageFolder = "packages/"+cPackageName
+		cPath = cPackageFolder+"/package.ring"
+		if ! fexists(cPath)
+			? C_ERROR_WEDONTHAVETHISPACKAGE
+			return
+		ok
+	# Delete the package 
+		? "Deleting Package : " + cPackageName
+		chdir("packages")
+		OSDeleteFolder(cPackageName)
+	? "Operation done!"
+	chdir(cCurrentDir)
+
