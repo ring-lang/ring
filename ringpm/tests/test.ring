@@ -13,7 +13,7 @@
 	5 - Listing Packages after install 
 	6 - Listing Packages after remove 
 	.....
-	We may need a lot tests!
+	We may need a lot of tests!
 */
 
 load "stdlibcore.ring"

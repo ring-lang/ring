@@ -27,7 +27,7 @@ Also we will publish the live streams on (YouTube)
 	<tr>
 		<td id="lesson2">2</td>
 		<td>
-			Update the program to support working as executable file, Separate project to many files and Write some tests.
+			Update the program to support working as executable file, Separate the project to many source code files and write some tests.
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170147090345/?type=2&video_source=user_video_tab">Facebook</a> <br />
