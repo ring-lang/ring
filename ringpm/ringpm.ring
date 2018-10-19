@@ -17,6 +17,7 @@
 	load "core/getpara.ring"
 	load "core/commands.ring"
 	load "core/version.ring"
+	load "core/folders.ring"
 
 func Main 
 	aCommand = GetParameters("ringpm")
