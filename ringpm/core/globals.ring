@@ -20,3 +20,6 @@
 # Folders
 	cMainPackagesFolder 	= "/packages"
 	cPackageURL		= ""
+
+# Version 
+	C_VERSIONSECTIONSIZE	= 3
