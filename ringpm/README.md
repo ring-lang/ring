@@ -54,5 +54,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=uBToCd6bYeE&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=4">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson5">5</td>
+		<td>
+			We will create special source code files for the Version and Folder functions, Also we will support installing packages that contains folders and sub folders.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156172625970345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=l3QebGntG4g&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=5">YouTube</a>
+		</td>
+	</tr>
 </table>
 
