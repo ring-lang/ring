@@ -10,6 +10,7 @@
 	C_ERROR_WEDONTHAVETHISPACKAGE		= "Error(3) : We don't have this package"
 	C_ERROR_PACKAGEINFOISNOTCORRECT 	= "Error(4) : Package info is not correct"
 	C_ERROR_CANTDOWNLOADTHEPACKAGEFILE 	= "Error(5) : Can't download the package file"
+	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
 
 # Where we will store our pacakge 
 	cPackagesLocations = "https://raw.githubusercontent.com/MahmoudFayed"
