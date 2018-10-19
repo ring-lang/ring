@@ -44,6 +44,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=3">YouTube</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson4">4</td>
+		<td>
+			We will see the RingConsoleColors Document, Organize the project to more folders, Add the RingVersion attribute to the Package File, Then we will check the Ring Version when we install new packages.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156172518305345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=uBToCd6bYeE&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=4">YouTube</a>
+		</td>
+	</tr>
 </table>
 
