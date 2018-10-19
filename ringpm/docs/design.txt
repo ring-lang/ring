@@ -26,7 +26,7 @@ Advices
 7 - Before you start programming, Try to be in good mode 
 	because most of **hard bugs** is a result of bad mode 
 		1 - Social Problem 
-		2 - Fixing Bug (Not Happy)
+		2 - Fixing Bug (While You are not Happy)
 		3 - Deadline 
 	Good Mode (Happy) ---> Careful - Focus - Better Code 
 
