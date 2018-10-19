@@ -5,9 +5,9 @@
 */
 
 # Load Commands 
-	load "commands/install.ring"
-	load "commands/list.ring"
-	load "commands/remove.ring"
+	load "../commands/install.ring"
+	load "../commands/list.ring"
+	load "../commands/remove.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands

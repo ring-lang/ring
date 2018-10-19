@@ -20,13 +20,13 @@
 	load "stdlibcore.ring"
 	load "consolecolors.ring"
 # Load Local Libraries 
-	load "../cuilib.ring"
+	load "../cuilib/cuilib.ring"
 
 
 # Load Files
 	load "globals.ring"
 	load "tests.ring"
-	load "../getpara.ring"
+	load "../core/getpara.ring"
 
 SelectMode()
 SetTestingMode()

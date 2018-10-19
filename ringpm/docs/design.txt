@@ -23,6 +23,12 @@ Advices
 	---> We move from coding to execution (fast)
 	But writing the file name is slow
 	---> Batch Files is faster 
+7 - Before you start programming, Try to be in good mode 
+	because most of **hard bugs** is a result of bad mode 
+		1 - Social Problem 
+		2 - Fixing Bug (Not Happy)
+		3 - Deadline 
+	Good Mode (Happy) ---> Careful - Focus - Better Code 
 
 Features	
 ========

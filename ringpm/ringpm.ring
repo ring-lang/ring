@@ -9,13 +9,13 @@
 	load "internetlib.ring"		# Download() Function
 
 # Load Local Libraries 
-	load "cuilib.ring"
+	load "cuilib/cuilib.ring"
 
 # Load Application Files 
-	load "globals.ring"
-	load "console.ring"
-	load "getpara.ring"
-	load "commands.ring"
+	load "core/globals.ring"
+	load "core/console.ring"
+	load "core/getpara.ring"
+	load "core/commands.ring"
 
 func Main 
 	aCommand = GetParameters("ringpm")
