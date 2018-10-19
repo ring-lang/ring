@@ -12,3 +12,4 @@ Features
 
 * Check the required Ring  version before installing the package 	DONE
 
+* Support packages with folders and sub folders 			DONE
