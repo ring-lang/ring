@@ -390,9 +390,9 @@
 
 <table>
 	<tr>	
-		<th>Index</th>
-		<th>Content</th>
-		<th>Links</th>
+		<th>رقم الدرس</th>
+		<th>المحتوي</th>
+		<th>روابط المشاهدة</th>
 	</tr>
 	<tr>
 		<td id="pmlesson1">1</td>
