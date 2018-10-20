@@ -869,7 +869,7 @@ Hello, World!
 		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
 		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Fork me on GitHub</a>
 			<br><br>
-		  The next screen shots from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h) and ring_list.ssf file (Generate ring_list.c and ring_list.h) 		  
+		  The next screen shots for the ring_vm.ssf (Generate ring_vm.c and ring_vm.h) and ring_list.ssf (Generate ring_list.c and ring_list.h) files.
 		  <br><br>
 		  
 	<div class="col-xs-12">
