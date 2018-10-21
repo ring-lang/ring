@@ -1,0 +1,129 @@
+![Ring](http://ring-lang.sf.net/thering.jpg)
+
+# Ring Programming Language
+
+## Building using Microsoft Windows 
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
+	
+### Build Ring (Compiler/VM)
+	
+	cd ring/src
+	buildvc.bat
+	buildvcw.bat
+
+### Build Ring2EXE 
+
+	cd ../ring2exe
+	buildring2exe.bat 
+	
+### Build RingODBC
+	
+	cd ../extensions/ringodbc
+	buildvc.bat
+
+### Build RingMySQL
+	
+	cd ../extensions/ringmysql
+	buildvc.bat
+
+### Build RingSQLite
+	
+	cd ../extensions/ringsqlite
+	buildvc.bat
+
+### Build RingPostgreSQL
+	
+	cd ../extensions/ringpostgresql
+	gencode.bat
+	buildvc.bat
+
+### Build RingOpenSSL
+	
+	cd ../extensions/ringopenssl
+	buildvc.bat
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
+
+### Build RingMurmurHash
+	
+	cd ../extensions/ringmurmurhash
+	buildvc.bat
+	
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	gencode.bat
+	buildvc.bat
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	gencode.bat
+	buildvc.bat
+
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+	
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
+### Generate RingLibuv Source Code and Build 
+	
+	cd ../extensions/ringlibuv
+	gencode.bat
+	buildvc.bat
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	gencode.bat
+	buildvc.bat
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.bat
+	buildvc.bat
+	
+### Generate RingQt Source Code and Build
+
+	Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
+	
+	cd ../extensions/ringqt
+	gencode.bat
+	buildmingw32.bat
+
+### To be able to call ring from any folder 
+	
+	cd ../../bin
+	install.bat
+	
+#### Add Ring/bin to System path
+
+	Hit "windows key".
+	Type "Edit the System environment variables"
+	Select "Advanced" tab.
+	Click on "Enviroment Variables..."
+	Double click on "Path"
+	Add at the end the new path separated by semicolon. 
+		;C:\Ring\Bin
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	ring rnote.ring

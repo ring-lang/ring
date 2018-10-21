@@ -30,7 +30,7 @@ The next steps explains building using scripts.
 
 We provide instructions for building on the next platforms :-
 
-(1) Microsoft Windows 
+(1) [Microsoft Windows](README_Windows.md)
 
 (2) Ubuntu Linux
 
