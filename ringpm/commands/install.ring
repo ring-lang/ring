@@ -16,11 +16,14 @@ ok
 func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())
 
+func DownloadFile cURL
+	return Download(AddTimeStamp(cURL))
+
 func InstallPackage cPackageName
 	? "Installing package   : " + cPackageName
 	cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
 	cPackageFileURL = cPackageURL + "package.ring"
-	cPackageInfo 	= Download(AddTimeStamp(cPackageFileURL))
+	cPackageInfo 	= DownloadFile(cPackageFileURL)
 	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
 	if substr(cPackageInfo,"404")
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
@@ -66,7 +69,7 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 		for cFileName in aPackageInfo[:Files]
 			? "Download File : " + cFileName 
 			cFileURL 	= cPackageURL + cFileName
-			cFileContent 	= Download(AddTimeStamp(cFileURL))
+			cFileContent 	= DownloadFile(cFileURL)
 			cDir  = CurrentDir()
 			CreateSubFolders(cFileName)
 			chdir(cDir)
