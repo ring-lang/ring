@@ -51,7 +51,7 @@ void ring_vm_curl_download ( void *pPointer )
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,ring_getcurldata);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA,pString);
 		/* Set The Header */
-		list = curl_slist_append(list, "Cache-Control: no-cache");
+		list = curl_slist_append(list, "Cache-Control: max-age=0");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER,list);
 		res = curl_easy_perform(curl);
 		/* Free List */
