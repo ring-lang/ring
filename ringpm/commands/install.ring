@@ -13,12 +13,14 @@ if isMainSourceFile()
 	? ProcessVersion("1.9") > ProcessVersion("1.10")	# 0 (False)
 ok
 
+func AddTimeStamp cURL
+	return cURL + "?ts="+EpochTime(date(),time())
 
 func InstallPackage cPackageName
 	? "Installing package   : " + cPackageName
 	cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
 	cPackageFileURL = cPackageURL + "package.ring"
-	cPackageInfo 	= Download(cPackageFileURL)
+	cPackageInfo 	= Download(AddTimeStamp(cPackageFileURL))
 	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
 	if substr(cPackageInfo,"404")
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
@@ -64,7 +66,7 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 		for cFileName in aPackageInfo[:Files]
 			? "Download File : " + cFileName 
 			cFileURL 	= cPackageURL + cFileName
-			cFileContent 	= Download(cFileURL)
+			cFileContent 	= Download(AddTimeStamp(cFileURL))
 			cDir  = CurrentDir()
 			CreateSubFolders(cFileName)
 			chdir(cDir)
