@@ -67,3 +67,19 @@ sysargv list ---> Get parameters from the command line
 	ring/bin folder (Beside the runtime files)
 
 	We have ring/bin in System PATH	
+
+=================================
+Adding branch name to the Path?
+=================================
+	
+	(1) Add the branch name to the file System 
+		b:\ring\ringpm\local/firstpackage/master/package.ring
+
+	(2) Update Code 	(Better Decision)
+		2.1 - Don't add the Master folder to the Path
+		2.2 - Use (git command) to change the branch 
+
+			git checkout master 
+			git checkout firstpackage-1.1-branch 
+
+
