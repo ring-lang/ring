@@ -8,6 +8,7 @@
 	load "../commands/install.ring"
 	load "../commands/list.ring"
 	load "../commands/remove.ring"
+	load "../commands/update.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -16,13 +17,14 @@ func ExecuteCommands
 		cCommand = lower(trim(aCommand[1]))
 	# Execute Commands
 		switch cCommand 
-			on "install"
-				if len(aCommand) < 2 
-					? C_ERROR_NOPACKAGENAME
-					return 
-				ok 
-				cPackageName = aCommand[2]
+			on "install"				
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" return ok
 				InstallPackage(cPackageName)
+			on "update"
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" return ok
+				UpdatePackage(cPackageName)				
 			on "list"
 				PrintInstalledPackages()
 			on "remove"
@@ -30,6 +32,11 @@ func ExecuteCommands
 				RemovePackage(cPackageName)
 		off
 	
-
+func GetPackageNameFromParameters
+	if len(aCommand) < 2 
+		? C_ERROR_NOPACKAGENAME
+		return ""
+	ok 
+	return aCommand[2]
 
 

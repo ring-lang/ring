@@ -12,7 +12,7 @@
 	C_ERROR_CANTDOWNLOADTHEPACKAGEFILE 	= "Error(5) : Can't download the package file"
 	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
 	C_ERROR_PACKAGEALREADYEXISTS		= "Error(7) : Package Already Exists"
-
+	C_ERROR_NOUPDATES 			= "Error(8) : No updates for this package"
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 

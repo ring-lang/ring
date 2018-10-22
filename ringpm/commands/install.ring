@@ -46,12 +46,16 @@ func GetPackageFile cPackageName
 	return cPackageInfo
 
 func InstallPackage cPackageName
-	if fexists("packages/"+cPackageName+"/package.ring")
-		? C_ERROR_PACKAGEALREADYEXISTS
-		? "Package Name : " + cPackageName 
-		return 
-	ok
+	# If we have the package ---> Return (Don't install it)
+		if fexists("packages/"+cPackageName+"/package.ring")
+			? C_ERROR_PACKAGEALREADYEXISTS
+			? "Package Name : " + cPackageName 
+			return 
+		ok
 	? "Installing package   : " + cPackageName
+	GetPackage(cPackageName)
+
+func GetPackage cPackageName
 	cPackageInfo = GetPackageFile(cPackageName)
 	if cPackageInfo = "" return ok
 	try
