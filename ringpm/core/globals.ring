@@ -11,6 +11,8 @@
 	C_ERROR_PACKAGEINFOISNOTCORRECT 	= "Error(4) : Package info is not correct"
 	C_ERROR_CANTDOWNLOADTHEPACKAGEFILE 	= "Error(5) : Can't download the package file"
 	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
+	C_ERROR_PACKAGEALREADYEXISTS		= "Error(7) : Package Already Exists"
+
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
