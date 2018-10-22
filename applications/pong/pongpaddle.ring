@@ -1,3 +1,9 @@
+/*
+* Name: 		PongPaddle
+* Last update:	22/10/2018 - 8:42 PM
+* Author: 		JustGo
+*/
+
 class PongPaddle
 	mouseControle = true
 	botControle = false
@@ -14,7 +20,6 @@ class PongPaddle
 	
 	func Move yMouse, oGame
 		if botControle = false
-			// NEW method
 			y = clamp(yMouse, height/2, oGame.screen_h - height/2) - height/2
 		else
 			for counter = 1 to botSpeed

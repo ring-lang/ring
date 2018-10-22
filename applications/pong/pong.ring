@@ -4,12 +4,12 @@
 * Author: 		JustGo
 */
 
-Ball 		= NULL
-Paddle 		= NULL
-PaddleBot 	= NULL
-GameOver 	= NULL
-GameRunning = NULL
-GameEndText = NULL
+Ball		= NULL
+Paddle		= NULL
+PaddleBot	= NULL
+GameOver	= NULL
+GameRunning	= NULL
+GameEndText	= NULL
 
 load "gameengine.ring"
 load "pongpaddle.ring"
@@ -19,8 +19,8 @@ func main
 
 	GameObject = new Game
 	Ball = new PongBall { x = GameObject.screen_w/2 y = GameObject.screen_h/2 }
-	Paddle = new PongPaddle{ mouseControle = false y = GameObject.screen_h/2 - height/2 }
-	PaddleBot = new PongPaddle{ botControle = true x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED}
+	Paddle = new PongPaddle { mouseControle = false y = GameObject.screen_h/2 - height/2 }
+	PaddleBot = new PongPaddle { botControle = true x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
 
 	GameRunning = true
 	GameOver = False
@@ -32,7 +32,7 @@ func main
 		Object {
 			draw = func GameObject, Self {
 				if GameRunning = True
-					Self{
+					Self {
 						Ball.Draw()
 						Paddle.Draw()
 						PaddleBot.Draw()
@@ -97,7 +97,7 @@ func main
 					elseif nkey = key_space and GameOver = true
 						GameRunning = true
 						GameOver = False
-						Ball.speed = 2
+						Ball.speed = Ball.initSpeed
 						Ball.stop = false
 						Ball.x = screen_w/2
 						Ball.y = screen_h/2
