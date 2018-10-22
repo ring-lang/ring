@@ -1,16 +1,17 @@
 /*
 * Name: 		Ball
-* Last update:	21/10/2018 - 8:42 PM
+* Last update:	22/10/2018 - 8:42 PM
 * Author: 		JustGo
 */
 
 class pongBall
 	x = 0
 	y = 0
-	xVel = 1
-	yVel = 1
-	rad = 25
-	speed = 2
+	xVel = 0.5
+	yVel = 0.5
+	rad = 10
+	initSpeed = 3
+	speed = initSpeed
 	stop = false
 	
 	func Move oGame, pPad, bPad
@@ -24,7 +25,7 @@ class pongBall
 				yVel = -yVel
 			ok
 			
-			if Touched(pPad) or TouchedBot(pPad , bPad, oGame)
+			if Touched(pPad) or TouchedBot(bPad)
 				speed++
 				xVel = -xVel
 			ok
@@ -45,8 +46,8 @@ class pongBall
 			return true
 		ok
 
-	func TouchedBot pP, bP, oGame
-		if x = oGame.screen_w - ( pP.x + pP.width + rad ) and y - rad < bP.y + bP.height and y + rad > bP.y
+	func TouchedBot bP
+		if x = bP.x - rad and y - rad < bP.y + bP.height and y + rad > bP.y
 			return true
 		ok
 		return false
