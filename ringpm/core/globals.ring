@@ -13,7 +13,15 @@
 	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
 
 # Where we will store our pacakge 
-	cPackagesLocations = "https://raw.githubusercontent.com/MahmoudFayed"
+	lLocalPackages	   = True 
+	cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
+	cPackagesLocal     = "b:\ring\ringpm\local"
+	if lLocalPackages 
+		cPackagesLocations = cPackagesLocal
+	else 
+		cPackagesLocations = cPackagesGitHub
+	ok
+
 # The parameters of our command 	
 	aCommand	   = []
 

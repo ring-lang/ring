@@ -17,11 +17,25 @@ func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())
 
 func DownloadFile cURL
+	if isWindows()
+		cURL = substr(cURL,"/","\")
+	ok
+	if lLocalPackages 
+		return Read(cURL)
+	ok
 	return Download(AddTimeStamp(cURL))
 
 func InstallPackage cPackageName
 	? "Installing package   : " + cPackageName
-	cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
+	if lLocalPackages 
+		cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
+		cDir = CurrentDir()
+			chdir(cPackageURL)
+			SystemSilent("git checkout master")
+		chdir(cDir)
+	else 
+		cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
+	ok
 	cPackageFileURL = cPackageURL + "package.ring"
 	cPackageInfo 	= DownloadFile(cPackageFileURL)
 	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
