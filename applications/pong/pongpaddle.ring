@@ -20,7 +20,7 @@ class PongPaddle
 	
 	func Move yMouse, oGame
 		if botControle = false
-			y = clamp(yMouse, height/2, oGame.screen_h - height/2) - height/2
+			y = clamp(yMouse - height/2, 0, oGame.screen_h - height)
 		else
 			for counter = 1 to botSpeed
 				if Ball.y > y + height/2 and y + height < oGame.screen_h
