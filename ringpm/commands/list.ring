@@ -18,7 +18,8 @@ func PrintInstalledPackages
 	# Print Packages 
 		for cFile in aPackagesInfoFiles 
 			eval(read(cFile))
-			? "Package : " + aPackageInfo[:name]
+			? "Package : " + Width(aPackageInfo[:name],20) + " -- (" +
+				aPackageInfo[:version] + ")"
 		next 
 	# Print message if we don't have packages 
 		if len(aPackagesInfoFiles) = 0

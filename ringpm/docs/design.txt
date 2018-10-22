@@ -83,3 +83,14 @@ Adding branch name to the Path?
 			git checkout firstpackage-1.1-branch 
 
 
+
+===============
+Update Command 
+===============
+
+ringpm update <package_name>
+
+ringpm update all	---> Update All Packages 
+
+
+
