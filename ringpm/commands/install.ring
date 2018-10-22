@@ -25,8 +25,7 @@ func DownloadFile cURL
 	ok
 	return Download(AddTimeStamp(cURL))
 
-func InstallPackage cPackageName
-	? "Installing package   : " + cPackageName
+func GetPackageFile cPackageName
 	if lLocalPackages 
 		cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
 		cDir = CurrentDir()
@@ -42,8 +41,14 @@ func InstallPackage cPackageName
 	if substr(cPackageInfo,"404")
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
 		? "File URL : " + cPackageFileURL
-		return 
+		cPackageInfo = ""
 	ok
+	return cPackageInfo
+
+func InstallPackage cPackageName
+	? "Installing package   : " + cPackageName
+	cPackageInfo = GetPackageFile(cPackageName)
+	if cPackageInfo = "" return ok
 	try
 		eval( cPackageInfo )
 	catch

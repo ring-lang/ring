@@ -18,10 +18,32 @@ func PrintInstalledPackages
 	# Print Packages 
 		for cFile in aPackagesInfoFiles 
 			eval(read(cFile))
-			? "Package : " + Width(aPackageInfo[:name],20) + " -- (" +
-				aPackageInfo[:version] + ")"
+			see Style(Width("Package ("+aPackageInfo[:folder]+") ",25),:YellowBlack)+": " +
+				 Width(aPackageInfo[:name],20) + " -- " +
+				Width("("+aPackageInfo[:version]+ ")",15) + " -- " 
+				see CheckUpdates(aPackageInfo) + nl
 		next 
 	# Print message if we don't have packages 
 		if len(aPackagesInfoFiles) = 0
 			? "No installed packages!"
 		ok
+
+func CheckUpdates aLocalPackageInfo
+	cPackageName = aLocalPackageInfo[:folder]
+	cPackageInfo = GetPackageFile(cPackageName)
+	try
+		eval( cPackageInfo )
+	catch
+		? C_ERROR_PACKAGEINFOISNOTCORRECT
+		? cPackageInfo
+		return 
+	done 
+	if ! islocal(:aPackageInfo)
+		? C_ERROR_NOPACKAGEINFO
+		return 
+	ok
+	# Check Update 	
+		if aPackageInfo[:version] != aLocalPackageInfo[:version]
+			return Style("New Update : (" + aPackageInfo[:version] + ")",:WhiteBlue)
+		ok
+	return "No Updated!"

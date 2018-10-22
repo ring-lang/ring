@@ -9,6 +9,7 @@
 	load "internetlib.ring"		# Download() Function
 
 # Load Local Libraries 
+	load "consolecolors.ring"
 	load "cuilib/cuilib.ring"
 
 # Load Application Files 
