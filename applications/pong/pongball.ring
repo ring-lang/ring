@@ -7,10 +7,10 @@
 class pongBall
 	x = 0
 	y = 0
-	xVel = 0.5
-	yVel = 0.5
-	rad = 10
-	initSpeed = 3
+	xVel = 1
+	yVel = 1
+	rad = 25
+	initSpeed = 2
 	speed = initSpeed
 	stop = false
 	
