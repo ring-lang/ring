@@ -444,6 +444,16 @@
 			<a href="https://www.youtube.com/watch?v=l3QebGntG4g&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=5">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson6">6</td>
+		<td>
+			فى هذا الدرس ندعم امكانية التحميل لل Packages من مجلدات محلية بدلا من الإنترنت.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
 
