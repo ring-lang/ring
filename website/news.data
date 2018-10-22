@@ -1,4 +1,7 @@
   aNews = [
+  ["October 16, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/editor/vscode" target="_blank"> Ring extension for Visual Studio Code</a>'],
+  ["October 14, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank"> Knight Tour Game</a>'],
+  ["October 12, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank"> Minesweeper Game</a>'],
   ["October 6, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/_EyYoS_ZmJ8" target="_blank"> Ring 1.9 Released!</a>'],
   ["August 22, 2018",'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800" target="_blank">Game: Gold Magic 800</a>'],
   ["August 16, 2018",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Over 600 samples in Rosettacode about the Ring programming language</a>'],

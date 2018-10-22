@@ -1060,5 +1060,17 @@
                     'cwbruner@gmail.com',
                     'Tester',
                     'Active'
+                  ],
+				  [
+                    'Peter Xiong',
+                    '554047943@qq.com',
+                    'Tester',
+                    'Active'
+                  ],
+				  [
+                    'JustGo',
+                    'random19515@gmail.com',
+                    'Pong Game',
+                    'Active'
                   ]
 ]

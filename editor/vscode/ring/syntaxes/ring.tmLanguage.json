@@ -1,0 +1,171 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ring",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#expression-operators"
+		},
+		{
+			"include": "#conditional-operator"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ring",
+				"match": "\\b(again|and|but|bye|call|case|catch|changeringkeyword|changeringoperator|class|def|do|done|else|elseif|end|exit|for|from|func|get|give|if|import|in|load|loadsyntax|loop|new|next|not|off|ok|on|or|other|package|private|put|return|see|step|switch|to|try|while|endfunc|endclass|endpackage)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.ring",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ring",
+					"match": "\\\\."
+				}
+			]
+		},
+		"identifier": {
+			"name": "variable.other.readwrite.ring",
+			"match": "@?[_[:alpha:]][_[:alnum:]]*"
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.block.ring",
+					"begin": "/\\*",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.ring"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.ring"
+						}
+					}
+				},
+				{
+					"begin": "(^\\s+)?(?=//|#)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.ring"
+						}
+					},
+					"end": "(?=$)",
+					"patterns": [
+						{
+							"name": "comment.block.documentation.ring",
+							"begin": "(?<!/)///(?!/)",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.ring"
+								}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{
+									"include": "#xml-doc-comment"
+								}
+							]
+						},
+						{
+							"name": "comment.line.double-slash.ring",
+							"begin": "(?<!/)//|#(?:(?!/)|(?=//|#))",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.ring"
+								}
+							},
+							"end": "(?=$)"
+						}
+					]
+				}
+			]
+		},
+		"expression-operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.compound.ring",
+					"match": "\\*=|/=|%=|\\+=|-="
+				},
+				{
+					"name": "keyword.operator.assignment.compound.bitwise.ring",
+					"match": "\\&=|\\^=|<<=|>>=|\\|="
+				},
+				{
+					"name": "keyword.operator.bitwise.shift.ring",
+					"match": "<<|>>"
+				},
+				{
+					"name": "keyword.operator.comparison.ring",
+					"match": "==|!="
+				},
+				{
+					"name": "keyword.operator.relational.ring",
+					"match": "<=|>=|<|>"
+				},
+				{
+					"name": "keyword.operator.logical.ring",
+					"match": "\\!|&&|\\|\\|"
+				},
+				{
+					"name": "keyword.operator.bitwise.ring",
+					"match": "\\&|~|\\^|\\|"
+				},
+				{
+					"name": "keyword.operator.assignment.ring",
+					"match": "\\="
+				},
+				{
+					"name": "keyword.operator.decrement.ring",
+					"match": "--"
+				},
+				{
+					"name": "keyword.operator.increment.ring",
+					"match": "\\+\\+"
+				},
+				{
+					"name": "keyword.operator.arithmetic.ring",
+					"match": "%|\\*|/|-|\\+"
+				},
+				{
+					"name": "keyword.operator.null-coalescing.ring",
+					"match": "\\?\\?"
+				}
+			]
+		},
+		"conditional-operator": {
+			"begin": "(?<!\\?)\\?(?!\\?|\\.|\\[)",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.operator.conditional.question-mark.ring"
+				}
+			},
+			"end": ":",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator.conditional.colon.ring"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expression"
+				}
+			]
+		}
+	},
+	"scopeName": "source.ring"
+}

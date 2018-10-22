@@ -145,7 +145,9 @@ The good news (We can mix between Ring and C in our projects)
 These function take input as (Number) ---> Convert it to group of bytes based on the number type (int|float|double) ---> Then return a Ring string that contains these bytes
 
 Int2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(int)
+
 Float2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(float)
+
 Double2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(double)
 
 Example:
@@ -174,7 +176,9 @@ But when we convert the number to a String using "" + number  or using string(nu
 If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.
 
 Ring Number (double) ----> int2bytes()  - will cast the number from double to int then return the bytes ----> 4 bytes (Ring String)
+
 Ring Number (double) ----> float2bytes()  - will cast the number from double to float then return the bytes ----> 4 bytes (Ring String)
+
 Ring Number (double) ----> double2bytes()  - will use the number (double) to return the bytes ----> 8 bytes (Ring String)
  
 The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.

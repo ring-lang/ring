@@ -166,7 +166,7 @@ Compiler Errors
 * Error (C22) : Function redefinition, function is already defined!
 * Error (C23) : Using '(' after number!
 * Error (C24) : The parent class name is identical to the subclass name
-* Error (C25) : Trying to access the self reference after the object name"
+* Error (C25) : Trying to access the self reference after the object name
 * Error (C26) : Class redefinition, class is already defined!
 
 .. index:: 
@@ -185,13 +185,13 @@ Runtime Errors
 * Error (R8)  : Variable is not a string 
 * Error (R9)  : Using exit command outside loops 
 * Error (R10) : Using exit command with number outside the range 
-* Error (R11) : error in class name, class not found! 
-* Error (R12) : error in property name, property not found! 
+* Error (R11) : Error in class name, class not found! 
+* Error (R12) : Error in property name, property not found! 
 * Error (R13) : Object is required
 * Error (R14) : Calling Method without definition !
-* Error (R15) : error in parent class name, class not found! 
+* Error (R15) : Error in parent class name, class not found! 
 * Error (R16) : Using braces to access unknown object ! 
-* Error (R17) : error, using 'Super' without parent class! 
+* Error (R17) : Error, using 'Super' without parent class! 
 * Error (R18) : Numeric Overflow! 
 * Error (R19) : Calling function with less number of parameters!
 * Error (R20) : Calling function with extra number of parameters!
@@ -204,7 +204,7 @@ Runtime Errors
 * Error (R27) : Using private attribute from outside the class 
 * Error (R28) : Using bad data type as step value
 * Error (R29) : Using bad data type in for loop
-* Error (R30) : parent class name is identical to child class name 
+* Error (R30) : Parent class name is identical to child class name 
 * Error (R31) : Trying to destory the object using the self reference 
 * Error (R32) : The CALL command expect a variable contains string!
 * Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
@@ -213,7 +213,7 @@ Runtime Errors
 * Error (R36) : The column number is not correct! It's greater than the number of columns in the list
 * Error (R37) : Sorry, The command is not supported in this context
 * Error (R38) : Runtime Error in loading the dynamic library!
-* Error (R39) : Error occurred creating unique filename.
+* Error (R39) : Error occurred creating unique filename
 
 .. index:: 
 	pair: Reference; Environment Errors

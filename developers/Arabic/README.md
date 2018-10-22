@@ -386,6 +386,77 @@
 
 </table>
 
+دروس تشرح تطوير ال Package Manager
+
+<table>
+	<tr>	
+		<th>رقم الدرس</th>
+		<th>المحتوي</th>
+		<th>روابط المشاهدة</th>
+	</tr>
+	<tr>
+		<td id="pmlesson1">1</td>
+		<td>
+			بداية بسيطة للمشروع وتنفيذ أولى للأوامر Install و Remove و List
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156167595515345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=EDyrgo-0BIg&index=1&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson2">2</td>
+		<td>
+			تقسيم المشروع لعدة ملفات وتجهيز الملف التنفيذ وتجهيز ال Tests
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170147090345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=RWlo8Eiyo0s&index=2&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson3">3</td>
+		<td>
+			تحسين شكل الناتج من خلال الالوان
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170776415345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=3">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson4">4</td>
+		<td>
+			التحقق من إصدار الرينج المطلوب
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156172518305345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=uBToCd6bYeE&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=4">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson5">5</td>
+		<td>
+			دعم تحميل ال Package التى تحتوي على ملفات موزعة على مجلدات ومجلدات فرعية
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156172625970345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=l3QebGntG4g&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=5">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson6">6</td>
+		<td>
+			فى هذا الدرس ندعم امكانية التحميل لل Packages من مجلدات محلية بدلا من الإنترنت.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+</table>
+
+
 
 <h1 id="dev"> المطورين المعتمدين </h1> 
 

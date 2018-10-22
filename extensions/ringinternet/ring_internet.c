@@ -29,6 +29,8 @@ void ring_vm_curl_download ( void *pPointer )
 	CURL *curl  ;
 	CURLcode res  ;
 	String *pString  ;
+	struct curl_slist *list  ;
+	list = NULL ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -44,10 +46,16 @@ void ring_vm_curl_download ( void *pPointer )
 		curl_easy_setopt(curl, CURLOPT_URL,RING_API_GETSTRING(1));
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
+		curl_easy_setopt(curl, CURLOPT_FRESH_CONNECT,1);
 		curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING,"");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,ring_getcurldata);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA,pString);
+		/* Set The Header */
+		list = curl_slist_append(list, "Cache-Control: max-age=0");
+		curl_easy_setopt(curl, CURLOPT_HTTPHEADER,list);
 		res = curl_easy_perform(curl);
+		/* Free List */
+		curl_slist_free_all(list);
 		curl_easy_cleanup(curl);
 		RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
 		ring_string_delete(pString);

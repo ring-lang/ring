@@ -1,0 +1,4 @@
+
+B:\ring\ringpm>echo off 
+Deleting Package : secondpackage
+Operation done!

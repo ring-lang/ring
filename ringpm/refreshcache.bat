@@ -1,0 +1,1 @@
+curl --verbose -H 'Cache-Control: no-cache' %1

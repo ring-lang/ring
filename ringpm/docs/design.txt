@@ -1,0 +1,85 @@
+========================
+Package Manager (RingPM)
+========================
+
+Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl + RingInternet] < 2 Mbyte
+	   Without (Libraries|Extensions|Applications)		> 1.1 GByte
+
+Advices
+=======
+
+1 - (Start working on Common Cases First - Not General)
+2 - (Start with simple methods and simple soltions)
+3 - (Don't keep attacking the main problem (Development) )
+ 	---> After each step - Stop and revise your work first!
+		(1) Your next steps will be faster 
+		(2) You will Enjoy more!
+	Using (ringpm) instead of (ring ringpm.ring) ---> Faster 
+	Using different files 	---> More Organization 
+				---> Manage Complexity
+4 - Testing is important ---> Start writing tests in early stages as possible 
+5 - Select good names for (File, Functions, Variables, etc)	
+6 - Using (ring filename.ring) is faster for development 
+	---> We move from coding to execution (fast)
+	But writing the file name is slow
+	---> Batch Files is faster 
+7 - Before you start programming, Try to be in good mode 
+	because most of **hard bugs** is a result of bad mode 
+		1 - Social Problem 
+		2 - Fixing Bug (While You are not Happy)
+		3 - Deadline 
+	Good Mode (Happy) ---> Careful - Focus - Better Code 
+
+
+How we will know about the installed packages 
+=============================================
+
+(1) Get list of "package.ring" files ---> Know installed packages from these files 
+
+	Good 	--> (1) Easy to implement
+		    (2) Easy to insert packages 
+		    (3) We don't repeat the package information 
+	Bad 	--> (1) Depend on folders structures 
+		    (2) Folders and Files processing to get the info (Slow?)
+				---> Not big problem (We have fast machines)
+
+
+==================
+RingPM Executable		---> DONE
+==================
+
+sysargv list ---> Get parameters from the command line 
+
+(1) When we run the app. using ring.exe 
+
+	ring ringpm.ring  <para>
+		first para : ring.exe 
+		second para : ringpm.ring 
+		<our program parameters> 
+
+	ringpm <para> 
+		first para : ringpm.exe 
+		<our program parameters>
+
+(2) ringpm.exe ----> Will need runtime files 
+			ring.dll	---> We can avoid it using -static option in Ring2EXE
+			libCurl dlls
+	ring/bin folder (Beside the runtime files)
+
+	We have ring/bin in System PATH	
+
+=================================
+Adding branch name to the Path?
+=================================
+	
+	(1) Add the branch name to the file System 
+		b:\ring\ringpm\local/firstpackage/master/package.ring
+
+	(2) Update Code 	(Better Decision)
+		2.1 - Don't add the Master folder to the Path
+		2.2 - Use (git command) to change the branch 
+
+			git checkout master 
+			git checkout firstpackage-1.1-branch 
+
+

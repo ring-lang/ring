@@ -869,19 +869,52 @@ Hello, World!
 		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
 		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Fork me on GitHub</a>
 			<br><br>
-		  The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h)
+		  The next screen shots for the ring_vm.ssf (Generate ring_vm.c and ring_vm.h) and ring_list.ssf (Generate ring_list.c and ring_list.h) files.
 		  <br><br>
-	      <div class="text-center"><img src="ringvisualsrc1.jpg" width="600"></div>
-		  <br><br>
-		  The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h) 		  
-		  <br><br>
-		  <div class="text-center"><img src="ringvisualsrc2.jpg" width="600"></div>
 		  
+	<div class="col-xs-12">
+  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel3" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="ringvisualsrc1.jpg" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="ringvisualsrc2.jpg" alt="" width="1366" height="729">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div> 
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel3" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel3" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+      <span class="sr-only">Next</span>
+    </a>		  
 		  
 	</div>
 	</div>
 
-		
+</div>		
 		
         <div class="panel panel-primary" id="smartgc">
 	      <div class="panel-heading"><h4> Smart Garbage Collector </h4></div>

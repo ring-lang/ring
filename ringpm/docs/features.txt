@@ -1,0 +1,15 @@
+Features	
+========
+
+* Install [Application|Library|Extension]
+	---> Install Related Packages 
+* Remove 
+	---> Delete the Related Package if it's not used by other packages 
+* Update (To New|Old Version)
+	---> Delete current version, Then install new version 
+	---> Install new version, Keep the old version too 
+* List of installed packages 
+
+* Check the required Ring  version before installing the package 	DONE
+
+* Support packages with folders and sub folders 			DONE

@@ -1,0 +1,3 @@
+
+B:\ring\ringpm>echo off 
+No installed packages!
