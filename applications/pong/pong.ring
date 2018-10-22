@@ -20,7 +20,7 @@ func main
 	GameObject = new Game
 	Ball = new PongBall { x = GameObject.screen_w/2 y = GameObject.screen_h/2 }
 	Paddle = new PongPaddle { mouseControle = false y = GameObject.screen_h/2 - height/2 }
-	PaddleBot = new PongPaddle { botControle = true x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
+	PaddleBot = new PongPaddle { botControle = true y = GameObject.screen_h/2 - height/2 x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
 
 	GameRunning = true
 	GameOver = False
@@ -77,17 +77,9 @@ func main
 					if Paddle.mouseControle = false and GameRunning = true
 
 						if nkey = key_up
-							for counter = 1 to Paddle.playerSpeed
-								if Paddle.y > 0
-									Paddle.y--
-								ok
-							next
+							Paddle.y = clamp(Paddle.y-Paddle.playerSpeed, 0, Paddle.y)
 						elseif nkey = key_down
-							for counter = 1 to Paddle.playerSpeed
-								if Paddle.y + Paddle.height < screen_h 
-									Paddle.y++
-								ok
-							next
+							Paddle.y = clamp(Paddle.y+Paddle.playerSpeed, Paddle.y, screen_h - Paddle.height)
 						ok
 
 					ok
@@ -120,3 +112,12 @@ func main
 		}
 		
 	}
+	
+func clamp val, vMin, vMax
+	if val > vMax
+		return vMax
+	elseif val < vMin
+		return vMin
+	else
+		return val
+	ok
