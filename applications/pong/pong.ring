@@ -20,7 +20,7 @@ func main
 	GameObject = new Game
 	Ball = new PongBall { x = GameObject.screen_w/2 y = GameObject.screen_h/2 }
 	Paddle = new PongPaddle { mouseControle = false y = GameObject.screen_h/2 - height/2 }
-	PaddleBot = new PongPaddle { botControle = true x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
+	PaddleBot = new PongPaddle { botControle = true y = GameObject.screen_h/2 - height/2 x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
 
 	GameRunning = true
 	GameOver = False
