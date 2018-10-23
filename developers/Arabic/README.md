@@ -474,7 +474,16 @@
 			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="pmlesson9">9</td>
+		<td>
+			تطوير الامر Remove وذلك لعدم ازالة Package اذا كنت مستخدمة من قبل Package اخري ... وعند حذف Package يتم ازالة ال Packages التى تعتمد عليها اذا لم تكن مستخدم من قبل Packages اخري.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156181825700345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 
