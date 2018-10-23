@@ -97,7 +97,7 @@ Also we will publish the live streams on (YouTube)
 	<tr>
 		<td id="lesson9">9</td>
 		<td>
-			Update the Remove command, Don't delete package if it's used by other package, and when deleting a package, delete the related packages.
+			Update the Remove command, Don't delete package if it's used by other packages, and when deleting a package, delete the related packages.
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156181825700345/?type=2&video_source=user_video_tab">Facebook</a> <br />
