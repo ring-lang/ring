@@ -19,10 +19,14 @@
 	load "core/commands.ring"
 	load "core/version.ring"
 	load "core/folders.ring"
+	load "core/packages.ring"
 
 func Main 
 	aCommand = GetParameters("ringpm")
+	oAllPackagesInfo.LoadInfo()
+	cDir = CurrentDir()
 	Title()
 	Commands()	
 	ExecuteCommands()
-	
+	chdir(cDir)
+	oAllPackagesInfo.SaveInfo()

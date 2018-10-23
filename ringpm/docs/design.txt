@@ -29,6 +29,8 @@ Advices
 		2 - Fixing Bug (While You are not Happy)
 		3 - Deadline 
 	Good Mode (Happy) ---> Careful - Focus - Better Code 
+8 - Ring is designed so we can switch between programming paradigms with little 
+	changes to the code 
 
 
 How we will know about the installed packages 
@@ -92,5 +94,28 @@ ringpm update <package_name>
 
 ringpm update all	---> Update All Packages 
 
+================
+Delete Package 
+================
 
+ringpm remove <package_name>
 
+	first package 
+	second package ---->First Package 
+	Third Package  ---->Second Package 
+
+ringpm remove firstpackage ----> Error (Package used by Second Package)
+ringpm remove secondpackage ---> Error (Package used by Third Package)
+ringpm remove thirdpackage 
+		-> Remove (ThirdPackage, SecondPackage, FirstPackage)
+
+[The First Way]
+	Get all package.ring files ---> List 
+		Package Name , [List Packages that use this package] 
+	(N * N) times  ---> How much time for each item? 
+		Not very good for performance!
+
+[The Second Way]
+	Packages File that we need to update when (Install - Remove - Update)
+		Installed Package Name , [List Packages that use this package] 
+	

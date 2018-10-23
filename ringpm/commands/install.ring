@@ -37,7 +37,6 @@ func GetPackageFile cPackageName
 	ok
 	cPackageFileURL = cPackageURL + "package.ring"
 	cPackageInfo 	= DownloadFile(cPackageFileURL)
-	cPackageInfo = Substr(cPackageInfo,nl,WindowsNl())
 	if substr(cPackageInfo,"404")
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
 		? "File URL : " + cPackageFileURL
@@ -109,5 +108,9 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 func DownloadRelatedPackages aPackageInfo,cPackageInfo
 	for aRelatedPackage in aPackageInfo[:libs]
 		InstallPackage(aRelatedPackage[:name])
+		oAllPackagesInfo.AddRelatedPackage(
+			aRelatedPackage[:name],
+			aPackageInfo[:folder]
+		)
 	next
 

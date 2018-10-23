@@ -4,7 +4,6 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-
 func RemovePackage cPackageName
 	cCurrentDir = CurrentDir()
 	# Check if we have the package 
@@ -14,6 +13,24 @@ func RemovePackage cPackageName
 			? C_ERROR_WEDONTHAVETHISPACKAGE
 			return
 		ok
+	# Check if we can remove the package (No related packages)
+		aRelated = oAllPackagesInfo.CheckRelatedPackages(cPackageName)
+		if len(aRelated) != 0
+			? C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES
+			? "The package is used by :"
+			? aRelated
+			return 
+		ok
+	# Get the Package Information 
+		if ! fexists(cPath) return ok
+		eval(read(cPath))
+	# Update All Packages Info 
+		oAllPackagesInfo.RemovePackage(cPackageName)
+	# Delete the Related Package 
+		# Delete related packages 
+			for aPackage in aPackageInfo[:libs]
+				RemovePackage(aPackage[:name])
+			next 
 	# Delete the package 
 		? "Deleting Package : " + cPackageName
 		chdir("packages")

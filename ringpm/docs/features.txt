@@ -13,3 +13,8 @@ Features
 * Check the required Ring  version before installing the package 	DONE
 
 * Support packages with folders and sub folders 			DONE
+
+* Don't delete a package when it's still used by other packages 	DONE 
+	
+* When we delete a package, delete the related packages 		DONE 
+	if it's not used  by other packages 

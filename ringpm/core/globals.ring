@@ -13,6 +13,7 @@
 	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
 	C_ERROR_PACKAGEALREADYEXISTS		= "Error(7) : Package Already Exists"
 	C_ERROR_NOUPDATES 			= "Error(8) : No updates for this package"
+	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
@@ -33,3 +34,7 @@
 
 # Version 
 	C_VERSIONSECTIONSIZE	= 3
+
+# All Packages Information
+
+	oAllPackagesInfo = new AllPackagesInfo
