@@ -407,7 +407,7 @@
 	<tr>
 		<td id="pmlesson2">2</td>
 		<td>
-			تقسيم المشروع لعدة ملفات وتجهيز الملف التنفيذ وتجهيز ال Tests
+			تقسيم المشروع لعدة ملفات وتجهيز الملف التنفيذي وتجهيز ال Tests
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170147090345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
