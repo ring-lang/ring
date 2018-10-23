@@ -450,10 +450,31 @@
 			فى هذا الدرس ندعم امكانية التحميل لل Packages من مجلدات محلية بدلا من الإنترنت.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">Facebook</a> <br />
-			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson7">7</td>
+		<td>
+			تحديث الامر List لعرض رقم الاصدار الخاص بال Package والتحقق من وجود إصدارات جديدة منها.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179872360345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=r_JX5Lw3U54&index=7&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson8">8</td>
+		<td>
+			بدأ تنفيذ الأمر Update لتحديث ال Package من الإصدار الحالى إلى إصدار احدث منها.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179966170345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 
