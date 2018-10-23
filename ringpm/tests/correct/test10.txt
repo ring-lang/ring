@@ -1,4 +1,6 @@
 
 B:\ring\ringpm>echo off 
-Deleting Package : secondpackage
-Operation done!
+Error(9) : This package is used by other packages
+The package is used by :
+thirdpackage
+

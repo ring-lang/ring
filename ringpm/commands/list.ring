@@ -46,4 +46,4 @@ func CheckUpdates aLocalPackageInfo
 		if aPackageInfo[:version] != aLocalPackageInfo[:version]
 			return Style("New Update : (" + aPackageInfo[:version] + ")",:WhiteBlue)
 		ok
-	return "No Updated!"
+	return "No Update!"
