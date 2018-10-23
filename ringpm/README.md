@@ -74,6 +74,25 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson7">7</td>
+		<td>
+			We will improve the List command to display the package version and check for new updates.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179872360345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=r_JX5Lw3U54&index=7&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson8">8</td>
+		<td>
+			Adding the Update command to update packages to newer versions
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179966170345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
