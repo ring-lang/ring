@@ -1,3 +1,4 @@
 
 B:\ring\ringpm>echo off 
-Package : The Third Package
+: The Third Package    -- (1.0.0)         -- No Updated!
+Package (thirdpackage)   

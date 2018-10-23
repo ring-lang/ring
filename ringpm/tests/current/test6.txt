@@ -7,20 +7,5 @@ Package Developer    : Mahmoud Fayed
 Package License      : MIT License
 Download File : test.ring
 Operation done!
-Installing package   : secondpackage
-Package Name         : The Second Package
-Package Description  : Our second package using the RingPM
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
-Download File : test.ring
-Operation done!
-Installing package   : firstpackage
-Package Name         : The First Package
-Package Description  : Our first package using the RingPM
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
-Download File : test.ring
-Download File : sub1/sub.ring
-Download File : sub1/sub2.ring
-Download File : sub1/sub2/sub.ring
-Operation done!
+Error(7) : Package Already Exists
+Package Name : secondpackage
