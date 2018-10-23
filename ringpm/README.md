@@ -94,5 +94,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson9">9</td>
+		<td>
+			Update the Remove command, Don't delete package if it's used by other package, and when deleting a package, delete the related packages.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156181825700345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
