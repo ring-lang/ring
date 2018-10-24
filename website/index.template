@@ -972,7 +972,9 @@ aList = "nice"
      </div>  
   </div>
 
+</div>
 
+  
 <a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Fast</a>
   <div id="fastenough" class="panel-group collapse in">
     <div class="panel panel-default">
@@ -1291,5 +1293,4 @@ aList = "nice"
 
  
   
-</div>
 
