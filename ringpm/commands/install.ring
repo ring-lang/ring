@@ -23,6 +23,7 @@ func DownloadFile cURL
 	if lLocalPackages 
 		if ! fexists(cURL)
 			? C_ERROR_PACKAGENOTFOUND
+			lInstallError 	= True
 			return 
 		ok
 		return Read(cURL)
@@ -42,7 +43,7 @@ func GetPackageFile cPackageName
 	cPackageFileURL = cPackageURL + "package.ring"
 	cPackageInfo 	= DownloadFile(cPackageFileURL)
 	# We are using local packages, and the package doesn't exist
-		if cPackageInfo = "" lInstallError = True return ok
+		if cPackageInfo = "" return ok
 	if substr(cPackageInfo,"404") 
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
 		? "File URL : " + cPackageFileURL
@@ -56,7 +57,6 @@ func InstallPackage cPackageName
 		if fexists("packages/"+cPackageName+"/package.ring")
 			? C_ERROR_PACKAGEALREADYEXISTS
 			? "Package Name : " + cPackageName 
-			lInstallError 	= True
 			return 
 		ok
 	? "Installing package   : " + cPackageName
@@ -108,6 +108,7 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 	# Write the Package File 	
 		write("package.ring",cPackageInfo)
 	# Download package files 
+	lWriteError = False
 		for cFileName in aPackageInfo[:Files]
 			? "Download File : " + cFileName 
 			cFileURL 	= cPackageURL + cFileName
@@ -115,9 +116,17 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 			cDir  = CurrentDir()
 			CreateSubFolders(cFileName)
 			chdir(cDir)
-			write(cFileName,cFileContent)
+			Try
+				write(cFileName,cFileContent)
+			Catch
+				? C_ERROR_CANTWRITETHEFILE 
+				? "File Name : " + cFileName 
+				lWriteError = True
+			Done 
 		next
-	? "Operation done!"
+	if ! lWriteError
+		? "Operation done!"
+	ok
 	chdir(cCurrentDir)
 
 func DownloadRelatedPackages aPackageInfo,cPackageInfo

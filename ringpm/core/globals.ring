@@ -15,6 +15,8 @@
 	C_ERROR_NOUPDATES 			= "Error(8) : No updates for this package"
 	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
 	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
+	C_ERROR_CANTWRITETHEFILE		= "Error(11): Can't write the file"
+	C_ERROR_CANTGETPACKAGESINFORMATION	= "Error(12): Can't get install packages information"
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 

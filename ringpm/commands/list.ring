@@ -7,7 +7,12 @@
 
 func PrintInstalledPackages
 	# Get Files
-		aFiles 			= ListAllFiles("packages","ring")
+		Try
+			aFiles		= ListAllFiles("packages","ring")
+		Catch 
+			? C_ERROR_CANTGETPACKAGESINFORMATION
+			return 
+		Done 
 	# Get Package Info Files
 		aPackagesInfoFiles 	= []
 		for cFile in aFiles
