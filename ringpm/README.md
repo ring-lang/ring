@@ -104,5 +104,16 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson10">10</td>
+		<td>
+			If we have an error during installation of a package, display a message (Not Completed), Create Lock File for each package and don't repeat the same package in the lock file 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156185979310345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=hpinzzgkBKk&index=10&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+
 </table>
 
