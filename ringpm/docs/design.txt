@@ -142,9 +142,9 @@ Install Package
 			if ErrorFlag = True return ok
 		(2) Use a Counter (ErrorFlag++)
 			---> Application (Still Live)
-			We don't this in Package Manager 
-			Because the Package Manger after executing each command
-			Will Exit, No more operation!
+			We don't use this in the Package Manager 
+			Because the Package Manager will exit after executing each command
+				---> No more operations!
 
 
 ===============
