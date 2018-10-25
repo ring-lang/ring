@@ -92,7 +92,9 @@ func GetPackage cPackageName
 		DownloadPackageFiles(aPackageInfo,cPackageInfo)
 	else 
 		? "Install Operation (Not Completed)"
+		return 
 	ok
+	WriteLockFile(aPackageInfo)
 
 func DisplayPackageInformation aPackageInfo
 	? "Package Name         : " + aPackageInfo[:name]
@@ -138,3 +140,22 @@ func DownloadRelatedPackages aPackageInfo,cPackageInfo
 		)
 	next
 
+func WriteLockFile aPackageInfo
+	cPackageName = aPackageInfo[:folder]
+	cFolder = "packages/"+cPackageName
+	cLockFile = cFolder + "/lock.ring"
+	# Create the Lock File List
+		aLockFile = []
+	# Add the curst Package 
+		aLockFile + [:name = cPackageName, :version = aPackageInfo[:version]]
+	# Get information from related packages 
+		for aRelatedPackage in aPackageInfo[:libs]
+			cSubPackageName = aRelatedPackage[:name]
+			cSubLockFile = "packages/"+cSubPackageName+"/lock.ring"
+			eval(read(cSubLockFile))
+			for aSubPackage in aLockInfo
+				aLockFile + aSubPackage
+			next
+		next	
+	# Write the Lock File
+		write(cLockFile,"aLockInfo = " + list2code(aLockFile))

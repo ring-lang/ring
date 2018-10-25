@@ -21,3 +21,5 @@ Features
 
 * If we have an error during installation of a package, display 	DONE
 	a message : Not Completed 
+
+* Create Lock File for each package 					DONE

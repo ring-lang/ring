@@ -145,3 +145,35 @@ Install Package
 			We don't this in Package Manager 
 			Because the Package Manger after executing each command
 			Will Exit, No more operation!
+
+
+===============
+Lock File 
+===============
+
+	ringpm install thirdpackage 
+		ThirdPackage ---> SecondPackage ---> FirstPackage 
+
+	lock.ring 	for ThirdPackage
+		[ 
+			[:name = "thirdpackage" , :version = "1.0.0"],
+			[:name = "secondpackage", :version = "1.0.1"],
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	lock.ring 	for SecondPackage
+		[ 
+			[:name = "secondpackage", :version = "1.0.1"],
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	lock.ring 	for FirstPackage
+		[ 
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	(1) Each package add it's information in the start of the lock file
+
+	(2) Each package return it's lock information to caller (Parent Package)
+
+	(3) Each package write the lock file after installation 
