@@ -484,6 +484,17 @@
 			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson10">10</td>
+		<td>
+			فى حالة وجود خطأ فى تحميل package يتم اظهار رسالة بذلك ... ايضا عند تحميل package يتعمل عمل ملف Lock يحتوي على كل ال packages الفرعية المستخدمة ... كذلك يمنع تكرار اي package فى ملف ال Lock 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156185979310345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=hpinzzgkBKk&index=10&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 
