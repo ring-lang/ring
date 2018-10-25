@@ -15,9 +15,10 @@ func Title
 func Commands
 	# Don't display instruction if we have commands
 		if len(aCommand) >= 1 return ok
-	? "Usage   : ringpm  <command>"
-	? "Command : install <packagename>"
-	? "Command : remove  <packagename>"
-	? "Command : list"
-	? "Command : update <packagename>"
+	see "Usage   : " Style("ringpm ",:YellowBlack)  see " <command>"     + nl
+	see "Command : " Style("install",:YellowBlack)  see " <packagename>" + nl
+	see "Command : " Style("update ",:YellowBlack)  see " <packagename>" + nl
+	see "Command : " Style("remove ",:YellowBlack)  see " <packagename>" + nl
+	see "Command : " Style("list   ",:YellowBlack)  see nl
+	line70()
 	
