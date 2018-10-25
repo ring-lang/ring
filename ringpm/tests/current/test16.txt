@@ -1,0 +1,7 @@
+
+B:\ring\ringpm>echo off 
+: Package (A)          -- (1.0.0)         -- No Update!
+: Package (B)          -- (1.0.0)         -- No Update!
+: Package (C)          -- (1.0.0)         -- No Update!
+: Package (D)          -- (1.0.0)         -- No Update!
+Package (a)              Package (b)              Package (c)              Package (d)              

@@ -23,3 +23,5 @@ Features
 	a message : Not Completed 
 
 * Create Lock File for each package 					DONE
+
+* Don't repeat the same package in the lock file 			DONE
