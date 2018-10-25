@@ -19,4 +19,5 @@ func Commands
 	? "Command : install <packagename>"
 	? "Command : remove  <packagename>"
 	? "Command : list"
+	? "Command : update <packagename>"
 	

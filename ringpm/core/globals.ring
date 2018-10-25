@@ -14,6 +14,7 @@
 	C_ERROR_PACKAGEALREADYEXISTS		= "Error(7) : Package Already Exists"
 	C_ERROR_NOUPDATES 			= "Error(8) : No updates for this package"
 	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
+	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
@@ -38,3 +39,6 @@
 # All Packages Information
 
 	oAllPackagesInfo = new AllPackagesInfo
+
+# Flag for Install Errors 
+	lInstallError 	= False 

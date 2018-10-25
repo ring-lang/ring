@@ -18,3 +18,6 @@ Features
 	
 * When we delete a package, delete the related packages 		DONE 
 	if it's not used  by other packages 
+
+* If we have an error during installation of a package, display 	DONE
+	a message : Not Completed 

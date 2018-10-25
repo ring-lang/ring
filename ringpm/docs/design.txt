@@ -119,3 +119,29 @@ ringpm remove thirdpackage
 	Packages File that we need to update when (Install - Remove - Update)
 		Installed Package Name , [List Packages that use this package] 
 	
+================
+Install Package 
+================
+
+	ringpm install <package_name>
+		
+	ringpm install thirdpackage 
+			ThirdPackage ---> SecondPackage ---> FirstPackage
+			
+	Install related packages first, if we have error (cancel operation)		 	
+
+	InstallPackage() ----> ErrorFlag 
+		Start ----> ErrorFlag = False 	# NO Error 
+		Error ----> ErrorFlag = True	# We have error 
+	But we have nested call for InstallPackage()
+		We can't use this flag in this simple way
+
+	Two Common Solution
+		(1) Check the flag directly after calling installpackage()
+			installpackage()
+			if ErrorFlag = True return ok
+		(2) Use a Counter (ErrorFlag++)
+			---> Application (Still Live)
+			We don't this in Package Manager 
+			Because the Package Manger after executing each command
+			Will Exit, No more operation!

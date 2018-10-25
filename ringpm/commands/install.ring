@@ -21,6 +21,10 @@ func DownloadFile cURL
 		cURL = substr(cURL,"/","\")
 	ok
 	if lLocalPackages 
+		if ! fexists(cURL)
+			? C_ERROR_PACKAGENOTFOUND
+			return 
+		ok
 		return Read(cURL)
 	ok
 	return Download(AddTimeStamp(cURL))
@@ -37,10 +41,13 @@ func GetPackageFile cPackageName
 	ok
 	cPackageFileURL = cPackageURL + "package.ring"
 	cPackageInfo 	= DownloadFile(cPackageFileURL)
-	if substr(cPackageInfo,"404")
+	# We are using local packages, and the package doesn't exist
+		if cPackageInfo = "" lInstallError = True return ok
+	if substr(cPackageInfo,"404") 
 		? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
 		? "File URL : " + cPackageFileURL
 		cPackageInfo = ""
+		lInstallError 	= True
 	ok
 	return cPackageInfo
 
@@ -49,6 +56,7 @@ func InstallPackage cPackageName
 		if fexists("packages/"+cPackageName+"/package.ring")
 			? C_ERROR_PACKAGEALREADYEXISTS
 			? "Package Name : " + cPackageName 
+			lInstallError 	= True
 			return 
 		ok
 	? "Installing package   : " + cPackageName
@@ -62,10 +70,12 @@ func GetPackage cPackageName
 	catch
 		? C_ERROR_PACKAGEINFOISNOTCORRECT
 		? cPackageInfo
+		lInstallError 	= True
 		return 
 	done 
 	if ! islocal(:aPackageInfo)
 		? C_ERROR_NOPACKAGEINFO
+		lInstallError 	= True
 		return 
 	ok
 	DisplayPackageInformation(aPackageInfo)
@@ -74,10 +84,15 @@ func GetPackage cPackageName
 			? C_ERROR_BADRINGVERSION			
 			? "Current  Ring Version : " + version()
 			? "Required Ring Version : " + aPackageInfo[:ringversion]
+			lInstallError 	= True
  			return 
 		ok
-	DownloadPackageFiles(aPackageInfo,cPackageInfo)
 	DownloadRelatedPackages(aPackageInfo,cPackageInfo)
+	if ! lInstallError 
+		DownloadPackageFiles(aPackageInfo,cPackageInfo)
+	else 
+		? "Install Operation (Not Completed)"
+	ok
 
 func DisplayPackageInformation aPackageInfo
 	? "Package Name         : " + aPackageInfo[:name]
