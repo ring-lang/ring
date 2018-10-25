@@ -13,12 +13,12 @@ func RemovePackage cPackageName
 			? C_ERROR_WEDONTHAVETHISPACKAGE
 			return
 		ok
+	Style("Deleting ",:YellowBlack) ? cPackageName
 	# Check if we can remove the package (No related packages)
 		aRelated = oAllPackagesInfo.CheckRelatedPackages(cPackageName)
 		if len(aRelated) != 0
-			? C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES
-			? "The package is used by :"
-			? aRelated
+			? C_ERROR_AVOIDDELETINGAPACKAGE + "("+cPackageName + ") It's used by the Package (" +
+						 aRelated[1] + ")"
 			return 
 		ok
 	# Get the Package Information 
@@ -32,7 +32,6 @@ func RemovePackage cPackageName
 				RemovePackage(aPackage[:name])
 			next 
 	# Delete the package 
-		Style("Deleting ",:YellowBlack) ? cPackageName
 		chdir("packages")
 		OSDeleteFolder(cPackageName)
 	if lDisplayOperationDone ? "Operation done!" ok

@@ -16,8 +16,8 @@
 	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
 	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
 	C_ERROR_CANTWRITETHEFILE		= "Error(11): Can't write the file"
-	C_ERROR_PACKAGEALREADYEXISTS		= "Note (1) : Package Already Exists"
-
+	C_ERROR_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
+	C_ERROR_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 

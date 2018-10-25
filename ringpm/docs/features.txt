@@ -25,3 +25,5 @@ Features
 * Create Lock File for each package 					DONE
 
 * Don't repeat the same package in the lock file 			DONE
+
+* Better style for (Install, Remove, Update, etc) commands 		DONE
