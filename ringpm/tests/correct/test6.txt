@@ -5,7 +5,7 @@ Package Name         : The Third Package
 Package Description  : Our Third package using the RingPM
 Package Developer    : Mahmoud Fayed
 Package License      : MIT License
-Error(7) : Package Already Exists
+Note (1) : Package Already Exists
 Package Name : secondpackage
 Download File : test.ring
 Operation done!

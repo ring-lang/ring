@@ -11,12 +11,13 @@
 	C_ERROR_PACKAGEINFOISNOTCORRECT 	= "Error(4) : Package info is not correct"
 	C_ERROR_CANTDOWNLOADTHEPACKAGEFILE 	= "Error(5) : Can't download the package file"
 	C_ERROR_BADRINGVERSION			= "Error(6) : Bad Ring Version"
-	C_ERROR_PACKAGEALREADYEXISTS		= "Error(7) : Package Already Exists"
+	C_ERROR_CANTGETPACKAGESINFORMATION	= "Error(7) : Can't get install packages information"
 	C_ERROR_NOUPDATES 			= "Error(8) : No updates for this package"
 	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
 	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
 	C_ERROR_CANTWRITETHEFILE		= "Error(11): Can't write the file"
-	C_ERROR_CANTGETPACKAGESINFORMATION	= "Error(12): Can't get install packages information"
+	C_ERROR_PACKAGEALREADYEXISTS		= "Note (1) : Package Already Exists"
+
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
