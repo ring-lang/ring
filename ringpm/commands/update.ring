@@ -27,5 +27,5 @@ func UpdatePackage cPackageName
 			return
 		ok
 	# Install Update 
-		? "Update Package : " + cPackageName
+		Style("Update ",:YellowBlack) ? cPackageName
 		GetPackage(cPackageName)
