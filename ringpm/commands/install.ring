@@ -154,7 +154,14 @@ func WriteLockFile aPackageInfo
 			cSubLockFile = "packages/"+cSubPackageName+"/lock.ring"
 			eval(read(cSubLockFile))
 			for aSubPackage in aLockInfo
-				aLockFile + aSubPackage
+				# Don't repeat the Packages 
+					for aPackageInLock in aLockFile
+						if aPackageInLock[:name] = aSubPackage[:name] and 
+						   aPackageInLock[:version] = aSubPackage[:version] 
+							loop 2
+						ok 
+					next 
+				aLockFile + aSubPackage 
 			next
 		next	
 	# Write the Lock File

@@ -177,3 +177,35 @@ Lock File
 	(2) Each package return it's lock information to caller (Parent Package)
 
 	(3) Each package write the lock file after installation 
+
+=================
+Dependency Tree 
+=================
+
+					[A]
+			[B]				[C]
+
+			[D]				[D]
+	(Case 1)	v 1.0				v 1.2	Different Versions.
+	(Case 2)	v 1.0				v 1.0   The Same Version
+
+	Lock File 	(Different Version)
+			A
+			B
+			D	v 1.0
+			C
+			D	v 1.2 
+
+	Lock File 	(Same Version)
+
+			A
+			B
+			D	v 1.0
+			C
+
+
+
+
+
+
+

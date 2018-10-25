@@ -7,7 +7,7 @@
 # Load Global Libraries 
 	load "stdlibcore.ring"
 	load "internetlib.ring"		# Download() Function
-
+	
 # Load Local Libraries 
 	load "consolecolors.ring"
 	load "cuilib/cuilib.ring"
