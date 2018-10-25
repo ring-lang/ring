@@ -8,6 +8,6 @@ Usage   :  <command>
 Command :  <packagename>
 Command :  <packagename>
 Command :  <packagename>
-Command : 
+Command :  [-f : Don't check updates]
 ======================================================================
 ringpm installupdate remove list   

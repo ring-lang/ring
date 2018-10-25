@@ -25,8 +25,11 @@ func PrintInstalledPackages
 			eval(read(cFile))
 			see Style(Width("Package ("+aPackageInfo[:folder]+") ",25),:YellowBlack)+": " +
 				 Width(aPackageInfo[:name],20) + " -- " +
-				Width("("+aPackageInfo[:version]+ ")",15) + " -- " 
-				see CheckUpdates(aPackageInfo) + nl
+				Width("("+aPackageInfo[:version]+ ")",15) 
+				if lCheckUpdates 
+					see  " -- "  + CheckUpdates(aPackageInfo) 
+				ok
+				see nl
 		next 
 	# Print message if we don't have packages 
 		if len(aPackagesInfoFiles) = 0

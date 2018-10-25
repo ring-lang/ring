@@ -203,8 +203,15 @@ Dependency Tree
 			D	v 1.0
 			C
 
+=====================
+List Command 
+=====================
 
+	Goal : (Checking for updates ---> Optional)
 
+	ringpm list -f		---> Don't check updates 
+
+	ringpm fastlist		= (list -f)
 
 
 

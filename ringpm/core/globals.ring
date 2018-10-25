@@ -50,3 +50,7 @@
 	lDisplayPackageInfo  = False 
 	lDisplayPackageFiles = False 
 	lDisplayOperationDone= False
+
+# Flag to check updates in the List command 
+
+	lCheckUpdates = True 

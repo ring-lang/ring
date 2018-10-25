@@ -27,3 +27,5 @@ Features
 * Don't repeat the same package in the lock file 			DONE
 
 * Better style for (Install, Remove, Update, etc) commands 		DONE
+
+* Fast List ( list [-f : don't check updates] )				DONE

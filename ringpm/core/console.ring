@@ -19,6 +19,6 @@ func Commands
 	see "Command : " Style("install",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("update ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("remove ",:YellowBlack)  see " <packagename>" + nl
-	see "Command : " Style("list   ",:YellowBlack)  see nl
+	see "Command : " Style("list   ",:YellowBlack)  see " [-f : Don't check updates]" + nl
 	line70()
 	

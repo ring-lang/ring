@@ -26,6 +26,7 @@ func ExecuteCommands
 				if cPackageName = "" return ok
 				UpdatePackage(cPackageName)				
 			on "list"
+				CheckFastList()
 				PrintInstalledPackages()
 			on "remove"
 				cPackageName = aCommand[2]
@@ -40,3 +41,7 @@ func GetPackageNameFromParameters
 	return aCommand[2]
 
 
+func CheckFastList
+	if find(aCommand,"-f") or find(aCommand,"-F")
+		lCheckUpdates = False 
+	ok
