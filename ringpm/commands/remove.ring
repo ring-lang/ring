@@ -17,7 +17,7 @@ func RemovePackage cPackageName
 	# Check if we can remove the package (No related packages)
 		aRelated = oAllPackagesInfo.CheckRelatedPackages(cPackageName)
 		if len(aRelated) != 0
-			? C_ERROR_AVOIDDELETINGAPACKAGE + "("+cPackageName + ") It's used by the Package (" +
+			? C_NOTE_AVOIDDELETINGAPACKAGE + "("+cPackageName + ") It's used by the Package (" +
 						 aRelated[1] + ")"
 			return 
 		ok

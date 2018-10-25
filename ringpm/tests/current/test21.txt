@@ -1,14 +1,9 @@
 
 B:\ring\ringpm>echo off 
-Error(9) : This package is used by other packages
-The package is used by :
+a
+b
+d
+Note : Avoid deleting the package (d) It's used by the Package (c)
 c
-
-Deleting Package : b
-Operation done!
-Deleting Package : d
-Operation done!
-Deleting Package : c
-Operation done!
-Deleting Package : a
-Operation done!
+d
+Deleting Deleting Deleting Deleting Deleting 

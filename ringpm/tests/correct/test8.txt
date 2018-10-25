@@ -1,6 +1,5 @@
 
 B:\ring\ringpm>echo off 
-Error(9) : This package is used by other packages
-The package is used by :
-secondpackage
-
+firstpackage
+Note : Avoid deleting the package (firstpackage) It's used by the Package (secondpackage)
+Deleting 

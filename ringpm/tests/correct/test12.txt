@@ -1,8 +1,6 @@
 
 B:\ring\ringpm>echo off 
-Deleting Package : firstpackage
-Operation done!
-Deleting Package : secondpackage
-Operation done!
-Deleting Package : thirdpackage
-Operation done!
+thirdpackage
+secondpackage
+firstpackage
+Deleting Deleting Deleting 

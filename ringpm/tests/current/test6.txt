@@ -1,6 +1,5 @@
 
 B:\ring\ringpm>echo off 
 thirdpackage
-Note (1) : Package Already Exists
-Package Name : secondpackage
-Installing 
+secondpackage - Note : Package Already Exists
+Installing Installing 

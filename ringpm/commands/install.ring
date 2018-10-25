@@ -53,13 +53,13 @@ func GetPackageFile cPackageName
 	return cPackageInfo
 
 func InstallPackage cPackageName
+	Style("Installing ",:YellowBlack) see cPackageName
 	# If we have the package ---> Return (Don't install it)
 		if fexists("packages/"+cPackageName+"/package.ring")
-			? C_ERROR_PACKAGEALREADYEXISTS
-			? "Package Name : " + cPackageName 
+			? " - " + C_NOTE_PACKAGEALREADYEXISTS
 			return 
 		ok
-	Style("Installing ",:YellowBlack) ? cPackageName
+	see nl
 	GetPackage(cPackageName)
 
 func GetPackage cPackageName
