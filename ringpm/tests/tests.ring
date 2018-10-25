@@ -37,6 +37,14 @@ aTests = [
 	  :Command = "ringpm install a" ],
 	[ :name = "Test Listing the Packages after install the A package" ,
 	  :Command = "ringpm list" ],
+	[ :name = "Test the lock file for the A package" ,
+	  :Command = "type packages\a\lock.ring" ],
+	[ :name = "Test the lock file for the B package" ,
+	  :Command = "type packages\b\lock.ring" ],
+	[ :name = "Test the lock file for the C package" ,
+	  :Command = "type packages\c\lock.ring" ],
+	[ :name = "Test the lock file for the D package" ,
+	  :Command = "type packages\d\lock.ring" ],
 	[ :name = "Test Removing the A Package" ,
 	  :Command = "ringpm remove a" ] 
 ]

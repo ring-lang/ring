@@ -1,0 +1,9 @@
+aLockInfo = [
+[
+[
+"name","d"
+],[
+"version","1.0.0"
+]
+]
+]
