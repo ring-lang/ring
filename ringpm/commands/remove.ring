@@ -32,9 +32,9 @@ func RemovePackage cPackageName
 				RemovePackage(aPackage[:name])
 			next 
 	# Delete the package 
-		? "Deleting Package : " + cPackageName
+		Style("Deleting ",:YellowBlack) ? cPackageName
 		chdir("packages")
 		OSDeleteFolder(cPackageName)
-	? "Operation done!"
+	if lDisplayOperationDone ? "Operation done!" ok
 	chdir(cCurrentDir)
 
