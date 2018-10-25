@@ -59,7 +59,7 @@ func InstallPackage cPackageName
 			? "Package Name : " + cPackageName 
 			return 
 		ok
-	? "Installing package   : " + cPackageName
+	Style("Installing ",:YellowBlack) ? cPackageName
 	GetPackage(cPackageName)
 
 func GetPackage cPackageName
@@ -97,6 +97,7 @@ func GetPackage cPackageName
 	WriteLockFile(aPackageInfo)
 
 func DisplayPackageInformation aPackageInfo
+	if lDisplayPackageInfo = False return ok
 	? "Package Name         : " + aPackageInfo[:name]
 	? "Package Description  : " + aPackageInfo[:Description]
 	? "Package Developer    : " + aPackageInfo[:developer]
@@ -112,7 +113,9 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 	# Download package files 
 	lWriteError = False
 		for cFileName in aPackageInfo[:Files]
-			? "Download File : " + cFileName 
+			if lDisplayPackageFiles
+				? "Download File : " + cFileName 
+			ok
 			cFileURL 	= cPackageURL + cFileName
 			cFileContent 	= DownloadFile(cFileURL)
 			cDir  = CurrentDir()
@@ -127,7 +130,9 @@ func DownloadPackageFiles aPackageInfo,cPackageInfo
 			Done 
 		next
 	if ! lWriteError
-		? "Operation done!"
+		if lDisplayOperationDone
+			? "Operation done!"
+		ok
 	ok
 	chdir(cCurrentDir)
 

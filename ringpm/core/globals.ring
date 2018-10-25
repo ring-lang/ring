@@ -45,3 +45,8 @@
 
 # Flag for Install Errors 
 	lInstallError 	= False 
+
+# Flag for displaying package information during installation 
+	lDisplayPackageInfo  = False 
+	lDisplayPackageFiles = False 
+	lDisplayOperationDone= False

@@ -1,32 +1,9 @@
 
 B:\ring\ringpm>echo off 
-Installing package   : a
-Package Name         : Package (A)
-Package Description  : Test related packages in the Package Manager
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
-Installing package   : b
-Package Name         : Package (B)
-Package Description  : Test related packages in the Package Manager
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
-Installing package   : d
-Package Name         : Package (D)
-Package Description  : Test related packages in the Package Manager
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
-Download File : test.ring
-Operation done!
-Download File : test.ring
-Operation done!
-Installing package   : c
-Package Name         : Package (C)
-Package Description  : Test related packages in the Package Manager
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
+a
+b
+d
+c
 Note (1) : Package Already Exists
 Package Name : d
-Download File : test.ring
-Operation done!
-Download File : test.ring
-Operation done!
+Installing Installing Installing Installing 

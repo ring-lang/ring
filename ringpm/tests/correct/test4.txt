@@ -1,11 +1,6 @@
 
 B:\ring\ringpm>echo off 
-Installing package   : secondpackage
-Package Name         : The Second Package
-Package Description  : Our second package using the RingPM
-Package Developer    : Mahmoud Fayed
-Package License      : MIT License
+secondpackage
 Note (1) : Package Already Exists
 Package Name : firstpackage
-Download File : test.ring
-Operation done!
+Installing 

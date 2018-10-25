@@ -4,8 +4,10 @@ B:\ring\ringpm>echo off
 Ring Package Manager (RingPM)
 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 ======================================================================
-Usage   : ringpm  <command>
-Command : install <packagename>
-Command : remove  <packagename>
-Command : list
-Command : update <packagename>
+Usage   :  <command>
+Command :  <packagename>
+Command :  <packagename>
+Command :  <packagename>
+Command : 
+======================================================================
+ringpm installupdate remove list   
