@@ -30,5 +30,8 @@ aTests = [
 	[ :name = "Test Removing the Third Package" ,
 	  :Command = "ringpm remove thirdpackage" ] ,
 	[ :name = "Test Listing the Packages after removing the third package" ,
-	  :Command = "ringpm list" ]
+	  :Command = "ringpm list" ],
+	[ :name = "Test installing the BadPackage" ,
+	  :Command = "ringpm install badpackage" ]
+
 ]

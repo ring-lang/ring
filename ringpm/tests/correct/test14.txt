@@ -1,0 +1,10 @@
+
+B:\ring\ringpm>echo off 
+Installing package   : badpackage
+Package Name         : The Bad Package
+Package Description  : Test some errors in the Package Manager
+Package Developer    : Mahmoud Fayed
+Package License      : MIT License
+Installing package   : nopackage
+Error(10): Package doesn't exist
+Install Operation (Not Completed)
