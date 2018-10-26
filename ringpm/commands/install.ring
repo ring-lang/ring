@@ -38,3 +38,6 @@ func GetPackageFile cPackageName
 	oInstall = new InstallCommand 
 	return oInstall.GetPackageFile(cPackageName)
 
+func GetPackage cPackageName
+	oInstall = new InstallCommand 
+	return oInstall.GetPackage(cPackageName)

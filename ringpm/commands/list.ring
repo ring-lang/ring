@@ -27,7 +27,8 @@ func PrintInstalledPackages
 				 Width(aPackageInfo[:name],20) + " -- " +
 				Width("("+aPackageInfo[:version]+ ")",15) 
 				if lCheckUpdates 
-					see  " -- "  + CheckUpdates(aPackageInfo) 
+					see  " -- "  
+					See CheckUpdates(aPackageInfo) 
 				ok
 				see nl
 		next 
