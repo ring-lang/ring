@@ -45,6 +45,14 @@ aTests = [
 	  :Command = "type packages\c\lock.ring" ],
 	[ :name = "Test the lock file for the D package" ,
 	  :Command = "type packages\d\lock.ring" ],
+	[ :name = "Test the the A package file" ,
+	  :Command = "type packages\a\test.ring" ],
+	[ :name = "Test the the B package file" ,
+	  :Command = "type packages\b\test.ring" ],
+	[ :name = "Test the the C package file" ,
+	  :Command = "type packages\c\test.ring" ],
+	[ :name = "Test the the D package file" ,
+	  :Command = "type packages\d\test.ring" ],
 	[ :name = "Test Removing the A Package" ,
-	  :Command = "ringpm remove a" ] 
+	  :Command = "ringpm remove a" ]	
 ]

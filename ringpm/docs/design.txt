@@ -32,6 +32,10 @@ Advices
 8 - Ring is designed so we can switch between programming paradigms with little 
 	changes to the code 
 
+9 - Be careful when using the Global Variables 
+	Updating global variables from many places ---> Increase Complexity
+
+10- Write tests that cover the Use-Cases in details 
 
 How we will know about the installed packages 
 =============================================

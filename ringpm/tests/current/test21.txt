@@ -1,9 +1,1 @@
-
-B:\ring\ringpm>echo off 
-a
-b
-d
-Note : Avoid deleting the package (d) It's used by the Package (c)
-c
-d
-Deleting Deleting Deleting Deleting Deleting 
+? "Message from Package (A)"
