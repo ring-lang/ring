@@ -16,12 +16,12 @@
 	We may need a lot of tests!
 */
 
-# Load Libraries
+# Load Global Libraries
 	load "stdlibcore.ring"
 	load "consolecolors.ring"
+
 # Load Local Libraries 
 	load "../cuilib/cuilib.ring"
-
 
 # Load Files
 	load "globals.ring"
