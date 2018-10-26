@@ -1,14 +1,17 @@
 Features	
 ========
 
-* Install [Application|Library|Extension]
+* Install [Application|Library|Extension]					DONE
 	---> Install Related Packages 
-* Remove 
-	---> Delete the Related Package if it's not used by other packages 
-* Update (To New|Old Version)
+
+* Remove 									DONE
+	---> Delete the Related Packages if it's not used by other packages 
+
+* Update (To New|Old Version)							
 	---> Delete current version, Then install new version 
 	---> Install new version, Keep the old version too 
-* List of installed packages 
+
+* List of installed packages 						DONE
 
 * Check the required Ring  version before installing the package 	DONE
 
