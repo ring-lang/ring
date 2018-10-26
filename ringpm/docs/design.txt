@@ -222,18 +222,6 @@ List Command
 How to avoid the cPackageURL (Global Variable)
 ==============================================
 
-		Scope ( Local | Object State | Global )
-
-	(1) Use Local Variable 
-		**** Simple Solution ****
-			We will keep passing cPackageURL many times 
-			Or we will return it from the function 
-				---> Not good for the API
-
-	(2) Class ---> OBJECT ( Object State )
-
-		
-
 	cPackageURL --- { GetPackageFile() , DownloadPackageFiles() }
 
 		GetPackageFile() ---> Define Variable
@@ -243,3 +231,20 @@ How to avoid the cPackageURL (Global Variable)
 	GetPackage()
 			call GetPackageFile() ---> Define Variable
 			DownloadPackageFiles() ---> Use 
+
+		Scope ( Local | Object State | Global )
+
+	(1) Keep using Global Variable 
+		But Save/Restore cPackageURL in DownloadPackageFiles()
+			---> Just 2 lines of code 
+
+	(2) Use Local Variable 		---> Ignore 
+		**** Looks like a Simple Solution ****
+			But, We will keep passing cPackageURL many times 
+			Or we will return it from the function 
+				---> Not good for the API
+
+	(3) Class ---> OBJECT ( Object State )
+
+		We created the InstallCommand Class 		
+
