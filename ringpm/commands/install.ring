@@ -4,18 +4,11 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-load "stdlibcore.ring"
-load "installcommand.ring"
+# Load Global Libraries 
+	load "stdlibcore.ring"
 
-if isMainSourceFile()
-	TestProcessVersion()
-ok
-
-func TestProcessVersion
-	? 1.9 > 1.10			# 1 (True)
-	? ProcessVersion("1.9")		# "1.9" --> "001009"   -->  1009
-	? ProcessVersion("1.10")	# "1.10" ---> "001010" -->  1010
-	? ProcessVersion("1.9") > ProcessVersion("1.10")	# 0 (False)
+# Load Application Files
+	load "installcommand.ring"
 
 func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())

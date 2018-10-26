@@ -4,6 +4,23 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+# Load Global Libraries 
+	load "stdlibcore.ring"
+
+# Load Application Files 
+	load "packages.ring"
+	load "globals.ring"
+
+if isMainSourceFile()
+	TestProcessVersion()
+ok
+
+func TestProcessVersion
+	? 1.9 > 1.10			# 1 (True)
+	? ProcessVersion("1.9")		# "1.9" --> "001009"   -->  1009
+	? ProcessVersion("1.10")	# "1.10" ---> "001010" -->  1010
+	? ProcessVersion("1.9") > ProcessVersion("1.10")	# 0 (False)
+
 func CheckRingVersion aPackageInfo
 	# 1.0	1.1	.... 	1.8 1.9 1.10
 	# 1.8 < 1.9 
