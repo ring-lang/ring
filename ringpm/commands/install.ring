@@ -4,12 +4,6 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-# Load Global Libraries 
-	load "stdlibcore.ring"
-
-# Load Application Files
-	load "installcommand.ring"
-
 func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())
 

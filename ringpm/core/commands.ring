@@ -6,6 +6,7 @@
 
 # Load Commands 
 	load "../commands/install.ring"
+	load "../commands/installcommand.ring"
 	load "../commands/lockfile.ring"
 	load "../commands/list.ring"
 	load "../commands/remove.ring"
