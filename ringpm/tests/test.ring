@@ -54,7 +54,7 @@ func RunTests()
 		RunTest(x,aTest)
 		ShowTestResult(x,aTest)		
 	next
-	? "" line()	
+	? nl line()	
 
 func SetTestingMode
 	switch nTestMode 
