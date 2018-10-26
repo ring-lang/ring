@@ -52,7 +52,28 @@ class InstallCommand
 		ok
 		WriteLockFile(aPackageInfo)
 
-
+	func GetPackageFile cPackageName
+		if lLocalPackages 
+			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
+			cDir = CurrentDir()
+				chdir(cPackageURL)
+				SystemSilent("git checkout master")
+			chdir(cDir)
+		else 
+			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
+		ok
+		cPackageFileURL = cPackageURL + "package.ring"
+		cPackageInfo 	= DownloadFile(cPackageFileURL)
+		# We are using local packages, and the package doesn't exist
+			if cPackageInfo = "" return ok
+		if substr(cPackageInfo,"404") 
+			? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
+			? "File URL : " + cPackageFileURL
+			cPackageInfo = ""
+			lInstallError 	= True
+		ok
+		return cPackageInfo
+	
 	func DisplayPackageInformation aPackageInfo
 		if lDisplayPackageInfo = False return ok
 		? "Package Name         : " + aPackageInfo[:name]
@@ -60,6 +81,16 @@ class InstallCommand
 		? "Package Developer    : " + aPackageInfo[:developer]
 		? "Package License      : " + aPackageInfo[:license]
 	
+	func DownloadRelatedPackages aPackageInfo,cPackageInfo
+		for aRelatedPackage in aPackageInfo[:libs]
+			oInstall = new InstallCommand
+			oInstall.InstallPackage(aRelatedPackage[:name])
+			oAllPackagesInfo.AddRelatedPackage(
+				aRelatedPackage[:name],
+				aPackageInfo[:folder]
+			)
+		next
+
 	func DownloadPackageFiles aPackageInfo,cPackageInfo
 		cCurrentDir = CurrentDir()
 		# Create the package folder
@@ -92,36 +123,3 @@ class InstallCommand
 			ok
 		ok
 		chdir(cCurrentDir)
-	
-	func DownloadRelatedPackages aPackageInfo,cPackageInfo
-		for aRelatedPackage in aPackageInfo[:libs]
-			oInstall = new InstallCommand
-			oInstall.InstallPackage(aRelatedPackage[:name])
-			oAllPackagesInfo.AddRelatedPackage(
-				aRelatedPackage[:name],
-				aPackageInfo[:folder]
-			)
-		next
-
-	func GetPackageFile cPackageName
-		if lLocalPackages 
-			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
-			cDir = CurrentDir()
-				chdir(cPackageURL)
-				SystemSilent("git checkout master")
-			chdir(cDir)
-		else 
-			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
-		ok
-		cPackageFileURL = cPackageURL + "package.ring"
-		cPackageInfo 	= DownloadFile(cPackageFileURL)
-		# We are using local packages, and the package doesn't exist
-			if cPackageInfo = "" return ok
-		if substr(cPackageInfo,"404") 
-			? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
-			? "File URL : " + cPackageFileURL
-			cPackageInfo = ""
-			lInstallError 	= True
-		ok
-		return cPackageInfo
-	
