@@ -20,7 +20,8 @@ func ExecuteCommands
 			on "install"				
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" return ok
-				InstallPackage(cPackageName)
+				oInstall = new InstallCommand
+				oInstall.InstallPackage(cPackageName)
 			on "update"
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" return ok

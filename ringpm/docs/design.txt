@@ -218,5 +218,28 @@ List Command
 	ringpm fastlist		= (list -f)
 
 
+==============================================
+How to avoid the cPackageURL (Global Variable)
+==============================================
 
+		Scope ( Local | Object State | Global )
 
+	(1) Use Local Variable 
+		**** Simple Solution ****
+			We will keep passing cPackageURL many times 
+			Or we will return it from the function 
+				---> Not good for the API
+
+	(2) Class ---> OBJECT ( Object State )
+
+		
+
+	cPackageURL --- { GetPackageFile() , DownloadPackageFiles() }
+
+		GetPackageFile() ---> Define Variable
+		DownloadPackageFiles() ---> Use 
+			called by GetPackage()
+
+	GetPackage()
+			call GetPackageFile() ---> Define Variable
+			DownloadPackageFiles() ---> Use 
