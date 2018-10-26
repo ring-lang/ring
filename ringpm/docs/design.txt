@@ -235,7 +235,7 @@ How to avoid the cPackageURL (Global Variable)
 		Scope ( Local | Object State | Global )
 
 	(1) Keep using Global Variable 
-		But Save/Restore cPackageURL in DownloadPackageFiles()
+		But Save/Restore cPackageURL in GetPackage()
 			---> Just 2 lines of code 
 
 	(2) Use Local Variable 		---> Ignore 
