@@ -30,7 +30,7 @@
 	ok
 
 # The parameters of our command 	
-	aCommand	   = []
+	aCommand	   	= []
 
 # Folders
 	cMainPackagesFolder 	= "/packages"
@@ -41,16 +41,16 @@
 
 # All Packages Information
 
-	oAllPackagesInfo = new AllPackagesInfo
+	oAllPackagesInfo 	= new AllPackagesInfo
 
 # Flag for Install Errors 
-	lInstallError 	= False 
+	lInstallError 		= False 
 
 # Flag for displaying package information during installation 
-	lDisplayPackageInfo  = False 
-	lDisplayPackageFiles = False 
-	lDisplayOperationDone= False
+	lDisplayPackageInfo  	= False 
+	lDisplayPackageFiles 	= False 
+	lDisplayOperationDone	= False
 
 # Flag to check updates in the List command 
 
-	lCheckUpdates = True 
+	lCheckUpdates 		= True 

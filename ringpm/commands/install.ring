@@ -87,7 +87,9 @@ func GetPackage cPackageName
 			lInstallError 	= True
  			return 
 		ok
+	cTempPackageURL = cPackageURL
 	DownloadRelatedPackages(aPackageInfo,cPackageInfo)
+	cPackageURL = cTempPackageURL 
 	if ! lInstallError 
 		DownloadPackageFiles(aPackageInfo,cPackageInfo)
 	else 
