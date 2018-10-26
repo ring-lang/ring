@@ -504,6 +504,17 @@
 			<a href="https://www.youtube.com/watch?v=3bSwT28aP1w&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=11">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson12">12</td>
+		<td>
+			ادارة ال State بشكل صحيح وعمل كلاس بالاسم InstallCommand واضافة المزيد من ال Tests
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156188149035345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 
