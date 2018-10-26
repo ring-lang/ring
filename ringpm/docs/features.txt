@@ -1,34 +1,32 @@
+========
 Features	
 ========
 
+======================================================================================
 * Install [Application|Library|Extension]					DONE
-	---> Install Related Packages 
-
+	* Install Related Packages 						DONE
+	* Check the required Ring  version before installing the package 	DONE
+	* Support packages with folders and sub folders 			DONE
+	* If we have an error during installation of a package, display 	DONE
+	  a message : Not Completed 						DONE
+======================================================================================
 * Remove 									DONE
-	---> Delete the Related Packages if it's not used by other packages 
-
+	* Don't delete a package when it's still used by other packages 	DONE 
+	* When we delete a package, delete the related packages 		DONE 
+	  if it's not used  by other packages 					DONE
+======================================================================================
 * Update (To New|Old Version)							
-	---> Delete current version, Then install new version 
-	---> Install new version, Keep the old version too 
-
-* List of installed packages 						DONE
-
-* Check the required Ring  version before installing the package 	DONE
-
-* Support packages with folders and sub folders 			DONE
-
-* Don't delete a package when it's still used by other packages 	DONE 
-	
-* When we delete a package, delete the related packages 		DONE 
-	if it's not used  by other packages 
-
-* If we have an error during installation of a package, display 	DONE
-	a message : Not Completed 
-
-* Create Lock File for each package 					DONE
-
-* Don't repeat the same package in the lock file 			DONE
-
-* Better style for (Install, Remove, Update, etc) commands 		DONE
-
-* Fast List ( list [-f : don't check updates] )				DONE
+	* Delete current version, Then install new version 
+	* Install new version, Keep the old version too 
+======================================================================================
+* List of installed packages 							DONE
+	* Package Name + Package Version 					DONE
+	* Check if we have new updates 						DONE
+	* Fast List ( list [-f : don't check updates] )				DONE
+======================================================================================
+* Lock File									DONE
+	* Create Lock File for each package 					DONE
+	* Don't repeat the same package in the lock file 			DONE
+======================================================================================
+* Better style for (Install, Remove, Update, etc) commands 			DONE
+======================================================================================
