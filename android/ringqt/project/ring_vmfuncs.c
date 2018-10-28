@@ -340,6 +340,7 @@ void ring_vm_call2 ( VM *pVM )
 void ring_vm_return ( VM *pVM )
 {
 	List *pList  ;
+	Item oTempItem  ;
 	/* Support for nested "Load" instructions */
 	if ( pVM->nBlockFlag >= 1 ) {
 		ring_vm_removeblockflag(pVM);
@@ -361,6 +362,18 @@ void ring_vm_return ( VM *pVM )
 		/* Restore File Name */
 		pVM->cPrevFileName = pVM->cFileName ;
 		pVM->cFileName = (char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
+		/* Avoid wrong Stack Pointer Value */
+		if ( pVM->nSP > pVM->nFuncSP+1 ) {
+			/*
+			**  Happens when using Return inside braces like : new object { return } 
+			**  Swap Two Items in the Stack (Move the Function Output to Correct Position) 
+			*/
+			oTempItem = pVM->aStack[pVM->nFuncSP+1] ;
+			pVM->aStack[pVM->nFuncSP+1] = pVM->aStack[pVM->nSP] ;
+			pVM->aStack[pVM->nSP] = oTempItem ;
+			/* Set the Stack Size to the correct value (Function Output Only) */
+			pVM->nSP = pVM->nFuncSP+1 ;
+		}
 		/* Move returned List to the previous scope */
 		if ( RING_VM_STACK_ISPOINTER ) {
 			/*
