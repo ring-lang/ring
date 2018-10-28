@@ -15,6 +15,8 @@ x,nSP,nMax1,nFuncEx
 ring_vm_return
 Type: List *
 pList
+Type: Item
+oTempItem
 ring_vm_returnnull
 ring_vm_newfunc
 Type: int
