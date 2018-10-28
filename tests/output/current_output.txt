@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-13
-92
-79
+14
+88
+74
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 1144
+Time 1197
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-01164338
+016A3338
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 05/10/2018
-time: 04:57:17
+date: 28/10/2018
+time: 19:29:31
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3595,3 +3595,9 @@ B:\ring\tests>call ring scripts/minusminus.ring
 -7
 -8
 
+
+B:\ring\tests>call ring scripts/retinbrace.ring 
+Start
+Message From Test
+Test Output
+End
