@@ -7,6 +7,7 @@
 class InstallCommand
 
 	cPackageURL = ""
+	cBranchName = "master"
 
 	func InstallPackage cPackageName
 		Style("Installing ",:YellowBlack) see cPackageName
@@ -57,10 +58,11 @@ class InstallCommand
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
 			cDir = CurrentDir()
 				chdir(cPackageURL)
-				SystemSilent("git checkout master")
+				SystemSilent("git checkout " + cBranchName)
 			chdir(cDir)
 		else 
-			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/master/"
+			cPackageURL  	= cPackagesLocations + "/" + cPackageName +
+						 "/"+cBranchName+"/"
 		ok
 		cPackageFileURL = cPackageURL + "package.ring"
 		cPackageInfo 	= DownloadFile(cPackageFileURL)
