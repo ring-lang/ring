@@ -86,6 +86,9 @@ class InstallCommand
 	func DownloadRelatedPackages aPackageInfo,cPackageInfo
 		for aRelatedPackage in aPackageInfo[:libs]
 			oInstall = new InstallCommand
+			if aRelatedPackage[:branch] != NULL 
+				oInstall.cBranchName = aRelatedPackage[:branch]
+			ok
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
 				aRelatedPackage[:name],
