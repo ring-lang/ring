@@ -21,8 +21,9 @@ func DownloadFile cURL
 	ok
 	return Download(AddTimeStamp(cURL))
 
-func GetPackageFile cPackageName
+func GetPackageFile cPackageName,cBranchName
 	oInstall = new InstallCommand 
+	oInstall.cBranchName = cBranchName
 	return oInstall.GetPackageFile(cPackageName)
 
 func GetPackage cPackageName

@@ -153,5 +153,6 @@ class InstallCommand
 	func UpdateFolderName aPackageInfo
 		aPackageInfo[:remotefolder] = aPackageInfo[:folder]
 		aPackageInfo[:folder] = GetPackageFolderName(aPackageInfo)
+		aPackageInfo[:branch] = cBranchName
 		cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
 		return cPackageInfo

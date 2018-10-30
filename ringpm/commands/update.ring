@@ -13,13 +13,14 @@ func UpdatePackage cPackageName
 			return 
 		ok
 	# Get Package File (Local & Remote) ---> Compare 
-		cRemotePackageFile = GetPackageFile(cPackageName)
-		if cRemotePackageFile = "" return ok
 		cLocalPackageFile  = read(cLocalPackageFileName)
-		eval(cRemotePackageFile)
-		cRemoteVersion = aPackageInfo[:version]
 		eval(cLocalPackageFile)
 		cLocalVersion  = aPackageInfo[:version]
+		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch])
+		if cRemotePackageFile = "" return ok
+		eval(cRemotePackageFile)
+		cRemoteVersion = aPackageInfo[:version]
+	
 	# Check if no updates (---> Return)
 		if cLocalVersion = cRemoteVersion
 			? C_ERROR_NOUPDATES 
