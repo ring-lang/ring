@@ -23,9 +23,13 @@ func DownloadFile cURL
 
 func GetPackageFile cPackageName,cBranchName
 	oInstall = new InstallCommand 
-	oInstall.cBranchName = cBranchName
+	if cBranchName != NULL
+		oInstall.cBranchName = cBranchName
+	ok
 	return oInstall.GetPackageFile(cPackageName)
 
-func GetPackage cPackageName
+func GetPackage cPackageName,cBranchName,lUpdate
 	oInstall = new InstallCommand 
+	oInstall.cBranchName = cBranchName
+	oInstall.lUpdate = lUpdate
 	return oInstall.GetPackage(cPackageName)

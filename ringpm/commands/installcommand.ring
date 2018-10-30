@@ -8,6 +8,7 @@ class InstallCommand
 
 	cPackageURL = ""
 	cBranchName = "master"
+	lUpdate	= False
 
 	func InstallPackage cPackageName
 		Style("Installing ",:YellowBlack) 
@@ -26,10 +27,12 @@ class InstallCommand
 			return 
 		done 
 		# If we have the package ---> Return (Don't install it)
-			if fexists("packages/"+GetPackageFolderName(aPackageInfo)+
-					"/package.ring")
-				? " - " + C_NOTE_PACKAGEALREADYEXISTS
-				return 
+			if lUpdate = False
+				if fexists("packages/"+GetPackageFolderName(aPackageInfo)+
+						"/package.ring")
+					? " - " + C_NOTE_PACKAGEALREADYEXISTS
+					return 
+				ok
 			ok
 		if ! islocal(:aPackageInfo)
 			? C_ERROR_NOPACKAGEINFO
