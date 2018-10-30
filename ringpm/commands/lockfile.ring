@@ -6,12 +6,15 @@
 
 func WriteLockFile aPackageInfo,oInstall
 	cPackageName = aPackageInfo[:folder]
+	cRemotePackageName = aPackageInfo[:remotefolder]
 	cFolder = "packages/"+cPackageName
 	cLockFile = cFolder + "/lock.ring"
 	# Create the Lock File List
 		aLockFile = []
 	# Add the current Package 
-		aLockFile + [:name = cPackageName, :version = aPackageInfo[:version]]
+		aLockFile + [:name = cRemotePackageName, 
+			     :branch = oInstall.cBranchName,
+			     :version = aPackageInfo[:version]]
 	# Get information from related packages 
 		for aRelatedPackage in aPackageInfo[:libs]
 			cSubPackageName = aRelatedPackage[:name]
