@@ -25,7 +25,8 @@ func PrintInstalledPackages
 		for cFile in aPackagesInfoFiles 
 			eval(read(cFile))
 			see Style(Width("Package ("+aPackageInfo[:folder]+") ",25),:YellowBlack)+": " +
-				 Width(aPackageInfo[:name],20) + " -- " +
+				 Width(aPackageInfo[:name] + " [" + aPackageInfo[:branch] + "]",30) +
+				 " -- " +
 				Width("("+aPackageInfo[:version]+ ")",15) 
 				if lCheckUpdates 
 					see  " -- "  
