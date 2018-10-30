@@ -10,8 +10,8 @@ class InstallCommand
 	cBranchName = "master"
 
 	func InstallPackage cPackageName
-		Style("Installing ",:YellowBlack) see cPackageName
-		see nl
+		Style("Installing ",:YellowBlack) 
+		? cPackageName 
 		GetPackage(cPackageName)
 
 	func GetPackage cPackageName
@@ -85,17 +85,18 @@ class InstallCommand
 		? "Package License      : " + aPackageInfo[:license]
 	
 	func DownloadRelatedPackages aPackageInfo,cPackageInfo
+		cFolder = GetPackageFolderName(aPackageInfo) 
 		for aRelatedPackage in aPackageInfo[:libs]
 			oInstall = new InstallCommand
-			cFolder = aPackageInfo[:folder]
+			cRelatedPackageName = aRelatedPackage[:name]
 			# Support installing from different branches 
 				if aRelatedPackage[:branch] != NULL 
 					oInstall.cBranchName = aRelatedPackage[:branch]
-					cFolder += aRelatedPackage[:branch]
+					cRelatedPackageName += aRelatedPackage[:branch]
 				ok
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
-				aRelatedPackage[:name],
+				cRelatedPackageName,
 				cFolder
 			)
 		next
