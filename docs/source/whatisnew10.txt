@@ -20,5 +20,6 @@ Ring 1.10 comes with the next features!
 * Game of Life Game
 * Pong Game
 * Ring Extension for Visual Studio Code
+* The Package Manager (RingPM)
 * More Improvements
 
