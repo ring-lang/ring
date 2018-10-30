@@ -23,7 +23,7 @@
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
 	cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
-	cPackagesLocal     = "b:\ring\ringpm\local2"
+	cPackagesLocal     = "b:\ring\ringpm\local"
 	if lLocalPackages 
 		cPackagesLocations = cPackagesLocal
 	else 

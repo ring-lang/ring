@@ -4,5 +4,6 @@ B:\ring\ringpm>echo off
 b
 d
 c
-d - Note : Package Already Exists
+d
+ - Note : Package Already Exists
 Installing Installing Installing Installing Installing 
