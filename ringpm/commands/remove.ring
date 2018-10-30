@@ -29,7 +29,11 @@ func RemovePackage cPackageName
 	# Delete the Related Package 
 		# Delete related packages 
 			for aPackage in aPackageInfo[:libs]
-				RemovePackage(aPackage[:name])
+				if aPackage[:branch] = NULL
+					RemovePackage(aPackage[:name])
+				else 
+					RemovePackage(aPackage[:name]+aPackage[:branch])
+				ok
 			next 
 	# Delete the package 
 		chdir("packages")

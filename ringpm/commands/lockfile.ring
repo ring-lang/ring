@@ -10,7 +10,7 @@ func WriteLockFile aPackageInfo,oInstall
 	cLockFile = cFolder + "/lock.ring"
 	# Create the Lock File List
 		aLockFile = []
-	# Add the curst Package 
+	# Add the current Package 
 		aLockFile + [:name = cPackageName, :version = aPackageInfo[:version]]
 	# Get information from related packages 
 		for aRelatedPackage in aPackageInfo[:libs]
