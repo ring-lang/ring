@@ -32,7 +32,7 @@ Features
 ======================================================================================
 * Installing from different branches 						DONE
 * Installing more than one version from the same package 			DONE
+* Using "." in the folder name (version) instead of "_"				DONE
 * [TODO] Correct writing for the lock file when we install specific version 
 * [TODO] Correct remove for package when we have a specific version 
-* [TODO] Using "." in the folder name (version) instead of "_"
 ======================================================================================

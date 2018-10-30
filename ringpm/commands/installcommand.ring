@@ -145,7 +145,7 @@ class InstallCommand
 		if cBranchName = "master"
 			return aPackageInfo[:folder]
 		ok
-		return aPackageInfo[:folder]+ "_" + substr(cBranchName,".","_")
+		return aPackageInfo[:folder] + cBranchName 
 
 	func UpdateFolderName aPackageInfo
 		aPackageInfo[:remotefolder] = aPackageInfo[:folder]
