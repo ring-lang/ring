@@ -33,6 +33,6 @@ Features
 * Installing from different branches 						DONE
 * Installing more than one version from the same package 			DONE
 * Using "." in the folder name (version) instead of "_"				DONE
-* [TODO] Correct writing for the lock file when we install specific version 
+* Correct writing for the lock file when we install specific version 		DONE
 * [TODO] Correct remove for package when we have a specific version 
 ======================================================================================

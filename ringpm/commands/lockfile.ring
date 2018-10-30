@@ -15,7 +15,11 @@ func WriteLockFile aPackageInfo,oInstall
 	# Get information from related packages 
 		for aRelatedPackage in aPackageInfo[:libs]
 			cSubPackageName = aRelatedPackage[:name]
-			cSubLockFile = "packages/"+cSubPackageName+"/lock.ring"
+			if aRelatedPackage[:branch] = NULL
+				cSubLockFile = "packages/"+cSubPackageName+"/lock.ring"
+			else 
+				cSubLockFile = "packages/"+cSubPackageName+aRelatedPackage[:branch]+"/lock.ring"
+			ok
 			eval(read(cSubLockFile))
 			for aSubPackage in aLockInfo
 				# Don't repeat the Packages 
