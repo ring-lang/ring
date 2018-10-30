@@ -248,3 +248,45 @@ How to avoid the cPackageURL (Global Variable)
 
 		We created the InstallCommand Class 		
 
+==================================
+Installing from different branches 
+==================================
+
+
+	Install Package ---> (master) branch
+	Installing from different branch (like v0.9 , v1.2, etc)
+
+	----> Install (Old Version) 
+
+	Example:
+
+		Developer ---> Developed an application (2 years ago)
+		User ---> Need simple update 
+
+		Developr ---> Using (Package D) - version 0.9
+		Current Version (Package D) - version 1.0 
+			--> Breaking Changes 
+
+	Two Solutions 
+
+		(1) Update Code ---> from version 0.9 to 1.0
+			---> Need Time 
+		(2) Using old version ---> v0.9
+			---> Don't have time 
+			     The budget is low 
+			     No practical need for update 
+
+	Two Features 
+
+		(1) Install Old Version ---> (Install from specific branch)
+		(2) Install more than one version from the same package 
+
+
+	ringpm install <package_name> [ branch <branch_name> ]
+
+	ringpm install d branch v0.9
+		
+	
+
+
+

@@ -16,13 +16,14 @@
 	C_ERROR_THISPACKAGEISUSEDBYOTHERPACKAGES= "Error(9) : This package is used by other packages"
 	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
 	C_ERROR_CANTWRITETHEFILE		= "Error(11): Can't write the file"
+	C_ERROR_BRANCHNAMEISMISSING		= "Error(12): Branch name is missing"
 	C_NOTE_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
 	C_NOTE_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
 	cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
-	cPackagesLocal     = "b:\ring\ringpm\local"
+	cPackagesLocal     = "b:\ring\ringpm\local2"
 	if lLocalPackages 
 		cPackagesLocations = cPackagesLocal
 	else 

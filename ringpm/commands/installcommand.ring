@@ -86,9 +86,10 @@ class InstallCommand
 	func DownloadRelatedPackages aPackageInfo,cPackageInfo
 		for aRelatedPackage in aPackageInfo[:libs]
 			oInstall = new InstallCommand
-			if aRelatedPackage[:branch] != NULL 
-				oInstall.cBranchName = aRelatedPackage[:branch]
-			ok
+			# Support installing from different branches 
+				if aRelatedPackage[:branch] != NULL 
+					oInstall.cBranchName = aRelatedPackage[:branch]
+				ok
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
 				aRelatedPackage[:name],
@@ -128,3 +129,12 @@ class InstallCommand
 			ok
 		ok
 		chdir(cCurrentDir)
+
+	func SetBranchFromCommandLine
+		nPos = find(aCommand,"branch")
+		if ! nPos return ok
+		if len(aCommand) > nPos 	# We have branch name 
+			cBranchName = aCommand[nPos+1]	
+		else 
+			? C_ERROR_BRANCHNAMEISMISSING
+		ok
