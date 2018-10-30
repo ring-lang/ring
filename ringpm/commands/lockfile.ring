@@ -4,7 +4,7 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-func WriteLockFile aPackageInfo
+func WriteLockFile aPackageInfo,oInstall
 	cPackageName = aPackageInfo[:folder]
 	cFolder = "packages/"+cPackageName
 	cLockFile = cFolder + "/lock.ring"

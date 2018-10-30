@@ -38,7 +38,7 @@ func PrintInstalledPackages
 		ok
 
 func CheckUpdates aLocalPackageInfo
-	cPackageName = aLocalPackageInfo[:folder]
+	cPackageName = aLocalPackageInfo[:remotefolder]
 	cPackageInfo = GetPackageFile(cPackageName)
 	try
 		eval( cPackageInfo )

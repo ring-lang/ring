@@ -11,11 +11,6 @@ class InstallCommand
 
 	func InstallPackage cPackageName
 		Style("Installing ",:YellowBlack) see cPackageName
-		# If we have the package ---> Return (Don't install it)
-			if fexists("packages/"+cPackageName+"/package.ring")
-				? " - " + C_NOTE_PACKAGEALREADYEXISTS
-				return 
-			ok
 		see nl
 		GetPackage(cPackageName)
 
@@ -30,6 +25,12 @@ class InstallCommand
 			lInstallError 	= True
 			return 
 		done 
+		# If we have the package ---> Return (Don't install it)
+			if fexists("packages/"+GetPackageFolderName(aPackageInfo)+
+					"/package.ring")
+				? " - " + C_NOTE_PACKAGEALREADYEXISTS
+				return 
+			ok
 		if ! islocal(:aPackageInfo)
 			? C_ERROR_NOPACKAGEINFO
 			lInstallError 	= True
@@ -51,7 +52,7 @@ class InstallCommand
 			? "Install Operation (Not Completed)"
 			return 
 		ok
-		WriteLockFile(aPackageInfo)
+		WriteLockFile(aPackageInfo,self)
 
 	func GetPackageFile cPackageName
 		if lLocalPackages 
@@ -101,8 +102,9 @@ class InstallCommand
 		cCurrentDir = CurrentDir()
 		# Create the package folder
 			chdir("packages")
-			OSCreateOpenFolder(aPackageInfo[:folder])
-		# Write the Package File 	
+			OSCreateOpenFolder(GetPackageFolderName(aPackageInfo))
+		# Write the Package File
+			cPackageInfo = UpdateFolderName(aPackageInfo) 	
 			write("package.ring",cPackageInfo)
 		# Download package files 
 		lWriteError = False
@@ -138,3 +140,15 @@ class InstallCommand
 		else 
 			? C_ERROR_BRANCHNAMEISMISSING
 		ok
+
+	func GetPackageFolderName aPackageInfo
+		if cBranchName = "master"
+			return aPackageInfo[:folder]
+		ok
+		return aPackageInfo[:folder]+ "_" + substr(cBranchName,".","_")
+
+	func UpdateFolderName aPackageInfo
+		aPackageInfo[:remotefolder] = aPackageInfo[:folder]
+		aPackageInfo[:folder] = GetPackageFolderName(aPackageInfo)
+		cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
+		return cPackageInfo
