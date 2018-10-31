@@ -24,9 +24,11 @@ if isMainSourceFile()
 ok
 	
 class List2Code
+	nTabs = 0
 	func List2Code aList
 		cCode = "["+Windowsnl()
 		lStart = True
+		nTabs++
 		for item in aList 
 			if !lStart 
 				cCode += "," + WindowsNL()
@@ -34,19 +36,19 @@ class List2Code
 				lStart = False
 			ok
 			if isString(item) 
-				cCode += '"' + item + '"' 
+				cCode += Copy(Tab,nTabs)+'"' + item + '"' 
 			but isnumber(item)
-				cCode += (""+item)
+				cCode += Copy(Tab,nTabs)+(""+item)
 			but islist(item)
 				if len(item) = 2 and isString(item[1])
 					if isString(item[2])
-						cCode += ":"+item[1] + ' = "' +
+						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = "' +
 							item[2] + '"' 
 					but isNumber(item[2])
-						cCode += ":"+item[1] + ' = ' +
+						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = ' +
 							item[2] 
 					but isList(item[2])
-						cCode += ":"+item[1] + ' = ' +
+						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = ' +
 							List2Code(item[2]) 
 					ok
 					
@@ -55,6 +57,7 @@ class List2Code
 				ok
 			ok
 		next
-		cCode += windowsnl()+"]"
+		cCode += windowsnl()+Copy(Tab,nTabs-1)+"]"
+		nTabs--
 		return cCode
 	
