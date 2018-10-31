@@ -5,7 +5,7 @@ aPackageInfo = [
 	:developer  	= "Mahmoud Fayed",
 	:email		= "msfclipper@yahoo.com",
 	:license	= "MIT License",
-	:version	= "1.0.2",
+	:version	= "1.0.3",
 	:ringversion	= "1.9",
 	:files 		= [
 		"test.ring"
