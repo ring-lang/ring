@@ -6,10 +6,10 @@
 
 | |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
-|Download |[![Download](http://ring-lang.sf.net/binaryrelease.svg)](http://ring-lang.sf.net/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](http://ring-lang.sf.net/documentation.svg)](http://ring-lang.sf.net/doc1.9/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
-|Try |[![Try](http://ring-lang.sf.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sf.net/cgi-bin/ringlang.cgi)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Support |[![Support](http://ring-lang.sf.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Download |[![Download](https://raw.githubusercontent.com/ring-lang/ring/master/graphics/binaryrelease.svg)](http://ring-lang.sf.net/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Help |[![Help](https://raw.githubusercontent.com/ring-lang/ring/master/graphics/documentation.svg)](http://ring-lang.sf.net/doc1.9/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Try |[![Try](https://raw.githubusercontent.com/ring-lang/ring/master/graphics/interactive%20ring-use%20online-green.svg)](http://ring-lang.sf.net/cgi-bin/ringlang.cgi)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Support |[![Support](https://raw.githubusercontent.com/ring-lang/ring/master/graphics/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
 # Welcome to Ring
 
