@@ -26,9 +26,9 @@ ok
 class List2Code
 	nTabs = 0
 	func List2Code aList
-		cCode = "["+Windowsnl()
-		lStart = True
 		nTabs++
+		cCode = Copy(Tab,nTabs-1)+"["+Windowsnl()
+		lStart = True
 		for item in aList 
 			if !lStart 
 				cCode += "," + WindowsNL()

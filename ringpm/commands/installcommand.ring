@@ -162,5 +162,7 @@ class InstallCommand
 		aPackageInfo[:remotefolder] = aPackageInfo[:folder]
 		aPackageInfo[:folder] = GetPackageFolderName(aPackageInfo)
 		aPackageInfo[:branch] = cBranchName
-		cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
+		new List2Code {
+			cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
+		}
 		return cPackageInfo

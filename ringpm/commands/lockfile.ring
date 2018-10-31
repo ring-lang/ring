@@ -36,4 +36,6 @@ func WriteLockFile aPackageInfo,oInstall
 			next
 		next	
 	# Write the Lock File
-		write(cLockFile,"aLockInfo = " + list2code(aLockFile))
+		new List2Code {
+			write(cLockFile,"aLockInfo = " + list2code(aLockFile))
+		}
