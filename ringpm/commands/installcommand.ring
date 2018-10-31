@@ -11,7 +11,11 @@ class InstallCommand
 	lUpdate	= False
 
 	func InstallPackage cPackageName
-		Style("Installing ",:YellowBlack) 
+		if lUpdate = False
+			Style("Installing ",:YellowBlack) 
+		else 
+			Style("Update ",:YellowBlack) 
+		ok
 		? cPackageName 
 		GetPackage(cPackageName)
 
@@ -97,6 +101,7 @@ class InstallCommand
 					oInstall.cBranchName = aRelatedPackage[:branch]
 					cRelatedPackageName += aRelatedPackage[:branch]
 				ok
+			oInstall.lUpdate = lUpdate
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
 				cRelatedPackageName,
