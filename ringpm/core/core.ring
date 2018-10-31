@@ -13,4 +13,4 @@
 	load "version.ring"
 	load "folders.ring"
 	load "packages.ring"
-	
+	load "listoffiles.ring"
