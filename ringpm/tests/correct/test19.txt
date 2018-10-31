@@ -1,19 +1,12 @@
 aLockInfo = [
-[
-[
-"name","c"
-],[
-"branch","master"
-],[
-"version","1.0.0"
-]
-],[
-[
-"name","d"
-],[
-"branch","master"
-],[
-"version","1.0.0"
-]
-]
+	[
+		:name = "c",
+		:branch = "master",
+		:version = "1.0.0"
+	],
+	[
+		:name = "d",
+		:branch = "master",
+		:version = "1.0.0"
+	]
 ]
