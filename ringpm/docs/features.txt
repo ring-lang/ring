@@ -23,6 +23,7 @@ Features
 	* Package Name + Package Version 					DONE
 	* Check if we have new updates 						DONE
 	* Fast List ( list [-f : don't check updates] )				DONE
+	* Print Packages Count							DONE
 ======================================================================================
 * Lock File									DONE
 	* Create Lock File for each package 					DONE

@@ -34,6 +34,8 @@ func PrintInstalledPackages
 				ok
 				see nl
 		next 
+	# Print Packages Count 
+		? nl + "Packages Count : " + len(aPackagesInfoFiles)
 	# Print message if we don't have packages 
 		if len(aPackagesInfoFiles) = 0
 			? "No installed packages!"
