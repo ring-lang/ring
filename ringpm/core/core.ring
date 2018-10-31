@@ -14,3 +14,4 @@
 	load "folders.ring"
 	load "packages.ring"
 	load "listoffiles.ring"
+	load "list2code.ring"
