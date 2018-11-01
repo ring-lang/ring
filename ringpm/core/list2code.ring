@@ -40,7 +40,7 @@ class List2Code
 			but isnumber(item)
 				cCode += Copy(Tab,nTabs)+(""+item)
 			but islist(item)
-				if len(item) = 2 and isString(item[1])
+				if len(item) = 2 and isString(item[1])	# Hash Table 
 					if isString(item[2])
 						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = "' +
 							item[2] + '"' 
