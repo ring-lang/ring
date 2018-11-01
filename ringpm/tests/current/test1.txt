@@ -9,5 +9,6 @@ Command :  <packagename> [branch <branchname>]
 Command :  <packagename>
 Command :  <packagename>
 Command :  [-f : Don't check updates]
+Command :  : Delete All Packages
 ======================================================================
-ringpm installupdate remove list   
+ringpm installupdate remove list   format 
