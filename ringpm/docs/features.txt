@@ -37,3 +37,5 @@ Features
 * Correct writing for the lock file when we install specific version 		DONE
 * Correct remove for package when we have a specific version 			DONE
 ======================================================================================
+* Format Command (ringpm format)						DONE
+======================================================================================

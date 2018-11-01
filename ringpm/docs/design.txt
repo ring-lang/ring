@@ -286,7 +286,14 @@ Installing from different branches
 
 	ringpm install d branch v0.9
 		
-	
+=======================
+Delete All Packages
+=======================
+
+	(1) ringpm remove all  	----> Ignore 
+					So we can have a package with the name "all"
+
+	(2) ringpm format 
 
 
 

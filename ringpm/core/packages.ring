@@ -52,3 +52,6 @@ class AllPackagesInfo
 				ok
 			next 
 		next 
+
+	func DeleteAllPackagesFile 
+		remove(cAllPackagesFile)

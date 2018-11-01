@@ -35,6 +35,8 @@ func ExecuteCommands
 			on "remove"
 				cPackageName = aCommand[2]
 				RemovePackage(cPackageName)
+			on "format"
+				DeleteAllPackages()
 		off
 	
 func GetPackageNameFromParameters
