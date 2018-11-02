@@ -19,6 +19,7 @@
 	C_ERROR_BRANCHNAMEISMISSING		= "Error(12): Branch name is missing"
 	C_NOTE_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
 	C_NOTE_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
+	C_NOTE_NOCOMMANDTORUNTHEPACKAGE		= "Note : No command is defined to run the package!"
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 

@@ -21,5 +21,6 @@ func Commands
 	see "Command : " Style("remove ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("list   ",:YellowBlack)  see " [-f : Don't check updates]" + nl
 	see "Command : " Style("format ",:YellowBlack)  see " : Delete All Packages" + nl
+	see "Command : " Style("run    ",:YellowBlack)  see " <packagename>" + nl
 	line70()
 	

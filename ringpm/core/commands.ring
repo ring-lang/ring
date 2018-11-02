@@ -5,12 +5,14 @@
 */
 
 # Load Commands 
+	load "common.ring"
 	load "../commands/install.ring"
 	load "../commands/installcommand.ring"
 	load "../commands/lockfile.ring"
 	load "../commands/list.ring"
 	load "../commands/remove.ring"
 	load "../commands/update.ring"
+	load "../commands/run.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -33,10 +35,15 @@ func ExecuteCommands
 				CheckFastList()
 				PrintInstalledPackages()
 			on "remove"
-				cPackageName = aCommand[2]
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" return ok
 				RemovePackage(cPackageName)
 			on "format"
 				DeleteAllPackages()
+			on "run"
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" return ok
+				RunPackage(cPackageName)
 		off
 	
 func GetPackageNameFromParameters

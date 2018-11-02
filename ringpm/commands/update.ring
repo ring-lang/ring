@@ -5,15 +5,9 @@
 */
 
 func UpdatePackage cPackageName
-	cLocalPackageFileName = "packages/"+cPackageName+"/package.ring"
-	# Check if we don't have the package ---> Return 
-		if not fexists(cLocalPackageFileName)
-			? C_ERROR_WEDONTHAVETHISPACKAGE
-			? "Package Name : " + cPackageName
-			return 
-		ok
 	# Get Package File (Local & Remote) ---> Compare 
-		cLocalPackageFile  = read(cLocalPackageFileName)
+		cLocalPackageFile  = GetLocalPackageFile(cPackageName)
+		if cLocalPackageFile = NULL return ok
 		eval(cLocalPackageFile)
 		cLocalVersion  = aPackageInfo[:version]
 		cBranchName = aPackageInfo[:branch]

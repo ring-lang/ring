@@ -10,5 +10,6 @@ Command :  <packagename>
 Command :  <packagename>
 Command :  [-f : Don't check updates]
 Command :  : Delete All Packages
+Command :  <packagename>
 ======================================================================
-ringpm installupdate remove list   format 
+ringpm installupdate remove list   format run    
