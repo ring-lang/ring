@@ -1,6 +1,6 @@
 aLockInfo = [
 	[
-		:name = "c",
+		:name = "b",
 		:branch = "master",
 		:version = "1.0.0"
 	],

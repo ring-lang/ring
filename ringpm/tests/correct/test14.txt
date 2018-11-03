@@ -1,7 +1,3 @@
 
 B:\ring\ringpm>echo off 
-badpackage
-nopackage
-Error(10): Package doesn't exist
-Install Operation (Not Completed)
-Installing Installing 
+No installed packages!

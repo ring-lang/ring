@@ -1,1 +1,7 @@
-? "Message from Package (A)"
+aLockInfo = [
+	[
+		:name = "d",
+		:branch = "master",
+		:version = "1.0.0"
+	]
+]

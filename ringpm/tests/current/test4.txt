@@ -1,6 +1,3 @@
 
 B:\ring\ringpm>echo off 
-secondpackage
-firstpackage
- - Note : Package Already Exists
-Installing Installing 
+Wow, It's my first Ring package!

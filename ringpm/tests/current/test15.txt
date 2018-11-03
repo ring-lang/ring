@@ -1,9 +1,7 @@
 
 B:\ring\ringpm>echo off 
-a
-b
-d
-c
-d
- - Note : Package Already Exists
-Installing Installing Installing Installing Installing 
+badpackage
+nopackage
+Error(10): Package doesn't exist
+Install Operation (Not Completed)
+Installing Installing 

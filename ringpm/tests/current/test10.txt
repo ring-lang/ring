@@ -1,5 +1,8 @@
 
 B:\ring\ringpm>echo off 
-secondpackage
-Note : Avoid deleting the package (secondpackage) It's used by the Package (thirdpackage)
-Deleting 
+: The First Package [master]     -- (1.0.0)         -- No Update!
+: The Second Package [master]    -- (1.0.0)         -- No Update!
+: The Third Package [master]     -- (1.0.0)         -- No Update!
+
+Packages Count : 3
+Package (firstpackage)   Package (secondpackage)  Package (thirdpackage)   

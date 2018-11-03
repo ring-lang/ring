@@ -1,3 +1,6 @@
 
 B:\ring\ringpm>echo off 
-No installed packages!
+thirdpackage
+secondpackage
+firstpackage
+Deleting Deleting Deleting 
