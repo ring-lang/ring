@@ -152,6 +152,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=YW7EXpa11h4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=14">YouTube</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson15">15</td>
+		<td>
+			Better format for Package and Lock files.
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=UDMkECTl3RU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=15">YouTube</a>
+		</td>
+	</tr>
 </table>
 
