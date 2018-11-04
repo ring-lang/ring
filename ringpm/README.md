@@ -161,5 +161,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=UDMkECTl3RU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=15">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson16">16</td>
+		<td>
+			Format Command (Delete All Packages)
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=fFsbyFLS0sU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=16">YouTube</a>
+		</td>
+	</tr>
+
 </table>
 
