@@ -134,5 +134,15 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson13">13</td>
+		<td>
+			Installing more than one version from the same package
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=_WLo-d0WdCs&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=13">YouTube</a>
+		</td>
+	</tr>
+
 </table>
 
