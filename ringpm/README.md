@@ -170,6 +170,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=fFsbyFLS0sU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=16">YouTube</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson17">17</td>
+		<td>
+			Run Command 
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=aRnsWOi_euE&index=17&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
