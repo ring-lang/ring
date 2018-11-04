@@ -514,6 +514,51 @@
 			<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson13">13</td>
+		<td>
+			تحميل أكثر من إصدار من نفس ال Package
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=_WLo-d0WdCs&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=13">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson14">14</td>
+		<td>
+			طباعة عدد ال Packages
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=YW7EXpa11h4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=14">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson15">15</td>
+		<td>
+			تنسيق افضل ملف تعريف ال Package وملف ال Lock
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=UDMkECTl3RU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=15">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson16">16</td>
+		<td>
+			إضافة الامر format لحذف جميع ال Packages
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=fFsbyFLS0sU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=16">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson17">17</td>
+		<td>
+			إضافة الامر Run لتشغيل ال Package
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=aRnsWOi_euE&index=17&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 
 </table>
 
