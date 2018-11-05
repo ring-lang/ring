@@ -12,5 +12,6 @@ aPackageInfo = [
 		"sub1/sub.ring",
 		"sub1/sub2.ring",
 		"sub1/sub2/sub.ring"
-	]
+	],
+	:run		= "ring test.ring"
 ]

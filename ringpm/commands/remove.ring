@@ -53,7 +53,7 @@ func DeleteAllPackages
 		for aItem in aPackages 
 			if aItem[2] 	# Folder 
 				cFolder = aItem[1]	# Folder Name 
-				Style("Delete Package ",:YellowBlack) ? cFolder 
+				Style("Deleting ",:YellowBlack) ? cFolder 
 				OSDeleteFolder(cFolder)
 				nCount++
 			ok
