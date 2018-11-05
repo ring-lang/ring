@@ -11,6 +11,7 @@
 	load "../commands/lockfile.ring"
 	load "../commands/list.ring"
 	load "../commands/remove.ring"
+	load "../commands/format.ring"
 	load "../commands/update.ring"
 	load "../commands/run.ring"
 
