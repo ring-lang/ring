@@ -14,7 +14,7 @@ class InstallCommand
 		if lUpdate = False
 			Style("Installing ",:YellowBlack) 
 		else 
-			Style("Update ",:YellowBlack) 
+			Style("Updating ",:YellowBlack) 
 		ok
 		? cPackageName 
 		GetPackage(cPackageName)
@@ -35,6 +35,10 @@ class InstallCommand
 				if fexists("packages/"+GetPackageFolderName(aPackageInfo)+
 						"/package.ring")
 					? " - " + C_NOTE_PACKAGEALREADYEXISTS
+					# Check Update 
+						if CheckPackageUpdate(cPackageName) = True 
+							UpdatePackage(cPackageName)
+						ok
 					return 
 				ok
 			ok
