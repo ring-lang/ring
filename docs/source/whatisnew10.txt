@@ -21,6 +21,7 @@ Ring 1.10 comes with the next features!
 * Pong Game
 * Lights Out Game
 * Dots and Boxes Game
+* Magic Four Game
 * Sum Puzzle Game
 * Ring Extension for Visual Studio Code
 * The Package Manager (RingPM)
