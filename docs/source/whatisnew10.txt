@@ -27,3 +27,13 @@ Ring 1.10 comes with the next features!
 * The Package Manager (RingPM)
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring 1.10?; Minesweeper Game
+
+Minesweeper Game
+================
+
+The objective of the game is to clear a rectangular board containing hidden "mines" or bombs without detonating any of them.
+
+.. image:: minesweeper.png
+	:alt: Minesweeper Game
