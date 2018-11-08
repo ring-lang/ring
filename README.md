@@ -28,10 +28,6 @@ To learn more about the programming language, visit [ring-lang.net](http://ring-
 
 # Building from source code
 
-You can build Ring using [CMake](README_CMake.md) or using Scripts (Batch Files or Shell Scripts).
-
-The next steps explains building using scripts.
-
 We provide instructions for building on the next platforms :-
 
 (1) [Microsoft Windows](README_Windows.md)
