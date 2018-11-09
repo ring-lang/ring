@@ -50,3 +50,18 @@ Can you visit every square in just 63 moves?
 
 .. image:: knighttour.png
 	:alt: Knight Tour Game
+
+.. index:: 
+	pair: What is new in Ring 1.10?; Game of Life Game
+
+Game of Life Game
+=================
+
+The game is a zero-player game, meaning that its evolution is determined by its initial state, 
+requiring no further input. 
+
+One interacts with the Game of Life by creating an initial configuration and observing how it evolves, 
+or, for advanced players, by creating patterns with particular properties.
+
+.. image:: gameoflife.jpg
+	:alt: Game of Life Game
