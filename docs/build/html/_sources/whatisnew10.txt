@@ -19,10 +19,7 @@ Ring 1.10 comes with the next features!
 * Knight Tour Game
 * Game of Life Game
 * Pong Game
-* Lights Out Game
-* Dots and Boxes Game
-* Magic Four Game
-* Sum Puzzle Game
+* More Games
 * Ring Extension for Visual Studio Code
 * The Package Manager (RingPM)
 * More Improvements
@@ -78,3 +75,21 @@ The goal is to defeat your opponent once the opponent misses a ball.
 
 .. image:: ponggame.png
 	:alt: Pong Game
+
+.. index:: 
+	pair: What is new in Ring 1.10?; More Games
+
+More Games
+==========
+
+The next games are added to the application folder
+
+* Lights Out Game
+* Dots and Boxes Game
+* Magic Four Game
+* Sum Puzzle Game
+
+The next screen shot for the Sum Puzzle Game
+
+.. image:: sumpuzzle.png
+	:alt: Sum Puzzle Game
