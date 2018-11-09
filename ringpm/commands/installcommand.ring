@@ -16,7 +16,11 @@ class InstallCommand
 		else 
 			Style("Updating ",:YellowBlack) 
 		ok
-		? cPackageName 
+		see cPackageName 
+		if cBranchName != "master"
+			see " (" + cBranchName + ")"
+		ok
+		see nl
 		GetPackage(cPackageName)
 
 	func GetPackage cPackageName

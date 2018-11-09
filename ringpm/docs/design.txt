@@ -296,4 +296,66 @@ Delete All Packages
 	(2) ringpm format 
 
 
+=======================
+Main Goal
+=======================
+
+		* Install Packages ---> Keep packages up to date 
+
+		* Avoid Dependency Hell 
+		
+			Package (A) -----> Need Package (B) 
+							v.   1.2
+			Package (C) -----> Neeed Package (B)
+							v.   2.1
+
+			Using v. 1.2 ----> For Package (C) (Old Version!)
+			Using v. 2.1 ----> For Package (A) (New Version!)
+	
+			RingPM Support installing multiple versions of the same package 
+
+		* Updates ----> Semantic Versioning 
+
+			Version  Major.Minor.Patch 
+				 1.2.1
+
+			Before version 1.0 ---> In Range ( v 0.0.0 ---> 0.x.x ) 
+					New version is not compatibile with old version 
+		
+			From Version 1.0.0 (Major.Minor.Patch)
+			
+			Increase Patch number ---> Fixing bugs 
+			Increase Minor number ---> Adding features & improvements 
+			Increase Major number ---> Breaking Compatibility 
+
+			v 1.0.0 ------ < 2.0.0
+			v 1.9.5 works (No breaking changes)
+
+		* Without semantic versioning ---> We don't have any information about the future 
+						   of libraries and their API
+
+			In this case we have two options 
+
+				(1) Use Specific Version (No Updates - Version Lock)
+					---> Not good for security & solving bugs 
+				(2) Always Update to newer version 
+					---> This may break the software at some point 
+
+		* With Semantic Versioning 
+				(1) We get updates that works 
+				(2) We avoid breaking our software 
+
+		* Important Note 
+
+				(1) Using Semantic Versioning is not enough 
+				(2) Sometimes developers don't follow the rules 
+				(3) Semantic Versioning works around API changes (Not Behavior)
+
+		* In RingPM to follow semantic versioning 
+
+				(1) Support installing more than one version from the same package
+				(2) Add the version name to the package folder 
+				(3) Take semantic versioning in mind when checking for updates 
+
+
 

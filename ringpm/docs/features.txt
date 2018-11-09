@@ -10,6 +10,7 @@ Features
 	* If we have an error during installation of a package, display 	DONE
 	  a message : Not Completed 						DONE
 	* If a dependency exist, then we check for the updates and update it    DONE
+	* Display the branch name during installation				DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 
