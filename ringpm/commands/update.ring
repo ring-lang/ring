@@ -18,7 +18,7 @@ func UpdatePackage cPackageName
 		ok
 	# Install Update 
 		Style("Updating ",:YellowBlack) ? cPackageName
-		GetPackage(cPackageName,cBranchName,True)	# True = Update Operation (Not Install)
+		GetPackage(aPackageInfo[:remotefolder],cBranchName,True) # True = Update Operation (Not Install)
 
 func CheckPackageUpdate cPackageName
 	# Get Package File (Local & Remote) ---> Compare 
@@ -28,7 +28,7 @@ func CheckPackageUpdate cPackageName
 		cLocalVersion  = aPackageInfo[:version]
 		cBranchName = aPackageInfo[:branch]
 		# Remove branch name from package name 
-			cPackageName = RemoveBranchNameFromPackageName(cPackageName,cBranchName)
+			cPackageName = RemoveBranchNameFromPackageName(aPackageInfo,cPackageName,cBranchName)
 		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch])
 		if cRemotePackageFile = "" return False ok
 		eval(cRemotePackageFile)
@@ -39,7 +39,10 @@ func CheckPackageUpdate cPackageName
 		ok
 	return True
 
-func RemoveBranchNameFromPackageName cPackageName,cBranchName 
+func RemoveBranchNameFromPackageName aPackageInfo,cPackageName,cBranchName 
+	if cBranchName = NULL or cBranchName = "master"
+		cBranchName = GetMajorVersion(aPackageInfo)
+	ok
 	if cBranchName != NULL and cBranchName != "master"
 		if len(cPackageName) > len(cBranchName)
 			cPackageName = left(cPackageName,len(cPackageName)- len(cBranchName))
