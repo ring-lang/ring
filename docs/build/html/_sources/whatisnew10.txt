@@ -93,3 +93,15 @@ The next screen shot for the Sum Puzzle Game
 
 .. image:: sumpuzzle.png
 	:alt: Sum Puzzle Game
+
+
+.. index:: 
+	pair: What is new in Ring 1.10?; Ring Extension for Visual Studio Code
+
+Ring Extension for Visual Studio Code
+=====================================
+
+This extension support the Ring programming language in Visual Studio Code
+
+.. image:: ringinvscode.png
+	:alt: Ring in Visual Studio Code
