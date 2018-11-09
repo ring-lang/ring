@@ -37,3 +37,16 @@ The objective of the game is to clear a rectangular board containing hidden "min
 
 .. image:: minesweeper.png
 	:alt: Minesweeper Game
+
+.. index:: 
+	pair: What is new in Ring 1.10?; Knight Tour Game
+
+Knight Tour Game
+================
+
+Move to every square on the chess board, using only the moves of a knight.
+
+Can you visit every square in just 63 moves? 
+
+.. image:: knighttour.png
+	:alt: Knight Tour Game
