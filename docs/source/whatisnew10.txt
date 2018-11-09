@@ -65,3 +65,16 @@ or, for advanced players, by creating patterns with particular properties.
 
 .. image:: gameoflife.jpg
 	:alt: Game of Life Game
+
+.. index:: 
+	pair: What is new in Ring 1.10?; Pong Game
+
+Pong Game
+=========
+
+Simple "tennis like" game features two paddles and a ball.
+
+The goal is to defeat your opponent once the opponent misses a ball.
+
+.. image:: ponggame.png
+	:alt: Pong Game
