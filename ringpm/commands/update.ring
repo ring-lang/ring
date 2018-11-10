@@ -41,7 +41,7 @@ func CheckPackageUpdate cPackageName
 
 func RemoveBranchNameFromPackageName aPackageInfo,cPackageName,cBranchName 
 	if cBranchName = NULL or cBranchName = "master"
-		cBranchName = GetMajorVersion(aPackageInfo)
+		cBranchName = GetMajorVersionText(aPackageInfo)
 	ok
 	if cBranchName != NULL and cBranchName != "master"
 		if len(cPackageName) > len(cBranchName)
