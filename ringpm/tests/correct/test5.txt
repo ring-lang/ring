@@ -1,6 +1,6 @@
 
 B:\ring\ringpm>echo off 
-secondpackage (master)
-firstpackage (master)
+secondpackage (master) ---> secondpackage
+firstpackage (master) ---> firstpackage
  - Note : Package Already Exists
 Installing Installing 

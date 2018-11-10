@@ -16,8 +16,7 @@ class InstallCommand
 		else 
 			Style("Updating ",:YellowBlack) 
 		ok
-		see cPackageName + " (" + cBranchName + ")"
-		see nl
+		see Width(cPackageName + " (" + cBranchName + ")" , 10)
 		GetPackage(cPackageName)
 
 	func GetPackage cPackageName
@@ -26,15 +25,17 @@ class InstallCommand
 		try
 			eval( cPackageInfo )
 		catch
+			see nl
 			? C_ERROR_PACKAGEINFOISNOTCORRECT
 			? cPackageInfo
 			lInstallError 	= True
 			return 
 		done 
+		cPackageFolderName = GetPackageFolderName(aPackageInfo)
+		see " ---> " + cPackageFolderName + nl
 		# If we have the package ---> Return (Don't install it)
 			if lUpdate = False
-				if fexists("packages/"+GetPackageFolderName(aPackageInfo)+
-						"/package.ring")
+				if fexists("packages/"+cPackageFolderName+"/package.ring")
 					? " - " + C_NOTE_PACKAGEALREADYEXISTS
 					# Check Update 
 						if CheckPackageUpdate(cPackageName) = True 

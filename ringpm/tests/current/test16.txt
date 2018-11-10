@@ -1,9 +1,9 @@
 
 B:\ring\ringpm>echo off 
-a (master)
-b (master)
-d (master)
-c (master)
-d (master)
+a (master) ---> a
+b (master) ---> b
+d (master) ---> d
+c (master) ---> c
+d (master) ---> d
  - Note : Package Already Exists
 Installing Installing Installing Installing Installing 
