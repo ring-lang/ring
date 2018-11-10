@@ -179,5 +179,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=aRnsWOi_euE&index=17&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson18">18</td>
+		<td>
+			Semantic Versioning and installing more than one major version of the same package 
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18">YouTube</a>
+		</td>
+	</tr>
 </table>
 
