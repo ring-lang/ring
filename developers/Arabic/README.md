@@ -535,7 +535,7 @@
 	<tr>
 		<td id="pmlesson15">15</td>
 		<td>
-			تنسيق افضل ملف تعريف ال Package وملف ال Lock
+			تنسيق أفضل لملف تعريف ال Package وملف ال Lock
 		</td>
 		<td>
 			<a href="https://www.youtube.com/watch?v=UDMkECTl3RU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=15">شاهد على اليوتيوب</a>
@@ -559,7 +559,15 @@
 			<a href="https://www.youtube.com/watch?v=aRnsWOi_euE&index=17&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="pmlesson19">19</td>
+		<td>
+			دعم ال Semantic Versioning وتحميل اكثر من اصدار اساسي من ال Package
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 
