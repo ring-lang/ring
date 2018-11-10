@@ -1,4 +1,4 @@
 
 B:\ring\ringpm>echo off 
-firstpackage
+firstpackage (master)
 Installing 

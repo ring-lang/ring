@@ -16,10 +16,7 @@ class InstallCommand
 		else 
 			Style("Updating ",:YellowBlack) 
 		ok
-		see cPackageName 
-		if cBranchName != "master"
-			see " (" + cBranchName + ")"
-		ok
+		see cPackageName + " (" + cBranchName + ")"
 		see nl
 		GetPackage(cPackageName)
 
