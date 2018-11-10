@@ -26,7 +26,9 @@ func Line70
 func style cText,nStyle
 	switch nStyle
 		on :WhiteBlue
-			cc_print(CC_FG_WHITE | CC_BG_BLUE, cText)
+			cc_print(CC_FG_WHITE  | CC_BG_BLUE, cText)
 		on :YellowBlack
-			cc_print(CC_FG_YELLOW| CC_BG_BLACK, cText)
+			cc_print(CC_FG_YELLOW | CC_BG_BLACK, cText)
+		on :WhiteRed
+			cc_print(CC_FG_WHITE  | CC_BG_RED, cText)
 	off
