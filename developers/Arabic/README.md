@@ -43,6 +43,14 @@
 			<a href="#dev"    > المطورين المعتمدين	</a> <br/>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			6
+		</td>
+		<td>
+			<a href="#morelessons"    > دروس إضافية	</a> <br/>
+		</td>
+	</tr>
 
 </table>
 
@@ -345,6 +353,47 @@
 	</tr>
 </table>
 
+<h1 id="dev"> المطورين المعتمدين </h1> 
+
+<table>
+	<tr>	
+		<th>الرقم</th>
+		<th>الاسم</th>
+		<th>الشهادة</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>
+			Khalid Abid Ben Houari
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c1.png"> الرابط </a>
+		</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>
+			Sara Abozeina
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c2.png"> الرابط </a>
+		</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>
+			Mahmoud Mohmmad Kibreet
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الرابط </a>
+		</td>
+	</tr>
+</table>
+
+<h1 id="morelessons"> دروس إضافية </h1> 
+
+هذه مجموعة من الدروس الإضافية وهى ليست مطلوبة للحصول على الشهادة
+
 دروس تشرح تطوير تطبيقات الموبايل Mobile وتطبيقات سطح المكتب Desktop 
 
 <table>
@@ -560,52 +609,12 @@
 		</td>
 	</tr>
 	<tr>
-		<td id="pmlesson19">19</td>
+		<td id="pmlesson18">18</td>
 		<td>
 			دعم ال Semantic Versioning وتحميل اكثر من اصدار اساسي من ال Package
 		</td>
 		<td>
 			<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18">شاهد على اليوتيوب</a>
-		</td>
-	</tr>
-</table>
-
-
-
-<h1 id="dev"> المطورين المعتمدين </h1> 
-
-
-<table>
-	<tr>	
-		<th>الرقم</th>
-		<th>الاسم</th>
-		<th>الشهادة</th>
-	</tr>
-	<tr>
-		<td>1</td>
-		<td>
-			Khalid Abid Ben Houari
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c1.png"> الرابط </a>
-		</td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>
-			Sara Abozeina
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c2.png"> الرابط </a>
-		</td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td>
-			Mahmoud Mohmmad Kibreet
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الرابط </a>
 		</td>
 	</tr>
 </table>
