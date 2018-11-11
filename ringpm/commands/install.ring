@@ -13,6 +13,7 @@ func DownloadFile cURL
 	ok
 	if lLocalPackages 
 		if ! fexists(cURL)
+			see nl
 			? C_ERROR_PACKAGENOTFOUND
 			lInstallError 	= True
 			return 

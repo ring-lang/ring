@@ -83,6 +83,7 @@ class InstallCommand
 		# We are using local packages, and the package doesn't exist
 			if cPackageInfo = "" return ok
 		if substr(cPackageInfo,"404") 
+			see nl
 			? C_ERROR_CANTDOWNLOADTHEPACKAGEFILE
 			? "File URL : " + cPackageFileURL
 			cPackageInfo = ""
