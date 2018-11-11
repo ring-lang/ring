@@ -62,9 +62,26 @@ class InstallCommand
 		# Check Package Version 
 			if cPackageVersion != NULL 
 				if not IsCompatible(cPackageVersion,aPackageInfo[:version])
-					? C_ERROR_PACKAGEVERSIONISNOTCOMPATIBLE
+					? C_NOTE_PACKAGEVERSIONISNOTCOMPATIBLE
 					? "Package  Version : " + aPackageInfo[:version]
 					? "Required Version : " + cPackageVersion
+					if cBranchName = "master"
+						? "Searching for a compatible version"
+						if isList(aPackageInfo[:versions])
+							for aVersion in aPackageInfo[:versions]
+								if IsCompatible(cPackageVersion,aVersion[:Version])
+									if aVersion[:Branch] != "master"
+										cBranchName 	= aVersion[:Branch]
+										? "Found .. version : " + aVersion[:Version] +
+										   " .. Using Branch : " + aVersion[:Branch]
+										InstallPackage(cPackageName)
+							 			return 
+									ok
+								ok
+							next 
+						ok
+						? "Not Found! Contact the package creator for support!"
+					ok
 					lInstallError 	= True
 		 			return 
 				ok
@@ -111,7 +128,8 @@ class InstallCommand
 	
 	func DownloadRelatedPackages aPackageInfo,cPackageInfo
 		cFolder = GetPackageFolderName(aPackageInfo) 
-		for aRelatedPackage in aPackageInfo[:libs]
+		for x = 1 to len(aPackageInfo[:libs])
+			aRelatedPackage = aPackageInfo[:libs][x]
 			oInstall = new InstallCommand
 			cRelatedPackageName = aRelatedPackage[:name]
 			# Support installing from different branches 
@@ -172,10 +190,7 @@ class InstallCommand
 		ok
 
 	func GetPackageFolderName aPackageInfo
-		if cBranchName = "master"
-			return aPackageInfo[:folder] + GetMajorVersionText(aPackageInfo[:Version])
-		ok
-		return aPackageInfo[:folder] + cBranchName 
+		return aPackageInfo[:folder] + GetMajorVersionText(aPackageInfo[:Version])
 
 	func UpdateFolderName aPackageInfo
 		aPackageInfo[:remotefolder] = aPackageInfo[:folder]

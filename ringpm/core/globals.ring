@@ -17,10 +17,12 @@
 	C_ERROR_PACKAGENOTFOUND			= "Error(10): Package doesn't exist"
 	C_ERROR_CANTWRITETHEFILE		= "Error(11): Can't write the file"
 	C_ERROR_BRANCHNAMEISMISSING		= "Error(12): Branch name is missing"
-	C_ERROR_PACKAGEVERSIONISNOTCOMPATIBLE	= "Error(13): The package version is not compatible with the required version"
+	C_ERROR_LOCKFILEDOESNOTEXIST		= "Error(13): Lock file doesn't exist"
 	C_NOTE_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
 	C_NOTE_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
 	C_NOTE_NOCOMMANDTORUNTHEPACKAGE		= "Note : No command is defined to run the package!"
+	C_NOTE_PACKAGEVERSIONISNOTCOMPATIBLE	= "Note : The package version is not compatible with the required version"
+
 
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
