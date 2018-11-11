@@ -6,9 +6,10 @@
 
 class InstallCommand
 
-	cPackageURL = ""
-	cBranchName = "master"
-	lUpdate	= False
+	cPackageURL 	= ""
+	cBranchName 	= "master"
+	cPackageVersion = ""
+	lUpdate	    	= False
 
 	func InstallPackage cPackageName
 		if lUpdate = False
@@ -58,6 +59,16 @@ class InstallCommand
 				lInstallError 	= True
 	 			return 
 			ok
+		# Check Package Version 
+			if cPackageVersion != NULL 
+				if not IsCompatible(cPackageVersion,aPackageInfo[:version])
+					? C_ERROR_PACKAGEVERSIONISNOTCOMPATIBLE
+					? "Package  Version : " + aPackageInfo[:version]
+					? "Required Version : " + cPackageVersion
+					lInstallError 	= True
+		 			return 
+				ok
+			ok
 		DownloadRelatedPackages(aPackageInfo,cPackageInfo)
 		if ! lInstallError 
 			DownloadPackageFiles(aPackageInfo,cPackageInfo)
@@ -105,9 +116,10 @@ class InstallCommand
 			cRelatedPackageName = aRelatedPackage[:name]
 			# Support installing from different branches 
 				if aRelatedPackage[:branch] != NULL 
-					oInstall.cBranchName = aRelatedPackage[:branch]
+					oInstall.cBranchName 	 = aRelatedPackage[:branch]
 					cRelatedPackageName += aRelatedPackage[:branch]
 				ok
+			oInstall.cPackageVersion = aRelatedPackage[:version]
 			oInstall.lUpdate = lUpdate
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
