@@ -60,9 +60,9 @@ func CheckUpdates aLocalPackageInfo
 	ok
 	# Check Update 	
 		if aPackageInfo[:version] != aLocalPackageInfo[:version]
-			if GetMajorVersionNumber(aLocalPackageInfo) = 0 or
-				GetMajorVersionNumber(aLocalPackageInfo) != 
-				GetMajorVersionNumber(aPackageInfo)
+			if GetMajorVersionNumber(aLocalPackageInfo[:Version]) = 0 or
+				GetMajorVersionNumber(aLocalPackageInfo[:Version]) != 
+				GetMajorVersionNumber(aPackageInfo[:Version])
 				cColor = :WhiteRed
 			else 
 				cColor = :WhiteBlue

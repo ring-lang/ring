@@ -161,7 +161,7 @@ class InstallCommand
 
 	func GetPackageFolderName aPackageInfo
 		if cBranchName = "master"
-			return aPackageInfo[:folder] + GetMajorVersionText(aPackageInfo)
+			return aPackageInfo[:folder] + GetMajorVersionText(aPackageInfo[:Version])
 		ok
 		return aPackageInfo[:folder] + cBranchName 
 

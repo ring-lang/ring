@@ -47,21 +47,20 @@ func ProcessVersion cVersion
 	cVersion = substr(cVersion,nl,"")
 	return 0+cVersion		# "001009" ---> 1009 
 
-func GetMajorVersionNumber aPackageInfo
-	cVersion = aPackageInfo[:version]
+func GetMajorVersionNumber cVersion
 	nPos = substr(cVersion,".")
 	if nPos 
 		cVersion = left(cVersion,nPos-1)
 	ok
 	return 0 + cVersion 
 
-func GetMajorVersionText aPackageInfo
+func GetMajorVersionText cVersion
 	# Before version 1.0.0 ---> We return the package version 
 	# From version 1.0.0 < 2.0.0 ---> We return empty string 
 	# From 2.0.0 ---> We return the major version (v2, v3, etc)
-	nMajor = GetMajorVersionNumber(aPackageInfo)
+	nMajor = GetMajorVersionNumber(cVersion)
 	if nMajor = 0
-		return "v"+aPackageInfo[:version]
+		return "v"+cVersion
 	but nMajor = 1 
 		return 
 	else 
