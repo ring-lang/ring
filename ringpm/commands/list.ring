@@ -60,12 +60,10 @@ func CheckUpdates aLocalPackageInfo
 	ok
 	# Check Update 	
 		if aPackageInfo[:version] != aLocalPackageInfo[:version]
-			if GetMajorVersionNumber(aLocalPackageInfo[:Version]) = 0 or
-				GetMajorVersionNumber(aLocalPackageInfo[:Version]) != 
-				GetMajorVersionNumber(aPackageInfo[:Version])
-				cColor = :WhiteRed
-			else 
+			if IsCompatible(aLocalPackageInfo[:Version],aPackageInfo[:Version])
 				cColor = :WhiteBlue
+			else 
+				cColor = :WhiteRed
 			ok
 			return Style("New Update : (" + aPackageInfo[:version] + ")",cColor)
 		ok

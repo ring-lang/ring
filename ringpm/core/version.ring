@@ -66,3 +66,14 @@ func GetMajorVersionText cVersion
 	else 
 		return "v"+nMajor
 	ok
+
+func IsCompatible cVersion1,cVersion2
+	if cVersion1 != cVersion2
+		if GetMajorVersionNumber(cVersion1) = 0 or
+			GetMajorVersionNumber(cVersion1) != GetMajorVersionNumber(cVersion2)
+			return False
+		else 
+			return True
+		ok
+	ok
+	return True
