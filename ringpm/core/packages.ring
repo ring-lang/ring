@@ -35,8 +35,9 @@ class AllPackagesInfo
 			ok
 	
 	func SaveInfo
+		oList2Code = new List2Code
 		write(cAllPackagesFile,
-		"aAllPackagesInfo = " + List2Code(aAllPackagesInfo))
+		"aAllPackagesInfo = " + oList2Code.List2Code(aAllPackagesInfo))
 
 	func CheckRelatedPackages cPackageName 
 		AddPackage(cPackageName)
