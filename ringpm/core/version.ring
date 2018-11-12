@@ -60,11 +60,11 @@ func GetMajorVersionText cVersion
 	# From 2.0.0 ---> We return the major version (v2, v3, etc)
 	nMajor = GetMajorVersionNumber(cVersion)
 	if nMajor = 0
-		return "v"+cVersion
+		return "-"+cVersion
 	but nMajor = 1 
 		return 
 	else 
-		return "v"+nMajor
+		return "-"+nMajor
 	ok
 
 func IsCompatible cVersion1,cVersion2

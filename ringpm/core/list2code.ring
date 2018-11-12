@@ -41,7 +41,7 @@ class List2Code
 				cCode += Copy(Tab,nTabs)+(""+item)
 			but islist(item)
 				if len(item) = 2 and isString(item[1])	# Hash Table 
-					lDot = substr(item[1],".")
+					lDot = substr(item[1],".") or substr(item[1],"-")
 					if lDot
 						cCode += Copy(Tab,nTabs)+'["'+item[1] + '" ,'
 					else 				
