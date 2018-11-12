@@ -9,9 +9,9 @@ func DeleteAllPackages
 	# Delete AllPackages.ring 
 		oAllPackagesInfo.DeleteAllPackagesFile()
 	# Delete Folders 
-		aPackages = Dir("packages")
+		aPackages = Dir(cMainPackagesFolder)
 		cDir = CurrentDir()
-		chdir("packages")
+		chdir(cMainPackagesFolder)
 		nCount = 0
 		for aItem in aPackages 
 			if aItem[2] 	# Folder 

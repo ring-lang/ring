@@ -149,7 +149,7 @@ class InstallCommand
 	func DownloadPackageFiles aPackageInfo,cPackageInfo
 		cCurrentDir = CurrentDir()
 		# Create the package folder
-			chdir("packages")
+			chdir(cMainPackagesFolder)
 			OSCreateOpenFolder(GetPackageFolderName(aPackageInfo))
 		# Write the Package File
 			cPackageInfo = UpdateFolderName(aPackageInfo) 	

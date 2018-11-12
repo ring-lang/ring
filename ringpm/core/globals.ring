@@ -27,7 +27,7 @@
 # Where we will store our pacakge 
 	lLocalPackages	   = True 
 	cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
-	cPackagesLocal     = "b:\ring\ringpm\local"
+	cPackagesLocal     = exefolder()+"../ringpm/local"
 	if lLocalPackages 
 		cPackagesLocations = cPackagesLocal
 	else 
@@ -38,7 +38,7 @@
 	aCommand	   	= []
 
 # Folders
-	cMainPackagesFolder 	= "/packages"
+	cMainPackagesFolder 	= "packages"
 
 # Version 
 	C_VERSIONSECTIONSIZE	= 3

@@ -8,7 +8,7 @@ func PrintInstalledPackages
 	# Get Files
 		Try
 			new ListOfFiles {
-				aFiles	= ListAllFiles("packages","ring")
+				aFiles	= ListAllFiles(cMainPackagesFolder,"ring")
 			}
 		Catch 
 			? C_ERROR_CANTGETPACKAGESINFORMATION

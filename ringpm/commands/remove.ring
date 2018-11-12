@@ -32,7 +32,7 @@ func RemovePackage cPackageName
 				RemovePackage(aPackage[:name]+GetMajorVersionText(aPackage[:Version]))
 			next 
 	# Delete the package 
-		chdir("packages")
+		chdir(cMainPackagesFolder)
 		OSDeleteFolder(cPackageName)
 	if lDisplayOperationDone ? "Operation done!" ok
 	chdir(cCurrentDir)
