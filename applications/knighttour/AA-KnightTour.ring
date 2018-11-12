@@ -1,6 +1,7 @@
-## Program:	 Knight Tour 
+### Program:	 Knight Tour 
 ### Author:	 Bert Mariani, Nestor Kuka
 ### Date:	 2018-10-14
+### Update:	 2018-11-11
 
 load "stdlib.ring"
 load "guilib.ring"	
@@ -127,8 +128,8 @@ Func DrawWidget()
 		   Slider1 = new qslider(workWidget) 
 		   {
 				setorientation(Qt_Horizontal)
-				setTickInterval(50)					### Remember setting on New Game
-				setvalue(animationDelay * 100 )		### 50 / 100 = 0.5 sec delay between moves
+				setTickInterval(50)								### Remember setting on New Game
+				setvalue( 100 - (animationDelay * 100 ) )		### 100 - ( 0.5 * 100) => 0.5 sec delay between moves
 				setValueChangedEvent("SliderEventValueChg()")
 
 			}			
@@ -347,7 +348,7 @@ return
 ### Clear Square -- Old Move
 	
 Func ClearOldMove()
-	if oldH != 0			### oldH = 0 , oldV = 0 Before Start, No move played
+	if oldH != 0								### oldH = 0 , oldV = 0 Before Start, No move played
 		aButton[oldh][oldv] { 
 			if lTrackMoves						### True - show Knight
 			
@@ -457,42 +458,41 @@ return FlagValidMove
 Func SliderEventValueChg()
 
 	#See "Change: "+ Slider1.value() +nl
-	animationDelay = Slider1.value() / 100
+	animationDelay = (100 - Slider1.value() ) / 100
 return
 
 ###================================================
 ###================================================
 ###================================================
 
-### Nestor Kuka 
-### Knights Tour version - 1  derived from: C:\euphoria\myWork\kt-main.eux 
-### which is based on the py version recipe..
-### funzt (finally) version without graphics
-
+### Knights Tour Version - 1  Nestor Kuka -- Derived from: C:\euphoria\myWork\kt-main.eux 
+### Which is based on the py version recipe.
+### Works Fine /  Version without graphics/	With Warnsdorff's rule (extended)
 ### Load "stdlib.ring"
 
 Func ComputerPlay(horz,vert)
 
 ### Possible Moves
-PosMoves = [[-2,1],[-1,2],[1,2],[2,1],[-2,-1],[-1,-2],[1,-2],[2,-1]]
+pm = [[-2,1],[-1,2],[1,2],[2,1],[-2,-1],[-1,-2],[1,-2],[2,-1]]
 
-Size	= 8				### number rows/collons
-BoardX	= Size			### rows
-BoardY	= Size			### colls
+n	= 8						### Number rows/columns
+cbx = n						### rows
+cby = n						### cols
 
-### Start field - Random generator (to test)
-Kx	= random(Size)			### funzt
-Ky	= random(Size)
+/*
+### Startfield	( 2/2 = Critical!) 
+### kx	= 2					### works fine now
+### ky	= 2					### works fine now
 
-### critical start point (wernsdoff wrong?)
-### Kx	= 2 
-### Ky	= 2
+### Startfield	-  Randomizer (to test)
+kx	= random(n)				### function
+ky	= random(n)
 
-###---------------------------------
-### Randomizer works from 0 to ...
-
-if Kx = 0 Kx = Kx +1 ok		### arrays are not NULL based!
-if Ky = 0 Ky = Ky +1 ok
+### Randomizer works from 0 to ...n
+if kx = 0 kx = kx+1 ok		### arrays not	NULL based!
+if ky = 0 ky = ky+1 ok
+see "Start-field Kx/Kx: "+kx +"/"+ ky +nl+nl
+*/
 
 ###-------------------------------------------------------
 ### OverRide Random. USER Picks Starting Square. 
@@ -504,119 +504,128 @@ NewLocation(Kx+2, Ky+2)		### Board to Internal
 
 see "Start-field Kx-Ky: "+Kx +"-"+ Ky +nl
 
-###-----------------------
-### Make Board Size*Size
+###------------------------------------------------------
+### Make Chessboard n*n
 
-ChessB = list(BoardY) 
-for x in ChessB	 
-	x = list(BoardX)  
-next
+cb = list(cby) for x in cb	x = list(cbx)  next
 
-JumpCnt = 0								### Jumps-counter 
-while JumpCnt <= BoardX * BoardY
-	ChessB[Ky][Kx]	= JumpCnt +1
-	PriorityQueue	= []					### Priority Queue
-	
-	for i = 1 to Size						### Row
-		NextX = Kx + PosMoves[i][1]
-		NextY = Ky + PosMoves[i][2]	 
+k = 0						### jumps-counter 
+while k <= cbx * cby
+	cb[ky][kx] = k+1
+	pq = []					### priority Queue
+	for i = 1 to n			### row
+		nx = kx + pm[i][1]
+		ny = ky + pm[i][2]	
 		
-		if Between(NextX, 1, BoardX) and Between(NextY, 1, BoardY)	### Func ===>>>
-			if ChessB[NextY][NextX] = 0	 Counter = 0
+		if between(nx, 1, cbx) and between(ny, 1, cby)	
+			if cb[ny][nx] = 0  ctr = 0
 			
-				for j = 1 to Size			### Col
-				
-					plusNextX = NextX + PosMoves[j][1]
-					plusNextY = NextY + PosMoves[j][2]
+				for j = 1 to n	### col
+					ex = nx + pm[j][1] ;	
+					ey = ny + pm[j][2]
 					
-					if Between(plusNextX, 1, BoardX) and Between(plusNextY, 1, BoardY)	### funzt
-						if ChessB[plusNextY][plusNextX] = 0	 Counter++ ok
+					if between(ex, 1, cbx) and between(ey, 1, cby)	### funzt
+						if cb[ey][ex] = 0  
+							ctr++ 
+						ok
 					ok
-				next						
-				
-				add(PriorityQueue,(Counter * 100) +i)		### format zB: 302
-			ok								
-			
-		ok									
-	next								
-	
-	###	 -- Warnsdorff�s algorithmus;  
+				next		
+				add(pq,(ctr*100)+i)		### format zB: 302
+			ok	
+		ok	
+	next	   
+
+	###	 -- Warnsdorff�s algorithmus;	extended
 	###		Move to the neighbor that has min number of available neighbors
 	###		Randomization:	we could take it - or not
 	
-	if len(PriorityQueue) > 0
-		PriorityQueue = sort(PriorityQueue)					### min-value at the beginning
-		x  = PriorityQueue[1]								### min-value 
-		p  = floor(x / 100)									### Counter-value
-		m  = x % 10											### i - value (Row)
+	if len(pq) > 0
+		pq = sort(pq)				### min-value at begin
+			minVal = 8				### max loop nr
+			minD   = 0				### min value 
+			
+			for dd = 1 to len(pq)
+				x= pq[1]			### min-value 
+				p  = floor(x/100)	### ctr	 - value
+				m = x % 10			### i	 - value (row)
+				
+				if p = minVal and random(10) <5	
+					minVal = p
+					minD   = m
+				end
+					
+				if p < minVal 
+					minVal = p
+					minD   = m
+				end	 
+					
+				Del(pq,1)			### delete item number three
+				
+			end	 ### dd
 
-		if p = m > 0 and random(10) < 5						### ring-array is not 0-based! 
-			m = m % 10			
-		elseif p < m 
-			m = m % 10		
-		ok
+		m = minD 
 
-		Kx = Kx + PosMoves[m][1]
-		Ky = Ky + PosMoves[m][2]
-		
+		kx = kx + pm[m][1]
+		ky = ky + pm[m][2]
+
 		###------------------------------------------
 		### Call Func PLAY for this move
 
 		app.processevents()
-		Sleep(animationDelay)			### Need Delay - Read from Slider1
+		Sleep(animationDelay)		### Need Delay - Read from Slider1
 		
-		horz =		kx +2	### Internal move = Board +2
+		horz =		kx +2			### Internal move = Board +2
 		vert =		ky +2 
 		
-		SEE "Kx-Ky: "+JumpCnt +" "+ kx +"-"+ ky	 SEE "	--- Play: "+horz +"-"+ vert +nl
+		SEE "Kx-Ky: "+k +" "+ kx +"-"+ ky +nl	 ### SEE "	--- Play: "+horz +"-"+ vert +nl
 		Play(horz, vert)
 		
 		####------------------------------------------
 		
 	else 
-		if JumpCnt < 63
-			see "Error in Field No..: "+JumpCnt +nl+nl
+		if k < 63
+			see "Error in the field no .: "+k+nl+nl
 			exit
 		else
-			see "Sucess." +nl+nl
+			see "Success." +nl+nl
 			exit
 		ok
 	ok
-	JumpCnt++
+
+	k++
 	
 end ### while
 
-	### END PROGRAM	  **************************************
+### end pgm	  **************************************
 
-	###----------------------------------------
-	### Control-edition:
+###-------------------------------------------------
+### Control output:
 
-	for r = 1 to Size					### row
-		for c = 1 to Size				### col
-		
-			see	 "|"					### disconnect sign
-			if ChessB[c][r] <= (Size+1)
-				see "_"					### Protected blank: old 255 (not enough)		
-				see	 ChessB[c][r]		
-			else
-				see	 ChessB[c][r]		### Get content from ChessB
-			ok
-			
-		next 
-		see "|"	+nl						### disconnect sign		
-	next   
+  See "..| 1| 2| 3| 4| 5| 6| 7| 8|" +nl
+  for r = 1 to N					### row
+	See " "+ r
+	for c = 1 to N					### col
+		see	 "|"					### separator
+		if cb[c][r] <= (n+1)
+			see "_" 
+			###see " "				### protected blank: old 255 (not enough)
+			see	 cb[c][r]		
+		else
+				see cb[c][r]		### get content from cb
+		ok
+	next ###for 
+	
+	see	"|"							### separator
+	see nl
+  next ###for	
 
-
-###----------------------------------------
-### min & max sind keywords
-
-Func Between x, mi, mx	
+func between x, mi, mx				### min & max are keywords
 	between = (x >= mi) AND (x <= mx)
 return between
 
 
-/* beispiel:
-### resultat aus kt-01.ring 
+/* Example:
+### Result from kt-02-3.ring
 |46|19|16|_1|30|43|14|11|
 |17|_2|45|56|15|12|29|42|
 |20|47|18|31|44|55|10|13|
@@ -627,5 +636,4 @@ return between
 |_5|36|23|52|_7|38|25|64|
 */
 
-
-###=====================================
+###==========================================
