@@ -141,7 +141,7 @@ class InstallCommand
 			oInstall.lUpdate = lUpdate
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			oAllPackagesInfo.AddRelatedPackage(
-				cRelatedPackageName,
+				cRelatedPackageName+GetMajorVersionText(aRelatedPackage[:version]),
 				cFolder
 			)
 		next

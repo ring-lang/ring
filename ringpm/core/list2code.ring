@@ -41,17 +41,22 @@ class List2Code
 				cCode += Copy(Tab,nTabs)+(""+item)
 			but islist(item)
 				if len(item) = 2 and isString(item[1])	# Hash Table 
-					if isString(item[2])
-						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = "' +
-							item[2] + '"' 
-					but isNumber(item[2])
-						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = ' +
-							item[2] 
-					but isList(item[2])
-						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = ' +
-							List2Code(item[2]) 
+					lDot = substr(item[1],".")
+					if lDot
+						cCode += Copy(Tab,nTabs)+'["'+item[1] + '" ,'
+					else 				
+						cCode += Copy(Tab,nTabs)+":"+item[1] + ' = '
 					ok
-					
+					if isString(item[2])
+						cCode += '"' + item[2] + '"' 
+					but isNumber(item[2])
+						cCode += item[2] 
+					but isList(item[2])
+						cCode += List2Code(item[2]) 
+					ok
+					if lDot
+						cCode += " ]"
+					ok					
 				else 
 					cCode += List2Code(item)
 				ok
