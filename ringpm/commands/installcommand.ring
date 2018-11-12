@@ -32,19 +32,6 @@ class InstallCommand
 			lInstallError 	= True
 			return 
 		done 
-		cPackageFolderName = GetPackageFolderName(aPackageInfo)
-		see " ---> " + cPackageFolderName + nl
-		# If we have the package ---> Return (Don't install it)
-			if lUpdate = False
-				if fexists("packages/"+cPackageFolderName+"/package.ring")
-					? " - " + C_NOTE_PACKAGEALREADYEXISTS
-					# Check Update 
-						if CheckPackageUpdate(cPackageName) = True 
-							UpdatePackage(cPackageName)
-						ok
-					return 
-				ok
-			ok
 		if ! islocal(:aPackageInfo)
 			? C_ERROR_NOPACKAGEINFO
 			lInstallError 	= True
@@ -62,7 +49,7 @@ class InstallCommand
 		# Check Package Version 
 			if cPackageVersion != NULL 
 				if not IsCompatible(cPackageVersion,aPackageInfo[:version])
-					? C_NOTE_PACKAGEVERSIONISNOTCOMPATIBLE
+					? nl + C_NOTE_PACKAGEVERSIONISNOTCOMPATIBLE
 					? "Package  Version : " + aPackageInfo[:version]
 					? "Required Version : " + cPackageVersion
 					if cBranchName = "master"
@@ -84,6 +71,19 @@ class InstallCommand
 					ok
 					lInstallError 	= True
 		 			return 
+				ok
+			ok
+		cPackageFolderName = GetPackageFolderName(aPackageInfo)
+		see " ---> " + cPackageFolderName + nl
+		# If we have the package ---> Return (Don't install it)
+			if lUpdate = False
+				if fexists("packages/"+cPackageFolderName+"/package.ring")
+					? " - " + C_NOTE_PACKAGEALREADYEXISTS
+					# Check Update 
+						if CheckPackageUpdate(cPackageName) = True 
+							UpdatePackage(cPackageName)
+						ok
+					return 
 				ok
 			ok
 		DownloadRelatedPackages(aPackageInfo,cPackageInfo)
