@@ -191,7 +191,7 @@ Also we will publish the live streams on (YouTube)
 	<tr>
 		<td id="lesson19">19</td>
 		<td>
-			Select different branch based on the required package version, Easy loading for packages using the package name and folder
+			Select different branch based on the required package version, Easy loading for packages using the load command.
 		</td>
 		<td>
 			<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19">YouTube</a>
