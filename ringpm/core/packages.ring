@@ -35,6 +35,7 @@ class AllPackagesInfo
 			ok
 	
 	func SaveInfo
+		if len(aAllPackagesInfo) = 0 return ok
 		oList2Code = new List2Code
 		write(cAllPackagesFile,
 		"aAllPackagesInfo = " + oList2Code.List2Code(aAllPackagesInfo))
@@ -56,3 +57,4 @@ class AllPackagesInfo
 
 	func DeleteAllPackagesFile 
 		remove(cAllPackagesFile)
+		aAllPackagesInfo = []
