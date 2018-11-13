@@ -188,5 +188,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson19">19</td>
+		<td>
+			Select different branch based on the required package version, Easy loading for packages using the package name and folder
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19">YouTube</a>
+		</td>
+	</tr>
 </table>
 
