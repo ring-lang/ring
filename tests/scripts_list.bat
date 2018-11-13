@@ -289,3 +289,4 @@ call ring scripts/ispointer.ring
 call ring scripts/testringvmsee.ring
 call ring scripts/minusminus.ring
 call ring scripts/retinbrace.ring
+call ring scripts/opinlitthenop.ring
