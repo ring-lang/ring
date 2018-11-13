@@ -617,6 +617,16 @@
 			<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson19">19</td>
+		<td>
+			إختيار الفرع الذى يتم التحميل منه تلقائيا لتحميل اصدار متوافق مع الاصدار المطلوب + سهولة تحميل ال Package واستخدامها من قبل الامر Load
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 </div>
