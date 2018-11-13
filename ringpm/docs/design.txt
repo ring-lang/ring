@@ -357,5 +357,35 @@ Main Goal
 				(2) Add the version name to the package folder 
 				(3) Take semantic versioning in mind when checking for updates 
 
+===========================
+Easy loading for packages 
+===========================
+
+		We don't like using relative path 
+			# load "../y-0.9.0/lib.ring"
+			# load "../z/lib.ring"
+			
+		We need to support writing the package|library name directly 
+			# load "y-0.9.0.ring"
+			# load "z.ring"
+			
+		As we did with the standard Ring libraries 
+			# load "stdlib.ring"  #	===> ring/ringlibs/stdlib/stdlib.ring
+			# load "guilib.ring"  #	===> ring/extensions/ringqt/guilib/guilib.ring
+			
+
+		Our Solution 
+
+			Create y-0.9.0.ring in ring/bin folder 
+				load "/../ringpm/packages/y-0.9.0/lib.ring"
+
+			Create z.ring in ring/bin folder 
+				load "/../ringpm/packages/z/lib.ring"
+
+		Test 
+			mylib.ring ---> ring/bin 
+				load "/../ringpm/packages/mylib/lib.ring"
+
+
 
 

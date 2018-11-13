@@ -56,5 +56,11 @@ aTests = [
 	[ :name = "Test the the D package file" ,
 	  :Command = "type packages\d\test.ring" ],
 	[ :name = "Test Removing the A Package" ,
-	  :Command = "ringpm remove a" ]	
+	  :Command = "ringpm remove a" ],
+	[ :name = "Test Install MyApp" ,
+	  :Command = "ringpm install myapp" ],		
+	[ :name = "Test Running MyApp" ,
+	  :Command = "ringpm run myapp" ] ,
+	[ :name = "Test Removing MyApp" ,
+	  :Command = "ringpm remove myapp" ]		
 ]

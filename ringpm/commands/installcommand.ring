@@ -94,6 +94,10 @@ class InstallCommand
 			return 
 		ok
 		WriteLockFile(aPackageInfo,self)
+		# Create file for loading the package in ring/bin folder 
+			cCompletePackageName = cPackageName+GetMajorVersionText(aPackageInfo[:version])
+			write(exefolder()+cCompletePackageName+".ring",
+				'load "/../ringpm/packages/'+cCompletePackageName+'/lib.ring"')
 
 	func GetPackageFile cPackageName
 		if lLocalPackages 
