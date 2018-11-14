@@ -134,6 +134,7 @@ class InstallCommand
 		cFolder = GetPackageFolderName(aPackageInfo) 
 		for x = 1 to len(aPackageInfo[:libs])
 			aRelatedPackage = aPackageInfo[:libs][x]
+			if aRelatedPackage[:name] = NULL loop ok
 			oInstall = new InstallCommand
 			cRelatedPackageName = aRelatedPackage[:name]
 			# Support installing from different branches 

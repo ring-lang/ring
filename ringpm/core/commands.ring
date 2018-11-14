@@ -14,6 +14,7 @@
 	load "../commands/format.ring"
 	load "../commands/update.ring"
 	load "../commands/run.ring"
+	load "../commands/new.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -45,6 +46,10 @@ func ExecuteCommands
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" return ok
 				RunPackage(cPackageName)
+			on "new"
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" return ok
+				NewPackage(cPackageName)
 		off
 	
 func GetPackageNameFromParameters
