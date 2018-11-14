@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-thirdpackage (master) ---> thirdpackage
+thirdpackage (master) ---> thirdpackage
 secondpackage (master) ---> secondpackage
  - Note : Package Already Exists
 Installing Installing 

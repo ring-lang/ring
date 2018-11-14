@@ -7,7 +7,7 @@
 func RemovePackage cPackageName
 	cCurrentDir = CurrentDir()
 	# Check if we have the package 
-		cPackageFolder = "packages/"+cPackageName
+		cPackageFolder = cMainPackagesFolder+"/"+cPackageName
 		cPath = cPackageFolder+"/package.ring"
 		if ! fexists(cPath)
 			? C_ERROR_WEDONTHAVETHISPACKAGE

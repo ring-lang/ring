@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-a (master) ---> a
+a (master) ---> a
 b (master) ---> b
 d (master) ---> d
 c (master) ---> c

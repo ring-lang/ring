@@ -5,7 +5,7 @@
 */
 
 func GetLocalPackageFile cPackageName
-	cLocalPackageFileName = "packages/"+cPackageName+"/package.ring"
+	cLocalPackageFileName = cMainPackagesFolder+"/"+cPackageName+"/package.ring"
 	# Check if we don't have the package ---> Return 
 		if not fexists(cLocalPackageFileName)
 			? C_ERROR_WEDONTHAVETHISPACKAGE

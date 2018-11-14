@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-badpackage (master) ---> badpackage
+badpackage (master) ---> badpackage
 nopackage (master)
 Error(10): Package doesn't exist
 Install Operation (Not Completed)

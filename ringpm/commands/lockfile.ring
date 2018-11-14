@@ -7,7 +7,7 @@
 func WriteLockFile aPackageInfo,oInstall
 	cPackageName = aPackageInfo[:folder]
 	cRemotePackageName = aPackageInfo[:remotefolder]
-	cFolder = "packages/"+cPackageName
+	cFolder = cMainPackagesFolder+"/"+cPackageName
 	cLockFile = cFolder + "/lock.ring"
 	# Create the Lock File List
 		aLockFile = []
@@ -19,7 +19,7 @@ func WriteLockFile aPackageInfo,oInstall
 		for aRelatedPackage in aPackageInfo[:libs]
 			cSubPackageName = aRelatedPackage[:name]
 			if cSubPackageName = NULL loop ok
-			cSubLockFile = "packages/"+cSubPackageName+GetMajorVersionText(aRelatedPackage[:version])+"/lock.ring"
+			cSubLockFile = cMainPackagesFolder+"/"+cSubPackageName+GetMajorVersionText(aRelatedPackage[:version])+"/lock.ring"
 			if ! fexists( cSubLockFile )
 				? C_ERROR_LOCKFILEDOESNOTEXIST + " : " + cSubLockFile 
 				return 

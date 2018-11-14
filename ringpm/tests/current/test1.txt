@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-======================================================================
+======================================================================
 Ring Package Manager (RingPM)
 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 ======================================================================
@@ -11,5 +9,6 @@ Command :  <packagename>
 Command :  [-f : Don't check updates]
 Command :  : Delete All Packages
 Command :  <packagename>
+Command :  <packagename>
 ======================================================================
-installupdate remove list   format run    
+installupdate remove list   format run    new    

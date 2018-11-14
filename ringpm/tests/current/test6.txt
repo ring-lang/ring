@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-: The First Package [master]     -- (1.0.0)         -- No Update!
+: The First Package [master]     -- (1.0.0)         -- No Update!
 : The Second Package [master]    -- (1.0.0)         -- No Update!
 
 Packages Count : 2

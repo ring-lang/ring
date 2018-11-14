@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-thirdpackage
+thirdpackage
 secondpackage
 firstpackage
 Deleting Deleting Deleting 

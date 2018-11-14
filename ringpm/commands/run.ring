@@ -13,7 +13,7 @@ func RunPackage cPackageName
 		cRun = aPackageInfo[:run]
 		if cRun != NULL
 			cDir = CurrentDir()
-			chdir("packages/"+cPackageName)
+			chdir(cMainPackagesFolder+"/"+cPackageName)
 			system(cRun)
 			chdir(cDir)
 		else 

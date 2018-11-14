@@ -1,4 +1,2 @@
-
-B:\ring\ringpm>echo off 
-firstpackage (master) ---> firstpackage
+firstpackage (master) ---> firstpackage
 Installing 

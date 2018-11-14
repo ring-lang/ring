@@ -1,5 +1,3 @@
-
-B:\ring\ringpm>echo off 
-Welcome to my application
+Welcome to my application
 We will use our library : mylib
 Hello from MyLib version v1.0.0

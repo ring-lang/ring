@@ -77,7 +77,7 @@ class InstallCommand
 		see " ---> " + cPackageFolderName + nl
 		# If we have the package ---> Return (Don't install it)
 			if lUpdate = False
-				if fexists("packages/"+cPackageFolderName+"/package.ring")
+				if fexists(cMainPackagesFolder+"/"+cPackageFolderName+"/package.ring")
 					? " - " + C_NOTE_PACKAGEALREADYEXISTS
 					# Check Update 
 						if CheckPackageUpdate(cPackageName) = True 

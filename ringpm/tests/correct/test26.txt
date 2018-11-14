@@ -1,6 +1,4 @@
-
-B:\ring\ringpm>echo off 
-a
+a
 b
 d
 Note : Avoid deleting the package (d) It's used by the Package (c)

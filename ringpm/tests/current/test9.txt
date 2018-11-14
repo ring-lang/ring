@@ -1,5 +1,3 @@
-
-B:\ring\ringpm>echo off 
-firstpackage
+firstpackage
 Note : Avoid deleting the package (firstpackage) It's used by the Package (secondpackage)
 Deleting 
