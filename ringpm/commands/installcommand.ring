@@ -169,9 +169,7 @@ class InstallCommand
 				Done 
 			next
 		if ! lWriteError
-			if lDisplayOperationDone
-				? "Operation done!"
-			ok
+			DisplayOperationDone()
 		ok
 		chdir(cCurrentDir)
 
@@ -204,6 +202,4 @@ class InstallCommand
 		aPackageInfo = aCheck[2]
 		? "Install Dependencies"
 		DownloadRelatedPackages(aPackageInfo,False)
-		if lDisplayOperationDone
-			? "Operation done!"
-		ok
+		DisplayOperationDone()

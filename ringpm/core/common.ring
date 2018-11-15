@@ -29,3 +29,8 @@ func CheckPackageFile cPackageInfo
 		return [False,[]]
 	ok
 	return [True,aPackageInfo]
+
+func DisplayOperationDone
+	if lDisplayOperationDone
+		? "Operation done!"
+	ok

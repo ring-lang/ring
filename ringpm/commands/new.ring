@@ -50,6 +50,4 @@ func NewPackage cPackageName
 				  "func main"+WindowsNL()+WindowsNL()+
 				  Tab + '? "Hello, World!"')
 	chdir(cCurrentDir)
-	if lDisplayOperationDone
-		? "Operation done!"
-	ok
+	DisplayOperationDone()
