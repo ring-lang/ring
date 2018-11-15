@@ -13,6 +13,7 @@ Features
 	* Display the branch name during installation				DONE
 	* select different branch based on the required package version 	DONE
 	* Easy loading for packages using the package name and folder 		DONE
+	* Install package from the current folder (Install dependencies)	DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 

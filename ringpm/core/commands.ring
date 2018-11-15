@@ -25,7 +25,15 @@ func ExecuteCommands
 		switch cCommand 
 			on "install"				
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
+				if cPackageName = "" 
+					if fexists("package.ring")
+						oInstall = new InstallCommand
+						oInstall.InstallPackageFromCurrentFolder()
+					else 
+						? C_ERROR_NOPACKAGENAME 
+					ok
+					return 
+				ok
 				oInstall = new InstallCommand
 				oInstall.SetBranchFromCommandLine()
 				oInstall.InstallPackage(cPackageName)

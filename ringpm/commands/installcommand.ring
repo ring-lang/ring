@@ -206,4 +206,40 @@ class InstallCommand
 		}
 		return cPackageInfo
 
-
+	func InstallPackageFromCurrentFolder
+		? "Get Package Information"
+		cPackageInfo = read("package.ring")
+		if cPackageInfo = "" return ok
+		try
+			eval( cPackageInfo )
+		catch
+			see nl
+			? C_ERROR_PACKAGEINFOISNOTCORRECT
+			? cPackageInfo
+			lInstallError 	= True
+			return 
+		done 
+		if ! islocal(:aPackageInfo)
+			? C_ERROR_NOPACKAGEINFO
+			lInstallError 	= True
+			return 
+		ok
+		? "Install Dependencies"
+		cFolder = GetPackageFolderName(aPackageInfo) 
+		for x = 1 to len(aPackageInfo[:libs])
+			aRelatedPackage = aPackageInfo[:libs][x]
+			if aRelatedPackage[:name] = NULL loop ok
+			oInstall = new InstallCommand
+			cRelatedPackageName = aRelatedPackage[:name]
+			# Support installing from different branches 
+				if aRelatedPackage[:branch] != NULL 
+					oInstall.cBranchName 	 = aRelatedPackage[:branch]
+					cRelatedPackageName 	+= aRelatedPackage[:branch]
+				ok
+			oInstall.cPackageVersion = aRelatedPackage[:version]
+			oInstall.lUpdate = lUpdate
+			oInstall.InstallPackage(aRelatedPackage[:name])
+		next
+		if lDisplayOperationDone
+			? "Operation done!"
+		ok
