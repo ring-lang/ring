@@ -29,6 +29,7 @@ func RemovePackage cPackageName
 	# Delete the Related Package 
 		# Delete related packages 
 			for aPackage in aPackageInfo[:libs]
+				if aPackage[:name] = NULL loop ok
 				RemovePackage(aPackage[:name]+GetMajorVersionText(aPackage[:Version]))
 			next 
 	# Delete the package 
