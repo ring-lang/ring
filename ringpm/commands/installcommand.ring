@@ -22,21 +22,9 @@ class InstallCommand
 
 	func GetPackage cPackageName
 		cPackageInfo = GetPackageFile(cPackageName)
-		if cPackageInfo = "" return ok
-		try
-			eval( cPackageInfo )
-		catch
-			see nl
-			? C_ERROR_PACKAGEINFOISNOTCORRECT
-			? cPackageInfo
-			lInstallError 	= True
-			return 
-		done 
-		if ! islocal(:aPackageInfo)
-			? C_ERROR_NOPACKAGEINFO
-			lInstallError 	= True
-			return 
-		ok
+		aCheck = CheckPackageFile(cPackageInfo)
+		if ! aCheck[1] lInstallError = True return ok
+		aPackageInfo = aCheck[2]
 		DisplayPackageInformation(aPackageInfo)
 		# Check that we have the required Ring version
 			if ! CheckRingVersion(aPackageInfo) 
@@ -209,21 +197,9 @@ class InstallCommand
 	func InstallPackageFromCurrentFolder
 		? "Get Package Information"
 		cPackageInfo = read("package.ring")
-		if cPackageInfo = "" return ok
-		try
-			eval( cPackageInfo )
-		catch
-			see nl
-			? C_ERROR_PACKAGEINFOISNOTCORRECT
-			? cPackageInfo
-			lInstallError 	= True
-			return 
-		done 
-		if ! islocal(:aPackageInfo)
-			? C_ERROR_NOPACKAGEINFO
-			lInstallError 	= True
-			return 
-		ok
+		aCheck = CheckPackageFile(cPackageInfo)
+		if ! aCheck[1] lInstallError = True return ok
+		aPackageInfo = aCheck[2]
 		? "Install Dependencies"
 		cFolder = GetPackageFolderName(aPackageInfo) 
 		for x = 1 to len(aPackageInfo[:libs])

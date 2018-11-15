@@ -7,8 +7,9 @@
 func RunPackage cPackageName
 	# Get Package File 
 		cLocalPackageFile  = GetLocalPackageFile(cPackageName)
-		if cLocalPackageFile = NULL return ok
-		eval(cLocalPackageFile)
+		aCheck = CheckPackageFile(cLocalPackageFile)
+		if ! aCheck[1] return ok
+		aPackageInfo = aCheck[2]
 	# Run The Package 
 		cRun = aPackageInfo[:run]
 		if cRun != NULL
@@ -24,7 +25,9 @@ func RunCurrentPackage
 	# Run package in the current folder 
 		cLocalPackageFile = read("package.ring")
 		if cLocalPackageFile = NULL return ok
-		eval(cLocalPackageFile)
+		aCheck = CheckPackageFile(cLocalPackageFile)
+		if ! aCheck[1] return ok
+		aPackageInfo = aCheck[2]
 	# Run The Package 
 		cRun = aPackageInfo[:run]
 		# We don't change the current folder because we already in the package folder

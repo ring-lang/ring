@@ -13,3 +13,19 @@ func GetLocalPackageFile cPackageName
 			return 
 		ok
 	return read(cLocalPackageFileName)
+
+func CheckPackageFile cPackageInfo
+	if cPackageInfo = "" return [False,[]] ok
+	try
+		eval( cPackageInfo )
+	catch
+		see nl
+		? C_ERROR_PACKAGEINFOISNOTCORRECT
+		? cPackageInfo
+		return [False,[]]
+	done 
+	if ! islocal(:aPackageInfo)
+		? C_ERROR_NOPACKAGEINFO
+		return [False,[]]
+	ok
+	return [True,aPackageInfo]
