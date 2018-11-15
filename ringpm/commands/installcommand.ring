@@ -74,7 +74,7 @@ class InstallCommand
 					return 
 				ok
 			ok
-		DownloadRelatedPackages(aPackageInfo,cPackageInfo)
+		DownloadRelatedPackages(aPackageInfo,True)
 		if ! lInstallError 
 			DownloadPackageFiles(aPackageInfo,cPackageInfo)
 		else 
@@ -118,7 +118,7 @@ class InstallCommand
 		? "Package Developer    : " + aPackageInfo[:developer]
 		? "Package License      : " + aPackageInfo[:license]
 	
-	func DownloadRelatedPackages aPackageInfo,cPackageInfo
+	func DownloadRelatedPackages aPackageInfo,lAllPackages
 		cFolder = GetPackageFolderName(aPackageInfo) 
 		for x = 1 to len(aPackageInfo[:libs])
 			aRelatedPackage = aPackageInfo[:libs][x]
@@ -133,10 +133,12 @@ class InstallCommand
 			oInstall.cPackageVersion = aRelatedPackage[:version]
 			oInstall.lUpdate = lUpdate
 			oInstall.InstallPackage(aRelatedPackage[:name])
-			oAllPackagesInfo.AddRelatedPackage(
-				cRelatedPackageName+GetMajorVersionText(aRelatedPackage[:version]),
-				cFolder
-			)
+			if lAllPackages
+				oAllPackagesInfo.AddRelatedPackage(
+					cRelatedPackageName+GetMajorVersionText(aRelatedPackage[:version]),
+					cFolder
+				)
+			ok
 		next
 
 	func DownloadPackageFiles aPackageInfo,cPackageInfo
@@ -201,21 +203,7 @@ class InstallCommand
 		if ! aCheck[1] lInstallError = True return ok
 		aPackageInfo = aCheck[2]
 		? "Install Dependencies"
-		cFolder = GetPackageFolderName(aPackageInfo) 
-		for x = 1 to len(aPackageInfo[:libs])
-			aRelatedPackage = aPackageInfo[:libs][x]
-			if aRelatedPackage[:name] = NULL loop ok
-			oInstall = new InstallCommand
-			cRelatedPackageName = aRelatedPackage[:name]
-			# Support installing from different branches 
-				if aRelatedPackage[:branch] != NULL 
-					oInstall.cBranchName 	 = aRelatedPackage[:branch]
-					cRelatedPackageName 	+= aRelatedPackage[:branch]
-				ok
-			oInstall.cPackageVersion = aRelatedPackage[:version]
-			oInstall.lUpdate = lUpdate
-			oInstall.InstallPackage(aRelatedPackage[:name])
-		next
+		DownloadRelatedPackages(aPackageInfo,False)
 		if lDisplayOperationDone
 			? "Operation done!"
 		ok
