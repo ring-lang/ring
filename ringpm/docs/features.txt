@@ -43,7 +43,9 @@ Features
 ======================================================================================
 * Format Command (ringpm format)						DONE
 ======================================================================================
-* Run Command (ringpm run <package_name>)					DONE
+* Run Command 									DONE
+	* Run any package (ringpm run <package_name>)				DONE
+	* Rung package in the current folder 					DONE
 ======================================================================================
 * New Command (ringpm new <package_name>)					DONE
 ======================================================================================
