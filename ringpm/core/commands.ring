@@ -25,36 +25,35 @@ func ExecuteCommands
 		switch cCommand 
 			on "install"				
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" return ok
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				oInstall = new InstallCommand
 				oInstall.SetBranchFromCommandLine()
 				oInstall.InstallPackage(cPackageName)
 			on "update"
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" return ok
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				UpdatePackage(cPackageName)				
 			on "list"
 				CheckFastList()
 				PrintInstalledPackages()
 			on "remove"
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" return ok
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				RemovePackage(cPackageName)
 			on "format"
 				DeleteAllPackages()
 			on "run"
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" return ok
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				RunPackage(cPackageName)
 			on "new"
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" return ok
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				NewPackage(cPackageName)
 		off
 	
 func GetPackageNameFromParameters
 	if len(aCommand) < 2 
-		? C_ERROR_NOPACKAGENAME
 		return ""
 	ok 
 	return aCommand[2]
