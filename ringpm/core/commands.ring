@@ -44,7 +44,14 @@ func ExecuteCommands
 				DeleteAllPackages()
 			on "run"
 				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
+				if cPackageName = "" 
+					if fexists("package.ring")
+						RunCurrentPackage()
+					else 
+						? C_ERROR_NOPACKAGENAME 
+					ok
+					return 
+				ok
 				RunPackage(cPackageName)
 			on "new"
 				cPackageName = GetPackageNameFromParameters()

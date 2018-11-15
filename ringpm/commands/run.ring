@@ -19,3 +19,17 @@ func RunPackage cPackageName
 		else 
 			? C_NOTE_NOCOMMANDTORUNTHEPACKAGE
 		ok
+
+func RunCurrentPackage
+	# Run package in the current folder 
+		cLocalPackageFile = read("package.ring")
+		if cLocalPackageFile = NULL return ok
+		eval(cLocalPackageFile)
+	# Run The Package 
+		cRun = aPackageInfo[:run]
+		# We don't change the current folder because we already in the package folder
+		if cRun != NULL
+			system(cRun)
+		else 
+			? C_NOTE_NOCOMMANDTORUNTHEPACKAGE
+		ok
