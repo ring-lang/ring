@@ -47,7 +47,8 @@ func NewPackage cPackageName
 		? "main.ring"
 		write("main.ring","# The Main File"+WindowsNL()+WindowsNL()+
 				'load "lib.ring"'+WindowsNL()+WindowsNL()+
-				  "func main"+WindowsNL()+WindowsNL())
+				  "func main"+WindowsNL()+WindowsNL()+
+				  Tab + '? "Hello, World!"')
 	chdir(cCurrentDir)
 	if lDisplayOperationDone
 		? "Operation done!"
