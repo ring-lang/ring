@@ -85,6 +85,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
+		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		return 0 ;
 	}
 	RING_READCHAR(fp,c,nSize);
