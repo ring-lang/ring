@@ -218,3 +218,6 @@ class InstallCommand
 			return Read(cURL)
 		ok
 		return Download(AddTimeStamp(cURL))
+
+	func AddTimeStamp cURL
+		return cURL + "?ts="+EpochTime(date(),time())

@@ -4,10 +4,6 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-func AddTimeStamp cURL
-	return cURL + "?ts="+EpochTime(date(),time())
-
-
 func GetPackageFile cPackageName,cBranchName
 	oInstall = new InstallCommand 
 	if cBranchName != NULL
