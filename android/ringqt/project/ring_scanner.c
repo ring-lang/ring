@@ -629,7 +629,7 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 	assert(pScanner != NULL);
 	if ( ring_list_getsize(pScanner->Tokens) == 0 ) {
 		if ( pScanner->state == SCANNER_STATE_COMMENT ) {
-			return 0 ;
+			return 1 ;
 		}
 	}
 	if ( pScanner->state == SCANNER_STATE_LITERAL ) {
