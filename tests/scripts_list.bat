@@ -290,3 +290,6 @@ call ring scripts/testringvmsee.ring
 call ring scripts/minusminus.ring
 call ring scripts/retinbrace.ring
 call ring scripts/opinlitthenop.ring
+call ring scripts/commentcaller.ring
+call ring scripts/commentfile.ring
+call ring scripts/commentfile2.ring
