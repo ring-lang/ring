@@ -205,10 +205,10 @@ class InstallCommand
 		DisplayOperationDone()
 
 	func DownloadFile cURL
-		if isWindows()
-			cURL = substr(cURL,"/","\")
-		ok
 		if lLocalPackages 
+			if isWindows()
+				cURL = substr(cURL,"/","\")
+			ok
 			if ! fexists(cURL)
 				see nl
 				? C_ERROR_PACKAGENOTFOUND
