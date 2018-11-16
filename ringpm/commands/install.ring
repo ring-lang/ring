@@ -16,6 +16,7 @@ class InstallCommand
 		cPackagesLocations = exefolder()+"../ringpm/local"
 	
 	cProviderUserName = ""
+	cProviderWebsite  = "github.com"
 
 	func InstallFrom cUserName 
 		lLocalPackages	   = False
@@ -211,6 +212,7 @@ class InstallCommand
 		aPackageInfo[:folder] = GetPackageFolderName(aPackageInfo)
 		aPackageInfo[:branch] = cBranchName
 		aPackageInfo[:ProviderUserName] = cProviderUserName
+		aPackageInfo[:ProviderWebsite] = cProviderWebsite
 		new List2Code {
 			cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
 		}
