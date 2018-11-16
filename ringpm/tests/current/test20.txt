@@ -2,11 +2,15 @@ aLockInfo = [
 	[
 		:name = "c",
 		:branch = "master",
-		:version = "1.0.0"
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
 	],
 	[
 		:name = "d",
 		:branch = "master",
-		:version = "1.0.0"
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
 	]
 ]
