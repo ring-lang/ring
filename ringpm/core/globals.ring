@@ -24,15 +24,7 @@
 	C_NOTE_PACKAGEVERSIONISNOTCOMPATIBLE	= "Note : The package version is not compatible with the required version"
 
 
-# Where we will store our pacakge 
-	lLocalPackages	   = True 
-	cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
-	cPackagesLocal     = exefolder()+"../ringpm/local"
-	if lLocalPackages 
-		cPackagesLocations = cPackagesLocal
-	else 
-		cPackagesLocations = cPackagesGitHub
-	ok
+
 
 # The parameters of our command 	
 	aCommand	   	= []
