@@ -190,6 +190,16 @@ class InstallCommand
 			? C_ERROR_BRANCHNAMEISMISSING
 		ok
 
+	func SetUserNameFromCommandLine
+		nPos = find(aCommand,"from")
+		if ! nPos return ok
+		if len(aCommand) > nPos 	# We have User Name 
+			cUserName = aCommand[nPos+1]	
+			InstallFrom(cUserName)
+		else 
+			? C_ERROR_BRANCHNAMEISMISSING
+		ok
+
 	func GetPackageFolderName aPackageInfo
 		return aPackageInfo[:folder] + GetMajorVersionText(aPackageInfo[:Version])
 
