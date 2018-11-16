@@ -1,7 +1,7 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-17
-91
+32
+106
 74
 
 B:\ring\tests>call ring scripts/s60.ring 
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 1190
+Time 1171
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-015D2338
+01392338
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 13/11/2018
-time: 16:36:55
+date: 16/11/2018
+time: 05:34:17
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3153,8 +3153,8 @@ B:\ring\tests>call ring scripts/syntaxerror2.ring
 
 Can't open file syntaxerror.ring 
 
-syntaxerror.ring Line (7) Syntax error
-syntaxerror.ring errors count : 1 
+scripts/syntaxerror2.ring Line (7) Syntax error
+scripts/syntaxerror2.ring errors count : 1 
 
 B:\ring\tests>call ring scripts/t.ring 
 welcome
