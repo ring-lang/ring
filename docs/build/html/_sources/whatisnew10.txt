@@ -119,6 +119,8 @@ Ring comes with a package manager (RingPM) that we can use to install, update an
 More Improvements
 =================
 
-(1) Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
-(2) Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
-(3) Ring VM : Better support for the (Return) command inside braces that access new objects.
+(1) Better Read Me File 
+(2) Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
+(3) Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
+(4) Ring Compiler : Support source code files with one line of comment without end of line
+(5) Ring VM : Better support for the (Return) command inside braces that access new objects.
