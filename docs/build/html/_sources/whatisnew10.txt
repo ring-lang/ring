@@ -120,4 +120,5 @@ More Improvements
 =================
 
 (1) Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
-(2) Ring VM : Better support for the (Return) command inside braces that access new objects.
+(2) Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
+(3) Ring VM : Better support for the (Return) command inside braces that access new objects.
