@@ -13,14 +13,11 @@ class InstallCommand
 
 	# Where we have our pacakge 
 		lLocalPackages	   = True 
-		cPackagesGitHub    = "https://raw.githubusercontent.com/MahmoudFayed"
-		cPackagesLocal     = exefolder()+"../ringpm/local"
-		if lLocalPackages 
-			cPackagesLocations = cPackagesLocal
-		else 
-			cPackagesLocations = cPackagesGitHub
-		ok
+		cPackagesLocations = exefolder()+"../ringpm/local"
 	
+	func InstallFrom cUserName 
+		lLocalPackages	   = False
+		cPackagesLocations = "https://raw.githubusercontent.com/" + cUserName
 
 	func InstallPackage cPackageName
 		if lUpdate = False
