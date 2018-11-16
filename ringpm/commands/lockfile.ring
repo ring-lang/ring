@@ -14,7 +14,8 @@ func WriteLockFile aPackageInfo,oInstall
 	# Add the current Package 
 		aLockFile + [:name = cRemotePackageName, 
 			     :branch = oInstall.cBranchName,
-			     :version = aPackageInfo[:version]]
+			     :version = aPackageInfo[:version],
+			     :providerusername = aPackageInfo[:ProviderUserName]]
 	# Get information from related packages 
 		for aRelatedPackage in aPackageInfo[:libs]
 			cSubPackageName = aRelatedPackage[:name]
