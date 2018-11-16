@@ -7,20 +7,6 @@
 func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())
 
-func DownloadFile cURL
-	if isWindows()
-		cURL = substr(cURL,"/","\")
-	ok
-	if lLocalPackages 
-		if ! fexists(cURL)
-			see nl
-			? C_ERROR_PACKAGENOTFOUND
-			lInstallError 	= True
-			return 
-		ok
-		return Read(cURL)
-	ok
-	return Download(AddTimeStamp(cURL))
 
 func GetPackageFile cPackageName,cBranchName
 	oInstall = new InstallCommand 
