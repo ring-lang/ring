@@ -4,6 +4,19 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+func GetPackageFile cPackageName,cBranchName
+	oInstall = new InstallCommand 
+	if cBranchName != NULL
+		oInstall.cBranchName = cBranchName
+	ok
+	return oInstall.GetPackageFile(cPackageName)
+
+func GetPackage cPackageName,cBranchName,lUpdate
+	oInstall = new InstallCommand 
+	oInstall.cBranchName = cBranchName
+	oInstall.lUpdate = lUpdate
+	return oInstall.GetPackage(cPackageName)
+
 func GetLocalPackageFile cPackageName
 	cLocalPackageFileName = cMainPackagesFolder+"/"+cPackageName+"/package.ring"
 	# Check if we don't have the package ---> Return 
