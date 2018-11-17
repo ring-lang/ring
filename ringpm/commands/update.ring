@@ -20,8 +20,9 @@ func UpdatePackage cPackageName
 		ok
 	# Install Update 
 		Style("Updating ",:YellowBlack) see cPackageName
-		GetPackage(aPackageInfo[:remotefolder],cBranchName
-				cProviderUserName,cProviderWebsite,True) # True = Update Operation (Not Install)
+		GetPackage(aPackageInfo[:remotefolder],cBranchName,
+				cProviderUserName,cProviderWebsite,
+				True) # True = Update Operation (Not Install)
 
 func CheckPackageUpdate cPackageName
 	# Get Package File (Local & Remote) ---> Compare 
