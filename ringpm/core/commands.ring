@@ -35,7 +35,9 @@ func ExecuteCommands
 				ok
 				oInstall = new InstallCommand
 				oInstall.SetBranchFromCommandLine()
+				if lInstallError return ok
 				oInstall.SetUserNameFromCommandLine()
+				if lInstallError return ok
 				oInstall.InstallPackage(cPackageName)
 			on "update"
 				cPackageName = GetPackageNameFromParameters()

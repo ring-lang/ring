@@ -203,6 +203,7 @@ class InstallCommand
 			cBranchName = aCommand[nPos+1]	
 		else 
 			? C_ERROR_BRANCHNAMEISMISSING
+			lInstallError 	= True
 		ok
 
 	func SetUserNameFromCommandLine
@@ -212,7 +213,8 @@ class InstallCommand
 			cUserName = aCommand[nPos+1]	
 			InstallFrom(cUserName)
 		else 
-			? C_ERROR_BRANCHNAMEISMISSING
+			? C_ERROR_USERNAMEISMISSING
+			lInstallError 	= True
 		ok
 
 	func GetPackageFolderName aPackageInfo
