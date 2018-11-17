@@ -14,6 +14,7 @@ Features
 	* select different branch based on the required package version 	DONE
 	* Easy loading for packages using the package name and folder 		DONE
 	* Install package from the current folder (Install dependencies)	DONE
+	* Install package from specific user of GitHub				DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 

@@ -20,8 +20,8 @@ func Line
 func Line90
 	see Copy("=",90) + nl
 
-func Line70
-	? copy("=",70)
+func Line75
+	? copy("=",75)
 
 func style cText,nStyle
 	switch nStyle

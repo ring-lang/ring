@@ -144,9 +144,13 @@ class InstallCommand
 				ok
 				if aRelatedPackage[:ProviderWebsite] != NULL 
 					oInstall.cProviderWebsite = aRelatedPackage[:ProviderWebsite]
+				else 
+					oInstall.cProviderWebsite = cProviderWebsite
 				ok
 				if aRelatedPackage[:ProviderUserName] != NULL 
 					oInstall.InstallFrom(aRelatedPackage[:ProviderUserName])
+				else 
+					oInstall.InstallFrom(cProviderUserName)
 				ok
 			oInstall.cPackageVersion = aRelatedPackage[:version]
 			oInstall.lUpdate = lUpdate
