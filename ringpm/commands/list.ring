@@ -46,7 +46,9 @@ func PrintInstalledPackages
 func CheckUpdates aLocalPackageInfo
 	cPackageName = aLocalPackageInfo[:remotefolder]
 	cBranchName = aLocalPackageInfo[:branch]
-	cPackageInfo = GetPackageFile(cPackageName,cBranchName)
+	cProviderUserName = aLocalPackageInfo[:ProviderUserName] 
+	cProviderWebsite  = aLocalPackageInfo[:ProviderWebsite]
+	cPackageInfo = GetPackageFile(cPackageName,cBranchName,cProviderUserName,cProviderWebsite)
 	try
 		eval( cPackageInfo )
 	catch

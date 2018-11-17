@@ -4,17 +4,23 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-func GetPackageFile cPackageName,cBranchName
+func GetPackageFile cPackageName,cBranchName,cProviderUserName,cProviderWebsite
 	oInstall = new InstallCommand 
 	if cBranchName != NULL
 		oInstall.cBranchName = cBranchName
 	ok
+	if cProviderUserName != NULL 
+		oInstall.cProviderWebsite  = cProviderWebsite
+		oInstall.InstallFrom(cProviderUserName)
+	ok
 	return oInstall.GetPackageFile(cPackageName)
 
-func GetPackage cPackageName,cBranchName,lUpdate
+func GetPackage cPackageName,cBranchName,cProviderUserName,cProviderWebsite,lUpdate
 	oInstall = new InstallCommand 
 	oInstall.cBranchName = cBranchName
 	oInstall.lUpdate = lUpdate
+	oInstall.cProviderWebsite  = cProviderWebsite
+	oInstall.InstallFrom(cProviderUserName)
 	return oInstall.GetPackage(cPackageName)
 
 func GetLocalPackageFile cPackageName

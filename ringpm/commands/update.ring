@@ -10,6 +10,8 @@ func UpdatePackage cPackageName
 		if cLocalPackageFile = NULL return ok
 		eval(cLocalPackageFile)
 		cBranchName = aPackageInfo[:branch]
+		cProviderUserName = aPackageInfo[:ProviderUserName]
+		cProviderWebsite  = aPackageInfo[:ProviderWebsite]
 	# Check if no updates (---> Return)
 		if CheckPackageUpdate(cPackageName) = False 
 			? C_ERROR_NOUPDATES 
@@ -18,7 +20,8 @@ func UpdatePackage cPackageName
 		ok
 	# Install Update 
 		Style("Updating ",:YellowBlack) see cPackageName
-		GetPackage(aPackageInfo[:remotefolder],cBranchName,True) # True = Update Operation (Not Install)
+		GetPackage(aPackageInfo[:remotefolder],cBranchName
+				cProviderUserName,cProviderWebsite,True) # True = Update Operation (Not Install)
 
 func CheckPackageUpdate cPackageName
 	# Get Package File (Local & Remote) ---> Compare 
@@ -29,7 +32,9 @@ func CheckPackageUpdate cPackageName
 		cBranchName = aPackageInfo[:branch]
 		# Remove branch name from package name 
 			cPackageName = RemoveBranchNameFromPackageName(aPackageInfo,cPackageName,cBranchName)
-		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch])
+		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch],
+						aPackageInfo[:ProviderUserName],
+						aPackageInfo[:ProviderWebsite])
 		if cRemotePackageFile = "" return False ok
 		eval(cRemotePackageFile)
 		cRemoteVersion = aPackageInfo[:version]
