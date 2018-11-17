@@ -88,6 +88,7 @@ The next games are added to the application folder
 * Dots and Boxes Game
 * Magic Four Game
 * Sum Puzzle Game
+* Snakes and Ladders Game
 
 The next screen shot for the Sum Puzzle Game
 
