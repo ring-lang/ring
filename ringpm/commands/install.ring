@@ -142,6 +142,12 @@ class InstallCommand
 					oInstall.cBranchName 	 = aRelatedPackage[:branch]
 					cRelatedPackageName += aRelatedPackage[:branch]
 				ok
+				if aRelatedPackage[:ProviderWebsite] != NULL 
+					oInstall.cProviderWebsite = aRelatedPackage[:ProviderWebsite]
+				ok
+				if aRelatedPackage[:ProviderUserName] != NULL 
+					oInstall.InstallFrom(aRelatedPackage[:ProviderUserName])
+				ok
 			oInstall.cPackageVersion = aRelatedPackage[:version]
 			oInstall.lUpdate = lUpdate
 			oInstall.InstallPackage(aRelatedPackage[:name])
