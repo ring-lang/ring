@@ -19,6 +19,7 @@ class InstallCommand
 	cProviderWebsite  = "github.com"
 
 	func InstallFrom cUserName 
+		if cUserName = NULL return ok
 		lLocalPackages	   = False
 		cPackagesLocations = "https://raw.githubusercontent.com/" + cUserName
 		cProviderUserName  = cUserName
