@@ -626,6 +626,15 @@
 			<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson20">20</td>
+		<td>
+			تجهيز ملف ringpm.exe واضافته ل ring/bin وايضا اضافة الامر New لل Package Manager بالاضافة لعمل Install لل Package من خلال اسم مستخدم على GitHub
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=urxUIb35EDI&index=20&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 
 </table>
 
