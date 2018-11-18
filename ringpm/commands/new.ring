@@ -30,7 +30,9 @@ func NewPackage cPackageName
 				[:version = "0.1.0" , :branch = "master"]
 			],
 			:libs		= [
-				[:name = "", :version = ""]
+				[:name = "", 
+				:version = "", 
+				:ProviderUserName = ""]
 			],
 			:run		= "ring main.ring"
 		] 	
