@@ -197,5 +197,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson20">20</td>
+		<td>
+			Adding ringpm.exe to ring/bin, The New Command and Installing packages using GitHub User Name.
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=urxUIb35EDI&index=20&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
