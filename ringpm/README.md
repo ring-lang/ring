@@ -206,5 +206,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=urxUIb35EDI&index=20&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson21">21</td>
+		<td>
+			The Search Command
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=nPSyNdLJZ2U&index=21&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
