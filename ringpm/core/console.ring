@@ -24,5 +24,6 @@ func Commands
 	see "Command : " Style("format ",:YellowBlack)  see " : Delete All Packages" + nl
 	see "Command : " Style("run    ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("new    ",:YellowBlack)  see " <packagename>" + nl
+	see "Command : " Style("search ",:YellowBlack)  see " <keywords...>" + nl
 	Line75()
 	

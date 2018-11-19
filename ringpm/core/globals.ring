@@ -19,6 +19,7 @@
 	C_ERROR_BRANCHNAMEISMISSING		= "Error(12): Branch name is missing"
 	C_ERROR_LOCKFILEDOESNOTEXIST		= "Error(13): Lock file doesn't exist"
 	C_ERROR_USERNAMEISMISSING		= "Error(14): User name is missing"
+	C_ERROR_NOKEYWORDS			= "Error(15): No keywords to use in the search operation"
 	C_NOTE_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
 	C_NOTE_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
 	C_NOTE_NOCOMMANDTORUNTHEPACKAGE		= "Note : No command is defined to run the package!"

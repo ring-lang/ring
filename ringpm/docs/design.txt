@@ -386,6 +386,71 @@ Easy loading for packages
 			mylib.ring ---> ring/bin 
 				load "/../ringpm/packages/mylib/lib.ring"
 
+=================
+Packages Registry
+=================
+
+	List of packages [ Package Name , Developer, Email, Description, 
+				ProviderUserName, ProviderWebsite (GitHub) ]
+
+	registry.ring ====> Contains list of All Packages 
+		aPackages = [
+			[ :name = "Package Name",
+			  :description = "Package Description",
+			  :developer = "Mahmoud", Email = "...",
+			  :ProviderUserName = "MahmoudFayed",
+			  :ProviderWebsite = "GitHub"
+			]
+		]
+
+	ringpm search <keywords...>
+	ringpm install <package_name>
+			(1) Search in the Local Folder (ringpm/local) 
+			(2) if not found 
+				----> Check for registry.ring updates 
+				----> Search in the registry.ring file
+
+	We expect package description to be from 200 to 500 bytes 
+
+	How many packages we expect in the registry?
+
+		Current State ---> Expect from 1000 to 2000 packages 
+				  To cover (Samples, Applications, Libraries, Extensions, etcs)
+
+		Next stage ----> We expect 10,000 packages 
+
+		Third stage ----> 100,000 packages 
+
+		Top languages ---> 500,000 packages ----> 1000,000 packages 
 
 
+	Expected registry.ring size = (10,000 * 500 bytes) = 5000000 bytes (Less than 5 MBytes)
+			100,000 packages = 50 MBytes 
+			1000,000 packages = 500 MBytes
 
+	Using download() to check the file each time is not practical 
+
+	So we will add another file beside registry.ring to include the revision number  
+
+		rev.ring ----> rev = 1
+	When we update the registry.ring file, we will increment the revision counter
+				rev++ 
+
+	But we expect many updates to the package index (Maybe each day/week ?)
+
+		So, after each revision, We will create a file with the new updates only 
+
+		update_rev1.ring 
+		update_rev2.ring 
+ 	
+	But the updates may include updating current packages data, removing a package 
+		So we may need more control in the update file. 
+
+	Another solution 
+
+		Keep the large file ---> Don't think about little updates 
+		But update only based on the user decision 
+
+			(Lazy Solution) 
+
+		Or update each 7 days 

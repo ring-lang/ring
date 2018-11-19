@@ -14,6 +14,7 @@
 	load "../commands/update.ring"
 	load "../commands/run.ring"
 	load "../commands/new.ring"
+	load "../commands/search.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -67,6 +68,10 @@ func ExecuteCommands
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				NewPackage(cPackageName)
+			on "search"
+				aKeywords = GetKeywordsFromParameters()
+				if len(aKeywords) = 0 ? C_ERROR_NOKEYWORDS return ok
+				Search(aKeywords)
 		off
 	
 func GetPackageNameFromParameters
@@ -80,3 +85,13 @@ func CheckFastList
 	if find(aCommand,"-f") or find(aCommand,"-F")
 		lCheckUpdates = False 
 	ok
+
+
+func GetKeywordsFromParameters
+	aKeywords = []
+	if len(aCommand) >= 2 
+		for x = 2 to len(aCommand)
+			aKeywords + aCommand[x]
+		next 
+	ok 
+	return aKeywords
