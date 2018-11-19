@@ -1,21 +1,22 @@
 # Project : Snakes and Ladders Game
-# Date    : 2018/11/17
+# Date    : 2018/11/07
+# Update : 2018/11/19
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
 size = 10
-moveblack = 0
 movered = 0
+moveblack = 0
 nDiscY = 1
 nDiscX = 0
 ncor = 0
 mcor = 0
 rnd = 0
 nKey = 0
-nKey2 = 0
-nNext = 0
-nNext2 = 0
 movenew = 0
+movedice = 0
+numdice = 0
+flagdice = true
 discyellow = "discyellow.png"
 oGame = null
 diceblack1 = "diceblack1.jpg"
@@ -39,64 +40,59 @@ lSpaceKey = False
 
 Load "gameengine.ring"                         
 
-func main                                      
-
-        oGame = New Game                      
-        {
-                     title = "Snakes And Ladders"
-                     al_resize_display(display,650,593)
-                     sprite
-                     {
-	                     x=0 y=0 width=590 height=593
-	                     file = "gameimage.png"
-	                     transparent = false
-	                     Animate=false
-	                     Move=false
-	                     Scaled=true
-                     }
-                     sprite
-                     {
-	                       x=600 
-	                       y=20 
-	                       width=30 height=30
-	                       file = dicered1
-	                       transparent = true
-	                       Animate=false
-	                       Move=false
-	                       Scaled=true
-                     }
-                     sprite
-                     {
-	                     x=20+58*(nDiscX-1) 
-	                     y=20+58*(10-nDiscY) 
-	                     width=30 height=30
-	                     file = dicered1
-	                     transparent = true
-	                     Animate=false
-	                     Move=false
-	                     Scaled=true
-                     }
-                    pmove(oGame)
-        } 
+func main
+       oGame = New Game                      
+       {
+                      title = "Snakes And Ladders"
+                      al_resize_display(display,650,593)
+                      sprite
+                      {
+	               x=0 y=0 width=590 height=593
+	               file = "gameimage.png"
+	               transparent = false
+	               Animate=false
+	               Move=false
+	               Scaled=true
+                       }
+                       sprite
+                       {
+	                x=600 
+	                y=20 
+	                width=30 height=30
+	                file = dicered1
+	                transparent = true
+	                Animate=false
+	                Move=false
+	                Scaled=true
+                        }
+                        sprite
+                       {
+	                x=20+58*(nDiscX-1) 
+	                y=20+58*(10-nDiscY) 
+	                width=30 height=30
+	                file = dicered1
+	                transparent = true
+	                Animate=false
+	                Move=false
+	                Scaled=true
+                        }
+                        pmove(oGame)
+       } 
 
 func nextdice(dicenr)
-       oGame { sprite
-                {
-	         x=600 
-	         y=20 
-	         width=40 height=40
-	         file = dicesred[dicenr]
-	         transparent = true
-	         Animate=false
-	         Move=false
-	         Scaled=true
-                 } }
-
+       oGame { sprite {
+	             x=600 
+	             y=20 
+	             width=40 height=40
+	             file = dicesred[dicenr]
+	             transparent = true
+	             Animate=false
+	             Move=false
+	             Scaled=true
+                     } }
 
 func pmove(oGame)
-       oGame {
-		sprite
-          	{
+       oGame { sprite {
                      x=20+58*(nDiscX-1) 
                      y=20+58*(10-nDiscY) 
                      width=40 height=40
@@ -113,40 +109,51 @@ func pmove(oGame)
                                         nDiscY = mcor
                                         x=20+58*(nDiscX-1) 
                                         y=20+58*(10-nDiscY) 
-					if lSpaceKey = True 
-						lSpaceKey = False
-	                                        if (Clock()-nClock)/Clockspersecond() >= 0.1
-	                                            nClock = clock()
-	                                            nKey = 0
-	                                            nNext = 0
-	                                            rnd = random(5)+1 
-                                                    see "dice: " + rnd + " move: " + moveblack + " -> "
-	                                            moveblack = moveblack + rnd
-                                                    see moveblack + nl
-	                                            if moveblack > size*size-1
-	                                              see "You won" + nl
-	                                              see "Your Score: " + moveblack + nl
-	                                              oGame.shutdown()
-	                                            ok
-	                                            moveold = moveblack
-	                                            laddercheck = checkladder(moveblack)
-	                                            if laddercheck = 1
-	                                               moveblack = movenew
-	                                            ok
-	                                            if laddercheck = 1      
-	                                               snakecheck = checksnake(moveblack)
-	                                            else
-	                                               snakecheck = checksnake(moveold)
-	                                            ok
-	                                            if snakecheck = 1
-	                                               moveblack = movenew
-	                                            but laddercheck = 0 and snakecheck = 0
-	                                               moveblack = moveold
-	                                            ok	
-	                                            nextdice(rnd)
-	                                            pcor(moveblack)	
-	                                          ok
+					if lSpaceKey = True and flagdice = true
+					   lSpaceKey = False
+	                                   if (Clock()-nClock)/Clockspersecond() >= 0.2
+	                                       nClock = clock()
+	                                       nKey = 0
+                                               rnd = random(5)+1 
+	                                       nextdice(rnd)
+                                               flagdice = false
+                                               numdice = 1
+                                               return
+	                                  ok
 	                                ok
+                                        if flagdice = false    
+	                                   if (Clock()-nClock)/Clockspersecond() >= 0.5
+	                                       nClock = clock()                      
+                                               if numdice < rnd + 1
+                                                  numdice = numdice + 1
+                                                  movered = movered + 1
+                                               else 
+                                                  flagdice = true 
+	                                          moveold = movered
+	                                          laddercheck = checkladder(movered)
+	                                          if laddercheck = 1
+	                                             movered = movenew
+	                                          ok
+	                                          if laddercheck = 1      
+	                                             snakecheck = checksnake(movered)
+	                                          else
+	                                             snakecheck = checksnake(moveold)
+	                                          ok
+	                                          if snakecheck = 1
+	                                             movered = movenew
+	                                          but laddercheck = 0 and snakecheck = 0
+	                                             movered = moveold
+	                                          ok 
+                                                  return
+                                               ok                             
+  	                                       if movered > size*size-1
+	                                          see "You won" + nl
+	                                          see "Your Score: " + movered + nl
+	                                          oGame.shutdown()
+	                                       ok
+                                               pcor(movered)
+                                           ok
+                                        ok
                                 }
 			}
                         keypress = func ogame,oself,nKey {
