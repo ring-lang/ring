@@ -10,5 +10,6 @@ Command :  [-f : Don't check updates]
 Command :  : Delete All Packages
 Command :  <packagename>
 Command :  <packagename>
+Command :  <keywords...>
 ===========================================================================
-installupdate remove list   format run    new    
+installupdate remove list   format run    new    search 

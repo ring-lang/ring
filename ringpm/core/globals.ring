@@ -52,3 +52,6 @@
 # Flag to check updates in the List command 
 
 	lCheckUpdates 		= True 
+
+# Registry File 
+	C_REGISTRYFILE 		= "registry/registry.ring"

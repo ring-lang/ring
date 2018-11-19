@@ -36,7 +36,7 @@ func CheckPackageUpdate cPackageName
 		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch],
 						aPackageInfo[:ProviderUserName],
 						aPackageInfo[:ProviderWebsite])
-		if cRemotePackageFile = "" return False ok
+		if cRemotePackageFile = "" ? C_ERROR_PACKAGENOTFOUND return False ok		
 		eval(cRemotePackageFile)
 		cRemoteVersion = aPackageInfo[:version]
 	# Check if no updates (---> Return)

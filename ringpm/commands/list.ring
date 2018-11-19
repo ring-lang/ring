@@ -49,6 +49,7 @@ func CheckUpdates aLocalPackageInfo
 	cProviderUserName = aLocalPackageInfo[:ProviderUserName] 
 	cProviderWebsite  = aLocalPackageInfo[:ProviderWebsite]
 	cPackageInfo = GetPackageFile(cPackageName,cBranchName,cProviderUserName,cProviderWebsite)
+	if cPackageInfo = "" ? C_ERROR_PACKAGENOTFOUND return ok
 	try
 		eval( cPackageInfo )
 	catch

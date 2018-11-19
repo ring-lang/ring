@@ -5,7 +5,7 @@
 */
 
 func Search aKeywords 
-	eval(read("registry/registry.ring"))
+	eval(read(C_REGISTRYFILE))
 	# Now we have aPackagesRegistry
 	# Ring can do 1000 search operation in 100,000 (Worst case - last item) < 1 second 
 	lFound = False 

@@ -36,7 +36,19 @@ class InstallCommand
 	func GetPackage cPackageName
 		cPackageInfo = GetPackageFile(cPackageName)
 		aCheck = CheckPackageFile(cPackageInfo)
-		if ! aCheck[1] lInstallError = True return ok
+		# Support installing from the Registry (To download packages from the Internet)
+			# When we install from registry, We will not find the package file in local folders
+			# And the lInstallError flag will be True, So we set it to False 
+				lInstallError = False
+			if ! aCheck[1] 
+				if lLocalPackages = True 
+					lInstallError = ! InstallFromRegistry(cPackageName)
+					if lInstallError = True 
+						? nl+C_ERROR_PACKAGENOTFOUND
+					ok
+				ok
+				return 
+			ok
 		aPackageInfo = aCheck[2]
 		DisplayPackageInformation(aPackageInfo)
 		# Check that we have the required Ring version
@@ -180,6 +192,10 @@ class InstallCommand
 				ok
 				cFileURL 	= cPackageURL + cFileName
 				cFileContent 	= DownloadFile(cFileURL)
+				if lInstallError = True 
+					? nl+"Can't download the file : " + cFileURL
+					loop
+				ok
 				cDir  = CurrentDir()
 				CreateSubFolders(cFileName)
 				chdir(cDir)
@@ -247,8 +263,6 @@ class InstallCommand
 				cURL = substr(cURL,"/","\")
 			ok
 			if ! fexists(cURL)
-				see nl
-				? C_ERROR_PACKAGENOTFOUND
 				lInstallError 	= True
 				return 
 			ok
@@ -258,3 +272,17 @@ class InstallCommand
 
 	func AddTimeStamp cURL
 		return cURL + "?ts="+EpochTime(date(),time())
+
+	func InstallFromRegistry cPackageName 
+		eval(read(C_REGISTRYFILE))
+		# Now we have aPackagesRegistry
+		for aPackage in aPackagesRegistry	
+			if aPackage[:name] = cPackageName
+				# Install from registry 
+					oInstall = new InstallCommand 
+					oInstall.InstallFrom(aPackage[:ProviderUserName])
+					oInstall.GetPackage(cPackageName)									
+				return True
+			ok
+		next   	
+		return False

@@ -15,6 +15,7 @@ Features
 	* Easy loading for packages using the package name and folder 		DONE
 	* Install package from the current folder (Install dependencies)	DONE
 	* Install package from specific user of GitHub				DONE
+	* Install package from the Registry					DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 
@@ -50,4 +51,6 @@ Features
 	* Rung package in the current folder 					DONE
 ======================================================================================
 * New Command (ringpm new <package_name>)					DONE
+======================================================================================
+* Search Command (ringpm search <keywords..>)					DONE
 ======================================================================================
