@@ -432,7 +432,7 @@ Packages Registry
 
 	So we will add another file beside registry.ring to include the revision number  
 
-		rev.ring ----> rev = 1
+		rev.ring ----> rev = 1		( or version.ring )
 	When we update the registry.ring file, we will increment the revision counter
 				rev++ 
 
@@ -454,3 +454,10 @@ Packages Registry
 			(Lazy Solution) 
 
 		Or update each 7 days 
+
+	ringpm refresh ----> Update the registry (Packages List)
+
+		version.ring 
+			nRegistryRev  		= 1
+			cRegistryLastUpdate 	= "2018/11/20"
+			nPackagesCount 		= 3	# (firstpackage, secondpackage, thirdpackage)

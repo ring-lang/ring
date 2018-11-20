@@ -53,3 +53,6 @@ func DisplayOperationDone
 	if lDisplayOperationDone
 		? "Operation done!"
 	ok
+
+func AddTimeStamp cURL
+	return cURL + "?ts="+EpochTime(date(),time())

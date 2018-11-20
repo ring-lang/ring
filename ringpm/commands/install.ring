@@ -21,7 +21,7 @@ class InstallCommand
 	func InstallFrom cUserName 
 		if cUserName = NULL return ok
 		lLocalPackages	   = False
-		cPackagesLocations = "https://raw.githubusercontent.com/" + cUserName
+		cPackagesLocations = C_GITHUBUSERCONTENT + cUserName
 		cProviderUserName  = cUserName
 
 	func InstallPackage cPackageName
@@ -270,8 +270,6 @@ class InstallCommand
 		ok
 		return Download(AddTimeStamp(cURL))
 
-	func AddTimeStamp cURL
-		return cURL + "?ts="+EpochTime(date(),time())
 
 	func InstallFromRegistry cPackageName 
 		eval(read(C_REGISTRYFILE))

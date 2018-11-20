@@ -15,6 +15,7 @@
 	load "../commands/run.ring"
 	load "../commands/new.ring"
 	load "../commands/search.ring"
+	load "../commands/refresh.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -72,6 +73,8 @@ func ExecuteCommands
 				aKeywords = GetKeywordsFromParameters()
 				if len(aKeywords) = 0 ? C_ERROR_NOKEYWORDS return ok
 				Search(aKeywords)
+			on "refresh"
+				UpdateTheRegistry()
 		off
 	
 func GetPackageNameFromParameters

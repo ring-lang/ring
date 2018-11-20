@@ -20,6 +20,8 @@
 	C_ERROR_LOCKFILEDOESNOTEXIST		= "Error(13): Lock file doesn't exist"
 	C_ERROR_USERNAMEISMISSING		= "Error(14): User name is missing"
 	C_ERROR_NOKEYWORDS			= "Error(15): No keywords to use in the search operation"
+	C_ERROR_CANTDOWNLOADTHEVERSIONFILE	= "Error(16): Can't download the version file to get the Registry information!"
+	C_ERROR_CANTDOWNLOADTHEREGISTRYFILE	= "Error(17): Can't download the Registry file to get the Registry information!"
 	C_NOTE_PACKAGEALREADYEXISTS		= "Note : Package Already Exists"
 	C_NOTE_AVOIDDELETINGAPACKAGE		= "Note : Avoid deleting the package "
 	C_NOTE_NOCOMMANDTORUNTHEPACKAGE		= "Note : No command is defined to run the package!"
@@ -55,3 +57,6 @@
 
 # Registry File 
 	C_REGISTRYFILE 		= "registry/registry.ring"
+
+# GitHub User Content 
+	C_GITHUBUSERCONTENT 	= "https://raw.githubusercontent.com/"
