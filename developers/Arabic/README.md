@@ -644,6 +644,15 @@
 			<a href="https://www.youtube.com/watch?v=nPSyNdLJZ2U&index=21&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson22">22</td>
+		<td>
+			إضافة الأمر Refresh لتحديث محتويات ال Registry من الانترنت
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=MjHRQgGFxbk&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=22">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
