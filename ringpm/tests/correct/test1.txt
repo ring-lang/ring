@@ -11,5 +11,6 @@ Command :  : Delete All Packages
 Command :  <packagename>
 Command :  <packagename>
 Command :  <keywords...>
+Command :  : Update the Registry (Packages List)
 ===========================================================================
-installupdate remove list   format run    new    search 
+installupdate remove list   format run    new    search refresh

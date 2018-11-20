@@ -215,5 +215,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=nPSyNdLJZ2U&index=21&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson22">22</td>
+		<td>
+			The Refresh Command - Update the Registry (Packages List)
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=MjHRQgGFxbk&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=22">YouTube</a>
+		</td>
+	</tr>
 </table>
 
