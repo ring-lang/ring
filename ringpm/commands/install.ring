@@ -111,6 +111,18 @@ class InstallCommand
 			cCompletePackageName = cPackageName+GetMajorVersionText(aPackageInfo[:version])
 			write(exefolder()+cCompletePackageName+".ring",
 				'load "/../ringpm/packages/'+cCompletePackageName+'/lib.ring"')
+		SetupPackage(cPackageName,cPackageFolderName,aPackageInfo)
+
+	func SetupPackage cPackageName,cPackageFolderName,aPackageInfo
+		cSetup = aPackageInfo[:setup]
+		if cSetup != NULL
+			Style("Preparing ",:YellowBlack)
+			? cPackageName
+			cDir = CurrentDir()
+			chdir(cMainPackagesFolder+"/"+cPackageFolderName)
+			system(cSetup)
+			chdir(cDir)
+		ok
 
 	func GetPackageFile cPackageName
 		if lLocalPackages 
