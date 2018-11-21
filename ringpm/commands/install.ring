@@ -125,11 +125,14 @@ class InstallCommand
 		ok
 
 	func GetPackageFile cPackageName
-		if lLocalPackages and cProviderUserName = ""
+		if lLocalPackages
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
 			cDir = CurrentDir()
-				chdir(cPackageURL)
-				SystemSilent("git checkout " + cBranchName + " --quiet")
+				chdir(cPackageURL)				
+				if fexists("package.ring")	# Be sure that we have a Package
+					# Select the Correct Branch 
+					SystemSilent("git checkout " + cBranchName + " --quiet")
+				ok
 			chdir(cDir)
 		else 
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName +
