@@ -127,3 +127,4 @@ More Improvements
 (4) Ring Compiler : Support source code files with one line of comment without end of line
 (5) Ring VM : Better support for the (Return) command inside braces that access new objects.
 (6) Ring VM : Dir() Function - Don't add "." and ".." to the output
+(7) Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS
