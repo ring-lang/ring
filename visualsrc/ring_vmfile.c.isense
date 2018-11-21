@@ -138,6 +138,8 @@ Type: struct stat
 st
 Type: char
 cPath[FILENAME_MAX]
+Type: char
+cCurrentDir[FILENAME_MAX]
 ring_vm_file_read
 Type: FILE *
 fp
