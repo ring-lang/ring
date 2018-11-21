@@ -5,7 +5,7 @@
 */
 
 func DeleteAllPackages 
-	? "RingPM - Format - Delete All Package"
+	? "RingPM - Format - Delete All Packages"
 	# Delete AllPackages.ring 
 		oAllPackagesInfo.DeleteAllPackagesFile()
 	# Delete Folders 
