@@ -1,6 +1,6 @@
 # Project : Snakes and Ladders Game
 # Date    : 2018/11/07
-# Update : 2018/11/19
+# Update : 2018/11/20
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -33,8 +33,8 @@ dicered5 = "dicered5.jpg"
 dicered6 = "dicered6.jpg"
 dicesblack = [diceblack1,diceblack2,diceblack3,diceblack4,diceblack5,diceblack6]
 dicesred = [dicered1,dicered2,dicered3,dicered4,dicered5,dicered6]
-ladder = [[5,26],[13,46],[18,39],[37,62],[48,72],[60,82],[65,95]]
-snake = [[7,23],[9,33],[14,44],[25,68],[41,77],[66,97],[70,94]]
+ladder = [[6,27],[9,50],[20,39],[25,57],[53,72],[54,85],[61,82]]
+snake = [[16,43],[34,55],[42,78],[48,70],[73,95],[82,96]]
 
 lSpaceKey = False
 
