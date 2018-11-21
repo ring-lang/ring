@@ -7,6 +7,7 @@
 #else
 #include <sys/stat.h>
 #include <dirent.h>
+#include <unistd.h>
 #endif
 /* Functions */
 
@@ -581,7 +582,7 @@ void ring_vm_file_dir ( void *pPointer )
 					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
 					/* Prepare Path */
 					getcwd(cPath, FILENAME_MAX);
-					strcpy(cPath,"/");
+					strcat(cPath,"/");
 					strcat(cPath,pDirent->d_name);
 					stat(cPath,&st);
 					if ( S_ISDIR(st.st_mode) ) {
