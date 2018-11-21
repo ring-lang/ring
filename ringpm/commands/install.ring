@@ -125,7 +125,7 @@ class InstallCommand
 		ok
 
 	func GetPackageFile cPackageName
-		if lLocalPackages 
+		if lLocalPackages and cProviderUserName = ""
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
 			cDir = CurrentDir()
 				chdir(cPackageURL)
