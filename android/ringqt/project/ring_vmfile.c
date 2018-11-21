@@ -575,13 +575,14 @@ void ring_vm_file_dir ( void *pPointer )
 		pDir = opendir(cStr);
 		if ( pDir != NULL ) {
 			while ( (pDirent = readdir(pDir)) ) {
-				pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
-				stat(pDirent->d_name,&st);
-				if ( S_ISDIR(st.st_mode) ) {
-					ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1);
-				} else {
-					ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0);
+				if ( strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) {
+					pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
+					stat(pDirent->d_name,&st);
+					if ( S_ISDIR(st.st_mode) ) {
+						ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1);
+					} else {
+					}
 				}
 			}
 			closedir(pDir);
