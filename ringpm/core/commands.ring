@@ -75,6 +75,8 @@ func ExecuteCommands
 				Search(aKeywords)
 			on "refresh"
 				UpdateTheRegistry()
+			other 
+				? "Bad Command!"
 		off
 	
 func GetPackageNameFromParameters
