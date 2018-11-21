@@ -581,7 +581,8 @@ void ring_vm_file_dir ( void *pPointer )
 					stat(pDirent->d_name,&st);
 					if ( S_ISDIR(st.st_mode) ) {
 						ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1);
-					} else {
+					}
+					else {
 					}
 				}
 			}
