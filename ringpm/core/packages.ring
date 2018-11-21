@@ -7,6 +7,9 @@
 C_ALLPACKAGESINFO_PACKAGENAME = 1
 C_ALLPACKAGESINFO_RELATED     = 2
 
+# All Packages File 
+	C_ALLPACKAGESFILE	= exefolder()+"../ringpm/allpackages.ring"
+
 class AllPackagesInfo
 
 	cAllPackagesFile = C_ALLPACKAGESFILE
