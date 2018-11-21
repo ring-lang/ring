@@ -56,7 +56,7 @@
 	lCheckUpdates 		= True 
 
 # Registry File 
-	C_REGISTRYFILE 		= "registry/registry.ring"
+	C_REGISTRYFILE 		= exefolder()+"../ringpm/registry/registry.ring"
 
 # GitHub User Content 
 	C_GITHUBUSERCONTENT 	= "https://raw.githubusercontent.com/"
