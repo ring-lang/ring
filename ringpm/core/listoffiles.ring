@@ -16,9 +16,6 @@ class ListOfFiles
 	func ListAllFiles_Process cPath,aList,cExt
 		aOutput = []
 		for aSub in aList 
-			if aSub[1] = "." or aSub[1] = ".."
-				loop
-			ok
 			if aSub[2] # Directory
 				Try
 					cNewPath = cPath + "/" + aSub[1]
