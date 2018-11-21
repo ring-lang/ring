@@ -580,6 +580,7 @@ void ring_vm_file_dir ( void *pPointer )
 					pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
 					/* Prepare Path */
+					getcwd(cPath, FILENAME_MAX);
 					strcpy(cPath,"/");
 					strcat(cPath,pDirent->d_name);
 					stat(cPath,&st);
