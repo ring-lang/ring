@@ -126,3 +126,4 @@ More Improvements
 (3) Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
 (4) Ring Compiler : Support source code files with one line of comment without end of line
 (5) Ring VM : Better support for the (Return) command inside braces that access new objects.
+(6) Ring VM : Dir() Function - Don't add "." and ".." to the output
