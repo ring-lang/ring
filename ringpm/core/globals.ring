@@ -55,6 +55,9 @@
 
 	lCheckUpdates 		= True 
 
+# All Packages File 
+	C_ALLPACKAGESFILE	= exefolder()+"../ringpm/allpackages.ring"
+
 # Registry File 
 	C_REGISTRYFILE 		= exefolder()+"../ringpm/registry/registry.ring"
 

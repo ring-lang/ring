@@ -9,7 +9,7 @@ C_ALLPACKAGESINFO_RELATED     = 2
 
 class AllPackagesInfo
 
-	cAllPackagesFile = "allpackages.ring"
+	cAllPackagesFile = C_ALLPACKAGESFILE
 	
 	aAllPackagesInfo = [
 		# [ Package Name , [ List of packages that use this package ] ]
