@@ -543,6 +543,7 @@ void ring_vm_file_dir ( void *pPointer )
 	struct dirent *pDirent  ;
 	struct stat st  ;
 	char cPath[FILENAME_MAX]  ;
+	char cCurrentDir[FILENAME_MAX]  ;
 	#endif
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -576,6 +577,8 @@ void ring_vm_file_dir ( void *pPointer )
 		#else
 		pDir = opendir(cStr);
 		if ( pDir != NULL ) {
+			getcwd(cCurrentDir, FILENAME_MAX);
+			chdir(cStr);
 			while ( (pDirent = readdir(pDir)) ) {
 				if ( strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) {
 					pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
@@ -595,6 +598,7 @@ void ring_vm_file_dir ( void *pPointer )
 			}
 			closedir(pDir);
 			RING_API_RETLIST(pList);
+			chdir(cCurrentDir);
 		} else {
 			RING_API_ERROR(RING_API_BADDIRECTORY);
 		}
