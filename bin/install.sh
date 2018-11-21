@@ -405,3 +405,16 @@ then
 sudo cp lib/libring_pgsql.so /usr/lib
 sudo cp lib/libring_pgsql.so /usr/lib64
 fi
+
+# Make the RingConsoleColors library ready for use directly
+
+if [ -f lib/libring_consolecolors.dylib ];
+then
+cp lib/libring_consolecolors.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_consolecolors.so ];
+then
+sudo cp lib/libring_consolecolors.so /usr/lib
+sudo cp lib/libring_consolecolors.so /usr/lib64
+fi
