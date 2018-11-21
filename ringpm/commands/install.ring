@@ -129,7 +129,7 @@ class InstallCommand
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName + "/"
 			cDir = CurrentDir()
 				chdir(cPackageURL)
-				SystemSilent("git checkout " + cBranchName)
+				SystemSilent("git checkout " + cBranchName + " --quiet")
 			chdir(cDir)
 		else 
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName +
