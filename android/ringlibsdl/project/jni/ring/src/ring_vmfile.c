@@ -541,6 +541,7 @@ void ring_vm_file_dir ( void *pPointer )
 	DIR *pDir  ;
 	struct dirent *pDirent  ;
 	struct stat st  ;
+	char cPath[FILENAME_MAX]  ;
 	#endif
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -578,7 +579,10 @@ void ring_vm_file_dir ( void *pPointer )
 				if ( strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) {
 					pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
-					stat(pDirent->d_name,&st);
+					/* Prepare Path */
+					strcpy(cPath,"/");
+					strcat(cPath,pDirent->d_name);
+					stat(cPath,&st);
 					if ( S_ISDIR(st.st_mode) ) {
 						ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
 					}
