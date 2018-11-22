@@ -1,5 +1,5 @@
-The Ring Package Manager (RingPM) - Under Development
-=====================================================
+The Ring Package Manager (RingPM)
+=================================
 
 In this folder we will develop the Ring package manager
 
