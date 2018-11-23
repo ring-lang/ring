@@ -247,12 +247,6 @@ func pBegin()
                  ok
             next
        next
-       Cells[2][3] = red
-       setButtonImage(Button[2][3],oPicRedDisc,bwidth,bheight)
-       Cells[1][2] = no
-       setButtonImage(Button[1][2],oPicBrownCell,bwidth,bheight)
-       Cells[1][4] = no
-       setButtonImage(Button[1][4],oPicBrownCell,bwidth,bheight)
        redcells = newlist(size,size)
        RedScore.settext("Red Score: 0")
        BlackScore.settext("Black Score: 0")
