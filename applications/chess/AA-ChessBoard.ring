@@ -29,6 +29,8 @@ v	= 0	### V-coord of Cell
 aArray			= null
 aButton			= null
 workWidget		= null
+recordArray		= null
+comboPromotePawn = null
 
 
 TitletMoves			= null
@@ -40,11 +42,20 @@ FromRow = 1
 FromCol = 1
 ToRow	= 5
 ToCol	= 3
-OldRow  = 3
-OldCol  = 3
+OldRow	= 3
+OldCol	= 3
 PickedPiece	= "e"
-TurnColor = "White"	 ### "Black"
 
+TurnColor	= "White"		### "Black"
+IgnoreTurnColor = False		### False <<=== Set to TRUE for Debug and Testing
+
+KingRow = 1					###	 Where King is Found by KingChecked()
+KingCol = 1
+
+EnPassant		= False		### Only Pawn can eat Other Color Pawn after Move by 2
+EnPassantCol	=	1		### Vertical Column of Last Pawn making a 2 move
+
+###----------------------------
 
 aLookup = [ ["BR","BRook.png"], 
 			["BN","BKnight.png"],
@@ -87,6 +98,10 @@ C_ButtonPickStyle	= 'border-radius:1px; color:black; background-color: rgb(255,2
 			  
 C_ButtonDestStyle	= 'border-radius:1px; color:black; background-color: rgb(204,255,204); '
 			 # ##'border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
+
+C_ButtonCheckStyle	= 'border-radius:1px; color:black; background-color: rgb(204,93,93); '
+			 # ##'border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
+
 			 
 ###=============================================================================
 ###=============================================================================
@@ -124,6 +139,7 @@ Func DrawWidget()
 
 		aArray	= newList(hSize, vSize)	### Internal Array with Letters
 		aButton = newList(hSize, vSize)	### Internal Array with Letters
+		recordArray	= newList(1, 2)	### Record the Moves ...  WN 8-7  to  6-6
 		
 		setWindowTitle('Chess 2 Player')
 		setStyleSheet('background-color:White')
@@ -156,6 +172,14 @@ Func DrawWidget()
 				setAlignment( Qt_AlignVCenter)
 				setText(" White ")
 			}		
+			
+			comboPromotePawn = new QComboBox(workWidget) 
+			{
+				setStyleSheet("background-color:White")
+				setFont(new qFont("Calibri",fontsize,100,0))
+				aList = ["Queen","Rook","Bishop","Knight"]
+				for x in aList additem(x,0) next				
+			}			
 
 			
 			NewGame	 = new QPushButton(workWidget) 
@@ -187,7 +211,8 @@ Func DrawWidget()
 				
 			
 			LayoutTitleRow.AddWidget(TitletMoves)
-			LayoutTitleRow.AddWidget(TitletInvalidMove)		
+			LayoutTitleRow.AddWidget(TitletInvalidMove)	
+			LayoutTitleRow.AddWidget(comboPromotePawn)			
 			LayoutTitleRow.AddWidget(NewGame)		
 								
 			LayoutButtonMain.AddLayout(LayoutTitleRow)		
@@ -274,8 +299,8 @@ Func DrawImage( Piece, Row,	 Col  )
 
 	aButton[Row][Col] { 
 						oPiece = new qpixmap(Piece)	 
-						nImageWidth  = oPiece.Width()  		### Piece, not Square	 
-						nImageHeight = oPiece.Height() 		### Piece, not Square	
+						nImageWidth	 = oPiece.Width()		### Piece, not Square	 
+						nImageHeight = oPiece.Height()		### Piece, not Square	
 						oPiece = oPiece.scaled(nImageWidth , nImageHeight ,0,0) 
 						setIcon(new qIcon(oPiece)) 
 						setIconSize(new qSize(nImageWidth , nImageHeight ))
@@ -399,6 +424,7 @@ See "Func NewGameStart: "+nl
 		
 	DrawWidget()	### ===>>>
 	
+	TurnColor	= "White"		### "Black"
 	
 return
 
@@ -422,37 +448,76 @@ return
 
 Func Play(Row,Col)
 
-	#See "Func-Play: Call: "+ aArray[Row][Col] +" "+ Row +" "+ Col  +" flag "+ FlagStartMove +nl
+	#See "Func-Play: Call: "+ aArray[Row][Col] +" "+ Row +" "+ Col	+" flag "+ FlagStartMove +nl
 
-	RestoreSquareColor(OldRow, OldCol)
-	aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }		### Yellow Highlight the  From-Square
+		###--------------------------------------------------------------------
+		### Yellow the Square for New Pick, Restore Old Destination Square Color
+		
+		RestoreSquareColor(OldRow, OldCol)
+		aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }		### Yellow Highlight the  From-Square
+		
+		OldRow = Row
+		OldCol = Col
 	
-	OldRow = Row
-	OldCol = Col
+		###------------------------------------------
+		### Color of Piece Picked and Captured Piece
+				
+		ColorFrom = aArray[FromRow][FromCol]
+		ColorTo	  = aArray[Row][Col]
 	
-	
-	###-----------------------------------------------
-	### FIRST -PICK Piece - NOT Empty - Piece to Play
+	###--------------------------------------------------------------
+	### FIRST -PICK Piece - NOT Empty - PIECE is on Square	to Play
 	
 	if FlagStartMove = 0
 		#See "Func-Play: 1st Start 0" +nl
 		if aArray[Row][Col] != 'e'	
 		
-			FlagStartMove = 1
+			###--------------------------------
+			### Enforce Whose Turn
+			PieceColor = aArray[Row][Col] 
+			if TurnColor[1] != PieceColor[1]							###	 "White" != "BP" 
+				aButton[Row][Col] { setStyleSheet(C_ButtonCheckStyle) }	### NOT Your Turn
+				See "TurnColor: "+ TurnColor +" <> "+ PieceColor +nl
+				return
+			ok		
+			###--------------------------------
+		
+			FlagStartMove = 1											### SECOND MOVE is Next
 			FromRow = Row
 			FromCol = Col
 			PickedPiece	= aArray[Row][Col]		
 			#aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }		### Yellow Highlight the  From-Square
 
+		else  ### Start Move is Empty Button
+			aButton[Row][Col] { setStyleSheet(C_ButtonCheckStyle) }
+			return
+						
+			
 		ok
+		
+	###---------------------------------------------------	
+	### SECOND MOVE Flag but Square has same color Piece 
+	### Player CHANGED MIND on which Piece to Play
 	
-	###-------------------------------------------------
+	but ColorFrom[1] = ColorTo[1]										### First "WN" ... Second "WB"	... Changed Mind ?
+	
+			FlagStartMove = 1											### SECOND MOVE is Next
+
+			PickedPiece	= aArray[Row][Col]		
+			aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }		### Yellow the FROM-SQUARE
+			RestoreSquareColor(FromRow, FromCol)						### Changed Mind - FROM SQUARE - Un-Yellow
+						
+			FromRow = Row												### New FROM PickedPiece Coord
+			FromCol = Col
+
+	
+	###-------------------------------------------------------------
 	### SECOND - MOVE Piece to EMPTY SQUARE - Piece that was Picked	
 	### FlagStartMove = 1
 	
 	but aArray[Row][Col] = 'e'	### Empty
 		#See "Func-Play: 2nd to Empty Square"+ nl 
-		aButton[Row][Col] { setStyleSheet(C_ButtonDestStyle) }		### Yellow Highlight the TO-Square
+		aButton[Row][Col] { setStyleSheet(C_ButtonDestStyle) }			### Cyan Highlight the TO-Square
 	
 			###---------------------------------------------
 			### Check if SKIP OVER PIECES-- FROM => TO Move
@@ -465,14 +530,14 @@ Func Play(Row,Col)
 				FlagStartMove = 0
 				RestoreSquareColor(FromRow, FromCol)
 
-				TitletInvalidMove.setText(" Msg: "+  PickedPiece +" : Jumped Over Piece "  )
+				TitletInvalidMove.setText(" Msg: "+	 PickedPiece +" : Jumped Over Piece "  )
 				TitletInvalidMove { setStyleSheet("background-color:rgb(255,102,255)") }
 			
 				return
 			else
 				### PATH is Clear 
 				TitletInvalidMove.setText(" Msg:			   ")
-				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}  ### OK - Pale color
+				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}	 ### OK - Pale color
 			ok
 			
 			###-----------------------------------
@@ -492,7 +557,7 @@ Func Play(Row,Col)
 			else
 				### VALID - FlagValidMove = 1
 				TitletInvalidMove.setText(" Msg:			   ")
-				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}  ### OK - Pale color
+				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}	 ### OK - Pale color
 			ok
 			
 
@@ -501,6 +566,7 @@ Func Play(Row,Col)
 			###-----------------------------------------
 			### Copy Internal Piece From-Cell to To-Cell
 			### Color From-Square
+			
 			#See "Func-Play: Path - Was Valid" +nl
 			
 			FlagStartMove = 0									
@@ -509,15 +575,32 @@ Func Play(Row,Col)
 					
 			aArray[Row][Col] = aArray[FromRow][FromCol]				
 			ClearSquare(FromRow, FromCol)							
-			WhoseTurn()
+			WhoseTurn(PickedPiece)
 			RecordNewMove(PickedPiece, FromRow, FromCol, Row, Col)
-		
+			
+				ByColor = "W"  WhiteKingIsChecked = False
+				result = KingChecked( ByColor )							### Check if WhiteKing Checked / CkeckMate
+				
+					if result = True
+						aButton[KingRow][KingCol] { setStyleSheet(C_ButtonCheckStyle) }		### Check Color	
+					else
+						RestoreSquareColor(KingRow, KingCol)
+					ok
+				
+				ByColor = "B"	BlackKingIsChecked = False
+				result = KingChecked( ByColor )							### Check id BlackKing Checked / CheckMate
+
+					if result = True
+						aButton[KingRow][KingCol] { setStyleSheet(C_ButtonCheckStyle) }		### Check Color	
+					else
+						RestoreSquareColor(KingRow, KingCol)
+					ok				
 	###--------------------------------------------------	
 	###	 CAPTURE PIECE on DESTINATION SQUARE	
 	else
 
 		#See "Func-Play: Capture Piece" +nl
-		aButton[Row][Col] { setStyleSheet(C_ButtonDestStyle) }		### Yellow Highlight the TO-Square
+		aButton[Row][Col] { setStyleSheet(C_ButtonDestStyle) }		### Cyan Highlight the TO-Square
 		
 			###----------------------------------------------------
 			### Valid Move for the Piece Picked to Captured Piece
@@ -535,15 +618,11 @@ Func Play(Row,Col)
 			else
 				###FlagValidMove = 1
 				TitletInvalidMove.setText(" Msg:			   ")
-				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}  ### OK - Pale color
+				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}	 ### OK - Pale color
 			ok
 
 			
-			###------------------------------------------
-			### Color of Piece Picked and Captured Piece
 			
-			ColorFrom = aArray[FromRow][FromCol]
-			ColorTo	  = aArray[Row][Col]
 					
 			###-------------------------
 			### Other Color Piece
@@ -557,27 +636,30 @@ Func Play(Row,Col)
 						
 				aArray[Row][Col] = aArray[FromRow][FromCol]					### Copy From-Cell to To-Cell
 				ClearSquare(FromRow, FromCol)								### Color From-Square	
-				WhoseTurn()
+				WhoseTurn(PickedPiece)
 				RecordNewMove(PickedPiece, FromRow, FromCol, Row, Col)
-			
-			
-			###------------------------------------------------------
-			### SAME COLOR PIECE - Change Mind on which Piece to Play
-			else	
-				#See "Func-Play: Capture Same Color" +nl
 				
-				FlagStartMove = 0  ### 1
-				PickedPiece	= aArray[Row][Col]		
-				aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }		### Yellow the FROM-SQUARE		
+				ByColor = "W"
+				result = KingChecked( ByColor )							### Check id BlackKing Checked / CheckMate
+
+					if result = True
+						aButton[KingRow][KingCol] { setStyleSheet(C_ButtonCheckStyle) }		### Check Color	
+					else
+						RestoreSquareColor(KingRow, KingCol)
+					ok						
 				
-				### Old FROM-SQUARE - RESTORE COLOR
-				RestoreSquareColor(FromRow, FromCol)
 				
-				### New PickedPiece coord
-				FromRow = Row
-				FromCol = Col
+				ByColor = "B"
+				result = KingChecked( ByColor )							### Check id BlackKing Checked / CheckMate
+
+					if result = True
+						aButton[KingRow][KingCol] { setStyleSheet(C_ButtonCheckStyle) }		### Check Color	
+					else
+						RestoreSquareColor(KingRow, KingCol)
+					ok		
 				
 			ok	
+			
 		
 	ok
 	
@@ -598,7 +680,7 @@ return
 
 
 ###------------------------------------------
-### CLEAR SQUARE - Put Color Back
+### CLEAR SQUARE - Back to EMPTY -- Put Color Back
 	
 Func ClearSquare(FromRow, FromCol)
 
@@ -621,28 +703,38 @@ Func ClearSquare(FromRow, FromCol)
 			
 return
 
-###------------------------------------------
-### Whose Turn To Play Next
+###----------------------------------------------------------
+### Whose Turn To Play Next. PickedPiece was the Last Played
 
-Func WhoseTurn()
-			if TurnColor = "White"
-				TurnColor = "Black"
-				TitletInvalidMove { setStyleSheet("background-color:rgb(204,255,255)")}
-			else
-				TurnColor = "White"
-				TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}
-			ok
-			TitletInvalidMove.setText(TurnColor)
+Func WhoseTurn(PickedPiece)
+
+	if PickedPiece[1] = "W"
+		TurnColor = "Black"
+		TitletInvalidMove { setStyleSheet("background-color:rgb(204,255,255)")}
+	else
+		TurnColor = "White"
+		TitletInvalidMove { setStyleSheet("background-color:rgb(255,255,204)")}
+	ok
+	
+	TitletInvalidMove.setText(TurnColor)
 return			
 
 ###------------------------------------------
-### Increase Moves Counter 
+### Increase Moves Counter. Record Move
 
 Func RecordNewMove(PickedPiece, FromRow, FromCol, Row, Col)
+
 	nMoves++			
-	FR = FromRow-2  FC = FromCol-2
+	FR = FromRow-2	FC = FromCol-2
 	TR = Row-2		TC = Col-2
 	TitletMoves.setText(" Move: "+ nMoves +" : "+ PickedPiece  +" "+ FR +"-"+ FC +" >> "+ TR +"-"+ TC )
+	
+	#Details = ""+ nMoves +" "+ PickedPiece +" "+ FR +" "+ FC +" "+ TR +" "+ TC
+	 Details = ""+ nMoves +" "+ PickedPiece +" "+ FromRow +" "+ FromCol +" "+ Row +" "+ Col
+	
+	Add( recordArray, Details)
+	See nl+nl  See recordArray	See nl+nl
+	
 return
 
 		
@@ -655,26 +747,38 @@ Func ValidMove( Piece, oldH, oldV, h, v)
 
 	FlagValidMove = 0
 	
-	if      Piece = "WR" or Piece = "BR"	result = ValidMoveRook(  Piece, oldH, oldV, h, v)
-		but Piece = "WN" or Piece = "BN" 	result = ValidMoveKnight(Piece, oldH, oldV, h, v) 
-		but Piece = "WB" or Piece = "BB"  	result = ValidMoveBishop(Piece, oldH, oldV, h, v) 
-		but Piece = "WQ" or Piece = "BQ" 	result = ValidMoveQueen( Piece, oldH, oldV, h, v) 
-		but Piece = "WK" or Piece = "BK" 	result = ValidMoveKing(  Piece, oldH, oldV, h, v) 
-		but Piece = "WP" 	result = ValidMovePawnWhite( Piece, oldH, oldV, h, v) 
+	if		Piece = "WR" or Piece = "BR"	result = ValidMoveRook(	 Piece, oldH, oldV, h, v)
+		but Piece = "WN" or Piece = "BN"	result = ValidMoveKnight(Piece, oldH, oldV, h, v) 
+		but Piece = "WB" or Piece = "BB"	result = ValidMoveBishop(Piece, oldH, oldV, h, v) 
+		but Piece = "WQ" or Piece = "BQ"	result = ValidMoveQueen( Piece, oldH, oldV, h, v) 
+		but Piece = "WK" or Piece = "BK"	result = ValidMoveKing(	 Piece, oldH, oldV, h, v) 
+		but Piece = "WP"	result = ValidMovePawnWhite( Piece, oldH, oldV, h, v) 
 		but Piece = "BP"	result = ValidMovePawnBlack( Piece, oldH, oldV, h, v)
 		else See "Switch-Case: Failed: " Piece +" "+ oldH +"-"+ oldV +" "+ h +"-"+ v +nl
 	ok
-
+	
 	FlagValidMove = result
+	
+	###-------------------------------------------------------------- 
+	### EnPassant is Cleared by ANY Piece Move. 
+	### Only Pawn can Capture enPassant Pawn. Only on very next move
+	
+	if ( ((Piece != "WP") AND (Piece != "BP")) AND (FlagValidMove = True) AND (EnPassant = True) )
+		#See "AnyPiece EnPassant Clear: "+ Piece +" "+ FlagValidMove +" "+ EnPassant +nl
+		EnPassant = False
+	ok
+
+	
 	
 return FlagValidMove
 
-###========================================
-###========================================
+###================================================
+###================================================
+###================================================
 ### VALID MOVE BY PIECES
-
 ###---------------------------------------
 ### KNIGHT
+
 
 Func ValidMoveKnight(Piece, oldH, oldV, h, v)
 
@@ -699,7 +803,7 @@ Func ValidMoveRook(Piece, oldH, oldV, h, v)
 	FlagValidMove = 0
 	
 	### Moves on SAME Row or SAME Column	
-	if ( (h = oldH  AND v != OldV) OR (h != oldH AND v = OldV  ) )
+	if ( (h = oldH	AND v != OldV) OR (h != oldH AND v = OldV  ) )
 		FlagValidMove = 1
 	ok
 
@@ -727,8 +831,8 @@ Func ValidMoveQueen(Piece, oldH, oldV, h, v)
 	FlagValidMove = 0
 		
 	### Moves like Rook "+" and Bishop "X"
-	###   Horzontal                     Vertical                        Sideways-Bishop
-	if (((h = oldH  AND v != OldV) OR ( h != oldH AND v = OldV ) ) OR ( fabs(h - oldH) = fabs(v - OldV) ) )
+	###	  Horzontal						Vertical						Sideways-Bishop
+	if (((h = oldH	AND v != OldV) OR ( h != oldH AND v = OldV ) ) OR ( fabs(h - oldH) = fabs(v - OldV) ) )
 		FlagValidMove = 1
 	ok
 	
@@ -741,7 +845,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 	
 	FlagValidMove = 0
 	
-	### Move 1 Horzontal         Vertical             
+	### Move 1 Horzontal		 Vertical			  
 	if (fabs(h - oldH) = 1) OR (fabs(v - oldV) = 1)		
 		FlagValidMove = 1
 		
@@ -749,7 +853,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 	###----------------------------------------------------------------
 	### WKing-CASTLE-RIGHT and Move Rook, Draw Rook and Emptied Square
 	
-	but (Piece = "WK" AND oldH = 10 AND  v = 9 AND aArray[10][10] = "WR" AND aArray[10][8] = "e" AND aArray[10][9] = "e" )
+	but (Piece = "WK" AND oldH = 10 AND	 v = 9 AND aArray[10][10] = "WR" AND aArray[10][8] = "e" AND aArray[10][9] = "e" )
 	
 		Who = Find(aLookup, "WR", 1)
 		DrawImage( aLookup[Who][2], 10, 8 )
@@ -760,7 +864,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 		FlagValidMove  = 1
 
 	### WKing-CASTLE-LEFT
-	but (Piece = "WK" AND oldH = 10 AND  v = 5 AND aArray[10][3] = "WR" AND aArray[10][4] = "e" AND aArray[10][5] = "e" AND aArray[10][6] = "e" )
+	but (Piece = "WK" AND oldH = 10 AND	 v = 5 AND aArray[10][3] = "WR" AND aArray[10][4] = "e" AND aArray[10][5] = "e" AND aArray[10][6] = "e" )
 	
 		Who = Find(aLookup, "WR", 1)
 		DrawImage( aLookup[Who][2], 10, 6 )
@@ -773,7 +877,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 	###-------------------------------------=
 	### BKing-CASTLE-RIGHT	
 	
-	but (Piece = "BK" AND oldH = 3 AND  v = 9 AND aArray[3][10] = "BR" AND aArray[3][8] = "e" AND aArray[3][9] = "e" )
+	but (Piece = "BK" AND oldH = 3 AND	v = 9 AND aArray[3][10] = "BR" AND aArray[3][8] = "e" AND aArray[3][9] = "e" )
 	
 		Who = Find(aLookup, "BR", 1)
 		DrawImage( aLookup[Who][2], 3, 8 )
@@ -784,7 +888,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 		FlagValidMove = 1
 		
 	### BKing-CASTLE-LEFT
-	but (Piece = "BK" AND oldH = 3 AND  v = 5 AND aArray[3][3] = "BR" AND aArray[3][4] = "e" AND aArray[3][5] = "e" AND aArray[3][6] = "e")
+	but (Piece = "BK" AND oldH = 3 AND	v = 5 AND aArray[3][3] = "BR" AND aArray[3][4] = "e" AND aArray[3][5] = "e" AND aArray[3][6] = "e")
 	
 		Who = Find(aLookup, "BR", 1)
 		DrawImage( aLookup[Who][2], 3, 6 )
@@ -806,15 +910,64 @@ Func ValidMovePawnWhite(Piece, oldH, oldV, h, v)
 
 		FlagValidMove = 0
 		
-		###   To-Empty                SameCol             Up-By-1              Up-By-2-From-Start
-		if ( (aArray[h][v] = 'e') AND  (v = OldV)	 AND  (	 (oldH - h = 1 )  OR ( oldH = 9 AND h = 7 ) ) )		
+		###---------------------------------
+		### Forward 1 
+		###	  To-Empty					  SameCol			  Up-By-1			   
+		if ( ( aArray[h][v] = 'e' ) AND	 ( v = OldV )  AND	( oldH - h = 1 ) )	
+			EnPassant = False
 			FlagValidMove = 1
 		ok
 		
-		### Eat sideway
-		if ( (aArray[h][v] != 'e') AND ( (oldH - h = 1)  AND  (fabs(v - oldV) = 1)  ))
+		###---------------------------------
+		### Forward 2
+		###	  To-Empty					   SameCol				  Up-By-2-From-Start
+		if ( ( aArray[h][v] = 'e' ) AND ( aArray[h+1][v] = 'e' ) AND  ( v = OldV ) AND	( oldH = 9 AND h = 7 ) )	
+			EnPassant = True
+			EnPassantCol = v
+			See "EnPassant: "+ EnPassant +" "+ PickedPiece +" "+ oldH +"-"+ oldV +" "+ h +"-"+ v +nl 
 			FlagValidMove = 1
-		ok		
+		ok
+		
+		###---------------------------------
+		### Eat Sideway
+		if ( ( aArray[h][v] != 'e' ) AND ( oldH - h = 1 )  AND	( fabs(v - oldV) = 1 )	)
+			EnPassant = False
+			FlagValidMove = 1
+		ok	
+
+		###--------------------------------------
+		### Eat EnPassant: BP oldH = 4 AND h = 6 
+		###		WP move to h = 8  and Captures Empty h =5	
+		
+		if (	( EnPassant = True ) AND 
+				( EnPassantCol = v ) AND
+				( aArray[h][v] = 'e' ) AND 
+				( oldH - h = 1 )  AND  
+				( fabs(v - oldV) = 1 ) AND
+				( PickedPiece = "WP" ) )
+				
+			See "Eat EnPassant: "+ EnPassant +" "+ PickedPiece +" "+ oldH +"-"+ oldV +" "+ h +"-"+ v +nl
+			
+			aArray[h+1][v] = 'e'	### Remove BP internal array
+			ClearSquare(h+1,v)		### Remove BP from Square 
+			EnPassant = False		### Clear - EnPassant Pawn was captured
+			FlagValidMove = 1
+		ok	
+		
+		###--------------------------------------
+		### Promote Pawn if on Other Side WP v=3
+		
+		if h = 3
+			patternType = comboPromotePawn.currentText()
+			if patternType = "Queen"	aArray[oldH][oldV] = "WQ"  PickedPiece = "WQ"			
+			but patternType = "Rook"	aArray[oldH][oldV] = "WR"  PickedPiece = "WR"
+			but patternType = "Bishop"	aArray[oldH][oldV] = "WB"  PickedPiece = "WB"				
+			but patternType = "Knight"	aArray[oldH][oldV] = "WN"  PickedPiece = "WN"
+			ok			
+			
+			MsgBox("Promoting:"+ nl +"From: White Pawn	To: "+ patternType )
+		ok
+		
 	
 return FlagValidMove
 
@@ -825,23 +978,69 @@ Func ValidMovePawnBlack(Piece, oldH, oldV, h, v)
 
 		FlagValidMove = 0
 		
-		### Move straight ahead, but not eat ahead
-		###   SameCol             Down-By-1            Down-By-2-From-Start
-		if ( (aArray[h][v] = 'e') AND  (v = OldV)	 AND  (	 (h - oldH = 1 )  OR ( oldH = 4 AND h = 6 ) ) )
+		###----------------------------------------
+		### Move straight ahead 1, but not eat ahead
+		###								SameCol				 Down-By-1			  
+		if ( ( aArray[h][v] = 'e' ) AND	 ( v = OldV )	 AND  (	oldH - h = -1 )	 ) 
+			EnPassant = False
 			FlagValidMove = 1
 		ok
 		
-		
-		### Eat sideway
-		if ( (aArray[h][v] != 'e') AND ( (oldH - h = -1)  AND  (fabs(v - oldV) = 1) ))
+		###----------------------------------------
+		### Move straight ahead 2, but not eat ahead
+		###								SameCol				Down-By-2-From-Start
+		if ( ( aArray[h][v] = 'e' ) AND ( aArray[h-1][v] = 'e' ) AND  ( v = OldV )	 AND  ( oldH = 4 AND h = 6	) ) 
+			EnPassant = True
+			EnPassantCol = v
+			See "EnPassant: "+ EnPassant +" "+ PickedPiece +" "+ oldH +"-"+ oldV +" "+ h +"-"+ v +nl 
 			FlagValidMove = 1
 		ok		
+		
+		###----------------------------------------
+		### Eat sideway
+		if ( ( aArray[h][v] != 'e' ) AND ( oldH - h = -1 )	AND	 ( fabs(v - oldV) = 1)	)
+			EnPassant = False
+			FlagValidMove = 1
+		ok		
+		
+		###--------------------------------------
+		### Eat EnPassant: WP oldH = 9 AND h = 7 
+		###		BP move to h =8	 and captures h =7	
+
+		if (	( EnPassant = True ) AND 
+				( EnPassantCol = v ) AND
+				( aArray[h][v] = 'e' ) AND 
+				( oldH - h = -1 )  AND	
+				( fabs(v - oldV) = 1 ) AND
+				( PickedPiece = "BP" ) )
+			  
+			See "Eat EnPassant: "+ EnPassant +" "+ PickedPiece +" "+ oldH +"-"+ oldV +" "+ h +"-"+ v +nl  
+			
+			aArray[h-1][v] = 'e'	### Remove WP internal array
+			ClearSquare(h-1,v)		### Remove WP board
+			EnPassant = False		### Clear - EnPassant Pawn was captured
+			FlagValidMove = 1
+		ok			
+		
+		###---------------------------------------
+		### Promote Pawn if on Other Side BP v=10
+		
+		if h = 10			patternType = comboPromotePawn.currentText()
+			if patternType = "Queen"	aArray[oldH][oldV] = "BQ"  PickedPiece = "BQ"				
+			but patternType = "Rook"	aArray[oldH][oldV] = "BR"  PickedPiece = "BR"
+			but patternType = "Bishop"	aArray[oldH][oldV] = "BB"  PickedPiece = "BB"			
+			but patternType = "Knight"	aArray[oldH][oldV] = "BN"  PickedPiece = "BN"
+			ok			
+			
+			MsgBox("Promoting:"+ nl +"From: Black Pawn	To: "+ patternType )
+		ok
 	
 return FlagValidMove
 
 ###================================================
 ###================================================
-### SKIPPED OVER PIECE - Only Knight can do this
+###================================================
+### CHECK: SKIPPED OVER PIECE - Only Knight can do this
 
 Func SkipOverPieces(PickedPiece, FromRow, FromCol, Row, Col)
 
@@ -857,8 +1056,8 @@ Func SkipOverPieces(PickedPiece, FromRow, FromCol, Row, Col)
 		return skipResult
 	ok
 	
-	###-----------------------------------------
-	### Move 1 Square - Horz, Vert, Sideways
+	###---------------------------------------------------
+	### Move 1 Square - Horz, Vert, Sideways: ALL Pieces
 	
 	if ( ((fabs(FromRow - Row) = 1) AND (fabs(FromCol - Col) = 0)) OR
 		 ((fabs(FromRow - Row) = 0) AND (fabs(FromCol - Col) = 1)) OR
@@ -869,22 +1068,25 @@ Func SkipOverPieces(PickedPiece, FromRow, FromCol, Row, Col)
 		return skipResult
 	ok
 	
-	###------------------------------------------
-	### Move 2 or More Squares. Step plus/minus 
-	### WQ 10-6 to 7-6  Row-Col Skip over WP
+	###------------------------------------------------------
+	### Move 2 or More Squares. Step plus/minus : ALL Pieces
+	### WQ 10-6 to 7-6	Row-Col Skip over WP
 
-	if  FromRow > Row  rowStep = -1  but FromRow < Row  rowStep =  1  but FromRow = Row  rowStep =  0 ok
-		startRow = FromRow  + rowStep
-		destRow  = Row      - rowStep
+	if	FromRow > Row  rowStep = -1	 but FromRow < Row	rowStep =  1  but FromRow = Row	 rowStep =	0 ok
+		startRow = FromRow	+ rowStep
+		destRow	 = Row		- rowStep
 	
-	if  FromCol > Col  colStep = -1  but FromCol < Col  colStep =  1  but FromCol = Col  colStep =  0  ok	
-		startCol = FromCol  + colStep
-		destCol  = Col      - colStep
+	if	FromCol > Col  colStep = -1	 but FromCol < Col	colStep =  1  but FromCol = Col	 colStep =	0  ok	
+		startCol = FromCol	+ colStep
+		destCol	 = Col		- colStep
 	
-	#SEE "CheckSkip: Row: "+ startRow +"=>"+ destrow +" Col: "+ startCol +"=>"+ destCol +nl
+		#SEE "CheckSkip: Row: "+ startRow +"=>"+ destrow +" Col: "+ startCol +"=>"+ destCol +nl
+	
+	###----------------------------------------------
+	### Check PATH: Start to End
 	
 	skipResult = 0
-	while (startRow != Row)  OR ( startCol != Col )
+	while (startRow != Row)	 OR ( startCol != Col )
 		
 		#See "WhileStart: Row: "+ startRow +"=>"+ Row +" Col: "+ startCol +"-"+ Col +nl
 						
@@ -898,14 +1100,334 @@ Func SkipOverPieces(PickedPiece, FromRow, FromCol, Row, Col)
 			return skipResult
 		ok
 		
-		if startCol != Col  startCol += colStep  ok	
-		if startRow != Row 	startRow += rowStep  ok
+		if startCol != Col	startCol += colStep	 ok	
+		if startRow != Row	startRow += rowStep	 ok
 		
 	end
 
 	#SEE "WhileEnd: skipResult: "+ skipresult +nl 
+	
 return skipResult
 
+###=======================================================
+###=======================================================
+### KING IN CHECK ?
+### Did Other Color Piece -- Check the KING
+### Or Other Color Piece move out of the way to allow attack
+### Or Same Color Piece move out of the way to allow check
+### Return CheckedKing = True / False
+
+Func KingChecked( ByColor )
+
+	WKRow = 1	WKCol = 1 WKFound = False
+	BKRow = 1	BKCol = 1 BKFound = False				
+				
+	### Find the Kings Square
+	for h = 3 to 10
+		for v = 3 to 10
+			if aArray[h][v] = "WK"	WKRow = h  WKCol = v  WKFound = True ok			
+			if aArray[h][v] = "BK"	BKRow = h  BKCol = v  BKFound = True ok			
+		next
+	next
+	
+	if WKFound = False
+		MsgBox("WK captured !")
+		return
+	ok
+
+	if BKFound = False
+		MsgBox("BK captured !")
+		return
+	ok
+	
+	#See nl +"VerifyCheck: "+ ByColor +" WK: "+ WKRow +"-"+ WKCol +" BK: "+ BKRow +"-"+ BKCol +nl
+
+	###---------------------------------------------------------------------
+	### Check for Either King depending on Color of Piece Moved for Attack
+	
+	if ByColor = "B"	### BLACK Attacking White King
+		King   = "WK"
+		Queen  = "BQ"
+		Rook   = "BR"
+		Bishop = "BB"
+		Knight = "BN"
+		Pawn   = "BP"
+		KingRow = WKRow		###	 White King under attack
+		KingCol = WKCol
+		SameColor  = "W"
+		OtherColor = "B"
+		OtherKing  = "BK"
+	
+	else				### WHITE Attacking Black King
+		King   = "BK"
+		Queen  = "WQ"
+		Rook   = "WR"
+		Bishop = "WB"
+		Knight = "WN"
+		Pawn   = "WP"	
+		KingRow = BKRow		### Black King under attack
+		KingCol = BKCol	
+		SameColor  = "B"	
+		OtherColor = "W"
+		OtherKing  = "WK"
+	ok
+	
+	###-----------------------------------------
+	###-----------------------------------------
+	
+	CheckedKing = 0
+	### Vertical UP Attack ?
+		h = KingRow	  v = KingCol  
+		
+		for h = KingRow to 3 step -1
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Rook
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+		next
+		#See "VU.QR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+	
+	### Vertical DOWN Attack ?
+		h = KingRow	  v = KingCol  
+		
+		for h = KingRow to 10 
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Rook
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+		next	
+		#See "VD.QR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+
+	###---------------------------------
+	
+	### Horizontal LEFT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		for v = KingCol to 3 step -1
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Rook
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+		next
+		#See "HL.QR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+		
+	### Horizontal RIGHT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		for v = KingCol to 10 
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Rook
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+		next		
+		#See "HR.QR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+		
+	###---------------------------------
+	
+####
+
+	### Diagonal UP LEFT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		while ((h != 3) OR (v != 3))
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Bishop
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+
+			if h != 3  h -= 1 ok 
+			if v != 3  v -= 1 ok 
+		end
+		#See "DULQB Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+		
+	### Diagonal UP RIGHT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		while ((h != 3) OR (v != 10))
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Bishop
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+					
+			if h != 3	h -= 1 ok 
+			if v != 10	v += 1 ok
+		end	
+		#See "DURQB Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+		
+	###---------------------------------
+	
+	### Diagonal DOWN LEFT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		while ((h != 10) OR (v != 3))
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Bishop
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok
+			
+			if h != 10	h += 1 ok 
+			if v != 3	v -= 1 ok
+		end
+		#See "DDLQB Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+		
+	### Diagonal DOWN RIGHT Attack ?
+		h = KingRow	  v = KingCol  
+		
+		while ((h != 10) OR (v != 10))
+			Piece = aArray[h][v]
+			if Piece = Queen OR Piece = Bishop
+				CheckedKing += 1
+				exit
+			but Piece[1] = SameColor AND Piece != King
+				exit
+			but Piece[1] = OtherColor
+				exit
+			ok 
+			
+			if h != 10	h += 1 ok 
+			if v != 10	v += 1 ok
+		end
+		#See "DDRQB Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+
+	
+	###------------------------------
+	### KNIGHT L shape captures
+
+	h = KingRow	 V = KingCol
+	PossibleMove  = [[-2,-1],[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2]] 
+	
+	### Moves as an "L"	
+	for i = 1 to 8
+		Piece = aArray[KingRow + PossibleMove[i][1]][KingCol + PossibleMove[i][2]]
+		if Piece = Knight
+			CheckedKing += 1
+			exit
+		but Piece[1] = SameColor AND Piece != King
+			### Test all 8 possible
+		but Piece[1] = OtherColor
+			### Test all 8 possible
+		ok
+	next
+	#See "L..N. Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ Piece +nl
+
+
+		
+	###---------------------------------
+	### Black Pawn Diagonal
+	
+		h = KingRow	  v = KingCol  
+		
+		if (aArray[h-1][v-1] = Pawn) 
+			CheckedKing += 1
+		ok
+		#See "BPLPL Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ aArray[h-1][v-1] +nl
+		
+		if (aArray[h-1][v+1] = Pawn)
+			CheckedKing += 1
+		ok
+		#See "BPRPR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ aArray[h-1][v+1] +nl
+		
+	### White Pawn Diagonal
+		h = KingRow	  v = KingCol  
+		
+		if (aArray[h+1][v-1] = Pawn) 
+			CheckedKing += 1
+		ok
+		#See "BPLPL Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ aArray[h+1][v-1] +nl
+		
+		if (aArray[h+1][v+1] = Pawn)
+			CheckedKing += 1
+		ok
+		#See "BPRPR Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ aArray[h+1][v+1] +nl		
+		
+	###-------------------------------------------
+	### Black King Vertical Horizontal	Diagonal
+	
+		h = KingRow	  v = KingCol  
+		
+		for h = KingRow -1 to KingRow +1
+			for v = KingCol -1 to KingCol +1
+				if (aArray[h][v] = OtherKing)
+					CheckedKing += 1				
+					exit 2
+				ok
+				
+			next
+		next
+		#See "KngKK Checked: "+ CheckedKing +" "+ h +"-"+ v +" by "+ aArray[h][v] +nl
+		
+			
+	###---------------------------------------------
+	### Called 2 for Each Color King.
+	### Color King Square Red if either King in Check
+	### Do NOT Clear unless BOTH Kings ok
+	### WhiteKingIsChecked = False	set BEFORE calling KingChecked(ByColor)
+	### BlackKingIsChecked = False	set BEFORE calling KingChecked(ByColor)	
+	
+	#See "King is Checked ?: "+ King +" "+ CheckedKing +nl
+	
+return CheckedKing
+
+
 ###------------------------------------------------
+### KING IN Stalemate ?
+### Can King Move to any Surrounding Square
+### Or a Piece Block the Attack
+
+###------------------------------------------------
+### KING Move  ?
+### Destination Not Under Attack
 
 
+
+
+###------------------------------------------------
+### Message Box 
+	
+Func MsgBox(cText) 
+	mb = new qMessageBox(workWidget) 
+		{
+			setWindowTitle('Chess')
+			setText(cText)
+			setStandardButtons(QMessageBox_OK) 
+			result = exec()
+			See "MsgBox Result: "+ result +nl
+		}
+return
+
+###--------------------------------
