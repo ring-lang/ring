@@ -1,6 +1,6 @@
 # Project   : Checkers Game
 # Date      : 2018/11/10
-# Update  : 2018/11/21
+# Update  : 2018/11/22
 # Author   : Gal Zsolt (~ CalmoSoft ~)
 # Email     : <calmosoft@gmail.com>
 
@@ -26,6 +26,12 @@ xblack1 = 0
 xblack2 = 0
 yblack1 = 0
 yblack2 = 0
+xking1 = 0
+xking2 =0
+yking1 = 0
+yking2 = 0
+rowking = 0
+colking = 0
 total = 0
 oPicBlackDisc = new QPixmap("blackdisc.jpg")
 oPicRedDisc = new QPixmap("reddisc.jpg")
@@ -35,6 +41,8 @@ oPicBrownCell = new QPixmap("browncell.jpg")
 oPicLightBrownCell = new QPixmap("lightbrowncell.jpg")
 oPicNextStep = new QPixmap("nextstep.jpg")
 oPicDelBlack = new QPixmap("delblack.jpg")
+kingredold = new QPixmap("kingredold.jpg")
+kingrednew = new QPixmap("kingrednew.jpg")
 
 C_Spacing = 1
 
@@ -48,6 +56,7 @@ C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: orange'
 Button = newlist(size,size)
 cellsok = newlist(size,size)
 Cells = newlist(size,size)
+CellsKing = newlist(size,size)
 no = "0"
 red = "red"
 black = "black"
@@ -56,6 +65,7 @@ yellow = "yellow"
 nextstep = "next"
 brown = "brown"
 delblack = "delblack"
+kingred = "kingred"
 LayoutButtonRow = list(size)
 
 for n = 1 to size
@@ -195,11 +205,16 @@ func pBegin()
        xblack2 = 0
        yblack1 = 0
        yblack2 = 0
+       xking1 = 0
+       xking2 =0
+       yking1 = 0
+       yking2 = 0
        cellsok = newlist(size,size)
        Cells = newlist(size,size)
        for n = 1 to size
             for m = 1 to size
                  cellsok[n][m] = 1
+                 CellsKing[n][m] = 0    
             next
        next
        for Col = 1 to size
@@ -232,6 +247,12 @@ func pBegin()
                  ok
             next
        next
+       Cells[2][3] = red
+       setButtonImage(Button[2][3],oPicRedDisc,bwidth,bheight)
+       Cells[1][2] = no
+       setButtonImage(Button[1][2],oPicBrownCell,bwidth,bheight)
+       Cells[1][4] = no
+       setButtonImage(Button[1][4],oPicBrownCell,bwidth,bheight)
        redcells = newlist(size,size)
        RedScore.settext("Red Score: 0")
        BlackScore.settext("Black Score: 0")
@@ -254,6 +275,7 @@ func pjumpblack()
                     xblack1 = n
                     yblack1 = m
                     flagjump = true
+                    setButtonImage(Button[n][m],oPicGreenDisc,bwidth,bheight)
                     exit 2          
                  ok
             next
@@ -264,6 +286,41 @@ func pjumpblack()
                     xblack2 = n
                     yblack2 = m
                     flagjump = true
+                    setButtonImage(Button[n][m],oPicGreenDisc,bwidth,bheight)
+                    exit 2          
+                 ok
+            next
+       next
+
+func pjumpred()
+       flagjump = false
+       for n = 1 to size
+            for m = 1 to size
+                 if n < size-2 and m > 2 and Cells[n][m] = black and (Cells[n+1][m-1] = red or
+                    Cells[n+1][m-1] = nextstep) and Cells[n+2][m-2] = no
+                    Cells[n][m] = no
+                    Cells[n+1][m-1] = no
+                    Cells[n+2][m-2] = black
+                    setButtonImage(Button[n][m],oPicBrownCell,bwidth,bheight)
+                    setButtonImage(Button[n+1][m-1],oPicBrownCell,bwidth,bheight)
+                    setButtonImage(Button[n+2][m-2],oPicBlackDisc,bwidth,bheight)
+                    flagjump = true
+                    exit 2          
+                 ok
+            next
+       next
+
+       for n = 1 to size
+            for m = 1 to size
+                 if n < size-2 and m < size-2 and flagjump = false and Cells[n][m] = black and
+                    (Cells[n+1][m+1] = red or Cells[n+1][m+1] = nextstep) and Cells[n+2][m+2] = no
+                    Cells[n][m] = no
+                    Cells[n+1][m+1] = no
+                    Cells[n+2][m+2] = black
+                    setButtonImage(Button[n][m],oPicBrownCell,bwidth,bheight)
+                    setButtonImage(Button[n+1][m+1],oPicBrownCell,bwidth,bheight)
+                    setButtonImage(Button[n+2][m+2],oPicBlackDisc,bwidth,bheight)
+                    flagjump = true
                     exit 2          
                  ok
             next
@@ -271,18 +328,43 @@ func pjumpblack()
 
 func pmovered(Row,Col)
        gameover()
+       if Row = xking1 and Col = yking1
+          pchangekingred(Row,Col)
+          pdeletegreen()
+       ok
+       if Row = xking2 and Col = yking2
+          pchangekingred(Row,Col)
+          pdeletegreen()
+       ok
+       if Cells[Row][Col] = kingred
+          pmovekingred(Row,Col)
+       ok
        pjumpblack()
        if flagjump = true and not ((Row = xblack1 and Col = yblack1) or (Row = xblack2 and Col = yblack2))
-          msgBox("You must jump black disc")
+          see "You must jump black disc" + nl
           return
        ok
-       if Row = 1 and Col > 1 and Cells[1][Col] = green and Cells[2][Col-1] = yellow
-          setButtonImage(Button[1][Col],oPicRedDisc,bwidth,bheight) 
-          setButtonImage(Button[2][Col-1],oPicBrownCell,bwidth,bheight)
-       ok
-       if Row = 1 and Col < size-1 and Cells[1][Col] = green and Cells[2][Col+1] = yellow
-          setButtonImage(Button[1][Col],oPicRedDisc,bwidth,bheight) 
+      if Row = 1 and Col > 1 and Cells[1][Col] = green and Cells[2][Col+1] = nextstep
+          setButtonImage(Button[1][Col],kingredold,bwidth,bheight) 
+          app.processevents()
+          sleep(1)
+          Cells[1][Col] = kingred
+          Cells[2][Col+1] = no
+          setButtonImage(Button[1][Col],kingrednew,bwidth,bheight)
           setButtonImage(Button[2][Col+1],oPicBrownCell,bwidth,bheight)
+          pdeletegreen()
+          return
+       ok
+       if Row = 1 and Col < size-1 and Cells[1][Col] = green and Cells[2][Col-1] = nextstep
+          setButtonImage(Button[1][Col],kingredold,bwidth,bheight) 
+          app.processevents()
+          sleep(1)
+          Cells[1][Col] = kingred
+          Cells[2][Col-1] = no
+          setButtonImage(Button[1][Col],kingrednew,bwidth,bheight)
+          setButtonImage(Button[2][Col-1],oPicBrownCell,bwidth,bheight)
+          pdeletegreen()
+          return
        ok
        if Row > 2 and Col > 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
           Cells[Row-1][Col-1] = black and Cells[Row-2][Col-2] = no
@@ -476,6 +558,10 @@ func pdeletered()
 
  func pmoveblack()
        gameover()
+       pjumpred()
+       if flagjump = true
+          return
+       ok
        flagback = 0
        if Row < size - 2 and Col > 2 and Cells[Row][Col] = black and (Cells[Row+1][Col-1] = red or 
           Cells[Row+1][Col-1] = nextstep) and Cells[Row+2][Col-2] = no
@@ -555,6 +641,39 @@ func pdeletered()
        next
        gameover()
        pstepnext()
+
+func pmovekingred(Row,Col)
+       if Row < size and Col > 1 and Cells[Row][Col] = kingred and Cells[Row+1][Col-1] = no
+          xking1 = Row+1
+          yking1 = Col-1
+          Cells[Row+1][Col-1] = green
+          setButtonImage(Button[Row+1][Col-1],oPicGreenDisc,bwidth,bheight)
+       ok
+       if Row < size and Col < size and Cells[Row][Col] = kingred and Cells[Row+1][Col+1] = no
+          xking2 = Row+1
+          yking2 = Col+1
+          Cells[Row+1][Col+1] = green
+          setButtonImage(Button[Row+1][Col+1],oPicGreenDisc,bwidth,bheight)
+       ok
+
+func pchangekingred(Row,Col)
+       if Row > 1 and Col < size and Row = xking1 and Col = yking1
+          Cells[Row][Col] = kingred
+          Cells[Row-1][Col+1] = no
+          CellsKing[Row][Col] = 1
+          CellsKing[Row-1][Col+1] = 0
+          setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
+          setButtonImage(Button[Row-1][Col+1],oPicBrownCell,bwidth,bheight)
+       ok
+       if Row > 1 and Col > 1 and Row = xking2 and Col= yking2 
+          Cells[Row][Col] = kingred
+          Cells[Row-1][Col-1] = no
+          CellsKing[Row][Col] = 1
+          CellsKing[Row-1][Col-1] = 0
+          setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
+          setButtonImage(Button[Row-1][Col-1],oPicBrownCell,bwidth,bheight)
+          return
+       ok
 
 func pnext()
        for n = 1 to size
