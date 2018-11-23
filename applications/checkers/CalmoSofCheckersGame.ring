@@ -30,6 +30,10 @@ xking1 = 0
 xking2 =0
 yking1 = 0
 yking2 = 0
+xking3 = 0
+xking4 =0
+yking3 = 0
+yking4 = 0
 rowking = 0
 colking = 0
 total = 0
@@ -209,6 +213,10 @@ func pBegin()
        xking2 =0
        yking1 = 0
        yking2 = 0
+       xking3 = 0
+       xking4 =0
+       yking3 = 0
+       yking4 = 0
        cellsok = newlist(size,size)
        Cells = newlist(size,size)
        for n = 1 to size
@@ -330,6 +338,16 @@ func pmovered(Row,Col)
           pchangekingred(Row,Col)
           pdeletegreen()
        ok
+
+       if Row = xking3 and Col = yking3
+          pchangekingred(Row,Col)
+          pdeletegreen()
+       ok
+       if Row = xking4 and Col = yking4
+          pchangekingred(Row,Col)
+          pdeletegreen()
+       ok
+
        if Cells[Row][Col] = kingred
           pmovekingred(Row,Col)
        ok
@@ -637,21 +655,45 @@ func pdeletered()
        pstepnext()
 
 func pmovekingred(Row,Col)
-       if Row < size and Col > 1 and Cells[Row][Col] = kingred and Cells[Row+1][Col-1] = no
+       xking1 = 0
+       yking1 = 0
+       xking2 = 0
+       yking2 = 0
+       xking3 = 0
+       yking3 = 0
+       xking4 = 0
+       yking4 = 0
+       if Row < size and Col > 1 and Cells[Row][Col] = kingred and 
+          (Cells[Row+1][Col-1] = kingred or Cells[Row+1][Col-1] = no)
           xking1 = Row+1
           yking1 = Col-1
           Cells[Row+1][Col-1] = green
           setButtonImage(Button[Row+1][Col-1],oPicGreenDisc,bwidth,bheight)
        ok
-       if Row < size and Col < size and Cells[Row][Col] = kingred and Cells[Row+1][Col+1] = no
+       if Row < size and Col < size and Cells[Row][Col] = kingred and
+          (Cells[Row+1][Col+1] = kingred or Cells[Row+1][Col+1] = no)
           xking2 = Row+1
           yking2 = Col+1
           Cells[Row+1][Col+1] = green
           setButtonImage(Button[Row+1][Col+1],oPicGreenDisc,bwidth,bheight)
        ok
+       if Row > 1 and Col > 1 and Cells[Row][Col] = kingred and
+          (Cells[Row-1][Col-1] = kingred or Cells[Row-1][Col-1] = no)
+          xking3 = Row-1
+          yking3 = Col-1
+          Cells[Row-1][Col-1] = green
+          setButtonImage(Button[Row-1][Col-1],oPicGreenDisc,bwidth,bheight)
+       ok
+       if Row > 1 and Col < size and Cells[Row][Col] = kingred and 
+          (Cells[Row-1][Col+1] = kingred or Cells[Row-1][Col+1] = no)
+          xking4 = Row-1
+          yking4 = Col+1
+          Cells[Row-1][Col+1] = green
+          setButtonImage(Button[Row-1][Col+1],oPicGreenDisc,bwidth,bheight)
+       ok
 
 func pchangekingred(Row,Col)
-       if Row > 1 and Col < size and Row = xking1 and Col = yking1
+       if Row > 1 and Col < size and Row = xking4 and Col = yking4
           Cells[Row][Col] = kingred
           Cells[Row-1][Col+1] = no
           CellsKing[Row][Col] = 1
@@ -659,14 +701,29 @@ func pchangekingred(Row,Col)
           setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
           setButtonImage(Button[Row-1][Col+1],oPicBrownCell,bwidth,bheight)
        ok
-       if Row > 1 and Col > 1 and Row = xking2 and Col= yking2 
+       if Row > 1 and Col > 1 and Row = xking3 and Col= yking3 
           Cells[Row][Col] = kingred
           Cells[Row-1][Col-1] = no
           CellsKing[Row][Col] = 1
           CellsKing[Row-1][Col-1] = 0
           setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
           setButtonImage(Button[Row-1][Col-1],oPicBrownCell,bwidth,bheight)
-          return
+       ok
+       if Row < size and Col < size and Row = xking2 and Col = yking2
+          Cells[Row][Col] = kingred
+          Cells[Row+1][Col+1] = no
+          CellsKing[Row][Col] = 1
+          CellsKing[Row+1][Col+1] = 0
+          setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
+          setButtonImage(Button[Row-1][Col-1],oPicBrownCell,bwidth,bheight)
+       ok
+       if Row < size and Col > 1 and Row = xking1 and Col= yking1 
+          Cells[Row][Col] = kingred
+          Cells[Row+1][Col-1] = no
+          CellsKing[Row][Col] = 1
+          CellsKing[Row+1][Col-1] = 0
+          setButtonImage(Button[Row][Col],kingrednew,bwidth,bheight)
+          setButtonImage(Button[Row-1][Col+1],oPicBrownCell,bwidth,bheight)
        ok
 
 func pnext()
