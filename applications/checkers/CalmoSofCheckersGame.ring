@@ -1,6 +1,6 @@
 # Project   : Checkers Game
 # Date      : 2018/11/10
-# Update  : 2018/11/22
+# Update  : 2018/11/23
 # Author   : Gal Zsolt (~ CalmoSoft ~)
 # Email     : <calmosoft@gmail.com>
 
@@ -47,6 +47,7 @@ oPicNextStep = new QPixmap("nextstep.jpg")
 oPicDelBlack = new QPixmap("delblack.jpg")
 kingredold = new QPixmap("kingredold.jpg")
 kingrednew = new QPixmap("kingrednew.jpg")
+blackmove = new QPixmap("blackmove.jpg")
 
 C_Spacing = 1
 
@@ -70,6 +71,7 @@ nextstep = "next"
 brown = "brown"
 delblack = "delblack"
 kingred = "kingred"
+lastblack = "lastblack"
 LayoutButtonRow = list(size)
 
 for n = 1 to size
@@ -270,6 +272,10 @@ func pdeleteblacK()
        next
 
 func pjumpblack()
+       xblack1 = 0
+       yblack1 = 0
+       xblack2 = 0
+       yblack2 = 0
        flagjump = false
        for n = 1 to size
             for m = 1 to size
@@ -571,21 +577,31 @@ func pdeletered()
  func pmoveblack()
        gameover()
        pjumpred()
-       if flagjump = true
+       /*if flagjump = true
           return
-       ok
+       ok*/
+       for n = 1 to size
+            for m = 1 to size
+                 if Cells[n][m] = lastblack
+                    Cells[n][m] = black
+                    setButtonImage(Button[n][m],oPicBlackDisc,bwidth,bheight)
+                 ok                 
+            next
+       next
        flagback = 0
        if Row < size - 2 and Col > 2 and Cells[Row][Col] = black and (Cells[Row+1][Col-1] = red or 
           Cells[Row+1][Col-1] = nextstep) and Cells[Row+2][Col-2] = no
           Cells[Row][Col] = no
           Cells[Row+1][Col-1] = no
-          Cells[Row+2][Col-2] = black
+          Cells[Row+2][Col-2] = lastblack
           cellsok[Row][Col] = 0
           cellsok[Row+1][Col-1] = 0
           cellsok[Row+2][Col-2] = 1
+          app.processevents()
+          sleep(1)
           setButtonImage(Button[Row][Col],oPicBrownCell,bwidth,bheight)
           setButtonImage(Button[Row+1][Col-1],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row+2][Col-2],oPicBlackDisc,bwidth,bheight)
+          setButtonImage(Button[Row+2][Col-2],blackmove,bwidth,bheight)
           scoreblack = string(scoreblack + 1)
           BlackScore.settext("Red Score: " + scoreblack)
           pstepnext()
@@ -595,13 +611,15 @@ func pdeletered()
           Cells[Row+1][Col+1] = nextstep) and Cells[Row+2][Col+2] = no
           Cells[Row][Col] = no
           Cells[Row+1][Col+1] = no
-          Cells[Row+2][Col+2] = black
+          Cells[Row+2][Col+2] = lastblack
           cellsok[Row][Col] = 0
           cellsok[Row+1][Col+1] = 0
           cellsok[Row+2][Col+2] = 1
+          app.processevents()
+          sleep(1)
           setButtonImage(Button[Row][Col],oPicBrownCell,bwidth,bheight)
           setButtonImage(Button[Row+1][Col+1],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row+2][Col+2],oPicBlackDisc,bwidth,bheight)
+          setButtonImage(Button[Row+2][Col+2],blackmove,bwidth,bheight)
           scoreblack = string(scoreblack + 1)
           BlackScore.settext("Red Score: " + scoreblack)
           pstepnext()
@@ -612,8 +630,10 @@ func pdeletered()
                m = random(size-1)+1
                if n < size and m > 1 and Cells[n+1][m-1] = no and Cells[n][m] = black
                   Cells[n][m] = no
-                  Cells[n+1][m-1] = black
-                  setButtonImage(Button[n+1][m-1],oPicBlackDisc,bwidth,bheight)
+                  Cells[n+1][m-1] = lastblack
+                  app.processevents()
+                  sleep(1)
+                  setButtonImage(Button[n+1][m-1],blackmove,bwidth,bheight)
                   x = n
                   y = m
                   flagblack = 1
@@ -622,8 +642,10 @@ func pdeletered()
                ok
                if n < size and m < size and Cells[n+1][m+1] = no and Cells[n][m] = black
                   Cells[n][m] = no
-                  Cells[n+1][m+1] = black
-                  setButtonImage(Button[n+1][m+1],oPicBlackDisc,bwidth,bheight)
+                  Cells[n+1][m+1] = lastblack
+                  app.processevents()
+                  sleep(1)
+                  setButtonImage(Button[n+1][m+1],blackmove,bwidth,bheight)
                   x = n
                   y = m
                   flagblack = 1
