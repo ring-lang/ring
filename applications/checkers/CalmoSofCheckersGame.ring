@@ -17,10 +17,15 @@ scoreblack = 0
 flagblack = 0
 flagnext = 0
 flagover = 1
+flagjump = false
 x = 0
 y = 0
 xold = 0
 yold = 0
+xblack1 = 0
+xblack2 = 0
+yblack1 = 0
+yblack2 = 0
 total = 0
 oPicBlackDisc = new QPixmap("blackdisc.jpg")
 oPicRedDisc = new QPixmap("reddisc.jpg")
@@ -185,6 +190,11 @@ func pBegin()
        flagblack = 0
        flagnext = 0  
        flagover = 1  
+       flagjump = false
+       xblack1 = 0
+       xblack2 = 0
+       yblack1 = 0
+       yblack2 = 0
        cellsok = newlist(size,size)
        Cells = newlist(size,size)
        for n = 1 to size
@@ -236,8 +246,36 @@ func pdeleteblacK()
             next
        next
 
+func pjumpblack()
+       flagjump = false
+       for n = 1 to size
+            for m = 1 to size
+                 if Cells[n][m] = delblack
+                    xblack1 = n
+                    yblack1 = m
+                    flagjump = true
+                    exit 2          
+                 ok
+            next
+       next
+       for n = 1 to size
+            for m = 1 to size
+                 if Cells[n][m] = delblack and flagjump = true and n != xblack1 and m != yblack1
+                    xblack2 = n
+                    yblack2 = m
+                    flagjump = true
+                    exit 2          
+                 ok
+            next
+       next
+
 func pmovered(Row,Col)
        gameover()
+       pjumpblack()
+       if flagjump = true and not ((Row = xblack1 and Col = yblack1) or (Row = xblack2 and Col = yblack2))
+          msgBox("You must jump black disc")
+          return
+       ok
        if Row = 1 and Col > 1 and Cells[1][Col] = green and Cells[2][Col-1] = yellow
           setButtonImage(Button[1][Col],oPicRedDisc,bwidth,bheight) 
           setButtonImage(Button[2][Col-1],oPicBrownCell,bwidth,bheight)
@@ -255,6 +293,51 @@ func pmovered(Row,Col)
              Cells[Row-1][Col+1] = black and Cells[Row-2][Col+2] = delblack
              Cells[Row-2][Col+2] = delblack
           ok
+       ok
+       if Row = 6 and Col > 2 and Cells[Row][Col] = delblack and 
+          Cells[7][Col-1] = black and (Cells[8][Col-2] = red or Cells[8][Col-2] = nextstep)
+          Cells[6][Col] = red
+          Cells[7][Col-1] = no
+          Cells[8][Col-2] = no
+          cellsok[6][Col] = 1
+          cellsok[7][Col-1] = 0
+          cellsok[8][Col-2] = 0
+          setButtonImage(Button[Row][Col],oPicRedDisc,bwidth,bheight)
+          setButtonImage(Button[7][Col-1],oPicBrownCell,bwidth,bheight)
+          setButtonImage(Button[8][Col-2],oPicBrownCell,bwidth,bheight)
+          scorered = scorered + 1
+          RedScore.settext("Red Score: " + string(scorered))
+          return
+       ok
+       if Row = 6 and Col < size-2 and Cells[Row][Col] = delblack and 
+          Cells[7][Col+1] = black and (Cells[8][Col+2] = red or Cells[8][Col+2] = nextstep)
+          Cells[6][Col] = red
+          Cells[7][Col+1] = no
+          Cells[8][Col+2] = no
+          cellsok[6][Col] = 1
+          cellsok[7][Col+1] = 0
+          cellsok[8][Col+2] = 0
+          setButtonImage(Button[Row][Col],oPicRedDisc,bwidth,bheight)
+          setButtonImage(Button[7][Col+1],oPicBrownCell,bwidth,bheight)
+          setButtonImage(Button[8][Col+2],oPicBrownCell,bwidth,bheight)
+          scorered = scorered + 1
+          RedScore.settext("Red Score: " + string(scorered))
+          return
+       ok
+       if Row < size-2 and Col = 6 and Cells[Row][Col] = delblack and 
+          Cells[Row+1][7] = black and (Cells[Row+2][8] = red or Cells[Row+2][8] = nextstep)
+          Cells[Row][6] = red
+          Cells[Row+1][7] = no
+          Cells[Row+2][8] = no
+          cellsok[Row][6] = 1
+          cellsok[Row+1][7] = 0
+          cellsok[Row+2][8] = 0
+          setButtonImage(Button[Row][6],oPicRedDisc,bwidth,bheight)
+          setButtonImage(Button[Row+1][7],oPicBrownCell,bwidth,bheight)
+          setButtonImage(Button[Row+2][8],oPicBrownCell,bwidth,bheight)
+          scorered = scorered + 1
+          RedScore.settext("Red Score: " + string(scorered))
+          return
        ok
        if Row < size-2 and Col > 2 and Cells[Row][Col] = delblack and 
           Cells[Row+1][Col-1] = black and (Cells[Row+2][Col-2] = red or Cells[Row+2][Col-2] = nextstep)
@@ -510,10 +593,7 @@ Func msgBox(cText)
 	        setWindowTitle('Checkers Game')
 	        setText(cText )
                 setstandardButtons(QMessageBox_Discard | QMessageBox_OK) 
-                result = exec()
-                if result = QMessageBox_OK
-                   pbegin()
-                ok			
+                result = exec()	
         }
         return
 
