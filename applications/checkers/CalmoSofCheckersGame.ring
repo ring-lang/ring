@@ -1,6 +1,6 @@
 # Project   : Checkers Game
 # Date      : 2018/11/10
-# Update  : 2018/11/20
+# Update  : 2018/11/21
 # Author   : Gal Zsolt (~ CalmoSoft ~)
 # Email     : <calmosoft@gmail.com>
 
@@ -237,10 +237,15 @@ func pdeleteblacK()
        next
 
 func pmovered(Row,Col)
-       if Row = 1
-          return
-       ok
        gameover()
+       if Row = 1 and Col > 1 and Cells[1][Col] = green and Cells[2][Col-1] = yellow
+          setButtonImage(Button[1][Col],oPicRedDisc,bwidth,bheight) 
+          setButtonImage(Button[2][Col-1],oPicBrownCell,bwidth,bheight)
+       ok
+       if Row = 1 and Col < size-1 and Cells[1][Col] = green and Cells[2][Col+1] = yellow
+          setButtonImage(Button[1][Col],oPicRedDisc,bwidth,bheight) 
+          setButtonImage(Button[2][Col+1],oPicBrownCell,bwidth,bheight)
+       ok
        if Row > 2 and Col > 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
           Cells[Row-1][Col-1] = black and Cells[Row-2][Col-2] = no
           Cells[Row-2][Col-2] = delblack
@@ -251,33 +256,33 @@ func pmovered(Row,Col)
              Cells[Row-2][Col+2] = delblack
           ok
        ok
-       if Row > 2 and Col > 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
-          Cells[Row-1][Col-1] = black and Cells[Row-2][Col-2] = delblack
-          Cells[Row][Col] = no
-          Cells[Row-1][Col-1] = no
-          Cells[Row-2][Col-2] = red
-          cellsok[Row][Col] = 0
-          cellsok[Row-1][Col-1] = 0
-          cellsok[Row-2][Col-2] = 1
-          setButtonImage(Button[Row][Col],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row-1][Col-1],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row-2][Col-2],oPicRedDisc,bwidth,bheight)
+       if Row < size-2 and Col > 2 and Cells[Row][Col] = delblack and 
+          Cells[Row+1][Col-1] = black and (Cells[Row+2][Col-2] = red or Cells[Row+2][Col-2] = nextstep)
+          Cells[Row][Col] = red
+          Cells[Row+1][Col-1] = no
+          Cells[Row+2][Col-2] = no
+          cellsok[Row][Col] = 1
+          cellsok[Row+1][Col-1] = 0
+          cellsok[Row+2][Col-2] = 0
+          setButtonImage(Button[Row][Col],oPicRedDisc,bwidth,bheight)
+          setButtonImage(Button[Row+1][Col-1],oPicBrownCell,bwidth,bheight)
+          setButtonImage(Button[Row+2][Col-2],oPicBrownCell,bwidth,bheight)
           scorered = scorered + 1
           RedScore.settext("Red Score: " + string(scorered))
           pstepnext()
           return
        ok
-       if Row > 2 and Col < size - 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
-          Cells[Row-1][Col+1] = black and Cells[Row-2][Col+2] = delblack
-          Cells[Row][Col] = no
-          Cells[Row-1][Col+1] = no
-          Cells[Row-2][Col+2] = red
-          cellsok[Row][Col] = 0
-          cellsok[Row-1][Col+1] = 0
-          cellsok[Row-2][Col+2] = 1
-          setButtonImage(Button[Row][Col],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row-1][Col+1],oPicBrownCell,bwidth,bheight)
-          setButtonImage(Button[Row-2][Col+2],oPicRedDisc,bwidth,bheight)
+       if Row < size-2 and Col < size-2 and Cells[Row][Col] = delblack and 
+          Cells[Row+1][Col+1] = black and (Cells[Row+2][Col+2] = red or Cells[Row+2][Col+2] = nextstep)
+          Cells[Row][Col] = red
+          Cells[Row+1][Col+1] = no
+          Cells[Row+2][Col+2] = no
+          cellsok[Row][Col] = 1
+          cellsok[Row+1][Col+1] = 0
+          cellsok[Row+2][Col+2] = 0
+          setButtonImage(Button[Row][Col],oPicRedDisc,bwidth,bheight)
+          setButtonImage(Button[Row+1][Col+1],oPicBrownCell,bwidth,bheight)
+          setButtonImage(Button[Row+2][Col+2],oPicBrownCell,bwidth,bheight)
           scorered = scorered + 1
           RedScore.settext("Red Score: " + string(scorered))
           pstepnext()
@@ -373,12 +378,12 @@ func pstepnext()
 func pdeletered()
        for n = 1 to size
             for m = 1 to size
-                 if n > 2 and m > 2 and (Cells[n][m] = red or Cells[n][m] = red) and 
+                 if n > 2 and m > 2 and (Cells[n][m] = red or Cells[n][m] = nextstep) and 
                     Cells[n-1][m-1] = black and Cells[n-2][m-2] = delblack
                     Cells[n-2][m-2] = delblack
                     setButtonImage(Button[n-2][m-2],oPicBrownCell,bwidth,bheight)
                  ok
-                 if n > 2 and Col < size - 2 and (Cells[n][m] = red or Cells[n][m] = red) and 
+                 if n > 2 and Col < size - 2 and (Cells[n][m] = red or Cells[n][m] = nextstep) and 
                     Cells[n-1][m+1] = black and Cells[n-2][m+2] = delblack
                     Cells[n-2][m+2] = delblack
                    setButtonImage(Button[n-2][m+2],oPicBrownCell,bwidth,bheight)
