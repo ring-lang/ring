@@ -1,6 +1,6 @@
-=================
-The Checkers Game
-=================
+=====================================
+The Checkers Game - Under Development
+=====================================
 
 The Checkers Game by Gal Zsolt
 
