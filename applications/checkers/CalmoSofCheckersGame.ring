@@ -237,13 +237,19 @@ func pdeleteblacK()
        next
 
 func pmovered(Row,Col)
+       if Row = 1
+          return
+       ok
+       gameover()
        if Row > 2 and Col > 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
           Cells[Row-1][Col-1] = black and Cells[Row-2][Col-2] = no
           Cells[Row-2][Col-2] = delblack
        ok
-       if Row < size and Col < size - 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
-          Cells[Row-1][Col+1] = black and Cells[Row-2][Col+2] = delblack
-          Cells[Row-2][Col+2] = delblack
+       if Row > 2
+          if Row < size and Col < size - 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
+             Cells[Row-1][Col+1] = black and Cells[Row-2][Col+2] = delblack
+             Cells[Row-2][Col+2] = delblack
+          ok
        ok
        if Row > 2 and Col > 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
           Cells[Row-1][Col-1] = black and Cells[Row-2][Col-2] = delblack
@@ -261,7 +267,7 @@ func pmovered(Row,Col)
           pstepnext()
           return
        ok
-       if Row < size and Col < size - 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
+       if Row > 2 and Col < size - 2 and (Cells[Row][Col] = red or Cells[Row][Col] = nextstep) and 
           Cells[Row-1][Col+1] = black and Cells[Row-2][Col+2] = delblack
           Cells[Row][Col] = no
           Cells[Row-1][Col+1] = no
@@ -293,9 +299,7 @@ func pmovered(Row,Col)
          setButtonImage(Button[Row-1][Col+1],oPicGreenDisc,bwidth,bheight)
          setButtonImage(Button[Row][Col],oPicYellowDisc,bwidth,bheight)
       ok
-
       pdeletered()
-
       if Cells[Row][Col] = green
          Cells[Row][Col] = red
          Cells[xold][yold] = no
@@ -335,7 +339,7 @@ func pstepnext()
         next
         for n = 1 to size
              for m = 1 to size 
-                  if n > 2 and m > 2
+                  if n > 1 and m > 1
                      if (Cells[m][n] = red or Cells[m][n] = nextstep) and Cells[m-1][n-1] = no
                         Cells[m][n] = nextstep
                         setButtonImage(Button[m][n],oPicNextStep,bwidth,bheight)
@@ -344,7 +348,7 @@ func pstepnext()
                         setButtonImage(Button[m][n],oPicRedDisc,bwidth,bheight)
                      ok
                   ok
-                  if n < size and m > 2
+                  if n < size and m > 1
                      if (Cells[m][n] = red or Cells[m][n] = nextstep) and Cells[m-1][n+1] = no
                         Cells[m][n] = nextstep
                         setButtonImage(Button[m][n],oPicNextStep,bwidth,bheight)
@@ -383,6 +387,7 @@ func pdeletered()
        next
 
  func pmoveblack()
+       gameover()
        flagback = 0
        if Row < size - 2 and Col > 2 and Cells[Row][Col] = black and (Cells[Row+1][Col-1] = red or 
           Cells[Row+1][Col-1] = nextstep) and Cells[Row+2][Col-2] = no
@@ -416,28 +421,30 @@ func pdeletered()
           pstepnext()
           return
        ok
-       for n = 1 to size
-            for m = 1 to size
-                 if n < size and m > 1 and Cells[n+1][m-1] = no and Cells[n][m] = black
-                    Cells[n][m] = no
-                    Cells[n+1][m-1] = black
-                    setButtonImage(Button[n+1][m-1],oPicBlackDisc,bwidth,bheight)
-                    x = n
-                    y = m
-                    flagblack = 1
-                    exit 2
-                 ok
-                 if n < size and m < size and Cells[n+1][m+1] = no and Cells[n][m] = black
-                    Cells[n][m] = no
-                    Cells[n+1][m+1] = black
-                    setButtonImage(Button[n+1][m+1],oPicBlackDisc,bwidth,bheight)
-                    x = n
-                    y = m
-                    flagblack = 1
-                    exit 2
-                 ok
-            next
-       next
+       while true
+               n = random(size-1)+1
+               m = random(size-1)+1
+               if n < size and m > 1 and Cells[n+1][m-1] = no and Cells[n][m] = black
+                  Cells[n][m] = no
+                  Cells[n+1][m-1] = black
+                  setButtonImage(Button[n+1][m-1],oPicBlackDisc,bwidth,bheight)
+                  x = n
+                  y = m
+                  flagblack = 1
+                  gameover()
+                  exit
+               ok
+               if n < size and m < size and Cells[n+1][m+1] = no and Cells[n][m] = black
+                  Cells[n][m] = no
+                  Cells[n+1][m+1] = black
+                  setButtonImage(Button[n+1][m+1],oPicBlackDisc,bwidth,bheight)
+                  x = n
+                  y = m
+                  flagblack = 1
+                  gameover()
+                  exit
+               ok
+       end
        if flagblack = 1 and x > 0 and y > 0
           Cells[x][y] = no
           setButtonImage(Button[x][y],oPicBrownCell,bwidth,bheight)
