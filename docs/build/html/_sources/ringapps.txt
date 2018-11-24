@@ -259,6 +259,9 @@ The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of cre
 "Ring seems promising. It first appeared in 2016 although it's concept is older. It is meant to be portable and can be embedded in C/C++ projects"
 	, Wim ten Brink (Quora - Top Writer (2018))
 
+"Interesting alternative to Lua."
+	, djxtc (Sourceforge)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
