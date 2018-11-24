@@ -7,6 +7,18 @@ Load "stdlib.rh"
 Load "stdfunctions.ring"
 
 /*
+	Function Name	: pDateTime
+	Usage		: Convert date fotmat from dd/mm/yyy to yyyy/mm/dd
+	Parameters	: -
+*/
+
+func pDateTime()
+     newdate = date()
+     newdate = substr(newdate,7,4) + "/" + substr(newdate,4,3) + 
+               substr(newdate,1,2)
+     see newdate + nl
+
+/*
 	Function Name	: puts
 	Usage		: print the value then print new line (nl)
 	Parameters	: the value
