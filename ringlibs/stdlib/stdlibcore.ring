@@ -8,7 +8,7 @@ Load "stdfunctions.ring"
 
 /*
 	Function Name	: pDateTime
-	Usage		: Convert date fotmat from dd/mm/yyy to yyyy/mm/dd
+	Usage		: Convert date format from dd/mm/yyy to yyyy/mm/dd
 	Parameters	: -
 */
 
