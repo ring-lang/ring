@@ -204,6 +204,19 @@ class InstallCommand
 			for cFileName in aPackageInfo[:Files]
 				DownloadFileInPackage(cFileName)
 			next
+		if isWindows()
+			for cFileName in aPackageInfo[:WindowsFiles]
+				DownloadFileInPackage(cFileName)
+			next
+		but isLinux()
+			for cFileName in aPackageInfo[:LinuxFiles]
+				DownloadFileInPackage(cFileName)
+			next
+		but isMacOSX()
+			for cFileName in aPackageInfo[:MacOSFiles]
+				DownloadFileInPackage(cFileName)
+			next
+		ok
 		if ! lWriteError
 			DisplayOperationDone()
 		ok
