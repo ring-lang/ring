@@ -202,30 +202,33 @@ class InstallCommand
 		# Download package files 
 		lWriteError = False
 			for cFileName in aPackageInfo[:Files]
-				if lDisplayPackageFiles
-					? "Download File : " + cFileName 
-				ok
-				cFileURL 	= cPackageURL + cFileName
-				cFileContent 	= DownloadFile(cFileURL)
-				if lInstallError = True 
-					? nl+"Can't download the file : " + cFileURL
-					loop
-				ok
-				cDir  = CurrentDir()
-				CreateSubFolders(cFileName)
-				chdir(cDir)
-				Try
-					write(cFileName,cFileContent)
-				Catch
-					? C_ERROR_CANTWRITETHEFILE 
-					? "File Name : " + cFileName 
-					lWriteError = True
-				Done 
+				DownloadFileInPackage(cFileName)
 			next
 		if ! lWriteError
 			DisplayOperationDone()
 		ok
 		chdir(cCurrentDir)
+
+	func DownloadFileInPackage cFileName
+		if lDisplayPackageFiles
+			? "Download File : " + cFileName 
+		ok
+		cFileURL 	= cPackageURL + cFileName
+		cFileContent 	= DownloadFile(cFileURL)
+		if lInstallError = True 
+			? nl+"Can't download the file : " + cFileURL
+			loop
+		ok
+		cDir  = CurrentDir()
+		CreateSubFolders(cFileName)
+		chdir(cDir)
+		Try
+			write(cFileName,cFileContent)
+		Catch
+			? C_ERROR_CANTWRITETHEFILE 
+			? "File Name : " + cFileName 
+			lWriteError = True
+		Done 
 
 	func SetBranchFromCommandLine
 		nPos = find(aCommand,"branch")
