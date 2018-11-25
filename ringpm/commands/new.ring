@@ -26,6 +26,9 @@ func NewPackage cPackageName
 				"lib.ring",
 				"main.ring"
 			],
+			:WindowsFiles	= [],
+			:LinuxFiles	= [],
+			:MacOSFilex	= [],
 			:versions	= [
 				[:version = "0.1.0" , :branch = "master"]
 			],
