@@ -34,7 +34,8 @@ func NewPackage cPackageName
 				:version = "", 
 				:ProviderUserName = ""]
 			],
-			:run		= "ring main.ring"
+			:run		= "ring main.ring",
+			:setup		= ""
 		] 	
 		new List2Code {
 			cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
