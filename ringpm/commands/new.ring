@@ -22,13 +22,6 @@ func NewPackage cPackageName
 			:license	= "MIT License",
 			:version	= "0.1.0",
 			:ringversion	= version(),
-			:files 		= [
-				"lib.ring",
-				"main.ring"
-			],
-			:WindowsFiles	= [],
-			:LinuxFiles	= [],
-			:MacOSFilex	= [],
 			:versions	= [
 				[:version = "0.1.0" , :branch = "master"]
 			],
@@ -37,6 +30,13 @@ func NewPackage cPackageName
 				:version = "", 
 				:ProviderUserName = ""]
 			],
+			:files 		= [
+				"lib.ring",
+				"main.ring"
+			],
+			:WindowsFiles	= [],
+			:LinuxFiles	= [],
+			:MacOSFiles	= [],
 			:run		= "ring main.ring",
 			:setup		= ""
 		] 	
