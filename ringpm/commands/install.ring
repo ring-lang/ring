@@ -93,8 +93,8 @@ class InstallCommand
 				if fexists(cMainPackagesFolder+"/"+cPackageFolderName+"/package.ring")
 					? " - " + C_NOTE_PACKAGEALREADYEXISTS
 					# Check Update 
-						if CheckPackageUpdate(cPackageName) = True 
-							UpdatePackage(cPackageName)
+						if CheckPackageUpdate(cPackageFolderName) = True 
+							UpdatePackage(cPackageFolderName)
 						ok
 					return 
 				ok
