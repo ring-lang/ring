@@ -1,4 +1,4 @@
-The Ring Package Manager (RingPM) - Under Development
-=====================================================
+The Ring Package Manager (RingPM)
+=================================
 
 Local packages for tests.
