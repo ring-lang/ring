@@ -1,7 +1,7 @@
-: Package (A) [master]           -- (1.0.0)         -- No Update!
-: Package (B) [master]           -- (1.0.0)         -- No Update!
-: Package (C) [master]           -- (1.0.0)         -- No Update!
-: Package (D) [master]           -- (1.0.0)         -- No Update!
+: Package (A) [master]                     -- (1.0.0)         -- No Update!
+: Package (B) [master]                     -- (1.0.0)         -- No Update!
+: Package (C) [master]                     -- (1.0.0)         -- No Update!
+: Package (D) [master]                     -- (1.0.0)         -- No Update!
 
 Packages Count : 4
 Package (a)                   Package (b)                   Package (c)                   Package (d)                   
