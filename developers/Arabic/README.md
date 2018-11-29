@@ -653,6 +653,16 @@
 			<a href="https://www.youtube.com/watch?v=MjHRQgGFxbk&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=22">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson23">23</td>
+		<td>
+			إضافة الأمر Package لانشاء Package جديدة فى المجلد الحالي
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=sT5r4O4I6FY&index=23&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 </div>
