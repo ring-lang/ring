@@ -12,11 +12,18 @@ func NewPackage cPackageName
 		Style("Creating the package folder",:YellowBlack)
 		see nl
 		OSCreateOpenFolder(cPackageName)
+		CreatePackageFiles(cPackageName)
+	chdir(cCurrentDir)
+	DisplayOperationDone()
+
+func CreatePackageFiles cPackageName
+	# We use JustFileName(), if we have local/test1 , will return test1 only
+		cPackageName = JustFileName(cPackageName)
 	# Create the package file
 		aPackageInfo = [
 			:name 		= "The "+cPackageName+" Package",
 			:description	= "Our "+cPackageName+" package using the Ring programming language",
-			:folder		= JustFileName(cPackageName),	# if we have local/test1 , will return test1 only
+			:folder		= cPackageName,	
 			:developer  	= "YourName",
 			:email		= "YourEmail",
 			:license	= "MIT License",
@@ -55,5 +62,3 @@ func NewPackage cPackageName
 				'load "lib.ring"'+WindowsNL()+WindowsNL()+
 				  "func main"+WindowsNL()+WindowsNL()+
 				  Tab + '? "Hello, World!"')
-	chdir(cCurrentDir)
-	DisplayOperationDone()
