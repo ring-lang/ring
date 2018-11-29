@@ -26,5 +26,6 @@ func Commands
 	see "Command : " Style("new    ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("search ",:YellowBlack)  see " <keywords...>" + nl
 	see "Command : " Style("refresh",:YellowBlack)  see " : Update the Registry (Packages List)" + nl
+	see "Command : " Style("package",:YellowBlack)  see " : Create package in the current folder" + nl
 	Line75()
 	
