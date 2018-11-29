@@ -12,5 +12,6 @@ Command :  <packagename>
 Command :  <packagename>
 Command :  <keywords...>
 Command :  : Update the Registry (Packages List)
+Command :  : Create package in the current folder
 ===========================================================================
-installupdate remove list   format run    new    search refresh
+installupdate remove list   format run    new    search refreshpackage
