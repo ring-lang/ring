@@ -6,5 +6,6 @@
 
 func CreatePackageInTheCurrentFolder
 	? "Create package in the current folder"
-	
+	cDir = CurrentDir()
+	CreatePackageFiles(cDir)
 	
