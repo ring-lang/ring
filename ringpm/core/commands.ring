@@ -25,6 +25,12 @@ func ExecuteCommands
 		cCommand = lower(trim(aCommand[1]))
 	# Execute Commands
 		switch cCommand 
+			on "search"
+				aKeywords = GetKeywordsFromParameters()
+				if len(aKeywords) = 0 ? C_ERROR_NOKEYWORDS return ok
+				Search(aKeywords)
+			on "refresh"
+				UpdateTheRegistry()
 			on "install"				
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" 
@@ -42,19 +48,9 @@ func ExecuteCommands
 				oInstall.SetUserNameFromCommandLine()
 				if lInstallError return ok
 				oInstall.InstallPackage(cPackageName)
-			on "update"
-				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
-				UpdatePackage(cPackageName)				
 			on "list"
 				CheckFastList()
 				PrintInstalledPackages()
-			on "remove"
-				cPackageName = GetPackageNameFromParameters()
-				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
-				RemovePackage(cPackageName)
-			on "format"
-				DeleteAllPackages()
 			on "run"
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" 
@@ -66,16 +62,20 @@ func ExecuteCommands
 					return 
 				ok
 				RunPackage(cPackageName)
+			on "update"
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
+				UpdatePackage(cPackageName)				
+			on "remove"
+				cPackageName = GetPackageNameFromParameters()
+				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
+				RemovePackage(cPackageName)
+			on "format"
+				DeleteAllPackages()
 			on "new"
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" ? C_ERROR_NOPACKAGENAME return ok
 				NewPackage(cPackageName)
-			on "search"
-				aKeywords = GetKeywordsFromParameters()
-				if len(aKeywords) = 0 ? C_ERROR_NOKEYWORDS return ok
-				Search(aKeywords)
-			on "refresh"
-				UpdateTheRegistry()
 			on "package"
 				CreatePackageInTheCurrentFolder()
 			other 

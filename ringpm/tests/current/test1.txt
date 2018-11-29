@@ -3,15 +3,15 @@ Ring Package Manager (RingPM)
 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 ===========================================================================
 Usage   : ringpm [command]
-Command :  <packagename> [from <UserName>] [branch <branchname>]
-Command :  <packagename>
-Command :  <packagename>
-Command :  [-f : Don't check updates]
-Command :  : Delete All Packages
-Command :  <packagename>
-Command :  <packagename>
 Command :  <keywords...>
 Command :  : Update the Registry (Packages List)
+Command :  <packagename> [from <UserName>] [branch <branchname>]
+Command :  [-f : Don't check updates]
+Command :  <packagename>
+Command :  <packagename>
+Command :  <packagename>
+Command :  : Delete All Packages
+Command :  <packagename>
 Command :  : Create package in the current folder
 ===========================================================================
-installupdate remove list   format run    new    search refreshpackage
+search refreshinstalllist   run    update remove format new    package
