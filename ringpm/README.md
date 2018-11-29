@@ -224,5 +224,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=MjHRQgGFxbk&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=22">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson23">23</td>
+		<td>
+			The Package Command - Create a new package in the current folder
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=sT5r4O4I6FY&index=23&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 
