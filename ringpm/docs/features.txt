@@ -56,3 +56,7 @@ Features
 ======================================================================================
 * Refresh Command (ringpm refresh)						DONE
 ======================================================================================
+* Package Command (ringpm package)						DONE 
+	* Create package in the current folder 					DONE
+	* Add the files in the current folder to the package 			DONE
+======================================================================================
