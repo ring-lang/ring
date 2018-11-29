@@ -16,6 +16,7 @@
 	load "../commands/new.ring"
 	load "../commands/search.ring"
 	load "../commands/refresh.ring"
+	load "../commands/package.ring"
 
 func ExecuteCommands
 	# Check if we don't have commands
@@ -75,6 +76,8 @@ func ExecuteCommands
 				Search(aKeywords)
 			on "refresh"
 				UpdateTheRegistry()
+			on "package"
+				CreatePackageInTheCurrentFolder()
 			other 
 				? "Bad Command!"
 		off
