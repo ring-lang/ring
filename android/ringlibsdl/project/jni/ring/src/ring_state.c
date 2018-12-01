@@ -107,7 +107,7 @@ void ring_state_cgiheader ( RingState *pRingState )
 
 RING_API void ring_print_line ( void )
 {
-	puts("==================================================================");
+	puts("===========================================================================");
 }
 
 RING_API RingState * ring_state_init ( void )
