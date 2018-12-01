@@ -120,7 +120,7 @@ func Main
 	ok
 
 func DrawLine 
-	see copy("=",70) + nl
+	see copy("=",75) + nl
 
 func msg cMsg
 	see "Ring2EXE: " + cMsg + nl
