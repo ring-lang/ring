@@ -38,6 +38,10 @@ func UpdateTheRegistry
 		? C_ERROR_CANTDOWNLOADTHEREGISTRYFILE
 		return 
 	ok
+	if isWindows()
+		cRegistryFile 		= substr(cRegistryFile,nl,WindowsNL())
+		cRemoteVersionFile	= substr(cRemoteVersionFile,nl,WindowsNL())
+	ok
 	write("registry/registry.ring",cRegistryFile)
 	write("registry/version.ring",cRemoteVersionFile)
 	? "The Registry is updated from revision " + aLocalRegistryData[:nRegistryRev] + " (" +
