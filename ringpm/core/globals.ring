@@ -34,7 +34,7 @@
 	aCommand	   	= []
 
 # Folders
-	cMainPackagesFolder 	= exefolder()+"../ringpm/packages"
+	cMainPackagesFolder 	= exefolder()+"../packages"
 
 # Version 
 	C_VERSIONSECTIONSIZE	= 3
