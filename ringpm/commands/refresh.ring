@@ -5,7 +5,7 @@
 */
 
 func UpdateTheRegistry
-	eval(read("registry/version.ring"))
+	eval(read(exefolder()+"../ringpm/registry/version.ring"))
 	aLocalRegistryData =  [
 		:nRegistryRev  		= nRegistryRev,
 		:cRegistryLastUpdate 	= cRegistryLastUpdate,
