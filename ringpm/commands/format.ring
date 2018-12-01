@@ -16,8 +16,8 @@ func DeleteAllPackages
 		for aItem in aPackages 
 			if aItem[2] 	# Folder 
 				cFolder = aItem[1]	# Folder Name 
-				# Because in Linux we have . and .. as folders !
-					if cFolder = "." or cFolder = ".." loop ok
+				# Be sure that it's a package 
+					if ! fexists(cFolder+"/package.ring") loop ok
 				Style("Deleting ",:YellowBlack) ? cFolder 
 				OSDeleteFolder(cFolder)
 				nCount++
