@@ -321,36 +321,6 @@
 			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-	<tr>
-		<td>19</td>
-		<td>
-			نتعرف على الاصدار 1.7 من لغة الرينج ومايقدمه من مزايا جديدة
-		</td>
-		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155588366475345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
-			<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
-		</td>
-	</tr>
-	<tr>
-		<td>20</td>
-		<td>
-			نتعرف على الاصدار 1.8 من لغة الرينج ومايقدمه من مزايا جديدة
-		</td>
-		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155970006300345/">شاهد على الفيس بوك</a> <br />
-			<a href="https://www.youtube.com/watch?v=uDGeHq_gJPI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=20">شاهد على اليوتيوب</a>
-		</td>
-	</tr>
-	<tr>
-		<td>21</td>
-		<td>
-			نتعرف على الاصدار 1.9 من لغة الرينج ومايقدمه من مزايا جديدة
-		</td>
-		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156149395750345/">شاهد على الفيس بوك</a> <br />
-			<a href="https://www.youtube.com/watch?v=48Mv774RS2g&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=21">شاهد على اليوتيوب</a>
-		</td>
-	</tr>
 </table>
 
 <h1 id="dev"> المطورين المعتمدين </h1> 
@@ -393,6 +363,47 @@
 <h1 id="morelessons"> دروس إضافية </h1> 
 
 هذه مجموعة من الدروس الإضافية وهى ليست مطلوبة للحصول على الشهادة
+
+
+دروس تشرح بشكل مختصر مزايا الإصدارات الجديدة من اللغة  
+
+<table>
+	<tr>	
+		<th>رقم الدرس</th>
+		<th>المحتوي</th>
+		<th>روابط المشاهدة</th>
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>
+			نتعرف على الاصدار 1.7 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155588366475345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>
+			نتعرف على الاصدار 1.8 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155970006300345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=uDGeHq_gJPI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=20">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td>21</td>
+		<td>
+			نتعرف على الاصدار 1.9 من لغة الرينج ومايقدمه من مزايا جديدة
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156149395750345/">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=48Mv774RS2g&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=21">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+</table>
 
 دروس تشرح تطوير تطبيقات الموبايل Mobile وتطبيقات سطح المكتب Desktop 
 
