@@ -1,7 +1,7 @@
 # Project   : Checkers Game
-# Date      : 2018/11/10
-# Update  : 2018/11/23
-# Author   : Gal Zsolt (~ CalmoSoft ~)
+# Date      : 2018/12/02
+# Update    : 2018/12/02
+# Author    : Gal Zsolt (~ CalmoSoft ~)
 # Email     : <calmosoft@gmail.com>
 
 load "stdlib.ring"
@@ -407,6 +407,7 @@ func pmovered(Row,Col)
           setButtonImage(Button[8][Col-2],oPicBrownCell,bwidth,bheight)
           scorered = scorered + 1
           RedScore.settext("Red Score: " + string(scorered))
+          pmoveblack()
           return
        ok
        if Row = 6 and Col < size-2 and Cells[Row][Col] = delblack and 
@@ -422,6 +423,7 @@ func pmovered(Row,Col)
           setButtonImage(Button[8][Col+2],oPicBrownCell,bwidth,bheight)
           scorered = scorered + 1
           RedScore.settext("Red Score: " + string(scorered))
+          pmoveblack()
           return
        ok
        if Row < size-2 and Col = 6 and Cells[Row][Col] = delblack and 
@@ -437,6 +439,7 @@ func pmovered(Row,Col)
           setButtonImage(Button[Row+2][8],oPicBrownCell,bwidth,bheight)
           scorered = scorered + 1
           RedScore.settext("Red Score: " + string(scorered))
+          pmoveblack()
           return
        ok
        if Row < size-2 and Col > 2 and Cells[Row][Col] = delblack and 
