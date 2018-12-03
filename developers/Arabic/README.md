@@ -669,7 +669,15 @@
 			<a href="https://www.youtube.com/watch?v=sT5r4O4I6FY&index=23&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="pmlesson24">24</td>
+		<td>
+			اختبار ال Package Manager على نظام تشغيل ال Linux
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=yTjwi55u0iA&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=24">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
 </table>
 
 </div>
