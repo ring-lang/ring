@@ -233,5 +233,14 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=sT5r4O4I6FY&index=23&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="lesson24">24</td>
+		<td>
+			Testing the Ring Package Manager on Linux
+		</td>
+		<td>
+			<a href="https://www.youtube.com/watch?v=yTjwi55u0iA&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=24">YouTube</a>
+		</td>
+	</tr>
 </table>
 
