@@ -600,8 +600,8 @@ So Ring2EXE can use the updated version if you tried the previous command again!
 
 	https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.ring
 
-* The libraries information are stored in a separated file, So this file can be updated in the future
+* The libraries information are stored in a separated files, So these files can be updated in the future
 automatically to support new libraries
 
-	https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.data
+	https://github.com/ring-lang/ring/blob/master/ring2exe/libs
 
