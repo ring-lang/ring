@@ -88,7 +88,15 @@
 load "stdlibcore.ring"
 
 # Load Libraries information
-	eval(read(exefolder()+"/../ring2exe/ring2exe.data"))
+	aLibsInfo = []
+	LoadLibrariesInfo()
+
+func LoadLibrariesInfo
+	aLibsFiles = ListAllFiles(exefolder()+"/../ring2exe/libs","ring")
+	for cLibFile in aLibsFiles 
+		eval(read(cLibFile))
+		aLibsInfo + aLibrary 
+	next 
 
 func Main 
 	aPara = sysargv
