@@ -129,3 +129,4 @@ More Improvements
 (5) Ring VM : Better support for the (Return) command inside braces that access new objects.
 (6) Ring VM : Dir() Function - Don't add "." and ".." to the output
 (7) Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS
+(8) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder
