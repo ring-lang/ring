@@ -16,11 +16,13 @@ Features
 	* Install package from the current folder (Install dependencies)	DONE
 	* Install package from specific user of GitHub				DONE
 	* Install package from the Registry					DONE
+	* Install files in the ring/bin folder					DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 
 	* When we delete a package, delete the related packages 		DONE 
 	  if it's not used  by other packages 					DONE
+	* Remove files installed in ring/bin folder				DONE
 ======================================================================================
 * Update (To New|Old Version)							
 	* Delete current version, Then install new version 

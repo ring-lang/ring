@@ -196,6 +196,7 @@ class InstallCommand
 		# Create the package folder
 			chdir(cMainPackagesFolder)
 			OSCreateOpenFolder(GetPackageFolderName(aPackageInfo))
+			cCurrentPackageDir = CurrentDir()
 		# Write the Package File
 			cPackageInfo = UpdateFolderName(aPackageInfo) 	
 			write("package.ring",cPackageInfo)
@@ -204,6 +205,12 @@ class InstallCommand
 			for cFileName in aPackageInfo[:Files]
 				DownloadFileInPackage(cFileName)
 			next
+		# Download Files in the Bin Folder 
+			chdir(exefolder())
+			for cFileName in aPackageInfo[:BinFiles]
+				DownloadFileInPackage(cFileName)
+			next
+			chdir(cCurrentPackageDir)
 		if isWindows()
 			for cFileName in aPackageInfo[:WindowsFiles]
 				DownloadFileInPackage(cFileName)
