@@ -22,7 +22,6 @@ func DeleteAllPackages
 				OSDeleteFolder(cFolder)
 				# Delete the loader file in ring/bin folder 
 					remove(exefolder()+cFolder+".ring")
-
 				nCount++
 			ok
 		next 
