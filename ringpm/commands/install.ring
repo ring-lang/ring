@@ -121,6 +121,28 @@ class InstallCommand
 			cDir = CurrentDir()
 			chdir(cMainPackagesFolder+"/"+cPackageFolderName)
 			system(cSetup)
+			if isWindows()
+				if aPackageInfo[:WindowsSetup] != NULL 
+					System(aPackageInfo[:WindowsSetup])
+				ok
+			but isLinux()
+				if aPackageInfo[:LinuxSetup] != NULL 
+					System(aPackageInfo[:LinuxSetup])
+				ok
+				if fexists(exefolder()+"/ubuntu.txt")
+					if aPackageInfo[:UbuntuSetup] != NULL 
+						System(aPackageInfo[:UbuntuSetup])
+					ok
+				but fexists(exefolder()+"/fedora.txt")
+					if aPackageInfo[:FedoraSetup] != NULL 
+						System(aPackageInfo[:FedoraSetup])
+					ok
+				ok
+			but isMacosx()
+				if aPackageInfo[:MacOSSetup] != NULL 
+					System(aPackageInfo[:MacOSSetup])
+				ok
+			ok
 			chdir(cDir)
 		ok
 
