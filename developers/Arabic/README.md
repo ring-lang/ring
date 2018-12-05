@@ -8,7 +8,7 @@
 			1
 		</td>
 		<td>
-			<a href="#invitation" > دعوة الإنضمام 	</a> <br/> <br/>
+			<a href="#description"> مقدمة عن اللغة 	</a> <br/> <br/>
 		</td>
 	</tr>
 	<tr>
@@ -16,7 +16,7 @@
 			2
 		</td>
 		<td>
-			<a href="#description"> مقدمة عن اللغة 	</a> <br/> <br/>
+			<a href="#howtostart" > كيف تبدأ 		</a> <br/> <br/>
 		</td>
 	</tr>
 	<tr>
@@ -24,7 +24,7 @@
 			3
 		</td>
 		<td>
-			<a href="#howtostart" > كيف تبدأ 		</a> <br/> <br/>
+			<a href="#lessons"    > الدروس التعليمية 	</a> <br/>
 		</td>
 	</tr>
 	<tr>
@@ -32,7 +32,7 @@
 			4
 		</td>
 		<td>
-			<a href="#lessons"    > الدروس التعليمية 	</a> <br/>
+			<a href="#dev"    > المطورين المعتمدين	</a> <br/>
 		</td>
 	</tr>
 	<tr>
@@ -40,23 +40,11 @@
 			5
 		</td>
 		<td>
-			<a href="#dev"    > المطورين المعتمدين	</a> <br/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			6
-		</td>
-		<td>
 			<a href="#morelessons"    > دروس إضافية	</a> <br/>
 		</td>
 	</tr>
 
 </table>
-
-<h2 id="invitation"> دعوة الإنضمام </h2> 
-
-![Ring](http://ring-lang.sourceforge.net/ringcourse_2018.jpg)
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
 
