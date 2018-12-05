@@ -34,10 +34,12 @@ func RemovePackage cPackageName
 			next 
 	# Delete the package 
 		chdir(cMainPackagesFolder)
-		OSDeleteFolder(cPackageName)
-	# Delete the loader file in ring/bin folder 
-		remove(exefolder()+cPackageName+".ring")
+		DeletePackageFiles(cPackageName)
 
 	DisplayOperationDone()
 	chdir(cCurrentDir)
 
+func DeletePackageFiles cFolder 
+	OSDeleteFolder(cFolder)
+	# Delete the loader file in ring/bin folder 
+		remove(exefolder()+cFolder+".ring")

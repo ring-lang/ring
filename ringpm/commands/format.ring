@@ -19,9 +19,7 @@ func DeleteAllPackages
 				# Be sure that it's a package 
 					if ! fexists(cFolder+"/package.ring") loop ok
 				Style("Deleting ",:YellowBlack) ? cFolder 
-				OSDeleteFolder(cFolder)
-				# Delete the loader file in ring/bin folder 
-					remove(exefolder()+cFolder+".ring")
+				DeletePackageFiles(cFolder)
 				nCount++
 			ok
 		next 
