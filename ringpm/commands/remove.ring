@@ -46,9 +46,20 @@ func DeletePackageFiles cFolder
 	OSDeleteFolder(cFolder)
 	# Delete the loader file in ring/bin folder 
 		remove(exefolder()+cFolder+".ring")
-	# Download Files in the Ring Folder 
+	DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:RingFolderFiles)
+	if isWindows()
+		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:WindowsRingFolderFiles)
+	but isLinux()
+		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:LinuxRingFolderFiles)
+	but isMacOSX()
+		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:MacOSRingFolderFiles)
+	ok
+
+func DeleteFilesInRingFolder aPackageInfo,cCurrentPackageDir,cAttribute
+	# Remove Files Downloaded in the Ring Folder 
 		chdir(exefolder()+"/../")
-		for cFileName in aPackageInfo[:RingFolderFiles]
+		for cFileName in aPackageInfo[cAttribute]
 			Remove(cFileName)
 		next
 		chdir(cCurrentPackageDir)
+

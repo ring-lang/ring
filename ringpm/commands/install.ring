@@ -205,29 +205,35 @@ class InstallCommand
 			for cFileName in aPackageInfo[:Files]
 				DownloadFileInPackage(cFileName)
 			next
-		# Download Files in the Ring Folder (Not the package folder
-			chdir(exefolder()+"/../")
-			for cFileName in aPackageInfo[:RingFolderFiles]
-				DownloadFileInPackage(cFileName)
-			next
-			chdir(cCurrentPackageDir)
+		DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:RingFolderFiles)
 		if isWindows()
 			for cFileName in aPackageInfo[:WindowsFiles]
 				DownloadFileInPackage(cFileName)
 			next
+			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:WindowsRingFolderFiles)
 		but isLinux()
 			for cFileName in aPackageInfo[:LinuxFiles]
 				DownloadFileInPackage(cFileName)
 			next
+			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:LinuxRingFolderFiles)
 		but isMacOSX()
 			for cFileName in aPackageInfo[:MacOSFiles]
 				DownloadFileInPackage(cFileName)
 			next
+			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:MacOSRingFolderFiles)
 		ok
 		if ! lWriteError
 			DisplayOperationDone()
 		ok
 		chdir(cCurrentDir)
+
+	func DownloadInRingFolderFiles aPackageInfo,cCurrentPackageDir,cAttribute
+		# Download Files in the Ring Folder (Not the package folder)
+			chdir(exefolder()+"/../")
+			for cFileName in aPackageInfo[cAttribute]
+				DownloadFileInPackage(cFileName)
+			next
+			chdir(cCurrentPackageDir)
 
 	func DownloadFileInPackage cFileName
 		if lDisplayPackageFiles
