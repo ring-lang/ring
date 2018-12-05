@@ -209,6 +209,13 @@ class InstallCommand
 		but isLinux()
 			DownloadListOfFiles(aPackageInfo,:LinuxFiles)
 			DownloadListOfFilesInRingFolder(aPackageInfo,:LinuxRingFolderFiles)
+			if fexists(exefolder()+"/ubuntu.txt")
+				DownloadListOfFiles(aPackageInfo,:UbuntuFiles)
+				DownloadListOfFilesInRingFolder(aPackageInfo,:UbuntuRingFolderFiles)
+			but fexists(exefolder()+"/fedora.txt")
+				DownloadListOfFiles(aPackageInfo,:FedoraFiles)
+				DownloadListOfFilesInRingFolder(aPackageInfo,:FedoraRingFolderFiles)
+			ok
 		but isMacOSX()
 			DownloadListOfFiles(aPackageInfo,:MacOSFiles)
 			DownloadListOfFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)

@@ -50,6 +50,12 @@ func DeletePackageFiles cFolder
 		DeleteFilesInRingFolder(aPackageInfo,:WindowsRingFolderFiles)
 	but isLinux()
 		DeleteFilesInRingFolder(aPackageInfo,:LinuxRingFolderFiles)
+		if fexists(exefolder()+"/ubuntu.txt")
+			DeleteFilesInRingFolder(aPackageInfo,:UbuntuRingFolderFiles)
+		but fexists(exefolder()+"/fedora.txt")
+			DeleteFilesInRingFolder(aPackageInfo,:FedoraRingFolderFiles)
+		ok
+
 	but isMacOSX()
 		DeleteFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)
 	ok
