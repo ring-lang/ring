@@ -196,44 +196,39 @@ class InstallCommand
 		# Create the package folder
 			chdir(cMainPackagesFolder)
 			OSCreateOpenFolder(GetPackageFolderName(aPackageInfo))
-			cCurrentPackageDir = CurrentDir()
 		# Write the Package File
 			cPackageInfo = UpdateFolderName(aPackageInfo) 	
 			write("package.ring",cPackageInfo)
 		# Download package files 
 		lWriteError = False
-			for cFileName in aPackageInfo[:Files]
-				DownloadFileInPackage(cFileName)
-			next
-		DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:RingFolderFiles)
+		DownloadListOfFiles(aPackageInfo,:Files)
+		DownloadListOfFilesInRingFolder(aPackageInfo,:RingFolderFiles)
 		if isWindows()
-			for cFileName in aPackageInfo[:WindowsFiles]
-				DownloadFileInPackage(cFileName)
-			next
-			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:WindowsRingFolderFiles)
+			DownloadListOfFiles(aPackageInfo,:WindowsFiles)
+			DownloadListOfFilesInRingFolder(aPackageInfo,:WindowsRingFolderFiles)
 		but isLinux()
-			for cFileName in aPackageInfo[:LinuxFiles]
-				DownloadFileInPackage(cFileName)
-			next
-			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:LinuxRingFolderFiles)
+			DownloadListOfFiles(aPackageInfo,:LinuxFiles)
+			DownloadListOfFilesInRingFolder(aPackageInfo,:LinuxRingFolderFiles)
 		but isMacOSX()
-			for cFileName in aPackageInfo[:MacOSFiles]
-				DownloadFileInPackage(cFileName)
-			next
-			DownloadInRingFolderFiles(aPackageInfo,cCurrentPackageDir,:MacOSRingFolderFiles)
+			DownloadListOfFiles(aPackageInfo,:MacOSFiles)
+			DownloadListOfFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)
 		ok
 		if ! lWriteError
 			DisplayOperationDone()
 		ok
 		chdir(cCurrentDir)
 
-	func DownloadInRingFolderFiles aPackageInfo,cCurrentPackageDir,cAttribute
+	func DownloadListOfFilesInRingFolder aPackageInfo,cAttribute
+		cCurrentPackageDir = CurrentDir()
 		# Download Files in the Ring Folder (Not the package folder)
 			chdir(exefolder()+"/../")
-			for cFileName in aPackageInfo[cAttribute]
-				DownloadFileInPackage(cFileName)
-			next
-			chdir(cCurrentPackageDir)
+			DownloadListOfFiles(aPackageInfo,cAttribute)
+		chdir(cCurrentPackageDir)
+
+	func DownloadListOfFiles aPackageInfo,cAttribute
+		for cFileName in aPackageInfo[cAttribute]
+			DownloadFileInPackage(cFileName)
+		next
 
 	func DownloadFileInPackage cFileName
 		if lDisplayPackageFiles

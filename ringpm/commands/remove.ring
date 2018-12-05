@@ -40,26 +40,26 @@ func RemovePackage cPackageName
 	chdir(cCurrentDir)
 
 func DeletePackageFiles cFolder 
-	cCurrentPackageDir = CurrentDir()
 	# Load the Package File (To Be Used Later)
 		eval(read(cFolder+"/package.ring"))
 	OSDeleteFolder(cFolder)
 	# Delete the loader file in ring/bin folder 
 		remove(exefolder()+cFolder+".ring")
-	DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:RingFolderFiles)
+	DeleteFilesInRingFolder(aPackageInfo,:RingFolderFiles)
 	if isWindows()
-		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:WindowsRingFolderFiles)
+		DeleteFilesInRingFolder(aPackageInfo,:WindowsRingFolderFiles)
 	but isLinux()
-		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:LinuxRingFolderFiles)
+		DeleteFilesInRingFolder(aPackageInfo,:LinuxRingFolderFiles)
 	but isMacOSX()
-		DeleteFilesInRingFolder(aPackageInfo,cCurrentPackageDir,:MacOSRingFolderFiles)
+		DeleteFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)
 	ok
 
-func DeleteFilesInRingFolder aPackageInfo,cCurrentPackageDir,cAttribute
+func DeleteFilesInRingFolder aPackageInfo,cAttribute
+	cCurrentPackageDir = CurrentDir()
 	# Remove Files Downloaded in the Ring Folder 
 		chdir(exefolder()+"/../")
 		for cFileName in aPackageInfo[cAttribute]
 			Remove(cFileName)
 		next
-		chdir(cCurrentPackageDir)
+	chdir(cCurrentPackageDir)
 
