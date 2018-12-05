@@ -205,9 +205,9 @@ class InstallCommand
 			for cFileName in aPackageInfo[:Files]
 				DownloadFileInPackage(cFileName)
 			next
-		# Download Files in the Bin Folder 
-			chdir(exefolder())
-			for cFileName in aPackageInfo[:BinFiles]
+		# Download Files in the Ring Folder (Not the package folder
+			chdir(exefolder()+"/../")
+			for cFileName in aPackageInfo[:RingFolderFiles]
 				DownloadFileInPackage(cFileName)
 			next
 			chdir(cCurrentPackageDir)
