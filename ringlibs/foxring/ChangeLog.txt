@@ -1,5 +1,21 @@
 FoxRing ChangeLog
 
+1.0.143 2018.12.06 Jar
+----------------------------------------------------------
+	Added - frDateTime() function	
+	Added - frDoW() function	
+	Added - frCDoW() function	
+	Added - frCDoWShort() function	
+	Added - frDay() function	
+	Added - frMonth() function	
+	Added - frYear() function	
+	Added - frCMonth() function	
+	Added - frCMonthShort() function	
+	Added - frWeek() function	
+	Fixed - frDate() function	
+	Updated - frVarType() function	
+
+
 1.0.142 2018.07.11 Jar
 ----------------------------------------------------------
 	Added - frSetDate() function	
