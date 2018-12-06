@@ -4,6 +4,49 @@ Load "foxring.ring"
 mf = new frFunctions
 
 /*----------------------------------------------------------
+ * Date and DateTime functions
+ *----------------------------------------------------------*/
+ ldDate = mf.frDate(2018, 9, 15)
+ ltDateTime = mf.frDateTime(Null, Null, Null, null, null, null)
+
+ 
+ 
+ 
+ 
+ ?"Date test"
+ ?"Date                       : " + ldDate.cValue
+ ?"Type of date type          : " + mf.frVarType(ldDate)
+ ?"Year                       : " + mf.frYear(ldDate)
+ ?"Month                      : " + mf.frMonth(ldDate)
+ ?"Name of Month              : " + mf.frCMonth(ldDate)
+ ?"Short Name of Month        : " + mf.frCMonthShort(ldDate)
+ ?"Day                        : " + mf.frDay(ldDate)
+ ?"Numeric day of the week    : " + mf.frDow(ldDate, 1) 
+ ?"Name of the week day       : " + mf.frCDow(ldDate, 1) 
+ ?"Short Name of the week day : " + mf.frCDowShort(ldDate, 1) 
+ ?"Week number                : " + mf.frWeek(ldDate)
+ ?""
+ ?""
+ ?"Date time test"
+ ?"DateTime                   : " + ltDateTime.cValue
+ ?"Type of date time type     : " + mf.frVarType(ltDateTime)
+ ?"Year                       : " + mf.frYear(ltDateTime)
+ ?"Month                      : " + mf.frMonth(ltDateTime)
+ ?"Name of Month              : " + mf.frCMonth(ltDateTime)
+ ?"Short Name of Month        : " + mf.frCMonthShort(ltDateTime)
+ ?"Day                        : " + mf.frDay(ltDateTime)
+ ?"Numeric day of the week    : " + mf.frDow(ltDateTime, 1)
+ ?"Name of the week day       : " + mf.frCDow(ltDateTime, 1) 
+ ?"Short Name of the week day : " + mf.frCDowShort(ltDateTime, 1) 
+ ?"Week number                : " + mf.frWeek(ltDateTime)
+ 
+
+/*----------------------------------------------------------
+ * End Date and DateTime functions
+ *----------------------------------------------------------*/
+
+
+/*----------------------------------------------------------
  * frSetDate(), frSetCentury(), frDate() samples
  *----------------------------------------------------------*/
 
