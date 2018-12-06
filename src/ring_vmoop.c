@@ -1219,13 +1219,13 @@ void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContain
 {
 	List *pList  ;
 	/* Get Object State */
-	pList = ring_list_getlist(pObj,2);
+	pList = ring_list_getlist(pObj,RING_OBJECT_OBJECTDATA);
 	/* Get Self Attribute */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Set Object Pointer */
-	ring_list_setpointer_gc(pVM->pRingState,pList,3, pContainer);
+	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE, pContainer);
 	/* Set Object Type */
-	ring_list_setint_gc(pVM->pRingState,pList,4,nType);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
 }
 
 void ring_vm_oop_setthethisvariable ( VM *pVM )
