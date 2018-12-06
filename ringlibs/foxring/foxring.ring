@@ -11,16 +11,16 @@
  *	frBetween()			Determines whether the value of an expression is inclusively between the values of two 
  *						expressions of the same type.
  *	frCDoW() 			Returns the day of the week from a given Date or DateTime expression.
- *	frCDoWShort() 		Returns the day of the week in a short mode from a given Date or DateTime expression.
+ *	frCDoWShort() 			Returns the day of the week in a short mode from a given Date or DateTime expression.
  *	frChr()				Returns the character associated with the specified numeric ANSI code.
  *	frCMonth() 			Returns the name of the month from a given Date or DateTime expression.
  *	frCMonthShort() 		Returns the name of the month in a short mode from a given Date or DateTime expression.
- * 	frDate()				Returns the current system date, which is controlled by the operating system, or creates a date.
+ * 	frDate()			Returns the current system date, which is controlled by the operating system, or creates a date.
  *	frDateTime()			Returns the current system date and time, which is controlled by the operating system, or creates a date time value.
- *	frDay() 				Returns the numeric day of the month for a given Date or DateTime expression.
- *	frDoW() 				Returns a numeric day of the week value from a Date or DateTime expression.
+ *	frDay() 			Returns the numeric day of the month for a given Date or DateTime expression.
+ *	frDoW() 			Returns a numeric day of the week value from a Date or DateTime expression.
  *	frEmpty()			Determines whether an expression evaluates to empty.
- *	frFile()				Checks if a file exists on disk.
+ *	frFile()			Checks if a file exists on disk.
  *	frFileToStr()			Returns the contents of a file as a character string.
  *	frForceExt()			Returns a string with the old file name extension replaced by a new extension.
  *	frForcePath()			Returns a file name with a new path name substituted for the old one.
@@ -334,7 +334,7 @@ class frFunctions {
 	 * Author	 		: Jar C 06.11.2018
 	 * History			:
 	 */
-	func frYear(tdYear) {
+	func frYear(tdDate) {
 
 		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
 		return oDt.nYear
