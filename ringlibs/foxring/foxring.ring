@@ -36,15 +36,15 @@
  *	frListToString()		Creates a string with the string elements of an Array.
  *	frLTrim()			Removes all leading spaces or parsing characters from the specified character expression.
  *	frMonth() 			Returns the number of the month for a given Date or DateTime expression.
- *	frPadL()				Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
- *	frPadR()				Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+ *	frPadL()			Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
+ *	frPadR()			Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
  *	frProper()			Returns from a character expression a string capitalized as appropriate for proper names.
  *	frReplicate()			Returns a character string that contains a specified character expression repeated a specified number of times.
  *	frRTrim()			Removes all trailing spaces or parsing characters from the specified character expression.
- *	frSetCentury()		Returns the current value of the century format and sets a new one when specified.
+ *	frSetCentury()			Returns the current value of the century format and sets a new one when specified.
  *	frSetDate()			Returns the current value of the date format and sets a new one when specified.
- *	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
- *	frSetSeparatorTo()	Specifies the character for the numeric place separator.
+ *	frSetIfEmpty()			Set a Value into a variable if the variable value is empty, null or zero.
+ *	frSetSeparatorTo()		Specifies the character for the numeric place separator.
  *	frSpace()			Returns a character string composed of a specified number of spaces.
  *	frStr()				Returns the character equivalent of a numeric expression.
  *	frStringToList()		Creates a List with the content of the specified string.
@@ -2176,7 +2176,7 @@ class DateTimeClass from DateClass {
 		this.nMinutes = tnMinutes
 		this.nSeconds = tnSeconds
 
-		this.cValue = this.oFr._DateFormat(tnYear, tnMonth, tnDay) + " " + 
+		this.cValue = this.oFr._DateFormat(this.nYear, this.nMonth, this.nDay) + " " + 
 						this.oFr.frTransform(tnHours, "@L 99") + ":" +
 						this.oFr.frTransform(tnMinutes, "@L 99") + ":" +
 						this.oFr.frTransform(tnSeconds, "@L 99") 
