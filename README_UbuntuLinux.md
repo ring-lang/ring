@@ -87,7 +87,7 @@
 We will build Libuv first
 
 	cd ../extensions/ringlibuv/libuv
-	sudo apt-get libtool install m4 automake
+	sudo apt-get install libtool m4 automake
 	sh autogen.sh
 	./configure
 	make
