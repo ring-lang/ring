@@ -656,6 +656,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 /* Object */
 #define RING_OBJECT_CLASSPOINTER 1
 #define RING_OBJECT_OBJECTDATA 2
+#define RING_OBJECT_SELFATTRIBUTE 1
 /* pObjState */
 #define RING_OBJSTATE_SCOPE 1
 #define RING_OBJSTATE_METHODS 2
