@@ -1,127 +1,347 @@
 /*
  *
- *	frAbs()			Returns the absolute value of the specified numeric expression.
- *	frAddBs()		Adds a backslash (if needed) to a path expression.
- *	frALines()		Creates an Array with the content of the specified string. 
- *	frAllTrim()		Removes all leading and trailing spaces of the specified string. 
- *	frAsc()			Returns the ANSI value for the leftmost character in a character expression.
- *	frAt()			Searches a character expression for the occurrence of another character expression.
- *	frAtC()			Searches a character expression for the ocurrence of another character expression without 
- *				regard for the case of these two expressions.
- *	frBetween()		Determines whether the value of an expression is inclusively between the values of two 
- *				expressions of the same type.
- *	frChr()			Returns the character associated with the specified numeric ANSI code.
- * 	frDate()		Returns the current system date, which is controlled by the operating system, or creates a date.
- *	frEmpty()		Determines whether an expression evaluates to empty.
- *	frFile()		Checks if a file exists on disk.
- *	frFileToStr()		Returns the contents of a file as a character string.
- *	frForceExt()		Returns a string with the old file name extension replaced by a new extension.
- *	frForcePath()		Returns a file name with a new path name substituted for the old one.
- *  	frIif()   		Returns one of two values depending on the value of a logical expression.
- *	frInList()		Determines whether an expression matches another expression in a list.
- *	frInt()			Evaluates a numeric expression and returns the integer portion of the expression.
- *	frJustDrive()		Returns the drive letter from a complete path.
- *	frJustExt()		Returns the characters of a file extension from a complete path.
- *	frJustFName()		Returns the file name portion of a complete path and file name.
- *	frJustPath()		Returns the path portion of a complete path and file name.
- *	frJustStem()		Returns the stem name (the file name before the extension) from a complete path and file name.
- *	frLen()			Determines the number of characters in a character expression, indicating the length of the expression.
- *	frListToString()	Creates a string with the string elements of an Array.
- *	frLTrim()		Removes all leading spaces or parsing characters from the specified character expression.
- *	frPadL()		Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
- *	frPadR()		Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
- *	frProper()		Returns from a character expression a string capitalized as appropriate for proper names.
- *	frReplicate()		Returns a character string that contains a specified character expression repeated a specified number of times.
- *	frRTrim()		Removes all trailing spaces or parsing characters from the specified character expression.
- *	frSetCentury()		Returns the current value of the century format and sets a new one when especified.
- *	frSetDate()		Returns the current value of the date format and sets a new one when especified.
+ *	frAbs()				Returns the absolute value of the specified numeric expression.
+ *	frAddBs()			Adds a backslash (if needed) to a path expression.
+ *	frALines()			Creates an Array with the content of the specified string. 
+ *	frAllTrim()			Removes all leading and trailing spaces of the specified string. 
+ *	frAsc()				Returns the ANSI value for the leftmost character in a character expression.
+ *	frAt()				Searches a character expression for the occurrence of another character expression.
+ *	frAtC()				Searches a character expression for the occurrence of another character expression without 
+ *						regard for the case of these two expressions.
+ *	frBetween()			Determines whether the value of an expression is inclusively between the values of two 
+ *						expressions of the same type.
+ *	frCDoW() 			Returns the day of the week from a given Date or DateTime expression.
+ *	frCDoWShort() 		Returns the day of the week in a short mode from a given Date or DateTime expression.
+ *	frChr()				Returns the character associated with the specified numeric ANSI code.
+ *	frCMonth() 			Returns the name of the month from a given Date or DateTime expression.
+ *	frCMonthShort() 		Returns the name of the month in a short mode from a given Date or DateTime expression.
+ * 	frDate()				Returns the current system date, which is controlled by the operating system, or creates a date.
+ *	frDateTime()			Returns the current system date and time, which is controlled by the operating system, or creates a date time value.
+ *	frDay() 				Returns the numeric day of the month for a given Date or DateTime expression.
+ *	frDoW() 				Returns a numeric day of the week value from a Date or DateTime expression.
+ *	frEmpty()			Determines whether an expression evaluates to empty.
+ *	frFile()				Checks if a file exists on disk.
+ *	frFileToStr()			Returns the contents of a file as a character string.
+ *	frForceExt()			Returns a string with the old file name extension replaced by a new extension.
+ *	frForcePath()			Returns a file name with a new path name substituted for the old one.
+ *  	frIif()   			Returns one of two values depending on the value of a logical expression.
+ *	frInList()			Determines whether an expression matches another expression in a list.
+ *	frInt()				Evaluates a numeric expression and returns the integer portion of the expression.
+ *	frJustDrive()			Returns the drive letter from a complete path.
+ *	frJustExt()			Returns the characters of a file extension from a complete path.
+ *	frJustFName()			Returns the file name portion of a complete path and file name.
+ *	frJustPath()			Returns the path portion of a complete path and file name.
+ *	frJustStem()			Returns the stem name (the file name before the extension) from a complete path and file name.
+ *	frLen()				Determines the number of characters in a character expression, indicating the length of the expression.
+ *	frListToString()		Creates a string with the string elements of an Array.
+ *	frLTrim()			Removes all leading spaces or parsing characters from the specified character expression.
+ *	frMonth() 			Returns the number of the month for a given Date or DateTime expression.
+ *	frPadL()				Returns a string from an expression, padded with spaces or characters to a specified length on the left side.
+ *	frPadR()				Returns a string from an expression, padded with spaces or characters to a specified length on the right side.
+ *	frProper()			Returns from a character expression a string capitalized as appropriate for proper names.
+ *	frReplicate()			Returns a character string that contains a specified character expression repeated a specified number of times.
+ *	frRTrim()			Removes all trailing spaces or parsing characters from the specified character expression.
+ *	frSetCentury()		Returns the current value of the century format and sets a new one when specified.
+ *	frSetDate()			Returns the current value of the date format and sets a new one when specified.
  *	frSetIfEmpty()		Set a Value into a variable if the variable value is empty, null or zero.
  *	frSetSeparatorTo()	Specifies the character for the numeric place separator.
- *	frSpace()		Returns a character string composed of a specified number of spaces.
- *	frStr()			Returns the character equivalent of a numeric expression.
- *	frStringToList()	Creates a List with the content of the specified string.
- *	frStrTran()		Searches a character expression for a second character expression and replaces each occurrence with a third 
- *				character expression.
- *	frStuff()		Returns a new character string replaced by a specified number of characteres in a character expression with 
- *				another character expression.
- *	frSubStr()		Returns a character string from the given character expression, starting at a specified position in the character 
- *				expression and continuing for a specified number of characters.			
- * 	frTransform()		Returns a character string from an expression in a format determined by a format code.
- *	frVal()			Returns a numeric value from a character expression composed of numbers.
- *	frVarType()		Returns the data type of an expression.
+ *	frSpace()			Returns a character string composed of a specified number of spaces.
+ *	frStr()				Returns the character equivalent of a numeric expression.
+ *	frStringToList()		Creates a List with the content of the specified string.
+ *	frStrTran()			Searches a character expression for a second character expression and replaces each occurrence with a third 
+ *						character expression.
+ *	frStuff()			Returns a new character string replaced by a specified number of characters in a character expression with 
+ *						another character expression.
+ *	frSubStr()			Returns a character string from the given character expression, starting at a specified position in the character 
+ *						expression and continuing for a specified number of characters.			
+ * 	frTransform()			Returns a character string from an expression in a format determined by a format code.
+ *	frVal()				Returns a numeric value from a character expression composed of numbers.
+ *	frVarType()			Returns the data type of an expression.
+ *	frWeek()				Returns a number of the week in the year from a Date or DateTime expression. 			
+ *	frYear() 			Returns the year from the specified Date or DateTime expression.
  *
  */
-	
+
+ 
+ 
+ 
+ 
+ 
 	/*
-	 * Syntax		: 
+	 * Syntax			: 
 	 * Description		: 
 	 * Arguments   		: 
-	 *			: 
-	 * Returns		: 
-	 * Remarks		: 
-	 * Author	 	:
-	 * History		:
+	 *					: 
+	 * Returns			: 
+	 * Remarks			: 
+	 * Author	 		:
+	 * History			:
 	 */
 	
-class frFunctions
+class frFunctions {
 
-	_version = "1.0.142"
+	_version 				= "1.0.144"
 
-	_character_type = "C"
-	_numeric_type = "N"	
-	_list_type = "A"
-	_object_type = "O"
-	_undefined_type = "U"
+	_character_type 			= "C"
+	_numeric_type 			= "N"	
+	_date_type 				= "D"
+	_datetime_type 			= "T"
+	_list_type 				= "A"
+	_object_type 				= "O"
+	_undefined_type 			= "U"
 	
-	_decimal_point = "."		
-	_empty_char = ""
-	_space = " "
-	_back_slash = "\"
-	_separator = ","
+	_decimal_point 			= "."		
+	_empty_char 				= ""
+	_space 					= " "
+	_back_slash 				= "\"
+	_separator 				= ","
 
-	_on = "ON"
-	_off = "OFF"
+	_on 						= "ON"
+	_off 					= "OFF"
 	
-	_ring_character_type 	= "STRING"
-	_ring_numeric_type 	= "NUMBER"
-	_ring_list_type 	= "LIST"
-	_ring_object_type 	= "OBJECT"
+	_ring_character_type 		= "STRING"
+	_ring_numeric_type 		= "NUMBER"
+	_ring_list_type 			= "LIST"
+	_ring_object_type 		= "OBJECT"
 
 	_dateform_american 		= "mm/dd/yy"
 	_dateform_ansi 			= "yy.mm.dd"
 	_dateform_british_french	= "dd/mm/yy"
 	_dateform_british 		= "dd/mm/yy"
-	_dateform_french		= "dd/mm/yy"
-	_dateform_german 		= "dd.mm.yy"
-	_dateform_italian		= "dd-mm-yy"
+	_dateform_french			= "dd/mm/yy"
+	_dateform_german 			= "dd.mm.yy"
+	_dateform_italian			= "dd-mm-yy"
 	_dateform_japan			= "yy/mm/dd"
-	_dateform_taiwan		= "yy/mm/dd"
-	_dateform_usa			= "mm-dd-yy"
-	_dateform_mdy			= "mm/dd/yy"
-	_dateform_dmy			= "dd/mm/yy"
-	_dateform_ymd			= "yy/mm/dd"
+	_dateform_taiwan			= "yy/mm/dd"
+	_dateform_usa				= "mm-dd-yy"
+	_dateform_mdy				= "mm/dd/yy"
+	_dateform_dmy				= "dd/mm/yy"
+	_dateform_ymd				= "yy/mm/dd"
 
 	_date_american 			= "AMERICAN"
-	_date_ansi 			= "ANSI"
+	_date_ansi 				= "ANSI"
 	_date_british_french		= "BRITISH/FRENCH"
 	_date_british 			= "BRITISH"
-	_date_french 			= "FRENCH"
-	_date_german 			= "GERMAN"
-	_date_italian			= "ITALIAN"
-	_date_japan			= "JAPAN"
-	_date_taiwan			= "TAIWAN"
-	_date_usa			= "USA"
-	_date_mdy			= "MDY"
-	_date_dmy			= "DMY"
-	_date_ymd			= "YMD"
+	_date_french 				= "FRENCH"
+	_date_german 				= "GERMAN"
+	_date_italian				= "ITALIAN"
+	_date_japan				= "JAPAN"
+	_date_taiwan				= "TAIWAN"
+	_date_usa				= "USA"
+	_date_mdy				= "MDY"
+	_date_dmy				= "DMY"
+	_date_ymd				= "YMD"
 
-	_set_separator 		= _separator
-	_set_century		= _off
-	_set_century_to		= -1
-	_set_century_rollover	= 48
-	_set_date 		= _date_dmy
-	_set_dateformat		= _dateform_dmy
+	_set_separator 			= _separator
+	_set_century				= _off
+	_set_century_to			= -1
+	_set_century_rollover		= 48
+	_set_date 		 		= _date_dmy
+	_set_dateformat			= _dateform_dmy
+
 	
+	/*
+	 * Syntax			: lnReturnValue = frDoW(tdExpression|ttExpresion, nFirstDayOfWeek)
+	 * Description		: Returns a numeric day of the week value from a Date or DateTime expression.
+	 * 					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 *					: <nFirstDayOfWeek>
+	 *					: Not implemented yet
+	 *					:
+	 * Returns			: <lnReturnValue>
+	 *					: Returns a numeric value corresponding with the day of week according with the following table:
+	 *					:
+	 *					: Monday			1
+	 *					: Tuesday		2
+	 *					: Wednesday		3
+	 *					: Thursday		4
+	 *					: Friday			5
+	 *					: Saturday		6
+	 *					: Sunday			7
+	 *					:
+	 * Author			: Jar C 02.10.2018
+	 */
+	func frDoW(tdDate, tnFDoW) {
+
+
+		// Jar 02.10.2018 
+		// At moment tnFDow isn´t used
+		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.nDayOfWeek
+	}
+	
+	/*
+	 * Syntax			: lcReturnValue = frCDow(tdDate|ttDateTime, tnFirstDayOffWeek)
+	 * Description		: Returns the day of the week from a given Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 *					: <nFirstDayOfWeek>
+	 *					: Not implemented yet
+	 *					:
+	 * Returns			: <lcReturnValue>
+	 *					: Returns the name of the day of the week 
+	 *					:
+	 *					:
+	 * Author	 		: Jar C 02.10.2018
+	 * History			:
+	 */
+	func frCDoW(tdDate, tnFDoW) {
+
+		// Jar 02.10.2018 
+		// At moment tnFDow isn´t used
+		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.cDayOfWeek
+	}
+
+	/*
+	 * Syntax			: lcReturnValue = frCDowShort(tdDate|ttDateTime, tnFirstDayOffWeek)
+	 * Description		: Returns the day of the week in a short mode from a given Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 *					: <nFirstDayOfWeek>
+	 *					: Not implemented yet
+	 *					:
+	 * Returns			: <lnReturnValue>
+	 *					: Returns the short name of the day of the week 
+	 *					:
+	 * Author	 		: Jar C 02.10.2018
+	 * History			:
+	 */
+	func frCDoWShort(tdDate, tnFDoW) {
+
+		// Jar 02.10.2018 
+		// At moment tnFDow isn´t used
+		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.cShortDayOfWeek
+	}
+	
+	
+	/*
+	 * Syntax			: lnReturnValue = frDay(tdDate|ttDateTime) 
+	 * Description		: Returns the numeric day of the month for a given Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: 
+	 * Remarks			: 
+	 * Author	 		: Jar C 06.11.2018
+	 * History			:
+	 */
+	func frDay(tdDate) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.nDay
+	}
+
+	
+	/*
+	 * Syntax			: lnReturnValue = frMonth(tdDate|ttDateTime)
+	 * Description		: Returns the number of the month for a given Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: 
+	 * Remarks			: 
+	 * Author	 		: Jar C 06.11.2018
+	 * History			:
+	 */
+	func frMonth(tdDate) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.nMonth
+	}
+
+
+	/*
+	 * Syntax			: lcReturnValue = frCMonth(tdDate|ttDateTime)
+	 * Description		: Returns the name of the month from a given date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: 
+	 * Remarks			: 
+	 * Author	 		: Jar C 06.11.2018
+	 * History			:
+	 */
+	func frCMonth(tdDate) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.cMonth
+	}
+
+
+	/*
+	 * Syntax			: lcReturnValue = frCMonthShort(tdDate|ttDateTime)
+	 * Description		: Returns the name of the month in a short mode from a given Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: 
+	 * Remarks			: 
+	 * Author	 		: Jar C 06.11.2018
+	 * History			:
+	 */
+	func frCMonthShort(tdDate) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.cShortMonth
+	}
+
+
+	/*
+	 * Syntax			: lnReturnValue = frWeek(tdDate|ttDateTime)
+	 * Description		: Returns a number of the week in the year from a Date or DateTime expression. 			
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: lnReturnValue
+	 *					: Returns the number of the week in the year.
+	 * Remarks			: 
+	 * Author	 		: Jar C 07.11.2018
+	 * History			: 
+	 */
+	func frWeek(tdDate) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.nWeek
+	}
+
+	/*
+	 * Syntax			: lnReturnValue = frYear(tdDate|ttDateTime)
+	 * Description		: Returns the year from the specified Date or DateTime expression.
+	 *					:
+	 * Arguments			: <tdExpression|ttExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: lnReturnValue
+	 * Remarks			: 
+	 * Author	 		: Jar C 06.11.2018
+	 * History			:
+	 */
+	func frYear(tdYear) {
+
+		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
+		return oDt.nYear
+	}
+
+
+
 	
 	/*
 	 * Syntax		: lnReturnValue = frAbs(tnExpression)
@@ -282,47 +502,69 @@ class frFunctions
 
 	/*
 	 * Syntax		: lcReturnValue = frDate(tnYear, tnMonth, tnDay)
-	 * Description		: Returns the current system date, which is controlled by the operating system, or creates a date.
+	 * Description	: Returns the current system date, which is controlled by the operating system, or creates a date.
+	 * 				:
+	 * Arguments		: <tnYear>
+	 *				: Specifies the year to return by the function.
+	 *				:
+	 *				: <tnMonth>
+	 *				: Specifies the month to return by the function.
+	 *				:
+	 *				: <tnDay>
+	 *				: Specifies the day to return by the function.
+	 *				:
+	 *				: When we specify Null arguments the function returns the current system date.
+	 *				:
+	 * Returns		: <ldReturnValue>
+	 *				: Returns a date with the current specified date format.
+	 *				:
+	 * Author		: Jar C 16.05.2018
+	 */
+	func frDate(tnYear, tnMonth, tnDay) {
+
+		ldDate = new DateClass(tnYear, tnMonth, tnDay)
+		return ldDate
+		
+	}
+
+	/*
+	 * Syntax		: lcReturnValue = frDateTime(tnYear, tnMonth, tnDay, tnHours, tnMinutes, tnSeconds)
+	 * Description	: Returns the current system date and time, which is controlled by the operating system, or creates a date time value.
 	 * 			:
 	 * Arguments		: <tnYear>
-	 *			: Specifies de year to return by the function.
+	 *			: Specifies the year to return by the function.
 	 *			:
 	 *			: <tnMonth>
-	 *			: Specifies de month to return by the function.
+	 *			: Specifies the month to return by the function.
 	 *			:
 	 *			: <tnDay>
-	 *			: Specifies de day to return by the function.
+	 *			: Specifies the day to return by the function.
 	 *			:
 	 *			: When we specify Null arguments the function returns the current system date.
 	 *			:
 	 * Returns		: <lcReturnValue>
 	 *			: Returns a date with the current specified date format.
 	 *			:
-	 * Author		: Jar C 16.05.2018
+	 * Author		: Jar C 29.11.2018
 	 */
-	func frDate(tnYear, tnMonth, tnDay) {
-	
-		if isnull(tnYear) or isnull(tnMonth) or isnull(tnDay) {
-			tnYear = timelist()[19]
-			tnMonth = timelist()[10]
-			tnDay = timelist()[6]
-		}
-	
-		return this._dateFormat(tnYear, tnMonth, tnDay)
-	}
+	func frDateTime(tnYear, tnMonth, tnDay, tnHours, tnMinutes, tnSeconds) {
 
+		ldDateTime = new DateTimeClass(tnYear, tnMonth, tnDay, tnHours, tnMinutes, tnSeconds)
+		return ldDateTime
+		
+	}
 
 
 	/*
 	 * Syntax		: llReturnValue = frEmpty(tuExpression)
-	 * Description		: Determines whether an expression evaluates to empty.
-	 *			:
-	 * Arguments   		: <tuExpression>
-	 *			: Specifies the expression that EMPTY() evaluates. You can specify an expression with Character, 
-	 *			: Numeric, or logical type.
-	 *			:
+	 * Description	: Determines whether an expression evaluates to empty.
+	 *				:
+	 * Arguments   	: <tuExpression>
+	 *				: Specifies the expression that EMPTY() evaluates. You can specify an expression with Character, 
+	 *				: Numeric, or logical type.
+	 *				:
 	 * Returns		: <llReturnValue> Logical
-	 *			:
+	 *				:
 	 * Author	 	: Jar C 06.09.2017
 	 */
 
@@ -1402,7 +1644,14 @@ class frFunctions
 					lcRet = this._list_type
 				else
 					if lcExpressionType = this._ring_object_type {
-						lcRet = this._object_type
+					
+						// if it´s a object we need to check if it's date or datetime object
+						if this._IsPorperty(tuExpression, "cClassType") {
+							lcRet = tuExpression.cClassType
+						else
+							lcRet = this._object_type
+						}
+					
 					}
 				}
 			}
@@ -1412,6 +1661,39 @@ class frFunctions
 	}	
 
 
+	func _dateFormat(tnYear, tnMonth, tnDay) {
+	
+		lcFormat = "@L 99"
+		lcMonth = this.frTransform(tnMonth, lcFormat)
+		lcDay = this.frTransform(tnDay, lcFormat)
+
+		if tnYear > 99 {
+			lcYear = this.frTransform(tnYear, "@L 9999")
+		else	
+			lcYear = this.frTransform(tnYear, lcFormat)
+		}
+		
+		if this._set_century = this._off {
+			lcYear = right(lcYear, 2)
+		else
+			if len(lcYear) < 4 {
+				lcYear = left("" + TimeList()[19], 2) + lcYear
+			}
+		}
+	
+		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
+		if left(this._set_dateformat, 1) = "m" {
+			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
+		else
+			if left(this._set_dateformat, 1) = "y" {
+				lcRet = lcYear + lcDateSeparator + lcMonth + lcDateSeparator + lcDay
+			else
+				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
+			}
+		}
+
+		return lcRet
+	}
 
 
 	/*
@@ -1419,6 +1701,27 @@ class frFunctions
 	 */
 
 	private
+	
+	
+	func _IsPorperty(toObject, tcPropertyName) {
+	
+		llRet = false
+		if isobject(toObject) {
+			laList = attributes(toObject)
+			for name in laList {
+				if lower(name) = lower(tcPropertyName) {
+					llRet = true
+					exit
+				}
+			}
+		}
+		return llRet
+	}
+	
+	
+	
+	
+	
 	
 	
 	func _process_format_for_string(tcValue, tcFormat, taValidChars)
@@ -1504,41 +1807,11 @@ class frFunctions
 		
 		return lcRet
 
-	func _dateFormat(tnYear, tnMonth, tnDay) {
 	
-		lcFormat = "@L 99"
-		lcMonth = this.frTransform(tnMonth, lcFormat)
-		lcDay = this.frTransform(tnDay, lcFormat)
-
-		if tnYear > 99 {
-			lcYear = this.frTransform(tnYear, "@L 9999")
-		else	
-			lcYear = this.frTransform(tnYear, lcFormat)
-		}
-		
-		if this._set_century = this._off {
-			lcYear = right(lcYear, 2)
-		else
-			if len(lcYear) < 4 {
-				lcYear = left("" + TimeList()[19], 2) + lcYear
-			}
-		}
-	
-		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
-		if left(this._set_dateformat, 1) = "m" {
-			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
-		else
-			if left(this._set_dateformat, 1) = "y" {
-				lcRet = lcYear + lcDateSeparator + lcMonth + lcDateSeparator + lcDay
-			else
-				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
-			}
-		}
-
-		return lcRet
+	func _GetDateObject(tnYear, tnMonth, tnDay) {
+		oDt = new DateClass(tnYear, tnMonth, tnDay)
+		return oDt
 	}
-	
-	
 
 	func _getDateFormat() {
 
@@ -1602,3 +1875,312 @@ class frFunctions
 
 	} 	
 
+}
+
+
+class DateClass {
+
+	oFr = new frFunctions
+
+
+	nYear = 0
+	nMonth = 0
+	nDay = 0
+	cValue = ""
+	cClassType = oFr._date_type
+
+	_aDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	_aDaysBeforeMonth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+	
+	cMonth1 = "January"
+	cMonth2 = "February"
+	cMonth3 = "March"
+	cMonth4 = "April"
+	cMonth5 = "May"
+	cMonth6 = "June"
+	cMonth7 = "July"
+	cMonth8 = "August"
+	cMonth9 = "September"
+	cMonth10 = "October"
+	cMonth11 = "November"
+	cMonth12 = "December"
+	
+	cMonthShort1 = "Jan"
+	cMonthShort2 = "Feb"
+	cMonthShort3 = "Mar"
+	cMonthShort4 = "Apr"
+	cMonthShort5 = "May"
+	cMonthShort6 = "Jun"
+	cMonthShort7 = "Jul"
+	cMonthShort8 = "Aug"
+	cMonthShort9 = "Sep"
+	cMonthShort10 = "Oct"
+	cMonthShort11 = "Nov"
+	cMonthShort12 = "Dec"
+	
+	cDOWeek1 = "Monday"
+	cDOWeek2 = "Tuesday"
+	cDOWeek3 = "Wednesday"
+	cDOWeek4 = "Thursday"
+	cDOWeek5 = "Friday"
+	cDOWeek6 = "Saturday"
+	cDOWeek7 = "Sunday"
+	
+	cDOWeekShort1 = "Mon"
+	cDOWeekShort2 = "Tue"
+	cDOWeekShort3 = "Wed"
+	cDOWeekShort4 = "Thu"
+	cDOWeekShort5 = "Fri"
+	cDOWeekShort6 = "Sat"
+	cDOWeekShort7 = "Sun"
+	
+	
+	
+	aMonth = [this.cMonth1, this.cMonth2, this.cMonth3, this.cMonth4, this.cMonth5, this.cMonth6, 
+				this.cMonth7, this.cMonth8, this.cMonth9, this.cMonth10, this.cMonth11, this.cMonth12]
+	
+	aMonthShort = [this.cMonthShort1, this.cMonthShort2, this.cMonthShort3, 
+					this.cMonthShort4, this.cMonthShort5, this.cMonthShort6, 
+					this.cMonthShort7, this.cMonthShort8, this.cMonthShort9, 
+					this.cMonthShort10, this.cMonthShort11, this.cMonthShort12]
+
+	aDoW = [this.cDOWeek1, this.cDOWeek2, this.cDOWeek3, this.cDOWeek4, this.cDOWeek5, this.cDOWeek6, this.cDOWeek7]
+	aDoWShort = [this.cDOWeekShort1, this.cDOWeekShort2, this.cDOWeekShort3, this.cDOWeekShort4, this.cDOWeekShort5, 
+					this.cDOWeekShort6, this.cDOWeekShort7]
+
+	cMonth = ""
+	cShortMonth = ""
+	nWeek = 0
+	nDayOfWeek = 0
+	cDayOfWeek = ""
+	cShortDayOfWeek = ""
+	
+	
+	func init(tnYear, tnMonth, tnDay) {
+		
+		this._SetDaysBeforeMonth()
+	
+		if isNull(tnYear) { 
+
+			tnYear = this.oFr.frSetIfEmpty(tnYear, TimeList()[19])
+			tnMonth = this.oFr.frSetIfEmpty(tnMonth, TimeList()[10])
+			tnDay = this.oFr.frSetIfEmpty(tnDay, TimeList()[6])
+
+		}
+		
+		tnYear = this._SetAsInt(tnYear)
+		tnMonth = this._SetAsInt(tnMonth)
+		tnDay = this._SetAsInt(tnDay)
+
+		this.nYear = tnYear
+		this.nMonth = tnMonth
+		this.nDay = tnDay
+
+		this.cValue = this.oFr._DateFormat(tnYear, tnMonth, tnDay)
+		this.cMonth = this.Month()
+		this.cShortMonth = this.ShortMonth()
+		this.nDayOfWeek = this.DayOfWeek()
+		this.cDayOfWeek = this.cDayOfWeek(Null)
+		this.cShortDayOfWeek = this.cDayOfWeek(True)
+		this.nWeek = this.Week()
+		
+	}
+
+	
+	func GetDataType() {
+		return this.cClassType
+	}
+
+	/*
+	 * Returns the month of the date
+	 */
+	func Month() {
+
+		if this.oFr.frBetween(this.nMonth, 1, 12) {
+			lcRet = this.aMonth[this.nMonth]
+		else	
+			lcRet = ""
+		}
+	
+		return lcRet
+	}
+	
+
+	func Week() {
+	
+		return floor((this._DaysBeforeMonth(this.nYear, this.nMonth) + this.nDay - this.DayOfWeek() + 10) / 7)
+
+	}
+	
+	
+	
+	
+	
+	func ShortMonth() {
+
+		if this.oFr.frBetween(this.nMonth, 1, 12) {
+			lcRet = this.aMonthShort[this.nMonth]
+		else	
+			lcRet = ""
+		}
+	
+		return lcRet
+	}
+
+
+
+    // Return day of the week, where Monday = 1 ... Sunday = 7"
+	func DayOfWeek() {
+
+		return ((this._DateToDecimal(this.nYear, this.nMonth, this.nDay) + 6) % 7) + 1
+	}
+
+	/*
+	 * Return day of the week Monday ...... Sunday 
+	 * Case tlType <> True return the abreviation
+	 */
+	func cDayOfWeek(tlType) {
+	
+		tlType = this.oFr.frSetIfEmpty(tlType, False)
+		if tlType {
+			lcRet = this.aDoWShort[this.DayOfWeek()]
+		else
+			lcRet = this.aDoW[this.DayOfWeek()]
+		}
+
+		return lcRet
+	}
+	
+	
+	func operator(tcOperator, tcValue) {
+	
+		returnValue = self
+		
+		return returnValue
+		
+	}
+
+	
+	func _SetDaysBeforeMonth() {
+		
+		lnDaysBefore = 0
+		for i = 1 to 12 {
+			this._aDaysBeforeMonth[i] = lnDaysBefore
+			lnDaysBefore += this._aDaysInMonth[i]
+		}
+	}
+	
+
+	// Transforms a value in an Int value (character or numeric)
+	func _SetAsInt(tuValue) {
+	
+		if this.oFr.frVarType(tuValue) = this.oFr._character_type {
+			lnRet = this.oFr.frVal(tuValue)
+		else	
+			lnRet = tuValue
+		}
+		
+		return this.oFr.frInt(lnRet)
+	}
+	
+	
+	
+	// Returns the number of days before January 1st of year
+	func _DaysBeforeYear(tnYear) {
+		lnYearBefore = tnYear - 1
+		
+		return (lnYearBefore * 365) + floor(lnYearBefore / 4) - 
+					floor(lnYearBefore / 100) + floor(lnYearBefore / 400)
+	}
+
+	// Returns true if leap year
+	func _IsYearLeap(tnYear) {
+		return tnYear % 4 = 0 and (tnYear % 100 != 0 or tnYear % 400 = 0)
+	}
+
+	
+	// Returns number of days in year 366 if it's a leap year other 365
+	func _NumberDaysInYear(tnYear) {
+		lnRet = 365
+		if this._IsYearLeap(tnYear) {
+			lnRet = 366
+		}
+		return lnRet
+	}
+	
+	// Return the Number of days in a month
+	func _NumberDaysInMonth(tnYear, tnMonth) {
+		lnRet = this._aDaysInMonth[tnMonth]
+		if tnMonth = 2 and this._IsYearLeap(tnYear) {
+			lnRet = 29
+		}
+		return lnRet
+	}
+	
+	// Return the number of days in year preceeding first day of month
+	func _DaysBeforeMonth(tnYear, tnMonth) {
+	
+		lnToAdd = 0
+		if tnMonth > 2 and this._IsYearLeap(tnYear) {
+			lnToAdd = 1
+		}
+
+		return this._aDaysBeforeMonth[tnMonth] + lnToAdd
+	}
+	
+	func _DateToDecimal(tnYear, tnMonth, tnDay) {
+	
+		if this.oFr.frBetween(tnMonth, 1, 12) {
+			if this.oFr.frBetween(tnDay, 1, this._NumberDaysInMonth(tnYear, tnMonth)) {
+				lnRet = this._DaysBeforeYear(tnYear) + this._DaysBeforeMonth(tnYear, tnMonth) + tnDay
+			else
+				z = error
+			}
+		else
+			z = error
+		}
+		
+		return lnRet
+	}
+
+}
+
+
+
+class DateTimeClass from DateClass {
+
+	nHours = 0
+	nMinutes = 0
+	nSeconds = 0
+	
+
+	func init(tnYear, tnMonth, tnDay, tnHours, tnMinutes, tnSeconds) {
+	
+		this.cClassType = this.oFr._datetime_type 
+
+		super.init(tnYear, tnMonth, tnDay)
+
+		if isNull(tnHours) { 
+
+			tnHours = this.oFr.frSetIfEmpty(tnHours, TimeList()[7])
+			tnMinutes = this.oFr.frSetIfEmpty(tnMinutes, TimeList()[11])
+			tnSeconds = this.oFr.frSetIfEmpty(tnSeconds, TimeList()[13])
+
+		}
+		
+		tnHours = this._SetAsInt(tnHours)
+		tnMinutes = this._SetAsInt(tnMinutes)
+		tnSeconds = this._SetAsInt(tnSeconds)
+
+		this.nHours = tnHours
+		this.nMinutes = tnMinutes
+		this.nSeconds = tnSeconds
+
+		this.cValue = this.oFr._DateFormat(tnYear, tnMonth, tnDay) + " " + 
+						this.oFr.frTransform(tnHours, "@L 99") + ":" +
+						this.oFr.frTransform(tnMinutes, "@L 99") + ":" +
+						this.oFr.frTransform(tnSeconds, "@L 99") 
+		
+
+		}
+}
