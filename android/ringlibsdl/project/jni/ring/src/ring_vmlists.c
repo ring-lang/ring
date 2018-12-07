@@ -30,6 +30,15 @@ void ring_vm_liststart ( VM *pVM )
 					if ( (ring_list_getsize(pVM->aBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) && (! pVM->nInClassRegion) ) {
 						nCont = 1 ;
 					}
+					/*
+					**  When we assign a List to an Object Attribute 
+					**  In this case the instruction ICO_SETPROPERTY will not be called 
+					**  But we have the attribute data added to aSetProperty 
+					**  So We Must Clean It 
+					*/
+					if ( ring_list_getsize(pVM->aSetProperty) > 0 ) {
+						ring_list_deleteitem_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
+					}
 				}
 			}
 		}
