@@ -46,6 +46,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 						nCont = 0 ;
 						/* Clear the Assignment Pointer */
 						pVM->pAssignment = NULL ;
+						ring_vm_cleansetpropertylist(pVM);
 					}
 				}
 				if ( pVM->nFuncExecute > 0 ) {
