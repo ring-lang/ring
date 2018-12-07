@@ -143,8 +143,9 @@ More Improvements
 (1) Better Read Me File 
 (2) Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
 (3) Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
-(4) Ring Compiler : Support source code files with one line of comment without end of line
+(4) Ring Compiler : Support source code files with one line of comment without end of line.
 (5) Ring VM : Better support for the (Return) command inside braces that access new objects.
 (6) Ring VM : Dir() Function - Don't add "." and ".." to the output
-(7) Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS
-(8) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder
+(7) Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS.
+(8) Ring VM : ICO_LISTSTART - Clean pVM->aSetProperty when setting an object attribute.
+(9) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
