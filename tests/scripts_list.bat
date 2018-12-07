@@ -293,3 +293,5 @@ call ring scripts/opinlitthenop.ring
 call ring scripts/commentcaller.ring
 call ring scripts/commentfile.ring
 call ring scripts/commentfile2.ring
+call ring scripts/selfwrongref.ring
+call ring scripts/selfwrongref2.ring

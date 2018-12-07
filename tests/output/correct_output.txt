@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-18
-104
-86
+19
+94
+75
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 1259
+Time 1185
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-0111A338
+010D5338
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1
 nindex: 2
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 16/11/2018
-time: 06:02:46
+date: 07/12/2018
+time: 22:09:45
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3611,3 +3611,31 @@ B:\ring\tests>call ring scripts/commentfile.ring
 
 B:\ring\tests>call ring scripts/commentfile2.ring 
 wow
+
+B:\ring\tests>call ring scripts/selfwrongref.ring 
+A: 0
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: FineA
+B: FineB
+C: 2
+
+
+
+B:\ring\tests>call ring scripts/selfwrongref2.ring 
+x: 22
+y: 20
+z: [This Attribute Contains A List]
+
