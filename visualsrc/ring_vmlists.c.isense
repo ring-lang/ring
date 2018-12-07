@@ -52,3 +52,4 @@ cStr2
 ring_vm_strcmpnotcasesensitive
 Type: int
 nNum1
+ring_vm_cleansetpropertylist
