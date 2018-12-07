@@ -715,7 +715,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			if ( (ring_parser_icg_getlastoperation(pParser) != ICO_SETSCOPE) && (pParser->nNoAssignment==0) ) {
 				/*
-				**  We don't need assignment after ListEnd, because lists directly stored in the Varaible 
+				**  We don't need assignment after ListEnd, because lists directly stored in the Variable 
 				**  We do this when we are not inside Brace 
 				*/
 				nNOOP = 0 ;
