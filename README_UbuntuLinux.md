@@ -6,7 +6,7 @@
 
 ### Get the source code
 
-	git clone http://github.com/ring-lang/ring.git
+	git clone https://github.com/ring-lang/ring.git
 	
 ### Install Libraries 
 	
