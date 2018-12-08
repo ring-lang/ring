@@ -271,6 +271,12 @@ Gamification is a first-class citizen in the language. This is a tremendous adva
 The best way to assesing the power of Ring is to looking into it and reflecting about the number of problems it is capable to solve."
 	, Mansour Ayouni (Tunisia)
 
+"I have only known ring-lang for few weeks, really love features and visions of ring: bracket access, class region, declarative and natural programming.
+It's simple and beautiful the way ring deal with these paradigms. I think it's really great work what you're done, and doing.
+I want to develop ethereum client in ring language, not only but it's style. It'll have natural and declarative code on it's main part.
+Furthermore, It will be fantastic if there is "natural language -> evm bytecode" compiler, maybe ring have the solution"
+	, Asta 
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
