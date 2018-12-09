@@ -34,7 +34,7 @@ typedef struct Parser {
 	char nInsertFlag  ;
 	int nInsertCounter  ;
 	/* required for using { } after using new object to avoid assignment */
-	char nNoAssignment  ;
+	char nNewObject  ;
 	/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 	char nFuncCallOnly  ;
 	/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */

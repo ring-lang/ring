@@ -43,7 +43,7 @@ nInsertFlag
 Type: int
 nInsertCounter
 Type: char
-nNoAssignment
+nNewObject
 Type: char
 nFuncCallOnly
 Type: int
