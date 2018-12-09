@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  The First Step  - Start Here 
 */
 #include "ring.h"
@@ -713,7 +713,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			}
 			#endif
 			/* Generate Code */
-			if ( (ring_parser_icg_getlastoperation(pParser) != ICO_SETSCOPE) && (pParser->nNoAssignment==0) ) {
+			if ( pParser->nNoAssignment==0 ) {
 				/*
 				**  We don't need assignment after ListEnd, because lists directly stored in the Variable 
 				**  We do this when we are not inside Brace 
@@ -730,7 +730,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					*/
 				}
 				/*
-				**  ICO_SETSCOPE comes after creating new object using NEW, in the case no assignment is required 
 				**  Before Equal 
 				**  Generate Code 
 				*/
