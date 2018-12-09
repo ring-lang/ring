@@ -703,7 +703,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 			RING_PARSER_IGNORENEWLINE ;
-			pParser->nNoAssignment = 0 ;
+			pParser->nNewObject = 0 ;
 			x = ring_parser_expr(pParser);
 			#if RING_PARSERTRACE
 			if ( x == 1 ) {
@@ -713,7 +713,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			}
 			#endif
 			/* Generate Code */
-			if ( pParser->nNoAssignment==0 ) {
+			if ( pParser->nNewObject==0 ) {
 				/*
 				**  We don't need assignment after ListEnd, because lists directly stored in the Variable 
 				**  We do this when we are not inside Brace 
@@ -750,13 +750,35 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				else {
 					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				}
-				/* Generate Locations for Setproperty before/after Flag & nPC of Setter */
+				/*
+				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
+				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
+				*/
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
-				/* Locations is done also for Assignment because assignment can be changed to SetProperty by the VM */
 			}
 			else {
-				pParser->nNoAssignment = 0 ;
+				/* In this case we have (New Object) */
+				pParser->nNewObject = 0 ;
+				/*
+				**  Before Equal 
+				**  Generate Code 
+				*/
+				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
+				ring_parser_icg_newoperandint(pParser,nBeforeEqual);
+				if ( lSetProperty == 0 ) {
+					ring_parser_icg_newoperation(pParser,ICO_NOOP);
+					/* Add Assignment position to the LoadAddress Instruction */
+					if ( pLoadAPos != NULL ) {
+						ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+					}
+					/*
+					**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
+					**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
+					*/
+					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,0);
+				}
 			}
 			return x ;
 		}
@@ -951,7 +973,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			RING_PARSER_IGNORENEWLINE ;
 			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 				x = ring_parser_mixer(pParser);
-				pParser->nNoAssignment = 1 ;
+				pParser->nNewObject = 1 ;
 				return x ;
 			}
 			else if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
@@ -978,10 +1000,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_mixer(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
-				pParser->nNoAssignment = 1 ;
+				pParser->nNewObject = 1 ;
 				return x ;
 			}
-			pParser->nNoAssignment = 1 ;
+			pParser->nNewObject = 1 ;
 			/*
 			**  Generate Code 
 			**  PUSHV enable using braces to access the object 
@@ -1020,7 +1042,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
 			x = pParser->nAssignmentFlag ;
-			x2 = pParser->nNoAssignment ;
+			x2 = pParser->nNewObject ;
 			x3 = pParser->nBraceFlag ;
 			pParser->nAssignmentFlag = 1 ;
 			pParser->nBraceFlag = 0 ;
@@ -1030,7 +1052,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				}
 			}
 			pParser->nAssignmentFlag = x ;
-			pParser->nNoAssignment = x2 ;
+			pParser->nNewObject = x2 ;
 			pParser->nBraceFlag = x3 ;
 			if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 				ring_parser_nexttoken(pParser);

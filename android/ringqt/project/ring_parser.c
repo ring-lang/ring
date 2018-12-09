@@ -72,7 +72,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nBraceFlag = 0 ;
 	pParser->nInsertFlag = 0 ;
 	pParser->nInsertCounter = 0 ;
-	pParser->nNoAssignment = 0 ;
+	pParser->nNewObject = 0 ;
 	pParser->nFuncCallOnly = 0 ;
 	pParser->nControlStructureExpr = 0 ;
 	pParser->nControlStructureBrace = 0 ;
