@@ -1,4 +1,5 @@
   aNews = [
+  ["December 11, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">The Chess Game </a>'],
   ["November 6, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">The GameOfLife Game </a>'],
   ["October 16, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/editor/vscode" target="_blank"> Ring extension for Visual Studio Code</a>'],
   ["October 14, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank"> Knight Tour Game</a>'],
