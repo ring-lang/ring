@@ -77,6 +77,18 @@ The goal is to defeat your opponent once the opponent misses a ball.
 	:alt: Pong Game
 
 .. index:: 
+	pair: What is new in Ring 1.10?; Chess Game
+
+Chess Game
+==========
+
+Chess Game (2 Players)
+
+.. image:: chessgame.png
+	:alt: Chess Game
+
+
+.. index:: 
 	pair: What is new in Ring 1.10?; More Games
 
 More Games
@@ -89,8 +101,6 @@ The next games are added to the application folder
 * Magic Four Game
 * Sum Puzzle Game
 * Snakes and Ladders Game
-* Chess Game (2 Players)
-* Checkers Game
 
 The next screen shot for the Sum Puzzle Game
 
