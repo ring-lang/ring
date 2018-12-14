@@ -944,6 +944,26 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		ring_list_addstring_gc(pVM->pRingState,pList,ring_list_getstring(pVar,1));
 		/* Property Variable */
 		ring_list_addpointer_gc(pVM->pRingState,pList,pVar);
+		/*
+		**  Check if we don't have the Setter Method 
+		**  We do this to enable the Assignment Pointer and Disable Set Property for Lists and Objects 
+		*/
+		pString2 = ring_string_new_gc(pVM->pRingState,"set");
+		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,1));
+		/* Check Type */
+		pList2 = NULL ;
+		if ( pVM->nGetSetObjType == RING_OBJTYPE_VARIABLE ) {
+			pList2 = ring_list_getlist((List *) (pVM->pGetSetObject),RING_VAR_VALUE ) ;
+		}
+		else if ( pVM->nGetSetObjType == RING_OBJTYPE_LISTITEM ) {
+			pItem2 = (Item *) pVM->pGetSetObject ;
+			pList2 = ring_item_getlist(pItem2) ;
+		}
+		pVM->lNoSetterMethod = 0 ;
+		if ( ! ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
+			pVM->lNoSetterMethod = 1 ;
+		}
+		ring_string_delete_gc(pVM->pRingState,pString2);
 	}
 	/* Delete String */
 	ring_string_delete_gc(pVM->pRingState,pString);
@@ -954,6 +974,11 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	List *pList, *pList2  ;
 	Item *pItem,*pItem2  ;
 	String *pString  ;
+	/* If we don't have a setter method and we have a new list or new object */
+	if ( pVM->lNoSetterMethod == 2 ) {
+		pVM->lNoSetterMethod = 0 ;
+		return ;
+	}
 	/* To Access Property Data */
 	if ( ring_list_getsize(pVM->aSetProperty) < 1 ) {
 		/* This case happens when using This.Attribute inside nested braces in a class method */

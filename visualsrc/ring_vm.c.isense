@@ -194,6 +194,8 @@ Type: char
 lInsideEval
 Type: List *
 pCLibraries
+Type: char
+lNoSetterMethod
 END:
 Type: VM
 struct VM
