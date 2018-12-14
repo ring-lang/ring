@@ -1,13 +1,6 @@
 The Ring Package Manager (RingPM)
 =================================
 
-In this folder we will develop the Ring package manager
-
-We will have live streams for this project (Facebook)
-
-Also we will publish the live streams on (YouTube)
-
-
 <table>
 	<tr>	
 		<th>Index</th>
