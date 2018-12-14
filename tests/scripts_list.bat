@@ -297,3 +297,7 @@ call ring scripts/selfwrongref.ring
 call ring scripts/selfwrongref2.ring
 call ring scripts/selfwrongref3.ring
 call ring scripts/mysetter.ring
+call ring scripts/mysetter2.ring
+call ring scripts/mysetter3.ring
+call ring scripts/mysetter4.ring
+call ring scripts/mysetter5.ring
