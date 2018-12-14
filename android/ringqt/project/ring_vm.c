@@ -197,6 +197,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lInsideEval = 0 ;
 	/* Dynamic Libraries */
 	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
+	/* No Setter Method (used by ring_vm_oop_setget() function) */
+	pVM->lNoSetterMethod = 0 ;
 	return pVM ;
 }
 

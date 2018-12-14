@@ -612,12 +612,13 @@ int ring_parser_range ( Parser *pParser )
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
 	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2  ;
-	List *pLoadAPos, *pList, *pMark  ;
+	List *pLoadAPos, *pList, *pMark,*pAssignmentPointerPos  ;
 	char lSetProperty,lequal,nBeforeEqual  ;
 	char cFuncName[100]  ;
 	char cKeyword[100]  ;
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
 	*nFlag = 0 ;
+	pAssignmentPointerPos = NULL ;
 	/* Factor --> Identifier  {mixer} [ '=' Expr ] */
 	if ( ring_parser_isidentifier(pParser) ) {
 		/* Generate Code */
@@ -702,6 +703,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser) ;
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->nNewObject = 0 ;
 			x = ring_parser_expr(pParser);
@@ -720,7 +722,11 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				*/
 				nNOOP = 0 ;
 				if ( (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) && (pParser->nBraceFlag == 0) ) {
-					return x ;
+					if ( lSetProperty == 0 ) {
+						return x ;
+					}
+					/* Disable Assignment Pointer */
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
 				}
 				else if ( (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) && (pParser->nBraceFlag >= 1) ) {
 					nNOOP = 1 ;
@@ -728,6 +734,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					**  No Assignment is required but we add ICO_NOOP instead 
 					**  ICO_NOOP can be converted to Set Property when we access object attributes inside {} 
 					*/
+					if ( lSetProperty == 1 ) {
+						/* Disable Assignment Pointer */
+						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+					}
 				}
 				/*
 				**  Before Equal 
@@ -742,10 +752,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					else {
 						ring_parser_icg_newoperation(pParser,ICO_NOOP);
 					}
-					/* Add Assignment position to the LoadAddress Instruction */
-					if ( pLoadAPos != NULL ) {
-						ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
-					}
 				}
 				else {
 					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
@@ -756,6 +762,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				*/
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
+				/* Add Assignment position to the LoadAddress Instruction */
+				if ( pLoadAPos != NULL ) {
+					ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+				}
 			}
 			else {
 				/* In this case we have (New Object) */
@@ -768,16 +778,21 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperandint(pParser,nBeforeEqual);
 				if ( lSetProperty == 0 ) {
 					ring_parser_icg_newoperation(pParser,ICO_NOOP);
-					/* Add Assignment position to the LoadAddress Instruction */
-					if ( pLoadAPos != NULL ) {
-						ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
-					}
-					/*
-					**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
-					**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
-					*/
-					ring_parser_icg_newoperandint(pParser,0);
-					ring_parser_icg_newoperandint(pParser,0);
+				}
+				else {
+					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
+					/* Disable Assignment Pointer */
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+				}
+				/*
+				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
+				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
+				*/
+				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,0);
+				/* Add Assignment position to the LoadAddress Instruction */
+				if ( pLoadAPos != NULL ) {
+					ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
 				}
 			}
 			return x ;

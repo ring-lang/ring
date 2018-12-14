@@ -504,6 +504,22 @@ void ring_vm_assignmentpointer ( VM *pVM )
 	List *pList, *pList2  ;
 	Item *pItem  ;
 	int x  ;
+	/* Check Instruction Parameters */
+	if ( RING_VM_IR_PARACOUNT >= 2 ) {
+		if ( RING_VM_IR_READI == 0 ) {
+			/*
+			**  We have this option with New Lists and  New Objects only 
+			**  We will accept this option only when we have the setter method 
+			*/
+			if ( pVM->lNoSetterMethod == 0 ) {
+				pVM->nNOAssignment = 1 ;
+			}
+			else {
+				/* Tell the ICO_SETPROPERTY instruction to be disabled */
+				pVM->lNoSetterMethod = 2 ;
+			}
+		}
+	}
 	if ( pVM->nNOAssignment == 0 ) {
 		pVM->pAssignment = RING_VM_STACK_READP ;
 		/* Check trying to change the self pointer */

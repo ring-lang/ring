@@ -49,6 +49,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->lNoSetterMethod);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -125,6 +126,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,ring_list_getint(pList,38),pVM->pLoadAddressScope);
 	/* We restore the global scope befor the This variable, because This use global scope */
 	pVM->nCurrentGlobalScope = ring_list_getint(pList,41) ;
+	pVM->lNoSetterMethod = ring_list_getint(pList,42) ;
 	/* Restore This variable */
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,39));
@@ -177,6 +179,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCurrentGlobalScope);
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->lNoSetterMethod);
 	pVM->nInClassRegion = 0 ;
 	pVM->pAssignment = NULL ;
 	pVM->nNOAssignment = 0 ;
@@ -220,6 +223,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	ring_vm_backstate(pVM,ring_list_getint(pList,x+27),pVM->pLoadAddressScope);
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = ring_list_getint(pList,x+30) ;
+	pVM->lNoSetterMethod = ring_list_getint(pList,x+31) ;
 	/* Restore This variable */
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));

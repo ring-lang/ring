@@ -105,6 +105,7 @@ typedef struct VM {
 	char lUsePushPLocal  ;
 	char lInsideEval  ;
 	List *pCLibraries  ;
+	char lNoSetterMethod  ;
 } VM ;
 /*
 **  Functions 
