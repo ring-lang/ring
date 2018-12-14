@@ -160,4 +160,5 @@ More Improvements
 (8)  Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS.
 (9)  Ring VM : ICO_LISTSTART - Clean pVM->aSetProperty when setting an object attribute.
 (10) Ring VM : ICO_NEWOBJECT - Clean pVM->aSetProperty when setting an object attribute.
-(11) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
+(11) Ring VM : Better code for Setter and Getter methods support.
+(12) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
