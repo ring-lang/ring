@@ -20,6 +20,7 @@ Ring 1.10 comes with the next features!
 * Knight Tour Game
 * Game of Life Game
 * Pong Game
+* Snakes and Ladder Game
 * More Games
 * Ring Extension for Visual Studio Code
 * The Ring Package Manager (RingPM)
@@ -89,6 +90,17 @@ The goal is to defeat your opponent once the opponent misses a ball.
 	:alt: Pong Game
 
 .. index:: 
+	pair: What is new in Ring 1.10?; Snakes And Ladder Game
+
+Snakes And Ladder Game
+======================
+
+The Snakes and Ladder Game using Ring Game Engine for 2D Games
+
+.. image:: snakesgame.png
+	:alt: Snakes Game
+
+.. index:: 
 	pair: What is new in Ring 1.10?; More Games
 
 More Games
@@ -100,7 +112,6 @@ The next games are added to the application folder
 * Dots and Boxes Game
 * Magic Four Game
 * Sum Puzzle Game
-* Snakes and Ladders Game
 
 The next screen shot for the Sum Puzzle Game
 
