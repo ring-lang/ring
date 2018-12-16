@@ -137,7 +137,9 @@ The Ring Package Manager (RingPM)
 
 Ring comes with a package manager (RingPM) that we can use to install, update and remove packages.
 
-The package manager comes with the next options
+The Package Manager uses Semantic Versioning to check compatibility between packages 
+
+The Package Manager comes with the next options
 
 .. code-block:: none
 
