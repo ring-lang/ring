@@ -25,6 +25,17 @@ mf = new frFunctions
  ?"Name of the week day       : " + mf.frCDow(ldDate, 1) 
  ?"Short Name of the week day : " + mf.frCDowShort(ldDate, 1) 
  ?"Week number                : " + mf.frWeek(ldDate)
+ 
+/*----------------------------------------------------------
+ * New Sample from frCTOD() function                                         
+ *----------------------------------------------------------*/
+ ?"DTOC() Function 1         : " + mf.frDToc(ldDate, Null)
+ ?"DTOC(..., 1) Function 1		 : " + mf.frDToc(ldDate, 1)
+
+
+
+
+ 
  ?""
  ?""
  ?"Date time test"
@@ -39,7 +50,15 @@ mf = new frFunctions
  ?"Name of the week day       : " + mf.frCDow(ltDateTime, 1) 
  ?"Short Name of the week day : " + mf.frCDowShort(ltDateTime, 1) 
  ?"Week number                : " + mf.frWeek(ltDateTime)
- 
+
+/*----------------------------------------------------------
+ * New Sample from frCTOD() function                                         
+ *----------------------------------------------------------*/
+ ?"DTOC() Function 1         : " + mf.frDToc(ltDateTime, Null)
+ ?"DTOC(..., 1) Function 1		 : " + mf.frDToc(ltDateTime, 1)
+
+
+
 
 /*----------------------------------------------------------
  * End Date and DateTime functions
