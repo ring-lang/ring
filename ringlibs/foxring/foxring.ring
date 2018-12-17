@@ -19,6 +19,7 @@
  *	frDateTime()			Returns the current system date and time, which is controlled by the operating system, or creates a date time value.
  *	frDay() 			Returns the numeric day of the month for a given Date or DateTime expression.
  *	frDoW() 			Returns a numeric day of the week value from a Date or DateTime expression.
+ *	frDToC()			Returns a character string as a date format from a Date or a DateTime expression.
  *	frEmpty()			Determines whether an expression evaluates to empty.
  *	frFile()			Checks if a file exists on disk.
  *	frFileToStr()			Returns the contents of a file as a character string.
@@ -80,48 +81,48 @@
 	
 class frFunctions {
 
-	_version 				= "1.0.144"
+	_version 				= "1.0.145"
 
 	_character_type 			= "C"
-	_numeric_type 			= "N"	
+	_numeric_type 				= "N"	
 	_date_type 				= "D"
-	_datetime_type 			= "T"
+	_datetime_type 				= "T"
 	_list_type 				= "A"
 	_object_type 				= "O"
 	_undefined_type 			= "U"
 	
-	_decimal_point 			= "."		
+	_decimal_point 				= "."		
 	_empty_char 				= ""
 	_space 					= " "
 	_back_slash 				= "\"
 	_separator 				= ","
 
-	_on 						= "ON"
+	_on 					= "ON"
 	_off 					= "OFF"
 	
-	_ring_character_type 		= "STRING"
-	_ring_numeric_type 		= "NUMBER"
+	_ring_character_type 			= "STRING"
+	_ring_numeric_type 			= "NUMBER"
 	_ring_list_type 			= "LIST"
-	_ring_object_type 		= "OBJECT"
+	_ring_object_type 			= "OBJECT"
 
-	_dateform_american 		= "mm/dd/yy"
-	_dateform_ansi 			= "yy.mm.dd"
-	_dateform_british_french	= "dd/mm/yy"
-	_dateform_british 		= "dd/mm/yy"
+	_dateform_american 			= "mm/dd/yy"
+	_dateform_ansi 				= "yy.mm.dd"
+	_dateform_british_french		= "dd/mm/yy"
+	_dateform_british 			= "dd/mm/yy"
 	_dateform_french			= "dd/mm/yy"
 	_dateform_german 			= "dd.mm.yy"
 	_dateform_italian			= "dd-mm-yy"
-	_dateform_japan			= "yy/mm/dd"
+	_dateform_japan				= "yy/mm/dd"
 	_dateform_taiwan			= "yy/mm/dd"
 	_dateform_usa				= "mm-dd-yy"
 	_dateform_mdy				= "mm/dd/yy"
 	_dateform_dmy				= "dd/mm/yy"
 	_dateform_ymd				= "yy/mm/dd"
 
-	_date_american 			= "AMERICAN"
+	_date_american 				= "AMERICAN"
 	_date_ansi 				= "ANSI"
-	_date_british_french		= "BRITISH/FRENCH"
-	_date_british 			= "BRITISH"
+	_date_british_french			= "BRITISH/FRENCH"
+	_date_british 				= "BRITISH"
 	_date_french 				= "FRENCH"
 	_date_german 				= "GERMAN"
 	_date_italian				= "ITALIAN"
@@ -132,12 +133,12 @@ class frFunctions {
 	_date_dmy				= "DMY"
 	_date_ymd				= "YMD"
 
-	_set_separator 			= _separator
+	_set_separator 				= _separator
 	_set_century				= _off
-	_set_century_to			= -1
-	_set_century_rollover		= 48
+	_set_century_to				= -1
+	_set_century_rollover			= 48
 	_set_date 		 		= _date_dmy
-	_set_dateformat			= _dateform_dmy
+	_set_dateformat				= _dateform_dmy
 
 	
 	/*
@@ -556,6 +557,42 @@ class frFunctions {
 
 
 	/*
+	 * Syntax		: lcReturnValue = frDToC(tdExpression|ttExpresion, tnOutputFormat)
+	 * Description		: Returns a character string as a date format from a Date or a DateTime expression.
+	 * 			:
+	 * Arguments		: <tdExpression|ttExpression>
+	 *			: Specifies a Date or a DateTime expression.
+	 *			:
+	 *			: <tnOutputFormat>
+	 *			: When 1 returns always the "yyyymmdd" format.
+	 *			:
+	 * Returns		: <lcReturnValue>
+	 *			: Returns a string with the date according with the Output format
+	 *			:
+	 * Author		: Jar C 17.12.2018
+	 */
+	func frDToC(tuExpression, tuOutput) {
+	
+		lcRet = ""
+		lcExpressionType = this.frVarType(tuExpression) 
+		if lcExpressionType = this._date_type or lcExpressionType = this._datetime_type {
+			if not this.frEmpty(tuOutput) {
+				lcRet = this.frTransform(tuExpression.nYear, "@L 9999") + 
+						this.frTransform(tuExpression.nMonth, "@L 99") +
+						this.frTransform(tuExpression.nDay, "@L 99")
+			else
+				lcRet = this._DateFormat(tuExpression.nYear, tuExpression.nMonth, tuExpression.nDay)
+			}
+		}
+		return lcRet
+	}
+	 
+
+
+
+
+
+	/*
 	 * Syntax		: llReturnValue = frEmpty(tuExpression)
 	 * Description	: Determines whether an expression evaluates to empty.
 	 *				:
@@ -567,7 +604,6 @@ class frFunctions {
 	 *				:
 	 * Author	 	: Jar C 06.09.2017
 	 */
-
 	func frEmpty(tuExpression) {
 	
 		llRet = False
