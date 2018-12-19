@@ -14,11 +14,9 @@ load "html2pdf.ring"
 load "bootstrappage.ring"
 load "webpage.ring"
 load "bootstrapwebpage.ring"
+load "htmlpage.ring"
 
 Package System.Web
-
-	class HtmlPage from WebPage
-		NoOutput()
 
 	Class ObjsBase  From Application
 
