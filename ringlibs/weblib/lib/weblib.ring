@@ -13,11 +13,9 @@ load "pagebuffer.ring"
 load "html2pdf.ring"
 load "bootstrappage.ring"
 load "webpage.ring"
+load "bootstrapwebpage.ring"
 
 Package System.Web
-
-	Class BootStrapWebPage from WebPage
-		lBootStrap = True
 
 	class HtmlPage from WebPage
 		NoOutput()
