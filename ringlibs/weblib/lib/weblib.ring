@@ -9,11 +9,9 @@ load "application.ring"
 load "page.ring"
 load "scriptfunctions.ring"
 load "stylefunctions.ring"
+load "pagebuffer.ring"
 
 Package System.Web
-
-	Class PageBuffer from Page
-		Func BraceEnd			
 
 	Class HTML2PDF from page
 		filepath filefolder
