@@ -10,13 +10,9 @@ load "page.ring"
 load "scriptfunctions.ring"
 load "stylefunctions.ring"
 load "pagebuffer.ring"
+load "html2pdf.ring"
 
 Package System.Web
-
-	Class HTML2PDF from page
-		filepath filefolder
-		Func BraceEnd
-			HTML2PDF(filepath,filefolder,cOutput)
 
 	Class BootStrapPage from Page
 		lBootstrap = True
