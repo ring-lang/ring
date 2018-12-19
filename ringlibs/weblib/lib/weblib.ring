@@ -11,11 +11,9 @@ load "scriptfunctions.ring"
 load "stylefunctions.ring"
 load "pagebuffer.ring"
 load "html2pdf.ring"
+load "bootstrappage.ring"
 
 Package System.Web
-
-	Class BootStrapPage from Page
-		lBootstrap = True
 
 	Class WebPage from Application
 
