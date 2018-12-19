@@ -175,3 +175,4 @@ More Improvements
 (10) Ring VM : ICO_NEWOBJECT - Clean pVM->aSetProperty when setting an object attribute.
 (11) Ring VM : Better code for Setter and Getter methods support.
 (12) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
+(13) WebLib  : Separate the library to many source code files.
