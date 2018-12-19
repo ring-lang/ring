@@ -6,20 +6,7 @@ Import System.Web
 
 load "globals.ring"
 load "functions.ring"
-
-mergemethods("page","stylefunctions")
-mergemethods("page","scriptfunctions")
-
-mergemethods("ObjsBase","stylefunctions")
-mergemethods("ObjsBase","scriptfunctions")
-mergemethods("objsbase","newobjectsfunctions")
-
-mergemethods("webpage","stylefunctions")
-mergemethods("webpage","scriptfunctions")
-mergemethods("webpage","newobjectsfunctions")
-
-loadvars()
-
+load "prepare.ring"
 
 Package System.Web
 			
