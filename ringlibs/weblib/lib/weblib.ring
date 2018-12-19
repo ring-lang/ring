@@ -2,8 +2,6 @@
 # Web Library
 # 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
-Import System.Web
-
 load "globals.ring"
 load "functions.ring"
 load "prepare.ring"
