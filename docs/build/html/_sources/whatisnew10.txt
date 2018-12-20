@@ -163,16 +163,16 @@ The Package Manager comes with the next options
 More Improvements
 =================
 
-(1)  Better Read Me File 
-(2)  Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
-(3)  Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
-(4)  Ring Compiler : Support source code files with one line of comment without end of line.
-(5)  Ring Compiler : change nNoAssignment attribute in Parser Structure to nNewObject.
-(6)  Ring VM : Better support for the (Return) command inside braces that access new objects.
-(7)  Ring VM : Dir() Function - Don't add "." and ".." to the output
-(8)  Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS.
-(9)  Ring VM : ICO_LISTSTART - Clean pVM->aSetProperty when setting an object attribute.
-(10) Ring VM : ICO_NEWOBJECT - Clean pVM->aSetProperty when setting an object attribute.
-(11) Ring VM : Better code for Setter and Getter methods support.
-(12) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
-(13) WebLib  : Separate the library to many source code files.
+(1)  Ring Compiler : Better support for (Operator Operator) to avoid checking the first operator when it's a literal.
+(2)  Ring Compiler : When we load a file that doesn't exist, display the caller file name in the error message.
+(3)  Ring Compiler : Support source code files with one line of comment without end of line.
+(4)  Ring Compiler : change nNoAssignment attribute in Parser Structure to nNewObject.
+(5)  Ring VM : Better support for the (Return) command inside braces that access new objects.
+(6)  Ring VM : Dir() Function - Don't add "." and ".." to the output
+(7)  Ring VM : Dir() Function - Correct output for the item type (file|directory) on Linux and macOS.
+(8)  Ring VM : ICO_LISTSTART - Clean pVM->aSetProperty when setting an object attribute.
+(9)  Ring VM : ICO_NEWOBJECT - Clean pVM->aSetProperty when setting an object attribute.
+(10) Ring VM : Better code for Setter and Getter methods support.
+(11) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
+(12) WebLib  : Separate the library to many source code files.
+(13) Better Read Me File 
