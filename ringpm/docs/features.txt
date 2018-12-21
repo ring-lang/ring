@@ -17,6 +17,7 @@ Features
 	* Install package from specific user of GitHub				DONE
 	* Install package from the Registry					DONE
 	* Install files in the ring folder like ring/bin			DONE
+	* Install special files for each operating system 			DONE
 ======================================================================================
 * Remove 									DONE
 	* Don't delete a package when it's still used by other packages 	DONE 
