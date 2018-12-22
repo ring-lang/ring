@@ -1,0 +1,10 @@
+hello from class
+Hello Mahmoud
+name: Mahmoud
+country: egypt
+phone: 1234567879
+hello from class
+Hello Mahmoud
+name: Mahmoud
+country: egypt
+phone: 1234567879
