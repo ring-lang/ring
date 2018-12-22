@@ -1,0 +1,16 @@
+good
+r value : 1
+I am here
+cName value : Mahmoud
+cname: Mahmoud
+caddress: Egypt
+cphone: 123456789
+r: 0
+Mahmoud
+Ahmed
+r value : 1
+good
+cname: Ahmed
+caddress: Egypt
+cphone: 123456789
+r: 0

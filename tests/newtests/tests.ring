@@ -8,5 +8,6 @@ aTests = [
 	[ :name = "Hello World Program (Using See and nl)" 	, :Command = "ring helloworld/helloworld2.ring" ],
 	[ :name = "Hello World Program (Using Put)" 		, :Command = "ring helloworld/helloworld3.ring" ],
 	[ :name = "Hello World Program (Using Put and nl)" 	, :Command = "ring helloworld/helloworld4.ring" ],
-	[ :name = "Testing Object Oriented" 			, :Command = "ring objectoriented/oop.ring" ]
+	[ :name = "Testing Object Oriented" 			, :Command = "ring objectoriented/oop.ring" ],
+	[ :name = "Testing Object Oriented (Part 2)"		, :Command = "ring objectoriented/oop2.ring" ]
 ]
