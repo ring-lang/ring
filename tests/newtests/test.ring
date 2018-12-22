@@ -76,6 +76,18 @@ func ShowTestResult  nIndex,aTest
 			style("PASS",:YellowBlack)
 		else 
 			style("FAIL",:WhiteBlue)
+			DisplayFileName(aTest)
 		ok
 	ok
 
+func DisplayFileName aTest
+	cCommand = aTest[:command]
+	cCommand = substr(cCommand,"ring ","")
+	for cChar in ["<",">"]
+		nPos = substr(cCommand,cChar)
+		if nPos
+			cCommand = left(cCommand,nPos-1)
+		ok
+	next
+	cCommand = JustFileName(cCommand)
+	see " (" + cCommand + ")"
