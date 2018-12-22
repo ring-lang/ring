@@ -1,0 +1,19 @@
+Hello Mahmoud
+before 
+A
+h
+m
+e
+d
+After
+Hello Samir
+before 
+S
+a
+m
+i
+r
+After
+Name : Samir
+Address : Egypt
+Phone : 123456
