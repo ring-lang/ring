@@ -8,7 +8,7 @@ aTests = [
 	[ :name = "Hello World Program (Using See and nl)" 	, :Command = "ring helloworld/helloworld2.ring" ],
 	[ :name = "Hello World Program (Using Put)" 		, :Command = "ring helloworld/helloworld3.ring" ],
 	[ :name = "Hello World Program (Using Put and nl)" 	, :Command = "ring helloworld/helloworld4.ring" ],
-	[ :name = "Testing Object Oriented" 			, :Command = "ring objectoriented/oop.ring" ],
+	[ :name = "Testing Object Oriented (Part 1)"		, :Command = "ring objectoriented/oop.ring" ],
 	[ :name = "Testing Object Oriented (Part 2)"		, :Command = "ring objectoriented/oop2.ring" ],
 	[ :name = "Testing Object Oriented (Part 3)"		, :Command = "ring objectoriented/oop3.ring" ],
 	[ :name = "Testing Object Oriented (Part 4)"		, :Command = "ring objectoriented/oop4.ring" ],
@@ -24,5 +24,6 @@ aTests = [
 	[ :name = "Testing Object Oriented (Part 14)"		, :Command = "ring objectoriented/oop14.ring" ],
 	[ :name = "Testing Object Oriented (Part 15)"		, :Command = "ring objectoriented/oop15.ring" ],
 	[ :name = "Testing Object Oriented (Part 16)"		, :Command = "ring objectoriented/oop16.ring" ],
-	[ :name = "Testing Object Oriented (Part 17)"		, :Command = "ring objectoriented/oop17.ring" ]
+	[ :name = "Testing Object Oriented (Part 17)"		, :Command = "ring objectoriented/oop17.ring" ],
+	[ :name = "Testing Object Oriented (Part 18)"		, :Command = "ring objectoriented/oop18.ring" ]
 ]
