@@ -1,0 +1,19 @@
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Object Width : 100
+object Height : 400
+object top : 500
