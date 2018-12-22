@@ -1,0 +1,9 @@
+Welcome to my class Person
+Name : Mahmoud
+Age : 28
+Country : Egypt
+Welcome to my class Person
+Welcome to my class Person2
+Name : Ahmed
+Age : 28
+Country : Egypt
