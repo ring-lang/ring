@@ -44,5 +44,6 @@ aTests = [
 	[ :name = "Testing Object Oriented (Part 34)"		, :Command = "ring objectoriented/oop34.ring" ],
 	[ :name = "Testing Object Oriented (Part 35)"		, :Command = "ring objectoriented/oop35.ring" ],
 	[ :name = "Testing Object Oriented (Part 36)"		, :Command = "ring objectoriented/oop36.ring" ],
-	[ :name = "Testing Object Oriented (Part 37)"		, :Command = "ring objectoriented/oop37.ring" ]
+	[ :name = "Testing Object Oriented (Part 37)"		, :Command = "ring objectoriented/oop37.ring" ],
+	[ :name = "Testing Object Oriented (Part 38)"		, :Command = "ring objectoriented/oop38.ring" ]
 ]
