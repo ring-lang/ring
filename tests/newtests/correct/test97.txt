@@ -1,0 +1,20 @@
+A: 0
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: FineA
+B: FineB
+C: 2
+
+

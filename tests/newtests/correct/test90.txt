@@ -1,0 +1,3 @@
+
+Line 7 Error (R12) : error in property name, property not found! : t 
+in file self/self8.ring 

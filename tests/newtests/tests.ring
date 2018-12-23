@@ -85,5 +85,22 @@ aTests = [
 	[ :name = "Eval() Function (Part 5)", :Command = "ring eval/eval5.ring" ],
 	[ :name = "Eval() Function (Part 6)", :Command = "ring eval/eval6.ring" ],
 	[ :name = "Eval() Function (Part 7)", :Command = "ring eval/eval7.ring" ],
-	[ :name = "Eval() Function (Part 8)", :Command = "ring eval/eval8.ring" ]
+	[ :name = "Eval() Function (Part 8)", :Command = "ring eval/eval8.ring" ],
+	[ :name = "Using Self (Part 1)"	, :Command = "ring self/self1.ring" ],
+	[ :name = "Using Self (Part 2)"	, :Command = "ring self/self2.ring" ],
+	[ :name = "Using Self (Part 3)"	, :Command = "ring self/self3.ring" ],
+	[ :name = "Using Self (Part 4)"	, :Command = "ring self/self4.ring" ],
+	[ :name = "Using Self (Part 5)"	, :Command = "ring self/self5.ring" ],
+	[ :name = "Using Self (Part 6)"	, :Command = "ring self/self6.ring" ],
+	[ :name = "Using Self (Part 7)"	, :Command = "ring self/self7.ring" ],
+	[ :name = "Using Self (Part 8)"	, :Command = "ring self/self8.ring" ],
+	[ :name = "Using Self (Part 9)"	, :Command = "ring self/self9.ring" ],
+	[ :name = "Using Self (Part 10)", :Command = "ring self/self10.ring" ],
+	[ :name = "Using Self (Part 11)", :Command = "ring self/self11.ring" ],
+	[ :name = "Using Self (Part 12)", :Command = "ring self/self12.ring" ],
+	[ :name = "Using Self (Part 13)", :Command = "ring self/self13.ring" ],
+	[ :name = "Using Self (Part 14)", :Command = "ring self/self14.ring" ],
+	[ :name = "Using Self (Part 15)", :Command = "ring self/self15.ring" ],
+	[ :name = "Using Self (Part 16)", :Command = "ring self/self16.ring" ],
+	[ :name = "Using Self (Part 17)", :Command = "ring self/self17.ring" ]
 ]
