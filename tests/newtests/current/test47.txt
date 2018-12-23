@@ -1,0 +1,10 @@
+operator overloading
+operator : +
+parameter : 1
+2
+3
+
+R value:
+4
+5
+6
