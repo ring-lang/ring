@@ -151,5 +151,12 @@ aTests = [
 	[ :name = "Class Region (Part 4)", :Command = "ring classregion/test4.ring" ],
 	[ :name = "Class Region (Part 5)", :Command = "ring classregion/test5.ring" ],
 	[ :name = "Class Region (Part 6)", :Command = "ring classregion/test6.ring" ],
-	[ :name = "Class Region (Part 7)", :Command = "ring classregion/test7.ring" ]
+	[ :name = "Class Region (Part 7)", :Command = "ring classregion/test7.ring" ],
+	[ :name = "Assignment (Part 1)", :Command = "ring assignment/test.ring" ],
+	[ :name = "Assignment (Part 2)", :Command = "ring assignment/test2.ring" ],
+	[ :name = "Assignment (Part 3)", :Command = "ring assignment/test3.ring" ],
+	[ :name = "Assignment (Part 4)", :Command = "ring assignment/test4.ring" ],
+	[ :name = "Assignment (Part 5)", :Command = "ring assignment/test5.ring" ],
+	[ :name = "Assignment (Part 6)", :Command = "ring assignment/test6.ring" ],
+	[ :name = "Assignment (Part 7)", :Command = "ring assignment/test7.ring" ]
 ]
