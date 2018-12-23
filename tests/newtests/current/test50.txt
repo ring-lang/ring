@@ -1,0 +1,23 @@
+welcome to the application 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+nice 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+name: NULL
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+5000
