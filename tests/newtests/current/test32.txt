@@ -1,0 +1,18 @@
+hello from the customers class
+Customers
+hello from the sales.base class
+hello from the world2.invoices class
+hello from the world2.base class
+welcome from world2
+Invoices from world2
+Great
+Wow 
+ so nice! 
+hello from the sales.invoices class
+welcome from world2
+Invoices from world2
+Great
+Wow 
+ so nice! 
+Invoices
+welcome

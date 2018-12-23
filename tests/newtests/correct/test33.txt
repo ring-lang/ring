@@ -1,0 +1,14 @@
+can't call private mehtod
+name : mahmoud
+address : Egypt
+phone : 123456
+job : Software Engineer
+name : Ali
+address : KSU
+phone : 123456
+job : programmer
+job : programmer
+can't use private attribute
+
+Line 25 Error (R26) : Calling private method from outside the class : getjob 
+in file objectoriented/oop29.ring 
