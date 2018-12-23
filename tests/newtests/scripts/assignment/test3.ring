@@ -4,6 +4,8 @@ load "guilib.ring"
 
 o1 = new test  { go() }
 
+? :done
+
 class test
 
 	

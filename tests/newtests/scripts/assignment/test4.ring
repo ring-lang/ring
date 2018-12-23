@@ -4,6 +4,8 @@ load "guilib.ring"
 
 new test  
 
+? :done
+
 class test
 
 	myobj = new QSqlDatabase()

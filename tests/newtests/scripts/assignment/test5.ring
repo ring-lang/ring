@@ -1,6 +1,8 @@
 myobj = new mytest
 new test  
 
+? :done
+
 class test
 	h = myobj.MYFUNC()
  
