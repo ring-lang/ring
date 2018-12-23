@@ -1,0 +1,7 @@
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Test : 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed
