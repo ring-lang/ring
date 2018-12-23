@@ -1,0 +1,5 @@
+120
+Before the runtime error!
+
+Line 3 Error (R27) : Using private attribute from outside the class : salary 
+in file private/private2.ring 

@@ -1,0 +1,3 @@
+
+Line 4 Error (R26) : Calling private method from outside the class : salary 
+in file private/private7.ring 

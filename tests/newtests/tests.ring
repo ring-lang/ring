@@ -137,5 +137,12 @@ aTests = [
 	[ :name = "Init Method (Part 6)", :Command = "ring init/init6.ring" ],
 	[ :name = "Init Method (Part 7)", :Command = "ring init/init7.ring" ],
 	[ :name = "Init Method (Part 8)", :Command = "ring init/init8.ring" ],
-	[ :name = "Init Method (Part 9)", :Command = "ring init/init9.ring" ]
+	[ :name = "Init Method (Part 9)", :Command = "ring init/init9.ring" ],
+	[ :name = "Private Attributes and Methods (Part 1)", :Command = "ring private/private.ring" ],
+	[ :name = "Private Attributes and Methods (Part 2)", :Command = "ring private/private2.ring" ],
+	[ :name = "Private Attributes and Methods (Part 3)", :Command = "ring private/private3.ring" ],
+	[ :name = "Private Attributes and Methods (Part 4)", :Command = "ring private/private4.ring" ],
+	[ :name = "Private Attributes and Methods (Part 5)", :Command = "ring private/private5.ring" ],
+	[ :name = "Private Attributes and Methods (Part 6)", :Command = "ring private/private6.ring" ],
+	[ :name = "Private Attributes and Methods (Part 7)", :Command = "ring private/private7.ring" ]
 ]

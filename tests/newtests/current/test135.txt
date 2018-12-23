@@ -1,0 +1,3 @@
+
+Line 4 Error (R27) : Using private attribute from outside the class : salary 
+in file private/private.ring 
