@@ -175,5 +175,7 @@ aTests = [
 	[ :name = "Natural Language Programming (Part 3)", :Command = "ring natural/test3.ring" ],
 	[ :name = "Natural Language Programming (Part 4)", :Command = "ring natural/test4.ring" ],
 	[ :name = "Natural Language Programming (Part 5)", :Command = "ring natural/test5.ring" ],
-	[ :name = "Natural Language Programming (Part 6)", :Command = "ring natural/english.ring < natural/testenglish.txt" ]
+	[ :name = "Natural Language Programming (Part 6)", :Command = "ring natural/english.ring < natural/testenglish.txt" ],
+	[ :name = "Natural Language Programming (Part 7)", :Command = "ring natural/usestylebasic.ring" ],
+	[ :name = "Natural Language Programming (Part 8)", :Command = "ring natural/usestylesupernova.ring" ]
 ]
