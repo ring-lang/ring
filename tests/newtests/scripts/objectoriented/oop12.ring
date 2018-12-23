@@ -6,7 +6,7 @@ oMsg2 = new Message2
 oMsg2.cMsg = "Great"
 
 t = clock()
-for x = 1 to 100000
+for x = 1 to 100
 	oMsg2.test()
 	oMsg2.print()
 	oMsg2.one()
