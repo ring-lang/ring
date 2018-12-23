@@ -119,5 +119,10 @@ aTests = [
 	[ :name = "Empty File (Part 1)", :Command = "ring emptyfile/emptyfile.ring" ],
 	[ :name = "Empty File (Part 2)", :Command = "ring emptyfile/emptyfile2.ring" ],
 	[ :name = "Empty File (Part 3)", :Command = "ring emptyfile/emptyfile3.ring" ],
-	[ :name = "Empty File (Part 4)", :Command = "ring emptyfile/emptyfile4.ring" ]
+	[ :name = "Empty File (Part 4)", :Command = "ring emptyfile/emptyfile4.ring" ],
+	[ :name = "Comments (Part 1)", :Command = "ring comment/comment.ring" ],
+	[ :name = "Comments (Part 2)", :Command = "ring comment/comment2.ring" ],
+	[ :name = "Comments (Part 3)", :Command = "ring comment/comment3.ring" ],
+	[ :name = "Comments (Part 4)", :Command = "ring comment/comment4.ring" ],
+	[ :name = "Comments (Part 5)", :Command = "ring comment/comment5.ring" ]
 ]
