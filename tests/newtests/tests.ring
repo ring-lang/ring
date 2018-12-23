@@ -169,5 +169,10 @@ aTests = [
 	[ :name = "New Object (Part 7)", :Command = "ring new/new7.ring" ],
 	[ :name = "New Object (Part 8)", :Command = "ring new/new8.ring" ],
 	[ :name = "New Object (Part 9)", :Command = "ring new/new9.ring" ],
-	[ :name = "New Object (Part 10)", :Command = "ring new/new10.ring" ]
+	[ :name = "New Object (Part 10)", :Command = "ring new/new10.ring" ],
+	[ :name = "Natural Language Programming (Part 1)", :Command = "ring natural/test.ring" ],
+	[ :name = "Natural Language Programming (Part 2)", :Command = "ring natural/test2.ring" ],
+	[ :name = "Natural Language Programming (Part 3)", :Command = "ring natural/test3.ring" ],
+	[ :name = "Natural Language Programming (Part 4)", :Command = "ring natural/test4.ring" ],
+	[ :name = "Natural Language Programming (Part 5)", :Command = "ring natural/test5.ring" ]
 ]
