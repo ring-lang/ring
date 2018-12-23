@@ -1,0 +1,19 @@
+position: 1.000000
+name: Ring
+symbol: RNG
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+************************************************************
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG

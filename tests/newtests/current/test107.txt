@@ -1,0 +1,10 @@
+ahmed
+14000
+ibrahim
+11000
+mahmoud
+15000
+mohammed
+12000
+samir
+16000

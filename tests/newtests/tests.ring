@@ -107,5 +107,10 @@ aTests = [
 	[ :name = "Declarative Programming (Part 2)", :Command = "ring declarative/declarative2.ring" ],
 	[ :name = "Declarative Programming (Part 3)", :Command = "ring declarative/declarative3.ring" ],
 	[ :name = "Declarative Programming (Part 4)", :Command = "ring declarative/declarative4.ring" ],
-	[ :name = "Declarative Programming (Part 5)", :Command = "ring declarative/declarative5.ring" ]
+	[ :name = "Declarative Programming (Part 5)", :Command = "ring declarative/declarative5.ring" ],
+	[ :name = "Sorting (Part 1)", :Command = "ring sort/sort.ring" ],
+	[ :name = "Sorting (Part 2)", :Command = "ring sort/sort2.ring" ],
+	[ :name = "Sorting (Part 3)", :Command = "ring sort/sort3.ring" ],
+	[ :name = "Sorting (Part 4)", :Command = "ring sort/sort4.ring" ],
+	[ :name = "Sorting (Part 5)", :Command = "ring sort/sort5.ring" ]
 ]
