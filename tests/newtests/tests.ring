@@ -53,5 +53,16 @@ aTests = [
 	[ :name = "Testing Object Oriented (Part 43)"		, :Command = "ring objectoriented/oop43.ring" ],
 	[ :name = "Testing Object Oriented (Part 44)"		, :Command = "ring objectoriented/oop44.ring" ],
 	[ :name = "Testing Object Oriented (Part 45)"		, :Command = "ring objectoriented/oop45.ring" ],
-	[ :name = "Testing Object Oriented (Part 46)"		, :Command = "ring objectoriented/oop46.ring" ]
+	[ :name = "Testing Object Oriented (Part 46)"		, :Command = "ring objectoriented/oop46.ring" ],
+	[ :name = "Testing Object Oriented (Part 47)"		, :Command = "ring objectoriented/oop47.ring" ],
+	[ :name = "Testing Object Oriented (Part 48)"		, :Command = "ring objectoriented/oop48.ring" ],
+	[ :name = "Testing Object Oriented (Part 49)"		, :Command = "ring objectoriented/oop49.ring" ],
+	[ :name = "Testing Object Oriented (Part 50)"		, :Command = "ring objectoriented/oop50.ring" ],
+	[ :name = "Testing Object Oriented (Part 51)"		, :Command = "ring objectoriented/oop51.ring" ],
+	[ :name = "Testing Object Oriented (Part 52)"		, :Command = "ring objectoriented/oop52.ring" ],
+	[ :name = "Testing Object Oriented (Part 53)"		, :Command = "ring objectoriented/oop53.ring" ],
+	[ :name = "Testing Object Oriented (Part 54)"		, :Command = "ring objectoriented/oop54.ring" ],
+	[ :name = "Testing Object Oriented (Part 55)"		, :Command = "ring objectoriented/oop55.ring" ],
+	[ :name = "Testing Object Oriented (Part 56)"		, :Command = "ring objectoriented/oop56.ring" ],
+	[ :name = "Testing Object Oriented (Part 57)"		, :Command = "ring objectoriented/oop57.ring" ]
 ]

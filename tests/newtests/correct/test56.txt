@@ -1,0 +1,5 @@
+Name   : Test
+Age    : 20
+Salary : 15000
+Error (R27) : Using private attribute from outside the class : salary
+Error (R26) : Calling private method from outside the class : increasesalary

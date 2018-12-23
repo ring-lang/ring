@@ -1,0 +1,4 @@
+Name : Rectangle 1
+Color: Blue
+P1   : (10,20)
+P2   : (200,300)
