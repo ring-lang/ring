@@ -124,5 +124,9 @@ aTests = [
 	[ :name = "Comments (Part 2)", :Command = "ring comment/comment2.ring" ],
 	[ :name = "Comments (Part 3)", :Command = "ring comment/comment3.ring" ],
 	[ :name = "Comments (Part 4)", :Command = "ring comment/comment4.ring" ],
-	[ :name = "Comments (Part 5)", :Command = "ring comment/comment5.ring" ]
+	[ :name = "Comments (Part 5)", :Command = "ring comment/comment5.ring" ],
+	[ :name = "NULL (Part 1)", :Command = "ring null/null.ring" ],
+	[ :name = "NULL (Part 2)", :Command = "ring null/null2.ring" ],
+	[ :name = "NULL (Part 3)", :Command = "ring null/null3.ring" ],
+	[ :name = "NULL (Part 4)", :Command = "ring null/null4.ring" ]
 ]
