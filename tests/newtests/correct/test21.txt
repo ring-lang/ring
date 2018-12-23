@@ -1,4 +1,3 @@
-x : 10
-y : 20
-z : 30
-Hello mahmoud
+Name      Mahmoud
+Country   Egypt
+Phone     123456

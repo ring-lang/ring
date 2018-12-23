@@ -1,27 +1,19 @@
-X = 1
-Message : Welcome
-Hello Mahmoud Fayed
-Before print 
-name : Mahmoud
-Country : Egypt
-Phone : 123456
-Test : 2
-Job name : Programmer
-Salary : 48000
-Test : 3
-Months : 6
-Days per week : 5
-Test : 4
-After eval 
-test: 2
-name: Mahmoud
-country: Egypt
-phone: 123456
-job: Object...
-name: Programmer
-salary: 48000
-time: Object...
-test: 3
-months: 6
-daysperweek: 5
-test: 4
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Object Width : 100
+object Height : 400
+object top : 500

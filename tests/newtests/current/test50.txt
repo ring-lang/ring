@@ -1,14 +1,9 @@
-welcome to the application 
-name: Mahmoud
-address: NULL
-phone: NULL
-link: NULL
 nice 
 name: Mahmoud
-address: NULL
-phone: NULL
-link: NULL
-name: NULL
+address: Egypt
+phone: 123456
+link: Object...
+name: Mahmoud
 address: Egypt
 phone: 123456
 link: Object...
@@ -21,3 +16,8 @@ tlist: [This Attribute Contains A List]
 3000
 4000
 5000
+1
+2
+3
+4
+5

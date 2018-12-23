@@ -1,12 +1,171 @@
-Hello Mahmoud
-Hello Ahmed
-Hello 1
-Hello 2
-Hello 3
-Hello 4
-Hello 5
-Hello 6
-Hello 7
-Hello 8
-Hello 9
-Hello 10
+hello world
+1
+2
+3
+Number three
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+3
+1
+2
+0.50
+1
+Mahmoud-Egypt-28
+Hello
+How are you?
+Are you fine ?
+120
+10987654321
+inside scope
+10
+20
+after scope
+5
+7
+reverse list
+5
+4
+3
+2
+1
+see list by reference
+1
+4
+9
+16
+25
+see List
+1
+4
+9
+16
+25
+Get item of array returned from function
+1
+4
+9
+using seelist
+Mahmoud
+Samir
+Fayed
+passing array by value to seelist
+Hello
+How are you ?
+Are you fine
+see list directly without using variables 
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+test function return list directly by value
+Wow
+How are you ?
+I hope that you are fine !
+reverse two items 
+2
+1
+Fayed
+Mahmoud
+Mahmoud Samir Fayed 
+send function return list to function take list
+1
+2
+use general temp memory
+1
+2.12
+hello world
+1
+2
+3
+Number three
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+3
+1
+2
+0.50
+1
+Mahmoud-Egypt-28
+Hello
+How are you?
+Are you fine ?
+120
+10987654321
+inside scope
+10
+20
+after scope
+5
+7
+reverse list
+5
+4
+3
+2
+1
+see list by reference
+1
+4
+9
+16
+25
+see List
+1
+4
+9
+16
+25
+Get item of array returned from function
+1
+4
+9
+using seelist
+Mahmoud
+Samir
+Fayed
+passing array by value to seelist
+Hello
+How are you ?
+Are you fine
+see list directly without using variables 
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+test function return list directly by value
+Wow
+How are you ?
+I hope that you are fine !
+reverse two items 
+2
+1
+Fayed
+Mahmoud
+Mahmoud Samir Fayed 
+send function return list to function take list
+1
+2

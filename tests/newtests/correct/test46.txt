@@ -1,5 +1,6 @@
-hello
-Welcome
-1
-0
-1
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed

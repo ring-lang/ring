@@ -1,10 +1,9 @@
-hello from class
-Hello Mahmoud
-name: Mahmoud
-country: egypt
-phone: 1234567879
-hello from class
-Hello Mahmoud
-name: Mahmoud
-country: egypt
-phone: 1234567879
+NICE
+Mahmoud
+Ahmed
+name : Samir
+country : KSA
+Age : 56
+one
+two
+three

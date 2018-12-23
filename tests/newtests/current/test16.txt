@@ -1,0 +1,25 @@
+welcome 
+Name : Mahmoud
+Country : Egypt
+Email : test@email.com
+Phone : 123456789
+Website : www.mywebsite.com
+First Job : Researcher
+Jobs List : Researcher
+Developer
+Programmer
+one
+two
+cjobname: a
+cother: nice
+vgood: 3.140000
+cjobname: a
+cother: nice
+vgood: 3.140000
+Jobs count : 6
+other : nice
+other : nice
+2
+Jobs : a
+a
+3.14

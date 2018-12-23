@@ -1,14 +1,66 @@
-Name : Mahmoud
-Address : Egypt
-Phone : 123456
-Sum : 15
-Hello Ahmed
-Name : Mahmoud
-Address : Egypt
-Phone : 123456
-one
-two
-three
-Objects Count : 1
-test
-test2
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+Enter your name ? Hello mahmoud
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+number 1 : number 2 : Sum : 7
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+        *
+        **
+        ***
+        ****
+        *****
+        ******
+        *******
+        ********
+        *********
+        **********
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+Enter Number : Output : 120
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	

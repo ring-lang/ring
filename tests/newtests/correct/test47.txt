@@ -1,10 +1,7 @@
-operator overloading
-operator : +
-parameter : 1
-2
-3
-
-R value:
-4
-5
-6
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Test : 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed

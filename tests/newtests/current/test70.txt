@@ -1,0 +1,11 @@
+Setter!
+Test
+Setter!
+100
+Setter!
+wow
+2
+Setter!
+x: 10
+y: 20
+z: 30

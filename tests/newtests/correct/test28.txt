@@ -1,3 +1,4 @@
-
-Line 1 Error (R25) : Error in package name, Package not found! : system.output 
-in file objectoriented/oop24.ring 
+x : 10
+y : 20
+z : 30
+Hello Mahmoud
