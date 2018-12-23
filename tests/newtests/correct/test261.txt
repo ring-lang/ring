@@ -1,0 +1,3 @@
+
+Line 8 Object does not support operator overloading 
+In raise() in file general/test87.ring 

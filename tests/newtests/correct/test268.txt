@@ -1,0 +1,8 @@
+len of trimed(j) is : 1
+trimed J is : "n"
+len of trimed(j2) is : 0
+trimed J2 is : ""
+len of trimed(j3) is : 5
+trimed J3 is : "Majdi"
+len of trimed(j4) is : 15
+trimed J4 is : "Majdi    Sobain"

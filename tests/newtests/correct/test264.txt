@@ -1,0 +1,5 @@
+BEFORE o.what() 
+
+Line 13 Error (R14) : Calling Method without definition !: what 
+In method test() in file general/test90.ring
+called from line 2  in file general/test90.ring 

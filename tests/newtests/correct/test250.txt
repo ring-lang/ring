@@ -1,0 +1,17 @@
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Mahmoud - Ring Programming Language
+
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Gal - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Bert - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Marino - Ring Programming Language

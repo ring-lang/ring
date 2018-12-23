@@ -1,0 +1,10 @@
+Items : 4
+Item : Hello
+Item : How are you ?
+Item : are you fine ?
+Item : ok
+list2Str result = Hello
+How are you ?
+are you fine ?
+ok
+Done

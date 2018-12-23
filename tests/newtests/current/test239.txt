@@ -1,0 +1,7 @@
+10
+20
+test
+
+Line 9 Error (R24) : Using uninitialized variable : x 
+In method test() in file general/test65.ring
+called from line 1  in file general/test65.ring 

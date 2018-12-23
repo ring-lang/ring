@@ -1,0 +1,4 @@
+
+? "Hello"
+
+noobject.method()

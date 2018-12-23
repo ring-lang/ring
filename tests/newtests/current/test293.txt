@@ -1,0 +1,1 @@
+B:\ring\tests\newtests\scripts\general/filenameinclassregion2.ring
