@@ -102,5 +102,10 @@ aTests = [
 	[ :name = "Using Self (Part 14)", :Command = "ring self/self14.ring" ],
 	[ :name = "Using Self (Part 15)", :Command = "ring self/self15.ring" ],
 	[ :name = "Using Self (Part 16)", :Command = "ring self/self16.ring" ],
-	[ :name = "Using Self (Part 17)", :Command = "ring self/self17.ring" ]
+	[ :name = "Using Self (Part 17)", :Command = "ring self/self17.ring" ],
+	[ :name = "Declarative Programming (Part 1)", :Command = "ring declarative/declarative.ring" ],
+	[ :name = "Declarative Programming (Part 2)", :Command = "ring declarative/declarative2.ring" ],
+	[ :name = "Declarative Programming (Part 3)", :Command = "ring declarative/declarative3.ring" ],
+	[ :name = "Declarative Programming (Part 4)", :Command = "ring declarative/declarative4.ring" ],
+	[ :name = "Declarative Programming (Part 5)", :Command = "ring declarative/declarative5.ring" ]
 ]

@@ -1,0 +1,15 @@
+welcome
+Point :
+x : 100
+y : 200
+z : 300
+welcome
+Point :
+x : 50
+y : 150
+z : 250
+welcome
+Point :
+x : 150
+y : 250
+z : 350
