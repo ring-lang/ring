@@ -112,5 +112,8 @@ aTests = [
 	[ :name = "Sorting (Part 2)", :Command = "ring sort/sort2.ring" ],
 	[ :name = "Sorting (Part 3)", :Command = "ring sort/sort3.ring" ],
 	[ :name = "Sorting (Part 4)", :Command = "ring sort/sort4.ring" ],
-	[ :name = "Sorting (Part 5)", :Command = "ring sort/sort5.ring" ]
+	[ :name = "Sorting (Part 5)", :Command = "ring sort/sort5.ring" ],
+	[ :name = "Find Item (Part 1)", :Command = "ring find/find.ring" ],
+	[ :name = "Find Item (Part 2)", :Command = "ring find/find2.ring" ],
+	[ :name = "Find Item (Part 3)", :Command = "ring find/find3.ring" ]
 ]
