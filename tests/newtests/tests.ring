@@ -158,5 +158,16 @@ aTests = [
 	[ :name = "Assignment (Part 4)", :Command = "ring assignment/test4.ring" ],
 	[ :name = "Assignment (Part 5)", :Command = "ring assignment/test5.ring" ],
 	[ :name = "Assignment (Part 6)", :Command = "ring assignment/test6.ring" ],
-	[ :name = "Assignment (Part 7)", :Command = "ring assignment/test7.ring" ]
+	[ :name = "Assignment (Part 7)", :Command = "ring assignment/test7.ring" ],
+	[ :name = "New Line", :Command = "ring newline/new.ring" ],
+	[ :name = "New Object (Part 1)", :Command = "ring new/new.ring" ],
+	[ :name = "New Object (Part 2)", :Command = "ring new/new2.ring" ],
+	[ :name = "New Object (Part 3)", :Command = "ring new/new3.ring" ],
+	[ :name = "New Object (Part 4)", :Command = "ring new/new4.ring" ],
+	[ :name = "New Object (Part 5)", :Command = "ring new/new5.ring" ],
+	[ :name = "New Object (Part 6)", :Command = "ring new/new6.ring" ],
+	[ :name = "New Object (Part 7)", :Command = "ring new/new7.ring" ],
+	[ :name = "New Object (Part 8)", :Command = "ring new/new8.ring" ],
+	[ :name = "New Object (Part 9)", :Command = "ring new/new9.ring" ],
+	[ :name = "New Object (Part 10)", :Command = "ring new/new10.ring" ]
 ]

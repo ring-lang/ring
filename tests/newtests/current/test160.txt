@@ -1,0 +1,3 @@
+True parent!
+hello from child
+hello from parent

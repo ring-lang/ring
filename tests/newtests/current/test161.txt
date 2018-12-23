@@ -1,0 +1,7 @@
+pobject: NULL
+x: 30
+y: 40
+z: 50
+pobject: NULL
+x: 10
+y: 20

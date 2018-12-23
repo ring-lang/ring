@@ -1,0 +1,12 @@
+Item 4 is a list contains 3 items
+1
+2
+3
+Object inside item 5
+x: 100
+y: 200
+z: 300
+Object inside item 6
+x: 50
+y: 150
+z: 250
