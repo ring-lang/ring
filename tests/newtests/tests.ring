@@ -144,5 +144,12 @@ aTests = [
 	[ :name = "Private Attributes and Methods (Part 4)", :Command = "ring private/private4.ring" ],
 	[ :name = "Private Attributes and Methods (Part 5)", :Command = "ring private/private5.ring" ],
 	[ :name = "Private Attributes and Methods (Part 6)", :Command = "ring private/private6.ring" ],
-	[ :name = "Private Attributes and Methods (Part 7)", :Command = "ring private/private7.ring" ]
+	[ :name = "Private Attributes and Methods (Part 7)", :Command = "ring private/private7.ring" ],
+	[ :name = "Class Region (Part 1)", :Command = "ring classregion/test.ring" ],
+	[ :name = "Class Region (Part 2)", :Command = "ring classregion/test2.ring" ],
+	[ :name = "Class Region (Part 3)", :Command = "ring classregion/test3.ring" ],
+	[ :name = "Class Region (Part 4)", :Command = "ring classregion/test4.ring" ],
+	[ :name = "Class Region (Part 5)", :Command = "ring classregion/test5.ring" ],
+	[ :name = "Class Region (Part 6)", :Command = "ring classregion/test6.ring" ],
+	[ :name = "Class Region (Part 7)", :Command = "ring classregion/test7.ring" ]
 ]
