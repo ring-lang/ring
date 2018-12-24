@@ -24,6 +24,7 @@ Ring 1.10 comes with the next features!
 * More Games
 * Ring Extension for Visual Studio Code
 * The Ring Package Manager (RingPM)
+* Better Tests
 * More Improvements
 
 .. index:: 
@@ -156,6 +157,14 @@ The Package Manager comes with the next options
 	Command : new     <packagename>
 	Command : package : Create package in the current folder
 	===========================================================================
+
+.. index:: 
+	pair: What is new in Ring 1.10?; Better Tests
+
+Better Tests
+============
+
+New framework for Ring programming language tests that test the language.
 
 .. index:: 
 	pair: What is new in Ring 1.10?; More Improvements
