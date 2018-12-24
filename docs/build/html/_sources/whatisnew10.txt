@@ -36,6 +36,8 @@ Chess Game
 Chess Game (2 Players)
 
 .. image:: chessgame.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Chess Game
 
 .. index:: 
@@ -47,6 +49,8 @@ Minesweeper Game
 The objective of the game is to clear a rectangular board containing hidden "mines" or bombs without detonating any of them.
 
 .. image:: minesweeper.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Minesweeper Game
 
 .. index:: 
@@ -60,6 +64,8 @@ Move to every square on the chess board, using only the moves of a knight.
 Can you visit every square in just 63 moves? 
 
 .. image:: knighttour.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Knight Tour Game
 
 .. index:: 
@@ -75,6 +81,8 @@ One interacts with the Game of Life by creating an initial configuration and obs
 or, for advanced players, by creating patterns with particular properties.
 
 .. image:: gameoflife.jpg
+	:width: 400pt
+	:height: 300pt
 	:alt: Game of Life Game
 
 .. index:: 
@@ -88,6 +96,8 @@ Simple "tennis like" game features two paddles and a ball.
 The goal is to defeat your opponent once the opponent misses a ball.
 
 .. image:: ponggame.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Pong Game
 
 .. index:: 
@@ -99,6 +109,8 @@ Snakes And Ladder Game
 The Snakes and Ladder Game using Ring Game Engine for 2D Games
 
 .. image:: snakesgame.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Snakes Game
 
 .. index:: 
@@ -117,6 +129,8 @@ The next games are added to the application folder
 The next screen shot for the Sum Puzzle Game
 
 .. image:: sumpuzzle.png
+	:width: 400pt
+	:height: 300pt
 	:alt: Sum Puzzle Game
 
 .. index:: 
@@ -128,6 +142,8 @@ Ring Extension for Visual Studio Code
 This extension support the Ring programming language in Visual Studio Code
 
 .. image:: ringinvscode.png
+	:width: 500pt
+	:height: 300pt
 	:alt: Ring in Visual Studio Code
 
 .. index:: 
@@ -165,6 +181,12 @@ Better Tests
 ============
 
 New framework for Ring programming language tests that test the language.
+
+.. image:: tests_shot.png
+	:width: 500pt
+	:height: 300pt
+	:alt: Tests
+
 
 .. index:: 
 	pair: What is new in Ring 1.10?; More Improvements
