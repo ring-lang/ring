@@ -1,3 +1,3 @@
 
 Line 4 Error (R1) : Cann't divide by zero ! 
-in file B:\ring\tests\newtests\scripts\general/filenameinclassregion.ring 
+in file B:\ring\tests\scripts\general/filenameinclassregion.ring 
