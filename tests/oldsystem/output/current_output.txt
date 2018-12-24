@@ -1,0 +1,3691 @@
+
+B:\ring\tests\oldsystem>call ring scripts/s28.ring 
+17
+90
+73
+
+B:\ring\tests\oldsystem>call ring scripts/s60.ring 
+hello
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+eeeeeeeeeeeeeeeeeeeee
+
+Mahmoud
+Samir
+Ibrahim
+Fayed
+
+1
+Samir
+Ibrahim
+4
+
+1
+Samir
+Ibrahim
+4
+
+
+action
+Mahmoud
+Samir
+Ibrahim
+Fayed
+Mahmoud
+Samir
+Ibrahim
+Fayed
+
+Fayed
+Samir
+Ibrahim
+Mahmoud
+Fayed
+Samir
+Ibrahim
+Mahmoud
+
+B:\ring\tests\oldsystem>call ring scripts/s61.ring 
+hello
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
+eeeeeeeeeeeeeeeeeeeee
+
+3
+3
+3
+3
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+1
+3
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+1
+3
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+
+action
+3
+3
+3
+3
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+3
+3
+3
+3
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+5
+3
+3
+6
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+5
+3
+3
+6
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+B:\ring\tests\oldsystem>call ring scripts/s62.ring 
+hello world
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+MahmoudSamirFayedMahmoud
+Ahmed
+Ahmed
+Samir
+Fayed
+
+B:\ring\tests\oldsystem>call ring scripts/s63.ring 
+Mahmoud
+Samir
+Fayed
+Mahmoud
+Samir
+Fayed
+Mahmoud
+Samir
+Fayed
+Mahmoud
+Samir
+Fayed
+Mahmoud
+Samir
+Fayed
+Mahmoud
+Samir
+Fayed
+good
+wow
+Samir
+Fayed
+
+B:\ring\tests\oldsystem>call ring scripts/s64.ring 
+hello world
+1
+2
+3
+number three
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+*****************************************************
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+Fayed
+Samir
+Mahmoud
+Fayed
+Samir
+Mahmoud
+Mahmoud
+Samir
+Fayed
+1
+4
+9
+16
+25
+1
+2
+3
+4
+5
+*****************************************************
+1
+4
+9
+16
+25
+1
+4
+9
+16
+25
+
+B:\ring\tests\oldsystem>call ring scripts/s65.ring 
+hello world
+1
+2
+3
+Number three
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+3
+1
+2
+0.50
+1
+Mahmoud-Egypt-28
+Hello
+How are you?
+Are you fine ?
+120
+10987654321
+inside scope
+10
+20
+after scope
+5
+7
+reverse list
+5
+4
+3
+2
+1
+see list by reference
+1
+4
+9
+16
+25
+see List
+1
+4
+9
+16
+25
+Get item of array returned from function
+1
+4
+9
+using seelist
+Mahmoud
+Samir
+Fayed
+passing array by value to seelist
+Hello
+How are you ?
+Are you fine
+see list directly without using variables 
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+test function return list directly by value
+Wow
+How are you ?
+I hope that you are fine !
+reverse two items 
+2
+1
+Fayed
+Mahmoud
+Mahmoud Samir Fayed 
+send function return list to function take list
+1
+2
+use general temp memory
+1
+2.12
+hello world
+1
+2
+3
+Number three
+4
+5
+6
+7
+8
+9
+10
+Mahmoud
+Samir
+Fayed
+3
+1
+2
+0.50
+1
+Mahmoud-Egypt-28
+Hello
+How are you?
+Are you fine ?
+120
+10987654321
+inside scope
+10
+20
+after scope
+5
+7
+reverse list
+5
+4
+3
+2
+1
+see list by reference
+1
+4
+9
+16
+25
+see List
+1
+4
+9
+16
+25
+Get item of array returned from function
+1
+4
+9
+using seelist
+Mahmoud
+Samir
+Fayed
+passing array by value to seelist
+Hello
+How are you ?
+Are you fine
+see list directly without using variables 
+Mahmoud
+Samir
+Fayed
+1
+2
+3
+4
+5
+test function return list directly by value
+Wow
+How are you ?
+I hope that you are fine !
+reverse two items 
+2
+1
+Fayed
+Mahmoud
+Mahmoud Samir Fayed 
+send function return list to function take list
+1
+2
+
+B:\ring\tests\oldsystem>call ring scripts/s78.ring  0<scripts/test78.txt 
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+Enter your name ? Hello mahmoud
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+number 1 : number 2 : Sum : 7
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+        *
+        **
+        ***
+        ****
+        *****
+        ******
+        *******
+        ********
+        *********
+        **********
+
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+Enter Number : Output : 120
+
+	Main Menu
+	===========
+	[1] Say Hello
+	[2] Sum two numbers
+	[3] Stars
+	[4] Fact
+	[5] Exit
+
+	
+
+B:\ring\tests\oldsystem>call ring scripts/oop.ring 
+Welcome
+Welcome
+Mahmoud
+Programmer
+123456
+bye 
+
+B:\ring\tests\oldsystem>call ring scripts/oop2.ring 
+good
+r value : 1
+I am here
+cName value : Mahmoud
+cname: Mahmoud
+caddress: Egypt
+cphone: 123456789
+r: 0
+Mahmoud
+Ahmed
+r value : 1
+good
+cname: Ahmed
+caddress: Egypt
+cphone: 123456789
+r: 0
+
+B:\ring\tests\oldsystem>call ring scripts/oop3.ring 
+NICE
+Mahmoud
+Ahmed
+name : Samir
+country : KSA
+Age : 56
+one
+two
+three
+
+B:\ring\tests\oldsystem>call ring scripts/oop4.ring 
+welcome 
+Name : Mahmoud
+Country : Egypt
+Email : test@email.com
+Phone : 123456789
+Website : www.mywebsite.com
+First Job : Researcher
+Jobs List : Researcher
+Developer
+Programmer
+one
+two
+cjobname: a
+cother: nice
+vgood: 3.140000
+cjobname: a
+cother: nice
+vgood: 3.140000
+Jobs count : 6
+other : nice
+other : nice
+2
+Jobs : a
+a
+3.14
+
+B:\ring\tests\oldsystem>call ring scripts/oop5.ring 
+one
+nice
+ mahmoud fayed 
+five
+e
+good
+
+B:\ring\tests\oldsystem>call ring scripts/oop6.ring 
+Mahmoud
+
+B:\ring\tests\oldsystem>call ring scripts/oop7.ring 
+Hello Mahmoud
+Hello Ahmed
+Hello 1
+Hello 2
+Hello 3
+Hello 4
+Hello 5
+Hello 6
+Hello 7
+Hello 8
+Hello 9
+Hello 10
+
+B:\ring\tests\oldsystem>call ring scripts/oop8.ring 
+Name : Mahmoud
+Address : Egypt
+Phone : 123456
+Sum : 15
+Hello Ahmed
+Name : Mahmoud
+Address : Egypt
+Phone : 123456
+one
+two
+three
+Objects Count : 1
+test
+test2
+
+B:\ring\tests\oldsystem>call ring scripts/oop9.ring 
+Name      Mahmoud
+Country   Egypt
+Phone     123456
+
+B:\ring\tests\oldsystem>call ring scripts/oop10.ring 
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Top : 10
+Left : 10
+Width : 200
+Height : 200
+Top : 5
+Left : 5
+Width : 100
+Height : 50
+Object Width : 100
+object Height : 400
+object top : 500
+
+B:\ring\tests\oldsystem>call ring scripts/oop11.ring 
+hello from class
+Hello Mahmoud
+name: Mahmoud
+country: egypt
+phone: 1234567879
+hello from class
+Hello Mahmoud
+name: Mahmoud
+country: egypt
+phone: 1234567879
+
+B:\ring\tests\oldsystem>call ring scripts/oop12.ring 
+Time 1167
+
+B:\ring\tests\oldsystem>call ring scripts/oop13.ring 
+Welcome
+nice
+Great
+one 
+very nice 
+Sum : 7
+very nice 
+one 
+very nice 
+one 
+very nice 
+another one!
+
+B:\ring\tests\oldsystem>call ring scripts/oop14.ring 
+Hello Mahmoud
+before 
+A
+h
+m
+e
+d
+After
+Hello Samir
+before 
+S
+a
+m
+i
+r
+After
+Name : Samir
+Address : Egypt
+Phone : 123456
+
+B:\ring\tests\oldsystem>call ring scripts/oop15.ring 
+Welcome to my class Person
+Name : Mahmoud
+Age : 28
+Country : Egypt
+Welcome to my class Person
+Welcome to my class Person2
+Name : Ahmed
+Age : 28
+Country : Egypt
+
+B:\ring\tests\oldsystem>call ring scripts/oop16.ring 
+x : 10
+y : 20
+z : 30
+Hello Mahmoud
+
+B:\ring\tests\oldsystem>call ring scripts/oop17.ring 
+x : 10
+y : 20
+z : 30
+Hello mahmoud
+
+B:\ring\tests\oldsystem>call ring scripts/oop18.ring 
+X = 1
+Message : Welcome
+Hello Mahmoud Fayed
+Before print 
+name : Mahmoud
+Country : Egypt
+Phone : 123456
+Test : 2
+Job name : Programmer
+Salary : 48000
+Test : 3
+Months : 6
+Days per week : 5
+Test : 4
+After eval 
+test: 2
+name: Mahmoud
+country: Egypt
+phone: 123456
+job: Object...
+name: Programmer
+salary: 48000
+time: Object...
+test: 3
+months: 6
+daysperweek: 5
+test: 4
+
+B:\ring\tests\oldsystem>call ring scripts/oop19.ring 
+Name    : Mahmoud
+Country : Egypt
+Job     : Programmer
+Name    : ahmed
+Country : Egypt
+Job     : Programmer
+one
+two
+three
+Love
+Mahmoud from Egypt
+B:\ring\tests\oldsystem>call ring scripts/oop20.ring 
+ ID   : 2014
+ name : Mahmoud
+ address : Egypt
+ phone : 123456789
+ job  : programmer
+ level : 120
+B:\ring\tests\oldsystem>call ring scripts/oop21.ring 
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+
+B:\ring\tests\oldsystem>call ring scripts/oop22.ring 
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+
+B:\ring\tests\oldsystem>call ring scripts/oop23.ring 
+hello
+Hello Mahmoud
+nice
+
+B:\ring\tests\oldsystem>call ring scripts/oop24.ring 
+
+Line 1 Error (R25) : Error in package name, Package not found! : system.output 
+in file scripts/oop24.ring 
+B:\ring\tests\oldsystem>call ring scripts/oop25.ring 
+Customers
+Invoices
+
+B:\ring\tests\oldsystem>call ring scripts/oop26.ring 
+Customers
+Invoices
+welcome
+
+B:\ring\tests\oldsystem>call ring scripts/oop27.ring 
+Customers
+welcome from world2
+Invoices from world2
+Invoices
+welcome
+
+B:\ring\tests\oldsystem>call ring scripts/oop28.ring 
+hello from the customers class
+Customers
+hello from the sales.base class
+hello from the world2.invoices class
+hello from the world2.base class
+welcome from world2
+Invoices from world2
+Great
+Wow 
+ so nice! 
+hello from the sales.invoices class
+welcome from world2
+Invoices from world2
+Great
+Wow 
+ so nice! 
+Invoices
+welcome
+
+B:\ring\tests\oldsystem>call ring scripts/oop29.ring 
+can't call private mehtod
+name : mahmoud
+address : Egypt
+phone : 123456
+job : Software Engineer
+name : Ali
+address : KSU
+phone : 123456
+job : programmer
+job : programmer
+can't use private attribute
+
+Line 28 Error (R26) : Calling private method from outside the class : getjob 
+in file scripts/oop29.ring 
+B:\ring\tests\oldsystem>call ring scripts/oop30.ring 
+Message from GetName() Function!
+Mahmoud1Message from GetName() Function!
+Mahmoud2Message from GetName() Function!
+Mahmoud3Message from GetName() Function!
+Mahmoud4Message from GetName() Function!
+Mahmoud5Message from GetName() Function!
+Mahmoud6Message from GetName() Function!
+Mahmoud7Message from GetName() Function!
+Mahmoud8Message from GetName() Function!
+Mahmoud9Message from GetName() Function!
+Mahmoud10Message from GetName() Function!
+Mahmoud11Message from GetName() Function!
+Mahmoud12Message from GetName() Function!
+Mahmoud13Message from GetName() Function!
+Mahmoud14Message from GetName() Function!
+Mahmoud15Message from GetName() Function!
+Mahmoud16Message from GetName() Function!
+Mahmoud17Message from GetName() Function!
+Mahmoud18Message from GetName() Function!
+Mahmoud19Message from GetName() Function!
+Mahmoud20Message from GetName() Function!
+Mahmoud21Message from GetName() Function!
+Mahmoud22Message from GetName() Function!
+Mahmoud23Message from GetName() Function!
+Mahmoud24Message from GetName() Function!
+Mahmoud25Message from GetName() Function!
+Mahmoud26Message from GetName() Function!
+Mahmoud27Message from GetName() Function!
+Mahmoud28Message from GetName() Function!
+Mahmoud29Message from GetName() Function!
+Mahmoud30Message from GetName() Function!
+Mahmoud31Message from GetName() Function!
+Mahmoud32Message from GetName() Function!
+Mahmoud33Message from GetName() Function!
+Mahmoud34Message from GetName() Function!
+Mahmoud35Message from GetName() Function!
+Mahmoud36Message from GetName() Function!
+Mahmoud37Message from GetName() Function!
+Mahmoud38Message from GetName() Function!
+Mahmoud39Message from GetName() Function!
+Mahmoud40Message from GetName() Function!
+Mahmoud41Message from GetName() Function!
+Mahmoud42Message from GetName() Function!
+Mahmoud43Message from GetName() Function!
+Mahmoud44Message from GetName() Function!
+Mahmoud45Message from GetName() Function!
+Mahmoud46Message from GetName() Function!
+Mahmoud47Message from GetName() Function!
+Mahmoud48Message from GetName() Function!
+Mahmoud49Message from GetName() Function!
+Mahmoud50Message from GetName() Function!
+Mahmoud51Message from GetName() Function!
+Mahmoud52Message from GetName() Function!
+Mahmoud53Message from GetName() Function!
+Mahmoud54Message from GetName() Function!
+Mahmoud55Message from GetName() Function!
+Mahmoud56Message from GetName() Function!
+Mahmoud57Message from GetName() Function!
+Mahmoud58Message from GetName() Function!
+Mahmoud59Message from GetName() Function!
+Mahmoud60Message from GetName() Function!
+Mahmoud61Message from GetName() Function!
+Mahmoud62Message from GetName() Function!
+Mahmoud63Message from GetName() Function!
+Mahmoud64Message from GetName() Function!
+Mahmoud65Message from GetName() Function!
+Mahmoud66Message from GetName() Function!
+Mahmoud67Message from GetName() Function!
+Mahmoud68Message from GetName() Function!
+Mahmoud69Message from GetName() Function!
+Mahmoud70Message from GetName() Function!
+Mahmoud71Message from GetName() Function!
+Mahmoud72Message from GetName() Function!
+Mahmoud73Message from GetName() Function!
+Mahmoud74Message from GetName() Function!
+Mahmoud75Message from GetName() Function!
+Mahmoud76Message from GetName() Function!
+Mahmoud77Message from GetName() Function!
+Mahmoud78Message from GetName() Function!
+Mahmoud79Message from GetName() Function!
+Mahmoud80Message from GetName() Function!
+Mahmoud81Message from GetName() Function!
+Mahmoud82Message from GetName() Function!
+Mahmoud83Message from GetName() Function!
+Mahmoud84Message from GetName() Function!
+Mahmoud85Message from GetName() Function!
+Mahmoud86Message from GetName() Function!
+Mahmoud87Message from GetName() Function!
+Mahmoud88Message from GetName() Function!
+Mahmoud89Message from GetName() Function!
+Mahmoud90Message from GetName() Function!
+Mahmoud91Message from GetName() Function!
+Mahmoud92Message from GetName() Function!
+Mahmoud93Message from GetName() Function!
+Mahmoud94Message from GetName() Function!
+Mahmoud95Message from GetName() Function!
+Mahmoud96Message from GetName() Function!
+Mahmoud97Message from GetName() Function!
+Mahmoud98Message from GetName() Function!
+Mahmoud99
+B:\ring\tests\oldsystem>call ring scripts/oop31.ring 
+Message from GetName() Function!
+Mahmoud1Message from GetName() Function!
+Mahmoud2Message from GetName() Function!
+Mahmoud3Message from GetName() Function!
+Mahmoud4Message from GetName() Function!
+Mahmoud5Message from GetName() Function!
+Mahmoud6Message from GetName() Function!
+Mahmoud7Message from GetName() Function!
+Mahmoud8Message from GetName() Function!
+Mahmoud9Message from GetName() Function!
+Mahmoud10Message from GetName() Function!
+Mahmoud11Message from GetName() Function!
+Mahmoud12Message from GetName() Function!
+Mahmoud13Message from GetName() Function!
+Mahmoud14Message from GetName() Function!
+Mahmoud15Message from GetName() Function!
+Mahmoud16Message from GetName() Function!
+Mahmoud17Message from GetName() Function!
+Mahmoud18Message from GetName() Function!
+Mahmoud19Message from GetName() Function!
+Mahmoud20Message from GetName() Function!
+Mahmoud21Message from GetName() Function!
+Mahmoud22Message from GetName() Function!
+Mahmoud23Message from GetName() Function!
+Mahmoud24Message from GetName() Function!
+Mahmoud25Message from GetName() Function!
+Mahmoud26Message from GetName() Function!
+Mahmoud27Message from GetName() Function!
+Mahmoud28Message from GetName() Function!
+Mahmoud29Message from GetName() Function!
+Mahmoud30Message from GetName() Function!
+Mahmoud31Message from GetName() Function!
+Mahmoud32Message from GetName() Function!
+Mahmoud33Message from GetName() Function!
+Mahmoud34Message from GetName() Function!
+Mahmoud35Message from GetName() Function!
+Mahmoud36Message from GetName() Function!
+Mahmoud37Message from GetName() Function!
+Mahmoud38Message from GetName() Function!
+Mahmoud39Message from GetName() Function!
+Mahmoud40Message from GetName() Function!
+Mahmoud41Message from GetName() Function!
+Mahmoud42Message from GetName() Function!
+Mahmoud43Message from GetName() Function!
+Mahmoud44Message from GetName() Function!
+Mahmoud45Message from GetName() Function!
+Mahmoud46Message from GetName() Function!
+Mahmoud47Message from GetName() Function!
+Mahmoud48Message from GetName() Function!
+Mahmoud49Message from GetName() Function!
+Mahmoud50Message from GetName() Function!
+Mahmoud51Message from GetName() Function!
+Mahmoud52Message from GetName() Function!
+Mahmoud53Message from GetName() Function!
+Mahmoud54Message from GetName() Function!
+Mahmoud55Message from GetName() Function!
+Mahmoud56Message from GetName() Function!
+Mahmoud57Message from GetName() Function!
+Mahmoud58Message from GetName() Function!
+Mahmoud59Message from GetName() Function!
+Mahmoud60Message from GetName() Function!
+Mahmoud61Message from GetName() Function!
+Mahmoud62Message from GetName() Function!
+Mahmoud63Message from GetName() Function!
+Mahmoud64Message from GetName() Function!
+Mahmoud65Message from GetName() Function!
+Mahmoud66Message from GetName() Function!
+Mahmoud67Message from GetName() Function!
+Mahmoud68Message from GetName() Function!
+Mahmoud69Message from GetName() Function!
+Mahmoud70Message from GetName() Function!
+Mahmoud71Message from GetName() Function!
+Mahmoud72Message from GetName() Function!
+Mahmoud73Message from GetName() Function!
+Mahmoud74Message from GetName() Function!
+Mahmoud75Message from GetName() Function!
+Mahmoud76Message from GetName() Function!
+Mahmoud77Message from GetName() Function!
+Mahmoud78Message from GetName() Function!
+Mahmoud79Message from GetName() Function!
+Mahmoud80Message from GetName() Function!
+Mahmoud81Message from GetName() Function!
+Mahmoud82Message from GetName() Function!
+Mahmoud83Message from GetName() Function!
+Mahmoud84Message from GetName() Function!
+Mahmoud85Message from GetName() Function!
+Mahmoud86Message from GetName() Function!
+Mahmoud87Message from GetName() Function!
+Mahmoud88Message from GetName() Function!
+Mahmoud89Message from GetName() Function!
+Mahmoud90Message from GetName() Function!
+Mahmoud91Message from GetName() Function!
+Mahmoud92Message from GetName() Function!
+Mahmoud93Message from GetName() Function!
+Mahmoud94Message from GetName() Function!
+Mahmoud95Message from GetName() Function!
+Mahmoud96Message from GetName() Function!
+Mahmoud97Message from GetName() Function!
+Mahmoud98Message from GetName() Function!
+Mahmoud99Message from GetName() Function!
+Mahmoud100
+B:\ring\tests\oldsystem>call ring scripts/oop32.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+B:\ring\tests\oldsystem>call ring scripts/oop33.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+
+B:\ring\tests\oldsystem>call ring scripts/oop34.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed
+B:\ring\tests\oldsystem>call ring scripts/oop35.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Test : 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed
+B:\ring\tests\oldsystem>call ring scripts/oop36.ring 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+nice 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+name: NULL
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+5000
+
+B:\ring\tests\oldsystem>call ring scripts/oop37.ring 
+nice 
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+5000
+
+B:\ring\tests\oldsystem>call ring scripts/oop38.ring 
+nice 
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+name: Mahmoud
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+5000
+1
+2
+3
+4
+5
+
+B:\ring\tests\oldsystem>call ring scripts/oop39.ring 
+Point 1: X : 10 Y : 10
+Point 2: X : 20 Y : 40
+operator overloading works fine
+paramters : Hello
+operator : +
+operator overloading works fine
+paramters : 2015
+operator : +
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : +
+operator overloading works fine
+paramters : Hello2
+operator : -
+operator overloading works fine
+paramters : 2014
+operator : -
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : -
+operator overloading works fine
+paramters : Hello3
+operator : *
+operator overloading works fine
+paramters : 2016
+operator : *
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : *
+operator overloading works fine
+paramters : Hello4
+operator : /
+operator overloading works fine
+paramters : 2000
+operator : /
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : /
+operator overloading works fine
+paramters : Hello5
+operator : %
+operator overloading works fine
+paramters : 2001
+operator : %
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : %
+operator overloading works fine
+paramters : 1
+2
+3
+
+operator : +
+operator overloading works fine
+paramters : 1
+2
+3
+
+operator : -
+operator overloading works fine
+paramters : 1
+2
+3
+
+operator : *
+operator overloading works fine
+paramters : 1
+2
+3
+
+operator : /
+operator overloading works fine
+paramters : 0
+operator : neg
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : =
+operator overloading works fine
+paramters : 1
+operator : =
+operator overloading works fine
+paramters : one
+operator : =
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : <=
+operator overloading works fine
+paramters : 1
+operator : <=
+operator overloading works fine
+paramters : one
+operator : <=
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : <
+operator overloading works fine
+paramters : 1
+operator : <
+operator overloading works fine
+paramters : one
+operator : <
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : >
+operator overloading works fine
+paramters : 1
+operator : >
+operator overloading works fine
+paramters : one
+operator : >
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : >=
+operator overloading works fine
+paramters : 1
+operator : >=
+operator overloading works fine
+paramters : one
+operator : >=
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : !=
+operator overloading works fine
+paramters : 1
+operator : !=
+operator overloading works fine
+paramters : one
+operator : !=
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : &
+operator overloading works fine
+paramters : 1
+operator : &
+operator overloading works fine
+paramters : one
+operator : &
+operator overloading works fine
+paramters : x: 20
+y: 40
+
+operator : |
+operator overloading works fine
+paramters : 1
+operator : |
+operator overloading works fine
+paramters : one
+operator : |
+operator overloading works fine
+paramters : 0
+operator : not
+operator overloading works fine
+paramters : 1
+2
+3
+
+operator : %
+x: 10
+y: 10
+
+B:\ring\tests\oldsystem>call ring scripts/oop40.ring 
+name mahmoud
+address ksa
+phone 12345
+name ahmed
+address egypt
+phone 12345
+name mahmoud
+address ksa
+phone 12345
+name ahmed
+address egypt
+phone 12345
+
+B:\ring\tests\oldsystem>call ring scripts/oop41.ring 
+operator overloading
+operator : +
+parameter : test
+
+B:\ring\tests\oldsystem>call ring scripts/oop42.ring 
+hello
+Welcome
+1
+0
+1
+
+B:\ring\tests\oldsystem>call ring scripts/oop43.ring 
+operator overloading
+operator : +
+parameter : 1
+2
+3
+
+R value:
+4
+5
+6
+
+B:\ring\tests\oldsystem>call ring scripts/oop44.ring 
+10
+20
+30
+40
+
+B:\ring\tests\oldsystem>call ring scripts/oop45.ring 
+Welcome 
+1
+2
+3
+
+B:\ring\tests\oldsystem>call ring scripts/oop46.ring 
+welcome to the application 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+nice 
+name: Mahmoud
+address: NULL
+phone: NULL
+link: NULL
+name: NULL
+address: Egypt
+phone: 123456
+link: Object...
+more...
+49000
+salary: 49000
+tlist: [This Attribute Contains A List]
+1000
+2000
+3000
+4000
+5000
+
+B:\ring\tests\oldsystem>call ring scripts/selfbug.ring 
+welcome
+
+Line 15 Error (R31) : Trying to destory the object using the self reference  
+In method f1() in file scripts/selfbug.ring
+called from line 4  in file scripts/selfbug.ring 
+B:\ring\tests\oldsystem>call ring scripts/selfininit.ring 
+10
+20
+
+B:\ring\tests\oldsystem>call ring scripts/subobjs.ring 
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
+
+B:\ring\tests\oldsystem>call ring scripts/subobjs2.ring 
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
+
+B:\ring\tests\oldsystem>call ring scripts/subobjs3.ring 
+welcome
+Point :
+x : 100
+y : 200
+z : 300
+welcome
+Point :
+x : 50
+y : 150
+z : 250
+welcome
+Point :
+x : 150
+y : 250
+z : 350
+
+B:\ring\tests\oldsystem>call ring scripts/subobjs4.ring 
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
+
+B:\ring\tests\oldsystem>call ring scripts/subobjs5.ring 
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
+I have 2 points!
+B:\ring\tests\oldsystem>call ring scripts/newinlist.ring 
+Item 4 is a list contains 3 items
+1
+2
+3
+Object inside item 5
+x: 100
+y: 200
+z: 300
+Object inside item 6
+x: 50
+y: 150
+z: 250
+
+B:\ring\tests\oldsystem>call ring scripts/toop1.ring 
+10
+20
+30
+
+B:\ring\tests\oldsystem>call ring scripts/toop2.ring 
+10
+20
+30
+B:\ring\tests\oldsystem>call ring scripts/toop3.ring 
+10
+20
+30
+B:\ring\tests\oldsystem>call ring scripts/toop4.ring 
+Name : Rectangle 1
+Color: Blue
+P1   : (10,20)
+P2   : (200,300)
+B:\ring\tests\oldsystem>call ring scripts/toop5.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed
+B:\ring\tests\oldsystem>call ring scripts/toop6.ring 
+Name   : Test
+Age    : 20
+Salary : 15000
+Error (R27) : Using private attribute from outside the class : salary
+Error (R26) : Calling private method from outside the class : increasesalary
+
+B:\ring\tests\oldsystem>call ring scripts/toop7.ring 
+P1    : X : 10 Y : 10
+P2    : X : 20 Y : 40
+P1+P2 : X : 30 Y : 50
+
+B:\ring\tests\oldsystem>call ring scripts/toop8.ring 
+Name : test
+Age : 20
+Job : programmer
+Salary : 20000000
+
+B:\ring\tests\oldsystem>call ring scripts/toop9.ring 
+5
+
+B:\ring\tests\oldsystem>call ring scripts/toop10.ring 
+Hello World
+
+B:\ring\tests\oldsystem>call ring scripts/toop11.ring 
+Hello World
+
+B:\ring\tests\oldsystem>call ring scripts/string2.ring 
+
+see "Hello" + nl
+for x = 1 to 10
+	see 'Number ' + x + nl
+next
+Hello
+Number 1
+Number 2
+Number 3
+Number 4
+Number 5
+Number 6
+Number 7
+Number 8
+Number 9
+Number 10
+
+B:\ring\tests\oldsystem>call ring scripts/comment.ring 
+Hello
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+done
+
+B:\ring\tests\oldsystem>call ring scripts/commenterror.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/passbug.ring 
+1
+2
+3
+1
+2
+3
+wwow
+wwow
+wwow
+
+B:\ring\tests\oldsystem>call ring scripts/passbug2.ring 
+102345
+B:\ring\tests\oldsystem>call ring scripts/passbug3.ring 
+test
+1
+B:\ring\tests\oldsystem>call ring scripts/retbug.ring 
+welcome
+Content-type: text/html
+
+<meta charset='UTF-8'>
+<html>
+<header>
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<title>
+		Test
+	</title>
+
+</header>
+<body> 
+
+	Wow
+</body>
+</html>
+B:\ring\tests\oldsystem>call ring scripts/privatebug.ring 
+hello
+f2
+mmm....
+great
+how are you
+f3
+ iam here 
+ iam here 2
+coutput
+pvar
+ntabs
+ iam here 3 
+ iam here 4 
+great
+ iam here 5 
+
+B:\ring\tests\oldsystem>call ring scripts/privatebug2.ring 
+	nice
+hello
+f2
+mmm....
+great
+how are you
+f3
+ iam here 
+ iam here 2
+coutput
+pvar
+ntabs
+ iam here 3 
+ iam here 4 
+great
+ iam here 5 
+
+B:\ring\tests\oldsystem>call ring scripts/privatebug3.ring 
+
+	nice
+hello
+f2
+mmm....
+great
+how are you
+f3
+ iam here 
+ iam here 2
+coutput
+pvar
+ntabs
+ iam here 3 
+ iam here 4 
+great
+ iam here 5 
+
+B:\ring\tests\oldsystem>call ring scripts/sort.ring 
+1
+12
+5
+26
+7
+14
+3
+7
+2
+List after sort
+1
+2
+3
+5
+7
+7
+12
+14
+26
+
+B:\ring\tests\oldsystem>call ring scripts/sort2.ring 
+mahmoud
+samir
+ahmed
+ibrahim
+mohammed
+list after sort
+ahmed
+ibrahim
+mahmoud
+mohammed
+samir
+
+B:\ring\tests\oldsystem>call ring scripts/sort3.ring 
+ahmed
+14000
+ibrahim
+11000
+mahmoud
+15000
+mohammed
+12000
+samir
+16000
+
+B:\ring\tests\oldsystem>call ring scripts/emptyfile.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/emptyfile2.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/emptyfile3.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/emptyfile4.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/evaltest.ring 
+5+2*5 = 15
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+message from test!
+B:\ring\tests\oldsystem>call ring scripts/evalclassbug.ring 
+new class
+new object
+end of test!
+
+B:\ring\tests\oldsystem>call ring scripts/evalmem2.ring 
+hello world from test function!
+B:\ring\tests\oldsystem>call ring scripts/evalscope.ring 
+10
+B:\ring\tests\oldsystem>call ring scripts/braceend.ring 
+How are you?
+I'm fine, Thank you!
+
+B:\ring\tests\oldsystem>call ring scripts/braceend2.ring 
+hello from brace end!hello from brace end!
+B:\ring\tests\oldsystem>call ring scripts/bitwise.ring 
+Testing bitwise operators : 
+ X = 10 
+ Y = 5 
+x << y : 320
+x >> y : 0
+x ^ y : 15
+x & y : 0
+x | y : 15
+ X = 4 
+ Y = 5 
+x << y : 128
+x >> y : 0
+x ^ y : 1
+x & y : 4
+x | y : 5
+ 8 << 1 16
+ 8 >> 1 4
+
+B:\ring\tests\oldsystem>call ring scripts/retineval.ring 
+5
+x value = 10
+
+
+B:\ring\tests\oldsystem>call ring scripts/retfunc.ring 
+2
+1
+20
+30
+1
+20
+30
+good
+good
+good
+nice
+
+B:\ring\tests\oldsystem>call ring scripts/math.ring 
+Mathematical Functions
+Sin(0) = 0
+Sin(90) radians = 0.89
+Sin(90) degree = 1.00
+Cos(0) = 1
+Cos(90) radians = -0.45
+Cos(90) degree = 0.00
+Tan(0) = 0
+Tan(90) radians = -2.00
+Tan(90) degree = 1255.77
+asin(0) = 0
+acos(0) = 1.57
+atan(0) = 0
+atan2(1,1) = 0.79
+sinh(0) = 0
+sinh(1) = 1.18
+cosh(0) = 1
+cosh(1) = 1.54
+tanh(0) = 0
+tanh(1) = 0.76
+exp(0) = 1
+exp(1) = 2.72
+log(1) = 0
+log(2) = 0.69
+log10(1) = 0
+log10(2) = 0.30
+log10(10) = 1
+Ceil(1.12) = 2
+Ceil(1.72) = 2
+Floor(1.12) = 1
+Floor(1.72) = 1
+fabs(1.12) = 1.12
+fabs(1.72) = 1.72
+pow(2,3) = 8
+sqrt(16) = 4
+
+B:\ring\tests\oldsystem>call ring scripts/newinmethodpara.ring 
+hello
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
+x: 1000
+y: 2000
+z: 3000
+x: 1000
+y: 2000
+z: 3000
+
+B:\ring\tests\oldsystem>call ring scripts/newinpara.ring 
+x: 10
+y: 20
+z: 30
+
+B:\ring\tests\oldsystem>call ring scripts/findcrash.ring 
+0
+B:\ring\tests\oldsystem>call ring scripts/initbrace.ring 
+nice
+B:\ring\tests\oldsystem>call ring scripts/callinitmethod.ring 
+wow
+wow3
+wow5
+init
+nice
+wow4
+wow2
+
+B:\ring\tests\oldsystem>call ring scripts/callinitmethod2.ring 
+init
+good
+
+B:\ring\tests\oldsystem>call ring scripts/callinitmethod3.ring 
+x: 10
+y: 20
+z: 30
+
+B:\ring\tests\oldsystem>call ring scripts/callmethodfromobj.ring 
+test2
+para : 10
+
+B:\ring\tests\oldsystem>call ring scripts/braceerror2.ring 
+base
+child
+
+B:\ring\tests\oldsystem>call ring scripts/parabracebug.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/dotbracebug.ring 
+1
+top
+left
+width
+height
+100
+print
+
+B:\ring\tests\oldsystem>call ring scripts/trybug.ring 
+ invalid path
+
+B:\ring\tests\oldsystem>call ring scripts/forincrash.ring 
+6
+B:\ring\tests\oldsystem>call ring scripts/forinlist.ring 
+1
+2
+3
+
+B:\ring\tests\oldsystem>call ring scripts/timeforfun.ring 
+Hello
+Goodbye!
+
+B:\ring\tests\oldsystem>call ring scripts/printobj2.ring 
+print the list
+1
+2
+3
+x: 1.000000
+y: 2.000000
+z: 3.000000
+x: 1.000000
+y: 2.000000
+z: 3.000000
+print the item (object)
+x: 1
+y: 2
+z: 3
+
+B:\ring\tests\oldsystem>call ring scripts/insertfirst.ring 
+first
+1
+2
+3
+4
+5
+first
+1
+2
+3
+4
+5
+end
+
+B:\ring\tests\oldsystem>call ring scripts/ppcrash.ring 
+11
+12
+
+B:\ring\tests\oldsystem>call ring scripts/ppcrash2.ring 
+11
+B:\ring\tests\oldsystem>call ring scripts/nestednew3.ring 
+pobject: NULL
+x: 30
+y: 40
+z: 50
+pobject: NULL
+x: 10
+y: 20
+
+B:\ring\tests\oldsystem>call ring scripts/each.ring 
+1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+B:\ring\tests\oldsystem>call ring scripts/retassign.ring 
+0
+1
+
+B:\ring\tests\oldsystem>call ring scripts/forinstr.ring 
+1
+0
+1
+0
+1
+0
+
+B:\ring\tests\oldsystem>call ring scripts/happynum.ring 
+1 : 1
+2 : 7
+3 : 10
+4 : 13
+5 : 19
+6 : 23
+7 : 28
+8 : 31
+
+B:\ring\tests\oldsystem>call ring scripts/happynum2.ring 
+1 : 1
+2 : 7
+3 : 10
+4 : 13
+5 : 19
+6 : 23
+7 : 28
+8 : 31
+
+B:\ring\tests\oldsystem>call ring scripts/addmethod.ring 
+10
+20
+30
+
+B:\ring\tests\oldsystem>call ring scripts/addmethod2.ring 
+10
+20
+30
+10
+20
+30
+10
+20
+30
+
+B:\ring\tests\oldsystem>call ring scripts/bracexpreval.ring 
+
+Can't open file scripts/bracexpreval.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/english.ring   0<scripts/testenglish.txt 
+Enter Number (1) :Enter Number (2) :The Sum : 7
+B:\ring\tests\oldsystem>call ring scripts/objectpointer.ring 
+0158C338
+OBJECTPOINTER
+0
+1
+2
+3
+4
+5
+welcome
+
+B:\ring\tests\oldsystem>call ring scripts/double.ring 
+5.60
+B:\ring\tests\oldsystem>call ring scripts/funcdef.ring 
+Hello
+7
+
+B:\ring\tests\oldsystem>call ring scripts/funcdef2.ring 
+7
+7
+
+B:\ring\tests\oldsystem>call ring scripts/sortlistoneitem.ring 
+one
+one
+
+B:\ring\tests\oldsystem>call ring scripts/findlistofobjs.ring 
+2
+3
+1
+3
+1
+2
+1
+3
+Other
+0
+0
+0
+
+B:\ring\tests\oldsystem>call ring scripts/sortlistofobjsnative.ring 
+position: 1.000000
+name: Ring
+symbol: RNG
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+************************************************************
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+
+B:\ring\tests\oldsystem>call ring scripts/sortlistofobjsnative2.ring 
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 8.000000
+name: Charlie
+symbol: CHR
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 4.000000
+name: George
+symbol: DGRG
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+**********************************************************************
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 8.000000
+name: Charlie
+symbol: CHR
+position: 4.000000
+name: George
+symbol: DGRG
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+**********************************************************************
+position: 1.000000
+name: Ring
+symbol: RNG
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 4.000000
+name: George
+symbol: DGRG
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 8.000000
+name: Charlie
+symbol: CHR
+
+B:\ring\tests\oldsystem>call ring scripts/substrchar.ring 
+BRK-B
+1 CurTicker: |BRK/B|
+2 /- Ticker: |BRK-B|
+
+B:\ring\tests\oldsystem>call ring scripts/ringsqlite.ring 
+1
+Mahmoud
+29
+Jeddah
+20000.0
+2
+Ahmed
+27
+Jeddah
+15000.0
+3
+Mohammed
+31
+Egypt
+20000.0
+4
+Ibrahim
+24
+Egypt 
+65000.0
+**************************************************
+Mahmoud
+Ahmed
+Mohammed
+Ibrahim
+
+B:\ring\tests\oldsystem>call ring scripts/semicolon.ring 
+Hello
+How are you?
+Welcome to Ring
+one
+two
+three
+
+B:\ring\tests\oldsystem>call ring scripts/visualvars.ring 
+Global   : 5
+Instance : 10
+Local    : 15
+
+B:\ring\tests\oldsystem>call ring scripts/bracestart.ring 
+start
+Hello
+end
+start
+end
+
+B:\ring\tests\oldsystem>call ring scripts/elseif.ring 
+four
+
+B:\ring\tests\oldsystem>call ring scripts/testendinif.ring 
+one
+
+B:\ring\tests\oldsystem>call ring scripts/useend.ring 
+if statement..
+one
+for loop..
+12345678910
+switch...
+one
+try catch...
+catching error
+
+B:\ring\tests\oldsystem>call ring scripts/ifother.ring 
+other
+
+B:\ring\tests\oldsystem>call ring scripts/switchelse.ring 
+not 10
+
+B:\ring\tests\oldsystem>call ring scripts/conflict1.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/conflict2.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/conflict3.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/conflict4.ring 
+name: mahmoud
+address: Egypt
+phone: 0
+
+B:\ring\tests\oldsystem>call ring scripts/privatemethod.ring 
+
+Line 4 Error (R26) : Calling private method from outside the class : salary 
+in file scripts/privatemethod.ring 
+B:\ring\tests\oldsystem>call ring scripts/privateattribute.ring 
+
+Line 6 Error (R27) : Using private attribute from outside the class : salary 
+in file scripts/privateattribute.ring 
+B:\ring\tests\oldsystem>call ring scripts/dynamicattr1.ring 
+nindex: 1
+nindex: 2
+
+B:\ring\tests\oldsystem>call ring scripts/dynamicattr2.ring 
+date: 24/12/2018
+time: 04:41:40
+
+B:\ring\tests\oldsystem>call ring scripts/sortobjscase.ring 
+ SPY SP500 0
+ SDYL SPDivs 1
+ FB Facebook 2
+ AMZN Amazon 3
+ NVDA Nvidia 4
+ GOOGL Google 5
+
+SORT: 
+
+symbol: AMZN
+cmpname: Amazon
+position: 3.000000
+symbol: FB
+cmpname: Facebook
+position: 2.000000
+symbol: GOOGL
+cmpname: Google
+position: 5.000000
+symbol: NVDA
+cmpname: Nvidia
+position: 4.000000
+symbol: SDYL
+cmpname: SPDivs
+position: 1.000000
+symbol: SPY
+cmpname: SP500
+position: 0.000000
+
+B:\ring\tests\oldsystem>call ring scripts/findlistofobjs2.ring 
+2
+3
+1
+3
+1
+2
+1
+3
+Other
+0
+0
+0
+catch error!
+end of test
+
+B:\ring\tests\oldsystem>call ring scripts/ifstylebraces.ring 
+false
+
+B:\ring\tests\oldsystem>call ring scripts/whilestylebraces.ring 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+
+B:\ring\tests\oldsystem>call ring scripts/forstylebraces.ring 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+
+B:\ring\tests\oldsystem>call ring scripts/switchstylebraces.ring 
+three
+
+B:\ring\tests\oldsystem>call ring scripts/trystylebraces.ring 
+error
+
+B:\ring\tests\oldsystem>call ring scripts/stylebraces.ring 
+if statement..
+one
+for loop..
+12345678910
+switch...
+one
+try catch...
+catching error
+
+B:\ring\tests\oldsystem>call ring scripts/casetest.ring 
+one
+two
+thre
+else
+else
+else
+else
+else
+else
+else
+
+B:\ring\tests\oldsystem>call ring scripts/deftest.ring 
+one
+two
+
+B:\ring\tests\oldsystem>call ring scripts/forstyle3.ring 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+B:\ring\tests\oldsystem>call ring scripts/forinstyle3.ring 
+one
+two
+three
+four
+five
+
+B:\ring\tests\oldsystem>call ring scripts/changekeyword.ring 
+welcome
+Welcome
+
+B:\ring\tests\oldsystem>call ring scripts/syntaxbasic.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+
+B:\ring\tests\oldsystem>call ring scripts/naturaland.ring 
+Instruction : I want window
+Using : and
+Instruction : Window Title = hello world
+
+B:\ring\tests\oldsystem>call ring scripts/syntaxbasic2.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+message from test
+
+B:\ring\tests\oldsystem>call ring scripts/changeoperator.ring 
+5
+error
+15
+
+B:\ring\tests\oldsystem>call ring scripts/naturalplus.ring 
+Plus operator
+B:\ring\tests\oldsystem>call ring scripts/changeoperator2.ring 
+10
+B:\ring\tests\oldsystem>call ring scripts/evalinbrace.ring 
+10
+5
+
+B:\ring\tests\oldsystem>call ring scripts/naturalequal.ring 
+Instruction : I want window
+Instruction : Window Title = hello world
+
+B:\ring\tests\oldsystem>call ring scripts/rangemaxtomin.ring 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+z
+y
+x
+w
+v
+u
+t
+s
+r
+q
+p
+o
+n
+m
+l
+k
+j
+i
+h
+g
+f
+e
+d
+c
+b
+a
+
+B:\ring\tests\oldsystem>call ring scripts/naturaleval.ring 
+Instruction : I want window
+Instruction : Window Title = hello world
+
+B:\ring\tests\oldsystem>call ring scripts/methodbraceerror.ring 
+10
+20
+test
+
+Line 9 Error (R24) : Using uninitialized variable : x 
+In method test() in file scripts/methodbraceerror.ring
+called from line 1  in file scripts/methodbraceerror.ring 
+B:\ring\tests\oldsystem>call ring scripts/methodbraceerror2.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests\oldsystem>call ring scripts/methodbraceerror3.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests\oldsystem>call ring scripts/methodbraceerror4.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests\oldsystem>cd scripts 
+
+B:\ring\tests\oldsystem\scripts>call ring usestylebasic.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+done
+
+B:\ring\tests\oldsystem\scripts>call ring usestylesupernova.ring 
+nice
+B:\ring\tests\oldsystem\scripts>cd .. 
+
+B:\ring\tests\oldsystem>call ring scripts/isfunctionclass.ring 
+f1
+f2
+f3
+test
+
+B:\ring\tests\oldsystem>call ring scripts/handlebraceerror.ring 
+Handle Error!
+Message :Error (R24) : Using uninitialized variable : test
+add attribute
+done
+10
+B:\ring\tests\oldsystem>call ring scripts/handlebraceerror2.ring 
+Handle Error!
+Message :Error (R3) : Calling Function without definition !: test
+x: 10
+y: 20
+z: 30
+Done
+mmm...
+
+B:\ring\tests\oldsystem>call ring scripts/naturalstring.ring 
+Instruction : I want window
+Instruction : Window Title =  hello world
+
+B:\ring\tests\oldsystem>call ring scripts/selfsearch.ring 
+
+Line 7 Error (R12) : error in property name, property not found! : t 
+in file scripts/selfsearch.ring 
+B:\ring\tests\oldsystem>call ring scripts/selfafterclass.ring 
+100
+200
+300
+x: 10
+y: 20
+z: 30
+100
+200
+300
+
+B:\ring\tests\oldsystem>call ring scripts/selfafterclass2.ring 
+100
+200
+300
+x: 10
+y: 20
+z: 30
+100
+200
+300
+
+Line 15 Error (R12) : error in property name, property not found! : extra 
+In method test() in file scripts/selfafterclass2.ring
+called from line 7  in file scripts/selfafterclass2.ring 
+B:\ring\tests\oldsystem>call ring scripts/selfafterclass3.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict1.ring 
+name: NULL
+name: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict2.ring 
+name: NULL
+name: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict3.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict4.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict5.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests\oldsystem>call ring scripts/selfselfconflict6.ring 
+name: Gal
+name: bert
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash.ring 
+one
+two
+three
+four
+five
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash2.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash3.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash4.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash5.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/assigncrash6.ring 
+done
+
+B:\ring\tests\oldsystem>call ring scripts/braceescape.ring 
+x: 10
+y: 20
+z: 30
+x: 10
+y: 20
+z: 30
+100
+200
+300
+100
+200
+300
+10
+20
+30
+
+B:\ring\tests\oldsystem>call ring scripts/testconflict.ring 
+Class-Company-CurCmp: AMZN | Amazon | Cloud | 
+Label-String-Symbol : JACK
+
+
+B:\ring\tests\oldsystem>call ring scripts/usingthis.ring 
+10
+20
+30
+
+B:\ring\tests\oldsystem>call ring scripts/returninclassregion.ring 
+x: NULL
+y: NULL
+x: NULL
+y: NULL
+z: NULL
+
+B:\ring\tests\oldsystem>call ring scripts/initmethod.ring 
+x: 100
+y: 200
+z: 300
+
+B:\ring\tests\oldsystem>call ring scripts/dynamicmethods.ring 
+10
+20
+30
+100
+200
+300
+
+B:\ring\tests\oldsystem>call ring scripts/accesssetget.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Mahmoud - Ring Programming Language
+
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Gal - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Bert - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Marino - Ring Programming Language
+
+B:\ring\tests\oldsystem>call ring scripts/functionsscope.ring 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 function
+f1 function
+f2 function
+f3 method
+f3 method
+f3 method
+========================================
+
+B:\ring\tests\oldsystem>call ring scripts/functionsscope2.ring 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+f3 function
+========================================
+
+B:\ring\tests\oldsystem>call ring scripts/type2.ring 
+NUMBER
+STRING
+LIST
+OBJECT
+file
+
+B:\ring\tests\oldsystem>call ring scripts/tryinsideif.ring 
+20
+
+B:\ring\tests\oldsystem>call ring scripts/dotcrash.ring 
+welcome
+
+eval Line (1) Syntax error
+eval errors count : 1 
+
+Line 11 Error in eval! 
+In eval() in file scripts/dotcrash.ring 
+B:\ring\tests\oldsystem>call ring scripts/braceinlist.ring 
+
+scripts/braceinlist.ring Line (22) Error (C7) : Error in list items
+scripts/braceinlist.ring errors count : 1 
+
+B:\ring\tests\oldsystem>call ring scripts/syntaxerror2.ring 
+
+Can't open file syntaxerror.ring 
+
+scripts/syntaxerror2.ring Line (7) Syntax error
+scripts/syntaxerror2.ring errors count : 1 
+
+B:\ring\tests\oldsystem>call ring scripts/t.ring 
+welcome
+B:\ring\tests\oldsystem>call ring scripts/initsyntaxerror.ring 
+welcome
+10
+done
+
+B:\ring\tests\oldsystem>call ring scripts/initinnewbug2.ring 
+init myfontclass
+init mycontrol
+
+B:\ring\tests\oldsystem>call ring scripts/returnscope.ring 
+top: 10
+left: 10
+width: 400
+height: 400
+
+B:\ring\tests\oldsystem>call ring scripts/returnlistfrommethod.ring 
+
+Can't open file scripts/returnlistfrommethod.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/evalbrace.ring 
+wow
+B:\ring\tests\oldsystem>call ring scripts/equalobjobj.ring 
+
+Line 13 Object does not support operator overloading 
+In raise() in file scripts/equalobjobj.ring 
+B:\ring\tests\oldsystem>call ring scripts/nullpointer.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/ptrcmp2.ring 
+0
+1
+B:\ring\tests\oldsystem>call ring scripts/listandstrconversion.ring 
+Items : 4
+Item : Hello
+Item : How are you ?
+Item : are you fine ?
+Item : ok
+list2Str result = Hello
+How are you ?
+are you fine ?
+ok
+Done
+B:\ring\tests\oldsystem>call ring scripts/objmethodnobraceerror.ring 
+BEFORE o.what() 
+
+Line 13 Error (R14) : Calling Method without definition !: what 
+In method test() in file scripts/objmethodnobraceerror.ring
+called from line 2  in file scripts/objmethodnobraceerror.ring 
+B:\ring\tests\oldsystem>call ring scripts/retselfbyref.ring 
+x: 15
+x: 20
+x: 20.000000
+
+B:\ring\tests\oldsystem>call ring scripts/passtemplisttoinitmethod.ring  
+1
+2
+3
+4
+1
+1
+2
+3
+1
+3
+one
+two
+three
+2
+one
+three
+two
+three
+two
+one
+one
+two
+nice
+three
+**********
+1
+one
+2
+two
+3
+three
+Search two : 2
+Search 1 : 1
+Egypt
+USA
+KSA
+1
+2
+3
+4
+5
+6
+7
+one
+two
+three
+four
+
+B:\ring\tests\oldsystem>call ring scripts/importinsideif.ring  
+wow
+B:\ring\tests\oldsystem>call ring scripts/liststartinbraces.ring 
+test3
+
+B:\ring\tests\oldsystem>call ring scripts/privateinnew.ring 
+point class
+20
+point class
+10
+point class
+20
+we must get runtime error (using private attribute)!
+
+Line 6 Error (R27) : Using private attribute from outside the class : number 
+in file scripts/privateinnew.ring 
+B:\ring\tests\oldsystem>call ring scripts/numbers2bytes.ring 
+Test Int2Bytes() and Bytes2Int() - Value : 77
+Int Size : 4
+M   
+77
+Test Float2Bytes() and Bytes2Float() - Value 77.12
+Float Size : 4
+q=šB
+77.12
+Test Double2Bytes() and Bytes2Double() - Value 9999977.12345
+Double Size : 8
+jMó#ÍcA
+9999977.12345
+
+B:\ring\tests\oldsystem>call ring scripts/trimerror.ring 
+len of trimed(j) is : 1
+trimed J is : "n"
+len of trimed(j2) is : 0
+trimed J2 is : ""
+len of trimed(j3) is : 5
+trimed J3 is : "Majdi"
+len of trimed(j4) is : 15
+trimed J4 is : "Majdi    Sobain"
+
+B:\ring\tests\oldsystem>call ring scripts/anoninhash.ring 
+wow
+B:\ring\tests\oldsystem>call ring scripts/bracenewinheritance.ring 
+greatwow
+B:\ring\tests\oldsystem>call ring scripts/nestedfunccall.ring 
+
+Line 5 Error (R1) : Cann't divide by zero ! 
+in file scripts/nestedfunccall.ring 
+B:\ring\tests\oldsystem>call ring scripts/classbraces.ring 
+x: 10
+y: 20
+z: 30
+
+B:\ring\tests\oldsystem>call ring scripts/funcbraces.ring 
+hello
+7
+test
+B:\ring\tests\oldsystem>call ring scripts/classbraces2.ring 
+Hello Mahmoud
+
+B:\ring\tests\oldsystem>call ring scripts/classend.ring 
+nice
+name: 10
+x: 10
+y: 20
+z: 30
+x: 10
+y: 20
+z: 30
+7
+10
+
+B:\ring\tests\oldsystem>call ring scripts/packageend.ring 
+Hello, World
+
+B:\ring\tests\oldsystem>call ring scripts/packagebraces.ring 
+Hello, World
+
+B:\ring\tests\oldsystem>call ring scripts/endfunc.ring 
+welcome
+
+B:\ring\tests\oldsystem>call ring scripts/types.ring 
+7
+B:\ring\tests\oldsystem>call ring scripts/inclassregion1.ring  
+wow
+welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***
+B:\ring\tests\oldsystem>call ring scripts/inclassregion2.ring 
+wownice man! greatnice 
+B:\ring\tests\oldsystem>call ring scripts/inclassregion3.ring 
+wow
+welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***ring***
+B:\ring\tests\oldsystem>call ring scripts/underscoreinnumber.ring 
+NUMBER
+1000001
+
+B:\ring\tests\oldsystem>call ring scripts/underscoreinnumber2.ring 
+
+Line 3 Error (R24) : Using uninitialized variable : 100011_ 
+in file scripts/underscoreinnumber2.ring 
+B:\ring\tests\oldsystem>call ring scripts/fafternumber.ring 
+NUMBER
+STRING
+NUMBER
+
+Line 14 Error (R24) : Using uninitialized variable : 1412f13 
+in file scripts/fafternumber.ring 
+B:\ring\tests\oldsystem>call ring scripts/newtrytest.ring 
+before class
+after test
+after class
+
+B:\ring\tests\oldsystem>call ring scripts/newtrytest2.ring 
+before class
+after test
+after class
+
+B:\ring\tests\oldsystem>call ring scripts/manygetter.ring 
+MahmoudMahmoud
+B:\ring\tests\oldsystem>call ring scripts/nosettergetterinclassmethods.ring 
+amr
+wow
+
+B:\ring\tests\oldsystem>call ring scripts/privateattributereuse.ring 
+120
+Before the runtime error!
+
+Line 3 Error (R27) : Using private attribute from outside the class : salary 
+in file scripts/privateattributereuse.ring 
+B:\ring\tests\oldsystem>call ring scripts/listnovar.ring 
+Welcome!
+Hi!
+
+B:\ring\tests\oldsystem>call ring scripts/checknull.ring 
+1
+1
+1
+1
+1
+0
+
+B:\ring\tests\oldsystem>call ring scripts/selfaddcrash.ring 
+aitems: [This Attribute Contains A List]
+
+aitems: [This Attribute Contains A List]
+
+
+
+B:\ring\tests\oldsystem>call ring scripts/errorloc.ring 
+1
+3
+
+Line 5 Error (R34) : Variable is required for the assignment operation 
+In function main() in file scripts/errorloc.ring
+called from line 1  in file scripts/errorloc.ring 
+B:\ring\tests\oldsystem>call ring scripts/rangekeyword.ring 
+True
+
+B:\ring\tests\oldsystem>call ring scripts/objdecimals.ring 
+x: 10.12
+y: 20.12
+
+
+B:\ring\tests\oldsystem>call ring scripts/literror.ring 
+Error (S1) : In Line 2 , Literal not closed, expected " in the end
+
+B:\ring\tests\oldsystem>call ring scripts/noobject.ring 
+Hello
+
+Line 4 Error (R24) : Using uninitialized variable : noobject 
+in file scripts/noobject.ring 
+B:\ring\tests\oldsystem>call ring scripts/objcontainslist.ring 
+mylist: [This Attribute Contains A List]
+name: Test
+
+
+B:\ring\tests\oldsystem>call ring scripts/loadpackage.ring 
+Hello, World!
+Hello from testloadpackage.ring
+1000
+100
+1000
+
+B:\ring\tests\oldsystem>call ring scripts/testfnicr.ring 
+
+Line 4 Error (R1) : Cann't divide by zero ! 
+in file B:\ring\tests\oldsystem\scripts/filenameinclassregion.ring 
+B:\ring\tests\oldsystem>call ring scripts/testfnicr2.ring 
+B:\ring\tests\oldsystem\scripts/filenameinclassregion2.ring
+
+B:\ring\tests\oldsystem>call ring scripts/plusequalfunc.ring 
+one = test:get_one()
+okkkkkkkkkkkkk
+Func GetObjectPointerFromRingObject pObj
+     if isobject(pObj)
+	if isattribute(pObj,'pObject')
+		return pObj.pObject
+	else 
+		raise('Error, The parameter is not a GUI object!')
+	ok
+     ok	
+     return pObj		
+
+
+B:\ring\tests\oldsystem>call ring scripts/varptr.ring 
+char
+char
+
+B:\ring\tests\oldsystem>call ring scripts/forloopscope.ring 
+10
+6
+10
+NULL
+10
+
+B:\ring\tests\oldsystem>call ring scripts/chars.ring 
+Weo
+Weo
+3
+W
+All String
+12
+         
+First Part
+4
+   
+Second Part
+4
+   
+Third Part
+4
+   
+All String
+12
+         
+1
+1
+
+B:\ring\tests\oldsystem>call ring scripts/ncemain.ring 
+
+Line 1 Error (R1) : Cann't divide by zero ! 
+in file B:\ring\tests\oldsystem\scripts/ncesub.ring 
+B:\ring\tests\oldsystem>call ring scripts/filenameinpara.ring 
+scripts/filenameinpara.ring
+
+B:\ring\tests\oldsystem>call ring scripts/filepath1.ring 
+
+Can't open file b:\ring\tests\scripts\filepath2.ring 
+
+scripts/filepath1.ring Line (2) Syntax error
+scripts/filepath1.ring errors count : 1 
+
+B:\ring\tests\oldsystem>call ring scripts/ringinring.ring 
+Start the test!
+Let us try having an error
+
+Line 1 Error (R24) : Using uninitialized variable : x 
+in file Ring_EmbeddedCode 
+End of test!
+
+B:\ring\tests\oldsystem>call ring scripts/ignorenewline.ring 
+
+	Hello, World!
+
+	
+	Hello from the Test function
+
+	
+
+B:\ring\tests\oldsystem>call ring scripts/thisinclassregion.ring 
+My Application
+1.0
+Name    = My Application
+Version = 1.0
+name: My Application
+version: 1.0
+
+
+B:\ring\tests\oldsystem>call ring scripts/nullattr.ring 
+NULL
+NULL
+1
+1
+0
+0
+name: My Application
+version: 1.0
+
+
+B:\ring\tests\oldsystem>call ring scripts/nullptr.ring 
+0
+1
+Wow, we get error here!
+
+B:\ring\tests\oldsystem>call ring scripts/spaceinlist.ring  
+ B1: ABCD
+ B2: EFGH
+ B3: IJKL
+ B4: MNOP
+
+B:\ring\tests\oldsystem>call ring scripts/xortest.ring 
+B1= 2345 B2= 1111
+
+B3=B[1]^B[2] : 3454
+
+B[3]=B[1][k]^'1' :
+3
+2
+5
+4
+
+B[3]=B[1][k]^B[2][k] :
+3
+2
+5
+4
+====
+
+B:\ring\tests\oldsystem>call ring scripts/nestednew.ring 
+True parent!
+hello from child
+hello from parent
+
+B:\ring\tests\oldsystem>call ring scripts/ispointer.ring 
+0
+file
+1
+
+B:\ring\tests\oldsystem>call ring scripts/testringvmsee.ring 
+beforewow
+beforewowbefore
+
+B:\ring\tests\oldsystem>call ring scripts/minusminus.ring 
+-6
+-4
+-6
+-6
+-7
+-8
+
+
+B:\ring\tests\oldsystem>call ring scripts/retinbrace.ring 
+Start
+Message From Test
+Test Output
+End
+
+B:\ring\tests\oldsystem>call ring scripts/opinlitthenop.ring 
++wow
+
+B:\ring\tests\oldsystem>call ring scripts/commentcaller.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/commentfile.ring 
+
+B:\ring\tests\oldsystem>call ring scripts/commentfile2.ring 
+wow
+
+B:\ring\tests\oldsystem>call ring scripts/selfwrongref.ring 
+A: 0
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: A
+B: 1
+C: 2
+
+
+A: FineA
+B: FineB
+C: 2
+
+
+
+B:\ring\tests\oldsystem>call ring scripts/selfwrongref2.ring 
+x: 22
+y: 20
+z: [This Attribute Contains A List]
+
+
+B:\ring\tests\oldsystem>call ring scripts/selfwrongref3.ring 
+x: 22
+y: 20
+z: Object...
+
+
+B:\ring\tests\oldsystem>call ring scripts/mysetter.ring 
+Setter!
+Test
+Setter!
+100
+Setter!
+wow
+2
+Setter!
+x: 10
+y: 20
+z: 30
+
+B:\ring\tests\oldsystem>call ring scripts/mysetter2.ring 
+Setter!
+Test
+Setter!
+100
+Setter!
+wow
+2
+Setter!
+x: 10
+y: 20
+z: 30
+
+B:\ring\tests\oldsystem>call ring scripts/mysetter3.ring 
+one
+two
+three
+
+
+B:\ring\tests\oldsystem>call ring scripts/mysetter4.ring 
+x: 10
+y: 20
+z: 30
+
+
+B:\ring\tests\oldsystem>call ring scripts/mysetter5.ring 
+Test
