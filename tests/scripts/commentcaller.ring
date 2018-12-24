@@ -1,1 +1,0 @@
-load "scripts/commentfile.ring"
