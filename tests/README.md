@@ -1,7 +1,10 @@
 Ring Programming Language Tests
 ===============================
 
-In this folder we will store the new tests that test the Ring programming language.
+In this folder we will store the tests that test the Ring programming language.
+
+![Tests](https://github.com/ring-lang/ring/blob/master/tests/screen_shot.png)
+
 
 # To Build 
 
