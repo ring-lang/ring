@@ -264,6 +264,9 @@ class InstallCommand
 		cDir  = CurrentDir()
 		CreateSubFolders(cFileName)
 		chdir(cDir)
+		if isWindows() and Right(cFileName,5) = ".ring" 
+			cFileContent = substr(cFileContent,nl,WindowsNL())
+		ok
 		Try
 			write(cFileName,cFileContent)
 		Catch
