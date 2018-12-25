@@ -42,8 +42,8 @@ func UpdateTheRegistry
 		cRegistryFile 		= substr(cRegistryFile,nl,WindowsNL())
 		cRemoteVersionFile	= substr(cRemoteVersionFile,nl,WindowsNL())
 	ok
-	write("registry/registry.ring",cRegistryFile)
-	write("registry/version.ring",cRemoteVersionFile)
+	write(exefolder()+"../ringpm/registry/registry.ring",cRegistryFile)
+	write(exefolder()+"../ringpm/registry/version.ring",cRemoteVersionFile)
 	? "The Registry is updated from revision " + aLocalRegistryData[:nRegistryRev] + " (" +
 		aLocalRegistryData[:cRegistryLastUpdate] + ") " + 
 		"to revision " + aRemoteRegistryData[:nRegistryRev] + " (" +
