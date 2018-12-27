@@ -19,7 +19,7 @@ func CreatePackageInTheCurrentFolder
 	# Create the Package Files 	
 		new PackageCreator {
 			for item in aFiles 
-				if item != "package.ring" and not find(aPackageFiles,item) 
+				if item != "package.ring" and not find(aPackageFiles,item) and left(item,4) != ".git"
 					aPackageFiles + item 
 				ok
 			next 
