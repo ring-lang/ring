@@ -1,4 +1,8 @@
 aPackagesRegistry = [
+	[ :name = "ringpresentation",
+	  :description = "Powerpoint presentation for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
 	[ :name = "ringsrc",
 	  :description = "Ring programming language source code (Compiler+Virtual Machine) in the C language.",
 	  :ProviderUserName = "ringpackages"
