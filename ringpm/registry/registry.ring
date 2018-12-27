@@ -14,5 +14,10 @@ aPackagesRegistry = [
 	[ :name = "codegen",
 	  :description = "Code Generator for creating Ring programming language extensions in C and C++",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringodbc",
+	  :description = "RingODBC Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
