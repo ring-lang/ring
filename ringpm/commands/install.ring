@@ -108,9 +108,11 @@ class InstallCommand
 		ok
 		WriteLockFile(aPackageInfo,self)
 		# Create file for loading the package in ring/bin folder 
-			cCompletePackageName = cPackageName+GetMajorVersionText(aPackageInfo[:version])
-			write(exefolder()+cCompletePackageName+".ring",
-				'load "'+cMainPackagesFolder+'/'+cCompletePackageName+'/lib.ring"')
+			if find(aPackageInfo[:files],"lib.ring")
+				cCompletePackageName = cPackageName+GetMajorVersionText(aPackageInfo[:version])
+				write(exefolder()+cCompletePackageName+".ring",
+					'load "'+cMainPackagesFolder+'/'+cCompletePackageName+'/lib.ring"')
+			ok
 		SetupPackage(cPackageName,cPackageFolderName,aPackageInfo)
 
 	func SetupPackage cPackageName,cPackageFolderName,aPackageInfo
