@@ -47,11 +47,20 @@ class PackageCreator
 					:ProviderUserName = ""]
 				],
 				:files 		= aPackageFiles,
+				:ringfolderfiles= [],
 				:WindowsFiles	= [],
 				:LinuxFiles	= [],
 				:MacOSFiles	= [],
+				:WindowsringfolderFiles	= [],
+				:LinuxringfolderFiles	= [],
+				:MacOSringfolderFiles	= [],
 				:run		= "ring main.ring",
-				:setup		= ""
+				:setup		= "",
+				:WindowsSetup   = "",
+				:LinuxSetup     = "",
+				:macOSSetup     = "",
+				:UbuntuSetup    = "",
+				:FedoraSetup    = ""
 			] 	
 			new List2Code {
 				cPackageInfo = "aPackageInfo = " + List2Code(aPackageInfo)
