@@ -60,3 +60,4 @@
 
 # GitHub User Content 
 	C_GITHUBUSERCONTENT 	= "https://raw.githubusercontent.com/"
+	C_BRANCHSEPARATOR	= "/"

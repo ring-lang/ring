@@ -152,7 +152,7 @@ class InstallCommand
 			chdir(cDir)
 		else 
 			cPackageURL  	= cPackagesLocations + "/" + cPackageName +
-						 "/"+cBranchName+"/"
+						 C_BRANCHSEPARATOR+cBranchName+"/"
 		ok
 		cPackageFileURL = cPackageURL + "package.ring"
 		cPackageInfo 	= DownloadFile(cPackageFileURL)
