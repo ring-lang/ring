@@ -22,6 +22,9 @@ aPackagesRegistry = [
 	[ :name = "ringopenssl",
 	  :description = "RingOpenSSL Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringcurl",
+	  :description = "RingCurl Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
