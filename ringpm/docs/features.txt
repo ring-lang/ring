@@ -31,8 +31,8 @@ Features
 ======================================================================================
 * List of installed packages 							DONE
 	* Package Name + Package Version 					DONE
-	* Check if we have new updates 						DONE
-	* Fast List ( list [-f : don't check updates] )				DONE
+	* Check if we have new updates (list -u)				DONE
+	* Fast List ( Don't check updates] )					DONE
 	* Print Packages Count							DONE
 ======================================================================================
 * Lock File									DONE

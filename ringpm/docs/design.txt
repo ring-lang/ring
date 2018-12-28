@@ -213,9 +213,9 @@ List Command
 
 	Goal : (Checking for updates ---> Optional)
 
-	ringpm list -f		---> Don't check updates 
+	ringpm list -u		---> Check updates 
 
-	ringpm fastlist		= (list -f)
+	ringpm list		= (Fast list - Don't check updates)
 
 
 ==============================================
