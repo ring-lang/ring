@@ -101,6 +101,9 @@ class InstallCommand
 			ok
 		DownloadRelatedPackages(aPackageInfo,True)
 		if ! lInstallError 
+			if lDisplayPackageFiles
+				Style("Download Package Files For ",:YellowBlack)  ? cPackageName
+			ok
 			DownloadPackageFiles(aPackageInfo,cPackageInfo)
 		else 
 			? "Install Operation (Not Completed)"
@@ -255,7 +258,7 @@ class InstallCommand
 
 	func DownloadFileInPackage cFileName
 		if lDisplayPackageFiles
-			? "Download File : " + cFileName 
+			Style("Download File : ",:YellowBlack) ? cFileName 
 		ok
 		cFileURL 	= cPackageURL + cFileName
 		cFileContent 	= DownloadFile(cFileURL)

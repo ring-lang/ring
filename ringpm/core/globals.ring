@@ -48,7 +48,7 @@
 
 # Flag for displaying package information during installation 
 	lDisplayPackageInfo  	= False 
-	lDisplayPackageFiles 	= False 
+	lDisplayPackageFiles 	= True 
 	lDisplayOperationDone	= False
 
 # Flag to check updates in the List command 
