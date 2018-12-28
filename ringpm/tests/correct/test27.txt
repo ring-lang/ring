@@ -1,7 +1,11 @@
 myapp (master) ---> myapp
 mylib (master) ---> mylib
+mylib
+lib.ring
+myapp
+myapp.ring
 myapp
 Welcome to my application
 We will use our library : mylib
 Hello from MyLib version v1.0.0
-Installing Installing Preparing 
+Installing Installing Download Package Files For Download File : Download Package Files For Download File : Preparing 
