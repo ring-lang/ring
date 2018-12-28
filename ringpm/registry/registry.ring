@@ -18,6 +18,10 @@ aPackagesRegistry = [
 	[ :name = "ringodbc",
 	  :description = "RingODBC Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringopenssl",
+	  :description = "RingOpenSSL Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
