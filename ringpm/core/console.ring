@@ -20,7 +20,7 @@ func Commands
 	see "Command : " Style("refresh",:YellowBlack)  see " : Update the Registry (Packages List)" + nl
 	see "Command : " Style("install",:YellowBlack)  
 	see " <packagename> [from <UserName>] [branch <branchname>]" + nl
-	see "Command : " Style("list   ",:YellowBlack)  see " [-f : Don't check updates]" + nl
+	see "Command : " Style("list   ",:YellowBlack)  see " [-u : Check updates]" + nl
 	see "Command : " Style("run    ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("update ",:YellowBlack)  see " <packagename>" + nl
 	see "Command : " Style("remove ",:YellowBlack)  see " <packagename>" + nl

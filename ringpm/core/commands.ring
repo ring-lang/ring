@@ -49,7 +49,7 @@ func ExecuteCommands
 				if lInstallError return ok
 				oInstall.InstallPackage(cPackageName)
 			on "list"
-				CheckFastList()
+				CheckUpdatesInList()
 				PrintInstalledPackages()
 			on "run"
 				cPackageName = GetPackageNameFromParameters()
@@ -89,8 +89,10 @@ func GetPackageNameFromParameters
 	return aCommand[2]
 
 
-func CheckFastList
-	if find(aCommand,"-f") or find(aCommand,"-F")
+func CheckUpdatesInList
+	if find(aCommand,"-u") or find(aCommand,"-u")
+		lCheckUpdates = True
+	else 
 		lCheckUpdates = False 
 	ok
 
