@@ -6,7 +6,7 @@ Usage   : ringpm [command]
 Command :  <keywords...>
 Command :  : Update the Registry (Packages List)
 Command :  <packagename> [from <UserName>] [branch <branchname>]
-Command :  [-f : Don't check updates]
+Command :  [-u : Check updates]
 Command :  <packagename>
 Command :  <packagename>
 Command :  <packagename>
