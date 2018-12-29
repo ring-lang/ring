@@ -30,5 +30,9 @@ aPackagesRegistry = [
 	[ :name = "internetlib",
 	  :description = "InternetLib Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringmysql",
+	  :description = "RingMySQL Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
