@@ -34,5 +34,9 @@ aPackagesRegistry = [
 	[ :name = "ringmysql",
 	  :description = "RingMySQL Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringsqlite",
+	  :description = "RingSQLite Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
