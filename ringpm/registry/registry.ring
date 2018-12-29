@@ -26,5 +26,9 @@ aPackagesRegistry = [
 	[ :name = "ringcurl",
 	  :description = "RingCurl Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "internetlib",
+	  :description = "InternetLib Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
