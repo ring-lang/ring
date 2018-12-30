@@ -58,5 +58,9 @@ aPackagesRegistry = [
 	[ :name = "ringconsolecolors",
 	  :description = "RingConsoleColors Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringfreeglut",
+	  :description = "RingFreeGLUT Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
