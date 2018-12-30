@@ -66,5 +66,9 @@ aPackagesRegistry = [
 	[ :name = "ringlibuv",
 	  :description = "RingLibuv Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringmurmurhash",
+	  :description = "RingMurmurHash Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
