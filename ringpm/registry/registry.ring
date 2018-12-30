@@ -50,5 +50,9 @@ aPackagesRegistry = [
 	[ :name = "ringallegro",
 	  :description = "RingAllegro Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringbeep",
+	  :description = "RingBeep Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
