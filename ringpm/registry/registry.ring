@@ -46,5 +46,9 @@ aPackagesRegistry = [
 	[ :name = "ringzip",
 	  :description = "RingZip Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringallegro",
+	  :description = "RingAllegro Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
