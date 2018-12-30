@@ -62,5 +62,9 @@ aPackagesRegistry = [
 	[ :name = "ringfreeglut",
 	  :description = "RingFreeGLUT Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringlibuv",
+	  :description = "RingLibuv Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
