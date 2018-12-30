@@ -70,5 +70,9 @@ aPackagesRegistry = [
 	[ :name = "ringmurmurhash",
 	  :description = "RingMurmurHash Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringopengl21",
+	  :description = "RingOpenGL 2.1 Extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
