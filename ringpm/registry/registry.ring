@@ -82,5 +82,9 @@ aPackagesRegistry = [
 	[ :name = "ringopengl32",
 	  :description = "RingOpenGL 3.2 Extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt55runtime",
+	  :description = "Qt 5.5 runtime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
