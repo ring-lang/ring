@@ -90,5 +90,9 @@ aPackagesRegistry = [
 	[ :name = "qt55qmlruntime",
 	  :description = "Qt 5.5 - QML - runtime for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringqtruntime",
+	  :description = "RingQt runtime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
