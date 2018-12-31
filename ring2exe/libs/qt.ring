@@ -6,11 +6,8 @@ aLibrary = [:name = :qt ,
 		"icudt54.dll",
 		"icuin54.dll",
 		"icuuc54.dll",
-		"libEGL.dll",
 		'"libstdc++-6.dll"',
-		'"libwinpthread-1.dll"',
-		"libGLESv2.dll",
-		"D3Dcompiler_47.dll"
+		'"libwinpthread-1.dll"'
 	 ] ,
 	 :windowsfolders = [
 		:audio,
@@ -22,6 +19,7 @@ aLibrary = [:name = :qt ,
 		:playlistformats,
 		:position,
 		:printsupport,
+		:sensors,
 		:sensorgestures,
 		:sqldrivers,
 		:translations
