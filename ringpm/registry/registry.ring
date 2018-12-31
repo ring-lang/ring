@@ -98,5 +98,9 @@ aPackagesRegistry = [
 	[ :name = "ringqt",
 	  :description = "RingQt for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "cruntime",
+	  :description = "CRuntime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
