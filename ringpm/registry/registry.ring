@@ -106,5 +106,9 @@ aPackagesRegistry = [
 	[ :name = "ringlibsdl",
 	  :description = "RingLibSDL for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringwinapi",
+	  :description = "RingWinAPI for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
