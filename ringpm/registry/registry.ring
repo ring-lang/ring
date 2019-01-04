@@ -110,5 +110,9 @@ aPackagesRegistry = [
 	[ :name = "ringwinapi",
 	  :description = "RingWinAPI for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringwincreg",
+	  :description = "RingWinCReg for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
