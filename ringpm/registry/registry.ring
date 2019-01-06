@@ -154,6 +154,10 @@ aPackagesRegistry = [
 	[ :name = "formdesigner",
 	  :description = "Form Designer for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringnotepad",
+	  :description = "Ring Notepad for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
