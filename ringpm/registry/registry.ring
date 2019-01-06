@@ -138,5 +138,9 @@ aPackagesRegistry = [
 	[ :name = "naturallib",
 	  :description = "NaturalLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "gameengine",
+	  :description = "GameEngine for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
