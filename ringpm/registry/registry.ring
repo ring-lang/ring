@@ -118,5 +118,9 @@ aPackagesRegistry = [
 	[ :name = "stdlib",
 	  :description = "StdLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_apache",
+	  :description = "Apache web server for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
