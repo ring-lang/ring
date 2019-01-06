@@ -126,5 +126,9 @@ aPackagesRegistry = [
 	[ :name = "weblib",
 	  :description = "WebLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "typehints",
+	  :description = "TypeHints for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
