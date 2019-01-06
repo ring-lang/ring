@@ -134,5 +134,9 @@ aPackagesRegistry = [
 	[ :name = "tracelib",
 	  :description = "TraceLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "naturallib",
+	  :description = "NaturalLib for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
