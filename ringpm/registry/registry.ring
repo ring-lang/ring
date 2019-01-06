@@ -130,5 +130,9 @@ aPackagesRegistry = [
 	[ :name = "typehints",
 	  :description = "TypeHints for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tracelib",
+	  :description = "TraceLib for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
