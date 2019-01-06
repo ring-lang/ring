@@ -142,5 +142,9 @@ aPackagesRegistry = [
 	[ :name = "gameengine",
 	  :description = "GameEngine for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "foxring",
+	  :description = "FoxRing for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
