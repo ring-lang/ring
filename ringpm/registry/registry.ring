@@ -146,5 +146,9 @@ aPackagesRegistry = [
 	[ :name = "foxring",
 	  :description = "FoxRing for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "bignumber",
+	  :description = "BigNumber for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
