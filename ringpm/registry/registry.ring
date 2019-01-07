@@ -162,6 +162,10 @@ aPackagesRegistry = [
 	[ :name = "ringnotepad",
 	  :description = "Ring Notepad for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringrepl",
+	  :description = "Ring REPL for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
