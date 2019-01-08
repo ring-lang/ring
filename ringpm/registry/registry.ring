@@ -178,6 +178,9 @@ aPackagesRegistry = [
 	[ :name = "ringhelphtml",
 	  :description = "Help (HTML) for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "cards",
+	  :description = "Cards Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
