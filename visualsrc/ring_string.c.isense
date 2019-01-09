@@ -72,9 +72,7 @@ ring_strdup
 Type: char *
 cString
 Type: int
-nSize
-Type: int
-x
+x,nSize
 ring_string_test
 nMaxValue
 Type: String *

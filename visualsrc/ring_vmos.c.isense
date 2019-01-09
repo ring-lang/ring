@@ -16,11 +16,11 @@ ring_vm_os_isandroid
 ring_vm_os_windowsnl
 ring_vm_os_currentdir
 Type: char
-cDirPath[256]
+cDirPath[RING_PATHSIZE]
 ring_vm_os_exefilename
 Type: char
-cDirPath[256]
+cDirPath[RING_PATHSIZE]
 ring_vm_os_chdir
 ring_vm_os_exefolder
 Type: char
-cDirPath[256]
+cDirPath[RING_PATHSIZE]

@@ -19,7 +19,7 @@ ring_vm_math_fabs
 ring_vm_math_pow
 ring_vm_math_sqrt
 ring_vm_math_unsigned
-Type: unsigned int
+Type: unsigned long
 nNum1,nNum2
 Type: double
 nNum3

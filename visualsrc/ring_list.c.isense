@@ -225,7 +225,6 @@ Type: int
 x
 Type: List *
 pList2
-ring_list_refcopy
 ring_list_clear
 ring_list_new
 ring_list_genarray
