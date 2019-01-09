@@ -127,6 +127,10 @@ aPackagesRegistry = [
 	  :description = "WebLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
+	[ :name = "weblibtools",
+	  :description = "WebLibTools for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
 	[ :name = "typehints",
 	  :description = "TypeHints for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
