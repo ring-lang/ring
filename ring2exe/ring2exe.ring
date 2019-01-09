@@ -122,7 +122,7 @@ func Main
 	else 
 		drawline()
 		see "Application : Ring2EXE (Ring script to Executable file)" + nl
-		see "Author      : 2017, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
+		see "Author      : 2017-2019, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
 		see "Usage       : ring2exe filename.ring [Options]" + nl
 		drawline()
 	ok
