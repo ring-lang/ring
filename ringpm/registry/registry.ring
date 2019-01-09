@@ -186,5 +186,10 @@ aPackagesRegistry = [
 	[ :name = "cards",
 	  :description = "Cards Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "flappybird3000",
+	  :description = "Flappy Bird 3000 Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
