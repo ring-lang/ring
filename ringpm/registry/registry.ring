@@ -286,6 +286,10 @@ aPackagesRegistry = [
 	[ :name = "stopwatch",
 	  :description = "Stop Watch application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sumpuzzlegame",
+	  :description = "Sum Puzzle Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
