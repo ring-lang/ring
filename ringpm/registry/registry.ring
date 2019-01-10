@@ -190,6 +190,10 @@ aPackagesRegistry = [
 	[ :name = "flappybird3000",
 	  :description = "Flappy Bird 3000 Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "analogclock",
+	  :description = "Analog Clock application for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
