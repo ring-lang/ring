@@ -254,6 +254,10 @@ aPackagesRegistry = [
 	[ :name = "memorygame",
 	  :description = "MemoryGame Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "minesweeper",
+	  :description = "MineSweeper Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
