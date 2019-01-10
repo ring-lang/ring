@@ -266,6 +266,10 @@ aPackagesRegistry = [
 	[ :name = "pong",
 	  :description = "Pong Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sixteenpuzzle",
+	  :description = "Sixteen Puzzle Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
