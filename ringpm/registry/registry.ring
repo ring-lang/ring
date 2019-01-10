@@ -246,5 +246,9 @@ aPackagesRegistry = [
 	[ :name = "lightsout",
 	  :description = "LightsOut Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "magicfour",
+	  :description = "MagicFour Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
