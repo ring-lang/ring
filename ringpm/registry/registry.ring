@@ -194,6 +194,9 @@ aPackagesRegistry = [
 	[ :name = "analogclock",
 	  :description = "Analog Clock application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "calculator",
+	  :description = "Calculator application for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
