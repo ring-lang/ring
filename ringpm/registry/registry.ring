@@ -234,5 +234,9 @@ aPackagesRegistry = [
 	[ :name = "getquoteshistory",
 	  :description = "GetQuotesHistory application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "goldmagic800",
+	  :description = "GoldMagic800 Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
