@@ -278,6 +278,10 @@ aPackagesRegistry = [
 	[ :name = "squarespuzzle",
 	  :description = "Squares Puzzle Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "starsfighter",
+	  :description = "Stars Fighter Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
