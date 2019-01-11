@@ -42,6 +42,7 @@ func RemovePackage cPackageName
 func DeletePackageFiles cFolder 
 	# Load the Package File (To Be Used Later)
 		eval(read(cFolder+"/package.ring"))
+	RunRemoveScripts(aPackageInfo,cFolder)
 	OSDeleteFolder(cFolder)
 	# Delete the loader file in ring/bin folder 
 		remove(exefolder()+cFolder+".ring")
@@ -69,3 +70,27 @@ func DeleteFilesInRingFolder aPackageInfo,cAttribute
 		next
 	chdir(cCurrentPackageDir)
 
+func RunRemoveScripts aPackageInfo,cPackageFolderName
+		cRemove = aPackageInfo[:remove]
+		if cRemove != NULL or aPackageInfo[:WindowsRemove] != NULL or 
+			aPackageInfo[:LinuxRemove] != NULL or aPackageInfo[:MacOSRemove] != NULL 
+			Style("Removing files and folders ",:YellowBlack)
+			cDir = CurrentDir()
+			chdir(cMainPackagesFolder+"/"+cPackageFolderName)
+			system(cRemove)
+			if isWindows() and aPackageInfo[:Windowsremove] != NULL 
+				System(aPackageInfo[:Windowsremove])
+			but isLinux()
+				if aPackageInfo[:Linuxremove] != NULL 
+					System(aPackageInfo[:Linuxremove])
+				ok
+				if fexists(exefolder()+"/ubuntu.txt") and aPackageInfo[:Ubunturemove] != NULL 
+					System(aPackageInfo[:Ubunturemove])
+				but fexists(exefolder()+"/fedora.txt") and aPackageInfo[:Fedoraremove] != NULL 
+					System(aPackageInfo[:Fedoraremove])
+				ok
+			but isMacosx() and aPackageInfo[:MacOSremove] != NULL 
+				System(aPackageInfo[:MacOSremove])
+			ok
+			chdir(cDir)
+		ok

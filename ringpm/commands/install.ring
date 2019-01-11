@@ -120,7 +120,8 @@ class InstallCommand
 
 	func SetupPackage cPackageName,cPackageFolderName,aPackageInfo
 		cSetup = aPackageInfo[:setup]
-		if cSetup != NULL
+		if cSetup != NULL or aPackageInfo[:WindowsSetup] != NULL or 
+			aPackageInfo[:LinuxSetup] != NULL or aPackageInfo[:MacOSSetup] != NULL 
 			Style("Preparing ",:YellowBlack)
 			? cPackageName
 			cDir = CurrentDir()
