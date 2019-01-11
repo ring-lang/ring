@@ -326,6 +326,10 @@ aPackagesRegistry = [
 	[ :name = "winstartupmanager",
 	  :description = "WinStartupManager application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "androidringlibsdl",
+	  :description = "AndroidRingLibSDL package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
