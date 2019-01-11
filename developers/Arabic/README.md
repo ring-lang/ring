@@ -32,14 +32,6 @@
 			4
 		</td>
 		<td>
-			<a href="#dev"    > المطورين المعتمدين	</a> <br/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			5
-		</td>
-		<td>
 			<a href="#morelessons"    > دروس إضافية	</a> <br/>
 		</td>
 	</tr>
@@ -303,43 +295,6 @@
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
-		</td>
-	</tr>
-</table>
-
-<h1 id="dev"> المطورين المعتمدين </h1> 
-
-<table>
-	<tr>	
-		<th>الرقم</th>
-		<th>الاسم</th>
-		<th>الشهادة</th>
-	</tr>
-	<tr>
-		<td>1</td>
-		<td>
-			Khalid Abid Ben Houari
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c1.png"> الرابط </a>
-		</td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>
-			Sara Abozeina
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c2.png"> الرابط </a>
-		</td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td>
-			Mahmoud Mohmmad Kibreet
-		</td>
-		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/developers/Arabic/Cert/c3.png"> الرابط </a>
 		</td>
 	</tr>
 </table>
