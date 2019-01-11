@@ -322,6 +322,10 @@ aPackagesRegistry = [
 	[ :name = "wisequadrat",
 	  :description = "WiseQuadrat game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "winstartupmanager",
+	  :description = "WinStartupManager application for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
