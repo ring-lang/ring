@@ -314,6 +314,10 @@ aPackagesRegistry = [
 	[ :name = "videomusicplayer",
 	  :description = "VideoMusicPlayer application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "weighthistory",
+	  :description = "WeightHistory application for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
