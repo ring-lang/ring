@@ -302,6 +302,10 @@ aPackagesRegistry = [
 	[ :name = "tictactoe",
 	  :description = "TicTacToe Game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tictactoe3d",
+	  :description = "TicTacToe3D Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
