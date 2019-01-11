@@ -318,6 +318,10 @@ aPackagesRegistry = [
 	[ :name = "weighthistory",
 	  :description = "WeightHistory application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "wisequadrat",
+	  :description = "WiseQuadrat game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
