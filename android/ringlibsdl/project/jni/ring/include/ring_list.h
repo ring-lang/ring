@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_list_h
 #define ring_list_h
 /* Data */
