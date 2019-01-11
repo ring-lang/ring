@@ -24,6 +24,7 @@ Features
 	* When we delete a package, delete the related packages 		DONE 
 	  if it's not used  by other packages 					DONE
 	* Remove files installed in ring folders like ring/bin folder		DONE
+	* Execute special commands when removing a package (uninstall scripts)  DONE
 ======================================================================================
 * Update (To New|Old Version)							
 	* Delete current version, Then install new version 
