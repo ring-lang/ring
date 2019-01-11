@@ -310,6 +310,10 @@ aPackagesRegistry = [
 	[ :name = "urlshortener",
 	  :description = "URLShortener application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "videomusicplayer",
+	  :description = "VideoMusicPlayer application for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
