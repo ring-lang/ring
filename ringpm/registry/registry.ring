@@ -330,6 +330,10 @@ aPackagesRegistry = [
 	[ :name = "androidringlibsdl",
 	  :description = "AndroidRingLibSDL package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "androidringqt",
+	  :description = "AndroidRingQt package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
