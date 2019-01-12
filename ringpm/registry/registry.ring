@@ -370,6 +370,10 @@ aPackagesRegistry = [
 	[ :name = "sample3dcameraandbackground",
 	  :description = "Sample3DCameraAndBackground package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sample3dlongway",
+	  :description = "Sample3DLongWay package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
