@@ -362,6 +362,10 @@ aPackagesRegistry = [
 	[ :name = "vscodeeditorextension",
 	  :description = "VSCodeEditorExtension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sample3dcamera",
+	  :description = "Sample3DCamera package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
