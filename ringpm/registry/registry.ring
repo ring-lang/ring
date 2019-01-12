@@ -350,6 +350,10 @@ aPackagesRegistry = [
 	[ :name = "notepadppeditorextension",
 	  :description = "NotepadppEditorExtension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sublimetext2editorextension",
+	  :description = "Sublimetext2EditorExtension package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
