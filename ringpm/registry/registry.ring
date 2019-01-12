@@ -334,6 +334,10 @@ aPackagesRegistry = [
 	[ :name = "androidringqt",
 	  :description = "AndroidRingQt package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "atomeditorextension",
+	  :description = "AtomEditorExtension package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
