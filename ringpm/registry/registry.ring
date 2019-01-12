@@ -346,6 +346,10 @@ aPackagesRegistry = [
 	[ :name = "geanyeditorextension",
 	  :description = "GeanyEditorExtension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "notepadppeditorextension",
+	  :description = "NotepadppEditorExtension package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
