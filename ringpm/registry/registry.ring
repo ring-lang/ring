@@ -342,6 +342,10 @@ aPackagesRegistry = [
 	[ :name = "emacseditorextension",
 	  :description = "EmacsEditorExtension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "geanyeditorextension",
+	  :description = "GeanyEditorExtension package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
