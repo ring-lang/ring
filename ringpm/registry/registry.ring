@@ -338,6 +338,10 @@ aPackagesRegistry = [
 	[ :name = "atomeditorextension",
 	  :description = "AtomEditorExtension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "emacseditorextension",
+	  :description = "EmacsEditorExtension package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
