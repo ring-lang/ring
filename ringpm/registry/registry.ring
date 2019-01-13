@@ -406,5 +406,9 @@ aPackagesRegistry = [
 	[ :name = "help2wiki",
 	  :description = "Help2Wiki package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringsamples",
+	  :description = "RingSamples package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
