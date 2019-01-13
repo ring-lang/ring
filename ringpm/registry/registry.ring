@@ -402,5 +402,9 @@ aPackagesRegistry = [
 	[ :name = "string2constant",
 	  :description = "String2Constant package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "help2wiki",
+	  :description = "Help2Wiki package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
