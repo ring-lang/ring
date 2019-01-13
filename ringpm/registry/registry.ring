@@ -398,5 +398,9 @@ aPackagesRegistry = [
 	[ :name = "qtclassconverter",
 	  :description = "QtClassConverter package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "string2constant",
+	  :description = "String2Constant package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
