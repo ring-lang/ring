@@ -418,5 +418,9 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_freeglut",
 	  :description = "LibDepWin_FreeGLUT package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_glew",
+	  :description = "LibDepWin_GLEW package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
