@@ -410,5 +410,9 @@ aPackagesRegistry = [
 	[ :name = "ringsamples",
 	  :description = "RingSamples package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_allegro542",
+	  :description = "LibDepWin_Allegro542 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
