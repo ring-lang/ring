@@ -434,5 +434,9 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_libuv",
 	  :description = "LibDepWin_Libuv package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_mysql",
+	  :description = "LibDepWin_MySQL package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
