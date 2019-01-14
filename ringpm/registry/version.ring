@@ -1,3 +1,3 @@
-nRegistryRev  		= 106
+nRegistryRev  		= 107
 cRegistryLastUpdate 	= "2019/01/14"
-nPackagesCount 		= 108
+nPackagesCount 		= 109
