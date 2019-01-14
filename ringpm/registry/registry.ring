@@ -438,5 +438,9 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_mysql",
 	  :description = "LibDepWin_MySQL package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_openssl",
+	  :description = "LibDepWin_OpenSSL package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
