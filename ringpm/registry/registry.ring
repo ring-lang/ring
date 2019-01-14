@@ -426,5 +426,9 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_libcurl",
 	  :description = "LibDepWin_LibCurl package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_libsdl",
+	  :description = "LibDepWin_LibSDL package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
