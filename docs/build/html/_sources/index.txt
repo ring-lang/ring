@@ -88,6 +88,7 @@ Contents:
    Performance Tips <performancetips>
    Distributing Ring Applications <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
+   The Ring Package Manager (RingPM) <ringpm>
    Low Level Functions <lowlevel>
    The Trace Library and the Interactive Debugger <debug>
    Embedding Ring Language in Ring Programs <ringemb>

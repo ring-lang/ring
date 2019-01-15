@@ -1,0 +1,36 @@
+.. index:: 
+	single: Ring Package Manager (RingPM); Introduction
+
+=================================
+The Ring Package Manager (RingPM)
+=================================
+
+In this chapter we will learn about using the Ring Package Manager (RingPM)
+
+RingPM is a tool for discovering, installing and updating Ring packages.
+
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Features
+
+Features
+========
+
+The Package Manager uses Semantic Versioning to check compatibility between packages 
+
+The Package Manager comes with the next options
+
+.. code-block:: none
+
+	Usage   : ringpm [command]
+	Command : search  <keywords...>
+	Command : refresh : Update the Registry (Packages List)
+	Command : install <packagename> [from <UserName>] [branch <branchname>]
+	Command : list    [-f : Don't check updates]
+	Command : run     <packagename>
+	Command : update  <packagename>
+	Command : remove  <packagename>
+	Command : format  : Delete All Packages
+	Command : new     <packagename>
+	Command : package : Create package in the current folder
+
