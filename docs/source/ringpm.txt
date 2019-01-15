@@ -26,11 +26,263 @@ The Package Manager comes with the next options
 	Command : search  <keywords...>
 	Command : refresh : Update the Registry (Packages List)
 	Command : install <packagename> [from <UserName>] [branch <branchname>]
-	Command : list    [-f : Don't check updates]
+	Command : list    [-u : check updates]
 	Command : run     <packagename>
 	Command : update  <packagename>
 	Command : remove  <packagename>
 	Command : format  : Delete All Packages
 	Command : new     <packagename>
 	Command : package : Create package in the current folder
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Discovering Packages
+
+Discovering Packages
+====================
+
+We can discover new packages using the Search command
+
+Using this command we can search in the RingPM Registry (Packages Index)
+
+The RingPM Registry is a local copy of all registred packages.
+
+.. code-block:: none
+
+	ringpm search <keywords...>
+
+Example:
+
+.. code-block:: none
+
+	ringpm search notepad
+
+Output:
+
+.. code-block:: none
+
+	Package : ringnotepad (Ring Notepad)
+	Package : notepadppeditorextension (Notepad++ Editor Extension package)
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Updating the RingPM Registry
+
+Updating the RingPM Registry
+============================
+
+The RingPM Registry is a local copy of all registred packages.
+
+We can update the local copy using the Refresh command
+
+Example:
+
+.. code-block:: none
+
+	ringpm refresh
+
+Output:
+
+.. code-block:: none
+
+	No updates to the Registry, Nothing to do!
+
+Or
+
+.. code-block:: none
+
+	The Registry is updated from revision 110 (2019/01/13) to revision 112 (2019/01/15)
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Installing Packages
+
+Installing Packages
+===================
+
+
+We can install new packages using the Install command
+
+.. code-block:: none
+
+	ringpm install <packagename> [from <UserName>] [branch <branchname>]
+
+We can type only the package name to get the package information from the RingPM Registry or
+we can determine the user name (GitHub) and the branch name of the github project (optional).
+
+Example (1) :
+
+.. code-block:: none
+
+	ringpm install ringnotepad
+
+Example (2) :
+
+.. code-block:: none
+
+	ringpm install goldmagic800
+
+Example (3) :
+
+.. code-block:: none
+
+	ringpm install gameoflife
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Printing List of Installed Packages
+
+Printing List of Installed Packages
+===================================
+
+We can know the installed packages using the List command
+
+.. code-block:: none
+
+	ringpm list [-u : check updates]
+
+Example
+
+.. code-block:: none
+
+	ringpm list
+
+Output
+
+.. code-block:: none
+
+	(analogclock)                 : The AnalogClock Package [master]                   -- (1.0.0)
+	(androidringlibsdl)           : The AndroidRingLibSDL Package [master]             -- (1.0.0)
+	(androidringqt)               : The AndroidRingQt Package [master]                 -- (1.0.0)
+	(atomeditorextension)         : The AtomEditorExtension Package [master]           -- (1.0.0)
+	(bignumber)                   : The BigNumber Package [master]                     -- (1.0.0)
+	(calculator)                  : The Calculator Package [master]                    -- (1.0.0)
+	(cards)                       : The Cards Package [master]                         -- (1.0.0)
+	(checkers)                    : The Checkers Package [master]                      -- (1.0.0)
+	(chess)                       : The Chess Package [master]                         -- (1.0.0)
+	....
+
+To check for new updates
+
+.. code-block:: none
+
+	ringpm list -u
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Run Package
+
+Run Package
+===========
+
+After installing a package, we can run it using the Run command.
+
+.. code-block:: none
+
+	ringpm run <packagename>
+
+Example(1):
+
+.. code-block:: none
+
+	ringpm run ringnotepad
+
+Example(2):
+
+.. code-block:: none
+
+	ringpm run goldmagic800
+
+Example(3):
+
+.. code-block:: none
+
+	ringpm run gameoflife
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Update Package
+
+Update Package
+==============
+
+We can update a package using the Update command
+
+.. code-block:: none
+
+	ringpm update <packagename>
+
+Example:
+
+.. code-block:: none
+
+	ringpm update ringnotepad
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Remove Package
+
+Remove Package
+==============
+
+We can remove a package using the Remove command
+
+.. code-block:: none
+
+	ringpm remove <packagename>
+
+Example:
+
+.. code-block:: none
+
+	ringpm remove ringnotepad
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Deleting All Packages
+
+Deleting All Packages
+=====================
+
+We can delete all packages using the Format command
+
+Example:
+
+.. code-block:: none
+
+	ringpm format
+
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Creating New Package
+
+Creating New Package
+====================
+
+We can create new package using the New command
+
+.. code-block:: none
+
+	ringpm new <packagename>
+
+Example:
+
+.. code-block:: none
+
+	ringpm new myapp
+
+This will create new folder called my myapp
+
+The new folder will contains the next file
+
+* package.ring : The package description and files 
+* main.ring : main program (used by the Run command)
+* lib.ring : library file for the package 
+
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Create Package in the Current Folder
+
+Create Package in the Current Folder
+====================================
+
+To create a package for an application that already exists, go to the application folder then type
+
+.. code-block:: none
+
+	ringpm package
+
+This will create the package file (package.ring) and will add all of the application files in the package definition.
 

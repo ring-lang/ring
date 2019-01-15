@@ -62,7 +62,7 @@
 Command : search  &lt;keywords...&gt;
 Command : refresh : Update the Registry (Packages List)
 Command : install &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;]
-Command : list    [-f : Don&#39;t check updates]
+Command : list    [-u : check updates]
 Command : run     &lt;packagename&gt;
 Command : update  &lt;packagename&gt;
 Command : remove  &lt;packagename&gt;
@@ -71,6 +71,165 @@ Command : new     &lt;packagename&gt;
 Command : package : Create package in the current folder
 </pre></div>
 </div>
+</div>
+<div class="section" id="discovering-packages">
+<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can discover new packages using the Search command</p>
+<p>Using this command we can search in the RingPM Registry (Packages Index)</p>
+<p>The RingPM Registry is a local copy of all registred packages.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm search &lt;keywords...&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm search notepad
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Package : ringnotepad (Ring Notepad)
+Package : notepadppeditorextension (Notepad++ Editor Extension package)
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-the-ringpm-registry">
+<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Permalink to this headline">¶</a></h2>
+<p>The RingPM Registry is a local copy of all registred packages.</p>
+<p>We can update the local copy using the Refresh command</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm refresh
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>No updates to the Registry, Nothing to do!
+</pre></div>
+</div>
+<p>Or</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>The Registry is updated from revision 110 (2019/01/13) to revision 112 (2019/01/15)
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-packages">
+<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can install new packages using the Install command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;]
+</pre></div>
+</div>
+<p>We can type only the package name to get the package information from the RingPM Registry or
+we can determine the user name (GitHub) and the branch name of the github project (optional).</p>
+<p>Example (1) :</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install ringnotepad
+</pre></div>
+</div>
+<p>Example (2) :</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install goldmagic800
+</pre></div>
+</div>
+<p>Example (3) :</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install gameoflife
+</pre></div>
+</div>
+</div>
+<div class="section" id="printing-list-of-installed-packages">
+<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can know the installed packages using the List command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm list [-u : check updates]
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm list
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>(analogclock)                 : The AnalogClock Package [master]                   -- (1.0.0)
+(androidringlibsdl)           : The AndroidRingLibSDL Package [master]             -- (1.0.0)
+(androidringqt)               : The AndroidRingQt Package [master]                 -- (1.0.0)
+(atomeditorextension)         : The AtomEditorExtension Package [master]           -- (1.0.0)
+(bignumber)                   : The BigNumber Package [master]                     -- (1.0.0)
+(calculator)                  : The Calculator Package [master]                    -- (1.0.0)
+(cards)                       : The Cards Package [master]                         -- (1.0.0)
+(checkers)                    : The Checkers Package [master]                      -- (1.0.0)
+(chess)                       : The Chess Package [master]                         -- (1.0.0)
+....
+</pre></div>
+</div>
+<p>To check for new updates</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm list -u
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-package">
+<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this headline">¶</a></h2>
+<p>After installing a package, we can run it using the Run command.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example(1):</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run ringnotepad
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run goldmagic800
+</pre></div>
+</div>
+<p>Example(3):</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run gameoflife
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-package">
+<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Permalink to this headline">¶</a></h2>
+<p>We can update a package using the Update command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm update &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm update ringnotepad
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-package">
+<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Permalink to this headline">¶</a></h2>
+<p>We can remove a package using the Remove command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm remove &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm remove ringnotepad
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-all-packages">
+<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can delete all packages using the Format command</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm format
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-new-package">
+<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Permalink to this headline">¶</a></h2>
+<p>We can create new package using the New command</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm new &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm new myapp
+</pre></div>
+</div>
+<p>This will create new folder called my myapp</p>
+<p>The new folder will contains the next file</p>
+<ul class="simple">
+<li>package.ring : The package description and files</li>
+<li>main.ring : main program (used by the Run command)</li>
+<li>lib.ring : library file for the package</li>
+</ul>
+</div>
+<div class="section" id="create-package-in-the-current-folder">
+<span id="index-11"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
+<p>To create a package for an application that already exists, go to the application folder then type</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm package
+</pre></div>
+</div>
+<p>This will create the package file (package.ring) and will add all of the application files in the package definition.</p>
 </div>
 </div>
 
@@ -84,6 +243,16 @@ Command : package : Create package in the current folder
   <ul>
 <li><a class="reference internal" href="#">The Ring Package Manager (RingPM)</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#discovering-packages">Discovering Packages</a></li>
+<li><a class="reference internal" href="#updating-the-ringpm-registry">Updating the RingPM Registry</a></li>
+<li><a class="reference internal" href="#installing-packages">Installing Packages</a></li>
+<li><a class="reference internal" href="#printing-list-of-installed-packages">Printing List of Installed Packages</a></li>
+<li><a class="reference internal" href="#run-package">Run Package</a></li>
+<li><a class="reference internal" href="#update-package">Update Package</a></li>
+<li><a class="reference internal" href="#remove-package">Remove Package</a></li>
+<li><a class="reference internal" href="#deleting-all-packages">Deleting All Packages</a></li>
+<li><a class="reference internal" href="#creating-new-package">Creating New Package</a></li>
+<li><a class="reference internal" href="#create-package-in-the-current-folder">Create Package in the Current Folder</a></li>
 </ul>
 </li>
 </ul>
