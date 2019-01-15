@@ -446,5 +446,9 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_pgsql",
 	  :description = "LibDepWin_PgSQL package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring2exe",
+	  :description = "Ring2EXE package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
