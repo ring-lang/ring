@@ -450,5 +450,17 @@ aPackagesRegistry = [
 	[ :name = "ring2exe",
 	  :description = "Ring2EXE package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "binarylibs_fedora_64bit",
+	  :description = "BinaryLibs_Fedora_64bit package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "binarylibs_ubuntu_64bit",
+	  :description = "BinaryLibs_Ubuntu_64bit package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "binarylibs_macos_64bit",
+	  :description = "BinaryLibs_MacOS_64bit package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
