@@ -1,6 +1,37 @@
 The Ring Package Manager (RingPM)
 =================================
 
+Usage
+=====
+
+	ringpm [command]
+	Command : search  <keywords...>
+	Command : refresh : Update the Registry (Packages List)
+	Command : install <packagename> [from <UserName>] [branch <branchname>]
+	Command : list    [-u : Check updates]
+	Command : run     <packagename>
+	Command : update  <packagename>
+	Command : remove  <packagename>
+	Command : format  : Delete All Packages
+	Command : new     <packagename>
+	Command : package : Create package in the current folder
+
+Example
+=======
+
+To install the Ring Notepad package
+
+	ringpm install ringnotepad
+
+To run Ring Notepad
+
+	ringpm run ringnotepad
+
+Implementation
+==============
+
+The next lessons explains how to create the Ring Package Manager step by step.
+
 <table>
 	<tr>	
 		<th>Index</th>
