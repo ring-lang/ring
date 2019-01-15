@@ -1,6 +1,8 @@
 The Ring Package Manager (RingPM)
 =================================
 
+The RingPM will be distributed with the Ring language starting from Ring 1.10 
+
 Usage
 =====
 
