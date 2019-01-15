@@ -13,6 +13,7 @@ In the Ring/Editor folder you will find extensions for the next editors
 * Sublime Text 2
 * Visual Studio IDE
 * Emacs
+* Visual Studio Code (VSCode)
 
 .. index:: 
 	pair: Using Other Code Editors; Using Notepad++
@@ -131,3 +132,20 @@ Screen Shot:
 
 .. image:: ringemacs.png
 	:alt: Ring mode for Emacs Editor
+
+
+.. index:: 
+	pair: Using Other Code Editors; Visual Studio Code
+
+Visual Studio Code
+==================
+
+Folder : ring/vscode
+
+Check the ReadMe file for installation instructions.	
+
+Screen Shot:
+
+.. image:: ringinvscode.png
+	:alt: Ring in Visual Studio Code
+
