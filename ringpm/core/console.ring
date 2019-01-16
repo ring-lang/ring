@@ -16,7 +16,7 @@ func Commands
 	# Don't display instruction if we have commands
 		if len(aCommand) >= 1 return ok
 	  ? "Usage   : ringpm [command]"
-	see "Command : " Style("search ",:YellowBlack)  see " <keywords...>" + nl
+	see "Command : " Style("search ",:YellowBlack)  see " [keywords...]" + nl
 	see "Command : " Style("refresh",:YellowBlack)  see " : Update the Registry (Packages List)" + nl
 	see "Command : " Style("install",:YellowBlack)  
 	see " <packagename> [from <UserName>] [branch <branchname>]" + nl

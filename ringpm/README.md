@@ -7,7 +7,7 @@ Usage
 =====
 
 	ringpm [command]
-	Command : search  <keywords...>
+	Command : search  [keywords...]
 	Command : refresh : Update the Registry (Packages List)
 	Command : install <packagename> [from <UserName>] [branch <branchname>]
 	Command : list    [-u : Check updates]

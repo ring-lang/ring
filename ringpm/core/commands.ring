@@ -27,7 +27,7 @@ func ExecuteCommands
 		switch cCommand 
 			on "search"
 				aKeywords = GetKeywordsFromParameters()
-				if len(aKeywords) = 0 ? C_ERROR_NOKEYWORDS return ok
+				if len(aKeywords) = 0 ? nl + C_NOTE_NOKEYWORDS + nl ok
 				Search(aKeywords)
 			on "refresh"
 				UpdateTheRegistry()
