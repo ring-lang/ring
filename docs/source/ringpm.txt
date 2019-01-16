@@ -23,7 +23,7 @@ The Package Manager comes with the next options
 .. code-block:: none
 
 	Usage   : ringpm [command]
-	Command : search  <keywords...>
+	Command : search  [keywords...]
 	Command : refresh : Update the Registry (Packages List)
 	Command : install <packagename> [from <UserName>] [branch <branchname>]
 	Command : list    [-u : check updates]
@@ -48,7 +48,7 @@ The RingPM Registry is a local copy of all registred packages.
 
 .. code-block:: none
 
-	ringpm search <keywords...>
+	ringpm search [keywords...]
 
 Example:
 
@@ -62,6 +62,14 @@ Output:
 
 	Package : ringnotepad (Ring Notepad)
 	Package : notepadppeditorextension (Notepad++ Editor Extension package)
+
+To print all packages in the RingPM Registry, use the search command without keywords.
+
+Example:
+
+.. code-block:: none
+
+	ringpm search
 
 .. index:: 
 	pair: Ring Package Manager (RingPM); Updating the RingPM Registry

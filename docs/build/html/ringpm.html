@@ -59,7 +59,7 @@
 <p>The Package Manager uses Semantic Versioning to check compatibility between packages</p>
 <p>The Package Manager comes with the next options</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>Usage   : ringpm [command]
-Command : search  &lt;keywords...&gt;
+Command : search  [keywords...]
 Command : refresh : Update the Registry (Packages List)
 Command : install &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;]
 Command : list    [-u : check updates]
@@ -77,7 +77,7 @@ Command : package : Create package in the current folder
 <p>We can discover new packages using the Search command</p>
 <p>Using this command we can search in the RingPM Registry (Packages Index)</p>
 <p>The RingPM Registry is a local copy of all registred packages.</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm search &lt;keywords...&gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm search [keywords...]
 </pre></div>
 </div>
 <p>Example:</p>
@@ -87,6 +87,11 @@ Command : package : Create package in the current folder
 <p>Output:</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>Package : ringnotepad (Ring Notepad)
 Package : notepadppeditorextension (Notepad++ Editor Extension package)
+</pre></div>
+</div>
+<p>To print all packages in the RingPM Registry, use the search command without keywords.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm search
 </pre></div>
 </div>
 </div>
