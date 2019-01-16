@@ -336,31 +336,31 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "atomeditorextension",
-	  :description = "AtomEditorExtension package for the Ring programming language",
+	  :description = "Atom Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "emacseditorextension",
-	  :description = "EmacsEditorExtension package for the Ring programming language",
+	  :description = "Emacs Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "geanyeditorextension",
-	  :description = "GeanyEditorExtension package for the Ring programming language",
+	  :description = "Geany Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "notepadppeditorextension",
-	  :description = "NotepadppEditorExtension package for the Ring programming language",
+	  :description = "Notepad++ Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "sublimetext2editorextension",
-	  :description = "Sublimetext2EditorExtension package for the Ring programming language",
+	  :description = "Sublimetext2 Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "visualstudioeditorextension",
-	  :description = "VisualStudioEditorExtension package for the Ring programming language",
+	  :description = "VisualStudio Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "vscodeeditorextension",
-	  :description = "VSCodeEditorExtension package for the Ring programming language",
+	  :description = "VSCode Editor Extension package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "sample3dcamera",
