@@ -33,13 +33,13 @@ class PackageCreator
 				:name 		= "The "+cPackageName+" Package",
 				:description	= "Our "+cPackageName+" package using the Ring programming language",
 				:folder		= cPackageName,	
-				:developer  	= "YourName",
-				:email		= "YourEmail",
+				:developer  	= "",
+				:email		= "",
 				:license	= "MIT License",
-				:version	= "0.1.0",
+				:version	= "1.0.0",
 				:ringversion	= version(),
 				:versions	= [
-					[:version = "0.1.0" , :branch = "master"]
+					[:version = "1.0.0" , :branch = "master"]
 				],
 				:libs		= [
 					[:name = "", 
