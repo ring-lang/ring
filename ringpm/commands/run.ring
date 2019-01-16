@@ -11,15 +11,35 @@ func RunPackage cPackageName
 		if ! aCheck[1] return ok
 		aPackageInfo = aCheck[2]
 	# Run The Package 
-		cRun = aPackageInfo[:run]
+		lRun = False 
+		lRun += RunPackageCommand(aPackageInfo[:run],cPackageName)
+		if isWindows() and aPackageInfo[:WindowsRun] != NULL 
+			lRun += RunPackageCommand(aPackageInfo[:WindowsRun],cPackageName)
+		but isLinux()
+			if aPackageInfo[:LinuxRun] != NULL 
+				lRun += RunPackageCommand(aPackageInfo[:LinuxRun],cPackageName)
+			ok
+			if fexists(exefolder()+"/ubuntu.txt") and aPackageInfo[:UbuntuRun] != NULL 
+				lRun += RunPackageCommand(aPackageInfo[:UbuntuRun],cPackageName)
+			but fexists(exefolder()+"/fedora.txt") and aPackageInfo[:FedoraRun] != NULL 
+				lRun += RunPackageCommand(aPackageInfo[:FedoraRun],cPackageName)
+			ok
+		but isMacosx() and aPackageInfo[:MacOSRun] != NULL 
+			lRun += RunPackageCommand(aPackageInfo[:MacOSRun],cPackageName)
+		ok		
+		if lRun = False 
+			? C_NOTE_NOCOMMANDTORUNTHEPACKAGE
+		ok
+	
+func RunPackageCommand cRun,cPackageName
 		if cRun != NULL
 			cDir = CurrentDir()
 			chdir(cMainPackagesFolder+"/"+cPackageName)
 			system(cRun)
 			chdir(cDir)
-		else 
-			? C_NOTE_NOCOMMANDTORUNTHEPACKAGE
+			return True
 		ok
+		return False
 
 func RunCurrentPackage
 	# Run package in the current folder 
