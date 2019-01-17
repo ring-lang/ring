@@ -292,5 +292,184 @@ To create a package for an application that already exists, go to the applicatio
 
 	ringpm package
 
-This will create the package file (package.ring) and will add all of the application files in the package definition.
+This will create the package definition file (package.ring) and will add all of the application files to the package definition.
+
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); Package Definition File (pacakge.ring)
+
+Package Definition File (pacakge.ring)
+======================================
+
+Each RingPM package contains the package definition file (package.ring)
+
+The package definition file is a list that describe the package information and files.
+
+Example : 
+
+The package definition file for the Ring Notepad package
+
+.. code-block:: ring
+
+	aPackageInfo = [
+		:name = "The RingNotepad Package",
+		:description = "Our RingNotepad package using the Ring programming language",
+		:folder = "ringnotepad",
+		:developer = "Mahmoud Fayed",
+		:email = "msfclipper@yahoo.com",
+		:license = "MIT License",
+		:version = "1.0.0",
+		:ringversion = "1.10",
+		:versions = 	[
+			[
+				:version = "1.0.0",
+				:branch = "master"
+			]
+		],
+		:libs = 	[
+			[
+				:name = "stdlib",
+				:version = "1.0",
+				:providerusername = ""
+			],
+			[
+				:name = "ringqt",
+				:version = "1.0",
+				:providerusername = ""
+			],
+			[
+				:name = "findinfiles",
+				:version = "1.0",
+				:providerusername = ""
+			],
+			[
+				:name = "formdesigner",
+				:version = "1.0",
+				:providerusername = ""
+			],
+			[
+				:name = "libdepwin_apache",
+				:version = "1.0",
+				:providerusername = ""
+			]
+		],
+		:files = 	[
+			"main.ring",
+			"README.md"
+		],
+		:ringfolderfiles = 	[
+			"applications/rnote/batch/killwebserver.bat",
+			"applications/rnote/batch/run.bat",
+			"applications/rnote/batch/run2.bat",
+			"applications/rnote/image/back.jpg",
+			"applications/rnote/image/back2.jpg",
+			"applications/rnote/image/close.png",
+			"applications/rnote/image/colors.png",
+			"applications/rnote/image/copy.png",
+			"applications/rnote/image/cut.png",
+			"applications/rnote/image/debug.png",
+			"applications/rnote/image/font.png",
+			"applications/rnote/image/formdesigner.png",
+			"applications/rnote/image/new.png",
+			"applications/rnote/image/notepad.png",
+			"applications/rnote/image/open.png",
+			"applications/rnote/image/paste.png",
+			"applications/rnote/image/print.png",
+			"applications/rnote/image/project.png",
+			"applications/rnote/image/richtext.png",
+			"applications/rnote/image/run.png",
+			"applications/rnote/image/rungui.png",
+			"applications/rnote/image/save.png",
+			"applications/rnote/image/saveas.png",
+			"applications/rnote/image/search.png",
+			"applications/rnote/image/source.png",
+			"applications/rnote/image/undo.png",
+			"applications/rnote/image/web.png",
+			"applications/rnote/README.md",
+			"applications/rnote/rnote.ring",
+			"applications/rnote/rnoteactivefile.ring",
+			"applications/rnote/rnoteactivefolder.ring",
+			"applications/rnote/rnoteautocomplete.ring",
+			"applications/rnote/rnotebase.ring",
+			"applications/rnote/rnotecontroller.ring",
+			"applications/rnote/rnotedistribute.ring",
+			"applications/rnote/rnoteeditmenu.ring",
+			"applications/rnote/rnoteeditorevents.ring",
+			"applications/rnote/rnotefilemenu.ring",
+			"applications/rnote/rnotefiles.ring",
+			"applications/rnote/rnotefilestabs.ring",
+			"applications/rnote/rnotefind.ring",
+			"applications/rnote/rnotefindinfiles.ring",
+			"applications/rnote/rnoteformdesigner.ring",
+			"applications/rnote/rnotegoto.ring",
+			"applications/rnote/rnotehelp.ring",
+			"applications/rnote/rnotelists.ring",
+			"applications/rnote/rnotemainfiletoolbar.ring",
+			"applications/rnote/rnotemainwindow.ring",
+			"applications/rnote/rnotemode.ring",
+			"applications/rnote/rnoteoutputwindow.ring",
+			"applications/rnote/rnoteprogrammenu.ring",
+			"applications/rnote/rnoterun.ring",
+			"applications/rnote/rnotesettings.ring",
+			"applications/rnote/rnotestyle.ring",
+			"applications/rnote/rnotetabwidth.ring",
+			"applications/rnote/rnotetools.ring",
+			"applications/rnote/rnotetreeviewevents.ring",
+			"applications/rnote/rnoteviewmenu.ring",
+			"applications/rnote/rnotewebbrowser.ring"
+		],
+		:windowsfiles = 	[
+
+		],
+		:linuxfiles = 	[
+
+		],
+		:macosfiles = 	[
+
+		],
+		:windowsringfolderfiles = 	[
+
+		],
+		:linuxringfolderfiles = 	[
+
+		],
+		:macosringfolderfiles = 	[
+
+		],
+		:run = "ring main.ring",
+		:setup = "",
+		:windowssetup = "",
+		:linuxsetup = "",
+		:macossetup = "",
+		:ubuntusetup = "",
+		:fedorasetup = ""
+	]
+
+.. index:: 
+	pair: Ring Package Manager (RingPM); The RingPM Registry File
+
+The RingPM Registry File
+========================
+
+The RingPM Registry is a local copy of all registred packages.
+
+.. code-block:: ring
+
+	aPackagesRegistry = [
+		[ :name = "ringpresentation",
+		  :description = "Powerpoint presentation for the Ring programming language",
+		  :ProviderUserName = "ringpackages"
+		]
+		# ...
+	]
+
+Each package is defined using a list that determine 
+
+* Package Name
+* Package Description
+* Provider User Name (GitHub User Name)
+
+We can register new packages by updating the registry file then sending a Pull Request
+
+URL : https://github.com/ring-lang/ring/blob/master/ringpm/registry/registry.ring
 
