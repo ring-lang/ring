@@ -462,5 +462,9 @@ aPackagesRegistry = [
 	[ :name = "binarylibs_macos_64bit",
 	  :description = "BinaryLibs_MacOS_64bit package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "werdy",
+	  :description = "Werdy package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
