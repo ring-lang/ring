@@ -381,6 +381,60 @@ File : package.ring
 		:fedoraremove = ""
 	]
 	
+.. index:: 
+	pair: Ring Package Manager (RingPM); The Package Description File
+
+The Package Description File
+============================
+
+The package description file contains the package information defined in the list aPackageInfo
+
+=======================	=================================================================================
+Attribute		Description
+=======================	=================================================================================
+Name			Package Name
+Description		Package Desciption
+Folder			The Folder Name (Will be created in ring/ringpm/packages)
+Developer		The Package Developer Name  
+Email			The Package Developer Email
+License			The Package License
+Version			The Current Version of the Package (Latest Release)
+RingVersion		The Required Ring Language Version (Minimum Version)
+Versions		List of different versions provided by different branches in the GitHub project 
+Libs			List of dependencies (Defined by name, version & GitHub user name)
+Files			List of files (will be installed in ring/ringpm/packages/[Folder]
+RingFolderFiles		List of files (will be installed in ring folder)
+WindowsFiles 		Like (Files) but for Microsoft Windows Only
+LinuxFiles 		Like (Files) but for Linux Only
+MacOSFiles 		Like (Files) but for macOS Only
+UbuntuFiles 		Like (Files) but for Ubuntu Only
+FedoraFiles 		Like (Files) but for Fedora Only
+WindowsRingFolderFiles 	Like (RingFolderFiles) but for Microsoft Windows Only
+LinuxRingFolderFiles 	Like (RingFolderFiles) but for Linux Only
+MacOSRingFolderFiles 	Like (RingFolderFiles) but for macOS Only
+UbuntuRingFolderFiles 	Like (RingFolderFiles) but for Ubuntu Only
+FedoraRingFolderFiles 	Like (RingFolderFiles) but for Fedora Only
+Run			System Command (Command prompt or Terminal) to run the package
+WindowsRun 		Like (Run) but for Microsoft Windows Only
+LinuxRun 		Like (Run) but for Linux Only
+MacOSRun 		Like (Run) but for macOS Only
+UbuntuRun 		Like (Run) but for Ubuntu Only
+FedoraRun 		Like (Run) but for Fedora Only
+Setup			System Command (Command prompt or Terminal) after downloading the package files
+WindowsSetup 		Like (Setup) but for Microsoft Windows Only
+LinuxSetup 		Like (Setup) but for Linux Only
+MacOSSetup 		Like (Setup) but for macOS Only
+UbuntuSetup 		Like (Setup) but for Ubuntu Only
+FedoraSetup 		Like (Setup) but for Fedora Only
+Remove			System Command (Command prompt or Terminal) before removing the package files
+WindowsRemove 		Like (Remove) but for Microsoft Windows Only
+LinuxRemove 		Like (Remove) but for Linux Only
+MacOSRemove 		Like (Remove) but for macOS Only
+UbuntuRemove 		Like (Remove) but for Ubuntu Only
+FedoraRemove 		Like (Remove) but for Fedora Only
+=======================	=================================================================================
+
+
 
 .. index:: 
 	pair: Ring Package Manager (RingPM); Create Package in the Current Folder
@@ -395,13 +449,6 @@ To create a package for an application that already exists, go to the applicatio
 	ringpm package
 
 This will create the package definition file (package.ring) and will add all of the application files to the package definition.
-
-
-.. index:: 
-	pair: Ring Package Manager (RingPM); Package Definition File (pacakge.ring)
-
-Package Definition File (pacakge.ring)
-======================================
 
 Each RingPM package contains the package definition file (package.ring)
 

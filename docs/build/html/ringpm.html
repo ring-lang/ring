@@ -323,16 +323,150 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </pre></div>
 </div>
 </div>
+<div class="section" id="the-package-description-file">
+<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Permalink to this headline">¶</a></h2>
+<p>The package description file contains the package information defined in the list aPackageInfo</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Name</td>
+<td>Package Name</td>
+</tr>
+<tr class="row-odd"><td>Description</td>
+<td>Package Desciption</td>
+</tr>
+<tr class="row-even"><td>Folder</td>
+<td>The Folder Name (Will be created in ring/ringpm/packages)</td>
+</tr>
+<tr class="row-odd"><td>Developer</td>
+<td>The Package Developer Name</td>
+</tr>
+<tr class="row-even"><td>Email</td>
+<td>The Package Developer Email</td>
+</tr>
+<tr class="row-odd"><td>License</td>
+<td>The Package License</td>
+</tr>
+<tr class="row-even"><td>Version</td>
+<td>The Current Version of the Package (Latest Release)</td>
+</tr>
+<tr class="row-odd"><td>RingVersion</td>
+<td>The Required Ring Language Version (Minimum Version)</td>
+</tr>
+<tr class="row-even"><td>Versions</td>
+<td>List of different versions provided by different branches in the GitHub project</td>
+</tr>
+<tr class="row-odd"><td>Libs</td>
+<td>List of dependencies (Defined by name, version &amp; GitHub user name)</td>
+</tr>
+<tr class="row-even"><td>Files</td>
+<td>List of files (will be installed in ring/ringpm/packages/[Folder]</td>
+</tr>
+<tr class="row-odd"><td>RingFolderFiles</td>
+<td>List of files (will be installed in ring folder)</td>
+</tr>
+<tr class="row-even"><td>WindowsFiles</td>
+<td>Like (Files) but for Microsoft Windows Only</td>
+</tr>
+<tr class="row-odd"><td>LinuxFiles</td>
+<td>Like (Files) but for Linux Only</td>
+</tr>
+<tr class="row-even"><td>MacOSFiles</td>
+<td>Like (Files) but for macOS Only</td>
+</tr>
+<tr class="row-odd"><td>UbuntuFiles</td>
+<td>Like (Files) but for Ubuntu Only</td>
+</tr>
+<tr class="row-even"><td>FedoraFiles</td>
+<td>Like (Files) but for Fedora Only</td>
+</tr>
+<tr class="row-odd"><td>WindowsRingFolderFiles</td>
+<td>Like (RingFolderFiles) but for Microsoft Windows Only</td>
+</tr>
+<tr class="row-even"><td>LinuxRingFolderFiles</td>
+<td>Like (RingFolderFiles) but for Linux Only</td>
+</tr>
+<tr class="row-odd"><td>MacOSRingFolderFiles</td>
+<td>Like (RingFolderFiles) but for macOS Only</td>
+</tr>
+<tr class="row-even"><td>UbuntuRingFolderFiles</td>
+<td>Like (RingFolderFiles) but for Ubuntu Only</td>
+</tr>
+<tr class="row-odd"><td>FedoraRingFolderFiles</td>
+<td>Like (RingFolderFiles) but for Fedora Only</td>
+</tr>
+<tr class="row-even"><td>Run</td>
+<td>System Command (Command prompt or Terminal) to run the package</td>
+</tr>
+<tr class="row-odd"><td>WindowsRun</td>
+<td>Like (Run) but for Microsoft Windows Only</td>
+</tr>
+<tr class="row-even"><td>LinuxRun</td>
+<td>Like (Run) but for Linux Only</td>
+</tr>
+<tr class="row-odd"><td>MacOSRun</td>
+<td>Like (Run) but for macOS Only</td>
+</tr>
+<tr class="row-even"><td>UbuntuRun</td>
+<td>Like (Run) but for Ubuntu Only</td>
+</tr>
+<tr class="row-odd"><td>FedoraRun</td>
+<td>Like (Run) but for Fedora Only</td>
+</tr>
+<tr class="row-even"><td>Setup</td>
+<td>System Command (Command prompt or Terminal) after downloading the package files</td>
+</tr>
+<tr class="row-odd"><td>WindowsSetup</td>
+<td>Like (Setup) but for Microsoft Windows Only</td>
+</tr>
+<tr class="row-even"><td>LinuxSetup</td>
+<td>Like (Setup) but for Linux Only</td>
+</tr>
+<tr class="row-odd"><td>MacOSSetup</td>
+<td>Like (Setup) but for macOS Only</td>
+</tr>
+<tr class="row-even"><td>UbuntuSetup</td>
+<td>Like (Setup) but for Ubuntu Only</td>
+</tr>
+<tr class="row-odd"><td>FedoraSetup</td>
+<td>Like (Setup) but for Fedora Only</td>
+</tr>
+<tr class="row-even"><td>Remove</td>
+<td>System Command (Command prompt or Terminal) before removing the package files</td>
+</tr>
+<tr class="row-odd"><td>WindowsRemove</td>
+<td>Like (Remove) but for Microsoft Windows Only</td>
+</tr>
+<tr class="row-even"><td>LinuxRemove</td>
+<td>Like (Remove) but for Linux Only</td>
+</tr>
+<tr class="row-odd"><td>MacOSRemove</td>
+<td>Like (Remove) but for macOS Only</td>
+</tr>
+<tr class="row-even"><td>UbuntuRemove</td>
+<td>Like (Remove) but for Ubuntu Only</td>
+</tr>
+<tr class="row-odd"><td>FedoraRemove</td>
+<td>Like (Remove) but for Fedora Only</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="create-package-in-the-current-folder">
-<span id="index-11"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
 <p>To create a package for an application that already exists, go to the application folder then type</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>ringpm package
 </pre></div>
 </div>
 <p>This will create the package definition file (package.ring) and will add all of the application files to the package definition.</p>
-</div>
-<div class="section" id="package-definition-file-pacakge-ring">
-<span id="index-12"></span><h2>Package Definition File (pacakge.ring)<a class="headerlink" href="#package-definition-file-pacakge-ring" title="Permalink to this headline">¶</a></h2>
 <p>Each RingPM package contains the package definition file (package.ring)</p>
 <p>The package definition file is a list that describe the package information and files.</p>
 <p>Example :</p>
@@ -491,8 +625,8 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <li><a class="reference internal" href="#remove-package">Remove Package</a></li>
 <li><a class="reference internal" href="#deleting-all-packages">Deleting All Packages</a></li>
 <li><a class="reference internal" href="#creating-new-package">Creating New Package</a></li>
+<li><a class="reference internal" href="#the-package-description-file">The Package Description File</a></li>
 <li><a class="reference internal" href="#create-package-in-the-current-folder">Create Package in the Current Folder</a></li>
-<li><a class="reference internal" href="#package-definition-file-pacakge-ring">Package Definition File (pacakge.ring)</a></li>
 <li><a class="reference internal" href="#the-ringpm-registry-file">The RingPM Registry File</a></li>
 </ul>
 </li>
