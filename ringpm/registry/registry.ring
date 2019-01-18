@@ -466,5 +466,9 @@ aPackagesRegistry = [
 	[ :name = "werdy",
 	  :description = "Werdy package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "werdy2",
+	  :description = "Werdy2 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
