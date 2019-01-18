@@ -279,6 +279,108 @@ The new folder will contains the next file
 * main.ring : main program (used by the Run command)
 * lib.ring : library file for the package 
 
+File  : main.ring
+
+.. code-block:: ring
+
+	# The Main File
+
+	load "lib.ring"
+
+	func main
+
+		? "Hello, World!"
+
+
+File : lib.ring
+
+.. code-block:: ring
+
+	# The Library File
+
+File : package.ring
+
+.. code-block:: ring
+
+	aPackageInfo = [
+		:name = "The myapp Package",
+		:description = "Our myapp package using the Ring programming language",
+		:folder = "myapp",
+		:developer = "",
+		:email = "",
+		:license = "MIT License",
+		:version = "1.0.0",
+		:ringversion = "1.10",
+		:versions = 	[
+			[
+				:version = "1.0.0",
+				:branch = "master"
+			]
+		],
+		:libs = 	[
+			[
+				:name = "",
+				:version = "",
+				:providerusername = ""
+			]
+		],
+		:files = 	[
+			"lib.ring",
+			"main.ring"
+		],
+		:ringfolderfiles = 	[
+
+		],
+		:windowsfiles = 	[
+
+		],
+		:linuxfiles = 	[
+
+		],
+		:ubuntufiles = 	[
+
+		],
+		:fedorafiles = 	[
+
+		],
+		:macosfiles = 	[
+
+		],
+		:windowsringfolderfiles = 	[
+
+		],
+		:linuxringfolderfiles = 	[
+
+		],
+		:ubunturingfolderfiles = 	[
+
+		],
+		:fedoraringfolderfiles = 	[
+
+		],
+		:macosringfolderfiles = 	[
+
+		],
+		:run = "ring main.ring",
+		:windowsrun = "",
+		:linuxrun = "",
+		:macosrun = "",
+		:ubunturun = "",
+		:fedorarun = "",
+		:setup = "",
+		:windowssetup = "",
+		:linuxsetup = "",
+		:macossetup = "",
+		:ubuntusetup = "",
+		:fedorasetup = "",
+		:remove = "",
+		:windowsremove = "",
+		:linuxremove = "",
+		:macosremove = "",
+		:ubunturemove = "",
+		:fedoraremove = ""
+	]
+	
 
 .. index:: 
 	pair: Ring Package Manager (RingPM); Create Package in the Current Folder
@@ -418,31 +520,7 @@ The package definition file for the Ring Notepad package
 			"applications/rnote/rnoteviewmenu.ring",
 			"applications/rnote/rnotewebbrowser.ring"
 		],
-		:windowsfiles = 	[
-
-		],
-		:linuxfiles = 	[
-
-		],
-		:macosfiles = 	[
-
-		],
-		:windowsringfolderfiles = 	[
-
-		],
-		:linuxringfolderfiles = 	[
-
-		],
-		:macosringfolderfiles = 	[
-
-		],
-		:run = "ring main.ring",
-		:setup = "",
-		:windowssetup = "",
-		:linuxsetup = "",
-		:macossetup = "",
-		:ubuntusetup = "",
-		:fedorasetup = ""
+		:run = "ring main.ring"
 	]
 
 .. index:: 

@@ -227,6 +227,101 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <li>main.ring : main program (used by the Run command)</li>
 <li>lib.ring : library file for the package</li>
 </ul>
+<p>File  : main.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># The Main File</span>
+
+<span class="k">load</span> <span class="s">&quot;lib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+<p>File : lib.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># The Library File</span>
+</pre></div>
+</div>
+<p>File : package.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The myapp Package&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Our myapp package using the Ring programming language&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">folder</span> <span class="o">=</span> <span class="s">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">developer</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT License&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringversion</span> <span class="o">=</span> <span class="s">&quot;1.10&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">versions</span> <span class="o">=</span>     <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">branch</span> <span class="o">=</span> <span class="s">&quot;master&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">libs</span> <span class="o">=</span>         <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">files</span> <span class="o">=</span>        <span class="o">[</span>
+                <span class="s">&quot;lib.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;main.ring&quot;</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringfolderfiles</span> <span class="o">=</span>      <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxfiles</span> <span class="o">=</span>   <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubuntufiles</span> <span class="o">=</span>  <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorafiles</span> <span class="o">=</span>  <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosfiles</span> <span class="o">=</span>   <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsringfolderfiles</span> <span class="o">=</span>       <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturingfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedoraringfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorarun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">setup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowssetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxsetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macossetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubuntusetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorasetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">remove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturemove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedoraremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="o">]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="create-package-in-the-current-folder">
 <span id="index-11"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
@@ -349,31 +444,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
                 <span class="s">&quot;applications/rnote/rnoteviewmenu.ring&quot;</span><span class="p">,</span>
                 <span class="s">&quot;applications/rnote/rnotewebbrowser.ring&quot;</span>
         <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsfiles</span> <span class="o">=</span>         <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxfiles</span> <span class="o">=</span>   <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosfiles</span> <span class="o">=</span>   <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsringfolderfiles</span> <span class="o">=</span>       <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
-
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">setup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowssetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxsetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macossetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubuntusetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedorasetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span>
 <span class="o">]</span>
 </pre></div>
 </div>
