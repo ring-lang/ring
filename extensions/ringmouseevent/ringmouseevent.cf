@@ -1,0 +1,11 @@
+<code>
+#include "windows.h"
+#include "winuser.h"
+</code>
+
+<runcode>
+aNumberTypes + "DWORD"
+aNumberTypes + "ULONG_PTR"
+</runcode>
+
+void mouse_event(DWORD dwFlags,DWORD dx, DWORD dy,DWORD dwData,ULONG_PTR dwExtraInfo)
