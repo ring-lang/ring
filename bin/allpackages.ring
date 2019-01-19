@@ -98,9 +98,7 @@ aAllPackagesInfo = [
 		"qtclassconverter",
 		"string2constant",
 		"help2wiki",
-		"ringsamples",
-		"werdy",
-		"werdy2"
+		"ringsamples"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -158,9 +156,7 @@ aAllPackagesInfo = [
 		"qtclassconverter",
 		"string2constant",
 		"help2wiki",
-		"ringsamples",
-		"werdy",
-		"werdy2"
+		"ringsamples"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
