@@ -470,5 +470,9 @@ aPackagesRegistry = [
 	[ :name = "werdy2",
 	  :description = "Werdy2 package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringmouseevent",
+	  :description = "RingMouseEvent package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
