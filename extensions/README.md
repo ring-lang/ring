@@ -8,6 +8,8 @@ to be used from Ring code.
 
 The folder RingBeep contains a simple example to learn how to create an extension
 
+The folder RingMouseEvent Another simple example to learn how to create an extension
+
 The folder RingInternet contains functions that uses the LibCurl library  
 
 The folder RingCurl contains the Ring binding to the LibCurl library  
