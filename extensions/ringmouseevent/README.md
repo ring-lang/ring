@@ -10,7 +10,7 @@ At first we write the configuration file in : ringmouseevent.cf
 
 	notepad ringmouseevent.cf
 
-The file ringbeep.cf contains 
+The file ringmouseevent.cf contains 
 
 	<code>
 	#include "windows.h"
