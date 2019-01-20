@@ -14,6 +14,9 @@ chmod +x /usr/local/bin/ring2exe
 echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
 chmod +x /usr/local/bin/folder2qrc
 
+echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
+chmod +x /usr/local/bin/ringpm
+
 cd ..
 
 cp lib/libring.dylib /usr/local/lib
@@ -30,6 +33,8 @@ chmod +x /usr/bin/ring2exe
 echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
 chmod +x /usr/bin/folder2qrc
 
+sudo echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringpm 
+sudo chmod +x /usr/bin/ringpm
 
 cd ..
 sudo cp lib/libring.so /usr/lib
