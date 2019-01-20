@@ -155,15 +155,15 @@ Output
 
 .. code-block:: none
 
-	(analogclock)                 : The AnalogClock Package [master]                   -- (1.0.0)
-	(androidringlibsdl)           : The AndroidRingLibSDL Package [master]             -- (1.0.0)
-	(androidringqt)               : The AndroidRingQt Package [master]                 -- (1.0.0)
-	(atomeditorextension)         : The AtomEditorExtension Package [master]           -- (1.0.0)
-	(bignumber)                   : The BigNumber Package [master]                     -- (1.0.0)
-	(calculator)                  : The Calculator Package [master]                    -- (1.0.0)
-	(cards)                       : The Cards Package [master]                         -- (1.0.0)
-	(checkers)                    : The Checkers Package [master]                      -- (1.0.0)
-	(chess)                       : The Chess Package [master]                         -- (1.0.0)
+	(analogclock)          : The AnalogClock Package [master]         -- (1.0.0)
+	(androidringlibsdl)    : The AndroidRingLibSDL Package [master]   -- (1.0.0)
+	(androidringqt)        : The AndroidRingQt Package [master]       -- (1.0.0)
+	(atomeditorextension)  : The AtomEditorExtension Package [master] -- (1.0.0)
+	(bignumber)            : The BigNumber Package [master]           -- (1.0.0)
+	(calculator)           : The Calculator Package [master]          -- (1.0.0)
+	(cards)                : The Cards Package [master]               -- (1.0.0)
+	(checkers)             : The Checkers Package [master]            -- (1.0.0)
+	(chess)                : The Chess Package [master]               -- (1.0.0)
 	....
 
 To check for new updates
