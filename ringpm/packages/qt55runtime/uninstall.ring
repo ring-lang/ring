@@ -1,5 +1,3 @@
-load "stdlib.ring"
-
 func main
 	? "Removing Files : Qt 5.5 runtime"
 	cDir = CurrentDir()
@@ -47,3 +45,17 @@ func main
 	remove("Qt5WebKitWidgets.dll")
 	remove("Qt5Widgets.dll")
 	chdir(cDir)
+
+func OSDeleteFolder cFolder 
+	if isWindows() 
+		systemSilent("rd /s /q " + cFolder)
+	else
+		systemSilent("rm -r " + cFolder)
+	ok
+
+func SystemSilent cCmd
+	if isWindows()
+		system(cCmd + " >nul 2>nul")
+	else 
+		system(cCmd + " > /dev/null")
+	ok

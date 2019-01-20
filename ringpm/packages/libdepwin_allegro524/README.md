@@ -1,6 +1,6 @@
 # LibDepWin_Allegro524
 
-LibDepWinAllegro524 package for the Ring programming language
+LibDepWin_Allegro524 package for the Ring programming language
 
 ## Install
 

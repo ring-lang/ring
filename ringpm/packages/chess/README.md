@@ -8,4 +8,4 @@ Chess package for the Ring programming language
 
 ## Author
 
-	This game developed by Bert Mariani
+	This game is developed by Bert Mariani

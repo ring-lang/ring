@@ -8,4 +8,4 @@ VideoMusicPlayer package for the Ring programming language
 
 ## Author
 
-	This application is developed by Bert Mariani
+	This application is developed by Bert Mariani and Gal Zsolt
