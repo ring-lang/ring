@@ -143,6 +143,8 @@ Ring 1.8 is released on June 25, 2018
 
 Ring 1.9 is released on October 6, 2018
 
+Ring 1.10 is released on January 25, 2019
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -258,6 +260,7 @@ The Ring language comes with the next features
 * Comes with Ring2EXE to distribute applications
 * RingLibuv Extension
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
+* Comes with RingPM (Package Manager)
 * Many Samples and Applications
 * Complete Documentation.
 
