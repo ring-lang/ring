@@ -327,7 +327,7 @@ Func IsSpecial char
 */
 
 Func IsVowel char
-       for c in "aeiou"
+       for c in "AEIOU"
            if upper(char) = c return true ok
        next
        return false 
