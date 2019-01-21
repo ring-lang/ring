@@ -4,6 +4,10 @@ The Gold Magic 800 Game
 
 Developed using Ring, RingAllegro and RingOpenGL
 
+Steam Page (44 Levels) : https://store.steampowered.com/app/939200/Gold_Magic_800/
+
+Demo Version (21 Levels Only)
+
 The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.
 
 The game is based on moving your box around to get gold score (=800) to open the First Door (Box Number 1) 
