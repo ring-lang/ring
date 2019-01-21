@@ -329,7 +329,7 @@ Func ImportAction
 
 Func AboutAction
 	msg = 'App Name : Win Startup Manager
-Auther : Majdi Sobain <Majdi.Sobain@Gmail.com>
+Author : Majdi Sobain <Majdi.Sobain@Gmail.com>
 
 Developed by Ring Programming Language using:
      1- RingQt extension
