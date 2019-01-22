@@ -11,7 +11,7 @@ The game is developed using Ring, RingAllegro and RingOpenGL
 
 Steam Page (44 Levels) : https://store.steampowered.com/app/939200/Gold_Magic_800/
 
-Demo Version (18 Levels Only) : https://goldmagic800.sourceforge.io/
+Ring comes with a Demo Version (21 Levels Only)
 
 You will find the game in ring/applications/goldmagic800 folder
 
