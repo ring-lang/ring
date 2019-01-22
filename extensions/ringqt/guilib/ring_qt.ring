@@ -3030,6 +3030,18 @@ Class QString2
 	Func number P1,P2
 		return QString2_number(pObject,P1,P2)
 
+	Func count 
+		return QString2_count(pObject)
+
+	Func left P1
+		return QString2_left(pObject,P1)
+
+	Func mid P1,P2
+		return QString2_mid(pObject,P1,P2)
+
+	Func right P1
+		return QString2_right(pObject,P1)
+
 Class QProcess from QIODevice
 
 	pObject

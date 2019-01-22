@@ -213,3 +213,9 @@ QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 
 QChar * unicode(void)
 QString number(ulong n, int base)
+
+int count(void)
+QString left(int n)
+QString mid(int position, int n)
+QString right(int n)
+

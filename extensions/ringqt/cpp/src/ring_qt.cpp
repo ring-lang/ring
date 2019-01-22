@@ -15904,6 +15904,90 @@ RING_FUNC(ring_QString2_number)
 }
 
 
+RING_FUNC(ring_QString2_count)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QString2_left)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->left( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QString2_mid)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->mid( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QString2_right)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->right( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
 RING_FUNC(ring_QProcess_arguments)
 {
 	GProcess *pObject ;
@@ -143983,6 +144067,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstring2_split_4",ring_QString2_split_4);
 	ring_vm_funcregister("qstring2_unicode",ring_QString2_unicode);
 	ring_vm_funcregister("qstring2_number",ring_QString2_number);
+	ring_vm_funcregister("qstring2_count",ring_QString2_count);
+	ring_vm_funcregister("qstring2_left",ring_QString2_left);
+	ring_vm_funcregister("qstring2_mid",ring_QString2_mid);
+	ring_vm_funcregister("qstring2_right",ring_QString2_right);
 	ring_vm_funcregister("qprocess_arguments",ring_QProcess_arguments);
 	ring_vm_funcregister("qprocess_closereadchannel",ring_QProcess_closeReadChannel);
 	ring_vm_funcregister("qprocess_closewritechannel",ring_QProcess_closeWriteChannel);
