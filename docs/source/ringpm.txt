@@ -133,6 +133,20 @@ Example (3) :
 
 	ringpm install gameoflife
 
+If the package is not added to the RingPM Registry, We can install it directly from the GitHub user
+
+Example (4) :
+
+.. code-block:: none
+
+	ringpm install firstpackage from mahmoudfayed
+
+To run the package after installation
+
+.. code-block:: none
+
+	ringpm run firstpackage
+
 .. index:: 
 	pair: Ring Package Manager (RingPM); Printing List of Installed Packages
 
