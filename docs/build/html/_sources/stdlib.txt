@@ -816,10 +816,10 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; palindrome()
+	pair: Stdlib Functions; ispalindrome()
 
-Palindrome() function
-=====================
+IsPalindrome() function
+=======================
 
 Check if a sequence of characters is a palindrome or not. 
 
@@ -827,7 +827,7 @@ Syntax:
 
 .. code-block:: ring
 
-	Palindrome(String) ---> True/False
+	IsPalindrome(String) ---> True/False
 
 Example:
 
@@ -835,9 +835,9 @@ Example:
 
 	Load "stdlib.ring"
 
-	Puts("Test Palindrome()")
+	Puts("Test IsPalindrome()")
 	cString = "radar"
-	see Palindrome(cString)
+	see IsPalindrome(cString)
 
 
 .. index:: 
