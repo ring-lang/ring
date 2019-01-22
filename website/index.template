@@ -261,7 +261,7 @@
 		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
 		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
-		<a href="doc1.9/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
 		</p>
 		<br> <br>
 
@@ -271,11 +271,11 @@
 
 		<p>
 			<ul>
-			<li>Applications programming language. <a href="doc1.9/ringapps.html" target="_blank"> Examples? </a> </li>
+			<li>Applications programming language. <a href="doc1.10/ringapps.html" target="_blank"> Examples? </a> </li>
 			<li>Productivity and developing high quality solutions that can scale.</li>			
-			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.9/embedding.html" target="_blank"> How? </a></li>
+			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.10/embedding.html" target="_blank"> How? </a></li>
 			<li>Simple language that can be used in education and introducing Compiler/VM concepts. <a href="#education" target="_blank"> How? </a></li>
-			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.9/naturallibrary.html" target="_blank"> How? </a></li>
+			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.10/naturallibrary.html" target="_blank"> How? </a></li>
 			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software. <a href="http://pwct.org" target="_blank"> What? </a></li>							
 			</ul>
 
@@ -293,7 +293,7 @@
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
 		To print something using the standard output, We can use the 'See' command. 
-		<a href="doc1.9/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
 		
 
 		<p>
@@ -303,7 +303,7 @@
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
-		<a href="doc1.9/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">func</font> main
@@ -312,11 +312,11 @@
 		</p>
 
 		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name, but we can use it!
-		<a href="doc1.9/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
+		<a href="doc1.10/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
 		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
-				<a href="doc1.9/faq.html#why-is-ring-weakly-typed" target="_blank"> Why? </a>
+				<a href="doc1.10/faq.html#why-is-ring-weakly-typed" target="_blank"> Why? </a>
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
@@ -336,7 +336,7 @@ nCount = 10	<font color="green"># Global variable</font>
 	      <div class="panel-body">
 
 		Ring is not case-sensitive
-		<a href="doc1.9/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">see</font> "Enter your name ? " 
@@ -346,7 +346,7 @@ nCount = 10	<font color="green"># Global variable</font>
 		</p>
 
 		The list index starts from 1
-		<a href="doc1.9/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -370,7 +370,7 @@ three()
 		</p>
 
 		The assignment operator uses Deep copy (no references in this operation)
-		<a href="doc1.9/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -410,7 +410,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 			</pre>
 		</p>
 		Exit from more than one loop
-		<a href="doc1.9/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">for</font> x = 1 <font color="purple">to</font> 10
@@ -566,7 +566,7 @@ oPerson = <font color="purple">new</font> Person
 	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
 	      <div class="panel-body">
 
-		<a href="doc1.9/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
+		<a href="doc1.10/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
 
 		<p>
 		After the object access using { } if the class contains a method called BraceEnd() it will be executed!
