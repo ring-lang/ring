@@ -1,7 +1,7 @@
 # The Ring Standard Library
 # Common Functions and classes for applications
-# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
-# 2016-2017, CalmoSoft <calmosoft@gmail.com>
+# 2016-2019, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2019, CalmoSoft <calmosoft@gmail.com>
 
 Load "stdlib.rh"
 Load "stdfunctions.ring"
@@ -538,6 +538,9 @@ Func Palindrome aString
      next
      if aString = bString return 1 ok
      return false
+
+Func IsPalindrome aString
+     return Palindrome(aString)
      
 /*
 	Function Name	: Isleapyear
