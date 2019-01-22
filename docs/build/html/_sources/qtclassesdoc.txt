@@ -7421,6 +7421,10 @@ Parameters : void
 * QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
 * QChar * unicode(void)
 * QString number(ulong n, int base)
+* int count(void)
+* QString left(int n)
+* QString mid(int position, int n)
+* QString right(int n)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
@@ -9423,6 +9427,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class

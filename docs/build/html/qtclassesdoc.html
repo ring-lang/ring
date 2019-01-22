@@ -6063,6 +6063,10 @@
 <li>QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )</li>
 <li>QChar * unicode(void)</li>
 <li>QString number(ulong n, int base)</li>
+<li>int count(void)</li>
+<li>QString left(int n)</li>
+<li>QString mid(int position, int n)</li>
+<li>QString right(int n)</li>
 </ul>
 </div>
 <div class="section" id="qstringlist-class">
@@ -7713,8 +7717,14 @@
 <li>const char <a href="#id3265"><span class="problematic" id="id3266">*</span></a>geturlChangedEvent(void)</li>
 </ul>
 </div>
+<div class="section" id="index-247">
+<span id="id3267"></span><h2>QWebView Class<a class="headerlink" href="#index-247" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/archives/qt-5.5/qwebview.html">http://doc.qt.io/archives/qt-5.5/qwebview.html</a></p>
+<p>Parameters : QWidget <a href="#id3268"><span class="problematic" id="id3269">*</span></a>parent</p>
+<p>Parent Class : QWebEngineView</p>
+</div>
 <div class="section" id="qwidget-class">
-<span id="index-247"></span><h2>QWidget Class<a class="headerlink" href="#qwidget-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-248"></span><h2>QWidget Class<a class="headerlink" href="#qwidget-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QWidget.html">http://doc.qt.io/qt-5/QWidget.html</a></p>
 <p>Parameters : void</p>
 <p>Parent Class : QObject</p>
@@ -7723,12 +7733,12 @@
 <li>QString accessibleDescription(void)</li>
 <li>QString accessibleName(void)</li>
 <li>void activateWindow(void)</li>
-<li>void addAction(QAction <a href="#id3267"><span class="problematic" id="id3268">*</span></a>action)</li>
+<li>void addAction(QAction <a href="#id3270"><span class="problematic" id="id3271">*</span></a>action)</li>
 <li>void adjustSize(void)</li>
 <li>bool autoFillBackground(void)</li>
 <li>int backgroundRole(void)</li>
 <li>QSize baseSize(void)</li>
-<li>QWidget <a href="#id3269"><span class="problematic" id="id3270">*</span></a>childAt(int x, int y)</li>
+<li>QWidget <a href="#id3272"><span class="problematic" id="id3273">*</span></a>childAt(int x, int y)</li>
 <li>QRect childrenRect(void)</li>
 <li>QRegion childrenRegion(void)</li>
 <li>void clearFocus(void)</li>
@@ -7740,49 +7750,49 @@
 <li>int effectiveWinId(void)</li>
 <li>void ensurePolished(void)</li>
 <li>int focusPolicy(void)</li>
-<li>QWidget <a href="#id3271"><span class="problematic" id="id3272">*</span></a>focusProxy(void)</li>
-<li>QWidget <a href="#id3273"><span class="problematic" id="id3274">*</span></a>focusWidget(void)</li>
+<li>QWidget <a href="#id3274"><span class="problematic" id="id3275">*</span></a>focusProxy(void)</li>
+<li>QWidget <a href="#id3276"><span class="problematic" id="id3277">*</span></a>focusWidget(void)</li>
 <li>QFont font(void)</li>
 <li>QFontInfo fontInfo(void)</li>
 <li>int foregroundRole(void)</li>
 <li>QRect frameGeometry(void)</li>
 <li>QSize frameSize(void)</li>
 <li>QRect geometry(void)</li>
-<li>void getContentsMargins(int <a href="#id3275"><span class="problematic" id="id3276">*</span></a>left, int <a href="#id3277"><span class="problematic" id="id3278">*</span></a>top, int <a href="#id3279"><span class="problematic" id="id3280">*</span></a>right, int <a href="#id3281"><span class="problematic" id="id3282">*</span></a>bottom)</li>
+<li>void getContentsMargins(int <a href="#id3278"><span class="problematic" id="id3279">*</span></a>left, int <a href="#id3280"><span class="problematic" id="id3281">*</span></a>top, int <a href="#id3282"><span class="problematic" id="id3283">*</span></a>right, int <a href="#id3284"><span class="problematic" id="id3285">*</span></a>bottom)</li>
 <li>QPixmap grab(QRect)</li>
 <li>void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)</li>
 <li>void grabKeyboard(void)</li>
 <li>void grabMouse(void)</li>
 <li>int grabShortcut(QKeySequence , Qt::ShortcutContext context)</li>
-<li>QGraphicsEffect <a href="#id3283"><span class="problematic" id="id3284">*</span></a>graphicsEffect(void)</li>
-<li>QGraphicsProxyWidget <a href="#id3285"><span class="problematic" id="id3286">*</span></a>graphicsProxyWidget(void)</li>
+<li>QGraphicsEffect <a href="#id3286"><span class="problematic" id="id3287">*</span></a>graphicsEffect(void)</li>
+<li>QGraphicsProxyWidget <a href="#id3288"><span class="problematic" id="id3289">*</span></a>graphicsProxyWidget(void)</li>
 <li>bool hasFocus(void)</li>
 <li>bool hasMouseTracking(void)</li>
 <li>int height(void)</li>
 <li>int heightForWidth(int w)</li>
 <li>int inputMethodHints(void)</li>
 <li>QVariant inputMethodQuery(Qt::InputMethodQuery query)</li>
-<li>void insertAction(QAction <a href="#id3287"><span class="problematic" id="id3288">*</span></a>before, QAction <a href="#id3289"><span class="problematic" id="id3290">*</span></a>action)</li>
+<li>void insertAction(QAction <a href="#id3290"><span class="problematic" id="id3291">*</span></a>before, QAction <a href="#id3292"><span class="problematic" id="id3293">*</span></a>action)</li>
 <li>bool isActiveWindow(void)</li>
-<li>bool isAncestorOf(QWidget <a href="#id3291"><span class="problematic" id="id3292">*</span></a>child)</li>
+<li>bool isAncestorOf(QWidget <a href="#id3294"><span class="problematic" id="id3295">*</span></a>child)</li>
 <li>bool isEnabled(void)</li>
-<li>bool isEnabledTo(QWidget <a href="#id3293"><span class="problematic" id="id3294">*</span></a>ancestor)</li>
+<li>bool isEnabledTo(QWidget <a href="#id3296"><span class="problematic" id="id3297">*</span></a>ancestor)</li>
 <li>bool isFullScreen(void)</li>
 <li>bool isHidden(void)</li>
 <li>bool isMaximized(void)</li>
 <li>bool isMinimized(void)</li>
 <li>bool isModal(void)</li>
 <li>bool isVisible(void)</li>
-<li>bool isVisibleTo(QWidget <a href="#id3295"><span class="problematic" id="id3296">*</span></a>ancestor)</li>
+<li>bool isVisibleTo(QWidget <a href="#id3298"><span class="problematic" id="id3299">*</span></a>ancestor)</li>
 <li>bool isWindow(void)</li>
 <li>bool isWindowModified(void)</li>
-<li>QLayout <a href="#id3297"><span class="problematic" id="id3298">*</span></a>layout(void)</li>
+<li>QLayout <a href="#id3300"><span class="problematic" id="id3301">*</span></a>layout(void)</li>
 <li>int layoutDirection(void)</li>
 <li>QLocale locale(void)</li>
-<li>QPoint mapFrom(QWidget <a href="#id3299"><span class="problematic" id="id3300">*</span></a>parent, QPoint)</li>
+<li>QPoint mapFrom(QWidget <a href="#id3302"><span class="problematic" id="id3303">*</span></a>parent, QPoint)</li>
 <li>QPoint mapFromGlobal(QPoint)</li>
 <li>QPoint mapFromParent(QPoint)</li>
-<li>QPoint mapTo(QWidget <a href="#id3301"><span class="problematic" id="id3302">*</span></a>parent, QPoint)</li>
+<li>QPoint mapTo(QWidget <a href="#id3304"><span class="problematic" id="id3305">*</span></a>parent, QPoint)</li>
 <li>QPoint mapToGlobal(QPoint pos)</li>
 <li>QPoint mapToParent(QPoint pos)</li>
 <li>QRegion mask(void)</li>
@@ -7793,20 +7803,20 @@
 <li>QSize minimumSize(void)</li>
 <li>int minimumWidth(void)</li>
 <li>void move(int x, int y)</li>
-<li>QWidget <a href="#id3303"><span class="problematic" id="id3304">*</span></a>nativeParentWidget(void)</li>
-<li>QWidget <a href="#id3305"><span class="problematic" id="id3306">*</span></a>nextInFocusChain(void)</li>
+<li>QWidget <a href="#id3306"><span class="problematic" id="id3307">*</span></a>nativeParentWidget(void)</li>
+<li>QWidget <a href="#id3308"><span class="problematic" id="id3309">*</span></a>nextInFocusChain(void)</li>
 <li>QRect normalGeometry(void)</li>
 <li>void overrideWindowFlags(Qt::WindowType flags)</li>
 <li>QPalette palette(void)</li>
-<li>QWidget <a href="#id3307"><span class="problematic" id="id3308">*</span></a>parentWidget(void)</li>
+<li>QWidget <a href="#id3310"><span class="problematic" id="id3311">*</span></a>parentWidget(void)</li>
 <li>QPoint pos(void)</li>
-<li>QWidget <a href="#id3309"><span class="problematic" id="id3310">*</span></a>previousInFocusChain(void)</li>
+<li>QWidget <a href="#id3312"><span class="problematic" id="id3313">*</span></a>previousInFocusChain(void)</li>
 <li>QRect rect(void)</li>
 <li>void releaseKeyboard(void)</li>
 <li>void releaseMouse(void)</li>
 <li>void releaseShortcut(int id)</li>
-<li>void removeAction(QAction <a href="#id3311"><span class="problematic" id="id3312">*</span></a>action)</li>
-<li>void render(QPaintDevice <a href="#id3313"><span class="problematic" id="id3314">*</span></a>target, QPoint,QRegion, QWidget::RenderFlag)</li>
+<li>void removeAction(QAction <a href="#id3314"><span class="problematic" id="id3315">*</span></a>action)</li>
+<li>void render(QPaintDevice <a href="#id3316"><span class="problematic" id="id3317">*</span></a>target, QPoint,QRegion, QWidget::RenderFlag)</li>
 <li>void repaint(void)</li>
 <li>void resize(int w, int h)</li>
 <li>bool restoreGeometry(QByteArray)</li>
@@ -7827,13 +7837,13 @@
 <li>void setFixedWidth(int w)</li>
 <li>void setFocus(Qt::FocusReason reason)</li>
 <li>void setFocusPolicy(Qt::FocusPolicy policy)</li>
-<li>void setFocusProxy(QWidget <a href="#id3315"><span class="problematic" id="id3316">*</span></a>w)</li>
+<li>void setFocusProxy(QWidget <a href="#id3318"><span class="problematic" id="id3319">*</span></a>w)</li>
 <li>void setFont(QFont)</li>
 <li>void setForegroundRole(QPalette::ColorRole role)</li>
 <li>void setGeometry(int x, int y, int w, int h)</li>
-<li>void setGraphicsEffect(QGraphicsEffect <a href="#id3317"><span class="problematic" id="id3318">*</span></a>effect)</li>
+<li>void setGraphicsEffect(QGraphicsEffect <a href="#id3320"><span class="problematic" id="id3321">*</span></a>effect)</li>
 <li>void setInputMethodHints(Qt::InputMethodHint hints)</li>
-<li>void setLayout(QLayout <a href="#id3319"><span class="problematic" id="id3320">*</span></a>layout)</li>
+<li>void setLayout(QLayout <a href="#id3322"><span class="problematic" id="id3323">*</span></a>layout)</li>
 <li>void setLayoutDirection(Qt::LayoutDirection direction)</li>
 <li>void setLocale(QLocale)</li>
 <li>void setMask(QBitmap)</li>
@@ -7845,13 +7855,13 @@
 <li>void setMinimumWidth(int minw)</li>
 <li>void setMouseTracking(bool enable)</li>
 <li>void setPalette(QPalette)</li>
-<li>void setParent(QWidget <a href="#id3321"><span class="problematic" id="id3322">*</span></a>parent)</li>
+<li>void setParent(QWidget <a href="#id3324"><span class="problematic" id="id3325">*</span></a>parent)</li>
 <li>void setShortcutAutoRepeat(int id, bool enable)</li>
 <li>void setShortcutEnabled(int id, bool enable)</li>
 <li>void setSizeIncrement(int w, int h)</li>
 <li>void setSizePolicy(QSizePolicy::Policy horizontal, QSizePolicy::Policy vertical)</li>
 <li>void setStatusTip(QString)</li>
-<li>void setStyle(QStyle <a href="#id3323"><span class="problematic" id="id3324">*</span></a>style)</li>
+<li>void setStyle(QStyle <a href="#id3326"><span class="problematic" id="id3327">*</span></a>style)</li>
 <li>void setToolTip(QString)</li>
 <li>void setUpdatesEnabled(bool enable)</li>
 <li>void setWhatsThis(QString)</li>
@@ -7866,9 +7876,9 @@
 <li>QSize size(void)</li>
 <li>QSize sizeIncrement(void)</li>
 <li>QSizePolicy sizePolicy(void)</li>
-<li>void stackUnder(QWidget <a href="#id3325"><span class="problematic" id="id3326">*</span></a>w)</li>
+<li>void stackUnder(QWidget <a href="#id3328"><span class="problematic" id="id3329">*</span></a>w)</li>
 <li>QString statusTip(void)</li>
-<li>QStyle <a href="#id3327"><span class="problematic" id="id3328">*</span></a>style(void)</li>
+<li>QStyle <a href="#id3330"><span class="problematic" id="id3331">*</span></a>style(void)</li>
 <li>QString styleSheet(void)</li>
 <li>bool testAttribute(Qt::WidgetAttribute attribute)</li>
 <li>QString toolTip(void)</li>
@@ -7884,10 +7894,10 @@
 <li>QString whatsThis(void)</li>
 <li>int width(void)</li>
 <li>int winId(void)</li>
-<li>QWidget <a href="#id3329"><span class="problematic" id="id3330">*</span></a>window(void)</li>
+<li>QWidget <a href="#id3332"><span class="problematic" id="id3333">*</span></a>window(void)</li>
 <li>QString windowFilePath(void)</li>
 <li>int windowFlags(void)</li>
-<li>QWindow <a href="#id3331"><span class="problematic" id="id3332">*</span></a>windowHandle(void)</li>
+<li>QWindow <a href="#id3334"><span class="problematic" id="id3335">*</span></a>windowHandle(void)</li>
 <li>QIcon windowIcon(void)</li>
 <li>QString windowIconText(void)</li>
 <li>int windowModality(void)</li>
@@ -7913,14 +7923,14 @@
 <li>void showMaximized(void)</li>
 <li>void showMinimized(void)</li>
 <li>void showNormal(void)</li>
-<li>QWidget <a href="#id3333"><span class="problematic" id="id3334">*</span></a>find(int id)</li>
-<li>QWidget <a href="#id3335"><span class="problematic" id="id3336">*</span></a>keyboardGrabber(void)</li>
-<li>QWidget <a href="#id3337"><span class="problematic" id="id3338">*</span></a>mouseGrabber(void)</li>
-<li>void setTabOrder(QWidget <a href="#id3339"><span class="problematic" id="id3340">*</span></a>first, QWidget <a href="#id3341"><span class="problematic" id="id3342">*</span></a>second)</li>
+<li>QWidget <a href="#id3336"><span class="problematic" id="id3337">*</span></a>find(int id)</li>
+<li>QWidget <a href="#id3338"><span class="problematic" id="id3339">*</span></a>keyboardGrabber(void)</li>
+<li>QWidget <a href="#id3340"><span class="problematic" id="id3341">*</span></a>mouseGrabber(void)</li>
+<li>void setTabOrder(QWidget <a href="#id3342"><span class="problematic" id="id3343">*</span></a>first, QWidget <a href="#id3344"><span class="problematic" id="id3345">*</span></a>second)</li>
 </ul>
 </div>
 <div class="section" id="qwindow-class">
-<span id="index-248"></span><h2>QWindow Class<a class="headerlink" href="#qwindow-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-249"></span><h2>QWindow Class<a class="headerlink" href="#qwindow-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QWindow.html">http://doc.qt.io/qt-5/QWindow.html</a></p>
 <p>Parameters : QScreen *</p>
 <p>Parent Class : QObject</p>
@@ -7941,7 +7951,7 @@
 <li>int height(void)</li>
 <li>QIcon icon(void)</li>
 <li>bool isActive(void)</li>
-<li>bool isAncestorOf(QWindow <a href="#id3343"><span class="problematic" id="id3344">*</span></a>child, QWindow::AncestorMode mode)</li>
+<li>bool isAncestorOf(QWindow <a href="#id3346"><span class="problematic" id="id3347">*</span></a>child, QWindow::AncestorMode mode)</li>
 <li>bool isExposed(void)</li>
 <li>bool isModal(void)</li>
 <li>bool isTopLevel(void)</li>
@@ -7979,12 +7989,12 @@
 <li>void setModality(Qt::WindowModality modality)</li>
 <li>bool setMouseGrabEnabled(bool grab)</li>
 <li>void setOpacity(qreal level)</li>
-<li>void setParent(QWindow <a href="#id3345"><span class="problematic" id="id3346">*</span></a>parent)</li>
+<li>void setParent(QWindow <a href="#id3348"><span class="problematic" id="id3349">*</span></a>parent)</li>
 <li>void setPosition(QPoint pt)</li>
 <li>void setPosition_2(int posx, int posy)</li>
-<li>void setScreen(QScreen <a href="#id3347"><span class="problematic" id="id3348">*</span></a>newScreen)</li>
+<li>void setScreen(QScreen <a href="#id3350"><span class="problematic" id="id3351">*</span></a>newScreen)</li>
 <li>void setSizeIncrement(QSize size)</li>
-<li>void setTransientParent(QWindow <a href="#id3349"><span class="problematic" id="id3350">*</span></a>parent)</li>
+<li>void setTransientParent(QWindow <a href="#id3352"><span class="problematic" id="id3353">*</span></a>parent)</li>
 <li>void setVisibility(QWindow::Visibility v)</li>
 <li>void setWindowState(Qt::WindowState state)</li>
 <li>QSize sizeIncrement(void)</li>
@@ -8020,46 +8030,46 @@
 <li>void showMinimized(void)</li>
 <li>void showNormal(void)</li>
 <li>QWindow * fromWinId(WId id)</li>
-<li>void setactiveChangedEvent(const char <a href="#id3351"><span class="problematic" id="id3352">*</span></a>)</li>
-<li>void setcontentOrientationChangedEvent(const char <a href="#id3353"><span class="problematic" id="id3354">*</span></a>)</li>
-<li>void setfocusObjectChangedEvent(const char <a href="#id3355"><span class="problematic" id="id3356">*</span></a>)</li>
-<li>void setheightChangedEvent(const char <a href="#id3357"><span class="problematic" id="id3358">*</span></a>)</li>
-<li>void setmaximumHeightChangedEvent(const char <a href="#id3359"><span class="problematic" id="id3360">*</span></a>)</li>
-<li>void setmaximumWidthChangedEvent(const char <a href="#id3361"><span class="problematic" id="id3362">*</span></a>)</li>
-<li>void setminimumHeightChangedEvent(const char <a href="#id3363"><span class="problematic" id="id3364">*</span></a>)</li>
-<li>void setminimumWidthChangedEvent(const char <a href="#id3365"><span class="problematic" id="id3366">*</span></a>)</li>
-<li>void setmodalityChangedEvent(const char <a href="#id3367"><span class="problematic" id="id3368">*</span></a>)</li>
-<li>void setopacityChangedEvent(const char <a href="#id3369"><span class="problematic" id="id3370">*</span></a>)</li>
-<li>void setscreenChangedEvent(const char <a href="#id3371"><span class="problematic" id="id3372">*</span></a>)</li>
-<li>void setvisibilityChangedEvent(const char <a href="#id3373"><span class="problematic" id="id3374">*</span></a>)</li>
-<li>void setvisibleChangedEvent(const char <a href="#id3375"><span class="problematic" id="id3376">*</span></a>)</li>
-<li>void setwidthChangedEvent(const char <a href="#id3377"><span class="problematic" id="id3378">*</span></a>)</li>
-<li>void setwindowStateChangedEvent(const char <a href="#id3379"><span class="problematic" id="id3380">*</span></a>)</li>
-<li>void setwindowTitleChangedEvent(const char <a href="#id3381"><span class="problematic" id="id3382">*</span></a>)</li>
-<li>void setxChangedEvent(const char <a href="#id3383"><span class="problematic" id="id3384">*</span></a>)</li>
-<li>void setyChangedEvent(const char <a href="#id3385"><span class="problematic" id="id3386">*</span></a>)</li>
-<li>const char <a href="#id3387"><span class="problematic" id="id3388">*</span></a>getactiveChangedEvent(void)</li>
-<li>const char <a href="#id3389"><span class="problematic" id="id3390">*</span></a>getcontentOrientationChangedEvent(void)</li>
-<li>const char <a href="#id3391"><span class="problematic" id="id3392">*</span></a>getfocusObjectChangedEvent(void)</li>
-<li>const char <a href="#id3393"><span class="problematic" id="id3394">*</span></a>getheightChangedEvent(void)</li>
-<li>const char <a href="#id3395"><span class="problematic" id="id3396">*</span></a>getmaximumHeightChangedEvent(void)</li>
-<li>const char <a href="#id3397"><span class="problematic" id="id3398">*</span></a>getmaximumWidthChangedEvent(void)</li>
-<li>const char <a href="#id3399"><span class="problematic" id="id3400">*</span></a>getminimumHeightChangedEvent(void)</li>
-<li>const char <a href="#id3401"><span class="problematic" id="id3402">*</span></a>getminimumWidthChangedEvent(void)</li>
-<li>const char <a href="#id3403"><span class="problematic" id="id3404">*</span></a>getmodalityChangedEvent(void)</li>
-<li>const char <a href="#id3405"><span class="problematic" id="id3406">*</span></a>getopacityChangedEvent(void)</li>
-<li>const char <a href="#id3407"><span class="problematic" id="id3408">*</span></a>getscreenChangedEvent(void)</li>
-<li>const char <a href="#id3409"><span class="problematic" id="id3410">*</span></a>getvisibilityChangedEvent(void)</li>
-<li>const char <a href="#id3411"><span class="problematic" id="id3412">*</span></a>getvisibleChangedEvent(void)</li>
-<li>const char <a href="#id3413"><span class="problematic" id="id3414">*</span></a>getwidthChangedEvent(void)</li>
-<li>const char <a href="#id3415"><span class="problematic" id="id3416">*</span></a>getwindowStateChangedEvent(void)</li>
-<li>const char <a href="#id3417"><span class="problematic" id="id3418">*</span></a>getwindowTitleChangedEvent(void)</li>
-<li>const char <a href="#id3419"><span class="problematic" id="id3420">*</span></a>getxChangedEvent(void)</li>
-<li>const char <a href="#id3421"><span class="problematic" id="id3422">*</span></a>getyChangedEvent(void)</li>
+<li>void setactiveChangedEvent(const char <a href="#id3354"><span class="problematic" id="id3355">*</span></a>)</li>
+<li>void setcontentOrientationChangedEvent(const char <a href="#id3356"><span class="problematic" id="id3357">*</span></a>)</li>
+<li>void setfocusObjectChangedEvent(const char <a href="#id3358"><span class="problematic" id="id3359">*</span></a>)</li>
+<li>void setheightChangedEvent(const char <a href="#id3360"><span class="problematic" id="id3361">*</span></a>)</li>
+<li>void setmaximumHeightChangedEvent(const char <a href="#id3362"><span class="problematic" id="id3363">*</span></a>)</li>
+<li>void setmaximumWidthChangedEvent(const char <a href="#id3364"><span class="problematic" id="id3365">*</span></a>)</li>
+<li>void setminimumHeightChangedEvent(const char <a href="#id3366"><span class="problematic" id="id3367">*</span></a>)</li>
+<li>void setminimumWidthChangedEvent(const char <a href="#id3368"><span class="problematic" id="id3369">*</span></a>)</li>
+<li>void setmodalityChangedEvent(const char <a href="#id3370"><span class="problematic" id="id3371">*</span></a>)</li>
+<li>void setopacityChangedEvent(const char <a href="#id3372"><span class="problematic" id="id3373">*</span></a>)</li>
+<li>void setscreenChangedEvent(const char <a href="#id3374"><span class="problematic" id="id3375">*</span></a>)</li>
+<li>void setvisibilityChangedEvent(const char <a href="#id3376"><span class="problematic" id="id3377">*</span></a>)</li>
+<li>void setvisibleChangedEvent(const char <a href="#id3378"><span class="problematic" id="id3379">*</span></a>)</li>
+<li>void setwidthChangedEvent(const char <a href="#id3380"><span class="problematic" id="id3381">*</span></a>)</li>
+<li>void setwindowStateChangedEvent(const char <a href="#id3382"><span class="problematic" id="id3383">*</span></a>)</li>
+<li>void setwindowTitleChangedEvent(const char <a href="#id3384"><span class="problematic" id="id3385">*</span></a>)</li>
+<li>void setxChangedEvent(const char <a href="#id3386"><span class="problematic" id="id3387">*</span></a>)</li>
+<li>void setyChangedEvent(const char <a href="#id3388"><span class="problematic" id="id3389">*</span></a>)</li>
+<li>const char <a href="#id3390"><span class="problematic" id="id3391">*</span></a>getactiveChangedEvent(void)</li>
+<li>const char <a href="#id3392"><span class="problematic" id="id3393">*</span></a>getcontentOrientationChangedEvent(void)</li>
+<li>const char <a href="#id3394"><span class="problematic" id="id3395">*</span></a>getfocusObjectChangedEvent(void)</li>
+<li>const char <a href="#id3396"><span class="problematic" id="id3397">*</span></a>getheightChangedEvent(void)</li>
+<li>const char <a href="#id3398"><span class="problematic" id="id3399">*</span></a>getmaximumHeightChangedEvent(void)</li>
+<li>const char <a href="#id3400"><span class="problematic" id="id3401">*</span></a>getmaximumWidthChangedEvent(void)</li>
+<li>const char <a href="#id3402"><span class="problematic" id="id3403">*</span></a>getminimumHeightChangedEvent(void)</li>
+<li>const char <a href="#id3404"><span class="problematic" id="id3405">*</span></a>getminimumWidthChangedEvent(void)</li>
+<li>const char <a href="#id3406"><span class="problematic" id="id3407">*</span></a>getmodalityChangedEvent(void)</li>
+<li>const char <a href="#id3408"><span class="problematic" id="id3409">*</span></a>getopacityChangedEvent(void)</li>
+<li>const char <a href="#id3410"><span class="problematic" id="id3411">*</span></a>getscreenChangedEvent(void)</li>
+<li>const char <a href="#id3412"><span class="problematic" id="id3413">*</span></a>getvisibilityChangedEvent(void)</li>
+<li>const char <a href="#id3414"><span class="problematic" id="id3415">*</span></a>getvisibleChangedEvent(void)</li>
+<li>const char <a href="#id3416"><span class="problematic" id="id3417">*</span></a>getwidthChangedEvent(void)</li>
+<li>const char <a href="#id3418"><span class="problematic" id="id3419">*</span></a>getwindowStateChangedEvent(void)</li>
+<li>const char <a href="#id3420"><span class="problematic" id="id3421">*</span></a>getwindowTitleChangedEvent(void)</li>
+<li>const char <a href="#id3422"><span class="problematic" id="id3423">*</span></a>getxChangedEvent(void)</li>
+<li>const char <a href="#id3424"><span class="problematic" id="id3425">*</span></a>getyChangedEvent(void)</li>
 </ul>
 </div>
 <div class="section" id="qxmlstreamattribute-class">
-<span id="index-249"></span><h2>QXmlStreamAttribute Class<a class="headerlink" href="#qxmlstreamattribute-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-250"></span><h2>QXmlStreamAttribute Class<a class="headerlink" href="#qxmlstreamattribute-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamAttribute.html">http://doc.qt.io/qt-5/QXmlStreamAttribute.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8072,7 +8082,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamattributes-class">
-<span id="index-250"></span><h2>QXmlStreamAttributes Class<a class="headerlink" href="#qxmlstreamattributes-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-251"></span><h2>QXmlStreamAttributes Class<a class="headerlink" href="#qxmlstreamattributes-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamAttributes.html">http://doc.qt.io/qt-5/QXmlStreamAttributes.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8089,7 +8099,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamentitydeclaration-class">
-<span id="index-251"></span><h2>QXmlStreamEntityDeclaration Class<a class="headerlink" href="#qxmlstreamentitydeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-252"></span><h2>QXmlStreamEntityDeclaration Class<a class="headerlink" href="#qxmlstreamentitydeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8101,12 +8111,12 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamentityresolver-class">
-<span id="index-252"></span><h2>QXmlStreamEntityResolver Class<a class="headerlink" href="#qxmlstreamentityresolver-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-253"></span><h2>QXmlStreamEntityResolver Class<a class="headerlink" href="#qxmlstreamentityresolver-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html">http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html</a></p>
 <p>Parameters : void</p>
 </div>
 <div class="section" id="qxmlstreamnamespacedeclaration-class">
-<span id="index-253"></span><h2>QXmlStreamNamespaceDeclaration Class<a class="headerlink" href="#qxmlstreamnamespacedeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-254"></span><h2>QXmlStreamNamespaceDeclaration Class<a class="headerlink" href="#qxmlstreamnamespacedeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8115,7 +8125,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamnotationdeclaration-class">
-<span id="index-254"></span><h2>QXmlStreamNotationDeclaration Class<a class="headerlink" href="#qxmlstreamnotationdeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-255"></span><h2>QXmlStreamNotationDeclaration Class<a class="headerlink" href="#qxmlstreamnotationdeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8125,7 +8135,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamreader-class">
-<span id="index-255"></span><h2>QXmlStreamReader Class<a class="headerlink" href="#qxmlstreamreader-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-256"></span><h2>QXmlStreamReader Class<a class="headerlink" href="#qxmlstreamreader-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamReader.html">http://doc.qt.io/qt-5/QXmlStreamReader.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8139,14 +8149,14 @@
 <li>qint64 characterOffset(void)</li>
 <li>void clear(void)</li>
 <li>qint64 columnNumber(void)</li>
-<li>QIODevice <a href="#id3423"><span class="problematic" id="id3424">*</span></a>device(void)</li>
+<li>QIODevice <a href="#id3426"><span class="problematic" id="id3427">*</span></a>device(void)</li>
 <li>QStringRef documentEncoding(void)</li>
 <li>QStringRef documentVersion(void)</li>
 <li>QStringRef dtdName(void)</li>
 <li>QStringRef dtdPublicId(void)</li>
 <li>QStringRef dtdSystemId(void)</li>
 <li>QXmlStreamEntityDeclarations entityDeclarations(void)</li>
-<li>QXmlStreamEntityResolver <a href="#id3425"><span class="problematic" id="id3426">*</span></a>entityResolver(void)</li>
+<li>QXmlStreamEntityResolver <a href="#id3428"><span class="problematic" id="id3429">*</span></a>entityResolver(void)</li>
 <li>Error error(void)</li>
 <li>QString errorString(void)</li>
 <li>bool hasError(void)</li>
@@ -8176,8 +8186,8 @@
 <li>QString readElementText(QXmlStreamReader::ReadElementTextBehaviour)</li>
 <li>TokenType readNext(void)</li>
 <li>bool readNextStartElement(void)</li>
-<li>void setDevice(QIODevice <a href="#id3427"><span class="problematic" id="id3428">*</span></a>device)</li>
-<li>void setEntityResolver(QXmlStreamEntityResolver <a href="#id3429"><span class="problematic" id="id3430">*</span></a>resolver)</li>
+<li>void setDevice(QIODevice <a href="#id3430"><span class="problematic" id="id3431">*</span></a>device)</li>
+<li>void setEntityResolver(QXmlStreamEntityResolver <a href="#id3432"><span class="problematic" id="id3433">*</span></a>resolver)</li>
 <li>void setNamespaceProcessing(bool)</li>
 <li>void skipCurrentElement(void)</li>
 <li>QStringRef text(void)</li>
@@ -8186,20 +8196,20 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamwriter-class">
-<span id="index-256"></span><h2>QXmlStreamWriter Class<a class="headerlink" href="#qxmlstreamwriter-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-257"></span><h2>QXmlStreamWriter Class<a class="headerlink" href="#qxmlstreamwriter-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamWriter.html">http://doc.qt.io/qt-5/QXmlStreamWriter.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
 <li>bool autoFormatting(void)</li>
 <li>int autoFormattingIndent(void)</li>
-<li>QTextCodec <a href="#id3431"><span class="problematic" id="id3432">*</span></a>codec(void)</li>
-<li>QIODevice <a href="#id3433"><span class="problematic" id="id3434">*</span></a>device(void)</li>
+<li>QTextCodec <a href="#id3434"><span class="problematic" id="id3435">*</span></a>codec(void)</li>
+<li>QIODevice <a href="#id3436"><span class="problematic" id="id3437">*</span></a>device(void)</li>
 <li>bool hasError(void)</li>
 <li>void setAutoFormatting(bool enable)</li>
 <li>void setAutoFormattingIndent(int spacesOrTabs)</li>
-<li>void setCodec(QTextCodec <a href="#id3435"><span class="problematic" id="id3436">*</span></a>codec)</li>
-<li>void setCodec_2(const char <a href="#id3437"><span class="problematic" id="id3438">*</span></a>codecName)</li>
-<li>void setDevice(QIODevice <a href="#id3439"><span class="problematic" id="id3440">*</span></a>device)</li>
+<li>void setCodec(QTextCodec <a href="#id3438"><span class="problematic" id="id3439">*</span></a>codec)</li>
+<li>void setCodec_2(const char <a href="#id3440"><span class="problematic" id="id3441">*</span></a>codecName)</li>
+<li>void setDevice(QIODevice <a href="#id3442"><span class="problematic" id="id3443">*</span></a>device)</li>
 <li>void writeAttribute(QString, QString,QString)</li>
 <li>void writeAttribute_2(QString, QString)</li>
 <li>void writeAttribute_3(QXmlStreamAttribute)</li>
@@ -8227,8 +8237,8 @@
 </ul>
 </div>
 <div class="section" id="ringcodehighlighter-class">
-<span id="index-257"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
-<p>Parameters : QTextDocument <a href="#id3441"><span class="problematic" id="id3442">*</span></a>parent</p>
+<span id="index-258"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
+<p>Parameters : QTextDocument <a href="#id3444"><span class="problematic" id="id3445">*</span></a>parent</p>
 <ul class="simple">
 <li>void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)</li>
 <li>void setKeywordsBold(int nStatus)</li>
@@ -8491,6 +8501,7 @@
 <li><a class="reference internal" href="#qvideowidgetcontrol-class">QVideoWidgetControl Class</a></li>
 <li><a class="reference internal" href="#qwebengineview-class">QWebEngineView Class</a></li>
 <li><a class="reference internal" href="#qwebview-class">QWebView Class</a></li>
+<li><a class="reference internal" href="#index-247">QWebView Class</a></li>
 <li><a class="reference internal" href="#qwidget-class">QWidget Class</a></li>
 <li><a class="reference internal" href="#qwindow-class">QWindow Class</a></li>
 <li><a class="reference internal" href="#qxmlstreamattribute-class">QXmlStreamAttribute Class</a></li>

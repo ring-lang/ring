@@ -207,4 +207,5 @@ More Improvements
 (11) Ring2EXE: The libraries information are stored in separated files in ring/ring2exe/libs folder.
 (12) WebLib  : Separate the library to many source code files.
 (13) StdLib  : IsVowel() function - Better Code.
-(14) Better Read Me File 
+(14) RingQt  : Count(), Left(), Mid() and Right() methods are added to QString class.
+(15) Better Read Me File 
