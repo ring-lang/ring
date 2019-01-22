@@ -228,6 +228,8 @@ Example(3):
 
 To run a package in the current folder
 
+Example(4):
+
 .. code-block:: none
 
 	ringpm run
