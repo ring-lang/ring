@@ -9,9 +9,9 @@ Usage
 	ringpm [command]
 	Command : search  [keywords...]
 	Command : refresh : Update the Registry (Packages List)
-	Command : install <packagename> [from <UserName>] [branch <branchname>]
+	Command : install [ <packagename> [from <UserName>] [branch <branchname>] ]
 	Command : list    [-u : Check updates]
-	Command : run     <packagename>
+	Command : run     [packagename]
 	Command : update  <packagename>
 	Command : remove  <packagename>
 	Command : format  : Delete All Packages
