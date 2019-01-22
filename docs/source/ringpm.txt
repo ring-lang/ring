@@ -25,9 +25,9 @@ The Package Manager comes with the next options
 	Usage   : ringpm [command]
 	Command : search  [keywords...]
 	Command : refresh : Update the Registry (Packages List)
-	Command : install <packagename> [from <UserName>] [branch <branchname>]
+	Command : install [ <packagename> [from <UserName>] [branch <branchname>] ]
 	Command : list    [-u : check updates]
-	Command : run     <packagename>
+	Command : run     [packagename]
 	Command : update  <packagename>
 	Command : remove  <packagename>
 	Command : format  : Delete All Packages
@@ -110,10 +110,12 @@ We can install new packages using the Install command
 
 .. code-block:: none
 
-	ringpm install <packagename> [from <UserName>] [branch <branchname>]
+	ringpm install [ <packagename> [from <UserName>] [branch <branchname>] ]
 
 We can type only the package name to get the package information from the RingPM Registry or
 we can determine the user name (GitHub) and the branch name of the github project (optional).
+
+If the current folder is a package folder then we don't need to write the package name. 
 
 Example (1) :
 
@@ -146,6 +148,14 @@ To run the package after installation
 .. code-block:: none
 
 	ringpm run firstpackage
+
+To install a package in the current folder
+
+Example (5) :
+
+.. code-block:: none
+
+	ringpm install
 
 .. index:: 
 	pair: Ring Package Manager (RingPM); Printing List of Installed Packages
@@ -196,7 +206,7 @@ After installing a package, we can run it using the Run command.
 
 .. code-block:: none
 
-	ringpm run <packagename>
+	ringpm run [packagename]
 
 Example(1):
 
@@ -215,6 +225,12 @@ Example(3):
 .. code-block:: none
 
 	ringpm run gameoflife
+
+To run a package in the current folder
+
+.. code-block:: none
+
+	ringpm run
 
 .. index:: 
 	pair: Ring Package Manager (RingPM); Update Package

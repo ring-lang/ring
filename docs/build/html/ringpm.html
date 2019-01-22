@@ -61,9 +61,9 @@
 <div class="highlight-none"><div class="highlight"><pre><span></span>Usage   : ringpm [command]
 Command : search  [keywords...]
 Command : refresh : Update the Registry (Packages List)
-Command : install &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;]
+Command : install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
 Command : list    [-u : check updates]
-Command : run     &lt;packagename&gt;
+Command : run     [packagename]
 Command : update  &lt;packagename&gt;
 Command : remove  &lt;packagename&gt;
 Command : format  : Delete All Packages
@@ -115,11 +115,12 @@ Package : notepadppeditorextension (Notepad++ Editor Extension package)
 <div class="section" id="installing-packages">
 <span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
 <p>We can install new packages using the Install command</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;]
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
 </pre></div>
 </div>
 <p>We can type only the package name to get the package information from the RingPM Registry or
 we can determine the user name (GitHub) and the branch name of the github project (optional).</p>
+<p>If the current folder is a package folder then we don&#8217;t need to write the package name.</p>
 <p>Example (1) :</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install ringnotepad
 </pre></div>
@@ -139,6 +140,11 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 <p>To run the package after installation</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run firstpackage
+</pre></div>
+</div>
+<p>To install a package in the current folder</p>
+<p>Example (5) :</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm install
 </pre></div>
 </div>
 </div>
@@ -173,7 +179,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="section" id="run-package">
 <span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this headline">¶</a></h2>
 <p>After installing a package, we can run it using the Run command.</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run &lt;packagename&gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run [packagename]
 </pre></div>
 </div>
 <p>Example(1):</p>
@@ -186,6 +192,10 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 <p>Example(3):</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run gameoflife
+</pre></div>
+</div>
+<p>To run a package in the current folder</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ringpm run
 </pre></div>
 </div>
 </div>
