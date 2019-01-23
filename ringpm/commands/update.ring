@@ -51,7 +51,11 @@ func RemoveBranchNameFromPackageName aPackageInfo,cPackageName,cBranchName
 	ok
 	if cBranchName != NULL and cBranchName != "master"
 		if len(cPackageName) > len(cBranchName)
-			cPackageName = left(cPackageName,len(cPackageName)- len(cBranchName))
+			# If we have version like 0.1.0 it must be part of the package name 
+			# But we check also if this is not the case (like manual decreasing of package version)
+			if substr(cPackageName,cBranchName)
+				cPackageName = left(cPackageName,len(cPackageName)- len(cBranchName))
+			ok
 		ok
 	ok
 	return cPackageName
