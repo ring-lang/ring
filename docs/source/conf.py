@@ -55,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Ring'
-copyright = u'2016-2018, Ring Team'
+copyright = u'2016-2019, Ring Team'
 author = u'Ring Team'
 
 # The version info for the project you're documenting, acts as replacement for
