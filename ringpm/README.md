@@ -29,6 +29,13 @@ To run Ring Notepad
 
 	ringpm run ringnotepad
 
+Documentation
+=============
+
+See the RingPM Chapter in Ring 1.10 documentation
+
+URL : http://ring-lang.net/doc1.10/ringpm.html
+
 Implementation
 ==============
 
