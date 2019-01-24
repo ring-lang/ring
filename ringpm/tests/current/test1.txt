@@ -1,13 +1,13 @@
 ===========================================================================
 Ring Package Manager (RingPM)
-2018, Mahmoud Fayed <msfclipper@yahoo.com>
+2018-2019, Mahmoud Fayed <msfclipper@yahoo.com>
 ===========================================================================
 Usage   : ringpm [command]
-Command :  <keywords...>
+Command :  [keywords...]
 Command :  : Update the Registry (Packages List)
-Command :  <packagename> [from <UserName>] [branch <branchname>]
+Command :  [ <packagename> [from <UserName>] [branch <branchname>] ]
 Command :  [-u : Check updates]
-Command :  <packagename>
+Command :  [packagename]
 Command :  <packagename>
 Command :  <packagename>
 Command :  : Delete All Packages
