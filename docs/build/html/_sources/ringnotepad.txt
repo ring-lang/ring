@@ -121,7 +121,7 @@ Source Code:
 
 .. code-block:: ring
 
-	#!b:\ring\bin\ring.exe -cgi
+	#!ring -cgi
 
 	load "weblib.ring"
 
@@ -139,7 +139,7 @@ We can run the application in any web browser or in the browser that are embedde
 .. image:: urn_shot9.png
 	:alt: Using Ring Notepad
 
-For Windows users, Ring 1.6 comes with Apache Web server!
+For Windows users, Ring comes with Apache Web server!
 
 We can run any web application from any folder directly without doing any configuration.
 
