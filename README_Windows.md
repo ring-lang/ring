@@ -18,6 +18,11 @@
 
 	cd ../ring2exe
 	buildring2exe.bat 
+
+### Build RingPM
+
+	cd ../ringpm
+	buildringpm.bat 
 	
 ### Build RingODBC
 	

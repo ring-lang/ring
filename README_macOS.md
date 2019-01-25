@@ -23,6 +23,11 @@
 
 	cd ../ring2exe
 	sudo ./buildring2exe.sh	
+
+### Build RingPM
+
+	cd ../ringpm
+	sudo ./buildringpm.sh	
 	
 ### Build RingODBC
 	
