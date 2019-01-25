@@ -19,6 +19,23 @@
 	cd ../ring2exe
 	buildring2exe.bat 
 
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	gencode.bat
+	buildvc.bat
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
+
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+
 ### Build RingPM
 
 	cd ../ringpm
@@ -50,31 +67,14 @@
 	cd ../extensions/ringopenssl
 	buildvc.bat
 
-### Build RingInternet
-	
-	cd ../extensions/ringinternet
-	buildvc.bat
-
 ### Build RingMurmurHash
 	
 	cd ../extensions/ringmurmurhash
 	buildvc.bat
 	
-### Generate RingConsoleColors Source Code and Build 
-	
-	cd ../extensions/ringconsolecolors
-	gencode.bat
-	buildvc.bat
-	
 ### Generate RingAllegro Source Code and Build 
 	
 	cd ../extensions/ringallegro
-	gencode.bat
-	buildvc.bat
-
-### Generate RingLibCurl Source Code and Build 
-	
-	cd ../extensions/ringcurl
 	gencode.bat
 	buildvc.bat
 	
