@@ -38,6 +38,36 @@ Build Ring2EXE
 	cd ../ring2exe
 	buildring2exe.bat
 
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	gencode.bat
+	buildvc.bat
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+
+Build RingPM
+
+.. code-block:: none
+
+	cd ../ringpm
+	buildringpm.bat
+
 Build RingODBC
 
 .. code-block:: ring
@@ -74,13 +104,6 @@ Build RingOpenSSL
 	cd ../extensions/ringopenssl
 	buildvc.bat
 
-Build RingInternet
-
-.. code-block:: ring
-	
-	cd ../extensions/ringinternet
-	buildvc.bat
-
 Build RingMurmurHash
 
 .. code-block:: ring
@@ -88,27 +111,11 @@ Build RingMurmurHash
 	cd ../extensions/ringmurmurhash
 	buildvc.bat
 
-Generate RingConsoleColors Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringconsolecolors
-	gencode.bat
-	buildvc.bat
-
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	gencode.bat
-	buildvc.bat
-
-Generate RingLibCurl Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringcurl
 	gencode.bat
 	buildvc.bat
 
@@ -224,6 +231,36 @@ Build Ring2EXE
 	cd ../ring2exe
 	sudo ./buildring2exe.sh
 
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
+Build RingPM
+
+.. code-block:: none
+
+	cd ../ringpm
+	sudo ./buildringpm.sh
+
 Build RingODBC
 
 .. code-block:: ring
@@ -260,13 +297,6 @@ Build RingOpenSSL
 	cd ../extensions/ringopenssl
 	./buildgcc.sh
 
-Build RingInternet
-
-.. code-block:: ring
-	
-	cd ../extensions/ringinternet
-	./buildgcc.sh
-
 Build RingMurmurHash
 
 .. code-block:: ring
@@ -274,27 +304,11 @@ Build RingMurmurHash
 	cd ../extensions/ringmurmurhash
 	./buildgcc.sh
 
-Generate RingConsoleColors Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringconsolecolors
-	./gencode.sh
-	./buildgcc.sh
-	
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-Generate RingLibCurl Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 
@@ -410,6 +424,36 @@ Build Ring2EXE
 	cd ../ring2exe
 	sudo ./buildring2exe.sh
 
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
+Build RingPM
+
+.. code-block:: none
+
+	cd ../ringpm
+	sudo ./buildringpm.sh
+
 Build RingODBC
 
 .. code-block:: ring
@@ -446,13 +490,6 @@ Build RingOpenSSL
 	cd ../extensions/ringopenssl
 	./buildgcc.sh
 
-Build RingInternet
-
-.. code-block:: ring
-	
-	cd ../extensions/ringinternet
-	./buildgcc.sh
-
 Build RingMurmurHash
 
 .. code-block:: ring
@@ -460,27 +497,11 @@ Build RingMurmurHash
 	cd ../extensions/ringmurmurhash
 	./buildgcc.sh
 
-Generate RingConsoleColors Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringconsolecolors
-	./gencode.sh
-	./buildgcc.sh
-	
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-Generate RingLibCurl Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 
@@ -599,6 +620,36 @@ Build Ring2EXE
 	cd ../ring2exe
 	sudo ./buildring2exe.sh
 
+Generate RingConsoleColors Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildclang.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildclang.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildclang.sh
+
+Build RingPM
+
+.. code-block:: none
+
+	cd ../ringpm
+	sudo ./buildringpm.sh
+
 Build RingODBC
 
 .. code-block:: ring
@@ -635,13 +686,6 @@ Build RingOpenSSL
 	cd ../extensions/ringopenssl
 	./buildclang.sh
 
-Build RingInternet
-
-.. code-block:: ring
-	
-	cd ../extensions/ringinternet
-	./buildclang.sh
-
 Build RingMurmurHash
 
 .. code-block:: ring
@@ -649,27 +693,11 @@ Build RingMurmurHash
 	cd ../extensions/ringmurmurhash
 	./buildclang.sh
 
-Generate RingConsoleColors Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringconsolecolors
-	./gencode.sh
-	./buildclang.sh
-	
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildclang.sh
-
-Generate RingLibCurl Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringcurl
 	./gencode.sh
 	./buildclang.sh
 
