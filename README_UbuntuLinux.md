@@ -22,6 +22,23 @@
 	cd ../ring2exe
 	sudo ./buildring2exe.sh	
 
+### Generate RingConsoleColors Source Code and Build 
+	
+	cd ../extensions/ringconsolecolors
+	./gencode.sh
+	./buildgcc.sh
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
 ### Build RingPM
 
 	cd ../ringpm
@@ -53,31 +70,14 @@
 	cd ../extensions/ringopenssl
 	./buildgcc.sh
 
-### Build RingInternet
-	
-	cd ../extensions/ringinternet
-	./buildgcc.sh
-
 ### Build RingMurmurHash
 	
 	cd ../extensions/ringmurmurhash
 	./buildgcc.sh		
 	
-### Generate RingConsoleColors Source Code and Build 
-	
-	cd ../extensions/ringconsolecolors
-	./gencode.sh
-	./buildgcc.sh
-	
 ### Generate RingAllegro Source Code and Build 
 	
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-### Generate RingLibCurl Source Code and Build 
-	
-	cd ../extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 	
