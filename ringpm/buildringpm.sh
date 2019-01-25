@@ -1,6 +1,8 @@
 ring2exe ringpm.ring
 ./cleartemp.sh
 
+cp ringpm $PWD/../bin/ringpm 
+
 if [ -f ../lib/libring.dylib ];
 then
 echo "`pwd`/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
