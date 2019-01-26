@@ -1,7 +1,7 @@
 The Ring Package Manager (RingPM)
 =================================
 
-A tool to find, install, update, remove & distribute Ring packages.
+A tool to find, install, update, remove & create Ring packages.
 
 Usage
 =====
