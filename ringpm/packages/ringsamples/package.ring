@@ -5,30 +5,15 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.2",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
-		[
-			:name = "ringqt",
-			:version = "1.0",
-			:providerusername = ""
-		],
-		[
-			:name = "ringallegro",
-			:version = "1.0",
-			:providerusername = ""
-		],
-		[
-			:name = "stdlib",
-			:version = "1.0",
-			:providerusername = ""
-		],
 		[
 			:name = "ringzip",
 			:version = "1.0",
