@@ -61,6 +61,15 @@ Generate RingLibCurl Source Code and Build
 	gencode.bat
 	buildvc.bat
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
+
 Build RingPM
 
 .. code-block:: none
@@ -116,14 +125,6 @@ Generate RingAllegro Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	gencode.bat
-	buildvc.bat
-
-Generate RingZip Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringzip
 	gencode.bat
 	buildvc.bat
 
@@ -254,6 +255,14 @@ Generate RingLibCurl Source Code and Build
 	./gencode.sh
 	./buildgcc.sh
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
 Build RingPM
 
 .. code-block:: none
@@ -309,14 +318,6 @@ Generate RingAllegro Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-Generate RingZip Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringzip
 	./gencode.sh
 	./buildgcc.sh
 
@@ -447,6 +448,14 @@ Generate RingLibCurl Source Code and Build
 	./gencode.sh
 	./buildgcc.sh
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
 Build RingPM
 
 .. code-block:: none
@@ -502,14 +511,6 @@ Generate RingAllegro Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-Generate RingZip Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringzip
 	./gencode.sh
 	./buildgcc.sh
 
@@ -643,6 +644,14 @@ Generate RingLibCurl Source Code and Build
 	./gencode.sh
 	./buildclang.sh
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
 Build RingPM
 
 .. code-block:: none
@@ -698,14 +707,6 @@ Generate RingAllegro Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildclang.sh
-
-Generate RingZip Source Code and Build
-
-.. code-block:: ring
-
-	cd ../extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
 
