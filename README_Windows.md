@@ -36,6 +36,12 @@
 	gencode.bat
 	buildvc.bat
 
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
 ### Build RingPM
 
 	cd ../ringpm
@@ -78,12 +84,6 @@
 	gencode.bat
 	buildvc.bat
 	
-### Generate RingZip Source Code and Build 
-	
-	cd ../extensions/ringzip
-	gencode.bat
-	buildvc.bat
-
 ### Generate RingLibuv Source Code and Build 
 	
 	cd ../extensions/ringlibuv
