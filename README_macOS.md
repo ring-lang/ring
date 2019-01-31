@@ -41,6 +41,12 @@
 	./gencode.sh
 	./buildclang.sh
 
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
 ### Build RingPM
 
 	cd ../ringpm
@@ -80,12 +86,6 @@
 ### Generate RingAllegro Source Code and Build 
 	
 	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildclang.sh
-
-### Generate RingZip Source Code and Build 
-	
-	cd ../extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
 
