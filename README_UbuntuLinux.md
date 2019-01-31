@@ -39,6 +39,12 @@
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
 ### Build RingPM
 
 	cd ../ringpm
@@ -81,12 +87,6 @@
 	./gencode.sh
 	./buildgcc.sh
 	
-### Generate RingZip Source Code and Build 
-	
-	cd ../extensions/ringzip
-	./gencode.sh
-	./buildgcc.sh
-
 ### Generate RingLibuv Source Code and Build 
 
 We will build Libuv first
