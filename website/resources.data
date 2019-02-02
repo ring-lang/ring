@@ -122,6 +122,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
 					'<img src="chessgame.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
+					'<img src="gameoflife.jpg" width="40%">'
 				]
 			    ]
                  ],
