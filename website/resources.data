@@ -118,6 +118,10 @@
 				[
 					'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
 					'<img src="goldmagic800.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
+					'<img src="chessgame.png" width="40%">'
 				]
 			    ]
                  ],
