@@ -134,6 +134,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
 					'<img src="minesweeper.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong" target="_blank">Pong</a>',
+					'<img src="ponggame.png" width="40%">'
 				]
 			    ]
                  ],
