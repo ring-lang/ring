@@ -126,6 +126,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
 					'<img src="gameoflife.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Game of Life</a>',
+					'<img src="knighttour.jpg" width="40%">'
 				]
 			    ]
                  ],
