@@ -130,6 +130,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Knight Tour</a>',
 					'<img src="knighttour.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
+					'<img src="minesweeper.png" width="40%">'
 				]
 			    ]
                  ],
