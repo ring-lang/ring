@@ -138,6 +138,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong" target="_blank">Pong</a>',
 					'<img src="ponggame.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzle" target="_blank">Sum Puzzle</a>',
+					'<img src="sumpuzzle.png" width="40%">'
 				]
 			    ]
                  ],
