@@ -277,6 +277,9 @@ I want to develop ethereum client in ring language, not only but it's style. It'
 Furthermore, It will be fantastic if there is "natural language -> evm bytecode" compiler, maybe ring have the solution"
 	, Asta 
 
+"The language looks great!"
+	, Eric Hawk
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
