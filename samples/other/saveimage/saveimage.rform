@@ -1,0 +1,40 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 30 , : y = 68  , 
+		 :width =  172 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "save image",
+		 :BtnImage =  "",
+		 :setClickEvent =  "save"
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 34 , : y = 154  , 
+		 :width =  225 , :height = 53 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#dcff79" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Test!!!",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File
