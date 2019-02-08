@@ -474,5 +474,9 @@ aPackagesRegistry = [
 	[ :name = "ringmouseevent",
 	  :description = "RingMouseEvent package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "saveimagesample",
+	  :description = "SaveImageSample package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
