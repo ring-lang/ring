@@ -3,7 +3,7 @@ aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 20 , : y = 20  , 
 		 :width =  400 , :height = 400 , 
-		 :title =  "Form1" , 
+		 :title =  "Save Image" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
