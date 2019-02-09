@@ -478,5 +478,10 @@ aPackagesRegistry = [
 	[ :name = "saveimagesample",
 	  :description = "SaveImageSample package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "desktopscreenshot",
+	  :description = "DesktopScreenShot package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
