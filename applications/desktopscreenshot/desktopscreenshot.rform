@@ -1,0 +1,53 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  456 , :height = 326 , 
+		 :title =  "Desktop Screen Shot" , 
+		 :backcolor =  "#1a3566" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowSystemMenuHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 53 , : y = 65  , 
+		 :width =  340 , :height = 47 , 
+		 :textcolor =  "#000000" , 
+		 :backcolor =  "#fff155" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Take Screen Shot",
+		 :BtnImage =  "",
+		 :setClickEvent =  "screenshot"
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 53 , : y = 122  , 
+		 :width =  340 , :height = 47 , 
+		 :textcolor =  "#000000" , 
+		 :backcolor =  "#fff155" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Open Screen Shots Folder",
+		 :BtnImage =  "",
+		 :setClickEvent =  "openfolder"
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 53 , : y = 179  , 
+		 :width =  340 , :height = 47 , 
+		 :textcolor =  "#000000" , 
+		 :backcolor =  "#fff155" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Close This Application",
+		 :BtnImage =  "",
+		 :setClickEvent =  "closeapp"
+		]
+	]
+]
+# End Form Designer File
