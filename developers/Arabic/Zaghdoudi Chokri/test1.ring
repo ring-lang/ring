@@ -1,1 +1,1 @@
-See "Slut tous le monde !"
+See "Salut tous le monde !"
