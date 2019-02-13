@@ -486,6 +486,10 @@ aPackagesRegistry = [
 	[ :name = "qcalendarwidgetsample",
 	  :description = "QCalendarWidgetSample package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "visualizesortsample",
+	  :description = "VisualizeSortSample package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
