@@ -23,10 +23,17 @@
 				  [
 					'Bert Mariani',
 					'bert.mariani@gmail.com',
-					'Tester/Samples',
+					'Samples Master',
 					'Active',
 					'<img src="UmbertoMariani.png">'
-				  ],				 
+				  ],
+				  [
+                    			'José Rosado',
+                    			'jar.megaware@gmail.com',
+                    			'FoxRing Library',
+                    			'Active',
+					'<img src="jose.jpg">'
+                  		  ],				 
 				  [
                     			'Marino Esteban',
                     			'marinoest@gmail.com',
@@ -42,19 +49,19 @@
 					'<img src="shalok.jpg">'
                   		  ],
 				  [
-                    			'José Rosado',
-                    			'jar.megaware@gmail.com',
-                    			'FoxRing Library',
-                    			'Active',
-					'<img src="jose.jpg">'
-                  		  ],
-				  [
                     			'Nehemiah Jacob',
                     			'nehemiah.jacob@gmail.com',
                     			'Web Framework',
                     			'Active',
 					'<img src="nehemiah.jpg">'
                   		  ],
+				  [
+					'Majdi Sobain',
+					'MajdiSobain@gmail.com',
+					'Senior Tester',
+					'Active',
+					'<img src="majdi.jpg">'
+				  ],
   				  [
 					'Ahmed Hassouna',
 					'mr.ahmed_hassouna@yahoo.com',
@@ -112,13 +119,6 @@
 					'<img src="alaa.jpg">'
 				  ],
 				  [
-					'Majdi Sobain',
-					'MajdiSobain@gmail.com',
-					'Senior Tester',
-					'Active',
-					'<img src="majdi.jpg">'
-				  ],
-				  [
 					'Amr Essam',
 					'amressam01@gmail.com',
 					'Tutorials Master',
@@ -173,6 +173,13 @@
                     			'StdLib Tester',
                     			'Active',
 		    			'<img src="mansour.jpg" width="140" height="140">'
+                  		  ],
+		  		  [
+                    			'Ahmed Mohamed Baryyan',
+                    			'ahbaryyyan@gmail.com',
+                    			'Video Tutorials Support',
+                    			'Active',
+		    			'<img src="ahmedbarayan1.jpg" width="140" height="140">'
                   		  ],
 				  [
 					'Mohammed Fayed',
