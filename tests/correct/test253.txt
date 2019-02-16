@@ -1,5 +1,7 @@
-NUMBER
-STRING
-LIST
-OBJECT
-file
+========================================
+test method
+f1 function
+f2 function
+f3 method
+f3 function
+========================================

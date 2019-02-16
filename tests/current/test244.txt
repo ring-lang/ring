@@ -1,5 +1,4 @@
-Handle Error!
-Message :Error (R24) : Using uninitialized variable : test
-add attribute
-done
-10
+f1
+f2
+f3
+test

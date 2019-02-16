@@ -1,3 +1,2 @@
-
-Line 3 Error (R24) : Using uninitialized variable : 100011_ 
-in file general/test106.ring 
+NUMBER
+1000001

@@ -18,4 +18,3 @@ x = 2
 number three
 x = 1
 number three
-message from test

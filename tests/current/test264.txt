@@ -1,5 +1,10 @@
-BEFORE o.what() 
-
-Line 13 Error (R14) : Calling Method without definition !: what 
-In method test() in file general/test90.ring
-called from line 2  in file general/test90.ring 
+Items : 4
+Item : Hello
+Item : How are you ?
+Item : are you fine ?
+Item : ok
+list2Str result = Hello
+How are you ?
+are you fine ?
+ok
+Done

@@ -1,1 +1,2 @@
-Enter Number (1) :Enter Number (2) :The Sum : 7
+Instruction : I want window
+Instruction : Window Title =  hello world

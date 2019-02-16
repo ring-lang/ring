@@ -1,12 +1,7 @@
-Item 4 is a list contains 3 items
-1
-2
-3
-Object inside item 5
-x: 100
-y: 200
-z: 300
-Object inside item 6
-x: 50
-y: 150
-z: 250
+pobject: NULL
+x: 30
+y: 40
+z: 50
+pobject: NULL
+x: 10
+y: 20

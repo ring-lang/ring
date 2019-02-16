@@ -1,7 +1,3 @@
-pobject: NULL
-x: 30
-y: 40
-z: 50
-pobject: NULL
-x: 10
-y: 20
+True parent!
+hello from child
+hello from parent
