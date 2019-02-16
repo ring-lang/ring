@@ -43,7 +43,7 @@ Type: char
 cKeyword[100]
 ring_parser_mixer
 Type: int
-x,nCallMethod,nStatus,nFlag
+x,nCallMethod,nStatus,nFlag,nNew
 ring_parser_gencall
 ring_parser_ppmm
 ring_parser_gencallbracemethod

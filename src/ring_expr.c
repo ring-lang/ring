@@ -1116,7 +1116,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 
 int ring_parser_mixer ( Parser *pParser )
 {
-	int x,nCallMethod,nStatus,nFlag  ;
+	int x,nCallMethod,nStatus,nFlag,nNew  ;
 	/*
 	**  { . Identifier } 
 	**  Object Attributes 
@@ -1187,9 +1187,11 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 		while ( 1 ) {
 			nFlag = pParser->nAssignmentFlag ;
+			nNew = pParser->nNewObject ;
 			pParser->nAssignmentFlag = 0 ;
 			if ( ring_parser_expr(pParser) ) {
 				pParser->nAssignmentFlag = nFlag ;
+				pParser->nNewObject = nNew ;
 				RING_PARSER_IGNORENEWLINE ;
 				if ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
 					ring_parser_nexttoken(pParser);
