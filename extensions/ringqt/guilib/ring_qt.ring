@@ -3042,6 +3042,36 @@ Class QString2
 	Func right P1
 		return QString2_right(pObject,P1)
 
+	Func compare P1,P2
+		return QString2_compare(pObject,P1,P2)
+
+	Func contains P1,P2
+		return QString2_contains(pObject,P1,P2)
+
+	Func indexOf P1,P2,P3
+		return QString2_indexOf(pObject,P1,P2,P3)
+
+	Func insert P1,P2
+		return QString2_insert(pObject,P1,P2)
+
+	Func isRightToLeft 
+		return QString2_isRightToLeft(pObject)
+
+	Func repeated P1
+		return QString2_repeated(pObject,P1)
+
+	Func replace P1,P2,P3
+		return QString2_replace(pObject,P1,P2,P3)
+
+	Func startsWith P1,P2
+		return QString2_startsWith(pObject,P1,P2)
+
+	Func endsWith P1,P2
+		return QString2_endsWith(pObject,P1,P2)
+
+	Func toHtmlEscaped 
+		return QString2_toHtmlEscaped(pObject)
+
 Class QProcess from QIODevice
 
 	pObject
