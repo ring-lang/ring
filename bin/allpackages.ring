@@ -99,7 +99,8 @@ aAllPackagesInfo = [
 		"string2constant",
 		"help2wiki",
 		"ringsamples",
-		"desktopscreenshot"
+		"desktopscreenshot",
+		"visualizesortsample"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -158,7 +159,8 @@ aAllPackagesInfo = [
 		"string2constant",
 		"help2wiki",
 		"ringsamples",
-		"desktopscreenshot"
+		"desktopscreenshot",
+		"visualizesortsample"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
