@@ -7425,6 +7425,16 @@ Parameters : void
 * QString left(int n)
 * QString mid(int position, int n)
 * QString right(int n)
+* int compare(QString  other, Qt::CaseSensitivity cs )
+* bool contains(QString  str, Qt::CaseSensitivity cs )
+* int indexOf(QString str,int from,Qt::CaseSensitivity cs )
+* QString insert(int position,  QString  str)
+* bool isRightToLeft(void)
+* QString repeated(int times)
+* QString replace(int position, int n,  QString  after)
+* bool startsWith( QString  s, Qt::CaseSensitivity cs )
+* bool endsWith( QString  s, Qt::CaseSensitivity cs )
+* QString toHtmlEscaped(void)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
