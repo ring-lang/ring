@@ -26,8 +26,9 @@ class RNoteMode
 					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
 					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
 				}
-				oDockSourceCode.raise()
 				oDockFunctionsList.raise()				
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_LEARNINGRING
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -42,6 +43,8 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
 				}
 				BrowserLink(1)
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_CODING	# Coding (Project Files + Editor)
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -50,6 +53,7 @@ class RNoteMode
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
+				textedit1.setfocus(0)
 			on VIEWMODE_CODING2	# Coding (All Windows)
 				SetMode(VIEWMODE_GENERAL)
 				win1 {
@@ -59,8 +63,9 @@ class RNoteMode
 					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
 					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
 				}
-				oDockSourceCode.raise()
 				oDockProjectFiles.raise()
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_CODING3	# Coding (Code Editor)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
@@ -69,6 +74,7 @@ class RNoteMode
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
+				textedit1.setfocus(0)
 			on VIEWMODE_GUIDEV	# GUI Development (Code Editor + Form Designer)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
@@ -81,6 +87,8 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
 				}
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_WEBDEV	# Web Development (Code Editor + Web Browser)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
@@ -94,6 +102,8 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
 				}
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_TESTING	
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -107,6 +117,8 @@ class RNoteMode
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
+				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 			on VIEWMODE_COMMON	
 				SetMode(VIEWMODE_GENERAL)
 				win1 {
@@ -119,5 +131,6 @@ class RNoteMode
 					tabifydockwidget(this.oDockFormDesigner,this.oDockWebBrowser)
 				}
 				oDockSourceCode.raise()
+				textedit1.setfocus(0)
 		off
 		nDefaultMode = nMode
