@@ -1,3 +1,1 @@
-
-Line 4 Error (R1) : Cann't divide by zero ! 
-in file B:\ring\tests\scripts\general/filenameinclassregion.ring 
+Error (S1) : In Line 2 , Literal not closed, expected " in the end

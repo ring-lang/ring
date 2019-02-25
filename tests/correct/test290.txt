@@ -1,4 +1,6 @@
-Hello
+1
+3
 
-Line 4 Error (R24) : Using uninitialized variable : noobject 
-in file general/test115.ring 
+Line 5 Error (R34) : Variable is required for the assignment operation 
+In function main() in file general/test111.ring
+called from line 1  in file general/test111.ring 

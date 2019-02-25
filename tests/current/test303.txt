@@ -1,4 +1,5 @@
- B1: ABCD
- B2: EFGH
- B3: IJKL
- B4: MNOP
+
+Can't open file natural/ncesub.ring 
+
+general/test124.ring Line (1) Syntax error
+general/test124.ring errors count : 1 

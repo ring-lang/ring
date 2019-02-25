@@ -1,7 +1,4 @@
--6
--4
--6
--6
--7
--8
-
+ B1: ABCD
+ B2: EFGH
+ B3: IJKL
+ B4: MNOP
