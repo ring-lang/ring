@@ -50,9 +50,7 @@ Func checkfile cFileName
 Func about
 	See "
 ========================================================
-Simple Website Generator
-Version 1.0
-http://ring-lang.net
+Simple Website Generator - Version 1.0
 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 ========================================================
 "
@@ -60,6 +58,7 @@ http://ring-lang.net
 # The function execute Ring code inside template files
 # Then put the result/output from Ring code in the template content
 Func Template cFile,oObject
+	? "File " + cFile
 	cStr = Read(cFile)
 	return Template2(cStr,oObject)
 

@@ -1,4 +1,6 @@
   aNews = [
+  ["February 9, 2019",'<a href="https://groups.google.com/forum/#!topic/ring-lang/0WYfFNBMSZk" target="_blank"> Application: Desktop Screen Shot</a>'],
+  ["January 31, 2019",'<a href="http://ring-lang-081.osdn.jp/docs-1.10/index.html" target="_blank"> Ring 1.10 Documentation (Japanese)</a>'],
   ["January 25, 2019",'<a href="doc1.10/whatisnew10.html" target="_blank"> Ring 1.10 Released!</a>'],
   ["January 15, 2019",'<a href="doc1.10/ringpm.html" target="_blank">The Ring Package Manager (RingPM) </a>'],
   ["December 11, 2018",'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">The Chess Game </a>'],
