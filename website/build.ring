@@ -58,7 +58,7 @@ Simple Website Generator - Version 1.0
 # The function execute Ring code inside template files
 # Then put the result/output from Ring code in the template content
 Func Template cFile,oObject
-	? "File " + cFile
+	? "Using Template..."
 	cStr = Read(cFile)
 	return Template2(cStr,oObject)
 
