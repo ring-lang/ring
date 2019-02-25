@@ -202,7 +202,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				}
 			}
 			/* Check Space/Tab/New Line */
-			if ( c != ' ' && c != '\n' && c != '\t' && c != '\"' && c != '\'' && c != '\r' && c != '`' ) {
+			if ( c != ' ' && c != '\n' && c != ';' && c != '\t' && c != '\"' && c != '\'' && c != '\r' && c != '`' ) {
 				if ( ring_scanner_isoperator(pScanner,cStr) ) {
 					nTokenIndex = pScanner->nTokenIndex ;
 					ring_scanner_checktoken(pScanner);
