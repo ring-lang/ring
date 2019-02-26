@@ -802,6 +802,9 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 			pByteCode = (ByteCode *) ring_state_realloc(pVM->pRingState,pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
 			if ( pByteCode == NULL ) {
 				printf( RING_OOM ) ;
+				printf( "RingVM : Can't Allocate Memory for the Byte Code!\n" ) ;
+				printf( "(Internal Information) Size of Byte Code : %d \n",ring_list_getsize(pVM->pCode) ) ;
+				printf( "(Internal Information) Eval Reallocation Size  : %d \n",pVM->nEvalReallocationSize ) ;
 				ring_scanner_delete(pScanner);
 				exit(0);
 			}
@@ -810,6 +813,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 				/* Here eval() function is called from .ring files ( not by the VM for setter/getter/operator overloading) */
 				pVM->nEvalReallocationFlag = 1 ;
 			}
+			/* Update the Eval Reallocation Size after Reallocation */
+			pVM->nEvalReallocationSize = ring_list_getsize(pVM->pCode) ;
 		}
 		else {
 			pVM->nEvalReallocationFlag = 0 ;
@@ -911,6 +916,8 @@ void ring_vm_returneval ( VM *pVM )
 				exit(0);
 			}
 			pVM->pByteCode = pByteCode ;
+			/* Update the Eval Reallocation Size after Reallocation */
+			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
 		}
 		else {
 			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
