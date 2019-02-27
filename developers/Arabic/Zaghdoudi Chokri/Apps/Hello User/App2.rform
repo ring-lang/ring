@@ -1,0 +1,90 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 21 , : y = 94  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Deuxiéme Application" , 
+		 :backcolor =  "#ffaa7f" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "lblNom" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 5 , : y = 13  , 
+		 :width =  350 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Entrer votre nom :",
+		 :textalign =  1
+		]
+	],
+	[ :name = "txtNom" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 5 , : y = 66  , 
+		 :width =  350 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "cmdExec" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 5 , : y = 120  , 
+		 :width =  350 , :height = 28 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Montserrat,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "DireBonjoure",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SayHello"
+		]
+	],
+	[ :name = "lblMsg" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 5 , : y = 162  , 
+		 :width =  350 , :height = 41 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "#ffaa7f" , 
+		 :font =  "Montserrat,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  1
+		]
+	],
+	[ :name = "cmdExit" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 5 , : y = 237  , 
+		 :width =  350 , :height = 31 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Montserrat,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Quitter",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseApp"
+		]
+	],
+	[ :name = "Layout1" , :id = 7 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 5 , : y = 285  , 
+		 :width =  350 , :height = 73 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "lblNom,txtNom,cmdExec,lblMsg,cmdExit"
+		]
+	]
+]
+# End Form Designer File
