@@ -6536,6 +6536,33 @@ Parameters : float,float,float,float
 * QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
 
 .. index::
+	pair: RingQt Classes Reference; QQuickView Class
+
+QQuickView Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QQuickView.html
+
+
+Parameters : void
+
+
+Parent Class : QWindow
+
+* QQmlEngine *engine(void)
+* QList<QQmlError> errors(void)
+* QSize initialSize(void)
+* QQuickWidget::ResizeMode resizeMode(void)
+* QQmlContext *rootContext(void)
+* QQuickItem *rootObject(void)
+* void setFormat(QSurfaceFormat format)
+* void setResizeMode(QQuickView::ResizeMode)
+* QUrl source(void)
+* QQuickWidget::Status status(void)
+* void setSource(QUrl url)
+
+.. index::
 	pair: RingQt Classes Reference; QQuickWidget Class
 
 QQuickWidget Class
@@ -9410,6 +9437,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -9437,22 +9480,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
