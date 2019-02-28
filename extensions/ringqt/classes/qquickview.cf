@@ -1,0 +1,17 @@
+<class>
+name: QQuickView
+para: void
+parent: QWindow
+</class>
+
+QQmlEngine *engine(void)
+QList<QQmlError> errors(void)
+QSize initialSize(void)
+QQuickWidget::ResizeMode resizeMode(void)
+QQmlContext *rootContext(void)
+QQuickItem *rootObject(void)
+void setFormat(QSurfaceFormat format)
+void setResizeMode(QQuickView::ResizeMode)
+QUrl source(void)
+QQuickWidget::Status status(void)
+void setSource(QUrl url)

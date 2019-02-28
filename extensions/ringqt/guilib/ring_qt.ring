@@ -24029,6 +24029,57 @@ Class QQuickWidget from QWidget
 	Func getstatusChangedEvent 
 		return QQuickWidget_getstatusChangedEvent(pObject)
 
+Class QQuickView from QWindow
+
+	pObject
+
+	Func init 
+		pObject = QQuickView_new()
+		return self
+
+	Func delete
+		pObject = QQuickView_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func engine 
+		return QQuickView_engine(pObject)
+
+	Func errors 
+		return QQuickView_errors(pObject)
+
+	Func initialSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QQuickView_initialSize(pObject)
+		return pTempObj
+
+	Func resizeMode 
+		return QQuickView_resizeMode(pObject)
+
+	Func rootContext 
+		return QQuickView_rootContext(pObject)
+
+	Func rootObject 
+		return QQuickView_rootObject(pObject)
+
+	Func setFormat P1
+		return QQuickView_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setResizeMode P1
+		return QQuickView_setResizeMode(pObject,P1)
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQuickView_source(pObject)
+		return pTempObj
+
+	Func status 
+		return QQuickView_status(pObject)
+
+	Func setSource P1
+		return QQuickView_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QQmlError
 
 	pObject
