@@ -6,6 +6,11 @@
 
 QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml positioning
 
+qtHaveModule(webengine) {
+	QT += webengine
+	DEFINES += QT_WEBVIEW_WEBENGINE_BACKEND
+}
+
 DEPLOYMENT_PLUGIN += qsqlite
 
 TARGET = project
