@@ -13,7 +13,7 @@
 
 #ifdef QT_WEBVIEW_WEBENGINE_BACKEND
 	#include <QtWebEngine>
-#endif 
+#endif // QT_WEBVIEW_WEBENGINE_BACKEND
 
 // Load Ring
 
@@ -81,15 +81,17 @@ RING_FUNC(ring_qDebug)
     qDebug( RING_API_GETSTRING(1) );
 }
 
+
+
 int main(int argc, char *argv[])
 {
 
     QApplication a(argc,argv);
-	
+
 	#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
 		QtWebEngine::initialize();
 	#endif
-	
+
     #if RINGFORMOBILE_CLEARSCREEN == 1
     	QWidget waiting ;
     	waiting.setStyleSheet("background-color:white;");
@@ -113,11 +115,11 @@ int main(int argc, char *argv[])
     	// Delete the application files
 	ringapp_deleteappfiles();
 
-    	// Copy Ring Object File (ringapp.ringo) from Resources to Temp Folder
+    	// Copy Ring Object File (helloqml.ringo) from Resources to Temp Folder
     	QString path2 ;
-    	path2 = path+"/ringapp.ringo";
-    	QFile::copy(":/ringapp.ringo",path2);
-    	ring_state_runobjectfile(pRingState,"ringapp.ringo");
+    	path2 = path+"/helloqml.ringo";
+    	QFile::copy(":/helloqml.ringo",path2);
+    	ring_state_runobjectfile(pRingState,"helloqml.ringo");
  	
     	// Delete the application files
 	ringapp_deleteappfiles();
@@ -125,12 +127,12 @@ int main(int argc, char *argv[])
     #else
 
     	// Run the object file directly from resources	
-    	QFile oObjectFile(":/ringapp.ringo");
+    	QFile oObjectFile(":/helloqml.ringo");
     	oObjectFile.open(QFile::ReadOnly);
     	QTextStream in(&oObjectFile);
     	QString cByteCode = in.readAll();
     	pRingState->nRingInsideRing = 1 ;
-    	ring_state_runobjectstring(pRingState,(char *) cByteCode.toStdString().c_str(),"ringapp.ringo");
+    	ring_state_runobjectstring(pRingState,(char *) cByteCode.toStdString().c_str(),"helloqml.ringo");
 	
     #endif
 
@@ -155,5 +157,5 @@ void ringapp_deleteappfiles(void)
     QString path ;
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
-    ringapp_delete_file(path,"ringapp.ringo");
+    ringapp_delete_file(path,"helloqml.ringo");
 }

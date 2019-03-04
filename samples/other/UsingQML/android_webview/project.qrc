@@ -1,0 +1,6 @@
+<RCC>
+	<qresource>
+		<file>helloqml.ringo</file>
+		<file>hello.qml</file>
+	</qresource>
+</RCC>
