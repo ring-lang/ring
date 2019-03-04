@@ -11,6 +11,10 @@
 #include <QTextStream>
 #include <QUrl>
 
+#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
+	#include <QtWebEngine>
+#endif 
+
 // Load Ring
 
 extern "C" {
@@ -81,7 +85,11 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc,argv);
-
+	
+	#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
+		QtWebEngine::initialize();
+	#endif
+	
     #if RINGFORMOBILE_CLEARSCREEN == 1
     	QWidget waiting ;
     	waiting.setStyleSheet("background-color:white;");
