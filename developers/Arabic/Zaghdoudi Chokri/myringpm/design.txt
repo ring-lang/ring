@@ -1,0 +1,32 @@
+=========================
+package Manager (RingPm)
+=========================
+Start ----> [Ring Compiler + VM + StdlibCore + LibCurl + Internetlib] < 2Mb 
+            Sans Bibliothéques|Applications|Extensions ect...
+
+Conseilles
+=======
+1- (Start working on common cases not Genral)
+2- (Start with simple methods and simple solutions)
+3) (Ne se concenter pas sur les problémes principale (Developpement))
+	---> Aprés chaque étape,arrêter et réviser.
+	La prochaine sera plus rapide.
+	Exemple: 
+		Utiliser ringpm dans (ring ringpm.ring) ---> Plus rapide
+		Séparer le code dans différents fichiers ---> Plus d'organisation
+
+Futures
+========
+1) Install [Application|Library|Extension]
+   	----> Install Related Package (Sous Package | Package relier avec)
+2) Remove
+	----> Supprimer relatedpckg sil n'est pas utilisé avec des autres package
+3) Update [To new | Old version]
+	----> Supprimer la version courante et installer la nouvelle
+	----> Installer la nouvelle version et guarder l'ancienne
+4) List of installed packages
+
+Comment savoire les packages installés
+======================================
+1) Obtenir un tableau du fichier packages.ring
+	--->Connaitre les packages installés appartir de ce fichier
