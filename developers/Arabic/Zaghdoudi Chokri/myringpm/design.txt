@@ -30,24 +30,3 @@ Comment savoire les packages installés
 ======================================
 1) Obtenir un tableau du fichier packages.ring
 	--->Connaitre les packages installés appartir de ce fichier
-
-==================
-RingPM Exécutable 
-==================
-1) La démarche actuelle
-	----> Les paramétre sont récupérés atraver sysargv list ---> Ligne de commande
-		ring ringpm.ring <param>
-			--->
-				premier para: ring.exe
-				second para: ringpm.ring
-				<nos paramétres du programme>
-   La démarche quon veut
-	ringpm <param>
-		--->
-			premier para: ringpm.exe
-			<nos paramétres du programme>
-2) ring.exe quand on l'execute ---> il besoin de (runtime files) comme:
-				ring.dll (on peut l'eviter --> static option dans ring2EXE)
-				libCurl dlls
-	l'emplacement sera dans ring/bin pour quil soit avec le (runtime files)
-	ring/bin se trouve dans lechemein du systeme 
