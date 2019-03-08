@@ -10,7 +10,7 @@
 	load "internetlib.ring"
 
 # Dossier du package
-	cPckgLocation = "https://raw.githubusercontent.com/zaghtechnologies"
+	cPckgLocation = "https://raw.githubusercontent.com/zaghtechnologies/ring/master/developers/Arabic/Zaghdoudi%20Chokri"
 # Les paramétre de notre commandes
 	aCmds = []
 # Les erreurs
