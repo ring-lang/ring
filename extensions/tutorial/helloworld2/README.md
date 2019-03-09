@@ -2,8 +2,7 @@
 Creating Extensions - Tutorial - Hello World 2
 ==============================================
 
-This extension is the same as the first one 
-But in this time, we support Windows, Linux and macOS.
+This extension is the same as the first one but in this time, we support Windows, Linux and macOS.
 
 	buildvc.bat
 	buildgcc.sh
