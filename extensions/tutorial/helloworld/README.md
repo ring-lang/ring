@@ -23,6 +23,14 @@ The file mylib.c contains
 	}
 
 
+As we see in the source code, we start with including the ring.h file which contains the definitions for Ring API
+
+Then we use the RING_FUNC macro to define new functions, it's a good idea to start the function definition with ring_ 
+to make these definitions unique and different than normal C functions
+
+Then we have the function ringlib_init that will be called when the extension is loaded by the Ring VM 
+In this function we use the ring_vm_funcregister() function to register the new functions in Ring VM
+
 Then we build the extension using : 
 
 	buildvc.bat
