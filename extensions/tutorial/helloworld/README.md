@@ -6,8 +6,6 @@ A simple extension written in C language
 
 C Source Code 
 
-	notepad mylib.c
-
 The file mylib.c contains 
 
 	#include "ring.h"
