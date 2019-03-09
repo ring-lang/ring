@@ -25,11 +25,11 @@ The file mylib.c contains
 	}
 
 
-	Then we build the extension using : 
+Then we build the extension using : 
 
 	buildvc.bat
 
-	The file buildvc.bat contains the next commands to build the extension using Visual C/C++ 
+The file buildvc.bat contains the next commands to build the extension using Visual C/C++ 
 
 	cls
 	call ../../../src/locatevc.bat
