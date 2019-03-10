@@ -27,11 +27,11 @@ In mylib.c we add
 			RING_API_RETNUMBER(nSum);
 	}
 
-The previous code is written to check errors, and to be easy to understand
-
 Then we register the new function
 
 	ring_vm_funcregister("sumtwonumbers",ring_sumtwonumbers);
+
+The previous code is written to check errors, and to be easy to understand
 
 We can write short code like
 
