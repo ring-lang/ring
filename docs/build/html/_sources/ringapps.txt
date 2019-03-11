@@ -280,6 +280,10 @@ Furthermore, It will be fantastic if there is "natural language -> evm bytecode"
 "The language looks great!"
 	, Eric Hawk
 
+"You put a lot of work in the Ring and you're a great programmer
+I saw your examples in 3D I've looked at part of your project, it's really great"
+	, Rafal Jopek
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
