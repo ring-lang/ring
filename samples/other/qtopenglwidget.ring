@@ -1,30 +1,30 @@
 load "guilib.ring"
 
-oOpenGLApp = new OpenGLApp { start() }
+new qApp {
+	oOpenGLApp = new OpenGLApp { start() }
+	exec()
+}
 
 class OpenGLApp
 
 	win oOpenGL 
 	
 	func start
-		new qApp {
-			this.win = new qWidget() {
-				setWindowTitle("Testing OpenGLWidget...")
-				resize(600,600)
-				move(100,100)
-				oGL = new qOpenGLwidget(this.win) {
-					move(0,0) resize(400,400)
-					setInitEvent("oOpenGLApp.glinit()")
-					setPaintEvent("oOpenGLApp.glpaint()")
-					setResizeEvent("oOpenGLApp.glResize()")
-				}
-				show()
-			}	
-			exec()
-		}
+		win = new qWidget() {
+			setWindowTitle("Testing OpenGLWidget...")
+			resize(600,600)
+			move(100,100) 
+			oGL = new qOpenGLwidget(this.win) {
+				move(0,0) resize(400,400)
+				setInitEvent("oOpenGLApp.glinit()")
+				setPaintEvent("oOpenGLApp.glpaint()")
+				setResizeEvent("oOpenGLApp.glResize()")
+			}
+			show()
+		}	
 	
 	func glinit
-	  	context  = new QOpenGLContext(win)
+	  	context = new QOpenGLContext(win)
 	 	oOpenGL = context.functions()		
 		glPaint()	
 
