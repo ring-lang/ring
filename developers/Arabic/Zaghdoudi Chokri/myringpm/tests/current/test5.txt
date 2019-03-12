@@ -1,0 +1,4 @@
+
+C:\ring\myring>echo off 
+Nom du Package: Premier package
+Nom du Package: Deuxieme package
