@@ -14,6 +14,10 @@ Conseilles
 	Exemple: 
 		Utiliser ringpm dans (ring ringpm.ring) ---> Plus rapide
 		Séparer le code dans différents fichiers ---> Plus d'organisation
+4) Utiliser (ring fichier.ring) est plus rapide dans notre developpement
+	---> Passer du codage à l'exécution (rapide)
+	mais écrire le nom du fichier chaque fois va prendre de temps
+	---> C'est pour ça le Bath des fichier sera plus rapide 
 
 Futures
 ========
@@ -30,3 +34,20 @@ Comment savoire les packages installés
 ======================================
 1) Obtenir un tableau du fichier packages.ring
 	--->Connaitre les packages installés appartir de ce fichier
+===================
+Ringpm Exécutable  # Done
+===================
+sysargv tableau ---> récupére les papramétres de ligne de commande
+1) Exécuter app. utilisant ring.exe
+	ring ringpm.ring <param>
+		premier param: ring.exe
+		deuxiéme param: ringpm.ring
+		<les programes de notre programme>
+
+	ringpm <param>
+		premier param: ringpm.exe
+		<les programes de notre programme>
+1) Exécuter app. utilisant ringpm.exe
+	---> on a besoin du (runtime file) - exp: ring.dll libCurl.dll ...
+	on va mettre notre fichier dans le repertoire ring/bin
+	pour qu'il soit avec le (runtime fils)

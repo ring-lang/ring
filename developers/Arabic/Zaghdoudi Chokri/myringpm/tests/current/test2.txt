@@ -1,0 +1,10 @@
+
+C:\ring\myring>echo off 
+Installation du package: firstpackage
+Nom du Package         : Premier package
+Description            : Notre premier package utilise RingPM
+Developpeur            : Zaghdoudi chokri
+Version                : 1.0.0
+Licence                : MIT License
+Telechargement du fichier: test.ring
+Operation terminee!
