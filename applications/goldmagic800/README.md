@@ -2,7 +2,7 @@
 The Gold Magic 800 Game
 =======================
 
-Demo Version (21 Levels Only)
+Demo Version (22 Levels Only)
 
 Developed using Ring, RingAllegro and RingOpenGL
 
