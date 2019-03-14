@@ -81,7 +81,7 @@
 	
 class frFunctions {
 
-	_version 				= "1.0.145"
+	_version 				= "1.0.146"
 
 	_character_type 			= "C"
 	_numeric_type 				= "N"	
@@ -1718,6 +1718,9 @@ class frFunctions {
 		}
 	
 		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
+		lnDayPosition = this._getDayPosition()
+
+		/*
 		if left(this._set_dateformat, 1) = "m" {
 			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
 		else
@@ -1727,7 +1730,18 @@ class frFunctions {
 				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
 			}
 		}
-
+		*/
+		
+		if lnDayPosition = 2 {
+			lcRet = lcMonth + lcDateSeparator + lcDay + lcDateSeparator + lcYear
+		else
+			if lnDayPosition = 3 {
+				lcRet = lcYear + lcDateSeparator + lcMonth + lcDateSeparator + lcDay
+			else
+				lcRet = lcDay + lcDateSeparator + lcMonth + lcDateSeparator + lcYear
+			}
+		}
+		
 		return lcRet
 	}
 
@@ -1737,6 +1751,23 @@ class frFunctions {
 	 */
 
 	private
+	
+	func _getDayPosition() {
+		if left(this._set_dateformat, 1) = "m" {
+			lnRet = 2
+		else
+			if left(this._set_dateformat, 1) = "y" {
+				lnRet = 3
+			else
+				lcRet = 1
+			}
+		}
+
+		return lcRet
+	
+	}
+
+	
 	
 	
 	func _IsPorperty(toObject, tcPropertyName) {
