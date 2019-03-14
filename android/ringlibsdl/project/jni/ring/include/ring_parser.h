@@ -41,6 +41,8 @@ typedef struct Parser {
 	int nControlStructureExpr  ;
 	/* Flag - We started using braces {} in control structure - we have { */
 	int nControlStructureBrace  ;
+	/* Using Self or This with LoadAddress */
+	char nThisOrSelfLoadA  ;
 	/* Ring State */
 	RingState *pRingState  ;
 } Parser ;
