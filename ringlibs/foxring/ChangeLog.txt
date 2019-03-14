@@ -1,5 +1,10 @@
 FoxRing ChangeLog
 
+
+1.0.146 2018.12.14 Jar
+----------------------------------------------------------
+	Added - _getDayPosition() internal function
+
 1.0.145 2018.12.17 Jar
 ----------------------------------------------------------
 	Added - frDToC() function	
