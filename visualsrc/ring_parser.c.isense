@@ -50,6 +50,8 @@ Type: int
 nControlStructureExpr
 Type: int
 nControlStructureBrace
+Type: char
+nThisOrSelfLoadA
 Type: RingState *
 pRingState
 END:
