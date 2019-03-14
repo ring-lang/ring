@@ -1,5 +1,2 @@
-
-Can't open file natural/filenameinpara2.ring 
-
-general/test125.ring Line (1) Syntax error
-general/test125.ring errors count : 1 
+char
+char

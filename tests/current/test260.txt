@@ -1,7 +1,20 @@
-welcome
-
-eval Line (1) Syntax error
-eval errors count : 1 
-
-Line 6 Error in eval! 
-In eval() in file general/test81.ring 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 function
+f1 function
+f2 function
+f3 method
+f3 method
+f3 method
+========================================

@@ -1,5 +1,5 @@
-
-Can't open file syntaxerror.ring 
-
-general/test83.ring Line (2) Syntax error
-general/test83.ring errors count : 1 
+NUMBER
+STRING
+LIST
+OBJECT
+file

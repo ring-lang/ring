@@ -1,3 +1,5 @@
 
-Line 8 Object does not support operator overloading 
-In raise() in file general/test87.ring 
+Can't open file syntaxerror.ring 
+
+general/test83.ring Line (2) Syntax error
+general/test83.ring errors count : 1 

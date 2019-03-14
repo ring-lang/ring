@@ -1,2 +1,5 @@
-char
-char
+
+Can't open file natural/testloadpackage.ring 
+
+general/test117.ring Line (3) Syntax error
+general/test117.ring errors count : 1 

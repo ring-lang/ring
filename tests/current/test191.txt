@@ -1,2 +1,1 @@
-test2
-para : 10
+hello from brace end!hello from brace end!

@@ -1,1 +1,3 @@
-Plus operator
+before class
+after test
+after class

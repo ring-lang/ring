@@ -1,9 +1,1 @@
-1
-2
-3
-1
-2
-3
-wwow
-wwow
-wwow
+Enter Number (1) :Enter Number (2) :The Sum : 7

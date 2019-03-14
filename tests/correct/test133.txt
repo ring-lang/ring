@@ -1,1 +1,3 @@
-nice
+0
+1
+Wow, we get error here!

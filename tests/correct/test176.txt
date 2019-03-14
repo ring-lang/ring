@@ -1,2 +1,3 @@
 Instruction : I want window
-Instruction : Window Title =  hello world
+Using : and
+Instruction : Window Title = hello world
