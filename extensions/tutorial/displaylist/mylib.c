@@ -196,8 +196,6 @@ RING_FUNC(ring_displaylist)
 		pList = RING_API_GETLIST(1);
 	// Display the List Items including Nested Lists
 		mylib_displaylist(pList);
-	// Return Output
-		RING_API_RETLIST(pList);
 }
 
 void mylib_displaylist(List *pList) {
