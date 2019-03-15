@@ -1,3 +1,4 @@
-# Employee Application 
+Employee Application
+====================
 
-Author :  Ahmed Hassouna
+The Employee application using RingQt by Ahmed Hassouna
