@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Say Hello
 
 In this extension we learn how to create a C function that get a name as string then say hello.
 
-This extension in an update to the (sumtwonumbers) extension in : ring/extensions/tutorial/sumtwonumbers folder
+This extension is an update to the (sumtwonumbers) extension in : ring/extensions/tutorial/sumtwonumbers folder
 
 In mylib.c we update the file to add 
 

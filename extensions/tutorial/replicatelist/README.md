@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Replicate List Items
 
 In this extension we learn how to create a C function that add more items to the list.
 
-This extension in an update to the (filterlist) extension in : ring/extensions/tutorial/filterlist folder
+This extension is an update to the (filterlist) extension in : ring/extensions/tutorial/filterlist folder
 
 In mylib.c we update the file to add 
 

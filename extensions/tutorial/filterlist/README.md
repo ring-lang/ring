@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Filter List Items
 
 In this extension we learn how to create a C function that filter the list items.
 
-This extension in an update to the (incrementlist) extension in : ring/extensions/tutorial/incrementlist folder
+This extension is an update to the (incrementlist) extension in : ring/extensions/tutorial/incrementlist folder
 
 In mylib.c we update the file to add 
 

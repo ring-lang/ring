@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Sum List of Numbers
 
 In this extension we learn how to create a C function that sum list of numbers.
 
-This extension in an update to the (sayhello) extension in : ring/extensions/tutorial/sayhello folder
+This extension is an update to the (sayhello) extension in : ring/extensions/tutorial/sayhello folder
 
 In mylib.c we update the file to add 
 

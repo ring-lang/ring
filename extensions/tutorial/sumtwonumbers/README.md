@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Sum Two Numbers
 
 In this extension we learn how to create a C function to sum two numbers 
 
-This extension in an update to the (Hello World 2) extension in : ring/extensions/tutorial/helloworld2 folder
+This extension is an update to the (Hello World 2) extension in : ring/extensions/tutorial/helloworld2 folder
 
 In mylib.c we update the file to add 
 

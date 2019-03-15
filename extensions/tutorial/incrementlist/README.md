@@ -3,7 +3,7 @@ Creating Extensions - Tutorial - Increment List Items
 
 In this extension we learn how to create a C function that increment the list items.
 
-This extension in an update to the (sumlist) extension in : ring/extensions/tutorial/sumlist folder
+This extension is an update to the (sumlist) extension in : ring/extensions/tutorial/sumlist folder
 
 In mylib.c we update the file to add 
 
