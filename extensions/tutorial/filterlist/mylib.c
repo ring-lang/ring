@@ -109,7 +109,7 @@ RING_FUNC(ring_filterlist)
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
-	// Increment List Items
+	// Filter List Items
 		pList = RING_API_GETLIST(1);
 		for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
 			if ( ring_list_isdouble(pList,x) ) 
