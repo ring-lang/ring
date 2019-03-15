@@ -12,7 +12,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState ) ;
 
 RING_API List * ring_vm_api_getlist ( void *pPointer,int x ) ;
 
-int ring_vm_api_islist ( void *pPointer,int x ) ;
+RING_API int ring_vm_api_islist ( void *pPointer,int x ) ;
 
 RING_API void ring_vm_api_retlist ( void *pPointer,List *pList ) ;
 
