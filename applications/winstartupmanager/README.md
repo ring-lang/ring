@@ -1,4 +1,5 @@
-# Win Startup Manager
+Win Startup Manager
+===================
 
 ![WinStartupManager](imgs/WinStartupManager.jpg)
 
