@@ -59,4 +59,15 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Pass List from Ring to C function then sum the list numbers using C code
 		</td>
 	</tr>
+	<tr>
+		<td>
+			6
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/incrementlist"> Increment List Items </a>
+		</td>
+		<td>
+			 Pass List from Ring to C function then update the list items using C code
+		</td>
+	</tr>
 </table>
