@@ -20,7 +20,7 @@ In mylib.c we update the file to add
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return;
 			}
-		// Create the List
+		// Get the List
 			pList = RING_API_GETLIST(1);
 		// Display the List Items including Nested Lists
 			mylib_displaylist(pList);
