@@ -1,16 +1,16 @@
-Creating Extensions - Tutorial - Filter List Items
+Creating Extensions - Tutorial - Replicate List Items
 =====================================================
 
-In this extension we learn how to create a C function that filter the list items.
+In this extension we learn how to create a C function that add more items to the list.
 
-This extension in an update to the (incrementlist) extension in : ring/extensions/tutorial/incrementlist folder
+This extension in an update to the (filterlist) extension in : ring/extensions/tutorial/filterlist folder
 
 In mylib.c we update the file to add 
 
-	RING_FUNC(ring_filterlist)
+	RING_FUNC(ring_replicatelist)
 	{
 		List *pList;
-		int x;
+		int x,y,nTimes,nSize;
 		// Check Parameters Count
 			if (RING_API_PARACOUNT != 2) {
 				RING_API_ERROR(RING_API_MISS2PARA);
@@ -21,20 +21,25 @@ In mylib.c we update the file to add
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return;
 			}
-		// Filter List Items
+		// Replicate List Items
 			pList = RING_API_GETLIST(1);
-			for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
-				if ( ring_list_isdouble(pList,x) ) 
-					if ( ! (ring_list_getdouble(pList,x) > RING_API_GETNUMBER(2)) )
-						ring_list_deleteitem(pList,x) ;
+			nSize = ring_list_getsize(pList);
+			nTimes = (int) RING_API_GETNUMBER(2);
+			if (nTimes < 1) {
+				RING_API_ERROR("Error: The second parameter must be >= 1 \n");
+				return;
+			}
+			for(x = 1 ; x <= nTimes ; x++) 
+				for(y = 1 ; y <= nSize ; y++) 
+					if ( ring_list_isdouble(pList,y) ) 
+						ring_list_adddouble(pList,ring_list_getdouble(pList,y));
 		// Return Output
 			RING_API_RETLIST(pList);
 	}
 
-
 Then we register the new function
 
-	ring_vm_funcregister("filterlist",ring_filterlist);
+	ring_vm_funcregister("replicatelist",ring_replicatelist);
 
 The file test.ring contains
 
@@ -59,6 +64,10 @@ The file test.ring contains
 
 	? "Filter List Items (Items > 15)"
 	? filterlist(aList,15)
+
+	aList = 1:3
+	? "Replicate list (1:3) three times then print the items (We expect 12 items)"
+	? replicatelist(aList,3)
 
 Then we test the function using
 
@@ -95,3 +104,16 @@ Output
 	19
 	20
 
+	Replicate list (1:3) three times then print the items (We expect 12 items)
+	1
+	2
+	3
+	1
+	2
+	3
+	1
+	2
+	3
+	1
+	2
+	3
