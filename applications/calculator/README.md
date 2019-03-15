@@ -1,4 +1,5 @@
-# Ring Calculator Application 
+Ring Calculator Application
+===========================
 
 Author : Magdy Ragab ( https://github.com/magdy-ragab/ring-calculator )
 
