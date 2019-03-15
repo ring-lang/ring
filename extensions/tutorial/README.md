@@ -48,4 +48,15 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Pass String from Ring to C function 
 		</td>
 	</tr>
+	<tr>
+		<td>
+			5
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/sumlist"> Sum List of Numbers </a>
+		</td>
+		<td>
+			 Pass List from Ring to C function then sum the list numbers using C code
+		</td>
+	</tr>
 </table>
