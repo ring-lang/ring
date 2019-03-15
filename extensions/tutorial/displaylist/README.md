@@ -1,5 +1,5 @@
-Creating Extensions - Tutorial - Generate List
-==============================================
+Creating Extensions - Tutorial - Display List
+=============================================
 
 In this extension we learn how to create a C function that display all of the list items including nested lists
 
