@@ -103,5 +103,16 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Using C Code, Create new List and add items to the list
 		</td>
 	</tr>
+	<tr>
+		<td>
+			10
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/displaylist"> Display List</a>
+		</td>
+		<td>
+			 Using C Code, Print the list items including the nested lists
+		</td>
+	</tr>
 
 </table>
