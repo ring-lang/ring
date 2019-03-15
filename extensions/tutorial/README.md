@@ -92,5 +92,16 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Pass List from Ring to C function then add more items by replicating the list items using C code
 		</td>
 	</tr>
+	<tr>
+		<td>
+			9
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/generatelist"> Generate List</a>
+		</td>
+		<td>
+			 Using C Code, Create new List and add items to the list
+		</td>
+	</tr>
 
 </table>
