@@ -31,7 +31,8 @@ In mylib.c we update the file to add
 			}
 		// Return Output 
 			RING_API_RETNUMBER(nSum);
-}
+	}
+
 
 Then we register the new function
 
