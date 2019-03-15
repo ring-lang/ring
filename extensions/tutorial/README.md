@@ -26,7 +26,6 @@ In this folder we will store simple examples about using C code in Ring programs
 		<td>
 			 Create scripts to build the extension on different platforms (Windows, Linux & macOS)
 		</td>
-
 	</tr>
 	<tr>
 		<td>
