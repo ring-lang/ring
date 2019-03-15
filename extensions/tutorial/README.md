@@ -81,4 +81,16 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Pass List from Ring to C function then delete some items in the list using C code
 		</td>
 	</tr>
+	<tr>
+		<td>
+			8
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/replicatelist"> Replicate List Items </a>
+		</td>
+		<td>
+			 Pass List from Ring to C function then add more items by replicating the list items using C code
+		</td>
+	</tr>
+
 </table>
