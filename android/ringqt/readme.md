@@ -1,7 +1,5 @@
-===================================================
-Ring For Mobile App Development 
-(Android, iOS and Windows Phone) using Qt 5.5.1
-===================================================
+Ring For Mobile App Development (Android, iOS and Windows Phone) using Qt
+=========================================================================
 
 (1) Download Requirements
 	http://doc.qt.io/qt-5/androidgs.html
