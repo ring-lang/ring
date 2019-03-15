@@ -1,6 +1,5 @@
-=============================================
 Creating Extensions - Tutorial - Hello World
-=============================================
+============================================
 
 A simple extension written in C language
 
