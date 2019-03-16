@@ -5,37 +5,37 @@ In this extension we learn how to create a C function that create a table contai
 
 In mylib.c we update the file to add 
 
-RING_FUNC(ring_createtable)
-{
-	List *pList, *pRow;
-	int x,y,nRows,nCols;
-	// Check Parameters Count
-		if (RING_API_PARACOUNT != 2) {
-			RING_API_ERROR(RING_API_MISS2PARA);
-			return;
-		}
-	// Check Parameters Type
-		if ( ! ( RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) ) ) {
-			RING_API_ERROR(RING_API_BADPARATYPE);
-			return;
-		}
-	// Create the List
-		pList = RING_API_NEWLIST;
-	// Create the table items
-		nRows = (int) RING_API_GETNUMBER(1);
-		nCols = (int) RING_API_GETNUMBER(2);
-		if ( (nRows < 1) || (nCols < 1) ) {
-			RING_API_ERROR("Error: The table rows and columns must be >= 1 \n");
-			return;
-		}
-		for(x = 1 ; x <= nRows ; x++) {
-			pRow = ring_list_newlist(pList);
-			for(y = 1 ; y <= nCols ; y++) 
-				ring_list_adddouble(pRow,0.0);
-		}
-	// Return Output
-		RING_API_RETLIST(pList);
-}
+	RING_FUNC(ring_createtable)
+	{
+		List *pList, *pRow;
+		int x,y,nRows,nCols;
+		// Check Parameters Count
+			if (RING_API_PARACOUNT != 2) {
+				RING_API_ERROR(RING_API_MISS2PARA);
+				return;
+			}
+		// Check Parameters Type
+			if ( ! ( RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) ) ) {
+				RING_API_ERROR(RING_API_BADPARATYPE);
+				return;
+			}
+		// Create the List
+			pList = RING_API_NEWLIST;
+		// Create the table items
+			nRows = (int) RING_API_GETNUMBER(1);
+			nCols = (int) RING_API_GETNUMBER(2);
+			if ( (nRows < 1) || (nCols < 1) ) {
+				RING_API_ERROR("Error: The table rows and columns must be >= 1 \n");
+				return;
+			}
+			for(x = 1 ; x <= nRows ; x++) {
+				pRow = ring_list_newlist(pList);
+				for(y = 1 ; y <= nCols ; y++) 
+					ring_list_adddouble(pRow,0.0);
+			}
+		// Return Output
+			RING_API_RETLIST(pList);
+	}
 
 
 Then we register the new function
