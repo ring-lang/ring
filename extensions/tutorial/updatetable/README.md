@@ -19,9 +19,9 @@ In mylib.c we update the file to add
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return;
 			}
-		// Get the List
+		// Get the List (Represent a Table)
 			pList = RING_API_GETLIST(1);
-		// Display the List Rows and Columns
+		// Update the Table Rows and Columns
 			for (nRow = 1 ; nRow <= ring_list_getsize(pList) ; nRow++ ) {
 				if ( ring_list_islist(pList,nRow) ) {
 					pRow = ring_list_getlist(pList,nRow);
@@ -30,10 +30,12 @@ In mylib.c we update the file to add
 							ring_list_setdouble(pRow,nCol,RING_API_GETNUMBER(2));
 						} else {
 							RING_API_ERROR("Error : We expect numbers!\n");
+							return ;
 						}
 					}
 				} else {
 					RING_API_ERROR("Error : The parameter is not a table! \n");
+					return ;
 				}
 			}
 	}
