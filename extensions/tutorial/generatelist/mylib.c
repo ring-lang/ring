@@ -165,7 +165,7 @@ RING_FUNC(ring_generatelist)
 		}
 	// Create the List
 		pList = RING_API_NEWLIST;
-	// Generte List Items
+	// Generate List Items
 		nSize = (int) RING_API_GETNUMBER(1);
 		if (nSize < 1) {
 			RING_API_ERROR("Error: The list size must be >= 1 \n");

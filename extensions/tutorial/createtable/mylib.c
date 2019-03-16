@@ -212,6 +212,74 @@ void mylib_displaylist(List *pList) {
 	}
 }
 
+RING_FUNC(ring_updatetable)
+{
+	List *pList, *pRow;
+	int nRow,nCol;
+	// Check Parameters Count
+		if (RING_API_PARACOUNT != 2) {
+			RING_API_ERROR(RING_API_MISS2PARA);
+			return;
+		}
+	// Check Parameters Type
+		if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
+	// Get the List (Represent a Table)
+		pList = RING_API_GETLIST(1);
+	// Update the Table Rows and Columns
+		for (nRow = 1 ; nRow <= ring_list_getsize(pList) ; nRow++ ) {
+			if ( ring_list_islist(pList,nRow) ) {
+				pRow = ring_list_getlist(pList,nRow);
+				for (nCol = 1 ; nCol <= ring_list_getsize(pRow) ; nCol++ ) {
+					if ( ring_list_isdouble(pRow,nCol) ) {
+						ring_list_setdouble(pRow,nCol,RING_API_GETNUMBER(2));
+					} else {
+						RING_API_ERROR("Error : We expect numbers!\n");
+						return ;
+					}
+				}
+			} else {
+				RING_API_ERROR("Error : The parameter is not a table! \n");
+				return ;
+			}
+		}
+}
+
+
+RING_FUNC(ring_createtable)
+{
+	List *pList, *pRow;
+	int x,y,nRows,nCols;
+	// Check Parameters Count
+		if (RING_API_PARACOUNT != 2) {
+			RING_API_ERROR(RING_API_MISS2PARA);
+			return;
+		}
+	// Check Parameters Type
+		if ( ! ( RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) ) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
+	// Create the List
+		pList = RING_API_NEWLIST;
+	// Create the table items
+		nRows = (int) RING_API_GETNUMBER(1);
+		nCols = (int) RING_API_GETNUMBER(2);
+		if ( (nRows < 1) || (nCols < 1) ) {
+			RING_API_ERROR("Error: The table rows and columns must be >= 1 \n");
+			return;
+		}
+		for(x = 1 ; x <= nRows ; x++) {
+			pRow = ring_list_newlist(pList);
+			for(y = 1 ; y <= nCols ; y++) 
+				ring_list_adddouble(pRow,0.0);
+		}
+	// Return Output
+		RING_API_RETLIST(pList);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("myfunction",ring_myfunction);
@@ -223,4 +291,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("replicatelist",ring_replicatelist);
 	ring_vm_funcregister("generatelist",ring_generatelist);
 	ring_vm_funcregister("displaylist",ring_displaylist);
+	ring_vm_funcregister("updatetable",ring_updatetable);
+	ring_vm_funcregister("createtable",ring_createtable);
 }

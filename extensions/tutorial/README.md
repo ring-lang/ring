@@ -125,5 +125,15 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Using C Code, Update table contains rows and columns
 		</td>
 	</tr>
-
+	<tr>
+		<td>
+			12
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/createtable"> Create Table</a>
+		</td>
+		<td>
+			 Using C Code, Create table contains rows and columns
+		</td>
+	</tr>
 </table>
