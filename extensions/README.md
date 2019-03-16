@@ -1,11 +1,13 @@
 Ring Extensions in C/C++
 =========================
 
+The folder Tutorial contains simple examples about using C code in Ring programs
+
 The folder CodeGen contains a tool (Written in Ring)
 to generate C/C++ code that wraps C/C++ functions/classes
-to be used from Ring code.
+to be used from Ring code
 
-The folder RingBeep contains a simple example to learn how to create an extension
+The folder RingBeep contains a simple example to learn how to create an extension using the Code Generator
 
 The folder RingMouseEvent Another simple example to learn how to create an extension
 
@@ -21,25 +23,25 @@ The folder RingMySQL contains the Ring binding to the MySQL library
 
 The folder RingSqlite contains the Ring binding to the SQLite library  
 
-The folder RingQt contains the Ring binding to the Qt framework.
+The folder RingQt contains the Ring binding to the Qt framework
 
 The folder RingAllegro contains the Ring binding to the Allegro 
-game programming library.
+game programming library
 
 The folder RingSDL contains the Ring binding to the LibSDL
-game programming library.
+game programming library
 
-The folder RingZip contains functions for *.zip files.
+The folder RingZip contains functions for *.zip files
 
-The folder RingFreeGLUT contains the Ring binding to the FreeGLUT library.
+The folder RingFreeGLUT contains the Ring binding to the FreeGLUT library
 
-The folder RingOpenGL contains the Ring binding to the OpenGL library.
+The folder RingOpenGL contains the Ring binding to the OpenGL library
 
 The folder RingConsoleColors contains the Ring binding to the ConsoleColors Library
 
 The folder RingMurmurhash contains hash functions
 
-The folder RingLibUV contains the Ring binding to the LibUV library.
+The folder RingLibUV contains the Ring binding to the LibUV library
 
 The folder RingWinAPI contains the Ring binding to some functions in Windows API
 
