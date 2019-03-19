@@ -3,6 +3,7 @@
 
 RING_FUNC(ring_mandel)
 {
+
     //----------------------------------------------------------
     // RAW MANDELBROT IMAGE
     // Imaginary-Vertical and Real-Horizontal. Limits are +-2
@@ -12,8 +13,6 @@ RING_FUNC(ring_mandel)
 	int   nRow,nCol;
 	int   sum;              // nRow + nCol
 		
-printf("Mandel called \n" );
-	
 	double minI   = -2.0, maxI   = 2.0, minR = -2.0, maxR = 2.0 ;
 	double stepR  = 0,    stepI  = 0;
 	double pointI = 0,    pointR = 0;
@@ -31,18 +30,12 @@ printf("Mandel called \n" );
 	iter   = RING_API_GETNUMBER(5);
 	width  = RING_API_GETNUMBER(6);
 	height = RING_API_GETNUMBER(7);
-	pList  = RING_API_GETLIST(8);
 	
-	
-	printf("Vars: \nMinI: %10.9f MaxI: %10.9f \nMinR: %10.9f MaxR: %10.9f Iter: %d \nWidth: %d Height: %d pList: %p \n\n", 
-              minI,maxI,minR,maxR,iter,width,height, pList ) ; // &arrayM) ; 
-	
-
     // Get the List (Represent a Table)
         pList = RING_API_GETLIST(8);
 
-		stepR = fabs(maxR - minR) / width ;      // step-Real-horizontal
-		stepI = fabs(maxI - minI) / height ;     // step-Virtual-vertical
+	stepR = fabs(maxR - minR) / width ;      // step-Real-horizontal
+	stepI = fabs(maxI - minI) / height ;     // step-Virtual-vertical
 
 						
     // Update the Table Rows and Columns
@@ -51,7 +44,6 @@ printf("Mandel called \n" );
 		pCol = ring_list_getlist(pList, y);
 		
 		pointI = minI + stepI * y ;              // Imaginary + Step
-
 		
 		for (x = 1 ; x <= width ; x++ ) 
 		{                                        // Each horizontal point	
@@ -82,7 +74,6 @@ printf("Mandel called \n" );
 		}
 
 	}
-						
 												
 } 
 
@@ -90,104 +81,3 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("mandel",ring_mandel);
 }
-
-			  
-/*	
-    //===================================================================  
-	// ORIGINAL C-CODE
-	
-    stepR = fabs(maxR - minR) / width ;          // step-Real-horizontal
-    stepI = fabs(maxI - minI) / height ;         // step-Virtual-vertical
-
-    for (y = 0 ; y <= height; y++ )
-    {                                            // Each vertical point
-         pointI = minI + stepI * y ;             // Imaginary + Step
-
-        for (x = 0 ; x <= width; x++)
-        {                                        // Each horizontal point
-              pointR = minR + stepR * x ;        // Real horizontal + Step
-
-               zR = pointR ;                     // Depth - horizontal-real
-               zI = pointI ;                     // Depth - vertical-imaginary
-
-            for (n = 0 ; n <= iter; n++)
-            {                                    // Does it leave Orbit ?
-                a = zR * zR ;                    //  zR^2  - horizontal-real
-                b = zI * zI ;                    //  zI^2  - vertical-imaginary
-
-                if (a + b > 4 )
-                {
-                   break;
-                }                                // Beyond boudary limts +-2
-
-                zI = 2 * zR * zI + pointI ;      // Vertical-imaginary + Step
-                zR = a - b + pointR ;            // Horizontal-real
-
-            }  
-
-			printf("Array: x:%d y:%d iter:%d  n:%d  \n", x, y, iter, n );
-			arrayM[x][y] = n;
-        }   
-    }
-
-	//==========================================================================
-		
-*/
-	
-
-
-
-
-/*
-
- //=============================================================
- // RING C-CODE EXAMPLE
- 
-RING_FUNC(ring_updatetable)
-{
-	List *pList, *pRow;
-	int   nRow, nCol;
-	
-	// Check Parameters Count
-	if (RING_API_PARACOUNT != 2) {
-			RING_API_ERROR(RING_API_MISS2PARA);
-			return;
-	}
-			
-	// Check Parameters Type
-	if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
-			RING_API_ERROR(RING_API_BADPARATYPE);
-			return;
-	}
-	
-	// Get the List (Represent a Table)
-			pList = RING_API_GETLIST(1);
-			
-	//------------------------------------------------------------		
-	// Update the Table Rows and Columns
-	
-	for (nRow = 1 ; nRow <= ring_list_getsize(pList) ; nRow++ ) {
-		
-		if ( ring_list_islist(pList,nRow) ) {
-			pRow = ring_list_getlist(pList,nRow);
-			
-			for (nCol = 1 ; nCol <= ring_list_getsize(pRow) ; nCol++ ) {
-				
-				if ( ring_list_isdouble(pRow,nCol) ) {
-						ring_list_setdouble(pRow,nCol,RING_API_GETNUMBER(2));
-						
-				} else {
-						RING_API_ERROR("Error : We expect numbers!\n");
-						return ;
-				}
-			}
-			
-		} else {
-				RING_API_ERROR("Error : The parameter is not a table! \n");
-				return ;
-		}
-	}
-}
-//=======================================================================
-
-*/
