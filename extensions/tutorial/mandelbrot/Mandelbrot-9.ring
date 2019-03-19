@@ -340,7 +340,7 @@ Func Draw()
 	nLastPenID = 0
 	for y = 1 to height 
 		for x = 1 to width
-			N = alist[x][y]
+			N = alist[y][x]
 			if N > 0 and N < iter     
 			    nPenID = N % 12 + 1
 			    if nPenID != nLastPenID 
@@ -348,7 +348,7 @@ Func Draw()
 				penToUse = penArray[nPenID]
 				daVinci.setpen(penToUse)
 			    ok
-			    daVinci.drawpoint(y+offset, x+offset)
+			    daVinci.drawpoint(x+offset, y+offset)
 			ok
 		next	
 		
