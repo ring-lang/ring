@@ -331,58 +331,24 @@ Func Draw()
 	startCalcClock = clock()
 	mandel( minI,maxI,minR, maxR,iter,width,height,aList ) 
 	
-
-	###---------------------------------------------------------
-	
-    //--------------------------
-    // RING CALCULATOR
-	
-/*	
-	
-    stepR = (maxR - minR) / width               ### step-Real-horizontal
-    stepI = (maxI - minI) / height              ### step-Virtual-vertical
-
-    for y = 1 to height                         ### Each vertical point Ring at 1
-         pointI = minI + stepI * y              ### Imaginary + Step
-
-        for x = 1 to width                      ### Each horizontal point Ring at 1
-              pointR = minR + stepR * x         ### Real horizontal + Step
-
-               zR = pointR                      ### Depth - horizontal-real
-               zI = pointI                      ### Depth - vertical-imaginary
-
-            for n = 0 to iter                   ### Does it leave Orbit ?
-                a = zR * zR                     ###  zR^2  - horizontal-real
-                b = zI * zI                     ###  zI^2  - vertical-imaginary
-
-                if a + b > 4 exit ok            ### Beyond boudary limts +-2 
-
-                zI = 2 * zR * zI + pointI       ### Vertical-imaginary + Step
-                zR = a - b + pointR             ### Horizontal-real
-
-            next
-
-			aList[x][y] = N
-			
-        next
-    next
-*/
-
-	
-? "TimeCalc = " + ((clock()-startCalcClock)/clockspersecond()) + " seconds"
+	? "TimeCalc = " + ((clock()-startCalcClock)/clockspersecond()) + " seconds"
 	
 	###--------------------------------------------------------
 	### Draw the aList[x][y]  N-values that were calculated
 	
 	startDrawClock = clock()
+	nLastPenID = 0
 	for y = 1 to height 
 		for x = 1 to width
 			N = alist[x][y]
-			
-			if N > 0 and N < iter               
-			    penToUse = penArray[ N % 12 +1]
-			    daVinci.setpen(penToUse)
-			    daVinci.drawPoint(x+offset, y+offset)
+			if N > 0 and N < iter     
+			    nPenID = N % 12 + 1
+			    if nPenID != nLastPenID 
+				nLastPenID = nPenID
+				penToUse = penArray[nPenID]
+				daVinci.setpen(penToUse)
+			    ok
+			    daVinci.drawpoint(y+offset, x+offset)
 			ok
 		next	
 		
@@ -392,11 +358,12 @@ Func Draw()
 		
 	next	
 
-? "TimeDraw = " + ((clock()-startDrawClock)/clockspersecond()) + " seconds"
+
+	? "TimeDraw = " + ((clock()-startDrawClock)/clockspersecond()) + " seconds"
 	
 
 
-	###--------------------------------------------------------
+    ###--------------------------------------------------------
     ### Draw center lines
 	
     daVinci.drawLine(grid,           grid+(height/2), grid+width,     grid+(height/2))  ### H
