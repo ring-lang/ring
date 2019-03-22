@@ -116,7 +116,7 @@ MyApp = New qapp
         setwindowtitle("Draw Mandelbrot: USE MOUSE to ZOOM-IN")
         setgeometry(ScreenX, ScreenY, WinSizeX, WinSizeY)      ### On Screen
         
-		oFont = new qfont("",8,0,0)
+		oFont = new qfont("arial",8,0,0)
 		setFont(oFont)
 		
         ###==================================
