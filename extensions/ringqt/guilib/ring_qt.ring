@@ -23346,122 +23346,119 @@ Class QNmeaPositionInfoSource from QGeoPositionInfoSource
 	Func updateMode 
 		return QNmeaPositionInfoSource_updateMode(pObject)
 
-Class QWebView from QWidget
+Class QWebEngineView from QWidget
 
 	pObject
 
 	Func init P1
-		pObject = QWebView_new(GetObjectPointerFromRingObject(P1))
+		pObject = QWebEngineView_new(GetObjectPointerFromRingObject(P1))
 		return self
 
 	Func delete
-		pObject = QWebView_delete(pObject)
+		pObject = QWebEngineView_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
 
 	Func hasSelection 
-		return QWebView_hasSelection(pObject)
+		return QWebEngineView_hasSelection(pObject)
 
 	Func history 
-		return QWebView_history(pObject)
+		return QWebEngineView_history(pObject)
 
 	Func loadpage P1
-		return QWebView_load(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_load(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func page 
-		return QWebView_page(pObject)
+		return QWebEngineView_page(pObject)
 
 	Func pageAction P1
 		pTempObj = new QAction
-		pTempObj.pObject = QWebView_pageAction(pObject,P1)
+		pTempObj.pObject = QWebEngineView_pageAction(pObject,P1)
 		return pTempObj
 
 	Func selectedText 
-		return QWebView_selectedText(pObject)
+		return QWebEngineView_selectedText(pObject)
 
 	Func setContent P1,P2,P3
-		return QWebView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return QWebEngineView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
 	Func setHtml P1,P2
-		return QWebView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QWebEngineView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setPage P1
-		return QWebView_setPage(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_setPage(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setUrl P1
-		return QWebView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setZoomFactor P1
-		return QWebView_setZoomFactor(pObject,P1)
+		return QWebEngineView_setZoomFactor(pObject,P1)
 
 	Func settings 
-		return QWebView_settings(pObject)
+		return QWebEngineView_settings(pObject)
 
 	Func title 
-		return QWebView_title(pObject)
+		return QWebEngineView_title(pObject)
 
 	Func triggerPageAction P1,P2
-		return QWebView_triggerPageAction(pObject,P1,P2)
+		return QWebEngineView_triggerPageAction(pObject,P1,P2)
 
 	Func url 
 		pTempObj = new QUrl
-		pTempObj.pObject = QWebView_url(pObject)
+		pTempObj.pObject = QWebEngineView_url(pObject)
 		return pTempObj
 
 	Func zoomFactor 
-		return QWebView_zoomFactor(pObject)
+		return QWebEngineView_zoomFactor(pObject)
 
 	Func back 
-		return QWebView_back(pObject)
+		return QWebEngineView_back(pObject)
 
 	Func forward 
-		return QWebView_forward(pObject)
-
-	Func print P1
-		return QWebView_print(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_forward(pObject)
 
 	Func reload 
-		return QWebView_reload(pObject)
+		return QWebEngineView_reload(pObject)
 
 	Func stop 
-		return QWebView_stop(pObject)
+		return QWebEngineView_stop(pObject)
 
 	Func setloadFinishedEvent P1
-		return QWebView_setloadFinishedEvent(pObject,P1)
+		return QWebEngineView_setloadFinishedEvent(pObject,P1)
 
 	Func setloadProgressEvent P1
-		return QWebView_setloadProgressEvent(pObject,P1)
+		return QWebEngineView_setloadProgressEvent(pObject,P1)
 
 	Func setloadStartedEvent P1
-		return QWebView_setloadStartedEvent(pObject,P1)
+		return QWebEngineView_setloadStartedEvent(pObject,P1)
 
 	Func setselectionChangedEvent P1
-		return QWebView_setselectionChangedEvent(pObject,P1)
+		return QWebEngineView_setselectionChangedEvent(pObject,P1)
 
 	Func settitleChangedEvent P1
-		return QWebView_settitleChangedEvent(pObject,P1)
+		return QWebEngineView_settitleChangedEvent(pObject,P1)
 
 	Func seturlChangedEvent P1
-		return QWebView_seturlChangedEvent(pObject,P1)
+		return QWebEngineView_seturlChangedEvent(pObject,P1)
 
 	Func getloadFinishedEvent 
-		return QWebView_getloadFinishedEvent(pObject)
+		return QWebEngineView_getloadFinishedEvent(pObject)
 
 	Func getloadProgressEvent 
-		return QWebView_getloadProgressEvent(pObject)
+		return QWebEngineView_getloadProgressEvent(pObject)
 
 	Func getloadStartedEvent 
-		return QWebView_getloadStartedEvent(pObject)
+		return QWebEngineView_getloadStartedEvent(pObject)
 
 	Func getselectionChangedEvent 
-		return QWebView_getselectionChangedEvent(pObject)
+		return QWebEngineView_getselectionChangedEvent(pObject)
 
 	Func gettitleChangedEvent 
-		return QWebView_gettitleChangedEvent(pObject)
+		return QWebEngineView_gettitleChangedEvent(pObject)
 
 	Func geturlChangedEvent 
-		return QWebView_geturlChangedEvent(pObject)
+		return QWebEngineView_geturlChangedEvent(pObject)
 
 Class QSerialPort from QIODevice
 
@@ -24466,6 +24463,20 @@ Class QCameraViewfinder from QVideoWidget
 
 	Func delete
 		pObject = QCameraViewfinder_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QWebView from QWebEngineView
+
+	pObject
+
+	Func init P1
+		pObject = QWebView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWebView_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
