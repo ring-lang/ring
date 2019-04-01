@@ -120,6 +120,10 @@
 					'<img src="goldmagic800.png" width="40%">'
 				],
 				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
+					'<img src="gm800le.png" width="40%">'
+				],
+				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
 					'<img src="chessgame.png" width="40%">'
 				],
