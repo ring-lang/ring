@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -376 , : y = -166  , 
+		 :x = -586 , : y = 0  , 
 		 :width =  1324 , :height = 910 , 
 		 :title =  "Gold Magic 800 Level Editor" , 
 		 :backcolor =  "#e4ff6c" , 

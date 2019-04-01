@@ -155,7 +155,7 @@ class editorController from windowsControllerParent
 				aButton[y][x].setstylesheet("color:White;background-color:green;")	
 				aButton[y][x].setText("D2")
 			on C_GOLDCUBE
-				aButton[y][x].setstylesheet("color:White;background-color:cyan;")	
+				aButton[y][x].setstylesheet("color:purple;background-color:cyan;")	
 				aButton[y][x].setText("GC")
 			on C_DOOR3
 				aButton[y][x].setstylesheet("color:White;background-color:green;")	
