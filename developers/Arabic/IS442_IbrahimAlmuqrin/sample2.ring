@@ -1,4 +1,4 @@
-/* IS442 - Moath Mohamed */
+/* IS442 - Ibrahim Almuqrin */
 
 load "guilib.ring"
 
