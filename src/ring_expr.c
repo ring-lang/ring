@@ -837,6 +837,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		puts("Rule : Factor --> Number");
 		#endif
 		ring_parser_nexttoken(pParser);
+		/* If we have condition - pass new lines */
+		if ( pParser->nControlStructureExpr ) {
+			RING_PARSER_IGNORENEWLINE ;
+		}
 		/* ++ and -- */
 		if ( ring_parser_ppmm(pParser) ) {
 			return 1 ;
@@ -859,6 +863,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		puts("Rule : Factor --> Literal");
 		#endif
 		ring_parser_nexttoken(pParser);
+		/* If we have condition - pass new lines */
+		if ( pParser->nControlStructureExpr ) {
+			RING_PARSER_IGNORENEWLINE ;
+		}
 		/* Array Index & Object Dot */
 		x = ring_parser_mixer(pParser);
 		if ( x == 0 ) {
