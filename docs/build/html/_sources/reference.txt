@@ -225,6 +225,8 @@ Environment Errors
 * Error (E2) : Out of Memory
 * Error (E3) : Deleting scope while no scope!
 * Error (E4) : Long VM Instruction!
+* Error (E5) : The file type is not correct - the VM expect a ring object file
+* Error (E6) : The Ring Object File version is not correct!
 
 .. index:: 
 	pair: Reference; Language Grammar
