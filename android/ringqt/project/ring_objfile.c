@@ -148,14 +148,14 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	fread( cFileType , 1 , 18 , fObj );
 	cFileType[18] = '\0' ;
 	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
-		printf( "The file type is not correct - the VM expect a ring object file\n" ) ;
+		printf( RING_OBJFILEWRONGTYPE ) ;
 		return 0 ;
 	}
 	c = getc(fObj);
 	fread( cFileType , 1 , 13 , fObj );
 	cFileType[13] = '\0' ;
 	if ( strcmp(cFileType,"# Version 1.1") != 0 ) {
-		printf( "The file version is not correct - the VM expect a ring object file version 1.1\n" ) ;
+		printf( RING_OBJFILEWRONGVERSION ) ;
 		return 0 ;
 	}
 	/* Process File */
@@ -308,14 +308,14 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	ring_objfile_readc(pRingState,&cData,cFileType,18);
 	cFileType[18] = '\0' ;
 	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
-		printf( "The file type is not correct - the VM expect a ring object file\n" ) ;
+		printf( RING_OBJFILEWRONGTYPE ) ;
 		return 0 ;
 	}
 	c = ring_objfile_getc(pRingState,&cData);
 	ring_objfile_readc(pRingState,&cData,cFileType,13);
 	cFileType[13] = '\0' ;
 	if ( strcmp(cFileType,"# Version 1.1") != 0 ) {
-		printf( "The file version is not correct - the VM expect a ring object file version 1.1\n" ) ;
+		printf( RING_OBJFILEWRONGVERSION ) ;
 		return 0 ;
 	}
 	/* Process Content */
