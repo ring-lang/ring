@@ -599,6 +599,7 @@ extern "C" {
 	void ring_QAxBase_freefunc(void *pState,void *pPointer);
 	void ring_QAxObject_freefunc(void *pState,void *pPointer);
 	void ring_QAxWidget_freefunc(void *pState,void *pPointer);
+	void ring_QAxWidget2_freefunc(void *pState,void *pPointer);
 	void ring_QQuickWidget_freefunc(void *pState,void *pPointer);
 	void ring_QQuickView_freefunc(void *pState,void *pPointer);
 	void ring_QQmlError_freefunc(void *pState,void *pPointer);
@@ -138250,6 +138251,29 @@ RING_FUNC(ring_QAxWidget_new)
 	RING_API_RETCPOINTER(pObject,"QAxWidget");
 }
 
+RING_FUNC(ring_QAxWidget2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QAxWidget *pObject = new QAxWidget(RING_API_GETSTRING(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (Qt::WindowFlags )  (int) RING_API_GETNUMBER(3));
+	RING_API_RETCPOINTER(pObject,"QAxWidget2");
+}
+
 RING_FUNC(ring_QQuickWidget_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -142163,6 +142187,23 @@ RING_FUNC(ring_QAxWidget_delete)
 	}
 }
 
+RING_FUNC(ring_QAxWidget2_delete)
+{
+	QAxWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QAxWidget *) RING_API_GETCPOINTER(1,"QAxWidget");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QQuickWidget_delete)
 {
 	GQuickWidget *pObject ; 
@@ -143804,6 +143845,13 @@ void ring_QAxObject_freefunc(void *pState,void *pPointer)
 }
 
 void ring_QAxWidget_freefunc(void *pState,void *pPointer)
+{
+	QAxWidget *pObject ; 
+	pObject = (QAxWidget *) pPointer;
+	delete pObject ;
+}
+
+void ring_QAxWidget2_freefunc(void *pState,void *pPointer)
 {
 	QAxWidget *pObject ; 
 	pObject = (QAxWidget *) pPointer;
@@ -150468,6 +150516,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialportinfo_new",ring_QSerialPortInfo_new);
 	ring_vm_funcregister("qaxobject_new",ring_QAxObject_new);
 	ring_vm_funcregister("qaxwidget_new",ring_QAxWidget_new);
+	ring_vm_funcregister("qaxwidget2_new",ring_QAxWidget2_new);
 	ring_vm_funcregister("qquickwidget_new",ring_QQuickWidget_new);
 	ring_vm_funcregister("qquickview_new",ring_QQuickView_new);
 	ring_vm_funcregister("qqmlerror_new",ring_QQmlError_new);
@@ -150699,6 +150748,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialportinfo_delete",ring_QSerialPortInfo_delete);
 	ring_vm_funcregister("qaxobject_delete",ring_QAxObject_delete);
 	ring_vm_funcregister("qaxwidget_delete",ring_QAxWidget_delete);
+	ring_vm_funcregister("qaxwidget2_delete",ring_QAxWidget2_delete);
 	ring_vm_funcregister("qquickwidget_delete",ring_QQuickWidget_delete);
 	ring_vm_funcregister("qquickview_delete",ring_QQuickView_delete);
 	ring_vm_funcregister("qqmlerror_delete",ring_QQmlError_delete);

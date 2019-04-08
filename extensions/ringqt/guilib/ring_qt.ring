@@ -24480,3 +24480,17 @@ Class QWebView from QWebEngineView
 
 	Func ObjectPointer
 		return pObject
+
+Class QAxWidget2 from QAxWidget
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QAxWidget2_new(P1,GetObjectPointerFromRingObject(P2),P3)
+		return self
+
+	Func delete
+		pObject = QAxWidget2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject

@@ -6,4 +6,5 @@
 <loadfile> qaxbase.cf
 <loadfile> qaxobject.cf
 <loadfile> qaxwidget.cf
+<loadfile> qaxwidget2.cf
 </filter>

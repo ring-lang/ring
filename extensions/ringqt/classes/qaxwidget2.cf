@@ -1,0 +1,6 @@
+<class>
+name: QAxWidget2
+para: QString c, QWidget *parent, Qt::WindowFlags f 
+parent: QAxWidget
+codename: QAxWidget 
+</class>
