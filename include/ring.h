@@ -51,7 +51,7 @@
 #define RING_NOSCOPE "\nError (E3) : Deleting scope while no scope! \n"
 #define RING_LONGINSTRUCTION "\nError (E4) : Long VM Instruction! \n"
 #define RING_OBJFILEWRONGTYPE "\nError (E5) : The file type is not correct - the VM expect a ring object file\n"
-#define RING_OBJFILEWRONGVERSION "\nError (E6) : The file version is not correct - the VM expect a ring object file version 1.1\n"
+#define RING_OBJFILEWRONGVERSION "\nError (E6) : The Ring Object File version is not correct!\n"
 /* General */
 #define RING_PATHSIZE 256
 /* See and Give - use ringvm_see() and ringvm_give() */
