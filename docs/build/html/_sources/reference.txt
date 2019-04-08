@@ -527,7 +527,7 @@ Operation			Description
 * ICO_IMPORT		Import package
 * ICO_PRIVATE		start private attributes region
 * ICO_SETPROPERTY	set attribute value - check for setter.	
-* ICO_CALLCLASSINIT	call call init() method.
+* ICO_CALLCLASSINIT	call class init() method.
 =======================	============================================================================
 
 (Other)
