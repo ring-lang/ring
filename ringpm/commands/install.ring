@@ -201,7 +201,7 @@ class InstallCommand
 					oInstall.InstallFrom(cProviderUserName)
 				ok
 			oInstall.cPackageVersion = aRelatedPackage[:version]
-			oInstall.lUpdate = lUpdate
+			oInstall.lUpdate = False
 			oInstall.InstallPackage(aRelatedPackage[:name])
 			if lAllPackages
 				oAllPackagesInfo.AddRelatedPackage(
