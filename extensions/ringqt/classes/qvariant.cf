@@ -78,3 +78,31 @@ parent: QVariant
 para: QString
 codename: QVariant
 </class>
+
+<class>
+name: QVariantInt
+parent: QVariant
+para: int
+codename: QVariant
+</class>
+
+<class>
+name: QVariantFloat
+parent: QVariant
+para: float
+codename: QVariant
+</class>
+
+<class>
+name: QVariantDouble
+parent: QVariant
+para: double
+codename: QVariant
+</class>
+
+<class>
+name: QVariantString
+parent: QVariant
+para: QString
+codename: QVariant
+</class>
