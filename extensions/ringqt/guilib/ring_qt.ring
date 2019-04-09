@@ -87,6 +87,18 @@ Class QObject
 	Func setProperty_5 P1,P2
 		return QObject_setProperty_5(pObject,P1,P2)
 
+	Func setProperty_int P1,P2
+		return QObject_setProperty_int(pObject,P1,P2)
+
+	Func setProperty_float P1,P2
+		return QObject_setProperty_float(pObject,P1,P2)
+
+	Func setProperty_double P1,P2
+		return QObject_setProperty_double(pObject,P1,P2)
+
+	Func setProperty_string P1,P2
+		return QObject_setProperty_string(pObject,P1,P2)
+
 	Func signalsBlocked 
 		return QObject_signalsBlocked(pObject)
 
