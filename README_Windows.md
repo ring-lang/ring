@@ -107,11 +107,11 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Generate RingQt Source Code and Build
 
-	Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
+	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.2/
 	
 	cd ../extensions/ringqt
-	gencode.bat
-	buildmingw32.bat
+	gencodeqt512.bat
+	buildqt512.bat
 
 ### To be able to call ring from any folder 
 	
