@@ -609,51 +609,27 @@ Parent Class : QObject
 * void disableClassInfo(void)
 * void disableEventSink(void)
 * void disableMetaObject(void)
-* QVariant dynamicCall( char *function)
-* QVariant dynamicCall_2( char *function,QString)
-* QVariant dynamicCall_3(const char *function, QList<QVariant> )
-* QVariant dynamicCall_4( char *function,int)
+* QVariant dynamicCall(char *function)
+* QVariant dynamicCall_2(char *function,QVariant)
+* QVariant dynamicCall_3(char *function,QVariant,QVariant)
+* QVariant dynamicCall_4(char *function,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_5(char *function,QVariant,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_6(char *function,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_7(char *function,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_8(char *function,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_9(char *function,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QVariant dynamicCall_10(const char *function, QList<QVariant> )
 * QString generateDocumentation(void)
 * bool isNull(void)
 * QAxObject *querySubObject(const char *name)
-* QAxObject *querySubObject_2(const char * name, QList<QVariant>)
-* QAxObject *querySubObject_3(const char * name,const char *)
-* QAxObject *querySubObject_4(const char * name,int)
-* QAxObject *querySubObject_5(const char * name,const char *,int)
-* QAxObject *querySubObject_6(const char * name,const char *,const char *)
-* QAxObject *querySubObject_7(const char * name,const char *,const char *,int)
-* QAxObject *querySubObject_8(const char * name,const char *,int,int)
-* QAxObject *querySubObject_9(const char * name,float)
-* QAxObject *querySubObject_10(const char * name,const char *,float)
-* QAxObject *querySubObject_11(const char * name,const char *,const char *,float)
-* QAxObject *querySubObject_12(const char * name,const char *,float,float)
-* QAxObject *querySubObject_13(const char * name,double)
-* QAxObject *querySubObject_14(const char * name,const char *,double)
-* QAxObject *querySubObject_15(const char * name,const char *,const char *,double)
-* QAxObject *querySubObject_16(const char * name,const char *,double,double)
-* QAxObject *querySubObject_17(const char * name,int,const char *)
-* QAxObject *querySubObject_18(const char * name,int,const char *,const char *)
-* QAxObject *querySubObject_19(const char * name,int,const char *,const char *,const char *)
-* QAxObject *querySubObject_20(const char * name,int,const char *,const char *,int)
-* QAxObject *querySubObject_21(const char * name,int,const char *,int,const char *)
-* QAxObject *querySubObject_22(const char * name,float,const char *)
-* QAxObject *querySubObject_23(const char * name,float,const char *,const char *)
-* QAxObject *querySubObject_24(const char * name,float,const char *,const char *,const char *)
-* QAxObject *querySubObject_25(const char * name,float,const char *,const char *,float)
-* QAxObject *querySubObject_26(const char * name,float,const char *,float,const char *)
-* QAxObject *querySubObject_27(const char * name,double,const char *)
-* QAxObject *querySubObject_28(const char * name,double,const char *,const char *)
-* QAxObject *querySubObject_29(const char * name,double,const char *,const char *,const char *)
-* QAxObject *querySubObject_30(const char * name,double,const char *,const char *,double)
-* QAxObject *querySubObject_31(const char * name,double,const char *,double,const char *)
-* QAxObject *querySubObject_32(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_33(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_34(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_35(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_36(const char *name,QVariant,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_37(const char *name,QVariant,QVariant,QVariant)
-* QAxObject *querySubObject_38(const char *name,QVariant,QVariant)
-* QAxObject *querySubObject_39(const char *name,QVariant)
+* QAxObject *querySubObject_2(const char *name,QVariant)
+* QAxObject *querySubObject_3(const char *name,QVariant,QVariant)
+* QAxObject *querySubObject_4(const char *name,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_5(const char *name,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_6(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_7(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_8(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
+* QAxObject *querySubObject_9(const char *name,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant,QVariant)
 * bool setControl( QString  )
 * QStringList verbs(void)
 
@@ -690,6 +666,22 @@ Parameters : QWidget *parent, Qt::WindowFlags f
 Parent Class : QAxBase
 
 * bool doVerb(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QAxWidget2 Class
+
+QAxWidget2 Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAxWidget2.html
+
+
+Parameters : QString c, QWidget *parent, Qt::WindowFlags f
+
+
+Parent Class : QAxWidget
+
 
 .. index::
 	pair: RingQt Classes Reference; QBitmap Class
@@ -9221,6 +9213,70 @@ QVariant5 Class
 
 
 C++ Reference : http://doc.qt.io/qt-5/QVariant5.html
+
+
+Parent Class : QVariant
+
+
+Parameters : QString
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariantDouble Class
+
+QVariantDouble Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariantDouble.html
+
+
+Parent Class : QVariant
+
+
+Parameters : double
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariantFloat Class
+
+QVariantFloat Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariantFloat.html
+
+
+Parent Class : QVariant
+
+
+Parameters : float
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariantInt Class
+
+QVariantInt Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariantInt.html
+
+
+Parent Class : QVariant
+
+
+Parameters : int
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariantString Class
+
+QVariantString Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariantString.html
 
 
 Parent Class : QVariant
