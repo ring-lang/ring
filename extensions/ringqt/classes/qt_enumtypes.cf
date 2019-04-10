@@ -355,5 +355,6 @@ aEnumTypes + "QGeoSatelliteInfo::SatelliteSystem"
 aEnumTypes + "QNmeaPositionInfoSource::UpdateMode"
 aEnumTypes + "QPrintPreviewWidget::ViewMode"
 aEnumTypes + "QPrintPreviewWidget::ZoomMode"
-
+aEnumTypes + "QAbstractPrintDialog::PrintDialogOption"
+aEnumTypes + "QAbstractPrintDialog::PrintDialogOptions"
 </runcode>

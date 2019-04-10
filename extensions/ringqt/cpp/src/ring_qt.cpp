@@ -550,6 +550,7 @@ extern "C" {
 	void ring_QVideoWidgetControl_freefunc(void *pState,void *pPointer);
 	void ring_QPrintPreviewDialog_freefunc(void *pState,void *pPointer);
 	void ring_QPrintPreviewWidget_freefunc(void *pState,void *pPointer);
+	void ring_QPrintDialog_freefunc(void *pState,void *pPointer);
 	void ring_QPrinter_freefunc(void *pState,void *pPointer);
 	void ring_QPrinterInfo_freefunc(void *pState,void *pPointer);
 	void ring_QPageSetupDialog_freefunc(void *pState,void *pPointer);
@@ -117961,6 +117962,170 @@ RING_FUNC(ring_QPrintPreviewWidget_getpreviewChangedEvent)
 }
 
 
+RING_FUNC(ring_QPrintDialog_open)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->open((QObject *) RING_API_GETCPOINTER(2,"QObject"),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_QPrintDialog_options)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	RING_API_RETNUMBER(pObject->options());
+}
+
+
+RING_FUNC(ring_QPrintDialog_printer)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	RING_API_RETCPOINTER(pObject->printer(),"QPrinter");
+}
+
+
+RING_FUNC(ring_QPrintDialog_setOption)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOption( (QAbstractPrintDialog::PrintDialogOption )  (int) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QPrintDialog_setOptions)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOptions( (QAbstractPrintDialog::PrintDialogOptions )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QPrintDialog_testOption)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->testOption( (QAbstractPrintDialog::PrintDialogOption )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QPrintDialog_setacceptedEvent)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setacceptedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPrintDialog_getacceptedEvent)
+{
+	GPrintDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"QPrintDialog");
+	RING_API_RETSTRING(pObject->getacceptedEvent());
+}
+
+
 RING_FUNC(ring_QPrinter_abort)
 {
 	QPrinter *pObject ;
@@ -137086,6 +137251,25 @@ RING_FUNC(ring_QPrintPreviewWidget_new)
 	RING_API_RETCPOINTER(pObject,"QPrintPreviewWidget");
 }
 
+RING_FUNC(ring_QPrintDialog_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GPrintDialog *pObject = new GPrintDialog((QPrinter *) RING_API_GETCPOINTER(1,"QPrinter"),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QPrintDialog");
+}
+
 RING_FUNC(ring_QPrinter_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -140952,6 +141136,23 @@ RING_FUNC(ring_QPrintPreviewWidget_delete)
 	}
 }
 
+RING_FUNC(ring_QPrintDialog_delete)
+{
+	GPrintDialog *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GPrintDialog *) RING_API_GETCPOINTER(1,"GPrintDialog");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QPrinter_delete)
 {
 	QPrinter *pObject ; 
@@ -143071,6 +143272,13 @@ void ring_QPrintPreviewWidget_freefunc(void *pState,void *pPointer)
 {
 	GPrintPreviewWidget *pObject ; 
 	pObject = (GPrintPreviewWidget *) pPointer;
+	delete pObject ;
+}
+
+void ring_QPrintDialog_freefunc(void *pState,void *pPointer)
+{
+	GPrintDialog *pObject ; 
+	pObject = (GPrintDialog *) pPointer;
 	delete pObject ;
 }
 
@@ -148963,6 +149171,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprintpreviewwidget_setpreviewchangedevent",ring_QPrintPreviewWidget_setpreviewChangedEvent);
 	ring_vm_funcregister("qprintpreviewwidget_getpaintrequestedevent",ring_QPrintPreviewWidget_getpaintRequestedEvent);
 	ring_vm_funcregister("qprintpreviewwidget_getpreviewchangedevent",ring_QPrintPreviewWidget_getpreviewChangedEvent);
+	ring_vm_funcregister("qprintdialog_open",ring_QPrintDialog_open);
+	ring_vm_funcregister("qprintdialog_options",ring_QPrintDialog_options);
+	ring_vm_funcregister("qprintdialog_printer",ring_QPrintDialog_printer);
+	ring_vm_funcregister("qprintdialog_setoption",ring_QPrintDialog_setOption);
+	ring_vm_funcregister("qprintdialog_setoptions",ring_QPrintDialog_setOptions);
+	ring_vm_funcregister("qprintdialog_testoption",ring_QPrintDialog_testOption);
+	ring_vm_funcregister("qprintdialog_setacceptedevent",ring_QPrintDialog_setacceptedEvent);
+	ring_vm_funcregister("qprintdialog_getacceptedevent",ring_QPrintDialog_getacceptedEvent);
 	ring_vm_funcregister("qprinter_abort",ring_QPrinter_abort);
 	ring_vm_funcregister("qprinter_collatecopies",ring_QPrinter_collateCopies);
 	ring_vm_funcregister("qprinter_colormode",ring_QPrinter_colorMode);
@@ -149981,6 +150197,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgraphicsvideoitem_new",ring_QGraphicsVideoItem_new);
 	ring_vm_funcregister("qprintpreviewdialog_new",ring_QPrintPreviewDialog_new);
 	ring_vm_funcregister("qprintpreviewwidget_new",ring_QPrintPreviewWidget_new);
+	ring_vm_funcregister("qprintdialog_new",ring_QPrintDialog_new);
 	ring_vm_funcregister("qprinter_new",ring_QPrinter_new);
 	ring_vm_funcregister("qprinterinfo_new",ring_QPrinterInfo_new);
 	ring_vm_funcregister("qpagesetupdialog_new",ring_QPageSetupDialog_new);
@@ -150217,6 +150434,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgraphicsvideoitem_delete",ring_QGraphicsVideoItem_delete);
 	ring_vm_funcregister("qprintpreviewdialog_delete",ring_QPrintPreviewDialog_delete);
 	ring_vm_funcregister("qprintpreviewwidget_delete",ring_QPrintPreviewWidget_delete);
+	ring_vm_funcregister("qprintdialog_delete",ring_QPrintDialog_delete);
 	ring_vm_funcregister("qprinter_delete",ring_QPrinter_delete);
 	ring_vm_funcregister("qprinterinfo_delete",ring_QPrinterInfo_delete);
 	ring_vm_funcregister("qpagesetupdialog_delete",ring_QPageSetupDialog_delete);

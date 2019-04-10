@@ -20562,6 +20562,46 @@ Class QPrintPreviewWidget from QWidget
 	Func getpreviewChangedEvent 
 		return QPrintPreviewWidget_getpreviewChangedEvent(pObject)
 
+Class QPrintDialog from QAbstractPrintDialog
+
+	pObject
+
+	Func init P1,P2
+		pObject = QPrintDialog_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QPrintDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func open P1,P2
+		return QPrintDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func options 
+		return QPrintDialog_options(pObject)
+
+	Func printer 
+		pTempObj = new QPrinter
+		pTempObj.pObject = QPrintDialog_printer(pObject)
+		return pTempObj
+
+	Func setOption P1,P2
+		return QPrintDialog_setOption(pObject,P1,P2)
+
+	Func setOptions P1
+		return QPrintDialog_setOptions(pObject,P1)
+
+	Func testOption P1
+		return QPrintDialog_testOption(pObject,P1)
+
+	Func setacceptedEvent P1
+		return QPrintDialog_setacceptedEvent(pObject,P1)
+
+	Func getacceptedEvent 
+		return QPrintDialog_getacceptedEvent(pObject)
+
 Class QPrinter
 
 	pObject

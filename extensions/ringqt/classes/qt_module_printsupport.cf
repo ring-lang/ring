@@ -4,6 +4,7 @@
 
 <loadfile> printsupport/qprintpreviewdialog.cf
 <loadfile> printsupport/qprintpreviewwidget.cf
+<loadfile> printsupport/qprintdialog.cf
 <loadfile> printsupport/qprinter.cf
 <loadfile> printsupport/qprinterinfo.cf
 <loadfile> printsupport/qpagesetupdialog.cf
