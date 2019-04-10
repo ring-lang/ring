@@ -3,8 +3,8 @@
 </comment>
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-<loadfile> qaxbase.cf
-<loadfile> qaxobject.cf
-<loadfile> qaxwidget.cf
-<loadfile> qaxwidget2.cf
+<loadfile> axcontainer/qaxbase.cf
+<loadfile> axcontainer/qaxobject.cf
+<loadfile> axcontainer/qaxwidget.cf
+<loadfile> axcontainer/qaxwidget2.cf
 </filter>
