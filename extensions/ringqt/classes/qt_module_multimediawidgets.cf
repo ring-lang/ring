@@ -2,7 +2,7 @@
 				Module (multimediawidgets)
 </comment>
 
-<loadfile> qvideowidget.cf
-<loadfile> qcameraviewfinder.cf
-<loadfile> qgraphicsvideoitem.cf
-<loadfile> qvideowidgetcontrol.cf
+<loadfile> multimediawidgets/qvideowidget.cf
+<loadfile> multimediawidgets/qcameraviewfinder.cf
+<loadfile> multimediawidgets/qgraphicsvideoitem.cf
+<loadfile> multimediawidgets/qvideowidgetcontrol.cf
