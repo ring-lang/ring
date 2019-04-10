@@ -2,8 +2,8 @@
 				Module (multimedia)
 </comment>
 
-<loadfile> qmediaplayer.cf
-<loadfile> qmediaplaylist.cf
-<loadfile> qcamera.cf
-<loadfile> qcameraimagecapture.cf
-<loadfile> qmediaobject.cf
+<loadfile> multimedia/qmediaplayer.cf
+<loadfile> multimedia/qmediaplaylist.cf
+<loadfile> multimedia/qcamera.cf
+<loadfile> multimedia/qcameraimagecapture.cf
+<loadfile> multimedia/qmediaobject.cf
