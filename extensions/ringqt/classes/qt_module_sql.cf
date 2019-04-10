@@ -2,12 +2,12 @@
 				Module (sql)
 </comment>
 
-<loadfile> qsqldatabase.cf
-<loadfile> qsqldriver.cf
-<loadfile> qsqlquery.cf
-<loadfile> qsqlerror.cf
-<loadfile> qsqlindex.cf
-<loadfile> qsqlrecord.cf
-<loadfile> qsqlfield.cf
-<loadfile> qsqldrivercreatorbase.cf
+<loadfile> sql/qsqldatabase.cf
+<loadfile> sql/qsqldriver.cf
+<loadfile> sql/qsqlquery.cf
+<loadfile> sql/qsqlerror.cf
+<loadfile> sql/qsqlindex.cf
+<loadfile> sql/qsqlrecord.cf
+<loadfile> sql/qsqlfield.cf
+<loadfile> sql/qsqldrivercreatorbase.cf
 
