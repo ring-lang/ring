@@ -2,12 +2,12 @@
 				Module (network)
 </comment>
 
-<loadfile> qabstractsocket.cf
-<loadfile> qnetworkproxy.cf
-<loadfile> qtcpsocket.cf
-<loadfile> qtcpserver.cf
-<loadfile> qhostaddress.cf
-<loadfile> qhostinfo.cf
-<loadfile> qnetworkrequest.cf
-<loadfile> qnetworkaccessmanager.cf
-<loadfile> qnetworkreply.cf
+<loadfile> network/qabstractsocket.cf
+<loadfile> network/qnetworkproxy.cf
+<loadfile> network/qtcpsocket.cf
+<loadfile> network/qtcpserver.cf
+<loadfile> network/qhostaddress.cf
+<loadfile> network/qhostinfo.cf
+<loadfile> network/qnetworkrequest.cf
+<loadfile> network/qnetworkaccessmanager.cf
+<loadfile> network/qnetworkreply.cf
