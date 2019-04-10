@@ -4,5 +4,5 @@
 
 
 <filter> (iswindows() or ismacosx()) 
-<loadfile> qqmlerror.cf
+<loadfile> qml/qqmlerror.cf
 </filter>
