@@ -3,16 +3,16 @@
 </comment>
 
 
-<loadfile> qgeopositioninfo.cf
-<loadfile> qgeocoordinate.cf
-<loadfile> qgeoaddress.cf
-<loadfile> qgeoareamonitorinfo.cf
-<loadfile> qgeoareamonitorsource.cf
-<loadfile> qgeocircle.cf
-<loadfile> qgeopositioninfosource.cf
-<loadfile> qgeorectangle.cf
-<loadfile> qgeoshape.cf
-<loadfile> qgeosatelliteinfo.cf
-<loadfile> qgeosatelliteinfosource.cf
-<loadfile> qnmeapositioninfosource.cf
+<loadfile> positioning/qgeopositioninfo.cf
+<loadfile> positioning/qgeocoordinate.cf
+<loadfile> positioning/qgeoaddress.cf
+<loadfile> positioning/qgeoareamonitorinfo.cf
+<loadfile> positioning/qgeoareamonitorsource.cf
+<loadfile> positioning/qgeocircle.cf
+<loadfile> positioning/qgeopositioninfosource.cf
+<loadfile> positioning/qgeorectangle.cf
+<loadfile> positioning/qgeoshape.cf
+<loadfile> positioning/qgeosatelliteinfo.cf
+<loadfile> positioning/qgeosatelliteinfosource.cf
+<loadfile> positioning/qnmeapositioninfosource.cf
 
