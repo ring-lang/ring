@@ -3,6 +3,6 @@
 </comment>
 
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
-<loadfile> qwebengineview.cf
+<loadfile> web/qwebengineview.cf
 </filter>
 
