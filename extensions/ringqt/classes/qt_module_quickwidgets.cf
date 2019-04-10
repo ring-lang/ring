@@ -4,6 +4,6 @@
 
 
 <filter> (iswindows() or ismacosx()) 
-<loadfile> qquickwidget.cf
-<loadfile> qquickview.cf
+<loadfile> quick/qquickwidget.cf
+<loadfile> quick/qquickview.cf
 </filter>
