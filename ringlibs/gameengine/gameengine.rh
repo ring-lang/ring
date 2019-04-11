@@ -52,3 +52,7 @@ GE_AC_BACK = GL_AC_BACK
 
 # Full Screen 
 GE_FULLSCREEN = FALSE
+
+# Window Size 
+GE_SCREEN_W = 800
+GE_SCREEN_H = 600
