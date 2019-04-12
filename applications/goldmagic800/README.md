@@ -1,9 +1,7 @@
 The Gold Magic 800 Game
 =======================
 
-Developed using Ring, RingAllegro and RingOpenGL
-
-The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.
+The Gold Magic 800 is a simple puzzle game developed using Ring, RingAllegro and RingOpenGL
 
 The game is based on moving your box around to get gold score (=800) to open the First Door (Box Number 1) 
 Then directly put your box on the Door (this will open the next door), Then continue to put your box on all of the next doors in the level
