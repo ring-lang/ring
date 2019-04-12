@@ -24201,12 +24201,25 @@ Class QVoice
 		return QVoice_genderName(pObject,P1)
 
 Class QVectorQVoice
+
+	pObject
+
+	Func init 
+		pObject = QVectorQVoice_new()
+		return self
+
+	Func delete
+		pObject = QVectorQVoice_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
 	Func count 
-		return QVectorQVoice_count()
+		return QVectorQVoice_count(pObject)
 
 	Func value P1
 		pTempObj = new QVoice
-		pTempObj.pObject = QVectorQVoice_value(P1)
+		pTempObj.pObject = QVectorQVoice_value(pObject,P1)
 		return pTempObj
 
 Class QSize

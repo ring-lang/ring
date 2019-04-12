@@ -2,7 +2,7 @@
 name: QVectorQVoice
 codename: QVector<QVoice>
 para: void
-nonew
+abstract
 </class>
 
 int count(void)
