@@ -1327,11 +1327,16 @@ Func GenRingCode aList
 			cCode += nl + C_TABS_1 + "Func " + cMethodName + " "
 			aPara = aFunc[C_FUNC_PARA]
 			cCode += GenRingCodeParaList(aPara)
+
+			# Support ClassName<ClassName> like QVector<QVoice> 
+				cFuncOutput = aFunc[C_FUNC_OUTPUT]
+				cFuncOutput = substr(cFuncOutput,"<","")
+				cFuncOutput = substr(cFuncOutput,">","")
 			
 			lRetObj = false
-			if find($aClassesList,aFunc[C_FUNC_OUTPUT],1) > 0
+			if find($aClassesList,cFuncOutput,1) > 0
 				lRetObj = true
-				cCode += nl + C_TABS_2 + "pTempObj = new " + aFunc[C_FUNC_OUTPUT] + nl +
+				cCode += nl + C_TABS_2 + "pTempObj = new " + cFuncOutput + nl +
 					 C_TABS_2+"pTempObj.pObject = "
 			but find($aClassesList,GenPointerType(aFunc[C_FUNC_OUTPUT]),1) > 0
 				lRetObj = true
