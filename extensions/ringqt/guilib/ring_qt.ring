@@ -24081,7 +24081,9 @@ Class QTextToSpeech from QObject
 		return QTextToSpeech_availableLocales(pObject)
 
 	Func availableVoices 
-		return QTextToSpeech_availableVoices(pObject)
+		pTempObj = new QVectorQVoice
+		pTempObj.pObject = QTextToSpeech_availableVoices(pObject)
+		return pTempObj
 
 	Func locale 
 		return QTextToSpeech_locale(pObject)
