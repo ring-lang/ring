@@ -1,2 +1,1 @@
-see "
-hello , my first program"
+See "IS442 Group - My First Ring Program"
