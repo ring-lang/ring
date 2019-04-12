@@ -1,0 +1,10 @@
+<class>
+name: QVectorQVoice
+codename: QVector<QVoice>
+para: void
+nonew
+</class>
+
+int count(void)
+QVoice value(int i)
+

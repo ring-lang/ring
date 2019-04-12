@@ -4,3 +4,4 @@
 
 <loadfile> speech/qtexttospeech.cf
 <loadfile> speech/qvoice.cf
+<loadfile> speech/qvectorqvoice.cf

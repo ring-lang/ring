@@ -24200,6 +24200,15 @@ Class QVoice
 	Func genderName P1
 		return QVoice_genderName(pObject,P1)
 
+Class QVectorQVoice
+	Func count 
+		return QVectorQVoice_count()
+
+	Func value P1
+		pTempObj = new QVoice
+		pTempObj.pObject = QVectorQVoice_value(P1)
+		return pTempObj
+
 Class QSize
 
 	pObject

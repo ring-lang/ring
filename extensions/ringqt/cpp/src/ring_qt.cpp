@@ -614,6 +614,7 @@ extern "C" {
 	void ring_QQmlError_freefunc(void *pState,void *pPointer);
 	void ring_QTextToSpeech_freefunc(void *pState,void *pPointer);
 	void ring_QVoice_freefunc(void *pState,void *pPointer);
+	void ring_QVectorQVoice_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -135198,6 +135199,49 @@ RING_FUNC(ring_QVoice_genderName)
 	RING_API_RETSTRING(pObject->genderName( (QVoice::Gender )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
+
+RING_FUNC(ring_QVectorQVoice_count)
+{
+	QVector<QVoice> *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVector<QVoice> *) RING_API_GETCPOINTER(1,"QVectorQVoice");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QVectorQVoice_value)
+{
+	QVector<QVoice> *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVector<QVoice> *) RING_API_GETCPOINTER(1,"QVectorQVoice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVoice *pValue ; 
+		pValue = new QVoice() ;
+		*pValue = pObject->value( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVoice",ring_QVoice_freefunc);
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -150795,6 +150839,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvoice_name",ring_QVoice_name);
 	ring_vm_funcregister("qvoice_agename",ring_QVoice_ageName);
 	ring_vm_funcregister("qvoice_gendername",ring_QVoice_genderName);
+	ring_vm_funcregister("qvectorqvoice_count",ring_QVectorQVoice_count);
+	ring_vm_funcregister("qvectorqvoice_value",ring_QVectorQVoice_value);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
