@@ -330,6 +330,9 @@ extern "C" {
 #include <QAxWidget>
 
 
+#include <QTextToSpeech>
+#include "gtexttospeech.h"
+
 extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);
@@ -608,6 +611,7 @@ extern "C" {
 	void ring_QQuickWidget_freefunc(void *pState,void *pPointer);
 	void ring_QQuickView_freefunc(void *pState,void *pPointer);
 	void ring_QQmlError_freefunc(void *pState,void *pPointer);
+	void ring_QTextToSpeech_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -134520,6 +134524,585 @@ RING_FUNC(ring_QQmlError_url)
 	}
 }
 
+
+RING_FUNC(ring_QTextToSpeech_availableLocales)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	{
+		QVector<QLocale> *pValue ; 
+		pValue = (QVector<QLocale> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVector<QLocale>)) ;
+		*pValue = pObject->availableLocales();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVector<QLocale>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QTextToSpeech_availableVoices)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	{
+		QVector<QVoice> *pValue ; 
+		pValue = (QVector<QVoice> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVector<QVoice>)) ;
+		*pValue = pObject->availableVoices();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVector<QVoice>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QTextToSpeech_locale)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	{
+		QLocale *pValue ; 
+		pValue = (QLocale *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLocale)) ;
+		*pValue = pObject->locale();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLocale",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QTextToSpeech_pitch)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETNUMBER(pObject->pitch());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_rate)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETNUMBER(pObject->rate());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_state)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETNUMBER(pObject->state());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_voice)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	{
+		QVoice *pValue ; 
+		pValue = (QVoice *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVoice)) ;
+		*pValue = pObject->voice();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVoice",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QTextToSpeech_volume)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETNUMBER(pObject->volume());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_pause)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	pObject->pause();
+}
+
+
+RING_FUNC(ring_QTextToSpeech_resume)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	pObject->resume();
+}
+
+
+RING_FUNC(ring_QTextToSpeech_say)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->say(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setLocale)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	pObject->setLocale(* (QLocale  *) RING_API_GETCPOINTER(2,"QLocale"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLocale"));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setPitch)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPitch( (double ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setRate)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRate( (double ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setVoice)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	pObject->setVoice(* (QVoice  *) RING_API_GETCPOINTER(2,"QVoice"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVoice"));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setVolume)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVolume( (double ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_stop)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	pObject->stop();
+}
+
+
+RING_FUNC(ring_QTextToSpeech_availableEngines)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->availableEngines();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setlocaleChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlocaleChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setpitchChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpitchChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setrateChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setrateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setstateChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setstateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setvoiceChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvoiceChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_setvolumeChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvolumeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getlocaleChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getlocaleChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getpitchChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getpitchChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getrateChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getrateChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getstateChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getstateChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getvoiceChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getvoiceChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextToSpeech_getvolumeChangedEvent)
+{
+	GTextToSpeech *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
+	RING_API_RETSTRING(pObject->getvolumeChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -137921,6 +138504,21 @@ RING_FUNC(ring_QQmlError_new)
 	}
 	QQmlError *pObject = new QQmlError();
 	RING_API_RETCPOINTER(pObject,"QQmlError");
+}
+
+RING_FUNC(ring_QTextToSpeech_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GTextToSpeech *pObject = new GTextToSpeech((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QTextToSpeech");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -141952,6 +142550,23 @@ RING_FUNC(ring_QQmlError_delete)
 	}
 }
 
+RING_FUNC(ring_QTextToSpeech_delete)
+{
+	GTextToSpeech *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"GTextToSpeech");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -143608,6 +144223,13 @@ void ring_QQmlError_freefunc(void *pState,void *pPointer)
 {
 	QQmlError *pObject ; 
 	pObject = (QQmlError *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTextToSpeech_freefunc(void *pState,void *pPointer)
+{
+	GTextToSpeech *pObject ; 
+	pObject = (GTextToSpeech *) pPointer;
 	delete pObject ;
 }
 
@@ -150008,6 +150630,36 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qqmlerror_seturl",ring_QQmlError_setUrl);
 	ring_vm_funcregister("qqmlerror_tostring",ring_QQmlError_toString);
 	ring_vm_funcregister("qqmlerror_url",ring_QQmlError_url);
+	ring_vm_funcregister("qtexttospeech_availablelocales",ring_QTextToSpeech_availableLocales);
+	ring_vm_funcregister("qtexttospeech_availablevoices",ring_QTextToSpeech_availableVoices);
+	ring_vm_funcregister("qtexttospeech_locale",ring_QTextToSpeech_locale);
+	ring_vm_funcregister("qtexttospeech_pitch",ring_QTextToSpeech_pitch);
+	ring_vm_funcregister("qtexttospeech_rate",ring_QTextToSpeech_rate);
+	ring_vm_funcregister("qtexttospeech_state",ring_QTextToSpeech_state);
+	ring_vm_funcregister("qtexttospeech_voice",ring_QTextToSpeech_voice);
+	ring_vm_funcregister("qtexttospeech_volume",ring_QTextToSpeech_volume);
+	ring_vm_funcregister("qtexttospeech_pause",ring_QTextToSpeech_pause);
+	ring_vm_funcregister("qtexttospeech_resume",ring_QTextToSpeech_resume);
+	ring_vm_funcregister("qtexttospeech_say",ring_QTextToSpeech_say);
+	ring_vm_funcregister("qtexttospeech_setlocale",ring_QTextToSpeech_setLocale);
+	ring_vm_funcregister("qtexttospeech_setpitch",ring_QTextToSpeech_setPitch);
+	ring_vm_funcregister("qtexttospeech_setrate",ring_QTextToSpeech_setRate);
+	ring_vm_funcregister("qtexttospeech_setvoice",ring_QTextToSpeech_setVoice);
+	ring_vm_funcregister("qtexttospeech_setvolume",ring_QTextToSpeech_setVolume);
+	ring_vm_funcregister("qtexttospeech_stop",ring_QTextToSpeech_stop);
+	ring_vm_funcregister("qtexttospeech_availableengines",ring_QTextToSpeech_availableEngines);
+	ring_vm_funcregister("qtexttospeech_setlocalechangedevent",ring_QTextToSpeech_setlocaleChangedEvent);
+	ring_vm_funcregister("qtexttospeech_setpitchchangedevent",ring_QTextToSpeech_setpitchChangedEvent);
+	ring_vm_funcregister("qtexttospeech_setratechangedevent",ring_QTextToSpeech_setrateChangedEvent);
+	ring_vm_funcregister("qtexttospeech_setstatechangedevent",ring_QTextToSpeech_setstateChangedEvent);
+	ring_vm_funcregister("qtexttospeech_setvoicechangedevent",ring_QTextToSpeech_setvoiceChangedEvent);
+	ring_vm_funcregister("qtexttospeech_setvolumechangedevent",ring_QTextToSpeech_setvolumeChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getlocalechangedevent",ring_QTextToSpeech_getlocaleChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getpitchchangedevent",ring_QTextToSpeech_getpitchChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getratechangedevent",ring_QTextToSpeech_getrateChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getstatechangedevent",ring_QTextToSpeech_getstateChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getvoicechangedevent",ring_QTextToSpeech_getvoiceChangedEvent);
+	ring_vm_funcregister("qtexttospeech_getvolumechangedevent",ring_QTextToSpeech_getvolumeChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -150245,6 +150897,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qquickwidget_new",ring_QQuickWidget_new);
 	ring_vm_funcregister("qquickview_new",ring_QQuickView_new);
 	ring_vm_funcregister("qqmlerror_new",ring_QQmlError_new);
+	ring_vm_funcregister("qtexttospeech_new",ring_QTextToSpeech_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -150482,4 +151135,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qquickwidget_delete",ring_QQuickWidget_delete);
 	ring_vm_funcregister("qquickview_delete",ring_QQuickView_delete);
 	ring_vm_funcregister("qqmlerror_delete",ring_QQmlError_delete);
+	ring_vm_funcregister("qtexttospeech_delete",ring_QTextToSpeech_delete);
 }

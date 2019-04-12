@@ -24063,6 +24063,112 @@ Class QQmlError
 		pTempObj.pObject = QQmlError_url(pObject)
 		return pTempObj
 
+Class QTextToSpeech from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QTextToSpeech_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTextToSpeech_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func availableLocales 
+		return QTextToSpeech_availableLocales(pObject)
+
+	Func availableVoices 
+		return QTextToSpeech_availableVoices(pObject)
+
+	Func locale 
+		return QTextToSpeech_locale(pObject)
+
+	Func pitch 
+		return QTextToSpeech_pitch(pObject)
+
+	Func rate 
+		return QTextToSpeech_rate(pObject)
+
+	Func state 
+		return QTextToSpeech_state(pObject)
+
+	Func voice 
+		return QTextToSpeech_voice(pObject)
+
+	Func volume 
+		return QTextToSpeech_volume(pObject)
+
+	Func pause 
+		return QTextToSpeech_pause(pObject)
+
+	Func resume 
+		return QTextToSpeech_resume(pObject)
+
+	Func say P1
+		return QTextToSpeech_say(pObject,P1)
+
+	Func setLocale P1
+		return QTextToSpeech_setLocale(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPitch P1
+		return QTextToSpeech_setPitch(pObject,P1)
+
+	Func setRate P1
+		return QTextToSpeech_setRate(pObject,P1)
+
+	Func setVoice P1
+		return QTextToSpeech_setVoice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVolume P1
+		return QTextToSpeech_setVolume(pObject,P1)
+
+	Func stop 
+		return QTextToSpeech_stop(pObject)
+
+	Func availableEngines 
+		pTempObj = new QStringList
+		pTempObj.pObject = QTextToSpeech_availableEngines(pObject)
+		return pTempObj
+
+	Func setlocaleChangedEvent P1
+		return QTextToSpeech_setlocaleChangedEvent(pObject,P1)
+
+	Func setpitchChangedEvent P1
+		return QTextToSpeech_setpitchChangedEvent(pObject,P1)
+
+	Func setrateChangedEvent P1
+		return QTextToSpeech_setrateChangedEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QTextToSpeech_setstateChangedEvent(pObject,P1)
+
+	Func setvoiceChangedEvent P1
+		return QTextToSpeech_setvoiceChangedEvent(pObject,P1)
+
+	Func setvolumeChangedEvent P1
+		return QTextToSpeech_setvolumeChangedEvent(pObject,P1)
+
+	Func getlocaleChangedEvent 
+		return QTextToSpeech_getlocaleChangedEvent(pObject)
+
+	Func getpitchChangedEvent 
+		return QTextToSpeech_getpitchChangedEvent(pObject)
+
+	Func getrateChangedEvent 
+		return QTextToSpeech_getrateChangedEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QTextToSpeech_getstateChangedEvent(pObject)
+
+	Func getvoiceChangedEvent 
+		return QTextToSpeech_getvoiceChangedEvent(pObject)
+
+	Func getvolumeChangedEvent 
+		return QTextToSpeech_getvolumeChangedEvent(pObject)
+
 Class QSize
 
 	pObject
