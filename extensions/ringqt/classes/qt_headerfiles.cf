@@ -350,6 +350,7 @@ extern "C" {
 <filter> sysget("RINGQT_QT512") = "1"
 #include <QTextToSpeech>
 #include "gtexttospeech.h"
+#include <QVoice>
 </filter>
 
 </code>

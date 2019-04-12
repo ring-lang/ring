@@ -332,6 +332,7 @@ extern "C" {
 
 #include <QTextToSpeech>
 #include "gtexttospeech.h"
+#include <QVoice>
 
 extern "C" {
 
@@ -612,6 +613,7 @@ extern "C" {
 	void ring_QQuickView_freefunc(void *pState,void *pPointer);
 	void ring_QQmlError_freefunc(void *pState,void *pPointer);
 	void ring_QTextToSpeech_freefunc(void *pState,void *pPointer);
+	void ring_QVoice_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -134657,9 +134659,9 @@ RING_FUNC(ring_QTextToSpeech_voice)
 	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
 	{
 		QVoice *pValue ; 
-		pValue = (QVoice *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVoice)) ;
+		pValue = new QVoice() ;
 		*pValue = pObject->voice();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QVoice",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVoice",ring_QVoice_freefunc);
 	}
 }
 
@@ -135101,6 +135103,99 @@ RING_FUNC(ring_QTextToSpeech_getvolumeChangedEvent)
 	}
 	pObject = (GTextToSpeech *) RING_API_GETCPOINTER(1,"QTextToSpeech");
 	RING_API_RETSTRING(pObject->getvolumeChangedEvent());
+}
+
+
+RING_FUNC(ring_QVoice_age)
+{
+	QVoice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+	RING_API_RETNUMBER(pObject->age());
+}
+
+
+RING_FUNC(ring_QVoice_gender)
+{
+	QVoice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+	RING_API_RETNUMBER(pObject->gender());
+}
+
+
+RING_FUNC(ring_QVoice_name)
+{
+	QVoice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QVoice_ageName)
+{
+	QVoice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->ageName( (QVoice::Age )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QVoice_genderName)
+{
+	QVoice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->genderName( (QVoice::Gender )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 RING_FUNC(ring_QObject_new)
@@ -138519,6 +138614,17 @@ RING_FUNC(ring_QTextToSpeech_new)
 	}
 	GTextToSpeech *pObject = new GTextToSpeech((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QTextToSpeech");
+}
+
+RING_FUNC(ring_QVoice_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QVoice *pObject = new QVoice();
+	RING_API_RETCPOINTER(pObject,"QVoice");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -142567,6 +142673,23 @@ RING_FUNC(ring_QTextToSpeech_delete)
 	}
 }
 
+RING_FUNC(ring_QVoice_delete)
+{
+	QVoice *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QVoice *) RING_API_GETCPOINTER(1,"QVoice");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -144230,6 +144353,13 @@ void ring_QTextToSpeech_freefunc(void *pState,void *pPointer)
 {
 	GTextToSpeech *pObject ; 
 	pObject = (GTextToSpeech *) pPointer;
+	delete pObject ;
+}
+
+void ring_QVoice_freefunc(void *pState,void *pPointer)
+{
+	QVoice *pObject ; 
+	pObject = (QVoice *) pPointer;
 	delete pObject ;
 }
 
@@ -150660,6 +150790,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtexttospeech_getstatechangedevent",ring_QTextToSpeech_getstateChangedEvent);
 	ring_vm_funcregister("qtexttospeech_getvoicechangedevent",ring_QTextToSpeech_getvoiceChangedEvent);
 	ring_vm_funcregister("qtexttospeech_getvolumechangedevent",ring_QTextToSpeech_getvolumeChangedEvent);
+	ring_vm_funcregister("qvoice_age",ring_QVoice_age);
+	ring_vm_funcregister("qvoice_gender",ring_QVoice_gender);
+	ring_vm_funcregister("qvoice_name",ring_QVoice_name);
+	ring_vm_funcregister("qvoice_agename",ring_QVoice_ageName);
+	ring_vm_funcregister("qvoice_gendername",ring_QVoice_genderName);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -150898,6 +151033,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qquickview_new",ring_QQuickView_new);
 	ring_vm_funcregister("qqmlerror_new",ring_QQmlError_new);
 	ring_vm_funcregister("qtexttospeech_new",ring_QTextToSpeech_new);
+	ring_vm_funcregister("qvoice_new",ring_QVoice_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -151136,4 +151272,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qquickview_delete",ring_QQuickView_delete);
 	ring_vm_funcregister("qqmlerror_delete",ring_QQmlError_delete);
 	ring_vm_funcregister("qtexttospeech_delete",ring_QTextToSpeech_delete);
+	ring_vm_funcregister("qvoice_delete",ring_QVoice_delete);
 }

@@ -24096,7 +24096,9 @@ Class QTextToSpeech from QObject
 		return QTextToSpeech_state(pObject)
 
 	Func voice 
-		return QTextToSpeech_voice(pObject)
+		pTempObj = new QVoice
+		pTempObj.pObject = QTextToSpeech_voice(pObject)
+		return pTempObj
 
 	Func volume 
 		return QTextToSpeech_volume(pObject)
@@ -24168,6 +24170,35 @@ Class QTextToSpeech from QObject
 
 	Func getvolumeChangedEvent 
 		return QTextToSpeech_getvolumeChangedEvent(pObject)
+
+Class QVoice
+
+	pObject
+
+	Func init 
+		pObject = QVoice_new()
+		return self
+
+	Func delete
+		pObject = QVoice_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func age 
+		return QVoice_age(pObject)
+
+	Func gender 
+		return QVoice_gender(pObject)
+
+	Func name 
+		return QVoice_name(pObject)
+
+	Func ageName P1
+		return QVoice_ageName(pObject,P1)
+
+	Func genderName P1
+		return QVoice_genderName(pObject,P1)
 
 Class QSize
 

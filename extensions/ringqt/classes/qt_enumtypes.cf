@@ -358,4 +358,6 @@ aEnumTypes + "QPrintPreviewWidget::ZoomMode"
 aEnumTypes + "QAbstractPrintDialog::PrintDialogOption"
 aEnumTypes + "QAbstractPrintDialog::PrintDialogOptions"
 aEnumTypes + "QTextToSpeech::State"
+aEnumTypes + "QVoice::Age"
+aEnumTypes + "QVoice::Gender"
 </runcode>

@@ -1,0 +1,10 @@
+<class>
+name: QVoice
+para: void
+</class>
+
+QVoice::Age age(void)
+QVoice::Gender gender(void)
+QString name(void)
+QString ageName(QVoice::Age age)
+QString genderName(QVoice::Gender gender)

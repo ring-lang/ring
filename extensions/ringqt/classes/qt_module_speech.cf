@@ -3,3 +3,4 @@
 </comment>
 
 <loadfile> speech/qtexttospeech.cf
+<loadfile> speech/qvoice.cf
