@@ -17,3 +17,7 @@
 <loadfile> qt_module_axcontainer.cf
 <loadfile> qt_module_quickwidgets.cf
 <loadfile> qt_module_qml.cf
+
+<filter> sysget("RINGQT_QT512") = "1"
+<loadfile> qt_module_speech.cf
+</filter>

@@ -1,0 +1,5 @@
+<comment>
+				Module (Speech)
+</comment>
+
+<loadfile> speech/qtexttospeech.cf
