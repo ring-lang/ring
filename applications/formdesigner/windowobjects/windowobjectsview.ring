@@ -18,8 +18,7 @@ class windowObjectsView from WindowsViewParent
 			move(10,13)
 			resize(41,26)
 			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
+			oFont = new qfont("arial",10,0,0)
 			setfont(oFont)
 			setText(T_FROMDESIGNER_WO_OBJECTS) # "Objects"
 			setAlignment(Qt_AlignRight |  Qt_AlignVCenter)
@@ -28,16 +27,14 @@ class windowObjectsView from WindowsViewParent
 			move(56,13)
 			resize(321,290)
 			setstylesheet("color:black;background-color:white;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
+			oFont = new qfont("arial",10,0,0)
 			setfont(oFont)
 		}
 		BtnOk = new qpushbutton(win) {
 			move(236,315)
 			resize(68,25)
 			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
+			oFont = new qfont("arial",10,0,0)
 			setfont(oFont)
 			setText(T_FROMDESIGNER_WO_OK) # "Ok"
 			setClickEvent(Method(:okAction))
@@ -47,8 +44,7 @@ class windowObjectsView from WindowsViewParent
 			move(309,315)
 			resize(68,25)
 			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
+			oFont = new qfont("arial",10,0,0)
 			setfont(oFont)
 			setText(T_FROMDESIGNER_WO_CANCEL) # "Cancel"
 			setClickEvent(Method(:CancelAction))
