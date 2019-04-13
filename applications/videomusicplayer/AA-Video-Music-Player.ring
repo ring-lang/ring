@@ -285,7 +285,7 @@ MyApp = New qapp
             btnVertPos = 20
             btnSize    = 20
 
-            oFont = new qFont("",10,0,0)
+            oFont = new qFont("arial",10,0,0)
             setFont( oFont)
 
             btnPlay = new qpushbutton(win1)    {
@@ -490,7 +490,7 @@ MyApp = New qapp
 
          btnSize    = 30
 
-		oFont = new qFont("",11,0,0)
+		oFont = new qFont("arial",11,0,0)
 		setFont( oFont)
 	
         ###---------------------------------------
