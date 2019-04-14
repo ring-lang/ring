@@ -1,5 +1,4 @@
 <runcode>
-
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
@@ -360,4 +359,11 @@ aEnumTypes + "QAbstractPrintDialog::PrintDialogOptions"
 aEnumTypes + "QTextToSpeech::State"
 aEnumTypes + "QVoice::Age"
 aEnumTypes + "QVoice::Gender"
+aEnumTypes + "QGraphicsView::CacheMode"
+aEnumTypes + "QGraphicsView::CacheModeFlag"
+aEnumTypes + "QGraphicsView::DragMode"
+aEnumTypes + "QGraphicsView::OptimizationFlag"
+aEnumTypes + "QGraphicsView::OptimizationFlags"
+aEnumTypes + "QGraphicsView::ViewportAnchor"
+aEnumTypes + "QGraphicsView::ViewportUpdateMode"
 </runcode>

@@ -353,5 +353,7 @@ extern "C" {
 #include <QVoice>
 </filter>
 
+#include <QGraphicsView>
+
 </code>
 
