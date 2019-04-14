@@ -3199,6 +3199,101 @@ Parameters : void
 * QSizeF size(void)
 
 .. index::
+	pair: RingQt Classes Reference; QGraphicsView Class
+
+QGraphicsView Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGraphicsView.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QAbstractScrollArea
+
+* Qt::Alignment alignment(void)
+* QBrush backgroundBrush(void)
+* QGraphicsView::CacheMode cacheMode(void)
+* void centerOn(QPointF pos)
+* void centerOn_2(qreal x, qreal y)
+* void centerOn_3(QGraphicsItem *item)
+* QGraphicsView::DragMode dragMode(void)
+* void ensureVisible(QRectF rect, int xmargin, int ymargin)
+* void ensureVisible_2(qreal x, qreal y, qreal w, qreal h, int xmargin, int ymargin)
+* void ensureVisible_3(QGraphicsItem *item, int xmargin, int ymargin)
+* void fitInView(QRectF rect, Qt::AspectRatioMode aspectRatioMode)
+* void fitInView_2(qreal x, qreal y, qreal w, qreal h, Qt::AspectRatioMode aspectRatioMode)
+* void fitInView_3(QGraphicsItem *item, Qt::AspectRatioMode aspectRatioMode)
+* QBrush foregroundBrush(void)
+* bool isInteractive(void)
+* bool isTransformed(void)
+* QGraphicsItem * itemAt(QPoint pos)
+* QGraphicsItem * itemAt_2(int x, int y)
+* QList<QGraphicsItem *> items(void)
+* QList<QGraphicsItem *> items_2(QPoint pos)
+* QList<QGraphicsItem *> items_3(int x, int y)
+* QList<QGraphicsItem *> items_4(QRect rect, Qt::ItemSelectionMode mode)
+* QList<QGraphicsItem *> items_5(int x, int y, int w, int h, Qt::ItemSelectionMode mode)
+* QList<QGraphicsItem *> items_6(QPolygon polygon, Qt::ItemSelectionMode mode)
+* QList<QGraphicsItem *> items_7(QPainterPath path, Qt::ItemSelectionMode mode)
+* QPoint mapFromScene(QPointF point)
+* QPolygon mapFromScene_2(QRectF rect)
+* QPolygon mapFromScene_3(QPolygonF polygon)
+* QPainterPath mapFromScene_4(QPainterPath path)
+* QPoint mapFromScene_5(qreal x, qreal y)
+* QPolygon mapFromScene_6(qreal x, qreal y, qreal w, qreal h)
+* QPointF mapToScene(QPoint point)
+* QPolygonF mapToScene_2(QRect rect)
+* QPolygonF mapToScene_3(QPolygon polygon)
+* QPainterPath mapToScene_4(QPainterPath path)
+* QPointF mapToScene_5(int x, int y)
+* QPolygonF mapToScene_6(int x, int y, int w, int h)
+* QMatrix matrix(void)
+* QGraphicsView::OptimizationFlags optimizationFlags(void)
+* void render(QPainter *painter, QRectF target, QRect source, Qt::AspectRatioMode aspectRatioMode)
+* QPainter::RenderHints renderHints(void)
+* void resetCachedContent(void)
+* void resetMatrix(void)
+* void resetTransform(void)
+* QGraphicsView::ViewportAnchor resizeAnchor(void)
+* void rotate(qreal angle)
+* QRect rubberBandRect(void)
+* Qt::ItemSelectionMode rubberBandSelectionMode(void)
+* void scale(qreal sx, qreal sy)
+* QGraphicsScene * scene(void)
+* QRectF sceneRect(void)
+* void setAlignment(Qt::Alignment alignment)
+* void setBackgroundBrush(QBrush brush)
+* void setCacheMode(QGraphicsView::CacheMode mode)
+* void setDragMode(QGraphicsView::DragMode mode)
+* void setForegroundBrush(QBrush brush)
+* void setInteractive(bool allowed)
+* void setMatrix(QMatrix matrix, bool combine)
+* void setOptimizationFlag(QGraphicsView::OptimizationFlag flag, bool enabled)
+* void setOptimizationFlags(QGraphicsView::OptimizationFlags flags)
+* void setRenderHint(QPainter::RenderHint hint, bool enabled)
+* void setRenderHints(QPainter::RenderHints hints)
+* void setResizeAnchor(QGraphicsView::ViewportAnchor anchor)
+* void setRubberBandSelectionMode(Qt::ItemSelectionMode mode)
+* void setScene(QGraphicsScene *scene)
+* void setSceneRect(QRectF rect)
+* void setSceneRect_2(qreal x, qreal y, qreal w, qreal h)
+* void setTransform(QTransform matrix, bool combine)
+* void setTransformationAnchor(QGraphicsView::ViewportAnchor anchor)
+* void setViewportUpdateMode(QGraphicsView::ViewportUpdateMode mode)
+* void shear(qreal sh, qreal sv)
+* QTransform transform(void)
+* QGraphicsView::ViewportAnchor transformationAnchor(void)
+* void translate(qreal dx, qreal dy)
+* QTransform viewportTransform(void)
+* QGraphicsView::ViewportUpdateMode viewportUpdateMode(void)
+* void invalidateScene(QRectF rect, QGraphicsScene::SceneLayers layers)
+* void updateScene(QList<QRectF> rects)
+* void updateSceneRect(QRectF rect)
+
+.. index::
 	pair: RingQt Classes Reference; QGridLayout Class
 
 QGridLayout Class
@@ -6222,6 +6317,30 @@ Parameters : void
 * qreal y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPrintDialog Class
+
+QPrintDialog Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPrintDialog.html
+
+
+Parameters : QPrinter *,QWidget *
+
+
+Parent Class : QAbstractPrintDialog
+
+* void open(QObject * receiver, char * member)
+* QAbstractPrintDialog::PrintDialogOptions options(void)
+* QPrinter * printer(void)
+* void setOption(QAbstractPrintDialog::PrintDialogOption option, bool on)
+* void setOptions(QAbstractPrintDialog::PrintDialogOptions options)
+* bool testOption(QAbstractPrintDialog::PrintDialogOption option)
+* void setacceptedEvent(const char *)
+* const char *getacceptedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPrintPreviewDialog Class
 
 QPrintPreviewDialog Class
@@ -6498,6 +6617,7 @@ Parameters : void
 * void setUrl(QUrl url)
 * QString toString(void)
 * QUrl url(void)
+
 .. index::
 	pair: RingQt Classes Reference; QQuaternion Class
 
@@ -8589,6 +8709,52 @@ Parent Class : QTextStream
 
 
 .. index::
+	pair: RingQt Classes Reference; QTextToSpeech Class
+
+QTextToSpeech Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextToSpeech.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QVector<QLocale> availableLocales(void)
+* QVector<QVoice> availableVoices(void)
+* QLocale locale(void)
+* double pitch(void)
+* double rate(void)
+* QTextToSpeech::State state(void)
+* QVoice voice(void)
+* double volume(void)
+* void pause(void)
+* void resume(void)
+* void say(QString text)
+* void setLocale(QLocale locale)
+* void setPitch(double pitch)
+* void setRate(double rate)
+* void setVoice(QVoice voice)
+* void setVolume(double volume)
+* void stop(void)
+* QStringList availableEngines(void)
+* void setlocaleChangedEvent(const char *)
+* void setpitchChangedEvent(const char *)
+* void setrateChangedEvent(const char *)
+* void setstateChangedEvent(const char *)
+* void setvoiceChangedEvent(const char *)
+* void setvolumeChangedEvent(const char *)
+* const char *getlocaleChangedEvent(void)
+* const char *getpitchChangedEvent(void)
+* const char *getrateChangedEvent(void)
+* const char *getstateChangedEvent(void)
+* const char *getvoiceChangedEvent(void)
+* const char *getvolumeChangedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QThread Class
 
 QThread Class
@@ -9386,6 +9552,20 @@ Parameters : float,float,float,float
 * float dotProduct(QVector4D v1, QVector4D v2)
 
 .. index::
+	pair: RingQt Classes Reference; QVectorQVoice Class
+
+QVectorQVoice Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVectorQVoice.html
+
+
+Parameters : void
+
+* int count(void)
+* QVoice value(int i)
+.. index::
 	pair: RingQt Classes Reference; QVideoWidget Class
 
 QVideoWidget Class
@@ -9435,6 +9615,24 @@ C++ Reference : http://doc.qt.io/qt-5/QVideoWidgetControl.html
 
 Parent Class : QMediaControl
 
+
+.. index::
+	pair: RingQt Classes Reference; QVoice Class
+
+QVoice Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVoice.html
+
+
+Parameters : void
+
+* QVoice::Age age(void)
+* QVoice::Gender gender(void)
+* QString name(void)
+* QString ageName(QVoice::Age age)
+* QString genderName(QVoice::Gender gender)
 
 .. index::
 	pair: RingQt Classes Reference; QWebEngineView Class
