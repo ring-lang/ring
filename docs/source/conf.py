@@ -63,7 +63,7 @@ author = u'Ring Team'
 # built documents.
 #
 # The short X.Y version.
-version = '1.10'
+version = '1.11'
 # The full version, including alpha/beta/rc tags.
 release = '1.10'
 
