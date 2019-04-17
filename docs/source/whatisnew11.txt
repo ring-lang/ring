@@ -15,8 +15,24 @@ List of changes and new features
 
 Ring 1.11 comes with the next features!
 
+* Desktop Screen Shot Application
+* Text To Speech Application
 * Better RingQt
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Desktop Screen Shot Application
+
+Desktop Screen Shot Application
+===============================
+
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Text To Speech Application 
+
+Text To Speech Application
+==========================
+
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Better RingQt 
