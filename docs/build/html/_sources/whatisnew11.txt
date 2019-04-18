@@ -26,6 +26,8 @@ Ring 1.11 comes with the next features!
 Desktop Screen Shot Application
 ===============================
 
+.. image:: dssapp.png
+	:alt: Desktop Screen Shot Application
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Text To Speech Application 
