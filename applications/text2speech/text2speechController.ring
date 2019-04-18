@@ -16,6 +16,8 @@ class text2speechController from windowsControllerParent
 
 	oView = new text2speechView
 	
+	oView.LineEdit1.setText("Welcome to the Ring programming language")
+
 	oView.TextEdit1.setText("The Ring is an innovative and practical general-purpose multi-paradigm language."+nl+
 				"The supported programming paradigms are imperative, procedural, object-oriented,"+nl+
 				"declarative using nested structures, functional, meta programming and natural programming.")
