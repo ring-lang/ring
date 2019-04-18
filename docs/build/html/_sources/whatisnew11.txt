@@ -36,6 +36,9 @@ Text To Speech Application
 ==========================
 
 
+.. image:: ttsapp.png
+	:alt: Text To Speech Application
+
 .. index:: 
 	pair: What is new in Ring 1.11?; Better RingQt 
 
