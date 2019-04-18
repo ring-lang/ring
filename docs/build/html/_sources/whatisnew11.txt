@@ -40,6 +40,10 @@ Text To Speech Application
 Better RingQt
 =============
 
+* Building RingQt using Qt 5.12.2
+
+* RingQt for Android - project file is updated to include webview module when we have it
+
 * QString Class - New Methods
 
     	* compare()
@@ -54,10 +58,13 @@ Better RingQt
 	* endsWith()
 	* toHtmlEscaped()
 
+* QAxBase & QVariant - Better API 
+
 * The next classes are added to RingQt 
 
 	* QQuickView Class
 	* QPrintDialog Class
+	* QAxWidget2 Class
 	* QTextToSpeech Class 
 	* QGraphicsView Class
 
@@ -66,4 +73,23 @@ Better RingQt
 
 More Improvements
 =================
+
+* New Samples 
+	* samples/other/ModuloTimesTableCircle folder
+	* samples/other/saveimage folder
+	* samples/other/UsingQML folder
+	* samples/other/myguicontrol.ring 
+	* samples/other/qcalendarwidget.ring
+	* samples/other/qcalendarwidget2.ring
+* Gold Magic 800 - More levels (44 Levels)
+* Ring Notepad - Keyboard shortcuts for the Dockable Windows Mode
+* RingPM - When updating a package - don't reinstall the dependency again
+* Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H
+* Ring VM - Error codes for Ring Object File errors
+* Ring VM - Eval() function - Better Code
+* Ring VM - the ">" operator and operator overloading - Better Code
+* Ring VM - Assignment and calling object methods - Better Code
+* Ring API - Supporting RING_API_ISLIST() in C Extensions
+* Ring Compiler - Supporting new lines after numbers and literals when writing conditions
+* Ring Compiler - Supporting semi-colon (;) in the start of the line
 
