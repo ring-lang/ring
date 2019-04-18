@@ -40,6 +40,26 @@ Text To Speech Application
 Better RingQt
 =============
 
+* QString Class - New Methods
+
+    	* compare()
+	* contains()
+	* indexOf()
+	* insert()
+	* isRightToLeft()
+	* remove()
+	* repeated()
+	* replace()
+	* startsWith()
+	* endsWith()
+	* toHtmlEscaped()
+
+* The next classes are added to RingQt 
+
+	* QQuickView Class
+	* QPrintDialog Class
+	* QTextToSpeech Class 
+	* QGraphicsView Class
 
 .. index:: 
 	pair: What is new in Ring 1.11?; More Improvements
