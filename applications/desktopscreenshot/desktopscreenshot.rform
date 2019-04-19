@@ -7,7 +7,7 @@ aObjectsList = [
 		 :backcolor =  "#1a3566" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowSystemMenuHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "images/dssicon.jpg" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
