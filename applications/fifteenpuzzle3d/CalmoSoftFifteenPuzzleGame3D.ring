@@ -56,7 +56,7 @@ func main
 
 class TicTacToe3D from GameLogic
 
-	FPS = 60
+	FPS = 120
 	TITLE = "CalmoSoft Fifteen Puzzle Game 3D"
 
 	oBackground = new GameBackground
@@ -365,23 +365,24 @@ class GraphicsAppBase
 		al_clear_to_color(al_map_rgb(0,0,0))
 		event_queue = al_create_event_queue()
 		al_register_event_source(event_queue, 
-		al_get_display_event_source(display))
+			al_get_display_event_source(display))
 		ev = al_new_allegro_event()
 		timeout = al_new_allegro_timeout()
 		al_init_timeout(timeout, 0.06)
 		timer = al_create_timer(1.0 / FPS)
 		al_register_event_source(event_queue, 
-		al_get_timer_event_source(timer))
+			al_get_timer_event_source(timer))
 		al_start_timer(timer)
 		al_install_mouse()
 		al_register_event_source(event_queue, 
-		al_get_mouse_event_source())
+			al_get_mouse_event_source())
 		al_install_keyboard()
 		al_register_event_source(event_queue, 
-		al_get_keyboard_event_source())
+			al_get_keyboard_event_source())
 
 	func eventsLoop
 		while true
+			al_init_timeout(timeout, 0.06)
 			al_wait_for_event_until(event_queue, ev, timeout)
 			switch al_get_allegro_event_type(ev)
 			on ALLEGRO_EVENT_DISPLAY_CLOSE
@@ -433,6 +434,7 @@ class GraphicsAppBase
 		end
 
 	func destroy
+		destroyResources()
 		al_destroy_timer(timer)
 		al_destroy_allegro_event(ev)
 		al_destroy_allegro_timeout(timeout)
@@ -443,6 +445,8 @@ class GraphicsAppBase
 	func loadresources
 
 	func drawScene
+
+	func destroyResources
 
 	func MouseClickEvent
 		exit 			# Exit from the Events Loop 
