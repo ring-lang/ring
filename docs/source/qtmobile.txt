@@ -20,19 +20,15 @@ Download
 
 * The Android SDK Tools
 
-	https://developer.android.com/studio/index.html
+	https://developer.android.com/sdk/index.html
 
 * The Android NDK (Tested using android-ndk-r10c)
 
-		https://developer.android.com/ndk/index.html
-
-* Apache Ant v1.8 or later 
-
-		http://ant.apache.org/bindownload.cgi
+	http://developer.android.com/tools/sdk/ndk/index.html
 
 * Java SE Development Kit (JDK) v6 or later
 
-		http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+	http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html	
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Update the Android SDK
@@ -56,7 +52,7 @@ Update the Android SDK to get the API and tools packages required for developmen
 
 .. code-block:: ring
 
-	For Example : B:\mahmoud\Tools\Java-Android\adt-bundle-windows-x86-20140702\sdk
+	For Example : C:\JavaAndroid\AndroidSDK
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Install Qt for Android
@@ -66,7 +62,7 @@ Install Qt for Android
 
 * You can install Qt for Android from the next link
 
-		https://download.qt.io/archive/qt/5.5/5.5.1/
+		https://download.qt.io/archive/qt/5.12/5.12.2/
 
 * Run Qt Creator, Select Tools > Options > Android to add the 
     Android NDK and SDK paths. 
@@ -80,7 +76,7 @@ Install Qt for Android
 Using Ring2EXE
 ==============
 
-Starting from Ring 1.6 we can use Ring2EXE to quickly prepare Qt project for our application
+We can use Ring2EXE to quickly prepare Qt project for our application
 
 Example:
 
