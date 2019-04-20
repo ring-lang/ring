@@ -30,7 +30,11 @@ class RNoteLists
 				aList = Split(cLine," ")
 				if len(aList) >= 2
 					cFuncName = lower(trim(aList[2]))
-					if isalnum(cFuncName)	and lower(trim(aList[1])) = "func"
+					cFuncNameWithoutSymbols = cFuncName
+					for cChar in ["_","@","$"]
+						cFuncNameWithoutSymbols = substr(cFuncNameWithoutSymbols,cChar,"")
+					next 
+					if isalnum(cFuncNameWithoutSymbols) and lower(trim(aList[1])) = "func"
 						aFunctionsPos + [cFuncName+"()" , nLineNumber]
 					ok
 				ok
