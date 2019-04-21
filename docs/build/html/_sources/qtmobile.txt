@@ -62,7 +62,7 @@ Install Qt for Android
 
 * You can install Qt for Android from the next link
 
-		https://download.qt.io/archive/qt/5.12/5.12.2/
+		https://download.qt.io/archive/qt/5.12/5.12.3/
 
 * Run Qt Creator, Select Tools > Options > Android to add the 
     Android NDK and SDK paths. 

@@ -45,7 +45,7 @@ Text To Speech Application
 Better RingQt
 =============
 
-* Building RingQt using Qt 5.12.2
+* Building RingQt using Qt 5.12.3
 
 * RingQt for Android - project file is updated to include webview module when we have it
 

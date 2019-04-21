@@ -164,7 +164,7 @@ Generate RingPostgreSQL Source Code and Build
 	gencode.bat
 	buildvc.bat
 
-Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.2/
+Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.3/
 
 Generate RingQt Source Code and Build
 
