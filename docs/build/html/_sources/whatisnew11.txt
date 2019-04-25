@@ -15,10 +15,28 @@ List of changes and new features
 
 Ring 1.11 comes with the next features!
 
+* Checkers Game
 * Desktop Screen Shot Application
 * Text To Speech Application
 * Better RingQt
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Checkers Game
+
+Checkers Game
+=============
+
+It plays the - Must Jump - version of Checkers, The International Rules 
+
+It handles various invalid moves, invalid jumps, and must jumps. 
+
+The squares are colored to reflect errors.
+
+The Sqaures are colored to show source and destination of the move or jump.
+
+.. image:: checkersgame.png
+	:alt: Checkers Game Application
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Desktop Screen Shot Application
