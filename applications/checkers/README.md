@@ -1,6 +1,11 @@
-The Checkers Game - Under Development
-=====================================
+The Checkers Game
+=================
 
-The Checkers Game by Gal Zsolt
+The Checkers Game by Bert Mariani
 
-Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/89WswpuC5W8
+It plays the - Must Jump - version of Checkers, The International Rules 
+
+It handles various invalid moves, invalid jumps, and must jumps. 
+The squares are colored to reflect errors.
+The Sqaures are colored to show source and destination of the move or jump.
+
