@@ -153,7 +153,7 @@ Func DrawWidget()
         aButton = newList(hSize, vSize) ### Internal Array with Letters
         recordArray = newList(1, 2) ### Record the Moves ...  WN 8-7  to  6-6
         
-        setWindowTitle('Checkers 2 Player')
+        setWindowTitle('Checkers 2 Players')
         setStyleSheet('background-color:White')
 
         workHeight = workWidget.height()
