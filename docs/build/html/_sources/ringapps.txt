@@ -284,6 +284,9 @@ Furthermore, It will be fantastic if there is "natural language -> evm bytecode"
 I saw your examples in 3D I've looked at part of your project, it's really great"
 	, Rafal Jopek
 
+"Looks like a big project and an impressive piece of work"
+	, Rochus Keller (PhD From ETH Zurich, Switzerland)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
