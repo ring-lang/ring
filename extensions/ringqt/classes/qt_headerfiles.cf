@@ -351,6 +351,9 @@ extern "C" {
 #include <QTextToSpeech>
 #include "gtexttospeech.h"
 #include <QVoice>
+
+#include <Qt3DCore/QAbstractAspect>
+
 </filter>
 
 #include <QGraphicsView>

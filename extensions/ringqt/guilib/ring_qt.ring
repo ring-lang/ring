@@ -24493,6 +24493,23 @@ Class QVectorQVoice
 		pTempObj.pObject = QVectorQVoice_value(pObject,P1)
 		return pTempObj
 
+Class QAbstractAspect from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAbstractAspect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAbstractAspect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func scheduleSingleShotJob P1
+		return QAbstractAspect_scheduleSingleShotJob(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject

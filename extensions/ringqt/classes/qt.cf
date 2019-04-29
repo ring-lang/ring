@@ -20,4 +20,5 @@
 
 <filter> sysget("RINGQT_QT512") = "1"
 <loadfile> qt_module_speech.cf
+<loadfile> qt_module_qt3d.cf
 </filter>
