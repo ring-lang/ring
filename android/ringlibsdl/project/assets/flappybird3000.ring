@@ -1,5 +1,6 @@
 # The Ring Standard Library
 # Game Engine for 2D Games
+# Flappy Bird 300 Game
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 oGameState = NULL
@@ -30,8 +31,7 @@ func main
 			}
 			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					cFunc = oself.keypress
-					call cFunc(oGame,oSelf,Key_Space)
+					call oself.keypress(oGame,oSelf,Key_Space)
 				ok
 			}
 		}
@@ -129,6 +129,7 @@ func playstart oGame
 	oGame {
 		FPS = 60
 		FixedFPS = 120
+		nTimeOut = 0
 		Title = "Flappy Bird 3000"
 		Sprite {
 			file = "images/fbback.png"
@@ -185,6 +186,12 @@ func playstart oGame
 					    oSelf.getvalue(px,py+40) != 0
 						oGameState.gameresult = true
 						oGame {
+							oGame.aObjects[3] { 
+								file = "images/fbbirddown.png" 
+								transparentdone = false 
+								nstep=0
+								frame=1
+							}
 							text {
 								point = 550
 								size = 30
@@ -264,8 +271,7 @@ func playstart oGame
 			}
 			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					cFunc = oself.keypress
-					call cFunc(oGame,oSelf,Key_Space)
+					call oself.keypress(oGame,oSelf,Key_Space)
 				ok
 			}
 		}
@@ -320,7 +326,7 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						oGameState.value = 0
+						oGameState.Score = 0
 					ok
 				}
 			}

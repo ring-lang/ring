@@ -1,1 +1,1 @@
-load "game2.ring"
+load "flappybird3000.ring"
