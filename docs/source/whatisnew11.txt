@@ -106,6 +106,7 @@ More Improvements
 	* samples/other/qcalendarwidget2.ring
 * Gold Magic 800 - More levels (44 Levels)
 * Fifteen Puzzle Game 3D - Better Code (Animation Speed)
+* Flappy Bird 3000 - change the Bird direction to be looking down when we have game over
 * Ring Notepad - Keyboard shortcuts for the Dockable Windows Mode
 * Ring Notepad - When displaying functions list, don't avoid functions that contains the "_" character
 * RingPM - When updating a package - don't reinstall the dependency again
