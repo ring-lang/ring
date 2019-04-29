@@ -186,6 +186,12 @@ func playstart oGame
 					    oSelf.getvalue(px,py+40) != 0
 						oGameState.gameresult = true
 						oGame {
+							oGame.aObjects[3] { 
+								file = "images/fbbirddown.png" 
+								transparentdone = false 
+								nstep=0
+								frame=1
+							}
 							text {
 								point = 550
 								size = 30
