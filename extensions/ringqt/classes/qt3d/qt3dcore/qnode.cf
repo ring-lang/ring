@@ -1,0 +1,25 @@
+<class>
+name: QNode
+codename: Qt3DCore::QNode
+para: Qt3DCore::QNode *
+parent: QObject
+</class>
+
+bool blockNotifications(bool block)
+Qt3DCore::QNodeVector childNodes(void)
+void clearPropertyTracking(QString propertyName)
+void clearPropertyTrackings(void)
+Qt3DCore::QNode::PropertyTrackingMode defaultPropertyTrackingMode(void)
+Qt3DCore::QNodeId id(void)
+bool isEnabled(void)
+bool notificationsBlocked(void)
+Qt3DCore::QNode * parentNode(void)
+Qt3DCore::QNode::PropertyTrackingMode propertyTracking(QString propertyName)
+<comment>
+QNodeCommand::CommandId sendCommand(QString name, QVariant data, QNodeCommand::CommandId replyTo)
+</comment>
+void sendReply(Qt3DCore::QNodeCommandPtr command)
+void setPropertyTracking(QString propertyName, Qt3DCore::QNode::PropertyTrackingMode trackMode)
+void setDefaultPropertyTrackingMode(Qt3DCore::QNode::PropertyTrackingMode mode)
+void setEnabled(bool isEnabled)
+void setParent(Qt3DCore::QNode *parent)

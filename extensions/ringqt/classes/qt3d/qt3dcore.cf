@@ -1,1 +1,2 @@
 <loadfile> qt3dcore/qabstractaspect.cf
+<loadfile> qt3dcore/qnode.cf

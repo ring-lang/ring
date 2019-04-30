@@ -353,6 +353,8 @@ extern "C" {
 #include <QVoice>
 
 #include <Qt3DCore/QAbstractAspect>
+#include <Qt3DCore/QNode>
+#include <Qt3DCore/QNodeCommand>
 
 </filter>
 

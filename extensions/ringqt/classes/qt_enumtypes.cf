@@ -366,4 +366,8 @@ aEnumTypes + "QGraphicsView::OptimizationFlag"
 aEnumTypes + "QGraphicsView::OptimizationFlags"
 aEnumTypes + "QGraphicsView::ViewportAnchor"
 aEnumTypes + "QGraphicsView::ViewportUpdateMode"
+aEnumTypes + "QNode::PropertyTrackingMode"
+aEnumTypes + "Qt3DCore::QNode::PropertyTrackingMode"
+aEnumTypes + "Qt3DCore::QNodeId"
+aEnumTypes + "QNodeCommand::CommandId"
 </runcode>

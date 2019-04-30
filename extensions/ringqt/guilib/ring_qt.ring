@@ -24510,6 +24510,65 @@ Class QAbstractAspect from QObject
 	Func scheduleSingleShotJob P1
 		return QAbstractAspect_scheduleSingleShotJob(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QNode from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QNode_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QNode_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func blockNotifications P1
+		return QNode_blockNotifications(pObject,P1)
+
+	Func childNodes 
+		return QNode_childNodes(pObject)
+
+	Func clearPropertyTracking P1
+		return QNode_clearPropertyTracking(pObject,P1)
+
+	Func clearPropertyTrackings 
+		return QNode_clearPropertyTrackings(pObject)
+
+	Func defaultPropertyTrackingMode 
+		return QNode_defaultPropertyTrackingMode(pObject)
+
+	Func id 
+		return QNode_id(pObject)
+
+	Func isEnabled 
+		return QNode_isEnabled(pObject)
+
+	Func notificationsBlocked 
+		return QNode_notificationsBlocked(pObject)
+
+	Func parentNode 
+		return QNode_parentNode(pObject)
+
+	Func propertyTracking P1
+		return QNode_propertyTracking(pObject,P1)
+
+	Func sendReply P1
+		return QNode_sendReply(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPropertyTracking P1,P2
+		return QNode_setPropertyTracking(pObject,P1,P2)
+
+	Func setDefaultPropertyTrackingMode P1
+		return QNode_setDefaultPropertyTrackingMode(pObject,P1)
+
+	Func setEnabled P1
+		return QNode_setEnabled(pObject,P1)
+
+	Func setParent P1
+		return QNode_setParent(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
