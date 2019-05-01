@@ -1,0 +1,31 @@
+<class>
+name: QTransform
+codename: Qt3DCore::QTransform
+para: Qt3DCore::QNode *
+</class>
+
+QMatrix4x4 matrix(void)
+QQuaternion rotation(void)
+float rotationX(void)
+float rotationY(void)
+float rotationZ(void)
+float scale(void)
+QVector3D scale3D(void)
+QVector3D translation(void)
+void setMatrix(QMatrix4x4 matrix)
+void setRotation(QQuaternion rotation)
+void setRotationX(float rotationX)
+void setRotationY(float rotationY)
+void setRotationZ(float rotationZ)
+void setScale(float scale)
+void setScale3D(QVector3D scale)
+void setTranslation(QVector3D translation)
+QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+QQuaternion fromAxesAndAngles(QVector3D axis1, float angle1, QVector3D axis2, float angle2)
+QQuaternion fromAxesAndAngles@2(QVector3D axis1, float angle1, QVector3D axis2, float angle2, QVector3D axis3, float angle3)
+QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+QQuaternion fromAxisAndAngle@2(float x, float y, float z, float angle)
+QQuaternion fromEulerAngles(QVector3D eulerAngles)
+QQuaternion fromEulerAngles@2(float pitch, float yaw, float roll)
+QMatrix4x4 rotateAround(QVector3D point, float angle, QVector3D axis)
+QMatrix4x4 rotateFromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)

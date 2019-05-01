@@ -4603,7 +4603,9 @@ Class QPixmap
 		return pTempObj
 
 	Func trueMatrix P1,P2,P3
-		return QPixmap_trueMatrix(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		pTempObj = new QTransform
+		pTempObj.pObject = QPixmap_trueMatrix(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
 
 	Func trueMatrix_2 P1,P2,P3
 		return QPixmap_trueMatrix_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
@@ -4665,7 +4667,9 @@ Class QPainter
 		return pTempObj
 
 	Func combinedTransform 
-		return QPainter_combinedTransform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QPainter_combinedTransform(pObject)
+		return pTempObj
 
 	Func compositionMode 
 		return QPainter_compositionMode(pObject)
@@ -4676,7 +4680,9 @@ Class QPainter
 		return pTempObj
 
 	Func deviceTransform 
-		return QPainter_deviceTransform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QPainter_deviceTransform(pObject)
+		return pTempObj
 
 	Func drawArc P1,P2,P3,P4,P5,P6
 		return QPainter_drawArc(pObject,P1,P2,P3,P4,P5,P6)
@@ -4866,7 +4872,9 @@ Class QPainter
 		return QPainter_testRenderHint(pObject,P1)
 
 	Func transform 
-		return QPainter_transform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QPainter_transform(pObject)
+		return pTempObj
 
 	Func translate P1,P2
 		return QPainter_translate(pObject,P1,P2)
@@ -4888,7 +4896,9 @@ Class QPainter
 		return QPainter_worldMatrixEnabled(pObject)
 
 	Func worldTransform 
-		return QPainter_worldTransform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QPainter_worldTransform(pObject)
+		return pTempObj
 
 	Func drawPolygon P1,P2
 		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -5588,7 +5598,9 @@ Class QBrush
 		return pTempObj
 
 	Func transform 
-		return QBrush_transform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QBrush_transform(pObject)
+		return pTempObj
 
 Class QTextCursor
 
@@ -7025,7 +7037,9 @@ Class QScreen
 		return pTempObj
 
 	Func transformBetween P1,P2,P3
-		return QScreen_transformBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj = new QTransform
+		pTempObj.pObject = QScreen_transformBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 Class QWindow from QObject
 
@@ -8298,10 +8312,14 @@ Class QMatrix4x4
 		return QMatrix4x4_toAffine(pObject)
 
 	Func toTransform 
-		return QMatrix4x4_toTransform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QMatrix4x4_toTransform(pObject)
+		return pTempObj
 
 	Func toTransform_2 P1
-		return QMatrix4x4_toTransform_2(pObject,P1)
+		pTempObj = new QTransform
+		pTempObj.pObject = QMatrix4x4_toTransform_2(pObject,P1)
+		return pTempObj
 
 	Func translate P1
 		return QMatrix4x4_translate(pObject,GetObjectPointerFromRingObject(P1))
@@ -20122,7 +20140,9 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_shear(pObject,P1,P2)
 
 	Func transform 
-		return QGraphicsView_transform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QGraphicsView_transform(pObject)
+		return pTempObj
 
 	Func transformationAnchor 
 		return QGraphicsView_transformationAnchor(pObject)
@@ -20131,7 +20151,9 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_translate(pObject,P1,P2)
 
 	Func viewportTransform 
-		return QGraphicsView_viewportTransform(pObject)
+		pTempObj = new QTransform
+		pTempObj.pObject = QGraphicsView_viewportTransform(pObject)
+		return pTempObj
 
 	Func viewportUpdateMode 
 		return QGraphicsView_viewportUpdateMode(pObject)
@@ -24594,6 +24616,121 @@ Class QEntity from QNode
 
 	Func removeComponent P1
 		return QEntity_removeComponent(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QTransform
+
+	pObject
+
+	Func init P1
+		pObject = QTransform_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTransform_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func matrix 
+		pTempObj = new QMatrix4x4
+		pTempObj.pObject = QTransform_matrix(pObject)
+		return pTempObj
+
+	Func rotation 
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_rotation(pObject)
+		return pTempObj
+
+	Func rotationX 
+		return QTransform_rotationX(pObject)
+
+	Func rotationY 
+		return QTransform_rotationY(pObject)
+
+	Func rotationZ 
+		return QTransform_rotationZ(pObject)
+
+	Func scale 
+		return QTransform_scale(pObject)
+
+	Func scale3D 
+		pTempObj = new QVector3D
+		pTempObj.pObject = QTransform_scale3D(pObject)
+		return pTempObj
+
+	Func translation 
+		pTempObj = new QVector3D
+		pTempObj.pObject = QTransform_translation(pObject)
+		return pTempObj
+
+	Func setMatrix P1
+		return QTransform_setMatrix(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRotation P1
+		return QTransform_setRotation(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRotationX P1
+		return QTransform_setRotationX(pObject,P1)
+
+	Func setRotationY P1
+		return QTransform_setRotationY(pObject,P1)
+
+	Func setRotationZ P1
+		return QTransform_setRotationZ(pObject,P1)
+
+	Func setScale P1
+		return QTransform_setScale(pObject,P1)
+
+	Func setScale3D P1
+		return QTransform_setScale3D(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTranslation P1
+		return QTransform_setTranslation(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func fromAxes P1,P2,P3
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromAxes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func fromAxesAndAngles P1,P2,P3,P4
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromAxesAndAngles(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
+		return pTempObj
+
+	Func fromAxesAndAngles_2 P1,P2,P3,P4,P5,P6
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromAxesAndAngles_2(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,GetObjectPointerFromRingObject(P5),P6)
+		return pTempObj
+
+	Func fromAxisAndAngle P1,P2
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromAxisAndAngle(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func fromAxisAndAngle_2 P1,P2,P3,P4
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromAxisAndAngle_2(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func fromEulerAngles P1
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromEulerAngles(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func fromEulerAngles_2 P1,P2,P3
+		pTempObj = new QQuaternion
+		pTempObj.pObject = QTransform_fromEulerAngles_2(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func rotateAround P1,P2,P3
+		pTempObj = new QMatrix4x4
+		pTempObj.pObject = QTransform_rotateAround(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func rotateFromAxes P1,P2,P3
+		pTempObj = new QMatrix4x4
+		pTempObj.pObject = QTransform_rotateFromAxes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 Class QSize
 
