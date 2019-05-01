@@ -24569,6 +24569,32 @@ Class QNode from QObject
 	Func setParent P1
 		return QNode_setParent(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QEntity from QNode
+
+	pObject
+
+	Func init P1
+		pObject = QEntity_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QEntity_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addComponent P1
+		return QEntity_addComponent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func components 
+		return QEntity_components(pObject)
+
+	Func parentEntity 
+		return QEntity_parentEntity(pObject)
+
+	Func removeComponent P1
+		return QEntity_removeComponent(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
