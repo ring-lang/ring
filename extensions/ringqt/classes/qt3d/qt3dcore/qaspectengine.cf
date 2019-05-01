@@ -1,0 +1,16 @@
+<class>
+name: QAspectEngine
+codename: Qt3DCore::QAspectEngine
+para: QObject *
+parent: QObject
+</class>
+
+
+QVector<Qt3DCore::QAbstractAspect *> aspects(void)
+QVariant executeCommand(QString command)
+void registerAspect(Qt3DCore::QAbstractAspect *aspect)
+void registerAspect@2(QString name)
+Qt3DCore::QEntityPtr rootEntity(void)
+void setRootEntity(Qt3DCore::QEntityPtr root)
+void unregisterAspect(Qt3DCore::QAbstractAspect *aspect)
+void unregisterAspect@2(QString name)

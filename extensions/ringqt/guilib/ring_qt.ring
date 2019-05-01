@@ -24732,6 +24732,46 @@ Class QTransform
 		pTempObj.pObject = QTransform_rotateFromAxes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
+Class QAspectEngine from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAspectEngine_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAspectEngine_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func aspects 
+		return QAspectEngine_aspects(pObject)
+
+	Func executeCommand P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QAspectEngine_executeCommand(pObject,P1)
+		return pTempObj
+
+	Func registerAspect P1
+		return QAspectEngine_registerAspect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func registerAspect_2 P1
+		return QAspectEngine_registerAspect_2(pObject,P1)
+
+	Func rootEntity 
+		return QAspectEngine_rootEntity(pObject)
+
+	Func setRootEntity P1
+		return QAspectEngine_setRootEntity(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func unregisterAspect P1
+		return QAspectEngine_unregisterAspect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func unregisterAspect_2 P1
+		return QAspectEngine_unregisterAspect_2(pObject,P1)
+
 Class QSize
 
 	pObject
