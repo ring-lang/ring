@@ -358,6 +358,7 @@ extern "C" {
 #include <Qt3DCore/QEntity>
 #include <Qt3DCore/QTransform>
 #include <Qt3DCore/QAspectEngine>
+#include <Qt3DExtras/QTorusMesh>
 </filter>
 
 #include <QGraphicsView>

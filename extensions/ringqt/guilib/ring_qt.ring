@@ -24772,6 +24772,44 @@ Class QAspectEngine from QObject
 	Func unregisterAspect_2 P1
 		return QAspectEngine_unregisterAspect_2(pObject,P1)
 
+Class QTorusMesh
+
+	pObject
+
+	Func init P1
+		pObject = QTorusMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTorusMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func minorRadius 
+		return QTorusMesh_minorRadius(pObject)
+
+	Func radius 
+		return QTorusMesh_radius(pObject)
+
+	Func rings 
+		return QTorusMesh_rings(pObject)
+
+	Func slices 
+		return QTorusMesh_slices(pObject)
+
+	Func setMinorRadius P1
+		return QTorusMesh_setMinorRadius(pObject,P1)
+
+	Func setRadius P1
+		return QTorusMesh_setRadius(pObject,P1)
+
+	Func setRings P1
+		return QTorusMesh_setRings(pObject,P1)
+
+	Func setSlices P1
+		return QTorusMesh_setSlices(pObject,P1)
+
 Class QSize
 
 	pObject
