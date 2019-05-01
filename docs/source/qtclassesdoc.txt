@@ -629,6 +629,7 @@ Parent Class : QObject
 * void setRootEntity(Qt3DCore::QEntityPtr root)
 * void unregisterAspect(Qt3DCore::QAbstractAspect *aspect)
 * void unregisterAspect_2(QString name)
+
 .. index::
 	pair: RingQt Classes Reference; QAxBase Class
 
@@ -9042,6 +9043,26 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QTorusMesh Class
+
+QTorusMesh Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTorusMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float minorRadius(void)
+* float radius(void)
+* int rings(void)
+* int slices(void)
+* void setMinorRadius(float minorRadius)
+* void setRadius(float radius)
+* void setRings(int rings)
+* void setSlices(int slices)
+.. index::
 	pair: RingQt Classes Reference; QTransform Class
 
 QTransform Class
@@ -9824,22 +9845,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -9867,6 +9872,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class

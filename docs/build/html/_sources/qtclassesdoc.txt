@@ -27,6 +27,23 @@ Parent Class : QPlainTextEdit
 * void setLineNumbersAreaBackColor(QColor oColor)
 
 .. index::
+	pair: RingQt Classes Reference; QAbstractAspect Class
+
+QAbstractAspect Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractAspect.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* void scheduleSingleShotJob(Qt3DCore::QAspectJobPtr job)
+
+.. index::
 	pair: RingQt Classes Reference; QAbstractButton Class
 
 QAbstractButton Class
@@ -588,6 +605,30 @@ Parent Class : QGuiApplication
 * void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 * void closeAllWindows(void)
 * Qt::KeyboardModifiers keyboardModifiers(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAspectEngine Class
+
+QAspectEngine Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAspectEngine.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QVector<Qt3DCore::QAbstractAspect *> aspects(void)
+* QVariant executeCommand(QString command)
+* void registerAspect(Qt3DCore::QAbstractAspect *aspect)
+* void registerAspect_2(QString name)
+* Qt3DCore::QEntityPtr rootEntity(void)
+* void setRootEntity(Qt3DCore::QEntityPtr root)
+* void unregisterAspect(Qt3DCore::QAbstractAspect *aspect)
+* void unregisterAspect_2(QString name)
 
 .. index::
 	pair: RingQt Classes Reference; QAxBase Class
@@ -2430,6 +2471,26 @@ Parent Class : QEvent
 * Qt::DropAction proposedAction(void)
 * void setDropAction(Qt::DropAction action)
 * QObject * source(void)
+
+.. index::
+	pair: RingQt Classes Reference; QEntity Class
+
+QEntity Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QEntity.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QNode
+
+* void addComponent(Qt3DCore::QComponent *comp)
+* Qt3DCore::QComponentVector components(void)
+* Qt3DCore::QEntity * parentEntity(void)
+* void removeComponent(Qt3DCore::QComponent *comp)
 
 .. index::
 	pair: RingQt Classes Reference; QEvent Class
@@ -4886,6 +4947,36 @@ Parent Class : QGeoPositionInfoSource
 * QIODevice * device(void)
 * void setDevice(QIODevice * device)
 * QNmeaPositionInfoSource::UpdateMode updateMode(void)
+
+.. index::
+	pair: RingQt Classes Reference; QNode Class
+
+QNode Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QNode.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QObject
+
+* bool blockNotifications(bool block)
+* Qt3DCore::QNodeVector childNodes(void)
+* void clearPropertyTracking(QString propertyName)
+* void clearPropertyTrackings(void)
+* Qt3DCore::QNode::PropertyTrackingMode defaultPropertyTrackingMode(void)
+* Qt3DCore::QNodeId id(void)
+* bool isEnabled(void)
+* bool notificationsBlocked(void)
+* Qt3DCore::QNode * parentNode(void)
+* Qt3DCore::QNode::PropertyTrackingMode propertyTracking(QString propertyName)
+* void setPropertyTracking(QString propertyName, Qt3DCore::QNode::PropertyTrackingMode trackMode)
+* void setDefaultPropertyTrackingMode(Qt3DCore::QNode::PropertyTrackingMode mode)
+* void setEnabled(bool isEnabled)
+* void setParent(Qt3DCore::QNode *parent)
 
 .. index::
 	pair: RingQt Classes Reference; QObject Class
@@ -8952,6 +9043,64 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QTorusMesh Class
+
+QTorusMesh Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTorusMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float minorRadius(void)
+* float radius(void)
+* int rings(void)
+* int slices(void)
+* void setMinorRadius(float minorRadius)
+* void setRadius(float radius)
+* void setRings(int rings)
+* void setSlices(int slices)
+.. index::
+	pair: RingQt Classes Reference; QTransform Class
+
+QTransform Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTransform.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* QMatrix4x4 matrix(void)
+* QQuaternion rotation(void)
+* float rotationX(void)
+* float rotationY(void)
+* float rotationZ(void)
+* float scale(void)
+* QVector3D scale3D(void)
+* QVector3D translation(void)
+* void setMatrix(QMatrix4x4 matrix)
+* void setRotation(QQuaternion rotation)
+* void setRotationX(float rotationX)
+* void setRotationY(float rotationY)
+* void setRotationZ(float rotationZ)
+* void setScale(float scale)
+* void setScale3D(QVector3D scale)
+* void setTranslation(QVector3D translation)
+* QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+* QQuaternion fromAxesAndAngles(QVector3D axis1, float angle1, QVector3D axis2, float angle2)
+* QQuaternion fromAxesAndAngles_2(QVector3D axis1, float angle1, QVector3D axis2, float angle2, QVector3D axis3, float angle3)
+* QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+* QQuaternion fromAxisAndAngle_2(float x, float y, float z, float angle)
+* QQuaternion fromEulerAngles(QVector3D eulerAngles)
+* QQuaternion fromEulerAngles_2(float pitch, float yaw, float roll)
+* QMatrix4x4 rotateAround(QVector3D point, float angle, QVector3D axis)
+* QMatrix4x4 rotateFromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+
+.. index::
 	pair: RingQt Classes Reference; QTreeView Class
 
 QTreeView Class
@@ -9565,6 +9714,7 @@ Parameters : void
 
 * int count(void)
 * QVoice value(int i)
+
 .. index::
 	pair: RingQt Classes Reference; QVideoWidget Class
 
@@ -9695,22 +9845,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -9738,6 +9872,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
