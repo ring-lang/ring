@@ -24810,6 +24810,62 @@ Class QTorusMesh
 	Func setSlices P1
 		return QTorusMesh_setSlices(pObject,P1)
 
+Class QConeMesh
+
+	pObject
+
+	Func init P1
+		pObject = QConeMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QConeMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottomRadius 
+		return QConeMesh_bottomRadius(pObject)
+
+	Func hasBottomEndcap 
+		return QConeMesh_hasBottomEndcap(pObject)
+
+	Func hasTopEndcap 
+		return QConeMesh_hasTopEndcap(pObject)
+
+	Func length 
+		return QConeMesh_length(pObject)
+
+	Func rings 
+		return QConeMesh_rings(pObject)
+
+	Func slices 
+		return QConeMesh_slices(pObject)
+
+	Func topRadius 
+		return QConeMesh_topRadius(pObject)
+
+	Func setBottomRadius P1
+		return QConeMesh_setBottomRadius(pObject,P1)
+
+	Func setHasBottomEndcap P1
+		return QConeMesh_setHasBottomEndcap(pObject,P1)
+
+	Func setHasTopEndcap P1
+		return QConeMesh_setHasTopEndcap(pObject,P1)
+
+	Func setLength P1
+		return QConeMesh_setLength(pObject,P1)
+
+	Func setRings P1
+		return QConeMesh_setRings(pObject,P1)
+
+	Func setSlices P1
+		return QConeMesh_setSlices(pObject,P1)
+
+	Func setTopRadius P1
+		return QConeMesh_setTopRadius(pObject,P1)
+
 Class QSize
 
 	pObject
