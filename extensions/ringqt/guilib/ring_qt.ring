@@ -24866,6 +24866,44 @@ Class QConeMesh
 	Func setTopRadius P1
 		return QConeMesh_setTopRadius(pObject,P1)
 
+Class QCylinderMesh
+
+	pObject
+
+	Func init P1
+		pObject = QCylinderMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCylinderMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func length 
+		return QCylinderMesh_length(pObject)
+
+	Func radius 
+		return QCylinderMesh_radius(pObject)
+
+	Func rings 
+		return QCylinderMesh_rings(pObject)
+
+	Func slices 
+		return QCylinderMesh_slices(pObject)
+
+	Func setLength P1
+		return QCylinderMesh_setLength(pObject,P1)
+
+	Func setRadius P1
+		return QCylinderMesh_setRadius(pObject,P1)
+
+	Func setRings P1
+		return QCylinderMesh_setRings(pObject,P1)
+
+	Func setSlices P1
+		return QCylinderMesh_setSlices(pObject,P1)
+
 Class QSize
 
 	pObject

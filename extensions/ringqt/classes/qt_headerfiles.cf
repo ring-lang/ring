@@ -360,6 +360,7 @@ extern "C" {
 #include <Qt3DCore/QAspectEngine>
 #include <Qt3DExtras/QTorusMesh>
 #include <Qt3DExtras/QConeMesh>
+#include <Qt3DExtras/QCylinderMesh>
 </filter>
 
 #include <QGraphicsView>
