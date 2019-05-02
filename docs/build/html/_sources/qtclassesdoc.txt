@@ -1872,6 +1872,32 @@ Parent Class : QCompleter
 
 
 .. index::
+	pair: RingQt Classes Reference; QConeMesh Class
+
+QConeMesh Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QConeMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float bottomRadius(void)
+* bool hasBottomEndcap(void)
+* bool hasTopEndcap(void)
+* float length(void)
+* int rings(void)
+* int slices(void)
+* float topRadius(void)
+* void setBottomRadius(float bottomRadius)
+* void setHasBottomEndcap(bool hasBottomEndcap)
+* void setHasTopEndcap(bool hasTopEndcap)
+* void setLength(float length)
+* void setRings(int rings)
+* void setSlices(int slices)
+* void setTopRadius(float topRadius)
+.. index::
 	pair: RingQt Classes Reference; QCoreApplication Class
 
 QCoreApplication Class
@@ -9062,6 +9088,7 @@ Parameters : Qt3DCore::QNode *
 * void setRadius(float radius)
 * void setRings(int rings)
 * void setSlices(int slices)
+
 .. index::
 	pair: RingQt Classes Reference; QTransform Class
 
@@ -9845,6 +9872,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -9872,22 +9915,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
