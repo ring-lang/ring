@@ -1897,6 +1897,7 @@ Parameters : Qt3DCore::QNode *
 * void setRings(int rings)
 * void setSlices(int slices)
 * void setTopRadius(float topRadius)
+
 .. index::
 	pair: RingQt Classes Reference; QCoreApplication Class
 
@@ -1974,6 +1975,26 @@ Parameters : void
 * void setPos_3(QPoint)
 * void setPos_4(QScreen *screen, QPoint)
 
+.. index::
+	pair: RingQt Classes Reference; QCylinderMesh Class
+
+QCylinderMesh Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCylinderMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float length(void)
+* float radius(void)
+* int rings(void)
+* int slices(void)
+* void setLength(float length)
+* void setRadius(float radius)
+* void setRings(int rings)
+* void setSlices(int slices)
 .. index::
 	pair: RingQt Classes Reference; QDate Class
 
