@@ -1,0 +1,15 @@
+<class>
+name: Qt3DWindow
+codename: Qt3DExtras::Qt3DWindow
+para: void
+parent: QWindow
+</class>
+
+
+Qt3DRender::QFrameGraphNode * activeFrameGraph(void)
+Qt3DExtras::QForwardRenderer * defaultFrameGraph(void)
+void registerAspect(Qt3DCore::QAbstractAspect *aspect)
+void registerAspect@2(QString name)
+Qt3DRender::QRenderSettings * renderSettings(void)
+void setActiveFrameGraph(Qt3DRender::QFrameGraphNode *activeFrameGraph)
+void setRootEntity(Qt3DCore::QEntity *root)

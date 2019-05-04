@@ -25144,6 +25144,41 @@ Class QForwardRenderer
 	Func setViewportRect P1
 		return QForwardRenderer_setViewportRect(pObject,GetObjectPointerFromRingObject(P1))
 
+Class Qt3DWindow from QWindow
+
+	pObject
+
+	Func init 
+		pObject = Qt3DWindow_new()
+		return self
+
+	Func delete
+		pObject = Qt3DWindow_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func activeFrameGraph 
+		return Qt3DWindow_activeFrameGraph(pObject)
+
+	Func defaultFrameGraph 
+		return Qt3DWindow_defaultFrameGraph(pObject)
+
+	Func registerAspect P1
+		return Qt3DWindow_registerAspect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func registerAspect_2 P1
+		return Qt3DWindow_registerAspect_2(pObject,P1)
+
+	Func renderSettings 
+		return Qt3DWindow_renderSettings(pObject)
+
+	Func setActiveFrameGraph P1
+		return Qt3DWindow_setActiveFrameGraph(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRootEntity P1
+		return Qt3DWindow_setRootEntity(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
