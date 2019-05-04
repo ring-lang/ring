@@ -2626,6 +2626,7 @@ Parameters : Qt3DCore::QNode *
 * void removeParameter(Qt3DRender::QParameter *parameter)
 * void removeTechnique(Qt3DRender::QTechnique *t)
 * QVector<Qt3DRender::QTechnique *> techniques(void)
+
 .. index::
 	pair: RingQt Classes Reference; QEntity Class
 
@@ -7286,6 +7287,29 @@ Parameters : void
 * QRegularExpression regularExpression(void)
 * void swap(QRegularExpressionMatchIterator other)
 
+.. index::
+	pair: RingQt Classes Reference; QRenderPass Class
+
+QRenderPass Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRenderPass.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* void addFilterKey(Qt3DRender::QFilterKey *filterKey)
+* void addParameter(Qt3DRender::QParameter *parameter)
+* void addRenderState(Qt3DRender::QRenderState *state)
+* QVector<Qt3DRender::QFilterKey *> filterKeys(void)
+* QVector<Qt3DRender::QParameter *> parameters(void)
+* void removeFilterKey(Qt3DRender::QFilterKey *filterKey)
+* void removeParameter(Qt3DRender::QParameter *parameter)
+* void removeRenderState(Qt3DRender::QRenderState *state)
+* QVector<Qt3DRender::QRenderState *> renderStates(void)
+* Qt3DRender::QShaderProgram * shaderProgram(void)
+* void setShaderProgram(Qt3DRender::QShaderProgram *shaderProgram)
 .. index::
 	pair: RingQt Classes Reference; QScreen Class
 
