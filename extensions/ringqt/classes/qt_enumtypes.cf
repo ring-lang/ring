@@ -370,4 +370,6 @@ aEnumTypes + "QNode::PropertyTrackingMode"
 aEnumTypes + "Qt3DCore::QNode::PropertyTrackingMode"
 aEnumTypes + "Qt3DCore::QNodeId"
 aEnumTypes + "QNodeCommand::CommandId"
+aEnumTypes + "Qt3DRender::QCameraLens::ProjectionType"
+aEnumTypes + "Qt3DRender::QCamera::CameraTranslationOption"
 </runcode>

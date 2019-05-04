@@ -25223,6 +25223,188 @@ Class QAbstractCameraController from Qt3DCore::QEntity
 	Func setLookSpeed P1
 		return QAbstractCameraController_setLookSpeed(pObject,P1)
 
+Class Qt3DCamera from QEntity
+
+	pObject
+
+	Func init P1
+		pObject = Qt3DCamera_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = Qt3DCamera_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func aspectRatio 
+		return Qt3DCamera_aspectRatio(pObject)
+
+	Func bottom 
+		return Qt3DCamera_bottom(pObject)
+
+	Func exposure 
+		return Qt3DCamera_exposure(pObject)
+
+	Func farPlane 
+		return Qt3DCamera_farPlane(pObject)
+
+	Func fieldOfView 
+		return Qt3DCamera_fieldOfView(pObject)
+
+	Func left 
+		return Qt3DCamera_left(pObject)
+
+	Func lens 
+		return Qt3DCamera_lens(pObject)
+
+	Func nearPlane 
+		return Qt3DCamera_nearPlane(pObject)
+
+	Func pan P1
+		return Qt3DCamera_pan(pObject,P1)
+
+	Func pan_2 P1,P2
+		return Qt3DCamera_pan_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func panAboutViewCenter P1
+		return Qt3DCamera_panAboutViewCenter(pObject,P1)
+
+	Func panAboutViewCenter_2 P1,P2
+		return Qt3DCamera_panAboutViewCenter_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func panRotation P1
+		pTempObj = new QQuaternion
+		pTempObj.pObject = Qt3DCamera_panRotation(pObject,P1)
+		return pTempObj
+
+	Func position 
+		pTempObj = new QVector3D
+		pTempObj.pObject = Qt3DCamera_position(pObject)
+		return pTempObj
+
+	Func projectionMatrix 
+		pTempObj = new QMatrix4x4
+		pTempObj.pObject = Qt3DCamera_projectionMatrix(pObject)
+		return pTempObj
+
+	Func projectionType 
+		return Qt3DCamera_projectionType(pObject)
+
+	Func right 
+		return Qt3DCamera_right(pObject)
+
+	Func roll P1
+		return Qt3DCamera_roll(pObject,P1)
+
+	Func rollAboutViewCenter P1
+		return Qt3DCamera_rollAboutViewCenter(pObject,P1)
+
+	Func rollRotation P1
+		pTempObj = new QQuaternion
+		pTempObj.pObject = Qt3DCamera_rollRotation(pObject,P1)
+		return pTempObj
+
+	Func rotate P1
+		return Qt3DCamera_rotate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func rotateAboutViewCenter P1
+		return Qt3DCamera_rotateAboutViewCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func rotation P1,P2
+		pTempObj = new QQuaternion
+		pTempObj.pObject = Qt3DCamera_rotation(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func tilt P1
+		return Qt3DCamera_tilt(pObject,P1)
+
+	Func tiltAboutViewCenter P1
+		return Qt3DCamera_tiltAboutViewCenter(pObject,P1)
+
+	Func tiltRotation P1
+		pTempObj = new QQuaternion
+		pTempObj.pObject = Qt3DCamera_tiltRotation(pObject,P1)
+		return pTempObj
+
+	Func top 
+		return Qt3DCamera_top(pObject)
+
+	Func transform 
+		return Qt3DCamera_transform(pObject)
+
+	Func translate P1,P2
+		return Qt3DCamera_translate(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func translateWorld P1,P2
+		return Qt3DCamera_translateWorld(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func upVector 
+		pTempObj = new QVector3D
+		pTempObj.pObject = Qt3DCamera_upVector(pObject)
+		return pTempObj
+
+	Func viewCenter 
+		pTempObj = new QVector3D
+		pTempObj.pObject = Qt3DCamera_viewCenter(pObject)
+		return pTempObj
+
+	Func viewVector 
+		pTempObj = new QVector3D
+		pTempObj.pObject = Qt3DCamera_viewVector(pObject)
+		return pTempObj
+
+	Func setAspectRatio P1
+		return Qt3DCamera_setAspectRatio(pObject,P1)
+
+	Func setBottom P1
+		return Qt3DCamera_setBottom(pObject,P1)
+
+	Func setExposure P1
+		return Qt3DCamera_setExposure(pObject,P1)
+
+	Func setFarPlane P1
+		return Qt3DCamera_setFarPlane(pObject,P1)
+
+	Func setFieldOfView P1
+		return Qt3DCamera_setFieldOfView(pObject,P1)
+
+	Func setLeft P1
+		return Qt3DCamera_setLeft(pObject,P1)
+
+	Func setNearPlane P1
+		return Qt3DCamera_setNearPlane(pObject,P1)
+
+	Func setPosition P1
+		return Qt3DCamera_setPosition(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProjectionMatrix P1
+		return Qt3DCamera_setProjectionMatrix(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProjectionType P1
+		return Qt3DCamera_setProjectionType(pObject,P1)
+
+	Func setRight P1
+		return Qt3DCamera_setRight(pObject,P1)
+
+	Func setTop P1
+		return Qt3DCamera_setTop(pObject,P1)
+
+	Func setUpVector P1
+		return Qt3DCamera_setUpVector(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewCenter P1
+		return Qt3DCamera_setViewCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func viewAll 
+		return Qt3DCamera_viewAll(pObject)
+
+	Func viewEntity P1
+		return Qt3DCamera_viewEntity(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func viewSphere P1,P2
+		return Qt3DCamera_viewSphere(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 Class QSize
 
 	pObject
