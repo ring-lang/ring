@@ -25527,6 +25527,50 @@ Class QMesh
 	Func setSource P1
 		return QMesh_setSource(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QTechnique
+
+	pObject
+
+	Func init P1
+		pObject = QTechnique_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTechnique_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addFilterKey P1
+		return QTechnique_addFilterKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addParameter P1
+		return QTechnique_addParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addRenderPass P1
+		return QTechnique_addRenderPass(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func filterKeys 
+		return QTechnique_filterKeys(pObject)
+
+	Func graphicsApiFilter 
+		return QTechnique_graphicsApiFilter(pObject)
+
+	Func parameters 
+		return QTechnique_parameters(pObject)
+
+	Func removeFilterKey P1
+		return QTechnique_removeFilterKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeParameter P1
+		return QTechnique_removeParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeRenderPass P1
+		return QTechnique_removeRenderPass(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func renderPasses 
+		return QTechnique_renderPasses(pObject)
+
 Class QSize
 
 	pObject

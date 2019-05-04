@@ -1,3 +1,4 @@
 <loadfile> qt3drender/qcamera.cf
 <loadfile> qt3drender/qcameralens.cf
 <loadfile> qt3drender/qmesh.cf
+<loadfile> qt3drender/qtechnique.cf
