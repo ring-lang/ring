@@ -1,0 +1,17 @@
+<class>
+name: QAbstractCameraController
+codename: Qt3DExtras::QAbstractCameraController
+parent: Qt3DCore::QEntity
+abstract
+</class>
+
+float acceleration(void)
+Qt3DRender::QCamera * camera(void)
+float deceleration(void)
+float linearSpeed(void)
+float lookSpeed(void)
+void setAcceleration(float acceleration)
+void setCamera(Qt3DRender::QCamera *camera)
+void setDeceleration(float deceleration)
+void setLinearSpeed(float linearSpeed)
+void setLookSpeed(float lookSpeed)

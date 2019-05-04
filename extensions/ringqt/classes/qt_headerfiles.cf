@@ -367,6 +367,7 @@ extern "C" {
 #include <Qt3DExtras/QPhongMaterial>
 #include <Qt3DExtras/QForwardRenderer.h>
 #include <Qt3DExtras/Qt3DWindow.h>
+#include <Qt3DExtras/QAbstractCameraController>
 </filter>
 
 #include <QGraphicsView>

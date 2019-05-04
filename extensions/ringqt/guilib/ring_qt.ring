@@ -25179,6 +25179,50 @@ Class Qt3DWindow from QWindow
 	Func setRootEntity P1
 		return Qt3DWindow_setRootEntity(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QAbstractCameraController from Qt3DCore::QEntity
+
+	pObject
+
+	Func init P1
+		pObject = QAbstractCameraController_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAbstractCameraController_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func acceleration 
+		return QAbstractCameraController_acceleration(pObject)
+
+	Func camera 
+		return QAbstractCameraController_camera(pObject)
+
+	Func deceleration 
+		return QAbstractCameraController_deceleration(pObject)
+
+	Func linearSpeed 
+		return QAbstractCameraController_linearSpeed(pObject)
+
+	Func lookSpeed 
+		return QAbstractCameraController_lookSpeed(pObject)
+
+	Func setAcceleration P1
+		return QAbstractCameraController_setAcceleration(pObject,P1)
+
+	Func setCamera P1
+		return QAbstractCameraController_setCamera(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDeceleration P1
+		return QAbstractCameraController_setDeceleration(pObject,P1)
+
+	Func setLinearSpeed P1
+		return QAbstractCameraController_setLinearSpeed(pObject,P1)
+
+	Func setLookSpeed P1
+		return QAbstractCameraController_setLookSpeed(pObject,P1)
+
 Class QSize
 
 	pObject
