@@ -25747,6 +25747,28 @@ Class QPointLight
 	Func setQuadraticAttenuation P1
 		return QPointLight_setQuadraticAttenuation(pObject,P1)
 
+Class QInputAspect
+
+	pObject
+
+	Func init P1
+		pObject = QInputAspect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QInputAspect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func availablePhysicalDevices 
+		pTempObj = new QStringList
+		pTempObj.pObject = QInputAspect_availablePhysicalDevices(pObject)
+		return pTempObj
+
+	Func createPhysicalDevice P1
+		return QInputAspect_createPhysicalDevice(pObject,P1)
+
 Class QSize
 
 	pObject
@@ -26177,6 +26199,20 @@ Class QFirstPersonCameraController from QAbstractCameraController
 
 	Func delete
 		pObject = QFirstPersonCameraController_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QRenderAspect
+
+	pObject
+
+	Func init P1
+		pObject = QRenderAspect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QRenderAspect_delete(pObject)
 
 	Func ObjectPointer
 		return pObject

@@ -1,0 +1,6 @@
+<class>
+name: QRenderAspect
+codename: Qt3DRender::QRenderAspect
+para: QObject *
+</class>
+

@@ -1,0 +1,9 @@
+<class>
+name: QInputAspect
+codename: Qt3DInput::QInputAspect
+para: QObject *
+</class>
+
+
+QStringList availablePhysicalDevices(void)
+Qt3DInput::QAbstractPhysicalDevice * createPhysicalDevice(QString name)

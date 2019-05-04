@@ -376,4 +376,5 @@ aEnumTypes + "QCameraLens::ProjectionType"
 aEnumTypes + "QMesh::Status"
 aEnumTypes + "QSceneLoader::ComponentType"
 aEnumTypes + "QSceneLoader::Status"
+aEnumTypes + "QRenderAspect::RenderType"
 </runcode>
