@@ -7310,6 +7310,28 @@ Parameters : Qt3DCore::QNode *
 * QVector<Qt3DRender::QRenderState *> renderStates(void)
 * Qt3DRender::QShaderProgram * shaderProgram(void)
 * void setShaderProgram(Qt3DRender::QShaderProgram *shaderProgram)
+
+.. index::
+	pair: RingQt Classes Reference; QSceneLoader Class
+
+QSceneLoader Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSceneLoader.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QComponent
+
+* Qt3DCore::QComponent * component(QString entityName, Qt3DRender::QSceneLoader::ComponentType componentType)
+* Qt3DCore::QEntity * entity(QString entityName)
+* QStringList entityNames(void)
+* QUrl source(void)
+* Qt3DRender::QSceneLoader::Status status(void)
+* void setSource(QUrl arg)
 .. index::
 	pair: RingQt Classes Reference; QScreen Class
 
