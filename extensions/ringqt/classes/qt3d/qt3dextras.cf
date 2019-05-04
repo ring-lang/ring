@@ -5,3 +5,4 @@
 <loadfile> qt3dextras/qplanemesh.cf
 <loadfile> qt3dextras/qspheremesh.cf
 <loadfile> qt3dextras/qphongmaterial.cf
+<loadfile> qt3dextras/qforwardrenderer.cf

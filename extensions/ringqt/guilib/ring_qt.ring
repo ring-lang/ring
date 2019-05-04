@@ -25082,6 +25082,68 @@ Class QPhongMaterial
 	Func setSpecular P1
 		return QPhongMaterial_setSpecular(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QForwardRenderer
+
+	pObject
+
+	Func init P1
+		pObject = QForwardRenderer_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QForwardRenderer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func camera 
+		return QForwardRenderer_camera(pObject)
+
+	Func clearColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QForwardRenderer_clearColor(pObject)
+		return pTempObj
+
+	Func externalRenderTargetSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QForwardRenderer_externalRenderTargetSize(pObject)
+		return pTempObj
+
+	Func gamma 
+		return QForwardRenderer_gamma(pObject)
+
+	Func isFrustumCullingEnabled 
+		return QForwardRenderer_isFrustumCullingEnabled(pObject)
+
+	Func surface 
+		pTempObj = new QObject
+		pTempObj.pObject = QForwardRenderer_surface(pObject)
+		return pTempObj
+
+	Func viewportRect 
+		return QForwardRenderer_viewportRect(pObject)
+
+	Func setCamera P1
+		return QForwardRenderer_setCamera(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setClearColor P1
+		return QForwardRenderer_setClearColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setExternalRenderTargetSize P1
+		return QForwardRenderer_setExternalRenderTargetSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFrustumCullingEnabled P1
+		return QForwardRenderer_setFrustumCullingEnabled(pObject,P1)
+
+	Func setGamma P1
+		return QForwardRenderer_setGamma(pObject,P1)
+
+	Func setSurface P1
+		return QForwardRenderer_setSurface(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewportRect P1
+		return QForwardRenderer_setViewportRect(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
