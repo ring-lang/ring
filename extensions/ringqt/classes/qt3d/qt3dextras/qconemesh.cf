@@ -1,6 +1,6 @@
 <class>
 name: QConeMesh
-codename:  Qt3DExtras::QConeMesh
+codename: Qt3DExtras::QConeMesh
 para: Qt3DCore::QNode *
 </class>
 

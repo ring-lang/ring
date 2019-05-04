@@ -24960,6 +24960,46 @@ Class QCuboidMesh
 	Func setZExtent P1
 		return QCuboidMesh_setZExtent(pObject,P1)
 
+Class QPlaneMesh
+
+	pObject
+
+	Func init P1
+		pObject = QPlaneMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPlaneMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func height 
+		return QPlaneMesh_height(pObject)
+
+	Func meshResolution 
+		pTempObj = new QSize
+		pTempObj.pObject = QPlaneMesh_meshResolution(pObject)
+		return pTempObj
+
+	Func mirrored 
+		return QPlaneMesh_mirrored(pObject)
+
+	Func width 
+		return QPlaneMesh_width(pObject)
+
+	Func setHeight P1
+		return QPlaneMesh_setHeight(pObject,P1)
+
+	Func setMeshResolution P1
+		return QPlaneMesh_setMeshResolution(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMirrored P1
+		return QPlaneMesh_setMirrored(pObject,P1)
+
+	Func setWidth P1
+		return QPlaneMesh_setWidth(pObject,P1)
+
 Class QSize
 
 	pObject

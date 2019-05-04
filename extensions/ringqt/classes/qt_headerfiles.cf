@@ -362,6 +362,7 @@ extern "C" {
 #include <Qt3DExtras/QConeMesh>
 #include <Qt3DExtras/QCylinderMesh>
 #include <Qt3DExtras/QCuboidMesh>
+#include <Qt3DExtras/QPlaneMesh>
 </filter>
 
 #include <QGraphicsView>

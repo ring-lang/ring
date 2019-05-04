@@ -1,0 +1,14 @@
+<class>
+name: QPlaneMesh
+codename: Qt3DExtras::QPlaneMesh
+para: Qt3DCore::QNode *
+</class>
+
+float height(void)
+QSize meshResolution(void)
+bool mirrored(void)
+float width(void)
+void setHeight(float height)
+void setMeshResolution(QSize resolution)
+void setMirrored(bool mirrored)
+void setWidth(float width)
