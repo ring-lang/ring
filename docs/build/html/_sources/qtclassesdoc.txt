@@ -4574,6 +4574,26 @@ Parent Class : QWidget
 * bool unifiedTitleAndToolBarOnMac(void)
 
 .. index::
+	pair: RingQt Classes Reference; QMaterial Class
+
+QMaterial Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : Qt3DCore::QComponent
+
+* void addParameter(Qt3DRender::QParameter *parameter)
+* Qt3DRender::QEffect * effect(void)
+* QVector<Qt3DRender::QParameter *> parameters(void)
+* void removeParameter(Qt3DRender::QParameter *parameter)
+* void setEffect(Qt3DRender::QEffect *effect)
+.. index::
 	pair: RingQt Classes Reference; QMatrix4x4 Class
 
 QMatrix4x4 Class
@@ -8535,6 +8555,7 @@ Parameters : Qt3DCore::QNode *
 * void removeParameter(Qt3DRender::QParameter *parameter)
 * void removeRenderPass(Qt3DRender::QRenderPass *pass)
 * QVector<Qt3DRender::QRenderPass *> renderPasses(void)
+
 .. index::
 	pair: RingQt Classes Reference; QTest Class
 
@@ -10128,6 +10149,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10155,22 +10192,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
