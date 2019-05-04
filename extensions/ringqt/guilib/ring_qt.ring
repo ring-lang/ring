@@ -25715,6 +25715,38 @@ Class QSceneLoader from QComponent
 	Func setSource P1
 		return QSceneLoader_setSource(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QPointLight
+
+	pObject
+
+	Func init P1
+		pObject = QPointLight_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPointLight_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func constantAttenuation 
+		return QPointLight_constantAttenuation(pObject)
+
+	Func linearAttenuation 
+		return QPointLight_linearAttenuation(pObject)
+
+	Func quadraticAttenuation 
+		return QPointLight_quadraticAttenuation(pObject)
+
+	Func setConstantAttenuation P1
+		return QPointLight_setConstantAttenuation(pObject,P1)
+
+	Func setLinearAttenuation P1
+		return QPointLight_setLinearAttenuation(pObject,P1)
+
+	Func setQuadraticAttenuation P1
+		return QPointLight_setQuadraticAttenuation(pObject,P1)
+
 Class QSize
 
 	pObject
