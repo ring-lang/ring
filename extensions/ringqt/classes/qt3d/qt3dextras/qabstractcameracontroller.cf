@@ -1,7 +1,7 @@
 <class>
 name: QAbstractCameraController
 codename: Qt3DExtras::QAbstractCameraController
-parent: Qt3DCore::QEntity
+parent: QEntity
 abstract
 </class>
 

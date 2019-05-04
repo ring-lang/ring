@@ -11855,6 +11855,11 @@ Class QWidget from QObject
 	Func setTabOrder P1,P2
 		return QWidget_setTabOrder(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
+	Func createWindowContainer P1,P2,P3
+		pTempObj = new QWidget
+		pTempObj.pObject = QWidget_createWindowContainer(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+		return pTempObj
+
 Class QLabel from QWidget
 
 	pObject
@@ -25179,7 +25184,7 @@ Class Qt3DWindow from QWindow
 	Func setRootEntity P1
 		return Qt3DWindow_setRootEntity(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QAbstractCameraController from Qt3DCore::QEntity
+Class QAbstractCameraController from QEntity
 
 	pObject
 

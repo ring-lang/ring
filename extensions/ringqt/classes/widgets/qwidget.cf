@@ -207,3 +207,5 @@ QWidget *find(int id)
 QWidget *keyboardGrabber(void)
 QWidget *mouseGrabber(void)
 void setTabOrder(QWidget *first, QWidget *second)
+
+QWidget *createWindowContainer(QWindow *window, QWidget *parent, Qt::WindowFlags flags)
