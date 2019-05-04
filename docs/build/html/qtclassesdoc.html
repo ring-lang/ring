@@ -8687,24 +8687,82 @@
 <li>void writeTextElement_2(QString qualifiedName, QString text)</li>
 </ul>
 </div>
+<div class="section" id="qt3dcamera-class">
+<span id="index-284"></span><h2>Qt3DCamera Class<a class="headerlink" href="#qt3dcamera-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/Qt3DCamera.html">http://doc.qt.io/qt-5/Qt3DCamera.html</a></p>
+<p>Parameters : Qt3DCore::QNode *</p>
+<p>Parent Class : QEntity</p>
+<ul class="simple">
+<li>float aspectRatio(void)</li>
+<li>float bottom(void)</li>
+<li>float exposure(void)</li>
+<li>float farPlane(void)</li>
+<li>float fieldOfView(void)</li>
+<li>float left(void)</li>
+<li>Qt3DRender::QCameraLens <a href="#id3394"><span class="problematic" id="id3395">*</span></a>lens(void)</li>
+<li>float nearPlane(void)</li>
+<li>void pan(float angle)</li>
+<li>void pan_2(float angle, QVector3D axis)</li>
+<li>void panAboutViewCenter(float angle)</li>
+<li>void panAboutViewCenter_2(float angle, QVector3D axis)</li>
+<li>QQuaternion panRotation(float angle)</li>
+<li>QVector3D position(void)</li>
+<li>QMatrix4x4 projectionMatrix(void)</li>
+<li>Qt3DRender::QCameraLens::ProjectionType projectionType(void)</li>
+<li>float right(void)</li>
+<li>void roll(float angle)</li>
+<li>void rollAboutViewCenter(float angle)</li>
+<li>QQuaternion rollRotation(float angle)</li>
+<li>void rotate(QQuaternion q)</li>
+<li>void rotateAboutViewCenter(QQuaternion q)</li>
+<li>QQuaternion rotation(float angle, QVector3D axis)</li>
+<li>void tilt(float angle)</li>
+<li>void tiltAboutViewCenter(float angle)</li>
+<li>QQuaternion tiltRotation(float angle)</li>
+<li>float top(void)</li>
+<li>Qt3DCore::QTransform * transform(void)</li>
+<li>void translate(QVector3D vLocal, Qt3DRender::QCamera::CameraTranslationOption option)</li>
+<li>void translateWorld(QVector3D vWorld, Qt3DRender::QCamera::CameraTranslationOption option)</li>
+<li>QVector3D upVector(void)</li>
+<li>QVector3D viewCenter(void)</li>
+<li>QVector3D viewVector(void)</li>
+<li>void setAspectRatio(float aspectRatio)</li>
+<li>void setBottom(float bottom)</li>
+<li>void setExposure(float exposure)</li>
+<li>void setFarPlane(float farPlane)</li>
+<li>void setFieldOfView(float fieldOfView)</li>
+<li>void setLeft(float left)</li>
+<li>void setNearPlane(float nearPlane)</li>
+<li>void setPosition(QVector3D position)</li>
+<li>void setProjectionMatrix(QMatrix4x4 projectionMatrix)</li>
+<li>void setProjectionType(Qt3DRender::QCameraLens::ProjectionType type)</li>
+<li>void setRight(float right)</li>
+<li>void setTop(float top)</li>
+<li>void setUpVector(QVector3D upVector)</li>
+<li>void setViewCenter(QVector3D viewCenter)</li>
+<li>void viewAll(void)</li>
+<li>void viewEntity(Qt3DCore::QEntity <a href="#id3396"><span class="problematic" id="id3397">*</span></a>entity)</li>
+<li>void viewSphere(QVector3D center, float radius)</li>
+</ul>
+</div>
 <div class="section" id="qt3dwindow-class">
-<span id="index-284"></span><h2>Qt3DWindow Class<a class="headerlink" href="#qt3dwindow-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-285"></span><h2>Qt3DWindow Class<a class="headerlink" href="#qt3dwindow-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/Qt3DWindow.html">http://doc.qt.io/qt-5/Qt3DWindow.html</a></p>
 <p>Parameters : void</p>
 <p>Parent Class : QWindow</p>
 <ul class="simple">
 <li>Qt3DRender::QFrameGraphNode * activeFrameGraph(void)</li>
 <li>Qt3DExtras::QForwardRenderer * defaultFrameGraph(void)</li>
-<li>void registerAspect(Qt3DCore::QAbstractAspect <a href="#id3394"><span class="problematic" id="id3395">*</span></a>aspect)</li>
+<li>void registerAspect(Qt3DCore::QAbstractAspect <a href="#id3398"><span class="problematic" id="id3399">*</span></a>aspect)</li>
 <li>void registerAspect_2(QString name)</li>
 <li>Qt3DRender::QRenderSettings * renderSettings(void)</li>
-<li>void setActiveFrameGraph(Qt3DRender::QFrameGraphNode <a href="#id3396"><span class="problematic" id="id3397">*</span></a>activeFrameGraph)</li>
-<li>void setRootEntity(Qt3DCore::QEntity <a href="#id3398"><span class="problematic" id="id3399">*</span></a>root)</li>
+<li>void setActiveFrameGraph(Qt3DRender::QFrameGraphNode <a href="#id3400"><span class="problematic" id="id3401">*</span></a>activeFrameGraph)</li>
+<li>void setRootEntity(Qt3DCore::QEntity <a href="#id3402"><span class="problematic" id="id3403">*</span></a>root)</li>
 </ul>
 </div>
 <div class="section" id="ringcodehighlighter-class">
-<span id="index-285"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
-<p>Parameters : QTextDocument <a href="#id3400"><span class="problematic" id="id3401">*</span></a>parent</p>
+<span id="index-286"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
+<p>Parameters : QTextDocument <a href="#id3404"><span class="problematic" id="id3405">*</span></a>parent</p>
 <ul class="simple">
 <li>void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)</li>
 <li>void setKeywordsBold(int nStatus)</li>
@@ -9004,6 +9062,7 @@
 <li><a class="reference internal" href="#qxmlstreamnotationdeclaration-class">QXmlStreamNotationDeclaration Class</a></li>
 <li><a class="reference internal" href="#qxmlstreamreader-class">QXmlStreamReader Class</a></li>
 <li><a class="reference internal" href="#qxmlstreamwriter-class">QXmlStreamWriter Class</a></li>
+<li><a class="reference internal" href="#qt3dcamera-class">Qt3DCamera Class</a></li>
 <li><a class="reference internal" href="#qt3dwindow-class">Qt3DWindow Class</a></li>
 <li><a class="reference internal" href="#ringcodehighlighter-class">RingCodeHighlighter Class</a></li>
 </ul>
