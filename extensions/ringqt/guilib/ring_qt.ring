@@ -25000,6 +25000,44 @@ Class QPlaneMesh
 	Func setWidth P1
 		return QPlaneMesh_setWidth(pObject,P1)
 
+Class QSphereMesh
+
+	pObject
+
+	Func init P1
+		pObject = QSphereMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSphereMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func generateTangents 
+		return QSphereMesh_generateTangents(pObject)
+
+	Func radius 
+		return QSphereMesh_radius(pObject)
+
+	Func rings 
+		return QSphereMesh_rings(pObject)
+
+	Func slices 
+		return QSphereMesh_slices(pObject)
+
+	Func setGenerateTangents P1
+		return QSphereMesh_setGenerateTangents(pObject,P1)
+
+	Func setRadius P1
+		return QSphereMesh_setRadius(pObject,P1)
+
+	Func setRings P1
+		return QSphereMesh_setRings(pObject,P1)
+
+	Func setSlices P1
+		return QSphereMesh_setSlices(pObject,P1)
+
 Class QSize
 
 	pObject
