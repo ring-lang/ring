@@ -374,6 +374,7 @@ extern "C" {
 #include <Qt3DRender/QMesh>
 #include <Qt3DRender/qtechnique>
 #include <Qt3DRender/qmaterial>
+#include <Qt3DRender/qeffect>
 </filter>
 
 #include <QGraphicsView>

@@ -25600,6 +25600,38 @@ Class QMaterial from Qt3DCore::QComponent
 	Func setEffect P1
 		return QMaterial_setEffect(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QEffect
+
+	pObject
+
+	Func init P1
+		pObject = QEffect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QEffect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addParameter P1
+		return QEffect_addParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addTechnique P1
+		return QEffect_addTechnique(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func parameters 
+		return QEffect_parameters(pObject)
+
+	Func removeParameter P1
+		return QEffect_removeParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeTechnique P1
+		return QEffect_removeTechnique(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func techniques 
+		return QEffect_techniques(pObject)
+
 Class QSize
 
 	pObject
