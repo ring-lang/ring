@@ -107,6 +107,7 @@ Parent Class : Qt3DCore::QEntity
 * void setDeceleration(float deceleration)
 * void setLinearSpeed(float linearSpeed)
 * void setLookSpeed(float lookSpeed)
+
 .. index::
 	pair: RingQt Classes Reference; QAbstractItemView Class
 
@@ -2854,6 +2855,21 @@ Parameters : void
 * bool setData( QModelIndex idx,  QVariant value, int role)
 * void sort(int column, Qt::SortOrder order )
 * int supportedDropActions(void)
+
+.. index::
+	pair: RingQt Classes Reference; QFirstPersonCameraController Class
+
+QFirstPersonCameraController Class
+==================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFirstPersonCameraController.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QAbstractCameraController
 
 .. index::
 	pair: RingQt Classes Reference; QFont Class
