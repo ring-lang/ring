@@ -6457,6 +6457,7 @@ Parameters : Qt3DCore::QNode *
 * void setMeshResolution(QSize resolution)
 * void setMirrored(bool mirrored)
 * void setWidth(float width)
+
 .. index::
 	pair: RingQt Classes Reference; QPoint Class
 
@@ -7313,6 +7314,26 @@ Parent Class : QAbstractSlider
 * const char *getsliderReleasedEvent(void)
 * const char *getvalueChangedEvent(void)
 
+.. index::
+	pair: RingQt Classes Reference; QSphereMesh Class
+
+QSphereMesh Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSphereMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* bool generateTangents(void)
+* float radius(void)
+* int rings(void)
+* int slices(void)
+* void setGenerateTangents(bool gen)
+* void setRadius(float radius)
+* void setRings(int rings)
+* void setSlices(int slices)
 .. index::
 	pair: RingQt Classes Reference; QSpinBox Class
 
