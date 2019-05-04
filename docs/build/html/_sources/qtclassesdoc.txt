@@ -3959,6 +3959,20 @@ Parameters : void
 * int width(void)
 
 .. index::
+	pair: RingQt Classes Reference; QInputAspect Class
+
+QInputAspect Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QInputAspect.html
+
+
+Parameters : QObject *
+
+* QStringList availablePhysicalDevices(void)
+* Qt3DInput::QAbstractPhysicalDevice * createPhysicalDevice(QString name)
+.. index::
 	pair: RingQt Classes Reference; QInputDialog Class
 
 QInputDialog Class
@@ -6704,6 +6718,7 @@ Parameters : Qt3DCore::QNode *
 * void setConstantAttenuation(float value)
 * void setLinearAttenuation(float value)
 * void setQuadraticAttenuation(float value)
+
 .. index::
 	pair: RingQt Classes Reference; QPrintDialog Class
 
@@ -7304,6 +7319,19 @@ Parameters : void
 * QRegularExpressionMatch peekNext(void)
 * QRegularExpression regularExpression(void)
 * void swap(QRegularExpressionMatchIterator other)
+
+.. index::
+	pair: RingQt Classes Reference; QRenderAspect Class
+
+QRenderAspect Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRenderAspect.html
+
+
+Parameters : QObject *
+
 
 .. index::
 	pair: RingQt Classes Reference; QRenderPass Class
@@ -10233,22 +10261,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10276,6 +10288,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
