@@ -2998,6 +2998,7 @@ Parameters : Qt3DCore::QNode *
 * void setGamma(float gamma)
 * void setSurface(QObject *surface)
 * void setViewportRect(QRectF viewportRect)
+
 .. index::
 	pair: RingQt Classes Reference; QFrame Class
 
@@ -10631,6 +10632,28 @@ Parameters : void
 * void writeTextElement(QString namespaceUri, QString name, QString text)
 * void writeTextElement_2(QString qualifiedName, QString text)
 
+.. index::
+	pair: RingQt Classes Reference; Qt3DWindow Class
+
+Qt3DWindow Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/Qt3DWindow.html
+
+
+Parameters : void
+
+
+Parent Class : QWindow
+
+* Qt3DRender::QFrameGraphNode * activeFrameGraph(void)
+* Qt3DExtras::QForwardRenderer * defaultFrameGraph(void)
+* void registerAspect(Qt3DCore::QAbstractAspect *aspect)
+* void registerAspect_2(QString name)
+* Qt3DRender::QRenderSettings * renderSettings(void)
+* void setActiveFrameGraph(Qt3DRender::QFrameGraphNode *activeFrameGraph)
+* void setRootEntity(Qt3DCore::QEntity *root)
 .. index::
 	pair: RingQt Classes Reference; RingCodeHighlighter Class
 
