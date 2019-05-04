@@ -24904,6 +24904,62 @@ Class QCylinderMesh
 	Func setSlices P1
 		return QCylinderMesh_setSlices(pObject,P1)
 
+Class QCuboidMesh
+
+	pObject
+
+	Func init P1
+		pObject = QCuboidMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCuboidMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func xExtent 
+		return QCuboidMesh_xExtent(pObject)
+
+	Func xyMeshResolution 
+		pTempObj = new QSize
+		pTempObj.pObject = QCuboidMesh_xyMeshResolution(pObject)
+		return pTempObj
+
+	Func xzMeshResolution 
+		pTempObj = new QSize
+		pTempObj.pObject = QCuboidMesh_xzMeshResolution(pObject)
+		return pTempObj
+
+	Func yExtent 
+		return QCuboidMesh_yExtent(pObject)
+
+	Func yzMeshResolution 
+		pTempObj = new QSize
+		pTempObj.pObject = QCuboidMesh_yzMeshResolution(pObject)
+		return pTempObj
+
+	Func zExtent 
+		return QCuboidMesh_zExtent(pObject)
+
+	Func setXExtent P1
+		return QCuboidMesh_setXExtent(pObject,P1)
+
+	Func setXYMeshResolution P1
+		return QCuboidMesh_setXYMeshResolution(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setXZMeshResolution P1
+		return QCuboidMesh_setXZMeshResolution(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setYExtent P1
+		return QCuboidMesh_setYExtent(pObject,P1)
+
+	Func setYZMeshResolution P1
+		return QCuboidMesh_setYZMeshResolution(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setZExtent P1
+		return QCuboidMesh_setZExtent(pObject,P1)
+
 Class QSize
 
 	pObject
