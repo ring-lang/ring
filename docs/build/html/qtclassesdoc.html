@@ -110,7 +110,7 @@
 <div class="section" id="qabstractcameracontroller-class">
 <span id="index-4"></span><h2>QAbstractCameraController Class<a class="headerlink" href="#qabstractcameracontroller-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QAbstractCameraController.html">http://doc.qt.io/qt-5/QAbstractCameraController.html</a></p>
-<p>Parent Class : Qt3DCore::QEntity</p>
+<p>Parent Class : QEntity</p>
 <ul class="simple">
 <li>float acceleration(void)</li>
 <li>Qt3DRender::QCamera * camera(void)</li>
@@ -8524,6 +8524,7 @@
 <li>QWidget <a href="#id3346"><span class="problematic" id="id3347">*</span></a>keyboardGrabber(void)</li>
 <li>QWidget <a href="#id3348"><span class="problematic" id="id3349">*</span></a>mouseGrabber(void)</li>
 <li>void setTabOrder(QWidget <a href="#id3350"><span class="problematic" id="id3351">*</span></a>first, QWidget <a href="#id3352"><span class="problematic" id="id3353">*</span></a>second)</li>
+<li>QWidget <a href="#id3354"><span class="problematic" id="id3355">*</span></a>createWindowContainer(QWindow <a href="#id3356"><span class="problematic" id="id3357">*</span></a>window, QWidget <a href="#id3358"><span class="problematic" id="id3359">*</span></a>parent, Qt::WindowFlags flags)</li>
 </ul>
 </div>
 <div class="section" id="qwindow-class">
@@ -8548,7 +8549,7 @@
 <li>int height(void)</li>
 <li>QIcon icon(void)</li>
 <li>bool isActive(void)</li>
-<li>bool isAncestorOf(QWindow <a href="#id3354"><span class="problematic" id="id3355">*</span></a>child, QWindow::AncestorMode mode)</li>
+<li>bool isAncestorOf(QWindow <a href="#id3360"><span class="problematic" id="id3361">*</span></a>child, QWindow::AncestorMode mode)</li>
 <li>bool isExposed(void)</li>
 <li>bool isModal(void)</li>
 <li>bool isTopLevel(void)</li>
@@ -8586,12 +8587,12 @@
 <li>void setModality(Qt::WindowModality modality)</li>
 <li>bool setMouseGrabEnabled(bool grab)</li>
 <li>void setOpacity(qreal level)</li>
-<li>void setParent(QWindow <a href="#id3356"><span class="problematic" id="id3357">*</span></a>parent)</li>
+<li>void setParent(QWindow <a href="#id3362"><span class="problematic" id="id3363">*</span></a>parent)</li>
 <li>void setPosition(QPoint pt)</li>
 <li>void setPosition_2(int posx, int posy)</li>
-<li>void setScreen(QScreen <a href="#id3358"><span class="problematic" id="id3359">*</span></a>newScreen)</li>
+<li>void setScreen(QScreen <a href="#id3364"><span class="problematic" id="id3365">*</span></a>newScreen)</li>
 <li>void setSizeIncrement(QSize size)</li>
-<li>void setTransientParent(QWindow <a href="#id3360"><span class="problematic" id="id3361">*</span></a>parent)</li>
+<li>void setTransientParent(QWindow <a href="#id3366"><span class="problematic" id="id3367">*</span></a>parent)</li>
 <li>void setVisibility(QWindow::Visibility v)</li>
 <li>void setWindowState(Qt::WindowState state)</li>
 <li>QSize sizeIncrement(void)</li>
@@ -8627,42 +8628,42 @@
 <li>void showMinimized(void)</li>
 <li>void showNormal(void)</li>
 <li>QWindow * fromWinId(WId id)</li>
-<li>void setactiveChangedEvent(const char <a href="#id3362"><span class="problematic" id="id3363">*</span></a>)</li>
-<li>void setcontentOrientationChangedEvent(const char <a href="#id3364"><span class="problematic" id="id3365">*</span></a>)</li>
-<li>void setfocusObjectChangedEvent(const char <a href="#id3366"><span class="problematic" id="id3367">*</span></a>)</li>
-<li>void setheightChangedEvent(const char <a href="#id3368"><span class="problematic" id="id3369">*</span></a>)</li>
-<li>void setmaximumHeightChangedEvent(const char <a href="#id3370"><span class="problematic" id="id3371">*</span></a>)</li>
-<li>void setmaximumWidthChangedEvent(const char <a href="#id3372"><span class="problematic" id="id3373">*</span></a>)</li>
-<li>void setminimumHeightChangedEvent(const char <a href="#id3374"><span class="problematic" id="id3375">*</span></a>)</li>
-<li>void setminimumWidthChangedEvent(const char <a href="#id3376"><span class="problematic" id="id3377">*</span></a>)</li>
-<li>void setmodalityChangedEvent(const char <a href="#id3378"><span class="problematic" id="id3379">*</span></a>)</li>
-<li>void setopacityChangedEvent(const char <a href="#id3380"><span class="problematic" id="id3381">*</span></a>)</li>
-<li>void setscreenChangedEvent(const char <a href="#id3382"><span class="problematic" id="id3383">*</span></a>)</li>
-<li>void setvisibilityChangedEvent(const char <a href="#id3384"><span class="problematic" id="id3385">*</span></a>)</li>
-<li>void setvisibleChangedEvent(const char <a href="#id3386"><span class="problematic" id="id3387">*</span></a>)</li>
-<li>void setwidthChangedEvent(const char <a href="#id3388"><span class="problematic" id="id3389">*</span></a>)</li>
-<li>void setwindowStateChangedEvent(const char <a href="#id3390"><span class="problematic" id="id3391">*</span></a>)</li>
-<li>void setwindowTitleChangedEvent(const char <a href="#id3392"><span class="problematic" id="id3393">*</span></a>)</li>
-<li>void setxChangedEvent(const char <a href="#id3394"><span class="problematic" id="id3395">*</span></a>)</li>
-<li>void setyChangedEvent(const char <a href="#id3396"><span class="problematic" id="id3397">*</span></a>)</li>
-<li>const char <a href="#id3398"><span class="problematic" id="id3399">*</span></a>getactiveChangedEvent(void)</li>
-<li>const char <a href="#id3400"><span class="problematic" id="id3401">*</span></a>getcontentOrientationChangedEvent(void)</li>
-<li>const char <a href="#id3402"><span class="problematic" id="id3403">*</span></a>getfocusObjectChangedEvent(void)</li>
-<li>const char <a href="#id3404"><span class="problematic" id="id3405">*</span></a>getheightChangedEvent(void)</li>
-<li>const char <a href="#id3406"><span class="problematic" id="id3407">*</span></a>getmaximumHeightChangedEvent(void)</li>
-<li>const char <a href="#id3408"><span class="problematic" id="id3409">*</span></a>getmaximumWidthChangedEvent(void)</li>
-<li>const char <a href="#id3410"><span class="problematic" id="id3411">*</span></a>getminimumHeightChangedEvent(void)</li>
-<li>const char <a href="#id3412"><span class="problematic" id="id3413">*</span></a>getminimumWidthChangedEvent(void)</li>
-<li>const char <a href="#id3414"><span class="problematic" id="id3415">*</span></a>getmodalityChangedEvent(void)</li>
-<li>const char <a href="#id3416"><span class="problematic" id="id3417">*</span></a>getopacityChangedEvent(void)</li>
-<li>const char <a href="#id3418"><span class="problematic" id="id3419">*</span></a>getscreenChangedEvent(void)</li>
-<li>const char <a href="#id3420"><span class="problematic" id="id3421">*</span></a>getvisibilityChangedEvent(void)</li>
-<li>const char <a href="#id3422"><span class="problematic" id="id3423">*</span></a>getvisibleChangedEvent(void)</li>
-<li>const char <a href="#id3424"><span class="problematic" id="id3425">*</span></a>getwidthChangedEvent(void)</li>
-<li>const char <a href="#id3426"><span class="problematic" id="id3427">*</span></a>getwindowStateChangedEvent(void)</li>
-<li>const char <a href="#id3428"><span class="problematic" id="id3429">*</span></a>getwindowTitleChangedEvent(void)</li>
-<li>const char <a href="#id3430"><span class="problematic" id="id3431">*</span></a>getxChangedEvent(void)</li>
-<li>const char <a href="#id3432"><span class="problematic" id="id3433">*</span></a>getyChangedEvent(void)</li>
+<li>void setactiveChangedEvent(const char <a href="#id3368"><span class="problematic" id="id3369">*</span></a>)</li>
+<li>void setcontentOrientationChangedEvent(const char <a href="#id3370"><span class="problematic" id="id3371">*</span></a>)</li>
+<li>void setfocusObjectChangedEvent(const char <a href="#id3372"><span class="problematic" id="id3373">*</span></a>)</li>
+<li>void setheightChangedEvent(const char <a href="#id3374"><span class="problematic" id="id3375">*</span></a>)</li>
+<li>void setmaximumHeightChangedEvent(const char <a href="#id3376"><span class="problematic" id="id3377">*</span></a>)</li>
+<li>void setmaximumWidthChangedEvent(const char <a href="#id3378"><span class="problematic" id="id3379">*</span></a>)</li>
+<li>void setminimumHeightChangedEvent(const char <a href="#id3380"><span class="problematic" id="id3381">*</span></a>)</li>
+<li>void setminimumWidthChangedEvent(const char <a href="#id3382"><span class="problematic" id="id3383">*</span></a>)</li>
+<li>void setmodalityChangedEvent(const char <a href="#id3384"><span class="problematic" id="id3385">*</span></a>)</li>
+<li>void setopacityChangedEvent(const char <a href="#id3386"><span class="problematic" id="id3387">*</span></a>)</li>
+<li>void setscreenChangedEvent(const char <a href="#id3388"><span class="problematic" id="id3389">*</span></a>)</li>
+<li>void setvisibilityChangedEvent(const char <a href="#id3390"><span class="problematic" id="id3391">*</span></a>)</li>
+<li>void setvisibleChangedEvent(const char <a href="#id3392"><span class="problematic" id="id3393">*</span></a>)</li>
+<li>void setwidthChangedEvent(const char <a href="#id3394"><span class="problematic" id="id3395">*</span></a>)</li>
+<li>void setwindowStateChangedEvent(const char <a href="#id3396"><span class="problematic" id="id3397">*</span></a>)</li>
+<li>void setwindowTitleChangedEvent(const char <a href="#id3398"><span class="problematic" id="id3399">*</span></a>)</li>
+<li>void setxChangedEvent(const char <a href="#id3400"><span class="problematic" id="id3401">*</span></a>)</li>
+<li>void setyChangedEvent(const char <a href="#id3402"><span class="problematic" id="id3403">*</span></a>)</li>
+<li>const char <a href="#id3404"><span class="problematic" id="id3405">*</span></a>getactiveChangedEvent(void)</li>
+<li>const char <a href="#id3406"><span class="problematic" id="id3407">*</span></a>getcontentOrientationChangedEvent(void)</li>
+<li>const char <a href="#id3408"><span class="problematic" id="id3409">*</span></a>getfocusObjectChangedEvent(void)</li>
+<li>const char <a href="#id3410"><span class="problematic" id="id3411">*</span></a>getheightChangedEvent(void)</li>
+<li>const char <a href="#id3412"><span class="problematic" id="id3413">*</span></a>getmaximumHeightChangedEvent(void)</li>
+<li>const char <a href="#id3414"><span class="problematic" id="id3415">*</span></a>getmaximumWidthChangedEvent(void)</li>
+<li>const char <a href="#id3416"><span class="problematic" id="id3417">*</span></a>getminimumHeightChangedEvent(void)</li>
+<li>const char <a href="#id3418"><span class="problematic" id="id3419">*</span></a>getminimumWidthChangedEvent(void)</li>
+<li>const char <a href="#id3420"><span class="problematic" id="id3421">*</span></a>getmodalityChangedEvent(void)</li>
+<li>const char <a href="#id3422"><span class="problematic" id="id3423">*</span></a>getopacityChangedEvent(void)</li>
+<li>const char <a href="#id3424"><span class="problematic" id="id3425">*</span></a>getscreenChangedEvent(void)</li>
+<li>const char <a href="#id3426"><span class="problematic" id="id3427">*</span></a>getvisibilityChangedEvent(void)</li>
+<li>const char <a href="#id3428"><span class="problematic" id="id3429">*</span></a>getvisibleChangedEvent(void)</li>
+<li>const char <a href="#id3430"><span class="problematic" id="id3431">*</span></a>getwidthChangedEvent(void)</li>
+<li>const char <a href="#id3432"><span class="problematic" id="id3433">*</span></a>getwindowStateChangedEvent(void)</li>
+<li>const char <a href="#id3434"><span class="problematic" id="id3435">*</span></a>getwindowTitleChangedEvent(void)</li>
+<li>const char <a href="#id3436"><span class="problematic" id="id3437">*</span></a>getxChangedEvent(void)</li>
+<li>const char <a href="#id3438"><span class="problematic" id="id3439">*</span></a>getyChangedEvent(void)</li>
 </ul>
 </div>
 <div class="section" id="qxmlstreamattribute-class">
@@ -8746,14 +8747,14 @@
 <li>qint64 characterOffset(void)</li>
 <li>void clear(void)</li>
 <li>qint64 columnNumber(void)</li>
-<li>QIODevice <a href="#id3434"><span class="problematic" id="id3435">*</span></a>device(void)</li>
+<li>QIODevice <a href="#id3440"><span class="problematic" id="id3441">*</span></a>device(void)</li>
 <li>QStringRef documentEncoding(void)</li>
 <li>QStringRef documentVersion(void)</li>
 <li>QStringRef dtdName(void)</li>
 <li>QStringRef dtdPublicId(void)</li>
 <li>QStringRef dtdSystemId(void)</li>
 <li>QXmlStreamEntityDeclarations entityDeclarations(void)</li>
-<li>QXmlStreamEntityResolver <a href="#id3436"><span class="problematic" id="id3437">*</span></a>entityResolver(void)</li>
+<li>QXmlStreamEntityResolver <a href="#id3442"><span class="problematic" id="id3443">*</span></a>entityResolver(void)</li>
 <li>Error error(void)</li>
 <li>QString errorString(void)</li>
 <li>bool hasError(void)</li>
@@ -8783,8 +8784,8 @@
 <li>QString readElementText(QXmlStreamReader::ReadElementTextBehaviour)</li>
 <li>TokenType readNext(void)</li>
 <li>bool readNextStartElement(void)</li>
-<li>void setDevice(QIODevice <a href="#id3438"><span class="problematic" id="id3439">*</span></a>device)</li>
-<li>void setEntityResolver(QXmlStreamEntityResolver <a href="#id3440"><span class="problematic" id="id3441">*</span></a>resolver)</li>
+<li>void setDevice(QIODevice <a href="#id3444"><span class="problematic" id="id3445">*</span></a>device)</li>
+<li>void setEntityResolver(QXmlStreamEntityResolver <a href="#id3446"><span class="problematic" id="id3447">*</span></a>resolver)</li>
 <li>void setNamespaceProcessing(bool)</li>
 <li>void skipCurrentElement(void)</li>
 <li>QStringRef text(void)</li>
@@ -8799,14 +8800,14 @@
 <ul class="simple">
 <li>bool autoFormatting(void)</li>
 <li>int autoFormattingIndent(void)</li>
-<li>QTextCodec <a href="#id3442"><span class="problematic" id="id3443">*</span></a>codec(void)</li>
-<li>QIODevice <a href="#id3444"><span class="problematic" id="id3445">*</span></a>device(void)</li>
+<li>QTextCodec <a href="#id3448"><span class="problematic" id="id3449">*</span></a>codec(void)</li>
+<li>QIODevice <a href="#id3450"><span class="problematic" id="id3451">*</span></a>device(void)</li>
 <li>bool hasError(void)</li>
 <li>void setAutoFormatting(bool enable)</li>
 <li>void setAutoFormattingIndent(int spacesOrTabs)</li>
-<li>void setCodec(QTextCodec <a href="#id3446"><span class="problematic" id="id3447">*</span></a>codec)</li>
-<li>void setCodec_2(const char <a href="#id3448"><span class="problematic" id="id3449">*</span></a>codecName)</li>
-<li>void setDevice(QIODevice <a href="#id3450"><span class="problematic" id="id3451">*</span></a>device)</li>
+<li>void setCodec(QTextCodec <a href="#id3452"><span class="problematic" id="id3453">*</span></a>codec)</li>
+<li>void setCodec_2(const char <a href="#id3454"><span class="problematic" id="id3455">*</span></a>codecName)</li>
+<li>void setDevice(QIODevice <a href="#id3456"><span class="problematic" id="id3457">*</span></a>device)</li>
 <li>void writeAttribute(QString, QString,QString)</li>
 <li>void writeAttribute_2(QString, QString)</li>
 <li>void writeAttribute_3(QXmlStreamAttribute)</li>
@@ -8845,7 +8846,7 @@
 <li>float farPlane(void)</li>
 <li>float fieldOfView(void)</li>
 <li>float left(void)</li>
-<li>Qt3DRender::QCameraLens <a href="#id3452"><span class="problematic" id="id3453">*</span></a>lens(void)</li>
+<li>Qt3DRender::QCameraLens <a href="#id3458"><span class="problematic" id="id3459">*</span></a>lens(void)</li>
 <li>float nearPlane(void)</li>
 <li>void pan(float angle)</li>
 <li>void pan_2(float angle, QVector3D axis)</li>
@@ -8887,7 +8888,7 @@
 <li>void setUpVector(QVector3D upVector)</li>
 <li>void setViewCenter(QVector3D viewCenter)</li>
 <li>void viewAll(void)</li>
-<li>void viewEntity(Qt3DCore::QEntity <a href="#id3454"><span class="problematic" id="id3455">*</span></a>entity)</li>
+<li>void viewEntity(Qt3DCore::QEntity <a href="#id3460"><span class="problematic" id="id3461">*</span></a>entity)</li>
 <li>void viewSphere(QVector3D center, float radius)</li>
 </ul>
 </div>
@@ -8899,16 +8900,16 @@
 <ul class="simple">
 <li>Qt3DRender::QFrameGraphNode * activeFrameGraph(void)</li>
 <li>Qt3DExtras::QForwardRenderer * defaultFrameGraph(void)</li>
-<li>void registerAspect(Qt3DCore::QAbstractAspect <a href="#id3456"><span class="problematic" id="id3457">*</span></a>aspect)</li>
+<li>void registerAspect(Qt3DCore::QAbstractAspect <a href="#id3462"><span class="problematic" id="id3463">*</span></a>aspect)</li>
 <li>void registerAspect_2(QString name)</li>
 <li>Qt3DRender::QRenderSettings * renderSettings(void)</li>
-<li>void setActiveFrameGraph(Qt3DRender::QFrameGraphNode <a href="#id3458"><span class="problematic" id="id3459">*</span></a>activeFrameGraph)</li>
-<li>void setRootEntity(Qt3DCore::QEntity <a href="#id3460"><span class="problematic" id="id3461">*</span></a>root)</li>
+<li>void setActiveFrameGraph(Qt3DRender::QFrameGraphNode <a href="#id3464"><span class="problematic" id="id3465">*</span></a>activeFrameGraph)</li>
+<li>void setRootEntity(Qt3DCore::QEntity <a href="#id3466"><span class="problematic" id="id3467">*</span></a>root)</li>
 </ul>
 </div>
 <div class="section" id="ringcodehighlighter-class">
 <span id="index-296"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
-<p>Parameters : QTextDocument <a href="#id3462"><span class="problematic" id="id3463">*</span></a>parent</p>
+<p>Parameters : QTextDocument <a href="#id3468"><span class="problematic" id="id3469">*</span></a>parent</p>
 <ul class="simple">
 <li>void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)</li>
 <li>void setKeywordsBold(int nStatus)</li>

@@ -95,7 +95,7 @@ QAbstractCameraController Class
 C++ Reference : http://doc.qt.io/qt-5/QAbstractCameraController.html
 
 
-Parent Class : Qt3DCore::QEntity
+Parent Class : QEntity
 
 * float acceleration(void)
 * Qt3DRender::QCamera * camera(void)
@@ -10518,6 +10518,7 @@ Parent Class : QObject
 * QWidget *keyboardGrabber(void)
 * QWidget *mouseGrabber(void)
 * void setTabOrder(QWidget *first, QWidget *second)
+* QWidget *createWindowContainer(QWindow *window, QWidget *parent, Qt::WindowFlags flags)
 
 .. index::
 	pair: RingQt Classes Reference; QWindow Class
