@@ -4880,6 +4880,7 @@ Parameters : Qt3DCore::QNode *
 * Qt3DRender::QMesh::Status status(void)
 * void setMeshName(QString meshName)
 * void setSource(QUrl source)
+
 .. index::
 	pair: RingQt Classes Reference; QMessageBox Class
 
@@ -8512,6 +8513,28 @@ Parent Class : QAbstractSocket
 * const char *getreadChannelFinishedEvent(void)
 * const char *getreadyReadEvent(void)
 
+.. index::
+	pair: RingQt Classes Reference; QTechnique Class
+
+QTechnique Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTechnique.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* void addFilterKey(Qt3DRender::QFilterKey *filterKey)
+* void addParameter(Qt3DRender::QParameter *parameter)
+* void addRenderPass(Qt3DRender::QRenderPass *pass)
+* QVector<Qt3DRender::QFilterKey *> filterKeys(void)
+* Qt3DRender::QGraphicsApiFilter * graphicsApiFilter(void)
+* QVector<Qt3DRender::QParameter *> parameters(void)
+* void removeFilterKey(Qt3DRender::QFilterKey *filterKey)
+* void removeParameter(Qt3DRender::QParameter *parameter)
+* void removeRenderPass(Qt3DRender::QRenderPass *pass)
+* QVector<Qt3DRender::QRenderPass *> renderPasses(void)
 .. index::
 	pair: RingQt Classes Reference; QTest Class
 
