@@ -6248,6 +6248,26 @@ Parameters : void
 * double widthF(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPhongMaterial Class
+
+QPhongMaterial Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPhongMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* QColor ambient(void)
+* QColor diffuse(void)
+* float shininess(void)
+* QColor specular(void)
+* void setAmbient(QColor ambient)
+* void setDiffuse(QColor diffuse)
+* void setShininess(float shininess)
+* void setSpecular(QColor specular)
+.. index::
 	pair: RingQt Classes Reference; QPicture Class
 
 QPicture Class
@@ -7334,6 +7354,7 @@ Parameters : Qt3DCore::QNode *
 * void setRadius(float radius)
 * void setRings(int rings)
 * void setSlices(int slices)
+
 .. index::
 	pair: RingQt Classes Reference; QSpinBox Class
 
@@ -9960,6 +9981,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -9987,22 +10024,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
