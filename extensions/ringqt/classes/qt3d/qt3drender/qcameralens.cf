@@ -1,0 +1,36 @@
+<class>
+name: QCameraLens
+codename: Qt3DRender::QCameraLens
+para: Qt3DCore::QNode *
+parent: QComponent
+</class>
+
+float aspectRatio(void)
+float bottom(void)
+float exposure(void)
+float farPlane(void)
+float fieldOfView(void)
+float left(void)
+float nearPlane(void)
+QMatrix4x4 projectionMatrix(void)
+Qt3DRender::QCameraLens::ProjectionType projectionType(void)
+float right(void)
+void setFrustumProjection(float left, float right, float bottom, float top, float nearPlane, float farPlane)
+void setOrthographicProjection(float left, float right, float bottom, float top, float nearPlane, float farPlane)
+void setPerspectiveProjection(float fieldOfView, float aspectRatio, float nearPlane, float farPlane)
+float top(void)
+<comment>
+void viewAll(Qt3DCore::QNodeId cameraId)
+void viewEntity(Qt3DCore::QNodeId entityId, Qt3DCore::QNodeId cameraId)
+</comment>
+void setAspectRatio(float aspectRatio)
+void setBottom(float bottom)
+void setExposure(float exposure)
+void setFarPlane(float farPlane)
+void setFieldOfView(float fieldOfView)
+void setLeft(float left)
+void setNearPlane(float nearPlane)
+void setProjectionMatrix(QMatrix4x4 projectionMatrix)
+void setProjectionType(Qt3DRender::QCameraLens::ProjectionType projectionType)
+void setRight(float right)
+void setTop(float top)

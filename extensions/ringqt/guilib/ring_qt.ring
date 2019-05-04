@@ -25405,6 +25405,97 @@ Class Qt3DCamera from QEntity
 	Func viewSphere P1,P2
 		return Qt3DCamera_viewSphere(pObject,GetObjectPointerFromRingObject(P1),P2)
 
+Class QCameraLens from QComponent
+
+	pObject
+
+	Func init P1
+		pObject = QCameraLens_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCameraLens_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func aspectRatio 
+		return QCameraLens_aspectRatio(pObject)
+
+	Func bottom 
+		return QCameraLens_bottom(pObject)
+
+	Func exposure 
+		return QCameraLens_exposure(pObject)
+
+	Func farPlane 
+		return QCameraLens_farPlane(pObject)
+
+	Func fieldOfView 
+		return QCameraLens_fieldOfView(pObject)
+
+	Func left 
+		return QCameraLens_left(pObject)
+
+	Func nearPlane 
+		return QCameraLens_nearPlane(pObject)
+
+	Func projectionMatrix 
+		pTempObj = new QMatrix4x4
+		pTempObj.pObject = QCameraLens_projectionMatrix(pObject)
+		return pTempObj
+
+	Func projectionType 
+		return QCameraLens_projectionType(pObject)
+
+	Func right 
+		return QCameraLens_right(pObject)
+
+	Func setFrustumProjection P1,P2,P3,P4,P5,P6
+		return QCameraLens_setFrustumProjection(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func setOrthographicProjection P1,P2,P3,P4,P5,P6
+		return QCameraLens_setOrthographicProjection(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func setPerspectiveProjection P1,P2,P3,P4
+		return QCameraLens_setPerspectiveProjection(pObject,P1,P2,P3,P4)
+
+	Func top 
+		return QCameraLens_top(pObject)
+
+	Func setAspectRatio P1
+		return QCameraLens_setAspectRatio(pObject,P1)
+
+	Func setBottom P1
+		return QCameraLens_setBottom(pObject,P1)
+
+	Func setExposure P1
+		return QCameraLens_setExposure(pObject,P1)
+
+	Func setFarPlane P1
+		return QCameraLens_setFarPlane(pObject,P1)
+
+	Func setFieldOfView P1
+		return QCameraLens_setFieldOfView(pObject,P1)
+
+	Func setLeft P1
+		return QCameraLens_setLeft(pObject,P1)
+
+	Func setNearPlane P1
+		return QCameraLens_setNearPlane(pObject,P1)
+
+	Func setProjectionMatrix P1
+		return QCameraLens_setProjectionMatrix(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProjectionType P1
+		return QCameraLens_setProjectionType(pObject,P1)
+
+	Func setRight P1
+		return QCameraLens_setRight(pObject,P1)
+
+	Func setTop P1
+		return QCameraLens_setTop(pObject,P1)
+
 Class QSize
 
 	pObject
