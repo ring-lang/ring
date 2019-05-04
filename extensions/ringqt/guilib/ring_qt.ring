@@ -25679,6 +25679,42 @@ Class QRenderPass
 	Func setShaderProgram P1
 		return QRenderPass_setShaderProgram(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QSceneLoader from QComponent
+
+	pObject
+
+	Func init P1
+		pObject = QSceneLoader_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSceneLoader_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func component P1,P2
+		return QSceneLoader_component(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func entity P1
+		return QSceneLoader_entity(pObject,P1)
+
+	Func entityNames 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSceneLoader_entityNames(pObject)
+		return pTempObj
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QSceneLoader_source(pObject)
+		return pTempObj
+
+	Func status 
+		return QSceneLoader_status(pObject)
+
+	Func setSource P1
+		return QSceneLoader_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject

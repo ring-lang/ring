@@ -1,0 +1,13 @@
+<class>
+name: QSceneLoader
+codename: Qt3DRender::QSceneLoader
+para: Qt3DCore::QNode *
+parent: QComponent
+</class>
+
+Qt3DCore::QComponent * component(QString entityName, Qt3DRender::QSceneLoader::ComponentType componentType)
+Qt3DCore::QEntity * entity(QString entityName)
+QStringList entityNames(void)
+QUrl source(void)
+Qt3DRender::QSceneLoader::Status status(void)
+void setSource(QUrl arg)
