@@ -1,0 +1,6 @@
+<class>
+name: QFirstPersonCameraController
+codename: Qt3DExtras::QFirstPersonCameraController
+para: Qt3DCore::QNode *
+parent: QAbstractCameraController
+</class>

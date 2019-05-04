@@ -8,3 +8,4 @@
 <loadfile> qt3dextras/qforwardrenderer.cf
 <loadfile> qt3dextras/qt3dwindow.cf
 <loadfile> qt3dextras/qabstractcameracontroller.cf
+<loadfile> qt3dextras/qfirstpersoncameracontroller.cf

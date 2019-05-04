@@ -25642,3 +25642,17 @@ Class QAxWidget2 from QAxWidget
 
 	Func ObjectPointer
 		return pObject
+
+Class QFirstPersonCameraController from QAbstractCameraController
+
+	pObject
+
+	Func init P1
+		pObject = QFirstPersonCameraController_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFirstPersonCameraController_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
