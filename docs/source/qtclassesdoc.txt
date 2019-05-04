@@ -1951,6 +1951,30 @@ Parent Class : QObject
 * QString translate(char *context, char *sourceText, char *disambiguation, int n)
 
 .. index::
+	pair: RingQt Classes Reference; QCuboidMesh Class
+
+QCuboidMesh Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCuboidMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float xExtent(void)
+* QSize xyMeshResolution(void)
+* QSize xzMeshResolution(void)
+* float yExtent(void)
+* QSize yzMeshResolution(void)
+* float zExtent(void)
+* void setXExtent(float xExtent)
+* void setXYMeshResolution(QSize resolution)
+* void setXZMeshResolution(QSize resolution)
+* void setYExtent(float yExtent)
+* void setYZMeshResolution(QSize resolution)
+* void setZExtent(float zExtent)
+.. index::
 	pair: RingQt Classes Reference; QCursor Class
 
 QCursor Class
@@ -1995,6 +2019,7 @@ Parameters : Qt3DCore::QNode *
 * void setRadius(float radius)
 * void setRings(int rings)
 * void setSlices(int slices)
+
 .. index::
 	pair: RingQt Classes Reference; QDate Class
 
