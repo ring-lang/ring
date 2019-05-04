@@ -2,3 +2,4 @@
 <loadfile> qt3drender/qcameralens.cf
 <loadfile> qt3drender/qmesh.cf
 <loadfile> qt3drender/qtechnique.cf
+<loadfile> qt3drender/qmaterial.cf

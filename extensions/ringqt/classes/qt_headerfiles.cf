@@ -373,6 +373,7 @@ extern "C" {
 #include <Qt3DRender/QCameraLens>
 #include <Qt3DRender/QMesh>
 #include <Qt3DRender/qtechnique>
+#include <Qt3DRender/qmaterial>
 </filter>
 
 #include <QGraphicsView>

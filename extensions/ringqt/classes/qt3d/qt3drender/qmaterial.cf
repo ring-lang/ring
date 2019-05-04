@@ -1,0 +1,12 @@
+<class>
+name: QMaterial
+codename: Qt3DRender::QMaterial
+para: Qt3DCore::QNode *
+parent:  Qt3DCore::QComponent
+</class>
+
+void addParameter(Qt3DRender::QParameter *parameter)
+Qt3DRender::QEffect * effect(void)
+QVector<Qt3DRender::QParameter *> parameters(void)
+void removeParameter(Qt3DRender::QParameter *parameter)
+void setEffect(Qt3DRender::QEffect *effect)

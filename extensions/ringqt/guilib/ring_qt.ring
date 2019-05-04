@@ -25571,6 +25571,35 @@ Class QTechnique
 	Func renderPasses 
 		return QTechnique_renderPasses(pObject)
 
+Class QMaterial from Qt3DCore::QComponent
+
+	pObject
+
+	Func init P1
+		pObject = QMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addParameter P1
+		return QMaterial_addParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func effect 
+		return QMaterial_effect(pObject)
+
+	Func parameters 
+		return QMaterial_parameters(pObject)
+
+	Func removeParameter P1
+		return QMaterial_removeParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setEffect P1
+		return QMaterial_setEffect(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
