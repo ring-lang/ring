@@ -2609,6 +2609,24 @@ Parent Class : QEvent
 * QObject * source(void)
 
 .. index::
+	pair: RingQt Classes Reference; QEffect Class
+
+QEffect Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QEffect.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* void addParameter(Qt3DRender::QParameter *parameter)
+* void addTechnique(Qt3DRender::QTechnique *t)
+* QVector<Qt3DRender::QParameter *> parameters(void)
+* void removeParameter(Qt3DRender::QParameter *parameter)
+* void removeTechnique(Qt3DRender::QTechnique *t)
+* QVector<Qt3DRender::QTechnique *> techniques(void)
+.. index::
 	pair: RingQt Classes Reference; QEntity Class
 
 QEntity Class
@@ -4593,6 +4611,7 @@ Parent Class : Qt3DCore::QComponent
 * QVector<Qt3DRender::QParameter *> parameters(void)
 * void removeParameter(Qt3DRender::QParameter *parameter)
 * void setEffect(Qt3DRender::QEffect *effect)
+
 .. index::
 	pair: RingQt Classes Reference; QMatrix4x4 Class
 
