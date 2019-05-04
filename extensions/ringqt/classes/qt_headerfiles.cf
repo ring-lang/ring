@@ -375,6 +375,12 @@ extern "C" {
 #include <Qt3DRender/qtechnique>
 #include <Qt3DRender/qmaterial>
 #include <Qt3DRender/qeffect>
+#include <Qt3DRender/qtexture>
+#include <Qt3DRender/QRenderPass>
+#include <Qt3DRender/qsceneloader>
+#include <Qt3DRender/qpointlight>
+#include <Qt3DRender/qrenderaspect>
+#include <Qt3DInput/QInputAspect>
 </filter>
 
 #include <QGraphicsView>

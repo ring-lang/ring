@@ -1,0 +1,17 @@
+<class>
+name: QRenderPass
+codename: Qt3DRender::QRenderPass
+para: Qt3DCore::QNode *
+</class>
+
+void addFilterKey(Qt3DRender::QFilterKey *filterKey)
+void addParameter(Qt3DRender::QParameter *parameter)
+void addRenderState(Qt3DRender::QRenderState *state)
+QVector<Qt3DRender::QFilterKey *> filterKeys(void)
+QVector<Qt3DRender::QParameter *> parameters(void)
+void removeFilterKey(Qt3DRender::QFilterKey *filterKey)
+void removeParameter(Qt3DRender::QParameter *parameter)
+void removeRenderState(Qt3DRender::QRenderState *state)
+QVector<Qt3DRender::QRenderState *> renderStates(void)
+Qt3DRender::QShaderProgram * shaderProgram(void)
+void setShaderProgram(Qt3DRender::QShaderProgram *shaderProgram)

@@ -25632,6 +25632,53 @@ Class QEffect
 	Func techniques 
 		return QEffect_techniques(pObject)
 
+Class QRenderPass
+
+	pObject
+
+	Func init P1
+		pObject = QRenderPass_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QRenderPass_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addFilterKey P1
+		return QRenderPass_addFilterKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addParameter P1
+		return QRenderPass_addParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addRenderState P1
+		return QRenderPass_addRenderState(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func filterKeys 
+		return QRenderPass_filterKeys(pObject)
+
+	Func parameters 
+		return QRenderPass_parameters(pObject)
+
+	Func removeFilterKey P1
+		return QRenderPass_removeFilterKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeParameter P1
+		return QRenderPass_removeParameter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeRenderState P1
+		return QRenderPass_removeRenderState(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func renderStates 
+		return QRenderPass_renderStates(pObject)
+
+	Func shaderProgram 
+		return QRenderPass_shaderProgram(pObject)
+
+	Func setShaderProgram P1
+		return QRenderPass_setShaderProgram(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject

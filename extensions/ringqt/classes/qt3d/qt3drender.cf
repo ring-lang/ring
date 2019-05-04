@@ -4,3 +4,4 @@
 <loadfile> qt3drender/qtechnique.cf
 <loadfile> qt3drender/qmaterial.cf
 <loadfile> qt3drender/qeffect.cf
+<loadfile> qt3drender/qrenderpass.cf
