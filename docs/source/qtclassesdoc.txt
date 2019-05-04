@@ -86,6 +86,28 @@ Parent Class : QWidget
 * void toggle(void)
 
 .. index::
+	pair: RingQt Classes Reference; QAbstractCameraController Class
+
+QAbstractCameraController Class
+===============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractCameraController.html
+
+
+Parent Class : Qt3DCore::QEntity
+
+* float acceleration(void)
+* Qt3DRender::QCamera * camera(void)
+* float deceleration(void)
+* float linearSpeed(void)
+* float lookSpeed(void)
+* void setAcceleration(float acceleration)
+* void setCamera(Qt3DRender::QCamera *camera)
+* void setDeceleration(float deceleration)
+* void setLinearSpeed(float linearSpeed)
+* void setLookSpeed(float lookSpeed)
+.. index::
 	pair: RingQt Classes Reference; QAbstractItemView Class
 
 QAbstractItemView Class
@@ -10009,6 +10031,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10036,22 +10074,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
@@ -10654,6 +10676,7 @@ Parent Class : QWindow
 * Qt3DRender::QRenderSettings * renderSettings(void)
 * void setActiveFrameGraph(Qt3DRender::QFrameGraphNode *activeFrameGraph)
 * void setRootEntity(Qt3DCore::QEntity *root)
+
 .. index::
 	pair: RingQt Classes Reference; RingCodeHighlighter Class
 
