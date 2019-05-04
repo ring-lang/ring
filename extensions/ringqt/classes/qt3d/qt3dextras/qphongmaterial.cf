@@ -1,0 +1,15 @@
+<class>
+name: QPhongMaterial
+codename: Qt3DExtras::QPhongMaterial
+para: Qt3DCore::QNode *
+</class>
+
+
+QColor ambient(void)
+QColor diffuse(void)
+float shininess(void)
+QColor specular(void)
+void setAmbient(QColor ambient)
+void setDiffuse(QColor diffuse)
+void setShininess(float shininess)
+void setSpecular(QColor specular)

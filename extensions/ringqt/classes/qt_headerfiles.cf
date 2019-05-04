@@ -364,6 +364,7 @@ extern "C" {
 #include <Qt3DExtras/QCuboidMesh>
 #include <Qt3DExtras/QPlaneMesh>
 #include <Qt3DExtras/QSphereMesh>
+#include <QPhongMaterial>
 </filter>
 
 #include <QGraphicsView>

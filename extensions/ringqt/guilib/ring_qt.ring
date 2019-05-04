@@ -25038,6 +25038,50 @@ Class QSphereMesh
 	Func setSlices P1
 		return QSphereMesh_setSlices(pObject,P1)
 
+Class QPhongMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QPhongMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPhongMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func ambient 
+		pTempObj = new QColor
+		pTempObj.pObject = QPhongMaterial_ambient(pObject)
+		return pTempObj
+
+	Func diffuse 
+		pTempObj = new QColor
+		pTempObj.pObject = QPhongMaterial_diffuse(pObject)
+		return pTempObj
+
+	Func shininess 
+		return QPhongMaterial_shininess(pObject)
+
+	Func specular 
+		pTempObj = new QColor
+		pTempObj.pObject = QPhongMaterial_specular(pObject)
+		return pTempObj
+
+	Func setAmbient P1
+		return QPhongMaterial_setAmbient(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDiffuse P1
+		return QPhongMaterial_setDiffuse(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShininess P1
+		return QPhongMaterial_setShininess(pObject,P1)
+
+	Func setSpecular P1
+		return QPhongMaterial_setSpecular(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject
