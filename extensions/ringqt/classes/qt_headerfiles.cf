@@ -371,6 +371,7 @@ extern "C" {
 #include <Qt3DExtras/QFirstPersonCameraController>
 #include <Qt3DRender/QCamera>
 #include <Qt3DRender/QCameraLens>
+#include <Qt3DRender/QMesh>
 </filter>
 
 #include <QGraphicsView>

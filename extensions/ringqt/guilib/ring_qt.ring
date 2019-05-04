@@ -25496,6 +25496,37 @@ Class QCameraLens from QComponent
 	Func setTop P1
 		return QCameraLens_setTop(pObject,P1)
 
+Class QMesh
+
+	pObject
+
+	Func init P1
+		pObject = QMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func meshName 
+		return QMesh_meshName(pObject)
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QMesh_source(pObject)
+		return pTempObj
+
+	Func status 
+		return QMesh_status(pObject)
+
+	Func setMeshName P1
+		return QMesh_setMeshName(pObject,P1)
+
+	Func setSource P1
+		return QMesh_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QSize
 
 	pObject

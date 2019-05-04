@@ -373,4 +373,5 @@ aEnumTypes + "QNodeCommand::CommandId"
 aEnumTypes + "Qt3DRender::QCameraLens::ProjectionType"
 aEnumTypes + "Qt3DRender::QCamera::CameraTranslationOption"
 aEnumTypes + "QCameraLens::ProjectionType"
+aEnumTypes + "QMesh::Status"
 </runcode>
