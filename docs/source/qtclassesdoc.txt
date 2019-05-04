@@ -1444,6 +1444,45 @@ Parameters : QMediaObject * mediaObject
 * int capture( QString   file )
 
 .. index::
+	pair: RingQt Classes Reference; QCameraLens Class
+
+QCameraLens Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCameraLens.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QComponent
+
+* float aspectRatio(void)
+* float bottom(void)
+* float exposure(void)
+* float farPlane(void)
+* float fieldOfView(void)
+* float left(void)
+* float nearPlane(void)
+* QMatrix4x4 projectionMatrix(void)
+* Qt3DRender::QCameraLens::ProjectionType projectionType(void)
+* float right(void)
+* void setFrustumProjection(float left, float right, float bottom, float top, float nearPlane, float farPlane)
+* void setOrthographicProjection(float left, float right, float bottom, float top, float nearPlane, float farPlane)
+* void setPerspectiveProjection(float fieldOfView, float aspectRatio, float nearPlane, float farPlane)
+* float top(void)
+* void setBottom(float bottom)
+* void setExposure(float exposure)
+* void setFarPlane(float farPlane)
+* void setFieldOfView(float fieldOfView)
+* void setLeft(float left)
+* void setNearPlane(float nearPlane)
+* void setProjectionMatrix(QMatrix4x4 projectionMatrix)
+* void setProjectionType(Qt3DRender::QCameraLens::ProjectionType projectionType)
+* void setRight(float right)
+* void setTop(float top)
+.. index::
 	pair: RingQt Classes Reference; QCameraViewfinder Class
 
 QCameraViewfinder Class
@@ -10048,22 +10087,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10091,6 +10114,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
@@ -10736,6 +10775,7 @@ Parent Class : QEntity
 * void viewAll(void)
 * void viewEntity(Qt3DCore::QEntity *entity)
 * void viewSphere(QVector3D center, float radius)
+
 .. index::
 	pair: RingQt Classes Reference; Qt3DWindow Class
 
