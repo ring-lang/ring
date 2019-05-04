@@ -1482,6 +1482,7 @@ Parent Class : QComponent
 * void setProjectionType(Qt3DRender::QCameraLens::ProjectionType projectionType)
 * void setRight(float right)
 * void setTop(float top)
+
 .. index::
 	pair: RingQt Classes Reference; QCameraViewfinder Class
 
@@ -4862,6 +4863,23 @@ Parent Class : QWidget
 * void setCornerWidget(QWidget *widget, Qt::Corner)
 * void setNativeMenuBar(bool nativeMenuBar)
 
+.. index::
+	pair: RingQt Classes Reference; QMesh Class
+
+QMesh Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* QString meshName(void)
+* QUrl source(void)
+* Qt3DRender::QMesh::Status status(void)
+* void setMeshName(QString meshName)
+* void setSource(QUrl source)
 .. index::
 	pair: RingQt Classes Reference; QMessageBox Class
 
