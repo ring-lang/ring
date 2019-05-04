@@ -6687,6 +6687,24 @@ Parameters : void
 * qreal y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QPointLight Class
+
+QPointLight Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPointLight.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float constantAttenuation(void)
+* float linearAttenuation(void)
+* float quadraticAttenuation(void)
+* void setConstantAttenuation(float value)
+* void setLinearAttenuation(float value)
+* void setQuadraticAttenuation(float value)
+.. index::
 	pair: RingQt Classes Reference; QPrintDialog Class
 
 QPrintDialog Class
@@ -7332,6 +7350,7 @@ Parent Class : QComponent
 * QUrl source(void)
 * Qt3DRender::QSceneLoader::Status status(void)
 * void setSource(QUrl arg)
+
 .. index::
 	pair: RingQt Classes Reference; QScreen Class
 
