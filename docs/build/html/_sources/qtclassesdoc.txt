@@ -1455,9 +1455,6 @@ C++ Reference : http://doc.qt.io/qt-5/QCameraLens.html
 
 Parameters : Qt3DCore::QNode *
 
-
-Parent Class : QComponent
-
 * float aspectRatio(void)
 * float bottom(void)
 * float exposure(void)
@@ -6718,6 +6715,8 @@ Parameters : Qt3DCore::QNode *
 * void setConstantAttenuation(float value)
 * void setLinearAttenuation(float value)
 * void setQuadraticAttenuation(float value)
+* void setColor(QColor)
+* void setIntensity(float intensity)
 
 .. index::
 	pair: RingQt Classes Reference; QPrintDialog Class
@@ -10906,7 +10905,7 @@ Parent Class : QEntity
 * float farPlane(void)
 * float fieldOfView(void)
 * float left(void)
-* Qt3DRender::QCameraLens *lens(void)
+* QCameraLens *lens(void)
 * float nearPlane(void)
 * void pan(float angle)
 * void pan_2(float angle, QVector3D axis)
@@ -10973,6 +10972,7 @@ Parent Class : QWindow
 * Qt3DRender::QRenderSettings * renderSettings(void)
 * void setActiveFrameGraph(Qt3DRender::QFrameGraphNode *activeFrameGraph)
 * void setRootEntity(Qt3DCore::QEntity *root)
+* Qt3DCamera *camera(void)
 
 .. index::
 	pair: RingQt Classes Reference; RingCodeHighlighter Class

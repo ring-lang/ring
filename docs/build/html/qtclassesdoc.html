@@ -1201,7 +1201,6 @@
 <span id="index-41"></span><h2>QCameraLens Class<a class="headerlink" href="#qcameralens-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QCameraLens.html">http://doc.qt.io/qt-5/QCameraLens.html</a></p>
 <p>Parameters : Qt3DCore::QNode *</p>
-<p>Parent Class : QComponent</p>
 <ul class="simple">
 <li>float aspectRatio(void)</li>
 <li>float bottom(void)</li>
@@ -5484,6 +5483,8 @@
 <li>void setConstantAttenuation(float value)</li>
 <li>void setLinearAttenuation(float value)</li>
 <li>void setQuadraticAttenuation(float value)</li>
+<li>void setColor(QColor)</li>
+<li>void setIntensity(float intensity)</li>
 </ul>
 </div>
 <div class="section" id="qprintdialog-class">
@@ -8846,7 +8847,7 @@
 <li>float farPlane(void)</li>
 <li>float fieldOfView(void)</li>
 <li>float left(void)</li>
-<li>Qt3DRender::QCameraLens <a href="#id3458"><span class="problematic" id="id3459">*</span></a>lens(void)</li>
+<li>QCameraLens <a href="#id3458"><span class="problematic" id="id3459">*</span></a>lens(void)</li>
 <li>float nearPlane(void)</li>
 <li>void pan(float angle)</li>
 <li>void pan_2(float angle, QVector3D axis)</li>
@@ -8905,11 +8906,12 @@
 <li>Qt3DRender::QRenderSettings * renderSettings(void)</li>
 <li>void setActiveFrameGraph(Qt3DRender::QFrameGraphNode <a href="#id3464"><span class="problematic" id="id3465">*</span></a>activeFrameGraph)</li>
 <li>void setRootEntity(Qt3DCore::QEntity <a href="#id3466"><span class="problematic" id="id3467">*</span></a>root)</li>
+<li>Qt3DCamera <a href="#id3468"><span class="problematic" id="id3469">*</span></a>camera(void)</li>
 </ul>
 </div>
 <div class="section" id="ringcodehighlighter-class">
 <span id="index-296"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
-<p>Parameters : QTextDocument <a href="#id3468"><span class="problematic" id="id3469">*</span></a>parent</p>
+<p>Parameters : QTextDocument <a href="#id3470"><span class="problematic" id="id3471">*</span></a>parent</p>
 <ul class="simple">
 <li>void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)</li>
 <li>void setKeywordsBold(int nStatus)</li>
