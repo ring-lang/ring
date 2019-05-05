@@ -25184,6 +25184,11 @@ Class Qt3DWindow from QWindow
 	Func setRootEntity P1
 		return Qt3DWindow_setRootEntity(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func camera 
+		pTempObj = new Qt3DCamera
+		pTempObj.pObject = Qt3DWindow_camera(pObject)
+		return pTempObj
+
 Class QAbstractCameraController from QEntity
 
 	pObject
@@ -25261,7 +25266,9 @@ Class Qt3DCamera from QEntity
 		return Qt3DCamera_left(pObject)
 
 	Func lens 
-		return Qt3DCamera_lens(pObject)
+		pTempObj = new QCameraLens
+		pTempObj.pObject = Qt3DCamera_lens(pObject)
+		return pTempObj
 
 	Func nearPlane 
 		return Qt3DCamera_nearPlane(pObject)
@@ -25410,7 +25417,7 @@ Class Qt3DCamera from QEntity
 	Func viewSphere P1,P2
 		return Qt3DCamera_viewSphere(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-Class QCameraLens from QComponent
+Class QCameraLens
 
 	pObject
 
@@ -25751,6 +25758,12 @@ Class QPointLight
 
 	Func setQuadraticAttenuation P1
 		return QPointLight_setQuadraticAttenuation(pObject,P1)
+
+	Func setColor P1
+		return QPointLight_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIntensity P1
+		return QPointLight_setIntensity(pObject,P1)
 
 Class QInputAspect
 

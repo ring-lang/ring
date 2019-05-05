@@ -2,7 +2,6 @@
 name: QCameraLens
 codename: Qt3DRender::QCameraLens
 para: Qt3DCore::QNode *
-parent: QComponent
 </class>
 
 float aspectRatio(void)

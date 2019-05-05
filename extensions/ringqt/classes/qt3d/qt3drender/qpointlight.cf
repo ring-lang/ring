@@ -11,3 +11,7 @@ float quadraticAttenuation(void)
 void setConstantAttenuation(float value)
 void setLinearAttenuation(float value)
 void setQuadraticAttenuation(float value)
+
+
+void setColor(QColor)
+void setIntensity(float intensity)
