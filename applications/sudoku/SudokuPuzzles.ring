@@ -141,8 +141,8 @@ PM3Hard3 = 	[
 ### UPDATE it when adding NEW Puzzle
 ###----------------------------------------------------
 
-PuzzleList = [	"BoardLayout",
-				"P001","P002","P003","P004",
+PuzzleList = [	
+				"P001","EnterYourOwn","P002","P003","P004",
 				"PM3Hard1","PM3Hard2","PM3Hard3"
 			 ]
 	
@@ -154,7 +154,7 @@ Func WhichPuzzle(puzzleName)
 Board = P001
 	//See "FuncWhichPuzzle: "+ puzzleName +nl
 	
-	if	puzzleName = "BoardLayout"	 Board =  aArray
+	if	puzzleName = "EnterYourOwn"	 Board =  zeroArray
 	
 		but puzzleName = "P001"	 Board =  P001    TitletInvalidMove.setText(" Easy" )
 		but puzzleName = "P002"	 Board =  P002    TitletInvalidMove.setText(" Easy" )
