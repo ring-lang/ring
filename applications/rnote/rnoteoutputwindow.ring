@@ -28,7 +28,11 @@ class RNoteOutputWindow
 
 	func SendProcessData
 		if ISNULL(oProcess) return ok
-		cText = oProcessText.text() + windowsnl()
+		if isWindows()
+			cText = oProcessText.text() + windowsnl()
+		else 
+			cText = oProcessText.text() + nl
+		ok
 		oProcess.write(cText ,len(cText))
 		oProcessEditbox.insertplaintext(cText)
 		oProcessText.setText("")
