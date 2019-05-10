@@ -28,7 +28,7 @@ Ring 1.11 comes with the next features!
 Sudoku Game
 ===========
 
-Fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that
+Fill a 9 x 9 grid with digits so that each column, each row, and each of the nine 3 x 3 subgrids that
 compose the grid contain all of the digits from 1 to 9.
 
 .. image:: sudoku.jpg
