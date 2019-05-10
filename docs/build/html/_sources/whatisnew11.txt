@@ -15,11 +15,21 @@ List of changes and new features
 
 Ring 1.11 comes with the next features!
 
+* Sudoku Game
 * Checkers Game
 * Desktop Screen Shot Application
 * Text To Speech Application
 * Better RingQt
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Sudoku Game
+
+Sudoku Game
+===========
+
+.. image:: sudoku.jpg
+	:alt: Sudoku Game Application
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Checkers Game
