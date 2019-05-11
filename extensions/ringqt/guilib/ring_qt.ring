@@ -25765,6 +25765,34 @@ Class QPointLight
 	Func setIntensity P1
 		return QPointLight_setIntensity(pObject,P1)
 
+Class QTextureLoader
+
+	pObject
+
+	Func init P1
+		pObject = QTextureLoader_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTextureLoader_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isMirrored 
+		return QTextureLoader_isMirrored(pObject)
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QTextureLoader_source(pObject)
+		return pTempObj
+
+	Func setMirrored P1
+		return QTextureLoader_setMirrored(pObject,P1)
+
+	Func setSource P1
+		return QTextureLoader_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QInputAspect
 
 	pObject
