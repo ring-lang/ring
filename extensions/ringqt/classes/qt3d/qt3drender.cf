@@ -8,3 +8,4 @@
 <loadfile> qt3drender/qsceneloader.cf
 <loadfile> qt3drender/qpointlight.cf
 <loadfile> qt3drender/qrenderaspect.cf
+<loadfile> qt3drender/qtextureloader.cf
