@@ -381,6 +381,8 @@ extern "C" {
 #include <Qt3DRender/qpointlight>
 #include <Qt3DRender/qrenderaspect>
 #include <Qt3DInput/QInputAspect>
+#include <Qt3DRender/QTexture>
+#include <Qt3DExtras/QTextureMaterial>
 </filter>
 
 #include <QGraphicsView>
