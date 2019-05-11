@@ -9260,6 +9260,23 @@ Parent Class : QObject
 * const char *getvolumeChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QTextureLoader Class
+
+QTextureLoader Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextureLoader.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* bool isMirrored(void)
+* QUrl source(void)
+* void setMirrored(bool mirrored)
+* void setSource(QUrl source)
+
+.. index::
 	pair: RingQt Classes Reference; QThread Class
 
 QThread Class
@@ -10260,6 +10277,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10287,22 +10320,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
