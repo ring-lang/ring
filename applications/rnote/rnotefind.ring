@@ -145,11 +145,16 @@ class RNoteFind
 			# Case Sensitive
 			cStr = SubStr(cStr,cOldValue,cNewValue)
 		ok
+		if cStr != textedit1.toPlainText()
+			cMsg = "Operation Done"
+		else 
+			cMsg = "Nothing to replace!"
+		ok
 		textedit1.setPlainText(cStr)
 		new qMessagebox(oSearch)
 		{
 			SetWindowTitle("Replace All")
-			SetText("Operation Done")
+			SetText(cMsg)
 			show()
 		}
 
