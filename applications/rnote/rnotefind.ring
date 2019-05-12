@@ -91,7 +91,7 @@ class RNoteFind
 			setwinicon(this.oSearch,"image/notepad.png")
 			setWindowTitle("Find/Replace")
 			setFixedsize(550,160)
-			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint)
+			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint) 
 			this.oSearchFilter = new qallevents(this.oSearch)
 			this.oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
 			installeventfilter(this.oSearchFilter)
