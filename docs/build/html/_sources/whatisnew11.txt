@@ -123,6 +123,7 @@ More Improvements
 * Ring Notepad - Keyboard shortcuts for the Dockable Windows Mode
 * Ring Notepad - When displaying functions list, don't avoid functions that contains the "_" character
 * Ring Notepad - Output Window - Send Data - Better Code
+* Ring Notepad - Find and Replace Window - Better Code
 * RingPM - When updating a package - don't reinstall the dependency again
 * Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H
 * Ring VM - Error codes for Ring Object File errors
