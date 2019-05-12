@@ -25233,6 +25233,46 @@ Class QAbstractCameraController from QEntity
 	Func setLookSpeed P1
 		return QAbstractCameraController_setLookSpeed(pObject,P1)
 
+Class QTextureMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QTextureMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTextureMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isAlphaBlendingEnabled 
+		return QTextureMaterial_isAlphaBlendingEnabled(pObject)
+
+	Func texture 
+		return QTextureMaterial_texture(pObject)
+
+	Func textureOffset 
+		pTempObj = new QVector2D
+		pTempObj.pObject = QTextureMaterial_textureOffset(pObject)
+		return pTempObj
+
+	Func textureTransform 
+		return QTextureMaterial_textureTransform(pObject)
+
+	Func setAlphaBlendingEnabled P1
+		return QTextureMaterial_setAlphaBlendingEnabled(pObject,P1)
+
+	Func setTexture P1
+		return QTextureMaterial_setTexture(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextureOffset P1
+		return QTextureMaterial_setTextureOffset(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextureTransform P1
+		return QTextureMaterial_setTextureTransform(pObject,GetObjectPointerFromRingObject(P1))
+
 Class Qt3DCamera from QEntity
 
 	pObject
