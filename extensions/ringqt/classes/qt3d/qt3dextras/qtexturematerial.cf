@@ -1,0 +1,14 @@
+<class>
+name: QTextureMaterial
+codename: Qt3DExtras::QTextureMaterial
+para: Qt3DCore::QNode *
+</class>
+
+bool isAlphaBlendingEnabled(void)
+Qt3DRender::QAbstractTexture *texture(void)
+QVector2D textureOffset(void)
+QMatrix3x3 textureTransform(void)
+void setAlphaBlendingEnabled(bool enabled)
+void setTexture(Qt3DRender::QAbstractTexture *texture)
+void setTextureOffset(QVector2D textureOffset)
+void setTextureTransform(QMatrix3x3 matrix)
