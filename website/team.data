@@ -9,37 +9,37 @@
 					'Gal Zsolt (CalmoSoft)',
 					'quiwox@gmail.com',
 					'Samples Master',
-					'<img src="GalZsolt.png">'
+					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
 				  [
 					'Bert Mariani',
 					'bert.mariani@gmail.com',
 					'Samples Master',					
-					'<img src="UmbertoMariani.png">'
+					'<img src="UmbertoMariani.png" width="150" height="170">'
 				  ],
 				  [
                     			'José Rosado',
                     			'jar.megaware@gmail.com',
                     			'FoxRing Library',                    			
-					'<img src="jose.jpg">'
+					'<img src="jose.jpg" width="150" height="170">'
                   		  ],				 
 				  [
                     			'Marino Esteban',
                     			'marinoest@gmail.com',
                     			'RingQt Tester',                    			
-					'<img src="marino.jpg">'
+					'<img src="marino.jpg" width="150" height="170">'
                   		  ],
 				  [
                     			'Matthias Schuster',
                     			'shalokshalom@protonmail.ch',
                     			'Marketing',                    			
-					'<img src="shalok.jpg">'
+					'<img src="shalok.jpg" width="150" height="170">'
                   		  ],
 				  [
                     			'Nehemiah Jacob',
                     			'nehemiah.jacob@gmail.com',
                     			'Web Framework',                    			
-					'<img src="nehemiah.jpg">'
+					'<img src="nehemiah.jpg" width="150" height="170">'
                   		  ],
 				  [
 					'Atif M. Alamri',
@@ -51,115 +51,115 @@
 					'Ahmed Hassouna',
 					'mr.ahmed_hassouna@yahoo.com',
 					'Video Tutorials',					
-					'<img src="AhmedHassouna.jpg">'
+					'<img src="AhmedHassouna.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',					
-					'<img src="majdi.jpg">'
+					'<img src="majdi.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Magdy Ragab',
 					'developer.eye1@gmail.com',
 					'Tester',					
-					'<img src="MagdyRagab.jpg">'
+					'<img src="MagdyRagab.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Ahmed Omar',
 					'ahmad3omar@gmail.com',
 					'Tester',					
-					'<img src="AhmedOmar.jpg">'
+					'<img src="AhmedOmar.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Hebat Alla Ismail',
 					'Heba.imail26@gmail.com',
 					'Voice Master',					
-					'<img src="heba.jpg">'
+					'<img src="heba.jpg" width="150" height="170">'
 				  ],
   				  [
 					'Abdelrahman mahmoud',
 					'alarb.alarb@gmail.com',
 					'Tester',					
-					'<img src="abdelrahman.jpg">'
+					'<img src="abdelrahman.jpg" width="150" height="170">'
 				  ],				  
 				  [
 					'Hany Salah',
 					'hanyhani@hotmail.com',
 					'Marketing',					
-					'<img src="hany.jpg">'
+					'<img src="hany.jpg" width="150" height="170">'
 				  ],
 				  [
                     			'Amin Najah',
                     			'Najahdev.amine@gmail.com ',
                     			'Marketing',                    			
-					'<img src="amine.jpg">'
+					'<img src="amine.jpg" width="150" height="170">'
                   		  ],				  
 				  [
 					'Alaa Mohammed Elockle',
 					'Mr.alaaelockle@hotmail.com',
 					'Video Tutorials',					
-					'<img src="alaa.jpg">'
+					'<img src="alaa.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Amr Essam',
 					'amressam01@gmail.com',
 					'Tutorials Master',					
-					'<img src="amr.png">'
+					'<img src="amr.png" width="150" height="170">'
 				  ],
 				  [
                     			'Omar Selim',
                     			'BIMarabia@gmail.com ',
                     			'Video Tutorials',                    			
-					'<img src="omarselim.png" width="160" height="160">'
+					'<img src="omarselim.png" width="150" height="170">'
                   		  ],
 				  [
 					'Nouran M. Radwan',
 					'radwannouran@yahoo.com',
 					'Graphic Designer',					
-					'<img src="nouran.png" width="160" height="160">'
+					'<img src="nouran.png" width="150" height="170">'
 				  ],
 				  [
 					'Rashad Kamsheh',
 					'rashadse@hotmail.com',
 					'English Revision',
-					'<img src="rashad.jpg">'
+					'<img src="rashad.jpg" width="150" height="170">'
 				  ],				  
 				  [
                     			'Roshan Ali',
                     			'roshan_a5@yahoo.com',
                     			'Video Tutorials',                    			
-					'<img src="roshan.jpg">'
+					'<img src="roshan.jpg" width="150" height="170">'
                   		  ],
 		  		  [
                     			'Mansour AYOUNI',
                     			'mansourayouni@gmail.com',
                     			'StdLib Tester',                    			
-		    			'<img src="mansour.jpg" width="140" height="140">'
+		    			'<img src="mansour.jpg" width="150" height="170">'
                   		  ],
 				  [
                     			'Heba Omran',
                     			'hiba.2omran@gmail.com',
                     			'Vision Achiever',                    			
-					'<img src="hebaomran.png" width="140" height="140">'
+					'<img src="hebaomran.png" width="150" height="170">'
                   		  ],
                   		  [
 					'Muhammed Amr Elsayed',
 					'dev.mohamedamr@gmail.com',
 					'Tester',					
-					'<img src="mohamed amr.jpg" width="140" height="140">'
+					'<img src="mohamed amr.jpg" width="150" height="170">'
 		  		  ],
 		  		  [
                     			'Ahmed Mohamed Baryyan',
                     			'ahbaryyyan@gmail.com',
                     			'Video Tutorials Support',                    			
-		    			'<img src="ahmedbarayan1.jpg" width="140" height="140">'
+		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
                   		  ],
 		  		  [
                     			'Abubakr Ahmed Fayez',
                     			'th3wolfpro@gmail.com',
                     			'Marketing',                    			
-		    			'<img src="abubakr.jpg" width="140" height="140">'
+		    			'<img src="abubakr.jpg" width="150" height="170">'
                   		  ],
 				  [
 					'Mohammed Fayed',
