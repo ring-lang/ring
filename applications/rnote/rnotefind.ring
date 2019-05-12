@@ -110,6 +110,7 @@ class RNoteFind
 			return false
 		ok
 		cValue = oSearchValue.text()
+		if len(cValue) < 1 return ok
 		cSelected = oCursor.SelectedText()
 		if oSearchCase.checkState() = Qt_Unchecked
 			cValue = lower(cValue)
@@ -136,6 +137,7 @@ class RNoteFind
 		cStr = textedit1.toPlainText()
 		cOldValue = oSearchValue.text()
 		cNewValue = oReplaceValue.text()
+		if len(cStr) < 1 or len(cOldValue) < 1 return ok
 		if oSearchCase.checkState() = Qt_Unchecked
 			# Not Case Sensitive
 			cStr = SubStr(cStr,cOldValue,cNewValue,true)
@@ -168,6 +170,7 @@ class RNoteFind
 		nPosStart = oCursor.Position() + 1
 		cValue = oSearchValue.text()
 		cStr = textedit1.toplaintext()
+		if len(cStr) < 1 or len(cValue) < 1 return ok
 		cStr = substr(cStr,nPosStart)
 		if oSearchCase.checkState() = Qt_Unchecked
 			cStr = lower(cStr)  cValue = lower(cValue)
@@ -197,6 +200,7 @@ class RNoteFind
 		nPosStart = oCursor.Position()
 		cValue = oSearchValue.text()
 		cStr = textedit1.toplaintext()
+		if len(cStr) < 1 or nPosStart < 1 or len(cValue) < 1 return ok
 		cStr = substr(cStr,1,nPosStart-1)
 		if oSearchCase.checkState() = Qt_Unchecked
 			cStr = lower(cStr)  cValue = lower(cValue)
