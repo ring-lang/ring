@@ -9277,6 +9277,27 @@ Parameters : Qt3DCore::QNode *
 * void setSource(QUrl source)
 
 .. index::
+	pair: RingQt Classes Reference; QTextureMaterial Class
+
+QTextureMaterial Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextureMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* bool isAlphaBlendingEnabled(void)
+* Qt3DRender::QAbstractTexture *texture(void)
+* QVector2D textureOffset(void)
+* QMatrix3x3 textureTransform(void)
+* void setAlphaBlendingEnabled(bool enabled)
+* void setTexture(Qt3DRender::QAbstractTexture *texture)
+* void setTextureOffset(QVector2D textureOffset)
+* void setTextureTransform(QMatrix3x3 matrix)
+
+.. index::
 	pair: RingQt Classes Reference; QThread Class
 
 QThread Class
@@ -10277,22 +10298,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10320,6 +10325,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
