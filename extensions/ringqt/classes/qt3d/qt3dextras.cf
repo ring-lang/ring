@@ -9,3 +9,4 @@
 <loadfile> qt3dextras/qt3dwindow.cf
 <loadfile> qt3dextras/qabstractcameracontroller.cf
 <loadfile> qt3dextras/qfirstpersoncameracontroller.cf
+<loadfile> qt3dextras/qtexturematerial.cf
