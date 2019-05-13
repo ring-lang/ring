@@ -131,7 +131,6 @@ class RNoteFind
 		cStr = textedit1.toPlainText()
 		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
 		setTextAllowUndo(cStr)
-		//textedit1.setPlainText(cStr)
 		return FindValue()
 
 	func ReplaceAll
@@ -152,7 +151,6 @@ class RNoteFind
 			cMsg = "Nothing to replace!"
 		ok
 		setTextAllowUndo(cStr)
-		//textedit1.setPlainText(cStr)
 		new qMessagebox(oSearch)
 		{
 			SetWindowTitle("Replace All")
