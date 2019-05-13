@@ -205,20 +205,21 @@ class RNoteFind
 		nPosStart = oCursor.Position()
 		cValue = oSearchValue.text()
 		cStr = textedit1.toplaintext()
-		if len(cStr) < 1 or nPosStart < 1 or len(cValue) < 1 return ok
+		if len(cStr) < 1 or len(cValue) < 1 return ok  
+		if nPosStart < 1 nPosStart = len(cStr) ok
 		cStr = substr(cStr,1,nPosStart-1)
 		if oSearchCase.checkState() = Qt_Unchecked
 			cStr = lower(cStr)  cValue = lower(cValue)
 		ok
                 cnt = count(cStr,cValue)
-                postemp = 1
+                postemp = 0
 		nPos = 0
                 for n = 1 to cnt
                       nPos = substring(cStr,cValue,postemp+1)
                       postemp = nPos
                 next
 		if nPos > 0
-                        nPos = nPos - 1
+                        nPos--
 			oCursor = textedit1.textcursor()
 			oCursor.setposition(nPos,0)
 			textedit1.settextcursor(oCursor)
@@ -239,8 +240,8 @@ class RNoteFind
         func count(cString,dString)
 		sum = 0
 		while substr(cString,dString) > 0
-			sum = sum + 1
-			cString = substr(cString,substr(cString,dString)+len(string(sum)))
+			sum++
+			cString = substr(cString,substr(cString,dString)+len(dString))
 		end
 		return sum
 
