@@ -130,7 +130,8 @@ class RNoteFind
 		nEnd = oCursor.SelectionEnd()
 		cStr = textedit1.toPlainText()
 		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
-		textedit1.setPlainText(cStr)
+		setTextAllowUndo(cStr)
+		//textedit1.setPlainText(cStr)
 		return FindValue()
 
 	func ReplaceAll
@@ -150,7 +151,8 @@ class RNoteFind
 		else 
 			cMsg = "Nothing to replace!"
 		ok
-		textedit1.setPlainText(cStr)
+		setTextAllowUndo(cStr)
+		//textedit1.setPlainText(cStr)
 		new qMessagebox(oSearch)
 		{
 			SetWindowTitle("Replace All")
@@ -194,7 +196,7 @@ class RNoteFind
 			new qMessagebox(oSearch)
 			{
 				SetWindowTitle("Search")
-				SetText("Cannot find :" + cValue)
+				SetText("Cannot find : " + cValue)
 				show()
 			}
 			return false
@@ -230,16 +232,35 @@ class RNoteFind
 			new qMessagebox(oSearch)
 			{
 				SetWindowTitle("Search")
-				SetText("Cannot find :" + cValue)
+				SetText("Cannot find : " + cValue)
 				show()
 			}
 			return false
 		ok
 
         func count(cString,dString)
-             sum = 0
-             while substr(cString,dString) > 0
-                   sum = sum + 1
-                   cString = substr(cString,substr(cString,dString)+len(string(sum)))
-             end
-             return sum
+		sum = 0
+		while substr(cString,dString) > 0
+			sum = sum + 1
+			cString = substr(cString,substr(cString,dString)+len(string(sum)))
+		end
+		return sum
+
+	func setTextAllowUndo cText 
+		# Get the Text Size 
+			nTextSize = len(textedit1.toplaintext())
+		# Select All of the Text 
+			oCursor = textedit1.textcursor()
+			# Save the current position 
+				nPosStart = oCursor.Position()
+			oCursor.setposition(0,0)
+			textedit1.settextcursor(oCursor)
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nTextSize,1)
+			textedit1.settextcursor(oCursor)
+		# Set the new text using InsertPlainText() that support the Undo process 
+			textedit1.InsertPlainText(cText)
+		# Restore the Cursor Position 
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nPosStart,1)
+			textedit1.settextcursor(oCursor)
