@@ -1,0 +1,37 @@
+<class>
+name: QObjectPicker
+para: Qt3DCore::QNode *
+parent: QComponent
+codename: GObjectPicker
+passvmpointer
+</class>
+
+
+bool containsMouse(void)
+bool isDragEnabled(void)
+bool isHoverEnabled(void)
+bool isPressed(void)
+void setDragEnabled(bool dragEnabled)
+void setHoverEnabled(bool hoverEnabled)
+
+void setclickedEvent(const char *)
+void setcontainsMouseChangedEvent(const char *)
+void setdragEnabledChangedEvent(const char *)
+void setenteredEvent(const char *)
+void setexitedEvent(const char *)
+void sethoverEnabledChangedEvent(const char *)
+void setmovedEvent(const char *)
+void setpressedEvent(const char *)
+void setpressedChangedEvent(const char *)
+void setreleasedEvent(const char *)
+
+const char *getclickedEvent(void)
+const char *getcontainsMouseChangedEvent(void)
+const char *getdragEnabledChangedEvent(void)
+const char *getenteredEvent(void)
+const char *getexitedEvent(void)
+const char *gethoverEnabledChangedEvent(void)
+const char *getmovedEvent(void)
+const char *getpressedEvent(void)
+const char *getpressedChangedEvent(void)
+const char *getreleasedEvent(void)
