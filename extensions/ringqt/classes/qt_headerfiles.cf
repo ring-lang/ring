@@ -383,6 +383,8 @@ extern "C" {
 #include <Qt3DInput/QInputAspect>
 #include <Qt3DRender/QTexture>
 #include <Qt3DExtras/QTextureMaterial>
+#include <Qt3DRender/QObjectPicker>
+#include "gobjectpicker.h"
 </filter>
 
 #include <QGraphicsView>
