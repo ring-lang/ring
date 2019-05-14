@@ -25833,6 +25833,98 @@ Class QTextureLoader
 	Func setSource P1
 		return QTextureLoader_setSource(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QObjectPicker from QComponent
+
+	pObject
+
+	Func init P1
+		pObject = QObjectPicker_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QObjectPicker_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func containsMouse 
+		return QObjectPicker_containsMouse(pObject)
+
+	Func isDragEnabled 
+		return QObjectPicker_isDragEnabled(pObject)
+
+	Func isHoverEnabled 
+		return QObjectPicker_isHoverEnabled(pObject)
+
+	Func isPressed 
+		return QObjectPicker_isPressed(pObject)
+
+	Func setDragEnabled P1
+		return QObjectPicker_setDragEnabled(pObject,P1)
+
+	Func setHoverEnabled P1
+		return QObjectPicker_setHoverEnabled(pObject,P1)
+
+	Func setclickedEvent P1
+		return QObjectPicker_setclickedEvent(pObject,P1)
+
+	Func setcontainsMouseChangedEvent P1
+		return QObjectPicker_setcontainsMouseChangedEvent(pObject,P1)
+
+	Func setdragEnabledChangedEvent P1
+		return QObjectPicker_setdragEnabledChangedEvent(pObject,P1)
+
+	Func setenteredEvent P1
+		return QObjectPicker_setenteredEvent(pObject,P1)
+
+	Func setexitedEvent P1
+		return QObjectPicker_setexitedEvent(pObject,P1)
+
+	Func sethoverEnabledChangedEvent P1
+		return QObjectPicker_sethoverEnabledChangedEvent(pObject,P1)
+
+	Func setmovedEvent P1
+		return QObjectPicker_setmovedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QObjectPicker_setpressedEvent(pObject,P1)
+
+	Func setpressedChangedEvent P1
+		return QObjectPicker_setpressedChangedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QObjectPicker_setreleasedEvent(pObject,P1)
+
+	Func getclickedEvent 
+		return QObjectPicker_getclickedEvent(pObject)
+
+	Func getcontainsMouseChangedEvent 
+		return QObjectPicker_getcontainsMouseChangedEvent(pObject)
+
+	Func getdragEnabledChangedEvent 
+		return QObjectPicker_getdragEnabledChangedEvent(pObject)
+
+	Func getenteredEvent 
+		return QObjectPicker_getenteredEvent(pObject)
+
+	Func getexitedEvent 
+		return QObjectPicker_getexitedEvent(pObject)
+
+	Func gethoverEnabledChangedEvent 
+		return QObjectPicker_gethoverEnabledChangedEvent(pObject)
+
+	Func getmovedEvent 
+		return QObjectPicker_getmovedEvent(pObject)
+
+	Func getpressedEvent 
+		return QObjectPicker_getpressedEvent(pObject)
+
+	Func getpressedChangedEvent 
+		return QObjectPicker_getpressedChangedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QObjectPicker_getreleasedEvent(pObject)
+
 Class QInputAspect
 
 	pObject

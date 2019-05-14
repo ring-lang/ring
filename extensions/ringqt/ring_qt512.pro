@@ -66,6 +66,7 @@ SOURCES +=   \
     cpp/src/gprintpreviewdialog.cpp \
     cpp/src/gprintdialog.cpp \
     cpp/src/gtexttospeech.cpp \
+    cpp/src/gobjectpicker.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -122,7 +123,8 @@ HEADERS  += \
     cpp/include/gprintpreviewwidget.h \
     cpp/include/gprintpreviewdialog.h \
     cpp/include/gprintdialog.h \
-    cpp/include/gtexttospeech.h 
+    cpp/include/gtexttospeech.h \
+    cpp/include/gobjectpicker.h 
 
     
 
