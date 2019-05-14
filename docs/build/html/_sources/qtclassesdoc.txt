@@ -5268,6 +5268,48 @@ Parameters : void
 * void deleteLater(void)
 
 .. index::
+	pair: RingQt Classes Reference; QObjectPicker Class
+
+QObjectPicker Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QObjectPicker.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QComponent
+
+* bool containsMouse(void)
+* bool isDragEnabled(void)
+* bool isHoverEnabled(void)
+* bool isPressed(void)
+* void setDragEnabled(bool dragEnabled)
+* void setHoverEnabled(bool hoverEnabled)
+* void setclickedEvent(const char *)
+* void setcontainsMouseChangedEvent(const char *)
+* void setdragEnabledChangedEvent(const char *)
+* void setenteredEvent(const char *)
+* void setexitedEvent(const char *)
+* void sethoverEnabledChangedEvent(const char *)
+* void setmovedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setpressedChangedEvent(const char *)
+* void setreleasedEvent(const char *)
+* const char *getclickedEvent(void)
+* const char *getcontainsMouseChangedEvent(void)
+* const char *getdragEnabledChangedEvent(void)
+* const char *getenteredEvent(void)
+* const char *getexitedEvent(void)
+* const char *gethoverEnabledChangedEvent(void)
+* const char *getmovedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getpressedChangedEvent(void)
+* const char *getreleasedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QOpenGLBuffer Class
 
 QOpenGLBuffer Class
@@ -10298,6 +10340,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10325,22 +10383,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
