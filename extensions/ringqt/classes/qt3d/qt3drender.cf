@@ -9,3 +9,4 @@
 <loadfile> qt3drender/qpointlight.cf
 <loadfile> qt3drender/qrenderaspect.cf
 <loadfile> qt3drender/qtextureloader.cf
+<loadfile> qt3drender/qobjectpicker.cf
