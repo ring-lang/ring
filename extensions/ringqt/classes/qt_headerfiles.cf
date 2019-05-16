@@ -387,6 +387,7 @@ extern "C" {
 #include "gobjectpicker.h"
 #include <Qt3DLogic/QFrameAction>
 #include "gframeaction.h"
+#include <Qt3DLogic/QLogicAspect>
 </filter>
 
 #include <QGraphicsView>

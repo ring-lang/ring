@@ -1,0 +1,6 @@
+<class>
+name: QLogicAspect
+codename: Qt3DLogic::QLogicAspect
+para: QObject *
+parent: Qt3DCore::QAbstractAspect
+</class>
