@@ -1,7 +1,6 @@
 <class>
 name: QObjectPicker
 para: Qt3DCore::QNode *
-parent: QComponent
 codename: GObjectPicker
 passvmpointer
 </class>

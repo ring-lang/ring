@@ -25833,7 +25833,7 @@ Class QTextureLoader
 	Func setSource P1
 		return QTextureLoader_setSource(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QObjectPicker from QComponent
+Class QObjectPicker
 
 	pObject
 
