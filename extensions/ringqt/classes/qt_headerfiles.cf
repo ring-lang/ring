@@ -388,6 +388,8 @@ extern "C" {
 #include <Qt3DLogic/QFrameAction>
 #include "gframeaction.h"
 #include <Qt3DLogic/QLogicAspect>
+#include <Qt3DExtras/QExtrudedTextMesh>
+
 </filter>
 
 #include <QGraphicsView>
