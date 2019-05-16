@@ -5279,9 +5279,6 @@ C++ Reference : http://doc.qt.io/qt-5/QObjectPicker.html
 
 Parameters : Qt3DCore::QNode *
 
-
-Parent Class : QComponent
-
 * bool containsMouse(void)
 * bool isDragEnabled(void)
 * bool isHoverEnabled(void)
