@@ -2664,6 +2664,25 @@ Parameters : QEvent::Type Type
 * int type(void)
 
 .. index::
+	pair: RingQt Classes Reference; QExtrudedTextMesh Class
+
+QExtrudedTextMesh Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QExtrudedTextMesh.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float depth(void)
+* QFont font(void)
+* QString text(void)
+* void setDepth(float depth)
+* void setFont(QFont font)
+* void setText(QString text)
+
+.. index::
 	pair: RingQt Classes Reference; QFile Class
 
 QFile Class
@@ -10368,22 +10387,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10411,6 +10414,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
