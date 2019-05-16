@@ -3157,6 +3157,20 @@ Parent Class : QFrame
 
 
 .. index::
+	pair: RingQt Classes Reference; QFrameAction Class
+
+QFrameAction Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFrameAction.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* void settriggeredEvent(const char *)
+* const char *gettriggeredEvent(void)
+.. index::
 	pair: RingQt Classes Reference; QGeoAddress Class
 
 QGeoAddress Class
@@ -3969,6 +3983,7 @@ Parameters : QObject *
 
 * QStringList availablePhysicalDevices(void)
 * Qt3DInput::QAbstractPhysicalDevice * createPhysicalDevice(QString name)
+
 .. index::
 	pair: RingQt Classes Reference; QInputDialog Class
 
@@ -10337,22 +10352,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10380,6 +10379,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
