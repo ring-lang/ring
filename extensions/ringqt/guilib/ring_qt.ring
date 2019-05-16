@@ -25947,6 +25947,26 @@ Class QInputAspect
 	Func createPhysicalDevice P1
 		return QInputAspect_createPhysicalDevice(pObject,P1)
 
+Class QFrameAction
+
+	pObject
+
+	Func init P1
+		pObject = QFrameAction_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFrameAction_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func settriggeredEvent P1
+		return QFrameAction_settriggeredEvent(pObject,P1)
+
+	Func gettriggeredEvent 
+		return QFrameAction_gettriggeredEvent(pObject)
+
 Class QSize
 
 	pObject
