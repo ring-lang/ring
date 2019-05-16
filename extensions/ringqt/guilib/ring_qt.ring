@@ -25273,6 +25273,40 @@ Class QTextureMaterial
 	Func setTextureTransform P1
 		return QTextureMaterial_setTextureTransform(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QExtrudedTextMesh
+
+	pObject
+
+	Func init P1
+		pObject = QExtrudedTextMesh_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QExtrudedTextMesh_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func depth 
+		return QExtrudedTextMesh_depth(pObject)
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QExtrudedTextMesh_font(pObject)
+		return pTempObj
+
+	Func text 
+		return QExtrudedTextMesh_text(pObject)
+
+	Func setDepth P1
+		return QExtrudedTextMesh_setDepth(pObject,P1)
+
+	Func setFont P1
+		return QExtrudedTextMesh_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setText P1
+		return QExtrudedTextMesh_setText(pObject,P1)
+
 Class Qt3DCamera from QEntity
 
 	pObject
