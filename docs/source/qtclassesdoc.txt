@@ -3170,6 +3170,7 @@ Parameters : Qt3DCore::QNode *
 
 * void settriggeredEvent(const char *)
 * const char *gettriggeredEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QGeoAddress Class
 
@@ -4557,6 +4558,21 @@ Parameters : void
 * QString toolTip(void)
 * int type(void)
 * QString whatsThis(void)
+
+.. index::
+	pair: RingQt Classes Reference; QLogicAspect Class
+
+QLogicAspect Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QLogicAspect.html
+
+
+Parameters : QObject *
+
+
+Parent Class : Qt3DCore::QAbstractAspect
 
 .. index::
 	pair: RingQt Classes Reference; QMainWindow Class
@@ -10352,6 +10368,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10379,22 +10411,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
