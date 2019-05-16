@@ -26414,3 +26414,17 @@ Class QRenderAspect
 
 	Func ObjectPointer
 		return pObject
+
+Class QLogicAspect from Qt3DCore::QAbstractAspect
+
+	pObject
+
+	Func init P1
+		pObject = QLogicAspect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QLogicAspect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
