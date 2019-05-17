@@ -5180,6 +5180,29 @@ Parent Class : QObject
 * QList<QUrl> urls(void)
 
 .. index::
+	pair: RingQt Classes Reference; QMorphPhongMaterial Class
+
+QMorphPhongMaterial Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMorphPhongMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* QColor ambient(void)
+* QColor diffuse(void)
+* float interpolator(void)
+* float shininess(void)
+* QColor specular(void)
+* void setAmbient(QColor ambient)
+* void setDiffuse(QColor diffuse)
+* void setInterpolator(float interpolator)
+* void setShininess(float shininess)
+* void setSpecular(QColor specular)
+
+.. index::
 	pair: RingQt Classes Reference; QMutex Class
 
 QMutex Class
