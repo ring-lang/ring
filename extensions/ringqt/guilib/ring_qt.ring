@@ -25387,6 +25387,80 @@ Class QSkyboxEntity from QEntity
 	Func setGammaCorrectEnabled P1
 		return QSkyboxEntity_setGammaCorrectEnabled(pObject,P1)
 
+Class QConeGeometry
+
+	pObject
+
+	Func init P1
+		pObject = QConeGeometry_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QConeGeometry_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottomRadius 
+		return QConeGeometry_bottomRadius(pObject)
+
+	Func hasBottomEndcap 
+		return QConeGeometry_hasBottomEndcap(pObject)
+
+	Func hasTopEndcap 
+		return QConeGeometry_hasTopEndcap(pObject)
+
+	Func indexAttribute 
+		return QConeGeometry_indexAttribute(pObject)
+
+	Func length 
+		return QConeGeometry_length(pObject)
+
+	Func normalAttribute 
+		return QConeGeometry_normalAttribute(pObject)
+
+	Func positionAttribute 
+		return QConeGeometry_positionAttribute(pObject)
+
+	Func rings 
+		return QConeGeometry_rings(pObject)
+
+	Func slices 
+		return QConeGeometry_slices(pObject)
+
+	Func texCoordAttribute 
+		return QConeGeometry_texCoordAttribute(pObject)
+
+	Func topRadius 
+		return QConeGeometry_topRadius(pObject)
+
+	Func updateIndices 
+		return QConeGeometry_updateIndices(pObject)
+
+	Func updateVertices 
+		return QConeGeometry_updateVertices(pObject)
+
+	Func setBottomRadius P1
+		return QConeGeometry_setBottomRadius(pObject,P1)
+
+	Func setHasBottomEndcap P1
+		return QConeGeometry_setHasBottomEndcap(pObject,P1)
+
+	Func setHasTopEndcap P1
+		return QConeGeometry_setHasTopEndcap(pObject,P1)
+
+	Func setLength P1
+		return QConeGeometry_setLength(pObject,P1)
+
+	Func setRings P1
+		return QConeGeometry_setRings(pObject,P1)
+
+	Func setSlices P1
+		return QConeGeometry_setSlices(pObject,P1)
+
+	Func setTopRadius P1
+		return QConeGeometry_setTopRadius(pObject,P1)
+
 Class Qt3DCamera from QEntity
 
 	pObject
