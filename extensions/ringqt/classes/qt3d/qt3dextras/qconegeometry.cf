@@ -1,0 +1,27 @@
+<class>
+name: QConeGeometry
+codename: Qt3DExtras::QConeGeometry
+para: Qt3DCore::QNode *
+</class>
+
+
+float bottomRadius(void)
+bool hasBottomEndcap(void)
+bool hasTopEndcap(void)
+Qt3DRender::QAttribute * indexAttribute(void)
+float length(void)
+Qt3DRender::QAttribute * normalAttribute(void)
+Qt3DRender::QAttribute * positionAttribute(void)
+int rings(void)
+int slices(void)
+Qt3DRender::QAttribute * texCoordAttribute(void)
+float topRadius(void)
+void updateIndices(void)
+void updateVertices(void)
+void setBottomRadius(float bottomRadius)
+void setHasBottomEndcap(bool hasBottomEndcap)
+void setHasTopEndcap(bool hasTopEndcap)
+void setLength(float length)
+void setRings(int rings)
+void setSlices(int slices)
+void setTopRadius(float topRadius)

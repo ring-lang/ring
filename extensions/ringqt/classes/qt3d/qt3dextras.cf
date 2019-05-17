@@ -13,3 +13,4 @@
 <loadfile> qt3dextras/qextrudedtextmesh.cf
 <loadfile> qt3dextras/qtext2dentity.cf
 <loadfile> qt3dextras/qskyboxentity.cf
+<loadfile> qt3dextras/qconegeometry.cf

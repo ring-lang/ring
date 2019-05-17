@@ -391,6 +391,7 @@ extern "C" {
 #include <Qt3DExtras/QExtrudedTextMesh>
 #include <Qt3DExtras/QText2DEntity>
 #include <Qt3DExtras/QSkyboxEntity>
+#include <Qt3DExtras/QConeGeometry>
 </filter>
 
 #include <QGraphicsView>
