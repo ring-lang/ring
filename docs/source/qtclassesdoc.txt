@@ -7646,6 +7646,28 @@ Parameters : int width, int height
 
 
 .. index::
+	pair: RingQt Classes Reference; QSkyboxEntity Class
+
+QSkyboxEntity Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSkyboxEntity.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : Qt3DCore::QEntity
+
+* QString baseName(void)
+* QString extension(void)
+* bool isGammaCorrectEnabled(void)
+* void setBaseName(QString baseName)
+* void setExtension(QString extension)
+* void setGammaCorrectEnabled(bool enabled)
+
+.. index::
 	pair: RingQt Classes Reference; QSlider Class
 
 QSlider Class
@@ -8766,6 +8788,32 @@ QTest Class
 C++ Reference : http://doc.qt.io/qt-5/QTest.html
 
 * void qsleep(int)
+
+.. index::
+	pair: RingQt Classes Reference; QText2DEntity Class
+
+QText2DEntity Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QText2DEntity.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : Qt3DCore::QEntity
+
+* QColor color(void)
+* QFont font(void)
+* float height(void)
+* void setColor(QColor color)
+* void setFont(QFont font)
+* void setHeight(float height)
+* void setText(QString text)
+* void setWidth(float width)
+* QString text(void)
+* float width(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTextBlock Class
