@@ -25355,6 +25355,38 @@ Class QText2DEntity from Qt3DCore::QEntity
 	Func width 
 		return QText2DEntity_width(pObject)
 
+Class QSkyboxEntity from Qt3DCore::QEntity
+
+	pObject
+
+	Func init P1
+		pObject = QSkyboxEntity_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSkyboxEntity_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func baseName 
+		return QSkyboxEntity_baseName(pObject)
+
+	Func extension 
+		return QSkyboxEntity_extension(pObject)
+
+	Func isGammaCorrectEnabled 
+		return QSkyboxEntity_isGammaCorrectEnabled(pObject)
+
+	Func setBaseName P1
+		return QSkyboxEntity_setBaseName(pObject,P1)
+
+	Func setExtension P1
+		return QSkyboxEntity_setExtension(pObject,P1)
+
+	Func setGammaCorrectEnabled P1
+		return QSkyboxEntity_setGammaCorrectEnabled(pObject,P1)
+
 Class Qt3DCamera from QEntity
 
 	pObject
