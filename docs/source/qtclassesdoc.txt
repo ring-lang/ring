@@ -3508,6 +3508,33 @@ Parameters : void
 * QGeoShape::ShapeType type(void)
 
 .. index::
+	pair: RingQt Classes Reference; QGoochMaterial Class
+
+QGoochMaterial Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGoochMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float alpha(void)
+* float beta(void)
+* QColor cool(void)
+* QColor diffuse(void)
+* float shininess(void)
+* QColor specular(void)
+* QColor warm(void)
+* void setAlpha(float alpha)
+* void setBeta(float beta)
+* void setCool(QColor cool)
+* void setDiffuse(QColor diffuse)
+* void setShininess(float shininess)
+* void setSpecular(QColor specular)
+* void setWarm(QColor warm)
+
+.. index::
 	pair: RingQt Classes Reference; QGradient Class
 
 QGradient Class
