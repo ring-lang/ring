@@ -2,7 +2,7 @@
 name: QText2DEntity
 codename: Qt3DExtras::QText2DEntity
 para: Qt3DCore::QNode *
-parent: Qt3DCore::QEntity
+parent: QEntity
 </class>
 
 QColor color(void)

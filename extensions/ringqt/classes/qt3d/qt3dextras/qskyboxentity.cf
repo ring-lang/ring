@@ -2,7 +2,7 @@
 name: QSkyboxEntity
 codename: Qt3DExtras::QSkyboxEntity
 para: Qt3DCore::QNode *
-parent:  Qt3DCore::QEntity
+parent: QEntity
 </class>
 
 QString baseName(void)

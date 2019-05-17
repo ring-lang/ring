@@ -25307,7 +25307,7 @@ Class QExtrudedTextMesh
 	Func setText P1
 		return QExtrudedTextMesh_setText(pObject,P1)
 
-Class QText2DEntity from Qt3DCore::QEntity
+Class QText2DEntity from QEntity
 
 	pObject
 
@@ -25355,7 +25355,7 @@ Class QText2DEntity from Qt3DCore::QEntity
 	Func width 
 		return QText2DEntity_width(pObject)
 
-Class QSkyboxEntity from Qt3DCore::QEntity
+Class QSkyboxEntity from QEntity
 
 	pObject
 
