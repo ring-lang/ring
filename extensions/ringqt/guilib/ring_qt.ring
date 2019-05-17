@@ -25307,6 +25307,54 @@ Class QExtrudedTextMesh
 	Func setText P1
 		return QExtrudedTextMesh_setText(pObject,P1)
 
+Class QText2DEntity from Qt3DCore::QEntity
+
+	pObject
+
+	Func init P1
+		pObject = QText2DEntity_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QText2DEntity_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QText2DEntity_color(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QText2DEntity_font(pObject)
+		return pTempObj
+
+	Func height 
+		return QText2DEntity_height(pObject)
+
+	Func setColor P1
+		return QText2DEntity_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1
+		return QText2DEntity_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHeight P1
+		return QText2DEntity_setHeight(pObject,P1)
+
+	Func setText P1
+		return QText2DEntity_setText(pObject,P1)
+
+	Func setWidth P1
+		return QText2DEntity_setWidth(pObject,P1)
+
+	Func text 
+		return QText2DEntity_text(pObject)
+
+	Func width 
+		return QText2DEntity_width(pObject)
+
 Class Qt3DCamera from QEntity
 
 	pObject
