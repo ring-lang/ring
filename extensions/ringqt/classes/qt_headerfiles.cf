@@ -390,7 +390,7 @@ extern "C" {
 #include <Qt3DLogic/QLogicAspect>
 #include <Qt3DExtras/QExtrudedTextMesh>
 #include <Qt3DExtras/QText2DEntity>
-
+#include <Qt3DExtras/QSkyboxEntity>
 </filter>
 
 #include <QGraphicsView>

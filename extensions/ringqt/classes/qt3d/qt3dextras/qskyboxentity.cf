@@ -1,0 +1,13 @@
+<class>
+name: QSkyboxEntity
+codename: Qt3DExtras::QSkyboxEntity
+para: Qt3DCore::QNode *
+parent:  Qt3DCore::QEntity
+</class>
+
+QString baseName(void)
+QString extension(void)
+bool isGammaCorrectEnabled(void)
+void setBaseName(QString baseName)
+void setExtension(QString extension)
+void setGammaCorrectEnabled(bool enabled)
