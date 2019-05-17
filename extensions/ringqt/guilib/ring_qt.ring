@@ -25545,6 +25545,70 @@ Class QDiffuseSpecularMaterial
 	Func setTextureScale P1
 		return QDiffuseSpecularMaterial_setTextureScale(pObject,P1)
 
+Class QGoochMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QGoochMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGoochMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func alpha 
+		return QGoochMaterial_alpha(pObject)
+
+	Func beta 
+		return QGoochMaterial_beta(pObject)
+
+	Func cool 
+		pTempObj = new QColor
+		pTempObj.pObject = QGoochMaterial_cool(pObject)
+		return pTempObj
+
+	Func diffuse 
+		pTempObj = new QColor
+		pTempObj.pObject = QGoochMaterial_diffuse(pObject)
+		return pTempObj
+
+	Func shininess 
+		return QGoochMaterial_shininess(pObject)
+
+	Func specular 
+		pTempObj = new QColor
+		pTempObj.pObject = QGoochMaterial_specular(pObject)
+		return pTempObj
+
+	Func warm 
+		pTempObj = new QColor
+		pTempObj.pObject = QGoochMaterial_warm(pObject)
+		return pTempObj
+
+	Func setAlpha P1
+		return QGoochMaterial_setAlpha(pObject,P1)
+
+	Func setBeta P1
+		return QGoochMaterial_setBeta(pObject,P1)
+
+	Func setCool P1
+		return QGoochMaterial_setCool(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDiffuse P1
+		return QGoochMaterial_setDiffuse(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShininess P1
+		return QGoochMaterial_setShininess(pObject,P1)
+
+	Func setSpecular P1
+		return QGoochMaterial_setSpecular(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWarm P1
+		return QGoochMaterial_setWarm(pObject,GetObjectPointerFromRingObject(P1))
+
 Class Qt3DCamera from QEntity
 
 	pObject
