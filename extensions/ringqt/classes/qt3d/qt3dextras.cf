@@ -11,3 +11,4 @@
 <loadfile> qt3dextras/qfirstpersoncameracontroller.cf
 <loadfile> qt3dextras/qtexturematerial.cf
 <loadfile> qt3dextras/qextrudedtextmesh.cf
+<loadfile> qt3dextras/qtext2dentity.cf

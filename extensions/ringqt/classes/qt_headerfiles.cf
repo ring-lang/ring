@@ -389,6 +389,7 @@ extern "C" {
 #include "gframeaction.h"
 #include <Qt3DLogic/QLogicAspect>
 #include <Qt3DExtras/QExtrudedTextMesh>
+#include <Qt3DExtras/QText2DEntity>
 
 </filter>
 
