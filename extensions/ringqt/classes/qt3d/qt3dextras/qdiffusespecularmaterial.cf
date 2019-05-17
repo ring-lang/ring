@@ -1,0 +1,21 @@
+<class>
+name: QDiffuseSpecularMaterial
+codename: Qt3DExtras::QDiffuseSpecularMaterial
+para: Qt3DCore::QNode *
+</class>
+
+
+QColor ambient(void)
+QVariant diffuse(void)
+bool isAlphaBlendingEnabled(void)
+QVariant normal(void)
+float shininess(void)
+QVariant specular(void)
+float textureScale(void)
+void setAlphaBlendingEnabled(bool enabled)
+void setAmbient(QColor ambient)
+void setDiffuse(QVariant diffuse)
+void setNormal(QVariant normal)
+void setShininess(float shininess)
+void setSpecular(QVariant specular)
+void setTextureScale(float textureScale)

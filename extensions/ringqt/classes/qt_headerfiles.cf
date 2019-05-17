@@ -393,6 +393,7 @@ extern "C" {
 #include <Qt3DExtras/QSkyboxEntity>
 #include <Qt3DExtras/QConeGeometry>
 #include <Qt3DExtras/QOrbitCameraController>
+#include <QDiffuseSpecularMaterial>
 </filter>
 
 #include <QGraphicsView>
