@@ -25609,6 +25609,66 @@ Class QGoochMaterial
 	Func setWarm P1
 		return QGoochMaterial_setWarm(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QMetalRoughMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QMetalRoughMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMetalRoughMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func ambientOcclusion 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMetalRoughMaterial_ambientOcclusion(pObject)
+		return pTempObj
+
+	Func baseColor 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMetalRoughMaterial_baseColor(pObject)
+		return pTempObj
+
+	Func metalness 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMetalRoughMaterial_metalness(pObject)
+		return pTempObj
+
+	Func normal 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMetalRoughMaterial_normal(pObject)
+		return pTempObj
+
+	Func roughness 
+		pTempObj = new QVariant
+		pTempObj.pObject = QMetalRoughMaterial_roughness(pObject)
+		return pTempObj
+
+	Func textureScale 
+		return QMetalRoughMaterial_textureScale(pObject)
+
+	Func setAmbientOcclusion P1
+		return QMetalRoughMaterial_setAmbientOcclusion(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBaseColor P1
+		return QMetalRoughMaterial_setBaseColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMetalness P1
+		return QMetalRoughMaterial_setMetalness(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNormal P1
+		return QMetalRoughMaterial_setNormal(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRoughness P1
+		return QMetalRoughMaterial_setRoughness(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextureScale P1
+		return QMetalRoughMaterial_setTextureScale(pObject,P1)
+
 Class Qt3DCamera from QEntity
 
 	pObject
