@@ -18,3 +18,4 @@
 <loadfile> qt3dextras/qdiffusespecularmaterial.cf
 <loadfile> qt3dextras/qgoochmaterial.cf
 <loadfile> qt3dextras/qmetalroughmaterial.cf
+<loadfile> qt3dextras/morphphongmaterial.cf

@@ -396,6 +396,7 @@ extern "C" {
 #include <QDiffuseSpecularMaterial>
 #include <QGoochMaterial>
 #include <QMetalRoughMaterial>
+#include <QMorphPhongMaterial>
 </filter>
 
 #include <QGraphicsView>
