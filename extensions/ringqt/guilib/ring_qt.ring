@@ -26847,6 +26847,20 @@ Class QFirstPersonCameraController from QAbstractCameraController
 	Func ObjectPointer
 		return pObject
 
+Class QPerVertexColorMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QPerVertexColorMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPerVertexColorMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
 Class QRenderAspect
 
 	pObject
