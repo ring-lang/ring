@@ -395,6 +395,7 @@ extern "C" {
 #include <Qt3DExtras/QOrbitCameraController>
 #include <QDiffuseSpecularMaterial>
 #include <QGoochMaterial>
+#include <QMetalRoughMaterial>
 </filter>
 
 #include <QGraphicsView>

@@ -1,0 +1,19 @@
+<class>
+name: QMetalRoughMaterial
+codename: Qt3DExtras::QMetalRoughMaterial
+para: Qt3DCore::QNode *
+</class>
+
+
+QVariant ambientOcclusion(void)
+QVariant baseColor(void)
+QVariant metalness(void)
+QVariant normal(void)
+QVariant roughness(void)
+float textureScale(void)
+void setAmbientOcclusion(QVariant ambientOcclusion)
+void setBaseColor(QVariant baseColor)
+void setMetalness(QVariant metalness)
+void setNormal(QVariant normal)
+void setRoughness(QVariant roughness)
+void setTextureScale(float textureScale)
