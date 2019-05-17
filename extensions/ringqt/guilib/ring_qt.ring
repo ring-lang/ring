@@ -25669,6 +25669,56 @@ Class QMetalRoughMaterial
 	Func setTextureScale P1
 		return QMetalRoughMaterial_setTextureScale(pObject,P1)
 
+Class QMorphPhongMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QMorphPhongMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMorphPhongMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func ambient 
+		pTempObj = new QColor
+		pTempObj.pObject = QMorphPhongMaterial_ambient(pObject)
+		return pTempObj
+
+	Func diffuse 
+		pTempObj = new QColor
+		pTempObj.pObject = QMorphPhongMaterial_diffuse(pObject)
+		return pTempObj
+
+	Func interpolator 
+		return QMorphPhongMaterial_interpolator(pObject)
+
+	Func shininess 
+		return QMorphPhongMaterial_shininess(pObject)
+
+	Func specular 
+		pTempObj = new QColor
+		pTempObj.pObject = QMorphPhongMaterial_specular(pObject)
+		return pTempObj
+
+	Func setAmbient P1
+		return QMorphPhongMaterial_setAmbient(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDiffuse P1
+		return QMorphPhongMaterial_setDiffuse(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setInterpolator P1
+		return QMorphPhongMaterial_setInterpolator(pObject,P1)
+
+	Func setShininess P1
+		return QMorphPhongMaterial_setShininess(pObject,P1)
+
+	Func setSpecular P1
+		return QMorphPhongMaterial_setSpecular(pObject,GetObjectPointerFromRingObject(P1))
+
 Class Qt3DCamera from QEntity
 
 	pObject
