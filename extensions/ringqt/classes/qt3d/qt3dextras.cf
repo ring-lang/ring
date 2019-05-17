@@ -16,3 +16,4 @@
 <loadfile> qt3dextras/qconegeometry.cf
 <loadfile> qt3dextras/qorbitcameracontroller.cf
 <loadfile> qt3dextras/qdiffusespecularmaterial.cf
+<loadfile> qt3dextras/qgoochmaterial.cf
