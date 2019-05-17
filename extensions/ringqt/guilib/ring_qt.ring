@@ -25461,6 +25461,26 @@ Class QConeGeometry
 	Func setTopRadius P1
 		return QConeGeometry_setTopRadius(pObject,P1)
 
+Class QOrbitCameraController from QAbstractCameraController
+
+	pObject
+
+	Func init P1
+		pObject = QOrbitCameraController_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOrbitCameraController_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func setZoomInLimit P1
+		return QOrbitCameraController_setZoomInLimit(pObject,P1)
+
+	Func zoomInLimit 
+		return QOrbitCameraController_zoomInLimit(pObject)
+
 Class Qt3DCamera from QEntity
 
 	pObject
