@@ -5118,6 +5118,31 @@ Parent Class : QDialog
 * int warning(QWidget *parent, QString,QString, int buttons,int defaultButton)
 
 .. index::
+	pair: RingQt Classes Reference; QMetalRoughMaterial Class
+
+QMetalRoughMaterial Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMetalRoughMaterial.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* QVariant ambientOcclusion(void)
+* QVariant baseColor(void)
+* QVariant metalness(void)
+* QVariant normal(void)
+* QVariant roughness(void)
+* float textureScale(void)
+* void setAmbientOcclusion(QVariant ambientOcclusion)
+* void setBaseColor(QVariant baseColor)
+* void setMetalness(QVariant metalness)
+* void setNormal(QVariant normal)
+* void setRoughness(QVariant roughness)
+* void setTextureScale(float textureScale)
+
+.. index::
 	pair: RingQt Classes Reference; QMimeData Class
 
 QMimeData Class
