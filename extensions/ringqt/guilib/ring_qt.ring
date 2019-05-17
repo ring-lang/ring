@@ -25481,6 +25481,70 @@ Class QOrbitCameraController from QAbstractCameraController
 	Func zoomInLimit 
 		return QOrbitCameraController_zoomInLimit(pObject)
 
+Class QDiffuseSpecularMaterial
+
+	pObject
+
+	Func init P1
+		pObject = QDiffuseSpecularMaterial_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDiffuseSpecularMaterial_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func ambient 
+		pTempObj = new QColor
+		pTempObj.pObject = QDiffuseSpecularMaterial_ambient(pObject)
+		return pTempObj
+
+	Func diffuse 
+		pTempObj = new QVariant
+		pTempObj.pObject = QDiffuseSpecularMaterial_diffuse(pObject)
+		return pTempObj
+
+	Func isAlphaBlendingEnabled 
+		return QDiffuseSpecularMaterial_isAlphaBlendingEnabled(pObject)
+
+	Func normal 
+		pTempObj = new QVariant
+		pTempObj.pObject = QDiffuseSpecularMaterial_normal(pObject)
+		return pTempObj
+
+	Func shininess 
+		return QDiffuseSpecularMaterial_shininess(pObject)
+
+	Func specular 
+		pTempObj = new QVariant
+		pTempObj.pObject = QDiffuseSpecularMaterial_specular(pObject)
+		return pTempObj
+
+	Func textureScale 
+		return QDiffuseSpecularMaterial_textureScale(pObject)
+
+	Func setAlphaBlendingEnabled P1
+		return QDiffuseSpecularMaterial_setAlphaBlendingEnabled(pObject,P1)
+
+	Func setAmbient P1
+		return QDiffuseSpecularMaterial_setAmbient(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDiffuse P1
+		return QDiffuseSpecularMaterial_setDiffuse(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNormal P1
+		return QDiffuseSpecularMaterial_setNormal(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShininess P1
+		return QDiffuseSpecularMaterial_setShininess(pObject,P1)
+
+	Func setSpecular P1
+		return QDiffuseSpecularMaterial_setSpecular(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextureScale P1
+		return QDiffuseSpecularMaterial_setTextureScale(pObject,P1)
+
 Class Qt3DCamera from QEntity
 
 	pObject
