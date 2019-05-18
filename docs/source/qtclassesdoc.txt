@@ -2305,6 +2305,21 @@ Parent Class : QAbstractSpinBox
 * void setTime(QTime)
 
 .. index::
+	pair: RingQt Classes Reference; QDepthTest Class
+
+QDepthTest Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDepthTest.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* Qt3DRender::QDepthTest::DepthFunction depthFunction(void)
+* void setDepthFunction(Qt3DRender::QDepthTest::DepthFunction depthFunction)
+
+.. index::
 	pair: RingQt Classes Reference; QDesktopServices Class
 
 QDesktopServices Class
