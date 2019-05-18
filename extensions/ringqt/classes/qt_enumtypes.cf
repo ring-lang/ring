@@ -378,4 +378,5 @@ aEnumTypes + "QSceneLoader::ComponentType"
 aEnumTypes + "QSceneLoader::Status"
 aEnumTypes + "QRenderAspect::RenderType"
 aEnumTypes + "Qt3DRender::QCullFace::CullingMode"
+aEnumTypes + "Qt3DRender::QDepthTest::DepthFunction"
 </runcode>

@@ -1,0 +1,8 @@
+<class>
+name: QDepthTest
+codename: Qt3DRender::QDepthTest
+para: Qt3DCore::QNode *
+</class>
+
+Qt3DRender::QDepthTest::DepthFunction depthFunction(void)
+void setDepthFunction(Qt3DRender::QDepthTest::DepthFunction depthFunction)

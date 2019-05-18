@@ -12,3 +12,4 @@
 <loadfile> qt3drender/qobjectpicker.cf
 <loadfile> qt3drender/qcameraselector.cf
 <loadfile> qt3drender/qcullface.cf
+<loadfile> qt3drender/qdepthtest.cf
