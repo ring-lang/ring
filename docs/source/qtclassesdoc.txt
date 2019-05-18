@@ -2084,6 +2084,21 @@ Parameters : Qt3DCore::QNode *
 * void setZExtent(float zExtent)
 
 .. index::
+	pair: RingQt Classes Reference; QCullFace Class
+
+QCullFace Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCullFace.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* Qt3DRender::QCullFace::CullingMode mode(void)
+* void setMode(Qt3DRender::QCullFace::CullingMode mode)
+
+.. index::
 	pair: RingQt Classes Reference; QCursor Class
 
 QCursor Class
