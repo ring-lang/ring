@@ -26391,6 +26391,26 @@ Class QCameraSelector
 	Func setCamera P1
 		return QCameraSelector_setCamera(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QCullFace
+
+	pObject
+
+	Func init P1
+		pObject = QCullFace_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCullFace_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func mode 
+		return QCullFace_mode(pObject)
+
+	Func setMode P1
+		return QCullFace_setMode(pObject,P1)
+
 Class QInputAspect
 
 	pObject
