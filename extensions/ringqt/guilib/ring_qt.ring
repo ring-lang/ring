@@ -26431,6 +26431,32 @@ Class QDepthTest
 	Func setDepthFunction P1
 		return QDepthTest_setDepthFunction(pObject,P1)
 
+Class QViewport
+
+	pObject
+
+	Func init P1
+		pObject = QViewport_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QViewport_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func gamma 
+		return QViewport_gamma(pObject)
+
+	Func normalizedRect 
+		return QViewport_normalizedRect(pObject)
+
+	Func setGamma P1
+		return QViewport_setGamma(pObject,P1)
+
+	Func setNormalizedRect P1
+		return QViewport_setNormalizedRect(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QInputAspect
 
 	pObject
