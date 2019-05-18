@@ -26371,6 +26371,26 @@ Class QObjectPicker
 	Func getreleasedEvent 
 		return QObjectPicker_getreleasedEvent(pObject)
 
+Class QCameraSelector
+
+	pObject
+
+	Func init P1
+		pObject = QCameraSelector_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCameraSelector_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func camera 
+		return QCameraSelector_camera(pObject)
+
+	Func setCamera P1
+		return QCameraSelector_setCamera(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QInputAspect
 
 	pObject
