@@ -398,6 +398,7 @@ extern "C" {
 #include <QMetalRoughMaterial>
 #include <QMorphPhongMaterial>
 #include <QPerVertexColorMaterial>
+#include <QCameraSelector>
 </filter>
 
 #include <QGraphicsView>
