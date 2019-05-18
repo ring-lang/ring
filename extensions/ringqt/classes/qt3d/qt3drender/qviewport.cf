@@ -1,0 +1,10 @@
+<class>
+name: QViewport
+codename: Qt3DRender::QViewport
+para: Qt3DCore::QNode *
+</class>
+
+float gamma(void)
+QRectF normalizedRect(void)
+void setGamma(float gamma)
+void setNormalizedRect(QRectF normalizedRect)

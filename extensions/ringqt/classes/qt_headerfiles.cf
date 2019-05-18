@@ -401,6 +401,7 @@ extern "C" {
 #include <QCameraSelector>
 #include <QCullFace>
 #include <QDepthTest>
+#include <QViewport>
 </filter>
 
 #include <QGraphicsView>
