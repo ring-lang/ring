@@ -26411,6 +26411,26 @@ Class QCullFace
 	Func setMode P1
 		return QCullFace_setMode(pObject,P1)
 
+Class QDepthTest
+
+	pObject
+
+	Func init P1
+		pObject = QDepthTest_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDepthTest_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func depthFunction 
+		return QDepthTest_depthFunction(pObject)
+
+	Func setDepthFunction P1
+		return QDepthTest_setDepthFunction(pObject,P1)
+
 Class QInputAspect
 
 	pObject
