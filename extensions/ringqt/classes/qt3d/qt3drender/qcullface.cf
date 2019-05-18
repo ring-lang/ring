@@ -1,0 +1,8 @@
+<class>
+name: QCullFace
+codename: Qt3DRender::QCullFace
+para: Qt3DCore::QNode *
+</class>
+
+Qt3DRender::QCullFace::CullingMode mode(void)
+void setMode(Qt3DRender::QCullFace::CullingMode mode)

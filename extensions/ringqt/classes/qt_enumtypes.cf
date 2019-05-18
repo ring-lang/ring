@@ -377,4 +377,5 @@ aEnumTypes + "QMesh::Status"
 aEnumTypes + "QSceneLoader::ComponentType"
 aEnumTypes + "QSceneLoader::Status"
 aEnumTypes + "QRenderAspect::RenderType"
+aEnumTypes + "Qt3DRender::QCullFace::CullingMode"
 </runcode>

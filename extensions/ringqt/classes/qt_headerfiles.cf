@@ -399,6 +399,7 @@ extern "C" {
 #include <QMorphPhongMaterial>
 #include <QPerVertexColorMaterial>
 #include <QCameraSelector>
+#include <QCullFace>
 </filter>
 
 #include <QGraphicsView>

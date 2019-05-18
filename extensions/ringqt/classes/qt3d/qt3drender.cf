@@ -11,3 +11,4 @@
 <loadfile> qt3drender/qtextureloader.cf
 <loadfile> qt3drender/qobjectpicker.cf
 <loadfile> qt3drender/qcameraselector.cf
+<loadfile> qt3drender/qcullface.cf
