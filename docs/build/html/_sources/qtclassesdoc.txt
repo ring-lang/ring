@@ -1481,6 +1481,21 @@ Parameters : Qt3DCore::QNode *
 * void setTop(float top)
 
 .. index::
+	pair: RingQt Classes Reference; QCameraSelector Class
+
+QCameraSelector Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCameraSelector.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* Qt3DCore::QEntity * camera(void)
+* void setCamera(Qt3DCore::QEntity *camera)
+
+.. index::
 	pair: RingQt Classes Reference; QCameraViewfinder Class
 
 QCameraViewfinder Class
@@ -10601,6 +10616,22 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10628,22 +10659,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
