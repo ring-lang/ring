@@ -10568,6 +10568,23 @@ Parent Class : QMediaControl
 
 
 .. index::
+	pair: RingQt Classes Reference; QViewport Class
+
+QViewport Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QViewport.html
+
+
+Parameters : Qt3DCore::QNode *
+
+* float gamma(void)
+* QRectF normalizedRect(void)
+* void setGamma(float gamma)
+* void setNormalizedRect(QRectF normalizedRect)
+
+.. index::
 	pair: RingQt Classes Reference; QVoice Class
 
 QVoice Class
@@ -10646,22 +10663,6 @@ C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -10689,6 +10690,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class

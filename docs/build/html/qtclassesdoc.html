@@ -8496,8 +8496,19 @@
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QVideoWidgetControl.html">http://doc.qt.io/qt-5/QVideoWidgetControl.html</a></p>
 <p>Parent Class : QMediaControl</p>
 </div>
+<div class="section" id="qviewport-class">
+<span id="index-298"></span><h2>QViewport Class<a class="headerlink" href="#qviewport-class" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QViewport.html">http://doc.qt.io/qt-5/QViewport.html</a></p>
+<p>Parameters : Qt3DCore::QNode *</p>
+<ul class="simple">
+<li>float gamma(void)</li>
+<li>QRectF normalizedRect(void)</li>
+<li>void setGamma(float gamma)</li>
+<li>void setNormalizedRect(QRectF normalizedRect)</li>
+</ul>
+</div>
 <div class="section" id="qvoice-class">
-<span id="index-298"></span><h2>QVoice Class<a class="headerlink" href="#qvoice-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-299"></span><h2>QVoice Class<a class="headerlink" href="#qvoice-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QVoice.html">http://doc.qt.io/qt-5/QVoice.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8509,7 +8520,7 @@
 </ul>
 </div>
 <div class="section" id="qwebengineview-class">
-<span id="index-299"></span><h2>QWebEngineView Class<a class="headerlink" href="#qwebengineview-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-300"></span><h2>QWebEngineView Class<a class="headerlink" href="#qwebengineview-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QWebEngineView.html">http://doc.qt.io/qt-5/QWebEngineView.html</a></p>
 <p>Parameters : QWidget <a href="#id3257"><span class="problematic" id="id3258">*</span></a>parent</p>
 <p>Parent Class : QWidget</p>
@@ -8549,46 +8560,46 @@
 </ul>
 </div>
 <div class="section" id="qwebview-class">
-<span id="index-300"></span><h2>QWebView Class<a class="headerlink" href="#qwebview-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-301"></span><h2>QWebView Class<a class="headerlink" href="#qwebview-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/archives/qt-5.5/qwebview.html">http://doc.qt.io/archives/qt-5.5/qwebview.html</a></p>
 <p>Parameters : QWidget <a href="#id3293"><span class="problematic" id="id3294">*</span></a>parent</p>
-<p>Parent Class : QWebEngineView</p>
-</div>
-<div class="section" id="index-301">
-<span id="id3295"></span><h2>QWebView Class<a class="headerlink" href="#index-301" title="Permalink to this headline">¶</a></h2>
-<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/archives/qt-5.5/qwebview.html">http://doc.qt.io/archives/qt-5.5/qwebview.html</a></p>
-<p>Parameters : QWidget <a href="#id3296"><span class="problematic" id="id3297">*</span></a>parent</p>
 <p>Parent Class : QWidget</p>
 <ul class="simple">
-<li>QWebHistory <a href="#id3298"><span class="problematic" id="id3299">*</span></a>history(void)</li>
-<li>QAction <a href="#id3300"><span class="problematic" id="id3301">*</span></a>pageAction(QWebPage::WebAction action)</li>
+<li>QWebHistory <a href="#id3295"><span class="problematic" id="id3296">*</span></a>history(void)</li>
+<li>QAction <a href="#id3297"><span class="problematic" id="id3298">*</span></a>pageAction(QWebPage::WebAction action)</li>
 <li>void setContent(QByteArray,QString,QUrl)</li>
 <li>void setHtml(QString,QUrl)</li>
-<li>void setPage(QWebPage <a href="#id3302"><span class="problematic" id="id3303">*</span></a>page)</li>
+<li>void setPage(QWebPage <a href="#id3299"><span class="problematic" id="id3300">*</span></a>page)</li>
 <li>void setZoomFactor(qreal factor)</li>
-<li>QWebSettings <a href="#id3304"><span class="problematic" id="id3305">*</span></a>settings(void)</li>
+<li>QWebSettings <a href="#id3301"><span class="problematic" id="id3302">*</span></a>settings(void)</li>
 <li>void triggerPageAction(QWebPage::WebAction action, bool checked)</li>
 <li>QUrl url(void)</li>
 <li>qreal zoomFactor(void)</li>
 <li>void back(void)</li>
 <li>void forward(void)</li>
-<li>void print(QPrinter <a href="#id3306"><span class="problematic" id="id3307">*</span></a>printer)</li>
+<li>void print(QPrinter <a href="#id3303"><span class="problematic" id="id3304">*</span></a>printer)</li>
 <li>void reload(void)</li>
 <li>void stop(void)</li>
-<li>void setloadProgressEvent(const char <a href="#id3308"><span class="problematic" id="id3309">*</span></a>)</li>
-<li>void setloadStartedEvent(const char <a href="#id3310"><span class="problematic" id="id3311">*</span></a>)</li>
-<li>void setselectionChangedEvent(const char <a href="#id3312"><span class="problematic" id="id3313">*</span></a>)</li>
-<li>void seturlChangedEvent(const char <a href="#id3314"><span class="problematic" id="id3315">*</span></a>)</li>
-<li>const char <a href="#id3316"><span class="problematic" id="id3317">*</span></a>getloadFinishedEvent(void)</li>
-<li>const char <a href="#id3318"><span class="problematic" id="id3319">*</span></a>getloadProgressEvent(void)</li>
-<li>const char <a href="#id3320"><span class="problematic" id="id3321">*</span></a>getloadStartedEvent(void)</li>
-<li>const char <a href="#id3322"><span class="problematic" id="id3323">*</span></a>getselectionChangedEvent(void)</li>
-<li>const char <a href="#id3324"><span class="problematic" id="id3325">*</span></a>gettitleChangedEvent(void)</li>
-<li>const char <a href="#id3326"><span class="problematic" id="id3327">*</span></a>geturlChangedEvent(void)</li>
+<li>void setloadProgressEvent(const char <a href="#id3305"><span class="problematic" id="id3306">*</span></a>)</li>
+<li>void setloadStartedEvent(const char <a href="#id3307"><span class="problematic" id="id3308">*</span></a>)</li>
+<li>void setselectionChangedEvent(const char <a href="#id3309"><span class="problematic" id="id3310">*</span></a>)</li>
+<li>void seturlChangedEvent(const char <a href="#id3311"><span class="problematic" id="id3312">*</span></a>)</li>
+<li>const char <a href="#id3313"><span class="problematic" id="id3314">*</span></a>getloadFinishedEvent(void)</li>
+<li>const char <a href="#id3315"><span class="problematic" id="id3316">*</span></a>getloadProgressEvent(void)</li>
+<li>const char <a href="#id3317"><span class="problematic" id="id3318">*</span></a>getloadStartedEvent(void)</li>
+<li>const char <a href="#id3319"><span class="problematic" id="id3320">*</span></a>getselectionChangedEvent(void)</li>
+<li>const char <a href="#id3321"><span class="problematic" id="id3322">*</span></a>gettitleChangedEvent(void)</li>
+<li>const char <a href="#id3323"><span class="problematic" id="id3324">*</span></a>geturlChangedEvent(void)</li>
 </ul>
 </div>
+<div class="section" id="index-302">
+<span id="id3325"></span><h2>QWebView Class<a class="headerlink" href="#index-302" title="Permalink to this headline">¶</a></h2>
+<p>C++ Reference : <a class="reference external" href="http://doc.qt.io/archives/qt-5.5/qwebview.html">http://doc.qt.io/archives/qt-5.5/qwebview.html</a></p>
+<p>Parameters : QWidget <a href="#id3326"><span class="problematic" id="id3327">*</span></a>parent</p>
+<p>Parent Class : QWebEngineView</p>
+</div>
 <div class="section" id="qwidget-class">
-<span id="index-302"></span><h2>QWidget Class<a class="headerlink" href="#qwidget-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-303"></span><h2>QWidget Class<a class="headerlink" href="#qwidget-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QWidget.html">http://doc.qt.io/qt-5/QWidget.html</a></p>
 <p>Parameters : void</p>
 <p>Parent Class : QObject</p>
@@ -8795,7 +8806,7 @@
 </ul>
 </div>
 <div class="section" id="qwindow-class">
-<span id="index-303"></span><h2>QWindow Class<a class="headerlink" href="#qwindow-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-304"></span><h2>QWindow Class<a class="headerlink" href="#qwindow-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QWindow.html">http://doc.qt.io/qt-5/QWindow.html</a></p>
 <p>Parameters : QScreen *</p>
 <p>Parent Class : QObject</p>
@@ -8934,7 +8945,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamattribute-class">
-<span id="index-304"></span><h2>QXmlStreamAttribute Class<a class="headerlink" href="#qxmlstreamattribute-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-305"></span><h2>QXmlStreamAttribute Class<a class="headerlink" href="#qxmlstreamattribute-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamAttribute.html">http://doc.qt.io/qt-5/QXmlStreamAttribute.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8947,7 +8958,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamattributes-class">
-<span id="index-305"></span><h2>QXmlStreamAttributes Class<a class="headerlink" href="#qxmlstreamattributes-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-306"></span><h2>QXmlStreamAttributes Class<a class="headerlink" href="#qxmlstreamattributes-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamAttributes.html">http://doc.qt.io/qt-5/QXmlStreamAttributes.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8964,7 +8975,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamentitydeclaration-class">
-<span id="index-306"></span><h2>QXmlStreamEntityDeclaration Class<a class="headerlink" href="#qxmlstreamentitydeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-307"></span><h2>QXmlStreamEntityDeclaration Class<a class="headerlink" href="#qxmlstreamentitydeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8976,12 +8987,12 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamentityresolver-class">
-<span id="index-307"></span><h2>QXmlStreamEntityResolver Class<a class="headerlink" href="#qxmlstreamentityresolver-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-308"></span><h2>QXmlStreamEntityResolver Class<a class="headerlink" href="#qxmlstreamentityresolver-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html">http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html</a></p>
 <p>Parameters : void</p>
 </div>
 <div class="section" id="qxmlstreamnamespacedeclaration-class">
-<span id="index-308"></span><h2>QXmlStreamNamespaceDeclaration Class<a class="headerlink" href="#qxmlstreamnamespacedeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-309"></span><h2>QXmlStreamNamespaceDeclaration Class<a class="headerlink" href="#qxmlstreamnamespacedeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -8990,7 +9001,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamnotationdeclaration-class">
-<span id="index-309"></span><h2>QXmlStreamNotationDeclaration Class<a class="headerlink" href="#qxmlstreamnotationdeclaration-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-310"></span><h2>QXmlStreamNotationDeclaration Class<a class="headerlink" href="#qxmlstreamnotationdeclaration-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html">http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -9000,7 +9011,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamreader-class">
-<span id="index-310"></span><h2>QXmlStreamReader Class<a class="headerlink" href="#qxmlstreamreader-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-311"></span><h2>QXmlStreamReader Class<a class="headerlink" href="#qxmlstreamreader-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamReader.html">http://doc.qt.io/qt-5/QXmlStreamReader.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -9061,7 +9072,7 @@
 </ul>
 </div>
 <div class="section" id="qxmlstreamwriter-class">
-<span id="index-311"></span><h2>QXmlStreamWriter Class<a class="headerlink" href="#qxmlstreamwriter-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-312"></span><h2>QXmlStreamWriter Class<a class="headerlink" href="#qxmlstreamwriter-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/QXmlStreamWriter.html">http://doc.qt.io/qt-5/QXmlStreamWriter.html</a></p>
 <p>Parameters : void</p>
 <ul class="simple">
@@ -9102,7 +9113,7 @@
 </ul>
 </div>
 <div class="section" id="qt3dcamera-class">
-<span id="index-312"></span><h2>Qt3DCamera Class<a class="headerlink" href="#qt3dcamera-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-313"></span><h2>Qt3DCamera Class<a class="headerlink" href="#qt3dcamera-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/Qt3DCamera.html">http://doc.qt.io/qt-5/Qt3DCamera.html</a></p>
 <p>Parameters : Qt3DCore::QNode *</p>
 <p>Parent Class : QEntity</p>
@@ -9160,7 +9171,7 @@
 </ul>
 </div>
 <div class="section" id="qt3dwindow-class">
-<span id="index-313"></span><h2>Qt3DWindow Class<a class="headerlink" href="#qt3dwindow-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-314"></span><h2>Qt3DWindow Class<a class="headerlink" href="#qt3dwindow-class" title="Permalink to this headline">¶</a></h2>
 <p>C++ Reference : <a class="reference external" href="http://doc.qt.io/qt-5/Qt3DWindow.html">http://doc.qt.io/qt-5/Qt3DWindow.html</a></p>
 <p>Parameters : void</p>
 <p>Parent Class : QWindow</p>
@@ -9176,7 +9187,7 @@
 </ul>
 </div>
 <div class="section" id="ringcodehighlighter-class">
-<span id="index-314"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-315"></span><h2>RingCodeHighlighter Class<a class="headerlink" href="#ringcodehighlighter-class" title="Permalink to this headline">¶</a></h2>
 <p>Parameters : QTextDocument <a href="#id3520"><span class="problematic" id="id3521">*</span></a>parent</p>
 <ul class="simple">
 <li>void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)</li>
@@ -9491,10 +9502,11 @@
 <li><a class="reference internal" href="#qvectorqvoice-class">QVectorQVoice Class</a></li>
 <li><a class="reference internal" href="#qvideowidget-class">QVideoWidget Class</a></li>
 <li><a class="reference internal" href="#qvideowidgetcontrol-class">QVideoWidgetControl Class</a></li>
+<li><a class="reference internal" href="#qviewport-class">QViewport Class</a></li>
 <li><a class="reference internal" href="#qvoice-class">QVoice Class</a></li>
 <li><a class="reference internal" href="#qwebengineview-class">QWebEngineView Class</a></li>
 <li><a class="reference internal" href="#qwebview-class">QWebView Class</a></li>
-<li><a class="reference internal" href="#index-301">QWebView Class</a></li>
+<li><a class="reference internal" href="#index-302">QWebView Class</a></li>
 <li><a class="reference internal" href="#qwidget-class">QWidget Class</a></li>
 <li><a class="reference internal" href="#qwindow-class">QWindow Class</a></li>
 <li><a class="reference internal" href="#qxmlstreamattribute-class">QXmlStreamAttribute Class</a></li>
