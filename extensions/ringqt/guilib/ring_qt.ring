@@ -3084,6 +3084,18 @@ Class QString2
 	Func toHtmlEscaped 
 		return QString2_toHtmlEscaped(pObject)
 
+	Func clear 
+		return QString2_clear(pObject)
+
+	Func isNull 
+		return QString2_isNull(pObject)
+
+	Func resize P1
+		return QString2_resize(pObject,P1)
+
+	Func fill P1,P2
+		return QString2_fill(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 Class QProcess from QIODevice
 
 	pObject
