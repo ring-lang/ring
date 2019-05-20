@@ -93,6 +93,10 @@ Better RingQt
 	* startsWith()
 	* endsWith()
 	* toHtmlEscaped()
+	* clear()
+	* isnull()
+	* resize()
+	* fill()
 
 * QAxBase & QVariant - Better API 
 
