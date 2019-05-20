@@ -568,7 +568,68 @@ Example:
           acc = acc + aList[i]
        next
      return acc
-     
+ 
+
+.. index:: 
+	pair: Lists; Return as List or Hash Table
+
+Return Parameters as List or Hash Table
+=======================================
+	
+Return Parameters from a Function in an Array or Hash Format
+
+Example:
+
+.. code-block:: ring
+
+	sudoku = [  [2,9,0],
+		    [0,0,1],
+		    [0,0,0] ]
+
+	aOutput = myFunctionArray(sudoku)
+		See "Return Array: T/F: "+ aOutput[1] +" Row: "+ aOutput[2] +" Col: "+ aOutput[3] +nl
+
+	aOutput = myFunctionHash(sudoku)
+		See "Return Hash.: T/F: "+ aOutput[:lValue] +" Row: "+ aOutput[:nRow] +" Col: "+ aOutput[:nCol] +nl
+
+	###----------------------------------
+	### isSolvedSoduku - Return ARRAY
+
+	Func myFunctionArray(sudoku)
+	    for Row = 1 to 9
+		for Col = 1 to 9
+		    if sudoku[Row][Col] = 0
+
+			//----------------------------
+			// Return Array with 3 fields       
+			return [False, Row, Col]                    
+		    ok
+		next
+	    next
+	return [True, Row, Col]
+
+	###----------------------------------
+	### isSolvedSoduku - Return HASH
+
+	Func myFunctionHash(sudoku)
+	    for Row = 1 to 3
+		for Col = 1 to 3
+		    if sudoku[Row][Col] = 0
+
+			//---------------------------------
+			// Return Hash Table with 3 fields      
+			return  [   :lValue = False, 
+				    :nRow   = Row, 
+				    :nCol   = Col   
+				]
+		    ok
+		next
+	    next
+
+	return  [ :lValue = False, :nRow = Row, :nCol = Col ]           
+
+	###-----------------------------
+
      
 .. index:: 
 	pair: Lists; Create Multi Dimension Array  Using List and Recursion

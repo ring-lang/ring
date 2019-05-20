@@ -450,8 +450,62 @@ Where the order of parameters will not be important (we can change the order).</
 </pre></div>
 </div>
 </div>
+<div class="section" id="return-parameters-as-list-or-hash-table">
+<span id="index-19"></span><h2>Return Parameters as List or Hash Table<a class="headerlink" href="#return-parameters-as-list-or-hash-table" title="Permalink to this headline">¶</a></h2>
+<p>Return Parameters from a Function in an Array or Hash Format</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sudoku</span> <span class="o">=</span> <span class="o">[</span>  <span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+            <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span>
+            <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span> <span class="o">]</span>
+
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">myFunctionArray</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Return Array: T/F: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Row: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Col: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
+
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">myFunctionHash</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Return Hash.: T/F: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">lValue</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Row: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">nRow</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Col: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">nCol</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
+
+<span class="sd">###----------------------------------</span>
+<span class="sd">### isSolvedSoduku - Return ARRAY</span>
+
+<span class="k">Func</span> <span class="n">myFunctionArray</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="o">[</span><span class="n">Row</span><span class="o">][</span><span class="n">Col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+                <span class="o">//----------------------------</span>
+                <span class="o">//</span> <span class="k">Return</span> <span class="n">Array</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">fields</span>
+                <span class="k">return</span> <span class="o">[</span><span class="kp">False</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="o">]</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
+<span class="k">return</span> <span class="o">[</span><span class="kp">True</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="o">]</span>
+
+<span class="sd">###----------------------------------</span>
+<span class="sd">### isSolvedSoduku - Return HASH</span>
+
+<span class="k">Func</span> <span class="n">myFunctionHash</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="o">[</span><span class="n">Row</span><span class="o">][</span><span class="n">Col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+                <span class="o">//---------------------------------</span>
+                <span class="o">//</span> <span class="k">Return</span> <span class="n">Hash</span> <span class="n">Table</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">fields</span>
+                <span class="k">return</span>  <span class="o">[</span>   <span class="p">:</span><span class="n">lValue</span> <span class="o">=</span> <span class="kp">False</span><span class="p">,</span>
+                            <span class="p">:</span><span class="n">nRow</span>   <span class="o">=</span> <span class="n">Row</span><span class="p">,</span>
+                            <span class="p">:</span><span class="n">nCol</span>   <span class="o">=</span> <span class="n">Col</span>
+                        <span class="o">]</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
+
+<span class="k">return</span>  <span class="o">[</span> <span class="p">:</span><span class="n">lValue</span> <span class="o">=</span> <span class="kp">False</span><span class="p">,</span> <span class="p">:</span><span class="n">nRow</span> <span class="o">=</span> <span class="n">Row</span><span class="p">,</span> <span class="p">:</span><span class="n">nCol</span> <span class="o">=</span> <span class="n">Col</span> <span class="o">]</span>
+
+<span class="sd">###-----------------------------</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="creating-a-multi-dimensional-array-using-list">
-<span id="index-19"></span><h2>Creating a Multi-Dimensional Array using  List<a class="headerlink" href="#creating-a-multi-dimensional-array-using-list" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Creating a Multi-Dimensional Array using  List<a class="headerlink" href="#creating-a-multi-dimensional-array-using-list" title="Permalink to this headline">¶</a></h2>
 <p>A Multi-Dimensional Array of any size can be built using recursion in a  Function</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="sd">###---------------------------------------------------------</span>
@@ -523,7 +577,7 @@ Where the order of parameters will not be important (we can change the order).</
 </div>
 </div>
 <div class="section" id="swap-items">
-<span id="index-20"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this headline">¶</a></h2>
 <p>We can swap the list items using the Swap() function.</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">four</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span>
@@ -575,6 +629,7 @@ Where the order of parameters will not be important (we can change the order).</
 <li><a class="reference internal" href="#access-list-items-by-string-index">Access List Items by String Index</a></li>
 <li><a class="reference internal" href="#passing-parameters-or-argumnents-using-list">Passing Parameters or Argumnents Using List</a></li>
 <li><a class="reference internal" href="#passing-parameters-or-argumnents-using-list-array">Passing Parameters or Argumnents Using List Array</a></li>
+<li><a class="reference internal" href="#return-parameters-as-list-or-hash-table">Return Parameters as List or Hash Table</a></li>
 <li><a class="reference internal" href="#creating-a-multi-dimensional-array-using-list">Creating a Multi-Dimensional Array using  List</a></li>
 <li><a class="reference internal" href="#swap-items">Swap Items</a></li>
 </ul>

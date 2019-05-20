@@ -574,7 +574,7 @@ Example:
 	pair: Lists; Return as List or Hash Table
 
 Return Parameters as List or Hash Table
-=================================================
+=======================================
 	
 Return Parameters from a Function in an Array or Hash Format
 
