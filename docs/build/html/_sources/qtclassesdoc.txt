@@ -8382,6 +8382,10 @@ Parameters : void
 * bool startsWith( QString  s, Qt::CaseSensitivity cs )
 * bool endsWith( QString  s, Qt::CaseSensitivity cs )
 * QString toHtmlEscaped(void)
+* void clear(void)
+* bool isNull(void)
+* void resize(int size)
+* QString fill(QChar ch, int size)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
