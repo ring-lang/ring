@@ -25179,7 +25179,9 @@ Class Qt3DWindow from QWindow
 		return Qt3DWindow_activeFrameGraph(pObject)
 
 	Func defaultFrameGraph 
-		return Qt3DWindow_defaultFrameGraph(pObject)
+		pTempObj = new QForwardRenderer
+		pTempObj.pObject = Qt3DWindow_defaultFrameGraph(pObject)
+		return pTempObj
 
 	Func registerAspect P1
 		return Qt3DWindow_registerAspect(pObject,GetObjectPointerFromRingObject(P1))

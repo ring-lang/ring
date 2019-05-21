@@ -7,7 +7,7 @@ parent: QWindow
 
 
 Qt3DRender::QFrameGraphNode * activeFrameGraph(void)
-Qt3DExtras::QForwardRenderer * defaultFrameGraph(void)
+QForwardRenderer * defaultFrameGraph(void)
 void registerAspect(Qt3DCore::QAbstractAspect *aspect)
 void registerAspect@2(QString name)
 Qt3DRender::QRenderSettings * renderSettings(void)
