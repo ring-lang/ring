@@ -1,7 +1,7 @@
 The Sudoku Game
 ===============
 
-The Sudoku Game by Bert Mariani
+The Sudoku Game by Bert Mariani and Nestor Kuka
 
 How to play
 
