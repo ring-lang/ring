@@ -1,10 +1,18 @@
 ### Program: Sudoku Puzzle
 ### Author:  Bert Mariani
+###          Nestor Kuka  --- Code 2019-05-21
 ### Date:    2019-04-30
+
+### http://www.paulspages.co.uk/sudoku/howtosolve/
+### https://www.kristanix.com/sudokuepic/sudoku-solving-techniques.php
+### https://www.youtube.com/watch?v=b123EURtu3I&feature=youtu.be
+### https://www.nytimes.com/crosswords/game/sudoku/easy
 
 load "stdlib.ring"
 load "guilib.ring"
 load "SudokuPuzzles.ring"     ### A File with SUDOKU Puzzles to Solve
+
+oMath = new Math
 
 ###-------------------
 ### WINDOW SIZE
@@ -25,7 +33,7 @@ aArray           = null
 playArray        = null
 aButton          = null
 workWidget       = null
-gHintArray       = [0,0,0, 0,0,0, 0,0,0, 0,0]	### last 2 are Row-Col
+HintsInSquare    = null
 
 TitletMoves       = null
 TitletInvalidMove = null
@@ -33,11 +41,15 @@ LayoutButtonRow   = null
 
 comboPuzzleName  = null
 puzzleName       = "EnterYourOwn"  ### Default setup
+gfontSize        = 10
+gHintArray       = [0,0,0, 0,0,0, 0,0,0, 0,0]   ### last 2 are Row-Col
+
 
 OldRow = 0
 OldCol = 0
 nMoves = 0
 gNbrRightClick = 99 ### RightMouse-SelectMenu-Nbr
+gcountIter = 0                  // iterationen
 
 aSQColor = [
     [0,0,0, 1,1,1, 0,0,0],
@@ -69,29 +81,44 @@ aArray =[
 playArray = aArray          ### PLAY ARRAY - Record moves etc
 
 aButton = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0] ]
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0] ]
 
 
 dupArray =  [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0] ]
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0] ]
 
-zeroArray = dupArray
+zeroArray = [
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0] ]
 
 regionArray = [
     [1,1,1, 2,2,2, 3,3,3],
@@ -105,6 +132,19 @@ regionArray = [
     [7,7,7, 8,8,8, 9,9,9],
     [7,7,7, 8,8,8, 9,9,9],
     [7,7,7, 8,8,8, 9,9,9] ]
+    
+aHints = [
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0],
+    [0,0,0, 0,0,0, 0,0,0] ]
 
 ###-------------------------
 
@@ -112,9 +152,14 @@ C_Spacing  = 2
 C_ButtonFirstStyle  = 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'        ### Square pale
 C_ButtonSecondStyle = 'border-radius:1px; color:black; background-color: rgb(179,200,93); '         ### Square dark
 
-C_ButtonFirstStyleBlue  = 'border-radius:1px; color:blue; background-color: rgb(229,249,203) ;'        ### Square pale
+C_ButtonFirstStyleBlue  = 'border-radius:1px; color:blue; background-color: rgb(229,249,203) ;'        ### Square pale Blue Nbr
 C_ButtonSecondStyleBlue = 'border-radius:1px; color:blue; background-color: rgb(179,200,93); '         ### Square dark
 
+C_ButtonFirstStyleCyan  = 'border-radius:1px; color:darkgreen; background-color: rgb(229,249,203) ;'   ### Square pale Cyan Nbr
+C_ButtonSecondStyleCyan = 'border-radius:1px; color:darkgreen; background-color: rgb(179,200,93); '    ### Square dark
+
+C_ButtonFirstStyleRed  = 'border-radius:1px; color:red; background-color: rgb(229,249,203) ;'        ### Square pale Blue Nbr
+C_ButtonSecondStyleRed = 'border-radius:1px; color:red; background-color: rgb(179,200,93); '         ### Square dark
 
 C_ButtonPickStyle   = 'border-radius:1px; color:black; background-color: rgb(255,255,93); '         ### Yellow
 C_ButtonDestStyle   = 'border-radius:1px; color:black; background-color: rgb(204,255,204); '        ### Cyan
@@ -162,7 +207,7 @@ Func DrawWidget()
         setStyleSheet('background-color:White')
 
         workHeight = workWidget.height()
-        fontSize   = 10 + (workHeight / 100)
+        gfontSize   = 10 + (workHeight / 100)
 
         move(moveX, moveY)
         resize(sizeX, sizeY)
@@ -173,7 +218,7 @@ Func DrawWidget()
             TitletMoves = new qLineEdit(workWidget)
             {
                 #setStyleSheet(C_ButtonDarkStyle)   ### Leave White default
-                setFont(new qFont("Calibri",fontsize,100,0))
+                setFont(new qFont("Calibri",gfontSize,100,0))
                 setAlignment( Qt_AlignVCenter)
                 setAlignment( Qt_AlignVCenter)
                 setText(" Filled: "+ nMoves)
@@ -183,33 +228,51 @@ Func DrawWidget()
             TitletInvalidMove = new qLineEdit(workWidget)
             {
                 #setStyleSheet(C_ButtonInvalidStyle)
-                setFont(new qFont("Calibri",fontsize,100,0))
+                setFont(new qFont("Calibri",gfontSize,100,0))
                 setAlignment( Qt_AlignVCenter)
                 setAlignment( Qt_AlignVCenter)
                 setText(" Msg ")
             }
 
+            HintsInSquare = new qcheckbox(workWidget) 
+            {
+                setFont(new qFont("Calibri",gfontSize,100,0))
+                setStyleSheet("background-color:rgb(204,255,229)")
+                setText(" HintInSQ ")
+            }
+    
+
+            SolveGame  = new QPushButton(workWidget)
+            {
+                setStyleSheet(C_ButtonDarkStyle)
+                setFont(new qFont("Calibri",gfontSize,100,0))
+                setText(" Solve ")
+                setClickEvent("Solve()")
+            }
+
+            SolveBrut  = new QPushButton(workWidget)
+            {
+                setStyleSheet(C_ButtonPaleStyle)
+                setFont(new qFont("Calibri",gfontSize,100,0))
+                setText(" BrutForce ")
+                setClickEvent("BrutForce()")
+            }           
+            
             comboPuzzleName = new QComboBox(workWidget)
             {
                 setStyleSheet("background-color:White")
-                setFont(new qFont("Calibri",fontsize,50,0))
+                setFont(new qFont("Calibri",gfontSize,50,0))
                 #aList = ["BoardLayout","Puzzle1","Puzzle2","Puzzle3"]
                 aList = PuzzleList                  ### From SudokuPuzzles.ring file
                 for x in aList additem(x,0) next
             }
 
-            SolveGame  = new QPushButton(workWidget)
-            {
-                setStyleSheet(C_ButtonDarkStyle)
-                setFont(new qFont("Calibri",fontsize,100,0))
-                setText(" Solve ")
-                setClickEvent("Solve()")
-            }
+
 
             NewGame  = new QPushButton(workWidget)
             {
                 setStyleSheet("background-color:rgb(255,204,229)")
-                setFont(new qFont("Calibri",fontsize,100,0))
+                setFont(new qFont("Calibri",gfontSize,100,0))
                 setText(" New Game ")
                 setClickEvent("NewGameStart()")
             }
@@ -235,8 +298,10 @@ Func DrawWidget()
 
             LayoutTitleRow.AddWidget(TitletMoves)
             LayoutTitleRow.AddWidget(TitletInvalidMove)
-            LayoutTitleRow.AddWidget(comboPuzzleName)
+            LayoutTitleRow.AddWidget(HintsInSquare)
             LayoutTitleRow.AddWidget(SolveGame)
+            LayoutTitleRow.AddWidget(SolveBrut)
+            LayoutTitleRow.AddWidget(comboPuzzleName)
             LayoutTitleRow.AddWidget(NewGame)
 
             LayoutButtonMain.AddLayout(LayoutTitleRow)
@@ -271,7 +336,7 @@ Func DrawWidget()
                             setStyleSheet(C_ButtonInvalidStyle)
                         ok
 
-                        setFont(new qFont("Calibri",fontSize + 10, 100,0))
+                        setFont(new qFont("Calibri",gfontSize + 10, 100,0))
                         setClickEvent("UserLeftClick(" + string(Row) + "," + string(Col) + ")")
                         setSizePolicy(1,1)          ### Keep SQ size and nbr text proportionate
 
@@ -304,6 +369,8 @@ Func DrawWidget()
 
 return
 
+###============================================================
+#
 ###============================================================
 ###
 
@@ -341,12 +408,15 @@ Func RestoreSQColors()
 return
 
 ###============================================================
+
+
+###============================================================
 ###
 
 Func NewGameStart()
 
     ###--------------------------------------------------------
-    ### Check User selected which puggle on the Drop-Down List
+    ### Check User selected which puzzle on the Drop-Down List
 
     puzzleName = comboPuzzleName.currentText()
     See "NewGame: puzzleName: "+ puzzleName +nl
@@ -354,16 +424,30 @@ Func NewGameStart()
     playArray = zeroArray                   ### Clear previous play
     playArray = WhichPuzzle(puzzleName)     ### From SudokuPuzzle.ring file
     aArray    = playArray
+    
+    aHints    = zeroArray
+
+            ###--------------------------------------------------
+            ### Color the SQ Buttons - Dark/Light and FONT Size
 
 
-    for Row = 1 to 9
+            for Row = 1 to 9
+            for Col = 1 to 9
+
+                    shade = aSQColor[Row][Col]
+
+                    if shade = 1
+                        aButton[Row][Col] {setStyleSheet(C_ButtonFirstStyle)  setFont(new qFont("Calibri",gfontSize + 10, 100,0))}
+                    else 
+                        aButton[Row][Col] {setStyleSheet(C_ButtonSecondStyle) setFont(new qFont("Calibri",gfontSize + 10, 100,0))}
+                    ok      
+
+            next
+            next
+
+
+        for Row = 1 to 9
         for Col = 1 to 9
-
-            ###------------------------
-            ### Color the SQ Buttons - Dark/Light
-
-            RestoreSQColors()
-
             ###--------------------------------------------
             ### SQ BUTTONS -- Set NBR/Blank from -aARRAY
 
@@ -375,7 +459,7 @@ Func NewGameStart()
             ok
 
         next
-    next
+        next
 
 
 return
@@ -413,10 +497,11 @@ Func UserLeftClick(Row, Col)
 
     OldRow = Row
     OldCol = Col
+    
 
-	SolveForNumber(Row,Col)		### For This Region, What are the Possible Nbrs that can fit ?
-	
-    Hint(Row,Col)   ### Show User possible Nbr that do Not Duplicate
+    SolveForNumber(Row,Col)     ### For This Region, What are the Possible Nbrs that can fit ?
+    
+    Hint(Row,Col)               ### Show User possible Nbr that do Not Duplicate
 
 
 return
@@ -429,6 +514,7 @@ Func RightClickMouse(Row, Col)
     Col = 0+ Col
     nbr = 88
 
+        
     new qMenu(workWidget)
     {
         setStyleSheet("selection-color:black; selection-background-color:cyan;")
@@ -454,17 +540,17 @@ Func RightClickMouse(Row, Col)
     ### Click() function called above RETURNS gNbrRightClick  Here
     ### Insert Nbr in SQ in BLUE
 
-     value = aSQColor[Row][Col]
-     if value = 1
-         aButton[Row][Col] {setStyleSheet(C_ButtonFirstStyleBlue)  setText(""+ gNbrRightClick ) }
+     shade = aSQColor[Row][Col]
+     if shade = 1
+         aButton[Row][Col] {setStyleSheet(C_ButtonFirstStyleBlue)     setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ gNbrRightClick ) }
             if gNbrRightClick = 0
-                aButton[Row][Col] {setStyleSheet(C_ButtonFirstStyle)  setText("" ) }   ### ERASE SQ when Nbr 0
+                aButton[Row][Col] {setStyleSheet(C_ButtonFirstStyle)  setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText("" ) }   ### ERASE SQ when Nbr 0
             ok
 
-     but value = 0
-         aButton[Row][Col] {setStyleSheet(C_ButtonSecondStyleBlue) setText(""+ gNbrRightClick ) }
+     but shade = 0
+         aButton[Row][Col] {setStyleSheet(C_ButtonSecondStyleBlue)    setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ gNbrRightClick ) }
             if gNbrRightClick = 0
-                aButton[Row][Col] {setStyleSheet(C_ButtonSecondStyle)  setText("" ) }   ### ERASE SQ when Nbr 0
+                aButton[Row][Col] {setStyleSheet(C_ButtonSecondStyle) setFont(new qFont("Calibri",gfontSize + 10, 100,0))  setText("" ) }   ### ERASE SQ when Nbr 0
             ok
      ok
 
@@ -657,20 +743,28 @@ Func CheckDupRegion(Region)
 return FlagDup
 
 ###=================================================================
-### Can THIS SQUARE be filled with a NOT Used NBR
+### HINT
+###     Can THIS SQUARE be filled with a NOT Used NBR
 ###
-### 	Show User possible Nbr that do Not Duplicate existing Buttons
-### 	User Left-Mouse clicks on a Row-Col
-### 	Find possible Nbrs that are NOT-IN  the Row, Col, Region for Square selected
+###     Show User possible Nbr that do Not Duplicate existing Buttons
+###     User Left-Mouse clicks on a Row-Col
+###     Find possible Nbrs that are NOT-IN  the Row, Col, Region for Square selected
 
-### CALLED BY LEFT_MOUSE BUTTON Click
+###     CALLED BY LEFT_MOUSE BUTTON Click
 
 Func Hint(Row,Col)
 
     ### For NBR 1 2 3 4 5 6 7 8 9  Increment count if Nbr Exist someplace else
     ### ANY position left with <<0>> is Possible Candidate
+    
+        ### REG Solve For Number RC: 6-8
+        ### Row-Hint:  1 1 0 1 0 0 0 0 0 0 0
+        ### Col-Hint:  1 2 0 1 1 0 1 0 1 0 0
+        ### Reg-Hint:  2 3 0 2 2 0 1 0 2 0 0
+        ###                ^     ^   ^         > 3 6 8 can fit
+        ### NBR        1 2 3 4 5 6 7 8 9 R C           
 
-    nbrCount = [0,0,0,0,0,0,0,0,0]
+    nbrCount = [0,0,0, 0,0,0, 0,0,0, 0,0]
 
     ###----------------
     ### Check this ROW
@@ -682,6 +776,8 @@ Func Hint(Row,Col)
         ok
     next
 
+    //See "Row-Hint: " ShowArrayLine(nbrCount) See nl 
+    
     ###----------------
     ### Check this Col
 
@@ -692,16 +788,18 @@ Func Hint(Row,Col)
         ok
     next
 
+    //See "Col-Hint: " ShowArrayLine(nbrCount)  See nl 
+    
     ###-------------------
     ### Check this Region
 
-        RegionID = regionArray[Row][Col]     	### Region-ID 1..9  for SQ in this 
+        RegionID = regionArray[Row][Col]        ### Region-ID 1..9  for SQ in this 
         for h = 1 to 9
             for v = 1 to 9
 
                 curRegion = regionArray[h][v]   ### Current Region are we in for this SQ ?
-				
-                if curRegion = RegionID      	### Current Region == RegionID of SQ to solve
+                
+                if curRegion = RegionID         ### Current Region == RegionID of SQ to solve
                     nbr = playArray[h][v]
 
                     if nbr > 0
@@ -711,55 +809,61 @@ Func Hint(Row,Col)
             next
         next
 
-    //See "Hint: " ShowArrayLine(nbrCount)
+    //See "Reg-Hint: " ShowArrayLine(nbrCount) See nl 
 
     ###--------------------------------------------------------------------
-    ### HINT MSG: 	Check is ANY Position or Nbr was NOT used --- Still <<0>>
-	### 		  	HINT msg created, positions with <<0>> added to msg
-	###	gHINTARRAY:	gHintArray: 6-9 = 0 0 3 0 0 0 0 8 0
-	
+    ### HINT MSG:   Check is ANY Position or Nbr was NOT used --- Still <<0>>
+    ###             HINT msg created, positions with <<0>> added to msg
+    ### gHINTARRAY: gHintArray: 6-9 = 0 0 3 0 0 0 0 8 0
+    
     MsgHint = "Hint:"
-			gHintArray = [0,0,0, 0,0,0, 0,0,0, 0,0]	### Zero it out, last 2 are Row-Col			
-			gHintArray[10] = Row
-			gHintArray[11] = Col
-			
-			k = 1
-			for i = 1 to 9
-				if nbrCount[i] = 0                  ### Nbr NOT Used Yet, Add it to Hint msg
-					MsgHint = MsgHint +" " + i
-					gHintArray[i] = i               ### <<<=== Possible Nbr for this SQ
-					k++
-				ok
-			next
-			TitletInvalidMove.setText(MsgHint)
-			
+    HintNbrs = ""
+            gHintArray = [0,0,0, 0,0,0, 0,0,0, 0,0] ### Zero it out, last 2 are Row-Col         
+            gHintArray[10] = Row
+            gHintArray[11] = Col
+            
+            k = 1
+            for i = 1 to 9
+                if nbrCount[i] = 0                  ### Nbr NOT Used Yet, Add it to Hint msg
+                    MsgHint = MsgHint +" " + i
+                    HintNbrs = HintNbrs +i          ### Squeeze then in Display SQuare
+                    
+                    gHintArray[i] = i               ### <<<=== Possible Nbr for this SQ
+                    k++
+                ok
+            next
+            TitletInvalidMove.setText(MsgHint)
+            
+            InsertNbrsSQ(Row,Col,HintNbrs)          ### HintsNbrs Show in SQUARE
 
     ###-------------------------------------------------------------
     ### CALLED by SOLVE()
     ###     RETURNS  Unique-Nbr value for that Row that Col, that Region
     ###     Is there ONLY ONE possible solution Nbr
 
-    uniqNbr = 0
-			k = 0								### k used to count for Unique-Nbr
-			for i = 1 to 9
-				if nbrCount[i] = 0              ### Nbr Not Used Yet in nbrCount[] position <<0>>
-					k++                         ### How many possible nbr found
-					uniqNbr = i
-				ok
-			next
+        uniqNbr = 0
+            k = 0                               ### k used to count for Unique-Nbr
+            for i = 1 to 9
+                if nbrCount[i] = 0              ### Nbr Not Used Yet in nbrCount[] position <<0>>
+                    k++                         ### How many possible nbr found
+                    uniqNbr = i
+                ok
+            next
 
-			if k = 1                            ### ONLY ONE - Unique Nbr found
-				return uniqNbr                  ### return UniqueNbr value 1..9 else 0 meand NONE found
-			ok
+            if k = 1                            ### ONLY ONE - Unique Nbr found
+                return uniqNbr                  ### return UniqueNbr value 1..9 else 0 meand NONE found
+            ok
+            
+         
 
 return 0
 
 ###========================================================
-### Solve Puzzle:
-###			Scan all the SQuares one by one if a number fits
-###					CALL HINT(Row,Col)
+### SOLVE BUTTON CLICKED 
+###         Scan all the SQuares one by one if a number fits
+###             CALL HINT(Row,Col)
 ###                 UniqNbr returned for Empty SQ  Row-Col-Region
-###                 	Insert the Unique nbr return in the Current Row/Col
+###                 Insert the Unique nbr return in the Current Row/Col
 ###
 ### ... Fill in playArray and aButton
 ###
@@ -770,8 +874,8 @@ Func Solve()
 
 
 
-	###------------------
-	
+    ###------------------
+    
     for repeat = 1 to 1
         for h = 1 to 9
             for v = 1 to 9
@@ -780,7 +884,7 @@ Func Solve()
                     uniqNbr = Hint(h,v)     ### <<<=== CALL HINT() Is there 1 unique number possible
 
                     if uniqNbr != 0         ### Yes - Unique-Number returns value 1..9, 0 - NONE
-						InsertUniqNbr(h,v,uniqNbr)              
+                        InsertUniqNbr(h,v,uniqNbr)              
                     ok
                 ok
             next
@@ -792,156 +896,741 @@ Func Solve()
         ok
 
     next
-	
-	###------------------------------------------------------
-	### SOLVE FOR NBR ALGO - Fin2 Nbr that Fits the SQuare
-	
-	for s = 1 to 9 step 3
-		for t = 1 to 9 step 3
-			SolveForNumber(s,t)
-		next
-	next
+    
+    ###------------------------------------------------------
+    ### SOLVE FOR NBR ALGO - Find Nbr that Fits the SQuare
+    
+    for s = 1 to 9 step 3
+        for t = 1 to 9 step 3
+            SolveForNumber(s,t)
+        next
+    next
+    
+    ###------------------------------------------
+    ### aHINTS ARRAY
+    
+    //See "aHints: "+nl   ShowArray(aHints) See nl
+    SolveaHintsArray()
+    
 
 return
 
+
+
+###===========================================================
 ###===========================================================
 ## Insert this Nbr into the SQuare and color SQ same as it was
 
 Func InsertUniqNbr(h,v,uniqNbr)
 
-	playArray[h][v] = uniqNbr
+    //See nl+"InsertUniqNbr: "+ h +"-"+ v +"  "+ uniqNbr +nl
 
-	Value = aSQColor[h][v]		### Value is Button Color
-	if Value = 1
-			aButton[h][v] {setStyleSheet(C_ButtonFirstStyleBlue)  setText(""+ uniqNbr ) }
-	but Value = 0
-			aButton[h][v] {setStyleSheet(C_ButtonSecondStyleBlue) setText(""+ uniqNbr ) }
-	ok
+    playArray[h][v] = uniqNbr
+    
+    Value = aSQColor[h][v]      ### Value is Button Color
+    if Value = 1
+            aButton[h][v] {setStyleSheet(C_ButtonFirstStyleBlue)  setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ uniqNbr ) }
+    but Value = 0
+            aButton[h][v] {setStyleSheet(C_ButtonSecondStyleBlue) setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ uniqNbr ) }
+    ok
 
-	//ShowArray(playArray)
+    //ShowArray(playArray)
+    
+    FillHintsArray(h,v,uniqNbr)
+    
+return
+
+###===========================================================
+###===========================================================
+### BrutForce RED -- Insert this Nbr into the SQuare and color SQ same as it was
+
+Func InsertUniqNbrRED(h,v,uniqNbr)
+
+    //See nl+"InsertUniqNbr: "+ h +"-"+ v +"  "+ uniqNbr +nl
+
+    playArray[h][v] = uniqNbr
+    
+    Value = aSQColor[h][v]      ### Value is Button Color
+    if Value = 1
+            aButton[h][v] {setStyleSheet(C_ButtonFirstStyleRed)  setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ uniqNbr ) }
+    but Value = 0
+            aButton[h][v] {setStyleSheet(C_ButtonSecondStyleRed) setFont(new qFont("Calibri",gfontSize + 10, 100,0)) setText(""+ uniqNbr ) }
+    ok
+
+    //ShowArray(playArray)
+    
+    FillHintsArray(h,v,uniqNbr)
+    
+return
+
+###===========================================================
+### Insert HINT-NBRS into the SQuare and color SQ same as it was
+### setFont(new qFont("Calibri",gfontSize + 10, 100,0))
+
+Func InsertNbrsSQ(h,v,HintNbrs)
+
+//See "InsertNbrsSQ.: "+ h +"-"+ v +"  "+ HintNbrs +nl
+
+        
+    if HintsInSquare.isChecked() = 1        ### TRUE - Show Hits inside the Square
+
+        if playArray[h][v] !=0
+            return
+        ok
+        
+                
+        Value = aSQColor[h][v]      ### Value is Button Color
+        if Value = 1
+                aButton[h][v] {setStyleSheet(C_ButtonFirstStyleCyan)  setFont(new qFont("Calibri", gfontSize -2, 100,0)) setText(""+ HintNbrs ) }
+        but Value = 0
+                aButton[h][v] {setStyleSheet(C_ButtonSecondStyleCyan) setFont(new qFont("Calibri", gfontSize -2, 100,0)) setText(""+ HintNbrs ) }
+        ok
+
+        ### NOT here ShowArray(playArray)
+        
+        FillHintsArray(h,v,HintNbrs)
+        
+    else
+        ### Clear Hints in Square - the tiny numbers - erase
+        Value = aSQColor[h][v]      ### Value is Button Color
+        if Value = 1
+                aButton[h][v] {setStyleSheet(C_ButtonFirstStyleCyan)  setText("" ) }
+        but Value = 0
+                aButton[h][v] {setStyleSheet(C_ButtonSecondStyleCyan) setText("" ) }
+        ok
+    
+    ok
+    
 return
 
 ###============================================================
+###============================================================
+###============================================================
+
+
+###============================================================
 ### For EACH REGION
-### 	For EACH SQAURE in the Region
-###     	Which Numbers are POSSIBLE for EACH EMPTY SQUARE in the Region
-###     	EACH EMPTY SQUARE has 9 possible results in its own Possible Number Array
-###		Next
+###     For EACH SQAURE in the Region
+###         Which Numbers are POSSIBLE for EACH EMPTY SQUARE in the Region
+###         EACH EMPTY SQUARE has 9 possible results in its own Possible Number Array
+###     Next
 ###
-###			In the List of  EMPTY SQUARES - Possible Nbr Array
-###			Count ALL the Possible Hints
-###				if there is a UNIQUE Hint.
-###					Identify the SQ Row / Col with ethe Unique nbr
-###					Insert it into the Square
+###         In the List of  EMPTY SQUARES - Possible Nbr Array
+###         Count ALL the Possible Hints
+###             if there is a UNIQUE Hint.
+###                 Identify the SQ Row / Col with ethe Unique nbr
+###                 Insert it into the Square
 ###
 
 Func SolveForNumber(Row, Col)
 
-	ThisRow = Row
-	ThisCol = Col
-	
-	RegionForNbr = [
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0],
-    [0,0,0, 0,0,0, 0,0,0, 0,0] ] 	### last 2 are Row-Col
-	
-	//See "RegionForNbr: "	ShowArray(RegionForNbr) 	See nl
-	
-	nbrCount = [0,0,0, 0,0,0, 0,0,0]
-	
-	###-------------------
+    ThisRow = Row
+    ThisCol = Col
+    
+    
+    ###  1 2 3  4 5 6  7 8 9  R C
+    RegionForNbr = [
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0],
+        [0,0,0, 0,0,0, 0,0,0, 0,0] ]    ### last 2 are Row-Col
+    
+    //See "RegionForNbr: "  ShowArray(RegionForNbr)     See nl
+    
+    nbrCount = [0,0,0, 0,0,0, 0,0,0, 0,0]
+    
+    ###-------------------
     ### Check this Region
 
-		//See "Solve For Number ThisRow-ThisCol: "+ThisRow +"-"+ ThisCol +nl
-        RegionID = regionArray[ThisRow][ThisCol]     	### Region-ID 1..9  for SQ in this 
-		
-		k = 1
+        //See nl +"REG Solve For Number RC: "+ThisRow +"-"+ ThisCol +nl
+        RegionID = regionArray[ThisRow][ThisCol]        ### Region-ID 1..9  for SQ in this 
+        
+        k = 1
         for Row = 1 to 9
             for Col = 1 to 9
 
-				###----------------------------------------------------------------------
-			    ### Current Region == RegionID of SQ to solve AND playArray SQ is EMPTY
-				
-                curRegion = regionArray[Row][Col]   		
-                if curRegion = RegionID   AND playArray[Row][Col] = 0   		
-                    	
-					###------------------------------------------------------------	
-					### CALL HINT() Fills-In: gHintArray: 6-9 == 0 0 3 0 0 0 0 8 0 
-					
-					uniqNbr = Hint(Row,Col)     	### Returns Uniq-Nbr if possible
-					if uniqNbr != 0         		### Yes - Unique-Number returns value 1..9, 0 - NONE
-						InsertUniqNbr(Row,Col,uniqNbr)              
-                    ok
-					
-					//See "gHintArray: "+ Row +"-"+ Col +" -- "  	ShowArrayLine(gHintArray) See nl	
+                ###----------------------------------------------------------------------
+                ### Current Region == RegionID of SQ to solve AND playArray SQ is EMPTY
+                
+                    ### REG Solve For Number RC: 6-8
+                    ### Row-Hint:  1 1 0 1 0 0 0 0 0 0 0
+                    ### Col-Hint:  1 2 0 1 1 0 1 0 1 0 0
+                    ### Reg-Hint:  2 3 0 2 2 0 1 0 2 0 0
+                    ###                ^     ^   ^         > 3 6 8 can fit
+                    ### NBR        1 2 3 4 5 6 7 8 9 R C    
+                
+                curRegion = regionArray[Row][Col]           
+                if curRegion = RegionID   AND playArray[Row][Col] = 0           
+                        
+                    ###------------------------------------------------------------ 
+                    ### CALL HINT() Fills-In: gHintArray: 6-9 == 0 0 3 0 0 0 0 8 0 
+                    
+                    uniqNbr = Hint(Row,Col)         ### Returns Uniq-Nbr if possible
+                    if uniqNbr != 0                 ### Yes - Unique-Number returns value 1..9, 0 - NONE
+                        InsertUniqNbr(Row,Col,uniqNbr)     
 
-					RegionForNbr[k] = gHintArray
-					k++
-                ok					
-				
+                        //See "REG UniqNbr Insert  RC: "+Row +"-"+ Col +" "+ uniqNbr +nl
+                    ok
+                    
+                    //See "REG gHintArray: "+ Row +"-"+ Col +" -- "     ShowArrayLine(gHintArray) See nl    
+
+                    RegionForNbr[k] = gHintArray
+                    k++
+                ok                  
+                
             next
         next
-		//See nl
-		
-		//See "After RegionForNbr: "   ShowArray(RegionForNbr)   See nl
-		
-		### Count EACH-NBR in RegionForNbr position
-		### If it occurs ONCE - Insert iton position.
-		### nbrCount ==  0 0 3 0 0 1 1 2 0 --  Position = Nbr
+        
+        //See nl
+        //See "REG After RegionForNbr: "   ShowArray(RegionForNbr)   See nl
+        
+        ### Count EACH-NBR in RegionForNbr position
+        ### If it occurs ONCE - Insert iton position.
+        ### nbrCount ==  0 0 3 0 0 1 1 2 0 --  Position = Nbr
 
-			for h = 1 to 9
-				for v = 1 to 9      
-						nbr = RegionForNbr[h][v] 
-						if nbr > 0
-							nbrCount[nbr] = nbrCount[nbr]++		###<<<=== 
-						ok          
-				next
-			next
-			
-			//See nl  ShowArrayLine(nbrCount) See nl
-			
-		### Find Position =Nbr where the nbrCount values = 1 
-		### Then scan RegionForNbrber. Get Row-Col where Position-Nbr occurred
-		### Insert the Position-Nbr into the Square
-		
-			PosNbr = 88
-			for k = 1 to 9
-				if nbrCount[k] = 1
-					PosNbr = k			### Ex. 6
-					
-					//See "PosNbr: "+ PosNbr 
-					
-						for h = 1 to 9
-							for v = 1 to 9
-								if RegionForNbr[h][v] = PosNbr
-									GetRow = RegionForNbr[h][10]
-									GetCol = RegionForNbr[h][11]
-									InsertUniqNbr(GetRow,GetCol,PosNbr)
-									
-									//See "Found PosNbr: "+ PosNbr +" at "+ GetRow +"-"+GetCol +nl
-									exit 2
-								ok		
-							next
-						next
-				
-				ok
-			
-			next
-	
+            for h = 1 to 9
+                for v = 1 to 9      
+                        nbr = RegionForNbr[h][v] 
+                        if nbr > 0
+                            nbrCount[nbr] = nbrCount[nbr]++     ###<<<=== 
+                        ok          
+                next
+            next
+                                        
+            //See "REG:..................."  ShowArrayLine(nbrCount) See nl
+            
+        ### Find Position =Nbr where the nbrCount values = 1 
+        ### Then scan RegionForNbrber. Get Row-Col where Position-Nbr occurred
+        ### Insert the Position-Nbr into the Square
+        
+                        ###  REG-6  4-7     2 4 0
+                        ###  REG-6  5-7     1 9 5
+                        ###  REG-6  6-7     0 0 0
+                ### REG Solve For Number RC: 6-7
+                ###
+                ### REG gHintArray: 4-9 --  0 0 3 0 0 6 0 8 0   4 9  > 368
+                ### REG gHintArray: 6-7 --  0 0 0 0 0 0 7 0 0   6 7  > 7
+                ### REG gHintArray: 6-8 --  0 0 3 0 0 0 0 0 0   6 8  > 3
+                ### REG gHintArray: 6-9 --  0 0 0 0 0 0 0 8 0   6 9  > 8
+                ###
+                ### REG: Sum of Position -  0 0 2 0 0 1 1 2 0   0 0
+                ###                                   ^ ^ 
+                ### REG PosNbr: 6  REG Found PosNbr: 6 at 4-9        > 6
+                ### REG PosNbr: 7  REG Found PosNbr: 7 at 6-7        > 7
+        
+            PosNbr = 88
+            for k = 1 to 9
+                if nbrCount[k] = 1
+                    PosNbr = k          ### Ex. 6
+                    
+                    //See "REG PosNbr: "+ PosNbr +"  "
+                    
+                        for h = 1 to 9
+                            for v = 1 to 9
+                                if RegionForNbr[h][v] = PosNbr
+                                    GetRow = RegionForNbr[h][10]
+                                    GetCol = RegionForNbr[h][11]
+                                    InsertUniqNbr(GetRow,GetCol,PosNbr)
+                                    
+                                    //See "REG Found PosNbr: "+ PosNbr +" at "+ GetRow +"-"+GetCol +nl
+                                    exit 2
+                                ok      
+                            next
+                        next
+                
+                ok
+            
+            next
+    
 
 
 return
 
 ###========================================================
+###========================================================
+### aHINTS ARRAY -- Filled by InsertUniqNbr and InsertHintNbrs
+
+Func FillHintsArray(Row, Col, Value)
+
+/*
+ aHints: After a pass of Solve
+      1     2    3   4     5     6     7     8     9
+    ---------------------------------------------------- 
+ 1  | 3467  467  357 1234  23456 9     1     2356  8
+ 2  | 34689 4689 1   7     23456 23456 34569 23569 24569
+ 3  | 3469  2    359 134   8     13456 7     3569  4569
+ 4  | 1347  147  37  5     9     12346 8     236   26 
+ 5  | 5     189  389 1238  236   7     369   4     269
+ 6  | 2     489  6   348   34    34    5     7     1         <<<  34 Twin -- Remove 34 from this Row Cells. 6-4 Left with 8 = Solved
+ 7  | 6789  3    789 49    1     45    2     5689  4569
+ 8  | 1789  1789 4   6     7     25    9     58    3
+ 9  | 69    5    2   349   34    8     46    1     7
+     
+*/
+
+    ###-------------------------------------------------
+    ### Fill with already Played Numbers from playArray
+    
+//  for h = 1 to 9
+//  for v = 1 to 9
+//      if playArray[h][v] != 0
+//          aHints[h][v] = play/Array[h][v] ### Fill with already Played Numbers 
+//      ok
+//  next
+//  next
+    
+    ###------------------------------------------------
+    ### ADD HINTS -- one for each Row-Col called
+    
+    aHints[Row][Col] = Value                ### Add Hint for this Square
+
+    //See "aHints: "+nl   ShowArray(aHints) See nl
+
+
+return
+
+###========================================================
+### Solve aHINTS Array
+###
+### aList = "a":"z"
+### if find(aList,"p")  ? :True else ? :False ok
+### PM3Hard2 = 34
+
+Func SolveaHintsArray()
+
+    //See "SolveaHintsArray: "+nl   ShowArray(aHints) See nl
+
+    ###-----------------------------------------------------
+    ### Across ROWS
+    
+    See nl
+    for h = 1 to 9
+        for v = 1 to 9              ### Diff staring SQuare
+        
+            FindNbr = aHints[h][v]
+                        
+            if FindNbr != 0 OR FindNbr > 9
+            
+                for k = v+1 to 9            ### Go Across
+                
+                    if aHints[h][k] = FindNbr 
+                        //See "FoundRow: "+ h +"-"+ v +" "+ FindNbr +" at "+ h +"-"+ k +" = "+ aHints[h][k] +nl   
+
+                        ### Remove digits 34 from other squares on the Row              
+                        RemoveHintDigits("Horizontal",h,v,k,FindNbr)
+                                    
+                    ok
+                
+                next
+            ok
+            
+        next    
+    next
+    
+    ###-----------------------------------------------------
+    ### Across COLUMNS
+    
+    See nl 
+    for v = 1 to 9                  ### FLIP  Vert first
+        for h = 1 to 9              ### Diff staring SQuare
+        
+            FindNbr = aHints[h][v]
+                        
+            if FindNbr != 0 OR FindNbr > 9
+            
+                for k = h+1 to 9    ### FLIP go Down
+                
+                    if aHints[k][v] = FindNbr       ### Flip 
+                        //See "FoundCol: "+ h +"-"+ v +" "+ FindNbr +" at "+ k +"-"+ v +" = "+ aHints[k][v] +nl   ### Flip
+
+                        ### Remove digits 34 from other squares on the Row
+                        RemoveHintDigits("Vertical",h,v,k,FindNbr)
+                    ok
+                
+                next
+            ok
+            
+        next    
+    next
+    
+    
+    ###-------------------------------------------------------------------
+    ###  Across REGIONS    1--      
+    ###                 1- 123      ### FoundReg: 1 Pos: 3 13 at 7 = 13          
+    ###                 2- 456      ### FoundReg: 1 Pos: 6 1379 at 9 = 1379 --- Remove 13 from 1379 --> 79    
+    ###                 3- 789          
+    ###
+
+    See nl
+    curRegion = 1
+    
+    for RegionID = 1 to 9                       ### For EACH Region
+        
+            aRegion = [0,0,0, 0,0,0, 0,0,0]     ### Region Cell 1,2,3, 4,5,6, 7,8,9
+            i = 1
+            
+            for h = 1 to 9
+                for v = 1 to 9                              ### Diff staring SQuare     
+                    curRegion = regionArray[h][v]           ### Region-ID 1..9  for SQ in this      
+                    if curRegion = RegionID         
+                        aRegion[i] = aHints[h][v]           ### HINTS in THIS REGION -- fill array horizontal of aRegion[]
+                        i++
+                    ok          
+                next    
+            next
+        
+        //See "RegionID: "+ RegionID +" "  See ShowArrayLine(aRegion)   See nl
+        
+            for j = 1 to 9                                  ### For EACH cell J on array horizontal of aRegion[]
+                FindNbr   = aRegion[j]
+                
+                if FindNbr != 0 OR FindNbr > 9
+                
+                    for k = j+1 to 9                        ### Go Across aRegion using J nd K                                       
+                        if aRegion[k] = FindNbr 
+                            //See "FoundReg: "+ RegionID +" Pos: "+ j +" "+ FindNbr +" at "+ k +" = "+ aRegion[k] +nl 
+
+                            ### FoundReg: 1 Pos: 3 13 at 7 = 13
+                            ### FoundReg: 1 Pos: 6 1379 at 9 = 1379 --- Remove 13 from 1379 --> 79
+                            ### aregion[0 0 13 0 0 1379 13 6 1379]
+                            
+                            ########### 
+                            if FindNbr >= 11 and FindNbr <= 99                              ### 2 digit nbr
+                                    for Pos = 1 to 9
+                                        if !(Pos = j OR Pos = k) AND aRegion[Pos] > 9       ### Not filled Square
+                                                                            
+                                            sHints   = ""+ aRegion[Pos]
+                                            sFindNbr = ""+ FindNbr
+                                        
+                                            sHints = substr(sHints, sFindNbr[1],"" )        ### Erase double-digit from other positions       
+                                            sHints = substr(sHints, sFindNbr[2],"" )
+                                            nHints = number(sHints) 
+                                                
+                                            aRegion[Pos] = nHints
+                                        ok
+                                    next
+                                    
+                                    ###------------------------------------------------------
+                                    ### aRegion[] stick nHints into proper Region: Row-Col
+                                        
+                                    i = 1
+                                    for p = 1 to 9
+                                        for q = 1 to 9                              ### Diff staring SQuare
+                                        
+                                            curRegion = regionArray[p][q]           ### Region-ID 1..9  for this SQ co-ord      
+                                    
+                                            if curRegion = RegionID                 ### HINTS in THIS REGION -- fill line into Region Box
+                                                        
+                                                regNbr       = aRegion[i]
+                                                aHints[p][q] = regNbr
+                                                
+                                                //See "curRegion: "+ curRegion +" i: "+ i + " regNbr: " + regNbr +nl            
+                                                //See "aHints-pq.: "  ShowArray(aHints)  See nl
+                                                                                    
+                                                    if regNbr > 9
+                                                        InsertNbrsSQ(p,q, regNbr)    
+                                                    ok                                              
+                                                    if regNbr > 0 AND regNbr <= 9
+                                                        InsertUniqNbr(p,q, regNbr)
+                                                    ok                                                                                          
+                                                i++ 
+                                            ok                              
+                                        next    
+                                    next    
+                                    ###---------------      
+                                
+                            ok
+
+                            ###########
+                            
+                        ok                  
+                    next
+                                
+                ok
+                next
+        
+        
+        
+    next
+    ###--------------------------
+
+ 
+return
+###==========================================================
 
 
 
 
+###==========================================================
+### Remove HINT Digits from Row, Col, Reg
+
+Func RemoveHintDigits(Type,h,v,k,FindNbr)
+
+    ###-------------------
+    ### ROW
+    
+    if Type = "Horizontal"
+        ### Remove digits 34 from other squares on the Row, k = horz
+        if FindNbr >= 11 and FindNbr <= 99                              ### 2 digit nbr
+            Row = h
+                for Col = 1 to 9
+                    if !(Col = v OR Col = k) AND aHints[Row][Col] > 9   ### Not filled Square
+                                                        
+                        sHints   = ""+ aHints[Row][Col] 
+                        sFindNbr = ""+ FindNbr
+                    
+                        sHints = substr(sHints, sFindNbr[1],"" )            
+                        sHints = substr(sHints, sFindNbr[2],"" )
+                        nHints = number(sHints)                         
+            
+                        //See "HORZ aHints[Row][Col]: "+ Row +"-"+ Col +" "+ aHints[Row][Col] +" "+ sFindNbr +" ---> "+ nHints  +nl
+                        
+                        if nHints > 9
+                            InsertNbrsSQ(Row,Col,nHints)    
+                        ok
+                        if nHints <= 9
+                            InsertUniqNbr(Row,Col,nHints)
+                        ok
+                        
+                        
+                    ok
+                next
+            
+        ok
+    ok
+    
+    ###---------------------
+    ### COLUMN
+    
+    if Type = "Vertical"
+        ### Remove digits 34 from other squares on the Col  k = vert
+        if FindNbr >= 11 and FindNbr <= 99                              ### 2 digit nbr
+            Col = v
+                for Row = 1 to 9
+                    if !(Row = h OR Row = k) AND aHints[Row][Col] > 9   ### Not filled Square
+                                                        
+                        sHints   = ""+ aHints[Row][Col] 
+                        sFindNbr = ""+ FindNbr
+                    
+                        sHints = substr(sHints, sFindNbr[1],"" )            
+                        sHints = substr(sHints, sFindNbr[2],"" )
+                        nHints = number(sHints)                         
+            
+                        //See "VERT aHints[Row][Col]: "+ Row +"-"+ Col +" "+ aHints[Row][Col] +" "+ sFindNbr +" ---> "+ nHints  +nl
+                        
+                        if nHints > 9
+                            InsertNbrsSQ(Row,Col,nHints)    
+                        ok
+                        if nHints <= 9
+                            InsertUniqNbr(Row,Col,nHints)
+                        ok
+                        
+                        
+                    ok
+                next
+            
+        ok
+    ok
+
+    
+    ###-------------------
+    ### REGION
+    
+    if Type = "X-Region"
+        ### Remove digits 34 from other squares on the Row, k = horz
+        if FindNbr >= 11 and FindNbr <= 99                              ### 2 digit nbr
+            Row = h
+                for Col = 1 to 9
+                    if !(Col = v OR Col = k) AND aHints[Row][Col] > 9   ### Not filled Square
+                                                        
+                        sHints   = ""+ aHints[Row][Col] 
+                        sFindNbr = ""+ FindNbr
+                    
+                        sHints = substr(sHints, sFindNbr[1],"" )            
+                        sHints = substr(sHints, sFindNbr[2],"" )
+                        nHints = number(sHints)                         
+            
+                        See "HORZ aHints[Row][Col]: "+ Row +"-"+ Col +" "+ aHints[Row][Col] +" "+ sFindNbr +" ---> "+ nHints  +nl
+                        
+                        if nHints > 9
+                            InsertNbrsSQ(Row,Col,nHints)    
+                        ok
+                        if nHints <= 9
+                            InsertUniqNbr(Row,Col,nHints)
+                        ok
+                        
+                        
+                    ok
+                next
+            
+        ok
+    ok
+    
+    ###---------------------    
+
+return
+
+###==========================================================
+### Clicked on Sove by BrutForce
+### Insert Nbr as RED to show difference
+
+Func BrutForce()
+
+    sudokuBrut = playArray      ### Copy current playArray progress
+    solveBrut(sudokuBrut)
+    
+    for h = 1 to 9
+    for v = 1 to 9
+        if playArray[h][v] = 0
+            uniqNbr = sudokuBrut[h][v]  
+            InsertUniqNbrRed(h,v,uniqNbr)   ### RED Nbr for BrutForce
+        ok
+    
+    next
+    next
+    
+
+return
+
+###==========================================================   
+###==========================================================
+###==========================================================
+// Nestor Kuka --- Code 2019-05-21
 
 
+? "Inputt:"
+    prnt(sudoku)                // vorlage
+
+//----------------------------------------------------- MAIN
+?  "Start: " +Time()
+    solveBrut(sudoku)               // finde loesung 
+?  "Stop.: " +Time()            //(+/- 20 sec)
+
+//-----------------------------------------------------
+? nl+nl+"Ouputt:"               // resultat
+prnt(sudoku)                    // show result
+
+//****************  funktionen  **********************
+// print  I/O       (thanks BM)
+
+Func prnt(sudoku)
+
+    See nl+"|-------------------------|"+nl
+    for row = 1 to 9
+        See "|"
+        for column = 1 to 9 
+            see " "+ sudoku[row][column]        
+        if column % 3 = 0  See " |"  ok
+        next
+        if row % 3 = 0  See nl+"|-------------------------|"  ok
+        ? " "
+    next
+return
+
+
+//-----------------------------------------------------------
+// Test all possible
+// Checks if num exists on a:                           ROW
+
+Func rowHasNotNum(sudoku, row, num)
+    for column = 1 to 9
+        if sudoku[row][column] = num  return false ok 
+    next
+return true
+
+//------------------------------------------------------------
+// Checks if num exists on a:                           COLUMN
+
+Func columnHasNotNum(sudoku, column, num)
+      for row = 1 to 9 
+            if sudoku[row][column] = num return false ok
+      next
+return true
+
+//------------------------------------------------------------
+// Given a (row, column) location on the sudoku grid
+// identifies the corresponding 3x3 Box and checks if
+// num exists in the:                                   BOX
+
+Func boxHasNotNum(sudoku, row, column, num)
+     row    = oMath.floor((row    - 1) / 3) * 3 + 1 
+     column = oMath.floor((column - 1) / 3) * 3 + 1
+     
+    for rwOffset = 0 to 2 
+        for clOffset = 0 to 2 
+            if sudoku[row + rwOffset][column + clOffset] = num return false ok
+        next
+    next
+    
+return true
+
+//------------------------------------------------------
+// Checks if num can be assigned to sudoku[row][column]
+// without breaking sudoku rules.
+
+Func isLegit(sudoku, row, column, num)
+
+return  rowHasNotNum(sudoku, row, num)         and
+        columnHasNotNum(sudoku, column, num)   and
+        boxHasNotNum(sudoku, row, column, num)
+
+
+//-----------------------------------------------------------------
+// Checks if the actual problem is solved. If not, returns false, 
+// plus the location on the first unassigned cell found.
+
+Func isSolved(sudoku)
+    for row = 1 to 9 
+        for column = 1 to 9 
+            if sudoku[row][column] = 0 
+                    return [ false , row, column ] 
+            ok
+        next
+    next
+    
+return [true, row, column]
+
+//-----------------------------------------------------------------
+// Sudoku solving via backtracking and recursion
+// sudoku  : a 2-dimensional grid of numbers (0-9)
+//           0 matches unknown values to be found.
+// returns : true, if a solution was found,
+//           false otherwise.
+
+Func solveBrut(sudoku)
+    gcountIter = gcountIter + 1                                 // iterations    
+    solved      = isSolved(sudoku)             // true / false 2te: row   3te: col 
+        solv_       = solved[1] 
+        row         = solved[2]                // problem on last row/col in sudoku
+        column      = solved[3]
+
+    //? nl+ "Test-Outputt Iter-No.: "+ gcountIter +" "+ solved[1] +" "+ solved[2] +"-"+ solved[3]  + prnt(sudoku)      // per iteration
+
+    //----------------------------  thanks BM
+    if solv_ 
+        See nl+"SUDOKU is SOLVED: Iterations: "+ gcountIter +nl
+        return true 
+    ok
+    
+    for num = 1 to 9
+        if isLegit(sudoku, row, column, num) 
+                sudoku[row][column] = num
+                
+            if solveBrut(sudoku) 
+                    return true 
+            ok  
+            
+            sudoku[row][column] = 0
+        ok 
+    next 
+    
+return false
+
+//=============================================
+//=============================================
+//=============================================             
