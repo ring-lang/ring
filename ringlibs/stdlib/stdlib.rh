@@ -12,3 +12,19 @@
 # Constants used by SystemSilent()
 	C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
 	C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
+
+# Time Info Map
+	aTimeInfoMap = [
+	        // Time info
+	        :time = 17,
+	        :hour_24 = 7,
+	        :hour_12 = 8,
+	        :minutes = 11,
+	        :seconds = 13,
+	        // Date info
+	        :date = 16,
+	        :day_long = 2,
+	        :day_short= 1,
+	        :month = 4,
+	        :year = 19
+	]

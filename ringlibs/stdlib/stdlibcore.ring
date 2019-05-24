@@ -1064,29 +1064,35 @@ func List2Code aList
 	Convert string to a List of numbers 
 	Where each number is the ASCII code of a character 
 */
-	func Str2ASCIIList cStr 
-		if not isString(cStr)
-			raise("Type Error in Str2ASCIIList() function")
-		ok
-		aList = []
-		for cChar in cStr 
-			aList + ASCII(cChar)
-		next 
-		return aList 
+func Str2ASCIIList cStr 
+	if not isString(cStr)
+		raise("Type Error in Str2ASCIIList() function")
+	ok
+	aList = []
+	for cChar in cStr 
+		aList + ASCII(cChar)
+	next 
+	return aList 
 
 /*
 	Convert List of numbers where each number is the ASCII code of character 
 	To String 
 */
-	func ASCIIList2Str aList 
-		if not isList(aList)
-			raise("Type Error in ASCIIList2Str() function")
+func ASCIIList2Str aList 
+	if not isList(aList)
+		raise("Type Error in ASCIIList2Str() function")
+	ok
+	cStr = ""
+	for nNum in aList 
+		if not isNumber(nNum)
+			raise("Type Error in ASCIIList2Str() function - Item is not a number!")
 		ok
-		cStr = ""
-		for nNum in aList 
-			if not isNumber(nNum)
-				raise("Type Error in ASCIIList2Str() function - Item is not a number!")
-			ok
-			cStr += char(nNum)
-		next 
-		return cStr 
+		cStr += char(nNum)
+	next 
+	return cStr 
+
+/*
+	Get Item from time information list
+*/
+func timeInfo( item )
+        return timelist()[ aTimeInfoMap[item] ]
