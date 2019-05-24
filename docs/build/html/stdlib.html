@@ -1012,6 +1012,62 @@ MmMm
 </pre></div>
 </div>
 </div>
+<div class="section" id="islistcontainsitems">
+<span id="index-65"></span><h2>IsListContainsItems()<a class="headerlink" href="#islistcontainsitems" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aParent</span><span class="p">,</span><span class="n">aChild</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="n">aList1</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span><span class="p">:</span><span class="s">&quot;z&quot;</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">h</span><span class="p">,:</span><span class="n">l</span><span class="p">,:</span><span class="n">p</span><span class="p">,:</span><span class="n">u</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isbetween">
+<span id="index-66"></span><h2>IsBetween()<a class="headerlink" href="#isbetween" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsBetween</span><span class="p">(</span><span class="n">nNumber</span><span class="p">,</span><span class="n">nMin</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="timeinfo">
+<span id="index-67"></span><h2>TimeInfo()<a class="headerlink" href="#timeinfo" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">TimeInfo</span><span class="p">(</span><span class="n">cInformation</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>The cInformation value could be</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">time</span>
+<span class="p">:</span><span class="n">hour_24</span>
+<span class="p">:</span><span class="n">hour_12</span>
+<span class="p">:</span><span class="n">minutes</span>
+<span class="p">:</span><span class="n">seconds</span>
+<span class="p">:</span><span class="n">date</span>
+<span class="p">:</span><span class="n">day_long</span>
+<span class="p">:</span><span class="n">day_short</span>
+<span class="p">:</span><span class="n">month</span>
+<span class="p">:</span><span class="n">year</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">date</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">time</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">hour_12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -1087,6 +1143,9 @@ MmMm
 <li><a class="reference internal" href="#list2code-function">List2Code() Function</a></li>
 <li><a class="reference internal" href="#str2asciilist">Str2ASCIIList()</a></li>
 <li><a class="reference internal" href="#asciilist2str">ASCIIList2Str()</a></li>
+<li><a class="reference internal" href="#islistcontainsitems">IsListContainsItems()</a></li>
+<li><a class="reference internal" href="#isbetween">IsBetween()</a></li>
+<li><a class="reference internal" href="#timeinfo">TimeInfo()</a></li>
 </ul>
 </li>
 </ul>
