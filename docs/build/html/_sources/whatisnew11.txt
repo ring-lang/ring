@@ -19,8 +19,8 @@ Ring 1.11 comes with the next features!
 * Checkers Game
 * Desktop Screen Shot Application
 * Text To Speech Application
-* Better RingQt
 * StdLib - More Functions
+* Better RingQt
 * More Improvements
 
 .. index:: 
@@ -67,47 +67,8 @@ Desktop Screen Shot Application
 Text To Speech Application
 ==========================
 
-
 .. image:: ttsapp.png
 	:alt: Text To Speech Application
-
-.. index:: 
-	pair: What is new in Ring 1.11?; Better RingQt 
-
-Better RingQt
-=============
-
-* Building RingQt using Qt 5.12.3
-
-* RingQt for Android - project file is updated to include webview module when we have it
-
-* QString Class - New Methods
-
-    	* compare()
-	* contains()
-	* indexOf()
-	* insert()
-	* isRightToLeft()
-	* remove()
-	* repeated()
-	* replace()
-	* startsWith()
-	* endsWith()
-	* toHtmlEscaped()
-	* clear()
-	* isnull()
-	* resize()
-	* fill()
-
-* QAxBase & QVariant - Better API 
-
-* The next classes are added to RingQt 
-
-	* QQuickView Class
-	* QPrintDialog Class
-	* QAxWidget2 Class
-	* QTextToSpeech Class 
-	* QGraphicsView Class
 
 .. index:: 
 	pair: What is new in Ring 1.11?; StdLib - More Functions
@@ -157,18 +118,60 @@ Output:
 For more information about these functions, see the StdLib functions chapter.
 
 .. index:: 
+	pair: What is new in Ring 1.11?; Better RingQt 
+
+Better RingQt
+=============
+
+* Building RingQt using Qt 5.12.3
+
+* RingQt for Android - project file is updated to include webview module when we have it
+
+* QString Class - New Methods
+
+    	* compare()
+	* contains()
+	* indexOf()
+	* insert()
+	* isRightToLeft()
+	* remove()
+	* repeated()
+	* replace()
+	* startsWith()
+	* endsWith()
+	* toHtmlEscaped()
+	* clear()
+	* isnull()
+	* resize()
+	* fill()
+
+* QAxBase & QVariant - Better API 
+
+* The next classes are added to RingQt 
+
+	* QQuickView Class
+	* QPrintDialog Class
+	* QAxWidget2 Class
+	* QTextToSpeech Class 
+	* QGraphicsView Class
+
+.. index:: 
 	pair: What is new in Ring 1.11?; More Improvements
 
 More Improvements
 =================
 
 * New Samples 
+	* samples/other/UsingQt3D folder
 	* samples/other/ModuloTimesTableCircle folder
 	* samples/other/saveimage folder
 	* samples/other/UsingQML folder
 	* samples/other/myguicontrol.ring 
 	* samples/other/qcalendarwidget.ring
 	* samples/other/qcalendarwidget2.ring
+	* samples/other/sudoku-KL02.ring
+	* samples/other/sudoku-KL02-longproblem.ring
+	* samples/other/zerobasedlist.ring
 * Gold Magic 800 - More levels (44 Levels)
 * Fifteen Puzzle Game 3D - Better Code (Animation Speed)
 * Flappy Bird 3000 - change the Bird direction to be looking down when we have game over
