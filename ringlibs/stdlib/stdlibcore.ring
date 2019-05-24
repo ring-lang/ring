@@ -1096,3 +1096,10 @@ func ASCIIList2Str aList
 */
 func timeInfo( item )
         return timelist()[ aTimeInfoMap[item] ]
+
+
+/*
+	Check that the number is between two numbers 
+*/
+
+func IsBetween x, min, max return (x >= min) AND (x <= max)
