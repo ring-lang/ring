@@ -1,5 +1,3 @@
-load "guilib.ring"
-
 oList = new ZeroBasedList( [1,2,3] )
 ? oList[0]
 ? oList[1]
