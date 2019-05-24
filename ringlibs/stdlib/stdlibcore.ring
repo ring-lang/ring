@@ -1103,3 +1103,9 @@ func timeInfo( item )
 */
 
 func IsBetween x, min, max return (x >= min) AND (x <= max)
+
+/*
+	Check that a List contains a group of items in another list
+*/
+func IsListContainsItems aParent,aChild
+     for item in aChild if not find(aParent,item) return false ok next return True
