@@ -20,6 +20,7 @@ Ring 1.11 comes with the next features!
 * Desktop Screen Shot Application
 * Text To Speech Application
 * Better RingQt
+* StdLib - More Functions
 * More Improvements
 
 .. index:: 
@@ -107,6 +108,53 @@ Better RingQt
 	* QAxWidget2 Class
 	* QTextToSpeech Class 
 	* QGraphicsView Class
+
+.. index:: 
+	pair: What is new in Ring 1.11?; StdLib - More Functions
+
+StdLib - More Functions
+=======================
+
+The next functions are added to the StdLib
+
+* IsListContainsItems(aParent,aChild)
+* IsBetween(nNumber,nMin,nMax)
+* TimeInfo(cInformation)
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	? "Using the IsListContainsItems() function" 
+	aList1 = "a":"z"
+	aList2 = [:h,:l,:p,:u]
+	? IsListContainsItems(aList1,aList2)
+	? "Using the IsBetween() function"
+	? isBetween(1,3,4)
+	? isBetween(4,1,6)
+	? "Using the TimeInfo() function"
+	? timeInfo(:date)
+	? timeInfo(:year)
+	? timeInfo(:time)
+	? timeInfo(:hour_12)
+
+Output:
+
+.. code-block:: ring
+
+	Using the IsListContainsItems() function
+	1
+	Using the IsBetween() function
+	0
+	1
+	Using the TimeInfo() function
+	05/24/19
+	2019
+	15:30:33
+	03
+
+For more information about these functions, see the StdLib functions chapter.
 
 .. index:: 
 	pair: What is new in Ring 1.11?; More Improvements
