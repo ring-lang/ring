@@ -84,10 +84,10 @@ func pKeyPress
 			oX++
 		on Qt_Key_Left
 			oX--
-		on Qt_Key_Down
-			oY--
 		on Qt_Key_Up
 			oY++
+		on Qt_Key_Down
+			oY--
 	off
 	oCubeTransform.setTranslation(new QVector3D(oX, oY, oZ))
 
