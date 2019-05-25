@@ -57,6 +57,7 @@ new qApp {
 
 	oWidget { 
 		setwindowtitle("Using Qt3D - Cube") 
+		resize(800,600)
 		setLayout(oLayout) 
 		showMaximized() 
 	}
