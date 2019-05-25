@@ -42,10 +42,10 @@ new qApp {
 	oCubeTransform.setScale(2)
 	oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
 
-	loader = new  QTextureLoader(oCube);
+	oTextureLoader = new  QTextureLoader(oCube);
+	oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 	oCubeMaterial = new QTextureMaterial(oCube)
-	loader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
-	oCubeMaterial.setTexture(loader)
+	oCubeMaterial.setTexture(oTextureLoader)
 
 	oCubeEntity = new QEntity(oRootEntity)
 	oCubeEntity.addComponent(oCube)
