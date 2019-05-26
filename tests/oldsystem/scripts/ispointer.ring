@@ -1,5 +1,0 @@
-fp = fopen(filename(),"r")
-? islist(fp)
-? type(fp)
-? ispointer(fp)
-fclose(fp)
