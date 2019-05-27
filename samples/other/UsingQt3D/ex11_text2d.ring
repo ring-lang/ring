@@ -55,15 +55,17 @@ new qApp {
 	oCubeEntity.addComponent(oCubeTransform)
  
 
-	oText2D = new  QText2dentity(oRootEntity) {
-		settext("Ring programming language")
-		setwidth(400) setheight(40)
-		setcolor(new QColor() {setRGB(128,128,128,255)})
+	oText2DEntity = new  QText2DEntity(oRootEntity) {
+		setText("Ring programming language")
+		setWidth(400) setHeight(40)
+		setColor(new QColor() {setRGB(128,128,128,255)})
 	}
-	oText2DTransform = new  QTransform(oText2D)
+
+	oText2DTransform = new  QTransform(oText2DEntity)
 	oText2DTransform.setScale(0.1)
 	oText2DTransform.setTranslation(new QVector3D(-10.5, -5, 0))
-	oText2D.addcomponent(oText2DTransform)
+
+	oText2DEntity.addComponent(oText2DTransform)
 
 	oView.setRootEntity(oRootEntity)
 
