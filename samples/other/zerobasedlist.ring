@@ -8,6 +8,11 @@ see "item2 = " + List[2] + " - insert" + nl
 see "item3 = " + List[3] + nl
 see "item4 = " + List[4] + " - add" + nl
 see "item5 = " + List[5] + " - add" + nl
+fnd = List.find(2)
+see "find 2 = " + fnd + nl
+List.del(0)
+see "After deleting item0:" + nl
+see "item0 = " + List[0] + nl
 String = Zero("Welcome")
 see String[0]
 see String[1]
@@ -26,6 +31,12 @@ func ZeroBased_Add(List,Value)
 func ZeroBased_Insert(List,nPos,Value)
      insert(List,nPos,Value)
 
+func ZeroBased_Find(List,Value)
+     return find(List,Value)
+
+func ZeroBased_Del(List,ind)
+     del(List,ind)
+
 class ZeroBasedList
       ZB_aItems = []
       func init(aList) 
@@ -36,8 +47,6 @@ class ZeroBasedList
                      return &ZB_aItems[cValue+1]
                   on "len"
                      return len(ZB_aItems)
-                  on "find"
-                     return find(ZB_aItems,cValue)
       off
 
       func add(Value)
@@ -45,6 +54,12 @@ class ZeroBasedList
 
       func insert(nPos,Value)
            ZeroBased_Insert(ZB_aItems,nPos,Value)
+
+      func find(Value)
+           return ZeroBased_Find(ZB_aItems,Value)-1
+
+      func del(ind)
+           ZeroBased_Del(ZB_aItems,ind+1)
 
 class ZeroBasedString
       ZB_cString = ""
