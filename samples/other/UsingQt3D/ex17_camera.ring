@@ -84,13 +84,12 @@ new qApp {
 
 
 	btn1 = new qPushButton(oWidget) {
-		setText("Move Camera & Robot") setClickEvent("pMove()") 
+		setText("Move the Camera and the Robot") setClickEvent("pMove()") 
 	}
 
 	oLayout = new QVBoxLayout()
 	oLayout.AddWidget(oContainer)
 	oLayout.AddWidget(btn1)
-
 
 	oWidget { 
 		setwindowtitle("Using Qt3D - Camera") 
@@ -102,7 +101,6 @@ new qApp {
 	exec()
 }
 
-
 func pMove 
 
 	oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
@@ -112,7 +110,3 @@ func pMove
 	oModelTransform.setTranslation(new QVector3D(20, 15, 20))
 	oQ = new QQuaternion(0,0,0,0)
 	oModelTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(1, 1, 0), 270))
-	 
-
-
-
