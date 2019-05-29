@@ -183,7 +183,7 @@ RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const cha
 	/* Add the pointer type */
 	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint_gc(((VM *) pPointer)->pRingState,pList,2);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState,pList,RING_CPOINTERSTATUS_NOTASSIGNED);
 	/* Set the Free Function */
 	if ( pFreeFunc != NULL ) {
 		pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);

@@ -1,9 +1,21 @@
-ring_vm_savestate
+ring_vm_savestate_usinglists
 Type: List *
 pThis
 ring_vm_restorestate
 Type: List *
 pThis
+ring_vm_savestate
+Type: List *
+pThis
+Type: VMState *
+pVMState
+Type: Item *
+pItem
+ring_vm_restorestate
+Type: List *
+pThis
+Type: VMState *
+pVMState
 ring_vm_savestate2
 Type: List *
 pThis
