@@ -9,6 +9,8 @@
 #define RING_VM_STACK_CHECKOVERFLOW 253
 #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
 #define RING_VM_BC_ITEMS_COUNT 24
+#define RING_VM_STATE_NUMBERS_COUNT 35
+#define RING_VM_STATE_POINTERS_COUNT 10
 typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
 	char nSize  ;
@@ -107,6 +109,10 @@ typedef struct VM {
 	List *pCLibraries  ;
 	char lNoSetterMethod  ;
 } VM ;
+typedef struct VMState {
+	int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
+	void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
+} VMState ;
 /*
 **  Functions 
 **  Main 
@@ -489,6 +495,10 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x ) ;
 List * ring_vm_savestack ( VM *pVM ) ;
 
 void ring_vm_restorestack ( VM *pVM,List *pList ) ;
+
+void ring_vm_savestate_usinglists ( VM *pVM,List *pList ) ;
+
+void ring_vm_restorestate_usinglists ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 /* Bitwise */
 
 void ring_vm_bitand ( VM *pVM ) ;
