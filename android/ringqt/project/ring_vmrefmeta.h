@@ -97,4 +97,6 @@ void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmcallfunc ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvminfo ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmgenarray ( void *pPointer ) ;
 #endif
