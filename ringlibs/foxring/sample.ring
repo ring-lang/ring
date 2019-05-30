@@ -33,6 +33,22 @@ mf = new frFunctions
  ?"DTOC(..., 1) Function 1		 : " + mf.frDToc(ldDate, 1)
 
 
+/*----------------------------------------------------------
+ * New Sample from frCTOD() function                                         
+ *----------------------------------------------------------*/
+
+
+
+ k = mf.frCToD("30.5.2019")
+ ?"frCToD('30.5.2019') 			: " + k.cValue
+ ?"Date Year              : " + mf.frYear(k)
+ ?"Type of date type      : " + mf.frVarType(k)
+
+
+
+
+
+
 
 
  
