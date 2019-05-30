@@ -1,4 +1,5 @@
   aNews = [
+  ["May 30, 2019",'<a href="https://github.com/ring-lang/ring" target="_blank"> Over 25,000 code commits (GitHub)'],
   ["May 10, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank"> The Sudoku Game'],
   ["April 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank"> The Checkers Game'],
   ["April 1, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial" target="_blank"> Tutorial: Ring Extensions in C/C++'],
