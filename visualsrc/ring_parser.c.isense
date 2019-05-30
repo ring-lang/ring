@@ -52,6 +52,10 @@ Type: int
 nControlStructureBrace
 Type: char
 nThisOrSelfLoadA
+Type: char
+nLoopOrExitCommand
+Type: char
+nCheckLoopAndExit
 Type: RingState *
 pRingState
 END:
