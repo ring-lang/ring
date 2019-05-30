@@ -15,6 +15,7 @@
  *	frChr()				Returns the character associated with the specified numeric ANSI code.
  *	frCMonth() 			Returns the name of the month from a given Date or DateTime expression.
  *	frCMonthShort() 		Returns the name of the month in a short mode from a given Date or DateTime expression.
+ *	frCToD()			Converts a character expression to a date expression.
  * 	frDate()			Returns the current system date, which is controlled by the operating system, or creates a date.
  *	frDateTime()			Returns the current system date and time, which is controlled by the operating system, or creates a date time value.
  *	frDay() 			Returns the numeric day of the month for a given Date or DateTime expression.
@@ -81,7 +82,7 @@
 	
 class frFunctions {
 
-	_version 				= "1.0.146"
+	_version 				= "1.0.147"
 
 	_character_type 			= "C"
 	_numeric_type 				= "N"	
@@ -498,6 +499,60 @@ class frFunctions {
 	
 	func frChr(tnExpression) {
 	 	return Char(tnExpression)
+	}
+
+
+
+	/*
+	 * Syntax			: ldDate = frCToD(tcExpression)
+	 * Description		: Converts a character expression to a date expression.
+	 * 					:
+	 * Arguments			: <tcExpression>
+	 *					: Specifies a Date or a DateTime expression.
+	 *					:
+	 * Returns			: <ldDate>
+	 *					: Returns a date data type
+	 *					:
+	 * Author			: Jar C 30.05.2019
+	 */
+
+	func frCToD(tcDate) {
+		
+		lcDate = ""
+		lcDateSeparator = this.frSubStr(this._set_dateformat, 3, 1)
+		lnDayPosition = this._getDayPosition()
+		lnLenDate = len(tcDate)
+		laDate = []
+		lnDatePos = 1
+		for i = 1 to lnLenDate {
+			lcDigit = this.frSubStr(tcDate, i, 1)
+			if IsDigit(lcDigit) {
+				lcChr = lcDigit
+			else
+				lcChr = lcDateSeparator
+			}
+			lcDate = lcDate + lcChr
+		}
+		
+		lnElements = this.frALines(laDate, lcDate, lcDateSeparator)
+		if lnDayPosition = 2 {
+			lnMonth = this.frVal(laDate[1])
+			lnDay = this.frVal(laDate[2])
+			lnYear = this.frVal(laDate[3])
+		else
+			if lnDayPosition = 3 {
+				lnYear = this.frVal(laDate[1])
+				lnMonth = this.frVal(laDate[2])
+				lnDay = this.frVal(laDate[3])
+			else
+				lnDay = this.frVal(laDate[1])
+				lnMonth = this.frVal(laDate[2])
+				lnYear = this.frVal(laDate[3])
+			}
+		}
+		
+		return this.frDate(lnYear, lnMonth, lnDay)
+
 	}
 
 
