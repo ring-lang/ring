@@ -42,6 +42,9 @@
 		]
 		nRowDiff = 0
 		nColDiff = 0
+
+	# When the player win 
+		lPlayerWin = False
 		
 load "gameengine.ring"        	
 
@@ -97,6 +100,12 @@ func main
 							MoveObject(oGame,PlayerType(),aPlayer[:row]+1,aPlayer[:col])
 						ok
 				off
+				if lPlayerWin = False
+					if CheckWin()
+						lPlayerWin = True 
+						DisplayYouWin(oGame)
+					ok
+				ok
 			}
 
 		}
@@ -264,3 +273,23 @@ func UpdateGameMap oGame
 func PlayerType 
 	# It could be (Player) or (Player on door)
 		return aLevel[aPlayer[:row]][aPlayer[:col]]
+
+func CheckWin 
+	for aRow in aLevel
+		if find(aRow,C_DOOR) or find(aRow,C_PLAYERONDOOR)
+			return False
+		ok
+	next 
+	return True
+
+func DisplayYouWin oGame 
+	oGame {
+          text {
+                point = 400
+                size = 30
+                nStep = 9
+                file = "fonts/pirulen.ttf"
+                text = "You Win !!!"
+                x = 500  y=10
+          }
+        }
