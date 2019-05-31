@@ -34,7 +34,15 @@
 	C_PLAYERONDOOR  = 7
 
 	nKeyClock = clock()
-	
+
+	# Will be used when moving a Box
+		aCurrentBox = [
+			:Row = 0,
+			:Col = 0
+		]
+		nRowDiff = 0
+		nColDiff = 0
+		
 load "gameengine.ring"        	
 
 func main          		
@@ -63,25 +71,29 @@ func main
 
 			keypress = func oGame,oSelf,nkey {
 				# Avoid getting many keys in short time 
-					if (clock() - nKeyClock) < clockspersecond()/3 return ok
+					if (clock() - nKeyClock) < clockspersecond()/4 return ok
 					nKeyClock = Clock()
 				Switch nkey 
 					on Key_Esc
 						oGame.Shutdown()
 					on Key_Right
 						if aPlayer[:col] < C_LEVEL_COLSCOUNT
+							nRowDiff = 0   nColDiff = 1
 							MoveObject(oGame,PlayerType(),aPlayer[:row],aPlayer[:col]+1)
 						ok
 					on Key_Left
 						if aPlayer[:col] > 1
+							nRowDiff = 0   nColDiff = -1
 							MoveObject(oGame,PlayerType(),aPlayer[:row],aPlayer[:col]-1)
 						ok
 					on Key_Up
 						if aPlayer[:row] > 1
+							nRowDiff = -1   nColDiff = 0
 							MoveObject(oGame,PlayerType(),aPlayer[:row]-1,aPlayer[:col])
 						ok
 					on Key_Down
 						if aPlayer[:row] < C_LEVEL_ROWSCOUNT
+							nRowDiff = 1   nColDiff = 0
 							MoveObject(oGame,PlayerType(),aPlayer[:row]+1,aPlayer[:col])
 						ok
 				off
@@ -91,6 +103,7 @@ func main
 	}         
 
 func MoveObject oGame,nObjectType,nNewRow,nNewCol
+	lMove = False 
 	switch nObjectType
 		on  C_PLAYER
 			switch aLevel[nNewRow][nNewCol] 
@@ -100,12 +113,36 @@ func MoveObject oGame,nObjectType,nNewRow,nNewCol
 					UpdateGameMap(oGame)
 					aPlayer[:row] = nNewRow
 					aPlayer[:col] = nNewCol
+					lMove = True
 				on C_DOOR
 					aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
 					aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
 					UpdateGameMap(oGame)
 					aPlayer[:row] = nNewRow
 					aPlayer[:col] = nNewCol
+					lMove = True
+				on C_BOX
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOX,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+						aLevel[nNewRow][nNewCol] = C_PLAYER
+						UpdateGameMap(oGame)
+						aPlayer[:row] = nNewRow
+						aPlayer[:col] = nNewCol
+						lMove = True
+					ok
+				on C_BOXONDOOR
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOXONDOOR,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+						aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+						UpdateGameMap(oGame)
+						aPlayer[:row] = nNewRow
+						aPlayer[:col] = nNewCol
+						lMove = True
+					ok
 			off
 		on  C_PLAYERONDOOR
 			switch aLevel[nNewRow][nNewCol] 
@@ -115,14 +152,110 @@ func MoveObject oGame,nObjectType,nNewRow,nNewCol
 					UpdateGameMap(oGame)
 					aPlayer[:row] = nNewRow
 					aPlayer[:col] = nNewCol
+					lMove = True
 				on C_DOOR
 					aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
 					aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
 					UpdateGameMap(oGame)
 					aPlayer[:row] = nNewRow
 					aPlayer[:col] = nNewCol
+					lMove = True
+				on C_BOX
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOX,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
+						aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+						UpdateGameMap(oGame)
+						aPlayer[:row] = nNewRow
+						aPlayer[:col] = nNewCol
+						lMove = True
+					ok
+				on C_BOXONDOOR
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOXONDOOR,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
+						aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+						UpdateGameMap(oGame)
+						aPlayer[:row] = nNewRow
+						aPlayer[:col] = nNewCol
+						lMove = True
+					ok
+			off
+		on  C_BOX
+			switch aLevel[nNewRow][nNewCol] 
+				on C_EMPTY
+					aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_EMPTY
+					aLevel[nNewRow][nNewCol] = C_BOX
+					UpdateGameMap(oGame)
+					lMove = True
+				on C_DOOR
+					aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_EMPTY
+					aLevel[nNewRow][nNewCol] = C_BOXONDOOR
+					UpdateGameMap(oGame)
+					lMove = True
+				on C_BOX
+					aOldBox = aCurrentBox
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOX,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aCurrentBox = aOldBox
+						aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_EMPTY
+						aLevel[nNewRow][nNewCol] = C_BOX
+						UpdateGameMap(oGame)
+						lMove = True
+					ok
+				on C_BOXONDOOR
+					aOldBox = aCurrentBox
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOXONDOOR,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aCurrentBox = aOldBox
+						aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_EMPTY
+						aLevel[nNewRow][nNewCol] = C_BOXONDOOR
+						UpdateGameMap(oGame)
+						lMove = True
+					ok
+			off
+		on  C_BOXONDOOR
+			switch aLevel[nNewRow][nNewCol] 
+				on C_EMPTY
+					aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_DOOR
+					aLevel[nNewRow][nNewCol] = C_BOX
+					UpdateGameMap(oGame)
+					lMove = True
+				on C_DOOR
+					aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_DOOR
+					aLevel[nNewRow][nNewCol] = C_BOXONDOOR
+					UpdateGameMap(oGame)
+					lMove = True
+				on C_BOX
+					aOldBox = aCurrentBox
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOX,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aCurrentBox = aOldBox
+						aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_DOOR
+						aLevel[nNewRow][nNewCol] = C_BOX
+						UpdateGameMap(oGame)
+						lMove = True
+					ok
+				on C_BOXONDOOR
+					aOldBox = aCurrentBox
+					aCurrentBox[:row] = nNewRow
+					aCurrentBox[:col] = nNewCol
+					if MoveObject(oGame,C_BOXONDOOR,nNewRow+nRowDiff,nNewCol+nColDiff)
+						aCurrentBox = aOldBox
+						aLevel[aCurrentBox[:row]][aCurrentBox[:col]] = C_DOOR
+						aLevel[nNewRow][nNewCol] = C_BOXONDOOR
+						UpdateGameMap(oGame)
+						lMove = True
+					ok
+
 			off
 	off
+	return lMove
 
 func UpdateGameMap oGame
 	# The Map is our first object in Game Objects 
@@ -130,4 +263,4 @@ func UpdateGameMap oGame
 
 func PlayerType 
 	# It could be (Player) or (Player on door)
-	return aLevel[aPlayer[:row]][aPlayer[:col]]
+		return aLevel[aPlayer[:row]][aPlayer[:col]]
