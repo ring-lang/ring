@@ -17,6 +17,7 @@ Ring 1.11 comes with the next features!
 
 * Sudoku Game
 * Checkers Game
+* Sokoban Game
 * Desktop Screen Shot Application
 * Text To Speech Application
 * StdLib - More Functions
@@ -33,7 +34,7 @@ Fill a 9 x 9 grid with digits so that each column, each row, and each of the nin
 compose the grid contain all of the digits from 1 to 9.
 
 .. image:: sudoku.jpg
-	:alt: Sudoku Game Application
+	:alt: Sudoku Game
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Checkers Game
@@ -50,7 +51,21 @@ The squares are colored to reflect errors.
 The Sqaures are colored to show source and destination of the move or jump.
 
 .. image:: checkersgame.png
-	:alt: Checkers Game Application
+	:alt: Checkers Game
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Sokoban Game
+
+Sokoban Game
+============
+
+A quick implementation for the Sokoban Game
+
+Developed using Ring Game Engine for 2D Games in 2 hours (Less than 300 lines of code)
+
+.. image:: sokoban.jpg
+	:alt: Sokoban Game
+
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Desktop Screen Shot Application
