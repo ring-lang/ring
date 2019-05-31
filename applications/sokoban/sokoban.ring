@@ -46,6 +46,14 @@ func main
 				"images/box.jpg",
 				"images/boxondoor.jpg"
 			]
+
+			keypress = func oGame,oSelf,nkey {
+				Switch nkey 
+					on Key_Esc
+						oGame.Shutdown()
+				off
+			}
+
 		}
 	}         
 
