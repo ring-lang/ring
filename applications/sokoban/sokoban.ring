@@ -31,6 +31,7 @@
 	C_DOOR  	= 4
 	C_BOX   	= 5
 	C_BOXONDOOR 	= 6
+	C_PLAYERONDOOR  = 7
 
 	nKeyClock = clock()
 	
@@ -89,7 +90,23 @@ func main
 	}         
 
 func MoveObject oGame,nObjectType,nNewRow,nNewCol
-	? "Move Object"
-	? "Object Type : " + nObjectType
-	? "New Row     : " + nNewRow
-	? "New Col     : " + nNewCol
+	if nObjectType = C_PLAYER
+		switch aLevel[nNewRow][nNewCol] 
+			on C_EMPTY
+				aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+				aLevel[nNewRow][nNewCol] = C_PLAYER
+				UpdateGameMap(oGame)
+				aPlayer[:row] = nNewRow
+				aPlayer[:col] = nNewCol
+			on C_DOOR
+				aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+				aLevel[nNewRow][nNewCol] = C_PLAYER
+				UpdateGameMap(oGame)
+				aPlayer[:row] = nNewRow
+				aPlayer[:col] = nNewCol
+		off
+	ok
+
+func UpdateGameMap oGame
+	# The Map is our first object in Game Objects 
+		oGame.aObjects[1].aMap = aLevel
