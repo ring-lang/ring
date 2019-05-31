@@ -57,7 +57,8 @@ func main
 				"images/player.jpg",
 				"images/door.jpg",
 				"images/box.jpg",
-				"images/boxondoor.jpg"
+				"images/boxondoor.jpg",
+				"images/player.jpg"	# Player on Door 
 			]
 
 			keypress = func oGame,oSelf,nkey {
@@ -69,19 +70,19 @@ func main
 						oGame.Shutdown()
 					on Key_Right
 						if aPlayer[:col] < C_LEVEL_COLSCOUNT
-							MoveObject(oGame,C_PLAYER,aPlayer[:row],aPlayer[:col]+1)
+							MoveObject(oGame,PlayerType(),aPlayer[:row],aPlayer[:col]+1)
 						ok
 					on Key_Left
 						if aPlayer[:col] > 1
-							MoveObject(oGame,C_PLAYER,aPlayer[:row],aPlayer[:col]-1)
+							MoveObject(oGame,PlayerType(),aPlayer[:row],aPlayer[:col]-1)
 						ok
 					on Key_Up
 						if aPlayer[:row] > 1
-							MoveObject(oGame,C_PLAYER,aPlayer[:row]-1,aPlayer[:col])
+							MoveObject(oGame,PlayerType(),aPlayer[:row]-1,aPlayer[:col])
 						ok
 					on Key_Down
 						if aPlayer[:row] < C_LEVEL_ROWSCOUNT
-							MoveObject(oGame,C_PLAYER,aPlayer[:row]+1,aPlayer[:col])
+							MoveObject(oGame,PlayerType(),aPlayer[:row]+1,aPlayer[:col])
 						ok
 				off
 			}
@@ -90,23 +91,43 @@ func main
 	}         
 
 func MoveObject oGame,nObjectType,nNewRow,nNewCol
-	if nObjectType = C_PLAYER
-		switch aLevel[nNewRow][nNewCol] 
-			on C_EMPTY
-				aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
-				aLevel[nNewRow][nNewCol] = C_PLAYER
-				UpdateGameMap(oGame)
-				aPlayer[:row] = nNewRow
-				aPlayer[:col] = nNewCol
-			on C_DOOR
-				aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
-				aLevel[nNewRow][nNewCol] = C_PLAYER
-				UpdateGameMap(oGame)
-				aPlayer[:row] = nNewRow
-				aPlayer[:col] = nNewCol
-		off
-	ok
+	switch nObjectType
+		on  C_PLAYER
+			switch aLevel[nNewRow][nNewCol] 
+				on C_EMPTY
+					aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+					aLevel[nNewRow][nNewCol] = C_PLAYER
+					UpdateGameMap(oGame)
+					aPlayer[:row] = nNewRow
+					aPlayer[:col] = nNewCol
+				on C_DOOR
+					aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
+					aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+					UpdateGameMap(oGame)
+					aPlayer[:row] = nNewRow
+					aPlayer[:col] = nNewCol
+			off
+		on  C_PLAYERONDOOR
+			switch aLevel[nNewRow][nNewCol] 
+				on C_EMPTY
+					aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
+					aLevel[nNewRow][nNewCol] = C_PLAYER
+					UpdateGameMap(oGame)
+					aPlayer[:row] = nNewRow
+					aPlayer[:col] = nNewCol
+				on C_DOOR
+					aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
+					aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+					UpdateGameMap(oGame)
+					aPlayer[:row] = nNewRow
+					aPlayer[:col] = nNewCol
+			off
+	off
 
 func UpdateGameMap oGame
 	# The Map is our first object in Game Objects 
 		oGame.aObjects[1].aMap = aLevel
+
+func PlayerType 
+	# It could be (Player) or (Player on door)
+	return aLevel[aPlayer[:row]][aPlayer[:col]]
