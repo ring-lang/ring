@@ -165,7 +165,7 @@ func MoveObject oGame,nObjectType,nNewRow,nNewCol
 					aCurrentBox[:col] = nNewCol
 					if MoveObject(oGame,C_BOX,nNewRow+nRowDiff,nNewCol+nColDiff)
 						aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
-						aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+						aLevel[nNewRow][nNewCol] = C_PLAYER
 						UpdateGameMap(oGame)
 						aPlayer[:row] = nNewRow
 						aPlayer[:col] = nNewCol
@@ -176,7 +176,7 @@ func MoveObject oGame,nObjectType,nNewRow,nNewCol
 					aCurrentBox[:col] = nNewCol
 					if MoveObject(oGame,C_BOXONDOOR,nNewRow+nRowDiff,nNewCol+nColDiff)
 						aLevel[aPlayer[:row]][aPlayer[:col]] = C_DOOR
-						aLevel[nNewRow][nNewCol] = C_PLAYERONDOOR
+						aLevel[nNewRow][nNewCol] = C_PLAYER
 						UpdateGameMap(oGame)
 						aPlayer[:row] = nNewRow
 						aPlayer[:col] = nNewCol
