@@ -5,10 +5,7 @@
 
 # Game Data 
 
-	aPlayer = [
-		:Row = 3,
-		:Col = 4
-	]
+	aPlayer = [ :Row = 3, :Col = 4 ]
 	
 	aLevel = [
 		[1,1,1,2,2,2,2,2,1,1,1,1,1,1],
@@ -22,6 +19,10 @@
 		[1,2,2,2,2,2,2,2,2,1,1,1,1,1],
 		[1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 	]
+
+	# For Game Restart 
+		aLevelCopy  = aLevel 
+		aPlayerCopy = aPlayer 
 
 	C_LEVEL_ROWSCOUNT = 10
 	C_LEVEL_COLSCOUNT = 14
@@ -37,10 +38,7 @@
 	nKeyClock = clock()
 
 	# Will be used when moving a Box
-		aCurrentBox = [
-			:Row = 0,
-			:Col = 0
-		]
+		aCurrentBox = [ :Row = 0, :Col = 0 ]
 		nRowDiff = 0
 		nColDiff = 0
 
@@ -80,6 +78,11 @@ func main
 				Switch nkey 
 					on Key_Esc
 						oGame.Shutdown()
+					on Key_Space 
+						# Restart the Level
+							aLevel = aLevelCopy     
+							aPlayer = aPlayerCopy
+							UpdateGameMap(oGame)
 					on Key_Right
 						if aPlayer[:col] < C_LEVEL_COLSCOUNT
 							nRowDiff = 0   nColDiff = 1
