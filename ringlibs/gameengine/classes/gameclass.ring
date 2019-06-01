@@ -287,3 +287,8 @@ class game from gamebase
 			ok
 		next 
 		raise("Can't find the object : " + cName)
+
+	func operator cOperator,cValue
+		if cOperator = "[]"
+			return find(cValue)
+		ok
