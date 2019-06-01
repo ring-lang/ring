@@ -196,6 +196,8 @@ More Improvements
 * Ring Notepad - Find and Replace Window - Better Code
 * RingPM - When updating a package - don't reinstall the dependency again
 * Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H
+* Ring Game Engine for 2D Games - Added : name property to game objects
+* Ring Game Engine for 2D Games - Added : find() method to game class (find an object by name)
 * FoxRing - Added: frCTOD() function
 * Ring VM - Error codes for Ring Object File errors
 * Ring VM - Eval() function - Better Code
