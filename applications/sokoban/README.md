@@ -1,7 +1,7 @@
 The Sokoban Game
 ================
 
-An implementation for the popular Sudoku Game 
+An implementation for the popular Sokoban Game 
 
 Using Ring Game Engine for 2D Games
 
