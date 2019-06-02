@@ -38,8 +38,8 @@ func main
 
 		Map {
 
-			blockwidth  = 60
-			blockheight = 60
+			blockwidth  = 30
+			blockheight = 30
 
 			aMap = aLevel
 	
