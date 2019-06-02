@@ -32,11 +32,12 @@ func main					# Called by the Game Engine
 					oSelf {
 						mX = aMouseList[GE_MOUSE_X]
 						mY = aMouseList[GE_MOUSE_Y]
-						nValue = GetValue(mX,mY)
-						nRow = GetRow(mX,mY)
+						nRow = GetRow(mX,mY) 
 						nCol = GetCol(mX,mY)
 						aMap[nRow][nCol]++
-						if aMap[nRow][nCol] = 5 aMap[nRow][nCol] = 1 ok
+						if aMap[nRow][nCol] = 5 
+							aMap[nRow][nCol] = 1 
+						ok
 					}
 					write("level.ring","aLevel = " + List2Code(oGame.aObjects[1].aMap))
 				ok
