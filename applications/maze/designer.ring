@@ -35,12 +35,8 @@ func main					# Called by the Game Engine
 						nValue = GetValue(mX,mY)
 						nRow = GetRow(mX,mY)
 						nCol = GetCol(mX,mY)
-						Switch nValue
-						On 1	aMap[nRow][nCol] = 2
-						On 2	aMap[nRow][nCol] = 3
-						On 3	aMap[nRow][nCol] = 4
-						On 4	aMap[nRow][nCol] = 1
-						Off
+						aMap[nRow][nCol]++
+						if aMap[nRow][nCol] = 5 aMap[nRow][nCol] = 1 ok
 					}
 					write("level.ring","aLevel = " + List2Code(oGame.aObjects[1].aMap))
 				ok
