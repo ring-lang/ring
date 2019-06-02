@@ -1,7 +1,7 @@
 #--------------------------------------------------#
 # Sokoban Game  				   #
 # 2019, Mahmoud Fayed <msfclipper@yahoo.com>	   #
-# 2019, Gal Zsolt <quiwox@gmail.com>
+# 2019, Gal Zsolt <quiwox@gmail.com>		   #
 #--------------------------------------------------#
 
 # Game Data 
