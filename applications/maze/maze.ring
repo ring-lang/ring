@@ -29,8 +29,8 @@
 		aLevelCopy  = aLevel 
 		aPlayerCopy = aPlayer 
 
-	C_LEVEL_ROWSCOUNT = 10
-	C_LEVEL_COLSCOUNT = 14
+	C_LEVEL_ROWSCOUNT = 15
+	C_LEVEL_COLSCOUNT = 22
 
 	C_EMPTY 	= 1
 	C_WALL  	= 2
