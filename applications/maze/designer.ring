@@ -15,8 +15,8 @@ func main					# Called by the Game Engine
 
 		Map {
 
-			blockwidth = 80
-			blockheight = 80
+			blockwidth = 60
+			blockheight = 60
 
 			aMap = aLevel 
 
