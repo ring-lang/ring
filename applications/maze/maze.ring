@@ -7,15 +7,15 @@
 
 	aPlayer = [ :Row = 3, :Col = 4 ]
 
-	# Get the Level Data
+	# Get the Level Data ---> List Called aLevel
 		eval(read("level.ring"))	
 
 	# For Game Restart 
 		aLevelCopy  = aLevel 
 		aPlayerCopy = aPlayer 
 
-	C_LEVEL_ROWSCOUNT = 15
-	C_LEVEL_COLSCOUNT = 22
+	C_LEVEL_ROWSCOUNT = len(aLevel)
+	C_LEVEL_COLSCOUNT = len(aLevel[1])
 
 	C_EMPTY 	= 1
 	C_WALL  	= 2
