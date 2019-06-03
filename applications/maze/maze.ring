@@ -8,7 +8,7 @@
 	aPlayer = [ :Row = 3, :Col = 4 ]
 
 	# Get the Level Data ---> List Called aLevel
-		eval(read("level.ring"))	
+		load "level.ring"
 
 	# For Game Restart 
 		aLevelCopy  = aLevel 

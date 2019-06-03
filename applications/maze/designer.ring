@@ -9,7 +9,7 @@ Load "gameengine.ring"				# Give control to the game engine
 func main					# Called by the Game Engine
 
 	# Load the Level Design 
-		eval(read("level.ring"))
+		load "level.ring"
 
 	GE_SCREEN_W = 1280
 	GE_SCREEN_H = 900
