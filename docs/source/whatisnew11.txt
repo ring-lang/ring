@@ -18,6 +18,7 @@ Ring 1.11 comes with the next features!
 * Sudoku Game
 * Checkers Game
 * Sokoban Game
+* Maze Game
 * Desktop Screen Shot Application
 * Text To Speech Application
 * StdLib - More Functions
@@ -66,6 +67,21 @@ Developed using Ring Game Engine for 2D Games in 2 hours (Less than 300 lines of
 .. image:: sokoban.jpg
 	:alt: Sokoban Game
 
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Maze Game
+
+Maze Game
+=========
+
+A quick implementation for the Maze Game
+
+Developed using Ring Game Engine for 2D Games (Around 100 lines of code)
+
+Also the game comes with a level designer (Developed in 10 minutes, 37 Lines of code)
+
+.. image:: maze.png
+	:alt: Maze Game
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Desktop Screen Shot Application
