@@ -278,3 +278,17 @@ class game from gamebase
 	func getobject
 		addobj(new gameobject)
 		return aobjects[len(aobjects)]
+
+	func find cName
+		nMax = len(aObjects)
+		for x = 1 to nMax
+			if aObjects[x].name = cName 
+				return aObjects[x]
+			ok
+		next 
+		raise("Can't find the object : " + cName)
+
+	func operator cOperator,cValue
+		if cOperator = "[]"
+			return find(cValue)
+		ok

@@ -1,4 +1,5 @@
 class gameobject from gamebase
+	name = ""
 	enabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
