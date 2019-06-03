@@ -31,7 +31,7 @@ pVMState
 ring_vm_savestate2_usinglists
 Type: List *
 pThis
-ring_vm_restorestate2
+ring_vm_restorestate2_usinglists
 Type: List *
 pThis
 ring_vm_backstate
