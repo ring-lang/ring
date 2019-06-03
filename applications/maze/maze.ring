@@ -1,7 +1,5 @@
-#--------------------------------------------------#
-# Maze Game  				   	   #
-# 2019, Mahmoud Fayed <msfclipper@yahoo.com>	   #
-#--------------------------------------------------#
+# The Maze Game  				   	  
+# 2019, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Game Data 
 
