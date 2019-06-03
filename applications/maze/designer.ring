@@ -1,9 +1,14 @@
+#--------------------------------------------------#
+# Maze Game - Level Designer		   	   #
+# 2019, Mahmoud Fayed <msfclipper@yahoo.com>	   #
+#--------------------------------------------------#
+
 Load "stdlibcore.ring"
 Load "gameengine.ring"				# Give control to the game engine
 
 func main					# Called by the Game Engine
 
-	# Load the Level Desigenr 
+	# Load the Level Design 
 		eval(read("level.ring"))
 
 	GE_SCREEN_W = 1280
