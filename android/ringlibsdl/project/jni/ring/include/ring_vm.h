@@ -495,14 +495,6 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x ) ;
 List * ring_vm_savestack ( VM *pVM ) ;
 
 void ring_vm_restorestack ( VM *pVM,List *pList ) ;
-
-void ring_vm_savestate_usinglists ( VM *pVM,List *pList ) ;
-
-void ring_vm_restorestate_usinglists ( VM *pVM,List *pList,int nPos,int nFlag ) ;
-
-void ring_vm_savestate2_usinglists ( VM *pVM,List *pList ) ;
-
-void ring_vm_restorestate2_usinglists ( VM *pVM,List *pList,int x ) ;
 /* Bitwise */
 
 void ring_vm_bitand ( VM *pVM ) ;
