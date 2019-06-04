@@ -13,4 +13,4 @@ Wikipedia Page : https://en.wikipedia.org/wiki/Sokoban
 	
 	SPACE : Restart the level
 
-![Sokoban](https://github.com/ring-lang/ring/blob/master/applications/sokoban/sokoban.png)
+![Sokoban](https://github.com/ring-lang/ring/blob/master/applications/sokoban/sokoban.jpg)
