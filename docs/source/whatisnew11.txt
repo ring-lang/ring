@@ -81,6 +81,8 @@ Developed using Ring Game Engine for 2D Games (Around 100 lines of code)
 Also the game comes with a level designer (Developed in 10 minutes, 37 Lines of code)
 
 .. image:: maze.png
+	:width: 600pt
+	:height: 400pt
 	:alt: Maze Game
 
 .. index:: 
