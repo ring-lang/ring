@@ -348,31 +348,6 @@ Example:
 	next
 
 .. index:: 
-	pair: Control Structures - First Style; Exit/Loop inside sub functions
-
-Exit/Loop inside sub functions
-==============================
-
-While we are inside a loop, we can call a function then use the exit and/or loop command
-inside that function and the command will work on the outer loop.
-
-Example:
-
-.. code-block:: ring
-
-	# print numbers from 1 to 10 except number 5.
-
-	for x = 1 to 10
-		ignore(x,5)
-		see x + nl
-	next
-
-	func ignore x,y
-		if x = y
-			loop
-		ok
-
-.. index:: 
 	pair: Control Structures - First Style; Short-circuit evaluation
 
 Short-circuit evaluation
