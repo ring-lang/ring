@@ -37,7 +37,7 @@ new qApp {
 
 	oLongRoomLoader = new  QTextureLoader(oLongRoomModel)
 	oLongRoomMaterial = new QTextureMaterial(oLongRoomModel)
-	oLongRoomLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/pathofexile.jpg") )
+	oLongRoomLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/croc.jpg") )
 	oLongRoomMaterial.setTexture(oLongRoomLoader)
 
 	oLongRoomEntity.addComponent(oLongRoomModel)
