@@ -227,4 +227,4 @@ More Improvements
 * Ring API - Supporting RING_API_ISLIST() in C Extensions
 * Ring Compiler - Supporting new lines after numbers and literals when writing conditions
 * Ring Compiler - Supporting semi-colon (;) in the start of the line
-
+* Ring Compiler - Prevent using Loop and Exit commands from outside loops 
