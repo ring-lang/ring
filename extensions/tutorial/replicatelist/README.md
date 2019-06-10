@@ -17,7 +17,7 @@ In mylib.c we update the file to add
 				return;
 			}
 		// Check Parameters Type
-			if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+			if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return;
 			}
