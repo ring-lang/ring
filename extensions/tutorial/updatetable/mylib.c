@@ -53,7 +53,7 @@ RING_FUNC(ring_sumlist)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! RING_API_ISPOINTER(1) ) {
+		if ( ! RING_API_ISLIST(1) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
@@ -79,7 +79,7 @@ RING_FUNC(ring_inclist)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+		if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
@@ -105,7 +105,7 @@ RING_FUNC(ring_filterlist)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+		if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
@@ -129,7 +129,7 @@ RING_FUNC(ring_replicatelist)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+		if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
@@ -188,7 +188,7 @@ RING_FUNC(ring_displaylist)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! RING_API_ISPOINTER(1) ) {
+		if ( ! RING_API_ISLIST(1) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
@@ -222,7 +222,7 @@ RING_FUNC(ring_updatetable)
 			return;
 		}
 	// Check Parameters Type
-		if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+		if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
