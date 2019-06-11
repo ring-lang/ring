@@ -182,6 +182,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Many Objects in 3D Scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			17
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex16_camera.ring"> Camera </a>
+		</td>
+		<td>
+			 Moving the Camera
+		</td>
+	</tr>
 
 
 
