@@ -28,6 +28,18 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Torus to the 3D scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex2_sphere.ring"> Drawing Sphere </a>
+		</td>
+		<td>
+			 Add a Sphere to the 3D scene
+		</td>
+	</tr>
+
 
 </table>
 
