@@ -127,6 +127,18 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw 2D Text in 3D Scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			12
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_extrudedtext.ring"> ExtrudedText  </a>
+		</td>
+		<td>
+			 Draw Extruded Text in 3D Scene
+		</td>
+	</tr>
+
 
 
 
