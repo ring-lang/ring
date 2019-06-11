@@ -72,6 +72,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Plane to the 3D scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			7
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex7_texture.ring"> Texture </a>
+		</td>
+		<td>
+			 Using a Texture
+		</td>
+	</tr>
 
 
 
