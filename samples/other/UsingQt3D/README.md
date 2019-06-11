@@ -105,6 +105,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Respond to Mouse Clicks on Objects and Models
 		</td>
 	</tr>
+	<tr>
+		<td>
+			10
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_frameaction.ring"> FrameAction  </a>
+		</td>
+		<td>
+			 Execute code each frame
+		</td>
+	</tr>
 
 
 
