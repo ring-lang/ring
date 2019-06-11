@@ -187,10 +187,21 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			17
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex16_camera.ring"> Camera </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex17_camera.ring"> Camera </a>
 		</td>
 		<td>
 			 Moving the Camera
+		</td>
+	</tr>
+	<tr>
+		<td>
+			18
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex18_scene.ring"> Scene </a>
+		</td>
+		<td>
+			 Draw 3D Scene (Models, Textures & Camera)
 		</td>
 	</tr>
 
