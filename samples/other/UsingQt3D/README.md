@@ -121,7 +121,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			11
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_text2d.ring"> Text2D  </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex11_text2d.ring"> Text2D  </a>
 		</td>
 		<td>
 			 Draw 2D Text in 3D Scene
@@ -132,7 +132,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			12
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_extrudedtext.ring"> ExtrudedText  </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex12_extrudedtext.ring"> ExtrudedText  </a>
 		</td>
 		<td>
 			 Draw Extruded Text in 3D Scene
@@ -143,7 +143,18 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			13
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_extrudedtext.ring"> Model  </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex13_model.ring"> Model  </a>
+		</td>
+		<td>
+			 Draw Model in 3D Scene
+		</td>
+	</tr>
+	<tr>
+		<td>
+			14
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex14_modeltexture.ring"> Model  </a>
 		</td>
 		<td>
 			 Draw Model in 3D Scene
