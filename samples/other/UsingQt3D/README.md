@@ -171,6 +171,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Office Model in 3D Scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			16
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex16_manyobjects.ring"> Many Objects  </a>
+		</td>
+		<td>
+			 Draw Many Objects in 3D Scene
+		</td>
+	</tr>
 
 
 
