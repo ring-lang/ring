@@ -17,7 +17,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Cube to the 3D scene
 		</td>
 		<td>
-			[ex1](https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex1.png)
+			![ex1](https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex1.png)
 		</td>
 	</tr>
 	<tr>
