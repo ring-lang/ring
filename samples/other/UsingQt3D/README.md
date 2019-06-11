@@ -30,6 +30,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		<td>
 			 Add a Torus to the 3D scene
 		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex2.png" width="450" height="200">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -40,6 +43,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		</td>
 		<td>
 			 Add a Sphere to the 3D scene
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex3.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -52,6 +58,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		<td>
 			 Add a Cylinder to the 3D scene
 		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex4.png" width="450" height="200">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -62,6 +71,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		</td>
 		<td>
 			 Add a Cone to the 3D scene
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex5.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -74,6 +86,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		<td>
 			 Add a Plane to the 3D scene
 		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex6.png" width="450" height="200">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -84,6 +99,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		</td>
 		<td>
 			 Using a Texture
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex7.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -96,6 +114,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		<td>
 			 Respond to Key Press Events
 		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex8.png" width="450" height="200">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -107,6 +128,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		<td>
 			 Respond to Mouse Clicks on Objects and Models
 		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex9.png" width="450" height="200">
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -117,6 +141,9 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 		</td>
 		<td>
 			 Execute code each frame
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex10.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
