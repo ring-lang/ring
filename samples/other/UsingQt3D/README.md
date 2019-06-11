@@ -61,6 +61,18 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Cone to the 3D scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			6
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex6_plane.ring"> Drawing Plane </a>
+		</td>
+		<td>
+			 Add a Plane to the 3D scene
+		</td>
+	</tr>
+
 
 
 
