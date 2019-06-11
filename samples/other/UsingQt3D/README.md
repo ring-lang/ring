@@ -116,6 +116,19 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Execute code each frame
 		</td>
 	</tr>
+	<tr>
+		<td>
+			11
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex10_text2d.ring"> Text2D  </a>
+		</td>
+		<td>
+			 Draw 2D Text in 3D Scene
+		</td>
+	</tr>
+
+
 
 
 
