@@ -50,6 +50,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Cylinder to the 3D scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			5
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex5_cone.ring"> Drawing Cone </a>
+		</td>
+		<td>
+			 Add a Cone to the 3D scene
+		</td>
+	</tr>
 
 
 
