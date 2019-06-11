@@ -33,12 +33,24 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			3
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex2_sphere.ring"> Drawing Sphere </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex3_sphere.ring"> Drawing Sphere </a>
 		</td>
 		<td>
 			 Add a Sphere to the 3D scene
 		</td>
 	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex4_cylinder.ring"> Drawing Cylinder </a>
+		</td>
+		<td>
+			 Add a Cylinder to the 3D scene
+		</td>
+	</tr>
+
 
 
 </table>
