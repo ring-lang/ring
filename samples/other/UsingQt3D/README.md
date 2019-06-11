@@ -154,10 +154,10 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			14
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex14_modeltexture.ring"> Model  </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex14_modeltexture.ring"> Model Texture </a>
 		</td>
 		<td>
-			 Draw Model in 3D Scene
+			 Adding Textures to Model
 		</td>
 	</tr>
 	<tr>
