@@ -17,7 +17,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Add a Cube to the 3D scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex1.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex1.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -130,7 +130,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw 2D Text in 3D Scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex11.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex11.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -144,7 +144,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Extruded Text in 3D Scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex12.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex12.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -158,7 +158,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Model in 3D Scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex13.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex13.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -172,7 +172,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Adding Textures to Model
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex14.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex14.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -186,7 +186,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Office Model in 3D Scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex15.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex15.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -200,7 +200,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw Many Objects in 3D Scene
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex16.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex16.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -214,7 +214,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Moving the Camera
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex17.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex17.png" width="450" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -228,7 +228,7 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Draw 3D Scene (Models, Textures & Camera)
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex18.png" width="450" height="450">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/UsingQt3D/ex18.png" width="450" height="200">
 		</td>
 	</tr>
 
