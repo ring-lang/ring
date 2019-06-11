@@ -94,6 +94,17 @@ In this folder we have samples about using Qt3D through the Ring programming lan
 			 Respond to Key Press Events
 		</td>
 	</tr>
+	<tr>
+		<td>
+			9
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/UsingQt3D/ex9_objectpicker.ring"> ObjectPicker  </a>
+		</td>
+		<td>
+			 Respond to Mouse Clicks on Objects and Models
+		</td>
+	</tr>
 
 
 
