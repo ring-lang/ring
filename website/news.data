@@ -32,7 +32,6 @@ aNews = [
   ["March 20, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/M5-ZBqoXss4" target="_blank"> FoxRing Library</a>'],
   ["March 6, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/AqYS3BavKCU" target="_blank"> Find in Files Application</a>'],
   ["March 3, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/F6YMrboda3E" target="_blank"> Improving the Cards game</a>'],
-  ["February 9, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/OoZR4nYptbw" target="_blank"> Ring enters the top 50</a>'],
   ["February 1, 2018",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Over 500 samples in Rosettacode about the Ring programming language</a>'],
   ["January 25, 2018",'<a href="https://groups.google.com/forum/#!topic/ring-lang/pWXlWO5Fze4" target="_blank"> Ring 1.7 Released!</a>'],
   ["December 21, 2017",'<a href="https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l" target="_blank"> Article : The declarative approach of the Ring programming language</a>'],
@@ -44,8 +43,6 @@ aNews = [
   ["July 27, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/FQc8-R2h_F8" target="_blank"> GitHub can detect Ring projects</a>'],
   ["June 29, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/QOK1hUqyAjQ" target="_blank"> Ring 1.4 Released!</a>'],
   ["May 15, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/sowTIoCjx74" target="_blank"> Ring 1.3 Released!</a>'],
-  ["March 9, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/jZI51wKx0lU" target="_blank"> Ring enters the top 100</a>'],
-  ["February 10, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/be0_jlfTyaU" target="_blank"> Ring is added to the TIOBE Index</a>'],
   ["February 9, 2017",'<a href="https://github.com/ring-lang/ring/tree/master/editor/emacs" target="_blank"> Ring mode for Emacs Editor</a>'],
   ["January 25, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/18Yk6j_nv0o" target="_blank"> Ring 1.2 Released!</a>'],
   ["November 23, 2016",'<a href="http://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" target="_blank"> Arabic interview in the "Youm7" about using Ring in developing PWCT 2.0</a>'],
@@ -79,20 +76,5 @@ aNews = [
   ["January 26, 2016",'<a href="https://www.facebook.com/photo.php?fbid=10153496611810345&set=a.10151555440725345.1073741841.640625344&type=3" target="_blank"> In this post</a> about the first release, we get over 1700 likes and <a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/stats/map?dates=2016-01-25+to+2016-01-26" target="_blank">over 2000 downloads</a>'],
   ["January 25, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/download" target="_blank"> Ring 1.0 Released!</a>'],
   ["January 23, 2016",'The Ring Team! and the <a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Ring Group</a> '],
-  ["January 21, 2016",'This website started!'],
-  ["January 11, 2016",'Arabic Interview about the language in the "Youm7" : 
-						<a href="https://www.facebook.com/Youm7/posts/1331818946888764" target="_blank">Facebook</a>
-						<a href="http://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86-%D8%A5%D8%A8%D8%AA%D9%83%D8%A7%D8%B1/2532713#.VqNi6U-RZVV" target="_blank"> Website </a> '],
-  ["December 13, 2015",'Arabic Interview about the language in the "Muslim Researchers" : 
-							<a href="http://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],  
-  ["September, 2015",'Most of the Documentation was written!'],
-  ["August, 2015",'Most of the Testing was done!'],
-  ["May, 2015",'Most of the work in the Compiler and The Virtual Machine was done!'],
-  ["April, 2015",'The language name : Ring'],
-  ["December, 2014",'<a href="https://www.facebook.com/mahmoudfayed1986/posts/10152635115050345" target="_blank">The first Arabic post about the language in my Facebook profile page!</a>
-						In this post i said that after 
-						testing many programming languages, i decided to create a new one to use in
-						developing the new version of the <a href="http://doublesvsoop.sourceforge.net" target="_blank">PWCT software</a>.'],
-  ["September, 2013",'The design and the implementation of the language started!'],
-  ["November, 2011",'The ideas and the general goals behind the new programming language']
-  ]
+  ["January 21, 2016",'This website started!']
+]
