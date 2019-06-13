@@ -29,7 +29,7 @@
 
 	<br />	 
 
-    <div class="panel panel-default">
+    <div id="contributors" class="panel panel-default">
       <div class="panel-heading"><h4>Contributors <span class="badge"><%= len(aTeam2) %></span></h4></div>
       <div class="panel-body">
 
@@ -59,14 +59,14 @@
 <br />	 
 
 
-   <div class="panel panel-default">
+   <div id="thanks" class="panel panel-default">
       <div class="panel-heading"><h4>Special Thanks <span class="badge"><%= len(aThanks) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th>Thanks for discovering Ring and spreading the word! (They provided secondary resources about Ring)</th>
+					<th>Thanks for discovering Ring and spreading the word!</th>
 				  </tr>
 
 				</thead>
