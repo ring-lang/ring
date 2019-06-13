@@ -142,7 +142,9 @@
                     			'th3wolfpro@gmail.com',
                     			'Marketing',                    			
 		    			'<img src="abubakr.jpg" width="150" height="170">'
-                  		  ],
+                  		  ]
+]
+aTeam2 = [
 				  [
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
@@ -1059,4 +1061,16 @@
                     'OOP Tester'
                     
                   ]
+]
+
+aThanks = [
+		[
+                	'Matthias Schuster'
+		],
+		[
+			'Hany Salah'
+		],
+		[
+                	'Roshan Ali'
+                ]
 ]
