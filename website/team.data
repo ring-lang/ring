@@ -30,12 +30,6 @@
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ],
 				  [
-                    			'Matthias Schuster',
-                    			'shalokshalom@protonmail.ch',
-                    			'Marketing',                    			
-					'<img src="shalok.jpg" width="150" height="170">'
-                  		  ],
-				  [
                     			'Nehemiah Jacob',
                     			'nehemiah.jacob@gmail.com',
                     			'Web Framework',                    			
@@ -84,12 +78,6 @@
 					'<img src="abdelrahman.jpg" width="150" height="170">'
 				  ],				  
 				  [
-					'Hany Salah',
-					'hanyhani@hotmail.com',
-					'Marketing',					
-					'<img src="hany.jpg" width="150" height="170">'
-				  ],
-				  [
                     			'Amin Najah',
                     			'Najahdev.amine@gmail.com ',
                     			'Marketing',                    			
@@ -125,12 +113,6 @@
 					'English Revision',
 					'<img src="rashad.jpg" width="150" height="170">'
 				  ],				  
-				  [
-                    			'Roshan Ali',
-                    			'roshan_a5@yahoo.com',
-                    			'Video Tutorials',                    			
-					'<img src="roshan.jpg" width="150" height="170">'
-                  		  ],
 		  		  [
                     			'Mansour AYOUNI',
                     			'kalidianow@gmail.com',
