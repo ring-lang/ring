@@ -96,12 +96,6 @@
 					'<img src="amr.png" width="150" height="170">'
 				  ],
 				  [
-                    			'Omar Selim',
-                    			'BIMarabia@gmail.com ',
-                    			'Video Tutorials',                    			
-					'<img src="omarselim.png" width="150" height="170">'
-                  		  ],
-				  [
 					'Nouran M. Radwan',
 					'radwannouran@yahoo.com',
 					'Graphic Designer',					
@@ -1072,5 +1066,8 @@ aThanks = [
 		],
 		[
                 	'Roshan Ali'
-                ]
+                ],
+		[
+			'Omar Selim'
+		]
 ]
