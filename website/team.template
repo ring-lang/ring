@@ -29,6 +29,38 @@
 
 	<br />	 
 
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Special Thanks <span class="badge"><%= len(aManyThanks) %></span></h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Role</th>
+					<th></th>
+				  </tr>
+
+				</thead>
+				<tbody>
+				  <% for x in aManyThanks %>
+				  <tr>
+					<% for x2 in x %>
+						<th><%= x2 %></th>					
+					<% next %>
+				  </tr>
+				  <% next %>
+				</tbody>
+			</table>
+
+      </div>
+     </div>  
+
+	<br />	 
+
+
+
     <div id="contributors" class="panel panel-default">
       <div class="panel-heading"><h4>Contributors <span class="badge"><%= len(aTeam2) %></span></h4></div>
       <div class="panel-body">
@@ -60,7 +92,7 @@
 
 
    <div id="thanks" class="panel panel-default">
-      <div class="panel-heading"><h4>Special Thanks <span class="badge"><%= len(aThanks) %></span></h4></div>
+      <div class="panel-heading"><h4>Thanks <span class="badge"><%= len(aThanks) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">

@@ -6,31 +6,33 @@
 					'<img src="fayed.jpg" width="150" height="170">'
 				  ],
 				  [
-					'Gal Zsolt (CalmoSoft)',
-					'quiwox@gmail.com',
-					'Samples Master',
-					'<img src="GalZsolt.png" width="150" height="170">'
-				  ],
-				  [
 					'Bert Mariani',
 					'bert.mariani@gmail.com',
-					'Samples Master',					
+					'Software Developer (Applications Master)',					
 					'<img src="UmbertoMariani.png" width="150" height="170">'
+				  ],
+				  [
+					'Gal Zsolt (CalmoSoft)',
+					'quiwox@gmail.com',
+					'Software Developer (Samples Master)',
+					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
 				  [
                     			'José Rosado',
                     			'jar.megaware@gmail.com',
-                    			'FoxRing Library',                    			
+                    			'Software Developer',                    			
 					'<img src="jose.jpg" width="150" height="170">'
                   		  ],				 
 				  [
                     			'Marino Esteban',
                     			'marinoest@gmail.com',
-                    			'RingQt Tester',                    			
+                    			'Software Developer',                    			
 					'<img src="marino.jpg" width="150" height="170">'
-                  		  ],
+                  		  ]
+]
+aManyThanks = [
 				  [
-					'Atif M. Alamri',
+					'Prof. Dr. Atif M. Alamri',
 					'atif@ksu.edu.sa',
 					'Researcher',					
 					'<img src="dratif.png" width="150" height="170">'
@@ -74,7 +76,7 @@
 		  		  [
                     			'Mansour AYOUNI',
                     			'kalidianow@gmail.com',
-                    			'StdLib Tester',                    			
+                    			'Senior Tester',                    			
 		    			'<img src="mansour.jpg" width="150" height="170">'
                   		  ],
 				  [
@@ -434,535 +436,535 @@ aTeam2 = [
 				  [
                     'Mohammed Tantawy',
                     'mohammedtantawy82@gmail.com ',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mahmood Bakr El-Sedeek',
                     'maxmedo2020@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Aziza Elhassi',
                     'azizakhel@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Ali Halawa',
                     'ahmed.halawa.555@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mahmoud Adel Abd-Elsalam Elbaz',
                     'm.adel901m@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ayad ameen hama',
                     'aywan.ayad11@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmad Hamdy Ali',
                     'ahmady09@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Alaa Abdelsamie',
                     'mis.alaa.abdelsamie@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Heba Elakhder',
                     'goodtree212122@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mahmoud Ezat Mohamed EL-Sidek',
                     'mahmoudezat111@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Shery Rajp',
                     'shery.rajp1992@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Isam',
                     'ahmedzeco25@hotmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Tarek Kouskous	',
                     'dhtarek@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Asmaa Mohamed Elgezawy',
                     'asma.elgezawy@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Abdelrahman Abdelhameed',
                     'abdelrahmanabdelhameed3@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Muhammed Khalid',
                     'ahmedmikkawe2020@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Ait Brahim',
                     'mohcmpu@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Abdallah Ebrahim Abdallah Muhammed',
                     'abdalla.mezo@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Amera Hassan',
                     'hamera55@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Elgendy',
                     'ahmedelgendy409@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Alsharawy',
                     'ahmedalsharawy2016@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Islam Fady',
                     'islamfady40@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Sayed Ragab Mohammed',
                     'sayed.ragb1@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Andro Nady',
                     'andro.nady2015@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Sami Mohammed Gonimy',
                     'mahrmlolo@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Gamal elsayed shabaan negm elden',
                     'gamalnigmeldin@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mostafa Abd Elazeem',
                     'mostafa.abdo.ch12@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'mohammed hani elsayed',
                     'lovemody1995@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Gamal Ahmed Shehata',
                     'gamal9@live.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Abd El-tawab Sayed',
                     'mohamed.a.eltawab101@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Saied Mohamed Ahmed',
                     'bensa3ed.m@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Magdy',
                     'm.magdy555@hotmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Ali Abd El-Hakeem Mohamed',
                     'mohamed.scholar6996@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Hany',
                     'ahmedhanyahya2016@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Esraa Omar abdelhameed',
                     'esraaomar128@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mahmoud Hamdii Elhamrawy',
                     'mahmoudhamdii2010@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Peter Tawfik',
                     'petertawfik14@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Shadi Abo Oun',
                     'Micro.shadi@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Muhammad Habib	',
                     'muhammad.habib.dev@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Gamal',
                     'm.g.t.m.prog@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Mirghani Ali',
                     'Mohammed2571994@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed abdelbary',
                     'comodo2010@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Elzemrany',
                     'ahmedelzemrany93@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'mahmoud mahran',
                     'msmahran77@hotmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mhd Khir Hammadeh',
                     'newmhdkh88@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Atef Hakim',
                     'atefhakim@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],				  
 				  [
                     'Mamoud kotb abd diab',
                     'mahmoudhekaya20@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'osama Kamel Abd El-hamed',
                     'osamakamel906@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed Ibrahim',
                     'mohamed0500@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Abaza',
                     'ahmed.a.abaza@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'djouamaa hocine',
                     'djouamaah@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Maher khayyal',
                     'maheronknight@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Fayez Elkenawy',
                     'fayezelkenawy@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Ali',
                     'ahmedhamam50@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Essam Abdelrahman',
                     'essam.khaled.mohamed@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'AbdElrahman Mohamed Salah',
                     'abdomohamed00001@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Hamza Elmouhtadi',
                     'Hamzaelmouhtadi@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Thana Mohamed',
                     'thanamohamed915@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Heba Elnabawy elsersy',
                     'heba.sersy@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Abdallah Massad',
                     'abdullah.mussad.92@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Yasser Ezzat Ragab',
                     'yezzat2020@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamd Mahmoud Elsaid Elarousi',
                     'moh.elarousi@gmail.com ',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Salem',
                     'ahmedkhozayam@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ameen Ahmed',
                     'ameenahmed386@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mai mokhtar mostafa',
                     'Mayebed@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Khaled Hammad',
                     'askcode@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Osama Reda Elnabwy',
                     'oelnabwy@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Mohamed magdy ahmed',
                     'mmagdy436@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Asmaa  Abdelghny Ali',
                     'asmaa.a.ghny@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ramez Sabry Nageb',
                     'Ramez_202@hotmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Lobna ahmed',
                     'lobnaahmedheshmatt@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ehab Mosaad Mohamed',
                     'ehab192012@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Abdo Kamr',
                     'abdokamr88@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Abdelrahman Mostafa',
                     'abdomost777@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Moumen osama alisawe',
                     'muisawe@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Atya Adel Atya',
                     'atyaadel992@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Walid Mohammed Kamal',
                     'walideata@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Mohamed Azzam',
                     'azzammohamed923@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Eslam Shehata',
                     'eslamshehata476@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Asmaa Ebrahym',
                     'asmaaebrahymazyz@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
    				  [
                     'Islam Hamdy',
                     'eng.islam.hamdy1992@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
    				  [
                     'Sharaf Eldin Mohamed',
                     'sharaf.7abibi@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],				  
 				  [
                     'Mahmoud Mabrouk	',
                     'mahmoud27271@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Njlaa Ahmad Emam',
                     'njlaa.emam@hotmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Hashem Alaya',
                     'hashemjuve@yahoo.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
   				  [
                     'Usama Mohammed Kabel',
                     'eng.usamakabel@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Ahmed Elsayed Mohamed',
                     'Elsayeda825@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Yaser Ba Matraf',
                     'yasser.bama733@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
                     'Shimoo Ali',
                     'ashima00100@gmail.com',
-                    'Vision Achiever'
+                    'Tester'
                     
                   ],
 				  [
