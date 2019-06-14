@@ -30,12 +30,6 @@
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ],
 				  [
-                    			'Nehemiah Jacob',
-                    			'nehemiah.jacob@gmail.com',
-                    			'Web Framework',                    			
-					'<img src="nehemiah.jpg" width="150" height="170">'
-                  		  ],
-				  [
 					'Atif M. Alamri',
 					'atif@ksu.edu.sa',
 					'Researcher',					
@@ -52,18 +46,6 @@
 					'MajdiSobain@gmail.com',
 					'Senior Tester',					
 					'<img src="majdi.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Magdy Ragab',
-					'developer.eye1@gmail.com',
-					'Tester',					
-					'<img src="MagdyRagab.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Ahmed Omar',
-					'ahmad3omar@gmail.com',
-					'Tester',					
-					'<img src="AhmedOmar.jpg" width="150" height="170">'
 				  ],
 				  [
 					'Hebat Alla Ismail',
@@ -84,28 +66,10 @@
 					'<img src="amine.jpg" width="150" height="170">'
                   		  ],				  
 				  [
-					'Alaa Mohammed Elockle',
-					'Mr.alaaelockle@hotmail.com',
-					'Video Tutorials',					
-					'<img src="alaa.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Amr Essam',
-					'amressam01@gmail.com',
-					'Tutorials Master',					
-					'<img src="amr.png" width="150" height="170">'
-				  ],
-				  [
 					'Nouran M. Radwan',
 					'radwannouran@yahoo.com',
 					'Graphic Designer',					
 					'<img src="nouran.png" width="150" height="170">'
-				  ],
-				  [
-					'Rashad Kamsheh',
-					'rashadse@hotmail.com',
-					'English Revision',
-					'<img src="rashad.jpg" width="150" height="170">'
 				  ],				  
 		  		  [
                     			'Mansour AYOUNI',
@@ -133,11 +97,25 @@ aTeam2 = [
 					'Domain'								
 				  ],
 				  [
-                    			'Sara Hamdy Mohamed',
-                    			'engsara88@yahoo.com',
-                    			'Vision Achiever'
-                    			
-          			  ],
+					'Magdy Ragab',
+					'developer.eye1@gmail.com',
+					'Tester'				
+				  ],
+				  [
+					'Ahmed Omar',
+					'ahmad3omar@gmail.com',
+					'Tester'				
+				  ],
+				  [
+					'Rashad Kamsheh',
+					'rashadse@hotmail.com',
+					'English Revision'
+				  ],
+				  [
+                    			'Nehemiah Jacob',
+                    			'nehemiah.jacob@gmail.com',
+                    			'Web Framework'               
+                  		  ],
                   		  [
 					'Muhammed Amr Elsayed',
 					'dev.mohamedamr@gmail.com',
@@ -1067,5 +1045,14 @@ aThanks = [
                 ],
 		[
 			'Omar Selim'
+		],
+		[
+			'Sara Hamdy Mohamed'
+		],
+		[
+			'Alaa Mohammed Elockle'
+		],
+		[
+			'Amr Essam'
 		]
 ]
