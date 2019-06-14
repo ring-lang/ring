@@ -119,23 +119,11 @@
                     			'Vision Achiever',                    			
 					'<img src="hebaomran.png" width="150" height="170">'
                   		  ],
-                  		  [
-					'Muhammed Amr Elsayed',
-					'dev.mohamedamr@gmail.com',
-					'Tester',					
-					'<img src="mohamed amr.jpg" width="150" height="170">'
-		  		  ],
 		  		  [
                     			'Ahmed Mohamed Baryyan',
                     			'ahbaryyyan@gmail.com',
                     			'Video Tutorials Support',                    			
 		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
-                  		  ],
-		  		  [
-                    			'Abubakr Ahmed Fayez',
-                    			'th3wolfpro@gmail.com',
-                    			'Marketing',                    			
-		    			'<img src="abubakr.jpg" width="150" height="170">'
                   		  ]
 ]
 aTeam2 = [
@@ -149,7 +137,17 @@ aTeam2 = [
                     			'engsara88@yahoo.com',
                     			'Vision Achiever'
                     			
-          			  ],				  				  
+          			  ],
+                  		  [
+					'Muhammed Amr Elsayed',
+					'dev.mohamedamr@gmail.com',
+					'Tester'					
+		  		  ],
+		  		  [
+                    			'Abubakr Ahmed Fayez',
+                    			'th3wolfpro@gmail.com',
+                    			'Marketing'                    			
+                  		  ],				  				  
 				  [
 					'Mohammed Ali Haggag',
 					'Mhaggag7@gmail.com',
