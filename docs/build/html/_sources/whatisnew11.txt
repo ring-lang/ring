@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.11 comes with the next features!
 
+* Better Performance
 * Sudoku Game
 * Checkers Game
 * Sokoban Game
@@ -24,6 +25,16 @@ Ring 1.11 comes with the next features!
 * StdLib - More Functions
 * Better RingQt
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Better Performance
+
+Better Performance
+==================
+
+Ring 1.11 is faster than Ring 1.10
+
+The performance gain is between 10% and 30% based on the application.
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Sudoku Game
