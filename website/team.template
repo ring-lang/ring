@@ -7,17 +7,17 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Role</th>
+					<th width="25%">Name</th>
+					<th width="25%">Email</th>
+					<th width="25%">Role</th>
 					<th></th>
 				  </tr>
 				</thead>
 				<tbody>
 				  <% for x in aTeam %>
-				  <tr>
+				  <tr> 
 					<% for x2 in x %>
-						<th><%= x2 %></th>					
+						<th> <%= x2 %> </th>					
 					<% next %>
 				  </tr>
 				  <% next %>
@@ -36,9 +36,7 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Role</th>
+					<th width="75%">Name</th>
 					<th></th>
 				  </tr>
 
