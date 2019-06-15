@@ -60,7 +60,7 @@
 
 
     <div id="contributors" class="panel panel-default">
-      <div class="panel-heading"><h4>Contributors <span class="badge"><%= len(aTeam2) %></span></h4></div>
+      <div class="panel-heading"><h4>Contributors (Thanks for testing Ring and sending Bug Reports to Ring Team) <span class="badge"><%= len(aTeam2) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
