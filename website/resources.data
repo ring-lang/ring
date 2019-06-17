@@ -146,6 +146,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzlegame" target="_blank">Sum Puzzle</a>',
 					'<img src="sumpuzzle.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
+					'<img src="othello.png" width="40%">'
 				]
 			    ]
                  ],
