@@ -150,6 +150,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
 					'<img src="othello.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/maze" target="_blank">Maze Game</a>',
+					'<img src="maze.png" width="40%">'
 				]
 			    ]
                  ],
