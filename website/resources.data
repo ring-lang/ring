@@ -154,6 +154,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/maze" target="_blank">Maze Game</a>',
 					'<img src="maze.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sokoban" target="_blank">Sokoban Game</a>',
+					'<img src="sokoban.jpg" width="40%">'
 				]
 			    ]
                  ],
