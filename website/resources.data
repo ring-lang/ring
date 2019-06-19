@@ -162,6 +162,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank">Sudoku Game</a>',
 					'<img src="sudoku.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
+					'<img src="checkersgame.png" width="40%">'
 				]
 			    ]
                  ],
