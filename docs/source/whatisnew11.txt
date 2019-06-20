@@ -229,6 +229,7 @@ More Improvements
 * Ring Game Engine for 2D Games - Added : name property to game objects
 * Ring Game Engine for 2D Games - Added : find() method to game class (find an object by name)
 * Ring Game Engine for 2D Games - Support oGame[:ObjectName] to access an object.
+* Natural Library - Better Performance.
 * FoxRing - Added: frCTOD() function
 * Ring VM - Error codes for Ring Object File errors
 * Ring VM - Eval() function - Better Code
