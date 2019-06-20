@@ -12,7 +12,7 @@ Class NaturalBase
 		aMethods = methods(self)	
 		for cMethod in aMethods {
 			if left(cMethod,14) = "addattributes_" {
-				eval(cMethod+"()")
+				call cMethod()
 			}
 		}
 
