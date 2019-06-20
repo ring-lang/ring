@@ -530,11 +530,13 @@ int ring_parser_stmt ( Parser *pParser )
 							/* Save Loop|Exit commands status */
 							nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 							pParser->nLoopOrExitCommand = 0 ;
+							pParser->nLoopFlag++ ;
 							while ( ring_parser_stmt(pParser) ) {
 								if ( pParser->ActiveToken == pParser->TokensCount ) {
 									break ;
 								}
 							}
+							pParser->nLoopFlag-- ;
 							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 								/* Generate Code */
 								nMark3 = ring_parser_icg_newlabel(pParser);
@@ -644,11 +646,13 @@ int ring_parser_stmt ( Parser *pParser )
 					/* Save Loop|Exit commands status */
 					nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 					pParser->nLoopOrExitCommand = 0 ;
+					pParser->nLoopFlag++ ;
 					while ( ring_parser_stmt(pParser) ) {
 						if ( pParser->ActiveToken == pParser->TokensCount ) {
 							break ;
 						}
 					}
+					pParser->nLoopFlag-- ;
 					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 						ring_parser_nexttoken(pParser);
 						/* Generate Code */
@@ -825,11 +829,13 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Save Loop|Exit commands status */
 			nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 			pParser->nLoopOrExitCommand = 0 ;
+			pParser->nLoopFlag++ ;
 			while ( ring_parser_stmt(pParser) ) {
 				if ( pParser->ActiveToken == pParser->TokensCount ) {
 					break ;
 				}
 			}
+			pParser->nLoopFlag-- ;
 			if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 				/* Generate Code */
 				nMark3 = ring_parser_icg_newlabel(pParser);
@@ -881,11 +887,13 @@ int ring_parser_stmt ( Parser *pParser )
 		/* Save Loop|Exit commands status */
 		nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 		pParser->nLoopOrExitCommand = 0 ;
+		pParser->nLoopFlag++ ;
 		while ( ring_parser_stmt(pParser) ) {
 			if ( pParser->ActiveToken == pParser->TokensCount ) {
 				break ;
 			}
 		}
+		pParser->nLoopFlag-- ;
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
 			/* Generate Code */
 			ring_parser_nexttoken(pParser);

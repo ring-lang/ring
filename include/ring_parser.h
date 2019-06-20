@@ -43,9 +43,15 @@ typedef struct Parser {
 	int nControlStructureBrace  ;
 	/* Using Self or This with LoadAddress */
 	char nThisOrSelfLoadA  ;
-	/* required in loops (for|while) for loop and exit commands */
+	/*
+	**  required in loops (for|while) for loop and exit commands 
+	**  To Know if the commands (Loop or Exit) are used 
+	*/
 	char nLoopOrExitCommand  ;
+	/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
 	char nCheckLoopAndExit  ;
+	/* Counter to know if we are inside a loop or not */
+	int nLoopFlag  ;
 	/* Ring State */
 	RingState *pRingState  ;
 } Parser ;
