@@ -21,9 +21,9 @@ Class NaturalBase
 		for cMethod in aMethods {
 			if left(cMethod,14) = "braceexpreval_" {
 				if isNumber(Value) {
-					eval(cMethod+"("+Value+")")
+					call cMethod(Value)
 				elseif isString(Value) 
-					eval(cMethod+"('"+Value+"')")
+					call cMethod(Value)
 				}
 			}
 		}
