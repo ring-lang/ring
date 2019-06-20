@@ -567,7 +567,9 @@ int ring_parser_stmt ( Parser *pParser )
 								else {
 									ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
 								}
-								pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+								if ( pParser->nLoopFlag == 0 ) {
+									pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+								}
 								/* POP Step */
 								ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 								ring_parser_nexttoken(pParser);
@@ -678,7 +680,9 @@ int ring_parser_stmt ( Parser *pParser )
 						else {
 							ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
 						}
-						pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+						if ( pParser->nLoopFlag == 0 ) {
+							pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+						}
 						/* POP Step */
 						ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 						/* Remove Reference Value */
@@ -855,7 +859,9 @@ int ring_parser_stmt ( Parser *pParser )
 				else {
 					ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
 				}
-				pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+				if ( pParser->nLoopFlag == 0 ) {
+					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+				}
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
@@ -921,7 +927,9 @@ int ring_parser_stmt ( Parser *pParser )
 				else {
 					ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
 				}
-				pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+				if ( pParser->nLoopFlag == 0 ) {
+					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+				}
 				pParser->nAssignmentFlag = 1 ;
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
