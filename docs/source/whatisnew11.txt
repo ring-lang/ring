@@ -228,14 +228,15 @@ More Improvements
 * Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H
 * Ring Game Engine for 2D Games - Added : name property to game objects
 * Ring Game Engine for 2D Games - Added : find() method to game class (find an object by name)
-* Ring Game Engine for 2D Games - Support oGame[:ObjectName] to access an object.
-* Natural Library - Better Performance.
+* Ring Game Engine for 2D Games - Support oGame[:ObjectName] to access an object
+* Natural Library - Better Performance
 * FoxRing - Added: frCTOD() function
 * Ring VM - Error codes for Ring Object File errors
 * Ring VM - Eval() function - Better Code (Better Performance)
 * Ring VM - State Management - Better Code
 * Ring VM - the ">" operator and operator overloading - Better Code
 * Ring VM - Assignment and calling object methods - Better Code
+* Ring VM - OOP - Getter Methods - Better Performance
 * Ring API - Supporting RING_API_ISLIST() in C Extensions
 * Ring Compiler - Supporting new lines after numbers and literals when writing conditions
 * Ring Compiler - Supporting semi-colon (;) in the start of the line
