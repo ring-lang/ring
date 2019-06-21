@@ -232,7 +232,7 @@ More Improvements
 * Natural Library - Better Performance.
 * FoxRing - Added: frCTOD() function
 * Ring VM - Error codes for Ring Object File errors
-* Ring VM - Eval() function - Better Code
+* Ring VM - Eval() function - Better Code (Better Performance)
 * Ring VM - State Management - Better Code
 * Ring VM - the ">" operator and operator overloading - Better Code
 * Ring VM - Assignment and calling object methods - Better Code
