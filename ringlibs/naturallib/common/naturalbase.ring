@@ -7,6 +7,9 @@ Class NaturalBase
 
 	aCommandsStack = []
 	nCommandID = 0
+	nCommandsCount = 0
+
+	aClassMethods = []
 
 	func BraceStart
 		aMethods = methods(self)	
@@ -15,10 +18,10 @@ Class NaturalBase
 				call cMethod()
 			}
 		}
+		aClassMethods = methods(self)	
 
 	func BraceExprEval Value
-		aMethods = methods(self)	
-		for cMethod in aMethods {
+		for cMethod in aClassMethods {
 			if left(cMethod,14) = "braceexpreval_" {
 				if isNumber(Value) {
 					call cMethod(Value)
@@ -33,19 +36,21 @@ Class NaturalBase
 	func StartCommand 
 		nCommandID++
 		aCommandsStack + [nCommandID,[/*command data*/]] 
+		nCommandsCount++
 		return nCommandID
 
 	func EndCommand 
-		del(aCommandsStack,len(aCommandsStack))
+		del(aCommandsStack,nCommandsCount)
+		nCommandsCount--
 
 	func CommandID
-		return aCommandsStack[len(acommandsStack)][1]
+		return aCommandsStack[nCommandsCount][1]
 
 	func CommandData
-		return aCommandsStack[len(acommandsStack)][2]
+		return aCommandsStack[nCommandsCount][2]
 
 	func IsCommand
-		return len(aCommandsStack)
+		return nCommandsCount
 
 	func CommandOutput vValue
 		BraceExprEval(vValue)
