@@ -912,6 +912,23 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		}
 		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
 			RING_VM_STACK_POP ;
+			if ( pVM->nGetSetProperty == 0 ) {
+				/* For Better Performance : Don't Eval() when we call Getter Method from Braces */
+				ring_vm_loadfunc2(pVM,ring_string_get(pString2),0);
+				ring_vm_call2(pVM);
+				/* Prepare the Object State */
+				pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
+				pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
+				ring_list_copy_gc(pVM->pRingState,pList2,pList);
+				/* Add Logical Value (True) , That we are inside the class method */
+				ring_list_addint_gc(pVM->pRingState,pList2,1);
+				/* Push Class Package */
+				pList = (List *) ring_list_getpointer(pList2,RING_OBJSTATE_CLASS);
+				ring_vm_oop_pushclasspackage(pVM,pList);
+				ring_string_delete_gc(pVM->pRingState,pString2);
+				ring_string_delete_gc(pVM->pRingState,pString);
+				return ;
+			}
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
