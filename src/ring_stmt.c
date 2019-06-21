@@ -529,7 +529,6 @@ int ring_parser_stmt ( Parser *pParser )
 							#endif
 							/* Save Loop|Exit commands status */
 							nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-							pParser->nLoopOrExitCommand = 0 ;
 							pParser->nLoopFlag++ ;
 							while ( ring_parser_stmt(pParser) ) {
 								if ( pParser->ActiveToken == pParser->TokensCount ) {
@@ -647,7 +646,6 @@ int ring_parser_stmt ( Parser *pParser )
 					#endif
 					/* Save Loop|Exit commands status */
 					nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-					pParser->nLoopOrExitCommand = 0 ;
 					pParser->nLoopFlag++ ;
 					while ( ring_parser_stmt(pParser) ) {
 						if ( pParser->ActiveToken == pParser->TokensCount ) {
@@ -832,7 +830,6 @@ int ring_parser_stmt ( Parser *pParser )
 			#endif
 			/* Save Loop|Exit commands status */
 			nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-			pParser->nLoopOrExitCommand = 0 ;
 			pParser->nLoopFlag++ ;
 			while ( ring_parser_stmt(pParser) ) {
 				if ( pParser->ActiveToken == pParser->TokensCount ) {
@@ -892,7 +889,6 @@ int ring_parser_stmt ( Parser *pParser )
 		#endif
 		/* Save Loop|Exit commands status */
 		nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-		pParser->nLoopOrExitCommand = 0 ;
 		pParser->nLoopFlag++ ;
 		while ( ring_parser_stmt(pParser) ) {
 			if ( pParser->ActiveToken == pParser->TokensCount ) {
