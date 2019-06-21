@@ -752,7 +752,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_ERROR_TEMPFILENAME "Error (R39) : Error occurred creating unique filename."
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
-#define RING_VM_MINVMINSTRUCTIONS 50000
+#define RING_VM_MINVMINSTRUCTIONS 100000
 /* Variables Location */
 #define RING_VM_STATICVAR_THIS 12
 #endif
