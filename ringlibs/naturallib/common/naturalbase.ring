@@ -24,8 +24,8 @@ Class NaturalBase
 		for cMethod in aClassMethods {
 			if left(cMethod,14) = "braceexpreval_" {
 				aBraceMethods + cMethod
-			ok
-		next
+			}
+		}
 
 	func BraceExprEval Value
 		for cMethod in aBraceMethods {
