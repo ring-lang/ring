@@ -11,6 +11,8 @@ Class NaturalBase
 
 	aClassMethods = []
 
+	aBraceMethods = []
+
 	func BraceStart
 		aMethods = methods(self)	
 		for cMethod in aMethods {
@@ -19,15 +21,16 @@ Class NaturalBase
 			}
 		}
 		aClassMethods = methods(self)	
-
-	func BraceExprEval Value
 		for cMethod in aClassMethods {
 			if left(cMethod,14) = "braceexpreval_" {
-				if isNumber(Value) {
-					call cMethod(Value)
-				elseif isString(Value) 
-					call cMethod(Value)
-				}
+				aBraceMethods + cMethod
+			ok
+		next
+
+	func BraceExprEval Value
+		for cMethod in aBraceMethods {
+			if isNumber(Value) or isString(Value) {
+				call cMethod(Value)
 			}
 		}
 
