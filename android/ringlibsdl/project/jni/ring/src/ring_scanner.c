@@ -70,7 +70,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		} else {
 			if ( pRingState->nWarning ) {
-				printf( "\nWarning, Duplication in FileName, %s \n",cFileName ) ;
+				printf( "\nWarning (W1) : Duplication in FileName, %s \n",cFileName ) ;
 			}
 			return 1 ;
 		}
@@ -928,7 +928,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 	ring_string_lower(ring_string_get(word2));
 	/* Change Keyword */
 	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
-		puts("Warning : The Compiler command  ChangeRingKeyword required two words");
+		puts("Warning (W2) : The Compiler command  ChangeRingKeyword requires two words as parameters");
 	}
 	else {
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),ring_string_get(word1));
@@ -937,7 +937,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 			ring_list_genhashtable_gc(pScanner->pRingState,pScanner->Keywords);
 		}
 		else {
-			puts("Warning : Compiler command ChangeRingKeyword - Keyword not found !");
+			puts("Warning (W3) : Compiler command ChangeRingKeyword - Keyword not found !");
 			printf( "Keyword :  %s\n",ring_string_get(word1) ) ;
 		}
 	}
@@ -974,7 +974,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	ring_string_lower(ring_string_get(word2));
 	/* Change Operator */
 	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
-		puts("Warning : The Compiler command  ChangeRingOperator requires two words");
+		puts("Warning (W4) : The Compiler command  ChangeRingOperator requires two words as parameters");
 	}
 	else {
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Operators),ring_string_get(word1));
@@ -983,7 +983,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 			ring_list_genhashtable_gc(pScanner->pRingState,pScanner->Operators);
 		}
 		else {
-			puts("Warning : Compiler command ChangeRingOperator - Operator not found !");
+			puts("Warning (W5) : Compiler command ChangeRingOperator - Operator not found !");
 			printf( "Operator :  %s\n",ring_string_get(word1) ) ;
 		}
 	}
