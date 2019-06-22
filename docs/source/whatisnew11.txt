@@ -16,10 +16,11 @@ List of changes and new features
 Ring 1.11 comes with the next features!
 
 * Better Performance
-* Sudoku Game
+* More 3D Samples 
 * Checkers Game
 * Sokoban Game
 * Maze Game
+* Sudoku Game
 * Desktop Screen Shot Application
 * Text To Speech Application
 * StdLib - More Functions
@@ -37,16 +38,17 @@ Ring 1.11 is faster than Ring 1.10
 The performance gain is between 10% and 30% based on the application.
 
 .. index:: 
-	pair: What is new in Ring 1.11?; Sudoku Game
+	pair: What is new in Ring 1.11?; More 3D Samples
 
-Sudoku Game
-===========
+More 3D Samples
+===============
 
-Fill a 9 x 9 grid with digits so that each column, each row, and each of the nine 3 x 3 subgrids that
-compose the grid contain all of the digits from 1 to 9.
+Ring 1.11 comes with more 3D samples based on Qt3D 
 
-.. image:: sudoku.jpg
-	:alt: Sudoku Game
+* Folder : ring/samples/other/UsingQt3D (Contains 18 samples)
+
+.. image:: qt3dex18.png
+	:alt: Qt3D Example 18
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Checkers Game
@@ -95,6 +97,18 @@ Also the game comes with a level designer (Developed in 10 minutes, 37 Lines of 
 	:width: 600pt
 	:height: 400pt
 	:alt: Maze Game
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Sudoku Game
+
+Sudoku Game
+===========
+
+Fill a 9 x 9 grid with digits so that each column, each row, and each of the nine 3 x 3 subgrids that
+compose the grid contain all of the digits from 1 to 9.
+
+.. image:: sudoku.jpg
+	:alt: Sudoku Game
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Desktop Screen Shot Application
@@ -206,7 +220,6 @@ More Improvements
 =================
 
 * New Samples 
-	* samples/other/UsingQt3D folder
 	* samples/other/ModuloTimesTableCircle folder
 	* samples/other/saveimage folder
 	* samples/other/UsingQML folder
