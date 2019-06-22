@@ -169,6 +169,14 @@ Compiler Errors
 * Error (C25) : Trying to access the self reference after the object name
 * Error (C26) : Class redefinition, class is already defined!
 
+* Warning (W1) : Duplication in file name
+* Warning (W2) : The Compiler command ChangeRingKeyword requires two words as parameters
+* Warning (W3) : Compiler command ChangeRingKeyword - Keyword not found !
+* Warning (W4) : The Compiler command  ChangeRingOperator requires two words as parameters
+* Warning (W5) : Compiler command ChangeRingOperator - Operator not found !
+* Warning (W6) : Using the EXIT command outside loop!"
+* Warning (W7) : Using the LOOP command outside loop!"
+
 .. index:: 
 	pair: Reference; Runtime Errors
 
