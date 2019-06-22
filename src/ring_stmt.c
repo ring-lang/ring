@@ -1058,6 +1058,12 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> 'Exit' ");
 		#endif
+		/* Check usage outside loops */
+		if ( ! pParser->nLoopFlag ) {
+			if ( pParser->pRingState->nWarning ) {
+				puts(RING_PARSER_WARNING_EXITOUTSIDELOOP);
+			}
+		}
 		/* Check Number  (Exit from more than one loop) */
 		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
 			if ( ! ring_parser_expr(pParser) ) {
@@ -1081,6 +1087,12 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> 'Loop'");
 		#endif
+		/* Check usage outside loops */
+		if ( ! pParser->nLoopFlag ) {
+			if ( pParser->pRingState->nWarning ) {
+				puts(RING_PARSER_WARNING_LOOPOUTSIDELOOP);
+			}
+		}
 		/* Check Number  (Continue from more than one loop) */
 		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
 			if ( ! ring_parser_expr(pParser) ) {
