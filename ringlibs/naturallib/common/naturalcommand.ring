@@ -139,10 +139,9 @@ class NaturalCommand
 		aAllKeywords + cKeyword 
 		cCode = '
 			f1 = func {
-				aMethods = methods(self)	
-				for cMethod in aMethods {
+				for cMethod in aClassMethods {
 					if right(cMethod,len("getkeyword_#{f1}")) = "getkeyword_#{f1}" {
-							eval(cMethod+"()")
+							call cMethod()
 					}
 				}
 				return :NATURAL_NULL
