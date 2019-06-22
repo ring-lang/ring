@@ -70,7 +70,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		} else {
 			if ( pRingState->nWarning ) {
-				printf( "\nWarning (W1) : Duplication in FileName, %s \n",cFileName ) ;
+				printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
 			}
 			return 1 ;
 		}
