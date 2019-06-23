@@ -250,3 +250,4 @@ void DrawTexturePro(Texture2D texture, Rectangle sourceRec, Rectangle destRec, V
 void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle destRec, Vector2 origin, float rotation, Color tint)
 Font GetFontDefault(void)
 Font LoadFont(const char *fileName)
+Font LoadFontEx(const char *fileName, int fontSize, int *fontChars, int charsCount)
