@@ -6100,6 +6100,27 @@ RING_FUNC(ring_GenTexturePrefilter)
 	}
 }
 
+
+RING_FUNC(ring_GenTextureBRDF)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Texture2D *pValue ; 
+		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		*pValue = GenTextureBRDF(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6439,4 +6460,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentexturecubemap",ring_GenTextureCubemap);
 	ring_vm_funcregister("gentextureirradiance",ring_GenTextureIrradiance);
 	ring_vm_funcregister("gentextureprefilter",ring_GenTexturePrefilter);
+	ring_vm_funcregister("gentexturebrdf",ring_GenTextureBRDF);
 }
