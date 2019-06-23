@@ -5420,6 +5420,23 @@ RING_FUNC(ring_GenMeshCubicmap)
 	}
 }
 
+
+RING_FUNC(ring_MeshBoundingBox)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		BoundingBox *pValue ; 
+		pValue = (BoundingBox *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoundingBox)) ;
+		*pValue = MeshBoundingBox(* (Mesh  *) RING_API_GETCPOINTER(1,"Mesh"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"BoundingBox",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5723,4 +5740,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genmeshknot",ring_GenMeshKnot);
 	ring_vm_funcregister("genmeshheightmap",ring_GenMeshHeightmap);
 	ring_vm_funcregister("genmeshcubicmap",ring_GenMeshCubicmap);
+	ring_vm_funcregister("meshboundingbox",ring_MeshBoundingBox);
 }
