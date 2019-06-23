@@ -218,3 +218,4 @@ Image ImageTextEx(Font font, const char *text, float fontSize, float spacing, Co
 void ImageDraw(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec)
 void ImageDrawRectangle(Image *dst, Rectangle rec, Color color)
 void ImageDrawRectangleLines(Image *dst, Rectangle rec, int thick, Color color)
+void ImageDrawText(Image *dst, Vector2 position, const char *text, int fontSize, Color color)
