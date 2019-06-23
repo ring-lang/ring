@@ -6701,6 +6701,18 @@ RING_FUNC(ring_UnloadMusicStream)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
 }
 
+
+RING_FUNC(ring_PlayMusicStream)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	PlayMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7081,4 +7093,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getwavedata",ring_GetWaveData);
 	ring_vm_funcregister("loadmusicstream",ring_LoadMusicStream);
 	ring_vm_funcregister("unloadmusicstream",ring_UnloadMusicStream);
+	ring_vm_funcregister("playmusicstream",ring_PlayMusicStream);
 }
