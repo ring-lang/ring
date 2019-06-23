@@ -4929,6 +4929,23 @@ RING_FUNC(ring_LoadModel)
 	}
 }
 
+
+RING_FUNC(ring_LoadModelFromMesh)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Model *pValue ; 
+		pValue = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+		*pValue = LoadModelFromMesh(* (Mesh  *) RING_API_GETCPOINTER(1,"Mesh"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Model",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5208,4 +5225,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawgrid",ring_DrawGrid);
 	ring_vm_funcregister("drawgizmo",ring_DrawGizmo);
 	ring_vm_funcregister("loadmodel",ring_LoadModel);
+	ring_vm_funcregister("loadmodelfrommesh",ring_LoadModelFromMesh);
 }
