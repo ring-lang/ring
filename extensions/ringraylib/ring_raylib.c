@@ -57,10 +57,21 @@ RING_FUNC(ring_IsWindowReady)
 	RING_API_RETNUMBER(IsWindowReady());
 }
 
+
+RING_FUNC(ring_IsWindowMinimized)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowMinimized());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
 	ring_vm_funcregister("windowshouldclose",ring_WindowShouldClose);
 	ring_vm_funcregister("closewindow",ring_CloseWindow);
 	ring_vm_funcregister("iswindowready",ring_IsWindowReady);
+	ring_vm_funcregister("iswindowminimized",ring_IsWindowMinimized);
 }
