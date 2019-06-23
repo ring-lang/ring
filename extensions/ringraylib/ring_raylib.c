@@ -2204,6 +2204,34 @@ RING_FUNC(ring_DrawRectangleGradientEx)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
 }
 
+
+RING_FUNC(ring_DrawRectangleLines)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawRectangleLines( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2351,4 +2379,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawrectanglegradientv",ring_DrawRectangleGradientV);
 	ring_vm_funcregister("drawrectanglegradienth",ring_DrawRectangleGradientH);
 	ring_vm_funcregister("drawrectanglegradientex",ring_DrawRectangleGradientEx);
+	ring_vm_funcregister("drawrectanglelines",ring_DrawRectangleLines);
 }
