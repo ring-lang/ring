@@ -5007,6 +5007,25 @@ RING_FUNC(ring_UnloadMesh)
 	UnloadMesh((Mesh *) RING_API_GETCPOINTER(1,"Mesh"));
 }
 
+
+RING_FUNC(ring_LoadMaterials)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadMaterials(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2)),"Material");
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5291,4 +5310,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadmeshes",ring_LoadMeshes);
 	ring_vm_funcregister("exportmesh",ring_ExportMesh);
 	ring_vm_funcregister("unloadmesh",ring_UnloadMesh);
+	ring_vm_funcregister("loadmaterials",ring_LoadMaterials);
 }
