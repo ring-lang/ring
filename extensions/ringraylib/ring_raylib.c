@@ -4898,6 +4898,18 @@ RING_FUNC(ring_DrawGrid)
 	DrawGrid( (int ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_DrawGizmo)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	DrawGizmo(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5175,4 +5187,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawplane",ring_DrawPlane);
 	ring_vm_funcregister("drawray",ring_DrawRay);
 	ring_vm_funcregister("drawgrid",ring_DrawGrid);
+	ring_vm_funcregister("drawgizmo",ring_DrawGizmo);
 }
