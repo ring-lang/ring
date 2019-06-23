@@ -3835,6 +3835,26 @@ RING_FUNC(ring_DrawTextureRec)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
 }
 
+
+RING_FUNC(ring_DrawTextureQuad)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	DrawTextureQuad(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Rectangle  *) RING_API_GETCPOINTER(4,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4063,4 +4083,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
 	ring_vm_funcregister("drawtextureex",ring_DrawTextureEx);
 	ring_vm_funcregister("drawtexturerec",ring_DrawTextureRec);
+	ring_vm_funcregister("drawtexturequad",ring_DrawTextureQuad);
 }
