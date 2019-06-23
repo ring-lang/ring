@@ -3457,6 +3457,24 @@ RING_FUNC(ring_ImageColorBrightness)
 	ImageColorBrightness((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_ImageColorReplace)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageColorReplace((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3669,4 +3687,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagecolorgrayscale",ring_ImageColorGrayscale);
 	ring_vm_funcregister("imagecolorcontrast",ring_ImageColorContrast);
 	ring_vm_funcregister("imagecolorbrightness",ring_ImageColorBrightness);
+	ring_vm_funcregister("imagecolorreplace",ring_ImageColorReplace);
 }
