@@ -175,3 +175,4 @@ void DrawPoly(Vector2 center, int sides, float radius, float rotation, Color col
 void SetShapesTexture(Texture2D texture, Rectangle source)
 bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2)
 bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, float radius2)
+bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec)
