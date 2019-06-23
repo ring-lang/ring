@@ -1346,6 +1346,16 @@ RING_FUNC(ring_GetMouseX)
 	RING_API_RETNUMBER(GetMouseX());
 }
 
+
+RING_FUNC(ring_GetMouseY)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetMouseY());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1447,4 +1457,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ismousebuttonreleased",ring_IsMouseButtonReleased);
 	ring_vm_funcregister("ismousebuttonup",ring_IsMouseButtonUp);
 	ring_vm_funcregister("getmousex",ring_GetMouseX);
+	ring_vm_funcregister("getmousey",ring_GetMouseY);
 }
