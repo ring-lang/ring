@@ -6311,6 +6311,16 @@ RING_FUNC(ring_CloseAudioDevice)
 	CloseAudioDevice();
 }
 
+
+RING_FUNC(ring_IsAudioDeviceReady)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsAudioDeviceReady());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6667,4 +6677,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endvrdrawing",ring_EndVrDrawing);
 	ring_vm_funcregister("initaudiodevice",ring_InitAudioDevice);
 	ring_vm_funcregister("closeaudiodevice",ring_CloseAudioDevice);
+	ring_vm_funcregister("isaudiodeviceready",ring_IsAudioDeviceReady);
 }
