@@ -289,3 +289,4 @@ void DrawCubeTexture(Texture2D texture, Vector3 position, float width, float hei
 void DrawSphere(Vector3 centerPos, float radius, Color color)
 void DrawSphereEx(Vector3 centerPos, float radius, int rings, int slices, Color color)
 void DrawSphereWires(Vector3 centerPos, float radius, int rings, int slices, Color color)
+void DrawCylinder(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
