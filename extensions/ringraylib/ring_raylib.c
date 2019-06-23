@@ -4568,6 +4568,22 @@ RING_FUNC(ring_TextToInteger)
 	RING_API_RETNUMBER(TextToInteger(RING_API_GETSTRING(1)));
 }
 
+
+RING_FUNC(ring_DrawLine3D)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	DrawLine3D(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4830,4 +4846,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("texttolower",ring_TextToLower);
 	ring_vm_funcregister("texttopascal",ring_TextToPascal);
 	ring_vm_funcregister("texttointeger",ring_TextToInteger);
+	ring_vm_funcregister("drawline3d",ring_DrawLine3D);
 }
