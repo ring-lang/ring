@@ -6016,6 +6016,21 @@ RING_FUNC(ring_SetMatrixModelview)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
 }
 
+
+RING_FUNC(ring_GetMatrixModelview)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		*pValue = GetMatrixModelview();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6351,4 +6366,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setshadervaluetexture",ring_SetShaderValueTexture);
 	ring_vm_funcregister("setmatrixprojection",ring_SetMatrixProjection);
 	ring_vm_funcregister("setmatrixmodelview",ring_SetMatrixModelview);
+	ring_vm_funcregister("getmatrixmodelview",ring_GetMatrixModelview);
 }
