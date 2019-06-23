@@ -265,3 +265,4 @@ Vector2 MeasureTextEx(Font font, const char *text, float fontSize, float spacing
 int GetGlyphIndex(Font font, int character)
 int GetNextCodepoint(const char *text, int *count)
 bool TextIsEqual(const char *text1, const char *text2)
+unsigned int TextLength(const char *text)
