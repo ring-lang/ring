@@ -5553,6 +5553,20 @@ RING_FUNC(ring_DrawModelWiresEx)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
 }
 
+
+RING_FUNC(ring_DrawBoundingBox)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	DrawBoundingBox(* (BoundingBox  *) RING_API_GETCPOINTER(1,"BoundingBox"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"BoundingBox"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5863,4 +5877,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawmodelex",ring_DrawModelEx);
 	ring_vm_funcregister("drawmodelwires",ring_DrawModelWires);
 	ring_vm_funcregister("drawmodelwiresex",ring_DrawModelWiresEx);
+	ring_vm_funcregister("drawboundingbox",ring_DrawBoundingBox);
 }
