@@ -6335,6 +6335,25 @@ RING_FUNC(ring_SetMasterVolume)
 	SetMasterVolume( (float ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_LoadWave)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Wave *pValue ; 
+		pValue = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+		*pValue = LoadWave(RING_API_GETSTRING(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6693,4 +6712,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("closeaudiodevice",ring_CloseAudioDevice);
 	ring_vm_funcregister("isaudiodeviceready",ring_IsAudioDeviceReady);
 	ring_vm_funcregister("setmastervolume",ring_SetMasterVolume);
+	ring_vm_funcregister("loadwave",ring_LoadWave);
 }
