@@ -3223,6 +3223,24 @@ RING_FUNC(ring_ImageDraw)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Rectangle"));
 }
 
+
+RING_FUNC(ring_ImageDrawRectangle)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawRectangle((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3422,4 +3440,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagetext",ring_ImageText);
 	ring_vm_funcregister("imagetextex",ring_ImageTextEx);
 	ring_vm_funcregister("imagedraw",ring_ImageDraw);
+	ring_vm_funcregister("imagedrawrectangle",ring_ImageDrawRectangle);
 }
