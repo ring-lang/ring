@@ -483,6 +483,16 @@ RING_FUNC(ring_BeginTextureMode)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"RenderTexture2D"));
 }
 
+
+RING_FUNC(ring_EndTextureMode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndTextureMode();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -525,4 +535,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("beginmode3d",ring_BeginMode3D);
 	ring_vm_funcregister("endmode3d",ring_EndMode3D);
 	ring_vm_funcregister("begintexturemode",ring_BeginTextureMode);
+	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
 }
