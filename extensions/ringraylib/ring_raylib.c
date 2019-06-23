@@ -6619,6 +6619,23 @@ RING_FUNC(ring_WaveFormat)
 	WaveFormat((Wave *) RING_API_GETCPOINTER(1,"Wave"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_WaveCopy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Wave *pValue ; 
+		pValue = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+		*pValue = WaveCopy(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6994,4 +7011,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setsoundvolume",ring_SetSoundVolume);
 	ring_vm_funcregister("setsoundpitch",ring_SetSoundPitch);
 	ring_vm_funcregister("waveformat",ring_WaveFormat);
+	ring_vm_funcregister("wavecopy",ring_WaveCopy);
 }
