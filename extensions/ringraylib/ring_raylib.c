@@ -916,6 +916,16 @@ RING_FUNC(ring_GetDirectoryFiles)
 	RING_API_ACCEPTINTVALUE(2) ;
 }
 
+
+RING_FUNC(ring_ClearDirectoryFiles)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	ClearDirectoryFiles();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -987,4 +997,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getdirectorypath",ring_GetDirectoryPath);
 	ring_vm_funcregister("getworkingdirectory",ring_GetWorkingDirectory);
 	ring_vm_funcregister("getdirectoryfiles",ring_GetDirectoryFiles);
+	ring_vm_funcregister("cleardirectoryfiles",ring_ClearDirectoryFiles);
 }
