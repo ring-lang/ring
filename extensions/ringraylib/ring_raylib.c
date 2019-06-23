@@ -3421,6 +3421,24 @@ RING_FUNC(ring_ImageColorGrayscale)
 	ImageColorGrayscale((Image *) RING_API_GETCPOINTER(1,"Image"));
 }
 
+
+RING_FUNC(ring_ImageColorContrast)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageColorContrast((Image *) RING_API_GETCPOINTER(1,"Image"), (float ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3631,4 +3649,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagecolortint",ring_ImageColorTint);
 	ring_vm_funcregister("imagecolorinvert",ring_ImageColorInvert);
 	ring_vm_funcregister("imagecolorgrayscale",ring_ImageColorGrayscale);
+	ring_vm_funcregister("imagecolorcontrast",ring_ImageColorContrast);
 }
