@@ -5873,6 +5873,21 @@ RING_FUNC(ring_GetShaderDefault)
 	}
 }
 
+
+RING_FUNC(ring_GetTextureDefault)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Texture2D *pValue ; 
+		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		*pValue = GetTextureDefault();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6200,4 +6215,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadshadercode",ring_LoadShaderCode);
 	ring_vm_funcregister("unloadshader",ring_UnloadShader);
 	ring_vm_funcregister("getshaderdefault",ring_GetShaderDefault);
+	ring_vm_funcregister("gettexturedefault",ring_GetTextureDefault);
 }
