@@ -4993,6 +4993,20 @@ RING_FUNC(ring_ExportMesh)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
 }
 
+
+RING_FUNC(ring_UnloadMesh)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadMesh((Mesh *) RING_API_GETCPOINTER(1,"Mesh"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5276,4 +5290,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadmodel",ring_UnloadModel);
 	ring_vm_funcregister("loadmeshes",ring_LoadMeshes);
 	ring_vm_funcregister("exportmesh",ring_ExportMesh);
+	ring_vm_funcregister("unloadmesh",ring_UnloadMesh);
 }
