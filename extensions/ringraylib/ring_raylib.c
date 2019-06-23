@@ -5451,6 +5451,20 @@ RING_FUNC(ring_MeshTangents)
 	MeshTangents((Mesh *) RING_API_GETCPOINTER(1,"Mesh"));
 }
 
+
+RING_FUNC(ring_MeshBinormals)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	MeshBinormals((Mesh *) RING_API_GETCPOINTER(1,"Mesh"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5756,4 +5770,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genmeshcubicmap",ring_GenMeshCubicmap);
 	ring_vm_funcregister("meshboundingbox",ring_MeshBoundingBox);
 	ring_vm_funcregister("meshtangents",ring_MeshTangents);
+	ring_vm_funcregister("meshbinormals",ring_MeshBinormals);
 }
