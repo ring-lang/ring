@@ -582,6 +582,16 @@ RING_FUNC(ring_GetFrameTime)
 	RING_API_RETNUMBER(GetFrameTime());
 }
 
+
+RING_FUNC(ring_GetTime)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetTime());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -631,4 +641,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("settargetfps",ring_SetTargetFPS);
 	ring_vm_funcregister("getfps",ring_GetFPS);
 	ring_vm_funcregister("getframetime",ring_GetFrameTime);
+	ring_vm_funcregister("gettime",ring_GetTime);
 }
