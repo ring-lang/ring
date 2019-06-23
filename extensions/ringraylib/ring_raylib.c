@@ -2517,6 +2517,25 @@ RING_FUNC(ring_CheckCollisionPointTriangle)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector2"));
 }
 
+
+RING_FUNC(ring_LoadImage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		*pValue = LoadImage(RING_API_GETSTRING(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2680,4 +2699,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionpointrec",ring_CheckCollisionPointRec);
 	ring_vm_funcregister("checkcollisionpointcircle",ring_CheckCollisionPointCircle);
 	ring_vm_funcregister("checkcollisionpointtriangle",ring_CheckCollisionPointTriangle);
+	ring_vm_funcregister("loadimage",ring_LoadImage);
 }
