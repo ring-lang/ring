@@ -831,6 +831,20 @@ RING_FUNC(ring_IsFileExtension)
 	RING_API_RETNUMBER(IsFileExtension(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_GetExtension)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(GetExtension(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -896,4 +910,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getrandomvalue",ring_GetRandomValue);
 	ring_vm_funcregister("fileexists",ring_FileExists);
 	ring_vm_funcregister("isfileextension",ring_IsFileExtension);
+	ring_vm_funcregister("getextension",ring_GetExtension);
 }
