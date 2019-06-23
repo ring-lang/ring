@@ -238,3 +238,4 @@ Image GenImageChecked(int width, int height, int checksX, int checksY, Color col
 Image GenImageWhiteNoise(int width, int height, float factor)
 Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale)
 Image GenImageCellular(int width, int height, int tileSize)
+void GenTextureMipmaps(Texture2D *texture)
