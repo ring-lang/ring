@@ -321,6 +321,16 @@ RING_FUNC(ring_GetMonitorName)
 	RING_API_RETSTRING(GetMonitorName( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_GetClipboardText)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(GetClipboardText());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -348,4 +358,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmonitorphysicalwidth",ring_GetMonitorPhysicalWidth);
 	ring_vm_funcregister("getmonitorphysicalheight",ring_GetMonitorPhysicalHeight);
 	ring_vm_funcregister("getmonitorname",ring_GetMonitorName);
+	ring_vm_funcregister("getclipboardtext",ring_GetClipboardText);
 }
