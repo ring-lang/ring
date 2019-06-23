@@ -4058,6 +4058,18 @@ RING_FUNC(ring_GenImageFontAtlas)
 	}
 }
 
+
+RING_FUNC(ring_UnloadFont)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadFont(* (Font  *) RING_API_GETCPOINTER(1,"Font"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4295,4 +4307,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadfontfromimage",ring_LoadFontFromImage);
 	ring_vm_funcregister("loadfontdata",ring_LoadFontData);
 	ring_vm_funcregister("genimagefontatlas",ring_GenImageFontAtlas);
+	ring_vm_funcregister("unloadfont",ring_UnloadFont);
 }
