@@ -4238,6 +4238,35 @@ RING_FUNC(ring_MeasureText)
 	RING_API_RETNUMBER(MeasureText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_MeasureTextEx)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		*pValue = MeasureTextEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4482,4 +4511,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtextrec",ring_DrawTextRec);
 	ring_vm_funcregister("drawtextrecex",ring_DrawTextRecEx);
 	ring_vm_funcregister("measuretext",ring_MeasureText);
+	ring_vm_funcregister("measuretextex",ring_MeasureTextEx);
 }
