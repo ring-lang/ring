@@ -285,3 +285,4 @@ void DrawCube(Vector3 position, float width, float height, float length, Color c
 void DrawCubeV(Vector3 position, Vector3 size, Color color)
 void DrawCubeWires(Vector3 position, float width, float height, float length, Color color)
 void DrawCubeWiresV(Vector3 position, Vector3 size, Color color)
+void DrawCubeTexture(Texture2D texture, Vector3 position, float width, float height, float length, Color color)
