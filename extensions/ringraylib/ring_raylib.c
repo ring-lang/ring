@@ -5846,6 +5846,18 @@ RING_FUNC(ring_LoadShaderCode)
 	}
 }
 
+
+RING_FUNC(ring_UnloadShader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadShader(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6171,4 +6183,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadtext",ring_LoadText);
 	ring_vm_funcregister("loadshader",ring_LoadShader);
 	ring_vm_funcregister("loadshadercode",ring_LoadShaderCode);
+	ring_vm_funcregister("unloadshader",ring_UnloadShader);
 }
