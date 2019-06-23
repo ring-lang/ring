@@ -975,6 +975,25 @@ RING_FUNC(ring_ClearDroppedFiles)
 	ClearDroppedFiles();
 }
 
+
+RING_FUNC(ring_GetFileModTime)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		long *pValue ; 
+		pValue = (long *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(long)) ;
+		*pValue = GetFileModTime(RING_API_GETSTRING(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"long",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1051,4 +1070,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isfiledropped",ring_IsFileDropped);
 	ring_vm_funcregister("getdroppedfiles",ring_GetDroppedFiles);
 	ring_vm_funcregister("cleardroppedfiles",ring_ClearDroppedFiles);
+	ring_vm_funcregister("getfilemodtime",ring_GetFileModTime);
 }
