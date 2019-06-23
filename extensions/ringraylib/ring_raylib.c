@@ -781,6 +781,24 @@ RING_FUNC(ring_TakeScreenshot)
 	TakeScreenshot(RING_API_GETSTRING(1));
 }
 
+
+RING_FUNC(ring_GetRandomValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetRandomValue( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -843,4 +861,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("settracelogcallback",ring_SetTraceLogCallback);
 	ring_vm_funcregister("tracelog",ring_TraceLog);
 	ring_vm_funcregister("takescreenshot",ring_TakeScreenshot);
+	ring_vm_funcregister("getrandomvalue",ring_GetRandomValue);
 }
