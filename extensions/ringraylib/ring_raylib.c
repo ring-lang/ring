@@ -1096,6 +1096,16 @@ RING_FUNC(ring_IsKeyUp)
 	RING_API_RETNUMBER(IsKeyUp( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_GetKeyPressed)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetKeyPressed());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1180,4 +1190,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("iskeydown",ring_IsKeyDown);
 	ring_vm_funcregister("iskeyreleased",ring_IsKeyReleased);
 	ring_vm_funcregister("iskeyup",ring_IsKeyUp);
+	ring_vm_funcregister("getkeypressed",ring_GetKeyPressed);
 }
