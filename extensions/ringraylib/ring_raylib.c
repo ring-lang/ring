@@ -6321,6 +6321,20 @@ RING_FUNC(ring_IsAudioDeviceReady)
 	RING_API_RETNUMBER(IsAudioDeviceReady());
 }
 
+
+RING_FUNC(ring_SetMasterVolume)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetMasterVolume( (float ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6678,4 +6692,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("initaudiodevice",ring_InitAudioDevice);
 	ring_vm_funcregister("closeaudiodevice",ring_CloseAudioDevice);
 	ring_vm_funcregister("isaudiodeviceready",ring_IsAudioDeviceReady);
+	ring_vm_funcregister("setmastervolume",ring_SetMasterVolume);
 }
