@@ -6291,6 +6291,16 @@ RING_FUNC(ring_EndVrDrawing)
 	EndVrDrawing();
 }
 
+
+RING_FUNC(ring_InitAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	InitAudioDevice();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6645,4 +6655,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("togglevrmode",ring_ToggleVrMode);
 	ring_vm_funcregister("beginvrdrawing",ring_BeginVrDrawing);
 	ring_vm_funcregister("endvrdrawing",ring_EndVrDrawing);
+	ring_vm_funcregister("initaudiodevice",ring_InitAudioDevice);
 }
