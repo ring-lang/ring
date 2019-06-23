@@ -674,6 +674,27 @@ RING_FUNC(ring_GetColor)
 	}
 }
 
+
+RING_FUNC(ring_Fade)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+		*pValue = Fade(* (Color  *) RING_API_GETCPOINTER(1,"Color"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -729,4 +750,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("colortohsv",ring_ColorToHSV);
 	ring_vm_funcregister("colorfromhsv",ring_ColorFromHSV);
 	ring_vm_funcregister("getcolor",ring_GetColor);
+	ring_vm_funcregister("fade",ring_Fade);
 }
