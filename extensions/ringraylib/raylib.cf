@@ -251,3 +251,4 @@ void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle destR
 Font GetFontDefault(void)
 Font LoadFont(const char *fileName)
 Font LoadFontEx(const char *fileName, int fontSize, int *fontChars, int charsCount)
+Font LoadFontFromImage(Image image, Color key, int firstChar)
