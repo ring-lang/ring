@@ -1455,6 +1455,25 @@ RING_FUNC(ring_GetTouchY)
 	RING_API_RETNUMBER(GetTouchY());
 }
 
+
+RING_FUNC(ring_GetTouchPosition)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		*pValue = GetTouchPosition( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1564,4 +1583,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmousewheelmove",ring_GetMouseWheelMove);
 	ring_vm_funcregister("gettouchx",ring_GetTouchX);
 	ring_vm_funcregister("gettouchy",ring_GetTouchY);
+	ring_vm_funcregister("gettouchposition",ring_GetTouchPosition);
 }
