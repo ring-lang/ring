@@ -293,3 +293,4 @@ void DrawCylinder(Vector3 position, float radiusTop, float radiusBottom, float h
 void DrawCylinderWires(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
 void DrawPlane(Vector3 centerPos, Vector2 size, Color color)
 void DrawRay(Ray ray, Color color)
+void DrawGrid(int slices, float spacing)
