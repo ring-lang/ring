@@ -101,7 +101,7 @@
 #include "ring_api.h"
 #include "ring_objfile.h"
 /* Extensions Headers */
-#ifndef RINGEXTENSION
+#ifndef RING_EXTENSION
 #ifdef RING_VM_MATH
 #include "ring_vmmath.h"
 #endif
