@@ -4267,6 +4267,22 @@ RING_FUNC(ring_MeasureTextEx)
 	}
 }
 
+
+RING_FUNC(ring_GetGlyphIndex)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetGlyphIndex(* (Font  *) RING_API_GETCPOINTER(1,"Font"), (int ) RING_API_GETNUMBER(2)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4512,4 +4528,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtextrecex",ring_DrawTextRecEx);
 	ring_vm_funcregister("measuretext",ring_MeasureText);
 	ring_vm_funcregister("measuretextex",ring_MeasureTextEx);
+	ring_vm_funcregister("getglyphindex",ring_GetGlyphIndex);
 }
