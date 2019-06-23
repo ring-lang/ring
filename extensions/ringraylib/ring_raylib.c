@@ -5786,6 +5786,20 @@ RING_FUNC(ring_GetCollisionRayGround)
 	}
 }
 
+
+RING_FUNC(ring_LoadText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(LoadText(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6108,4 +6122,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getcollisionraymodel",ring_GetCollisionRayModel);
 	ring_vm_funcregister("getcollisionraytriangle",ring_GetCollisionRayTriangle);
 	ring_vm_funcregister("getcollisionrayground",ring_GetCollisionRayGround);
+	ring_vm_funcregister("loadtext",ring_LoadText);
 }
