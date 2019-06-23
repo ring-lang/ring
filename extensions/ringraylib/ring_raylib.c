@@ -143,6 +143,24 @@ RING_FUNC(ring_SetWindowTitle)
 	SetWindowTitle(RING_API_GETSTRING(1));
 }
 
+
+RING_FUNC(ring_SetWindowPosition)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowPosition( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -157,4 +175,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("hidewindow",ring_HideWindow);
 	ring_vm_funcregister("setwindowicon",ring_SetWindowIcon);
 	ring_vm_funcregister("setwindowtitle",ring_SetWindowTitle);
+	ring_vm_funcregister("setwindowposition",ring_SetWindowPosition);
 }
