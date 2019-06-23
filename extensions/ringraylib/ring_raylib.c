@@ -6469,6 +6469,22 @@ RING_FUNC(ring_UnloadSound)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
 }
 
+
+RING_FUNC(ring_ExportWave)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ExportWave(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"),RING_API_GETSTRING(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6834,4 +6850,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("updatesound",ring_UpdateSound);
 	ring_vm_funcregister("unloadwave",ring_UnloadWave);
 	ring_vm_funcregister("unloadsound",ring_UnloadSound);
+	ring_vm_funcregister("exportwave",ring_ExportWave);
 }
