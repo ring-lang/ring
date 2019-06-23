@@ -1202,6 +1202,24 @@ RING_FUNC(ring_IsGamepadButtonDown)
 	RING_API_RETNUMBER(IsGamepadButtonDown( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_IsGamepadButtonReleased)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsGamepadButtonReleased( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1293,4 +1311,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getgamepadname",ring_GetGamepadName);
 	ring_vm_funcregister("isgamepadbuttonpressed",ring_IsGamepadButtonPressed);
 	ring_vm_funcregister("isgamepadbuttondown",ring_IsGamepadButtonDown);
+	ring_vm_funcregister("isgamepadbuttonreleased",ring_IsGamepadButtonReleased);
 }
