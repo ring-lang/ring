@@ -1407,6 +1407,24 @@ RING_FUNC(ring_SetMouseOffset)
 	SetMouseOffset( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_SetMouseScale)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetMouseScale( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1512,4 +1530,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmouseposition",ring_GetMousePosition);
 	ring_vm_funcregister("setmouseposition",ring_SetMousePosition);
 	ring_vm_funcregister("setmouseoffset",ring_SetMouseOffset);
+	ring_vm_funcregister("setmousescale",ring_SetMouseScale);
 }
