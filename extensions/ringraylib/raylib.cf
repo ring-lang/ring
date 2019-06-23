@@ -165,3 +165,4 @@ void DrawRectangleGradientV(int posX, int posY, int width, int height, Color col
 void DrawRectangleGradientH(int posX, int posY, int width, int height, Color color1, Color color2)
 void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4)
 void DrawRectangleLines(int posX, int posY, int width, int height, Color color)
+void DrawRectangleLinesEx(Rectangle rec, int lineThick, Color color)
