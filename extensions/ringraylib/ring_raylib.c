@@ -1936,6 +1936,24 @@ RING_FUNC(ring_DrawCircleGradient)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
 }
 
+
+RING_FUNC(ring_DrawCircleV)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawCircleV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2072,4 +2090,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcirclesector",ring_DrawCircleSector);
 	ring_vm_funcregister("drawcirclesectorlines",ring_DrawCircleSectorLines);
 	ring_vm_funcregister("drawcirclegradient",ring_DrawCircleGradient);
+	ring_vm_funcregister("drawcirclev",ring_DrawCircleV);
 }
