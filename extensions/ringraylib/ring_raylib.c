@@ -2855,6 +2855,22 @@ RING_FUNC(ring_GetScreenData)
 	}
 }
 
+
+RING_FUNC(ring_UpdateTexture)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UpdateTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),(void *) RING_API_GETCPOINTER(2,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3036,4 +3052,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getpixeldatasize",ring_GetPixelDataSize);
 	ring_vm_funcregister("gettexturedata",ring_GetTextureData);
 	ring_vm_funcregister("getscreendata",ring_GetScreenData);
+	ring_vm_funcregister("updatetexture",ring_UpdateTexture);
 }
