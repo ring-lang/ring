@@ -351,3 +351,4 @@ void SetShaderValueV(Shader shader, int uniformLoc, const void *value, int unifo
 void SetShaderValueMatrix(Shader shader, int uniformLoc, Matrix mat)
 void SetShaderValueTexture(Shader shader, int uniformLoc, Texture2D texture)
 void SetMatrixProjection(Matrix proj)
+void SetMatrixModelview(Matrix view)
