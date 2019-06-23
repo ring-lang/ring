@@ -213,3 +213,4 @@ void ImageResizeCanvas(Image *image, int newWidth, int newHeight, int offsetX, i
 void ImageMipmaps(Image *image)
 void ImageDither(Image *image, int rBpp, int gBpp, int bBpp, int aBpp)
 Color *ImageExtractPalette(Image image, int maxPaletteSize, int *extractCount)
+Image ImageText(const char *text, int fontSize, Color color)
