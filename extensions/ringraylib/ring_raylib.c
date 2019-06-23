@@ -1280,6 +1280,20 @@ RING_FUNC(ring_GetGamepadAxisMovement)
 	RING_API_RETNUMBER(GetGamepadAxisMovement( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_IsMouseButtonPressed)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsMouseButtonPressed( (int ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1376,4 +1390,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getgamepadbuttonpressed",ring_GetGamepadButtonPressed);
 	ring_vm_funcregister("getgamepadaxiscount",ring_GetGamepadAxisCount);
 	ring_vm_funcregister("getgamepadaxismovement",ring_GetGamepadAxisMovement);
+	ring_vm_funcregister("ismousebuttonpressed",ring_IsMouseButtonPressed);
 }
