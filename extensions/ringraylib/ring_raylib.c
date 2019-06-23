@@ -2536,6 +2536,33 @@ RING_FUNC(ring_LoadImage)
 	}
 }
 
+
+RING_FUNC(ring_LoadImageEx)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		*pValue = LoadImageEx((Color *) RING_API_GETCPOINTER(1,"Color"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2700,4 +2727,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionpointcircle",ring_CheckCollisionPointCircle);
 	ring_vm_funcregister("checkcollisionpointtriangle",ring_CheckCollisionPointTriangle);
 	ring_vm_funcregister("loadimage",ring_LoadImage);
+	ring_vm_funcregister("loadimageex",ring_LoadImageEx);
 }
