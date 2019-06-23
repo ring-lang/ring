@@ -6773,6 +6773,22 @@ RING_FUNC(ring_IsMusicPlaying)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
 }
 
+
+RING_FUNC(ring_SetMusicVolume)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetMusicVolume(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7159,4 +7175,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pausemusicstream",ring_PauseMusicStream);
 	ring_vm_funcregister("resumemusicstream",ring_ResumeMusicStream);
 	ring_vm_funcregister("ismusicplaying",ring_IsMusicPlaying);
+	ring_vm_funcregister("setmusicvolume",ring_SetMusicVolume);
 }
