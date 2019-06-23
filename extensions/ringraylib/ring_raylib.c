@@ -2741,6 +2741,18 @@ RING_FUNC(ring_LoadRenderTexture)
 	}
 }
 
+
+RING_FUNC(ring_UnloadImage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2914,4 +2926,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadtexturefromimage",ring_LoadTextureFromImage);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
 	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
+	ring_vm_funcregister("unloadimage",ring_UnloadImage);
 }
