@@ -813,6 +813,24 @@ RING_FUNC(ring_FileExists)
 	RING_API_RETNUMBER(FileExists(RING_API_GETSTRING(1)));
 }
 
+
+RING_FUNC(ring_IsFileExtension)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsFileExtension(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -877,4 +895,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("takescreenshot",ring_TakeScreenshot);
 	ring_vm_funcregister("getrandomvalue",ring_GetRandomValue);
 	ring_vm_funcregister("fileexists",ring_FileExists);
+	ring_vm_funcregister("isfileextension",ring_IsFileExtension);
 }
