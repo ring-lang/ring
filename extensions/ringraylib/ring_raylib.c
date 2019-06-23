@@ -531,6 +531,23 @@ RING_FUNC(ring_GetWorldToScreen)
 	}
 }
 
+
+RING_FUNC(ring_GetCameraMatrix)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		*pValue = GetCameraMatrix(* (Camera  *) RING_API_GETCPOINTER(1,"Camera"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -576,4 +593,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
 	ring_vm_funcregister("getmouseray",ring_GetMouseRay);
 	ring_vm_funcregister("getworldtoscreen",ring_GetWorldToScreen);
+	ring_vm_funcregister("getcameramatrix",ring_GetCameraMatrix);
 }
