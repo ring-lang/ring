@@ -145,3 +145,4 @@ void SetCameraMoveControls(int frontKey, int backKey, int rightKey, int leftKey,
 void DrawPixel(int posX, int posY, Color color)
 void DrawPixelV(Vector2 position, Color color)
 void DrawLine(int startPosX, int startPosY, int endPosX, int endPosY, Color color)
+void DrawLineV(Vector2 startPos, Vector2 endPos, Color color)
