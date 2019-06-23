@@ -3082,6 +3082,20 @@ RING_FUNC(ring_ImageResizeCanvas)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
 }
 
+
+RING_FUNC(ring_ImageMipmaps)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageMipmaps((Image *) RING_API_GETCPOINTER(1,"Image"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3275,4 +3289,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imageresize",ring_ImageResize);
 	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);
 	ring_vm_funcregister("imageresizecanvas",ring_ImageResizeCanvas);
+	ring_vm_funcregister("imagemipmaps",ring_ImageMipmaps);
 }
