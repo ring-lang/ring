@@ -19,3 +19,4 @@ aNumberTypes + "float"
 raylib
 </funcstart>
 
+void InitWindow(int width, int height, const char *title)
