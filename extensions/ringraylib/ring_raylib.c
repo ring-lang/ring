@@ -87,6 +87,16 @@ RING_FUNC(ring_IsWindowHidden)
 	RING_API_RETNUMBER(IsWindowHidden());
 }
 
+
+RING_FUNC(ring_ToggleFullscreen)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	ToggleFullscreen();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -96,4 +106,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("iswindowminimized",ring_IsWindowMinimized);
 	ring_vm_funcregister("iswindowresized",ring_IsWindowResized);
 	ring_vm_funcregister("iswindowhidden",ring_IsWindowHidden);
+	ring_vm_funcregister("togglefullscreen",ring_ToggleFullscreen);
 }
