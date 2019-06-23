@@ -6549,6 +6549,18 @@ RING_FUNC(ring_StopSound)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
 }
 
+
+RING_FUNC(ring_IsSoundPlaying)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsSoundPlaying(* (Sound  *) RING_API_GETCPOINTER(1,"Sound")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6920,4 +6932,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("pausesound",ring_PauseSound);
 	ring_vm_funcregister("resumesound",ring_ResumeSound);
 	ring_vm_funcregister("stopsound",ring_StopSound);
+	ring_vm_funcregister("issoundplaying",ring_IsSoundPlaying);
 }
