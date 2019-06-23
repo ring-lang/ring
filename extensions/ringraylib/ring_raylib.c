@@ -2765,6 +2765,18 @@ RING_FUNC(ring_UnloadTexture)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
 }
 
+
+RING_FUNC(ring_UnloadRenderTexture)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadRenderTexture(* (RenderTexture2D  *) RING_API_GETCPOINTER(1,"RenderTexture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"RenderTexture2D"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2940,4 +2952,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
 	ring_vm_funcregister("unloadimage",ring_UnloadImage);
 	ring_vm_funcregister("unloadtexture",ring_UnloadTexture);
+	ring_vm_funcregister("unloadrendertexture",ring_UnloadRenderTexture);
 }
