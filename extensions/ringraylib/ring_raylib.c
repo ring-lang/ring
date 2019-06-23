@@ -2922,6 +2922,22 @@ RING_FUNC(ring_ImageFormat)
 	ImageFormat((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_ImageAlphaMask)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageAlphaMask((Image *) RING_API_GETCPOINTER(1,"Image"),* (Image  *) RING_API_GETCPOINTER(2,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Image"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3107,4 +3123,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagecopy",ring_ImageCopy);
 	ring_vm_funcregister("imagetopot",ring_ImageToPOT);
 	ring_vm_funcregister("imageformat",ring_ImageFormat);
+	ring_vm_funcregister("imagealphamask",ring_ImageAlphaMask);
 }
