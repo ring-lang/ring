@@ -6408,6 +6408,23 @@ RING_FUNC(ring_LoadSound)
 	}
 }
 
+
+RING_FUNC(ring_LoadSoundFromWave)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Sound *pValue ; 
+		pValue = (Sound *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sound)) ;
+		*pValue = LoadSoundFromWave(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6769,4 +6786,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadwave",ring_LoadWave);
 	ring_vm_funcregister("loadwaveex",ring_LoadWaveEx);
 	ring_vm_funcregister("loadsound",ring_LoadSound);
+	ring_vm_funcregister("loadsoundfromwave",ring_LoadSoundFromWave);
 }
