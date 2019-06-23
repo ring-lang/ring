@@ -4850,6 +4850,22 @@ RING_FUNC(ring_DrawCylinderWires)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
 }
 
+
+RING_FUNC(ring_DrawPlane)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	DrawPlane(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5124,4 +5140,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawspherewires",ring_DrawSphereWires);
 	ring_vm_funcregister("drawcylinder",ring_DrawCylinder);
 	ring_vm_funcregister("drawcylinderwires",ring_DrawCylinderWires);
+	ring_vm_funcregister("drawplane",ring_DrawPlane);
 }
