@@ -6561,6 +6561,22 @@ RING_FUNC(ring_IsSoundPlaying)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
 }
 
+
+RING_FUNC(ring_SetSoundVolume)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetSoundVolume(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6933,4 +6949,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("resumesound",ring_ResumeSound);
 	ring_vm_funcregister("stopsound",ring_StopSound);
 	ring_vm_funcregister("issoundplaying",ring_IsSoundPlaying);
+	ring_vm_funcregister("setsoundvolume",ring_SetSoundVolume);
 }
