@@ -799,6 +799,20 @@ RING_FUNC(ring_GetRandomValue)
 	RING_API_RETNUMBER(GetRandomValue( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_FileExists)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(FileExists(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -862,4 +876,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tracelog",ring_TraceLog);
 	ring_vm_funcregister("takescreenshot",ring_TakeScreenshot);
 	ring_vm_funcregister("getrandomvalue",ring_GetRandomValue);
+	ring_vm_funcregister("fileexists",ring_FileExists);
 }
