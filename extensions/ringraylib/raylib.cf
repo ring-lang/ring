@@ -170,3 +170,4 @@ void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color co
 void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, int lineThick, Color color)
 void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color)
 void DrawTriangleLines(Vector2 v1, Vector2 v2, Vector2 v3, Color color)
+void DrawTriangleFan(Vector2 *points, int numPoints, Color color)
