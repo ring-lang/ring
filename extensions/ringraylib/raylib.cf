@@ -291,3 +291,4 @@ void DrawSphereEx(Vector3 centerPos, float radius, int rings, int slices, Color 
 void DrawSphereWires(Vector3 centerPos, float radius, int rings, int slices, Color color)
 void DrawCylinder(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
 void DrawCylinderWires(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
+void DrawPlane(Vector3 centerPos, Vector2 size, Color color)
