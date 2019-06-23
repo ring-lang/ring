@@ -178,3 +178,4 @@ bool CheckCollisionCircles(Vector2 center1, float radius1, Vector2 center2, floa
 bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec)
 Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2)
 bool CheckCollisionPointRec(Vector2 point, Rectangle rec)
+bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius)
