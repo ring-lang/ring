@@ -4220,6 +4220,24 @@ RING_FUNC(ring_DrawTextRecEx)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(11,"Color"));
 }
 
+
+RING_FUNC(ring_MeasureText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(MeasureText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4463,4 +4481,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtextex",ring_DrawTextEx);
 	ring_vm_funcregister("drawtextrec",ring_DrawTextRec);
 	ring_vm_funcregister("drawtextrecex",ring_DrawTextRecEx);
+	ring_vm_funcregister("measuretext",ring_MeasureText);
 }
