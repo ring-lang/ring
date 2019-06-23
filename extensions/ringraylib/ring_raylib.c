@@ -749,6 +749,24 @@ RING_FUNC(ring_SetTraceLogCallback)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TraceLogCallback"));
 }
 
+
+RING_FUNC(ring_TraceLog)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	TraceLog( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -809,4 +827,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("settraceloglevel",ring_SetTraceLogLevel);
 	ring_vm_funcregister("settracelogexit",ring_SetTraceLogExit);
 	ring_vm_funcregister("settracelogcallback",ring_SetTraceLogCallback);
+	ring_vm_funcregister("tracelog",ring_TraceLog);
 }
