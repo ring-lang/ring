@@ -6892,6 +6892,18 @@ RING_FUNC(ring_UpdateAudioStream)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
+
+RING_FUNC(ring_CloseAudioStream)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	CloseAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7285,4 +7297,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmusictimeplayed",ring_GetMusicTimePlayed);
 	ring_vm_funcregister("initaudiostream",ring_InitAudioStream);
 	ring_vm_funcregister("updateaudiostream",ring_UpdateAudioStream);
+	ring_vm_funcregister("closeaudiostream",ring_CloseAudioStream);
 }
