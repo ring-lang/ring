@@ -5212,6 +5212,33 @@ RING_FUNC(ring_GenMeshPlane)
 	}
 }
 
+
+RING_FUNC(ring_GenMeshCube)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Mesh *pValue ; 
+		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		*pValue = GenMeshCube( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5507,4 +5534,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ismodelanimationvalid",ring_IsModelAnimationValid);
 	ring_vm_funcregister("genmeshpoly",ring_GenMeshPoly);
 	ring_vm_funcregister("genmeshplane",ring_GenMeshPlane);
+	ring_vm_funcregister("genmeshcube",ring_GenMeshCube);
 }
