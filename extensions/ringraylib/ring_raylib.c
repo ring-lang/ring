@@ -2888,6 +2888,22 @@ RING_FUNC(ring_ImageCopy)
 	}
 }
 
+
+RING_FUNC(ring_ImageToPOT)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageToPOT((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3071,4 +3087,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getscreendata",ring_GetScreenData);
 	ring_vm_funcregister("updatetexture",ring_UpdateTexture);
 	ring_vm_funcregister("imagecopy",ring_ImageCopy);
+	ring_vm_funcregister("imagetopot",ring_ImageToPOT);
 }
