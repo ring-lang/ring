@@ -395,6 +395,18 @@ RING_FUNC(ring_DisableCursor)
 	DisableCursor();
 }
 
+
+RING_FUNC(ring_ClearBackground)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	ClearBackground(* (Color  *) RING_API_GETCPOINTER(1,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -429,4 +441,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("iscursorhidden",ring_IsCursorHidden);
 	ring_vm_funcregister("enablecursor",ring_EnableCursor);
 	ring_vm_funcregister("disablecursor",ring_DisableCursor);
+	ring_vm_funcregister("clearbackground",ring_ClearBackground);
 }
