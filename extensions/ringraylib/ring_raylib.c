@@ -621,6 +621,23 @@ RING_FUNC(ring_ColorNormalize)
 	}
 }
 
+
+RING_FUNC(ring_ColorToHSV)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Vector3 *pValue ; 
+		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		*pValue = ColorToHSV(* (Color  *) RING_API_GETCPOINTER(1,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -673,4 +690,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gettime",ring_GetTime);
 	ring_vm_funcregister("colortoint",ring_ColorToInt);
 	ring_vm_funcregister("colornormalize",ring_ColorNormalize);
+	ring_vm_funcregister("colortohsv",ring_ColorToHSV);
 }
