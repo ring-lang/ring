@@ -1134,6 +1134,24 @@ RING_FUNC(ring_IsGamepadAvailable)
 	RING_API_RETNUMBER(IsGamepadAvailable( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_IsGamepadName)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsGamepadName( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1221,4 +1239,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getkeypressed",ring_GetKeyPressed);
 	ring_vm_funcregister("setexitkey",ring_SetExitKey);
 	ring_vm_funcregister("isgamepadavailable",ring_IsGamepadAvailable);
+	ring_vm_funcregister("isgamepadname",ring_IsGamepadName);
 }
