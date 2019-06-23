@@ -222,3 +222,4 @@ void ImageDrawText(Image *dst, Vector2 position, const char *text, int fontSize,
 void ImageDrawTextEx(Image *dst, Vector2 position, Font font, const char *text, float fontSize, float spacing, Color color)
 void ImageFlipVertical(Image *image)
 void ImageFlipHorizontal(Image *image)
+void ImageRotateCW(Image *image)
