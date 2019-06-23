@@ -6833,6 +6833,18 @@ RING_FUNC(ring_GetMusicTimeLength)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
 }
 
+
+RING_FUNC(ring_GetMusicTimePlayed)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(GetMusicTimePlayed(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7223,4 +7235,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setmusicpitch",ring_SetMusicPitch);
 	ring_vm_funcregister("setmusicloopcount",ring_SetMusicLoopCount);
 	ring_vm_funcregister("getmusictimelength",ring_GetMusicTimeLength);
+	ring_vm_funcregister("getmusictimeplayed",ring_GetMusicTimePlayed);
 }
