@@ -6133,6 +6133,16 @@ RING_FUNC(ring_BeginShaderMode)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
 }
 
+
+RING_FUNC(ring_EndShaderMode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndShaderMode();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6474,4 +6484,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentextureprefilter",ring_GenTexturePrefilter);
 	ring_vm_funcregister("gentexturebrdf",ring_GenTextureBRDF);
 	ring_vm_funcregister("beginshadermode",ring_BeginShaderMode);
+	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
 }
