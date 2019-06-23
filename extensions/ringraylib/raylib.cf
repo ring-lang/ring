@@ -167,3 +167,4 @@ void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, 
 void DrawRectangleLines(int posX, int posY, int width, int height, Color color)
 void DrawRectangleLinesEx(Rectangle rec, int lineThick, Color color)
 void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color)
+void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, int lineThick, Color color)
