@@ -334,3 +334,4 @@ bool CheckCollisionSpheres(Vector3 centerA, float radiusA, Vector3 centerB, floa
 bool CheckCollisionBoxes(BoundingBox box1, BoundingBox box2)
 bool CheckCollisionBoxSphere(BoundingBox box, Vector3 centerSphere, float radiusSphere)
 bool CheckCollisionRaySphere(Ray ray, Vector3 spherePosition, float sphereRadius)
+bool CheckCollisionRaySphereEx(Ray ray, Vector3 spherePosition, float sphereRadius, Vector3 *collisionPoint)
