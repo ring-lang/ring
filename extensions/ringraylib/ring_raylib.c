@@ -2394,6 +2394,20 @@ RING_FUNC(ring_SetShapesTexture)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
+
+RING_FUNC(ring_CheckCollisionRecs)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(CheckCollisionRecs(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2550,4 +2564,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtrianglefan",ring_DrawTriangleFan);
 	ring_vm_funcregister("drawpoly",ring_DrawPoly);
 	ring_vm_funcregister("setshapestexture",ring_SetShapesTexture);
+	ring_vm_funcregister("checkcollisionrecs",ring_CheckCollisionRecs);
 }
