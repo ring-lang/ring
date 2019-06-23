@@ -1356,6 +1356,21 @@ RING_FUNC(ring_GetMouseY)
 	RING_API_RETNUMBER(GetMouseY());
 }
 
+
+RING_FUNC(ring_GetMousePosition)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		*pValue = GetMousePosition();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1458,4 +1473,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ismousebuttonup",ring_IsMouseButtonUp);
 	ring_vm_funcregister("getmousex",ring_GetMouseX);
 	ring_vm_funcregister("getmousey",ring_GetMouseY);
+	ring_vm_funcregister("getmouseposition",ring_GetMousePosition);
 }
