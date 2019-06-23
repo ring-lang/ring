@@ -6143,6 +6143,20 @@ RING_FUNC(ring_EndShaderMode)
 	EndShaderMode();
 }
 
+
+RING_FUNC(ring_BeginBlendMode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	BeginBlendMode( (int ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6485,4 +6499,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentexturebrdf",ring_GenTextureBRDF);
 	ring_vm_funcregister("beginshadermode",ring_BeginShaderMode);
 	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
+	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);
 }
