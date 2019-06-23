@@ -1238,6 +1238,16 @@ RING_FUNC(ring_IsGamepadButtonUp)
 	RING_API_RETNUMBER(IsGamepadButtonUp( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_GetGamepadButtonPressed)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetGamepadButtonPressed());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1331,4 +1341,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isgamepadbuttondown",ring_IsGamepadButtonDown);
 	ring_vm_funcregister("isgamepadbuttonreleased",ring_IsGamepadButtonReleased);
 	ring_vm_funcregister("isgamepadbuttonup",ring_IsGamepadButtonUp);
+	ring_vm_funcregister("getgamepadbuttonpressed",ring_GetGamepadButtonPressed);
 }
