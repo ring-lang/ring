@@ -512,6 +512,25 @@ RING_FUNC(ring_GetMouseRay)
 	}
 }
 
+
+RING_FUNC(ring_GetWorldToScreen)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		*pValue = GetWorldToScreen(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Camera  *) RING_API_GETCPOINTER(2,"Camera"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Camera"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -556,4 +575,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("begintexturemode",ring_BeginTextureMode);
 	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
 	ring_vm_funcregister("getmouseray",ring_GetMouseRay);
+	ring_vm_funcregister("getworldtoscreen",ring_GetWorldToScreen);
 }
