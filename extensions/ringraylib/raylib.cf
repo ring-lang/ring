@@ -187,3 +187,4 @@ Image LoadImageRaw(const char *fileName, int width, int height, int format, int 
 void ExportImage(Image image, const char *fileName)
 void ExportImageAsCode(Image image, const char *fileName)
 Texture2D LoadTexture(const char *fileName)
+Texture2D LoadTextureFromImage(Image image)
