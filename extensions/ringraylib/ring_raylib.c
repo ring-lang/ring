@@ -6251,6 +6251,16 @@ RING_FUNC(ring_SetVrConfiguration)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Shader"));
 }
 
+
+RING_FUNC(ring_IsVrSimulatorReady)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsVrSimulatorReady());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6601,4 +6611,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
 	ring_vm_funcregister("updatevrtracking",ring_UpdateVrTracking);
 	ring_vm_funcregister("setvrconfiguration",ring_SetVrConfiguration);
+	ring_vm_funcregister("isvrsimulatorready",ring_IsVrSimulatorReady);
 }
