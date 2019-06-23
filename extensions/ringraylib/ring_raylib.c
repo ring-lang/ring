@@ -5026,6 +5026,21 @@ RING_FUNC(ring_LoadMaterials)
 	RING_API_ACCEPTINTVALUE(2) ;
 }
 
+
+RING_FUNC(ring_LoadMaterialDefault)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Material *pValue ; 
+		pValue = (Material *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Material)) ;
+		*pValue = LoadMaterialDefault();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Material",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5311,4 +5326,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("exportmesh",ring_ExportMesh);
 	ring_vm_funcregister("unloadmesh",ring_UnloadMesh);
 	ring_vm_funcregister("loadmaterials",ring_LoadMaterials);
+	ring_vm_funcregister("loadmaterialdefault",ring_LoadMaterialDefault);
 }
