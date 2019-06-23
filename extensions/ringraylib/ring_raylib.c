@@ -3969,6 +3969,29 @@ RING_FUNC(ring_LoadFontEx)
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
+
+RING_FUNC(ring_LoadFontFromImage)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Font *pValue ; 
+		pValue = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+		*pValue = LoadFontFromImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4203,4 +4226,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getfontdefault",ring_GetFontDefault);
 	ring_vm_funcregister("loadfont",ring_LoadFont);
 	ring_vm_funcregister("loadfontex",ring_LoadFontEx);
+	ring_vm_funcregister("loadfontfromimage",ring_LoadFontFromImage);
 }
