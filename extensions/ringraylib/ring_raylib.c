@@ -4320,6 +4320,20 @@ RING_FUNC(ring_TextIsEqual)
 	RING_API_RETNUMBER(TextIsEqual(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_TextLength)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TextLength(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4568,4 +4582,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getglyphindex",ring_GetGlyphIndex);
 	ring_vm_funcregister("getnextcodepoint",ring_GetNextCodepoint);
 	ring_vm_funcregister("textisequal",ring_TextIsEqual);
+	ring_vm_funcregister("textlength",ring_TextLength);
 }
