@@ -5707,6 +5707,20 @@ RING_FUNC(ring_CheckCollisionRaySphereEx)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
 }
 
+
+RING_FUNC(ring_CheckCollisionRayBox)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(CheckCollisionRayBox(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (BoundingBox  *) RING_API_GETCPOINTER(2,"BoundingBox")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"BoundingBox"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6025,4 +6039,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionboxsphere",ring_CheckCollisionBoxSphere);
 	ring_vm_funcregister("checkcollisionraysphere",ring_CheckCollisionRaySphere);
 	ring_vm_funcregister("checkcollisionraysphereex",ring_CheckCollisionRaySphereEx);
+	ring_vm_funcregister("checkcollisionraybox",ring_CheckCollisionRayBox);
 }
