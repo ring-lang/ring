@@ -4634,6 +4634,22 @@ RING_FUNC(ring_DrawCube)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
 }
 
+
+RING_FUNC(ring_DrawCubeV)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	DrawCubeV(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4899,4 +4915,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawline3d",ring_DrawLine3D);
 	ring_vm_funcregister("drawcircle3d",ring_DrawCircle3D);
 	ring_vm_funcregister("drawcube",ring_DrawCube);
+	ring_vm_funcregister("drawcubev",ring_DrawCubeV);
 }
