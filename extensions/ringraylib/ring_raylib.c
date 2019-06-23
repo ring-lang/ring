@@ -2990,6 +2990,22 @@ RING_FUNC(ring_ImageAlphaPremultiply)
 	ImageAlphaPremultiply((Image *) RING_API_GETCPOINTER(1,"Image"));
 }
 
+
+RING_FUNC(ring_ImageCrop)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageCrop((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3179,4 +3195,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagealphaclear",ring_ImageAlphaClear);
 	ring_vm_funcregister("imagealphacrop",ring_ImageAlphaCrop);
 	ring_vm_funcregister("imagealphapremultiply",ring_ImageAlphaPremultiply);
+	ring_vm_funcregister("imagecrop",ring_ImageCrop);
 }
