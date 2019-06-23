@@ -5721,6 +5721,27 @@ RING_FUNC(ring_CheckCollisionRayBox)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"BoundingBox"));
 }
 
+
+RING_FUNC(ring_GetCollisionRayModel)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		RayHitInfo *pValue ; 
+		pValue = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+		*pValue = GetCollisionRayModel(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),(Model *) RING_API_GETCPOINTER(2,"Model"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6040,4 +6061,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionraysphere",ring_CheckCollisionRaySphere);
 	ring_vm_funcregister("checkcollisionraysphereex",ring_CheckCollisionRaySphereEx);
 	ring_vm_funcregister("checkcollisionraybox",ring_CheckCollisionRayBox);
+	ring_vm_funcregister("getcollisionraymodel",ring_GetCollisionRayModel);
 }
