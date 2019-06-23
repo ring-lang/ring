@@ -592,6 +592,18 @@ RING_FUNC(ring_GetTime)
 	RING_API_RETNUMBER(GetTime());
 }
 
+
+RING_FUNC(ring_ColorToInt)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(ColorToInt(* (Color  *) RING_API_GETCPOINTER(1,"Color")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -642,4 +654,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getfps",ring_GetFPS);
 	ring_vm_funcregister("getframetime",ring_GetFrameTime);
 	ring_vm_funcregister("gettime",ring_GetTime);
+	ring_vm_funcregister("colortoint",ring_ColorToInt);
 }
