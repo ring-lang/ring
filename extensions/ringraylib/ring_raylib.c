@@ -4946,6 +4946,18 @@ RING_FUNC(ring_LoadModelFromMesh)
 	}
 }
 
+
+RING_FUNC(ring_UnloadModel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadModel(* (Model  *) RING_API_GETCPOINTER(1,"Model"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5226,4 +5238,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawgizmo",ring_DrawGizmo);
 	ring_vm_funcregister("loadmodel",ring_LoadModel);
 	ring_vm_funcregister("loadmodelfrommesh",ring_LoadModelFromMesh);
+	ring_vm_funcregister("unloadmodel",ring_UnloadModel);
 }
