@@ -6636,6 +6636,28 @@ RING_FUNC(ring_WaveCopy)
 	}
 }
 
+
+RING_FUNC(ring_WaveCrop)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	WaveCrop((Wave *) RING_API_GETCPOINTER(1,"Wave"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7012,4 +7034,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setsoundpitch",ring_SetSoundPitch);
 	ring_vm_funcregister("waveformat",ring_WaveFormat);
 	ring_vm_funcregister("wavecopy",ring_WaveCopy);
+	ring_vm_funcregister("wavecrop",ring_WaveCrop);
 }
