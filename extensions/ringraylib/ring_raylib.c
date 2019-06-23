@@ -562,6 +562,16 @@ RING_FUNC(ring_SetTargetFPS)
 	SetTargetFPS( (int ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_GetFPS)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetFPS());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -609,4 +619,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getworldtoscreen",ring_GetWorldToScreen);
 	ring_vm_funcregister("getcameramatrix",ring_GetCameraMatrix);
 	ring_vm_funcregister("settargetfps",ring_SetTargetFPS);
+	ring_vm_funcregister("getfps",ring_GetFPS);
 }
