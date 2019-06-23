@@ -1012,6 +1012,20 @@ RING_FUNC(ring_StorageSaveValue)
 	StorageSaveValue( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_StorageLoadValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(StorageLoadValue( (int ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1090,4 +1104,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cleardroppedfiles",ring_ClearDroppedFiles);
 	ring_vm_funcregister("getfilemodtime",ring_GetFileModTime);
 	ring_vm_funcregister("storagesavevalue",ring_StorageSaveValue);
+	ring_vm_funcregister("storageloadvalue",ring_StorageLoadValue);
 }
