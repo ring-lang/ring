@@ -175,6 +175,24 @@ RING_FUNC(ring_SetWindowMonitor)
 	SetWindowMonitor( (int ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_SetWindowMinSize)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowMinSize( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -191,4 +209,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setwindowtitle",ring_SetWindowTitle);
 	ring_vm_funcregister("setwindowposition",ring_SetWindowPosition);
 	ring_vm_funcregister("setwindowmonitor",ring_SetWindowMonitor);
+	ring_vm_funcregister("setwindowminsize",ring_SetWindowMinSize);
 }
