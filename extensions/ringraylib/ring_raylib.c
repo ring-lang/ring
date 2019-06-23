@@ -6992,6 +6992,22 @@ RING_FUNC(ring_SetAudioStreamVolume)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
+
+RING_FUNC(ring_SetAudioStreamPitch)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetAudioStreamPitch(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7393,4 +7409,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isaudiostreamplaying",ring_IsAudioStreamPlaying);
 	ring_vm_funcregister("stopaudiostream",ring_StopAudioStream);
 	ring_vm_funcregister("setaudiostreamvolume",ring_SetAudioStreamVolume);
+	ring_vm_funcregister("setaudiostreampitch",ring_SetAudioStreamPitch);
 }
