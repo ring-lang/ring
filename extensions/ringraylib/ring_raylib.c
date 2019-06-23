@@ -107,6 +107,16 @@ RING_FUNC(ring_UnhideWindow)
 	UnhideWindow();
 }
 
+
+RING_FUNC(ring_HideWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	HideWindow();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -118,4 +128,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("iswindowhidden",ring_IsWindowHidden);
 	ring_vm_funcregister("togglefullscreen",ring_ToggleFullscreen);
 	ring_vm_funcregister("unhidewindow",ring_UnhideWindow);
+	ring_vm_funcregister("hidewindow",ring_HideWindow);
 }
