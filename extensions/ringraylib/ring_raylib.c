@@ -887,6 +887,16 @@ RING_FUNC(ring_GetDirectoryPath)
 	RING_API_RETSTRING(GetDirectoryPath(RING_API_GETSTRING(1)));
 }
 
+
+RING_FUNC(ring_GetWorkingDirectory)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(GetWorkingDirectory());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -956,4 +966,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getfilename",ring_GetFileName);
 	ring_vm_funcregister("getfilenamewithoutext",ring_GetFileNameWithoutExt);
 	ring_vm_funcregister("getdirectorypath",ring_GetDirectoryPath);
+	ring_vm_funcregister("getworkingdirectory",ring_GetWorkingDirectory);
 }
