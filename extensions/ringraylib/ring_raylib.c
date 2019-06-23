@@ -2680,6 +2680,23 @@ RING_FUNC(ring_LoadTexture)
 	}
 }
 
+
+RING_FUNC(ring_LoadTextureFromImage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Texture2D *pValue ; 
+		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		*pValue = LoadTextureFromImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2850,4 +2867,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("exportimage",ring_ExportImage);
 	ring_vm_funcregister("exportimageascode",ring_ExportImageAsCode);
 	ring_vm_funcregister("loadtexture",ring_LoadTexture);
+	ring_vm_funcregister("loadtexturefromimage",ring_LoadTextureFromImage);
 }
