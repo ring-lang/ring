@@ -4070,6 +4070,24 @@ RING_FUNC(ring_UnloadFont)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
 }
 
+
+RING_FUNC(ring_DrawFPS)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawFPS( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4308,4 +4326,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadfontdata",ring_LoadFontData);
 	ring_vm_funcregister("genimagefontatlas",ring_GenImageFontAtlas);
 	ring_vm_funcregister("unloadfont",ring_UnloadFont);
+	ring_vm_funcregister("drawfps",ring_DrawFPS);
 }
