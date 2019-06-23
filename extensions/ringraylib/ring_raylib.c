@@ -1445,6 +1445,16 @@ RING_FUNC(ring_GetTouchX)
 	RING_API_RETNUMBER(GetTouchX());
 }
 
+
+RING_FUNC(ring_GetTouchY)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetTouchY());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1553,4 +1563,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setmousescale",ring_SetMouseScale);
 	ring_vm_funcregister("getmousewheelmove",ring_GetMouseWheelMove);
 	ring_vm_funcregister("gettouchx",ring_GetTouchX);
+	ring_vm_funcregister("gettouchy",ring_GetTouchY);
 }
