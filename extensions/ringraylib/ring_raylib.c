@@ -6281,6 +6281,16 @@ RING_FUNC(ring_BeginVrDrawing)
 	BeginVrDrawing();
 }
 
+
+RING_FUNC(ring_EndVrDrawing)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndVrDrawing();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6634,4 +6644,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isvrsimulatorready",ring_IsVrSimulatorReady);
 	ring_vm_funcregister("togglevrmode",ring_ToggleVrMode);
 	ring_vm_funcregister("beginvrdrawing",ring_BeginVrDrawing);
+	ring_vm_funcregister("endvrdrawing",ring_EndVrDrawing);
 }
