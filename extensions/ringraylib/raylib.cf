@@ -263,3 +263,4 @@ void DrawTextRecEx(Font font, const char *text, Rectangle rec, float fontSize, f
 int MeasureText(const char *text, int fontSize)
 Vector2 MeasureTextEx(Font font, const char *text, float fontSize, float spacing)
 int GetGlyphIndex(Font font, int character)
+int GetNextCodepoint(const char *text, int *count)
