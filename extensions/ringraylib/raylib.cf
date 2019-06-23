@@ -254,3 +254,4 @@ Font LoadFontEx(const char *fileName, int fontSize, int *fontChars, int charsCou
 Font LoadFontFromImage(Image image, Color key, int firstChar)
 CharInfo *LoadFontData(const char *fileName, int fontSize, int *fontChars, int charsCount, int type)
 Image GenImageFontAtlas(CharInfo *chars, int charsCount, int fontSize, int padding, int packMethod)
+void UnloadFont(Font font)
