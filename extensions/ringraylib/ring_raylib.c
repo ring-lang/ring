@@ -4283,6 +4283,25 @@ RING_FUNC(ring_GetGlyphIndex)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
 }
 
+
+RING_FUNC(ring_GetNextCodepoint)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetNextCodepoint(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4529,4 +4548,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("measuretext",ring_MeasureText);
 	ring_vm_funcregister("measuretextex",ring_MeasureTextEx);
 	ring_vm_funcregister("getglyphindex",ring_GetGlyphIndex);
+	ring_vm_funcregister("getnextcodepoint",ring_GetNextCodepoint);
 }
