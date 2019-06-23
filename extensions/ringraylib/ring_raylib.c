@@ -6121,6 +6121,18 @@ RING_FUNC(ring_GenTextureBRDF)
 	}
 }
 
+
+RING_FUNC(ring_BeginShaderMode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	BeginShaderMode(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6461,4 +6473,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentextureirradiance",ring_GenTextureIrradiance);
 	ring_vm_funcregister("gentextureprefilter",ring_GenTexturePrefilter);
 	ring_vm_funcregister("gentexturebrdf",ring_GenTextureBRDF);
+	ring_vm_funcregister("beginshadermode",ring_BeginShaderMode);
 }
