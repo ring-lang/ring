@@ -4450,6 +4450,27 @@ RING_FUNC(ring_TextJoin)
 	RING_API_RETSTRING(TextJoin((char **) RING_API_GETCPOINTER2POINTER(1,"char"), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
 }
 
+
+RING_FUNC(ring_TextSplit)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(TextSplit(RING_API_GETSTRING(1),* (char  *) RING_API_GETCPOINTER(2,"char"),RING_API_GETINTPOINTER(3)),"char");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4705,4 +4726,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("textreplace",ring_TextReplace);
 	ring_vm_funcregister("textinsert",ring_TextInsert);
 	ring_vm_funcregister("textjoin",ring_TextJoin);
+	ring_vm_funcregister("textsplit",ring_TextSplit);
 }
