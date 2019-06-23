@@ -67,6 +67,16 @@ RING_FUNC(ring_IsWindowMinimized)
 	RING_API_RETNUMBER(IsWindowMinimized());
 }
 
+
+RING_FUNC(ring_IsWindowResized)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowResized());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -74,4 +84,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("closewindow",ring_CloseWindow);
 	ring_vm_funcregister("iswindowready",ring_IsWindowReady);
 	ring_vm_funcregister("iswindowminimized",ring_IsWindowMinimized);
+	ring_vm_funcregister("iswindowresized",ring_IsWindowResized);
 }
