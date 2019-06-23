@@ -4471,6 +4471,29 @@ RING_FUNC(ring_TextSplit)
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
+
+RING_FUNC(ring_TextAppend)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	TextAppend(RING_API_GETSTRING(1),RING_API_GETSTRING(2),RING_API_GETINTPOINTER(3));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4727,4 +4750,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("textinsert",ring_TextInsert);
 	ring_vm_funcregister("textjoin",ring_TextJoin);
 	ring_vm_funcregister("textsplit",ring_TextSplit);
+	ring_vm_funcregister("textappend",ring_TextAppend);
 }
