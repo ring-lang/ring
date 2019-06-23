@@ -2012,6 +2012,40 @@ RING_FUNC(ring_DrawRing)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
 }
 
+
+RING_FUNC(ring_DrawRingLines)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawRingLines(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2151,4 +2185,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcirclev",ring_DrawCircleV);
 	ring_vm_funcregister("drawcirclelines",ring_DrawCircleLines);
 	ring_vm_funcregister("drawring",ring_DrawRing);
+	ring_vm_funcregister("drawringlines",ring_DrawRingLines);
 }
