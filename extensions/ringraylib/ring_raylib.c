@@ -4720,6 +4720,24 @@ RING_FUNC(ring_DrawCubeTexture)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
 }
 
+
+RING_FUNC(ring_DrawSphere)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawSphere(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4989,4 +5007,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcubewires",ring_DrawCubeWires);
 	ring_vm_funcregister("drawcubewiresv",ring_DrawCubeWiresV);
 	ring_vm_funcregister("drawcubetexture",ring_DrawCubeTexture);
+	ring_vm_funcregister("drawsphere",ring_DrawSphere);
 }
