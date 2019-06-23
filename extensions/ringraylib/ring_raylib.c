@@ -6223,6 +6223,20 @@ RING_FUNC(ring_CloseVrSimulator)
 	CloseVrSimulator();
 }
 
+
+RING_FUNC(ring_UpdateVrTracking)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UpdateVrTracking((Camera *) RING_API_GETCPOINTER(1,"Camera"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6571,4 +6585,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endscissormode",ring_EndScissorMode);
 	ring_vm_funcregister("initvrsimulator",ring_InitVrSimulator);
 	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
+	ring_vm_funcregister("updatevrtracking",ring_UpdateVrTracking);
 }
