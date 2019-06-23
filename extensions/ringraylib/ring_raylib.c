@@ -5974,6 +5974,24 @@ RING_FUNC(ring_SetShaderValueMatrix)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Matrix"));
 }
 
+
+RING_FUNC(ring_SetShaderValueTexture)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetShaderValueTexture(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),* (Texture2D  *) RING_API_GETCPOINTER(3,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Texture2D"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6306,4 +6324,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setshadervalue",ring_SetShaderValue);
 	ring_vm_funcregister("setshadervaluev",ring_SetShaderValueV);
 	ring_vm_funcregister("setshadervaluematrix",ring_SetShaderValueMatrix);
+	ring_vm_funcregister("setshadervaluetexture",ring_SetShaderValueTexture);
 }
