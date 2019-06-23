@@ -5888,6 +5888,22 @@ RING_FUNC(ring_GetTextureDefault)
 	}
 }
 
+
+RING_FUNC(ring_GetShaderLocation)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetShaderLocation(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"),RING_API_GETSTRING(2)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6216,4 +6232,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadshader",ring_UnloadShader);
 	ring_vm_funcregister("getshaderdefault",ring_GetShaderDefault);
 	ring_vm_funcregister("gettexturedefault",ring_GetTextureDefault);
+	ring_vm_funcregister("getshaderlocation",ring_GetShaderLocation);
 }
