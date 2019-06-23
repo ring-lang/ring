@@ -249,3 +249,4 @@ void DrawTextureQuad(Texture2D texture, Vector2 tiling, Vector2 offset, Rectangl
 void DrawTexturePro(Texture2D texture, Rectangle sourceRec, Rectangle destRec, Vector2 origin, float rotation, Color tint)
 void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle destRec, Vector2 origin, float rotation, Color tint)
 Font GetFontDefault(void)
+Font LoadFont(const char *fileName)
