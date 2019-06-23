@@ -4512,6 +4512,20 @@ RING_FUNC(ring_TextFindIndex)
 	RING_API_RETNUMBER(TextFindIndex(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_TextToUpper)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(TextToUpper(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4770,4 +4784,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("textsplit",ring_TextSplit);
 	ring_vm_funcregister("textappend",ring_TextAppend);
 	ring_vm_funcregister("textfindindex",ring_TextFindIndex);
+	ring_vm_funcregister("texttoupper",ring_TextToUpper);
 }
