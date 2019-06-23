@@ -37,8 +37,19 @@ RING_FUNC(ring_WindowShouldClose)
 	RING_API_RETNUMBER(WindowShouldClose());
 }
 
+
+RING_FUNC(ring_CloseWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	CloseWindow();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
 	ring_vm_funcregister("windowshouldclose",ring_WindowShouldClose);
+	ring_vm_funcregister("closewindow",ring_CloseWindow);
 }
