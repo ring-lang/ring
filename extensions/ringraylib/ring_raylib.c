@@ -2467,6 +2467,20 @@ RING_FUNC(ring_GetCollisionRec)
 	}
 }
 
+
+RING_FUNC(ring_CheckCollisionPointRec)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(CheckCollisionPointRec(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2627,4 +2641,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisioncircles",ring_CheckCollisionCircles);
 	ring_vm_funcregister("checkcollisioncirclerec",ring_CheckCollisionCircleRec);
 	ring_vm_funcregister("getcollisionrec",ring_GetCollisionRec);
+	ring_vm_funcregister("checkcollisionpointrec",ring_CheckCollisionPointRec);
 }
