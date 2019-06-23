@@ -3096,6 +3096,36 @@ RING_FUNC(ring_ImageMipmaps)
 	ImageMipmaps((Image *) RING_API_GETCPOINTER(1,"Image"));
 }
 
+
+RING_FUNC(ring_ImageDither)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDither((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3290,4 +3320,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);
 	ring_vm_funcregister("imageresizecanvas",ring_ImageResizeCanvas);
 	ring_vm_funcregister("imagemipmaps",ring_ImageMipmaps);
+	ring_vm_funcregister("imagedither",ring_ImageDither);
 }
