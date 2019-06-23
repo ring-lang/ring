@@ -6670,6 +6670,25 @@ RING_FUNC(ring_GetWaveData)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
 }
 
+
+RING_FUNC(ring_LoadMusicStream)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Music *pValue ; 
+		pValue = (Music *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Music)) ;
+		*pValue = LoadMusicStream(RING_API_GETSTRING(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Music",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7048,4 +7067,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("wavecopy",ring_WaveCopy);
 	ring_vm_funcregister("wavecrop",ring_WaveCrop);
 	ring_vm_funcregister("getwavedata",ring_GetWaveData);
+	ring_vm_funcregister("loadmusicstream",ring_LoadMusicStream);
 }
