@@ -1626,6 +1626,20 @@ RING_FUNC(ring_SetCameraPanControl)
 	SetCameraPanControl( (int ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_SetCameraAltControl)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetCameraAltControl( (int ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1748,4 +1762,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setcameramode",ring_SetCameraMode);
 	ring_vm_funcregister("updatecamera",ring_UpdateCamera);
 	ring_vm_funcregister("setcamerapancontrol",ring_SetCameraPanControl);
+	ring_vm_funcregister("setcameraaltcontrol",ring_SetCameraAltControl);
 }
