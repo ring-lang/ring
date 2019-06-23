@@ -1708,6 +1708,20 @@ RING_FUNC(ring_DrawPixel)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
 }
 
+
+RING_FUNC(ring_DrawPixelV)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	DrawPixelV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1834,4 +1848,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
 	ring_vm_funcregister("setcameramovecontrols",ring_SetCameraMoveControls);
 	ring_vm_funcregister("drawpixel",ring_DrawPixel);
+	ring_vm_funcregister("drawpixelv",ring_DrawPixelV);
 }
