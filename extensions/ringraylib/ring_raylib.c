@@ -6193,6 +6193,16 @@ RING_FUNC(ring_BeginScissorMode)
 	BeginScissorMode( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_EndScissorMode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndScissorMode();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6538,4 +6548,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);
 	ring_vm_funcregister("endblendmode",ring_EndBlendMode);
 	ring_vm_funcregister("beginscissormode",ring_BeginScissorMode);
+	ring_vm_funcregister("endscissormode",ring_EndScissorMode);
 }
