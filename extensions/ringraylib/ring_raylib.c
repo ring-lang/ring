@@ -1322,6 +1322,20 @@ RING_FUNC(ring_IsMouseButtonReleased)
 	RING_API_RETNUMBER(IsMouseButtonReleased( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_IsMouseButtonUp)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsMouseButtonUp( (int ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1421,4 +1435,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ismousebuttonpressed",ring_IsMouseButtonPressed);
 	ring_vm_funcregister("ismousebuttondown",ring_IsMouseButtonDown);
 	ring_vm_funcregister("ismousebuttonreleased",ring_IsMouseButtonReleased);
+	ring_vm_funcregister("ismousebuttonup",ring_IsMouseButtonUp);
 }
