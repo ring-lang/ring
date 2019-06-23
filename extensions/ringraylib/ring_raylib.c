@@ -355,6 +355,16 @@ RING_FUNC(ring_ShowCursor)
 	ShowCursor();
 }
 
+
+RING_FUNC(ring_HideCursor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	HideCursor();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -385,4 +395,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getclipboardtext",ring_GetClipboardText);
 	ring_vm_funcregister("setclipboardtext",ring_SetClipboardText);
 	ring_vm_funcregister("showcursor",ring_ShowCursor);
+	ring_vm_funcregister("hidecursor",ring_HideCursor);
 }
