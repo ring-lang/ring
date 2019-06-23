@@ -5956,6 +5956,24 @@ RING_FUNC(ring_SetShaderValueV)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
 }
 
+
+RING_FUNC(ring_SetShaderValueMatrix)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetShaderValueMatrix(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),* (Matrix  *) RING_API_GETCPOINTER(3,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Matrix"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6287,4 +6305,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getshaderlocation",ring_GetShaderLocation);
 	ring_vm_funcregister("setshadervalue",ring_SetShaderValue);
 	ring_vm_funcregister("setshadervaluev",ring_SetShaderValueV);
+	ring_vm_funcregister("setshadervaluematrix",ring_SetShaderValueMatrix);
 }
