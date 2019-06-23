@@ -5132,6 +5132,18 @@ RING_FUNC(ring_UpdateModelAnimation)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ModelAnimation"));
 }
 
+
+RING_FUNC(ring_UnloadModelAnimation)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadModelAnimation(* (ModelAnimation  *) RING_API_GETCPOINTER(1,"ModelAnimation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ModelAnimation"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5423,4 +5435,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setmodelmeshmaterial",ring_SetModelMeshMaterial);
 	ring_vm_funcregister("loadmodelanimations",ring_LoadModelAnimations);
 	ring_vm_funcregister("updatemodelanimation",ring_UpdateModelAnimation);
+	ring_vm_funcregister("unloadmodelanimation",ring_UnloadModelAnimation);
 }
