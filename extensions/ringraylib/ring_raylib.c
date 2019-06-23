@@ -2090,6 +2090,20 @@ RING_FUNC(ring_DrawRectangleV)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
 }
 
+
+RING_FUNC(ring_DrawRectangleRec)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	DrawRectangleRec(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2232,4 +2246,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawringlines",ring_DrawRingLines);
 	ring_vm_funcregister("drawrectangle",ring_DrawRectangle);
 	ring_vm_funcregister("drawrectanglev",ring_DrawRectangleV);
+	ring_vm_funcregister("drawrectanglerec",ring_DrawRectangleRec);
 }
