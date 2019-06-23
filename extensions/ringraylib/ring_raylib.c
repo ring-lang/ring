@@ -3147,6 +3147,31 @@ RING_FUNC(ring_ImageExtractPalette)
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
+
+RING_FUNC(ring_ImageText)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		*pValue = ImageText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3343,4 +3368,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagemipmaps",ring_ImageMipmaps);
 	ring_vm_funcregister("imagedither",ring_ImageDither);
 	ring_vm_funcregister("imageextractpalette",ring_ImageExtractPalette);
+	ring_vm_funcregister("imagetext",ring_ImageText);
 }
