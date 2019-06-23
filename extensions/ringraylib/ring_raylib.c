@@ -950,6 +950,21 @@ RING_FUNC(ring_IsFileDropped)
 	RING_API_RETNUMBER(IsFileDropped());
 }
 
+
+RING_FUNC(ring_GetDroppedFiles)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(GetDroppedFiles(RING_API_GETINTPOINTER(1)),"char");
+	RING_API_ACCEPTINTVALUE(1) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1024,4 +1039,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cleardirectoryfiles",ring_ClearDirectoryFiles);
 	ring_vm_funcregister("changedirectory",ring_ChangeDirectory);
 	ring_vm_funcregister("isfiledropped",ring_IsFileDropped);
+	ring_vm_funcregister("getdroppedfiles",ring_GetDroppedFiles);
 }
