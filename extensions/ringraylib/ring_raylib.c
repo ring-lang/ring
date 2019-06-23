@@ -3709,6 +3709,20 @@ RING_FUNC(ring_GenImageCellular)
 	}
 }
 
+
+RING_FUNC(ring_GenTextureMipmaps)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GenTextureMipmaps((Texture2D *) RING_API_GETCPOINTER(1,"Texture2D"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3930,4 +3944,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genimagewhitenoise",ring_GenImageWhiteNoise);
 	ring_vm_funcregister("genimageperlinnoise",ring_GenImagePerlinNoise);
 	ring_vm_funcregister("genimagecellular",ring_GenImageCellular);
+	ring_vm_funcregister("gentexturemipmaps",ring_GenTextureMipmaps);
 }
