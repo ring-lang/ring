@@ -3335,6 +3335,20 @@ RING_FUNC(ring_ImageFlipVertical)
 	ImageFlipVertical((Image *) RING_API_GETCPOINTER(1,"Image"));
 }
 
+
+RING_FUNC(ring_ImageFlipHorizontal)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageFlipHorizontal((Image *) RING_API_GETCPOINTER(1,"Image"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3539,4 +3553,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagedrawtext",ring_ImageDrawText);
 	ring_vm_funcregister("imagedrawtextex",ring_ImageDrawTextEx);
 	ring_vm_funcregister("imageflipvertical",ring_ImageFlipVertical);
+	ring_vm_funcregister("imagefliphorizontal",ring_ImageFlipHorizontal);
 }
