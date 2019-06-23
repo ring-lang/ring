@@ -439,6 +439,16 @@ RING_FUNC(ring_BeginMode2D)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera2D"));
 }
 
+
+RING_FUNC(ring_EndMode2D)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndMode2D();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -477,4 +487,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("begindrawing",ring_BeginDrawing);
 	ring_vm_funcregister("enddrawing",ring_EndDrawing);
 	ring_vm_funcregister("beginmode2d",ring_BeginMode2D);
+	ring_vm_funcregister("endmode2d",ring_EndMode2D);
 }
