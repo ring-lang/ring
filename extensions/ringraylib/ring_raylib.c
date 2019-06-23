@@ -1054,6 +1054,20 @@ RING_FUNC(ring_IsKeyPressed)
 	RING_API_RETNUMBER(IsKeyPressed( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_IsKeyDown)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsKeyDown( (int ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1135,4 +1149,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("storageloadvalue",ring_StorageLoadValue);
 	ring_vm_funcregister("openurl",ring_OpenURL);
 	ring_vm_funcregister("iskeypressed",ring_IsKeyPressed);
+	ring_vm_funcregister("iskeydown",ring_IsKeyDown);
 }
