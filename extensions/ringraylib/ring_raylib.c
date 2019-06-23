@@ -241,6 +241,16 @@ RING_FUNC(ring_GetScreenHeight)
 	RING_API_RETNUMBER(GetScreenHeight());
 }
 
+
+RING_FUNC(ring_GetMonitorCount)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetMonitorCount());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -262,4 +272,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getwindowhandle",ring_GetWindowHandle);
 	ring_vm_funcregister("getscreenwidth",ring_GetScreenWidth);
 	ring_vm_funcregister("getscreenheight",ring_GetScreenHeight);
+	ring_vm_funcregister("getmonitorcount",ring_GetMonitorCount);
 }
