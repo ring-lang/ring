@@ -2629,6 +2629,22 @@ RING_FUNC(ring_LoadImageRaw)
 	}
 }
 
+
+RING_FUNC(ring_ExportImage)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ExportImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2796,4 +2812,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadimageex",ring_LoadImageEx);
 	ring_vm_funcregister("loadimagepro",ring_LoadImagePro);
 	ring_vm_funcregister("loadimageraw",ring_LoadImageRaw);
+	ring_vm_funcregister("exportimage",ring_ExportImage);
 }
