@@ -155,3 +155,4 @@ void DrawCircleSectorLines(Vector2 center, float radius, int startAngle, int end
 void DrawCircleGradient(int centerX, int centerY, float radius, Color color1, Color color2)
 void DrawCircleV(Vector2 center, float radius, Color color)
 void DrawCircleLines(int centerX, int centerY, float radius, Color color)
+void DrawRing(Vector2 center, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color)
