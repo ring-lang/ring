@@ -183,3 +183,4 @@ bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 
 Image LoadImage(const char *fileName)
 Image LoadImageEx(Color *pixels, int width, int height)
 Image LoadImagePro(void *data, int width, int height, int format)
+Image LoadImageRaw(const char *fileName, int width, int height, int format, int headerSize)
