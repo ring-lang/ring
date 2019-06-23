@@ -548,6 +548,20 @@ RING_FUNC(ring_GetCameraMatrix)
 	}
 }
 
+
+RING_FUNC(ring_SetTargetFPS)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetTargetFPS( (int ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -594,4 +608,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmouseray",ring_GetMouseRay);
 	ring_vm_funcregister("getworldtoscreen",ring_GetWorldToScreen);
 	ring_vm_funcregister("getcameramatrix",ring_GetCameraMatrix);
+	ring_vm_funcregister("settargetfps",ring_SetTargetFPS);
 }
