@@ -6237,6 +6237,20 @@ RING_FUNC(ring_UpdateVrTracking)
 	UpdateVrTracking((Camera *) RING_API_GETCPOINTER(1,"Camera"));
 }
 
+
+RING_FUNC(ring_SetVrConfiguration)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	SetVrConfiguration(* (VrDeviceInfo  *) RING_API_GETCPOINTER(1,"VrDeviceInfo"),* (Shader  *) RING_API_GETCPOINTER(2,"Shader"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"VrDeviceInfo"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Shader"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6586,4 +6600,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("initvrsimulator",ring_InitVrSimulator);
 	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
 	ring_vm_funcregister("updatevrtracking",ring_UpdateVrTracking);
+	ring_vm_funcregister("setvrconfiguration",ring_SetVrConfiguration);
 }
