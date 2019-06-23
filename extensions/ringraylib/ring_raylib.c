@@ -1688,6 +1688,26 @@ RING_FUNC(ring_SetCameraMoveControls)
 	SetCameraMoveControls( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6));
 }
 
+
+RING_FUNC(ring_DrawPixel)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawPixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1813,4 +1833,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setcameraaltcontrol",ring_SetCameraAltControl);
 	ring_vm_funcregister("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
 	ring_vm_funcregister("setcameramovecontrols",ring_SetCameraMoveControls);
+	ring_vm_funcregister("drawpixel",ring_DrawPixel);
 }
