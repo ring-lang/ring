@@ -345,6 +345,16 @@ RING_FUNC(ring_SetClipboardText)
 	SetClipboardText(RING_API_GETSTRING(1));
 }
 
+
+RING_FUNC(ring_ShowCursor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	ShowCursor();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -374,4 +384,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmonitorname",ring_GetMonitorName);
 	ring_vm_funcregister("getclipboardtext",ring_GetClipboardText);
 	ring_vm_funcregister("setclipboardtext",ring_SetClipboardText);
+	ring_vm_funcregister("showcursor",ring_ShowCursor);
 }
