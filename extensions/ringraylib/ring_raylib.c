@@ -6167,6 +6167,32 @@ RING_FUNC(ring_EndBlendMode)
 	EndBlendMode();
 }
 
+
+RING_FUNC(ring_BeginScissorMode)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	BeginScissorMode( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6511,4 +6537,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
 	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);
 	ring_vm_funcregister("endblendmode",ring_EndBlendMode);
+	ring_vm_funcregister("beginscissormode",ring_BeginScissorMode);
 }
