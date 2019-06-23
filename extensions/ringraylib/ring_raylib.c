@@ -2380,6 +2380,20 @@ RING_FUNC(ring_DrawPoly)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
 }
 
+
+RING_FUNC(ring_SetShapesTexture)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	SetShapesTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2535,4 +2549,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtrianglelines",ring_DrawTriangleLines);
 	ring_vm_funcregister("drawtrianglefan",ring_DrawTriangleFan);
 	ring_vm_funcregister("drawpoly",ring_DrawPoly);
+	ring_vm_funcregister("setshapestexture",ring_SetShapesTexture);
 }
