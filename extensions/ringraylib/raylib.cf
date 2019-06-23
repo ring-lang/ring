@@ -337,3 +337,4 @@ bool CheckCollisionRaySphere(Ray ray, Vector3 spherePosition, float sphereRadius
 bool CheckCollisionRaySphereEx(Ray ray, Vector3 spherePosition, float sphereRadius, Vector3 *collisionPoint)
 bool CheckCollisionRayBox(Ray ray, BoundingBox box)
 RayHitInfo GetCollisionRayModel(Ray ray, Model *model)
+RayHitInfo GetCollisionRayTriangle(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3)
