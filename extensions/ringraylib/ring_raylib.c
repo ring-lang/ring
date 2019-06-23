@@ -3777,6 +3777,22 @@ RING_FUNC(ring_DrawTexture)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
 }
 
+
+RING_FUNC(ring_DrawTextureV)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	DrawTextureV(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4002,4 +4018,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("settexturefilter",ring_SetTextureFilter);
 	ring_vm_funcregister("settexturewrap",ring_SetTextureWrap);
 	ring_vm_funcregister("drawtexture",ring_DrawTexture);
+	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
 }
