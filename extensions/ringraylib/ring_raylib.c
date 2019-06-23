@@ -2840,6 +2840,21 @@ RING_FUNC(ring_GetTextureData)
 	}
 }
 
+
+RING_FUNC(ring_GetScreenData)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		*pValue = GetScreenData();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -3020,4 +3035,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getimagedatanormalized",ring_GetImageDataNormalized);
 	ring_vm_funcregister("getpixeldatasize",ring_GetPixelDataSize);
 	ring_vm_funcregister("gettexturedata",ring_GetTextureData);
+	ring_vm_funcregister("getscreendata",ring_GetScreenData);
 }
