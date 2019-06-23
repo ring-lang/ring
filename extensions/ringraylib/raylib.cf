@@ -160,3 +160,4 @@ void DrawRingLines(Vector2 center, float innerRadius, float outerRadius, int sta
 void DrawRectangle(int posX, int posY, int width, int height, Color color)
 void DrawRectangleV(Vector2 position, Vector2 size, Color color)
 void DrawRectangleRec(Rectangle rec, Color color)
+void DrawRectanglePro(Rectangle rec, Vector2 origin, float rotation, Color color)
