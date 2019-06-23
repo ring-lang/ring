@@ -5765,6 +5765,27 @@ RING_FUNC(ring_GetCollisionRayTriangle)
 	}
 }
 
+
+RING_FUNC(ring_GetCollisionRayGround)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		RayHitInfo *pValue ; 
+		pValue = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+		*pValue = GetCollisionRayGround(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6086,4 +6107,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionraybox",ring_CheckCollisionRayBox);
 	ring_vm_funcregister("getcollisionraymodel",ring_GetCollisionRayModel);
 	ring_vm_funcregister("getcollisionraytriangle",ring_GetCollisionRayTriangle);
+	ring_vm_funcregister("getcollisionrayground",ring_GetCollisionRayGround);
 }
