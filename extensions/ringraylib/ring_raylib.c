@@ -1522,6 +1522,16 @@ RING_FUNC(ring_GetTouchPointsCount)
 	RING_API_RETNUMBER(GetTouchPointsCount());
 }
 
+
+RING_FUNC(ring_GetGestureHoldDuration)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetGestureHoldDuration());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1636,4 +1646,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isgesturedetected",ring_IsGestureDetected);
 	ring_vm_funcregister("getgesturedetected",ring_GetGestureDetected);
 	ring_vm_funcregister("gettouchpointscount",ring_GetTouchPointsCount);
+	ring_vm_funcregister("getgestureholdduration",ring_GetGestureHoldDuration);
 }
