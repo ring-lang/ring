@@ -2594,6 +2594,41 @@ RING_FUNC(ring_LoadImagePro)
 	}
 }
 
+
+RING_FUNC(ring_LoadImageRaw)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		*pValue = LoadImageRaw(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -2760,4 +2795,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadimage",ring_LoadImage);
 	ring_vm_funcregister("loadimageex",ring_LoadImageEx);
 	ring_vm_funcregister("loadimagepro",ring_LoadImagePro);
+	ring_vm_funcregister("loadimageraw",ring_LoadImageRaw);
 }
