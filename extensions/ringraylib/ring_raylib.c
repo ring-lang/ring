@@ -859,6 +859,20 @@ RING_FUNC(ring_GetFileName)
 	RING_API_RETSTRING(GetFileName(RING_API_GETSTRING(1)));
 }
 
+
+RING_FUNC(ring_GetFileNameWithoutExt)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(GetFileNameWithoutExt(RING_API_GETSTRING(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -926,4 +940,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("isfileextension",ring_IsFileExtension);
 	ring_vm_funcregister("getextension",ring_GetExtension);
 	ring_vm_funcregister("getfilename",ring_GetFileName);
+	ring_vm_funcregister("getfilenamewithoutext",ring_GetFileNameWithoutExt);
 }
