@@ -4406,6 +4406,28 @@ RING_FUNC(ring_TextReplace)
 	RING_API_RETSTRING(TextReplace(RING_API_GETSTRING(1),RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
 }
 
+
+RING_FUNC(ring_TextInsert)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(TextInsert(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4659,4 +4681,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("textformat",ring_TextFormat);
 	ring_vm_funcregister("textsubtext",ring_TextSubtext);
 	ring_vm_funcregister("textreplace",ring_TextReplace);
+	ring_vm_funcregister("textinsert",ring_TextInsert);
 }
