@@ -5823,6 +5823,29 @@ RING_FUNC(ring_LoadShader)
 	}
 }
 
+
+RING_FUNC(ring_LoadShaderCode)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Shader *pValue ; 
+		pValue = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+		*pValue = LoadShaderCode(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6147,4 +6170,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getcollisionrayground",ring_GetCollisionRayGround);
 	ring_vm_funcregister("loadtext",ring_LoadText);
 	ring_vm_funcregister("loadshader",ring_LoadShader);
+	ring_vm_funcregister("loadshadercode",ring_LoadShaderCode);
 }
