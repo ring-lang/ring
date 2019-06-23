@@ -5158,6 +5158,29 @@ RING_FUNC(ring_IsModelAnimationValid)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ModelAnimation"));
 }
 
+
+RING_FUNC(ring_GenMeshPoly)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Mesh *pValue ; 
+		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		*pValue = GenMeshPoly( (int ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5451,4 +5474,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("updatemodelanimation",ring_UpdateModelAnimation);
 	ring_vm_funcregister("unloadmodelanimation",ring_UnloadModelAnimation);
 	ring_vm_funcregister("ismodelanimationvalid",ring_IsModelAnimationValid);
+	ring_vm_funcregister("genmeshpoly",ring_GenMeshPoly);
 }
