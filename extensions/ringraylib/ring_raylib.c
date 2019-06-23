@@ -5144,6 +5144,20 @@ RING_FUNC(ring_UnloadModelAnimation)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ModelAnimation"));
 }
 
+
+RING_FUNC(ring_IsModelAnimationValid)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsModelAnimationValid(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (ModelAnimation  *) RING_API_GETCPOINTER(2,"ModelAnimation")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ModelAnimation"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5436,4 +5450,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadmodelanimations",ring_LoadModelAnimations);
 	ring_vm_funcregister("updatemodelanimation",ring_UpdateModelAnimation);
 	ring_vm_funcregister("unloadmodelanimation",ring_UnloadModelAnimation);
+	ring_vm_funcregister("ismodelanimationvalid",ring_IsModelAnimationValid);
 }
