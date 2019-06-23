@@ -240,3 +240,4 @@ Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float
 Image GenImageCellular(int width, int height, int tileSize)
 void GenTextureMipmaps(Texture2D *texture)
 void SetTextureFilter(Texture2D texture, int filterMode)
+void SetTextureWrap(Texture2D texture, int wrapMode)
