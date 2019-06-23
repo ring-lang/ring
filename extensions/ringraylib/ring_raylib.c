@@ -5401,6 +5401,25 @@ RING_FUNC(ring_GenMeshHeightmap)
 	}
 }
 
+
+RING_FUNC(ring_GenMeshCubicmap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Mesh *pValue ; 
+		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		*pValue = GenMeshCubicmap(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5703,4 +5722,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genmeshtorus",ring_GenMeshTorus);
 	ring_vm_funcregister("genmeshknot",ring_GenMeshKnot);
 	ring_vm_funcregister("genmeshheightmap",ring_GenMeshHeightmap);
+	ring_vm_funcregister("genmeshcubicmap",ring_GenMeshCubicmap);
 }
