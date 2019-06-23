@@ -5649,6 +5649,24 @@ RING_FUNC(ring_CheckCollisionBoxes)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"BoundingBox"));
 }
 
+
+RING_FUNC(ring_CheckCollisionBoxSphere)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(CheckCollisionBoxSphere(* (BoundingBox  *) RING_API_GETCPOINTER(1,"BoundingBox"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"BoundingBox"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5964,4 +5982,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawbillboardrec",ring_DrawBillboardRec);
 	ring_vm_funcregister("checkcollisionspheres",ring_CheckCollisionSpheres);
 	ring_vm_funcregister("checkcollisionboxes",ring_CheckCollisionBoxes);
+	ring_vm_funcregister("checkcollisionboxsphere",ring_CheckCollisionBoxSphere);
 }
