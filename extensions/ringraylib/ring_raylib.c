@@ -375,6 +375,16 @@ RING_FUNC(ring_IsCursorHidden)
 	RING_API_RETNUMBER(IsCursorHidden());
 }
 
+
+RING_FUNC(ring_EnableCursor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EnableCursor();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -407,4 +417,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("showcursor",ring_ShowCursor);
 	ring_vm_funcregister("hidecursor",ring_HideCursor);
 	ring_vm_funcregister("iscursorhidden",ring_IsCursorHidden);
+	ring_vm_funcregister("enablecursor",ring_EnableCursor);
 }
