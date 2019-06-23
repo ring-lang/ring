@@ -5095,6 +5095,25 @@ RING_FUNC(ring_SetModelMeshMaterial)
 	SetModelMeshMaterial((Model *) RING_API_GETCPOINTER(1,"Model"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_LoadModelAnimations)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadModelAnimations(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2)),"ModelAnimation");
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -5384,4 +5403,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadmaterial",ring_UnloadMaterial);
 	ring_vm_funcregister("setmaterialtexture",ring_SetMaterialTexture);
 	ring_vm_funcregister("setmodelmeshmaterial",ring_SetModelMeshMaterial);
+	ring_vm_funcregister("loadmodelanimations",ring_LoadModelAnimations);
 }
