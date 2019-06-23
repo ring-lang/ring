@@ -6658,6 +6658,18 @@ RING_FUNC(ring_WaveCrop)
 	WaveCrop((Wave *) RING_API_GETCPOINTER(1,"Wave"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_GetWaveData)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(GetWaveData(* (Wave  *) RING_API_GETCPOINTER(1,"Wave")),"float");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -7035,4 +7047,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("waveformat",ring_WaveFormat);
 	ring_vm_funcregister("wavecopy",ring_WaveCopy);
 	ring_vm_funcregister("wavecrop",ring_WaveCrop);
+	ring_vm_funcregister("getwavedata",ring_GetWaveData);
 }
