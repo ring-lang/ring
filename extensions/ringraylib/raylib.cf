@@ -332,3 +332,4 @@ void DrawBillboard(Camera camera, Texture2D texture, Vector3 center, float size,
 void DrawBillboardRec(Camera camera, Texture2D texture, Rectangle sourceRec, Vector3 center, float size, Color tint)
 bool CheckCollisionSpheres(Vector3 centerA, float radiusA, Vector3 centerB, float radiusB)
 bool CheckCollisionBoxes(BoundingBox box1, BoundingBox box2)
+bool CheckCollisionBoxSphere(BoundingBox box, Vector3 centerSphere, float radiusSphere)
