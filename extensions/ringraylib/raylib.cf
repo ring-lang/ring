@@ -256,3 +256,4 @@ CharInfo *LoadFontData(const char *fileName, int fontSize, int *fontChars, int c
 Image GenImageFontAtlas(CharInfo *chars, int charsCount, int fontSize, int padding, int packMethod)
 void UnloadFont(Font font)
 void DrawFPS(int posX, int posY)
+void DrawText(const char *text, int posX, int posY, int fontSize, Color color)
