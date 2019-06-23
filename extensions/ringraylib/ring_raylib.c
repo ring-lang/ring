@@ -4176,6 +4176,50 @@ RING_FUNC(ring_DrawTextRec)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
 }
 
+
+RING_FUNC(ring_DrawTextRecEx)
+{
+	if ( RING_API_PARACOUNT != 11 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	DrawTextRecEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"), (int ) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9),* (Color  *) RING_API_GETCPOINTER(10,"Color"),* (Color  *) RING_API_GETCPOINTER(11,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(10))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(10,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(11))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(11,"Color"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -4418,4 +4462,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtext",ring_DrawText);
 	ring_vm_funcregister("drawtextex",ring_DrawTextEx);
 	ring_vm_funcregister("drawtextrec",ring_DrawTextRec);
+	ring_vm_funcregister("drawtextrecex",ring_DrawTextRecEx);
 }
