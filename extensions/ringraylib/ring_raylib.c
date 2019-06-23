@@ -1598,6 +1598,20 @@ RING_FUNC(ring_SetCameraMode)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera"));
 }
 
+
+RING_FUNC(ring_UpdateCamera)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UpdateCamera((Camera *) RING_API_GETCPOINTER(1,"Camera"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -1718,4 +1732,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getgesturepinchvector",ring_GetGesturePinchVector);
 	ring_vm_funcregister("getgesturepinchangle",ring_GetGesturePinchAngle);
 	ring_vm_funcregister("setcameramode",ring_SetCameraMode);
+	ring_vm_funcregister("updatecamera",ring_UpdateCamera);
 }
