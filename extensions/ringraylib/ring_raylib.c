@@ -407,6 +407,16 @@ RING_FUNC(ring_ClearBackground)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
 }
 
+
+RING_FUNC(ring_BeginDrawing)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	BeginDrawing();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -442,4 +452,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("enablecursor",ring_EnableCursor);
 	ring_vm_funcregister("disablecursor",ring_DisableCursor);
 	ring_vm_funcregister("clearbackground",ring_ClearBackground);
+	ring_vm_funcregister("begindrawing",ring_BeginDrawing);
 }
