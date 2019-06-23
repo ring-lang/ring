@@ -331,6 +331,20 @@ RING_FUNC(ring_GetClipboardText)
 	RING_API_RETSTRING(GetClipboardText());
 }
 
+
+RING_FUNC(ring_SetClipboardText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetClipboardText(RING_API_GETSTRING(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -359,4 +373,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmonitorphysicalheight",ring_GetMonitorPhysicalHeight);
 	ring_vm_funcregister("getmonitorname",ring_GetMonitorName);
 	ring_vm_funcregister("getclipboardtext",ring_GetClipboardText);
+	ring_vm_funcregister("setclipboardtext",ring_SetClipboardText);
 }
