@@ -5858,6 +5858,21 @@ RING_FUNC(ring_UnloadShader)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
 }
 
+
+RING_FUNC(ring_GetShaderDefault)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Shader *pValue ; 
+		pValue = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+		*pValue = GetShaderDefault();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -6184,4 +6199,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadshader",ring_LoadShader);
 	ring_vm_funcregister("loadshadercode",ring_LoadShaderCode);
 	ring_vm_funcregister("unloadshader",ring_UnloadShader);
+	ring_vm_funcregister("getshaderdefault",ring_GetShaderDefault);
 }
