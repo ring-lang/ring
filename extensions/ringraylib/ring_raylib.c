@@ -695,6 +695,20 @@ RING_FUNC(ring_Fade)
 	}
 }
 
+
+RING_FUNC(ring_SetConfigFlags)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetConfigFlags( (unsigned char ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -751,4 +765,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("colorfromhsv",ring_ColorFromHSV);
 	ring_vm_funcregister("getcolor",ring_GetColor);
 	ring_vm_funcregister("fade",ring_Fade);
+	ring_vm_funcregister("setconfigflags",ring_SetConfigFlags);
 }
