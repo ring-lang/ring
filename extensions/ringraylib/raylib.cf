@@ -257,3 +257,4 @@ Image GenImageFontAtlas(CharInfo *chars, int charsCount, int fontSize, int paddi
 void UnloadFont(Font font)
 void DrawFPS(int posX, int posY)
 void DrawText(const char *text, int posX, int posY, int fontSize, Color color)
+void DrawTextEx(Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint)
