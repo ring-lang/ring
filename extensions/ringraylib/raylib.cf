@@ -25,6 +25,8 @@ Color {r, g, b, a}
 Rectangle {x, y, width, height}
 Image { void *data, width, height, mipmaps, format}
 Texture2D { id, width, height, mipmaps, format}
+Texture { id, width, height, mipmaps, format}
+RenderTexture2D { id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format, depthTexture}
 </struct>
 
 <funcstart>
