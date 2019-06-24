@@ -5033,6 +5033,240 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_audiostream)
+{
+	AudioStream *pMyPointer ;
+	pMyPointer = (AudioStream *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(AudioStream)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"AudioStream");
+}
+
+RING_FUNC(ring_raylib_destroy_audiostream)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_audiostream_sampleRate)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETNUMBER(pMyPointer->sampleRate);
+}
+
+RING_FUNC(ring_raylib_set_audiostream_sampleRate)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->sampleRate = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_audiostream_sampleSize)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETNUMBER(pMyPointer->sampleSize);
+}
+
+RING_FUNC(ring_raylib_set_audiostream_sampleSize)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->sampleSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_audiostream_channels)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETNUMBER(pMyPointer->channels);
+}
+
+RING_FUNC(ring_raylib_set_audiostream_channels)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->channels = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_audiostream_audioBuffer)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETCPOINTER(pMyPointer->audioBuffer,"void");
+}
+
+RING_FUNC(ring_raylib_set_audiostream_audioBuffer)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->audioBuffer = (void *) RING_API_GETCPOINTER(2,"void *");
+}
+
+RING_FUNC(ring_raylib_get_audiostream_format)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETNUMBER(pMyPointer->format);
+}
+
+RING_FUNC(ring_raylib_set_audiostream_format)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_audiostream_source)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	RING_API_RETNUMBER(pMyPointer->source);
+}
+
+RING_FUNC(ring_raylib_set_audiostream_source)
+{
+	AudioStream *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer->source = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_vrdeviceinfo)
 {
 	VrDeviceInfo *pMyPointer ;
@@ -13040,6 +13274,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_audiostream",ring_raylib_new_audiostream);
+	ring_vm_funcregister("raylib_destroy_audiostream",ring_raylib_destroy_audiostream);
+	ring_vm_funcregister("raylib_get_audiostream_sampleRate",ring_raylib_get_audiostream_sampleRate);
+	ring_vm_funcregister("raylib_set_audiostream_sampleRate",ring_raylib_set_audiostream_sampleRate);
+	ring_vm_funcregister("raylib_get_audiostream_sampleSize",ring_raylib_get_audiostream_sampleSize);
+	ring_vm_funcregister("raylib_set_audiostream_sampleSize",ring_raylib_set_audiostream_sampleSize);
+	ring_vm_funcregister("raylib_get_audiostream_channels",ring_raylib_get_audiostream_channels);
+	ring_vm_funcregister("raylib_set_audiostream_channels",ring_raylib_set_audiostream_channels);
+	ring_vm_funcregister("raylib_get_audiostream_audioBuffer",ring_raylib_get_audiostream_audioBuffer);
+	ring_vm_funcregister("raylib_set_audiostream_audioBuffer",ring_raylib_set_audiostream_audioBuffer);
+	ring_vm_funcregister("raylib_get_audiostream_format",ring_raylib_get_audiostream_format);
+	ring_vm_funcregister("raylib_set_audiostream_format",ring_raylib_set_audiostream_format);
+	ring_vm_funcregister("raylib_get_audiostream_source",ring_raylib_get_audiostream_source);
+	ring_vm_funcregister("raylib_set_audiostream_source",ring_raylib_set_audiostream_source);
 	ring_vm_funcregister("raylib_new_vrdeviceinfo",ring_raylib_new_vrdeviceinfo);
 	ring_vm_funcregister("raylib_destroy_vrdeviceinfo",ring_raylib_destroy_vrdeviceinfo);
 	ring_vm_funcregister("raylib_get_vrdeviceinfo_hResolution",ring_raylib_get_vrdeviceinfo_hResolution);
