@@ -1,4 +1,5 @@
 aNews = [
+  ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib" target="_blank"> RayLib Extension</a>'],
   ["June 10, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/samples/other/UsingQt3D/README.md" target="_blank"> Qt3D Tutorial </a>'],
   ["June 3, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/maze" target="_blank"> The Maze Game </a>'],
   ["June 1, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/sokoban" target="_blank"> The Sokoban Game </a>'],
