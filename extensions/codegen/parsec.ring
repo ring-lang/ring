@@ -764,6 +764,22 @@ Func GenStruct	aFunc
 			C_TABS_1 + "RING_API_RETCPOINTER(pMyPointer,"+
 			'"'+cStruct  +'");' + nl +
 			"}" + nl + nl
+	# Generate Functions to Create the Struct (Managed Pointer)
+	cFuncName = $cFuncStart+"new_managed_"+lower(cStruct)
+	$aStructFuncs + cFuncName
+	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+			"{" + nl + 
+			C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+			C_TABS_1 + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
+			cStruct + ")) ;" + nl +
+			C_TABS_1 + "if (pMyPointer == NULL) " + nl +
+			C_TABS_1 + "{" + nl +
+			C_TABS_2 + "RING_API_ERROR(RING_OOM);" + nl + 
+			C_TABS_2 + "return ;" + nl +
+			C_TABS_1 + "}" + nl +
+			C_TABS_1 + "RING_API_RETMANAGEDCPOINTER(pMyPointer,"+
+			'"'+cStruct  +'",ring_state_free);' + nl +
+			"}" + nl + nl
 	# Generate Functions to Destroy the Struct
 	cFuncName = $cFuncStart+"destroy_"+lower(cStruct)
 	$aStructFuncs + cFuncName
