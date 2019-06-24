@@ -33,6 +33,9 @@ game programming library
 The folder RingSDL contains the Ring binding to the LibSDL
 game programming library
 
+The folder RingRayLib contains the Ring binding to the RayLib
+game programming library
+
 The folder RingFreeGLUT contains the Ring binding to the FreeGLUT library
 
 The folder RingOpenGL contains the Ring binding to the OpenGL library
