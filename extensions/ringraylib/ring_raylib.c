@@ -5033,6 +5033,308 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_vrdeviceinfo)
+{
+	VrDeviceInfo *pMyPointer ;
+	pMyPointer = (VrDeviceInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(VrDeviceInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"VrDeviceInfo");
+}
+
+RING_FUNC(ring_raylib_destroy_vrdeviceinfo)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_hResolution)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->hResolution);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_hResolution)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->hResolution = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_vResolution)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->vResolution);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_vResolution)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->vResolution = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_hScreenSize)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->hScreenSize);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_hScreenSize)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->hScreenSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_vScreenSize)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->vScreenSize);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_vScreenSize)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->vScreenSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_vScreenCenter)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->vScreenCenter);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_vScreenCenter)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->vScreenCenter = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_eyeToScreenDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->eyeToScreenDistance);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_eyeToScreenDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->eyeToScreenDistance = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_lensSeparationDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->lensSeparationDistance);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_lensSeparationDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->lensSeparationDistance = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vrdeviceinfo_interpupillaryDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	RING_API_RETNUMBER(pMyPointer->interpupillaryDistance);
+}
+
+RING_FUNC(ring_raylib_set_vrdeviceinfo_interpupillaryDistance)
+{
+	VrDeviceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer->interpupillaryDistance = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -12738,4 +13040,22 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_vrdeviceinfo",ring_raylib_new_vrdeviceinfo);
+	ring_vm_funcregister("raylib_destroy_vrdeviceinfo",ring_raylib_destroy_vrdeviceinfo);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_hResolution",ring_raylib_get_vrdeviceinfo_hResolution);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_hResolution",ring_raylib_set_vrdeviceinfo_hResolution);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vResolution",ring_raylib_get_vrdeviceinfo_vResolution);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vResolution",ring_raylib_set_vrdeviceinfo_vResolution);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_hScreenSize",ring_raylib_get_vrdeviceinfo_hScreenSize);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_hScreenSize",ring_raylib_set_vrdeviceinfo_hScreenSize);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vScreenSize",ring_raylib_get_vrdeviceinfo_vScreenSize);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vScreenSize",ring_raylib_set_vrdeviceinfo_vScreenSize);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vScreenCenter",ring_raylib_get_vrdeviceinfo_vScreenCenter);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vScreenCenter",ring_raylib_set_vrdeviceinfo_vScreenCenter);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_eyeToScreenDistance",ring_raylib_get_vrdeviceinfo_eyeToScreenDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_eyeToScreenDistance",ring_raylib_set_vrdeviceinfo_eyeToScreenDistance);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_lensSeparationDistance",ring_raylib_get_vrdeviceinfo_lensSeparationDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_lensSeparationDistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_interpupillaryDistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_interpupillaryDistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
 }

@@ -34,6 +34,9 @@ Font { texture.id, texture.width, texture.height, texture.mipmaps, texture.forma
 SpriteFont { texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
 Camera3D { position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Camera { position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
+
+VrDeviceInfo {hResolution,vResolution,hScreenSize,vScreenSize,vScreenCenter,eyeToScreenDistance,lensSeparationDistance,interpupillaryDistance}
+
 </struct>
 
 <funcstart>
