@@ -5033,6 +5033,852 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_model)
+{
+	Model *pMyPointer ;
+	pMyPointer = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Model");
+}
+
+RING_FUNC(ring_raylib_destroy_model)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m0)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m0);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m0)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m0 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m1)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m1);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m1)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m2)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m2);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m2)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m2 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m3)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m3);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m3)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m3 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m4)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m4);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m4)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m4 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m5)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m5);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m5)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m5 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m6)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m6);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m6)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m6 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m7)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m7);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m7)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m7 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m8)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m8);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m8)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m8 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m9)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m9);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m9)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m9 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m10)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m10);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m10)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m10 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m11)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m11);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m11)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m11 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m12)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m12);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m12)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m12 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m13)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m13);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m13)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m13 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m14)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m14);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m14)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m14 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_transform_m15)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->transform.m15);
+}
+
+RING_FUNC(ring_raylib_set_model_transform_m15)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->transform.m15 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_meshCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->meshCount);
+}
+
+RING_FUNC(ring_raylib_set_model_meshCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->meshCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_meshes)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETCPOINTER(pMyPointer->meshes,"Mesh");
+}
+
+RING_FUNC(ring_raylib_set_model_meshes)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->meshes = (Mesh *) RING_API_GETCPOINTER(2,"Mesh *");
+}
+
+RING_FUNC(ring_raylib_get_model_materialCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->materialCount);
+}
+
+RING_FUNC(ring_raylib_set_model_materialCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->materialCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_materials)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETCPOINTER(pMyPointer->materials,"Material");
+}
+
+RING_FUNC(ring_raylib_set_model_materials)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->materials = (Material *) RING_API_GETCPOINTER(2,"Material *");
+}
+
+RING_FUNC(ring_raylib_get_model_meshMaterial)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETCPOINTER(pMyPointer->meshMaterial,"int");
+}
+
+RING_FUNC(ring_raylib_set_model_meshMaterial)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->meshMaterial = (int *) RING_API_GETCPOINTER(2,"int *");
+}
+
+RING_FUNC(ring_raylib_get_model_boneCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETNUMBER(pMyPointer->boneCount);
+}
+
+RING_FUNC(ring_raylib_set_model_boneCount)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->boneCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_model_bones)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETCPOINTER(pMyPointer->bones,"BoneInfo");
+}
+
+RING_FUNC(ring_raylib_set_model_bones)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo *");
+}
+
+RING_FUNC(ring_raylib_get_model_bindPose)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	RING_API_RETCPOINTER(pMyPointer->bindPose,"Transform");
+}
+
+RING_FUNC(ring_raylib_set_model_bindPose)
+{
+	Model *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer->bindPose = (Transform *) RING_API_GETCPOINTER(2,"Transform *");
+}
+
 RING_FUNC(ring_raylib_new_modelanimation)
 {
 	ModelAnimation *pMyPointer ;
@@ -14542,6 +15388,56 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_model",ring_raylib_new_model);
+	ring_vm_funcregister("raylib_destroy_model",ring_raylib_destroy_model);
+	ring_vm_funcregister("raylib_get_model_transform_m0",ring_raylib_get_model_transform_m0);
+	ring_vm_funcregister("raylib_set_model_transform_m0",ring_raylib_set_model_transform_m0);
+	ring_vm_funcregister("raylib_get_model_transform_m1",ring_raylib_get_model_transform_m1);
+	ring_vm_funcregister("raylib_set_model_transform_m1",ring_raylib_set_model_transform_m1);
+	ring_vm_funcregister("raylib_get_model_transform_m2",ring_raylib_get_model_transform_m2);
+	ring_vm_funcregister("raylib_set_model_transform_m2",ring_raylib_set_model_transform_m2);
+	ring_vm_funcregister("raylib_get_model_transform_m3",ring_raylib_get_model_transform_m3);
+	ring_vm_funcregister("raylib_set_model_transform_m3",ring_raylib_set_model_transform_m3);
+	ring_vm_funcregister("raylib_get_model_transform_m4",ring_raylib_get_model_transform_m4);
+	ring_vm_funcregister("raylib_set_model_transform_m4",ring_raylib_set_model_transform_m4);
+	ring_vm_funcregister("raylib_get_model_transform_m5",ring_raylib_get_model_transform_m5);
+	ring_vm_funcregister("raylib_set_model_transform_m5",ring_raylib_set_model_transform_m5);
+	ring_vm_funcregister("raylib_get_model_transform_m6",ring_raylib_get_model_transform_m6);
+	ring_vm_funcregister("raylib_set_model_transform_m6",ring_raylib_set_model_transform_m6);
+	ring_vm_funcregister("raylib_get_model_transform_m7",ring_raylib_get_model_transform_m7);
+	ring_vm_funcregister("raylib_set_model_transform_m7",ring_raylib_set_model_transform_m7);
+	ring_vm_funcregister("raylib_get_model_transform_m8",ring_raylib_get_model_transform_m8);
+	ring_vm_funcregister("raylib_set_model_transform_m8",ring_raylib_set_model_transform_m8);
+	ring_vm_funcregister("raylib_get_model_transform_m9",ring_raylib_get_model_transform_m9);
+	ring_vm_funcregister("raylib_set_model_transform_m9",ring_raylib_set_model_transform_m9);
+	ring_vm_funcregister("raylib_get_model_transform_m10",ring_raylib_get_model_transform_m10);
+	ring_vm_funcregister("raylib_set_model_transform_m10",ring_raylib_set_model_transform_m10);
+	ring_vm_funcregister("raylib_get_model_transform_m11",ring_raylib_get_model_transform_m11);
+	ring_vm_funcregister("raylib_set_model_transform_m11",ring_raylib_set_model_transform_m11);
+	ring_vm_funcregister("raylib_get_model_transform_m12",ring_raylib_get_model_transform_m12);
+	ring_vm_funcregister("raylib_set_model_transform_m12",ring_raylib_set_model_transform_m12);
+	ring_vm_funcregister("raylib_get_model_transform_m13",ring_raylib_get_model_transform_m13);
+	ring_vm_funcregister("raylib_set_model_transform_m13",ring_raylib_set_model_transform_m13);
+	ring_vm_funcregister("raylib_get_model_transform_m14",ring_raylib_get_model_transform_m14);
+	ring_vm_funcregister("raylib_set_model_transform_m14",ring_raylib_set_model_transform_m14);
+	ring_vm_funcregister("raylib_get_model_transform_m15",ring_raylib_get_model_transform_m15);
+	ring_vm_funcregister("raylib_set_model_transform_m15",ring_raylib_set_model_transform_m15);
+	ring_vm_funcregister("raylib_get_model_meshCount",ring_raylib_get_model_meshCount);
+	ring_vm_funcregister("raylib_set_model_meshCount",ring_raylib_set_model_meshCount);
+	ring_vm_funcregister("raylib_get_model_meshes",ring_raylib_get_model_meshes);
+	ring_vm_funcregister("raylib_set_model_meshes",ring_raylib_set_model_meshes);
+	ring_vm_funcregister("raylib_get_model_materialCount",ring_raylib_get_model_materialCount);
+	ring_vm_funcregister("raylib_set_model_materialCount",ring_raylib_set_model_materialCount);
+	ring_vm_funcregister("raylib_get_model_materials",ring_raylib_get_model_materials);
+	ring_vm_funcregister("raylib_set_model_materials",ring_raylib_set_model_materials);
+	ring_vm_funcregister("raylib_get_model_meshMaterial",ring_raylib_get_model_meshMaterial);
+	ring_vm_funcregister("raylib_set_model_meshMaterial",ring_raylib_set_model_meshMaterial);
+	ring_vm_funcregister("raylib_get_model_boneCount",ring_raylib_get_model_boneCount);
+	ring_vm_funcregister("raylib_set_model_boneCount",ring_raylib_set_model_boneCount);
+	ring_vm_funcregister("raylib_get_model_bones",ring_raylib_get_model_bones);
+	ring_vm_funcregister("raylib_set_model_bones",ring_raylib_set_model_bones);
+	ring_vm_funcregister("raylib_get_model_bindPose",ring_raylib_get_model_bindPose);
+	ring_vm_funcregister("raylib_set_model_bindPose",ring_raylib_set_model_bindPose);
 	ring_vm_funcregister("raylib_new_modelanimation",ring_raylib_new_modelanimation);
 	ring_vm_funcregister("raylib_destroy_modelanimation",ring_raylib_destroy_modelanimation);
 	ring_vm_funcregister("raylib_get_modelanimation_boneCount",ring_raylib_get_modelanimation_boneCount);
