@@ -50,4 +50,4 @@ Example
 
 Output:
 
-![RayLib](https://github.com/ring-lang/ring/blob/master/extensions/ringraylib/examples/shapes/raylib_ex_shapes.png)
+![RayLib](https://github.com/ring-lang/ring/blob/master/extensions/ringraylib/examples/shapes/ex1_basicshapes.png)
