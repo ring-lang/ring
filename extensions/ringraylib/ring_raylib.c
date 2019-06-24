@@ -3621,6 +3621,308 @@ RING_FUNC(ring_raylib_set_charinfo_data)
 	pMyPointer->data = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char *");
 }
 
+RING_FUNC(ring_raylib_new_font)
+{
+	Font *pMyPointer ;
+	pMyPointer = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Font");
+}
+
+RING_FUNC(ring_raylib_destroy_font)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_font_texture_id)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->texture.id);
+}
+
+RING_FUNC(ring_raylib_set_font_texture_id)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->texture.id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_texture_width)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->texture.width);
+}
+
+RING_FUNC(ring_raylib_set_font_texture_width)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->texture.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_texture_height)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->texture.height);
+}
+
+RING_FUNC(ring_raylib_set_font_texture_height)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->texture.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_texture_mipmaps)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->texture.mipmaps);
+}
+
+RING_FUNC(ring_raylib_set_font_texture_mipmaps)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->texture.mipmaps = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_texture_format)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->texture.format);
+}
+
+RING_FUNC(ring_raylib_set_font_texture_format)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->texture.format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_baseSize)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->baseSize);
+}
+
+RING_FUNC(ring_raylib_set_font_baseSize)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->baseSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_charsCount)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETNUMBER(pMyPointer->charsCount);
+}
+
+RING_FUNC(ring_raylib_set_font_charsCount)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->charsCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_font_chars)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	RING_API_RETCPOINTER(pMyPointer->chars,"CharInfo");
+}
+
+RING_FUNC(ring_raylib_set_font_chars)
+{
+	Font *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo *");
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -11242,4 +11544,22 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_charinfo_advanceX",ring_raylib_set_charinfo_advanceX);
 	ring_vm_funcregister("raylib_get_charinfo_data",ring_raylib_get_charinfo_data);
 	ring_vm_funcregister("raylib_set_charinfo_data",ring_raylib_set_charinfo_data);
+	ring_vm_funcregister("raylib_new_font",ring_raylib_new_font);
+	ring_vm_funcregister("raylib_destroy_font",ring_raylib_destroy_font);
+	ring_vm_funcregister("raylib_get_font_texture_id",ring_raylib_get_font_texture_id);
+	ring_vm_funcregister("raylib_set_font_texture_id",ring_raylib_set_font_texture_id);
+	ring_vm_funcregister("raylib_get_font_texture_width",ring_raylib_get_font_texture_width);
+	ring_vm_funcregister("raylib_set_font_texture_width",ring_raylib_set_font_texture_width);
+	ring_vm_funcregister("raylib_get_font_texture_height",ring_raylib_get_font_texture_height);
+	ring_vm_funcregister("raylib_set_font_texture_height",ring_raylib_set_font_texture_height);
+	ring_vm_funcregister("raylib_get_font_texture_mipmaps",ring_raylib_get_font_texture_mipmaps);
+	ring_vm_funcregister("raylib_set_font_texture_mipmaps",ring_raylib_set_font_texture_mipmaps);
+	ring_vm_funcregister("raylib_get_font_texture_format",ring_raylib_get_font_texture_format);
+	ring_vm_funcregister("raylib_set_font_texture_format",ring_raylib_set_font_texture_format);
+	ring_vm_funcregister("raylib_get_font_baseSize",ring_raylib_get_font_baseSize);
+	ring_vm_funcregister("raylib_set_font_baseSize",ring_raylib_set_font_baseSize);
+	ring_vm_funcregister("raylib_get_font_charsCount",ring_raylib_get_font_charsCount);
+	ring_vm_funcregister("raylib_set_font_charsCount",ring_raylib_set_font_charsCount);
+	ring_vm_funcregister("raylib_get_font_chars",ring_raylib_get_font_chars);
+	ring_vm_funcregister("raylib_set_font_chars",ring_raylib_set_font_chars);
 }
