@@ -391,5 +391,3 @@
     NPT_3PATCH_VERTICAL 	= 1   // Npatch defined by 1x3 tiles
     NPT_3PATCH_HORIZONTAL	= 2   // Npatch defined by 3x1 tiles
 
-func RayLibColor r,b,g,a
-	return GetColor( Bytes2Int(  Char(r) + Char(g) + Char(b) + Char(a) ) )

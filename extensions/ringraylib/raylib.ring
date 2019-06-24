@@ -7,4 +7,5 @@ else
 ok
 
 load "raylib.rh"
+load "functions.ring"
 load "classes.ring"
