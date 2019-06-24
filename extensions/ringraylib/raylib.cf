@@ -35,6 +35,7 @@ SpriteFont {texture.id, texture.width, texture.height, texture.mipmaps, texture.
 Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Camera {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 
+Ray {position.x, position.y, position.z, direction.x, direction.y, direction.z}
 RayHitInfo {hit,distance,position.x, position.y, position.z, normal.x, normal.y, normal.z}
 BoundingBox {min.x, min.y, min.z, max.x, max.y, max.z}
 Wave {sampleCount,sampleRate,sampleSize,channels,void *data}
