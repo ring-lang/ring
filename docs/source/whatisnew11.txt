@@ -281,6 +281,7 @@ More Improvements
 * Ring Game Engine for 2D Games - Support oGame[:ObjectName] to access an object
 * Natural Library - Better Performance
 * FoxRing - Added: frCTOD() function
+* Code generator for extensions - generate functions that use managed pointers to new structures
 * Ring VM - Error codes for Ring Object File errors
 * Ring VM - Eval() function - Better Code (Better Performance)
 * Ring VM - State Management - Better Code
