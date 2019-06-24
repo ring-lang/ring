@@ -1,6 +1,33 @@
-RAYWHITE  = RayLibColor(255, 255, 255, 255)
-LIGHTGRAY = RayLibColor(200, 200, 200, 255)
+# Define Colors
 
+	LIGHTGRAY  = RayLibColor(200, 200, 200, 255 )   // Light Gray
+	GRAY       = RayLibColor(130, 130, 130, 255 )   // Gray
+	DARKGRAY   = RayLibColor(80, 80, 80, 255 )      // Dark Gray
+	YELLOW     = RayLibColor(253, 249, 0, 255 )     // Yellow
+	GOLD       = RayLibColor(255, 203, 0, 255 )     // Gold
+	ORANGE     = RayLibColor(255, 161, 0, 255 )     // Orange
+	PINK       = RayLibColor(255, 109, 194, 255 )   // Pink
+	RED        = RayLibColor(230, 41, 55, 255 )     // Red
+	MAROON     = RayLibColor(190, 33, 55, 255 )     // Maroon
+	GREEN      = RayLibColor(0, 228, 48, 255 )      // Green
+	LIME       = RayLibColor(0, 158, 47, 255 )      // Lime
+	DARKGREEN  = RayLibColor(0, 117, 44, 255 )      // Dark Green
+	SKYBLUE    = RayLibColor(102, 191, 255, 255 )   // Sky Blue
+	BLUE       = RayLibColor(0, 121, 241, 255 )     // Blue
+	DARKBLUE   = RayLibColor(0, 82, 172, 255 )      // Dark Blue
+	PURPLE     = RayLibColor(200, 122, 255, 255 )   // Purple
+	VIOLET     = RayLibColor(135, 60, 190, 255 )    // Violet
+	DARKPURPLE = RayLibColor(112, 31, 126, 255 )    // Dark Purple
+	BEIGE      = RayLibColor(211, 176, 131, 255 )   // Beige
+	BROWN      = RayLibColor(127, 106, 79, 255 )    // Brown
+	DARKBROWN  = RayLibColor(76, 63, 47, 255 )      // Dark Brown
+	
+	WHITE      = RayLibColor(255, 255, 255, 255 )   // White
+	BLACK      = RayLibColor(0, 0, 0, 255 )         // Black
+	BLANK      = RayLibColor(0, 0, 0, 0 )           // Blank (Transparent)
+	MAGENTA    = RayLibColor(255, 0, 255, 255 )     // Magenta
+	RAYWHITE   = RayLibColor(245, 245, 245, 255 )   // My own White (raylib logo)
+	
 
-func RayLibColor r,g,b,a
+func RayLibColor r,b,g,a
 	return GetColor( Bytes2Int(  Char(r) + Char(g) + Char(b) + Char(a) ) )
