@@ -5,3 +5,5 @@ but ismacosx()
 else
 	LoadLib("libringraylib.so")
 ok
+
+load "ring_raylib.rh"

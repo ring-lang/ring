@@ -1,0 +1,1 @@
+RAYWHITE  = GetColor( Bytes2Int(  Char(255) + Char(255) + Char(255) + Char(255) ) )
