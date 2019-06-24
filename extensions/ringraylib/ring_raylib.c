@@ -4629,6 +4629,410 @@ RING_FUNC(ring_raylib_set_camera3d_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_camera)
+{
+	Camera *pMyPointer ;
+	pMyPointer = (Camera *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Camera)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Camera");
+}
+
+RING_FUNC(ring_raylib_destroy_camera)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_camera_position_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->position.x);
+}
+
+RING_FUNC(ring_raylib_set_camera_position_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->position.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_position_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->position.y);
+}
+
+RING_FUNC(ring_raylib_set_camera_position_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->position.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_position_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->position.z);
+}
+
+RING_FUNC(ring_raylib_set_camera_position_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->position.z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_target_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->target.x);
+}
+
+RING_FUNC(ring_raylib_set_camera_target_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->target.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_target_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->target.y);
+}
+
+RING_FUNC(ring_raylib_set_camera_target_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->target.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_target_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->target.z);
+}
+
+RING_FUNC(ring_raylib_set_camera_target_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->target.z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_up_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->up.x);
+}
+
+RING_FUNC(ring_raylib_set_camera_up_x)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->up.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_up_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->up.y);
+}
+
+RING_FUNC(ring_raylib_set_camera_up_y)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->up.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_up_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->up.z);
+}
+
+RING_FUNC(ring_raylib_set_camera_up_z)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->up.z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_fovy)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->fovy);
+}
+
+RING_FUNC(ring_raylib_set_camera_fovy)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->fovy = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera_type)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_raylib_set_camera_type)
+{
+	Camera *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -12310,4 +12714,28 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera3d_fovy",ring_raylib_set_camera3d_fovy);
 	ring_vm_funcregister("raylib_get_camera3d_type",ring_raylib_get_camera3d_type);
 	ring_vm_funcregister("raylib_set_camera3d_type",ring_raylib_set_camera3d_type);
+	ring_vm_funcregister("raylib_new_camera",ring_raylib_new_camera);
+	ring_vm_funcregister("raylib_destroy_camera",ring_raylib_destroy_camera);
+	ring_vm_funcregister("raylib_get_camera_position_x",ring_raylib_get_camera_position_x);
+	ring_vm_funcregister("raylib_set_camera_position_x",ring_raylib_set_camera_position_x);
+	ring_vm_funcregister("raylib_get_camera_position_y",ring_raylib_get_camera_position_y);
+	ring_vm_funcregister("raylib_set_camera_position_y",ring_raylib_set_camera_position_y);
+	ring_vm_funcregister("raylib_get_camera_position_z",ring_raylib_get_camera_position_z);
+	ring_vm_funcregister("raylib_set_camera_position_z",ring_raylib_set_camera_position_z);
+	ring_vm_funcregister("raylib_get_camera_target_x",ring_raylib_get_camera_target_x);
+	ring_vm_funcregister("raylib_set_camera_target_x",ring_raylib_set_camera_target_x);
+	ring_vm_funcregister("raylib_get_camera_target_y",ring_raylib_get_camera_target_y);
+	ring_vm_funcregister("raylib_set_camera_target_y",ring_raylib_set_camera_target_y);
+	ring_vm_funcregister("raylib_get_camera_target_z",ring_raylib_get_camera_target_z);
+	ring_vm_funcregister("raylib_set_camera_target_z",ring_raylib_set_camera_target_z);
+	ring_vm_funcregister("raylib_get_camera_up_x",ring_raylib_get_camera_up_x);
+	ring_vm_funcregister("raylib_set_camera_up_x",ring_raylib_set_camera_up_x);
+	ring_vm_funcregister("raylib_get_camera_up_y",ring_raylib_get_camera_up_y);
+	ring_vm_funcregister("raylib_set_camera_up_y",ring_raylib_set_camera_up_y);
+	ring_vm_funcregister("raylib_get_camera_up_z",ring_raylib_get_camera_up_z);
+	ring_vm_funcregister("raylib_set_camera_up_z",ring_raylib_set_camera_up_z);
+	ring_vm_funcregister("raylib_get_camera_fovy",ring_raylib_get_camera_fovy);
+	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
+	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
+	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
 }
