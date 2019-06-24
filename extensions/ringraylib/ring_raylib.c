@@ -5033,6 +5033,206 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_wave)
+{
+	Wave *pMyPointer ;
+	pMyPointer = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Wave");
+}
+
+RING_FUNC(ring_raylib_destroy_wave)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_wave_sampleCount)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	RING_API_RETNUMBER(pMyPointer->sampleCount);
+}
+
+RING_FUNC(ring_raylib_set_wave_sampleCount)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer->sampleCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_wave_sampleRate)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	RING_API_RETNUMBER(pMyPointer->sampleRate);
+}
+
+RING_FUNC(ring_raylib_set_wave_sampleRate)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer->sampleRate = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_wave_sampleSize)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	RING_API_RETNUMBER(pMyPointer->sampleSize);
+}
+
+RING_FUNC(ring_raylib_set_wave_sampleSize)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer->sampleSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_wave_channels)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	RING_API_RETNUMBER(pMyPointer->channels);
+}
+
+RING_FUNC(ring_raylib_set_wave_channels)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer->channels = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_wave_data)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	RING_API_RETCPOINTER(pMyPointer->data,"void");
+}
+
+RING_FUNC(ring_raylib_set_wave_data)
+{
+	Wave *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void *");
+}
+
 RING_FUNC(ring_raylib_new_sound)
 {
 	Sound *pMyPointer ;
@@ -13440,6 +13640,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_wave",ring_raylib_new_wave);
+	ring_vm_funcregister("raylib_destroy_wave",ring_raylib_destroy_wave);
+	ring_vm_funcregister("raylib_get_wave_sampleCount",ring_raylib_get_wave_sampleCount);
+	ring_vm_funcregister("raylib_set_wave_sampleCount",ring_raylib_set_wave_sampleCount);
+	ring_vm_funcregister("raylib_get_wave_sampleRate",ring_raylib_get_wave_sampleRate);
+	ring_vm_funcregister("raylib_set_wave_sampleRate",ring_raylib_set_wave_sampleRate);
+	ring_vm_funcregister("raylib_get_wave_sampleSize",ring_raylib_get_wave_sampleSize);
+	ring_vm_funcregister("raylib_set_wave_sampleSize",ring_raylib_set_wave_sampleSize);
+	ring_vm_funcregister("raylib_get_wave_channels",ring_raylib_get_wave_channels);
+	ring_vm_funcregister("raylib_set_wave_channels",ring_raylib_set_wave_channels);
+	ring_vm_funcregister("raylib_get_wave_data",ring_raylib_get_wave_data);
+	ring_vm_funcregister("raylib_set_wave_data",ring_raylib_set_wave_data);
 	ring_vm_funcregister("raylib_new_sound",ring_raylib_new_sound);
 	ring_vm_funcregister("raylib_destroy_sound",ring_raylib_destroy_sound);
 	ring_vm_funcregister("raylib_get_sound_audioBuffer",ring_raylib_get_sound_audioBuffer);
