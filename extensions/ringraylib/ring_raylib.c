@@ -1141,6 +1141,172 @@ RING_FUNC(ring_raylib_set_matrix_m15)
 	pMyPointer->m15 = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_color)
+{
+	Color *pMyPointer ;
+	pMyPointer = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Color");
+}
+
+RING_FUNC(ring_raylib_destroy_color)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_color_r)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	RING_API_RETNUMBER(pMyPointer->r);
+}
+
+RING_FUNC(ring_raylib_set_color_r)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	pMyPointer->r = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_color_g)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	RING_API_RETNUMBER(pMyPointer->g);
+}
+
+RING_FUNC(ring_raylib_set_color_g)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	pMyPointer->g = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_color_b)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	RING_API_RETNUMBER(pMyPointer->b);
+}
+
+RING_FUNC(ring_raylib_set_color_b)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	pMyPointer->b = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_color_a)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	RING_API_RETNUMBER(pMyPointer->a);
+}
+
+RING_FUNC(ring_raylib_set_color_a)
+{
+	Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	pMyPointer->a = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -8614,4 +8780,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_matrix_m14",ring_raylib_set_matrix_m14);
 	ring_vm_funcregister("raylib_get_matrix_m15",ring_raylib_get_matrix_m15);
 	ring_vm_funcregister("raylib_set_matrix_m15",ring_raylib_set_matrix_m15);
+	ring_vm_funcregister("raylib_new_color",ring_raylib_new_color);
+	ring_vm_funcregister("raylib_destroy_color",ring_raylib_destroy_color);
+	ring_vm_funcregister("raylib_get_color_r",ring_raylib_get_color_r);
+	ring_vm_funcregister("raylib_set_color_r",ring_raylib_set_color_r);
+	ring_vm_funcregister("raylib_get_color_g",ring_raylib_get_color_g);
+	ring_vm_funcregister("raylib_set_color_g",ring_raylib_set_color_g);
+	ring_vm_funcregister("raylib_get_color_b",ring_raylib_get_color_b);
+	ring_vm_funcregister("raylib_set_color_b",ring_raylib_set_color_b);
+	ring_vm_funcregister("raylib_get_color_a",ring_raylib_get_color_a);
+	ring_vm_funcregister("raylib_set_color_a",ring_raylib_set_color_a);
 }
