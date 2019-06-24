@@ -5539,6 +5539,304 @@ RING_FUNC(ring_raylib_set_mesh_vaoId)
 	pMyPointer->vaoId = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_shader)
+{
+	Shader *pMyPointer ;
+	pMyPointer = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Shader");
+}
+
+RING_FUNC(ring_raylib_destroy_shader)
+{
+	Shader *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Shader");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_shader_id)
+{
+	Shader *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Shader");
+	RING_API_RETNUMBER(pMyPointer->id);
+}
+
+RING_FUNC(ring_raylib_set_shader_id)
+{
+	Shader *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Shader");
+	pMyPointer->id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_new_materialmap)
+{
+	MaterialMap *pMyPointer ;
+	pMyPointer = (MaterialMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MaterialMap)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"MaterialMap");
+}
+
+RING_FUNC(ring_raylib_destroy_materialmap)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_materialmap_texture_id)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->texture.id);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_texture_id)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->texture.id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_materialmap_texture_width)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->texture.width);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_texture_width)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->texture.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_materialmap_texture_height)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->texture.height);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_texture_height)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->texture.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_materialmap_texture_mipmaps)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->texture.mipmaps);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_texture_mipmaps)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->texture.mipmaps = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_materialmap_texture_format)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->texture.format);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_texture_format)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->texture.format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_materialmap_value)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	RING_API_RETNUMBER(pMyPointer->value);
+}
+
+RING_FUNC(ring_raylib_set_materialmap_value)
+{
+	MaterialMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer->value = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_transform)
 {
 	Transform *pMyPointer ;
@@ -16358,6 +16656,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_mesh_boneWeights",ring_raylib_set_mesh_boneWeights);
 	ring_vm_funcregister("raylib_get_mesh_vaoId",ring_raylib_get_mesh_vaoId);
 	ring_vm_funcregister("raylib_set_mesh_vaoId",ring_raylib_set_mesh_vaoId);
+	ring_vm_funcregister("raylib_new_shader",ring_raylib_new_shader);
+	ring_vm_funcregister("raylib_destroy_shader",ring_raylib_destroy_shader);
+	ring_vm_funcregister("raylib_get_shader_id",ring_raylib_get_shader_id);
+	ring_vm_funcregister("raylib_set_shader_id",ring_raylib_set_shader_id);
+	ring_vm_funcregister("raylib_new_materialmap",ring_raylib_new_materialmap);
+	ring_vm_funcregister("raylib_destroy_materialmap",ring_raylib_destroy_materialmap);
+	ring_vm_funcregister("raylib_get_materialmap_texture_id",ring_raylib_get_materialmap_texture_id);
+	ring_vm_funcregister("raylib_set_materialmap_texture_id",ring_raylib_set_materialmap_texture_id);
+	ring_vm_funcregister("raylib_get_materialmap_texture_width",ring_raylib_get_materialmap_texture_width);
+	ring_vm_funcregister("raylib_set_materialmap_texture_width",ring_raylib_set_materialmap_texture_width);
+	ring_vm_funcregister("raylib_get_materialmap_texture_height",ring_raylib_get_materialmap_texture_height);
+	ring_vm_funcregister("raylib_set_materialmap_texture_height",ring_raylib_set_materialmap_texture_height);
+	ring_vm_funcregister("raylib_get_materialmap_texture_mipmaps",ring_raylib_get_materialmap_texture_mipmaps);
+	ring_vm_funcregister("raylib_set_materialmap_texture_mipmaps",ring_raylib_set_materialmap_texture_mipmaps);
+	ring_vm_funcregister("raylib_get_materialmap_texture_format",ring_raylib_get_materialmap_texture_format);
+	ring_vm_funcregister("raylib_set_materialmap_texture_format",ring_raylib_set_materialmap_texture_format);
+	ring_vm_funcregister("raylib_get_materialmap_value",ring_raylib_get_materialmap_value);
+	ring_vm_funcregister("raylib_set_materialmap_value",ring_raylib_set_materialmap_value);
 	ring_vm_funcregister("raylib_new_transform",ring_raylib_new_transform);
 	ring_vm_funcregister("raylib_destroy_transform",ring_raylib_destroy_transform);
 	ring_vm_funcregister("raylib_get_transform_translation_x",ring_raylib_get_transform_translation_x);

@@ -35,7 +35,8 @@ SpriteFont {texture.id, texture.width, texture.height, texture.mipmaps, texture.
 Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Camera {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, int *boneIds, float *boneWeights, vaoId}
-
+Shader {id}
+MaterialMap {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, value}
 Transform {translation.x, translation.y, translation.z, rotation.x, rotation.y, rotation.z, rotation.w, scale.x, scale.y, scale.z}
 BoneInfo {parent}
 Model {transform.m0, transform.m1, transform.m2, transform.m3, transform.m4, transform.m5, transform.m6, transform.m7, transform.m8, transform.m9, transform.m10, transform.m11, transform.m12, transform.m13, transform.m14, transform.m15, meshCount, Mesh *meshes, materialCount, Material *materials, int *meshMaterial, boneCount, BoneInfo *bones, Transform *bindPose} 
