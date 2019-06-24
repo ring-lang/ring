@@ -49,7 +49,6 @@ Wave {sampleCount,sampleRate,sampleSize,channels,void *data}
 Sound {void *audioBuffer, source, buffer, format}
 AudioStream {sampleRate, sampleSize, channels, void *audioBuffer, format, source}
 VrDeviceInfo {hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance}
-
 </struct>
 
 <funcstart>
