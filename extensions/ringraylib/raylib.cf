@@ -18,6 +18,7 @@ aNumberTypes + "float"
 <struct>
 Vector2 {x, y}
 Vector3 {x, y, z}
+Vector4 {x, y, z, w}
 </struct>
 
 <funcstart>
