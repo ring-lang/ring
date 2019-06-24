@@ -5033,6 +5033,138 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_modelanimation)
+{
+	ModelAnimation *pMyPointer ;
+	pMyPointer = (ModelAnimation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ModelAnimation)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"ModelAnimation");
+}
+
+RING_FUNC(ring_raylib_destroy_modelanimation)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_modelanimation_boneCount)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	RING_API_RETNUMBER(pMyPointer->boneCount);
+}
+
+RING_FUNC(ring_raylib_set_modelanimation_boneCount)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	pMyPointer->boneCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_modelanimation_bones)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	RING_API_RETCPOINTER(pMyPointer->bones,"BoneInfo");
+}
+
+RING_FUNC(ring_raylib_set_modelanimation_bones)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo *");
+}
+
+RING_FUNC(ring_raylib_get_modelanimation_frameCount)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	RING_API_RETNUMBER(pMyPointer->frameCount);
+}
+
+RING_FUNC(ring_raylib_set_modelanimation_frameCount)
+{
+	ModelAnimation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	pMyPointer->frameCount = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_ray)
 {
 	Ray *pMyPointer ;
@@ -14410,6 +14542,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_modelanimation",ring_raylib_new_modelanimation);
+	ring_vm_funcregister("raylib_destroy_modelanimation",ring_raylib_destroy_modelanimation);
+	ring_vm_funcregister("raylib_get_modelanimation_boneCount",ring_raylib_get_modelanimation_boneCount);
+	ring_vm_funcregister("raylib_set_modelanimation_boneCount",ring_raylib_set_modelanimation_boneCount);
+	ring_vm_funcregister("raylib_get_modelanimation_bones",ring_raylib_get_modelanimation_bones);
+	ring_vm_funcregister("raylib_set_modelanimation_bones",ring_raylib_set_modelanimation_bones);
+	ring_vm_funcregister("raylib_get_modelanimation_frameCount",ring_raylib_get_modelanimation_frameCount);
+	ring_vm_funcregister("raylib_set_modelanimation_frameCount",ring_raylib_set_modelanimation_frameCount);
 	ring_vm_funcregister("raylib_new_ray",ring_raylib_new_ray);
 	ring_vm_funcregister("raylib_destroy_ray",ring_raylib_destroy_ray);
 	ring_vm_funcregister("raylib_get_ray_position_x",ring_raylib_get_ray_position_x);
