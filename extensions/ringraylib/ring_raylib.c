@@ -3923,6 +3923,308 @@ RING_FUNC(ring_raylib_set_font_chars)
 	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo *");
 }
 
+RING_FUNC(ring_raylib_new_spritefont)
+{
+	SpriteFont *pMyPointer ;
+	pMyPointer = (SpriteFont *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SpriteFont)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SpriteFont");
+}
+
+RING_FUNC(ring_raylib_destroy_spritefont)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_spritefont_texture_id)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->texture.id);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_texture_id)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->texture.id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_texture_width)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->texture.width);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_texture_width)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->texture.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_texture_height)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->texture.height);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_texture_height)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->texture.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_texture_mipmaps)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->texture.mipmaps);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_texture_mipmaps)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->texture.mipmaps = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_texture_format)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->texture.format);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_texture_format)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->texture.format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_baseSize)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->baseSize);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_baseSize)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->baseSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_charsCount)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETNUMBER(pMyPointer->charsCount);
+}
+
+RING_FUNC(ring_raylib_set_spritefont_charsCount)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->charsCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_spritefont_chars)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	RING_API_RETCPOINTER(pMyPointer->chars,"CharInfo");
+}
+
+RING_FUNC(ring_raylib_set_spritefont_chars)
+{
+	SpriteFont *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo *");
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -11562,4 +11864,22 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_font_charsCount",ring_raylib_set_font_charsCount);
 	ring_vm_funcregister("raylib_get_font_chars",ring_raylib_get_font_chars);
 	ring_vm_funcregister("raylib_set_font_chars",ring_raylib_set_font_chars);
+	ring_vm_funcregister("raylib_new_spritefont",ring_raylib_new_spritefont);
+	ring_vm_funcregister("raylib_destroy_spritefont",ring_raylib_destroy_spritefont);
+	ring_vm_funcregister("raylib_get_spritefont_texture_id",ring_raylib_get_spritefont_texture_id);
+	ring_vm_funcregister("raylib_set_spritefont_texture_id",ring_raylib_set_spritefont_texture_id);
+	ring_vm_funcregister("raylib_get_spritefont_texture_width",ring_raylib_get_spritefont_texture_width);
+	ring_vm_funcregister("raylib_set_spritefont_texture_width",ring_raylib_set_spritefont_texture_width);
+	ring_vm_funcregister("raylib_get_spritefont_texture_height",ring_raylib_get_spritefont_texture_height);
+	ring_vm_funcregister("raylib_set_spritefont_texture_height",ring_raylib_set_spritefont_texture_height);
+	ring_vm_funcregister("raylib_get_spritefont_texture_mipmaps",ring_raylib_get_spritefont_texture_mipmaps);
+	ring_vm_funcregister("raylib_set_spritefont_texture_mipmaps",ring_raylib_set_spritefont_texture_mipmaps);
+	ring_vm_funcregister("raylib_get_spritefont_texture_format",ring_raylib_get_spritefont_texture_format);
+	ring_vm_funcregister("raylib_set_spritefont_texture_format",ring_raylib_set_spritefont_texture_format);
+	ring_vm_funcregister("raylib_get_spritefont_baseSize",ring_raylib_get_spritefont_baseSize);
+	ring_vm_funcregister("raylib_set_spritefont_baseSize",ring_raylib_set_spritefont_baseSize);
+	ring_vm_funcregister("raylib_get_spritefont_charsCount",ring_raylib_get_spritefont_charsCount);
+	ring_vm_funcregister("raylib_set_spritefont_charsCount",ring_raylib_set_spritefont_charsCount);
+	ring_vm_funcregister("raylib_get_spritefont_chars",ring_raylib_get_spritefont_chars);
+	ring_vm_funcregister("raylib_set_spritefont_chars",ring_raylib_set_spritefont_chars);
 }

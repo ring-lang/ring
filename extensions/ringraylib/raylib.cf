@@ -31,6 +31,7 @@ RenderTexture { id, texture.id, texture.width, texture.height, texture.mipmaps, 
 NPatchInfo { sourceRec.x , sourceRec.y , sourceRec.width, sourceRec.height, left, top , right, bottom, type }
 CharInfo { value, rec.x, rec.y, rec.width, rec.height,offsetX,offsetY,advanceX,unsigned char *data }
 Font { texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
+SpriteFont { texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
 </struct>
 
 <funcstart>
