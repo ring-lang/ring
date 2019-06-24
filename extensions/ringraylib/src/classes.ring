@@ -1,6 +1,6 @@
 class Vector2 x y
 
-	oData = raylib_new_vector2()
+	oData = raylib_new_managed_vector2()
 
 	func init (nX,nY)
 		x=nX y=nY
@@ -16,7 +16,7 @@ class Vector2 x y
 
 class Vector3 x y z
 
-	oData = raylib_new_vector3()
+	oData = raylib_new_managed_vector3()
 
 	func init (nX,nY,nZ)
 		x=nX y=nY z=nZ
@@ -34,7 +34,7 @@ class Vector3 x y z
 
 class Vector4 x y z w
 
-	oData = raylib_new_vector4()
+	oData = raylib_new_managed_vector4()
 
 	func init (nX,nY,nZ,nW)
 		x=nX y=nY z=nZ w=nW
