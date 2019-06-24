@@ -28,6 +28,7 @@ Texture2D { id, width, height, mipmaps, format}
 Texture { id, width, height, mipmaps, format}
 RenderTexture2D { id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format, depthTexture}
 RenderTexture { id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format, depthTexture}
+NPatchInfo { sourceRec.x , sourceRec.y , sourceRec.width, sourceRec.height, left, top , right, bottom, type }
 </struct>
 
 <funcstart>

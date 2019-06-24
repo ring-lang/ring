@@ -2949,6 +2949,342 @@ RING_FUNC(ring_raylib_set_rendertexture_depthTexture)
 	pMyPointer->depthTexture = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_npatchinfo)
+{
+	NPatchInfo *pMyPointer ;
+	pMyPointer = (NPatchInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(NPatchInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"NPatchInfo");
+}
+
+RING_FUNC(ring_raylib_destroy_npatchinfo)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_sourceRec_x)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->sourceRec.x);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_sourceRec_x)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->sourceRec.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_sourceRec_y)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->sourceRec.y);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_sourceRec_y)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->sourceRec.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_sourceRec_width)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->sourceRec.width);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_sourceRec_width)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->sourceRec.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_sourceRec_height)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->sourceRec.height);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_sourceRec_height)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->sourceRec.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_left)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->left);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_left)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->left = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_top)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->top);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_top)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->top = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_right)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->right);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_right)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->right = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_bottom)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->bottom);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_bottom)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->bottom = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_npatchinfo_type)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_raylib_set_npatchinfo_type)
+{
+	NPatchInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -10530,4 +10866,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_rendertexture_depth_format",ring_raylib_set_rendertexture_depth_format);
 	ring_vm_funcregister("raylib_get_rendertexture_depthTexture",ring_raylib_get_rendertexture_depthTexture);
 	ring_vm_funcregister("raylib_set_rendertexture_depthTexture",ring_raylib_set_rendertexture_depthTexture);
+	ring_vm_funcregister("raylib_new_npatchinfo",ring_raylib_new_npatchinfo);
+	ring_vm_funcregister("raylib_destroy_npatchinfo",ring_raylib_destroy_npatchinfo);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_x",ring_raylib_get_npatchinfo_sourceRec_x);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_x",ring_raylib_set_npatchinfo_sourceRec_x);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_y",ring_raylib_get_npatchinfo_sourceRec_y);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_y",ring_raylib_set_npatchinfo_sourceRec_y);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_width",ring_raylib_get_npatchinfo_sourceRec_width);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_width",ring_raylib_set_npatchinfo_sourceRec_width);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_height",ring_raylib_get_npatchinfo_sourceRec_height);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_height",ring_raylib_set_npatchinfo_sourceRec_height);
+	ring_vm_funcregister("raylib_get_npatchinfo_left",ring_raylib_get_npatchinfo_left);
+	ring_vm_funcregister("raylib_set_npatchinfo_left",ring_raylib_set_npatchinfo_left);
+	ring_vm_funcregister("raylib_get_npatchinfo_top",ring_raylib_get_npatchinfo_top);
+	ring_vm_funcregister("raylib_set_npatchinfo_top",ring_raylib_set_npatchinfo_top);
+	ring_vm_funcregister("raylib_get_npatchinfo_right",ring_raylib_get_npatchinfo_right);
+	ring_vm_funcregister("raylib_set_npatchinfo_right",ring_raylib_set_npatchinfo_right);
+	ring_vm_funcregister("raylib_get_npatchinfo_bottom",ring_raylib_get_npatchinfo_bottom);
+	ring_vm_funcregister("raylib_set_npatchinfo_bottom",ring_raylib_set_npatchinfo_bottom);
+	ring_vm_funcregister("raylib_get_npatchinfo_type",ring_raylib_get_npatchinfo_type);
+	ring_vm_funcregister("raylib_set_npatchinfo_type",ring_raylib_set_npatchinfo_type);
 }
