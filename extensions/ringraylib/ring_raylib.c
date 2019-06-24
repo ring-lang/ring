@@ -401,6 +401,746 @@ RING_FUNC(ring_raylib_set_vector4_w)
 	pMyPointer->w = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_quaternion)
+{
+	Quaternion *pMyPointer ;
+	pMyPointer = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Quaternion");
+}
+
+RING_FUNC(ring_raylib_destroy_quaternion)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_quaternion_x)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	RING_API_RETNUMBER(pMyPointer->x);
+}
+
+RING_FUNC(ring_raylib_set_quaternion_x)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_quaternion_y)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_raylib_set_quaternion_y)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	pMyPointer->y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_quaternion_z)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	RING_API_RETNUMBER(pMyPointer->z);
+}
+
+RING_FUNC(ring_raylib_set_quaternion_z)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	pMyPointer->z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_quaternion_w)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	RING_API_RETNUMBER(pMyPointer->w);
+}
+
+RING_FUNC(ring_raylib_set_quaternion_w)
+{
+	Quaternion *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	pMyPointer->w = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_new_matrix)
+{
+	Matrix *pMyPointer ;
+	pMyPointer = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Matrix");
+}
+
+RING_FUNC(ring_raylib_destroy_matrix)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_matrix_m0)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m0);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m0)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m0 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m1)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m1);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m1)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m2)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m2);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m2)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m2 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m3)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m3);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m3)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m3 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m4)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m4);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m4)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m4 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m5)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m5);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m5)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m5 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m6)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m6);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m6)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m6 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m7)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m7);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m7)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m7 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m8)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m8);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m8)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m8 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m9)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m9);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m9)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m9 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m10)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m10);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m10)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m10 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m11)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m11);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m11)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m11 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m12)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m12);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m12)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m12 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m13)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m13);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m13)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m13 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m14)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m14);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m14)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m14 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_matrix_m15)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	RING_API_RETNUMBER(pMyPointer->m15);
+}
+
+RING_FUNC(ring_raylib_set_matrix_m15)
+{
+	Matrix *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer->m15 = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -7830,4 +8570,48 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_vector4_z",ring_raylib_set_vector4_z);
 	ring_vm_funcregister("raylib_get_vector4_w",ring_raylib_get_vector4_w);
 	ring_vm_funcregister("raylib_set_vector4_w",ring_raylib_set_vector4_w);
+	ring_vm_funcregister("raylib_new_quaternion",ring_raylib_new_quaternion);
+	ring_vm_funcregister("raylib_destroy_quaternion",ring_raylib_destroy_quaternion);
+	ring_vm_funcregister("raylib_get_quaternion_x",ring_raylib_get_quaternion_x);
+	ring_vm_funcregister("raylib_set_quaternion_x",ring_raylib_set_quaternion_x);
+	ring_vm_funcregister("raylib_get_quaternion_y",ring_raylib_get_quaternion_y);
+	ring_vm_funcregister("raylib_set_quaternion_y",ring_raylib_set_quaternion_y);
+	ring_vm_funcregister("raylib_get_quaternion_z",ring_raylib_get_quaternion_z);
+	ring_vm_funcregister("raylib_set_quaternion_z",ring_raylib_set_quaternion_z);
+	ring_vm_funcregister("raylib_get_quaternion_w",ring_raylib_get_quaternion_w);
+	ring_vm_funcregister("raylib_set_quaternion_w",ring_raylib_set_quaternion_w);
+	ring_vm_funcregister("raylib_new_matrix",ring_raylib_new_matrix);
+	ring_vm_funcregister("raylib_destroy_matrix",ring_raylib_destroy_matrix);
+	ring_vm_funcregister("raylib_get_matrix_m0",ring_raylib_get_matrix_m0);
+	ring_vm_funcregister("raylib_set_matrix_m0",ring_raylib_set_matrix_m0);
+	ring_vm_funcregister("raylib_get_matrix_m1",ring_raylib_get_matrix_m1);
+	ring_vm_funcregister("raylib_set_matrix_m1",ring_raylib_set_matrix_m1);
+	ring_vm_funcregister("raylib_get_matrix_m2",ring_raylib_get_matrix_m2);
+	ring_vm_funcregister("raylib_set_matrix_m2",ring_raylib_set_matrix_m2);
+	ring_vm_funcregister("raylib_get_matrix_m3",ring_raylib_get_matrix_m3);
+	ring_vm_funcregister("raylib_set_matrix_m3",ring_raylib_set_matrix_m3);
+	ring_vm_funcregister("raylib_get_matrix_m4",ring_raylib_get_matrix_m4);
+	ring_vm_funcregister("raylib_set_matrix_m4",ring_raylib_set_matrix_m4);
+	ring_vm_funcregister("raylib_get_matrix_m5",ring_raylib_get_matrix_m5);
+	ring_vm_funcregister("raylib_set_matrix_m5",ring_raylib_set_matrix_m5);
+	ring_vm_funcregister("raylib_get_matrix_m6",ring_raylib_get_matrix_m6);
+	ring_vm_funcregister("raylib_set_matrix_m6",ring_raylib_set_matrix_m6);
+	ring_vm_funcregister("raylib_get_matrix_m7",ring_raylib_get_matrix_m7);
+	ring_vm_funcregister("raylib_set_matrix_m7",ring_raylib_set_matrix_m7);
+	ring_vm_funcregister("raylib_get_matrix_m8",ring_raylib_get_matrix_m8);
+	ring_vm_funcregister("raylib_set_matrix_m8",ring_raylib_set_matrix_m8);
+	ring_vm_funcregister("raylib_get_matrix_m9",ring_raylib_get_matrix_m9);
+	ring_vm_funcregister("raylib_set_matrix_m9",ring_raylib_set_matrix_m9);
+	ring_vm_funcregister("raylib_get_matrix_m10",ring_raylib_get_matrix_m10);
+	ring_vm_funcregister("raylib_set_matrix_m10",ring_raylib_set_matrix_m10);
+	ring_vm_funcregister("raylib_get_matrix_m11",ring_raylib_get_matrix_m11);
+	ring_vm_funcregister("raylib_set_matrix_m11",ring_raylib_set_matrix_m11);
+	ring_vm_funcregister("raylib_get_matrix_m12",ring_raylib_get_matrix_m12);
+	ring_vm_funcregister("raylib_set_matrix_m12",ring_raylib_set_matrix_m12);
+	ring_vm_funcregister("raylib_get_matrix_m13",ring_raylib_get_matrix_m13);
+	ring_vm_funcregister("raylib_set_matrix_m13",ring_raylib_set_matrix_m13);
+	ring_vm_funcregister("raylib_get_matrix_m14",ring_raylib_get_matrix_m14);
+	ring_vm_funcregister("raylib_set_matrix_m14",ring_raylib_set_matrix_m14);
+	ring_vm_funcregister("raylib_get_matrix_m15",ring_raylib_get_matrix_m15);
+	ring_vm_funcregister("raylib_set_matrix_m15",ring_raylib_set_matrix_m15);
 }
