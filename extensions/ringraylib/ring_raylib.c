@@ -2511,6 +2511,444 @@ RING_FUNC(ring_raylib_set_rendertexture2d_depthTexture)
 	pMyPointer->depthTexture = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_rendertexture)
+{
+	RenderTexture *pMyPointer ;
+	pMyPointer = (RenderTexture *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"RenderTexture");
+}
+
+RING_FUNC(ring_raylib_destroy_rendertexture)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->id);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_texture_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->texture.id);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_texture_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->texture.id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_texture_width)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->texture.width);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_texture_width)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->texture.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_texture_height)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->texture.height);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_texture_height)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->texture.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_texture_mipmaps)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->texture.mipmaps);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_texture_mipmaps)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->texture.mipmaps = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_texture_format)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->texture.format);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_texture_format)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->texture.format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depth_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depth.id);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depth_id)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depth.id = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depth_width)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depth.width);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depth_width)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depth.width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depth_height)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depth.height);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depth_height)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depth.height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depth_mipmaps)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depth.mipmaps);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depth_mipmaps)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depth.mipmaps = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depth_format)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depth.format);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depth_format)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depth.format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rendertexture_depthTexture)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	RING_API_RETNUMBER(pMyPointer->depthTexture);
+}
+
+RING_FUNC(ring_raylib_set_rendertexture_depthTexture)
+{
+	RenderTexture *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer->depthTexture = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -10066,4 +10504,30 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_rendertexture2d_depth_format",ring_raylib_set_rendertexture2d_depth_format);
 	ring_vm_funcregister("raylib_get_rendertexture2d_depthTexture",ring_raylib_get_rendertexture2d_depthTexture);
 	ring_vm_funcregister("raylib_set_rendertexture2d_depthTexture",ring_raylib_set_rendertexture2d_depthTexture);
+	ring_vm_funcregister("raylib_new_rendertexture",ring_raylib_new_rendertexture);
+	ring_vm_funcregister("raylib_destroy_rendertexture",ring_raylib_destroy_rendertexture);
+	ring_vm_funcregister("raylib_get_rendertexture_id",ring_raylib_get_rendertexture_id);
+	ring_vm_funcregister("raylib_set_rendertexture_id",ring_raylib_set_rendertexture_id);
+	ring_vm_funcregister("raylib_get_rendertexture_texture_id",ring_raylib_get_rendertexture_texture_id);
+	ring_vm_funcregister("raylib_set_rendertexture_texture_id",ring_raylib_set_rendertexture_texture_id);
+	ring_vm_funcregister("raylib_get_rendertexture_texture_width",ring_raylib_get_rendertexture_texture_width);
+	ring_vm_funcregister("raylib_set_rendertexture_texture_width",ring_raylib_set_rendertexture_texture_width);
+	ring_vm_funcregister("raylib_get_rendertexture_texture_height",ring_raylib_get_rendertexture_texture_height);
+	ring_vm_funcregister("raylib_set_rendertexture_texture_height",ring_raylib_set_rendertexture_texture_height);
+	ring_vm_funcregister("raylib_get_rendertexture_texture_mipmaps",ring_raylib_get_rendertexture_texture_mipmaps);
+	ring_vm_funcregister("raylib_set_rendertexture_texture_mipmaps",ring_raylib_set_rendertexture_texture_mipmaps);
+	ring_vm_funcregister("raylib_get_rendertexture_texture_format",ring_raylib_get_rendertexture_texture_format);
+	ring_vm_funcregister("raylib_set_rendertexture_texture_format",ring_raylib_set_rendertexture_texture_format);
+	ring_vm_funcregister("raylib_get_rendertexture_depth_id",ring_raylib_get_rendertexture_depth_id);
+	ring_vm_funcregister("raylib_set_rendertexture_depth_id",ring_raylib_set_rendertexture_depth_id);
+	ring_vm_funcregister("raylib_get_rendertexture_depth_width",ring_raylib_get_rendertexture_depth_width);
+	ring_vm_funcregister("raylib_set_rendertexture_depth_width",ring_raylib_set_rendertexture_depth_width);
+	ring_vm_funcregister("raylib_get_rendertexture_depth_height",ring_raylib_get_rendertexture_depth_height);
+	ring_vm_funcregister("raylib_set_rendertexture_depth_height",ring_raylib_set_rendertexture_depth_height);
+	ring_vm_funcregister("raylib_get_rendertexture_depth_mipmaps",ring_raylib_get_rendertexture_depth_mipmaps);
+	ring_vm_funcregister("raylib_set_rendertexture_depth_mipmaps",ring_raylib_set_rendertexture_depth_mipmaps);
+	ring_vm_funcregister("raylib_get_rendertexture_depth_format",ring_raylib_get_rendertexture_depth_format);
+	ring_vm_funcregister("raylib_set_rendertexture_depth_format",ring_raylib_set_rendertexture_depth_format);
+	ring_vm_funcregister("raylib_get_rendertexture_depthTexture",ring_raylib_get_rendertexture_depthTexture);
+	ring_vm_funcregister("raylib_set_rendertexture_depthTexture",ring_raylib_set_rendertexture_depthTexture);
 }
