@@ -5033,6 +5033,308 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_rayhitinfo)
+{
+	RayHitInfo *pMyPointer ;
+	pMyPointer = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"RayHitInfo");
+}
+
+RING_FUNC(ring_raylib_destroy_rayhitinfo)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_hit)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->hit);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_hit)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->hit = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_distance)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->distance);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_distance)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->distance = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_position_x)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->position.x);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_position_x)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->position.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_position_y)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->position.y);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_position_y)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->position.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_position_z)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->position.z);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_position_z)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->position.z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_normal_x)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->normal.x);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_normal_x)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->normal.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_normal_y)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->normal.y);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_normal_y)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->normal.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_rayhitinfo_normal_z)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	RING_API_RETNUMBER(pMyPointer->normal.z);
+}
+
+RING_FUNC(ring_raylib_set_rayhitinfo_normal_z)
+{
+	RayHitInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer->normal.z = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_boundingbox)
 {
 	BoundingBox *pMyPointer ;
@@ -13874,6 +14176,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_rayhitinfo",ring_raylib_new_rayhitinfo);
+	ring_vm_funcregister("raylib_destroy_rayhitinfo",ring_raylib_destroy_rayhitinfo);
+	ring_vm_funcregister("raylib_get_rayhitinfo_hit",ring_raylib_get_rayhitinfo_hit);
+	ring_vm_funcregister("raylib_set_rayhitinfo_hit",ring_raylib_set_rayhitinfo_hit);
+	ring_vm_funcregister("raylib_get_rayhitinfo_distance",ring_raylib_get_rayhitinfo_distance);
+	ring_vm_funcregister("raylib_set_rayhitinfo_distance",ring_raylib_set_rayhitinfo_distance);
+	ring_vm_funcregister("raylib_get_rayhitinfo_position_x",ring_raylib_get_rayhitinfo_position_x);
+	ring_vm_funcregister("raylib_set_rayhitinfo_position_x",ring_raylib_set_rayhitinfo_position_x);
+	ring_vm_funcregister("raylib_get_rayhitinfo_position_y",ring_raylib_get_rayhitinfo_position_y);
+	ring_vm_funcregister("raylib_set_rayhitinfo_position_y",ring_raylib_set_rayhitinfo_position_y);
+	ring_vm_funcregister("raylib_get_rayhitinfo_position_z",ring_raylib_get_rayhitinfo_position_z);
+	ring_vm_funcregister("raylib_set_rayhitinfo_position_z",ring_raylib_set_rayhitinfo_position_z);
+	ring_vm_funcregister("raylib_get_rayhitinfo_normal_x",ring_raylib_get_rayhitinfo_normal_x);
+	ring_vm_funcregister("raylib_set_rayhitinfo_normal_x",ring_raylib_set_rayhitinfo_normal_x);
+	ring_vm_funcregister("raylib_get_rayhitinfo_normal_y",ring_raylib_get_rayhitinfo_normal_y);
+	ring_vm_funcregister("raylib_set_rayhitinfo_normal_y",ring_raylib_set_rayhitinfo_normal_y);
+	ring_vm_funcregister("raylib_get_rayhitinfo_normal_z",ring_raylib_get_rayhitinfo_normal_z);
+	ring_vm_funcregister("raylib_set_rayhitinfo_normal_z",ring_raylib_set_rayhitinfo_normal_z);
 	ring_vm_funcregister("raylib_new_boundingbox",ring_raylib_new_boundingbox);
 	ring_vm_funcregister("raylib_destroy_boundingbox",ring_raylib_destroy_boundingbox);
 	ring_vm_funcregister("raylib_get_boundingbox_min_x",ring_raylib_get_boundingbox_min_x);
