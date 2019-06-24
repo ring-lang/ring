@@ -1,6 +1,6 @@
 ? "Using RingRayLib"
 ? "Loading the library!"
 
-load "ringraylib.ring"
+load "raylib.ring"
 
 ? "done"

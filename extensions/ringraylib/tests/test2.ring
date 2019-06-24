@@ -1,4 +1,4 @@
-load "ringraylib.ring"
+load "raylib.ring"
 
 screenWidth = 800
 screenHeight = 450
