@@ -5,6 +5,104 @@
 
 #include <raylib.h>
 
+RING_FUNC(ring_raylib_new_vector2)
+{
+	Vector2 *pMyPointer ;
+	pMyPointer = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Vector2");
+}
+
+RING_FUNC(ring_raylib_destroy_vector2)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_vector2_x)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	RING_API_RETNUMBER(pMyPointer->x);
+}
+
+RING_FUNC(ring_raylib_set_vector2_x)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_vector2_y)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_raylib_set_vector2_y)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	pMyPointer->y = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -7410,4 +7508,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("stopaudiostream",ring_StopAudioStream);
 	ring_vm_funcregister("setaudiostreamvolume",ring_SetAudioStreamVolume);
 	ring_vm_funcregister("setaudiostreampitch",ring_SetAudioStreamPitch);
+	ring_vm_funcregister("raylib_new_vector2",ring_raylib_new_vector2);
+	ring_vm_funcregister("raylib_destroy_vector2",ring_raylib_destroy_vector2);
+	ring_vm_funcregister("raylib_get_vector2_x",ring_raylib_get_vector2_x);
+	ring_vm_funcregister("raylib_set_vector2_x",ring_raylib_set_vector2_x);
+	ring_vm_funcregister("raylib_get_vector2_y",ring_raylib_get_vector2_y);
+	ring_vm_funcregister("raylib_set_vector2_y",ring_raylib_set_vector2_y);
 }

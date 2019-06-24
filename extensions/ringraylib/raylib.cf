@@ -15,6 +15,10 @@ aNumberTypes + "unsigned int"
 aNumberTypes + "float"
 </runcode>
 
+<struct>
+Vector2 {x, y}
+</struct>
+
 <funcstart>
 raylib
 </funcstart>
