@@ -23,6 +23,7 @@ Ring 1.11 comes with the next features!
 * Sudoku Game
 * Desktop Screen Shot Application
 * Text To Speech Application
+* RingRayLib Extension
 * StdLib - More Functions
 * Better RingQt
 * More Improvements
@@ -127,6 +128,42 @@ Text To Speech Application
 
 .. image:: ttsapp.png
 	:alt: Text To Speech Application
+
+
+.. index:: 
+	pair: What is new in Ring 1.11?; RingRayLib Extension
+
+RingRayLib Extension
+====================
+
+Ring 1.11 comes with new extension to support the RayLib game programming library
+
+Example:
+
+.. code-block:: ring
+
+	load "raylib.ring"
+
+	screenWidth 	= 800
+	screenHeight 	= 450
+
+	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window")
+
+	SetTargetFPS(60)
+
+	while !WindowShouldClose() 
+		BeginDrawing()
+			ClearBackground(RED)
+			DrawText("Congrats! You created your first window!", 190, 200, 20, WHITE)
+	        EndDrawing()
+	end
+
+	CloseWindow()
+
+Output:
+
+.. image:: raylib_ex1.png
+	:alt: RayLib Example
 
 .. index:: 
 	pair: What is new in Ring 1.11?; StdLib - More Functions
