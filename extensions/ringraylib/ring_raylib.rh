@@ -1,1 +1,6 @@
-RAYWHITE  = GetColor( Bytes2Int(  Char(255) + Char(255) + Char(255) + Char(255) ) )
+RAYWHITE  = RayLibColor(255, 255, 255, 255)
+LIGHTGRAY = RayLibColor(200, 200, 200, 255)
+
+
+func RayLibColor r,g,b,a
+	return GetColor( Bytes2Int(  Char(r) + Char(g) + Char(b) + Char(a) ) )
