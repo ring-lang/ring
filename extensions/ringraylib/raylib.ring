@@ -6,4 +6,5 @@ else
 	LoadLib("libringraylib.so")
 ok
 
-load "ring_raylib.rh"
+load "raylib.rh"
+load "classes.ring"
