@@ -5033,6 +5033,512 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_mesh)
+{
+	Mesh *pMyPointer ;
+	pMyPointer = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Mesh");
+}
+
+RING_FUNC(ring_raylib_destroy_mesh)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_mesh_vertexCount)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETNUMBER(pMyPointer->vertexCount);
+}
+
+RING_FUNC(ring_raylib_set_mesh_vertexCount)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->vertexCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_mesh_triangleCount)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETNUMBER(pMyPointer->triangleCount);
+}
+
+RING_FUNC(ring_raylib_set_mesh_triangleCount)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->triangleCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_mesh_vertices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->vertices,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_vertices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->vertices = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_texcoords)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->texcoords,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_texcoords)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->texcoords = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_texcoords2)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->texcoords2,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_texcoords2)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->texcoords2 = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_normals)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->normals,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_normals)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->normals = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_tangents)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->tangents,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_tangents)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->tangents = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_colors)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->colors,"unsigned char");
+}
+
+RING_FUNC(ring_raylib_set_mesh_colors)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->colors = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_indices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->indices,"unsigned short");
+}
+
+RING_FUNC(ring_raylib_set_mesh_indices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->indices = (unsigned short *) RING_API_GETCPOINTER(2,"unsigned short *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_animVertices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->animVertices,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_animVertices)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->animVertices = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_animNormals)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->animNormals,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_animNormals)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->animNormals = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_boneIds)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->boneIds,"int");
+}
+
+RING_FUNC(ring_raylib_set_mesh_boneIds)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->boneIds = (int *) RING_API_GETCPOINTER(2,"int *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_boneWeights)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETCPOINTER(pMyPointer->boneWeights,"float");
+}
+
+RING_FUNC(ring_raylib_set_mesh_boneWeights)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->boneWeights = (float *) RING_API_GETCPOINTER(2,"float *");
+}
+
+RING_FUNC(ring_raylib_get_mesh_vaoId)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	RING_API_RETNUMBER(pMyPointer->vaoId);
+}
+
+RING_FUNC(ring_raylib_set_mesh_vaoId)
+{
+	Mesh *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer->vaoId = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_transform)
 {
 	Transform *pMyPointer ;
@@ -15822,6 +16328,36 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_mesh",ring_raylib_new_mesh);
+	ring_vm_funcregister("raylib_destroy_mesh",ring_raylib_destroy_mesh);
+	ring_vm_funcregister("raylib_get_mesh_vertexCount",ring_raylib_get_mesh_vertexCount);
+	ring_vm_funcregister("raylib_set_mesh_vertexCount",ring_raylib_set_mesh_vertexCount);
+	ring_vm_funcregister("raylib_get_mesh_triangleCount",ring_raylib_get_mesh_triangleCount);
+	ring_vm_funcregister("raylib_set_mesh_triangleCount",ring_raylib_set_mesh_triangleCount);
+	ring_vm_funcregister("raylib_get_mesh_vertices",ring_raylib_get_mesh_vertices);
+	ring_vm_funcregister("raylib_set_mesh_vertices",ring_raylib_set_mesh_vertices);
+	ring_vm_funcregister("raylib_get_mesh_texcoords",ring_raylib_get_mesh_texcoords);
+	ring_vm_funcregister("raylib_set_mesh_texcoords",ring_raylib_set_mesh_texcoords);
+	ring_vm_funcregister("raylib_get_mesh_texcoords2",ring_raylib_get_mesh_texcoords2);
+	ring_vm_funcregister("raylib_set_mesh_texcoords2",ring_raylib_set_mesh_texcoords2);
+	ring_vm_funcregister("raylib_get_mesh_normals",ring_raylib_get_mesh_normals);
+	ring_vm_funcregister("raylib_set_mesh_normals",ring_raylib_set_mesh_normals);
+	ring_vm_funcregister("raylib_get_mesh_tangents",ring_raylib_get_mesh_tangents);
+	ring_vm_funcregister("raylib_set_mesh_tangents",ring_raylib_set_mesh_tangents);
+	ring_vm_funcregister("raylib_get_mesh_colors",ring_raylib_get_mesh_colors);
+	ring_vm_funcregister("raylib_set_mesh_colors",ring_raylib_set_mesh_colors);
+	ring_vm_funcregister("raylib_get_mesh_indices",ring_raylib_get_mesh_indices);
+	ring_vm_funcregister("raylib_set_mesh_indices",ring_raylib_set_mesh_indices);
+	ring_vm_funcregister("raylib_get_mesh_animVertices",ring_raylib_get_mesh_animVertices);
+	ring_vm_funcregister("raylib_set_mesh_animVertices",ring_raylib_set_mesh_animVertices);
+	ring_vm_funcregister("raylib_get_mesh_animNormals",ring_raylib_get_mesh_animNormals);
+	ring_vm_funcregister("raylib_set_mesh_animNormals",ring_raylib_set_mesh_animNormals);
+	ring_vm_funcregister("raylib_get_mesh_boneIds",ring_raylib_get_mesh_boneIds);
+	ring_vm_funcregister("raylib_set_mesh_boneIds",ring_raylib_set_mesh_boneIds);
+	ring_vm_funcregister("raylib_get_mesh_boneWeights",ring_raylib_get_mesh_boneWeights);
+	ring_vm_funcregister("raylib_set_mesh_boneWeights",ring_raylib_set_mesh_boneWeights);
+	ring_vm_funcregister("raylib_get_mesh_vaoId",ring_raylib_get_mesh_vaoId);
+	ring_vm_funcregister("raylib_set_mesh_vaoId",ring_raylib_set_mesh_vaoId);
 	ring_vm_funcregister("raylib_new_transform",ring_raylib_new_transform);
 	ring_vm_funcregister("raylib_destroy_transform",ring_raylib_destroy_transform);
 	ring_vm_funcregister("raylib_get_transform_translation_x",ring_raylib_get_transform_translation_x);

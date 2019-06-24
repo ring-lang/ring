@@ -34,6 +34,7 @@ Font {texture.id, texture.width, texture.height, texture.mipmaps, texture.format
 SpriteFont {texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
 Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Camera {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
+Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, int *boneIds, float *boneWeights, vaoId}
 
 Transform {translation.x, translation.y, translation.z, rotation.x, rotation.y, rotation.z, rotation.w, scale.x, scale.y, scale.z}
 BoneInfo {parent}
