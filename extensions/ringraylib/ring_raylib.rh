@@ -232,5 +232,164 @@
     GAMEPAD_AXIS_LEFT_TRIGGER	= 5      // [1..-1] (pressure-level)
     GAMEPAD_AXIS_RIGHT_TRIGGER	= 6      // [1..-1] (pressure-level)
 
+# Shader location point type
+
+    LOC_VERTEX_POSITION 	= 0
+    LOC_VERTEX_TEXCOORD01	= 1
+    LOC_VERTEX_TEXCOORD02	= 2
+    LOC_VERTEX_NORMAL		= 3 
+    LOC_VERTEX_TANGENT		= 4
+    LOC_VERTEX_COLOR		= 5
+    LOC_MATRIX_MVP		= 6
+    LOC_MATRIX_MODEL		= 7
+    LOC_MATRIX_VIEW		= 8
+    LOC_MATRIX_PROJECTION	= 9
+    LOC_VECTOR_VIEW		= 10
+    LOC_COLOR_DIFFUSE		= 11
+    LOC_COLOR_SPECULAR		= 12
+    LOC_COLOR_AMBIENT		= 13
+    LOC_MAP_ALBEDO		= 14          // LOC_MAP_DIFFUSE
+    LOC_MAP_METALNESS		= 15       // LOC_MAP_SPECULAR
+    LOC_MAP_NORMAL		= 16
+    LOC_MAP_ROUGHNESS		= 17
+    LOC_MAP_OCCLUSION		= 18
+    LOC_MAP_EMISSION		= 19
+    LOC_MAP_HEIGHT		= 20
+    LOC_MAP_CUBEMAP		= 21
+    LOC_MAP_IRRADIANCE		= 22
+    LOC_MAP_PREFILTER		= 23
+    LOC_MAP_BRDF		= 24
+
+    LOC_MAP_DIFFUSE  = LOC_MAP_ALBEDO
+    LOC_MAP_SPECULAR = LOC_MAP_METALNESS
+
+# Shader uniform data types
+
+    UNIFORM_FLOAT 	= 0
+    UNIFORM_VEC2	= 1
+    UNIFORM_VEC3	= 2
+    UNIFORM_VEC4	= 3
+    UNIFORM_INT		= 4
+    UNIFORM_IVEC2	= 5
+    UNIFORM_IVEC3	= 6
+    UNIFORM_IVEC4	= 7
+    UNIFORM_SAMPLER2D	= 8
+
+
+# Material map type
+
+    MAP_ALBEDO    	= 0       // MAP_DIFFUSE
+    MAP_METALNESS 	= 1       // MAP_SPECULAR
+    MAP_NORMAL    	= 2
+    MAP_ROUGHNESS 	= 3
+    MAP_OCCLUSION	= 4
+    MAP_EMISSION	= 5
+    MAP_HEIGHT		= 6
+    MAP_CUBEMAP		= 7             // NOTE: Uses GL_TEXTURE_CUBE_MAP
+    MAP_IRRADIANCE	= 8          // NOTE: Uses GL_TEXTURE_CUBE_MAP
+    MAP_PREFILTER	= 9           // NOTE: Uses GL_TEXTURE_CUBE_MAP
+    MAP_BRDF		= 0
+
+    MAP_DIFFUSE  = MAP_ALBEDO
+    MAP_SPECULAR = MAP_METALNESS
+
+# Pixel formats
+# NOTE: Support depends on OpenGL version and platform
+
+    UNCOMPRESSED_GRAYSCALE 	= 1     // 8 bit per pixel (no alpha)
+    UNCOMPRESSED_GRAY_ALPHA	= 2     // 8*2 bpp (2 channels)
+    UNCOMPRESSED_R5G6B5		= 3     // 16 bpp
+    UNCOMPRESSED_R8G8B8		= 4     // 24 bpp
+    UNCOMPRESSED_R5G5B5A1	= 5     // 16 bpp (1 bit alpha)
+    UNCOMPRESSED_R4G4B4A4	= 6     // 16 bpp (4 bit alpha)
+    UNCOMPRESSED_R8G8B8A8	= 7     // 32 bpp
+    UNCOMPRESSED_R32		= 8     // 32 bpp (1 channel - float)
+    UNCOMPRESSED_R32G32B32	= 9     // 32*3 bpp (3 channels - float)
+    UNCOMPRESSED_R32G32B32A32	= 10    // 32*4 bpp (4 channels - float)
+    COMPRESSED_DXT1_RGB		= 11    // 4 bpp (no alpha)
+    COMPRESSED_DXT1_RGBA	= 12    // 4 bpp (1 bit alpha)
+    COMPRESSED_DXT3_RGBA	= 13    // 8 bpp
+    COMPRESSED_DXT5_RGBA	= 14    // 8 bpp
+    COMPRESSED_ETC1_RGB		= 15    // 4 bpp
+    COMPRESSED_ETC2_RGB		= 16    // 4 bpp
+    COMPRESSED_ETC2_EAC_RGBA	= 17    // 8 bpp
+    COMPRESSED_PVRT_RGB		= 18    // 4 bpp
+    COMPRESSED_PVRT_RGBA	= 19    // 4 bpp
+    COMPRESSED_ASTC_4x4_RGBA	= 20    // 8 bpp
+    COMPRESSED_ASTC_8x8_RGBA	= 21    // 2 bpp
+
+
+# Texture parameters: filter mode
+# NOTE 1: Filtering considers mipmaps if available in the texture
+# NOTE 2: Filter is accordingly set for minification and magnification
+
+    FILTER_POINT 		= 0          // No filter, just pixel aproximation
+    FILTER_BILINEAR		= 1          // Linear filtering
+    FILTER_TRILINEAR		= 2          // Trilinear filtering (linear with mipmaps)
+    FILTER_ANISOTROPIC_4X	= 3          // Anisotropic filtering 4x
+    FILTER_ANISOTROPIC_8X	= 4          // Anisotropic filtering 8x
+    FILTER_ANISOTROPIC_16X	= 5          // Anisotropic filtering 16x
+
+# Cubemap layout type
+
+    CUBEMAP_AUTO_DETECT 	= 0    // Automatically detect layout type
+    CUBEMAP_LINE_VERTICAL	= 1    // Layout is defined by a vertical line with faces
+    CUBEMAP_LINE_HORIZONTAL	= 2    // Layout is defined by an horizontal line with faces
+    CUBEMAP_CROSS_THREE_BY_FOUR = 3    // Layout is defined by a 3x4 cross with cubemap faces
+    CUBEMAP_CROSS_FOUR_BY_THREE = 4    // Layout is defined by a 4x3 cross with cubemap faces
+    CUBEMAP_PANORAMA		= 5    // Layout is defined by a panorama image (equirectangular map)
+
+# Texture parameters: wrap mode
+
+    WRAP_REPEAT 	= 0     // Repeats texture in tiled mode
+    WRAP_CLAMP		= 1     // Clamps texture to edge pixel in tiled mode
+    WRAP_MIRROR_REPEAT	= 2     // Mirrors and repeats the texture in tiled mode
+    WRAP_MIRROR_CLAMP   = 3     // Mirrors and clamps to border the texture in tiled mode
+
+# Font type, defines generation method
+
+    FONT_DEFAULT = 0       // Default font generation, anti-aliased
+    FONT_BITMAP	 = 1       // Bitmap font generation, no anti-aliasing
+    FONT_SDF     = 2       // SDF font generation, requires external shader
+
+# Color blending modes (pre-defined)
+
+    BLEND_ALPHA 	= 0        // Blend textures considering alpha (default)
+    BLEND_ADDITIVE	= 1        // Blend textures adding colors
+    BLEND_MULTIPLIED	= 2        // Blend textures multiplying colors
+
+# Gestures type
+# NOTE: It could be used as flags to enable only some gestures
+
+    GESTURE_NONE        = 0
+    GESTURE_TAP         = 1
+    GESTURE_DOUBLETAP   = 2
+    GESTURE_HOLD        = 4
+    GESTURE_DRAG        = 8
+    GESTURE_SWIPE_RIGHT = 16
+    GESTURE_SWIPE_LEFT  = 32
+    GESTURE_SWIPE_UP    = 64
+    GESTURE_SWIPE_DOWN  = 128
+    GESTURE_PINCH_IN    = 256
+    GESTURE_PINCH_OUT   = 512
+
+# Camera system modes
+
+    CAMERA_CUSTOM 		= 0
+    CAMERA_FREE			= 1
+    CAMERA_ORBITAL		= 2
+    CAMERA_FIRST_PERSON		= 3
+    CAMERA_THIRD_PERSON		= 4
+
+# Camera projection modes
+
+    CAMERA_PERSPECTIVE 	= 0
+    CAMERA_ORTHOGRAPHIC = 1
+
+# Type of n-patch
+    NPT_9PATCH 			= 0   // Npatch defined by 3x3 tiles
+    NPT_3PATCH_VERTICAL 	= 1   // Npatch defined by 1x3 tiles
+    NPT_3PATCH_HORIZONTAL	= 2   // Npatch defined by 3x1 tiles
+
 func RayLibColor r,b,g,a
 	return GetColor( Bytes2Int(  Char(r) + Char(g) + Char(b) + Char(a) ) )
