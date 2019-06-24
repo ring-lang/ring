@@ -5033,6 +5033,240 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_boundingbox)
+{
+	BoundingBox *pMyPointer ;
+	pMyPointer = (BoundingBox *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoundingBox)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"BoundingBox");
+}
+
+RING_FUNC(ring_raylib_destroy_boundingbox)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_min_x)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->min.x);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_min_x)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->min.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_min_y)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->min.y);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_min_y)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->min.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_min_z)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->min.z);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_min_z)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->min.z = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_max_x)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->max.x);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_max_x)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->max.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_max_y)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->max.y);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_max_y)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->max.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_boundingbox_max_z)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	RING_API_RETNUMBER(pMyPointer->max.z);
+}
+
+RING_FUNC(ring_raylib_set_boundingbox_max_z)
+{
+	BoundingBox *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer->max.z = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_wave)
 {
 	Wave *pMyPointer ;
@@ -13640,6 +13874,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_boundingbox",ring_raylib_new_boundingbox);
+	ring_vm_funcregister("raylib_destroy_boundingbox",ring_raylib_destroy_boundingbox);
+	ring_vm_funcregister("raylib_get_boundingbox_min_x",ring_raylib_get_boundingbox_min_x);
+	ring_vm_funcregister("raylib_set_boundingbox_min_x",ring_raylib_set_boundingbox_min_x);
+	ring_vm_funcregister("raylib_get_boundingbox_min_y",ring_raylib_get_boundingbox_min_y);
+	ring_vm_funcregister("raylib_set_boundingbox_min_y",ring_raylib_set_boundingbox_min_y);
+	ring_vm_funcregister("raylib_get_boundingbox_min_z",ring_raylib_get_boundingbox_min_z);
+	ring_vm_funcregister("raylib_set_boundingbox_min_z",ring_raylib_set_boundingbox_min_z);
+	ring_vm_funcregister("raylib_get_boundingbox_max_x",ring_raylib_get_boundingbox_max_x);
+	ring_vm_funcregister("raylib_set_boundingbox_max_x",ring_raylib_set_boundingbox_max_x);
+	ring_vm_funcregister("raylib_get_boundingbox_max_y",ring_raylib_get_boundingbox_max_y);
+	ring_vm_funcregister("raylib_set_boundingbox_max_y",ring_raylib_set_boundingbox_max_y);
+	ring_vm_funcregister("raylib_get_boundingbox_max_z",ring_raylib_get_boundingbox_max_z);
+	ring_vm_funcregister("raylib_set_boundingbox_max_z",ring_raylib_set_boundingbox_max_z);
 	ring_vm_funcregister("raylib_new_wave",ring_raylib_new_wave);
 	ring_vm_funcregister("raylib_destroy_wave",ring_raylib_destroy_wave);
 	ring_vm_funcregister("raylib_get_wave_sampleCount",ring_raylib_get_wave_sampleCount);
