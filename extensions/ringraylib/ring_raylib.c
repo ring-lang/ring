@@ -5033,6 +5033,70 @@ RING_FUNC(ring_raylib_set_camera_type)
 	pMyPointer->type = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_boneinfo)
+{
+	BoneInfo *pMyPointer ;
+	pMyPointer = (BoneInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoneInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"BoneInfo");
+}
+
+RING_FUNC(ring_raylib_destroy_boneinfo)
+{
+	BoneInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoneInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_boneinfo_parent)
+{
+	BoneInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoneInfo");
+	RING_API_RETNUMBER(pMyPointer->parent);
+}
+
+RING_FUNC(ring_raylib_set_boneinfo_parent)
+{
+	BoneInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"BoneInfo");
+	pMyPointer->parent = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_model)
 {
 	Model *pMyPointer ;
@@ -15388,6 +15452,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_camera_fovy",ring_raylib_set_camera_fovy);
 	ring_vm_funcregister("raylib_get_camera_type",ring_raylib_get_camera_type);
 	ring_vm_funcregister("raylib_set_camera_type",ring_raylib_set_camera_type);
+	ring_vm_funcregister("raylib_new_boneinfo",ring_raylib_new_boneinfo);
+	ring_vm_funcregister("raylib_destroy_boneinfo",ring_raylib_destroy_boneinfo);
+	ring_vm_funcregister("raylib_get_boneinfo_parent",ring_raylib_get_boneinfo_parent);
+	ring_vm_funcregister("raylib_set_boneinfo_parent",ring_raylib_set_boneinfo_parent);
 	ring_vm_funcregister("raylib_new_model",ring_raylib_new_model);
 	ring_vm_funcregister("raylib_destroy_model",ring_raylib_destroy_model);
 	ring_vm_funcregister("raylib_get_model_transform_m0",ring_raylib_get_model_transform_m0);
