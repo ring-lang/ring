@@ -7,5 +7,6 @@ else
 ok
 
 load "raylib.rh"
+load "raygui.rh"
 load "functions.ring"
 load "classes.ring"
