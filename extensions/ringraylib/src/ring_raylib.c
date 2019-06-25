@@ -4,6 +4,8 @@
 #include <ring.h>
 
 #include <raylib.h>
+#define RAYGUI_IMPLEMENTATION
+#include "raygui/raygui.h"
 
 RING_FUNC(ring_raylib_new_vector2)
 {
