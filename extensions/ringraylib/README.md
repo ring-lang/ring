@@ -3,7 +3,10 @@ RingRayLib
 
 Ring extension for the RayLib game programming library.
 
+Also RayGUI functions are supported by this extension.
+
 Example
+=======
 
 	load "raylib.ring"
 
@@ -49,5 +52,6 @@ Example
 
 
 Output:
+=======
 
 ![RayLib](https://github.com/ring-lang/ring/blob/master/extensions/ringraylib/examples/shapes/ex1_basicshapes.png)
