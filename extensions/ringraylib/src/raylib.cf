@@ -457,3 +457,77 @@ bool IsAudioStreamPlaying(AudioStream stream)
 void StopAudioStream(AudioStream stream)
 void SetAudioStreamVolume(AudioStream stream, float volume)
 void SetAudioStreamPitch(AudioStream stream, float pitch)
+
+<comment>
+RayGUI Functions 
+</comment>
+
+void GuiEnable(void)
+void GuiDisable(void)
+void GuiLock(void)
+void GuiUnlock(void)
+void GuiState(int state)
+void GuiFont(Font font)
+void GuiFade(float alpha)
+
+void GuiSetStyle(int control, int property, int value)
+int GuiGetStyle(int control, int property)
+
+<comment>
+void GuiTextBoxSetActive(Rectangle bounds)
+Rectangle GuiTextBoxGetActive(void)
+void GuiTextBoxSetCursor(int cursor)
+int GuiTextBoxGetCursor(void)
+void GuiTextBoxSetSelection(int start, int length)
+Vector2 GuiTextBoxGetSelection(void)
+bool GuiTextBoxIsActive(Rectangle bounds)
+int GuiTextBoxGetState(void)
+void GuiTextBoxSetState(int state)
+void GuiTextBoxSelectAll(const char *text)
+void GuiTextBoxCopy(const char *text)
+void GuiTextBoxPaste(char *text, int textSize)
+void GuiTextBoxCut(char *text)
+int GuiTextBoxDelete(char *text, int length, bool before)
+int GuiTextBoxGetByteIndex(const char *text, int start, int from, int to)
+</comment>
+
+bool GuiWindowBox(Rectangle bounds, const char *text)
+void GuiGroupBox(Rectangle bounds, const char *text)
+void GuiLine(Rectangle bounds, const char *text)
+void GuiPanel(Rectangle bounds)
+Rectangle GuiScrollPanel(Rectangle bounds, Rectangle content, Vector2 *scroll)
+
+void GuiLabel(Rectangle bounds, const char *text)
+bool GuiButton(Rectangle bounds, const char *text)
+bool GuiLabelButton(Rectangle bounds, const char *text)
+bool GuiImageButton(Rectangle bounds, Texture2D texture)
+bool GuiImageButtonEx(Rectangle bounds, Texture2D texture, Rectangle texSource, const char *text)
+bool GuiToggle(Rectangle bounds, const char *text, bool active)
+int GuiToggleGroup(Rectangle bounds, const char *text, int active)
+bool GuiCheckBox(Rectangle bounds, const char *text, bool checked)
+int GuiComboBox(Rectangle bounds, const char *text, int active)=
+bool GuiDropdownBox(Rectangle bounds, const char *text, int *active, bool editMode)
+bool GuiSpinner(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
+bool GuiValueBox(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
+bool GuiTextBox(Rectangle bounds, char *text, int textSize, bool editMode)
+bool GuiTextBoxMulti(Rectangle bounds, char *text, int textSize, bool editMode)
+float GuiSlider(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+float GuiSliderBar(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+float GuiProgressBar(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+void GuiStatusBar(Rectangle bounds, const char *text)
+void GuiDummyRec(Rectangle bounds, const char *text)
+int GuiScrollBar(Rectangle bounds, int value, int minValue, int maxValue)
+Vector2 GuiGrid(Rectangle bounds, float spacing, int subdivs)
+
+bool GuiListView(Rectangle bounds, const char *text, int *active, int *scrollIndex, bool editMode)
+bool GuiListViewEx(Rectangle bounds, const char **text, int count, int *enabled, int *active, int *focus, int *scrollIndex, bool editMode)
+int GuiMessageBox(Rectangle bounds, const char *windowTitle, const char *message, const char *buttons)
+int GuiTextInputBox(Rectangle bounds, const char *windowTitle, const char *message, char *text, const char *buttons)
+Color GuiColorPicker(Rectangle bounds, Color color)
+
+void GuiLoadStyle(const char *fileName)
+void GuiLoadStyleProps(const int *props, int count)
+void GuiLoadStyleDefault(void)
+void GuiUpdateStyleComplete(void)
+
+const char *GuiIconText(int iconId, const char *text)
