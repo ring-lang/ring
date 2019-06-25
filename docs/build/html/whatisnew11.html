@@ -144,6 +144,52 @@ compose the grid contain all of the digits from 1 to 9.</p>
 </div>
 <p>Output:</p>
 <img alt="RayLib Example" src="_images/raylib_ex1.png" />
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+                <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+
+                        <span class="n">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+
+                        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
+                        <span class="n">DrawRectangleGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+
+                        <span class="n">DrawTriangle</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+                                                 <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                                 <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">VIOLET</span><span class="p">)</span>
+
+                        <span class="n">DrawPoly</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+
+                        <span class="n">DrawCircleGradient</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+
+                        <span class="n">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                        <span class="n">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+                        <span class="n">DrawTriangleLines</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
+                                                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
+                                                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+                <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="RayLib Example" src="_images/ex1_basicshapes.png" />
 </div>
 <div class="section" id="stdlib-more-functions">
 <span id="index-11"></span><h2>StdLib - More Functions<a class="headerlink" href="#stdlib-more-functions" title="Permalink to this headline">¶</a></h2>
