@@ -46,11 +46,10 @@ while !WindowShouldClose()
 		drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ), "Draw CircleLines", drawCircleLines)
 
 		if segments >= 4 
-			color=MAROON  String = "MANUAL" 
+			DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
 		else 
-			color = DARKGRAY String = "AUTO" 
+			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)
 		ok
-		DrawText("MODE: "+String, 600, 270, 10, Color)
 
 		DrawFPS(10, 10)
 
