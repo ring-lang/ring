@@ -166,6 +166,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
 					'<img src="checkersgame.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/snake" target="_blank">Snake Game</a>',
+					'<img src="snake.png" width="40%">'
 				]
 			    ]
                  ],
