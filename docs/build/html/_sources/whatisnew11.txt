@@ -20,6 +20,7 @@ Ring 1.11 comes with the next features!
 * Checkers Game
 * Sokoban Game
 * Maze Game
+* Snake Game
 * Sudoku Game
 * Desktop Screen Shot Application
 * Text To Speech Application
@@ -98,6 +99,21 @@ Also the game comes with a level designer (Developed in 10 minutes, 37 Lines of 
 	:width: 600pt
 	:height: 400pt
 	:alt: Maze Game
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Snake Game
+
+Snake Game
+==========
+
+A quick implementation for the Snake Game
+
+Developed using Ring Game Engine for 2D Games (Around 200 lines of code)
+
+.. image:: snake.png
+	:width: 600pt
+	:height: 400pt
+	:alt: Snake Game
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Sudoku Game
