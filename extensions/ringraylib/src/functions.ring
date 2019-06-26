@@ -21,3 +21,11 @@ func Vector4 x,y,z,w
 	raylib_set_vector4_z(oData,z)
 	raylib_set_vector4_w(oData,w)
 	return oData	
+
+func rectangle x,y,width,height 
+	oData = raylib_new_managed_rectangle()	
+	raylib_set_rectangle_x(oData,x)
+	raylib_set_rectangle_y(oData,y)
+	raylib_set_rectangle_width(oData,width)
+	raylib_set_rectangle_height(oData,height)
+	return oData
