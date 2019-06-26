@@ -1,22 +1,14 @@
 load "raylib.ring"
 
-screenWidth = 800
-screenHeight = 450
+screenWidth = 800	screenHeight = 450
 
 InitWindow(screenWidth, screenHeight, "raylib [shapes] example - draw ring")
 
 center = Vector2((GetScreenWidth() - 300)/2, GetScreenHeight()/2 )
 
-innerRadius = 80
-outerRadius = 190
-
-startAngle = 0
-endAngle = 360
-segments = 0
-
-drawRing = true
-drawRingLines = false
-drawCircleLines = false
+innerRadius = 80	outerRadius = 190
+startAngle = 0		endAngle = 360		segments = 0
+drawRing = true		drawRingLines = false	drawCircleLines = false
 
 SetTargetFPS(60)
 
@@ -29,9 +21,9 @@ while !WindowShouldClose()
 		DrawLine(500, 0, 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.6))
 		DrawRectangle(500, 0, GetScreenWidth() - 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
 
-		if (drawRing) DrawRing(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
-		if (drawRingLines) DrawRingLines(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
-		if (drawCircleLines) DrawCircleSectorLines(center, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+		if drawRing DrawRing(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
+		if drawRingLines DrawRingLines(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+		if drawCircleLines DrawCircleSectorLines(center, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
 
 		startAngle = GuiSliderBar(Rectangle( 600, 40, 120, 20 ), "StartAngle", startAngle, -450, 450, true)
 		endAngle = GuiSliderBar(Rectangle( 600, 70, 120, 20 ), "EndAngle", endAngle, -450, 450, true)
@@ -45,12 +37,9 @@ while !WindowShouldClose()
 		drawRingLines = GuiCheckBox(Rectangle( 600, 350, 20, 20 ), "Draw RingLines", drawRingLines)
 		drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ), "Draw CircleLines", drawCircleLines)
 
-		if segments >= 4 
-			DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
-		else 
-			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)
-		ok
-
+		if segments >= 4 	DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
+		else			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)	ok
+		
 		DrawFPS(10, 10)
 
         EndDrawing()
