@@ -161,18 +161,6 @@ func UpdateGameMap oGame
 	# The Map is our first object in Game Objects 
 		oGame.aObjects[1].aMap = aLevel
 
-func DisplayYouWin oGame 
-	oGame {
-          text {
-                point = 400
-                size = 30
-                nStep = 9
-                file = "fonts/pirulen.ttf"
-                text = "You Win !!!"
-                x = 500  y=10
-          }
-        }
-
 func DisplayGameOver oGame 
 	if lGameOver return ok
 	lGameOver = True
