@@ -220,6 +220,61 @@ Sum Two Numbers (3,5)
 </pre></div>
 </div>
 </div>
+<div class="section" id="say-hello">
+<span id="index-4"></span><h2>Say Hello<a class="headerlink" href="#say-hello" title="Permalink to this headline">¶</a></h2>
+<p>Sample : ring/extensions/tutorial/sayhello</p>
+<p>In this extension we learn how to create a C function that get a name as string then say hello.</p>
+<p>This extension is an update to the (sumtwonumbers) extension in : ring/extensions/tutorial/sumtwonumbers folder</p>
+<p>In mylib.c we update the file to add</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_sayhello</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="c1">// Check Parameters Count</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="c1">// Check Parameters Type</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then we register the new function</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sayhello&quot;</span><span class="p">,</span><span class="n">ring_sayhello</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The file test.ring contains</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
+<span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Calling a C Function&quot;</span>
+<span class="n">myfunction</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Sum Two Numbers (3,5)&quot;</span>
+<span class="o">?</span> <span class="n">SumTwoNumbers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Say Hello&quot;</span>
+<span class="n">SayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we test the function using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring test.ring
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Loading Library
+Calling a C Function
+Hello, World!
+Sum Two Numbers (3,5)
+8
+Say Hello
+Hello Mahmoud
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -234,6 +289,7 @@ Sum Two Numbers (3,5)
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li><a class="reference internal" href="#build-the-extension-on-different-platforms">Build the extension on different platforms</a></li>
 <li><a class="reference internal" href="#sum-two-numbers">Sum Two Numbers</a></li>
+<li><a class="reference internal" href="#say-hello">Say Hello</a></li>
 </ul>
 </li>
 </ul>
