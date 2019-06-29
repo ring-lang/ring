@@ -159,6 +159,67 @@ Hello, World!
 </pre></div>
 </div>
 </div>
+<div class="section" id="sum-two-numbers">
+<span id="index-3"></span><h2>Sum Two Numbers<a class="headerlink" href="#sum-two-numbers" title="Permalink to this headline">¶</a></h2>
+<p>Sample : ring/extensions/tutorial/sumtwonumbers</p>
+<p>In this extension we learn how to create a C function to sum two numbers</p>
+<p>This extension is an update to the (Hello World 2) extension in : ring/extensions/tutorial/helloworld2 folder</p>
+<p>In mylib.c we update the file to add</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_sumtwonumbers</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">double</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">nSum</span><span class="p">;</span>
+        <span class="c1">// Check Parameters Count</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="c1">// Check Parameters Type</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span><span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="c1">// Sum Numbers</span>
+                <span class="n">nNum1</span> <span class="o">=</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="n">nNum2</span> <span class="o">=</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+                <span class="n">nSum</span>  <span class="o">=</span> <span class="n">nNum1</span> <span class="o">+</span> <span class="n">nNum2</span> <span class="p">;</span>
+        <span class="c1">// Return Output</span>
+                <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">nSum</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then we register the new function</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sumtwonumbers&quot;</span><span class="p">,</span><span class="n">ring_sumtwonumbers</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The previous code is written to check errors, and to be easy to understand</p>
+<p>We can write short code like</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The file test.ring contains</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
+<span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Calling a C Function&quot;</span>
+<span class="n">myfunction</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Sum Two Numbers (3,5)&quot;</span>
+<span class="o">?</span> <span class="n">SumTwoNumbers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we test the function using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring test.ring
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Loading Library
+Calling a C Function
+Hello, World!
+Sum Two Numbers (3,5)
+8
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -172,6 +233,7 @@ Hello, World!
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li><a class="reference internal" href="#build-the-extension-on-different-platforms">Build the extension on different platforms</a></li>
+<li><a class="reference internal" href="#sum-two-numbers">Sum Two Numbers</a></li>
 </ul>
 </li>
 </ul>
