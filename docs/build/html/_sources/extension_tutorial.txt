@@ -80,3 +80,77 @@ Output
 	Calling a C Function
 	Hello, World!
 
+.. index:: 
+	pair: Tutorial: Ring Extensions in C/C++; Build the extension on different platforms
+
+Build the extension on different platforms
+==========================================
+
+Sample : ring/extensions/tutorial/helloworld2
+
+This extension is the same as the first one but in this time, we support Windows, Linux and macOS.
+
+We will use the next files
+
+.. code-block:: none
+
+	buildvc.bat
+	buildgcc.sh
+	buildclang.sh
+
+Where we use buildvc.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS
+
+The file buildgcc.sh contains the next commands
+
+.. code-block:: none
+
+	gcc -c -fpic mylib.c -I $PWD/../../../include 
+	gcc -shared -o libmylib.so mylib.o -L $PWD/../../../lib -lring
+	sudo cp libmylib.so /usr/lib
+	sudo cp libmylib.so /usr/lib64
+
+The file buildclang.sh contains 
+
+.. code-block:: none
+
+	clang -c -fpic mylib.c -I $PWD/../../../include
+	clang -dynamiclib -o libmylib.dylib mylib.o  -L $PWD/../../../lib  -lring
+	cp libmylib.dylib /usr/local/lib
+
+This time we use mylib.ring instead of using LoadLib() function directly
+
+In mylib.ring we have the next code
+
+.. code-block:: ring
+
+	if iswindows()
+		LoadLib("mylib.dll")
+	but ismacosx()
+		LoadLib("libmylib.dylib")
+	else
+		LoadLib("libmylib.so")
+	ok
+
+The file test.ring contains
+
+.. code-block:: ring
+
+	? "Loading Library"
+	load "mylib.ring"
+
+	? "Calling a C Function"
+	myfunction()
+
+Then we test the function using
+
+.. code-block:: none
+
+	ring test.ring
+
+Output
+
+.. code-block:: none
+
+	Loading Library
+	Calling a C Function
+	Hello, World!

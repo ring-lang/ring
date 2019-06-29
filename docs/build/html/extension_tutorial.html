@@ -105,6 +105,60 @@ Hello, World!
 </pre></div>
 </div>
 </div>
+<div class="section" id="build-the-extension-on-different-platforms">
+<span id="index-2"></span><h2>Build the extension on different platforms<a class="headerlink" href="#build-the-extension-on-different-platforms" title="Permalink to this headline">¶</a></h2>
+<p>Sample : ring/extensions/tutorial/helloworld2</p>
+<p>This extension is the same as the first one but in this time, we support Windows, Linux and macOS.</p>
+<p>We will use the next files</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>buildvc.bat
+buildgcc.sh
+buildclang.sh
+</pre></div>
+</div>
+<p>Where we use buildvc.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS</p>
+<p>The file buildgcc.sh contains the next commands</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gcc -c -fpic mylib.c -I $PWD/../../../include
+gcc -shared -o libmylib.so mylib.o -L $PWD/../../../lib -lring
+sudo cp libmylib.so /usr/lib
+sudo cp libmylib.so /usr/lib64
+</pre></div>
+</div>
+<p>The file buildclang.sh contains</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>clang -c -fpic mylib.c -I $PWD/../../../include
+clang -dynamiclib -o libmylib.dylib mylib.o  -L $PWD/../../../lib  -lring
+cp libmylib.dylib /usr/local/lib
+</pre></div>
+</div>
+<p>This time we use mylib.ring instead of using LoadLib() function directly</p>
+<p>In mylib.ring we have the next code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;mylib.dll&quot;</span><span class="p">)</span>
+<span class="k">but</span> <span class="n">ismacosx</span><span class="p">()</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;libmylib.dylib&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+        <span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;libmylib.so&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+<p>The file test.ring contains</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
+<span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Calling a C Function&quot;</span>
+<span class="n">myfunction</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Then we test the function using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring test.ring
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Loading Library
+Calling a C Function
+Hello, World!
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -117,6 +171,7 @@ Hello, World!
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li><a class="reference internal" href="#build-the-extension-on-different-platforms">Build the extension on different platforms</a></li>
 </ul>
 </li>
 </ul>
