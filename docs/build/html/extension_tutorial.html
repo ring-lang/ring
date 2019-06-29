@@ -775,6 +775,175 @@ Create list contains 5 items using C code
 </pre></div>
 </div>
 </div>
+<div class="section" id="display-list">
+<span id="index-10"></span><h2>Display List<a class="headerlink" href="#display-list" title="Permalink to this headline">¶</a></h2>
+<p>Sample : ring/extensions/tutorial/displaylist</p>
+<p>In this extension we learn how to create a C function that display all of the list items including nested lists</p>
+<p>In mylib.c we update the file to add</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">mylib_displaylist</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">);</span>
+
+<span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_displaylist</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="c1">// Check Parameters Count</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="c1">// Check Parameters Type</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="c1">// Get the List</span>
+                <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="c1">// Display the List Items including Nested Lists</span>
+                <span class="n">mylib_displaylist</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">mylib_displaylist</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Number : %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;String : %s </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ring_list_getstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_islist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sub List..</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                        <span class="n">mylib_displaylist</span><span class="p">(</span> <span class="n">ring_list_getlist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then we register the new function</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;displaylist&quot;</span><span class="p">,</span><span class="n">ring_displaylist</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The file test.ring contains</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
+<span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Calling a C Function&quot;</span>
+<span class="n">myfunction</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Sum Two Numbers (3,5)&quot;</span>
+<span class="o">?</span> <span class="n">SumTwoNumbers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Say Hello&quot;</span>
+<span class="n">SayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Sum List contains numbers from 1 to 10&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="o">?</span> <span class="n">SumList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Increment List Items&quot;</span>
+<span class="o">?</span> <span class="n">inclist</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Filter List Items (Items &gt; 15)&quot;</span>
+<span class="o">?</span> <span class="n">filterlist</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="o">?</span> <span class="s">&quot;Replicate list (1:3) three times then print the items (We expect 12 items)&quot;</span>
+<span class="o">?</span> <span class="n">replicatelist</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Create list contains 5 items using C code&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">GenerateList</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>
+
+<span class="o">?</span> <span class="s">&quot;Create List (3,2)&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">newList</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 1 C 1&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 1 C 2&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 2 C 1&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 2 C 2&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 3 C 1&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;R 3 C 2&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Print the List using Ring&quot;</span>
+<span class="o">?</span> <span class="n">aList</span>
+<span class="o">?</span> <span class="s">&quot;Print the List by calling C Code&quot;</span>
+<span class="n">displayList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we test the function using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring test.ring
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Loading Library
+Calling a C Function
+Hello, World!
+Sum Two Numbers (3,5)
+8
+Say Hello
+Hello Mahmoud
+Sum List contains numbers from 1 to 10
+55
+Increment List Items
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+
+Filter List Items (Items &gt; 15)
+16
+17
+18
+19
+20
+
+Replicate list (1:3) three times then print the items (We expect 12 items)
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+
+Create list contains 5 items using C code
+1
+2
+3
+4
+5
+
+Create List (3,2)
+Print the List using Ring
+R 1 C 1
+R 1 C 2
+R 2 C 1
+R 2 C 2
+R 3 C 1
+R 3 C 2
+
+Print the List by calling C Code
+Sub List..
+String : R 1 C 1
+String : R 1 C 2
+Sub List..
+String : R 2 C 1
+String : R 2 C 2
+Sub List..
+String : R 3 C 1
+String : R 3 C 2
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -795,6 +964,7 @@ Create list contains 5 items using C code
 <li><a class="reference internal" href="#filter-list-items">Filter List Items</a></li>
 <li><a class="reference internal" href="#replicate-list-items">Replicate List Items</a></li>
 <li><a class="reference internal" href="#generate-list">Generate List</a></li>
+<li><a class="reference internal" href="#display-list">Display List</a></li>
 </ul>
 </li>
 </ul>
