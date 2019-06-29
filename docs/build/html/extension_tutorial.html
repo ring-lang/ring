@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Ring 1.11 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.11',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.11 documentation" href="index.html" />
+    <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
+    <link rel="prev" title="Embedding Ring in Ring" href="ringemb.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ringemb.html" title="Embedding Ring in Ring"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.11 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="index-0"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will see simple examples about using C code in Ring programs</p>
+<div class="section" id="hello-world">
+<span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<p>Sample : ring/extensions/tutorial/helloworld</p>
+<p>The file mylib.c contains</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;stdlib.h&quot;</span><span class="cp"></span>
+
+<span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_myfunction</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">RING_API</span> <span class="kt">void</span> <span class="n">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;myfunction&quot;</span><span class="p">,</span><span class="n">ring_myfunction</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As we see in the source code, we start with including the ring.h file which contains the definitions for Ring API</p>
+<p>Then we use the RING_FUNC macro to define new functions, it&#8217;s a good idea to start the function definition with <a href="#id1"><span class="problematic" id="id2">ring_</span></a> to make these definitions unique and different than normal C functions</p>
+<p>Then we have the function ringlib_init that will be called when the extension is loaded by the Ring VM</p>
+<p>In this function we use the ring_vm_funcregister() function to register the new functions in Ring VM</p>
+<p>Then we build the extension using :</p>
+<p>buildvc.bat</p>
+<p>The file buildvc.bat contains the next commands to build the extension using Visual C/C++</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cls
+call ../../../src/locatevc.bat
+cl /c /DEBUG mylib.c -I&quot;..\..\..\include&quot;
+link /DEBUG mylib.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylib.dll /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
+del mylib.obj
+</pre></div>
+</div>
+<p>Then we test the function using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ring test.ring
+</pre></div>
+</div>
+<p>The file test.ring contains</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
+<span class="n">loadlib</span><span class="p">(</span><span class="s">&quot;mylib.dll&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Calling a C Function&quot;</span>
+<span class="n">myfunction</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Loading Library
+Calling a C Function
+Hello, World!
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#hello-world">Hello World</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ringemb.html"
+                        title="previous chapter">Embedding Ring in Ring</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension.html"
+                        title="next chapter">Extension using the C/C++ languages</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/extension_tutorial.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ringemb.html" title="Embedding Ring in Ring"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.11 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2019, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

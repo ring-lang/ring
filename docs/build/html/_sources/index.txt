@@ -93,6 +93,7 @@ Contents:
    Low Level Functions <lowlevel>
    The Trace Library and the Interactive Debugger <debug>
    Embedding Ring Language in Ring Programs <ringemb>
+   Tutorial: Ring Extensions in C/C++  <extension_tutorial>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
