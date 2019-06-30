@@ -186,7 +186,6 @@ The Ring language comes with the next features
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
 * Use exit to go outside from more than one loop (Use it for programming in the small only)
-* Use exit to go outside from loop in the Caller function (Use it for programming in the small only)
 * Procedures/Functions
 * Main Function (Optional - To avoid using the Global Scope)
 * Call Function before the definition (Top-Down Programming)
@@ -252,6 +251,7 @@ The Ring language comes with the next features
 * Comes with simple Game Engine for 2D Games
 * RingOpenGL Extension
 * RingFreeGLUT Extension
+* RingRayLib Extension
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
 * RingREPL (Read-Eval-Print-Loop)
