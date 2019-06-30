@@ -81,6 +81,7 @@ Contents:
    Objects Library for RingQt Application <ringqtobjects>
    Using the Form Designer <formdesigner>
    Multi-language Applications <multilanguage>
+   Using Qt3D <qt3d>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
