@@ -193,5 +193,8 @@ aAllPackagesInfo = [
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
+	],
+	:ringraylib = 	[
+
 	]
 ]
