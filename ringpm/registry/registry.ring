@@ -490,6 +490,11 @@ aPackagesRegistry = [
 	[ :name = "visualizesortsample",
 	  :description = "VisualizeSortSample package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringraylib",
+	  :description = "RingRayLib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 
 ]
