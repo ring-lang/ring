@@ -15,7 +15,6 @@ List of changes and new features
 
 Ring 1.11 comes with the next features!
 
-* Better Performance
 * More 3D Samples 
 * Checkers Game
 * Sokoban Game
@@ -27,17 +26,9 @@ Ring 1.11 comes with the next features!
 * RingRayLib Extension
 * StdLib - More Functions
 * Better RingQt
+* Better Performance
+* Better Documentation
 * More Improvements
-
-.. index:: 
-	pair: What is new in Ring 1.11?; Better Performance
-
-Better Performance
-==================
-
-Ring 1.11 is faster than Ring 1.10
-
-The performance gain is between 10% and 30% based on the application.
 
 .. index:: 
 	pair: What is new in Ring 1.11?; More 3D Samples
@@ -316,6 +307,27 @@ Better RingQt
 	* QAxWidget2 Class
 	* QTextToSpeech Class 
 	* QGraphicsView Class
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Better Performance
+
+Better Performance
+==================
+
+Ring 1.11 is faster than Ring 1.10
+
+The performance gain is between 10% and 30% based on the application.
+
+.. index:: 
+	pair: What is new in Ring 1.11?; Better Documentation
+
+Better Documentation
+====================
+
+The next chapters are added to the documentation
+
+* Tutorial : Ring Extensions in C/C++
+* Using Qt3D 
 
 .. index:: 
 	pair: What is new in Ring 1.11?; More Improvements
