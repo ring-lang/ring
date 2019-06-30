@@ -1478,6 +1478,202 @@
 </div>
 <img alt="Qt3D Example - Camera" src="_images/qt3d_ex17.png" />
 </div>
+<div class="section" id="scence">
+<span id="index-18"></span><h2>Scence<a class="headerlink" href="#scence" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+
+        <span class="n">oWidget</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QWidget</span><span class="p">()</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Qt3DWindow</span><span class="p">()</span>
+        <span class="n">oView</span><span class="p">.</span><span class="n">defaultFrameGraph</span><span class="p">().</span><span class="n">setClearColor</span><span class="p">(</span><span class="k">new</span> <span class="n">QColor</span><span class="p">()</span> <span class="p">{</span><span class="n">setRGB</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)})</span>
+
+        <span class="n">oContainer</span> <span class="o">=</span> <span class="n">oWidget</span><span class="p">.</span><span class="n">createWindowContainer</span><span class="p">(</span><span class="n">oView</span><span class="p">,</span><span class="n">oWidget</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">oRootEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oContainer</span><span class="p">)</span>
+
+        <span class="n">oInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QInputAspect</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">registerAspect</span><span class="p">(</span><span class="n">oInput</span><span class="p">)</span>
+
+        <span class="n">oCameraEntity</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">Camera</span><span class="p">()</span>
+
+        <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">lens</span><span class="p">().</span><span class="n">setPerspectiveProjection</span><span class="p">(</span><span class="mf">45.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="o">/</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="o">-</span><span class="mf">13.34</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.43</span><span class="p">,</span> <span class="mf">16.47</span><span class="p">))</span>
+                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setUpVector</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setViewCenter</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="o">-</span><span class="mf">13.34</span><span class="p">,</span> <span class="mf">17.05</span><span class="p">,</span> <span class="mf">15.42</span><span class="p">))</span>
+
+        <span class="n">oCameraController</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QFirstPersonCameraController</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+        <span class="n">oCameraController</span><span class="p">.</span><span class="n">setCamera</span><span class="p">(</span><span class="n">oCameraEntity</span><span class="p">)</span>
+        <span class="n">oCameraController</span><span class="p">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kp">False</span><span class="p">)</span>
+
+        <span class="n">oLongRoomEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+        <span class="n">oLongRoomModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QMesh</span><span class="p">(</span><span class="n">oLongRoomEntity</span><span class="p">)</span>
+
+        <span class="n">oLongRoomModel</span><span class="p">.</span><span class="n">setSource</span><span class="p">(</span><span class="k">new</span> <span class="n">qURL</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/assets/model/Long_Room.obj&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">oLongRoomTransform</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QTransform</span><span class="p">(</span><span class="n">oLongRoomEntity</span><span class="p">)</span>
+        <span class="n">oLongRoomTransform</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">oLongRoomTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+
+        <span class="n">oLongRoomLoader</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QTextureLoader</span><span class="p">(</span><span class="n">oLongRoomModel</span><span class="p">)</span>
+        <span class="n">oLongRoomMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QTextureMaterial</span><span class="p">(</span><span class="n">oLongRoomModel</span><span class="p">)</span>
+        <span class="n">oLongRoomLoader</span><span class="p">.</span><span class="n">setSource</span><span class="p">(</span><span class="k">new</span> <span class="n">QUrl</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span><span class="n">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/assets/texture/croc.jpg&quot;</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">oLongRoomMaterial</span><span class="p">.</span><span class="n">setTexture</span><span class="p">(</span><span class="n">oLongRoomLoader</span><span class="p">)</span>
+
+        <span class="n">oLongRoomEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oLongRoomModel</span><span class="p">)</span>
+        <span class="n">oLongRoomEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oLongRoomMaterial</span><span class="p">)</span>
+        <span class="n">oLongRoomEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oLongRoomTransform</span><span class="p">)</span>
+
+        <span class="n">oTableEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+        <span class="n">oTableModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QMesh</span><span class="p">(</span><span class="n">oTableEntity</span><span class="p">)</span>
+        <span class="n">oTableModel</span><span class="p">.</span><span class="n">setSource</span><span class="p">(</span><span class="k">new</span> <span class="n">qURL</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/assets/model/Reception_Table.obj&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">oTableTransform</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QTransform</span><span class="p">(</span><span class="n">oTableEntity</span><span class="p">)</span>
+        <span class="n">oTableTransform</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">oTableTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+        <span class="n">oQ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QQuaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oTableTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">180</span><span class="p">))</span>
+
+        <span class="n">oTableModelMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPhongMaterial</span><span class="p">(</span><span class="n">oTableEntity</span><span class="p">)</span>
+        <span class="n">oTableModelMaterial</span><span class="p">.</span><span class="n">setDiffuse</span><span class="p">(</span><span class="k">new</span> <span class="n">QColor</span><span class="p">()</span> <span class="p">{</span><span class="n">setRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)})</span>
+
+        <span class="n">oTableEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oTableModel</span><span class="p">)</span>
+        <span class="n">oTableEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oTableModelmaterial</span><span class="p">)</span>
+        <span class="n">oTableEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oTableTransform</span><span class="p">)</span>
+
+        <span class="n">oFirstLightEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+                <span class="n">oFirstLight</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPointLight</span><span class="p">(</span><span class="n">oFirstLightEntity</span><span class="p">)</span>
+        <span class="n">oFirstLight</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="k">new</span> <span class="n">qColor</span><span class="p">()</span> <span class="p">{</span> <span class="n">setRGB</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">)</span> <span class="p">})</span>
+        <span class="n">oFirstLight</span><span class="p">.</span><span class="n">setIntensity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">oFirstLightTransform</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QTransform</span><span class="p">(</span><span class="n">oFirstLightEntity</span><span class="p">)</span>
+        <span class="n">oFirstLightTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+        <span class="n">oFirstLightEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oFirstLight</span><span class="p">)</span>
+        <span class="n">oFirstLightEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oFirstLightTransform</span><span class="p">)</span>
+
+        <span class="n">aCats</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mf">0.1</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">]</span> <span class="o">=</span> <span class="o">[]</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModel</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QMesh</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModel</span><span class="o">]</span><span class="p">.</span><span class="n">setSource</span><span class="p">(</span><span class="k">new</span> <span class="n">qURL</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/assets/model/Lucky_Cat.obj&quot;</span><span class="p">)</span> <span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelMaterial</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPhongMaterial</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModel</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelMaterial</span><span class="o">]</span><span class="p">.</span><span class="n">setDiffuse</span><span class="p">(</span><span class="k">new</span> <span class="n">QColor</span><span class="p">()</span> <span class="p">{</span><span class="n">setRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)})</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelTransform</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QTransform</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelTransform</span><span class="o">]</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelTransform</span><span class="o">]</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="n">v</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">))</span>
+                <span class="n">oQ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QQuaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelTransform</span><span class="o">]</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">180</span><span class="p">))</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModel</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelmaterial</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelEntity</span><span class="o">]</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">aCats</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="p">:</span><span class="n">oCatModelTransform</span><span class="o">]</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="n">oSecondLightEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+                <span class="n">oSecondLight</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPointLight</span><span class="p">(</span><span class="n">oSecondLightEntity</span><span class="p">)</span>
+        <span class="n">oSecondLight</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="k">new</span> <span class="n">qColor</span><span class="p">()</span> <span class="p">{</span> <span class="n">setRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span> <span class="p">})</span>
+        <span class="n">oSecondLight</span><span class="p">.</span><span class="n">setIntensity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">oSecondLightTransform</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QTransform</span><span class="p">(</span><span class="n">oSecondLightEntity</span><span class="p">)</span>
+        <span class="n">oSecondLightTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">))</span>
+
+        <span class="n">oSecondLightEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oSecondLight</span><span class="p">)</span>
+        <span class="n">oSecondLightEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oSecondLightTransform</span><span class="p">)</span>
+
+        <span class="n">oRobotEntity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+        <span class="n">oRobotModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QMesh</span><span class="p">(</span><span class="n">oRobotEntity</span><span class="p">)</span>
+        <span class="n">oRobotModel</span><span class="p">.</span><span class="n">setSource</span><span class="p">(</span><span class="k">new</span> <span class="n">qURL</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/assets/model/Fat_Robot.obj&quot;</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">oRobotTransform</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">QTransform</span><span class="p">(</span><span class="n">oRobotEntity</span><span class="p">)</span>
+        <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.006</span><span class="p">)</span>
+
+        <span class="n">robotX</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15</span>
+        <span class="n">robotY</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+        <span class="n">robotZ</span> <span class="o">=</span> <span class="mi">15</span>
+
+        <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+        <span class="n">oQ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QQuaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">170</span><span class="p">))</span>
+
+        <span class="n">oRobotMaterial</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPhongMaterial</span><span class="p">(</span><span class="n">oRobotEntity</span><span class="p">)</span>
+        <span class="n">oRobotMaterial</span><span class="p">.</span><span class="n">setDiffuse</span><span class="p">(</span><span class="k">new</span> <span class="n">QColor</span><span class="p">()</span> <span class="p">{</span><span class="n">setRGB</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">255</span><span class="p">)})</span>
+
+        <span class="n">oRobotEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oRobotModel</span><span class="p">)</span>
+        <span class="n">oRobotEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oRobotTransform</span><span class="p">)</span>
+        <span class="n">oRobotEntity</span><span class="p">.</span><span class="n">addComponent</span><span class="p">(</span><span class="n">oRobotMaterial</span><span class="p">)</span>
+
+        <span class="n">oView</span><span class="p">.</span><span class="n">setRootEntity</span><span class="p">(</span><span class="n">oRootEntity</span><span class="p">)</span>
+
+        <span class="n">oWidget</span> <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Using Qt3D - Scene&quot;</span><span class="p">)</span>
+                <span class="n">showfullscreen</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="n">oContainer</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">oWidget</span><span class="p">.</span><span class="n">width</span><span class="p">(),</span><span class="n">oWidget</span><span class="p">.</span><span class="n">height</span><span class="p">())</span>
+
+                <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QAllEvents</span><span class="p">(</span><span class="n">oView</span><span class="p">)</span>
+                <span class="n">oFilter</span><span class="p">.</span><span class="n">setKeyPressEvent</span><span class="p">(</span><span class="s">&quot;pKeyPress()&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
+        <span class="n">oContainer</span><span class="p">.</span><span class="n">setfocus</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">exec</span><span class="p">()</span>
+
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">pKeyPress</span>
+
+        <span class="n">nKey</span>    <span class="o">=</span> <span class="n">oFilter</span><span class="p">.</span><span class="n">getKeyCode</span><span class="p">()</span>
+        <span class="n">nSpeed</span>  <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="n">cX</span>      <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">position</span><span class="p">().</span><span class="n">x</span><span class="p">()</span>
+        <span class="n">CY</span>      <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">position</span><span class="p">().</span><span class="n">y</span><span class="p">()</span>
+        <span class="n">cZ</span>      <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">position</span><span class="p">().</span><span class="n">z</span><span class="p">()</span>
+        <span class="n">cVCx</span>    <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">viewCenter</span><span class="p">().</span><span class="n">x</span><span class="p">()</span>
+        <span class="n">cVCy</span>    <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">viewCenter</span><span class="p">().</span><span class="n">y</span><span class="p">()</span>
+        <span class="n">cVCz</span>    <span class="o">=</span> <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">viewCenter</span><span class="p">().</span><span class="n">z</span><span class="p">()</span>
+
+        <span class="k">switch</span> <span class="n">nKey</span>
+                <span class="k">on</span> <span class="n">Qt_Key_Right</span>
+                        <span class="k">if</span> <span class="n">cX</span> <span class="o">&lt;</span> <span class="mf">4.8</span>
+                                <span class="n">robotX</span><span class="o">+=</span> <span class="n">nSpeed</span>
+                                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cX</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">cY</span><span class="p">,</span> <span class="n">cZ</span><span class="p">))</span>
+                                        <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setViewCenter</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cVCx</span><span class="o">+</span><span class="n">nSpeed</span><span class="p">,</span> <span class="n">cVCy</span><span class="p">,</span> <span class="n">cVCz</span><span class="p">))</span>
+                                <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">170</span><span class="p">))</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">Qt_Key_Left</span>
+                        <span class="k">if</span> <span class="n">cX</span> <span class="o">&gt;</span> <span class="o">-</span> <span class="mf">13.8</span>
+                                <span class="n">robotX</span><span class="o">-=</span> <span class="n">nSpeed</span>
+                                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cX</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">cY</span><span class="p">,</span> <span class="n">cZ</span><span class="p">))</span>
+                                        <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setViewCenter</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cVCx</span><span class="o">-</span><span class="n">nSpeed</span><span class="p">,</span> <span class="n">cVCy</span><span class="p">,</span> <span class="n">cVCz</span><span class="p">))</span>
+                                <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">160</span><span class="p">))</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">Qt_Key_Down</span>
+                        <span class="k">if</span> <span class="n">robotY</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">3.5</span>
+                                <span class="n">robotY</span><span class="o">-=</span> <span class="n">nSpeed</span>
+                                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cX</span><span class="p">,</span> <span class="n">cY</span><span class="p">,</span> <span class="n">cZ</span><span class="p">))</span>
+                                <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">190</span><span class="p">))</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">Qt_Key_Up</span>
+                        <span class="k">if</span> <span class="n">robotY</span> <span class="o">&lt;</span> <span class="mi">2</span>
+                                <span class="n">robotY</span><span class="o">+=</span> <span class="n">nSpeed</span>
+                                <span class="n">oCameraEntity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">cX</span><span class="p">,</span> <span class="n">cY</span><span class="p">,</span> <span class="n">cZ</span><span class="p">))</span>
+                                <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">oQ</span><span class="p">.</span><span class="n">fromAxisAndAngle</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">180</span><span class="p">))</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">Qt_Key_Escape</span>
+                        <span class="n">oWidget</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">off</span>
+
+        <span class="n">oRobotTransform</span><span class="p">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="k">new</span> <span class="n">QVector3D</span><span class="p">(</span><span class="n">robotX</span><span class="p">,</span> <span class="n">robotY</span><span class="p">,</span> <span class="n">robotZ</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="Qt3D Example - Scene" src="_images/qt3d_ex18.png" />
+</div>
 </div>
 
 
@@ -1506,6 +1702,7 @@
 <li><a class="reference internal" href="#draw-office">Draw Office</a></li>
 <li><a class="reference internal" href="#many-objects">Many Objects</a></li>
 <li><a class="reference internal" href="#camera">Camera</a></li>
+<li><a class="reference internal" href="#scence">Scence</a></li>
 </ul>
 </li>
 </ul>
