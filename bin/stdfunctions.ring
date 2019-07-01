@@ -1,0 +1,1 @@
+load "../ringlibs/stdlib/stdfunctions.ring"
