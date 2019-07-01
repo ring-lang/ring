@@ -762,7 +762,7 @@ class RNoteMainWindow
 				setclickedEvent(Method(:ChangeFile))
 				setActivatedEvent(Method(:ChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(250)
+				setminimumwidth(400)
                 		chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
