@@ -78,25 +78,39 @@ class RNoteEditMenu
 					aBackColor[3] + ") }")
 
 	func LowerCase
-	     oCursor = textedit1.textCursor()
-	     nStart = oCursor.SelectionStart()
-	     nEnd = oCursor.SelectionEnd()
-	     cStr = textedit1.toPlainText()
-	     cStr = left(cStr,nStart-1)+lower(substr(cStr,nStart,nEnd-nStart+1))+substr(cStr,nEnd+1)
-	     textedit1.setPlainText(cStr)
+		oCursor = textedit1.textCursor()
+		nStart = oCursor.SelectionStart() + 1
+		nEnd = oCursor.SelectionEnd() + 1
+		cStr = textedit1.toPlainText()
+		cNewStr = ""
+		if nStart > 1
+			cNewStr += left(cStr,nStart-1)
+		ok
+		cNewStr += lower(substr(cStr,nStart,nEnd-nStart)) 
+		if nEnd < len(cStr)
+			cNewStr += substr(cStr,nEnd)
+		ok
+		textedit1.setPlainText(cNewStr)
 	
 	func UpperCase
-	     oCursor = textedit1.textCursor()
-	     nStart = oCursor.SelectionStart()
-	     nEnd = oCursor.SelectionEnd()
-	     cStr = textedit1.toPlainText()
-	     cStr = left(cStr,nStart-1)+upper(substr(cStr,nStart,nEnd-nStart+1))+substr(cStr,nEnd+1)
-	     textedit1.setPlainText(cStr)
+		oCursor = textedit1.textCursor()
+		nStart = oCursor.SelectionStart() + 1
+		nEnd = oCursor.SelectionEnd() + 1
+		cStr = textedit1.toPlainText()
+		cNewStr = ""
+		if nStart > 1
+			cNewStr += left(cStr,nStart-1)
+		ok
+		cNewStr += Upper(substr(cStr,nStart,nEnd-nStart)) 
+		if nEnd < len(cStr)
+			cNewStr += substr(cStr,nEnd)
+		ok
+		textedit1.setPlainText(cNewStr)
 	
 	func capitalize
 		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart()
-		nEnd = oCursor.SelectionEnd()
+		nStart = oCursor.SelectionStart() + 1
+		nEnd = oCursor.SelectionEnd() + 1
 		cStr = textedit1.toPlainText()
 		if nStart = 0
 			cStrNew = substr(cStr,nStart+1,nEnd-nStart+1)
