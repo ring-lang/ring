@@ -391,6 +391,7 @@ The next chapters are added to the documentation
 
 * Tutorial : Ring Extensions in C/C++
 * Using Qt3D 
+* Using ZeroLib 
 
 .. index:: 
 	pair: What is new in Ring 1.11?; More Improvements
