@@ -1,5 +1,5 @@
 .. index:: 
-	Single: Using Qt3D;  Introduction
+	Single: Using Qt3D; Using Qt3D
 
 ==========
 Using Qt3D
