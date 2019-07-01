@@ -12,7 +12,7 @@ class RNoteControllerBase from WindowsControllerParent
 	oTFont 			= new qfont("",0,0,0)
 	lSetProjectFilesFont	= True
 
-	cWebsite 		= "http://www.ring-lang.sf.net/doc1.8/index.html"
+	cWebsite 		= "http://www.ring-lang.sf.net/doc1.10/index.html"
 
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
@@ -94,7 +94,7 @@ class RNoteControllerBase from WindowsControllerParent
 		VIEWMODE_WEBDEV				= 7
 		VIEWMODE_TESTING			= 8
 		VIEWMODE_COMMON				= 9
-		nDefaultMode				= VIEWMODE_GENERAL
+		nDefaultMode				= VIEWMODE_CODING2
 
 	# Search and Replace 
 		oSearch oSearchValue oSearchCase oSearchFilter oReplaceValue 	
