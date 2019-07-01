@@ -272,6 +272,12 @@ class RNoteMainWindow
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+h"))
+							settext("Set Tab Width")
+							setclickEvent(Method(:TabWidth))
+						}
+						addaction(oAction)
+						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+g"))
 							settext("Go to line")
 							setclickEvent(Method(:Goto))
@@ -285,20 +291,12 @@ class RNoteMainWindow
 						}
 						addaction(oAction)
 						addseparator()
-						oAction = new qAction(this.win1) {
-							setShortcut(new QKeySequence("Ctrl+h"))
-							settext("Set Tab Width")
-							setclickEvent(Method(:TabWidth))
-						}
-						addaction(oAction)
-						addseparator()
                                                 oAction = new qAction(this.win1) {
 	                                                setShortcut(new QKeySequence("Ctrl+Shift+i"))
 	                                                settext("Insert Text")
 	                                                setclickEvent(Method(:OpenInsertWindow))
                                                 }
 						addaction(oAction)
-						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+L"))
 							settext("Lower case")
