@@ -41,14 +41,24 @@ Simple class provide a List where the index starts from zero.
 
 Methods:
 
-===========	==================	=================
-Method Name	Parameters		Output
-===========	==================	=================
-Add		Value			None
-Insert		nPosition,Value		None
-Find		Value			nPosition
-Delete		nPosition		None
-===========	==================	=================
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(List)			
+Add(Value)			Add item to the list
+Insert(nIndex,Value)		Inset Item after nIndex
+Find(Value)			Find item
+Delete(nIndex)			Delete item from the list 
+Item(nIndex)			Get item from the list
+First()				Get the first item in the list
+Last()				Get the last item in the list
+Set(nIndex,Value)		Set item value
+FindInColumn(nCol,Value)	Find item in a column 
+Sort()				Sort items - return new list
+Reverse()			Reverse items - return new list
+Swap(nIndex1,nIndex2)		Swap two items
+===========================	======================================================================
+
 
 Example:
 
