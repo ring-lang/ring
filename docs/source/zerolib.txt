@@ -18,13 +18,37 @@ ZeroLib is a simple library written in Ring.
 
 The library provideds classes for Lists and String where the index starts from 0.
 
+
 .. index:: 
-	pair: Using ZeroLib; Samples
+	pair: Using ZeroLib; Z() function
 
-Samples
-=======
+Z() function
+============
 
-Example (1):
+Syntax:
+
+.. code-block:: none
+
+	Z(String|List) ---> New Object (ZeroBasedString|ZeroBasedList)
+
+.. index:: 
+	pair: Using ZeroLib; ZeroBasedList Class
+
+ZeroBasedList Class
+===================
+
+Simple class provide a List where the index starts from zero.
+
+Methods:
+
+.. code-block:: none
+
+	Add(Value)
+	Insert(nPosition,Value
+	Find(Value) --> nPosition
+	Del(nPosition)
+
+Example:
 
 .. code-block:: ring
 
@@ -59,7 +83,15 @@ Output:
 	After deleting the first item : List[0]
 	Now List[0] = 2
 
-Example (2):
+.. index:: 
+	pair: Using ZeroLib; ZeroBasedString Class
+
+ZeroBasedString Class
+=====================
+
+Simple class provide a String where the index starts from zero.
+
+Example:
 
 .. code-block:: ring
 
@@ -88,7 +120,15 @@ Output:
 	m
 	e
 
+.. index:: 
+	pair: Using ZeroLib; Source Code
 
+Source Code
+===========
+
+We can find the library source code in this folder 
+
+URL : https://github.com/ring-lang/ring/tree/master/ringlibs/zerolib
 
 
 

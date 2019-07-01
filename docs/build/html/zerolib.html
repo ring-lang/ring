@@ -58,9 +58,24 @@
 <p>ZeroLib is a simple library written in Ring.</p>
 <p>The library provideds classes for Lists and String where the index starts from 0.</p>
 </div>
-<div class="section" id="samples">
-<span id="index-2"></span><h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
-<p>Example (1):</p>
+<div class="section" id="z-function">
+<span id="index-2"></span><h2>Z() function<a class="headerlink" href="#z-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Z(String|List) ---&gt; New Object (ZeroBasedString|ZeroBasedList)
+</pre></div>
+</div>
+</div>
+<div class="section" id="zerobasedlist-class">
+<span id="index-3"></span><h2>ZeroBasedList Class<a class="headerlink" href="#zerobasedlist-class" title="Permalink to this headline">¶</a></h2>
+<p>Simple class provide a List where the index starts from zero.</p>
+<p>Methods:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Add(Value)
+Insert(nPosition,Value
+Find(Value) --&gt; nPosition
+Del(nPosition)
+</pre></div>
+</div>
+<p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
 
 <span class="o">?</span> <span class="s">&quot;Using List - Index start from 0&quot;</span>
@@ -91,7 +106,11 @@
 <span class="n">Now</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<p>Example (2):</p>
+</div>
+<div class="section" id="zerobasedstring-class">
+<span id="index-4"></span><h2>ZeroBasedString Class<a class="headerlink" href="#zerobasedstring-class" title="Permalink to this headline">¶</a></h2>
+<p>Simple class provide a String where the index starts from zero.</p>
+<p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
 
 <span class="o">?</span> <span class="s">&quot;Using String - Index start from 0&quot;</span>
@@ -117,6 +136,11 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="source-code">
+<span id="index-5"></span><h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>We can find the library source code in this folder</p>
+<p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/ringlibs/zerolib">https://github.com/ring-lang/ring/tree/master/ringlibs/zerolib</a></p>
+</div>
 </div>
 
 
@@ -129,7 +153,10 @@
   <ul>
 <li><a class="reference internal" href="#">Using ZeroLib</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#samples">Samples</a></li>
+<li><a class="reference internal" href="#z-function">Z() function</a></li>
+<li><a class="reference internal" href="#zerobasedlist-class">ZeroBasedList Class</a></li>
+<li><a class="reference internal" href="#zerobasedstring-class">ZeroBasedString Class</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
 </ul>
 </li>
 </ul>
