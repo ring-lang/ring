@@ -131,12 +131,15 @@ class RNoteFind
 		cStr = textedit1.toPlainText()
 		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
 		setTextAllowUndo(cStr)
+		oCursor.setposition(nEnd+1,1)
+		textedit1.settextcursor(oCursor)
 		return FindValue()
 
 	func ReplaceAll
 		cStr = textedit1.toPlainText()
 		cOldValue = oSearchValue.text()
 		cNewValue = oReplaceValue.text()
+		cnt = count(cStr,cOldValue)
 		if len(cStr) < 1 or len(cOldValue) < 1 return ok
 		if oSearchCase.checkState() = Qt_Unchecked
 			# Not Case Sensitive
@@ -147,6 +150,7 @@ class RNoteFind
 		ok
 		if cStr != textedit1.toPlainText()
 			cMsg = "Operation Done"
+			cMsg = cMsg + " - Replaced : " + cnt
 		else 
 			cMsg = "Nothing to replace!"
 		ok
