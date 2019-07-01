@@ -68,7 +68,7 @@ class ZeroBasedList
 		return new ZeroBasedList( std_reverse(ZB_aItems) )
 
 	func swap nItem1,nItem2
-		std_swap(ZB_aItems,nItem1,nItem2)
+		std_swap(ZB_aItems,nItem1+1,nItem2+1)
 
 
 class ZeroBasedString
