@@ -41,12 +41,14 @@ Simple class provide a List where the index starts from zero.
 
 Methods:
 
-.. code-block:: none
-
-	Add(Value)
-	Insert(nPosition,Value
-	Find(Value) --> nPosition
-	Del(nPosition)
+===========	==================	=================
+Method Name	Parameters		Output
+===========	==================	=================
+Add		Value			None
+Insert		nPosition,Value		None
+Find		Value			nPosition
+Del		nPosition		None
+===========	==================	=================
 
 Example:
 
