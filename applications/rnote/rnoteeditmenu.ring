@@ -1,6 +1,6 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
-# Author : Gal Zsolt (LowerCase() and UpperCase() functions)
+# Author : Gal Zsolt 
 
 class RNoteEditMenu
 
@@ -93,3 +93,16 @@ class RNoteEditMenu
 	     cStr = left(cStr,nStart-1)+upper(substr(cStr,nStart,nEnd-nStart+1))+substr(cStr,nEnd+1)
 	     textedit1.setPlainText(cStr)
 	
+        func capitalize
+             oCursor = textedit1.textCursor()
+             nStart = oCursor.SelectionStart()
+             nEnd = oCursor.SelectionEnd()
+             cStr = textedit1.toPlainText()
+             cStart = left(cStr,nStart)
+             cFirst = upper(substr(cStr,nStart+1,1))
+             cRight = lower(substr(cStr,nStart+2,nEnd-nStart))
+             cEnd = right(cStr,len(cStr)-nEnd-1)
+             cStr = cStart + cFirst + cRight + cEnd
+             textedit1.setPlainText(cStr)
+             oCursor.setposition(nEnd+1,0)
+             textedit1.settextcursor(oCursor)

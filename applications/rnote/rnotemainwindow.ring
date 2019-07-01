@@ -311,6 +311,12 @@ class RNoteMainWindow
 							setclickEvent(Method(:upperCase))
 						}
 						addaction(oAction)
+						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+Shift+C"))
+							settext("Capitalize")
+							setclickEvent(Method(:capitalize))
+						}
+						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
