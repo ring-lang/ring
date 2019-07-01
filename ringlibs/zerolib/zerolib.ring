@@ -45,8 +45,14 @@ class ZeroBasedList
 
 class ZeroBasedString
 	ZB_cString = ""
-	func init(cValue)
-		ZB_cString = cValue
+	func init(vValue)
+		if isString(vValue)
+			ZB_cString = vValue
+		but isNumber(vValue)
+			ZB_cString = "" + vValue
+		else 
+			raise("Bad parameter to the init() method in ZeroBasedString class")
+		ok
 	func operator(cOperator,cValue) 
 		result = new ZeroBasedString
 		switch cOperator
