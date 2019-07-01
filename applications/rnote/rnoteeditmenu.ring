@@ -93,16 +93,29 @@ class RNoteEditMenu
 	     cStr = left(cStr,nStart-1)+upper(substr(cStr,nStart,nEnd-nStart+1))+substr(cStr,nEnd+1)
 	     textedit1.setPlainText(cStr)
 	
-        func capitalize
-             oCursor = textedit1.textCursor()
-             nStart = oCursor.SelectionStart()
-             nEnd = oCursor.SelectionEnd()
-             cStr = textedit1.toPlainText()
-             cStart = left(cStr,nStart)
-             cFirst = upper(substr(cStr,nStart+1,1))
-             cRight = lower(substr(cStr,nStart+2,nEnd-nStart))
-             cEnd = right(cStr,len(cStr)-nEnd-1)
-             cStr = cStart + cFirst + cRight + cEnd
-             textedit1.setPlainText(cStr)
-             oCursor.setposition(nEnd+1,0)
-             textedit1.settextcursor(oCursor)
+	func capitalize
+		oCursor = textedit1.textCursor()
+		nStart = oCursor.SelectionStart()
+		nEnd = oCursor.SelectionEnd()
+		cStr = textedit1.toPlainText()
+		if nStart = 0
+			cStrNew = substr(cStr,nStart+1,nEnd-nStart+1)
+		else
+			cStrNew = substr(cStr,nStart,nEnd-nStart+1)
+		ok            
+		cListCap = str2list(cStrNew)
+		cStr2 = ""
+		for n = 1 to len(cListCap)
+			cLeft = upper(left(cListCap[n],1))
+			cRight = lower(right(cListCap[n],len(cListCap[n])-1))
+			cStr2 = cStr2 + cLeft + cRight
+			if n != len(cListCap)
+				cStr2 = cStr2 + nl
+			ok
+		next
+		cStart = left(cStr,nStart-1)
+		cEnd = substr(cStr,nEnd+1)
+		cStr = cStart + cStr2 + cEnd
+		textedit1.setPlainText(cStr)
+		oCursor.setposition(nEnd+1,0)
+		textedit1.settextcursor(oCursor)
