@@ -24,6 +24,7 @@ Ring 1.11 comes with the next features!
 * Desktop Screen Shot Application
 * Text To Speech Application
 * RingRayLib Extension
+* ZeroLib Library
 * StdLib - More Functions
 * Better RingQt
 * Better Performance
@@ -223,6 +224,68 @@ Output:
 .. image:: ex1_basicshapes.png
 	:alt: RayLib Example
 
+.. index:: 
+	pair: What is new in Ring 1.11?; ZeroLib Library
+
+ZeroLib Library
+===============
+
+Ring 1.11 comes with the ZeroLib library that contains classes for Lists and Strings where the index starts from 0.
+
+Example:
+
+.. code-block:: ring
+
+	load "zerolib.ring"
+
+	? "Using List - Index start from 0"
+	List = Z( [1,2,3] )
+	List.Add(4)
+	List.Add(5)
+	? List[0]
+	? List[1]
+	? List[2]
+	? List[3]
+	? List[4]
+	nIndex = List.find(2)
+	? "Find(2) = " + nIndex
+	List.del(0)
+	? "After deleting the first item : List[0]" 
+	? "Now List[0] = " + List[0] 
+
+	? "Using String - Index start from 0"
+	String = Z( "Welcome" )
+	? String[0]
+	? String[1]
+	? String[2]
+	? String[3]
+	? String[4]
+	? String[5]
+	? String[6]
+
+Output:
+
+.. code-block:: ring 
+
+	Using List - Index start from 0
+	1
+	2
+	3
+	4
+	5
+	Find(2) = 1
+	After deleting the first item : List[0]
+	Now List[0] = 2
+	Using String - Index start from 0
+	W
+	e
+	l
+	c
+	o
+	m
+	e
+
+	
 .. index:: 
 	pair: What is new in Ring 1.11?; StdLib - More Functions
 
