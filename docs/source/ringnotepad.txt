@@ -244,6 +244,8 @@ Also We can set the Tab Width (Number of Spaces)
 
 Starting from Ring 1.8 we have the (Find in Files) option.
 
+Starting from Ring 1.11 we have the (Insert Text, Lower Case, Upper Case & Capitalize) options.
+
 .. image:: rnotemenu_edit.png
 	:alt: Ring Notepad - Edit Menu
 
