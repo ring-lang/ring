@@ -7,41 +7,69 @@ func Z vValue
 		return new ZeroBasedList(vValue)
 	ok
 
-func ZeroBased_Add(List,Value) 
-     add(List,Value)
-
-func ZeroBased_Insert(List,nPos,Value)
-     insert(List,nPos,Value)
-
-func ZeroBased_Find(List,Value)
-     return find(List,Value)
-
-func ZeroBased_Del(List,ind)
-     del(List,ind)
-
 class ZeroBasedList
-      ZB_aItems = []
-      func init(aList) 
-           ZB_aItems = aList 
-      func operator(cOperator,cValue)
-           switch cOperator
-                  on "[]"  
-                     return &ZB_aItems[cValue+1]
-                  on "len"
-                     return len(ZB_aItems)
-      off
 
-      func add(Value)
-           ZeroBased_Add(ZB_aItems,Value)
+	ZB_aItems = []
 
-      func insert(nPos,Value)
-           ZeroBased_Insert(ZB_aItems,nPos,Value)
+	func init(aList) 
+		ZB_aItems = aList 
 
-      func find(Value)
-           return ZeroBased_Find(ZB_aItems,Value)-1
+	func operator(cOperator,vValue)
+		result = new ZeroBasedList
+		switch cOperator
+			on "+"
+				if isobject(vValue)
+					for t in vValue.vValue
+						ZB_aItems + t
+					next
+				but islist(vValue)
+					for t in vValue
+						ZB_aItems + t
+					next
+				ok
+			on "[]"  
+				return &ZB_aItems[vValue+1]
+			on "len"
+				return len(ZB_aItems)
+      		off
+		return result
 
-      func delete(ind)
-           ZeroBased_Del(ZB_aItems,ind+1)
+	func add(Value)
+		std_add(ZB_aItems,Value)
+
+	func insert(nPos,Value)
+		std_insert(ZB_aItems,nPos,Value)
+
+	func find(Value)
+		return std_find(ZB_aItems,Value)-1
+
+	func delete(ind)
+		std_del(ZB_aItems,ind+1)
+
+	func Item x
+		return ZB_aItems[x+1]
+
+	func First		
+		return ZB_aItems[1]
+
+	func Last
+		return ZB_aItems[len(ZB_aItems)]
+
+	func Set nIndex,Value
+		ZB_aItems[nIndex+1] = value
+
+	func FindinColumn nCol,value
+		return std_findincolumn(ZB_aItems,value,nCol+1)-1
+
+	func Sort
+		return new ZeroBasedList( std_sort(ZB_aItems) )
+	
+	func Reverse
+		return new ZeroBasedList( std_reverse(ZB_aItems) )
+
+	func swap nItem1,nItem2
+		std_swap(ZB_aItems,nItem1,nItem2)
+
 
 class ZeroBasedString
 	ZB_cString = ""
