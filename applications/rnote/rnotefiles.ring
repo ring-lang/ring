@@ -31,6 +31,7 @@
 	load "rnotetreeviewevents.ring"
 	load "rnoteeditorevents.ring"
 	load "rnoterun.ring"
+	load "rnoteinserttext.ring"
 
 # Merge Classes 
 	for cClass in [
@@ -60,7 +61,8 @@
 		:RNoteFormDesigner,
 		:RNoteTreeViewEvents,
 		:RNoteEditorEvents,
-		:RNoteRun
+		:RNoteRun,
+		:RNoteInsertText
 	]
 			mergemethods(:RNoteController,cClass)
 	next

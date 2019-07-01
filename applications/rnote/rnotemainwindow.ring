@@ -292,6 +292,13 @@ class RNoteMainWindow
 						}
 						addaction(oAction)
 						addseparator()
+                                                oAction = new qAction(this.win1) {
+	                                                setShortcut(new QKeySequence("Ctrl+Shift+i"))
+	                                                settext("Insert Text")
+	                                                setclickEvent(Method(:OpenInsertWindow))
+                                                }
+						addaction(oAction)
+						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
 							setbtnimage(self,"image/search.png")
