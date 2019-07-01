@@ -68,6 +68,7 @@ Contents:
    Deploying Web Applications in the Cloud <deployincloud>
    Using RingLibCurl <libcurl>
    Using RingZip <ringzip>
+   Using ZeroLib <zerolib>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
    Using Ringlibuv <libuv>

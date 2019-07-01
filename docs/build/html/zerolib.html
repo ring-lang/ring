@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using ZeroLib &mdash; Ring 1.11 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.11',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.11 documentation" href="index.html" />
+    <link rel="next" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" />
+    <link rel="prev" title="Using RingZip" href="ringzip.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ringzip.html" title="Using RingZip"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.11 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-zerolib">
+<span id="index-0"></span><h1>Using ZeroLib<a class="headerlink" href="#using-zerolib" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn how to use the ZeroLib library.</p>
+<div class="section" id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>ZeroLib is a simple library written in Ring.</p>
+<p>The library provideds classes for Lists and String where the index starts from 0.</p>
+</div>
+<div class="section" id="samples">
+<span id="index-2"></span><h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>Example (1):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Using List - Index start from 0&quot;</span>
+<span class="kt">List</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="n">nIndex</span> <span class="o">=</span> <span class="kt">List</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Find(2) = &quot;</span> <span class="o">+</span> <span class="n">nIndex</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">del</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;After deleting the first item : List[0]&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Now List[0] = &quot;</span> <span class="o">+</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="kt">List</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">Find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">After</span> <span class="n">deleting</span> <span class="n">the</span> <span class="n">first</span> <span class="n">item</span> <span class="p">:</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="n">Now</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Using String - Index start from 0&quot;</span>
+<span class="kt">String</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="s">&quot;Welcome&quot;</span> <span class="p">)</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="kt">String</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<span class="n">W</span>
+<span class="n">e</span>
+<span class="n">l</span>
+<span class="n">c</span>
+<span class="n">o</span>
+<span class="n">m</span>
+<span class="n">e</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using ZeroLib</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#samples">Samples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ringzip.html"
+                        title="previous chapter">Using RingZip</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="allegro.html"
+                        title="next chapter">Graphics and 2D Games programming using RingAllegro</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/zerolib.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ringzip.html" title="Using RingZip"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.11 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2019, Ring Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

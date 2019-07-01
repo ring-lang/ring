@@ -1,0 +1,94 @@
+.. index:: 
+	Single: Using ZeroLib;  Introduction
+
+=============
+Using ZeroLib
+=============
+
+In this chapter we will learn how to use the ZeroLib library.
+
+
+.. index:: 
+	pair: Using ZeroLib; Introduction
+
+Introduction
+============
+
+ZeroLib is a simple library written in Ring.
+
+The library provideds classes for Lists and String where the index starts from 0.
+
+.. index:: 
+	pair: Using ZeroLib; Samples
+
+Samples
+=======
+
+Example (1):
+
+.. code-block:: ring
+
+	load "zerolib.ring"
+
+	? "Using List - Index start from 0"
+	List = Z( [1,2,3] )
+	List.Add(4)
+	List.Add(5)
+	? List[0]
+	? List[1]
+	? List[2]
+	? List[3]
+	? List[4]
+	nIndex = List.find(2)
+	? "Find(2) = " + nIndex
+	List.del(0)
+	? "After deleting the first item : List[0]" 
+	? "Now List[0] = " + List[0] 
+
+Output:
+
+.. code-block:: ring 
+
+	Using List - Index start from 0
+	1
+	2
+	3
+	4
+	5
+	Find(2) = 1
+	After deleting the first item : List[0]
+	Now List[0] = 2
+
+Example (2):
+
+.. code-block:: ring
+
+	load "zerolib.ring"
+
+	? "Using String - Index start from 0"
+	String = Z( "Welcome" )
+	? String[0]
+	? String[1]
+	? String[2]
+	? String[3]
+	? String[4]
+	? String[5]
+	? String[6]
+
+Output:
+
+.. code-block:: ring 
+
+	Using String - Index start from 0
+	W
+	e
+	l
+	c
+	o
+	m
+	e
+
+
+
+
+
