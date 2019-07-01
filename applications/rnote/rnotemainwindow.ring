@@ -300,6 +300,19 @@ class RNoteMainWindow
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+Shift+L"))
+							settext("Lower case")
+							setclickEvent(Method(:lowerCase))
+						}
+						addaction(oAction)
+						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+Shift+U"))
+							settext("Upper case")
+							setclickEvent(Method(:upperCase))
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
 							setbtnimage(self,"image/search.png")
 							settext("Find in Files")
