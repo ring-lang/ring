@@ -40,7 +40,7 @@ class ZeroBasedList
       func find(Value)
            return ZeroBased_Find(ZB_aItems,Value)-1
 
-      func del(ind)
+      func delete(ind)
            ZeroBased_Del(ZB_aItems,ind+1)
 
 class ZeroBasedString
