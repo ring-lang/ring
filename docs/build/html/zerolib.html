@@ -135,6 +135,70 @@
 <div class="section" id="zerobasedstring-class">
 <span id="index-4"></span><h2>ZeroBasedString Class<a class="headerlink" href="#zerobasedstring-class" title="Permalink to this headline">¶</a></h2>
 <p>Simple class provide a String where the index starts from zero.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Description/Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Init(String|Number)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Lower()</td>
+<td>New String - Lower case characters</td>
+</tr>
+<tr class="row-even"><td>Upper()</td>
+<td>New String - Upper case characters</td>
+</tr>
+<tr class="row-odd"><td>Left(x)</td>
+<td>New String - contains x characters from the left</td>
+</tr>
+<tr class="row-even"><td>Right(x)</td>
+<td>New String - contains x characters from the right</td>
+</tr>
+<tr class="row-odd"><td>Lines()</td>
+<td>Number - Lines count</td>
+</tr>
+<tr class="row-even"><td>Trim()</td>
+<td>New String - Remove Spaces</td>
+</tr>
+<tr class="row-odd"><td>Copy(x)</td>
+<td>New String - repeat string x times</td>
+</tr>
+<tr class="row-even"><td>strcmp(cString)</td>
+<td>Compare string with cString</td>
+</tr>
+<tr class="row-odd"><td>tolist()</td>
+<td>List (String Lines to String Items)</td>
+</tr>
+<tr class="row-even"><td>tofile(cFileName)</td>
+<td>Write string to file</td>
+</tr>
+<tr class="row-odd"><td>mid(nPos1,nPos2)</td>
+<td>New String - from nPos1 to nPos2</td>
+</tr>
+<tr class="row-even"><td>getfrom(nPos1)</td>
+<td>New String - from nPos1 to the end of the string</td>
+</tr>
+<tr class="row-odd"><td>replace(cStr1,cStr2,lCase)</td>
+<td>New String - Replace cStr1 with cStr2 , lCase (True=Match Case)</td>
+</tr>
+<tr class="row-even"><td>split()</td>
+<td>List - Each Word as list item</td>
+</tr>
+<tr class="row-odd"><td>startswith(substring)</td>
+<td>Return true if the start starts with a substring</td>
+</tr>
+<tr class="row-even"><td>endswith(substring)</td>
+<td>Return true if the start ends with a substring</td>
+</tr>
+</tbody>
+</table>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
 
