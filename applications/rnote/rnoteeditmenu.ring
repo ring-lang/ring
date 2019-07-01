@@ -112,24 +112,23 @@ class RNoteEditMenu
 		nStart = oCursor.SelectionStart() + 1
 		nEnd = oCursor.SelectionEnd() + 1
 		cStr = textedit1.toPlainText()
-		if nStart = 0
-			cStrNew = substr(cStr,nStart+1,nEnd-nStart+1)
-		else
-			cStrNew = substr(cStr,nStart,nEnd-nStart+1)
-		ok            
-		cListCap = str2list(cStrNew)
-		cStr2 = ""
-		for n = 1 to len(cListCap)
-			cLeft = upper(left(cListCap[n],1))
-			cRight = lower(right(cListCap[n],len(cListCap[n])-1))
-			cStr2 = cStr2 + cLeft + cRight
-			if n != len(cListCap)
-				cStr2 = cStr2 + nl
+		cNewStr = ""
+		if nStart > 1
+			cNewStr += left(cStr,nStart-1)
+		ok
+		lCap = True 
+		for nChar = nStart to nEnd-nStart
+			if lCap 
+				cNewStr += Upper(cStr[nChar])
+				lCap = False
+			else 
+				cNewStr += cStr[nChar]
+				if cStr[nChar] = " " or cStr[nChar] = Char(13) or cStr[nChar] = Char(10) 
+					lCap = True 
+				ok
 			ok
-		next
-		cStart = left(cStr,nStart-1)
-		cEnd = substr(cStr,nEnd+1)
-		cStr = cStart + cStr2 + cEnd
-		textedit1.setPlainText(cStr)
-		oCursor.setposition(nEnd+1,0)
-		textedit1.settextcursor(oCursor)
+		next  
+		if nEnd < len(cStr)
+			cNewStr += substr(cStr,nEnd)
+		ok
+		textedit1.setPlainText(cNewStr)
