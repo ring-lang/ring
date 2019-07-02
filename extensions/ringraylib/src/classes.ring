@@ -72,3 +72,61 @@ class Quaternion x y z w
 		z = raylib_get_Quaternion_z(oStruct)
 		w = raylib_get_Quaternion_w(oStruct)
 
+class Matrix m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15
+
+	oData = raylib_new_managed_Matrix()
+
+	func init (p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15)
+		m0 = p0
+		m1 = p1
+		m2 = p2
+		m3 = p3
+		m4 = p4
+		m5 = p5
+		m6 = p6
+		m7 = p7
+		m8 = p8
+		m9 = p9
+		m10= p10
+		m11= p11
+		m12= p12
+		m13= p13
+		m14= p14
+		m15= p15
+
+	func data 
+		raylib_set_Matrix_m0(oData,m0)
+		raylib_set_Matrix_m1(oData,m1)
+		raylib_set_Matrix_m2(oData,m2)
+		raylib_set_Matrix_m3(oData,m3)
+		raylib_set_Matrix_m4(oData,m4)
+		raylib_set_Matrix_m5(oData,m5)
+		raylib_set_Matrix_m6(oData,m6)
+		raylib_set_Matrix_m7(oData,m7)
+		raylib_set_Matrix_m8(oData,m8)
+		raylib_set_Matrix_m9(oData,m9)
+		raylib_set_Matrix_m10(oData,m10)
+		raylib_set_Matrix_m11(oData,m11)
+		raylib_set_Matrix_m12(oData,m12)
+		raylib_set_Matrix_m13(oData,m13)
+		raylib_set_Matrix_m14(oData,m14)
+		raylib_set_Matrix_m15(oData,m15)
+		return oData	
+
+	func setdata oStruct 
+		m0 = raylib_get_Matrix_m0(oStruct)
+		m1 = raylib_get_Matrix_m1(oStruct)
+		m2 = raylib_get_Matrix_m2(oStruct)
+		m3 = raylib_get_Matrix_m3(oStruct)
+		m4 = raylib_get_Matrix_m4(oStruct)
+		m5 = raylib_get_Matrix_m5(oStruct)
+		m6 = raylib_get_Matrix_m6(oStruct)
+		m7 = raylib_get_Matrix_m7(oStruct)
+		m8 = raylib_get_Matrix_m8(oStruct)
+		m9 = raylib_get_Matrix_m9(oStruct)
+		m10 = raylib_get_Matrix_m10(oStruct)
+		m11 = raylib_get_Matrix_m11(oStruct)
+		m12 = raylib_get_Matrix_m12(oStruct)
+		m13 = raylib_get_Matrix_m13(oStruct)
+		m14 = raylib_get_Matrix_m14(oStruct)
+		m15 = raylib_get_Matrix_m15(oStruct)
