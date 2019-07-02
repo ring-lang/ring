@@ -23,7 +23,7 @@ while !WindowShouldClose()
         UpdateCamera(camera.Data())
 	camera.refresh()
 
-        if IsKeyDown(ASCII('Z')) camera.target = new Vector3( 0, 0, 0) ok
+        if IsKeyDown("Z") camera.target = new Vector3( 0, 0, 0) ok
 
         BeginDrawing()
 

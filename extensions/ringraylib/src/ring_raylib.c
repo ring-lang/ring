@@ -10051,7 +10051,7 @@ RING_FUNC(ring_IsKeyPressed)
 }
 
 
-RING_FUNC(ring_IsKeyDown)
+RING_FUNC(ring_IsKeyDown_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16974,7 +16974,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("storageloadvalue",ring_StorageLoadValue);
 	ring_vm_funcregister("openurl",ring_OpenURL);
 	ring_vm_funcregister("iskeypressed",ring_IsKeyPressed);
-	ring_vm_funcregister("iskeydown",ring_IsKeyDown);
+	ring_vm_funcregister("iskeydown_2",ring_IsKeyDown_2);
 	ring_vm_funcregister("iskeyreleased",ring_IsKeyReleased);
 	ring_vm_funcregister("iskeyup",ring_IsKeyUp);
 	ring_vm_funcregister("getkeypressed",ring_GetKeyPressed);

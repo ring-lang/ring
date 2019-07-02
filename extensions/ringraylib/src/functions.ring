@@ -80,3 +80,12 @@ func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 	raylib_set_Camera3D_fovy(oData,p10)
 	raylib_set_Camera3D_type(oData,p11)
 	return oData
+
+func isKeyDown vKey
+	if isNumber(vKey)
+		return isKeyDown_2(vKey)
+	but isString(vKey)
+		return isKeyDown_2(ASCII(vKey[1]))
+	else 
+		raise("Bad parameter type - IsKeyDown() function")
+	ok
