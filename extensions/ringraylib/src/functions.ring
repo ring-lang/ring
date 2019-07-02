@@ -50,6 +50,14 @@ func Matrix m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
 	raylib_set_Matrix_m15(oData,m15)
 	return oData
 
+func Color r,g,b,a
+	oData = raylib_new_managed_Color()	
+	raylib_set_Color_r(oData,r)
+	raylib_set_Color_g(oData,g)
+	raylib_set_Color_b(oData,b)
+	raylib_set_Color_a(oData,a)
+	return oData
+
 func rectangle x,y,width,height 
 	oData = raylib_new_managed_rectangle()	
 	raylib_set_rectangle_x(oData,x)
