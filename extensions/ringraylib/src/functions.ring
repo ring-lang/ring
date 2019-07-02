@@ -66,21 +66,6 @@ func Rectangle x,y,width,height
 	raylib_set_Rectangle_height(oData,height)
 	return oData
 
-func Camera p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11 
-	oData = raylib_new_managed_Camera()	
-	raylib_set_Camera_position_x(oData,p1)
-	raylib_set_Camera_position_y(oData,p2)
-	raylib_set_Camera_position_z(oData,p3)
-	raylib_set_Camera_target_x(oData,p4)
-	raylib_set_Camera_target_y(oData,p5)
-	raylib_set_Camera_target_z(oData,p6)
-	raylib_set_Camera_up_x(oData,p7)
-	raylib_set_Camera_up_y(oData,p8)
-	raylib_set_Camera_up_z(oData,p9)
-	raylib_set_Camera_fovy(oData,p10)
-	raylib_set_Camera_type(oData,p11)
-	return oData
-
 func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11 
 	oData = raylib_new_managed_Camera3D()	
 	raylib_set_Camera3D_position_x(oData,p1)

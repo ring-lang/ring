@@ -1,5 +1,4 @@
 <nodllstartup>
-
 <code>
 /* Copyright (c) 2019 Mahmoud Fayed <msfclipper@yahoo.com> */
 
@@ -35,7 +34,6 @@ CharInfo {value, rec.x, rec.y, rec.width, rec.height,offsetX,offsetY,advanceX,un
 Font {texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
 SpriteFont {texture.id, texture.width, texture.height, texture.mipmaps, texture.format,baseSize, charsCount, CharInfo *chars}
 Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
-Camera {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, type}
 Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, int *boneIds, float *boneWeights, vaoId}
 Shader {id}
 MaterialMap {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, value}
@@ -98,9 +96,9 @@ void BeginMode3D(Camera3D camera)
 void EndMode3D(void)
 void BeginTextureMode(RenderTexture2D target)
 void EndTextureMode(void)
-Ray GetMouseRay(Vector2 mousePosition, Camera camera)
-Vector2 GetWorldToScreen(Vector3 position, Camera camera)
-Matrix GetCameraMatrix(Camera camera)
+Ray GetMouseRay(Vector2 mousePosition, Camera3D camera)
+Vector2 GetWorldToScreen(Vector3 position, Camera3D camera)
+Matrix GetCameraMatrix(Camera3D camera)
 void SetTargetFPS(int fps)
 int GetFPS(void)
 float GetFrameTime(void)
@@ -174,8 +172,8 @@ Vector2 GetGestureDragVector(void)
 float GetGestureDragAngle(void)
 Vector2 GetGesturePinchVector(void)
 float GetGesturePinchAngle(void)
-void SetCameraMode(Camera camera, int mode)
-void UpdateCamera(Camera *camera)
+void SetCameraMode(Camera3D camera, int mode)
+void UpdateCamera(Camera3D *camera)
 void SetCameraPanControl(int panKey)
 void SetCameraAltControl(int altKey)
 void SetCameraSmoothZoomControl(int szKey)
@@ -366,8 +364,8 @@ void DrawModelEx(Model model, Vector3 position, Vector3 rotationAxis, float rota
 void DrawModelWires(Model model, Vector3 position, float scale, Color tint)
 void DrawModelWiresEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
 void DrawBoundingBox(BoundingBox box, Color color)
-void DrawBillboard(Camera camera, Texture2D texture, Vector3 center, float size, Color tint)
-void DrawBillboardRec(Camera camera, Texture2D texture, Rectangle sourceRec, Vector3 center, float size, Color tint)
+void DrawBillboard(Camera3D camera, Texture2D texture, Vector3 center, float size, Color tint)
+void DrawBillboardRec(Camera3D camera, Texture2D texture, Rectangle sourceRec, Vector3 center, float size, Color tint)
 bool CheckCollisionSpheres(Vector3 centerA, float radiusA, Vector3 centerB, float radiusB)
 bool CheckCollisionBoxes(BoundingBox box1, BoundingBox box2)
 bool CheckCollisionBoxSphere(BoundingBox box, Vector3 centerSphere, float radiusSphere)
@@ -403,7 +401,7 @@ void BeginScissorMode(int x, int y, int width, int height)
 void EndScissorMode(void)
 void InitVrSimulator(void)
 void CloseVrSimulator(void)
-void UpdateVrTracking(Camera *camera)
+void UpdateVrTracking(Camera3D *camera)
 void SetVrConfiguration(VrDeviceInfo info, Shader distortion)
 bool IsVrSimulatorReady(void)
 void ToggleVrMode(void)
