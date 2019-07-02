@@ -14,14 +14,13 @@ camera = new Camera3D(
 
 cubePosition = Vector3(0, 0, 0)
 
-SetCameraMode(camera.Data(), CAMERA_FREE) 		// Set a free camera mode
+SetCameraMode(camera, CAMERA_FREE) 		// Set a free camera mode
 
 SetTargetFPS(60)                   
 
 while !WindowShouldClose()
 
-        UpdateCamera(camera.Data())
-	camera.refresh()
+        UpdateCamera(camera)
 
         if IsKeyDown("Z") camera.target = new Vector3( 0, 0, 0) ok
 
@@ -29,7 +28,7 @@ while !WindowShouldClose()
 
             ClearBackground(RAYWHITE)
 
-            BeginMode3D(camera.Data())
+            BeginMode3D(camera)
 
                 DrawCube(cubePosition, 2, 2, 2, RED)
                 DrawCubeWires(cubePosition, 2, 2, 2, MAROON)

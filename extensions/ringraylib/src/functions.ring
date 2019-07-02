@@ -91,31 +91,63 @@ func isKeyDown vKey
 	ok
 
 func BeginMode2D camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return BeginMode2D_2(camera)
 
 func BeginMode3D camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return BeginMode3D_2(camera)
 
 func GetMouseRay mousePosition,camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return GetMouseRay_2(mousePosition,camera)
 
 func GetWorldToScreen position,camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return GetWorldToScreen_2(position,camera)
 
 func GetCameraMatrix camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return GetCameraMatrix_2(camera)
 
 func SetCameraMode camera,mode
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return SetCameraMode_2(camera,mode)
 
 func UpdateCamera camera
-	return UpdateCamera_2(camera)
-
+	if isObject(camera)
+		UpdateCamera_2(camera.Data())
+		camera.refresh()
+	else
+		return UpdateCamera_2(camera)
+	ok
+	
 func DrawBillboard camera,texture,center,size,tint
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return DrawBillboard_2(camera,texture,center,size,tint)
 
 func DrawBillboardRec camera,texture,sourceRec,center,size,tint
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return DrawBillboardRec_2(camera,texture,sourceRec,center,size,tint)
 
 func UpdateVrTracking camera
+	if isObject(camera)
+		camera = camera.Data()
+	ok
 	return UpdateVrTracking_2(camera)
