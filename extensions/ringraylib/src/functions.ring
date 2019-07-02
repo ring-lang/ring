@@ -151,3 +151,158 @@ func UpdateVrTracking camera
 		camera = camera.Data()
 	ok
 	return UpdateVrTracking_2(camera)
+
+func DrawPixelV position, color
+	if isObject(position)
+		position = position.Data()
+	ok
+	return DrawPixelV_2(position,color)
+
+func DrawLineV startPos, endPos, color
+	if isObject(startPos)
+		startPos = startPos.Data()
+	ok
+	if isObject(endPos)
+		endPos = endPos.Data()
+	ok
+	return DrawLineV_2(startPos,endPos,color)
+
+func DrawLineEx startPos, endPos, thick, color
+	if isObject(startPos)
+		startPos = startPos.Data()
+	ok
+	if isObject(endPos)
+		endPos = endPos.Data()
+	ok
+	return DrawLineEx_2(startPos,endPos,thick,color)
+
+func DrawLineBezier startPos, endPos, thick, color
+	if isObject(startPos)
+		startPos = startPos.Data()
+	ok
+	if isObject(endPos)
+		endPos = endPos.Data()
+	ok
+	return DrawLineBezier_2(startPos, endPos, thick, color)
+
+func DrawLineStrip points, numPoints, color
+	return DrawLineStrip_2(points, numPoints, color)
+
+func DrawCircleSector center,radius,startAngle,endAngle,segments,color
+	if isObject(center)
+		center = center.Data()
+	ok
+	return DrawCircleSector_2(center,radius,startAngle,endAngle,segments,color)
+
+func DrawCircleSectorLines center,radius,startAngle,endAngle,segments,color
+	if isObject(center)
+		center = center.Data()
+	ok
+	return DrawCircleSectorLines_2(center,radius,startAngle,endAngle,segments,color)
+
+func DrawCircleV center, radius, color
+	pCenter = center
+	if isObject(center)
+		pCenter = center.Data()
+	ok
+	return DrawCircleV_2(pCenter, radius, color)
+
+func DrawRing center, innerRadius, outerRadius, startAngle, endAngle, segments, color
+	if isObject(center)
+		center = center.Data()
+	ok
+	return DrawRing_2(center, innerRadius, outerRadius, startAngle, endAngle, segments, color)
+
+func DrawRingLines center, innerRadius, outerRadius, startAngle, endAngle, segments, color
+	if isObject(center)
+		center = center.Data()
+	ok
+	return DrawRingLines_2(center, innerRadius, outerRadius, startAngle, endAngle, segments, color)
+
+func DrawRectangleV position, size, color
+	if isObject(position)
+		position = position.Data()
+	ok
+	if isObject(size)
+		size = size.Data()
+	ok
+	return DrawRectangleV_2(position, size, color)
+
+func DrawTriangle v1, v2, v3, color
+	if isObject(v1)
+		v1 = v1.Data()
+	ok
+	if isObject(v2)
+		v2 = v2.Data()
+	ok
+	if isObject(v3)
+		v3 = v3.Data()
+	ok
+	return DrawTriangle_2(v1, v2, v3, color)
+
+func DrawTriangleLines v1, v2, v3, color
+	if isObject(v1)
+		v1 = v1.Data()
+	ok
+	if isObject(v2)
+		v2 = v2.Data()
+	ok
+	if isObject(v3)
+		v3 = v3.Data()
+	ok
+	return DrawTriangleLines_2(v1, v2, v3, color)
+
+func DrawTriangleFan points, numPoints, color
+	return DrawTriangleFan_2(points, numPoints, color)
+
+func DrawPoly center, sides, radius, rotation, color
+	if isObject(center)
+		center = center.Data()
+	ok
+	return DrawPoly_2(center, sides, radius, rotation, color)
+
+func CheckCollisionCircles center1, radius1, center2, radius2
+	if isObject(center1)
+		center1 = center1.Data()
+	ok
+	if isObject(center2)
+		center2 = center2.Data()
+	ok
+	return CheckCollisionCircles_2(center1, radius1, center2, radius2)
+
+func CheckCollisionCircleRec center, radius, rec
+	if isObject(center)
+		center = center.Data()
+	ok
+	return CheckCollisionCircleRec_2(center, radius, rec)
+
+func CheckCollisionPointRec point, rec
+	if isObject(point)
+		point = point.Data()
+	ok
+	return CheckCollisionPointRec_2(point, rec)
+
+func CheckCollisionPointCircle point, center, radius
+	if isObject(point)
+		point = point.Data()
+	ok
+	if isObject(center)
+		center = center.Data()
+	ok
+	return CheckCollisionPointCircle_2(point, center, radius)
+
+func CheckCollisionPointTriangle point, p1, p2, p3
+	if isObject(point)
+		point = point.Data()
+	ok
+	if isObject(p1)
+		p1 = p1.Data()
+	ok
+	if isObject(p2)
+		p2 = p2.Data()
+	ok
+	if isObject(p3)
+		p3 = p3.Data()
+	ok
+	return CheckCollisionPointTriangle_2(point, p1, p2, p3)
+

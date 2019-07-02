@@ -15,7 +15,7 @@ while !WindowShouldClose()
         BeginDrawing()
 		ClearBackground(RAYWHITE)
 		DrawText("move the ball with arrow keys", 10, 10, 20, DARKGRAY)
-		DrawCircleV(ballPosition.Data(), 50, MAROON)
+		DrawCircleV(ballPosition, 50, MAROON)
         EndDrawing()
 end    
 
