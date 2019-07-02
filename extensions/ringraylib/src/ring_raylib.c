@@ -9424,7 +9424,7 @@ RING_FUNC(ring_EndDrawing)
 }
 
 
-RING_FUNC(ring_BeginMode2D)
+RING_FUNC(ring_BeginMode2D_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -9446,7 +9446,7 @@ RING_FUNC(ring_EndMode2D)
 }
 
 
-RING_FUNC(ring_BeginMode3D)
+RING_FUNC(ring_BeginMode3D_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -9490,7 +9490,7 @@ RING_FUNC(ring_EndTextureMode)
 }
 
 
-RING_FUNC(ring_GetMouseRay)
+RING_FUNC(ring_GetMouseRay_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -9509,7 +9509,7 @@ RING_FUNC(ring_GetMouseRay)
 }
 
 
-RING_FUNC(ring_GetWorldToScreen)
+RING_FUNC(ring_GetWorldToScreen_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -9528,7 +9528,7 @@ RING_FUNC(ring_GetWorldToScreen)
 }
 
 
-RING_FUNC(ring_GetCameraMatrix)
+RING_FUNC(ring_GetCameraMatrix_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -10579,7 +10579,7 @@ RING_FUNC(ring_GetGesturePinchAngle)
 }
 
 
-RING_FUNC(ring_SetCameraMode)
+RING_FUNC(ring_SetCameraMode_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -10595,7 +10595,7 @@ RING_FUNC(ring_SetCameraMode)
 }
 
 
-RING_FUNC(ring_UpdateCamera)
+RING_FUNC(ring_UpdateCamera_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14564,7 +14564,7 @@ RING_FUNC(ring_DrawBoundingBox)
 }
 
 
-RING_FUNC(ring_DrawBillboard)
+RING_FUNC(ring_DrawBillboard_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -14586,7 +14586,7 @@ RING_FUNC(ring_DrawBillboard)
 }
 
 
-RING_FUNC(ring_DrawBillboardRec)
+RING_FUNC(ring_DrawBillboardRec_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -15220,7 +15220,7 @@ RING_FUNC(ring_CloseVrSimulator)
 }
 
 
-RING_FUNC(ring_UpdateVrTracking)
+RING_FUNC(ring_UpdateVrTracking_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16930,15 +16930,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("clearbackground",ring_ClearBackground);
 	ring_vm_funcregister("begindrawing",ring_BeginDrawing);
 	ring_vm_funcregister("enddrawing",ring_EndDrawing);
-	ring_vm_funcregister("beginmode2d",ring_BeginMode2D);
+	ring_vm_funcregister("beginmode2d_2",ring_BeginMode2D_2);
 	ring_vm_funcregister("endmode2d",ring_EndMode2D);
-	ring_vm_funcregister("beginmode3d",ring_BeginMode3D);
+	ring_vm_funcregister("beginmode3d_2",ring_BeginMode3D_2);
 	ring_vm_funcregister("endmode3d",ring_EndMode3D);
 	ring_vm_funcregister("begintexturemode",ring_BeginTextureMode);
 	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
-	ring_vm_funcregister("getmouseray",ring_GetMouseRay);
-	ring_vm_funcregister("getworldtoscreen",ring_GetWorldToScreen);
-	ring_vm_funcregister("getcameramatrix",ring_GetCameraMatrix);
+	ring_vm_funcregister("getmouseray_2",ring_GetMouseRay_2);
+	ring_vm_funcregister("getworldtoscreen_2",ring_GetWorldToScreen_2);
+	ring_vm_funcregister("getcameramatrix_2",ring_GetCameraMatrix_2);
 	ring_vm_funcregister("settargetfps",ring_SetTargetFPS);
 	ring_vm_funcregister("getfps",ring_GetFPS);
 	ring_vm_funcregister("getframetime",ring_GetFrameTime);
@@ -17012,8 +17012,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getgesturedragangle",ring_GetGestureDragAngle);
 	ring_vm_funcregister("getgesturepinchvector",ring_GetGesturePinchVector);
 	ring_vm_funcregister("getgesturepinchangle",ring_GetGesturePinchAngle);
-	ring_vm_funcregister("setcameramode",ring_SetCameraMode);
-	ring_vm_funcregister("updatecamera",ring_UpdateCamera);
+	ring_vm_funcregister("setcameramode_2",ring_SetCameraMode_2);
+	ring_vm_funcregister("updatecamera_2",ring_UpdateCamera_2);
 	ring_vm_funcregister("setcamerapancontrol",ring_SetCameraPanControl);
 	ring_vm_funcregister("setcameraaltcontrol",ring_SetCameraAltControl);
 	ring_vm_funcregister("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
@@ -17204,8 +17204,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawmodelwires",ring_DrawModelWires);
 	ring_vm_funcregister("drawmodelwiresex",ring_DrawModelWiresEx);
 	ring_vm_funcregister("drawboundingbox",ring_DrawBoundingBox);
-	ring_vm_funcregister("drawbillboard",ring_DrawBillboard);
-	ring_vm_funcregister("drawbillboardrec",ring_DrawBillboardRec);
+	ring_vm_funcregister("drawbillboard_2",ring_DrawBillboard_2);
+	ring_vm_funcregister("drawbillboardrec_2",ring_DrawBillboardRec_2);
 	ring_vm_funcregister("checkcollisionspheres",ring_CheckCollisionSpheres);
 	ring_vm_funcregister("checkcollisionboxes",ring_CheckCollisionBoxes);
 	ring_vm_funcregister("checkcollisionboxsphere",ring_CheckCollisionBoxSphere);
@@ -17241,7 +17241,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endscissormode",ring_EndScissorMode);
 	ring_vm_funcregister("initvrsimulator",ring_InitVrSimulator);
 	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
-	ring_vm_funcregister("updatevrtracking",ring_UpdateVrTracking);
+	ring_vm_funcregister("updatevrtracking_2",ring_UpdateVrTracking_2);
 	ring_vm_funcregister("setvrconfiguration",ring_SetVrConfiguration);
 	ring_vm_funcregister("isvrsimulatorready",ring_IsVrSimulatorReady);
 	ring_vm_funcregister("togglevrmode",ring_ToggleVrMode);

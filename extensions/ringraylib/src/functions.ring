@@ -89,3 +89,33 @@ func isKeyDown vKey
 	else 
 		raise("Bad parameter type - IsKeyDown() function")
 	ok
+
+func BeginMode2D camera
+	return BeginMode2D_2(camera)
+
+func BeginMode3D camera
+	return BeginMode3D_2(camera)
+
+func GetMouseRay mousePosition,camera
+	return GetMouseRay_2(mousePosition,camera)
+
+func GetWorldToScreen position,camera
+	return GetWorldToScreen_2(position,camera)
+
+func GetCameraMatrix camera
+	return GetCameraMatrix_2(camera)
+
+func SetCameraMode camera,mode
+	return SetCameraMode_2(camera,mode)
+
+func UpdateCamera camera
+	return UpdateCamera_2(camera)
+
+func DrawBillboard camera,texture,center,size,tint
+	return DrawBillboard_2(camera,texture,center,size,tint)
+
+func DrawBillboardRec camera,texture,sourceRec,center,size,tint
+	return DrawBillboardRec_2(camera,texture,sourceRec,center,size,tint)
+
+func UpdateVrTracking camera
+	return UpdateVrTracking_2(camera)

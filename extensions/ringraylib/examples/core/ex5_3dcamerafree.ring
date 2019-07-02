@@ -5,7 +5,7 @@ screenHeight = 450
 
 InitWindow(screenWidth, screenHeight, "raylib [core] example - 3d camera free")
 
-camera = new Camera3d(
+camera = new Camera3D(
 	10, 10, 10,  		// Camera position
         0, 0, 0 ,   		// Camera looking at point
 	0, 1, 0,    		// Camera up vector (rotation towards target)
