@@ -219,3 +219,17 @@ class Camera3D
 		up.z = raylib_get_Camera3D_up_z(oStruct)
 		fovy = raylib_get_Camera3D_fovy(oStruct)
 		type = raylib_get_Camera3D_type(oStruct)
+
+	func refresh 
+		position.x = raylib_get_Camera3D_position_x(oData)
+		position.y = raylib_get_Camera3D_position_y(oData)
+		position.z = raylib_get_Camera3D_position_z(oData)
+		target.x = raylib_get_Camera3D_target_x(oData)
+		target.y = raylib_get_Camera3D_target_y(oData)
+		target.z = raylib_get_Camera3D_target_z(oData)
+		up.x = raylib_get_Camera3D_up_x(oData)
+		up.y = raylib_get_Camera3D_up_y(oData)
+		up.z = raylib_get_Camera3D_up_z(oData)
+		fovy = raylib_get_Camera3D_fovy(oData)
+		type = raylib_get_Camera3D_type(oData)
+

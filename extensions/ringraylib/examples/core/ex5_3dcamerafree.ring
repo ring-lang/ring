@@ -6,7 +6,7 @@ screenHeight = 450
 InitWindow(screenWidth, screenHeight, "raylib [core] example - 3d camera free")
 
 camera = new Camera3d(
-	0, 10, 10,  		// Camera position
+	10, 10, 10,  		// Camera position
         0, 0, 0 ,   		// Camera looking at point
 	0, 1, 0,    		// Camera up vector (rotation towards target)
 	45,        		// Camera field-of-view Y
@@ -21,6 +21,7 @@ SetTargetFPS(60)
 while !WindowShouldClose()
 
         UpdateCamera(camera.Data())
+	camera.refresh()
 
         if IsKeyDown(ASCII('Z')) camera.target = new Vector3( 0, 0, 0) ok
 
