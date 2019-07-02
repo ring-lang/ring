@@ -51,3 +51,24 @@ class Vector4 x y z w
 		y = raylib_get_vector4_y(oStruct)
 		z = raylib_get_vector4_z(oStruct)
 		w = raylib_get_vector4_w(oStruct)
+
+class Quaternion x y z w
+
+	oData = raylib_new_managed_Quaternion()
+
+	func init (nX,nY,nZ,nW)
+		x=nX y=nY z=nZ w=nW
+
+	func data 
+		raylib_set_Quaternion_x(oData,x)
+		raylib_set_Quaternion_y(oData,y)
+		raylib_set_Quaternion_z(oData,z)
+		raylib_set_Quaternion_w(oData,w)
+		return oData	
+
+	func setdata oStruct 
+		x = raylib_get_Quaternion_x(oStruct)
+		y = raylib_get_Quaternion_y(oStruct)
+		z = raylib_get_Quaternion_z(oStruct)
+		w = raylib_get_Quaternion_w(oStruct)
+
