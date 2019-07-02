@@ -194,17 +194,17 @@ class Camera
 		type = p11
 
 	func data 
-		raylib_set_Camera3D_position_x(oData,position.x)
-		raylib_set_Camera3D_position_y(oData,position.y)
-		raylib_set_Camera3D_position_z(oData,position.z)
-		raylib_set_Camera3D_target_x(oData,target.x)
-		raylib_set_Camera3D_target_y(oData,target.y)
-		raylib_set_Camera3D_target_z(oData,target.z)
-		raylib_set_Camera3D_up_x(oData,up.x)
-		raylib_set_Camera3D_up_y(oData,up.y)
-		raylib_set_Camera3D_up_z(oData,up.z)
-		raylib_set_Camera3D_fovy(oData,fovy)
-		raylib_set_Camera3D_type(oData,type)
+		raylib_set_Camera_position_x(oData,position.x)
+		raylib_set_Camera_position_y(oData,position.y)
+		raylib_set_Camera_position_z(oData,position.z)
+		raylib_set_Camera_target_x(oData,target.x)
+		raylib_set_Camera_target_y(oData,target.y)
+		raylib_set_Camera_target_z(oData,target.z)
+		raylib_set_Camera_up_x(oData,up.x)
+		raylib_set_Camera_up_y(oData,up.y)
+		raylib_set_Camera_up_z(oData,up.z)
+		raylib_set_Camera_fovy(oData,fovy)
+		raylib_set_Camera_type(oData,type)
 		return oData	
 
 	func setdata oStruct 
@@ -219,3 +219,52 @@ class Camera
 		up.z = raylib_get_Camera_up_z(oStruct)
 		fovy = raylib_get_Camera_fovy(oStruct)
 		type = raylib_get_Camera_type(oStruct)
+
+class Camera3D
+
+	position	= new Vector3
+	target		= new Vector3
+	up		= new Vector3 
+	fovy	type 
+	
+	oData = raylib_new_managed_Camera3D()
+
+	func init (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
+		position.x = p1
+		position.y = p2
+		position.z = p3
+		target.x = p4
+		target.y = p5
+		target.z = p6
+		up.x = p7
+		up.y = p8
+		up.z = p9
+		fovy = p10
+		type = p11
+
+	func data 
+		raylib_set_Camera3D_position_x(oData,position.x)
+		raylib_set_Camera3D_position_y(oData,position.y)
+		raylib_set_Camera3D_position_z(oData,position.z)
+		raylib_set_Camera3D_target_x(oData,target.x)
+		raylib_set_Camera3D_target_y(oData,target.y)
+		raylib_set_Camera3D_target_z(oData,target.z)
+		raylib_set_Camera3D_up_x(oData,up.x)
+		raylib_set_Camera3D_up_y(oData,up.y)
+		raylib_set_Camera3D_up_z(oData,up.z)
+		raylib_set_Camera3D_fovy(oData,fovy)
+		raylib_set_Camera3D_type(oData,type)
+		return oData	
+
+	func setdata oStruct 
+		position.x = raylib_get_Camera3D_position_x(oStruct)
+		position.y = raylib_get_Camera3D_position_y(oStruct)
+		position.z = raylib_get_Camera3D_position_z(oStruct)
+		target.x = raylib_get_Camera3D_target_x(oStruct)
+		target.y = raylib_get_Camera3D_target_y(oStruct)
+		target.z = raylib_get_Camera3D_target_z(oStruct)
+		up.x = raylib_get_Camera3D_up_x(oStruct)
+		up.y = raylib_get_Camera3D_up_y(oStruct)
+		up.z = raylib_get_Camera3D_up_z(oStruct)
+		fovy = raylib_get_Camera3D_fovy(oStruct)
+		type = raylib_get_Camera3D_type(oStruct)
