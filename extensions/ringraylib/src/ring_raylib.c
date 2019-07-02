@@ -11087,7 +11087,7 @@ RING_FUNC(ring_DrawRectangleV_2)
 }
 
 
-RING_FUNC(ring_DrawRectangleRec)
+RING_FUNC(ring_DrawRectangleRec_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11101,7 +11101,7 @@ RING_FUNC(ring_DrawRectangleRec)
 }
 
 
-RING_FUNC(ring_DrawRectanglePro)
+RING_FUNC(ring_DrawRectanglePro_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -11181,7 +11181,7 @@ RING_FUNC(ring_DrawRectangleGradientH)
 }
 
 
-RING_FUNC(ring_DrawRectangleGradientEx)
+RING_FUNC(ring_DrawRectangleGradientEx_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11229,7 +11229,7 @@ RING_FUNC(ring_DrawRectangleLines)
 }
 
 
-RING_FUNC(ring_DrawRectangleLinesEx)
+RING_FUNC(ring_DrawRectangleLinesEx_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -11247,7 +11247,7 @@ RING_FUNC(ring_DrawRectangleLinesEx)
 }
 
 
-RING_FUNC(ring_DrawRectangleRounded)
+RING_FUNC(ring_DrawRectangleRounded_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -11269,7 +11269,7 @@ RING_FUNC(ring_DrawRectangleRounded)
 }
 
 
-RING_FUNC(ring_DrawRectangleRoundedLines)
+RING_FUNC(ring_DrawRectangleRoundedLines_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11377,7 +11377,7 @@ RING_FUNC(ring_DrawPoly_2)
 }
 
 
-RING_FUNC(ring_SetShapesTexture)
+RING_FUNC(ring_SetShapesTexture_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11391,7 +11391,7 @@ RING_FUNC(ring_SetShapesTexture)
 }
 
 
-RING_FUNC(ring_CheckCollisionRecs)
+RING_FUNC(ring_CheckCollisionRecs_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11445,7 +11445,7 @@ RING_FUNC(ring_CheckCollisionCircleRec_2)
 }
 
 
-RING_FUNC(ring_GetCollisionRec)
+RING_FUNC(ring_GetCollisionRec_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11987,7 +11987,7 @@ RING_FUNC(ring_ImageAlphaPremultiply)
 }
 
 
-RING_FUNC(ring_ImageCrop)
+RING_FUNC(ring_ImageCrop_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12200,7 +12200,7 @@ RING_FUNC(ring_ImageTextEx)
 }
 
 
-RING_FUNC(ring_ImageDraw)
+RING_FUNC(ring_ImageDraw_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12220,7 +12220,7 @@ RING_FUNC(ring_ImageDraw)
 }
 
 
-RING_FUNC(ring_ImageDrawRectangle)
+RING_FUNC(ring_ImageDrawRectangle_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12238,7 +12238,7 @@ RING_FUNC(ring_ImageDrawRectangle)
 }
 
 
-RING_FUNC(ring_ImageDrawRectangleLines)
+RING_FUNC(ring_ImageDrawRectangleLines_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12814,7 +12814,7 @@ RING_FUNC(ring_DrawTextureEx)
 }
 
 
-RING_FUNC(ring_DrawTextureRec)
+RING_FUNC(ring_DrawTextureRec_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12832,7 +12832,7 @@ RING_FUNC(ring_DrawTextureRec)
 }
 
 
-RING_FUNC(ring_DrawTextureQuad)
+RING_FUNC(ring_DrawTextureQuad_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12852,7 +12852,7 @@ RING_FUNC(ring_DrawTextureQuad)
 }
 
 
-RING_FUNC(ring_DrawTexturePro)
+RING_FUNC(ring_DrawTexturePro_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12876,7 +12876,7 @@ RING_FUNC(ring_DrawTexturePro)
 }
 
 
-RING_FUNC(ring_DrawTextureNPatch)
+RING_FUNC(ring_DrawTextureNPatch_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13141,7 +13141,7 @@ RING_FUNC(ring_DrawTextEx)
 }
 
 
-RING_FUNC(ring_DrawTextRec)
+RING_FUNC(ring_DrawTextRec_2)
 {
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13173,7 +13173,7 @@ RING_FUNC(ring_DrawTextRec)
 }
 
 
-RING_FUNC(ring_DrawTextRecEx)
+RING_FUNC(ring_DrawTextRecEx_2)
 {
 	if ( RING_API_PARACOUNT != 11 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16125,7 +16125,7 @@ RING_FUNC(ring_GuiGetStyle)
 }
 
 
-RING_FUNC(ring_GuiWindowBox)
+RING_FUNC(ring_GuiWindowBox_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16141,7 +16141,7 @@ RING_FUNC(ring_GuiWindowBox)
 }
 
 
-RING_FUNC(ring_GuiGroupBox)
+RING_FUNC(ring_GuiGroupBox_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16157,7 +16157,7 @@ RING_FUNC(ring_GuiGroupBox)
 }
 
 
-RING_FUNC(ring_GuiLine)
+RING_FUNC(ring_GuiLine_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16173,7 +16173,7 @@ RING_FUNC(ring_GuiLine)
 }
 
 
-RING_FUNC(ring_GuiPanel)
+RING_FUNC(ring_GuiPanel_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16185,7 +16185,7 @@ RING_FUNC(ring_GuiPanel)
 }
 
 
-RING_FUNC(ring_GuiScrollPanel)
+RING_FUNC(ring_GuiScrollPanel_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16208,7 +16208,7 @@ RING_FUNC(ring_GuiScrollPanel)
 }
 
 
-RING_FUNC(ring_GuiLabel)
+RING_FUNC(ring_GuiLabel_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16224,7 +16224,7 @@ RING_FUNC(ring_GuiLabel)
 }
 
 
-RING_FUNC(ring_GuiButton)
+RING_FUNC(ring_GuiButton_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16240,7 +16240,7 @@ RING_FUNC(ring_GuiButton)
 }
 
 
-RING_FUNC(ring_GuiLabelButton)
+RING_FUNC(ring_GuiLabelButton_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16256,7 +16256,7 @@ RING_FUNC(ring_GuiLabelButton)
 }
 
 
-RING_FUNC(ring_GuiImageButton)
+RING_FUNC(ring_GuiImageButton_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16270,7 +16270,7 @@ RING_FUNC(ring_GuiImageButton)
 }
 
 
-RING_FUNC(ring_GuiImageButtonEx)
+RING_FUNC(ring_GuiImageButtonEx_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16290,7 +16290,7 @@ RING_FUNC(ring_GuiImageButtonEx)
 }
 
 
-RING_FUNC(ring_GuiToggle)
+RING_FUNC(ring_GuiToggle_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16310,7 +16310,7 @@ RING_FUNC(ring_GuiToggle)
 }
 
 
-RING_FUNC(ring_GuiToggleGroup)
+RING_FUNC(ring_GuiToggleGroup_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16330,7 +16330,7 @@ RING_FUNC(ring_GuiToggleGroup)
 }
 
 
-RING_FUNC(ring_GuiCheckBox)
+RING_FUNC(ring_GuiCheckBox_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16350,7 +16350,7 @@ RING_FUNC(ring_GuiCheckBox)
 }
 
 
-RING_FUNC(ring_GuiComboBox)
+RING_FUNC(ring_GuiComboBox_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16370,7 +16370,7 @@ RING_FUNC(ring_GuiComboBox)
 }
 
 
-RING_FUNC(ring_GuiDropdownBox)
+RING_FUNC(ring_GuiDropdownBox_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16395,7 +16395,7 @@ RING_FUNC(ring_GuiDropdownBox)
 }
 
 
-RING_FUNC(ring_GuiSpinner)
+RING_FUNC(ring_GuiSpinner_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16424,7 +16424,7 @@ RING_FUNC(ring_GuiSpinner)
 }
 
 
-RING_FUNC(ring_GuiValueBox)
+RING_FUNC(ring_GuiValueBox_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16453,7 +16453,7 @@ RING_FUNC(ring_GuiValueBox)
 }
 
 
-RING_FUNC(ring_GuiTextBox)
+RING_FUNC(ring_GuiTextBox_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16477,7 +16477,7 @@ RING_FUNC(ring_GuiTextBox)
 }
 
 
-RING_FUNC(ring_GuiTextBoxMulti)
+RING_FUNC(ring_GuiTextBoxMulti_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16501,7 +16501,7 @@ RING_FUNC(ring_GuiTextBoxMulti)
 }
 
 
-RING_FUNC(ring_GuiSlider)
+RING_FUNC(ring_GuiSlider_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16533,7 +16533,7 @@ RING_FUNC(ring_GuiSlider)
 }
 
 
-RING_FUNC(ring_GuiSliderBar)
+RING_FUNC(ring_GuiSliderBar_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16565,7 +16565,7 @@ RING_FUNC(ring_GuiSliderBar)
 }
 
 
-RING_FUNC(ring_GuiProgressBar)
+RING_FUNC(ring_GuiProgressBar_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16597,7 +16597,7 @@ RING_FUNC(ring_GuiProgressBar)
 }
 
 
-RING_FUNC(ring_GuiStatusBar)
+RING_FUNC(ring_GuiStatusBar_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16613,7 +16613,7 @@ RING_FUNC(ring_GuiStatusBar)
 }
 
 
-RING_FUNC(ring_GuiDummyRec)
+RING_FUNC(ring_GuiDummyRec_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16629,7 +16629,7 @@ RING_FUNC(ring_GuiDummyRec)
 }
 
 
-RING_FUNC(ring_GuiScrollBar)
+RING_FUNC(ring_GuiScrollBar_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16653,7 +16653,7 @@ RING_FUNC(ring_GuiScrollBar)
 }
 
 
-RING_FUNC(ring_GuiGrid)
+RING_FUNC(ring_GuiGrid_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -16678,7 +16678,7 @@ RING_FUNC(ring_GuiGrid)
 }
 
 
-RING_FUNC(ring_GuiListView)
+RING_FUNC(ring_GuiListView_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16708,7 +16708,7 @@ RING_FUNC(ring_GuiListView)
 }
 
 
-RING_FUNC(ring_GuiListViewEx)
+RING_FUNC(ring_GuiListViewEx_2)
 {
 	if ( RING_API_PARACOUNT != 8 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16752,7 +16752,7 @@ RING_FUNC(ring_GuiListViewEx)
 }
 
 
-RING_FUNC(ring_GuiMessageBox)
+RING_FUNC(ring_GuiMessageBox_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16776,7 +16776,7 @@ RING_FUNC(ring_GuiMessageBox)
 }
 
 
-RING_FUNC(ring_GuiTextInputBox)
+RING_FUNC(ring_GuiTextInputBox_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -16804,7 +16804,7 @@ RING_FUNC(ring_GuiTextInputBox)
 }
 
 
-RING_FUNC(ring_GuiColorPicker)
+RING_FUNC(ring_GuiColorPicker_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17035,24 +17035,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawringlines_2",ring_DrawRingLines_2);
 	ring_vm_funcregister("drawrectangle",ring_DrawRectangle);
 	ring_vm_funcregister("drawrectanglev_2",ring_DrawRectangleV_2);
-	ring_vm_funcregister("drawrectanglerec",ring_DrawRectangleRec);
-	ring_vm_funcregister("drawrectanglepro",ring_DrawRectanglePro);
+	ring_vm_funcregister("drawrectanglerec_2",ring_DrawRectangleRec_2);
+	ring_vm_funcregister("drawrectanglepro_2",ring_DrawRectanglePro_2);
 	ring_vm_funcregister("drawrectanglegradientv",ring_DrawRectangleGradientV);
 	ring_vm_funcregister("drawrectanglegradienth",ring_DrawRectangleGradientH);
-	ring_vm_funcregister("drawrectanglegradientex",ring_DrawRectangleGradientEx);
+	ring_vm_funcregister("drawrectanglegradientex_2",ring_DrawRectangleGradientEx_2);
 	ring_vm_funcregister("drawrectanglelines",ring_DrawRectangleLines);
-	ring_vm_funcregister("drawrectanglelinesex",ring_DrawRectangleLinesEx);
-	ring_vm_funcregister("drawrectanglerounded",ring_DrawRectangleRounded);
-	ring_vm_funcregister("drawrectangleroundedlines",ring_DrawRectangleRoundedLines);
+	ring_vm_funcregister("drawrectanglelinesex_2",ring_DrawRectangleLinesEx_2);
+	ring_vm_funcregister("drawrectanglerounded_2",ring_DrawRectangleRounded_2);
+	ring_vm_funcregister("drawrectangleroundedlines_2",ring_DrawRectangleRoundedLines_2);
 	ring_vm_funcregister("drawtriangle_2",ring_DrawTriangle_2);
 	ring_vm_funcregister("drawtrianglelines_2",ring_DrawTriangleLines_2);
 	ring_vm_funcregister("drawtrianglefan_2",ring_DrawTriangleFan_2);
 	ring_vm_funcregister("drawpoly_2",ring_DrawPoly_2);
-	ring_vm_funcregister("setshapestexture",ring_SetShapesTexture);
-	ring_vm_funcregister("checkcollisionrecs",ring_CheckCollisionRecs);
+	ring_vm_funcregister("setshapestexture_2",ring_SetShapesTexture_2);
+	ring_vm_funcregister("checkcollisionrecs_2",ring_CheckCollisionRecs_2);
 	ring_vm_funcregister("checkcollisioncircles_2",ring_CheckCollisionCircles_2);
 	ring_vm_funcregister("checkcollisioncirclerec_2",ring_CheckCollisionCircleRec_2);
-	ring_vm_funcregister("getcollisionrec",ring_GetCollisionRec);
+	ring_vm_funcregister("getcollisionrec_2",ring_GetCollisionRec_2);
 	ring_vm_funcregister("checkcollisionpointrec_2",ring_CheckCollisionPointRec_2);
 	ring_vm_funcregister("checkcollisionpointcircle_2",ring_CheckCollisionPointCircle_2);
 	ring_vm_funcregister("checkcollisionpointtriangle_2",ring_CheckCollisionPointTriangle_2);
@@ -17082,7 +17082,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagealphaclear",ring_ImageAlphaClear);
 	ring_vm_funcregister("imagealphacrop",ring_ImageAlphaCrop);
 	ring_vm_funcregister("imagealphapremultiply",ring_ImageAlphaPremultiply);
-	ring_vm_funcregister("imagecrop",ring_ImageCrop);
+	ring_vm_funcregister("imagecrop_2",ring_ImageCrop_2);
 	ring_vm_funcregister("imageresize",ring_ImageResize);
 	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);
 	ring_vm_funcregister("imageresizecanvas",ring_ImageResizeCanvas);
@@ -17091,9 +17091,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imageextractpalette",ring_ImageExtractPalette);
 	ring_vm_funcregister("imagetext",ring_ImageText);
 	ring_vm_funcregister("imagetextex",ring_ImageTextEx);
-	ring_vm_funcregister("imagedraw",ring_ImageDraw);
-	ring_vm_funcregister("imagedrawrectangle",ring_ImageDrawRectangle);
-	ring_vm_funcregister("imagedrawrectanglelines",ring_ImageDrawRectangleLines);
+	ring_vm_funcregister("imagedraw_2",ring_ImageDraw_2);
+	ring_vm_funcregister("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
+	ring_vm_funcregister("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
 	ring_vm_funcregister("imagedrawtext",ring_ImageDrawText);
 	ring_vm_funcregister("imagedrawtextex",ring_ImageDrawTextEx);
 	ring_vm_funcregister("imageflipvertical",ring_ImageFlipVertical);
@@ -17120,10 +17120,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtexture",ring_DrawTexture);
 	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
 	ring_vm_funcregister("drawtextureex",ring_DrawTextureEx);
-	ring_vm_funcregister("drawtexturerec",ring_DrawTextureRec);
-	ring_vm_funcregister("drawtexturequad",ring_DrawTextureQuad);
-	ring_vm_funcregister("drawtexturepro",ring_DrawTexturePro);
-	ring_vm_funcregister("drawtexturenpatch",ring_DrawTextureNPatch);
+	ring_vm_funcregister("drawtexturerec_2",ring_DrawTextureRec_2);
+	ring_vm_funcregister("drawtexturequad_2",ring_DrawTextureQuad_2);
+	ring_vm_funcregister("drawtexturepro_2",ring_DrawTexturePro_2);
+	ring_vm_funcregister("drawtexturenpatch_2",ring_DrawTextureNPatch_2);
 	ring_vm_funcregister("getfontdefault",ring_GetFontDefault);
 	ring_vm_funcregister("loadfont",ring_LoadFont);
 	ring_vm_funcregister("loadfontex",ring_LoadFontEx);
@@ -17134,8 +17134,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawfps",ring_DrawFPS);
 	ring_vm_funcregister("drawtext",ring_DrawText);
 	ring_vm_funcregister("drawtextex",ring_DrawTextEx);
-	ring_vm_funcregister("drawtextrec",ring_DrawTextRec);
-	ring_vm_funcregister("drawtextrecex",ring_DrawTextRecEx);
+	ring_vm_funcregister("drawtextrec_2",ring_DrawTextRec_2);
+	ring_vm_funcregister("drawtextrecex_2",ring_DrawTextRecEx_2);
 	ring_vm_funcregister("measuretext",ring_MeasureText);
 	ring_vm_funcregister("measuretextex",ring_MeasureTextEx);
 	ring_vm_funcregister("getglyphindex",ring_GetGlyphIndex);
@@ -17304,37 +17304,37 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("guifade",ring_GuiFade);
 	ring_vm_funcregister("guisetstyle",ring_GuiSetStyle);
 	ring_vm_funcregister("guigetstyle",ring_GuiGetStyle);
-	ring_vm_funcregister("guiwindowbox",ring_GuiWindowBox);
-	ring_vm_funcregister("guigroupbox",ring_GuiGroupBox);
-	ring_vm_funcregister("guiline",ring_GuiLine);
-	ring_vm_funcregister("guipanel",ring_GuiPanel);
-	ring_vm_funcregister("guiscrollpanel",ring_GuiScrollPanel);
-	ring_vm_funcregister("guilabel",ring_GuiLabel);
-	ring_vm_funcregister("guibutton",ring_GuiButton);
-	ring_vm_funcregister("guilabelbutton",ring_GuiLabelButton);
-	ring_vm_funcregister("guiimagebutton",ring_GuiImageButton);
-	ring_vm_funcregister("guiimagebuttonex",ring_GuiImageButtonEx);
-	ring_vm_funcregister("guitoggle",ring_GuiToggle);
-	ring_vm_funcregister("guitogglegroup",ring_GuiToggleGroup);
-	ring_vm_funcregister("guicheckbox",ring_GuiCheckBox);
-	ring_vm_funcregister("guicombobox",ring_GuiComboBox);
-	ring_vm_funcregister("guidropdownbox",ring_GuiDropdownBox);
-	ring_vm_funcregister("guispinner",ring_GuiSpinner);
-	ring_vm_funcregister("guivaluebox",ring_GuiValueBox);
-	ring_vm_funcregister("guitextbox",ring_GuiTextBox);
-	ring_vm_funcregister("guitextboxmulti",ring_GuiTextBoxMulti);
-	ring_vm_funcregister("guislider",ring_GuiSlider);
-	ring_vm_funcregister("guisliderbar",ring_GuiSliderBar);
-	ring_vm_funcregister("guiprogressbar",ring_GuiProgressBar);
-	ring_vm_funcregister("guistatusbar",ring_GuiStatusBar);
-	ring_vm_funcregister("guidummyrec",ring_GuiDummyRec);
-	ring_vm_funcregister("guiscrollbar",ring_GuiScrollBar);
-	ring_vm_funcregister("guigrid",ring_GuiGrid);
-	ring_vm_funcregister("guilistview",ring_GuiListView);
-	ring_vm_funcregister("guilistviewex",ring_GuiListViewEx);
-	ring_vm_funcregister("guimessagebox",ring_GuiMessageBox);
-	ring_vm_funcregister("guitextinputbox",ring_GuiTextInputBox);
-	ring_vm_funcregister("guicolorpicker",ring_GuiColorPicker);
+	ring_vm_funcregister("guiwindowbox_2",ring_GuiWindowBox_2);
+	ring_vm_funcregister("guigroupbox_2",ring_GuiGroupBox_2);
+	ring_vm_funcregister("guiline_2",ring_GuiLine_2);
+	ring_vm_funcregister("guipanel_2",ring_GuiPanel_2);
+	ring_vm_funcregister("guiscrollpanel_2",ring_GuiScrollPanel_2);
+	ring_vm_funcregister("guilabel_2",ring_GuiLabel_2);
+	ring_vm_funcregister("guibutton_2",ring_GuiButton_2);
+	ring_vm_funcregister("guilabelbutton_2",ring_GuiLabelButton_2);
+	ring_vm_funcregister("guiimagebutton_2",ring_GuiImageButton_2);
+	ring_vm_funcregister("guiimagebuttonex_2",ring_GuiImageButtonEx_2);
+	ring_vm_funcregister("guitoggle_2",ring_GuiToggle_2);
+	ring_vm_funcregister("guitogglegroup_2",ring_GuiToggleGroup_2);
+	ring_vm_funcregister("guicheckbox_2",ring_GuiCheckBox_2);
+	ring_vm_funcregister("guicombobox_2",ring_GuiComboBox_2);
+	ring_vm_funcregister("guidropdownbox_2",ring_GuiDropdownBox_2);
+	ring_vm_funcregister("guispinner_2",ring_GuiSpinner_2);
+	ring_vm_funcregister("guivaluebox_2",ring_GuiValueBox_2);
+	ring_vm_funcregister("guitextbox_2",ring_GuiTextBox_2);
+	ring_vm_funcregister("guitextboxmulti_2",ring_GuiTextBoxMulti_2);
+	ring_vm_funcregister("guislider_2",ring_GuiSlider_2);
+	ring_vm_funcregister("guisliderbar_2",ring_GuiSliderBar_2);
+	ring_vm_funcregister("guiprogressbar_2",ring_GuiProgressBar_2);
+	ring_vm_funcregister("guistatusbar_2",ring_GuiStatusBar_2);
+	ring_vm_funcregister("guidummyrec_2",ring_GuiDummyRec_2);
+	ring_vm_funcregister("guiscrollbar_2",ring_GuiScrollBar_2);
+	ring_vm_funcregister("guigrid_2",ring_GuiGrid_2);
+	ring_vm_funcregister("guilistview_2",ring_GuiListView_2);
+	ring_vm_funcregister("guilistviewex_2",ring_GuiListViewEx_2);
+	ring_vm_funcregister("guimessagebox_2",ring_GuiMessageBox_2);
+	ring_vm_funcregister("guitextinputbox_2",ring_GuiTextInputBox_2);
+	ring_vm_funcregister("guicolorpicker_2",ring_GuiColorPicker_2);
 	ring_vm_funcregister("guiloadstyle",ring_GuiLoadStyle);
 	ring_vm_funcregister("guiloadstyleprops",ring_GuiLoadStyleProps);
 	ring_vm_funcregister("guiloadstyledefault",ring_GuiLoadStyleDefault);

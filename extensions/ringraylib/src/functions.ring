@@ -10,56 +10,24 @@ func Vector3 x,y,z
 	return oVector
 
 func Vector4 x,y,z,w
-	oData = raylib_new_managed_vector4()
-	raylib_set_vector4_x(oData,x)
-	raylib_set_vector4_y(oData,y)
-	raylib_set_vector4_z(oData,z)
-	raylib_set_vector4_w(oData,w)
-	return oData	
+	oVector = new Vector4(x,y,z,w)
+	return oVector
 
 func Quaternion x,y,z,w
-	oData = raylib_new_managed_Quaternion()	
-	raylib_set_Quaternion_x(oData,x)
-	raylib_set_Quaternion_y(oData,y)
-	raylib_set_Quaternion_z(oData,z)
-	raylib_set_Quaternion_w(oData,w)
-	return oData
+	oQuaternion = new Quaternion(x,y,z,w)
+	return oQuaternion
 
 func Matrix m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
-	oData = raylib_new_managed_Matrix()	
-	raylib_set_Matrix_m0(oData,m0)
-	raylib_set_Matrix_m1(oData,m1)
-	raylib_set_Matrix_m2(oData,m2)
-	raylib_set_Matrix_m3(oData,m3)
-	raylib_set_Matrix_m4(oData,m4)
-	raylib_set_Matrix_m5(oData,m5)
-	raylib_set_Matrix_m6(oData,m6)
-	raylib_set_Matrix_m7(oData,m7)
-	raylib_set_Matrix_m8(oData,m8)
-	raylib_set_Matrix_m9(oData,m9)
-	raylib_set_Matrix_m10(oData,m10)
-	raylib_set_Matrix_m11(oData,m11)
-	raylib_set_Matrix_m12(oData,m12)
-	raylib_set_Matrix_m13(oData,m13)
-	raylib_set_Matrix_m14(oData,m14)
-	raylib_set_Matrix_m15(oData,m15)
-	return oData
+	oMatrix = new Matrix(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15)
+	return oMatrix
 
 func Color r,g,b,a
-	oData = raylib_new_managed_Color()	
-	raylib_set_Color_r(oData,r)
-	raylib_set_Color_g(oData,g)
-	raylib_set_Color_b(oData,b)
-	raylib_set_Color_a(oData,a)
-	return oData
+	oColor = new Color(r,g,b,a)
+	return oColor
 
 func Rectangle x,y,width,height 
-	oData = raylib_new_managed_Rectangle()	
-	raylib_set_Rectangle_x(oData,x)
-	raylib_set_Rectangle_y(oData,y)
-	raylib_set_Rectangle_width(oData,width)
-	raylib_set_Rectangle_height(oData,height)
-	return oData
+	oRectangle = new Rectangle(x,y,width,height)
+	return oRectangle
 
 func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11 
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
@@ -253,3 +221,152 @@ func CheckCollisionRaySphereEx ray, spherePosition, sphereRadius, collisionPoint
 func GetCollisionRayTriangle ray, p1, p2, p3
 	return GetCollisionRayTriangle_2(ray, GPData(p1), GPData(p2), GPData(p3))
 
+func DrawRectangleRec rec, color
+	return DrawRectangleRec_2(GPData(rec), color)
+
+func DrawRectanglePro rec, origin, rotation, color
+	return DrawRectanglePro_2(GPData(rec), GPData(origin), rotation, color)
+
+func DrawRectangleGradientEx rec,  col1,  col2,  col3,  col4
+	return DrawRectangleGradientEx_2(GPData(rec),  col1,  col2,  col3,  col4)
+
+func DrawRectangleLinesEx rec,  lineThick, color
+	return DrawRectangleLinesEx_2(GPData(rec),  lineThick, color)
+
+func DrawRectangleRounded rec,  roundness,  segments,  color
+	return DrawRectangleRounded_2(GPData(rec),  roundness,  segments,  color)
+
+func DrawRectangleRoundedLines rec,  roundness,  segments,  lineThick, color
+	return DrawRectangleRoundedLines_2(GPData(rec),  roundness,  segments,  lineThick, color)
+
+func SetShapesTexture texture, source
+	return SetShapesTexture_2(texture, GPData(source))
+
+func CheckCollisionRecs rec1,  rec2
+	return CheckCollisionRecs_2(GPData(rec1), GPData(rec2))
+
+func GetCollisionRec rec1, rec2
+	return GetCollisionRec_2(GPData(rec1), GPData(rec2))
+
+func ImageCrop image, crop
+	return ImageCrop_2(image, GPData(crop))
+
+func ImageDraw dst, src,  srcRec,  dstRec
+	return ImageDraw_2(dst, src,  GPData(srcRec),  GPData(dstRec))
+
+func ImageDrawRectangle dst, rec, color
+	return ImageDrawRectangle_2(dst, GPData(rec), color)
+
+func ImageDrawRectangleLines dst, rec, thick, color
+	return ImageDrawRectangleLines_2(dst, GPData(rec), thick, color)
+
+func DrawTextureRec texture, sourceRec, position, tint
+	return DrawTextureRec_2(texture, GPData(sourceRec), GPData(position), tint)
+
+func DrawTextureQuad texture,  tiling, offset,  quad,  tint
+	return DrawTextureQuad_2(texture, GPData(tiling), GPData(offset), GPData(quad),  tint)
+
+func DrawTexturePro texture, sourceRec,  destRec,  origin, rotation, tint
+	return DrawTexturePro_2(texture, GPData(sourceRec),  GPData(destRec), GPData(origin), rotation, tint)
+
+func DrawTextureNPatch texture,  nPatchInfo, destRec,  origin,  rotation, tint
+	return DrawTextureNPatch_2(texture,  nPatchInfo, GPData(destRec), GPData(origin),  rotation, tint)
+
+func DrawTextRec font,  text,  rec,  fontSize,  spacing,  wordWrap,  tint
+	return DrawTextRec_2(font,  text, GPData(rec),  fontSize,  spacing,  wordWrap,  tint)
+
+func DrawTextRecEx font, text,  rec, fontSize, spacing, wordWrap, tint, selectStart, selectLength, selectText, selectBack
+	return DrawTextRecEx_2(font, text, GPData(rec), fontSize, spacing, wordWrap, tint, selectStart, selectLength, selectText, selectBack)
+
+func GuiWindowBox bounds, text
+	return GuiWindowBox_2(GPData(bounds), text)
+
+func GuiGroupBox bounds, text
+	return GuiGroupBox_2(GPData(bounds), text)
+
+func GuiLine bounds, text
+	return GuiLine_2(GPData(bounds), text)
+
+func GuiPanel bounds
+	return GuiPanel_2(GPData(bounds))
+
+func GuiScrollPanel bounds, content, scroll
+	return GuiScrollPanel_2(GPData(bounds), GPData(content), GPData(scroll))
+
+func GuiLabel bounds, text
+	return GuiLabel_2(GPData(bounds), text)
+
+func GuiButton bounds, text
+	return GuiButton_2(GPData(bounds), text)
+
+func GuiLabelButton bounds, text
+	return GuiLabelButton_2(GPData(bounds), text)
+
+func GuiImageButton bounds,  texture
+	return GuiImageButton_2(GPData(bounds),  texture)
+
+func GuiImageButtonEx bounds, texture, texSource, text
+	return GuiImageButtonEx_2(GPData(bounds), texture, GPData(texSource), text)
+
+func GuiToggle bounds, text, active
+	return GuiToggle_2(GPData(bounds), text, active)
+
+func GuiToggleGroup bounds, text, active
+	return GuiToggleGroup_2(GPData(bounds), text, active)
+
+func GuiCheckBox bounds, text, checked
+	return GuiCheckBox_2(GPData(bounds), text, checked)
+
+func GuiComboBox bounds, text, active
+	return GuiComboBox_2(GPData(bounds), text, active)
+
+func GuiDropdownBox bounds, text, active, editMode
+	return GuiDropdownBox_2(GPData(bounds), text, active, editMode)
+
+func GuiSpinner bounds, value, minValue, maxValue, editMode
+	return GuiSpinner_2(GPData(bounds), value, minValue, maxValue, editMode)
+
+func GuiValueBox bounds, value, minValue, maxValue, editMode
+	return GuiValueBox_2(GPData(bounds), value, minValue, maxValue, editMode)
+
+func GuiTextBox bounds, text, textSize, editMode
+	return GuiTextBox_2(GPData(bounds), text, textSize, editMode)
+
+func GuiTextBoxMulti bounds, text, textSize, editMode
+	return GuiTextBoxMulti_2(GPData(bounds), text, textSize, editMode)
+
+func GuiSlider bounds, text, value, minValue, maxValue, showValue
+	return GuiSlider_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+
+func GuiSliderBar bounds, text, value, minValue, maxValue, showValue
+	return GuiSliderBar_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+
+func GuiProgressBar bounds, text, value, minValue, maxValue, showValue
+	return GuiProgressBar_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+
+func GuiStatusBar bounds, text
+	return GuiStatusBar_2(GPData(bounds), text)
+
+func GuiDummyRec bounds, text
+	return GuiDummyRec_2(GPData(bounds), text)
+
+func GuiScrollBar bounds, value, minValue, maxValue
+	return GuiScrollBar_2(GPData(bounds), value, minValue, maxValue)
+
+func GuiGrid bounds, spacing, subdivs
+	return GuiGrid_2(GPData(bounds), spacing, subdivs)
+
+func GuiListView bounds, text, active, scrollIndex, editMode
+	return GuiListView_2(GPData(bounds), text, active, scrollIndex, editMode)
+
+func GuiListViewEx bounds, text, count, enabled, active, focus, scrollIndex, editMode
+	return GuiListViewEx_2(GPData(bounds), text, count, enabled, active, focus, scrollIndex, editMode)
+
+func GuiMessageBox bounds, windowTitle, message, buttons
+ 	return GuiMessageBox_2(GPData(bounds), windowTitle, message, buttons)
+
+func GuiTextInputBox bounds, windowTitle, message, text, buttons
+	return GuiTextInputBox_2(GPData(bounds), windowTitle, message, text, buttons)
+
+func GuiColorPicker bounds, color
+	return GuiColorPicker_2(GPData(bounds), color)
