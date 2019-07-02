@@ -5,14 +5,14 @@ screenHeight = 450
 
 InitWindow(screenWidth, screenHeight, "raylib [core] example - mouse input")
 
-ballPosition 	= new Vector2(100, 100)
+ballPosition 	= Vector2(100, 100)
 ballColor 	= DARKBLUE
 
 SetTargetFPS(60)
 
 while ! WindowShouldClose()
 
-        ballPosition.setData(GetMousePosition())
+        ballPosition = GetMousePosition()
 
         if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
 		ballColor = MAROON
@@ -24,7 +24,7 @@ while ! WindowShouldClose()
 
         BeginDrawing()
             ClearBackground(BLACK)
-            DrawCircleV(ballPosition.data(), 40, ballColor)
+            DrawCircleV(ballPosition, 40, ballColor)
             DrawText("move ball with mouse and click mouse button to change color", 10, 10, 20, YELLOW)
         EndDrawing()
 
