@@ -130,3 +130,23 @@ class Matrix m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15
 		m13 = raylib_get_Matrix_m13(oStruct)
 		m14 = raylib_get_Matrix_m14(oStruct)
 		m15 = raylib_get_Matrix_m15(oStruct)
+
+class Color r g b a
+
+	oData = raylib_new_managed_Color()
+
+	func init (nR,nG,nB,nA)
+		r=nR g=nG b=nB a=nA
+
+	func data 
+		raylib_set_Color_r(oData,r)
+		raylib_set_Color_g(oData,g)
+		raylib_set_Color_b(oData,b)
+		raylib_set_Color_a(oData,a)
+		return oData	
+
+	func setdata oStruct 
+		r = raylib_get_Color_r(oStruct)
+		g = raylib_get_Color_g(oStruct)
+		b = raylib_get_Color_b(oStruct)
+		a = raylib_get_Color_a(oStruct)
