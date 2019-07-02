@@ -90,41 +90,31 @@ func isKeyDown vKey
 		raise("Bad parameter type - IsKeyDown() function")
 	ok
 
-func BeginMode2D camera
-	if isObject(camera)
-		camera = camera.Data()
+func GPData vData 
+	# We copy the Object to avoid replacing it when using pData = pData.data()
+		pData = vData
+	if isObject(pData)
+		pData = pData.Data()
 	ok
-	return BeginMode2D_2(camera)
+	return pData
+
+func BeginMode2D camera
+	return BeginMode2D_2(GPData(Camera))
 
 func BeginMode3D camera
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return BeginMode3D_2(camera)
+	return BeginMode3D_2(GPData(Camera))
 
 func GetMouseRay mousePosition,camera
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return GetMouseRay_2(mousePosition,camera)
+	return GetMouseRay_2(mousePosition,GPData(Camera))
 
 func GetWorldToScreen position,camera
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return GetWorldToScreen_2(position,camera)
+	return GetWorldToScreen_2(position,GPData(Camera))
 
 func GetCameraMatrix camera
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return GetCameraMatrix_2(camera)
+	return GetCameraMatrix_2(GPData(Camera))
 
 func SetCameraMode camera,mode
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return SetCameraMode_2(camera,mode)
+	return SetCameraMode_2(GPData(camera),mode)
 
 func UpdateCamera camera
 	if isObject(camera)
@@ -135,174 +125,71 @@ func UpdateCamera camera
 	ok
 	
 func DrawBillboard camera,texture,center,size,tint
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return DrawBillboard_2(camera,texture,center,size,tint)
+	return DrawBillboard_2(GPData(camera),texture,center,size,tint)
 
 func DrawBillboardRec camera,texture,sourceRec,center,size,tint
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return DrawBillboardRec_2(camera,texture,sourceRec,center,size,tint)
+	return DrawBillboardRec_2(GPData(camera),texture,sourceRec,center,size,tint)
 
 func UpdateVrTracking camera
-	if isObject(camera)
-		camera = camera.Data()
-	ok
-	return UpdateVrTracking_2(camera)
+	return UpdateVrTracking_2(GPData(camera))
 
 func DrawPixelV position, color
-	if isObject(position)
-		position = position.Data()
-	ok
-	return DrawPixelV_2(position,color)
+	return DrawPixelV_2(GPData(position),color)
 
 func DrawLineV startPos, endPos, color
-	if isObject(startPos)
-		startPos = startPos.Data()
-	ok
-	if isObject(endPos)
-		endPos = endPos.Data()
-	ok
-	return DrawLineV_2(startPos,endPos,color)
+	return DrawLineV_2(GPData(startPos),GPData(endPos),color)
 
 func DrawLineEx startPos, endPos, thick, color
-	if isObject(startPos)
-		startPos = startPos.Data()
-	ok
-	if isObject(endPos)
-		endPos = endPos.Data()
-	ok
-	return DrawLineEx_2(startPos,endPos,thick,color)
+	return DrawLineEx_2(GPData(startPos),GPData(endPos),thick,color)
 
 func DrawLineBezier startPos, endPos, thick, color
-	if isObject(startPos)
-		startPos = startPos.Data()
-	ok
-	if isObject(endPos)
-		endPos = endPos.Data()
-	ok
-	return DrawLineBezier_2(startPos, endPos, thick, color)
+	return DrawLineBezier_2(GPData(startPos), GPData(endPos), thick, color)
 
 func DrawLineStrip points, numPoints, color
 	return DrawLineStrip_2(points, numPoints, color)
 
 func DrawCircleSector center,radius,startAngle,endAngle,segments,color
-	if isObject(center)
-		center = center.Data()
-	ok
-	return DrawCircleSector_2(center,radius,startAngle,endAngle,segments,color)
+	return DrawCircleSector_2(GPData(center),radius,startAngle,endAngle,segments,color)
 
 func DrawCircleSectorLines center,radius,startAngle,endAngle,segments,color
-	if isObject(center)
-		center = center.Data()
-	ok
-	return DrawCircleSectorLines_2(center,radius,startAngle,endAngle,segments,color)
+	return DrawCircleSectorLines_2(GPData(center),radius,startAngle,endAngle,segments,color)
 
 func DrawCircleV center, radius, color
-	pCenter = center
-	if isObject(center)
-		pCenter = center.Data()
-	ok
-	return DrawCircleV_2(pCenter, radius, color)
+	return DrawCircleV_2(GPData(Center), radius, color)
 
 func DrawRing center, innerRadius, outerRadius, startAngle, endAngle, segments, color
-	if isObject(center)
-		center = center.Data()
-	ok
-	return DrawRing_2(center, innerRadius, outerRadius, startAngle, endAngle, segments, color)
+	return DrawRing_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, color)
 
 func DrawRingLines center, innerRadius, outerRadius, startAngle, endAngle, segments, color
-	if isObject(center)
-		center = center.Data()
-	ok
-	return DrawRingLines_2(center, innerRadius, outerRadius, startAngle, endAngle, segments, color)
+	return DrawRingLines_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, color)
 
 func DrawRectangleV position, size, color
-	if isObject(position)
-		position = position.Data()
-	ok
-	if isObject(size)
-		size = size.Data()
-	ok
-	return DrawRectangleV_2(position, size, color)
+	return DrawRectangleV_2(GPData(position), GPData(size), color)
 
 func DrawTriangle v1, v2, v3, color
-	if isObject(v1)
-		v1 = v1.Data()
-	ok
-	if isObject(v2)
-		v2 = v2.Data()
-	ok
-	if isObject(v3)
-		v3 = v3.Data()
-	ok
-	return DrawTriangle_2(v1, v2, v3, color)
+	return DrawTriangle_2(GPData(v1), GPData(v2), GPData(v3), color)
 
 func DrawTriangleLines v1, v2, v3, color
-	if isObject(v1)
-		v1 = v1.Data()
-	ok
-	if isObject(v2)
-		v2 = v2.Data()
-	ok
-	if isObject(v3)
-		v3 = v3.Data()
-	ok
-	return DrawTriangleLines_2(v1, v2, v3, color)
+	return DrawTriangleLines_2(GPData(v1), GPData(v2), GPData(v3), color)
 
 func DrawTriangleFan points, numPoints, color
 	return DrawTriangleFan_2(points, numPoints, color)
 
 func DrawPoly center, sides, radius, rotation, color
-	if isObject(center)
-		center = center.Data()
-	ok
-	return DrawPoly_2(center, sides, radius, rotation, color)
+	return DrawPoly_2(GPData(center), sides, radius, rotation, color)
 
 func CheckCollisionCircles center1, radius1, center2, radius2
-	if isObject(center1)
-		center1 = center1.Data()
-	ok
-	if isObject(center2)
-		center2 = center2.Data()
-	ok
-	return CheckCollisionCircles_2(center1, radius1, center2, radius2)
+	return CheckCollisionCircles_2(GPData(center1), radius1, GPData(center2), radius2)
 
 func CheckCollisionCircleRec center, radius, rec
-	if isObject(center)
-		center = center.Data()
-	ok
-	return CheckCollisionCircleRec_2(center, radius, rec)
+	return CheckCollisionCircleRec_2(GPData(center), radius, rec)
 
 func CheckCollisionPointRec point, rec
-	if isObject(point)
-		point = point.Data()
-	ok
-	return CheckCollisionPointRec_2(point, rec)
+	return CheckCollisionPointRec_2(GPData(point), rec)
 
 func CheckCollisionPointCircle point, center, radius
-	if isObject(point)
-		point = point.Data()
-	ok
-	if isObject(center)
-		center = center.Data()
-	ok
-	return CheckCollisionPointCircle_2(point, center, radius)
+	return CheckCollisionPointCircle_2(GPData(point), GPData(center), radius)
 
 func CheckCollisionPointTriangle point, p1, p2, p3
-	if isObject(point)
-		point = point.Data()
-	ok
-	if isObject(p1)
-		p1 = p1.Data()
-	ok
-	if isObject(p2)
-		p2 = p2.Data()
-	ok
-	if isObject(p3)
-		p3 = p3.Data()
-	ok
-	return CheckCollisionPointTriangle_2(point, p1, p2, p3)
+	return CheckCollisionPointTriangle_2(GPData(point), GPData(p1), GPData(p2), GPData(p3))
 
