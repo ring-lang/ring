@@ -22,6 +22,14 @@ func Vector4 x,y,z,w
 	raylib_set_vector4_w(oData,w)
 	return oData	
 
+func Quaternion x,y,z,w
+	oData = raylib_new_managed_Quaternion()	
+	raylib_set_Quaternion_x(oData,x)
+	raylib_set_Quaternion_y(oData,y)
+	raylib_set_Quaternion_z(oData,z)
+	raylib_set_Quaternion_w(oData,w)
+	return oData
+
 func rectangle x,y,width,height 
 	oData = raylib_new_managed_rectangle()	
 	raylib_set_rectangle_x(oData,x)
