@@ -4,7 +4,7 @@ screenWidth  = 800
 screenHeight = 450
 
 InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input")
-ballPosition = new Vector2(screenWidth/2, screenHeight/2)
+ballPosition = Vector2(screenWidth/2, screenHeight/2)
 SetTargetFPS(60)
 
 while !WindowShouldClose()
