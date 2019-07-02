@@ -150,3 +150,23 @@ class Color r g b a
 		g = raylib_get_Color_g(oStruct)
 		b = raylib_get_Color_b(oStruct)
 		a = raylib_get_Color_a(oStruct)
+
+class Rectangle x y width height
+
+	oData = raylib_new_managed_Rectangle()
+
+	func init (nX,nY,nWidth,nHeight)
+		x=nX y=nY width=nWidth height=nHeight
+
+	func data 
+		raylib_set_Rectangle_x(oData,x)
+		raylib_set_Rectangle_y(oData,y)
+		raylib_set_Rectangle_width(oData,width)
+		raylib_set_Rectangle_height(oData,height)
+		return oData	
+
+	func setdata oStruct 
+		x 	= raylib_get_Rectangle_x(oStruct)
+		y 	= raylib_get_Rectangle_y(oStruct)
+		width 	= raylib_get_Rectangle_width(oStruct)
+		height 	= raylib_get_Rectangle_height(oStruct)
