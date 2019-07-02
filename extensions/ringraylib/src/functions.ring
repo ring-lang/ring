@@ -2,14 +2,12 @@ func RayLibColor r,b,g,a
 	return GetColor( Bytes2Int(  Char(a) + Char(g) + Char(b) + Char(r) ) )
 
 func Vector2 x,y
-	return new Vector2(x,y)
+	oVector = new Vector2(x,y)
+	return oVector
 
 func Vector3 x,y,z
-	oData = raylib_new_managed_vector3()
-	raylib_set_vector3_x(oData,x)
-	raylib_set_vector3_y(oData,y)
-	raylib_set_vector3_z(oData,z)
-	return oData	
+	oVector = new Vector3(x,y,z)
+	return oVector
 
 func Vector4 x,y,z,w
 	oData = raylib_new_managed_vector4()
@@ -64,7 +62,8 @@ func Rectangle x,y,width,height
 	return oData
 
 func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11 
-	return new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
+	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
+	return oCamera
 
 func isKeyDown vKey
 	if isNumber(vKey)
@@ -75,8 +74,9 @@ func isKeyDown vKey
 		raise("Bad parameter type - IsKeyDown() function")
 	ok
 
+# Get Pointer Data 
 func GPData vData 
-	# We copy the Object to avoid replacing it when using pData = pData.data()
+	# We copy the Object to afunc replacing it when using pData = pData.data()
 		pData = vData
 	if isObject(pData)
 		pData = pData.Data()
@@ -177,4 +177,79 @@ func CheckCollisionPointCircle point, center, radius
 
 func CheckCollisionPointTriangle point, p1, p2, p3
 	return CheckCollisionPointTriangle_2(GPData(point), GPData(p1), GPData(p2), GPData(p3))
+
+func ColorFromHSV hsv
+	return ColorFromHSV_2(GPData(hsv))
+
+func DrawLine3D startPos, endPos, color
+	return DrawLine3D_2(GPData(startPos), GPData(endPos), color)
+
+func DrawCircle3D center, radius, rotationAxis, rotationAngle, color
+	return DrawCircle3D_2(GPData(center),radius, GPData(rotationAxis), rotationAngle, color)
+
+func DrawCube position, width,  height, length, color
+	return DrawCube_2(GPData(position), width,  height, length, color)
+
+func DrawCubeV position, size, color
+	return DrawCubeV_2(GPData(position), GPData(size), color)
+
+func DrawCubeWires position, width, height, length, color
+	return DrawCubeWires_2(GPData(position), width, height, length, color)
+
+func DrawCubeWiresV position, size, color
+	return DrawCubeWiresV_2(GPData(position), GPData(size), color)
+
+func DrawSphere centerPos, radius, color
+	return DrawSphere_2(GPData(centerPos), radius, color)
+
+func DrawSphereEx centerPos, radius, rings, slices, color
+	return DrawSphereEx_2(GPData(centerPos), radius, rings, slices, color)
+
+func DrawSphereWires centerPos, radius, rings, slices, color
+	return DrawSphereWires_2(GPData(centerPos), radius, rings, slices, color)
+
+func DrawCylinder position, radiusTop, radiusBottom, height,  slices, color
+	return DrawCylinder_2(GPData(position), radiusTop, radiusBottom, height,  slices, color)
+
+func DrawCylinderWires position, radiusTop, radiusBottom, height, slices, color
+	return DrawCylinderWires_2(GPData(position), radiusTop, radiusBottom, height, slices, color)
+
+func DrawPlane centerPos, size, color
+	return DrawPlane_2(GPData(centerPos), GPData(size), color)
+
+func DrawGizmo position
+	return DrawGizmo_2(GPData(position))
+
+func GenMeshHeightmap heightmap, size
+	return GenMeshHeightmap_2(heightmap, GPData(size))
+
+func GenMeshCubicmap cubicmap, cubeSize
+	return GenMeshCubicmap_2(cubicmap, GPData(cubeSize))
+
+func DrawModel model,  position, scale,  tint
+	return DrawModel_2(model, GPData(position), scale,  tint)
+
+func DrawModelEx model,  position, rotationAxis,  rotationAngle, scale,  tint
+	return DrawModelEx_2(model,  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  tint)
+
+func DrawModelWires model, position, scale, tint
+	return DrawModelWires_2(model, GPData(position), scale, tint)
+
+func DrawModelWiresEx model,  position, rotationAxis,  rotationAngle, scale,  tint
+	return DrawModelWiresEx_2(model,  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  tint)
+
+func CheckCollisionSpheres centerA,  radiusA, centerB,  radiusB
+	return CheckCollisionSpheres_2(GPData(centerA),  radiusA, GPData(centerB),  radiusB)
+
+func CheckCollisionBoxSphere box,  centerSphere,  radiusSphere
+	return CheckCollisionBoxSphere_2(box, GPData(centerSphere),  radiusSphere)
+
+func CheckCollisionRaySphere ray,  spherePosition,  sphereRadius
+	return CheckCollisionRaySphere_2(ray,  GPData(spherePosition),  sphereRadius)
+
+func CheckCollisionRaySphereEx ray, spherePosition, sphereRadius, collisionPoint
+	return CheckCollisionRaySphereEx_2(ray, GPData(spherePosition), sphereRadius, GPData(collisionPoint))
+
+func GetCollisionRayTriangle ray, p1, p2, p3
+	return GetCollisionRayTriangle_2(ray, GPData(p1), GPData(p2), GPData(p3))
 

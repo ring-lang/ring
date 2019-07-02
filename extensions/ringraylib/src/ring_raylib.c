@@ -9635,7 +9635,7 @@ RING_FUNC(ring_ColorToHSV)
 }
 
 
-RING_FUNC(ring_ColorFromHSV)
+RING_FUNC(ring_ColorFromHSV_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -13565,7 +13565,7 @@ RING_FUNC(ring_TextToInteger)
 }
 
 
-RING_FUNC(ring_DrawLine3D)
+RING_FUNC(ring_DrawLine3D_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -13581,7 +13581,7 @@ RING_FUNC(ring_DrawLine3D)
 }
 
 
-RING_FUNC(ring_DrawCircle3D)
+RING_FUNC(ring_DrawCircle3D_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13605,7 +13605,7 @@ RING_FUNC(ring_DrawCircle3D)
 }
 
 
-RING_FUNC(ring_DrawCube)
+RING_FUNC(ring_DrawCube_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13631,7 +13631,7 @@ RING_FUNC(ring_DrawCube)
 }
 
 
-RING_FUNC(ring_DrawCubeV)
+RING_FUNC(ring_DrawCubeV_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -13647,7 +13647,7 @@ RING_FUNC(ring_DrawCubeV)
 }
 
 
-RING_FUNC(ring_DrawCubeWires)
+RING_FUNC(ring_DrawCubeWires_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13673,7 +13673,7 @@ RING_FUNC(ring_DrawCubeWires)
 }
 
 
-RING_FUNC(ring_DrawCubeWiresV)
+RING_FUNC(ring_DrawCubeWiresV_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -13717,7 +13717,7 @@ RING_FUNC(ring_DrawCubeTexture)
 }
 
 
-RING_FUNC(ring_DrawSphere)
+RING_FUNC(ring_DrawSphere_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -13735,7 +13735,7 @@ RING_FUNC(ring_DrawSphere)
 }
 
 
-RING_FUNC(ring_DrawSphereEx)
+RING_FUNC(ring_DrawSphereEx_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13761,7 +13761,7 @@ RING_FUNC(ring_DrawSphereEx)
 }
 
 
-RING_FUNC(ring_DrawSphereWires)
+RING_FUNC(ring_DrawSphereWires_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13787,7 +13787,7 @@ RING_FUNC(ring_DrawSphereWires)
 }
 
 
-RING_FUNC(ring_DrawCylinder)
+RING_FUNC(ring_DrawCylinder_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13817,7 +13817,7 @@ RING_FUNC(ring_DrawCylinder)
 }
 
 
-RING_FUNC(ring_DrawCylinderWires)
+RING_FUNC(ring_DrawCylinderWires_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13847,7 +13847,7 @@ RING_FUNC(ring_DrawCylinderWires)
 }
 
 
-RING_FUNC(ring_DrawPlane)
+RING_FUNC(ring_DrawPlane_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -13895,7 +13895,7 @@ RING_FUNC(ring_DrawGrid)
 }
 
 
-RING_FUNC(ring_DrawGizmo)
+RING_FUNC(ring_DrawGizmo_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14379,7 +14379,7 @@ RING_FUNC(ring_GenMeshKnot)
 }
 
 
-RING_FUNC(ring_GenMeshHeightmap)
+RING_FUNC(ring_GenMeshHeightmap_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14398,7 +14398,7 @@ RING_FUNC(ring_GenMeshHeightmap)
 }
 
 
-RING_FUNC(ring_GenMeshCubicmap)
+RING_FUNC(ring_GenMeshCubicmap_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14462,7 +14462,7 @@ RING_FUNC(ring_MeshBinormals)
 }
 
 
-RING_FUNC(ring_DrawModel)
+RING_FUNC(ring_DrawModel_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14482,7 +14482,7 @@ RING_FUNC(ring_DrawModel)
 }
 
 
-RING_FUNC(ring_DrawModelEx)
+RING_FUNC(ring_DrawModelEx_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -14506,7 +14506,7 @@ RING_FUNC(ring_DrawModelEx)
 }
 
 
-RING_FUNC(ring_DrawModelWires)
+RING_FUNC(ring_DrawModelWires_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14526,7 +14526,7 @@ RING_FUNC(ring_DrawModelWires)
 }
 
 
-RING_FUNC(ring_DrawModelWiresEx)
+RING_FUNC(ring_DrawModelWiresEx_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -14610,7 +14610,7 @@ RING_FUNC(ring_DrawBillboardRec_2)
 }
 
 
-RING_FUNC(ring_CheckCollisionSpheres)
+RING_FUNC(ring_CheckCollisionSpheres_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14646,7 +14646,7 @@ RING_FUNC(ring_CheckCollisionBoxes)
 }
 
 
-RING_FUNC(ring_CheckCollisionBoxSphere)
+RING_FUNC(ring_CheckCollisionBoxSphere_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14664,7 +14664,7 @@ RING_FUNC(ring_CheckCollisionBoxSphere)
 }
 
 
-RING_FUNC(ring_CheckCollisionRaySphere)
+RING_FUNC(ring_CheckCollisionRaySphere_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14682,7 +14682,7 @@ RING_FUNC(ring_CheckCollisionRaySphere)
 }
 
 
-RING_FUNC(ring_CheckCollisionRaySphereEx)
+RING_FUNC(ring_CheckCollisionRaySphereEx_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14739,7 +14739,7 @@ RING_FUNC(ring_GetCollisionRayModel)
 }
 
 
-RING_FUNC(ring_GetCollisionRayTriangle)
+RING_FUNC(ring_GetCollisionRayTriangle_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -16946,7 +16946,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("colortoint",ring_ColorToInt);
 	ring_vm_funcregister("colornormalize",ring_ColorNormalize);
 	ring_vm_funcregister("colortohsv",ring_ColorToHSV);
-	ring_vm_funcregister("colorfromhsv",ring_ColorFromHSV);
+	ring_vm_funcregister("colorfromhsv_2",ring_ColorFromHSV_2);
 	ring_vm_funcregister("getcolor",ring_GetColor);
 	ring_vm_funcregister("fade",ring_Fade);
 	ring_vm_funcregister("setconfigflags",ring_SetConfigFlags);
@@ -17155,22 +17155,22 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("texttolower",ring_TextToLower);
 	ring_vm_funcregister("texttopascal",ring_TextToPascal);
 	ring_vm_funcregister("texttointeger",ring_TextToInteger);
-	ring_vm_funcregister("drawline3d",ring_DrawLine3D);
-	ring_vm_funcregister("drawcircle3d",ring_DrawCircle3D);
-	ring_vm_funcregister("drawcube",ring_DrawCube);
-	ring_vm_funcregister("drawcubev",ring_DrawCubeV);
-	ring_vm_funcregister("drawcubewires",ring_DrawCubeWires);
-	ring_vm_funcregister("drawcubewiresv",ring_DrawCubeWiresV);
+	ring_vm_funcregister("drawline3d_2",ring_DrawLine3D_2);
+	ring_vm_funcregister("drawcircle3d_2",ring_DrawCircle3D_2);
+	ring_vm_funcregister("drawcube_2",ring_DrawCube_2);
+	ring_vm_funcregister("drawcubev_2",ring_DrawCubeV_2);
+	ring_vm_funcregister("drawcubewires_2",ring_DrawCubeWires_2);
+	ring_vm_funcregister("drawcubewiresv_2",ring_DrawCubeWiresV_2);
 	ring_vm_funcregister("drawcubetexture",ring_DrawCubeTexture);
-	ring_vm_funcregister("drawsphere",ring_DrawSphere);
-	ring_vm_funcregister("drawsphereex",ring_DrawSphereEx);
-	ring_vm_funcregister("drawspherewires",ring_DrawSphereWires);
-	ring_vm_funcregister("drawcylinder",ring_DrawCylinder);
-	ring_vm_funcregister("drawcylinderwires",ring_DrawCylinderWires);
-	ring_vm_funcregister("drawplane",ring_DrawPlane);
+	ring_vm_funcregister("drawsphere_2",ring_DrawSphere_2);
+	ring_vm_funcregister("drawsphereex_2",ring_DrawSphereEx_2);
+	ring_vm_funcregister("drawspherewires_2",ring_DrawSphereWires_2);
+	ring_vm_funcregister("drawcylinder_2",ring_DrawCylinder_2);
+	ring_vm_funcregister("drawcylinderwires_2",ring_DrawCylinderWires_2);
+	ring_vm_funcregister("drawplane_2",ring_DrawPlane_2);
 	ring_vm_funcregister("drawray",ring_DrawRay);
 	ring_vm_funcregister("drawgrid",ring_DrawGrid);
-	ring_vm_funcregister("drawgizmo",ring_DrawGizmo);
+	ring_vm_funcregister("drawgizmo_2",ring_DrawGizmo_2);
 	ring_vm_funcregister("loadmodel",ring_LoadModel);
 	ring_vm_funcregister("loadmodelfrommesh",ring_LoadModelFromMesh);
 	ring_vm_funcregister("unloadmodel",ring_UnloadModel);
@@ -17194,26 +17194,26 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genmeshcylinder",ring_GenMeshCylinder);
 	ring_vm_funcregister("genmeshtorus",ring_GenMeshTorus);
 	ring_vm_funcregister("genmeshknot",ring_GenMeshKnot);
-	ring_vm_funcregister("genmeshheightmap",ring_GenMeshHeightmap);
-	ring_vm_funcregister("genmeshcubicmap",ring_GenMeshCubicmap);
+	ring_vm_funcregister("genmeshheightmap_2",ring_GenMeshHeightmap_2);
+	ring_vm_funcregister("genmeshcubicmap_2",ring_GenMeshCubicmap_2);
 	ring_vm_funcregister("meshboundingbox",ring_MeshBoundingBox);
 	ring_vm_funcregister("meshtangents",ring_MeshTangents);
 	ring_vm_funcregister("meshbinormals",ring_MeshBinormals);
-	ring_vm_funcregister("drawmodel",ring_DrawModel);
-	ring_vm_funcregister("drawmodelex",ring_DrawModelEx);
-	ring_vm_funcregister("drawmodelwires",ring_DrawModelWires);
-	ring_vm_funcregister("drawmodelwiresex",ring_DrawModelWiresEx);
+	ring_vm_funcregister("drawmodel_2",ring_DrawModel_2);
+	ring_vm_funcregister("drawmodelex_2",ring_DrawModelEx_2);
+	ring_vm_funcregister("drawmodelwires_2",ring_DrawModelWires_2);
+	ring_vm_funcregister("drawmodelwiresex_2",ring_DrawModelWiresEx_2);
 	ring_vm_funcregister("drawboundingbox",ring_DrawBoundingBox);
 	ring_vm_funcregister("drawbillboard_2",ring_DrawBillboard_2);
 	ring_vm_funcregister("drawbillboardrec_2",ring_DrawBillboardRec_2);
-	ring_vm_funcregister("checkcollisionspheres",ring_CheckCollisionSpheres);
+	ring_vm_funcregister("checkcollisionspheres_2",ring_CheckCollisionSpheres_2);
 	ring_vm_funcregister("checkcollisionboxes",ring_CheckCollisionBoxes);
-	ring_vm_funcregister("checkcollisionboxsphere",ring_CheckCollisionBoxSphere);
-	ring_vm_funcregister("checkcollisionraysphere",ring_CheckCollisionRaySphere);
-	ring_vm_funcregister("checkcollisionraysphereex",ring_CheckCollisionRaySphereEx);
+	ring_vm_funcregister("checkcollisionboxsphere_2",ring_CheckCollisionBoxSphere_2);
+	ring_vm_funcregister("checkcollisionraysphere_2",ring_CheckCollisionRaySphere_2);
+	ring_vm_funcregister("checkcollisionraysphereex_2",ring_CheckCollisionRaySphereEx_2);
 	ring_vm_funcregister("checkcollisionraybox",ring_CheckCollisionRayBox);
 	ring_vm_funcregister("getcollisionraymodel",ring_GetCollisionRayModel);
-	ring_vm_funcregister("getcollisionraytriangle",ring_GetCollisionRayTriangle);
+	ring_vm_funcregister("getcollisionraytriangle_2",ring_GetCollisionRayTriangle_2);
 	ring_vm_funcregister("getcollisionrayground",ring_GetCollisionRayGround);
 	ring_vm_funcregister("loadtext",ring_LoadText);
 	ring_vm_funcregister("loadshader",ring_LoadShader);

@@ -22,7 +22,7 @@ while !WindowShouldClose()
 
         UpdateCamera(camera)
 
-        if IsKeyDown("Z") camera.target = new Vector3( 0, 0, 0) ok
+        if IsKeyDown("Z") camera.target = Vector3( 0, 0, 0) ok
 
         BeginDrawing()
 
