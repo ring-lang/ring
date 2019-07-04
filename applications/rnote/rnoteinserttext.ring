@@ -53,6 +53,7 @@ class RNoteInsertText
 			LayoutButtonMain.AddLayout(oInsertLayout2)
 
 			setLayout(LayoutButtonMain)
+			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint) 
 			show()
 
 		}
