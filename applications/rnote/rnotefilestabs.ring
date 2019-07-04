@@ -65,3 +65,40 @@ class RNoteFilesTabs
 			textedit1.setPlaintext("")
 			textedit1.blocksignals(False)
 		ok
+
+	func TabsContextMenu
+ 		new qMenu(win1) {
+	                oAction = new qAction(this.win1) {
+	                        settext("Close Other Files")
+	                        SetCLickevent(Method(:TabsCMCloseOtherFiles))
+	                }
+	                addaction(oAction)
+	                oAction = new qAction(this.win1) {
+	                        settext("Close Active File")
+	                        SetCLickevent(Method(:TabsCMCloseActiveFile))
+	                }
+	                addaction(oAction)
+	                oAction = new qAction(this.win1) {
+	                        settext("Close All")
+	                        SetCLickevent(Method(:TabsCMCloseAll))
+	                }
+	                addaction(oAction)
+	                oCursor  = new qCursor()
+	                exec(oCursor.pos())
+        	}
+
+	func TabsCMCloseActiveFile
+		filestabs.blocksignals(True)
+		CloseFileTabByIndex(filestabs.currentindex())
+		filestabs.blocksignals(False)
+
+	func TabsCMCloseOtherFiles
+		if cActiveFileName = NULL return ok
+		cFileName = cActiveFileName
+		TabsCMCloseAll()
+		OpenFile(cFileName)
+
+	func TabsCMCloseAll
+		for nIndex = filestabs.count() to 1 step -1
+			TabsCMCloseActiveFile()
+		next

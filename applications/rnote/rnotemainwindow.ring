@@ -810,14 +810,19 @@ class RNoteMainWindow
 
 	func CreateSourceCode
 		win1 {
+			oTabsFilter = new qAllEvents(this.win1) {
+				setContextmenuEvent(Method(:TabsContextMenu))
+	                }
+
 			this.filestabs = new qTabWidget(this.win1) {
 				setFixedheight(35)
 				settabsclosable(True)
 				AddTab(new qWidget(),"noname")
 				setcurrentchangedevent(Method(:ChangeFileTab))
 				Settabcloserequestedevent(Method(:CloseFileTab))
-
+				installeventfilter(oTabsFilter)
 			}
+
 			this.textedit1 = new codeeditor(this.win1) {
 				setCursorPositionChangedEvent(Method(:CursorPositionChanged))
 				setLineWrapMode(QTextEdit_NoWrap)
