@@ -73,11 +73,13 @@ class RNoteFilesTabs
 	                        SetCLickevent(Method(:TabsCMCloseOtherFiles))
 	                }
 	                addaction(oAction)
+			addseparator()
 	                oAction = new qAction(this.win1) {
 	                        settext("Close Active File")
 	                        SetCLickevent(Method(:TabsCMCloseActiveFile))
 	                }
 	                addaction(oAction)
+			addseparator()
 	                oAction = new qAction(this.win1) {
 	                        settext("Close All")
 	                        SetCLickevent(Method(:TabsCMCloseAll))
