@@ -25,9 +25,7 @@ class RNoteFilesTabs
 		nRow = aFilesLines[nIndex][2]		
 		if cFile != NULL
 			if not fexists(FileNameEncoding(cFile))
-				filestabs.blocksignals(True)
 				CloseFileTabByIndex(filestabs.currentindex())
-				filestabs.blocksignals(False)
 				return 
 			ok
 		ok
@@ -46,6 +44,7 @@ class RNoteFilesTabs
 		filestabs.blocksignals(False)
 
 	func CloseFileTabByIndex nIndex
+		filestabs.blocksignals(True)
 		if filestabs.count() != 1
 			filestabs.removetab(nIndex)
 			del(aFilesLines,nIndex+1)
@@ -65,6 +64,7 @@ class RNoteFilesTabs
 			textedit1.setPlaintext("")
 			textedit1.blocksignals(False)
 		ok
+		filestabs.blocksignals(False)
 
 	func TabsContextMenu
  		new qMenu(win1) {
@@ -88,15 +88,24 @@ class RNoteFilesTabs
         	}
 
 	func TabsCMCloseActiveFile
-		filestabs.blocksignals(True)
 		CloseFileTabByIndex(filestabs.currentindex())
-		filestabs.blocksignals(False)
 
 	func TabsCMCloseOtherFiles
 		if cActiveFileName = NULL return ok
-		cFileName = cActiveFileName
-		TabsCMCloseAll()
-		OpenFile(cFileName)
+		nIndex = filestabs.currentindex()
+		# Close Tabs before this one 
+			if nIndex > 0
+				for x = 0 to nIndex-1
+					CloseFileTabByIndex(0)
+				next 
+			ok
+		# Close Tabs after this one 
+			nMax = filestabs.count() 
+			if nMax > 1
+				for x=1 to nMax-1
+					CloseFileTabByIndex(1)
+				next 			
+			ok
 
 	func TabsCMCloseAll
 		for nIndex = filestabs.count() to 1 step -1
