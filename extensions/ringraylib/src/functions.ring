@@ -370,3 +370,8 @@ func GuiTextInputBox bounds, windowTitle, message, text, buttons
 
 func GuiColorPicker bounds, color
 	return GuiColorPicker_2(GPData(bounds), color)
+
+func GetTouchPosition index
+	oVector = new Vector2(0,0)
+	oVector.setData(GetTouchPosition_2(index))
+	return  oVector

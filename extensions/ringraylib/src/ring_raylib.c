@@ -10452,7 +10452,7 @@ RING_FUNC(ring_GetTouchY)
 }
 
 
-RING_FUNC(ring_GetTouchPosition)
+RING_FUNC(ring_GetTouchPosition_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17002,7 +17002,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmousewheelmove",ring_GetMouseWheelMove);
 	ring_vm_funcregister("gettouchx",ring_GetTouchX);
 	ring_vm_funcregister("gettouchy",ring_GetTouchY);
-	ring_vm_funcregister("gettouchposition",ring_GetTouchPosition);
+	ring_vm_funcregister("gettouchposition_2",ring_GetTouchPosition_2);
 	ring_vm_funcregister("setgesturesenabled",ring_SetGesturesEnabled);
 	ring_vm_funcregister("isgesturedetected",ring_IsGestureDetected);
 	ring_vm_funcregister("getgesturedetected",ring_GetGestureDetected);
