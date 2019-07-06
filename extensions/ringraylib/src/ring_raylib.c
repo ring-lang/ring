@@ -13863,7 +13863,7 @@ RING_FUNC(ring_DrawPlane_2)
 }
 
 
-RING_FUNC(ring_DrawRay)
+RING_FUNC(ring_DrawRay_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14704,7 +14704,7 @@ RING_FUNC(ring_CheckCollisionRaySphereEx_2)
 }
 
 
-RING_FUNC(ring_CheckCollisionRayBox)
+RING_FUNC(ring_CheckCollisionRayBox_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17168,7 +17168,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcylinder_2",ring_DrawCylinder_2);
 	ring_vm_funcregister("drawcylinderwires_2",ring_DrawCylinderWires_2);
 	ring_vm_funcregister("drawplane_2",ring_DrawPlane_2);
-	ring_vm_funcregister("drawray",ring_DrawRay);
+	ring_vm_funcregister("drawray_2",ring_DrawRay_2);
 	ring_vm_funcregister("drawgrid",ring_DrawGrid);
 	ring_vm_funcregister("drawgizmo_2",ring_DrawGizmo_2);
 	ring_vm_funcregister("loadmodel",ring_LoadModel);
@@ -17211,7 +17211,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionboxsphere_2",ring_CheckCollisionBoxSphere_2);
 	ring_vm_funcregister("checkcollisionraysphere_2",ring_CheckCollisionRaySphere_2);
 	ring_vm_funcregister("checkcollisionraysphereex_2",ring_CheckCollisionRaySphereEx_2);
-	ring_vm_funcregister("checkcollisionraybox",ring_CheckCollisionRayBox);
+	ring_vm_funcregister("checkcollisionraybox_2",ring_CheckCollisionRayBox_2);
 	ring_vm_funcregister("getcollisionraymodel",ring_GetCollisionRayModel);
 	ring_vm_funcregister("getcollisionraytriangle_2",ring_GetCollisionRayTriangle_2);
 	ring_vm_funcregister("getcollisionrayground",ring_GetCollisionRayGround);

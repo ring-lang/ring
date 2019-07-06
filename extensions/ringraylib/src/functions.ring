@@ -33,6 +33,14 @@ func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
 	return oCamera
 
+func Ray p1,p2,p3,p4,p5,p6
+	oRay = new Ray(p1,p2,p3,p4,p5,p6)
+	return oRay
+
+func BoundingBox p1,p2,p3,p4,p5,p6
+	oBox = new BoundingBox(p1,p2,p3,p4,p5,p6)
+	return oBox
+
 func isKeyDown vKey
 	if isNumber(vKey)
 		return isKeyDown_2(vKey)
@@ -375,3 +383,9 @@ func GetTouchPosition index
 	oVector = new Vector2(0,0)
 	oVector.setData(GetTouchPosition_2(index))
 	return  oVector
+
+func DrawRay ray, color 
+	return DrawRay_2(GPData(ray),color)
+
+func CheckCollisionRayBox ray, box
+	return CheckCollisionRayBox_2(GPData(ray),GPData(box))

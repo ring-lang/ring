@@ -233,3 +233,82 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class Ray
+
+	position	= new Vector3
+	direction	= new Vector3
+
+	oData = raylib_new_managed_Ray()
+
+	func init (p1,p2,p3,p4,p5,p6)
+		position.x = p1
+		position.y = p2
+		position.z = p3
+		direction.x = p4
+		direction.y = p5
+		direction.z = p6
+
+	func data 
+		raylib_set_Ray_position_x(oData,position.x)
+		raylib_set_Ray_position_y(oData,position.y)
+		raylib_set_Ray_position_z(oData,position.z)
+		raylib_set_Ray_direction_x(oData,direction.x)
+		raylib_set_Ray_direction_y(oData,direction.y)
+		raylib_set_Ray_direction_z(oData,direction.z)
+		return oData	
+
+	func setdata oStruct 
+		position.x = raylib_get_Ray_position_x(oStruct)
+		position.y = raylib_get_Ray_position_y(oStruct)
+		position.z = raylib_get_Ray_position_z(oStruct)
+		direction.x = raylib_get_Ray_direction_x(oStruct)
+		direction.y = raylib_get_Ray_direction_y(oStruct)
+		direction.z = raylib_get_Ray_direction_z(oStruct)
+
+	func refresh 
+		position.x = raylib_get_Ray_position_x(oData)
+		position.y = raylib_get_Ray_position_y(oData)
+		position.z = raylib_get_Ray_position_z(oData)
+		directionx = raylib_get_Ray_direction_x(oData)
+		direction.y = raylib_get_Ray_direction_y(oData)
+		direction.z = raylib_get_Ray_direction_z(oData)
+
+class BoundingBox 
+
+	min	= new Vector3
+	max	= new Vector3
+
+	oData = raylib_new_managed_BoundingBox()
+
+	func init (p1,p2,p3,p4,p5,p6)
+		min.x = p1
+		min.y = p2
+		min.z = p3
+		max.x = p4
+		max.y = p5
+		max.z = p6
+
+	func data 
+		raylib_set_BoundingBox_min_x(oData,min.x)
+		raylib_set_BoundingBox_min_y(oData,min.y)
+		raylib_set_BoundingBox_min_z(oData,min.z)
+		raylib_set_BoundingBox_max_x(oData,max.x)
+		raylib_set_BoundingBox_max_y(oData,max.y)
+		raylib_set_BoundingBox_max_z(oData,max.z)
+		return oData	
+
+	func setdata oStruct 
+		min.x = raylib_get_BoundingBox_min_x(oStruct)
+		min.y = raylib_get_BoundingBox_min_y(oStruct)
+		min.z = raylib_get_BoundingBox_min_z(oStruct)
+		max.x = raylib_get_BoundingBox_max_x(oStruct)
+		max.y = raylib_get_BoundingBox_max_y(oStruct)
+		max.z = raylib_get_BoundingBox_max_z(oStruct)
+
+	func refresh 
+		min.x = raylib_get_BoundingBox_min_x(oData)
+		min.y = raylib_get_BoundingBox_min_y(oData)
+		min.z = raylib_get_BoundingBox_min_z(oData)
+		maxx = raylib_get_BoundingBox_max_x(oData)
+		max.y = raylib_get_BoundingBox_max_y(oData)
+		max.z = raylib_get_BoundingBox_max_z(oData)
