@@ -1,6 +1,7 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 # Author : Gal Zsolt 
+# Author : Marino Esteban
 
 class RNoteEditMenu
 
@@ -132,3 +133,47 @@ class RNoteEditMenu
 			cNewStr += substr(cStr,nEnd)
 		ok
 		textedit1.setPlainText(cNewStr)
+
+	func commentlines
+		oCursor = textedit1.textCursor()
+		nStart = oCursor.SelectionStart()
+		nEnd = oCursor.SelectionEnd()
+		cStr = textedit1.toPlainText()
+		cStr1 = left(cStr, nStart) 
+		cStr2 = substr(cStr, nStart+1,nEnd-nStart+1)
+		cStr3 = substr(cStr,nEnd+1)
+		cStrL = str2list(cStr2)
+		cList = [] 
+		for x in cStrL
+			if x[1] = '/' and x[2] = '/'
+				x = substr(x, 4)
+			else  
+				x = '/'+'/' + ' ' + x
+			ok
+			if x != '' add(cList, x) ok
+		next
+		cStr2 = list2str(cList)
+		cStr  = cStr1 + cStr2 + cStr3
+		textedit1.setPlainText(cStr)
+		oCursor.setposition(nEnd+1,0)
+		textedit1.settextcursor(oCursor) 
+
+	func commentBlocklines
+		oCursor = textedit1.textCursor()
+		nStart = oCursor.SelectionStart()
+		nEnd = oCursor.SelectionEnd()
+		cStr = textedit1.toPlainText()
+		cStr1 = left(cStr, nStart) 
+		cStr2 = substr(cStr, nStart, nEnd-nStart+1)
+		cStr3 = substr(cStr,nEnd+1)
+		cStrL = str2list(cStr2)
+		cList = []
+		for x in cStrL
+			x = " "+" "+ x
+			if x != '' add(cList, x) ok
+		next
+		cStr2 = list2str(cList)
+		cStr  = cStr1 + "/*" + cStr2 + " */" + cStr3
+		textedit1.setPlainText(cStr)
+		oCursor.setposition(nEnd+1,0)
+		textedit1.settextcursor(oCursor)

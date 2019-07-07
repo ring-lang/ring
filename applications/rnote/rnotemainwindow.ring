@@ -317,6 +317,21 @@ class RNoteMainWindow
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+alt+C"))
+							setbtnimage(self,"image/comment2.png")
+							settext("Comment Lines")
+							setclickEvent(Method(:CommentLines))
+						}
+						addaction(oAction)
+						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+alt+B"))
+							setbtnimage(self,"image/comment.png")
+							settext("Comment Block Of Lines")
+							setclickEvent(Method(:CommentBlockLines))
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
 							setbtnimage(self,"image/search.png")
 							settext("Find in Files")
