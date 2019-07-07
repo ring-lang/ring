@@ -416,6 +416,7 @@ More Improvements
 * Ring Notepad - Edit Menu - Insert Text Window
 * Ring Notepad - Edit Menu - Lower Case and Upper Case options
 * Ring Notepad - Edit Menu - Capitalize option
+* Ring Notepad - Edit Menu - Comment Lines and Comment Block of lines
 * Ring Notepad - File Tabs - Context Menu (Close other files, Close Active file and Close All files)
 * RingPM - When updating a package - don't reinstall the dependency again
 * Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H
