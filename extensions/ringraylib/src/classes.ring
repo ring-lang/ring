@@ -2,7 +2,7 @@ class Vector2 x y
 
 	oData = raylib_new_managed_vector2()
 
-	func init (nX,nY)
+	func init nX,nY
 		x=nX y=nY
 
 	func data 
@@ -18,7 +18,7 @@ class Vector3 x y z
 
 	oData = raylib_new_managed_vector3()
 
-	func init (nX,nY,nZ)
+	func init nX,nY,nZ
 		x=nX y=nY z=nZ
 
 	func data 
@@ -36,7 +36,7 @@ class Vector4 x y z w
 
 	oData = raylib_new_managed_vector4()
 
-	func init (nX,nY,nZ,nW)
+	func init nX,nY,nZ,nW
 		x=nX y=nY z=nZ w=nW
 
 	func data 
@@ -76,7 +76,7 @@ class Matrix m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15
 
 	oData = raylib_new_managed_Matrix()
 
-	func init (p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15)
+	func init p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15
 		m0 = p0
 		m1 = p1
 		m2 = p2
@@ -155,7 +155,7 @@ class Rectangle x y width height
 
 	oData = raylib_new_managed_Rectangle()
 
-	func init (nX,nY,nWidth,nHeight)
+	func init nX,nY,nWidth,nHeight
 		x=nX y=nY width=nWidth height=nHeight
 
 	func data 
@@ -226,7 +226,7 @@ class Camera3D
 	
 	oData = raylib_new_managed_Camera3D()
 
-	func init (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 		position.x = p1
 		position.y = p2
 		position.z = p3
@@ -286,7 +286,7 @@ class Ray
 
 	oData = raylib_new_managed_Ray()
 
-	func init (p1,p2,p3,p4,p5,p6)
+	func init p1,p2,p3,p4,p5,p6
 		position.x = p1
 		position.y = p2
 		position.z = p3
@@ -326,7 +326,7 @@ class BoundingBox
 
 	oData = raylib_new_managed_BoundingBox()
 
-	func init (p1,p2,p3,p4,p5,p6)
+	func init p1,p2,p3,p4,p5,p6
 		min.x = p1
 		min.y = p2
 		min.z = p3
@@ -358,3 +358,45 @@ class BoundingBox
 		maxx = raylib_get_BoundingBox_max_x(oData)
 		max.y = raylib_get_BoundingBox_max_y(oData)
 		max.z = raylib_get_BoundingBox_max_z(oData)
+
+
+class VrDeviceInfo 
+
+	hResolution vResolution hScreenSize vScreenSize vScreenCenter 
+	eyeToScreenDistance lensSeparationDistance interpupillaryDistance
+
+	oData = raylib_new_managed_VrDeviceInfo()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8
+		hResolution=p1 vResolution=p2 hScreenSize=p3 vScreenSize=p4 vScreenCenter=p5 
+		eyeToScreenDistance=p6 lensSeparationDistance=p7 interpupillaryDistance=p8
+
+	func data 
+		raylib_set_VrDeviceInfo_hResolution(oData,hResolution)
+		raylib_set_VrDeviceInfo_vResolution(oData,vResolution)
+		raylib_set_VrDeviceInfo_hScreenSize(oData,hScreenSize)
+		raylib_set_VrDeviceInfo_vScreenSize(oData,vScreenSize)
+		raylib_set_VrDeviceInfo_vScreenCenter(oData,vScreenCenter)
+		raylib_set_VrDeviceInfo_eyeToScreenDistance(oData,eyeToScreenDistance)
+		raylib_set_VrDeviceInfo_lensSeparationDistance(oData,lensSeparationDistance)
+		raylib_set_VrDeviceInfo_interpupillaryDistance(oData,interpupillaryDistance)
+
+	func setdata oStruct 
+		hResolution = raylib_get_VrDeviceInfo_hResolution(oStruct)
+		vResolution = raylib_get_VrDeviceInfo_vResolution(oStruct)
+		hScreenSize = raylib_get_VrDeviceInfo_hScreenSize(oStruct)
+		vScreenSize = raylib_get_VrDeviceInfo_vScreenSize(oStruct)
+		vScreenCenter = raylib_get_VrDeviceInfo_vScreenCenter(oStruct)
+		eyeToScreenDistance = raylib_get_VrDeviceInfo_eyeToScreenDistance(oStruct)
+		lensSeparationDistance = raylib_get_VrDeviceInfo_lensSeparationDistance(oStruct)
+		interpupillaryDistance = raylib_get_VrDeviceInfo_interpupillaryDistance(oStruct)
+
+	func refresh 
+		hResolution = raylib_get_VrDeviceInfo_hResolution(oData)
+		vResolution = raylib_get_VrDeviceInfo_vResolution(oData)
+		hScreenSize = raylib_get_VrDeviceInfo_hScreenSize(oData)
+		vScreenSize = raylib_get_VrDeviceInfo_vScreenSize(oData)
+		vScreenCenter = raylib_get_VrDeviceInfo_vScreenCenter(oData)
+		eyeToScreenDistance = raylib_get_VrDeviceInfo_eyeToScreenDistance(oData)
+		lensSeparationDistance = raylib_get_VrDeviceInfo_lensSeparationDistance(oData)
+		interpupillaryDistance = raylib_get_VrDeviceInfo_interpupillaryDistance(oData)
