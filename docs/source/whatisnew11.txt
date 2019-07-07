@@ -366,6 +366,52 @@ Better RingQt
 	* QAxWidget2 Class
 	* QTextToSpeech Class 
 	* QGraphicsView Class
+	* QAbstractAspect Class
+	* QNode Class
+	* QEntity Class
+	* QTransform Class
+	* QAspectEngine Class
+	* QTorusMesh Class
+	* QConeMesh Class
+	* QCylinderMesh Class
+	* QCuboidMesh Class
+	* QPlaneMesh Class
+	* QSphereMesh Class
+	* QPhongMaterial Class
+	* QForwardRenderer Class
+	* Qt3DWindow Class
+	* QAbstractCameraController Class
+	* QFirstPersonCameraController Class
+	* QTextureMaterial Class
+	* QExtrudedTextMesh Class
+	* QText2DEntity Class
+	* QSkyBoxEntity Class
+	* QConeGeometry Class
+	* QOrbitCameraController Class
+	* QDiffuseSpecularMaterial Class
+	* QGoochMaterial Class
+	* QMetalroughMaterial Class
+	* MorphPhongMaterial Class
+	* QPervertexColorMaterial Class
+	* QInputAspect Class
+	* QFrameAction Class
+	* QLogicAspect Class
+	* QCamera Class
+	* QCameraLens Class
+	* QMesh Class
+	* QTechnique Class
+	* QMaterial Class
+	* QEffect Class
+	* QRenderPass Class
+	* QSceneLoader Class
+	* QPointLight Class
+	* QRenderAspect Class
+	* QTextureLoader Class
+	* QObjectPicker Class
+	* QCameraSelector Class
+	* QCullFace Class
+	* QDepthTest Class
+	* QViewPort Class
 
 .. index:: 
 	pair: What is new in Ring 1.11?; Better Performance
