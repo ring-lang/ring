@@ -79,92 +79,54 @@ class RNoteEditMenu
 					aBackColor[3] + ") }")
 
 	func LowerCase
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
-		ok
-		cNewStr += lower(substr(cStr,nStart,nEnd-nStart)) 
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+		UpdateSelectedText(func cData {
+			return Lower(cData)
+		})
 	
 	func UpperCase
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
-		ok
-		cNewStr += Upper(substr(cStr,nStart,nEnd-nStart)) 
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+		UpdateSelectedText(func cData {
+			return Upper(cData)
+		})
 	
 	func Capitalize
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
-		ok
-		lCap = True 
-		for nChar = nStart to nEnd-nStart
-			if lCap 
-				cNewStr += Upper(cStr[nChar])
-				lCap = False
-			else 
-				cNewStr += cStr[nChar]
-				if cStr[nChar] = " " or cStr[nChar] = Char(13) or cStr[nChar] = Char(10) 
-					lCap = True 
+		UpdateSelectedText(func cData {
+			lCap = True 
+			cNewStr = ""
+			for nChar = 1 to len(cData)
+				if lCap 
+					cNewStr += Upper(cData[nChar])
+					lCap = False
+				else 
+					cNewStr += cData[nChar]
+					if cData[nChar] = " " or cData[nChar] = Char(13) or cData[nChar] = Char(10) 
+						lCap = True 
+					ok
 				ok
-			ok
-		next  
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+			next  
+			return cNewStr
+		})
 
 	func CommentLines
-
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
-		ok
-
-		cNewStr2 = substr(cStr,nStart,nEnd-nStart)
-		aList = str2list(cNewStr2)
-		for cItem in aList
-			if len(cItem) > 3
-				if cItem[1] = '/' and cItem[2] = '/'
-					cItem = substr(cItem, 4)
-					loop
+		UpdateSelectedText(func cData {
+			aList = str2list(cData)
+			for cItem in aList
+				if len(cItem) > 3
+					if cItem[1] = '/' and cItem[2] = '/'
+						cItem = substr(cItem, 4)
+						loop
+					ok
 				ok
-			ok
-			cItem = "// " + cItem
-		next
-		cNewStr += list2str(aList)
-
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+				cItem = "// " + cItem
+			next
+			return list2str(aList)
+		})
 
 	func CommentBlocklines
+		UpdateSelectedText(func cData {
+			return "/*" + nl + cData + nl + "*/" 
+		})
 
+	func UpdateSelectedText fFunction
 		oCursor = textedit1.textCursor()
 		nStart = oCursor.SelectionStart() + 1
 		nEnd = oCursor.SelectionEnd() + 1
@@ -175,7 +137,7 @@ class RNoteEditMenu
 		ok
 
 		cNewStr2 = substr(cStr,nStart,nEnd-nStart)
-		cNewStr += "/*" + nl + cNewStr2 + nl + "*/" 
+		cNewStr += call fFunction(cNewStr2)
 
 		if nEnd < len(cStr)
 			cNewStr += substr(cStr,nEnd)
