@@ -171,6 +171,29 @@ class Rectangle x y width height
 		width 	= raylib_get_Rectangle_width(oStruct)
 		height 	= raylib_get_Rectangle_height(oStruct)
 
+class Image 
+
+	data width  height mipmaps  format
+	oData = raylib_new_managed_Image()
+
+	func init p1,p2,p3,p4,p5
+		data=p1  width=p2 height=p3 mipmaps=p4 format=p5
+
+	func data 
+		raylib_set_Image_data(oData,data)
+		raylib_set_Image_width(oData,width)
+		raylib_set_Image_height(oData,height)
+		raylib_set_Image_mipmaps(oData,mipmaps)
+		raylib_set_Image_format(oData,format)
+		return oData	
+
+	func setdata oStruct 
+		data 	= raylib_get_Image_data(oStruct)
+		width 	= raylib_get_Image_width(oStruct)
+		height 	= raylib_get_Image_height(oStruct)
+		mipmaps = raylib_get_Image_mipmaps(oStruct)
+		format 	= raylib_get_Image_format(oStruct)
+	
 class Camera3D
 
 	position	= new Vector3
