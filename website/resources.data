@@ -170,6 +170,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/snake" target="_blank">Snake Game</a>',
 					'<img src="snake.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
+					'<img src="dssapp.png" width="40%">'
 				]
 			    ]
                  ],
