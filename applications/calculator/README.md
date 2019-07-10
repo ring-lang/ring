@@ -1,15 +1,11 @@
 Ring Calculator Application
 ===========================
 
-Author : Magdy Ragab ( https://github.com/magdy-ragab/ring-calculator )
+Author : Magdy Ragab 
 
 Calculator application - developed using the Ring programming language
 
 # To run the application
-
-(1) Download and install Ring 1.4.1 from http://ring-lang.net
-
-(2) Run calc-gui.ring
 
 	ring calc-gui.ring
 
