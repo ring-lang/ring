@@ -1,5 +1,7 @@
 URLShortener Application
 ========================
 
-URLShortener Application developed using RingQt
+Author: John Storm 
+
+Developed using the Ring programming language and RingQt
 
