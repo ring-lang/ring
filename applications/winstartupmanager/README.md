@@ -1,6 +1,8 @@
 Win Startup Manager
 ===================
 
+Author : Majdi Sobain
+
 ![WinStartupManager](imgs/WinStartupManager.jpg)
 
 Windows Startup Manager is an application that has the ability to let the user control what programs should start at Windows booting time. It gives you the ability to show, edit, delete, or even add new programs entries to be lunched at Windows booting time.
