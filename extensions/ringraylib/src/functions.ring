@@ -52,6 +52,10 @@ func BoundingBox p1,p2,p3,p4,p5,p6
 	oBox = new BoundingBox(p1,p2,p3,p4,p5,p6)
 	return oBox
 
+func Sound p1,p2,p3,p4
+	oSound = new Sound(p1,p2,p3,p4)
+	return oSound
+
 func AudioStream p1,p2,p3,p4,p5,p6
 	oAudioStream = new AudioStream(p1,p2,p3,p4,p5,p6)
 	return oAudioStream
