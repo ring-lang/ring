@@ -359,6 +359,39 @@ class BoundingBox
 		max.y = raylib_get_BoundingBox_max_y(oData)
 		max.z = raylib_get_BoundingBox_max_z(oData)
 
+class Wave
+
+	sampleCount sampleRate sampleSize channels data
+
+	oData = raylib_new_managed_Wave()
+
+	func init p1,p2,p3,p4,p5
+
+		sampleCount=p1 sampleRate=p2 sampleSize=p3 channels=p4 data=p5
+
+	func data 
+		raylib_set_Wave_sampleCount(oData,sampleCount)
+		raylib_set_Wave_sampleRate(oData,sampleRate)
+		raylib_set_Wave_sampleSize(oData,sampleSize)
+		raylib_set_Wave_Channels(oData,Channels)
+		raylib_set_Wave_Data(oData,Data)
+		return oData
+
+	func setdata oStruct 
+		sampleCount	= raylib_get_Wave_sampleCount(oStruct)
+		sampleRate	= raylib_get_Wave_sampleRate(oStruct)
+		sampleSize	= raylib_get_Wave_sampleSize(oStruct)
+		Channels	= raylib_get_Wave_Channels(oStruct)
+		Data		= raylib_get_Wave_Data(oStruct)
+
+	func refresh
+		sampleCount	= raylib_get_Wave_sampleCount(oData)
+		sampleRate	= raylib_get_Wave_sampleRate(oData)
+		sampleSize	= raylib_get_Wave_sampleSize(oData)
+		Channels	= raylib_get_Wave_Channels(oData)
+		Data		= raylib_get_Wave_Data(oData)
+
+
 class Sound
 
 	audioBuffer source buffer format

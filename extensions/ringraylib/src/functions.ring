@@ -52,6 +52,10 @@ func BoundingBox p1,p2,p3,p4,p5,p6
 	oBox = new BoundingBox(p1,p2,p3,p4,p5,p6)
 	return oBox
 
+func Wave p1,p2,p3,p4,p5
+	oWave = new Wave(p1,p2,p3,p4,p5)
+	return oWave
+
 func Sound p1,p2,p3,p4
 	oSound = new Sound(p1,p2,p3,p4)
 	return oSound
