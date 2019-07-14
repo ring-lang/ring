@@ -360,6 +360,41 @@ class BoundingBox
 		max.z = raylib_get_BoundingBox_max_z(oData)
 
 
+
+
+class AudioStream 
+
+	sampleRate sampleSize channels audioBuffer format source
+
+	oData = raylib_new_managed_AudioStream()
+
+	func init p1,p2,p3,p4,p5,p6
+		sampleRate=p1 sampleSize=p2 channels=p3 audioBuffer=p4 format=p5 source=p6
+
+	func data 
+		raylib_set_AudioStream_sampleRate(oData,sampleRate)
+		raylib_set_AudioStream_sampleSize(oData,sampleSize)
+		raylib_set_AudioStream_channels(oData,channels)
+		raylib_set_AudioStream_audioBuffer(oData,audioBuffer)
+		raylib_set_AudioStream_format(oData,format)
+		raylib_set_AudioStream_source(oData,source)
+
+	func setdata oStruct 
+		sampleRate 	= raylib_get_AudioStream_sampleRate(oStruct)
+		sampleSize 	= raylib_get_AudioStream_sampleSize(oStruct)
+		channels 	= raylib_get_AudioStream_channels(oStruct)
+		audioBuffer 	= raylib_get_AudioStream_audioBuffer(oStruct)
+		format 		= raylib_get_AudioStream_format(oStruct)
+		source 		= raylib_get_AudioStream_source(oStruct)
+
+	func refresh 
+		sampleRate 	= raylib_get_AudioStream_sampleRate(oData)
+		sampleSize 	= raylib_get_AudioStream_sampleSize(oData)
+		channels 	= raylib_get_AudioStream_channels(oData)
+		audioBuffer 	= raylib_get_AudioStream_audioBuffer(oData)
+		format 		= raylib_get_AudioStream_format(oData)
+		source 		= raylib_get_AudioStream_source(oData)
+
 class VrDeviceInfo 
 
 	hResolution vResolution hScreenSize vScreenSize vScreenCenter 

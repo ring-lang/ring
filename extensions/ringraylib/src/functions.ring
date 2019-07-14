@@ -52,6 +52,10 @@ func BoundingBox p1,p2,p3,p4,p5,p6
 	oBox = new BoundingBox(p1,p2,p3,p4,p5,p6)
 	return oBox
 
+func AudioStream p1,p2,p3,p4,p5,p6
+	oAudioStream = new AudioStream(p1,p2,p3,p4,p5,p6)
+	return oAudioStream
+
 func VrDeviceInfo p1,p2,p3,p4,p5,p6,p7,p8
 	oVrDeviceInfo = new VrDeviceInfo(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oVrDeviceInfo
