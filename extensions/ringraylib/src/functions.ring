@@ -48,6 +48,10 @@ func Ray p1,p2,p3,p4,p5,p6
 	oRay = new Ray(p1,p2,p3,p4,p5,p6)
 	return oRay
 
+func RayhitInfo p1,p2,p3,p4,p5,p6,p7,p8
+	oRayHitInfo = new RayHitInfo(p1,p2,p3,p4,p5,p6,p7,p8)
+	return oRayHitInfo
+
 func BoundingBox p1,p2,p3,p4,p5,p6
 	oBox = new BoundingBox(p1,p2,p3,p4,p5,p6)
 	return oBox

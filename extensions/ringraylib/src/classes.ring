@@ -319,6 +319,55 @@ class Ray
 		direction.y = raylib_get_Ray_direction_y(oData)
 		direction.z = raylib_get_Ray_direction_z(oData)
 
+class RayHitInfo 
+
+	hit distance
+	position = new Vector3
+	normal   = new Vector3
+
+	oData = raylib_new_managed_RayHitInfo()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8
+		hit=p1  distance=p2
+		position.x = p3
+		position.y = p4
+		position.z = p5
+		normal.x   = p6
+		normal.y   = p7
+		normal.z   = p8
+
+	func data 
+		raylib_set_RayHitInfo_hit(oData,hit)
+		raylib_set_RayHitInfo_distance(oData,distance)
+		raylib_set_RayHitInfo_position_x(oData,position.x)
+		raylib_set_RayHitInfo_position_y(oData,position.y)
+		raylib_set_RayHitInfo_position_z(oData,position.z)
+		raylib_set_RayHitInfo_normal_x(oData,normal.x)
+		raylib_set_RayHitInfo_normal_y(oData,normal.y)
+		raylib_set_RayHitInfo_normal_z(oData,normal.z)
+		return oData
+
+	func setdata oStruct 
+		hit = raylib_get_RayHitInfo_hit(oStruct)
+		distance = raylib_get_RayHitInfo_distance(oStruct)
+		position.x = raylib_get_RayHitInfo_position_x(oStruct)
+		position.y = raylib_get_RayHitInfo_position_y(oStruct)
+		position.z = raylib_get_RayHitInfo_position_z(oStruct)
+		normal.x = raylib_get_RayHitInfo_normal_x(oStruct)
+		normal.y = raylib_get_RayHitInfo_normal_y(oStruct)
+		normal.z = raylib_get_RayHitInfo_normal_z(oStruct)
+
+	func refresh
+		hit = raylib_get_RayHitInfo_hit(oData)
+		distance = raylib_get_RayHitInfo_distance(oData)
+		position.x = raylib_get_RayHitInfo_position_x(oData)
+		position.y = raylib_get_RayHitInfo_position_y(oData)
+		position.z = raylib_get_RayHitInfo_position_z(oData)
+		normal.x = raylib_get_RayHitInfo_normal_x(oData)
+		normal.y = raylib_get_RayHitInfo_normal_y(oData)
+		normal.z = raylib_get_RayHitInfo_normal_z(oData)
+
+
 class BoundingBox 
 
 	min	= new Vector3
