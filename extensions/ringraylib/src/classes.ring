@@ -279,6 +279,26 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class BoneInfo
+
+	parent 
+
+	oData = raylib_new_managed_BoneInfo()
+
+	func init p1
+		parent = p1
+
+	func data 
+		raylib_set_BoneInfo_parent(oData,parent)	
+		return oData 
+
+	func setdata oStruct 
+		parent = raylib_get_Model_parent(oStruct)
+
+	func refresh
+		parent = raylib_get_Model_parent(oData)
+		
+
 class Model
 
 	transform = new Matrix
