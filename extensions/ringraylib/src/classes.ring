@@ -279,6 +279,60 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class Transform 
+
+	translation 	= Vector3
+	rotation	= Vector3		
+	scale 		= Vector3 
+	
+	oData = raylib_new_managed_Transform()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9
+		translation.x 	= p1
+		translation.y 	= p2
+		translation.z 	= p3
+		rotation.x	= p4
+		rotation.y	= p5
+		rotation.z	= p6
+		scale.x		= p7
+		scale.y		= p8
+		scale.z		= p9
+
+	func data 
+		raylib_set_Transform_translation_x(oData,translation.x)	
+		raylib_set_Transform_translation_y(oData,translation.y)	
+		raylib_set_Transform_translation_z(oData,translation.z)	
+		raylib_set_Transform_rotation_x(oData,rotation.x)	
+		raylib_set_Transform_rotation_y(oData,rotation.y)	
+		raylib_set_Transform_rotation_z(oData,rotation.z)	
+		raylib_set_Transform_scale_x(oData,scale.x)	
+		raylib_set_Transform_scale_y(oData,scale.y)	
+		raylib_set_Transform_scale_z(oData,scale.z)	
+		return oData 
+
+	func setdata oStruct 
+		translation.x = raylib_get_Transform_translation_x(oStruct)
+		translation.y = raylib_get_Transform_translation_y(oStruct)
+		translation.z = raylib_get_Transform_translation_z(oStruct)
+		rotation.x = raylib_get_Transform_rotation_x(oStruct)
+		rotation.y = raylib_get_Transform_rotation_y(oStruct)
+		rotation.z = raylib_get_Transform_rotation_z(oStruct)
+		scale.x = raylib_get_Transform_scale_x(oStruct)
+		scale.y = raylib_get_Transform_scale_y(oStruct)
+		scale.z = raylib_get_Transform_scale_z(oStruct)
+
+	func refresh
+		translation.x = raylib_get_Transform_translation_x(oData)
+		translation.y = raylib_get_Transform_translation_y(oData)
+		translation.z = raylib_get_Transform_translation_z(oData)
+		rotation.x = raylib_get_Transform_rotation_x(oData)
+		rotation.y = raylib_get_Transform_rotation_y(oData)
+		rotation.z = raylib_get_Transform_rotation_z(oData)
+		scale.x = raylib_get_Transform_scale_x(oData)
+		scale.y = raylib_get_Transform_scale_y(oData)
+		scale.z = raylib_get_Transform_scale_z(oData)
+
+
 class BoneInfo
 
 	parent 
