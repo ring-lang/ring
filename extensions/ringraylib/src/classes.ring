@@ -279,6 +279,31 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class ModelAnimation 
+
+	boneCount bones frameCount
+
+	oData = raylib_new_managed_ModelAnimation()
+
+	func init p1,p2,p3
+		boneCount=p1 bones=p2 frameCount=p3
+
+	func data 
+		raylib_set_ModelAnimation_boneCount(oData,boneCount)
+		raylib_set_ModelAnimation_bones(oData,bones)
+		raylib_set_ModelAnimation_frameCount(oData,frameCount)
+		return oData
+
+	func setdata oStruct 
+		boneCount = raylib_get_ModelAnimation_boneCount(oStruct)
+		bones = raylib_get_ModelAnimation_bones(oStruct)
+		frameCount = raylib_get_ModelAnimation_frameCount(oStruct)
+
+	func refresh
+		boneCount = raylib_get_ModelAnimation_boneCount(oData)
+		bones = raylib_get_ModelAnimation_bones(oData)
+		frameCount = raylib_get_ModelAnimation_frameCount(oData)
+
 class Ray
 
 	position	= new Vector3

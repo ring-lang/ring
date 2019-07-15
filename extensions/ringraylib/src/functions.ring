@@ -44,6 +44,10 @@ func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
 	return oCamera
 
+func ModelAnimation p1,p2,p3
+	oModelAnimation = new ModelAnimation(p1,p2,p3)
+	return oModelAnimation
+
 func Ray p1,p2,p3,p4,p5,p6
 	oRay = new Ray(p1,p2,p3,p4,p5,p6)
 	return oRay
