@@ -279,6 +279,95 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class Model
+
+	transform = new Matrix
+ 	meshCount meshes materialCount materials 
+	meshMaterial boneCount bones bindPose
+
+	oData = raylib_new_managed_Model()
+
+	func init
+
+	func data 
+		raylib_set_Model_transform_m0(oData,transform.m0)
+		raylib_set_Model_transform_m1(oData,transform.m1)
+		raylib_set_Model_transform_m2(oData,transform.m2)
+		raylib_set_Model_transform_m3(oData,transform.m3)
+		raylib_set_Model_transform_m4(oData,transform.m4)
+		raylib_set_Model_transform_m5(oData,transform.m5)
+		raylib_set_Model_transform_m6(oData,transform.m6)
+		raylib_set_Model_transform_m7(oData,transform.m7)
+		raylib_set_Model_transform_m8(oData,transform.m8)
+		raylib_set_Model_transform_m9(oData,transform.m9)
+		raylib_set_Model_transform_m10(oData,transform.m10)
+		raylib_set_Model_transform_m11(oData,transform.m11)
+		raylib_set_Model_transform_m12(oData,transform.m12)
+		raylib_set_Model_transform_m13(oData,transform.m13)
+		raylib_set_Model_transform_m14(oData,transform.m14)
+		raylib_set_Model_transform_m15(oData,transform.m15)
+  		raylib_set_Model_meshCount(oData,meshCount)
+  		raylib_set_Model_meshes(oData,meshes)
+  		raylib_set_Model_materialCount(oData,materialCount)
+  		raylib_set_Model_materials(oData,materials)
+  		raylib_set_Model_meshMaterial(oData,meshMaterial)
+  		raylib_set_Model_boneCount(oData,boneCount)
+  		raylib_set_Model_bones(oData,bones)
+  		raylib_set_Model_bindPose(oData,bindPose)
+		return oData
+
+	func setdata oStruct 
+		transform.m0 = raylib_get_Model_transform_m0(oStruct)
+		transform.m1 = raylib_get_Model_transform_m1(oStruct)
+		transform.m2 = raylib_get_Model_transform_m2(oStruct)
+		transform.m3 = raylib_get_Model_transform_m3(oStruct)
+		transform.m4 = raylib_get_Model_transform_m4(oStruct)
+		transform.m5 = raylib_get_Model_transform_m5(oStruct)
+		transform.m6 = raylib_get_Model_transform_m6(oStruct)
+		transform.m7 = raylib_get_Model_transform_m7(oStruct)
+		transform.m8 = raylib_get_Model_transform_m8(oStruct)
+		transform.m9 = raylib_get_Model_transform_m9(oStruct)
+		transform.m10 = raylib_get_Model_transform_m10(oStruct)
+		transform.m11 = raylib_get_Model_transform_m11(oStruct)
+		transform.m12 = raylib_get_Model_transform_m12(oStruct)
+		transform.m13 = raylib_get_Model_transform_m13(oStruct)
+		transform.m14 = raylib_get_Model_transform_m14(oStruct)
+		transform.m15 = raylib_get_Model_transform_m15(oStruct)
+		meshCount = raylib_get_Model_meshCount(oStruct)
+		meshes = raylib_get_Model_meshes(oStruct)
+		materialCount = raylib_get_Model_materialCount(oStruct)
+		materials = raylib_get_Model_materials(oStruct)
+		meshMaterial = raylib_get_Model_meshMaterial(oStruct)
+		boneCount = raylib_get_Model_boneCount(oStruct)
+		bones = raylib_get_Model_bones(oStruct)
+		bindPose = raylib_get_Model_bindPose(oStruct)
+
+	func refresh
+		transform.m0 = raylib_get_Model_transform_m0(oData)
+		transform.m1 = raylib_get_Model_transform_m1(oData)
+		transform.m2 = raylib_get_Model_transform_m2(oData)
+		transform.m3 = raylib_get_Model_transform_m3(oData)
+		transform.m4 = raylib_get_Model_transform_m4(oData)
+		transform.m5 = raylib_get_Model_transform_m5(oData)
+		transform.m6 = raylib_get_Model_transform_m6(oData)
+		transform.m7 = raylib_get_Model_transform_m7(oData)
+		transform.m8 = raylib_get_Model_transform_m8(oData)
+		transform.m9 = raylib_get_Model_transform_m9(oData)
+		transform.m10 = raylib_get_Model_transform_m10(oData)
+		transform.m11 = raylib_get_Model_transform_m11(oData)
+		transform.m12 = raylib_get_Model_transform_m12(oData)
+		transform.m13 = raylib_get_Model_transform_m13(oData)
+		transform.m14 = raylib_get_Model_transform_m14(oData)
+		transform.m15 = raylib_get_Model_transform_m15(oData)
+		meshCount = raylib_get_Model_meshCount(oData)
+		meshes = raylib_get_Model_meshes(oData)
+		materialCount = raylib_get_Model_materialCount(oData)
+		materials = raylib_get_Model_materials(oData)
+		meshMaterial = raylib_get_Model_meshMaterial(oData)
+		boneCount = raylib_get_Model_boneCount(oData)
+		bones = raylib_get_Model_bones(oData)
+		bindPose = raylib_get_Model_bindPose(oData)
+
 class ModelAnimation 
 
 	boneCount bones frameCount
