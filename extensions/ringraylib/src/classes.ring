@@ -285,6 +285,19 @@ class Shader
 
 	oData = raylib_new_managed_Shader()
 
+	func init p1
+		id = p1
+
+	func data 
+		raylib_set_Shader_id(oData,id)	
+		return oData
+
+	func setdata oStruct 
+		id = raylib_get_shader_id(oStruct)
+
+	func refresh
+		id = raylib_get_shader_id(oData)
+
 
 class Material 
 

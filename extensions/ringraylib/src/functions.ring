@@ -44,6 +44,10 @@ func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
 	return oCamera
 
+func Shader p1
+	oShader = new Shader(p1)
+	return oShader
+
 func Material p1,p2
 	oMaterial = new Material(p1,p2)
 	return oMaterial
