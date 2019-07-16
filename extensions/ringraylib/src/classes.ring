@@ -279,6 +279,38 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class Shader 
+
+	id
+
+	oData = raylib_new_managed_Shader()
+
+
+class Material 
+
+	shader = new Shader 
+	params
+
+	oData = raylib_new_managed_Material()
+
+	func init p1,p2
+		shader.id = p1
+		params = p2
+
+	func data 
+		raylib_set_Material_Shader_id(oData,Shader.id)	
+		raylib_set_Material_params(oData,params)	
+		return oData 
+
+	func setdata oStruct 
+		shader.id = raylib_get_Material_shader_id(oStruct)
+		params = raylib_get_Material_params(oStruct)
+
+	func refresh
+		shader.id = raylib_get_Material_shader_id(oData)
+		params = raylib_get_Material_params(oData)
+
+
 class Transform 
 
 	translation 	= Vector3
