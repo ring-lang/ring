@@ -1,1 +1,1 @@
-start http://localhost/ringapp/index.ring
+start http://localhost:8080/index.ring

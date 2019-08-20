@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SQLite Functions &mdash; Ring 1.6 documentation</title>
+    <title>SQLite Functions &mdash; Ring 1.8 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.6',
+        VERSION:     '1.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
     <link rel="next" title="Security and Internet Functions" href="secfunc.html" />
     <link rel="prev" title="MySQL Functions" href="mysql.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="mysql.html" title="MySQL Functions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -89,39 +89,41 @@
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The next code create a SQLite database, add new records then display the data.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sqlitelib.ring&quot;</span>
+
+<span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
 
 <span class="n">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;mytest.db&quot;</span><span class="p">)</span>
 
-<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
-         <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;SALARY         REAL );&quot;</span>
-
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;</span>
+         <span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">COMPANY</span> <span class="p">(</span>
+         <span class="n">ID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+         <span class="n">NAME</span>           <span class="n">TEXT</span>    <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+         <span class="n">AGE</span>            <span class="n">INT</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+         <span class="n">ADDRESS</span>        <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+         <span class="n">SALARY</span>         <span class="n">REAL</span> <span class="p">);</span>
+<span class="s">&quot;</span>
 <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
-<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-         <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
-         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-         <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
-         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-         <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;</span>
+        <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">COMPANY</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">AGE</span><span class="p">,</span><span class="n">ADDRESS</span><span class="p">,</span><span class="n">SALARY</span><span class="p">)</span>
+        <span class="n">VALUES</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;Mahmoud&#39;</span> <span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">20000.00</span> <span class="p">),</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;Ahmed&#39;</span>   <span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">15000.00</span> <span class="p">),</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;Mohammed&#39;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sc">&#39;Egypt&#39;</span> <span class="p">,</span> <span class="mf">20000.00</span> <span class="p">),</span>
+                <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39;Ibrahim&#39;</span> <span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="sc">&#39;Egypt &#39;</span><span class="p">,</span> <span class="mf">65000.00</span> <span class="p">);</span>
+<span class="s">&quot;</span>
 
 <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
 <span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
-                <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="o">?</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
         <span class="k">next</span>
 <span class="k">next</span>
-<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
-        <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="s">&quot;name&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="o">?</span> <span class="n">x</span><span class="o">[</span><span class="p">:</span><span class="n">name</span><span class="o">]</span>
 <span class="k">next</span>
 <span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
 </pre></div>
@@ -217,11 +219,11 @@
         <li class="right" >
           <a href="mysql.html" title="MySQL Functions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

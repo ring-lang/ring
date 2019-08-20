@@ -1,0 +1,458 @@
+.. index:: 
+	single: What is new in Ring 1.7?; Introduction
+
+========================
+What is new in Ring 1.7?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.7 release.
+
+.. index:: 
+	pair: What is new in Ring 1.7?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.7 comes with many new features!
+
+* New Command: Load Package
+* ringvm_see() and ringvm_give() functions
+* ring_state_new() and ring_state_mainfile() functions
+* Better Trace Library
+* Better Ring Notepad
+* Better RingQt
+* Better Ring2EXE
+* Better RingZip
+* Better Documentation
+* Better Ring VM
+* RingLibuv Extension
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; New Command: Load Package
+
+New Command: Load Package
+=========================
+
+Using the 'load' command we can use many ring source files in the same project
+
+But all of these files will share the same global scope 
+
+Now we have the "Load Package" command too
+
+Using "Load Package" we can load a library (*.ring file) in new global scope
+
+This is very useful to create libraries that avoid conflicts in global variables
+
+Example:
+
+File: loadpackage.ring
+
+.. code-block:: ring
+
+	x = 100
+	? "Hello, World!"
+	load package "testloadpackage.ring"
+
+	? x
+	test()
+
+File: testloadpackage.ring
+
+.. code-block:: ring
+
+	? "Hello from testloadpackage.ring"
+
+	x = 1000
+
+	test()
+
+	func test
+		? x
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	Hello from testloadpackage.ring
+	1000
+	100
+	1000
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ringvm_see() and ringvm_give() functions
+
+ringvm_see() and ringvm_give() functions
+========================================
+
+Using the ringvm_see() function we can redefine the behavior of the See command
+
+Also we can use ring_see() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Hello world" + nl
+	see 123 + nl
+	see ["one","two","three"]
+	see new point {x=10 y=20 z=30} 
+
+	func ringvm_see t
+		ring_see("We want to print: ")
+		ring_See(t)
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	We want to print: Hello world
+	We want to print: 123
+	We want to print: one
+	two
+	three
+	We want to print: x: 10.000000
+	y: 20.000000
+	z: 30.000000
+
+Using the ringvm_give() function we can redefine the behavior of the Give command
+
+Also we can use ring_give() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Name: " give name
+	see "Hello " + name
+
+	func ringvm_give
+		see "Mahmoud" + nl
+		return "Mahmoud"
+
+Output:
+
+.. code-block:: ring
+
+	Name: Mahmoud
+	Hello Mahmoud
+
+.. index:: 
+	pair: What is new in Ring 1.7?; ring_state_new() and ring_state_mainfile() functions
+
+ring_state_new() and ring_state_mainfile() functions
+====================================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Trace Library
+
+Better Trace Library
+====================
+
+The Trace library is updated, In the Debugger at break points we have now the "callstack" command
+
+This command will print the functions call stack.
+
+Example:
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	func main
+		? "Hello from main!"
+		test1()
+
+	func test1 
+		? "Hello from test1!"
+		test2()
+
+	func test2 
+		? "Hello from test2!"
+		test3()
+
+	func test3 
+		? "Hello from test3!"
+		breakpoint()
+
+
+.. image:: callstack.png
+	:alt: Call Stack
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+Ring Notepad comes with the next updates
+
+(1) Support *.cf extension
+(2) Using Hash function (SHA256) for better "Save Changes?" message
+(3) Ring Notepad - X Button - Ask for saving changes?
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better RingQt
+
+Better RingQt
+=============
+
+The next classes are added to RingQt
+
+(1)  QStackedWidget
+(2)  QCalendarWidget
+(3)  QOpenGLFunctions
+(4)  QOpenGLContext
+(5)  QSurfaceFormat
+(6)  QOpenGLWidget
+(7)  QOpenGLVersionProfile
+(8)  QOpenGLFunctions_3_2_Core
+(9)  QVector2D
+(10) QVector3D
+(11) QVector4D
+(12) QQuaternion
+(13) QMatrix4x4
+(14) QOpenGLPaintDevice
+(15) QPaintDevice
+(16) QOpenGLTimerQuery
+(17) QOpenGLDebugLogger
+(18) QOpenGLFramebufferObject
+(19) QOpenGLVertexArrayObject
+(20) QOpenGLBuffer
+(21) QOpenGLShaderProgram
+(22) QOpenGLShader
+(23) QOpenGLTexture
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring2EXE
+
+Better Ring2EXE
+===============
+
+Ring2EXE is updated to works as expected when we don't have a C/C++ compiler
+
+Where we can distribute applications and get (exe file and ringo file) in this case.
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better RingZip
+
+Better RingZip
+==============
+
+The library is updated to support extracting files contains sub folders!
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Documentation
+
+Better Documentation
+====================
+
+(1) RingQt Classes Chapter - The classes are sorted.
+
+
+.. index:: 
+	pair: What is new in Ring 1.7?; Better Ring VM
+
+Better Ring VM
+==============
+
+(1) Better Error Message
+(2) List2Str() function support lists contains numbers
+(3) Correct support for numbers contains _ as separator
+(4) Creating lists without variables (statement --> Expression --> List)
+(5) IsNULL() - Not case sensitive - treat Null and null like NULL
+(6) Support adding the Self object to an attribute in this object
+(7) Using ':' operator then keyword will create lower case literal 
+(8) Printing objects - respect decimals() function
+(9) When literal is not closed - determine the start of the literal
+(10) Better message when printing objects contains lists
+(11) VarPtr() - Support getting a pointer to variables in the local scope
+(12) replace performance instructions with normal instructions when creating new threads
+
+.. index:: 
+	pair: What is new in Ring 1.7?; RingLibuv Extension
+
+RingLibuv Extension
+===================
+
+Ring 1.7 comes with the RingLibuv extension
+
+Libuv is a multi-platform support library with a focus on asynchronous I/O.
+
+Example (Events Loop):
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	counter = 0
+	idler = NULL 
+
+	func main
+		idler = new_uv_idle_t()
+		uv_idle_init(uv_default_loop(), idler)
+		uv_idle_start(idler, "wait()")
+		? "Idling..."
+		uv_run(uv_default_loop(), UV_RUN_DEFAULT);
+		uv_loop_close(uv_default_loop());
+		destroy_uv_idle_t(idler)
+
+	func wait
+		counter++
+		if counter >= 100000
+			uv_idle_stop(idler)
+		ok
+
+Output:
+
+.. code-block:: none
+
+	Idling...
+
+Example (Server):
+
+.. code-block:: ring
+
+	load "libuv.ring"
+	load "objectslib.ring"
+
+	? "Testing RingLibuv - Server Side - Using Classes"
+
+	open_object(:MyServer)
+
+	class MyServer from ObjectControllerParent
+
+		DEFAULT_PORT    = 13370
+		DEFAULT_BACKLOG = 1024
+		
+		addr    = new_sockaddr_in()
+		server  = NULL
+		client  = NULL
+		myloop  = NULL
+		
+		func start
+			myloop = uv_default_loop()
+			server = new_uv_tcp_t()
+			uv_tcp_init(myloop, server)
+			uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
+			uv_tcp_bind(server, addr, 0)
+			r = uv_listen(server, DEFAULT_BACKLOG, Method(:newconnection) )
+			if r 
+				? "Listen error " + uv_strerror(r)
+				return 1
+			ok
+			uv_run(myloop, UV_RUN_DEFAULT)
+			destroy_uv_tcp_t(server)
+			destroy_uv_sockaddr_in(addr)
+		
+		func newconnection
+			? "New Connection"
+			aPara   = uv_Eventpara(server,:connect)
+			nStatus = aPara[2]
+			if nStatus < 0
+				? "New connection error : " + nStatus 
+				return 
+			ok
+			client = new_uv_tcp_t()
+			uv_tcp_init(myloop, client)
+			if uv_accept(server, client) = 0 
+					uv_read_start(client, uv_myalloccallback(), 
+								Method(:echo_read))
+			ok
+		
+		func echo_read 
+			aPara = uv_Eventpara(client,:read)
+			nRead = aPara[2]
+			buf   = aPara[3]
+			if nRead > 0
+				req = new_uv_write_t()
+					wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
+				uv_write(req, client, wrbuf, 1, Method(:echo_write))
+				? uv_buf2str(wrbuf)
+				message = "message from the server to the client"
+				buf = new_uv_buf_t()
+				set_uv_buf_t_len(buf,len(message))
+				set_uv_buf_t_base(buf,varptr("message","char *"))
+				uv_write(req, client, buf, 1, Method(:echo_write))
+			ok
+		
+		func echo_write
+			aPara = uv_Eventpara(client,:read)
+			req   = aPara[1]
+	
+
+Output:
+
+When we run the client, We will see the message "New Connection"
+
+Then the message "hello from the client"
+
+.. code-block:: none
+
+	Testing RingLibuv - Server Side - Using Classes
+	New Connection
+	hello from the client
+
+Example (Using Threads):
+
+.. code-block:: ring
+
+	load "libuv.ring"
+	load "objectslib.ring"
+
+	? "Testing RingLibuv - Threads - Using Classes"
+
+	open_object(:MyThreads)
+
+	class MyThreads from ObjectControllerParent
+
+		func Start
+			one_id = new_uv_thread_t()
+			two_id = new_uv_thread_t()
+			uv_thread_create(one_id, Method(:One))
+			uv_thread_create(two_id, Method(:Two))
+			uv_thread_join(one_id)
+			uv_thread_join(two_id)
+			destroy_uv_thread_t(one_id)
+			destroy_uv_thread_t(two_id)
+		
+		func one
+			? "Message from the First Thread!"
+		
+		func Two
+			? "Message from the Second Thread!"
+		
+
+Output:
+
+.. code-block:: none
+
+	Testing RingLibuv - Threads - Using Classes
+	Message from the First Thread!
+	Message from the Second Thread!
+
+For more information about this extension (RingLibuv) check the chapter: Using RingLibuv

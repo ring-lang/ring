@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Keywords */
 const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
@@ -164,7 +164,9 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 			}
 			pVM = ring_vm_new(pRingState);
 			ring_vm_start(pRingState,pVM);
-			ring_vm_delete(pVM);
+			if ( ! pRingState->nDontDeleteTheVM ) {
+				ring_vm_delete(pVM);
+			}
 		}
 		#endif
 		/* Display Generated Code */
@@ -342,14 +344,17 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( c == '"' ) {
 				pScanner->state = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '"' ;
+				pScanner->nLiteralLine = pScanner->LinesCount ;
 			}
 			else if ( c == '\'' ) {
 				pScanner->state = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '\'' ;
+				pScanner->nLiteralLine = pScanner->LinesCount ;
 			}
 			else if ( c == '`' ) {
 				pScanner->state = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '`' ;
+				pScanner->nLiteralLine = pScanner->LinesCount ;
 			}
 			else if ( c == '#' ) {
 				pScanner->state = SCANNER_STATE_COMMENT ;
@@ -595,10 +600,13 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 int ring_scanner_isnumber ( char *cStr )
 {
 	unsigned int x  ;
+	unsigned int x2  ;
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
 		/* Accept _ in the number */
 		if ( (cStr[x] == '_') && (x > 0) && (x < strlen(cStr) - 1) ) {
-			cStr[x] = cStr[x+1] ;
+			for ( x2 = x ; x2 < strlen(cStr) ; x2++ ) {
+				cStr[x2] = cStr[x2+1] ;
+			}
 			x-- ;
 			continue ;
 		}
@@ -624,7 +632,7 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 	}
 	if ( pScanner->state == SCANNER_STATE_LITERAL ) {
 		ring_state_cgiheader(pScanner->pRingState);
-		printf( "Error in Line %d , Literal not closed expected \" in the end  ",pScanner->LinesCount ) ;
+		printf( "Error (S1) : In Line %d , Literal not closed, expected \" in the end\n",pScanner->nLiteralLine ) ;
 		return 0 ;
 	}
 	else if ( pScanner->state ==SCANNER_STATE_GENERAL ) {

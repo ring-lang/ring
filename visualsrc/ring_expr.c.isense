@@ -39,6 +39,8 @@ Type: char
 lSetProperty,lequal,nBeforeEqual
 Type: char
 cFuncName[100]
+Type: char
+cKeyword
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag

@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
 #define ring_h
 /*
@@ -52,6 +52,9 @@
 #define RING_LONGINSTRUCTION "\nError (E4) : Long VM Instruction! \n"
 /* General */
 #define RING_PATHSIZE 256
+/* See and Give - use ringvm_see() and ringvm_give() */
+#define RING_USESEEFUNCTION 1
+#define RING_USEGIVEFUNCTION 1
 /*
 **  Include Files 
 **  Include C Headers 

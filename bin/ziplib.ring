@@ -1,1 +1,1 @@
-load "/../extensions/ringzip/libzip.ring"
+load "/../extensions/ringzip/ziplib.ring"

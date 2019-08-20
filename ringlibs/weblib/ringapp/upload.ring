@@ -51,7 +51,7 @@ Func getuploadedfile oObj,cFile
 	oObj.newline() 
 	oObj.text( "File "+cFileName+ " Uploaded ..." ) 
 	oObj.newline()
-	imageURL = cUploadFolder+oObj.getfilename(aPageVars,cFile)
+	imageURL = cUploadFolder + oObj.getfilename(aPageVars,cFile)
 	oObj.link([ :url = imageURL, :title = "Download" ]) 
 	oObj.newline()
 	oObj.image( [ :url = imageURL , :alt = :image  ] )

@@ -1,0 +1,1 @@
+load "/../extensions/ringqt/objectslib/objectslib.ring"

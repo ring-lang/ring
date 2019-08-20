@@ -14,6 +14,8 @@ Contents:
    Applications developed in little hours <ringapps>
    Introduction <introduction>
    Language Design <languagedesign>
+   What is new in Ring 1.8? <whatisnew8>
+   What is new in Ring 1.7? <whatisnew7>
    What is new in Ring 1.6? <whatisnew6>
    What is new in Ring 1.5? <whatisnew5>
    What is new in Ring 1.4? <whatisnew4>
@@ -63,6 +65,7 @@ Contents:
    Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
+   Using Ringlibuv <libuv>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
@@ -84,12 +87,16 @@ Contents:
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Frequently Asked Questions (FAQ) <faq>
+   Language Reference <reference>
+   RingQt Classes and Methods Reference <qtclassesdoc>
+   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
-   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
+   RingLibuv Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
    RingOpenGL (OpenGL 1.1) Functions Reference <ringopengl11funcsdoc>
    RingOpenGL (OpenGL 1.2) Functions Reference <ringopengl12funcsdoc>
@@ -109,7 +116,4 @@ Contents:
    RingOpenGL (OpenGL 4.4) Functions Reference <ringopengl44funcsdoc>
    RingOpenGL (OpenGL 4.5) Functions Reference <ringopengl45funcsdoc>
    RingOpenGL (OpenGL 4.6) Functions Reference <ringopengl46funcsdoc>
-   RingQt Classes and Methods Reference <qtclassesdoc>
-   Frequently Asked Questions (FAQ) <faq>
-   Language Reference <reference>
    Resources <resources>

@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Support for C Functions */
 
@@ -103,6 +103,17 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
 	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
 	ring_vm_funcregister("ring_state_setvar",ring_vmlib_state_setvar);
+	ring_vm_funcregister("ring_state_new",ring_vmlib_state_new);
+	ring_vm_funcregister("ring_state_mainfile",ring_vmlib_state_mainfile);
+	/*
+	**  Ring See and Give 
+	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
+	**  Also we can use ring_see() and ring_give() to use the original behavior when we redefine it 
+	*/
+	ring_vm_funcregister("ringvm_see",ring_vmlib_see);
+	ring_vm_funcregister("ringvm_give",ring_vmlib_give);
+	ring_vm_funcregister("ring_see",ring_vmlib_see);
+	ring_vm_funcregister("ring_give",ring_vmlib_give);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -229,7 +240,7 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 	}
 	pList2 = ((VM *) pPointer)->aCPointers ;
 	if ( ring_list_getsize(pList2) > 0 ) {
-		for ( y = 1 ; y <= ring_list_getsize(pList2) ; y++ ) {
+		for ( y = ring_list_getsize(pList2) ; y >= 1 ; y-- ) {
 			if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
 				ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList2,y);
 				ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
@@ -241,7 +252,7 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 )
 {
 	VM *pVM  ;
-	List *pList  ;
+	List *pList, *pActiveMem  ;
 	Item *pItem  ;
 	/*
 	**  Usage 
@@ -249,10 +260,17 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 	**  We need this because some C Functions get int * or double * as parameter 
 	*/
 	pVM = (VM *) pPointer ;
+	/* Set the Active Scope */
+	pActiveMem = pVM->pActiveMem ;
+	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
 	if ( ring_vm_findvar(pVM, cStr ) == 0 ) {
+		/* Restore the Active Scope */
+		pVM->pActiveMem = pActiveMem ;
 		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
 		return NULL ;
 	}
+	/* Restore the Active Scope */
+	pVM->pActiveMem = pActiveMem ;
 	pList = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {
@@ -297,14 +315,15 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 
 RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType )
 {
+	List *pList2  ;
 	/* create sub list */
-	pList = ring_list_newlist(pList);
+	pList2 = ring_list_newlist(pList);
 	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer(pList,pGeneral);
+	ring_list_addpointer(pList2,pGeneral);
 	/* Add the pointer type */
-	ring_list_addstring(pList,cType);
+	ring_list_addstring(pList2,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint(pList,2);
+	ring_list_addint(pList2,2);
 }
 
 RING_API int ring_vm_api_iscpointerlist ( List *pList )
@@ -426,14 +445,15 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 
 RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType )
 {
+	List *pList2  ;
 	/* create sub list */
-	pList = ring_list_newlist_gc(pState,pList);
+	pList2 = ring_list_newlist_gc(pState,pList);
 	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer_gc(pState,pList,pGeneral);
+	ring_list_addpointer_gc(pState,pList2,pGeneral);
 	/* Add the pointer type */
-	ring_list_addstring_gc(pState,pList,cType);
+	ring_list_addstring_gc(pState,pList2,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint_gc(pState,pList,2);
+	ring_list_addint_gc(pState,pList2,2);
 }
 /*
 **  Library 
@@ -468,7 +488,7 @@ void ring_vmlib_len ( void *pPointer )
 
 void ring_vmlib_add ( void *pPointer )
 {
-	List *pList,*pList2, *pList3  ;
+	List *pList,*pList2  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -478,24 +498,16 @@ void ring_vmlib_add ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( RING_API_ISSTRING(2) ) {
-			ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
+			ring_list_addstring2_gc(pVM->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 			RING_API_RETSTRING2(RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 		}
 		else if ( RING_API_ISNUMBER(2) ) {
-			ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETNUMBER(2));
+			ring_list_adddouble_gc(pVM->pRingState,pList,RING_API_GETNUMBER(2));
 			RING_API_RETNUMBER(RING_API_GETNUMBER(2));
 		}
 		else if ( RING_API_ISLIST(2) ) {
-			pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-			pList3 = RING_API_GETLIST(2) ;
-			ring_list_copy(pList2,pList3);
-			if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList3) ) {
-				pVM->pBraceObject = pList2 ;
-				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
-			}
-			else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList3) ) {
-				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
-			}
+			pList2 = RING_API_GETLIST(2) ;
+			ring_vm_addlisttolist(pVM,pList2,pList);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -653,24 +665,47 @@ void ring_vmlib_time ( void *pPointer )
 void ring_vmlib_filename ( void *pPointer )
 {
 	VM *pVM  ;
-	int nPos  ;
 	List *pList  ;
+	int lFunctionCall,x  ;
+	const char *cOldFile  ;
+	const char *cFile  ;
 	pVM = (VM *) pPointer ;
-	if ( (pVM->nFuncExecute2 > 0) && (ring_list_getsize(pVM->pFuncCallList)>0) ) {
+	/* Get the current file name */
+	cOldFile = NULL ;
+	cFile = NULL ;
+	lFunctionCall = 0 ;
+	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,x);
 		/*
-		**  Here we have Load Function Instruction - But Still the function is not called 
-		**  FunctionName (  ***Parameters**** We are here! ) 
+		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
+		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
-		nPos = ring_list_getsize(pVM->pFuncCallList)  -  (pVM->nFuncExecute2 - 1) ;
-		if ( (nPos > 0) && (nPos <= ring_list_getsize(pVM->pFuncCallList)) ) {
-			pList = ring_list_getlist(pVM->pFuncCallList,nPos);
-			if ( ring_list_getsize(pList) >= RING_FUNCCL_FILENAME ) {
-				RING_API_RETSTRING((char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME ));
+		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
+			continue ;
+		}
+		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+			lFunctionCall = 1 ;
+		}
+	}
+	if ( lFunctionCall ) {
+		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+	}
+	else {
+		if ( pVM->nInClassRegion ) {
+			cFile = pVM->cFileNameInClassRegion ;
+		}
+		else {
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
 			}
 		}
-		return ;
 	}
-	RING_API_RETSTRING(pVM->cFileName);
+	RING_API_RETSTRING(cFile);
 }
 
 void ring_vmlib_getchar ( void *pPointer )
@@ -1067,6 +1102,7 @@ void ring_vmlib_type ( void *pPointer )
 
 void ring_vmlib_isnull ( void *pPointer )
 {
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1076,9 +1112,12 @@ void ring_vmlib_isnull ( void *pPointer )
 			RING_API_RETNUMBER(1);
 			return ;
 		}
-		else if ( strcmp(RING_API_GETSTRING(1),"NULL") == 0 ) {
-			RING_API_RETNUMBER(1);
-			return ;
+		else if ( RING_API_GETSTRINGSIZE(1) == 4 ) {
+			cStr = RING_API_GETSTRING(1) ;
+			if ( (cStr[0] == 'n' || cStr[0] == 'N') && (cStr[1] == 'u' || cStr[1] == 'U') && (cStr[2] == 'l' || cStr[2] == 'L') && (cStr[3] == 'l' || cStr[3] == 'L') ) {
+				RING_API_RETNUMBER(1);
+				return ;
+			}
 		}
 	}
 	else if ( RING_API_ISPOINTER(1) ) {
@@ -1284,6 +1323,7 @@ void ring_vmlib_list2str ( void *pPointer )
 	List *pList  ;
 	String *pString  ;
 	int x  ;
+	char cStr[100]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1297,6 +1337,13 @@ void ring_vmlib_list2str ( void *pPointer )
 					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
 				}
 				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
+			}
+			else if ( ring_list_isnumber(pList,x) ) {
+				if ( x != 1 ) {
+					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
+				}
+				ring_vm_numtostring((VM *) pPointer,ring_list_getdouble(pList,x) ,cStr);
+				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,cStr);
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
@@ -2026,4 +2073,40 @@ void ring_vmlib_state_setvar ( void *pPointer )
 		pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
 		ring_list_copy(pList3,pList2);
 	}
+}
+
+void ring_vmlib_state_new ( void *pPointer )
+{
+	RING_API_RETCPOINTER(ring_state_new(),"RINGSTATE");
+}
+
+void ring_vmlib_state_mainfile ( void *pPointer )
+{
+	RingState *pRingState  ;
+	char *cStr  ;
+	int argc  ;
+	char *argv[2]  ;
+	argv[0] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+	argv[1] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	cStr = RING_API_GETSTRING(2);
+	argc = 2 ;
+	strcpy(argv[0],"ring");
+	strcpy(argv[1],cStr);
+	pRingState->argc = argc ;
+	pRingState->argv = argv ;
+	/*
+	**  Don't Delete the VM after execution 
+	**  We may run GUI app from GUI app 
+	**  In this case the caller already called qApp.Exec() 
+	**  Deleting the VM in sub program after execution 
+	**  Will lead to crash when we execute events (like button click) in the sub program 
+	**  So we keep the VM to avoid the Crash 
+	*/
+	pRingState->nDontDeleteTheVM = 1 ;
+	ring_scanner_readfile(pRingState,cStr);
 }

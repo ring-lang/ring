@@ -126,6 +126,7 @@ func _BreakPoint
 	"Command (Locals)      : Print local variables names" + nl +
 	"Command (LocalsData)  : Print local variables data" + nl +
 	"Command (Globals)     : Print global variables names" + nl +
+	"Command (CallStack)  : Print call stack" + nl +
 	"We can execute Ring code" + nl +
 	Copy("=",60) + nl 
 	while true
@@ -149,6 +150,22 @@ func _BreakPoint
 			on "cont"
 				ringvm_passerror()
 				exit
+			on "callstack"
+				? "Call Stack"
+				? "=========="
+				aCallList = ringvm_calllist()
+				aCallList2 = []
+			        for t in aCallList
+					if t[2] = :breakPoint 
+						exit
+					ok
+					aCallList2 + t[2]  
+				next
+				aCallList2 = reverse(aCallList2)
+				for t in aCallList2
+					? "Called From: " + t
+				next
+				loop
 		off
 		Try
 			ringvm_EvalInScope(nScope,cCode)

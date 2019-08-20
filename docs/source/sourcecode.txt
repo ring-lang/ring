@@ -112,6 +112,14 @@ Generate RingZip Source Code and Build
 	gencode.bat
 	buildvc.bat
 
+Generate RingLibuv Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringlibuv
+	gencode.bat
+	buildvc.bat
+
 Generate RingFreeGLUT Source Code and Build 
 
 .. code-block:: ring
@@ -274,6 +282,28 @@ Generate RingZip Source Code and Build
 	./gencode.sh
 	./buildgcc.sh
 
+Generate RingLibuv Source Code and Build
+
+We will build Libuv first
+
+.. code-block:: ring
+
+	cd ../extensions/ringlibuv/libuv
+	sudo apt-get install libtool m4 automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+
+.. code-block:: ring
+	
+	cd ..
+	./gencode.sh
+	./buildgcc.sh
+
 Generate RingFreeGLUT Source Code and Build 
 
 .. code-block:: ring
@@ -419,6 +449,28 @@ Generate RingZip Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingLibuv Source Code and Build
+
+We will build Libuv first
+
+.. code-block:: ring
+
+	cd ../extensions/ringlibuv/libuv
+	sudo dnf install libtool m4 autoconf automake
+	sh autogen.sh
+	./configure
+	make
+	make check
+	sudo make install
+
+Then we will build RingLibuv
+
+.. code-block:: ring
+	
+	cd ..
 	./gencode.sh
 	./buildgcc.sh
 
@@ -570,6 +622,14 @@ Generate RingZip Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingLibuv Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringlibuv
 	./gencode.sh
 	./buildclang.sh
 

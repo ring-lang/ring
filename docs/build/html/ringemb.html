@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Embedding Ring in Ring &mdash; Ring 1.6 documentation</title>
+    <title>Embedding Ring in Ring &mdash; Ring 1.8 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.6',
+        VERSION:     '1.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
     <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
     <link rel="prev" title="The Trace Library and the Interactive Debugger" href="debug.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="debug.html" title="The Trace Library and the Interactive Debugger"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -174,6 +174,44 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 </pre></div>
 </div>
 </div>
+<div class="section" id="ring-state-new-and-ring-state-mainfile">
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile()<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile" title="Permalink to this headline">¶</a></h2>
+<p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
+<p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
+<p>This is important when we run GUI programs from GUI programs</p>
+<p>Because they will share the GUI Library (RingQt), And In this case the caller will call</p>
+<p>qApp.Exec()</p>
+<p>So the sub program, will not stop and will return to the Main program</p>
+<p>Here deleting the State of the sub programs will lead to a problem when we run the sub program events</p>
+<p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Test ring_state_mainfile()&quot;</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">btn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">Win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                                <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;mytest()&quot;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+        <span class="p">}</span>
+
+<span class="k">func</span> <span class="n">mytest</span>
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+        <span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;runprogram.ring&quot;</span><span class="p">)</span>
+        <span class="c"># Here we don&#39;t delete the state if we will run GUI application</span>
+        <span class="c"># So we can run the GUI application events</span>
+                <span class="o">//</span> <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you will use this feature, remember to update the previous example based on your application needs</p>
+<p>So you can call ring_state_delete() at some point to avoid the memory leak!</p>
+</div>
 </div>
 
 
@@ -188,6 +226,7 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <li><a class="reference internal" href="#embedding-ring-in-ring-without-sharing-the-state">Embedding Ring in Ring without sharing the State</a></li>
 <li><a class="reference internal" href="#serial-execution-of-programs">Serial Execution of Programs</a></li>
 <li><a class="reference internal" href="#ring-state-setvar">ring_state_setvar()</a></li>
+<li><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile">ring_state_new() and ring_state_mainfile()</a></li>
 </ul>
 </li>
 </ul>
@@ -234,11 +273,11 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
         <li class="right" >
           <a href="debug.html" title="The Trace Library and the Interactive Debugger"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

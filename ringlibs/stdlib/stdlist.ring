@@ -104,7 +104,7 @@ Class List From StdBase
 			on "len"
 				return len( vValue )
 			on "[]"
-				return vValue[para]
+				return &vValue[para]
 		off
 		return result
 

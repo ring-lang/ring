@@ -311,3 +311,15 @@ QAbstractItemView_EditKeyPressed = 8
 QAbstractItemView_AnyKeyPressed = 16
 QAbstractItemView_AllEditTriggers = 31
 
+QSizePolicy_GrowFlag 		= 1
+QSizePolicy_ExpandFlag 		= 2
+QSizePolicy_ShrinkFlag 		= 3
+QSizePolicy_IgnoreFlag 		= 8
+QSizePolicy_Fixed		= 0
+QSizePolicy_Minimum		= QSizePolicy_GrowFlag
+QSizePolicy_Maximum		= QSizePolicy_ShrinkFlag
+QSizePolicy_Preferred		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag
+QSizePolicy_Expanding		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag | QSizePolicy_ExpandFlag
+QSizePolicy_MinimumExpanding 	= QSizePolicy_GrowFlag | QSizePolicy_ExpandFlag
+QSizePolicy_Ignored		= QSizePolicy_ShrinkFlag | QSizePolicy_GrowFlag | QSizePolicy_IgnoreFlag
+

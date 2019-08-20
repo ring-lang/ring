@@ -124,6 +124,8 @@ Ring 1.5 is released on August 21, 2017
 
 Ring 1.6 is released on November 30, 2017
 
+Ring 1.7 is released on January 25, 2018
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -215,16 +217,24 @@ The Ring language comes with the next features
 
 * Extension using C/C++ (Simple API)
 * Embedding the language in C/C++ programs
+* Embedding Ring in Ring
 * Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries
 	* Used to Support Allegro by creating RingAllegro
 	* Used to Support LibSDL by creating RingLibSDL
 	* Used to Support Qt by creating RingQt
-* Create 2D Games for Desktop and Mobile (Using the Allegro Library or the LibSDL Library)
+* Create 2D Games for Desktop and Mobile (Using the Allegro Library)
+* RingLibSDL Extension
 * Comes with simple Game Engine for 2D Games
-* Support FreeGLUT and OpenGL for 3D Graphics
+* RingOpenGL Extension
+* RingFreeGLUT Extension
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
+* RingREPL (Read-Eval-Print-Loop)
+* Tracing and Debugging
+* Type Hints
 * Comes with Ring2EXE to distribute applications
+* RingLibuv Extension
+* No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 
 License
 =======
@@ -233,7 +243,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.6
+Version 1.8
 
 The MIT License (MIT)
 

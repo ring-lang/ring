@@ -5,7 +5,7 @@
 <ignorecpointertype>
 
 <code>
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -25,9 +25,6 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include "gwebview.h"
-</filter>
 #include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
@@ -45,7 +42,24 @@ extern "C" {
 #include "gheaderview.h"
 #include "gprocess.h"
 #include "codeeditor.h"
-
+#include "highlighter.h"
+#include "gtoolbutton.h"
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gtextbrowser.h"
+#include "gdockwidget.h"
+#include "gstackedwidget.h"
+#include "gcalendarwidget.h"
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+#include "openglwidget.h"
+</filter>
 
 #include <QApplication>
 #include <QObject>
@@ -89,9 +103,6 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebView>
-</filter>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -111,9 +122,6 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QWebSettings>
-</filter>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -209,56 +217,77 @@ extern "C" {
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QCursor>
-#include "highlighter.h"
 #include <QListView>
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
-#include <QAxObject>
-#include <QAxBase>
-</filter>
 #include <QUuid>
 #include <QDesktopServices>
 #include <QToolButton>
-#include "gtoolbutton.h"
-<filter> (sysget("RINGQT_ANDROID") = "")
-#include <QSerialPort>
-#include "gserialport.h"
-#include <QSerialPortInfo>
-</filter>
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
 #include <QBuffer>
 #include <QBluetoothAddress>
 #include <QBluetoothDeviceDiscoveryAgent>
-#include "gbluetoothdevicediscoveryagent.h"
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothUuid>
 #include <QBluetoothHostInfo>
 #include <QBluetoothLocalDevice>
-#include "gbluetoothlocaldevice.h"
 #include <QBluetoothServer>
-#include "gbluetoothserver.h"
 #include <QBluetoothServiceDiscoveryAgent>
-#include "gbluetoothservicediscoveryagent.h"
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
-#include "gbluetoothsocket.h"
 #include <QBluetoothTransferManager>
-#include "gbluetoothtransfermanager.h"
 #include <QBluetoothTransferReply>
-#include "gbluetoothtransferreply.h"
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
 #include <QDateTime>
 #include <QScreen>
 #include <QWindow>
-#include "gwindow.h"
 #include <QGuiApplication>
-#include "gguiapplication.h"
 #include <QTextBrowser>
-#include "gtextbrowser.h"
-#include "gdockwidget.h"
 #include <QRegion>
+#include <QStackedWidget>
+#include <QCalendarWidget>
+#include <QVector2D>
+#include <QVector3D>
+#include <QVector4D>
+#include <QQuaternion>
+#include <QMatrix4x4>
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
+#include <QOpenGLPaintDevice>
+#include <QPaintDevice>
+#include <QOpenGLTimerQuery>
+#include <QOpenGLDebugLogger>
+#include <QOpenGLFramebufferObject>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLShader>
+#include <QOpenGLTexture>
+
+
+#include "gserialport.h"
+#include "gwebview.h"
+
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QWebSettings>
+#include <QWebView>
+
+</filter>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+#include <QAxObject>
+#include <QAxBase>
+
+</filter>
 
 extern "C" {
 
@@ -276,8 +305,11 @@ extern "C" {
 
 
 <runcode>
+
 aStringTypes + "QString"
+
 aBeforeReturn + ["QString",".toStdString().c_str()"]
+
 aNewMethodName + ["QWebView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
 aNewMethodName + ["QMediaPlaylist","next","movenext"]
@@ -297,9 +329,11 @@ aNewMethodName + ["QCamera","load","loadcamera"]
 aNewMethodName + ["QPixmap","load","loadpixmap"]
 aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
 aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
+aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
+
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
@@ -525,9 +559,7 @@ aEnumTypes + "QListView::ViewMode"
 aEnumTypes + "QListView::Flow"
 aEnumTypes + "QAxBase::PropertyBag"
 aEnumTypes + "QToolButton::ToolButtonPopupMode"
-$aMallocClassesList + "QModelIndex"
 aEnumTypes + "QMutex::RecursionMode"
-
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
 aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
@@ -569,8 +601,51 @@ aEnumTypes + "QDockWidget::DockWidgetFeatures"
 aEnumTypes + "QRegion::RegionType"
 aEnumTypes + "QEventLoop::ProcessEventsFlags"
 aEnumTypes + "Qt::ApplicationAttribute"
-</runcode>
+aEnumTypes + "QCalendarWidget::HorizontalHeaderFormat"
+aEnumTypes + "QCalendarWidget::VerticalHeaderFormat"
+aEnumTypes + "QCalendarWidget::SelectionMode"
+aEnumTypes + "QOpenGLFunctions::OpenGLFeature"
+aEnumTypes + "QOpenGLFunctions::OpenGLFeatures"
+aEnumTypes + "QOpenGLContext::OpenGLModuleType"
+aEnumTypes + "QSurfaceFormat::ColorSpace"
+aEnumTypes + "QSurfaceFormat::FormatOption"
+aEnumTypes + "QSurfaceFormat::FormatOptions"
+aEnumTypes + "QSurfaceFormat::OpenGLContextProfile"
+aEnumTypes + "QSurfaceFormat::RenderableType"
+aEnumTypes + "QSurfaceFormat::SwapBehavior"
+aEnumTypes + "QOpenGLWidget::UpdateBehavior"
+aEnumTypes + "QOpenGLTexture::BindingTarget"
+aEnumTypes + "QOpenGLTexture::ComparisonFunction"
+aEnumTypes + "QOpenGLTexture::ComparisonMode"
+aEnumTypes + "QOpenGLTexture::CoordinateDirection"
+aEnumTypes + "QOpenGLTexture::CubeMapFace"
+aEnumTypes + "QOpenGLTexture::DepthStencilMode"
+aEnumTypes + "QOpenGLTexture::Feature"
+aEnumTypes + "QOpenGLTexture::Features"
+aEnumTypes + "QOpenGLTexture::Filter"
+aEnumTypes + "QOpenGLTexture::MipMapGeneration"
+aEnumTypes + "QOpenGLTexture::PixelFormat"
+aEnumTypes + "QOpenGLTexture::PixelType"
+aEnumTypes + "QOpenGLTexture::SwizzleComponent"
+aEnumTypes + "QOpenGLTexture::SwizzleValue"
+aEnumTypes + "QOpenGLTexture::Target"
+aEnumTypes + "QOpenGLTexture::TextureFormat"
+aEnumTypes + "QOpenGLTexture::TextureUnitReset"
+aEnumTypes + "QOpenGLTexture::WrapMode"
+aEnumTypes + "QPaintDevice::PaintDeviceMetric"
+aEnumTypes + "QOpenGLDebugLogger::LoggingMode"
+aEnumTypes + "QOpenGLFramebufferObject::Attachment"
+aEnumTypes + "QOpenGLBuffer::Access"
+aEnumTypes + "QOpenGLBuffer::RangeAccessFlag"
+aEnumTypes + "QOpenGLBuffer::RangeAccessFlags"
+aEnumTypes + "QOpenGLBuffer::Type"
+aEnumTypes + "QOpenGLBuffer::UsagePattern"
+aEnumTypes + "QOpenGLShader::ShaderType"
+aEnumTypes + "QOpenGLShader::ShaderTypeBit"
 
+$aMallocClassesList + "QModelIndex"
+
+</runcode>
 
 <class>
 name: QApp
@@ -7874,3 +7949,1363 @@ QRegion translated@2(QPoint p)
 QRegion united(QRegion r)
 QRegion united@2(QRect rect)
 QRegion xored(QRegion r)
+
+<class>
+name: QStackedWidget
+para: QWidget *
+parent: QFrame
+codename: GStackedWidget
+passvmpointer
+</class>
+
+int addWidget(QWidget *widget)
+int count(void)
+int currentIndex(void)
+QWidget * currentWidget(void)
+int indexOf(QWidget *widget)
+int insertWidget(int index, QWidget *widget)
+void removeWidget(QWidget *widget)
+QWidget * widget(int index)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+void setwidgetRemovedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *getwidgetRemovedEvent(void)
+
+
+<class>
+name: QCalendarWidget
+para: QWidget *
+parent: QWidget
+codename: GCalendarWidget
+passvmpointer
+</class>
+
+int dateEditAcceptDelay(void)
+QMap<QDate, QTextCharFormat> dateTextFormat(void)
+QTextCharFormat dateTextFormat@2(QDate date)
+Qt::DayOfWeek firstDayOfWeek(void)
+QTextCharFormat headerTextFormat(void)
+QCalendarWidget::HorizontalHeaderFormat horizontalHeaderFormat(void)
+bool isDateEditEnabled(void)
+bool isGridVisible(void)
+bool isNavigationBarVisible(void)
+QDate maximumDate(void)
+QDate minimumDate(void)
+int monthShown(void)
+QDate selectedDate(void)
+QCalendarWidget::SelectionMode selectionMode(void)
+void setDateEditAcceptDelay(int delay)
+void setDateEditEnabled(bool enable)
+void setDateTextFormat(QDate date, QTextCharFormat format)
+void setFirstDayOfWeek(Qt::DayOfWeek dayOfWeek)
+void setHeaderTextFormat(QTextCharFormat format)
+void setHorizontalHeaderFormat(QCalendarWidget::HorizontalHeaderFormat format)
+void setMaximumDate(QDate date)
+void setMinimumDate(QDate date)
+void setSelectionMode(QCalendarWidget::SelectionMode mode)
+void setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat format)
+void setWeekdayTextFormat(Qt::DayOfWeek dayOfWeek, QTextCharFormat format)
+QCalendarWidget::VerticalHeaderFormat verticalHeaderFormat(void)
+QTextCharFormat weekdayTextFormat(Qt::DayOfWeek dayOfWeek)
+int yearShown(void)
+void setCurrentPage(int year, int month)
+void setDateRange(QDate min, QDate max)
+void setGridVisible(bool show)
+void setNavigationBarVisible(bool visible)
+void setSelectedDate(QDate date)
+void showNextMonth(void)
+void showNextYear(void)
+void showPreviousMonth(void)
+void showPreviousYear(void)
+void showSelectedDate(void)
+void showToday(void)
+
+void setactivatedEvent(const char *)
+void setclickedEvent(const char *)
+void setcurrentPageChangedEvent(const char *)
+void setselectionChangedEvent(const char *)
+
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getcurrentPageChangedEvent(void)
+const char *getselectionChangedEvent(void)
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QOpenGLFunctions
+para: void
+</class>
+
+<runcode>
+aNumberTypes + "GLint"
+aNumberTypes + "GLuint"
+aNumberTypes + "unsigned"
+aNumberTypes + "GLboolean"
+aNumberTypes + "GLdouble"
+aNumberTypes + "GLfloat"
+aNumberTypes + "GLchar"
+aNumberTypes + "GLsizeiptr"
+aNumberTypes + "GLintptr"
+aNumberTypes + "GLbyte"
+aNumberTypes + "GLshort"
+aNumberTypes + "GLubyte"
+aNumberTypes + "GLushort"
+aNumberTypes + "GLulong"
+aNumberTypes + "GLclampd"
+
+aEnumTypes + "GLbitfield"
+aEnumTypes + "GLenum"
+aEnumTypes + "GLsizei"
+aEnumTypes + "GLclampf"
+</runcode>
+
+void glActiveTexture(GLenum texture)
+void glAttachShader(GLuint program, GLuint shader)
+void glBindAttribLocation(GLuint program, GLuint index, char *name)
+void glBindBuffer(GLenum target, GLuint buffer)
+void glBindFramebuffer(GLenum target, GLuint framebuffer)
+void glBindRenderbuffer(GLenum target, GLuint renderbuffer)
+void glBindTexture(GLenum target, GLuint texture)
+void glBlendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)
+void glBlendEquation(GLenum mode)
+void glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha)
+void glBlendFunc(GLenum sfactor, GLenum dfactor)
+void glBlendFuncSeparate(GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha)
+void glBufferData(GLenum target, qopengl_GLsizeiptr size, void *data, GLenum usage)
+void glBufferSubData(GLenum target, qopengl_GLintptr offset, qopengl_GLsizeiptr size, void *data)
+GLenum glCheckFramebufferStatus(GLenum target)
+void glClear(GLbitfield mask)
+void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)
+void glClearDepthf(GLclampf depth)
+void glClearStencil(GLint s)
+void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)
+void glCompileShader(GLuint shader)
+void glCompressedTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, void *data)
+void glCompressedTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, void *data)
+void glCopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)
+void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height)
+GLuint glCreateProgram(void)
+GLuint glCreateShader(GLenum type)
+void glCullFace(GLenum mode)
+void glDeleteBuffers(GLsizei n, GLuint *buffers)
+void glDeleteFramebuffers(GLsizei n, GLuint *framebuffers)
+void glDeleteProgram(GLuint program)
+void glDeleteRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glDeleteShader(GLuint shader)
+void glDeleteTextures(GLsizei n, GLuint *textures)
+void glDepthFunc(GLenum func)
+void glDepthMask(GLboolean flag)
+void glDepthRangef(GLclampf zNear, GLclampf zFar)
+void glDetachShader(GLuint program, GLuint shader)
+void glDisable(GLenum cap)
+void glDisableVertexAttribArray(GLuint index)
+void glDrawArrays(GLenum mode, GLint first, GLsizei count)
+void glDrawElements(GLenum mode, GLsizei count, GLenum type, GLvoid *indices)
+void glEnable(GLenum cap)
+void glEnableVertexAttribArray(GLuint index)
+void glFinish(void)
+void glFlush(void)
+void glFramebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer)
+void glFramebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level)
+void glFrontFace(GLenum mode)
+void glGenBuffers(GLsizei n, GLuint *buffers)
+void glGenFramebuffers(GLsizei n, GLuint *framebuffers)
+void glGenRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glGenTextures(GLsizei n, GLuint *textures)
+void glGenerateMipmap(GLenum target)
+void glGetActiveAttrib(GLuint program, GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char *name)
+void glGetActiveUniform(GLuint program, GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char *name)
+void glGetAttachedShaders(GLuint program, GLsizei maxcount, GLsizei *count, GLuint *shaders)
+GLint glGetAttribLocation(GLuint program, char *name)
+void glGetBooleanv(GLenum pname, GLboolean *params)
+void glGetBufferParameteriv(GLenum target, GLenum pname, GLint *params)
+GLenum glGetError(void)
+void glGetFloatv(GLenum pname, GLfloat *params)
+void glGetFramebufferAttachmentParameteriv(GLenum target, GLenum attachment, GLenum pname, GLint *params)
+void glGetIntegerv(GLenum pname, GLint *params)
+void glGetProgramInfoLog(GLuint program, GLsizei bufsize, GLsizei *length, char *infolog)
+void glGetProgramiv(GLuint program, GLenum pname, GLint *params)
+void glGetRenderbufferParameteriv(GLenum target, GLenum pname, GLint *params)
+void glGetShaderInfoLog(GLuint shader, GLsizei bufsize, GLsizei *length, char *infolog)
+void glGetShaderPrecisionFormat(GLenum shadertype, GLenum precisiontype, GLint *range, GLint *precision)
+void glGetShaderSource(GLuint shader, GLsizei bufsize, GLsizei *length, char *source)
+void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)
+GLubyte * glGetString(GLenum name)
+void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glGetTexParameteriv(GLenum target, GLenum pname, GLint *params)
+GLint glGetUniformLocation(GLuint program, char *name)
+void glGetUniformfv(GLuint program, GLint location, GLfloat *params)
+void glGetUniformiv(GLuint program, GLint location, GLint *params)
+<comment>
+void glGetVertexAttribPointerv(GLuint index, GLenum pname, void **pointer)
+</comment>
+void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
+void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
+void glHint(GLenum target, GLenum mode)
+GLboolean glIsBuffer(GLuint buffer)
+GLboolean glIsEnabled(GLenum cap)
+GLboolean glIsFramebuffer(GLuint framebuffer)
+GLboolean glIsProgram(GLuint program)
+GLboolean glIsRenderbuffer(GLuint renderbuffer)
+GLboolean glIsShader(GLuint shader)
+GLboolean glIsTexture(GLuint texture)
+void glLineWidth(GLfloat width)
+void glLinkProgram(GLuint program)
+void glPixelStorei(GLenum pname, GLint param)
+void glPolygonOffset(GLfloat factor, GLfloat units)
+void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glReleaseShaderCompiler(void)
+void glRenderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height)
+void glSampleCoverage(GLclampf value, GLboolean invert)
+void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)
+void glShaderBinary(GLint n, GLuint *shaders, GLenum binaryformat, void *binary, GLint length)
+<comment>
+void glShaderSource(GLuint shader, GLsizei count, char **string, GLint *length)\
+</comment>
+void glStencilFunc(GLenum func, GLint ref, GLuint mask)
+void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)
+void glStencilMask(GLuint mask)
+void glStencilMaskSeparate(GLenum face, GLuint mask)
+void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass)
+void glStencilOpSeparate(GLenum face, GLenum fail, GLenum zfail, GLenum zpass)
+void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, GLvoid *pixels)
+void glTexParameterf(GLenum target, GLenum pname, GLfloat param)
+void glTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glTexParameteri(GLenum target, GLenum pname, GLint param)
+void glTexParameteriv(GLenum target, GLenum pname, GLint *params)
+void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glUniform1f(GLint location, GLfloat x)
+void glUniform1fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform1i(GLint location, GLint x)
+void glUniform1iv(GLint location, GLsizei count, GLint *v)
+void glUniform2f(GLint location, GLfloat x, GLfloat y)
+void glUniform2fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform2i(GLint location, GLint x, GLint y)
+void glUniform2iv(GLint location, GLsizei count, GLint *v)
+void glUniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z)
+void glUniform3fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform3i(GLint location, GLint x, GLint y, GLint z)
+void glUniform3iv(GLint location, GLsizei count, GLint *v)
+void glUniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void glUniform4fv(GLint location, GLsizei count, GLfloat *v)
+void glUniform4i(GLint location, GLint x, GLint y, GLint z, GLint w)
+void glUniform4iv(GLint location, GLsizei count, GLint *v)
+void glUniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUseProgram(GLuint program)
+void glValidateProgram(GLuint program)
+void glVertexAttrib1f(GLuint indx, GLfloat x)
+void glVertexAttrib1fv(GLuint indx, GLfloat *values)
+void glVertexAttrib2f(GLuint indx, GLfloat x, GLfloat y)
+void glVertexAttrib2fv(GLuint indx, GLfloat *values)
+void glVertexAttrib3f(GLuint indx, GLfloat x, GLfloat y, GLfloat z)
+void glVertexAttrib3fv(GLuint indx, GLfloat *values)
+void glVertexAttrib4f(GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void glVertexAttrib4fv(GLuint indx, GLfloat *values)
+void glVertexAttribPointer(GLuint indx, GLint size, GLenum type, GLboolean normalized, GLsizei stride, void *ptr)
+void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
+bool hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature feature)
+void initializeOpenGLFunctions(void)
+QOpenGLFunctions::OpenGLFeatures openGLFeatures(void)
+
+<class>
+name: QOpenGLContext
+para: QObject *
+parent: QObject
+</class>
+
+bool create(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSet<QByteArray> extensions(void)
+<comment>
+QOpenGLExtraFunctions * extraFunctions(void)
+</comment>
+QSurfaceFormat format(void)
+QOpenGLFunctions * functions(void)
+QFunctionPointer getProcAddress(QByteArray procName)
+QFunctionPointer getProcAddress@2(char *procName)
+bool hasExtension(QByteArray extension)
+bool isOpenGLES(void)
+bool isValid(void)
+bool makeCurrent(QSurface *surface)
+QVariant nativeHandle(void)
+QScreen * screen(void)
+void setFormat(QSurfaceFormat format)
+void setNativeHandle(QVariant handle)
+void setScreen(QScreen *screen)
+void setShareContext(QOpenGLContext *shareContext)
+QOpenGLContext * shareContext(void)
+QOpenGLContextGroup * shareGroup(void)
+QSurface * surface(void)
+void swapBuffers(QSurface *surface)
+QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
+TYPE * versionFunctions@2(void)
+bool areSharing(QOpenGLContext *first, QOpenGLContext *second)
+QOpenGLContext * currentContext(void)
+QOpenGLContext * globalShareContext(void)
+void * openGLModuleHandle(void)
+QOpenGLContext::OpenGLModuleType openGLModuleType(void)
+bool supportsThreadedOpenGL(void)
+
+<register>
+QOpenGLFunctions_3_2_Core *opengl32(void)
+<register>
+
+<code>
+RING_FUNC(ring_QOpenGLContext_opengl32)
+{
+	QOpenGLFunctions_3_2_Core *f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
+	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
+}
+</code>
+
+<class>
+name: QOpenGLFunctions_3_2_Core
+para: void
+</class>
+
+void glActiveTexture(GLenum texture)
+void glAttachShader(GLuint program, GLuint shader)
+void glBeginConditionalRender(GLuint id, GLenum mode)
+void glBeginQuery(GLenum target, GLuint id)
+void glBeginTransformFeedback(GLenum primitiveMode)
+void glBindAttribLocation(GLuint program, GLuint index, GLchar *name)
+void glBindBuffer(GLenum target, GLuint buffer)
+void glBindBufferBase(GLenum target, GLuint index, GLuint buffer)
+void glBindBufferRange(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size)
+void glBindFragDataLocation(GLuint program, GLuint color, GLchar *name)
+void glBindFramebuffer(GLenum target, GLuint framebuffer)
+void glBindRenderbuffer(GLenum target, GLuint renderbuffer)
+void glBindTexture(GLenum target, GLuint texture)
+void glBindVertexArray(GLuint array)
+void glBlendColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
+void glBlendEquation(GLenum mode)
+void glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha)
+void glBlendFunc(GLenum sfactor, GLenum dfactor)
+void glBlendFuncSeparate(GLenum sfactorRGB, GLenum dfactorRGB, GLenum sfactorAlpha, GLenum dfactorAlpha)
+void glBlitFramebuffer(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter)
+void glBufferData(GLenum target, GLsizeiptr size, GLvoid *data, GLenum usage)
+void glBufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, GLvoid *data)
+GLenum glCheckFramebufferStatus(GLenum target)
+void glClampColor(GLenum target, GLenum clamp)
+void glClear(GLbitfield mask)
+void glClearBufferfi(GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil)
+void glClearBufferfv(GLenum buffer, GLint drawbuffer, GLfloat *value)
+void glClearBufferiv(GLenum buffer, GLint drawbuffer, GLint *value)
+void glClearBufferuiv(GLenum buffer, GLint drawbuffer, GLuint *value)
+void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
+void glClearDepth(GLdouble depth)
+void glClearStencil(GLint s)
+GLenum glClientWaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout)
+void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)
+void glColorMaski(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a)
+void glCompileShader(GLuint shader)
+void glCompressedTexImage1D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLint border, GLsizei imageSize, GLvoid *data)
+void glCompressedTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, GLvoid *data)
+void glCompressedTexImage3D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, GLvoid *data)
+void glCompressedTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, GLvoid *data)
+void glCompressedTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, GLvoid *data)
+void glCompressedTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize, GLvoid *data)
+void glCopyBufferSubData(GLenum readTarget, GLenum writeTarget, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size)
+void glCopyTexImage1D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border)
+void glCopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)
+void glCopyTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width)
+void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height)
+void glCopyTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height)
+GLuint glCreateProgram(void)
+GLuint glCreateShader(GLenum type)
+void glCullFace(GLenum mode)
+void glDeleteBuffers(GLsizei n, GLuint *buffers)
+void glDeleteFramebuffers(GLsizei n, GLuint *framebuffers)
+void glDeleteProgram(GLuint program)
+void glDeleteQueries(GLsizei n, GLuint *ids)
+void glDeleteRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glDeleteShader(GLuint shader)
+void glDeleteSync(GLsync sync)
+void glDeleteTextures(GLsizei n, GLuint *textures)
+void glDeleteVertexArrays(GLsizei n, GLuint *arrays)
+void glDepthFunc(GLenum func)
+void glDepthMask(GLboolean flag)
+void glDepthRange(GLdouble nearVal, GLdouble farVal)
+void glDetachShader(GLuint program, GLuint shader)
+void glDisable(GLenum cap)
+void glDisableVertexAttribArray(GLuint index)
+void glDisablei(GLenum target, GLuint index)
+void glDrawArrays(GLenum mode, GLint first, GLsizei count)
+void glDrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei instancecount)
+void glDrawBuffer(GLenum mode)
+void glDrawBuffers(GLsizei n, GLenum *bufs)
+void glDrawElements(GLenum mode, GLsizei count, GLenum type, GLvoid *indices)
+void glDrawElementsBaseVertex(GLenum mode, GLsizei count, GLenum type, GLvoid *indices, GLint basevertex)
+void glDrawElementsInstanced(GLenum mode, GLsizei count, GLenum type, GLvoid *indices, GLsizei instancecount)
+void glDrawElementsInstancedBaseVertex(GLenum mode, GLsizei count, GLenum type, GLvoid *indices, GLsizei instancecount, GLint basevertex)
+void glDrawRangeElements(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, GLvoid *indices)
+void glDrawRangeElementsBaseVertex(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, GLvoid *indices, GLint basevertex)
+void glEnable(GLenum cap)
+void glEnableVertexAttribArray(GLuint index)
+void glEnablei(GLenum target, GLuint index)
+void glEndConditionalRender(void)
+void glEndQuery(GLenum target)
+void glEndTransformFeedback(void)
+GLsync glFenceSync(GLenum condition, GLbitfield flags)
+void glFinish(void)
+void glFlush(void)
+void glFlushMappedBufferRange(GLenum target, GLintptr offset, GLsizeiptr length)
+void glFramebufferRenderbuffer(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer)
+void glFramebufferTexture(GLenum target, GLenum attachment, GLuint texture, GLint level)
+void glFramebufferTexture1D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level)
+void glFramebufferTexture2D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level)
+void glFramebufferTexture3D(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset)
+void glFramebufferTextureLayer(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer)
+void glFrontFace(GLenum mode)
+void glGenBuffers(GLsizei n, GLuint *buffers)
+void glGenFramebuffers(GLsizei n, GLuint *framebuffers)
+void glGenQueries(GLsizei n, GLuint *ids)
+void glGenRenderbuffers(GLsizei n, GLuint *renderbuffers)
+void glGenTextures(GLsizei n, GLuint *textures)
+void glGenVertexArrays(GLsizei n, GLuint *arrays)
+void glGenerateMipmap(GLenum target)
+void glGetActiveAttrib(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLchar *name)
+void glGetActiveUniform(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLchar *name)
+void glGetActiveUniformBlockName(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformBlockName)
+void glGetActiveUniformBlockiv(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint *params)
+void glGetActiveUniformName(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformName)
+void glGetActiveUniformsiv(GLuint program, GLsizei uniformCount, GLuint *uniformIndices, GLenum pname, GLint *params)
+void glGetAttachedShaders(GLuint program, GLsizei maxCount, GLsizei *count, GLuint *obj)
+GLint glGetAttribLocation(GLuint program, GLchar *name)
+void glGetBooleani_v(GLenum target, GLuint index, GLboolean *data)
+void glGetBooleanv(GLenum pname, GLboolean *params)
+void glGetBufferParameteri64v(GLenum target, GLenum pname, GLint64 *params)
+void glGetBufferParameteriv(GLenum target, GLenum pname, GLint *params)
+<comment>
+void glGetBufferPointerv(GLenum target, GLenum pname, GLvoid **params)
+</comment>
+void glGetBufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, GLvoid *data)
+void glGetCompressedTexImage(GLenum target, GLint level, GLvoid *img)
+void glGetDoublev(GLenum pname, GLdouble *params)
+GLenum glGetError(void)
+void glGetFloatv(GLenum pname, GLfloat *params)
+GLint glGetFragDataLocation(GLuint program, GLchar *name)
+void glGetFramebufferAttachmentParameteriv(GLenum target, GLenum attachment, GLenum pname, GLint *params)
+void glGetInteger64i_v(GLenum target, GLuint index, GLint64 *data)
+void glGetInteger64v(GLenum pname, GLint64 *params)
+void glGetIntegeri_v(GLenum target, GLuint index, GLint *data)
+void glGetIntegerv(GLenum pname, GLint *params)
+void glGetMultisamplefv(GLenum pname, GLuint index, GLfloat *val)
+<comment>
+void glGetPointerv(GLenum pname, GLvoid **params)
+</comment>
+void glGetProgramInfoLog(GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog)
+void glGetProgramiv(GLuint program, GLenum pname, GLint *params)
+void glGetQueryObjectiv(GLuint id, GLenum pname, GLint *params)
+void glGetQueryObjectuiv(GLuint id, GLenum pname, GLuint *params)
+void glGetQueryiv(GLenum target, GLenum pname, GLint *params)
+void glGetRenderbufferParameteriv(GLenum target, GLenum pname, GLint *params)
+void glGetShaderInfoLog(GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *infoLog)
+void glGetShaderSource(GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *source)
+void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)
+GLubyte * glGetString(GLenum name)
+GLubyte * glGetStringi(GLenum name, GLuint index)
+void glGetSynciv(GLsync sync, GLenum pname, GLsizei bufSize, GLsizei *length, GLint *values)
+void glGetTexImage(GLenum target, GLint level, GLenum format, GLenum type, GLvoid *pixels)
+void glGetTexLevelParameterfv(GLenum target, GLint level, GLenum pname, GLfloat *params)
+void glGetTexLevelParameteriv(GLenum target, GLint level, GLenum pname, GLint *params)
+void glGetTexParameterIiv(GLenum target, GLenum pname, GLint *params)
+void glGetTexParameterIuiv(GLenum target, GLenum pname, GLuint *params)
+void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glGetTexParameteriv(GLenum target, GLenum pname, GLint *params)
+void glGetTransformFeedbackVarying(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name)
+GLuint glGetUniformBlockIndex(GLuint program, GLchar *uniformBlockName)
+<comment>
+void glGetUniformIndices(GLuint program, GLsizei uniformCount, GLchar * *uniformNames, GLuint *uniformIndices)
+</comment>
+GLint glGetUniformLocation(GLuint program, GLchar *name)
+void glGetUniformfv(GLuint program, GLint location, GLfloat *params)
+void glGetUniformiv(GLuint program, GLint location, GLint *params)
+void glGetUniformuiv(GLuint program, GLint location, GLuint *params)
+void glGetVertexAttribIiv(GLuint index, GLenum pname, GLint *params)
+void glGetVertexAttribIuiv(GLuint index, GLenum pname, GLuint *params)
+<comment>
+void glGetVertexAttribPointerv(GLuint index, GLenum pname, GLvoid **pointer)
+</comment>
+void glGetVertexAttribdv(GLuint index, GLenum pname, GLdouble *params)
+void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
+void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
+void glHint(GLenum target, GLenum mode)
+void glIndexub(GLubyte c)
+void glIndexubv(GLubyte *c)
+GLboolean glIsBuffer(GLuint buffer)
+GLboolean glIsEnabled(GLenum cap)
+GLboolean glIsEnabledi(GLenum target, GLuint index)
+GLboolean glIsFramebuffer(GLuint framebuffer)
+GLboolean glIsProgram(GLuint program)
+GLboolean glIsQuery(GLuint id)
+GLboolean glIsRenderbuffer(GLuint renderbuffer)
+GLboolean glIsShader(GLuint shader)
+GLboolean glIsSync(GLsync sync)
+GLboolean glIsTexture(GLuint texture)
+GLboolean glIsVertexArray(GLuint array)
+void glLineWidth(GLfloat width)
+void glLinkProgram(GLuint program)
+void glLogicOp(GLenum opcode)
+GLvoid * glMapBuffer(GLenum target, GLenum access)
+GLvoid * glMapBufferRange(GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access)
+void glMultiDrawArrays(GLenum mode, GLint *first, GLsizei *count, GLsizei drawcount)
+<comment>
+void glMultiDrawElements(GLenum mode, GLsizei *count, GLenum type, GLvoid * *indices, GLsizei drawcount)
+void glMultiDrawElementsBaseVertex(GLenum mode, GLsizei *count, GLenum type, GLvoid * *indices, GLsizei drawcount, GLint *basevertex)
+</comment>
+void glPixelStoref(GLenum pname, GLfloat param)
+void glPixelStorei(GLenum pname, GLint param)
+void glPointParameterf(GLenum pname, GLfloat param)
+void glPointParameterfv(GLenum pname, GLfloat *params)
+void glPointParameteri(GLenum pname, GLint param)
+void glPointParameteriv(GLenum pname, GLint *params)
+void glPointSize(GLfloat size)
+void glPolygonMode(GLenum face, GLenum mode)
+void glPolygonOffset(GLfloat factor, GLfloat units)
+void glPrimitiveRestartIndex(GLuint index)
+void glProvokingVertex(GLenum mode)
+void glReadBuffer(GLenum mode)
+void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glRenderbufferStorage(GLenum target, GLenum internalformat, GLsizei width, GLsizei height)
+void glRenderbufferStorageMultisample(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height)
+void glSampleCoverage(GLfloat value, GLboolean invert)
+void glSampleMaski(GLuint index, GLbitfield mask)
+void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)
+<comment>
+void glShaderSource(GLuint shader, GLsizei count, GLchar * *string, GLint *length)
+</comment>
+void glStencilFunc(GLenum func, GLint ref, GLuint mask)
+void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)
+void glStencilMask(GLuint mask)
+void glStencilMaskSeparate(GLenum face, GLuint mask)
+void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass)
+void glStencilOpSeparate(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass)
+void glTexBuffer(GLenum target, GLenum internalformat, GLuint buffer)
+void glTexImage1D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, GLvoid *pixels)
+void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, GLvoid *pixels)
+void glTexImage2DMultisample(GLenum target, GLsizei samples, GLint internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations)
+void glTexImage3D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, GLvoid *pixels)
+void glTexImage3DMultisample(GLenum target, GLsizei samples, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations)
+void glTexParameterIiv(GLenum target, GLenum pname, GLint *params)
+void glTexParameterIuiv(GLenum target, GLenum pname, GLuint *params)
+void glTexParameterf(GLenum target, GLenum pname, GLfloat param)
+void glTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
+void glTexParameteri(GLenum target, GLenum pname, GLint param)
+void glTexParameteriv(GLenum target, GLenum pname, GLint *params)
+void glTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, GLvoid *pixels)
+void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
+void glTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLvoid *pixels)
+<comment>
+void glTransformFeedbackVaryings(GLuint program, GLsizei count, GLchar * *varyings, GLenum bufferMode)
+</comment>
+void glUniform1f(GLint location, GLfloat v0)
+void glUniform1fv(GLint location, GLsizei count, GLfloat *value)
+void glUniform1i(GLint location, GLint v0)
+void glUniform1iv(GLint location, GLsizei count, GLint *value)
+void glUniform1ui(GLint location, GLuint v0)
+void glUniform1uiv(GLint location, GLsizei count, GLuint *value)
+void glUniform2f(GLint location, GLfloat v0, GLfloat v1)
+void glUniform2fv(GLint location, GLsizei count, GLfloat *value)
+void glUniform2i(GLint location, GLint v0, GLint v1)
+void glUniform2iv(GLint location, GLsizei count, GLint *value)
+void glUniform2ui(GLint location, GLuint v0, GLuint v1)
+void glUniform2uiv(GLint location, GLsizei count, GLuint *value)
+void glUniform3f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2)
+void glUniform3fv(GLint location, GLsizei count, GLfloat *value)
+void glUniform3i(GLint location, GLint v0, GLint v1, GLint v2)
+void glUniform3iv(GLint location, GLsizei count, GLint *value)
+void glUniform3ui(GLint location, GLuint v0, GLuint v1, GLuint v2)
+void glUniform3uiv(GLint location, GLsizei count, GLuint *value)
+void glUniform4f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3)
+void glUniform4fv(GLint location, GLsizei count, GLfloat *value)
+void glUniform4i(GLint location, GLint v0, GLint v1, GLint v2, GLint v3)
+void glUniform4iv(GLint location, GLsizei count, GLint *value)
+void glUniform4ui(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3)
+void glUniform4uiv(GLint location, GLsizei count, GLuint *value)
+void glUniformBlockBinding(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding)
+void glUniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix2x3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix2x4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix3x2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix3x4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix4x2fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+void glUniformMatrix4x3fv(GLint location, GLsizei count, GLboolean transpose, GLfloat *value)
+GLboolean glUnmapBuffer(GLenum target)
+void glUseProgram(GLuint program)
+void glValidateProgram(GLuint program)
+<comment>
+void glVertexAttribIPointer(GLuint index, GLint size, GLenum type, GLsizei stride, GLvoid *pointer)
+</comment>
+void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid *pointer)
+void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
+void glWaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout)
+
+<class>
+name: QSurfaceFormat
+para: void
+</class>
+
+int alphaBufferSize(void)
+int blueBufferSize(void)
+<comment>
+QSurfaceFormat::ColorSpace colorSpace(void)
+</comment>
+int depthBufferSize(void)
+int greenBufferSize(void)
+bool hasAlpha(void)
+int majorVersion(void)
+int minorVersion(void)
+QSurfaceFormat::FormatOptions options(void)
+QSurfaceFormat::OpenGLContextProfile profile(void)
+int redBufferSize(void)
+QSurfaceFormat::RenderableType renderableType(void)
+int samples(void)
+void setAlphaBufferSize(int size)
+void setBlueBufferSize(int size)
+<comment>
+void setColorSpace(QSurfaceFormat::ColorSpace colorSpace)
+</comment>
+void setDepthBufferSize(int size)
+void setGreenBufferSize(int size)
+void setMajorVersion(int major)
+void setMinorVersion(int minor)
+void setOption(QSurfaceFormat::FormatOption option, bool on)
+void setOptions(QSurfaceFormat::FormatOptions options)
+void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+void setRedBufferSize(int size)
+void setRenderableType(QSurfaceFormat::RenderableType type)
+void setSamples(int numSamples)
+void setStencilBufferSize(int size)
+void setStereo(bool enable)
+void setSwapBehavior(QSurfaceFormat::SwapBehavior behavior)
+void setSwapInterval(int interval)
+void setVersion(int major, int minor)
+int stencilBufferSize(void)
+bool stereo(void)
+QSurfaceFormat::SwapBehavior swapBehavior(void)
+int swapInterval(void)
+bool testOption(QSurfaceFormat::FormatOption option)
+QSurfaceFormat defaultFormat(void)
+void setDefaultFormat(QSurfaceFormat format)
+
+<class>
+name: QOpenGLWidget
+para: QWidget *
+parent: QWidget
+codename: OpenGLWidget
+passvmpointer
+</class>
+
+void geteventparameters(void) 
+void setInitEvent(const char *cStr)
+const char *getInitEvent(void)
+void setPaintEvent(const char *cStr)
+const char *getPaintEvent(void)
+void setResizeEvent(const char *cStr)
+const char *getResizeEvent(void)
+
+QOpenGLContext * context(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSurfaceFormat format(void)
+QImage grabFramebuffer(void)
+bool isValid(void)
+void makeCurrent(void)
+void setFormat(QSurfaceFormat format)
+<comment>
+void setTextureFormat(GLenum texFormat)
+GLenum textureFormat(void)
+</comment>
+void setUpdateBehavior(QOpenGLWidget::UpdateBehavior updateBehavior)
+QOpenGLWidget::UpdateBehavior updateBehavior(void)
+
+<class>
+name: QOpenGLVersionProfile
+para: void
+</class>
+
+bool hasProfiles(void)
+bool isLegacyVersion(void)
+bool isValid(void)
+QSurfaceFormat::OpenGLContextProfile profile(void)
+void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+void setVersion(int majorVersion, int minorVersion)
+QPair<int, int> version(void)
+
+</filter>
+
+<class>
+name: QVector2D
+para: float,float
+</class>
+
+float distanceToLine(QVector2D point, QVector2D direction)
+float distanceToPoint(QVector2D point)
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QVector2D normalized(void)
+void setX(float x)
+void setY(float y)
+QPoint toPoint(void)
+QPointF toPointF(void)
+QVector3D toVector3D(void)
+QVector4D toVector4D(void)
+float x(void)
+float y(void)
+float dotProduct(QVector2D v1, QVector2D v2)
+
+<class>
+name: QVector3D
+para: float,float,float
+</class>
+
+float distanceToLine(QVector3D point, QVector3D direction)
+float distanceToPlane(QVector3D plane, QVector3D normal)
+float distanceToPlane@2(QVector3D plane1, QVector3D plane2, QVector3D plane3)
+float distanceToPoint(QVector3D point)
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QVector3D normalized(void)
+<comment>
+QVector3D project(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+</comment>
+void setX(float x)
+void setY(float y)
+void setZ(float z)
+QPoint toPoint(void)
+QPointF toPointF(void)
+QVector2D toVector2D(void)
+QVector4D toVector4D(void)
+<comment>
+QVector3D unproject(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+</comment>
+float x(void)
+float y(void)
+float z(void)
+QVector3D crossProduct(QVector3D v1, QVector3D v2)
+float dotProduct(QVector3D v1, QVector3D v2)
+QVector3D normal(QVector3D v1, QVector3D v2)
+QVector3D normal@2(QVector3D v1, QVector3D v2, QVector3D v3)
+
+<class>
+name: QVector4D
+para: float,float,float,float
+</class>
+
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QVector4D normalized(void)
+void setW(float w)
+void setX(float x)
+void setY(float y)
+void setZ(float z)
+QPoint toPoint(void)
+QPointF toPointF(void)
+QVector2D toVector2D(void)
+QVector2D toVector2DAffine(void)
+QVector3D toVector3D(void)
+QVector3D toVector3DAffine(void)
+float w(void)
+float x(void)
+float y(void)
+float z(void)
+float dotProduct(QVector4D v1, QVector4D v2)
+
+<class>
+name: QQuaternion
+para: float,float,float,float
+</class>
+
+<comment>
+QQuaternion conjugated(void)
+void getAxes(QVector3D *xAxis, QVector3D *yAxis, QVector3D *zAxis)
+void getAxisAndAngle(float *x, float *y, float *z, float *angle)
+void getAxisAndAngle@2(QVector3D *axis, float *angle)
+void getEulerAngles(float *pitch, float *yaw, float *roll)
+QQuaternion inverted(void)
+</comment>
+bool isIdentity(void)
+bool isNull(void)
+float length(void)
+float lengthSquared(void)
+void normalize(void)
+QQuaternion normalized(void)
+QVector3D rotatedVector(QVector3D vector)
+float scalar(void)
+void setScalar(float scalar)
+void setVector(QVector3D vector)
+void setVector@2(float x, float y, float z)
+void setX(float x)
+void setY(float y)
+void setZ(float z)
+<comment>
+QVector3D toEulerAngles(void)
+QMatrix3x3 toRotationMatrix(void)
+</comment>
+QVector4D toVector4D(void)
+QVector3D vector(void)
+float x(void)
+float y(void)
+float z(void)
+<comment>
+float dotProduct(QQuaternion q1, QQuaternion q2)
+QQuaternion fromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
+QQuaternion fromDirection(QVector3D direction, QVector3D up)
+QQuaternion fromEulerAngles(float pitch, float yaw, float roll)
+QQuaternion fromEulerAngles@2(QVector3D eulerAngles)
+QQuaternion fromRotationMatrix(QMatrix3x3 rot3x3)
+QQuaternion rotationTo(QVector3D from, QVector3D to)
+</comment>
+QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
+QQuaternion fromAxisAndAngle@2(float x, float y, float z, float angle)
+QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
+QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
+
+<class>
+name: QMatrix4x4
+para: qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
+</class>
+
+QVector4D column(int index)
+qreal * constData(void)
+<comment>
+void copyDataTo(qreal * values)
+</comment>
+qreal * data(void)
+qreal * data@2(void)
+qreal determinant(void)
+void fill(qreal value)
+void flipCoordinates(void)
+void frustum(qreal left, qreal right, qreal bottom, qreal top, qreal nearPlane, qreal farPlane)
+QMatrix4x4 inverted(bool * invertible)
+bool isIdentity(void)
+void lookAt(QVector3D eye, QVector3D center, QVector3D up)
+QPoint map(QPoint point)
+QPointF map@2(QPointF point)
+QVector3D map@3(QVector3D point)
+QVector4D map@4(QVector4D point)
+QRect mapRect(QRect rect)
+QRectF mapRect@2(QRectF rect)
+QVector3D mapVector(QVector3D vector)
+QMatrix3x3 normalMatrix(void)
+void optimize(void)
+void ortho(qreal left, qreal right, qreal bottom, qreal top, qreal nearPlane, qreal farPlane)
+void ortho@2(QRect rect)
+void ortho@3(QRectF rect)
+void perspective(qreal angle, qreal aspect, qreal nearPlane, qreal farPlane)
+void rotate(qreal angle, QVector3D vector)
+void rotate@2(QQuaternion quaternion)
+void rotate@3(qreal angle, qreal x, qreal y, qreal z)
+QVector4D row(int index)
+void scale(QVector3D vector)
+void scale@2(qreal x, qreal y)
+void scale@3(qreal x, qreal y, qreal z)
+void scale@4(qreal factor)
+void setColumn(int index, QVector4D value)
+void setRow(int index, QVector4D value)
+void setToIdentity(void)
+QMatrix toAffine(void)
+<comment>
+QGenericMatrix<N, M, qreal> toGenericMatrix(void)
+</comment>
+QTransform toTransform(void)
+QTransform toTransform@2(qreal distanceToPlane)
+void translate(QVector3D vector)
+void translate@2(qreal x, qreal y)
+void translate@3(qreal x, qreal y, qreal z)
+QMatrix4x4 transposed(void)
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QOpenGLPaintDevice
+para: void
+parent: QPaintDevice
+</class>
+
+
+QOpenGLContext * context(void)
+qreal dotsPerMeterX(void)
+qreal dotsPerMeterY(void)
+void ensureActiveTarget(void)
+bool paintFlipped(void)
+void setDevicePixelRatio(qreal devicePixelRatio)
+void setDotsPerMeterX(qreal dpmx)
+void setDotsPerMeterY(qreal dpmy)
+void setPaintFlipped(bool flipped)
+void setSize(QSize size)
+QSize size(void)
+
+<class>
+name: QPaintDevice
+nonew
+</class>
+
+int colorCount(void)
+int depth(void)
+int devicePixelRatio(void)
+<comment>
+qreal devicePixelRatioF(void)
+</comment>
+int height(void)
+int heightMM(void)
+int logicalDpiX(void)
+int logicalDpiY(void)
+QPaintEngine * paintEngine(void)
+bool paintingActive(void)
+int physicalDpiX(void)
+int physicalDpiY(void)
+int width(void)
+int widthMM(void)
+
+<filter> (sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QOpenGLTimerQuery
+para: QObject *
+</class>
+
+void begin(void)
+bool create(void)
+void destroy(void)
+void end(void)
+bool isCreated(void)
+bool isResultAvailable(void)
+GLuint objectId(void)
+void recordTimestamp(void)
+GLuint64 waitForResult(void)
+GLuint64 waitForTimestamp(void)
+
+<class>
+name: QOpenGLDebugLogger
+para: QObject *
+</class>
+
+void disableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void disableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+void enableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void enableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+bool initialize(void)
+bool isLogging(void)
+QList<QOpenGLDebugMessage> loggedMessages(void)
+QOpenGLDebugLogger::LoggingMode loggingMode(void)
+qint64 maximumMessageLength(void)
+void popGroup(void)
+void pushGroup(QString name, GLuint id, QOpenGLDebugMessage::Source source)
+void logMessage(QOpenGLDebugMessage debugMessage)
+void startLogging(QOpenGLDebugLogger::LoggingMode loggingMode)
+void stopLogging(void)
+
+<class>
+name: QOpenGLFramebufferObject
+para: int,int,GLenum
+</class>
+
+<comment>
+void addColorAttachment(QSize size, GLenum internalFormat)
+void addColorAttachment@2(int width, int height, GLenum internalFormat)
+</comment>
+QOpenGLFramebufferObject::Attachment attachment(void)
+bool bind(void)
+QOpenGLFramebufferObjectFormat format(void)
+GLuint handle(void)
+int height(void)
+bool isBound(void)
+bool isValid(void)
+bool release(void)
+void setAttachment(QOpenGLFramebufferObject::Attachment attachment)
+QSize size(void)
+<comment>
+QVector<QSize> sizes(void)
+GLuint takeTexture(void)
+GLuint takeTexture@2(int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+GLuint texture(void)
+<comment>
+QVector<GLuint> textures(void)
+</comment>
+<comment>
+QImage toImage(bool flipped)
+QImage toImage@3(bool flipped, int colorQOpenGLFramebufferObject::AttachmentIndex)
+</comment>
+QImage toImage@2(void)
+int width(void)
+bool bindDefault(void)
+<comment>
+void blitFramebuffer(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex, QOpenGLFramebufferObject::FramebufferRestorePolicy restorePolicy)
+void blitFramebuffer@2(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter, int readColorQOpenGLFramebufferObject::AttachmentIndex, int drawColorQOpenGLFramebufferObject::AttachmentIndex)
+void blitFramebuffer@3(QOpenGLFramebufferObject *target, QRect targetRect, QOpenGLFramebufferObject *source, QRect sourceRect, GLbitfield buffers, GLenum filter)
+void blitFramebuffer@4(QOpenGLFramebufferObject *target, QOpenGLFramebufferObject *source, GLbitfield buffers, GLenum filter)
+</comment>
+bool hasOpenGLFramebufferBlit(void)
+bool hasOpenGLFramebufferObjects(void)
+
+<class>
+name: QOpenGLVertexArrayObject
+para: QObject *
+</class>
+
+void bind(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+GLuint objectId(void)
+void release(void)
+
+<class>
+name: QOpenGLBuffer
+para: void
+</class>
+
+void allocate(void *data, int count)
+void allocate@2(int count)
+bool bind(void)
+GLuint bufferId(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+void * map(QOpenGLBuffer::Access access)
+<comment>
+void * mapRange(int offset, int count, QOpenGLBuffer::RangeAccessFlags access)
+</comment>
+bool read(int offset, void *data, int count)
+void release(void)
+void setUsagePattern(QOpenGLBuffer::UsagePattern value)
+int size(void)
+QOpenGLBuffer::Type type(void)
+bool unmap(void)
+QOpenGLBuffer::UsagePattern usagePattern(void)
+void write(int offset, void *data, int count)
+void release@2(QOpenGLBuffer::Type type)
+
+<class>
+name: QOpenGLShaderProgram
+para: QObject *
+</class>
+
+<comment>
+bool addCacheableShaderFromSourceCode(QOpenGLShader::ShaderType type, char *source)
+bool addCacheableShaderFromSourceCode@2(QOpenGLShader::ShaderType type, QByteArray source)
+bool addCacheableShaderFromSourceCode@3(QOpenGLShader::ShaderType type, QString source)
+bool addCacheableShaderFromSourceFile(QOpenGLShader::ShaderType type, QString fileName)
+</comment>
+bool addShader(QOpenGLShader *shader)
+bool addShaderFromSourceCode(QOpenGLShader::ShaderType type, char *source)
+bool addShaderFromSourceCode@2(QOpenGLShader::ShaderType type, QByteArray source)
+bool addShaderFromSourceCode@3(QOpenGLShader::ShaderType type, QString source)
+bool addShaderFromSourceFile(QOpenGLShader::ShaderType type, QString fileName)
+int attributeLocation(char *name)
+int attributeLocation@2(QByteArray name)
+int attributeLocation@3(QString name)
+bool bind(void)
+void bindAttributeLocation(char *name, int location)
+void bindAttributeLocation@2(QByteArray name, int location)
+void bindAttributeLocation@3(QString name, int location)
+<comment>
+bool create(void)
+</comment>
+QVector<float> defaultInnerTessellationLevels(void)
+QVector<float> defaultOuterTessellationLevels(void)
+void disableAttributeArray(int location)
+void disableAttributeArray@2(char *name)
+void enableAttributeArray(int location)
+void enableAttributeArray@2(char *name)
+bool isLinked(void)
+bool link(void)
+QString log(void)
+int maxGeometryOutputVertices(void)
+int patchVertexCount(void)
+GLuint programId(void)
+void release(void)
+void removeAllShaders(void)
+void removeShader(QOpenGLShader *shader)
+void setAttributeArray(int location, GLfloat *values, int tupleSize, int stride)
+void setAttributeArray@2(int location, QVector2D *values, int stride)
+void setAttributeArray@3(int location, QVector3D *values, int stride)
+void setAttributeArray@4(int location, QVector4D *values, int stride)
+void setAttributeArray@5(int location, GLenum type, void *values, int tupleSize, int stride)
+void setAttributeArray@6(char *name, GLfloat *values, int tupleSize, int stride)
+void setAttributeArray@7(char *name, QVector2D *values, int stride)
+void setAttributeArray@8(char *name, QVector3D *values, int stride)
+void setAttributeArray@9(char *name, QVector4D *values, int stride)
+void setAttributeArray@10(char *name, GLenum type, void *values, int tupleSize, int stride)
+void setAttributeBuffer(int location, GLenum type, int offset, int tupleSize, int stride)
+void setAttributeBuffer@2(char *name, GLenum type, int offset, int tupleSize, int stride)
+void setAttributeValue(int location, GLfloat value)
+void setAttributeValue@2(int location, GLfloat x, GLfloat y)
+void setAttributeValue@3(int location, GLfloat x, GLfloat y, GLfloat z)
+void setAttributeValue@4(int location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setAttributeValue@5(int location, QVector2D value)
+void setAttributeValue@6(int location, QVector3D value)
+void setAttributeValue@7(int location, QVector4D value)
+void setAttributeValue@8(int location, QColor value)
+void setAttributeValue@9(int location, GLfloat *values, int columns, int rows)
+void setAttributeValue@10(char *name, GLfloat value)
+void setAttributeValue@11(char *name, GLfloat x, GLfloat y)
+void setAttributeValue@12(char *name, GLfloat x, GLfloat y, GLfloat z)
+void setAttributeValue@13(char *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setAttributeValue@14(char *name, QVector2D value)
+void setAttributeValue@15(char *name, QVector3D value)
+void setAttributeValue@16(char *name, QVector4D value)
+<comment>
+void setAttributeValue@17(char *name, QColor value)
+void setAttributeValue@18(char *name, GLfloat *values, int columns, int rows)
+</comment>
+
+void setDefaultInnerTessellationLevels(QVector<float> levels)
+void setDefaultOuterTessellationLevels(QVector<float> levels)
+void setPatchVertexCount(int count)
+void setUniformValue(int location, GLfloat value)
+void setUniformValue@2(int location, GLint value)
+void setUniformValue@3(char *name, QColor color)
+void setUniformValue@4(char *name, QPoint point)
+void setUniformValue@5(char *name, QPointF point)
+void setUniformValue@6(char *name, QSize size)
+void setUniformValue@7(char *name, QSizeF size)
+void setUniformValue@8(char *name, QMatrix2x2 value)
+void setUniformValue@9(char *name, QMatrix2x3 value)
+void setUniformValue@10(char *name, QMatrix2x4 value)
+void setUniformValue@11(char *name, QMatrix3x2 value)
+void setUniformValue@12(char *name, QMatrix3x3 value)
+void setUniformValue@13(char *name, QMatrix3x4 value)
+void setUniformValue@14(char *name, QMatrix4x2 value)
+void setUniformValue@15(char *name, QMatrix4x3 value)
+void setUniformValue@16(char *name, QMatrix4x4 value)
+<comment>
+void setUniformValue@17(char *name, GLfloat[2][2] value)
+void setUniformValue@18(char *name, GLfloat[3][3] value)
+void setUniformValue@19(char *name, GLfloat[4][4] value)
+</comment>
+void setUniformValue@20(char *name, QTransform value)
+void setUniformValue@21(int location, GLuint value)
+void setUniformValue@22(int location, GLfloat x, GLfloat y)
+void setUniformValue@23(int location, GLfloat x, GLfloat y, GLfloat z)
+void setUniformValue@24(int location, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setUniformValue@25(int location, QVector2D value)
+void setUniformValue@26(int location, QVector3D value)
+void setUniformValue@27(int location, QVector4D value)
+void setUniformValue@28(int location, QColor color)
+void setUniformValue@29(int location, QPoint point)
+void setUniformValue@30(int location, QPointF point)
+void setUniformValue@31(int location, QSize size)
+void setUniformValue@32(int location, QSizeF size)
+void setUniformValue@33(int location, QMatrix2x2 value)
+void setUniformValue@34(int location, QMatrix2x3 value)
+void setUniformValue@35(int location, QMatrix2x4 value)
+void setUniformValue@36(int location, QMatrix3x2 value)
+void setUniformValue@37(int location, QMatrix3x3 value)
+void setUniformValue@38(int location, QMatrix3x4 value)
+void setUniformValue@39(int location, QMatrix4x2 value)
+void setUniformValue@40(int location, QMatrix4x3 value)
+void setUniformValue@41(int location, QMatrix4x4 value)
+<comment>
+void setUniformValue@42(int location, GLfloat[2][2] value)
+void setUniformValue@43(int location, GLfloat[3][3] value)
+void setUniformValue@44(int location, GLfloat[4][4] value)
+</comment>
+void setUniformValue@45(int location, QTransform value)
+void setUniformValue@46(char *name, GLfloat value)
+void setUniformValue@47(char *name, GLint value)
+void setUniformValue@48(char *name, GLuint value)
+void setUniformValue@49(char *name, GLfloat x, GLfloat y)
+void setUniformValue@50(char *name, GLfloat x, GLfloat y, GLfloat z)
+void setUniformValue@51(char *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w)
+void setUniformValue@52(char *name, QVector2D value)
+void setUniformValue@53(char *name, QVector3D value)
+void setUniformValue@54(char *name, QVector4D value)
+void setUniformValueArray(int location, GLfloat *values, int count, int tupleSize)
+void setUniformValueArray@2(int location, GLint *values, int count)
+void setUniformValueArray@3(int location, GLuint *values, int count)
+void setUniformValueArray@4(int location, QVector2D *values, int count)
+void setUniformValueArray@5(int location, QVector3D *values, int count)
+void setUniformValueArray@6(int location, QVector4D *values, int count)
+void setUniformValueArray@7(int location, QMatrix2x2 *values, int count)
+void setUniformValueArray@8(int location, QMatrix2x3 *values, int count)
+void setUniformValueArray@9(int location, QMatrix2x4 *values, int count)
+void setUniformValueArray@10(int location, QMatrix3x2 *values, int count)
+void setUniformValueArray@11(int location, QMatrix3x3 *values, int count)
+void setUniformValueArray@12(int location, QMatrix3x4 *values, int count)
+void setUniformValueArray@13(int location, QMatrix4x2 *values, int count)
+void setUniformValueArray@14(int location, QMatrix4x3 *values, int count)
+void setUniformValueArray@15(int location, QMatrix4x4 *values, int count)
+void setUniformValueArray@16(char *name, GLfloat *values, int count, int tupleSize)
+void setUniformValueArray@17(char *name, GLint *values, int count)
+void setUniformValueArray@18(char *name, GLuint *values, int count)
+void setUniformValueArray@19(char *name, QVector2D *values, int count)
+void setUniformValueArray@20(char *name, QVector3D *values, int count)
+void setUniformValueArray@21(char *name, QVector4D *values, int count)
+void setUniformValueArray@22(char *name, QMatrix2x2 *values, int count)
+void setUniformValueArray@23(char *name, QMatrix2x3 *values, int count)
+void setUniformValueArray@24(char *name, QMatrix2x4 *values, int count)
+void setUniformValueArray@25(char *name, QMatrix3x2 *values, int count)
+void setUniformValueArray@26(char *name, QMatrix3x3 *values, int count)
+void setUniformValueArray@27(char *name, QMatrix3x4 *values, int count)
+void setUniformValueArray@28(char *name, QMatrix4x2 *values, int count)
+void setUniformValueArray@29(char *name, QMatrix4x3 *values, int count)
+void setUniformValueArray@30(char *name, QMatrix4x4 *values, int count)
+QList<QOpenGLShader *> shaders(void)
+int uniformLocation(char *name)
+int uniformLocation@2(QByteArray name)
+int uniformLocation@3(QString name)
+bool hasOpenGLShaderPrograms(QOpenGLContext *context)
+
+<class>
+name: QOpenGLShader
+para: QOpenGLShader::ShaderType,QObject *
+</class>
+
+bool compileSourceCode(char *source)
+bool compileSourceCode@2(QByteArray source)
+bool compileSourceCode@3(QString source)
+bool compileSourceFile(QString fileName)
+bool isCompiled(void)
+QString log(void)
+GLuint shaderId(void)
+QOpenGLShader::ShaderType shaderType(void)
+QByteArray sourceCode(void)
+bool hasOpenGLShaders(QOpenGLShader::ShaderType type, QOpenGLContext *context)
+
+<class>
+name: QOpenGLTexture
+para: QOpenGLTexture::Target
+</class>
+
+void allocateStorage(void)
+<comment>
+void allocateStorage@2(QOpenGLTexture::PixelFormat pixelFormat, QOpenGLTexture::PixelType pixelType)
+</comment>
+void bind(void)
+void bind@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+QColor borderColor(void)
+void borderColor@2(float *border)
+void borderColor@3(int *border)
+void borderColor@4(unsigned int *border)
+<comment>
+QOpenGLTexture::ComparisonFunction comparisonFunction(void)
+QOpenGLTexture::ComparisonMode comparisonMode(void)
+</comment>
+bool create(void)
+QOpenGLTexture * createTextureView(QOpenGLTexture::Target target, QOpenGLTexture::TextureFormat viewFormat, int minimumMipmapLevel, int maximumMipmapLevel, int minimumLayer, int maximumLayer)
+int depth(void)
+QOpenGLTexture::DepthStencilMode depthStencilMode(void)
+void destroy(void)
+int faces(void)
+QOpenGLTexture::TextureFormat format(void)
+void generateMipMaps(void)
+void generateMipMaps@2(int baseLevel, bool resetBaseLevel)
+int height(void)
+bool isAutoMipMapGenerationEnabled(void)
+bool isBound(void)
+bool isBound@2(uint unit)
+bool isCreated(void)
+<comment>
+bool isFixedSamplePositions(void)
+</comment>
+bool isStorageAllocated(void)
+bool isTextureView(void)
+int layers(void)
+QPair<float, float> levelOfDetailRange(void)
+float levelofDetailBias(void)
+QOpenGLTexture::Filter magnificationFilter(void)
+float maximumAnisotropy(void)
+float maximumLevelOfDetail(void)
+int maximumMipLevels(void)
+<comment>
+QPair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> minMagQOpenGLTexture::Filters(void)
+</comment>
+QOpenGLTexture::Filter minificationFilter(void)
+float minimumLevelOfDetail(void)
+int mipBaseLevel(void)
+<comment>
+QPair<int, int> mipLevelRange(void)
+</comment>
+int mipLevels(void)
+int mipMaxLevel(void)
+void release(void)
+void release@2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+<comment>
+int samples(void)
+</comment>
+void setAutoMipMapGenerationEnabled(bool enabled)
+void setBorderColor(QColor color)
+<comment>
+void setBorderColor@2(float r, float g, float b, float a)
+</comment>
+void setBorderColor@3(int r, int g, int b, int a)
+void setBorderColor@4(uint r, uint g, uint b, uint a)
+<comment>
+void setComparisonFunction(QOpenGLTexture::ComparisonFunction function)
+void setComparisonMode(QOpenGLTexture::ComparisonMode mode)
+</comment>
+void setCompressedData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setCompressedData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setCompressedData@3(int mipLevel, int layer, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@4(int mipLevel, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setCompressedData@5(int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+void setData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+<comment>
+void setData@2(int mipLevel, int layer, int layerCount, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+</comment>
+void setData@3(int mipLevel, int layer, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@4(int mipLevel, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@5(QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+void setData@6(QImage image, QOpenGLTexture::MipMapGeneration genMipMaps)
+void setDepthStencilMode(QOpenGLTexture::DepthStencilMode mode)
+<comment>
+void setFixedSamplePositions(bool fixed)
+</comment>
+void setFormat(QOpenGLTexture::TextureFormat format)
+void setLayers(int layers)
+void setLevelOfDetailRange(float min, float max)
+void setLevelofDetailBias(float bias)
+void setMagnificationFilter(QOpenGLTexture::Filter filter)
+void setMaximumAnisotropy(float anisotropy)
+void setMaximumLevelOfDetail(float value)
+void setMinMagFilters(QOpenGLTexture::Filter minificationQOpenGLTexture::Filter, QOpenGLTexture::Filter magnificationQOpenGLTexture::Filter)
+void setMinificationFilter(QOpenGLTexture::Filter filter)
+void setMinimumLevelOfDetail(float value)
+void setMipBaseLevel(int baseLevel)
+void setMipLevelRange(int baseLevel, int maxLevel)
+void setMipLevels(int levels)
+void setMipMaxLevel(int maxLevel)
+<comment>
+void setSamples(int samples)
+</comment>
+void setSize(int width, int height, int depth)
+void setSwizzleMask(QOpenGLTexture::SwizzleComponent component, QOpenGLTexture::SwizzleValue value)
+void setSwizzleMask@2(QOpenGLTexture::SwizzleValue r, QOpenGLTexture::SwizzleValue g, QOpenGLTexture::SwizzleValue b, QOpenGLTexture::SwizzleValue a)
+void setWrapMode(QOpenGLTexture::WrapMode mode)
+void setWrapMode@2(QOpenGLTexture::CoordinateDirection direction, QOpenGLTexture::WrapMode mode)
+QOpenGLTexture::SwizzleValue swizzleMask(QOpenGLTexture::SwizzleComponent component)
+<comment>
+QOpenGLTexture::Target target(void)
+</comment>
+GLuint textureId(void)
+int width(void)
+QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
+GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
+<comment>
+GLuint boundTextureId@2(uint unit, QOpenGLTexture::Target target)
+</comment>
+bool hasFeature(QOpenGLTexture::Feature feature)
+
+</filter>

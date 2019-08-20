@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -62,6 +62,11 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->vPoolManager.pCurrentItem = NULL ;
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
+	pRingState->nDontDeleteTheVM = 0 ;
+	pRingState->lNoLineNumber = 0 ;
+	pRingState->nCustomGlobalScopeCounter = 0 ;
+	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
+	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	return pRingState ;
 }
 
@@ -85,6 +90,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 		ring_vm_delete(pRingState->pVM);
 	}
 	ring_poolmanager_delete(pRingState);
+	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
 	ring_free(pRingState);
 	return NULL ;
 }
@@ -221,7 +227,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
-		printf( "Ring version %s \n2013-2017, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
+		printf( "Ring version %s \n2013-2018, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
 		ring_print_line();
 		/* Options */

@@ -1,8 +1,3 @@
-Load "qt.rh"
-Load "ring_qt.ring"
-Load "objectslib/objects.ring"
-Load "objectslib/subwindows.ring"
-
 if iswindows()
 	LoadLib("ringqt.dll")
 but ismacosx()
@@ -10,6 +5,11 @@ but ismacosx()
 but islinux()
 	LoadLib("libringqt.so")
 ok
+
+Load "qt.rh"
+Load "ring_qt.ring"
+Load "objectslib/objects.ring"
+Load "objectslib/subwindows.ring"
 
 GUILib = new GUILib
 

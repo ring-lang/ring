@@ -33,23 +33,6 @@ static size_t on_extract(void *arg, unsigned long long offset, const void *data,
     return size;
 }
 
-void zip_extract_file(const char *cZIPFile,const char *cFile) {
-    struct buffer_t buf = {0};
-
-    struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
-    assert(zip != NULL);
-
-    assert(0 == zip_entry_open(zip, cFile));
-    assert(0 == zip_entry_extract(zip, on_extract, &buf));
-
-    assert(0 == zip_entry_close(zip));
-    free(buf.data);
-    buf.data = NULL;
-    buf.size = 0;
-
-    zip_close(zip);
-}
-
 int on_extract_entry(const char *filename, void *arg) {
         return 0;
 }
@@ -85,8 +68,50 @@ int zip_entry_fwrite(ZIP_T*, const char *)
 int zip_entry_read(ZIP_T*, void *, size_t *)
 int zip_entry_fread(ZIP_T*, const char *cFile)
 int zip_entry_close(ZIP_T*)
-void zip_extract_file(const char *cZIPFile,const char *cFile)
 void zip_extract_allfiles(const char *cFile, const char *cFolder)
 void zip_close(ZIP_T*)
 int zip_filescount(ZIP_T *)
 const char *zip_getfilenamebyindex(ZIP_T *pZip,int index)
+
+<register>
+void zip_extract_file(const char *cZIPFile,const char *cFile)
+</register>
+
+<code>
+RING_FUNC(ring_zip_extract_file) 
+{
+    const char *cZIPFile;
+    const char *cFile;
+    struct buffer_t buf = {0};
+
+    if ( RING_API_PARACOUNT != 2 ) {
+	RING_API_ERROR(RING_API_MISS2PARA);
+	return ;
+    }
+    if ( ! RING_API_ISSTRING(1) ) {
+    	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+    }
+    if ( ! RING_API_ISSTRING(2) ) {
+	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+    }
+
+    cZIPFile = RING_API_GETSTRING(1);
+    cFile    = RING_API_GETSTRING(2);
+
+    struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+    {
+    	zip_entry_open(zip, cFile);
+	{
+    		zip_entry_extract(zip, on_extract, &buf);
+        }
+    	zip_entry_close(zip);
+    }
+    zip_close(zip);
+
+    RING_API_RETSTRING2(buf.data,buf.size);
+
+    free(buf.data);
+}
+</code>

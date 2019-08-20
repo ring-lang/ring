@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is new in Ring 1.7? &mdash; Ring 1.8 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
+    <link rel="next" title="What is new in Ring 1.6?" href="whatisnew6.html" />
+    <link rel="prev" title="Language Design" href="languagedesign.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="whatisnew6.html" title="What is new in Ring 1.6?"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="languagedesign.html" title="Language Design"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-new-in-ring-1-7">
+<span id="index-0"></span><h1>What is new in Ring 1.7?<a class="headerlink" href="#what-is-new-in-ring-1-7" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.7 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.7 comes with many new features!</p>
+<ul class="simple">
+<li>New Command: Load Package</li>
+<li>ringvm_see() and ringvm_give() functions</li>
+<li>ring_state_new() and ring_state_mainfile() functions</li>
+<li>Better Trace Library</li>
+<li>Better Ring Notepad</li>
+<li>Better RingQt</li>
+<li>Better Ring2EXE</li>
+<li>Better RingZip</li>
+<li>Better Documentation</li>
+<li>Better Ring VM</li>
+<li>RingLibuv Extension</li>
+</ul>
+</div>
+<div class="section" id="new-command-load-package">
+<span id="index-2"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this headline">¶</a></h2>
+<p>Using the &#8216;load&#8217; command we can use many ring source files in the same project</p>
+<p>But all of these files will share the same global scope</p>
+<p>Now we have the &#8220;Load Package&#8221; command too</p>
+<p>Using &#8220;Load Package&#8221; we can load a library (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring file) in new global scope</p>
+<p>This is very useful to create libraries that avoid conflicts in global variables</p>
+<p>Example:</p>
+<p>File: loadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
+
+<span class="o">?</span> <span class="n">x</span>
+<span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>File: testloadpackage.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">test</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+Hello from testloadpackage.ring
+1000
+100
+1000
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringvm-see-and-ringvm-give-functions">
+<span id="index-3"></span><h2>ringvm_see() and ringvm_give() functions<a class="headerlink" href="#ringvm-see-and-ringvm-give-functions" title="Permalink to this headline">¶</a></h2>
+<p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
+<p>Also we can use ring_see() to have the original behavior</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+
+<span class="k">func</span> <span class="n">ringvm_see</span> <span class="n">t</span>
+        <span class="n">ring_see</span><span class="p">(</span><span class="s">&quot;We want to print: &quot;</span><span class="p">)</span>
+        <span class="n">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>We want to print: Hello world
+We want to print: 123
+We want to print: one
+two
+three
+We want to print: x: 10.000000
+y: 20.000000
+z: 30.000000
+</pre></div>
+</div>
+<p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
+<p>Also we can use ring_give() to have the original behavior</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-state-new-and-ring-state-mainfile-functions">
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this headline">¶</a></h2>
+<p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
+<p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
+<p>This is important when we run GUI programs from GUI programs</p>
+<p>Because they will share the GUI Library (RingQt), And In this case the caller will call</p>
+<p>qApp.Exec()</p>
+<p>So the sub program, will not stop and will return to the Main program</p>
+<p>Here deleting the State of the sub programs will lead to a problem when we run the sub program events</p>
+<p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
+</div>
+<div class="section" id="better-trace-library">
+<span id="index-5"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Permalink to this headline">¶</a></h2>
+<p>The Trace library is updated, In the Debugger at break points we have now the &#8220;callstack&#8221; command</p>
+<p>This command will print the functions call stack.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from main!&quot;</span>
+        <span class="n">test1</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test1!&quot;</span>
+        <span class="n">test2</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test2!&quot;</span>
+        <span class="n">test3</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test3</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test3!&quot;</span>
+        <span class="n">breakpoint</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="Call Stack" src="_images/callstack.png" />
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-6"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<p>Ring Notepad comes with the next updates</p>
+<ol class="arabic simple">
+<li>Support <a href="#id3"><span class="problematic" id="id4">*</span></a>.cf extension</li>
+<li>Using Hash function (SHA256) for better &#8220;Save Changes?&#8221; message</li>
+<li>Ring Notepad - X Button - Ask for saving changes?</li>
+</ol>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-7"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>The next classes are added to RingQt</p>
+<ol class="arabic simple">
+<li>QStackedWidget</li>
+<li>QCalendarWidget</li>
+<li>QOpenGLFunctions</li>
+<li>QOpenGLContext</li>
+<li>QSurfaceFormat</li>
+<li>QOpenGLWidget</li>
+<li>QOpenGLVersionProfile</li>
+<li>QOpenGLFunctions_3_2_Core</li>
+<li>QVector2D</li>
+<li>QVector3D</li>
+<li>QVector4D</li>
+<li>QQuaternion</li>
+<li>QMatrix4x4</li>
+<li>QOpenGLPaintDevice</li>
+<li>QPaintDevice</li>
+<li>QOpenGLTimerQuery</li>
+<li>QOpenGLDebugLogger</li>
+<li>QOpenGLFramebufferObject</li>
+<li>QOpenGLVertexArrayObject</li>
+<li>QOpenGLBuffer</li>
+<li>QOpenGLShaderProgram</li>
+<li>QOpenGLShader</li>
+<li>QOpenGLTexture</li>
+</ol>
+</div>
+<div class="section" id="better-ring2exe">
+<span id="index-8"></span><h2>Better Ring2EXE<a class="headerlink" href="#better-ring2exe" title="Permalink to this headline">¶</a></h2>
+<p>Ring2EXE is updated to works as expected when we don&#8217;t have a C/C++ compiler</p>
+<p>Where we can distribute applications and get (exe file and ringo file) in this case.</p>
+</div>
+<div class="section" id="better-ringzip">
+<span id="index-9"></span><h2>Better RingZip<a class="headerlink" href="#better-ringzip" title="Permalink to this headline">¶</a></h2>
+<p>The library is updated to support extracting files contains sub folders!</p>
+</div>
+<div class="section" id="better-documentation">
+<span id="index-10"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>RingQt Classes Chapter - The classes are sorted.</li>
+</ol>
+</div>
+<div class="section" id="better-ring-vm">
+<span id="index-11"></span><h2>Better Ring VM<a class="headerlink" href="#better-ring-vm" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Better Error Message</li>
+<li>List2Str() function support lists contains numbers</li>
+<li>Correct support for numbers contains _ as separator</li>
+<li>Creating lists without variables (statement &#8211;&gt; Expression &#8211;&gt; List)</li>
+<li>IsNULL() - Not case sensitive - treat Null and null like NULL</li>
+<li>Support adding the Self object to an attribute in this object</li>
+<li>Using &#8216;:&#8217; operator then keyword will create lower case literal</li>
+<li>Printing objects - respect decimals() function</li>
+<li>When literal is not closed - determine the start of the literal</li>
+<li>Better message when printing objects contains lists</li>
+<li>VarPtr() - Support getting a pointer to variables in the local scope</li>
+<li>replace performance instructions with normal instructions when creating new threads</li>
+</ol>
+</div>
+<div class="section" id="ringlibuv-extension">
+<span id="index-12"></span><h2>RingLibuv Extension<a class="headerlink" href="#ringlibuv-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.7 comes with the RingLibuv extension</p>
+<p>Libuv is a multi-platform support library with a focus on asynchronous I/O.</p>
+<p>Example (Events Loop):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">idler</span> <span class="o">=</span> <span class="kp">NULL</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">idler</span> <span class="o">=</span> <span class="n">new_uv_idle_t</span><span class="p">()</span>
+        <span class="n">uv_idle_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
+        <span class="n">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s">&quot;wait()&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Idling...&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">());</span>
+        <span class="n">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">wait</span>
+        <span class="n">counter</span><span class="o">++</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
+                <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+        <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Idling...
+</pre></div>
+</div>
+<p>Example (Server):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side - Using Classes&quot;</span>
+
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyServer</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MyServer</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
+
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
+
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
+
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">newconnection</span><span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">r</span>
+                        <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+                <span class="k">ok</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">newconnection</span>
+                <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span>
+                                                        <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">echo_write</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>When we run the client, We will see the message &#8220;New Connection&#8221;</p>
+<p>Then the message &#8220;hello from the client&#8221;</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Server Side - Using Classes
+New Connection
+hello from the client
+</pre></div>
+</div>
+<p>Example (Using Threads):</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads - Using Classes&quot;</span>
+
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyThreads</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MyThreads</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
+
+        <span class="k">func</span> <span class="n">Start</span>
+                <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">One</span><span class="p">))</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">Two</span><span class="p">))</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">one</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
+
+        <span class="k">func</span> <span class="n">Two</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Testing RingLibuv - Threads - Using Classes
+Message from the First Thread!
+Message from the Second Thread!
+</pre></div>
+</div>
+<p>For more information about this extension (RingLibuv) check the chapter: Using RingLibuv</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is new in Ring 1.7?</a><ul>
+<li><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li><a class="reference internal" href="#new-command-load-package">New Command: Load Package</a></li>
+<li><a class="reference internal" href="#ringvm-see-and-ringvm-give-functions">ringvm_see() and ringvm_give() functions</a></li>
+<li><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile-functions">ring_state_new() and ring_state_mainfile() functions</a></li>
+<li><a class="reference internal" href="#better-trace-library">Better Trace Library</a></li>
+<li><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li><a class="reference internal" href="#better-ring2exe">Better Ring2EXE</a></li>
+<li><a class="reference internal" href="#better-ringzip">Better RingZip</a></li>
+<li><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+<li><a class="reference internal" href="#better-ring-vm">Better Ring VM</a></li>
+<li><a class="reference internal" href="#ringlibuv-extension">RingLibuv Extension</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="languagedesign.html"
+                        title="previous chapter">Language Design</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="whatisnew6.html"
+                        title="next chapter">What is new in Ring 1.6?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatisnew7.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="whatisnew6.html" title="What is new in Ring 1.6?"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="languagedesign.html" title="Language Design"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

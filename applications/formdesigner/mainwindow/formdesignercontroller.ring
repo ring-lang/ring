@@ -1178,6 +1178,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func BringToFront
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().raise()
 			oModel.RaiseActiveObject()
 			AddObjectsToCombo()
@@ -1185,6 +1186,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func SendToBack
 		if CheckOneObject() {
+			oModel.ActiveObject().oCorners.Hide()
 			oModel.ActiveObject().lower()
 			oModel.LowerActiveObject()
 			AddObjectsToCombo()
@@ -1240,7 +1242,7 @@ class FormDesignerController from WindowsControllerParent
 		MsgBox("About",
 		"This application developed using the Ring programming language" + nl +
 		"Ring Version : " + version() + nl +
-		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")
+		"2018, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func HasParent 
 		oParent = oView.win.parentwidget()

@@ -1,4 +1,4 @@
-.. index:: 
+ï»¿.. index:: 
 	single: Frequently Asked Questions; Introduction
 
 ================================
@@ -12,78 +12,82 @@ Frequently Asked Questions (FAQ)
 Why do we need Yet Another Programming Language (YAPL)?
 =======================================================
 
-The language comes with better support for Natural Language Programming and Declarative
-Programming. The innovation comes in supporting these paradigms with new practical techniques
-on the top of Object-Oriented Programming and Functional Programming. Ring provide the programmers
-with the tools required to build a Natural Language like Supernova or Declarative Language
-like REBOL and QML without the need to know anything about (Compilers and Parsing). You get
+The language comes with better support for natural language programming and declarative
+programming. The innovation comes in supporting these paradigms with new practical techniques
+on the top of object-oriented programming and functional programming. Ring provides the programmers
+with the tools required to build a natural language like Supernova or a declarative language
+like REBOL and QML without the need to know anything about (compilers and parsing). You get
 the language constructs ready for use to create domain-specific languages in a fraction of time.
 
-Check the Supernova programming language, In this language you can type 
+Take a look at the Supernova programming language, in this language you can type: 
 (I want window and the window title is hello world.) and it will create a GUI window 
-with "Hello, World!" as the window title. When I created Supernova language in 2010. I discovered
-that using the Natural Code can be (Like English without limits and we can get the human 
-language power in programming) but to implement that You need a new language that are 
+with "Hello, World!" as the window title. When I created Supernova language in 2010, i discovered
+that using the natural code can be (similar to English and without limits and we can use the power
+of human language in programming) but to implement that you need a new language that has: 
 
 (1) General Purpose 
 
 (2) Practical 
 
-(3) Can create Natural Languages very quickly. 
+(3) Can create natural languages very quickly. 
 
-So we can get a System that can increase ease of use and productivity to the maximum level. 
+So we can get a system that can increase ease of use and productivity to the maximum level. 
 
-Ring is the best language to do that. So I created Ring to achieve this goal.
+So I created Ring because it was the best way to achieve this goal.
 
-Supernova was just a test for the idea. To get a near view about what are the Advantages and
-Disadvantages. After testing the new ideas you provide something practical. So we have Ring 
-after Supernova. A story that maybe similar to having Python after ABC. Python avoid ABC problems
-but bring ABC advantages. Also Ring learn from Ruby and ROR story. The language power could
-appears in Frameworks better than direct usage as a general purpose language. Also Ring comes
-with a clear goal/motivation (Creating a new version of the PWCT Software) something learned
-from designing the C language to create the Unix Operating System. You have a goal that direct
-you in each design decision.
+Supernova was just a test of the idea, it helped getting a better view of the advantages and
+the disadvantages of the idea. And After testing the new ideas you are provided with something
+practical. So now we have Ring after Supernova. A story that is maybe similar to having Python 
+after ABC.Where Python avoids the problems of ABC, but keeps the advantages of ABC. Also, Ring
+learns from Ruby and ROR's story. The language power could appear in frameworks better than the
+direct usage as a general purpose language. Also Ring comes with a clear goal/motivation; 
+(Creating a new version of the PWCT Software) something that was learned from the design the 
+C language in a certain way to create the Unix Operating System. In other words, you have a 
+goal that directs you in each design decision.
 
 You will understand the value of our decisions once you start trying to solve the problem
-that we will use Ring to solve. Could you enable any one in the world without knowledge 
-about computer programming concepts to create very powerful software? In science the answer
-is (Visual Programming) and (Natural Programming). In practical we still away from switching
-to these paradigms without introducing other problems. Ring is designed to solve this problem.
-It's designed to provide Natural Programming in a practical way. And to create a powerful 
-Visual Programming tool. Ring is designed to be a new world of programming after 10 years 
-of research in Visual Programming and Natural Languages.
+that we will use Ring to solve. The questions is: could you enable any one in the world 
+without knowledge about computer programming concepts to create very powerful software?
+Scientifically the answer is (visual Programming) and (natural Programming). 
+In practice we are still away from switching to these paradigms without introducing 
+other problems. Ring is designed to solve this problem.
+It is designed to provide natural programming in a practical way. And to create a powerful 
+visual programming tool. Ring is designed to be a new world of programming after 10 years 
+of research in visual programming and natural languages.
 
-The Ring Programming Language (Compiler+VM) is developed 100% using Visual Programming without
+The Ring Programming Language (Compiler+VM) is developed 100% using visual programming without
 writing a single line of code. I used my tool (Programming Without Coding Technology) to design
-everything and get the C code generated for me. Advantages ? 
+everything and get the C code generated for me. 
 
-(1) More Faster 
+Advantages ? 
+
+(1) Faster 
 
 (2) No Syntax Errors 
 
-(3) Easy to understand and manage the code because the Abstraction level is more higher
+(3) Easy to understand and manage the code because the abstraction level is higher
 
-(4) No Critical Disadvantages because you can control everything as writing your code.
+(4) No critical disadvantages because you can control everything as writing your code.
 
-From my experience in using Visual Programming for 10 years and Natural Programming for 5 years
+Using my experience in using visual programming for 10 years and natural programming for 5 years,
 I designed Ring to move the knowledge to mainstream programmers by providing a practical language 
-that support these ideas.
+that supports these ideas.
 
 
 I agree that each programmer/developer has the freedom to form his opinions about any software
 including programming languages. Ring is not an exception but you may miss the idea behind the 
-language. It's innovative and may help you to think different about how to solve your problems.
-Maybe this is not clear to many programmers because It's practical language and includes many
-features known to programmers and when a programmer look at a language he/she may think that 
+language. It is innovative and may help you to think differently about how to solve your problems.
+Maybe this is not clear to many programmers because It is a practical language and includes many
+features known to programmers and when a programmer looks at the language they maight think that 
 nothing new because it's familiar. I created Ring to solve problems in a different way. Where I
 will start programming just by describing the software using new natural interfaces that I will
 implement later when I move from the design stage to the implementation stage. 
 (I don't determine the time to switch between stages, You are free to use Agile methods). 
-Since Ring is a new language you have 3 options. 
+Since Ring is a new language you have 3 options:
 
-(1) Just don't care.
+(1) To not care at all for now.
 
-(2) Think in the future of the language and help us if you understand the idea and want to contribute.
+(2) Think of the future of the language and help us if you understand the idea and want to contribute.
 
 (3) Wait and come back again in the future to use it. 
 
@@ -92,25 +96,26 @@ Summary:
 * Ring is designed based on a need to develop a new version of the PWCT software. 
 Once we finish PWCT 2.0 we will have good and large software developed using Ring.
 
-* We will push Declarative and Natural paradigms many steps forward. Also in next versions 
-we have a plan to present a new paradigm for Network Programming and Concurrency. We tested this
+* We will push declarative and natural paradigms many steps forward. Also in next versions 
+we have a plan to present a new paradigm for network programming and concurrency. We tested this
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
-in Future releases.
+in future releases.
 
 .. index:: 
-	pair: Frequently Asked Questions; Why Ring is weakly typed?
+	pair: Frequently Asked Questions; Why is Ring weakly typed?
 
-Why Ring is weakly typed?
+Why is Ring weakly typed?
 =========================
 
-Because it's more Natural, and Faster and this is important for the language goals. What
-comes first is what you want. When you type "Print : " + 5 , The String comes first then 5
-will be converted to a String. while when you type 5 + "10" The number comes first so "10"
-will be converted to 10. This help a lot to quickly convert between numbers and strings using
+Because it's faster and more natural, and this is important for the language's goals. One
+of the rules is: the data type at the beginning affects the final result. 
+For example, when you type "Print : " + 5 , The String comes first, so 5
+will be converted to a String. While when you type 5 + "10" The number comes first so "10"
+will be converted to 10. This helps a lot to quickly convert between numbers and strings using
 the same operator. If you want to prevent conversion (Write code that prevent conversion) In
 these cases you will notice that what you are writing is less code (And can be removed). 
 
-Weakly Typed = Automatic Conversion and *Automatic* is *Good Thing* and is better than *Manual*
+Weakly typed = automatic conversion and *automatic* is *good thing* and is better than *manual*
 if you know how to use it correctly.
 
 
@@ -121,48 +126,48 @@ What are the advantages to using Ring over Lisp or Smalltalk?
 ====================================================================
 
 Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I'm sure
-that selecting the right programming language is based on the problem and comes after the problem
+that selecting the right programming language is based on the problem and comes after the problem's
 definition. I have a problem that I want to solve and these GREAT languages are not ideal for 
 this problem so I designed Ring.
 
 When you design a new language, You can learn from the past but you must look forward and live
-in the Future. What you know about Natural Programming maybe based on the *Old Knowledge* about
-the power of these paradigms in the practical world and I agree with you but I see another
-techniques that can be applied to get this to work in practical. What you miss about
-*Natural Language* is that they are *Context Sensitive* and this means we can use it and think
-different about how we can express our ideas. 
+in the future. What you know about natural programming maybe based on the *old knowledge* about
+the power of these paradigms in the practical world and I agree with you but I see other
+techniques that can be applied to get this to work in practice. What you miss about
+*natural language* is that they are *context sensitive* and this means we can use it and think
+differently about how we can express our ideas. 
 
-example : I want window contains 3 buttons. 
+Example : I want window contains 3 buttons. 
 
 In one sentence I created 4 objects (The window and the three buttons) and added the buttons
-to the window. The idea of Natural Programming is to get many things done like that.
+to the window. The idea of natural programming is to get many things done like that.
 
 .. index:: 
-	pair: Frequently Asked Questions; Why Ring is largely focussed on UI creation?
+	pair: Frequently Asked Questions; Why is Ring largely focussed on UI creation?
 
-Why Ring is largely focussed on UI creation?
+Why is Ring largely focussed on UI creation?
 ============================================
 
-Yes UI creation is one of the important things in the language features because it's designed
+Yes UI creation is one of the important things in the language features because it is designed
 to create a visual programming tool, But the language is a multi-paradigm language where we can
 select the programming paradigm based on the problem.
 
 
 .. index:: 
-	pair: Frequently Asked Questions; Is Ring some sort of improvement over PHP?
+	pair: Frequently Asked Questions; Is Ring some sort of an improvement of PHP?
 
-Is Ring some sort of improvement over PHP?
+Is Ring some sort of an improvement of PHP?
 ==========================================
 
-Ring is not designed to replace PHP, Lua and/or Smalltalk. And Ring support for Declarative
-Programming and Natural Language Programming is very innovative and much better than staying 
-with Procedural, Object-Oriented and Functional Languages. Ring see the future in programming
-without code (Using Natural Languages) and is designed to support that.
+Ring is not designed to replace PHP, Lua or Smalltalk. Ring's support for declarative
+programming and natural language programming is very innovative and much better than staying 
+with procedural, object-oriented and functional languages. Ring see the future in programming
+without code (using natural languages) and is designed to support that.
 
 .. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over native C or C++?
+	pair: Frequently Asked Questions; What are the advantages of using Ring over native C or C++?
 
-What are the advantages to using Ring over native C or C++?
+What are the advantages of using Ring over native C or C++?
 ===========================================================
 
 Ring provides a better way to mix between different programming paradigms in solving problems.
@@ -173,15 +178,15 @@ The different programming paradigms play well together in the same language.
 
 (2) The paradigms are provided to interact and used together in different layers in the software. 
 
-for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scene your declarative or natural code will use the object-oriented classes.
+for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scenes your declarative or natural code will use the object-oriented classes.
 
-(3) Ring is very productive and natural programming language than C/C++ languages.
+(3) Ring is more productive and natural than C/C++.
 
-(4) Ring is a dynamic language. We can generate and execute code during the runtime. We have dynamic typing and weakly typed language for flexibility.
+(4) Ring is a dynamic language. We can generate and execute code during the runtime. Ring is dynamically typed and weakly typed for flexibility.
 
-(5) The Garbage collector is generational (escape analysis) and also use reference counting. it's very fast and still provide control to the programmer who can delete memory at any time.
+(5) The Garbage collector is generational (escape analysis) and also uses reference counting. it's very fast and still provides control to the programmer who can delete memory at any time.
 
-(6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
+(6) Ring's compiler and virtual machine are just 15,000 lines of ANSI C code that can be compiled and used in any platform.
 
 (7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
 
@@ -192,7 +197,7 @@ for example you can create a game engine using object-oriented programming but w
 What is the difference between Ring and Python? And is Ring Open Source?
 ========================================================================
 
-Yes the language is Free Open Source (MIT license)
+Yes the language is Open Source (MIT license)
 
 In general I like Python and Ruby but I was looking for a language more suitable for creating the next version of
 the Programming Without Coding Technology (PWCT) software so I started the Ring design.
@@ -307,7 +312,7 @@ The Answer:
 
 * It's Anonymous Functions, i.e. Not Closures.
 
-* Many developers asked about supporting Closures and during language development we may add new features that doesn't go against the language goals or sprite.
+* Many developers asked about supporting Closures and during language development we may add new features that doesn't go against the language goals or spirit.
 
 * You can use classes and objects when you want to merge between the state and functions to provide a clear solution.
 
@@ -321,7 +326,7 @@ The Answer:
 
 * When you think about learning or studying a new language concentrate about (What is new?) and (What is better in this language?) to know when to use it. Don't compare a new language just released little months ago with languages started many years ago and expect to find everything that you used to have.
 
-* Each programming language miss features in other languages. The idea is not the Features. it's the sprite and ability behind all of the features together.
+* Each programming language miss features in other languages. The idea is not the Features. it's the spirit and ability behind all of the features together.
 
 
 
@@ -422,7 +427,7 @@ can define new data types and use them as default types defined by the language
 So We have
 
 * A small and simple language that someone can pick in little days
-* A fast language that provide primitive types (String – Number – List – Object)
+* A fast language that provide primitive types (String - Number - List - Object)
 * A flexible language that can be extended using OOP to add new types according to the application domain
 
 
@@ -669,7 +674,7 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	managers helps a lot to achieve this goal. by doing this we have full control.
 
 (11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
-	But It's not the Ring way "Sprite" to do things.
+	But It's not the Ring way "Spirit" to do things.
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
@@ -1122,7 +1127,7 @@ list + item ---> nothing new will be created but the item will be added to the s
 
 Exception
 
-number + nl —> New String
+number + nl -> New String
 
 This exception is added to easily print numbers then new line.
 

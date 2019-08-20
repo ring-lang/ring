@@ -1,0 +1,61 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 100 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Random Image" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 7 , : y = 11  , 
+		 :width =  375 , :height = 295 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 2 , : y = 322  , 
+		 :width =  384 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseApp"
+		]
+	],
+	[ :name = "Timer1" , :id = 4 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 295 , : y = 75  , 
+		 :width =  61 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "1000",
+		 :Timeout =  "TimerEvent"
+		]
+	],
+	[ :name = "Layout1" , :id = 5 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 165 , : y = 180  , 
+		 :width =  193 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Image1,Button1"
+		]
+	]
+]
+# End Form Designer File

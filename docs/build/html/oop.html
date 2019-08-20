@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Object Oriented Programming (OOP) &mdash; Ring 1.6 documentation</title>
+    <title>Object Oriented Programming (OOP) &mdash; Ring 1.8 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.6',
+        VERSION:     '1.8',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.6 documentation" href="index.html" />
+    <link rel="top" title="Ring 1.8 documentation" href="index.html" />
     <link rel="next" title="Functional Programming" href="fp.html" />
     <link rel="prev" title="Security and Internet Functions" href="secfunc.html" /> 
   </head>
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="secfunc.html" title="Security and Internet Functions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -412,6 +412,32 @@ and the second represent the second parameter after the operator.</p>
 <span class="n">P1</span><span class="o">+</span><span class="n">P2</span> <span class="p">:</span> <span class="n">X</span> <span class="p">:</span> <span class="mi">30</span> <span class="n">Y</span> <span class="p">:</span> <span class="mi">50</span>
 </pre></div>
 </div>
+<p>The next example from the List class in the stdlib.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">Para</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span>
+        <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                        <span class="k">if</span> <span class="n">isobject</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span><span class="p">.</span><span class="n">vValue</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="n">islist</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s">&quot;len&quot;</span>
+                        <span class="k">return</span> <span class="n">len</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+                <span class="k">on</span> <span class="s">&quot;[]&quot;</span>
+                        <span class="k">return</span> <span class="o">&amp;</span><span class="n">vValue</span><span class="o">[</span><span class="n">para</span><span class="o">]</span>
+        <span class="k">off</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>The &#8220;len&#8221; operator is used with (for in) control structure.</p>
+<p>The &#8220;[]&#8221; operator is used when we try to access the list items, In this case we use the &amp; operator
+to return the item values like strings an numbers by reference, so we can update it when we access the
+items.</p>
 </div>
 <div class="section" id="inheritance">
 <span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
@@ -826,11 +852,11 @@ object scope will be changed while we are inside the brace.</p>
         <li class="right" >
           <a href="secfunc.html" title="Security and Internet Functions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.6 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.8 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+        &copy; Copyright 2016-2018, Eng. Mahmoud Fayed and Dr. Atif Alamri.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>

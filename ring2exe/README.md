@@ -81,6 +81,7 @@ Options
 		-opengl   	 : Add RingOpenGL to distribution
 		-freeglut 	 : Add RingFreeGLUT to distribution
 		-libzip   	 : Add RingLibZip to distribution
+		-libuv		 : Add RingLibuv to distribution
 		-consolecolors   : Add RingConsoleColors to distribution
 		-murmurhash	 : Add RingMurmurHash to distribution
 		-cruntime	 : Add C Runtime to distribution

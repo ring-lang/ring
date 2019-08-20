@@ -13,8 +13,8 @@ aLibsInfo = [
 		"icuin54.dll",
 		"icuuc54.dll",
 		"libEGL.dll",
-		"libstdc++-6.dll",
-		"libwinpthread-1.dll",
+		'"libstdc++-6.dll"',
+		'"libwinpthread-1.dll"',
 		"libGLESv2.dll",
 		"D3Dcompiler_47.dll"
 	 ] ,
@@ -39,10 +39,10 @@ aLibsInfo = [
 		"libringqt.dylib"
 	 ],
 	 :ubuntudep = "qt5-default qtbase5-dev qtmultimedia5-dev"+
-		      " libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev",
+		      " libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev libqt5opengl5-dev",
 	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel "+
 		      "qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel",
-	 :macosxdep = "homebrew/versions/qt55"
+	 :macosxdep = "qt55"
 	],
 	[:name = :allegro ,
 	 :title = "RingAllegro",
@@ -225,6 +225,22 @@ aLibsInfo = [
 			"msvc*.dll",
 			"libgcc_s_dw2-1.dll"
 	 ] 
+	],
+	[:name = :libuv ,
+	 :title = "RingLibuv",
+	 :windowsfiles = [
+			"libuv.dll",
+			"ring_uv.dll"
+	 ],
+	 :linuxfiles = [
+		"libring_uv.so"
+	 ],
+	 :macosxfiles = [
+		"libring_uv.dylib"
+	 ],
+	 :ubuntudep = "",
+	 :fedoradep = "",
+	 :macosxdep = "libuv"  
 	],
 	[:name = :murmurhash ,
 	 :title = "RingMurmurHash",

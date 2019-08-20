@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth opengl
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -57,6 +57,8 @@ SOURCES +=   \
     gguiapplication.cpp \
     gtextbrowser.cpp \
     gdockwidget.cpp \
+    gstackedwidget.cpp \
+    gcalendarwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -104,6 +106,8 @@ HEADERS  += \
     gguiapplication.h \
     gtextbrowser.h \
     gwindow.h \
+    gstackedwidget.h \
+    gcalendarwidget.h \
     gdockwidget.h
 
 INCLUDEPATH += ../../include
@@ -111,10 +115,14 @@ INCLUDEPATH += ../../include
 win32 {
 	LIBS +=  ../../lib/ring.lib
 	QT   += axcontainer
+	SOURCES += openglwidget.cpp
+	HEADERS += openglwidget.h 
 }
 
 macx {
 	LIBS +=  ../../lib/libring.dylib
+	SOURCES += openglwidget.cpp
+	HEADERS += openglwidget.h 
 }
 
 unix:!macx {

@@ -1,0 +1,49 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 17 , : y = 98  , 
+		 :width =  514 , :height = 400 , 
+		 :title =  "Many List Items" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "ListWidget1" , :id = 2 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 9 , : y = 29  , 
+		 :width =  368 , :height = 299 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Layout1" , :id = 3 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 65 , : y = 343  , 
+		 :width =  103 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "ListWidget1"
+		]
+	]
+]
+# End Form Designer File

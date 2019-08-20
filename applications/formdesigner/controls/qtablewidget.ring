@@ -475,4 +475,6 @@ class FormDesigner_QTableWidget from QLineEdit
 		SetitemEnteredEventCode(itemdata[:setitemEnteredEvent])
 		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
 		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
+		# Set the object name
+			setText(oDesigner.oModel.GetObjectName(self))
 

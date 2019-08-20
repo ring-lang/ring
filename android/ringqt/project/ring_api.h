@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_api_h
 #define ring_api_h
 /*
@@ -215,6 +215,15 @@ void ring_vmlib_state_runobjectfile ( void *pPointer ) ;
 void ring_vmlib_state_main ( void *pPointer ) ;
 
 void ring_vmlib_state_setvar ( void *pPointer ) ;
+
+void ring_vmlib_state_new ( void *pPointer ) ;
+
+void ring_vmlib_state_mainfile ( void *pPointer ) ;
+/* Ring See and Give */
+
+void ring_vmlib_see ( void *pPointer ) ;
+
+void ring_vmlib_give ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

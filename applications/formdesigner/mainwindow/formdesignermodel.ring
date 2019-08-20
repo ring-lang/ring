@@ -433,7 +433,9 @@ Class FormDesignerModel
 		return [ aObjectsList[nActiveObject] ]
 
 	func RaiseActiveObject
+		aObjectsList + 0
 		swap(aObjectsList,nActiveObject,len(aObjectsList))
+		del(aObjectsList,nActiveObject)
 
 	func LowerActiveObject
 		cParentValue = ActiveObject().CurrentParentName()
@@ -443,5 +445,7 @@ Class FormDesignerModel
 				}
 		}
 		if not x = nActiveObject {
-			swap(aObjectsList,nActiveObject,x)
+			insert(aObjectsList,x,0)
+			swap(aObjectsList,nActiveObject+1,x+1)
+			del(aObjectsList,nActiveObject+1)
 		}

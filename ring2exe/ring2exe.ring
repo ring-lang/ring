@@ -77,6 +77,7 @@
 		-opengl   	 : Add RingOpenGL to distribution
 		-freeglut 	 : Add RingFreeGLUT to distribution
 		-libzip   	 : Add RingLibZip to distribution
+		-libuv		 : Add RingLibuv to distribution
 		-consolecolors   : Add RingConsoleColors to distribution
 		-murmurhash	 : Add RingMurmurHash to distribution
 		-cruntime	 : Add C Runtime to distribution
@@ -138,12 +139,23 @@ func BuildApp cFileName,aOptions
 	# Prepare Application for distribution
 		if find(aOptions,"-dist")
 			Distribute(cFile,aOptions)
+		else 
+			if CheckNoCCompiler(currentdir(),cFile)
+				if not find(aOptions,"-keep")
+					ClearTempFiles(2)
+				ok
+				EndofBuildingMsg()
+				return 
+			ok
 		ok
-		msg("End of building process...")
+		EndofBuildingMsg()
 	# Clear Temp Files 	
 		if not find(aOptions,"-keep")
-			cleartempfiles()
+			cleartempfiles(1)
 		ok
+
+func EndofBuildingMsg
+	msg("End of building process...")
 
 func GenerateCFile cFileName,aOptions
 	# Display Message
@@ -278,13 +290,19 @@ func GenerateBatchGeneral aPara,aOptions
 			return "./"+cMacOSXBatch	
 		ok
 
-func ClearTempFiles
+func ClearTempFiles nPara
 	msg("Clear Temp. Files...")
-	if isWindows()
-		systemSilent(exefolder()+"/../ring2exe/cleartemp.bat")
-	else
-		systemSilent(exefolder()+"/../ring2exe/cleartemp.sh")
+	cTempFile = "cleartemp"
+	if not nPara = 1
+		# Don't delete *.ringo files (distribution using Ring way)
+		cTempFile += "2"
 	ok
+	if isWindows()
+		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".bat")
+	else
+		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".sh")
+	ok
+
 
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
@@ -654,7 +672,7 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	ok
 	if fexists(cExeFile)
 		msg("Executable file is ready!")
-		return 
+		return False
 	ok
 	if isWindows()
 		cRingOFile = cBaseFolder+"\"+cFileName+".ringo"
@@ -665,10 +683,14 @@ func CheckNoCCompiler cBaseFolder,cFileName
 		msg("No Executable, Looks like we don't have a C Compiler!")
 	else 
 		msg("No Ring Object File!")
-		return
+		return False
 	ok	
 	msg("Using the Ring Way to create executable file without a C Compiler!")
-	OSCopyFile(exefilename())
+	cRingExeFile = exefolder() + "/ring"
+	if isWindows() 
+		cRingExeFile += ".exe"
+	ok
+	OSCopyFile(cRingExeFile)
 	if isWindows()
 		OSRenameFile("ring.exe",cFileName+".exe")
 		OSCopyFile(cBaseFolder+"\"+cFileName+".ringo")
@@ -677,4 +699,4 @@ func CheckNoCCompiler cBaseFolder,cFileName
 		OSCopyFile(cBaseFolder+"/"+cFileName+".ringo")
 	ok
 	OSRenameFile(cFileName+".ringo","ring.ringo")
-
+	return True

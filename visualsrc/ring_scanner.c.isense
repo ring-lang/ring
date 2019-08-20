@@ -19,6 +19,8 @@ Type: RingState *
 pRingState
 Type: int
 nTokenIndex
+Type: int
+nLiteralLine
 END:
 Type: Scanner
 struct Scanner
@@ -166,6 +168,8 @@ cStr[5]
 ring_scanner_isnumber
 Type: unsigned int
 x
+Type: unsigned int
+x2
 ring_scanner_checklasttoken
 ring_scanner_isoperator
 Type: int

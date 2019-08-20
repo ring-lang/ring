@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vm_h
 #define ring_vm_h
 /*
@@ -8,7 +8,7 @@
 #define RING_VM_STACK_SIZE 256
 #define RING_VM_STACK_CHECKOVERFLOW 253
 #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-#define RING_VM_BC_ITEMS_COUNT 16
+#define RING_VM_BC_ITEMS_COUNT 24
 typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
 	char nSize  ;
@@ -100,6 +100,10 @@ typedef struct VM {
 	char nEvalInScope  ;
 	char lPassError  ;
 	char lHideErrorMsg  ;
+	List *aGlobalScopes  ;
+	List *aActiveGlobalScopes  ;
+	int nCurrentGlobalScope  ;
+	char *cFileNameInClassRegion  ;
 } VM ;
 /*
 **  Functions 
@@ -139,6 +143,8 @@ void ring_vm_init ( RingState *pRingState ) ;
 void ring_vm_printstack ( VM *pVM ) ;
 
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr ) ;
+
+void ring_vm_addglobalvariables ( VM *pVM ) ;
 /* Stack and Variables */
 
 void ring_vm_pushv ( VM *pVM ) ;
@@ -214,6 +220,8 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize ) 
 void ring_vm_plusplus ( VM *pVM ) ;
 
 void ring_vm_minusminus ( VM *pVM ) ;
+
+void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 ) ;
 /* Logic */
 
 void ring_vm_and ( VM *pVM ) ;
@@ -359,7 +367,7 @@ void ring_vm_oop_aftercallmethod ( VM *pVM ) ;
 
 void ring_vm_oop_setscope ( VM *pVM ) ;
 
-void ring_vm_oop_printobj ( List *pList ) ;
+void ring_vm_oop_printobj ( VM *pVM,List *pList ) ;
 
 void ring_vm_oop_parentinit ( VM *pVM,List *pList ) ;
 
@@ -510,6 +518,15 @@ void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
 /* Fast Function Call for Extensions (Without Eval) */
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
+/* Custom Global Scope */
+
+void ring_vm_newglobalscope ( VM *pVM ) ;
+
+void ring_vm_endglobalscope ( VM *pVM ) ;
+
+void ring_vm_setglobalscope ( VM *pVM ) ;
+
+List * ring_vm_getglobalscope ( VM *pVM ) ;
 /*
 **  Macro 
 **  Stack 
@@ -530,6 +547,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_VM_STACK_SETNVALUE(x) ring_itemarray_setdouble(pVM->aStack, pVM->nSP , x)
 #define RING_VM_STACK_SETPVALUE(x) ring_itemarray_setpointer(pVM->aStack, pVM->nSP , x )
 #define RING_VM_STACK_SETCVALUE2(x,y) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
+#define RING_VM_STACK_PUSHCVALUE2(x,y) pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
 /* Check */
 #define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
 #define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
@@ -594,13 +612,14 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_FUNCCL_SP 4
 #define RING_FUNCCL_TEMPMEM 5
 #define RING_FUNCCL_FILENAME 6
-#define RING_FUNCCL_METHODORFUNC 7
-#define RING_FUNCCL_LINENUMBER 8
-#define RING_FUNCCL_CALLERPC 9
-#define RING_FUNCCL_FUNCEXE 10
-#define RING_FUNCCL_LISTSTART 11
-#define RING_FUNCCL_NESTEDLISTS 12
-#define RING_FUNCCL_STATE 13
+#define RING_FUNCCL_NEWFILENAME 7
+#define RING_FUNCCL_METHODORFUNC 8
+#define RING_FUNCCL_LINENUMBER 9
+#define RING_FUNCCL_CALLERPC 10
+#define RING_FUNCCL_FUNCEXE 11
+#define RING_FUNCCL_LISTSTART 12
+#define RING_FUNCCL_NESTEDLISTS 13
+#define RING_FUNCCL_STATE 14
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
 #define RING_FUNCMAP_NAME 1
 #define RING_FUNCMAP_PC 2

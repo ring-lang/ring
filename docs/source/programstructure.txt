@@ -66,3 +66,55 @@ Example:
 		see "Hello " + cName + nl
 
 
+.. index:: 
+	pair: Program Structure;  Load Package
+
+Load Package
+============
+
+Using the 'load' command we can use many ring source files in the same project
+
+But all of these files will share the same global scope 
+
+We have also the "Load Package" command
+
+Using "Load Package" we can load a library (*.ring file) in new global scope
+
+This is very useful to create libraries that avoid conflicts in global variables
+
+Example:
+
+File: loadpackage.ring
+
+.. code-block:: ring
+
+	x = 100
+	? "Hello, World!"
+	load package "testloadpackage.ring"
+
+	? x
+	test()
+
+File: testloadpackage.ring
+
+.. code-block:: ring
+
+	? "Hello from testloadpackage.ring"
+
+	x = 1000
+
+	test()
+
+	func test
+		? x
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	Hello from testloadpackage.ring
+	1000
+	100
+	1000
+

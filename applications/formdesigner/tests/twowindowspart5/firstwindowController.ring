@@ -20,8 +20,10 @@ class firstwindowController from windowsControllerParent
 		Open_WindowAndLink(:SecondWindowController,self)
 
 	func SendMessage
-		if IsSecondWindow() {
-			SecondWindow().setMessage("Message from the first window")
+		if isMethod(self,:IsSecondWindow) {
+			if IsSecondWindow() {
+				SecondWindow().setMessage("Message from the first window")
+			}
 		}
 
 	func setMessage cMessage 

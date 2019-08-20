@@ -23,14 +23,16 @@ Load "bootstrap.ring"
 Import System.Web
 
 website = "index.ring"
-cUploadPath = "b:/ring/ringlibs/weblib/ringapp/upload/"
-cUploadFolder = "/ringapp/upload/"
 
+cUploadPath = exefolder() + "../ringlibs/weblib/ringapp/upload/"
+cUploadFolder = "/upload/"
+
+cPDFPath = exefolder() + "../ringlibs/weblib/ringapp/temp/"
+cPDFFolder = "/temp/"
 
 
 Func Main
 
-		#if loadvars() = "" # main page
 		if aPageVars["page"] = NULL
 			mainpage()
 		else

@@ -84,7 +84,7 @@ ring_vm_api_varptr
 Type: VM *
 pVM
 Type: List *
-pList
+pList, *pActiveMem
 Type: Item *
 pItem
 ring_vm_api_intvalue
@@ -95,6 +95,8 @@ pList
 Type: Item *
 pItem
 ring_list_addcpointer
+Type: List *
+pList2
 ring_vm_api_iscpointerlist
 ring_vm_api_iscpointer
 ring_vm_api_isobject
@@ -114,12 +116,14 @@ y
 Type: Item *
 pItem
 ring_list_addcpointer_gc
+Type: List *
+pList2
 ring_vmlib_len
 Type: VM *
 pVM
 ring_vmlib_add
 Type: List *
-pList,*pList2, *pList3
+pList,*pList2
 Type: VM *
 pVM
 ring_vmlib_del
@@ -165,10 +169,14 @@ tm_info
 ring_vmlib_filename
 Type: VM *
 pVM
-Type: int
-nPos
 Type: List *
 pList
+Type: int
+lFunctionCall,x
+Type: const char *
+cOldFile
+Type: const char *
+cFile
 ring_vmlib_getchar
 Type: char
 cStr[2]
@@ -222,6 +230,8 @@ ring_vmlib_type
 Type: List *
 pList
 ring_vmlib_isnull
+Type: char *
+cStr
 ring_vmlib_isobject
 ring_vmlib_hex
 cStr
@@ -268,6 +278,7 @@ Type: String *
 pString
 Type: int
 x
+cStr
 ring_vmlib_str2hexcstyle
 cStr
 Type: unsigned char *
@@ -389,6 +400,16 @@ Type: List *
 pList, *pList2, *pList3
 Type: VM *
 pVM
+ring_vmlib_state_new
+ring_vmlib_state_mainfile
+Type: RingState *
+pRingState
+Type: char *
+cStr
+Type: int
+argc
+Type: char *
+argv[2]
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
