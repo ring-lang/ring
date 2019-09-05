@@ -452,6 +452,8 @@ More Improvements
 	* samples/other/sudoku-KL02-longproblem.ring
 	* samples/other/zerobasedlist.ring
 	* ringlibs/gameengine/lesson17.ring (Using Buttons)
+	* samples/other/SQLTutorial/SQL-Tutorial.ring
+	* samples/other/DrawFourier/AA-Draw-Fourier.ring
 * Gold Magic 800 - More levels (44 Levels)
 * Fifteen Puzzle Game 3D - Better Code (Animation Speed)
 * Flappy Bird 3000 - change the Bird direction to be looking down when we have game over
