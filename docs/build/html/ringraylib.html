@@ -58,8 +58,30 @@
 <p>RingRayLib is an extension for the RayLib game programming library.</p>
 <p>Also RayGUI functions are supported by this extension.</p>
 </div>
+<div class="section" id="basic-window">
+<span id="index-2"></span><h2>Basic Window<a class="headerlink" href="#basic-window" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
-<span id="index-2"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -520,6 +542,7 @@ const char *GuiIconText(int iconId, const char *text)
   <ul>
 <li><a class="reference internal" href="#">Using RingRayLib</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#basic-window">Basic Window</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
