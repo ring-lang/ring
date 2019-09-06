@@ -174,6 +174,7 @@ class Rectangle x y width height
 class Image 
 
 	data width  height mipmaps  format
+
 	oData = raylib_new_managed_Image()
 
 	func init p1,p2,p3,p4,p5
@@ -197,6 +198,7 @@ class Image
 class Texture2D 
 
 	id width  height mipmaps  format
+
 	oData = raylib_new_managed_Texture2D()
 
 	func init p1,p2,p3,p4,p5
@@ -223,6 +225,9 @@ class RenderTexture2D
 	texture = new Texture2D 
 	depth 	= new Texture2D  
 	depthTexture
+
+	oData = raylib_new_managed_RenderTexture2D()
+
 
 	func init p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12 
 
