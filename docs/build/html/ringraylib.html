@@ -414,8 +414,85 @@ CloseWindow()
 </pre></div>
 </div>
 </div>
+<div class="section" id="d-picking">
+<span id="index-10"></span><h2>3D Picking<a class="headerlink" href="#d-picking" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+
+screenWidth = 800
+screenHeight = 450
+
+InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - 3d picking&quot;)
+
+camera = Camera3D(
+        10, 10, 10,
+        0, 0, 0 ,
+        0, 1, 0 ,
+        45,
+        CAMERA_PERSPECTIVE
+)
+
+cubePosition = Vector3( 0, 1, 0 )
+cubeSize = Vector3( 2, 2, 2 )
+
+ray = Ray(0,0,0,0,0,0)
+
+collision = false
+
+SetCameraMode(camera, CAMERA_FREE)
+
+SetTargetFPS(60)
+
+while !WindowShouldClose()
+
+                UpdateCamera(camera)
+
+                if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
+                        if !collision
+                                ray = GetMouseRay(GetMousePosition(), camera)
+
+                                collision = CheckCollisionRayBox(ray,
+                                BoundingBox( cubePosition.x - cubeSize.x/2, cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
+                                cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2, cubePosition.z + cubeSize.z/2 ) )
+                        else collision = false
+                        ok
+                ok
+
+                BeginDrawing()
+
+                        ClearBackground(RAYWHITE)
+
+                        BeginMode3D(camera)
+
+                                if collision
+                                        DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
+                                        DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+
+                                        DrawCubeWires(cubePosition, cubeSize.x + 0.2f, cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
+                                else
+                                        DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
+                                        DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+                                ok
+
+                                DrawRay(ray, MAROON)
+                                DrawGrid(10, 1)
+
+                        EndMode3D()
+
+                        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10, 20, DARKGRAY)
+
+                        if collision  DrawText(&quot;BOX SELECTED&quot;, (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2, screenHeight * 0.1f, 30, GREEN) ok
+
+                        DrawFPS(10, 10)
+
+                EndDrawing()
+end
+
+CloseWindow()
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
-<span id="index-10"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -884,6 +961,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#mouse-wheel">Mouse Wheel</a></li>
 <li><a class="reference internal" href="#input-multi-touch">Input Multi-touch</a></li>
 <li><a class="reference internal" href="#camera-first-person">Camera First Person</a></li>
+<li><a class="reference internal" href="#d-picking">3D Picking</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
