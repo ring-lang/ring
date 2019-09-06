@@ -14,6 +14,9 @@ class Vector2 x y
 		x = raylib_get_vector2_x(oStruct)
 		y = raylib_get_vector2_y(oStruct)
 
+	func refresh 
+		setdata(oData)
+
 class Vector3 x y z
 
 	oData = raylib_new_managed_vector3()
@@ -31,6 +34,9 @@ class Vector3 x y z
 		x = raylib_get_vector3_x(oStruct)
 		y = raylib_get_vector3_y(oStruct)
 		z = raylib_get_vector3_z(oStruct)
+
+	func refresh 
+		setdata(oData)
 
 class Vector4 x y z w
 
@@ -52,6 +58,9 @@ class Vector4 x y z w
 		z = raylib_get_vector4_z(oStruct)
 		w = raylib_get_vector4_w(oStruct)
 
+	func refresh 
+		setdata(oData)
+
 class Quaternion x y z w
 
 	oData = raylib_new_managed_Quaternion()
@@ -71,6 +80,9 @@ class Quaternion x y z w
 		y = raylib_get_Quaternion_y(oStruct)
 		z = raylib_get_Quaternion_z(oStruct)
 		w = raylib_get_Quaternion_w(oStruct)
+
+	func refresh 
+		setdata(oData)
 
 class Matrix m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15
 
@@ -131,6 +143,9 @@ class Matrix m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11 m12 m13 m14 m15
 		m14 = raylib_get_Matrix_m14(oStruct)
 		m15 = raylib_get_Matrix_m15(oStruct)
 
+	func refresh 
+		setdata(oData)
+
 class Color r g b a
 
 	oData = raylib_new_managed_Color()
@@ -151,6 +166,9 @@ class Color r g b a
 		b = raylib_get_Color_b(oStruct)
 		a = raylib_get_Color_a(oStruct)
 
+	func refresh 
+		setdata(oData)
+
 class Rectangle x y width height
 
 	oData = raylib_new_managed_Rectangle()
@@ -170,6 +188,9 @@ class Rectangle x y width height
 		y 	= raylib_get_Rectangle_y(oStruct)
 		width 	= raylib_get_Rectangle_width(oStruct)
 		height 	= raylib_get_Rectangle_height(oStruct)
+
+	func refresh 
+		setdata(oData)
 
 class Image 
 
@@ -195,6 +216,9 @@ class Image
 		mipmaps = raylib_get_Image_mipmaps(oStruct)
 		format 	= raylib_get_Image_format(oStruct)
 
+	func refresh 
+		setdata(oData)
+
 class Texture2D 
 
 	id width  height mipmaps  format
@@ -218,6 +242,9 @@ class Texture2D
 		height 	= raylib_get_Texture2D_height(oStruct)
 		mipmaps = raylib_get_Texture2D_mipmaps(oStruct)
 		format 	= raylib_get_Texture2D_format(oStruct)
+
+	func refresh 
+		setdata(oData)
 
 class RenderTexture2D
 
@@ -273,19 +300,8 @@ class RenderTexture2D
 		depth.format  	= raylib_get_RenderTexture2D_depth_format(oStruct)
 		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oStruct)
 
-	func refresh
-		id	 	= raylib_get_RenderTexture2D_id(oData)
-		texture.id 	= raylib_get_RenderTexture2D_texture_id(oData)
-		texture.width 	= raylib_get_RenderTexture2D_texture_width(oData) 
-		texture.height	= raylib_get_RenderTexture2D_texture_height(oData)
-		texture.mipmaps = raylib_get_RenderTexture2D_texture_mipmaps(oData) 
-		texture.format  = raylib_get_RenderTexture2D_texture_format(oData)
-		depth.id 	= raylib_get_RenderTexture2D_depth_id(oData)
-		depth.width 	= raylib_get_RenderTexture2D_depth_width(oData) 
-		depth.height	= raylib_get_RenderTexture2D_depth_height(oData)
-		depth.mipmaps 	= raylib_get_RenderTexture2D_depth_mipmaps(oData) 
-		depth.format  	= raylib_get_RenderTexture2D_depth_format(oData)
-		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oData)
+	func refresh 
+		setdata(oData)
 
 
 class SpriteFont 
@@ -326,16 +342,8 @@ class SpriteFont
 		charsCount	= raylib_get_SpriteFont_charsCount(oStruct)
 		chars		= raylib_get_SpriteFont_chars(oStruct)
 
-	func refresh
-		texture.id 	= raylib_get_SpriteFont_texture_id(oData)
-		texture.width 	= raylib_get_SpriteFont_texture_width(oData) 
-		texture.height	= raylib_get_SpriteFont_texture_height(oData)
-		texture.mipmaps = raylib_get_SpriteFont_texture_mipmaps(oData) 
-		texture.format  = raylib_get_SpriteFont_texture_format(oData)
-		baseSize	= raylib_get_SpriteFont_baseSize(oData)
-		charsCount	= raylib_get_SpriteFont_charsCount(oData)
-		chars		= raylib_get_SpriteFont_chars(oData)
-
+	func refresh 
+		setdata(oData)
 
 class Camera3D
 
@@ -387,17 +395,7 @@ class Camera3D
 		type = raylib_get_Camera3D_type(oStruct)
 
 	func refresh 
-		position.x = raylib_get_Camera3D_position_x(oData)
-		position.y = raylib_get_Camera3D_position_y(oData)
-		position.z = raylib_get_Camera3D_position_z(oData)
-		target.x = raylib_get_Camera3D_target_x(oData)
-		target.y = raylib_get_Camera3D_target_y(oData)
-		target.z = raylib_get_Camera3D_target_z(oData)
-		up.x = raylib_get_Camera3D_up_x(oData)
-		up.y = raylib_get_Camera3D_up_y(oData)
-		up.z = raylib_get_Camera3D_up_z(oData)
-		fovy = raylib_get_Camera3D_fovy(oData)
-		type = raylib_get_Camera3D_type(oData)
+		setdata(oData)
 
 class Mesh 
 
@@ -457,21 +455,8 @@ class Mesh
 		boneWeights	= raylib_get_Mesh_boneWeights(oStruct)
 		vaoId		= raylib_get_Mesh_vaoId(oStruct)
 
-	func refresh
-		vertexCount	= raylib_get_Mesh_vertexCount(oData)
-		triangleCount	= raylib_get_Mesh_triangleCount(oData)
-		vertices	= raylib_get_Mesh_vertices(oData)
-		texcoords	= raylib_get_Mesh_texcoords(oData)
-		texcoords2	= raylib_get_Mesh_texcoords2(oData)
-		normals		= raylib_get_Mesh_normals(oData)
-		tangents	= raylib_get_Mesh_tangents(oData)
-		colors		= raylib_get_Mesh_colors(oData)
-		indices		= raylib_get_Mesh_indices(oData)
-		animVertices	= raylib_get_Mesh_animVertices(oData)
-		animNormals	= raylib_get_Mesh_animNormals(oData)
-		boneIds		= raylib_get_Mesh_boneIds(oData)
-		boneWeights	= raylib_get_Mesh_boneWeights(oData)
-		vaoId		= raylib_get_Mesh_vaoId(oData)
+	func refresh 
+		setdata(oData)
 
 class Shader 
 
@@ -489,8 +474,8 @@ class Shader
 	func setdata oStruct 
 		id = raylib_get_shader_id(oStruct)
 
-	func refresh
-		id = raylib_get_shader_id(oData)
+	func refresh 
+		setdata(oData)
 
 
 class Material 
@@ -513,9 +498,8 @@ class Material
 		shader.id = raylib_get_Material_shader_id(oStruct)
 		params = raylib_get_Material_params(oStruct)
 
-	func refresh
-		shader.id = raylib_get_Material_shader_id(oData)
-		params = raylib_get_Material_params(oData)
+	func refresh 
+		setdata(oData)
 
 
 class Transform 
@@ -560,16 +544,8 @@ class Transform
 		scale.y = raylib_get_Transform_scale_y(oStruct)
 		scale.z = raylib_get_Transform_scale_z(oStruct)
 
-	func refresh
-		translation.x = raylib_get_Transform_translation_x(oData)
-		translation.y = raylib_get_Transform_translation_y(oData)
-		translation.z = raylib_get_Transform_translation_z(oData)
-		rotation.x = raylib_get_Transform_rotation_x(oData)
-		rotation.y = raylib_get_Transform_rotation_y(oData)
-		rotation.z = raylib_get_Transform_rotation_z(oData)
-		scale.x = raylib_get_Transform_scale_x(oData)
-		scale.y = raylib_get_Transform_scale_y(oData)
-		scale.z = raylib_get_Transform_scale_z(oData)
+	func refresh 
+		setdata(oData)
 
 
 class BoneInfo
@@ -588,8 +564,8 @@ class BoneInfo
 	func setdata oStruct 
 		parent = raylib_get_Model_parent(oStruct)
 
-	func refresh
-		parent = raylib_get_Model_parent(oData)
+	func refresh 
+		setdata(oData)
 		
 
 class Model
@@ -655,31 +631,8 @@ class Model
 		bones = raylib_get_Model_bones(oStruct)
 		bindPose = raylib_get_Model_bindPose(oStruct)
 
-	func refresh
-		transform.m0 = raylib_get_Model_transform_m0(oData)
-		transform.m1 = raylib_get_Model_transform_m1(oData)
-		transform.m2 = raylib_get_Model_transform_m2(oData)
-		transform.m3 = raylib_get_Model_transform_m3(oData)
-		transform.m4 = raylib_get_Model_transform_m4(oData)
-		transform.m5 = raylib_get_Model_transform_m5(oData)
-		transform.m6 = raylib_get_Model_transform_m6(oData)
-		transform.m7 = raylib_get_Model_transform_m7(oData)
-		transform.m8 = raylib_get_Model_transform_m8(oData)
-		transform.m9 = raylib_get_Model_transform_m9(oData)
-		transform.m10 = raylib_get_Model_transform_m10(oData)
-		transform.m11 = raylib_get_Model_transform_m11(oData)
-		transform.m12 = raylib_get_Model_transform_m12(oData)
-		transform.m13 = raylib_get_Model_transform_m13(oData)
-		transform.m14 = raylib_get_Model_transform_m14(oData)
-		transform.m15 = raylib_get_Model_transform_m15(oData)
-		meshCount = raylib_get_Model_meshCount(oData)
-		meshes = raylib_get_Model_meshes(oData)
-		materialCount = raylib_get_Model_materialCount(oData)
-		materials = raylib_get_Model_materials(oData)
-		meshMaterial = raylib_get_Model_meshMaterial(oData)
-		boneCount = raylib_get_Model_boneCount(oData)
-		bones = raylib_get_Model_bones(oData)
-		bindPose = raylib_get_Model_bindPose(oData)
+	func refresh 
+		setdata(oData)
 
 class ModelAnimation 
 
@@ -701,10 +654,8 @@ class ModelAnimation
 		bones = raylib_get_ModelAnimation_bones(oStruct)
 		frameCount = raylib_get_ModelAnimation_frameCount(oStruct)
 
-	func refresh
-		boneCount = raylib_get_ModelAnimation_boneCount(oData)
-		bones = raylib_get_ModelAnimation_bones(oData)
-		frameCount = raylib_get_ModelAnimation_frameCount(oData)
+	func refresh 
+		setdata(oData)
 
 class Ray
 
@@ -739,12 +690,7 @@ class Ray
 		direction.z = raylib_get_Ray_direction_z(oStruct)
 
 	func refresh 
-		position.x = raylib_get_Ray_position_x(oData)
-		position.y = raylib_get_Ray_position_y(oData)
-		position.z = raylib_get_Ray_position_z(oData)
-		directionx = raylib_get_Ray_direction_x(oData)
-		direction.y = raylib_get_Ray_direction_y(oData)
-		direction.z = raylib_get_Ray_direction_z(oData)
+		setdata(oData)
 
 class RayHitInfo 
 
@@ -784,15 +730,8 @@ class RayHitInfo
 		normal.y = raylib_get_RayHitInfo_normal_y(oStruct)
 		normal.z = raylib_get_RayHitInfo_normal_z(oStruct)
 
-	func refresh
-		hit = raylib_get_RayHitInfo_hit(oData)
-		distance = raylib_get_RayHitInfo_distance(oData)
-		position.x = raylib_get_RayHitInfo_position_x(oData)
-		position.y = raylib_get_RayHitInfo_position_y(oData)
-		position.z = raylib_get_RayHitInfo_position_z(oData)
-		normal.x = raylib_get_RayHitInfo_normal_x(oData)
-		normal.y = raylib_get_RayHitInfo_normal_y(oData)
-		normal.z = raylib_get_RayHitInfo_normal_z(oData)
+	func refresh 
+		setdata(oData)
 
 
 class BoundingBox 
@@ -828,12 +767,7 @@ class BoundingBox
 		max.z = raylib_get_BoundingBox_max_z(oStruct)
 
 	func refresh 
-		min.x = raylib_get_BoundingBox_min_x(oData)
-		min.y = raylib_get_BoundingBox_min_y(oData)
-		min.z = raylib_get_BoundingBox_min_z(oData)
-		maxx = raylib_get_BoundingBox_max_x(oData)
-		max.y = raylib_get_BoundingBox_max_y(oData)
-		max.z = raylib_get_BoundingBox_max_z(oData)
+		setdata(oData)
 
 class Wave
 
@@ -860,12 +794,8 @@ class Wave
 		Channels	= raylib_get_Wave_Channels(oStruct)
 		Data		= raylib_get_Wave_Data(oStruct)
 
-	func refresh
-		sampleCount	= raylib_get_Wave_sampleCount(oData)
-		sampleRate	= raylib_get_Wave_sampleRate(oData)
-		sampleSize	= raylib_get_Wave_sampleSize(oData)
-		Channels	= raylib_get_Wave_Channels(oData)
-		Data		= raylib_get_Wave_Data(oData)
+	func refresh 
+		setdata(oData)
 
 
 class Sound
@@ -890,13 +820,8 @@ class Sound
 		buffer		= raylib_get_Sound_Buffer(oStruct)
 		format		= raylib_get_Sound_Format(oStruct)
 
-
 	func refresh 
-		audioBuffer 	= raylib_get_Sound_AudioBuffer(oData)
-		Source	 	= raylib_get_Sound_Source(oData)
-		Buffer	 	= raylib_get_Sound_Buffer(oData)
-		Format	 	= raylib_get_Sound_Format(oData)
-
+		setdata(oData)
 
 class AudioStream 
 
@@ -926,12 +851,7 @@ class AudioStream
 		source 		= raylib_get_AudioStream_source(oStruct)
 
 	func refresh 
-		sampleRate 	= raylib_get_AudioStream_sampleRate(oData)
-		sampleSize 	= raylib_get_AudioStream_sampleSize(oData)
-		channels 	= raylib_get_AudioStream_channels(oData)
-		audioBuffer 	= raylib_get_AudioStream_audioBuffer(oData)
-		format 		= raylib_get_AudioStream_format(oData)
-		source 		= raylib_get_AudioStream_source(oData)
+		setdata(oData)
 
 class VrDeviceInfo 
 
@@ -966,11 +886,4 @@ class VrDeviceInfo
 		interpupillaryDistance = raylib_get_VrDeviceInfo_interpupillaryDistance(oStruct)
 
 	func refresh 
-		hResolution = raylib_get_VrDeviceInfo_hResolution(oData)
-		vResolution = raylib_get_VrDeviceInfo_vResolution(oData)
-		hScreenSize = raylib_get_VrDeviceInfo_hScreenSize(oData)
-		vScreenSize = raylib_get_VrDeviceInfo_vScreenSize(oData)
-		vScreenCenter = raylib_get_VrDeviceInfo_vScreenCenter(oData)
-		eyeToScreenDistance = raylib_get_VrDeviceInfo_eyeToScreenDistance(oData)
-		lensSeparationDistance = raylib_get_VrDeviceInfo_lensSeparationDistance(oData)
-		interpupillaryDistance = raylib_get_VrDeviceInfo_interpupillaryDistance(oData)
+		setdata(oData)
