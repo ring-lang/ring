@@ -217,6 +217,72 @@ class Texture2D
 		mipmaps = raylib_get_Texture2D_mipmaps(oStruct)
 		format 	= raylib_get_Texture2D_format(oStruct)
 
+class RenderTexture2D
+
+	id 
+	texture = new Texture2D 
+	depth 	= new Texture2D  
+	depthTexture
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12 
+
+		id		= p1
+		texture.id	= p2
+		texture.width	= p3
+		texture.height	= p4
+		texture.mipmaps	= p5
+		texture.format	= p6
+		depth.id	= p7
+		depth.width	= p8
+		depth.height	= p9
+		depth.mipmaps	= p10
+		depth.format	= p11
+		depthTexture	= p12
+
+	func data 
+		raylib_set_RenderTexture2D_id(oData,id)	
+		raylib_set_RenderTexture2D_texture_id(oData,texture.id)	
+		raylib_set_RenderTexture2D_texture_width(oData,texture.width)	
+		raylib_set_RenderTexture2D_texture_height(oData,texture.height)	
+		raylib_set_RenderTexture2D_texture_mipmaps(oData,texture.mipmaps)	
+		raylib_set_RenderTexture2D_texture_format(oData,texture.format)	
+		raylib_set_RenderTexture2D_depth_id(oData,depth.id)	
+		raylib_set_RenderTexture2D_depth_width(oData,depth.width)	
+		raylib_set_RenderTexture2D_depth_height(oData,depth.height)	
+		raylib_set_RenderTexture2D_depth_mipmaps(oData,depth.mipmaps)	
+		raylib_set_RenderTexture2D_depth_format(oData,depth.format)	
+		raylib_set_RenderTexture2D_depthTexture(oData,depthTexture)	
+		return oData
+
+	func setdata oStruct 
+		id	 	= raylib_get_RenderTexture2D_id(oStruct)
+		texture.id 	= raylib_get_RenderTexture2D_texture_id(oStruct)
+		texture.width 	= raylib_get_RenderTexture2D_texture_width(oStruct) 
+		texture.height	= raylib_get_RenderTexture2D_texture_height(oStruct)
+		texture.mipmaps = raylib_get_RenderTexture2D_texture_mipmaps(oStruct) 
+		texture.format  = raylib_get_RenderTexture2D_texture_format(oStruct)
+		depth.id 	= raylib_get_RenderTexture2D_depth_id(oStruct)
+		depth.width 	= raylib_get_RenderTexture2D_depth_width(oStruct) 
+		depth.height	= raylib_get_RenderTexture2D_depth_height(oStruct)
+		depth.mipmaps 	= raylib_get_RenderTexture2D_depth_mipmaps(oStruct) 
+		depth.format  	= raylib_get_RenderTexture2D_depth_format(oStruct)
+		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oStruct)
+
+	func refresh
+		id	 	= raylib_get_RenderTexture2D_id(oData)
+		texture.id 	= raylib_get_RenderTexture2D_texture_id(oData)
+		texture.width 	= raylib_get_RenderTexture2D_texture_width(oData) 
+		texture.height	= raylib_get_RenderTexture2D_texture_height(oData)
+		texture.mipmaps = raylib_get_RenderTexture2D_texture_mipmaps(oData) 
+		texture.format  = raylib_get_RenderTexture2D_texture_format(oData)
+		depth.id 	= raylib_get_RenderTexture2D_depth_id(oData)
+		depth.width 	= raylib_get_RenderTexture2D_depth_width(oData) 
+		depth.height	= raylib_get_RenderTexture2D_depth_height(oData)
+		depth.mipmaps 	= raylib_get_RenderTexture2D_depth_mipmaps(oData) 
+		depth.format  	= raylib_get_RenderTexture2D_depth_format(oData)
+		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oData)
+
+
 class SpriteFont 
 
 	texture = new Texture2D

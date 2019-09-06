@@ -44,6 +44,14 @@ func Font p1,p2,p3,p4,p5,p6,p7,p8
 	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oSpriteFont
 
+func RenderTexture2D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12
+	oRenderTexture2D = new RenderTexture2D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12)
+	return oRenderTexture2D
+
+func RenderTexture p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12
+	oRenderTexture2D = new RenderTexture2D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12)
+	return oRenderTexture2D
+
 func SpriteFont p1,p2,p3,p4,p5,p6,p7,p8
 	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oSpriteFont
