@@ -279,6 +279,80 @@ class Camera3D
 		fovy = raylib_get_Camera3D_fovy(oData)
 		type = raylib_get_Camera3D_type(oData)
 
+class Mesh 
+
+	vertexCount triangleCount vertices texcoords texcoords2 normals
+	tangents colors indices animVertices animNormals boneIds
+	boneWeights vaoId
+
+	oData = raylib_new_managed_Mesh()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14 
+
+		vertexCount	= p1
+		triangleCount	= p2
+		vertices	= p3
+		texcoords	= p4
+		texcoords2	= p5
+		normals		= p6
+		tangents	= p7
+		colors		= p8
+		indices		= p9
+		animVertices	= p10
+		animNormals	= p11
+		boneIds		= p12
+		boneWeights	= p13
+		vaoId		= p14
+
+	func data 
+		raylib_set_Mesh_vertexCount(oData,vertexCount)	
+		raylib_set_Mesh_triangleCount(oData,triangleCount)	
+		raylib_set_Mesh_vertices(oData,vertices)	
+		raylib_set_Mesh_texcoords(oData,texcoords)	
+		raylib_set_Mesh_texcoords2(oData,texcoords2)	
+		raylib_set_Mesh_normals(oData,normals)	
+		raylib_set_Mesh_tangents(oData,tangents)	
+		raylib_set_Mesh_colors(oData,colors)	
+		raylib_set_Mesh_indices(oData,indices)	
+		raylib_set_Mesh_animVertices(oData,animVertices)	
+		raylib_set_Mesh_animNormals(oData,animNormals)	
+		raylib_set_Mesh_boneIds(oData,boneIds)	
+		raylib_set_Mesh_boneWeights(oData,boneWeights)	
+		raylib_set_Mesh_vaoId(oData,vaoId)	
+		return oData
+
+	func setdata oStruct 
+		vertexCount	= raylib_get_Mesh_vertexCount(oStruct)
+		triangleCount	= raylib_get_Mesh_triangleCount(oStruct)
+		vertices	= raylib_get_Mesh_vertices(oStruct)
+		texcoords	= raylib_get_Mesh_texcoords(oStruct)
+		texcoords2	= raylib_get_Mesh_texcoords2(oStruct)
+		normals		= raylib_get_Mesh_normals(oStruct)
+		tangents	= raylib_get_Mesh_tangents(oStruct)
+		colors		= raylib_get_Mesh_colors(oStruct)
+		indices		= raylib_get_Mesh_indices(oStruct)
+		animVertices	= raylib_get_Mesh_animVertices(oStruct)
+		animNormals	= raylib_get_Mesh_animNormals(oStruct)
+		boneIds		= raylib_get_Mesh_boneIds(oStruct)
+		boneWeights	= raylib_get_Mesh_boneWeights(oStruct)
+		vaoId		= raylib_get_Mesh_vaoId(oStruct)
+
+	func refresh
+		vertexCount	= raylib_get_Mesh_vertexCount(oData)
+		triangleCount	= raylib_get_Mesh_triangleCount(oData)
+		vertices	= raylib_get_Mesh_vertices(oData)
+		texcoords	= raylib_get_Mesh_texcoords(oData)
+		texcoords2	= raylib_get_Mesh_texcoords2(oData)
+		normals		= raylib_get_Mesh_normals(oData)
+		tangents	= raylib_get_Mesh_tangents(oData)
+		colors		= raylib_get_Mesh_colors(oData)
+		indices		= raylib_get_Mesh_indices(oData)
+		animVertices	= raylib_get_Mesh_animVertices(oData)
+		animNormals	= raylib_get_Mesh_animNormals(oData)
+		boneIds		= raylib_get_Mesh_boneIds(oData)
+		boneWeights	= raylib_get_Mesh_boneWeights(oData)
+		vaoId		= raylib_get_Mesh_vaoId(oData)
+
 class Shader 
 
 	id
