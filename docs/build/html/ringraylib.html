@@ -250,8 +250,41 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="mouse-wheel">
+<span id="index-7"></span><h2>Mouse Wheel<a class="headerlink" href="#mouse-wheel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - input mouse wheel&quot;</span><span class="p">)</span>
+
+<span class="n">boxPositionY</span> <span class="o">=</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span>
+<span class="n">scrollSpeed</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+                <span class="n">boxPositionY</span> <span class="o">-=</span> <span class="p">(</span><span class="n">GetMouseWheelMove</span><span class="p">()</span><span class="o">*</span><span class="n">scrollSpeed</span><span class="p">)</span>
+
+                <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">boxPositionY</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Use mouse wheel to move the cube up and down!&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Box position Y: &quot;</span><span class="o">+</span><span class="n">boxPositionY</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+
+                <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
-<span id="index-7"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -717,6 +750,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#input-mouse">Input Mouse</a></li>
 <li><a class="reference internal" href="#d-camera">3D Camera</a></li>
 <li><a class="reference internal" href="#d-camera-free">3D Camera Free</a></li>
+<li><a class="reference internal" href="#mouse-wheel">Mouse Wheel</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
