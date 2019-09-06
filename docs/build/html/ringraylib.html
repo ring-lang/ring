@@ -344,8 +344,78 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="camera-first-person">
+<span id="index-9"></span><h2>Camera First Person<a class="headerlink" href="#camera-first-person" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+
+MAX_COLUMNS = 20
+
+screenWidth = 800
+screenHeight = 450
+
+InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - 3d camera first person&quot;)
+
+camera = Camera3d(
+        4, 2, 4,
+        0, 1, 0,
+        0, 1, 0,
+        60,
+        CAMERA_PERSPECTIVE
+)
+
+heights = list(MAX_COLUMNS)
+positions = list(MAX_COLUMNS)
+for item in positions item = vector3(0,0,0) next
+colors = list(MAX_COLUMNS)
+for item in colors item = BLACK next
+
+for i = 1 to  MAX_COLUMNS
+        heights[i] = GetRandomValue(1, 12)
+        positions[i] = Vector3(GetRandomValue(-15, 15), heights[i]/2, GetRandomValue(-15, 15) )
+        colors[i] = RAYLibColor(GetRandomValue(20, 255), GetRandomValue(10, 55), 30, 255 )
+next
+
+SetCameraMode(camera, CAMERA_FIRST_PERSON)
+
+SetTargetFPS(60)
+
+while !WindowShouldClose()
+
+        UpdateCamera(camera)
+        BeginDrawing()
+
+                ClearBackground(RAYWHITE)
+
+                BeginMode3D(camera)
+
+                        DrawPlane(Vector3( 0, 0, 0 ), Vector2(32, 32 ), LIGHTGRAY) // Draw ground
+                        DrawCube(Vector3( -16, 2.5, 0 ), 1, 5, 32, BLUE)     // Draw a blue wall
+                        DrawCube(Vector3( 16, 2.5, 0 ), 1, 5, 32, LIME)      // Draw a green wall
+                        DrawCube(Vector3( 0, 2.5, 16 ), 32, 5, 1, GOLD)      // Draw a yellow wall
+
+                        for i = 1 to  MAX_COLUMNS
+                                DrawCube(positions[i], 2, heights[i], 2, colors[i])
+                                DrawCubeWires(positions[i], 2, heights[i], 2, MAROON)
+                        next
+
+                EndMode3D()
+
+                DrawRectangle( 10, 10, 220, 70, Fade(SKYBLUE, 0.5f))
+                DrawRectangleLines( 10, 10, 220, 70, BLUE)
+
+                DrawText(&quot;First person camera default controls:&quot;, 20, 20, 10, BLACK)
+                DrawText(&quot;- Move with keys: W, A, S, D&quot;, 40, 40, 10, DARKGRAY)
+                DrawText(&quot;- Mouse move to look around&quot;, 40, 60, 10, DARKGRAY)
+
+        EndDrawing()
+end
+
+CloseWindow()
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
-<span id="index-9"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -813,6 +883,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#d-camera-free">3D Camera Free</a></li>
 <li><a class="reference internal" href="#mouse-wheel">Mouse Wheel</a></li>
 <li><a class="reference internal" href="#input-multi-touch">Input Multi-touch</a></li>
+<li><a class="reference internal" href="#camera-first-person">Camera First Person</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
