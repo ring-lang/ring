@@ -40,6 +40,10 @@ func Texture2D p1,p2,p3,p4,p5
 func Texture p1,p2,p3,p4,p5
 	return Texture2D(p1,p2,p3,p4,p5)
 
+func Font p1,p2,p3,p4,p5,p6,p7,p8
+	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
+	return oSpriteFont
+
 func SpriteFont p1,p2,p3,p4,p5,p6,p7,p8
 	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oSpriteFont
