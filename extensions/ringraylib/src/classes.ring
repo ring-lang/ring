@@ -216,7 +216,56 @@ class Texture2D
 		height 	= raylib_get_Texture2D_height(oStruct)
 		mipmaps = raylib_get_Texture2D_mipmaps(oStruct)
 		format 	= raylib_get_Texture2D_format(oStruct)
-	
+
+class SpriteFont 
+
+	texture = new Texture2D
+	baseSize charsCount chars
+
+	oData = raylib_new_managed_SpriteFont()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8
+		texture.id 	= p1
+		texture.width 	= p2 
+		texture.height	= p3
+		texture.mipmaps = p4 
+		texture.format  = p5
+		baseSize	= p6
+		charsCount	= p7
+		chars		= p8
+
+	func data 
+		raylib_set_SpriteFont_texture_id(oData,texture.id)	
+		raylib_set_SpriteFont_texture_width(oData,texture.width)	
+		raylib_set_SpriteFont_texture_height(oData,texture.height)	
+		raylib_set_SpriteFont_texture_mipmaps(oData,texture.mipmaps)	
+		raylib_set_SpriteFont_texture_format(oData,texture.format)	
+		raylib_set_SpriteFont_baseSize(oData,baseSize)	
+		raylib_set_SpriteFont_charsCount(oData,charsCount)	
+		raylib_set_SpriteFont_chars(oData,chars)	
+		return oData
+
+	func setdata oStruct 
+		texture.id 	= raylib_get_SpriteFont_texture_id(oStruct)
+		texture.width 	= raylib_get_SpriteFont_texture_width(oStruct) 
+		texture.height	= raylib_get_SpriteFont_texture_height(oStruct)
+		texture.mipmaps = raylib_get_SpriteFont_texture_mipmaps(oStruct) 
+		texture.format  = raylib_get_SpriteFont_texture_format(oStruct)
+		baseSize	= raylib_get_SpriteFont_baseSize(oStruct)
+		charsCount	= raylib_get_SpriteFont_charsCount(oStruct)
+		chars		= raylib_get_SpriteFont_chars(oStruct)
+
+	func refresh
+		texture.id 	= raylib_get_SpriteFont_texture_id(oData)
+		texture.width 	= raylib_get_SpriteFont_texture_width(oData) 
+		texture.height	= raylib_get_SpriteFont_texture_height(oData)
+		texture.mipmaps = raylib_get_SpriteFont_texture_mipmaps(oData) 
+		texture.format  = raylib_get_SpriteFont_texture_format(oData)
+		baseSize	= raylib_get_SpriteFont_baseSize(oData)
+		charsCount	= raylib_get_SpriteFont_charsCount(oData)
+		chars		= raylib_get_SpriteFont_chars(oData)
+
+
 class Camera3D
 
 	position	= new Vector3

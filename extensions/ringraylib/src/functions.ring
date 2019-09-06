@@ -40,6 +40,10 @@ func Texture2D p1,p2,p3,p4,p5
 func Texture p1,p2,p3,p4,p5
 	return Texture2D(p1,p2,p3,p4,p5)
 
+func SpriteFont p1,p2,p3,p4,p5,p6,p7,p8
+	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
+	return oSpriteFont
+
 func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11 
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
 	return oCamera
