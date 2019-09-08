@@ -298,6 +298,48 @@ class RenderTexture2D from RayLibBase
 		depth.format  	= raylib_get_RenderTexture2D_depth_format(oStruct)
 		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oStruct)
 
+class CharInfo 
+
+	value 
+	rec = new Rectangle
+	offsetX offsetY advanceX data 
+
+	oData = raylib_new_managed_CharInfo()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9
+		value 		= p1
+		rec.x		= p2
+		rec.y		= p3
+		rec.width	= p4
+		rec.height	= p5
+		offsetX		= p6
+		offsetY		= p7
+		advanceX	= p8
+		data		= p9
+
+	func data 
+		raylib_set_CharInfo_value(oData,value)		
+		raylib_set_CharInfo_rec_x(oData,rec.x)		
+		raylib_set_CharInfo_rec_y(oData,rec.y)		
+		raylib_set_CharInfo_rec_width(oData,rec.width)		
+		raylib_set_CharInfo_rec_height(oData,rec.height)
+		raylib_set_CharInfo_offsetX(oData,offsetX)		
+		raylib_set_CharInfo_offsetY(oData,offsetY)		
+		raylib_set_CharInfo_advanceX(oData,advanceX)		
+		raylib_set_CharInfo_data(oData,data)				
+		return oData
+
+	func setdata oStruct 
+		value		= raylib_get_CharInfo_value(oStruct)
+		rec.x		= raylib_get_CharInfo_rec_x(oStruct)
+		rec.y		= raylib_get_CharInfo_rec_y(oStruct)
+		rec.width	= raylib_get_CharInfo_rec_width(oStruct)
+		rec.height	= raylib_get_CharInfo_rec_height(oStruct)
+		offsetX		= raylib_get_CharInfo_offsetX(oStruct)
+		offsetY		= raylib_get_CharInfo_offsetY(oStruct)
+		advanceX	= raylib_get_CharInfo_advanceX(oStruct)
+		data		= raylib_get_CharInfo_data(oStruct)
+
 class SpriteFont from RayLibBase
 
 	texture = new Texture2D
