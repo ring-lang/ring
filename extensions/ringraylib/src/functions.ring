@@ -135,7 +135,7 @@ func isKeyDown vKey
 
 # Get Pointer Data 
 func GPData vData 
-	# We copy the Object to afunc replacing it when using pData = pData.data()
+	# We copy the Object to avoid replacing it when using pData = pData.data()
 		pData = vData
 	if isObject(pData)
 		pData = pData.Data()
