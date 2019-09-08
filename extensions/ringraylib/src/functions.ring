@@ -40,6 +40,10 @@ func Texture2D p1,p2,p3,p4,p5
 func Texture p1,p2,p3,p4,p5
 	return Texture2D(p1,p2,p3,p4,p5)
 
+func NPatchInfo p1,p2,p3,p4,p5,p6,p7,p8,p9
+	oNPatchInfo = new NPatchInfo(p1,p2,p3,p4,p5,p6,p7,p8,p9)
+	return oNPatchInfo
+
 func CharInfo p1,p2,p3,p4,p5,p6,p7,p8,p9
 	oCharInfo = new CharInfo(p1,p2,p3,p4,p5,p6,p7,p8,p9)
 	return oCharInfo

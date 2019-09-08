@@ -298,7 +298,48 @@ class RenderTexture2D from RayLibBase
 		depth.format  	= raylib_get_RenderTexture2D_depth_format(oStruct)
 		depthTexture	= raylib_get_RenderTexture2D_depthTexture(oStruct)
 
-class CharInfo 
+class NPatchInfo from RayLibBase
+
+	sourceRec = new Rectangle 
+	left top  right bottom type 
+
+	oData = raylib_new_managed_NPatchInfo()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8,p9
+		sourceRec.x 		= p1
+		sourceRec.y 		= p2
+		sourceRec.width		= p3
+		sourceRec.height	= p4
+		left 			= p5
+		top  			= p6
+		right 			= p7
+		bottom 			= p8
+		type 			= p9
+
+	func data 	
+		raylib_set_NPatchInfo_sourceRec_x(oData,sourceRec.x)		
+		raylib_set_NPatchInfo_sourceRec_y(oData,sourceRec.y)		
+		raylib_set_NPatchInfo_sourceRec_width(oData,sourceRec.width)		
+		raylib_set_NPatchInfo_sourceRec_height(oData,sourceRec.height)	
+		raylib_set_NPatchInfo_left(oData,left)			
+		raylib_set_NPatchInfo_top(oData,top)			
+		raylib_set_NPatchInfo_right(oData,right)			
+		raylib_set_NPatchInfo_bottom(oData,bottom)			
+		raylib_set_NPatchInfo_type(oData,type)			
+		return oData
+
+	func setdata oStruct 
+		sourceRec.x 		= raylib_get_NPatchInfo_sourceRec_x(oStruct)
+		sourceRec.y 		= raylib_get_NPatchInfo_sourceRec_y(oStruct)
+		sourceRec.width		= raylib_get_NPatchInfo_sourceRec_width(oStruct)
+		sourceRec.height	= raylib_get_NPatchInfo_sourceRec_height(oStruct)
+		left 			= raylib_get_NPatchInfo_left(oStruct)
+		top  			= raylib_get_NPatchInfo_top(oStruct)
+		right 			= raylib_get_NPatchInfo_right(oStruct)
+		bottom 			= raylib_get_NPatchInfo_bottom(oStruct)
+		type 			= raylib_get_NPatchInfo_type(oStruct)
+
+class CharInfo from RayLibBase
 
 	value 
 	rec = new Rectangle
