@@ -683,6 +683,17 @@ Draw Ring
 	end
 
 	CloseWindow()
+
+Screen Shot:
+
+.. image:: raylib_drawring.png
+	:alt: RayLib Example
+
+Screen Shot (2):
+
+.. image:: raylib_drawring2.png
+	:alt: RayLib Example
+
 	
 .. index:: 
 	pair: Using RingRayLib; Functions
