@@ -185,6 +185,11 @@ Screen Shot:
 
 	CloseWindow()
 
+
+Screen Shot:
+
+.. image:: raylib_3dcamera.png
+	:alt: RayLib Example
 	
 .. index:: 
 	pair: Using RingRayLib; 3D Camera Free
