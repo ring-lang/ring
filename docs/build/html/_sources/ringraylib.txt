@@ -295,7 +295,12 @@ Mouse Wheel
 	end
 
 	CloseWindow()
-		
+
+
+Screen Shot:
+
+.. image:: raylib_mousewheel.png
+	:alt: RayLib Example
 	
 .. index:: 
 	pair: Using RingRayLib; Input Multi-touch
