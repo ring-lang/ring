@@ -129,6 +129,10 @@ Input Mouse
 	 
 	CloseWindow()  
 
+Screen Shot:
+
+.. image:: raylib_inputmouse.png
+	:alt: RayLib Example
 	
 .. index:: 
 	pair: Using RingRayLib; 3D Camera
