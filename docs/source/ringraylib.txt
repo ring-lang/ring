@@ -45,6 +45,11 @@ Basic Window
 
 	CloseWindow()
 
+Screen Shot:
+
+.. image:: raylib_basicwindow.png
+	:alt: RayLib Example
+
 .. index:: 
 	pair: Using RingRayLib; Input Keys
 
@@ -75,6 +80,12 @@ Input Keys
 	end    
 
 	CloseWindow()
+
+Screen Shot:
+
+.. image:: raylib_inputkeys.png
+	:alt: RayLib Example
+
 
 .. index:: 
 	pair: Using RingRayLib; Input Mouse
