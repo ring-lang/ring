@@ -254,6 +254,11 @@ Screen Shot:
 	CloseWindow() 
 
 
+Screen Shot:
+
+.. image:: raylib_3dcamerafree.png
+	:alt: RayLib Example
+
 .. index:: 
 	pair: Using RingRayLib; Mouse Wheel 
 
