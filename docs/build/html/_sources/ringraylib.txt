@@ -367,6 +367,10 @@ Input Multi-touch
 
 	CloseWindow()     
 
+Screen Shot:
+
+.. image:: raylib_inputmt.png
+	:alt: RayLib Example
 	
 .. index:: 
 	pair: Using RingRayLib; Camera First Person
