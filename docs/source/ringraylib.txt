@@ -622,6 +622,11 @@ Basic Shapes
 
 	CloseWindow()
 
+Screen Shot:
+
+.. image:: raylib_basicshapes.png
+	:alt: RayLib Example
+
 .. index:: 
 	pair: Using RingRayLib; Draw Ring
 
