@@ -446,6 +446,11 @@ Camera First Person
 		
 	CloseWindow()
 
+Screen Shot:
+
+.. image:: raylib_camerafirstperson.png
+	:alt: RayLib Example
+
 .. index:: 
 	pair: Using RingRayLib; 3D Picking
 
