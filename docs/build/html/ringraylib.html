@@ -249,7 +249,8 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Mouse Wheel to Zoom in-out&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Mouse Wheel Pressed to Pan&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Alt + Mouse Wheel Pressed to Rotate&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom&quot;</span><span class="p">,</span>
+                         <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Z to zoom to (0, 0, 0)&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
                 <span class="n">EndDrawing</span><span class="p">()</span>
@@ -466,52 +467,51 @@ SetTargetFPS(60)
 
 while !WindowShouldClose()
 
-                UpdateCamera(camera)
+        UpdateCamera(camera)
 
-                if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
-                        if !collision
-                                ray = GetMouseRay(GetMousePosition(), camera)
-
-                                collision = CheckCollisionRayBox(ray,
-                                BoundingBox( cubePosition.x - cubeSize.x/2,
-                                        cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
-                                        cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2,
-                                        cubePosition.z + cubeSize.z/2 ) )
-                        else collision = false
-                        ok
+        if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
+                if !collision
+                        ray = GetMouseRay(GetMousePosition(), camera)
+                        collision = CheckCollisionRayBox(ray,
+                        BoundingBox( cubePosition.x - cubeSize.x/2,
+                        cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
+                        cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2,
+                        cubePosition.z + cubeSize.z/2 ) )
+                else collision = false
                 ok
+        ok
 
-                BeginDrawing()
+        BeginDrawing()
 
-                        ClearBackground(RAYWHITE)
+        ClearBackground(RAYWHITE)
 
-                        BeginMode3D(camera)
+        BeginMode3D(camera)
 
-                                if collision
-                                        DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-                                        DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+        if collision
+                DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
+                DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
 
-                                        DrawCubeWires(cubePosition, cubeSize.x + 0.2f,
-                                                        cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
-                                else
-                                        DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-                                        DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
-                                ok
+                DrawCubeWires(cubePosition, cubeSize.x + 0.2f,
+                                cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
+        else
+                DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
+                DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+        ok
 
-                                DrawRay(ray, MAROON)
-                                DrawGrid(10, 1)
+        DrawRay(ray, MAROON)
+        DrawGrid(10, 1)
 
-                        EndMode3D()
+        EndMode3D()
 
-                        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10, 20, DARKGRAY)
+        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10, 20, DARKGRAY)
 
-                        if collision  DrawText(&quot;BOX SELECTED&quot;,
-                                                (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2,
-                                                screenHeight * 0.1f, 30, GREEN) ok
+        if collision  DrawText(&quot;BOX SELECTED&quot;,
+                (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2,
+                screenHeight * 0.1f, 30, GREEN) ok
 
-                        DrawFPS(10, 10)
+        DrawFPS(10, 10)
 
-                EndDrawing()
+        EndDrawing()
 end
 
 CloseWindow()
@@ -619,14 +619,16 @@ CloseWindow()
         <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
         <span class="n">DrawLine</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
-        <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">500</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+        <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">500</span><span class="p">,</span>
+                         <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">drawRing</span> <span class="n">DrawRing</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span>
-                        <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">MAROON</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span> <span class="k">ok</span>
+                <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">MAROON</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span> <span class="k">ok</span>
         <span class="k">if</span> <span class="n">drawRingLines</span> <span class="n">DrawRingLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span>
-                        <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
+                <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span>
+                 <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
         <span class="k">if</span> <span class="n">drawCircleLines</span> <span class="n">DrawCircleSectorLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span>
-                        <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
+                <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
 
         <span class="n">startAngle</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
                         <span class="s">&quot;StartAngle&quot;</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="o">-</span><span class="mi">450</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>

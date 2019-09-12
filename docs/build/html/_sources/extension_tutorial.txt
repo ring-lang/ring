@@ -1,9 +1,9 @@
 .. index:: 
-	single: Tutorial: Ring Extensions in C/C++; Introduction
+	single: Tutorial: Ring Extensions in C/C++; Tutorial: Ring Extensions in C/C++
 
-============
-Introduction
-============
+==================================
+Tutorial: Ring Extensions in C/C++
+==================================
 
 In this chapter we will see simple examples about using C code in Ring programs
 
@@ -432,7 +432,9 @@ In mylib.c we update the file to add
 			pList = RING_API_GETLIST(1);
 			for(x=1 ; x <= ring_list_getsize(pList) ; x++) {
 				if ( ring_list_isdouble(pList,x) ) {
-					ring_list_setdouble(pList,x,ring_list_getdouble(pList,x)+RING_API_GETNUMBER(2)) ;
+					ring_list_setdouble(pList,x,
+						ring_list_getdouble(pList,x)+
+						RING_API_GETNUMBER(2)) ;
 				}	
 			}
 		// Return Output
@@ -533,7 +535,8 @@ In mylib.c we update the file to add
 			pList = RING_API_GETLIST(1);
 			for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
 				if ( ring_list_isdouble(pList,x) ) 
-					if ( ! (ring_list_getdouble(pList,x) > RING_API_GETNUMBER(2)) )
+					if ( ! (ring_list_getdouble(pList,x) >
+							 RING_API_GETNUMBER(2)) )
 						ring_list_deleteitem(pList,x) ;
 		// Return Output
 			RING_API_RETLIST(pList);
@@ -651,7 +654,8 @@ In mylib.c we update the file to add
 			for(x = 1 ; x <= nTimes ; x++) 
 				for(y = 1 ; y <= nSize ; y++) 
 					if ( ring_list_isdouble(pList,y) ) 
-						ring_list_adddouble(pList,ring_list_getdouble(pList,y));
+						ring_list_adddouble(pList,
+							ring_list_getdouble(pList,y));
 		// Return Output
 			RING_API_RETLIST(pList);
 	}
@@ -1106,22 +1110,22 @@ In mylib.c we update the file to add
 		// Get the List (Represent a Table)
 			pList = RING_API_GETLIST(1);
 		// Update the Table Rows and Columns
-			for (nRow = 1 ; nRow <= ring_list_getsize(pList) ; nRow++ ) {
-				if ( ring_list_islist(pList,nRow) ) {
-					pRow = ring_list_getlist(pList,nRow);
-					for (nCol = 1 ; nCol <= ring_list_getsize(pRow) ; nCol++ ) {
-						if ( ring_list_isdouble(pRow,nCol) ) {
-							ring_list_setdouble(pRow,nCol,RING_API_GETNUMBER(2));
-						} else {
-							RING_API_ERROR("Error : We expect numbers!\n");
-							return ;
-						}
-					}
+		for (nRow = 1 ; nRow <= ring_list_getsize(pList) ; nRow++ ) {
+			if ( ring_list_islist(pList,nRow) ) {
+			pRow = ring_list_getlist(pList,nRow);
+			for (nCol = 1 ; nCol <= ring_list_getsize(pRow) ; nCol++ ) {
+				if ( ring_list_isdouble(pRow,nCol) ) {
+					ring_list_setdouble(pRow,nCol,RING_API_GETNUMBER(2));
 				} else {
-					RING_API_ERROR("Error : The parameter is not a table! \n");
+					RING_API_ERROR("Error : We expect numbers!\n");
 					return ;
 				}
 			}
+			} else {
+				RING_API_ERROR("Error : The parameter is not a table! \n");
+				return ;
+			}
+		}
 	}
 
 Then we register the new function
@@ -1310,8 +1314,8 @@ In mylib.c we update the file to add
 			nRows = (int) RING_API_GETNUMBER(1);
 			nCols = (int) RING_API_GETNUMBER(2);
 			if ( (nRows < 1) || (nCols < 1) ) {
-				RING_API_ERROR("Error: The table rows and columns must be >= 1 \n");
-				return;
+			RING_API_ERROR("Error: The table rows and columns must be >= 1 \n");
+			return;
 			}
 			for(x = 1 ; x <= nRows ; x++) {
 				pRow = ring_list_newlist(pList);

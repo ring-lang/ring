@@ -1755,27 +1755,27 @@ Scence
 				if cX > - 13.8
 					robotX-= nSpeed
 					oCameraEntity.setPosition(
-						new QVector3D(cX-0.1, cY, cZ))
+					  new QVector3D(cX-0.1, cY, cZ))
 					oCameraEntity.setViewCenter(
-						new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
+					  new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
 					oRobotTransform.setRotation(
-						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 160))
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 160))
 				ok
 			on Qt_Key_Down 
 				if robotY > -3.5
 					robotY-= nSpeed
 					oCameraEntity.setPosition(
-						new QVector3D(cX, cY, cZ))
+					  new QVector3D(cX, cY, cZ))
 					oRobotTransform.setRotation(
-						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 190))
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 190))
 				ok
 			on Qt_Key_Up
 				if robotY < 2
 					robotY+= nSpeed
 					oCameraEntity.setPosition(
-						new QVector3D(cX, cY, cZ))
+					  new QVector3D(cX, cY, cZ))
 					oRobotTransform.setRotation(
-						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
 				ok
 			on Qt_Key_Escape
 				oWidget.close()

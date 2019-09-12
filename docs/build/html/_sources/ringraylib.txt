@@ -246,7 +246,8 @@ Screen Shot:
 			DrawText("- Mouse Wheel to Zoom in-out", 40, 40, 10, DARKGRAY)
 			DrawText("- Mouse Wheel Pressed to Pan", 40, 60, 10, DARKGRAY)
 			DrawText("- Alt + Mouse Wheel Pressed to Rotate", 40, 80, 10, DARKGRAY)
-			DrawText("- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom", 40, 100, 10, DARKGRAY)
+			DrawText("- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom",
+				 40, 100, 10, DARKGRAY)
 			DrawText("- Z to zoom to (0, 0, 0)", 40, 120, 10, DARKGRAY)
 
 			EndDrawing()
@@ -493,52 +494,51 @@ Screen Shot:
 
 	while !WindowShouldClose()
 
-			UpdateCamera(camera)
+		UpdateCamera(camera)
 
-			if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
-				if !collision
-					ray = GetMouseRay(GetMousePosition(), camera)
-
-					collision = CheckCollisionRayBox(ray,
-					BoundingBox( cubePosition.x - cubeSize.x/2, 
-						cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
-						cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2,
-						cubePosition.z + cubeSize.z/2 ) )
-				else collision = false
-				ok
+		if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
+			if !collision
+				ray = GetMouseRay(GetMousePosition(), camera)
+				collision = CheckCollisionRayBox(ray,
+				BoundingBox( cubePosition.x - cubeSize.x/2, 
+				cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
+				cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2,
+				cubePosition.z + cubeSize.z/2 ) )
+			else collision = false
 			ok
+		ok
 
-			BeginDrawing()
+		BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-				BeginMode3D(camera)
+		BeginMode3D(camera)
 
-					if collision
-						DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-						DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+		if collision
+			DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
+			DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
 
-						DrawCubeWires(cubePosition, cubeSize.x + 0.2f,
-								cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
-					else
-						DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-						DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
-					ok
+			DrawCubeWires(cubePosition, cubeSize.x + 0.2f,
+					cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
+		else
+			DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
+			DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+		ok
 
-					DrawRay(ray, MAROON)
-					DrawGrid(10, 1)
+		DrawRay(ray, MAROON)
+		DrawGrid(10, 1)
 
-				EndMode3D()
+		EndMode3D()
 
-				DrawText("Try selecting the box with mouse!", 240, 10, 20, DARKGRAY)
+		DrawText("Try selecting the box with mouse!", 240, 10, 20, DARKGRAY)
 
-				if collision  DrawText("BOX SELECTED", 
-							(screenWidth - MeasureText("BOX SELECTED", 30)) / 2, 
-							screenHeight * 0.1f, 30, GREEN) ok
+		if collision  DrawText("BOX SELECTED", 
+			(screenWidth - MeasureText("BOX SELECTED", 30)) / 2, 
+			screenHeight * 0.1f, 30, GREEN) ok
 
-				DrawFPS(10, 10)
+		DrawFPS(10, 10)
 
-			EndDrawing()
+		EndDrawing()
 	end
 
 	CloseWindow()
@@ -667,14 +667,16 @@ Draw Ring
 		ClearBackground(RAYWHITE)
 
 		DrawLine(500, 0, 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.6))
-		DrawRectangle(500, 0, GetScreenWidth() - 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
+		DrawRectangle(500, 0, GetScreenWidth() - 500,
+				 GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
 
 		if drawRing DrawRing(center, innerRadius, outerRadius, 
-				startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
+			startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
 		if drawRingLines DrawRingLines(center, innerRadius, 
-				outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+			outerRadius, startAngle, endAngle,
+			 segments, Fade(BLACK, 0.4)) ok
 		if drawCircleLines DrawCircleSectorLines(center, outerRadius,
-				startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+			startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
 
 		startAngle = GuiSliderBar(Rectangle( 600, 40, 120, 20 ), 
 				"StartAngle", startAngle, -450, 450, true)

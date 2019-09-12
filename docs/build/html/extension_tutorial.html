@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; Ring 1.11 documentation</title>
+    <title>Tutorial: Ring Extensions in C/C++ &mdash; Ring 1.11 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -50,8 +50,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<span id="index-0"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tutorial-ring-extensions-in-c-c">
+<span id="index-0"></span><h1>Tutorial: Ring Extensions in C/C++<a class="headerlink" href="#tutorial-ring-extensions-in-c-c" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will see simple examples about using C code in Ring programs</p>
 <div class="section" id="hello-world">
 <span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +372,9 @@ Sum List contains numbers from 1 to 10
                 <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
                 <span class="k">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                         <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                                <span class="n">ring_list_setdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">;</span>
+                                <span class="n">ring_list_setdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">,</span>
+                                        <span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">+</span>
+                                        <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">;</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
         <span class="c1">// Return Output</span>
@@ -457,7 +459,8 @@ Sum List contains numbers from 1 to 10
                 <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
                 <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">x</span><span class="o">--</span><span class="p">)</span>
                         <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
-                                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span><span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span>
+                                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span><span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span>
+                                                 <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span>
                                         <span class="n">ring_list_deleteitem</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">;</span>
         <span class="c1">// Return Output</span>
                 <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
@@ -559,7 +562,8 @@ Filter List Items (Items &gt; 15)
                 <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">nTimes</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span>
                         <span class="k">for</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">nSize</span> <span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
                                 <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
-                                        <span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">y</span><span class="p">));</span>
+                                        <span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span>
+                                                <span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">y</span><span class="p">));</span>
         <span class="c1">// Return Output</span>
                 <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
 <span class="p">}</span>
@@ -966,22 +970,22 @@ String : R 3 C 2
         <span class="c1">// Get the List (Represent a Table)</span>
                 <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
         <span class="c1">// Update the Table Rows and Columns</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">nRow</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nRow</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">nRow</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-                        <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_islist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">nRow</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                                <span class="n">pRow</span> <span class="o">=</span> <span class="n">ring_list_getlist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">nRow</span><span class="p">);</span>
-                                <span class="k">for</span> <span class="p">(</span><span class="n">nCol</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nCol</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pRow</span><span class="p">)</span> <span class="p">;</span> <span class="n">nCol</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-                                        <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                                                <span class="n">ring_list_setdouble</span><span class="p">(</span><span class="n">pRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">,</span><span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-                                        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                                                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error : We expect numbers!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-                                                <span class="k">return</span> <span class="p">;</span>
-                                        <span class="p">}</span>
-                                <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">nRow</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nRow</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">nRow</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_islist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">nRow</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">pRow</span> <span class="o">=</span> <span class="n">ring_list_getlist</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">nRow</span><span class="p">);</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">nCol</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">nCol</span> <span class="o">&lt;=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pRow</span><span class="p">)</span> <span class="p">;</span> <span class="n">nCol</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                                <span class="n">ring_list_setdouble</span><span class="p">(</span><span class="n">pRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">,</span><span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
                         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error : The parameter is not a table! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error : We expect numbers!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
                                 <span class="k">return</span> <span class="p">;</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error : The parameter is not a table! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                        <span class="k">return</span> <span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1155,8 +1159,8 @@ aList[2][2] : 10
                 <span class="n">nRows</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
                 <span class="n">nCols</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
                 <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">nRows</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">nCols</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error: The table rows and columns must be &gt;= 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-                        <span class="k">return</span><span class="p">;</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="s">&quot;Error: The table rows and columns must be &gt;= 1 </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
                 <span class="p">}</span>
                 <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">nRows</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">pRow</span> <span class="o">=</span> <span class="n">ring_list_newlist</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
@@ -1347,7 +1351,7 @@ aList[3][3] : 0
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#">Tutorial: Ring Extensions in C/C++</a><ul>
 <li><a class="reference internal" href="#hello-world">Hello World</a></li>
 <li><a class="reference internal" href="#build-the-extension-on-different-platforms">Build the extension on different platforms</a></li>
 <li><a class="reference internal" href="#sum-two-numbers">Sum Two Numbers</a></li>
