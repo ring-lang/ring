@@ -531,7 +531,8 @@ Texture
 		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -616,7 +617,8 @@ Key Press
 		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -721,7 +723,8 @@ Object Picker
 		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -741,7 +744,7 @@ Object Picker
 		oLayout.AddWidget(oContainer)
 
 		oWidget { 
-			setwindowtitle("Using Qt3D - Object Picker - Click on the Cube using the Mouse") 
+			setwindowtitle("Using Qt3D - Object Picker - Click on the Cube") 
 			resize(800,600)
 			setLayout(oLayout) 
 			showMaximized() 
@@ -831,7 +834,8 @@ Frame Action
 		oCubeTransform.setTranslation(new QVector3D(-5, -5, -5))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -871,12 +875,14 @@ Frame Action
 			but oX <= -10
 				nSpeed=0.1
 			ok
-			oCubeTransform.setTranslation(new QVector3D(oX+nSpeed, oY+nSpeed, oZ+nSpeed))
+			oCubeTransform.setTranslation(
+				new QVector3D(oX+nSpeed, oY+nSpeed, oZ+nSpeed))
 
 		# Rotate the Cube
 			nAngle+=5  if nAngle=360  nAngle=0 ok
 			oQ = new QQuaternion(0,0,0,0)
-			oCubeTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 0), nAngle))
+			oCubeTransform.setRotation(
+				oQ.fromAxisAndAngle(new QVector3D(0, 1, 0), nAngle))
 
 .. image:: qt3d_ex10.png
 	:alt: Qt3D Example - Frame Action
@@ -936,7 +942,8 @@ Text 2D
 		oCubeTransform.setTranslation(new QVector3D(0, 3, 4))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -1033,7 +1040,8 @@ Extruded Text
 		oCubeTransform.setTranslation(new QVector3D(0, 3, 4))
 
 		oTextureLoader = new  QTextureLoader(oCube);
-		oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
 		oCubeMaterial = new QTextureMaterial(oCube)
 		oCubeMaterial.setTexture(oTextureLoader)
 
@@ -1122,7 +1130,8 @@ Model
 
 		oModel = new qmesh(oRootEntity)
 
-		oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/lucky_cat.obj") ) 
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/lucky_cat.obj") ) 
 
 		oModelTransform = new  QTransform(oModel)
 		oModelTransform.setScale(0.1)
@@ -1201,7 +1210,8 @@ Model Texture
 
 		oModel = new qmesh(oRootEntity)
 
-		oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
 
 		oModelTransform = new  QTransform(oModel)
 		oModelTransform.setScale(0.5)
@@ -1209,7 +1219,8 @@ Model Texture
 
 		oLoader = new  QTextureLoader(oModel)
 		oModelMaterial = new QTextureMaterial(oModel)
-		oLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/Robot.jpg") )
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/Robot.jpg") )
 		oModelMaterial.setTexture(oLoader)
 
 		oModelEntity = new QEntity(oRootEntity)
@@ -1280,7 +1291,8 @@ Draw Office
 
 		oModel = new qmesh(oRootEntity)
 
-		oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/Reception_Table.obj") ) 
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Reception_Table.obj") ) 
 
 		oModelTransform = new  QTransform(oModel)
 		oModelTransform.setScale(1)
@@ -1355,7 +1367,8 @@ Many Objects
 			oCamController.setCamera(oCameraEntity)
 
 		oModel = new qmesh(oRootEntity)
-		oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
 
 		oModelTransform = new  QTransform(oModel)
 		oModelTransform.setScale(0.2)
@@ -1369,7 +1382,8 @@ Many Objects
 
 		oLoader = new  QTextureLoader(oModel);
 		oModelMaterial = new QTextureMaterial(oModel)
-		oLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oModelMaterial.setTexture(oLoader)
 
 		oModelEntity.addComponent(oModelMaterial)
@@ -1395,7 +1409,8 @@ Many Objects
 		
 			oLoader = new  QTextureLoader(oTorus);
 			oTorusMaterial = new QTextureMaterial(oTorus)
-			oLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+			oLoader.setSource(
+				new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 			oTorusMaterial.setTexture(oLoader)
 		
 			oTorusEntity.addComponent(oTorusMaterial)
@@ -1463,7 +1478,8 @@ Camera
 			oCamController.setCamera(oCameraEntity)
 
 		oModel = new qmesh(oRootEntity)
-		oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
 
 		oModelTransform = new  QTransform(oModel)
 		oModelTransform.setScale(0.2)
@@ -1477,7 +1493,8 @@ Camera
 
 		oLoader = new  QTextureLoader(oModel);
 		oModelMaterial = new QTextureMaterial(oModel)
-		oLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 		oModelMaterial.setTexture(oLoader)
 
 		oModelEntity.addComponent(oModelMaterial)
@@ -1503,7 +1520,8 @@ Camera
 		
 			oLoader = new  QTextureLoader(oTorus);
 			oTorusMaterial = new QTextureMaterial(oTorus)
-			oLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+			oLoader.setSource(
+				new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
 			oTorusMaterial.setTexture(oLoader)
 		
 			oTorusEntity.addComponent(oTorusMaterial)
@@ -1585,7 +1603,8 @@ Scence
 
 		oLongRoomModel = new QMesh(oLongRoomEntity)
 
-		oLongRoomModel.setSource(new qURL("file:///"+CurrentDir()+"/assets/model/Long_Room.obj") ) 
+		oLongRoomModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Long_Room.obj") ) 
 
 		oLongRoomTransform = new  QTransform(oLongRoomEntity)
 		oLongRoomTransform.setScale(1)
@@ -1593,7 +1612,8 @@ Scence
 
 		oLongRoomLoader = new  QTextureLoader(oLongRoomModel)
 		oLongRoomMaterial = new QTextureMaterial(oLongRoomModel)
-		oLongRoomLoader.setSource(new QUrl("file:///"+currentdir()+"/assets/texture/croc.jpg") )
+		oLongRoomLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/croc.jpg") )
 		oLongRoomMaterial.setTexture(oLongRoomLoader)
 
 		oLongRoomEntity.addComponent(oLongRoomModel)
@@ -1603,7 +1623,8 @@ Scence
 		oTableEntity = new QEntity(oRootEntity)
 
 		oTableModel = new QMesh(oTableEntity)
-		oTableModel.setSource(new qURL("file:///"+CurrentDir()+"/assets/model/Reception_Table.obj") ) 
+		oTableModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Reception_Table.obj") ) 
 
 		oTableTransform = new  QTransform(oTableEntity)
 		oTableTransform.setScale(0.3)
@@ -1632,26 +1653,31 @@ Scence
 
 		aCats = list(5)
 		for n = 1 to 5
-			v = n * 0.1
-			aCats[n] = []
-			aCats[n][:oCatModelEntity] = new QEntity(oRootEntity)
-			aCats[n][:oCatModel] = new QMesh(aCats[n][:oCatModelEntity])
-			aCats[n][:oCatModel].setSource(new qURL("file:///"+CurrentDir()+"/assets/model/Lucky_Cat.obj") ) 
-			aCats[n][:oCatModelMaterial] = new QPhongMaterial(aCats[n][:oCatModel])
-			aCats[n][:oCatModelMaterial].setDiffuse(new QColor() {setRGB(255,255,255,255)})
-			aCats[n][:oCatModelTransform] = new  QTransform(aCats[n][:oCatModelEntity])
-			aCats[n][:oCatModelTransform].setScale(0.01)
-			aCats[n][:oCatModelTransform].setTranslation(new QVector3D(-5*(v+v), 1, 15.2))
-			oQ = new QQuaternion(0,0,0,0)
-			aCats[n][:oCatModelTransform].setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
-			aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModel])
-			aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelmaterial])
-			aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelTransform])
+		v = n * 0.1
+		aCats[n] = []
+		aCats[n][:oCatModelEntity] = new QEntity(oRootEntity)
+		aCats[n][:oCatModel] = new QMesh(aCats[n][:oCatModelEntity])
+		aCats[n][:oCatModel].setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Lucky_Cat.obj") ) 
+		aCats[n][:oCatModelMaterial] = new QPhongMaterial(aCats[n][:oCatModel])
+		aCats[n][:oCatModelMaterial].setDiffuse(
+			new QColor() {setRGB(255,255,255,255)})
+		aCats[n][:oCatModelTransform] = new  QTransform(aCats[n][:oCatModelEntity])
+		aCats[n][:oCatModelTransform].setScale(0.01)
+		aCats[n][:oCatModelTransform].setTranslation(
+			new QVector3D(-5*(v+v), 1, 15.2))
+		oQ = new QQuaternion(0,0,0,0)
+		aCats[n][:oCatModelTransform].setRotation(
+			oQ.fromAxisAndAngle(
+				new QVector3D(0, 1, 1), 180))
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModel])
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelmaterial])
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelTransform])
 		next
 
 		oSecondLightEntity = new QEntity(oRootEntity)
 
-			oSecondLight = new QPointLight(oSecondLightEntity)
+		oSecondLight = new QPointLight(oSecondLightEntity)
 		oSecondLight.setColor(new qColor() { setRGB(255,255,255,255) })
 		oSecondLight.setIntensity(1)
 
@@ -1664,7 +1690,8 @@ Scence
 		oRobotEntity = new QEntity(oRootEntity)
 
 		oRobotModel = new QMesh(oRobotEntity)
-		oRobotModel.setSource(new qURL("file:///"+CurrentDir()+"/assets/model/Fat_Robot.obj") ) 
+		oRobotModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Fat_Robot.obj") ) 
 		oRobotTransform = new  QTransform(oRobotEntity)
 		oRobotTransform.setScale(0.006)
 		
@@ -1674,7 +1701,8 @@ Scence
 
 		oRobotTransform.setTranslation(new QVector3D(-15, -2, 15))
 		oQ = new QQuaternion(0,0,0,0)
-		oRobotTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
+		oRobotTransform.setRotation(
+			oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
 
 		oRobotMaterial = new QPhongMaterial(oRobotEntity)
 		oRobotMaterial.setDiffuse(new QColor() {setRGB(128,128,128,255)})
@@ -1716,28 +1744,38 @@ Scence
 			on Qt_Key_Right
 				if cX < 4.8
 					robotX+= nSpeed
-					oCameraEntity.setPosition(new QVector3D(cX+0.1, cY, cZ))
-						oCameraEntity.setViewCenter(new QVector3D(cVCx+nSpeed, cVCy, cVCz))	
-					oRobotTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
+					oCameraEntity.setPosition(
+						new QVector3D(cX+0.1, cY, cZ))
+					oCameraEntity.setViewCenter(
+						new QVector3D(cVCx+nSpeed, cVCy, cVCz))	
+					oRobotTransform.setRotation(
+						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
 				ok
 			on Qt_Key_Left
 				if cX > - 13.8
 					robotX-= nSpeed
-					oCameraEntity.setPosition(new QVector3D(cX-0.1, cY, cZ))
-						oCameraEntity.setViewCenter(new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
-					oRobotTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 160))
+					oCameraEntity.setPosition(
+						new QVector3D(cX-0.1, cY, cZ))
+					oCameraEntity.setViewCenter(
+						new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
+					oRobotTransform.setRotation(
+						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 160))
 				ok
 			on Qt_Key_Down 
 				if robotY > -3.5
 					robotY-= nSpeed
-					oCameraEntity.setPosition(new QVector3D(cX, cY, cZ))
-					oRobotTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 190))
+					oCameraEntity.setPosition(
+						new QVector3D(cX, cY, cZ))
+					oRobotTransform.setRotation(
+						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 190))
 				ok
 			on Qt_Key_Up
 				if robotY < 2
 					robotY+= nSpeed
-					oCameraEntity.setPosition(new QVector3D(cX, cY, cZ))
-					oRobotTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
+					oCameraEntity.setPosition(
+						new QVector3D(cX, cY, cZ))
+					oRobotTransform.setRotation(
+						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
 				ok
 			on Qt_Key_Escape
 				oWidget.close()

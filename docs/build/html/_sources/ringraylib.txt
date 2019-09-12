@@ -38,9 +38,9 @@ Basic Window
 
 	while !WindowShouldClose() 
 		BeginDrawing()
-			ClearBackground(RED)
-			DrawText("Congrats! You created your first window!", 190, 200, 20, WHITE)
-			EndDrawing()
+		ClearBackground(RED)
+		DrawText("Congrats! You created your first window!", 190, 200, 20, WHITE)
+		EndDrawing()
 	end
 
 	CloseWindow()
@@ -120,9 +120,10 @@ Input Mouse
 			ok
 
 			BeginDrawing()
-				ClearBackground(BLACK)
-				DrawCircleV(ballPosition, 40, ballColor)
-				DrawText("move ball with mouse and click mouse button to change color", 10, 10, 20, YELLOW)
+			ClearBackground(BLACK)
+			DrawCircleV(ballPosition, 40, ballColor)
+			DrawText("move ball with mouse and click mouse button to change color",
+				 10, 10, 20, YELLOW)
 			EndDrawing()
 
 	end
@@ -164,20 +165,20 @@ Screen Shot:
 
 			BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+			ClearBackground(RAYWHITE)
 
-				BeginMode3D(camera)
+			BeginMode3D(camera)
 
-					DrawCube(cubePosition, 2, 2, 2, RED)
-					DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
+			DrawCube(cubePosition, 2, 2, 2, RED)
+			DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
 
-					DrawGrid(10, 1)
+			DrawGrid(10, 1)
 
-				EndMode3D()
+			EndMode3D()
 
-				DrawText("Welcome to the third dimension!", 10, 40, 20, DARKGRAY)
+			DrawText("Welcome to the third dimension!", 10, 40, 20, DARKGRAY)
 
-				DrawFPS(10, 10)
+			DrawFPS(10, 10)
 
 			EndDrawing()
 
@@ -227,26 +228,26 @@ Screen Shot:
 
 			BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+			ClearBackground(RAYWHITE)
 
-				BeginMode3D(camera)
+			BeginMode3D(camera)
 
-					DrawCube(cubePosition, 2, 2, 2, RED)
-					DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
+			DrawCube(cubePosition, 2, 2, 2, RED)
+			DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
 
-					DrawGrid(10, 1)
+			DrawGrid(10, 1)
 
-				EndMode3D()
+			EndMode3D()
 
-				DrawRectangle( 10, 10, 320, 133, Fade(SKYBLUE, 0.5))
-				DrawRectangleLines( 10, 10, 320, 133, BLUE)
+			DrawRectangle( 10, 10, 320, 133, Fade(SKYBLUE, 0.5))
+			DrawRectangleLines( 10, 10, 320, 133, BLUE)
 
-				DrawText("Free camera default controls:", 20, 20, 10, BLACK)
-				DrawText("- Mouse Wheel to Zoom in-out", 40, 40, 10, DARKGRAY)
-				DrawText("- Mouse Wheel Pressed to Pan", 40, 60, 10, DARKGRAY)
-				DrawText("- Alt + Mouse Wheel Pressed to Rotate", 40, 80, 10, DARKGRAY)
-				DrawText("- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom", 40, 100, 10, DARKGRAY)
-				DrawText("- Z to zoom to (0, 0, 0)", 40, 120, 10, DARKGRAY)
+			DrawText("Free camera default controls:", 20, 20, 10, BLACK)
+			DrawText("- Mouse Wheel to Zoom in-out", 40, 40, 10, DARKGRAY)
+			DrawText("- Mouse Wheel Pressed to Pan", 40, 60, 10, DARKGRAY)
+			DrawText("- Alt + Mouse Wheel Pressed to Rotate", 40, 80, 10, DARKGRAY)
+			DrawText("- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom", 40, 100, 10, DARKGRAY)
+			DrawText("- Z to zoom to (0, 0, 0)", 40, 120, 10, DARKGRAY)
 
 			EndDrawing()
 	end 
@@ -280,18 +281,18 @@ Mouse Wheel
 	SetTargetFPS(60)  
 
 	while !WindowShouldClose()
-			boxPositionY -= (GetMouseWheelMove()*scrollSpeed)
+		boxPositionY -= (GetMouseWheelMove()*scrollSpeed)
 
-			BeginDrawing()
+		BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-				DrawRectangle(screenWidth/2 - 40, boxPositionY, 80, 80, MAROON)
+		DrawRectangle(screenWidth/2 - 40, boxPositionY, 80, 80, MAROON)
 
-				DrawText("Use mouse wheel to move the cube up and down!", 10, 10, 20, GRAY)
-				DrawText("Box position Y: "+boxPositionY, 10, 40, 20, LIGHTGRAY)
+		DrawText("Use mouse wheel to move the cube up and down!", 10, 10, 20, GRAY)
+		DrawText("Box position Y: "+boxPositionY, 10, 40, 20, LIGHTGRAY)
 
-			EndDrawing()
+		EndDrawing()
 	end
 
 	CloseWindow()
@@ -329,39 +330,42 @@ Input Multi-touch
 
 	while !WindowShouldClose()
 
-			ballPosition = GetMousePosition()
+		ballPosition = GetMousePosition()
 
-			ballColor = BEIGE
+		ballColor = BEIGE
 
-			if IsMouseButtonDown(MOUSE_LEFT_BUTTON) ballColor = MAROON ok
-			if IsMouseButtonDown(MOUSE_MIDDLE_BUTTON) ballColor = LIME ok
-			if IsMouseButtonDown(MOUSE_RIGHT_BUTTON) ballColor = DARKBLUE ok
+		if IsMouseButtonDown(MOUSE_LEFT_BUTTON) ballColor = MAROON ok
+		if IsMouseButtonDown(MOUSE_MIDDLE_BUTTON) ballColor = LIME ok
+		if IsMouseButtonDown(MOUSE_RIGHT_BUTTON) ballColor = DARKBLUE ok
 
-			if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) touchCounter = 10 ok
-			if IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON) touchCounter = 10 ok
-			if IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) touchCounter = 10 ok
+		if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) touchCounter = 10 ok
+		if IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON) touchCounter = 10 ok
+		if IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) touchCounter = 10 ok
 
-			if touchCounter > 0 touchCounter-- ok
+		if touchCounter > 0 touchCounter-- ok
 
-			BeginDrawing()
+		BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-				for i = 0 to MAX_TOUCH_POINTS-1
-					touchPosition = GetTouchPosition(i)  
+		for i = 0 to MAX_TOUCH_POINTS-1
+			touchPosition = GetTouchPosition(i)  
 
-					if touchPosition.x >= 0 && touchPosition.y >= 0
-						DrawCircleV(touchPosition, 34, ORANGE)
-						DrawText(""+ i, touchPosition.x - 10, touchPosition.y - 70, 40, BLACK)
-					ok
-				next
+			if touchPosition.x >= 0 && touchPosition.y >= 0
+				DrawCircleV(touchPosition, 34, ORANGE)
+				DrawText(""+ i, touchPosition.x - 10, 
+					touchPosition.y - 70, 40, BLACK)
+			ok
+		next
 
-				DrawCircleV(ballPosition, 30 + (touchCounter*3), ballColor)
+		DrawCircleV(ballPosition, 30 + (touchCounter*3), ballColor)
 
-				DrawText("move ball with mouse and click mouse button to change color", 10, 10, 20, DARKGRAY)
-				DrawText("touch the screen at multiple locations to get multiple balls", 10, 30, 20, DARKGRAY)
+		DrawText("move ball with mouse and click mouse button to change color",
+				 10, 10, 20, DARKGRAY)
+		DrawText("touch the screen at multiple locations to get multiple balls",
+				 10, 30, 20, DARKGRAY)
 
-			EndDrawing()
+		EndDrawing()
 
 	end
 
@@ -405,8 +409,10 @@ Camera First Person
 
 	for i = 1 to  MAX_COLUMNS 
 		heights[i] = GetRandomValue(1, 12)
-		positions[i] = Vector3(GetRandomValue(-15, 15), heights[i]/2, GetRandomValue(-15, 15) )
-		colors[i] = RAYLibColor(GetRandomValue(20, 255), GetRandomValue(10, 55), 30, 255 )
+		positions[i] = Vector3(GetRandomValue(-15, 15),
+				 heights[i]/2, GetRandomValue(-15, 15) )
+		colors[i] = RAYLibColor(GetRandomValue(20, 255),
+				 GetRandomValue(10, 55), 30, 255 )
 	next
 
 	SetCameraMode(camera, CAMERA_FIRST_PERSON)
@@ -418,28 +424,28 @@ Camera First Person
 		UpdateCamera(camera)
 		BeginDrawing()
 
-			ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-			BeginMode3D(camera)
+		BeginMode3D(camera)
 
-				DrawPlane(Vector3( 0, 0, 0 ), Vector2(32, 32 ), LIGHTGRAY) // Draw ground
-				DrawCube(Vector3( -16, 2.5, 0 ), 1, 5, 32, BLUE)     // Draw a blue wall
-				DrawCube(Vector3( 16, 2.5, 0 ), 1, 5, 32, LIME)      // Draw a green wall
-				DrawCube(Vector3( 0, 2.5, 16 ), 32, 5, 1, GOLD)      // Draw a yellow wall
+		DrawPlane(Vector3( 0, 0, 0 ), Vector2(32, 32 ), LIGHTGRAY) // Draw ground
+		DrawCube(Vector3( -16, 2.5, 0 ), 1, 5, 32, BLUE)     // Draw a blue wall
+		DrawCube(Vector3( 16, 2.5, 0 ), 1, 5, 32, LIME)      // Draw a green wall
+		DrawCube(Vector3( 0, 2.5, 16 ), 32, 5, 1, GOLD)      // Draw a yellow wall
 
-				for i = 1 to  MAX_COLUMNS 
-					DrawCube(positions[i], 2, heights[i], 2, colors[i])
-					DrawCubeWires(positions[i], 2, heights[i], 2, MAROON)
-				next
+		for i = 1 to  MAX_COLUMNS 
+			DrawCube(positions[i], 2, heights[i], 2, colors[i])
+			DrawCubeWires(positions[i], 2, heights[i], 2, MAROON)
+		next
 
-			EndMode3D()
+		EndMode3D()
 
-			DrawRectangle( 10, 10, 220, 70, Fade(SKYBLUE, 0.5f))
-			DrawRectangleLines( 10, 10, 220, 70, BLUE)
+		DrawRectangle( 10, 10, 220, 70, Fade(SKYBLUE, 0.5f))
+		DrawRectangleLines( 10, 10, 220, 70, BLUE)
 
-			DrawText("First person camera default controls:", 20, 20, 10, BLACK)
-			DrawText("- Move with keys: W, A, S, D", 40, 40, 10, DARKGRAY)
-			DrawText("- Mouse move to look around", 40, 60, 10, DARKGRAY)
+		DrawText("First person camera default controls:", 20, 20, 10, BLACK)
+		DrawText("- Move with keys: W, A, S, D", 40, 40, 10, DARKGRAY)
+		DrawText("- Mouse move to look around", 40, 60, 10, DARKGRAY)
 
 		EndDrawing()
 	end 
@@ -494,8 +500,10 @@ Screen Shot:
 					ray = GetMouseRay(GetMousePosition(), camera)
 
 					collision = CheckCollisionRayBox(ray,
-					BoundingBox( cubePosition.x - cubeSize.x/2, cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
-					cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2, cubePosition.z + cubeSize.z/2 ) )
+					BoundingBox( cubePosition.x - cubeSize.x/2, 
+						cubePosition.y - cubeSize.y/2, cubePosition.z - cubeSize.z/2,
+						cubePosition.x + cubeSize.x/2, cubePosition.y + cubeSize.y/2,
+						cubePosition.z + cubeSize.z/2 ) )
 				else collision = false
 				ok
 			ok
@@ -510,7 +518,8 @@ Screen Shot:
 						DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, RED)
 						DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
 
-						DrawCubeWires(cubePosition, cubeSize.x + 0.2f, cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
+						DrawCubeWires(cubePosition, cubeSize.x + 0.2f,
+								cubeSize.y + 0.2f, cubeSize.z + 0.2f, GREEN)
 					else
 						DrawCube(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
 						DrawCubeWires(cubePosition, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
@@ -523,7 +532,9 @@ Screen Shot:
 
 				DrawText("Try selecting the box with mouse!", 240, 10, 20, DARKGRAY)
 
-				if collision  DrawText("BOX SELECTED", (screenWidth - MeasureText("BOX SELECTED", 30)) / 2, screenHeight * 0.1f, 30, GREEN) ok
+				if collision  DrawText("BOX SELECTED", 
+							(screenWidth - MeasureText("BOX SELECTED", 30)) / 2, 
+							screenHeight * 0.1f, 30, GREEN) ok
 
 				DrawFPS(10, 10)
 
@@ -591,32 +602,32 @@ Basic Shapes
 
 	while !WindowShouldClose()
 
-			BeginDrawing()
+		BeginDrawing()
 
-				ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-				DrawText("some basic shapes available on raylib", 20, 20, 20, DARKGRAY)
+		DrawText("some basic shapes available on raylib", 20, 20, 20, DARKGRAY)
 
-				DrawCircle(screenWidth/4, 120, 35, DARKBLUE)
+		DrawCircle(screenWidth/4, 120, 35, DARKBLUE)
 
-				DrawRectangle(screenWidth/4*2 - 60, 100, 120, 60, RED)
-				DrawRectangleLines(screenWidth/4*2 - 40, 320, 80, 60, ORANGE)  
-				DrawRectangleGradientH(screenWidth/4*2 - 90, 170, 180, 130, MAROON, GOLD)
+		DrawRectangle(screenWidth/4*2 - 60, 100, 120, 60, RED)
+		DrawRectangleLines(screenWidth/4*2 - 40, 320, 80, 60, ORANGE)  
+		DrawRectangleGradientH(screenWidth/4*2 - 90, 170, 180, 130, MAROON, GOLD)
 
-				DrawTriangle(Vector2(screenWidth/4*3, 80),
-							 Vector2(screenWidth/4*3 - 60, 150),
-							 Vector2(screenWidth/4*3 + 60, 150), VIOLET)
+		DrawTriangle(Vector2(screenWidth/4*3, 80),
+					 Vector2(screenWidth/4*3 - 60, 150),
+					 Vector2(screenWidth/4*3 + 60, 150), VIOLET)
 
-				DrawPoly(Vector2(screenWidth/4*3, 320), 6, 80, 0, BROWN)
+		DrawPoly(Vector2(screenWidth/4*3, 320), 6, 80, 0, BROWN)
 
-				DrawCircleGradient(screenWidth/4, 220, 60, GREEN, SKYBLUE)
+		DrawCircleGradient(screenWidth/4, 220, 60, GREEN, SKYBLUE)
 
-				DrawLine(18, 42, screenWidth - 18, 42, BLACK)
-				DrawCircleLines(screenWidth/4, 340, 80, DARKBLUE)
-				DrawTriangleLines(Vector2(screenWidth/4*3, 160),
-								  Vector2(screenWidth/4*3 - 20, 230),
-								  Vector2(screenWidth/4*3 + 20, 230), DARKBLUE)
-			EndDrawing()
+		DrawLine(18, 42, screenWidth - 18, 42, BLACK)
+		DrawCircleLines(screenWidth/4, 340, 80, DARKBLUE)
+		DrawTriangleLines(Vector2(screenWidth/4*3, 160),
+						  Vector2(screenWidth/4*3 - 20, 230),
+						  Vector2(screenWidth/4*3 + 20, 230), DARKBLUE)
+		EndDrawing()
 
 	end
 
@@ -651,35 +662,46 @@ Draw Ring
 
 	while !WindowShouldClose()
 
-			BeginDrawing()
+		BeginDrawing()
 
-			ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-			DrawLine(500, 0, 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.6))
-			DrawRectangle(500, 0, GetScreenWidth() - 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
+		DrawLine(500, 0, 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.6))
+		DrawRectangle(500, 0, GetScreenWidth() - 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
 
-			if drawRing DrawRing(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
-			if drawRingLines DrawRingLines(center, innerRadius, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
-			if drawCircleLines DrawCircleSectorLines(center, outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+		if drawRing DrawRing(center, innerRadius, outerRadius, 
+				startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
+		if drawRingLines DrawRingLines(center, innerRadius, 
+				outerRadius, startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+		if drawCircleLines DrawCircleSectorLines(center, outerRadius,
+				startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
 
-			startAngle = GuiSliderBar(Rectangle( 600, 40, 120, 20 ), "StartAngle", startAngle, -450, 450, true)
-			endAngle = GuiSliderBar(Rectangle( 600, 70, 120, 20 ), "EndAngle", endAngle, -450, 450, true)
+		startAngle = GuiSliderBar(Rectangle( 600, 40, 120, 20 ), 
+				"StartAngle", startAngle, -450, 450, true)
+		endAngle = GuiSliderBar(Rectangle( 600, 70, 120, 20 ), 
+				"EndAngle", endAngle, -450, 450, true)
 
-			innerRadius = GuiSliderBar(Rectangle( 600, 140, 120, 20 ), "InnerRadius", innerRadius, 0, 100, true)
-			outerRadius = GuiSliderBar(Rectangle( 600, 170, 120, 20 ), "OuterRadius", outerRadius, 0, 200, true)
+		innerRadius = GuiSliderBar(Rectangle( 600, 140, 120, 20 ), 
+				"InnerRadius", innerRadius, 0, 100, true)
+		outerRadius = GuiSliderBar(Rectangle( 600, 170, 120, 20 ), 
+				"OuterRadius", outerRadius, 0, 200, true)
 
-			segments = GuiSliderBar(Rectangle( 600, 240, 120, 20 ), "Segments", segments, 0, 100, true)
+		segments = GuiSliderBar(Rectangle( 600, 240, 120, 20 ), 
+				"Segments", segments, 0, 100, true)
 
-			drawRing = GuiCheckBox(Rectangle( 600, 320, 20, 20 ), "Draw Ring", drawRing)
-			drawRingLines = GuiCheckBox(Rectangle( 600, 350, 20, 20 ), "Draw RingLines", drawRingLines)
-			drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ), "Draw CircleLines", drawCircleLines)
+		drawRing = GuiCheckBox(Rectangle( 600, 320, 20, 20 ), 
+				"Draw Ring", drawRing)
+		drawRingLines = GuiCheckBox(Rectangle( 600, 350, 20, 20 ), 
+				"Draw RingLines", drawRingLines)
+		drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ), 
+				"Draw CircleLines", drawCircleLines)
 
-			if segments >= 4 	DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
-			else			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)	ok
-			
-			DrawFPS(10, 10)
+		if segments >= 4 	DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
+		else			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)	ok
+		
+		DrawFPS(10, 10)
 
-			EndDrawing()
+		EndDrawing()
 	end
 
 	CloseWindow()
