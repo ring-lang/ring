@@ -494,7 +494,10 @@ aPackagesRegistry = [
 	[ :name = "ringraylib",
 	  :description = "RingRayLib package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sokoban",
+	  :description = "Sokoban package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 
 ]
