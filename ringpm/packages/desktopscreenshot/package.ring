@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -33,6 +33,8 @@ aPackageInfo = [
 		"applications/desktopscreenshot/desktopscreenshot.rform",
 		"applications/desktopscreenshot/desktopscreenshotController.ring",
 		"applications/desktopscreenshot/desktopscreenshotView.ring",
+		"applications/desktopscreenshot/README.md",
+		"applications/desktopscreenshot/images/dssicon.jpg",
 		"applications/desktopscreenshot/shots/screenshot_09_02_2019_12_30_14.png",
 		"applications/desktopscreenshot/shots/screenshot_09_02_2019_12_30_19.png",
 		"applications/desktopscreenshot/shots/screenshot_09_02_2019_12_30_37.png"
