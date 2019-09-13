@@ -119,7 +119,8 @@ aAllPackagesInfo = [
 		"sample3dcube",
 		"sample3dstars",
 		"sample3dlevelsofcubes",
-		"ringsamples"
+		"ringsamples",
+		"sokoban"
 	],
 	:ringlibsdl = 	[
 		"gameengine"
