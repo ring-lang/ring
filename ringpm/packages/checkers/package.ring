@@ -1,15 +1,15 @@
 aPackageInfo = [
-	:name = "The Checkers Package",
-	:description = "Our Checkers package using the Ring programming language",
+	:name = "The checkers Package",
+	:description = "Our checkers package using the Ring programming language",
 	:folder = "checkers",
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,24 +30,25 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"applications/checkers/blackdisc.jpg",
-		"applications/checkers/blackmove.jpg",
-		"applications/checkers/browncell.jpg",
-		"applications/checkers/CalmoSoftCheckersGame.ring",
-		"applications/checkers/delblack.jpg",
-		"applications/checkers/greendisc.jpg",
-		"applications/checkers/kingrednew.jpg",
-		"applications/checkers/kingredold.jpg",
-		"applications/checkers/lightbrowncell.jpg",
-		"applications/checkers/nextstep.jpg",
-		"applications/checkers/README.md",
-		"applications/checkers/reddisc.jpg",
-		"applications/checkers/yellowdisc.jpg"
+		"applications/checkers/AA-Checkerboard.ring",
+		"applications/checkers/CheckerPuzzles.ring",
+		"applications/checkers/checkersgame.png",
+		"applications/checkers/CKR-BK.png",
+		"applications/checkers/CKR-BP.png",
+		"applications/checkers/CKR-WK.png",
+		"applications/checkers/CKR-WP.png",
+		"applications/checkers/README.md"
 	],
 	:windowsfiles = 	[
 
 	],
 	:linuxfiles = 	[
+
+	],
+	:ubuntufiles = 	[
+
+	],
+	:fedorafiles = 	[
 
 	],
 	:macosfiles = 	[
@@ -59,16 +60,33 @@ aPackageInfo = [
 	:linuxringfolderfiles = 	[
 
 	],
+	:ubunturingfolderfiles = 	[
+
+	],
+	:fedoraringfolderfiles = 	[
+
+	],
 	:macosringfolderfiles = 	[
 
 	],
 	:run = "ring main.ring",
+	:windowsrun = "",
+	:linuxrun = "",
+	:macosrun = "",
+	:ubunturun = "",
+	:fedorarun = "",
 	:setup = "",
 	:windowssetup = "",
 	:linuxsetup = "",
 	:macossetup = "",
 	:ubuntusetup = "",
 	:fedorasetup = "",
+	:remove = "",
+	:windowsremove = "",
+	:linuxremove = "",
+	:macosremove = "",
+	:ubunturemove = "",
+	:fedoraremove = "",
 	:remotefolder = "checkers",
 	:branch = "master",
 	:providerusername = "ringpackages",

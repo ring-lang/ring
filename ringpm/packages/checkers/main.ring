@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/checkers")
-	system("ring CalmoSoftCheckersGame.ring")
+	system("ring AA-Checkerboard.ring")
 	chdir(cDir)
