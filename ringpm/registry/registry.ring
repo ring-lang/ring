@@ -506,5 +506,9 @@ aPackagesRegistry = [
 	[ :name = "snake",
 	  :description = "Snake package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "sudoku",
+	  :description = "Sudoku package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
