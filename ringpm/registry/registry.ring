@@ -510,5 +510,10 @@ aPackagesRegistry = [
 	[ :name = "sudoku",
 	  :description = "Sudoku package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "texttospeech",
+	  :description = "TextToSpeech package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
