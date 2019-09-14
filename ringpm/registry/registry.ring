@@ -498,6 +498,11 @@ aPackagesRegistry = [
 	[ :name = "sokoban",
 	  :description = "Sokoban package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "maze",
+	  :description = "Maze package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 
 ]
