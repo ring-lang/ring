@@ -100,7 +100,8 @@ aAllPackagesInfo = [
 		"help2wiki",
 		"ringsamples",
 		"desktopscreenshot",
-		"visualizesortsample"
+		"visualizesortsample",
+		"sudoku"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -163,7 +164,8 @@ aAllPackagesInfo = [
 		"help2wiki",
 		"ringsamples",
 		"desktopscreenshot",
-		"visualizesortsample"
+		"visualizesortsample",
+		"sudoku"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
