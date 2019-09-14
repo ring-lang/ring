@@ -101,7 +101,8 @@ aAllPackagesInfo = [
 		"ringsamples",
 		"desktopscreenshot",
 		"visualizesortsample",
-		"sudoku"
+		"sudoku",
+		"texttospeech"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -165,7 +166,8 @@ aAllPackagesInfo = [
 		"ringsamples",
 		"desktopscreenshot",
 		"visualizesortsample",
-		"sudoku"
+		"sudoku",
+		"texttospeech"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
