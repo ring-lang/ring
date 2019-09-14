@@ -514,6 +514,10 @@ aPackagesRegistry = [
 	[ :name = "texttospeech",
 	  :description = "TextToSpeech package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "zerolib",
+	  :description = "ZeroLib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
