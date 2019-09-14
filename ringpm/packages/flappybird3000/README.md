@@ -1,7 +1,8 @@
-# FlappyBird3000
+Flappy Bird 3000 Game
+=====================
 
-FlappyBird3000 package for the Ring programming language
+A simple implementation for the Flappy Bird Game.
 
-## Install
+To win get score = 3000
 
-	ringpm install flappybird3000
+The game is developed using Ring Game Engine for 2D Games.
