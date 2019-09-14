@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringhelppdf",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.11.0",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
