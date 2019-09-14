@@ -102,7 +102,8 @@ aAllPackagesInfo = [
 		"desktopscreenshot",
 		"visualizesortsample",
 		"sudoku",
-		"texttospeech"
+		"texttospeech",
+		"zerolib"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -202,6 +203,9 @@ aAllPackagesInfo = [
 		"squarespuzzle"
 	],
 	:ringraylib = 	[
+
+	],
+	:zerolib = 	[
 
 	]
 ]
