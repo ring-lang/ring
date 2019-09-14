@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -72,6 +72,8 @@ aPackageInfo = [
 		"applications/rnote/image/source.png",
 		"applications/rnote/image/undo.png",
 		"applications/rnote/image/web.png",
+		"applications/rnote/image/comment.png",
+		"applications/rnote/image/comment2.png",
 		"applications/rnote/README.md",
 		"applications/rnote/rnote.ring",
 		"applications/rnote/rnoteactivefile.ring",
@@ -103,7 +105,9 @@ aPackageInfo = [
 		"applications/rnote/rnotetools.ring",
 		"applications/rnote/rnotetreeviewevents.ring",
 		"applications/rnote/rnoteviewmenu.ring",
-		"applications/rnote/rnotewebbrowser.ring"
+		"applications/rnote/rnotewebbrowser.ring",
+		"applications/rnote/rnoteinserttext.ring",
+		"applications/rnote/templates.ring"
 	],
 	:windowsfiles = 	[
 
