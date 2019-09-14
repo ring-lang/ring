@@ -502,7 +502,9 @@ aPackagesRegistry = [
 	[ :name = "maze",
 	  :description = "Maze package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "snake",
+	  :description = "Snake package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
-
 ]
