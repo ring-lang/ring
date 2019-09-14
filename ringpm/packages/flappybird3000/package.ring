@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -32,6 +32,7 @@ aPackageInfo = [
 		"applications/flappybird3000/images/fbwall.png",
 		"applications/flappybird3000/images/fbwalldown.png",
 		"applications/flappybird3000/images/fbwallup.png",
+		"applications/flappybird3000/images/fbbirddown.png",
 		"applications/flappybird3000/images/Thumbs.db",
 		"applications/flappybird3000/README.md",
 		"applications/flappybird3000/sound/music1.wav",
