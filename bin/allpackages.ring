@@ -211,7 +211,8 @@ aAllPackagesInfo = [
 
 	],
 	:qt512runtime = 	[
-		"ringqt"
+		"ringqt",
+		"ringqtruntime"
 	],
 	:qt512qmlruntime = 	[
 		"ringqt"
