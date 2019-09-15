@@ -22,8 +22,6 @@ aAllPackagesInfo = [
 		"stdlib"
 	],
 	:ringzip = 	[
-		"qt55runtime",
-		"qt55qmlruntime",
 		"ringqt",
 		"ringhelphtml",
 		"androidringlibsdl",
@@ -38,13 +36,6 @@ aAllPackagesInfo = [
 		"libdepwin_pgsql",
 		"qt512runtime",
 		"qt512qmlruntime"
-	],
-	:qt55runtime = 	[
-		"ringqtruntime",
-		"ringqt"
-	],
-	:qt55qmlruntime = 	[
-		"ringqt"
 	],
 	:ringopenssl = 	[
 		"stdlib"
