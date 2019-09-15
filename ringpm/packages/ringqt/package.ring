@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.3",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -25,12 +25,12 @@ aPackageInfo = [
 			:providerusername = ""
 		],
 		[
-			:name = "qt55runtime",
+			:name = "qt512runtime",
 			:version = "1.0",
 			:providerusername = ""
 		],
 		[
-			:name = "qt55qmlruntime",
+			:name = "qt512qmlruntime",
 			:version = "1.0",
 			:providerusername = ""
 		]
