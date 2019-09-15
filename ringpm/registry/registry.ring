@@ -518,6 +518,14 @@ aPackagesRegistry = [
 	[ :name = "zerolib",
 	  :description = "ZeroLib package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt512runtime",
+	  :description = "Qt 5.12 runtime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt512qmlruntime",
+	  :description = "Qt 5.12 - QML - runtime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
