@@ -1,40 +1,20 @@
 ﻿aDownload = [
-		["Ring 1.10 All Platforms",[			
+		["Ring 1.11 All Platforms",[			
 						 [
-							'Ring 1.10 For Windows (32bit and 64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_Windows.exe/download" target="_blank">Download  (203 MB)</a>'						
+							'Ring 1.11 For Windows (32bit and 64bit)<br>',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.11/Fayed_Ring_1.11_Windows.exe/download" target="_blank">Download  (253 MB)</a>'						
+						 ],				 
+						 [
+							'Ring 1.11 Documentation (PDF) ',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.11/Fayed_RingDoc_1.11.pdf/download" target="_blank">Download (33.5 MB)</a>'
 						 ],
 						 [
-							'Ring 1.10 For Ubuntu Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_Ubuntu.zip/download" target="_blank">Download  (319 MB)</a>'						
+							'Ring 1.11 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.11/Fayed_RingDoc_1.11.chm/download" target="_blank">Download (30.7 MB)</a>'							
 						 ],
 						 [
-							'Ring 1.10 For Fedora Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_Fedora.zip/download" target="_blank">Download  (319 MB)</a>'						
-						 ],						 
-						 [
-							'Ring 1.10 For macOS (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_macOS.zip/download" target="_blank">Download  (319 MB)</a>'						
-						 ],						 
-						 [
-							'Ring 1.10 (Light Release - Source Code - All Platforms) <br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_LightRelease_SourceCode.zip/download" target="_blank">Download (611 KB) </a>'
-						 ],
-						 [
-							'Ring 1.10 (Light Release - Windows Binary) <br> ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_Ring_1.10_LightRelease_Windows_Binary.zip/download" target="_blank">Download (2.2 MB)</a>'
-						 ],						 
-						 [
-							'Ring 1.10 Documentation (PDF) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_RingDoc_1.10.pdf/download" target="_blank">Download (28.5 MB)</a>'
-						 ],
-						 [
-							'Ring 1.10 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_RingDoc_1.10.chm/download" target="_blank">Download (25.6 MB)</a>'							
-						 ],
-						 [
-							'Ring 1.10 Documentation (HTML)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.10/Fayed_RingDoc_1.10.zip/download" target="_blank">Download (25.9 MB)</a>'							
+							'Ring 1.11 Documentation (HTML)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.11/Fayed_RingDoc_1.11.zip/download" target="_blank">Download (31.0 MB)</a>'							
 						 ]
 						 
 			]
