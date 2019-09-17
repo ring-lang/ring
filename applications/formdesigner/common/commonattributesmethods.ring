@@ -215,6 +215,7 @@ class CommonAttributesMethods
 		resize(itemdata[:width],itemdata[:height])
 		setTextColor(itemdata[:textcolor])
 		setBackColor(itemdata[:backcolor])
+		if itemdata[:font] = NULL { itemdata[:font] = "Arial" }
 		setFontProperty(itemdata[:font])
 		setCurrentParentName(itemdata[:parent])
 		refreshCorners(oDesigner.oModel.ActiveObject())
