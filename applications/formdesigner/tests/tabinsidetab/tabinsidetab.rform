@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  374 , :height = 309 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :PagesCount =  "7",
 		 :PagesTitles =  ""
@@ -29,7 +29,7 @@ aObjectsList = [
 		 :width =  340 , :height = 222 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "Tab1Page1"  ,
 		 :PagesCount =  "5",
 		 :PagesTitles =  ""
@@ -40,7 +40,7 @@ aObjectsList = [
 		 :width =  285 , :height = 138 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "Tab2Page1"  ,
 		 :PagesCount =  "3",
 		 :PagesTitles =  ""
@@ -51,7 +51,7 @@ aObjectsList = [
 		 :width =  224 , :height = 77 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "Tab3Page1"  ,
 		 :PagesCount =  "2",
 		 :PagesTitles =  ""

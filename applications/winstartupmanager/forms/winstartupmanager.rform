@@ -1,6 +1,6 @@
 # Start Form Designer File
 aObjectsList = [
-	[ :name = "Window" , :id = 2 , :classname = "formdesigner_qwidget" , :data = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 171 , : y = 102  , 
 		 :width =  800 , :height = 473 , 
 		 :title =  "Windows Startup Manager" , 
@@ -13,12 +13,12 @@ aObjectsList = [
 
 		]
 	],
-	[ :name = "TableWidget1" , :id = 3 , :classname = "formdesigner_qtablewidget" , :data = [
+	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 7 , : y = 7  , 
 		 :width =  786 , :height = 358 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :RowCount =  "",
 		 :ColumnCount =  "4",
@@ -45,59 +45,59 @@ aObjectsList = [
 		 :setitemSelectionChangedEvent =  "RowClickAction"
 		]
 	],
-	[ :name = "AddB" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "AddB" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 457 , : y = 409  , 
 		 :width =  69 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Add",
 		 :BtnImage =  "",
 		 :setClickEvent =  "AddProgAction"
 		]
 	],
-	[ :name = "EditB" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "EditB" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 536 , : y = 409  , 
 		 :width =  69 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Edit",
 		 :BtnImage =  "",
 		 :setClickEvent =  "EditProgAction"
 		]
 	],
-	[ :name = "CloseB" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "CloseB" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 694 , : y = 409  , 
 		 :width =  69 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Close",
 		 :BtnImage =  "",
 		 :setClickEvent =  "CloseAction"
 		]
 	],
-	[ :name = "Label1" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "Label1" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 12 , : y = 371  , 
 		 :width =  107 , :height = 28 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Registry Path",
 		 :textalign =  0
 		]
 	],
-	[ :name = "RegPathLE" , :id = 8 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "RegPathLE" , :id = 7 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 84 , : y = 372  , 
 		 :width =  707 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "",
 		 :setTextChangedEvent =  "",
@@ -108,59 +108,59 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "ExportB" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ExportB" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 14 , : y = 411  , 
 		 :width =  87 , :height = 23 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Export backup",
 		 :BtnImage =  "",
 		 :setClickEvent =  "ExportAction"
 		]
 	],
-	[ :name = "DeleteB" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "DeleteB" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 614 , : y = 409  , 
 		 :width =  69 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Delete",
 		 :BtnImage =  "",
 		 :setClickEvent =  "DeleteAction"
 		]
 	],
-	[ :name = "ImportB" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ImportB" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 14 , : y = 437  , 
 		 :width =  87 , :height = 23 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Import backup",
 		 :BtnImage =  "",
 		 :setClickEvent =  "ImportAction"
 		]
 	],
-	[ :name = "Label2" , :id = 12 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "Label2" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 135 , : y = 416  , 
 		 :width =  90 , :height = 15 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Sort according to:",
 		 :textalign =  0
 		]
 	],
-	[ :name = "SortCmB" , :id = 13 , :classname = "formdesigner_qcombobox" , :data = [
+	[ :name = "SortCmB" , :id = 12 , :classname = "formdesigner_qcombobox" , :data = [
 		 :x = 147 , : y = 434  , 
 		 :width =  138 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :cItems =  "Program,Path,Users",
 		 :cCurrentIndex =  "1",
@@ -170,24 +170,24 @@ aObjectsList = [
 		 :sethighlightedEvent =  ""
 		]
 	],
-	[ :name = "ShortcutsBtn" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ShortcutsBtn" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 470 , : y = 442  , 
 		 :width =  277 , :height = 22 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Startup Shortcuts",
 		 :BtnImage =  "",
 		 :setClickEvent =  "ShortcutsAction"
 		]
 	],
-	[ :name = "AboutBtn" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "AboutBtn" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 769 , : y = 442  , 
 		 :width =  22 , :height = 22 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "?",
 		 :BtnImage =  "",

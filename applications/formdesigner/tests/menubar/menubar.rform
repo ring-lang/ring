@@ -8,38 +8,38 @@ aObjectsList = [
 		 :windowflags =  "Qt_Window | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'New' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Open' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Save' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Save As' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Close' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closewindow' ,
-				:Children = [] ]] ],[ :Text = 'Edit' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Cut' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Copy' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'Paste' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ]] ],[ :Text = 'Help' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'HTML' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'PDF' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ],[ :Text = 'CHM' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'New' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Open' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Save' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Save As' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Close' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closewindow' ,
+				:Children = [] ]] ],[ :Text = 'Edit' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Cut' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Copy' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'Paste' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ]] ],[ :Text = 'Help' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'HTML' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'PDF' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ],[ :Text = 'CHM' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
 				:Children = [] ]] ]] ]] ]"  ,
 		 :IndexType =  0  
 

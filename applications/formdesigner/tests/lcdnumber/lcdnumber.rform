@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  215 , :height = 52 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :display =  1543
 		]
@@ -28,7 +28,7 @@ aObjectsList = [
 		 :width =  219 , :height = 44 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :display =  12
 		]
@@ -38,7 +38,7 @@ aObjectsList = [
 		 :width =  212 , :height = 58 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :display =  40
 		]

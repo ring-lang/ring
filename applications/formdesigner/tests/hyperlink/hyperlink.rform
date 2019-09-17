@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  223 , :height = 34 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Link =  "http://www.ring-lang.net",
 		 :Text =  "Ring Language Website"
@@ -29,7 +29,7 @@ aObjectsList = [
 		 :width =  199 , :height = 29 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Link =  "http://www.pwct.org",
 		 :Text =  "Programming Without Coding Technology"

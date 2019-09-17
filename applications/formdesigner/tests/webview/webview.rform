@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  793 , :height = 339 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :URL =  "http://www.ring-lang.sf.net",
 		 :setloadProgressEvent  =  "",

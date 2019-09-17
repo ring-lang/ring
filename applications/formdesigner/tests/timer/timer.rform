@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  191 , :height = 39 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Time : ",
 		 :textalign =  0
@@ -29,7 +29,7 @@ aObjectsList = [
 		 :width =  119 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Interval =  "1000",
 		 :Timeout =  "DisplayTime"

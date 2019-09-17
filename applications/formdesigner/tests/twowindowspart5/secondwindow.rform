@@ -8,7 +8,8 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  ""  
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
 
 		]
 	],
@@ -29,13 +30,13 @@ aObjectsList = [
 		 :width =  279 , :height = 56 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "",
 		 :textalign =  0
 		]
 	],
-	[ :name = "Button3" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 58 , : y = 255  , 
 		 :width =  277 , :height = 61 , 
 		 :textcolor =  "black" , 

@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  354 , :height = 317 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "",
 		 :setcopyAvailableEvent =  "",

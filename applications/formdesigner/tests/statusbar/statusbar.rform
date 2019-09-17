@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  193 , :height = 24 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "#00007f" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Message =  "Ready"
 		]

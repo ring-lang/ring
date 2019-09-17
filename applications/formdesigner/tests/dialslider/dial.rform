@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  295 , :height = 253 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :minimum =  "",
 		 :maximum =  "",

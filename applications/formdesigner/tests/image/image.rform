@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  296 , :height = 158 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :imagefile =  "thering.jpg"
 		]

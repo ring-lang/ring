@@ -18,7 +18,7 @@ aObjectsList = [
 		 :width =  195 , :height = 31 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
-		 :font =  "" , 
+		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Close",
 		 :BtnImage =  "",
