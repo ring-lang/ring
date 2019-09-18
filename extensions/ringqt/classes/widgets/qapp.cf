@@ -40,20 +40,20 @@ RING_FUNC(ring_QApp_exec)
 
 RING_FUNC(ring_QApp_styleWindows)
 {
-	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("windows"));
+	qApp->setPalette(qApp->style()->standardPalette());
 }
 
 RING_FUNC(ring_QApp_styleWindowsVista)
 {
-	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("windowsvista"));
+	qApp->setPalette(qApp->style()->standardPalette());
 }
 
 RING_FUNC(ring_QApp_styleFusion)
 {
-	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("fusion"));
+	qApp->setPalette(qApp->style()->standardPalette());
 }
 
 RING_FUNC(ring_QApp_styleFusionBlack)
