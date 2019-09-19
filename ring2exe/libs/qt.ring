@@ -18,6 +18,7 @@ aLibrary = [:name = :qt ,
 	 :windowsfolders = [
 		:audio,
 		:bearer,
+		:geometryloaders,
 		:iconengines,
 		:imageformats,
 		:mediaservice,
