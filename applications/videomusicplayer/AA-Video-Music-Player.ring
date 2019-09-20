@@ -177,35 +177,7 @@ MyApp = New qapp
        ### BMP Background
        ### WinWidth   WinHeight
 
-            if Fexists(ImageFile)
 
-                imageStock = new qlabel(win1)
-                {
-                    image = new qpixmap(ImageFile)
-                    AspectRatio = image.width() / image.height()
-
-                    imageW = 400
-                    imageH = imageH / AspectRatio
-
-                    setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
-
-                    PosLeft = (BoxWidth  - imageW ) / 2
-                    PosTop  = (BoxHeight - imageH ) / 2
-                    setGeometry(PosLeft,PosTop,imageW,imageH)
-
-                }
-
-                TimerMan = new qTimer(win1)
-                {
-                    setinterval(100)
-                    settimeoutevent("pTime()")  ### ==>> func
-                    start()
-                }
-
-            else
-                msg = "ImageFile: -- "+ ImageFile +" -- required. Use an Image JPG of your choice"
-                SendMsg(msg)
-            ok
 
             videowidget = new qVideoWidget(win1)    ### Video Box
             {
@@ -251,6 +223,35 @@ MyApp = New qapp
                 setvalue(1)                     ###  Percent filled
             }
 
+            if Fexists(ImageFile)
+
+                imageStock = new qlabel(win1)
+                {
+                    image = new qpixmap(ImageFile)
+                    AspectRatio = image.width() / image.height()
+
+                    imageW = 400
+                    imageH = imageH / AspectRatio
+
+                    setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+
+                    PosLeft = (BoxWidth  - imageW ) / 2
+                    PosTop  = (BoxHeight - imageH ) / 2
+                    setGeometry(PosLeft,PosTop,imageW,imageH)
+
+                }
+
+                TimerMan = new qTimer(win1)
+                {
+                    setinterval(100)
+                    settimeoutevent("pTime()")  ### ==>> func
+                    start()
+                }
+
+            else
+                msg = "ImageFile: -- "+ ImageFile +" -- required. Use an Image JPG of your choice"
+                SendMsg(msg)
+            ok
 
             ###---------------------------------------
             ### PlayList plays sequential mmedia files
