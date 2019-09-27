@@ -218,10 +218,14 @@ void ring_vm_file_fgetpos ( void *pPointer )
 	if ( RING_API_ISPOINTER(1) ) {
 		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
 		if ( fp != NULL ) {
-			pos = NULL ;
+			pos = (fpos_t *) malloc(sizeof(fpos_t)) ;
+			if ( pos == NULL ) {
+				RING_API_ERROR(RING_OOM);
+				return ;
+			}
 			nResult = fgetpos(fp,pos);
 			if ( nResult == 0 ) {
-				RING_API_RETCPOINTER(pos,RING_VM_POINTER_FILEPOS);
+				RING_API_RETMANAGEDCPOINTER(pos,RING_VM_POINTER_FILEPOS,ring_state_free);
 			} else {
 				RING_API_RETNUMBER(nResult);
 			}
