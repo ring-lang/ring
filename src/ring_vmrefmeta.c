@@ -180,18 +180,18 @@ void ring_vm_refmeta_isfunction ( void *pPointer )
 	VM *pVM  ;
 	int x  ;
 	List *pList, *pList2  ;
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
 		cStr = RING_API_GETSTRING(1) ;
 		pList = pVM->pFunctionsMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
-			if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),cStr) == 0 ) {
+			if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),ring_string_lower(cStr)) == 0 ) {
 				RING_API_RETNUMBER(1);
 				return ;
 			}
