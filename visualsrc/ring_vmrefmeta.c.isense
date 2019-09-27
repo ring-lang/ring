@@ -35,7 +35,7 @@ Type: int
 x
 Type: List *
 pList, *pList2
-Type: const char *
+Type: char *
 cStr
 ring_vm_refmeta_isglobal
 Type: VM *
@@ -44,7 +44,7 @@ Type: int
 x
 Type: List *
 pList, *pList2
-Type: const char *
+Type: char *
 cStr
 ring_vm_refmeta_isfunction
 Type: VM *
@@ -53,7 +53,7 @@ Type: int
 x
 Type: List *
 pList, *pList2
-Type: const char *
+Type: char *
 cStr
 ring_vm_refmeta_iscfunction
 Type: VM *
@@ -62,7 +62,7 @@ Type: int
 x
 Type: List *
 pList, *pList2
-Type: const char *
+Type: char *
 cStr
 ring_vm_refmeta_packages
 Type: VM *
