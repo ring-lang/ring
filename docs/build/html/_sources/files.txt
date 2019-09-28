@@ -378,7 +378,7 @@ Syntax:
 Fsetpos() Function
 ==================
 
-We can set the current file position using the Fgetpos() function
+We can set the current file position using the Fsetpos() function
 
 Syntax:
 
