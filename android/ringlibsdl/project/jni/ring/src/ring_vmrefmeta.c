@@ -125,14 +125,14 @@ void ring_vm_refmeta_islocal ( void *pPointer )
 	VM *pVM  ;
 	int x  ;
 	List *pList, *pList2  ;
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		/* We use -1 to skip the current scope of the locals() function */
 		pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
@@ -153,14 +153,14 @@ void ring_vm_refmeta_isglobal ( void *pPointer )
 	VM *pVM  ;
 	int x  ;
 	List *pList, *pList2  ;
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = ring_vm_getglobalscope(pVM) ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -180,14 +180,14 @@ void ring_vm_refmeta_isfunction ( void *pPointer )
 	VM *pVM  ;
 	int x  ;
 	List *pList, *pList2  ;
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = pVM->pFunctionsMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -207,14 +207,14 @@ void ring_vm_refmeta_iscfunction ( void *pPointer )
 	VM *pVM  ;
 	int x  ;
 	List *pList, *pList2  ;
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = pVM->pCFunctionsList ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -256,8 +256,7 @@ void ring_vm_refmeta_ispackage ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
-		ring_string_lower(cStr);
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = pVM->pPackagesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -296,10 +295,9 @@ void ring_vm_refmeta_isclass ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
-		ring_string_lower(cStr);
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = pVM->pClassesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -358,12 +356,10 @@ void ring_vm_refmeta_ispackageclass ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) &&  RING_API_GETSTRING(2) ) {
+	if ( RING_API_ISSTRING(1) &&  RING_API_ISSTRING(2) ) {
 		pVM = (VM *) pPointer ;
-		cStr = RING_API_GETSTRING(1) ;
-		ring_string_lower(cStr);
-		cStr2 = RING_API_GETSTRING(2) ;
-		ring_string_lower(cStr2);
+		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
+		cStr2 = ring_string_lower(RING_API_GETSTRING(2)) ;
 		pList = pVM->pPackagesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
@@ -491,8 +487,7 @@ void ring_vm_refmeta_isattribute ( void *pPointer )
 	if ( RING_API_ISLIST(1) && RING_API_ISSTRING(2) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
-			cStr = RING_API_GETSTRING(2) ;
-			ring_string_lower(cStr);
+			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 			for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
 				if ( strcmp(cStr,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME))==0 ) {
@@ -524,8 +519,7 @@ void ring_vm_refmeta_ismethod ( void *pPointer )
 			return ;
 		}
 		if ( RING_API_ISSTRING(2) ) {
-			cStr = RING_API_GETSTRING(2) ;
-			ring_string_lower(cStr);
+			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			RING_API_RETNUMBER(ring_vm_oop_ismethod((VM *) pPointer,pList,cStr));
 		}
 	} else {
@@ -545,8 +539,7 @@ void ring_vm_refmeta_isprivateattribute ( void *pPointer )
 	if ( RING_API_ISLIST(1) && RING_API_ISSTRING(2) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
-			cStr = RING_API_GETSTRING(2) ;
-			ring_string_lower(cStr);
+			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 			for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
 				if ( strcmp(cStr,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME))==0 ) {
@@ -584,8 +577,7 @@ void ring_vm_refmeta_isprivatemethod ( void *pPointer )
 			return ;
 		}
 		if ( RING_API_ISSTRING(2) ) {
-			cStr = RING_API_GETSTRING(2) ;
-			ring_string_lower(cStr);
+			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			x = ring_vm_oop_ismethod((VM *) pPointer,pList,cStr) ;
 			if ( x==2 ) {
 				RING_API_RETNUMBER(1);
