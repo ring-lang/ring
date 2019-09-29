@@ -9,5 +9,5 @@ cd ..\..\..\extensions\ringqt\
 call gencodeandroid.bat
 copy cpp\src\*.cpp ..\..\android\ringqt\project\
 copy cpp\include\*.h ..\..\android\ringqt\project\
-call gencode.bat
+call gencodeqt512.bat
 cd ..\..\android\ringqt\update_ring
