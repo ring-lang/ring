@@ -631,6 +631,13 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 		OSDeleteFile("main.cpp")
 		OSCopyFile(cMainFile)
 	ok
+	msg("Copy Android folder for setting the application icon...")
+	if isWindows()
+		OSCopyFolder(exefolder() + "..\android\ringqt\project\","android" )
+	else
+		OSCopyFolder(exefolder() + "../android/ringqt/project/","android" )
+	ok
+
 
 
 func CheckQtResourceFile cBaseFolder,cFileName,aOptions
