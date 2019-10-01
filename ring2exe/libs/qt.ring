@@ -30,7 +30,8 @@ aLibrary = [:name = :qt ,
 		:sensors,
 		:sensorgestures,
 		:sqldrivers,
-		:translations
+		:translations,
+		:styles
 	 ],
 	 :linuxfiles = [
 		"libringqt.so"
