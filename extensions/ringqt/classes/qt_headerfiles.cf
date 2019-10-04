@@ -295,6 +295,7 @@ extern "C" {
 #include <QQmlError>
 #include "gquickwidget.h"
 #include <QQuickView>
+#include <QQmlEngine>
 </filter>
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
