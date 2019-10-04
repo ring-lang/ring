@@ -24202,7 +24202,9 @@ Class QQuickWidget from QWidget
 		return pObject
 
 	Func engine 
-		return QQuickWidget_engine(pObject)
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQuickWidget_engine(pObject)
+		return pTempObj
 
 	Func errors 
 		return QQuickWidget_errors(pObject)
@@ -24281,7 +24283,9 @@ Class QQuickView from QWindow
 		return pObject
 
 	Func engine 
-		return QQuickView_engine(pObject)
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQuickView_engine(pObject)
+		return pTempObj
 
 	Func errors 
 		return QQuickView_errors(pObject)
@@ -24370,6 +24374,118 @@ Class QQmlError
 		pTempObj = new QUrl
 		pTempObj.pObject = QQmlError_url(pObject)
 		return pTempObj
+
+Class QQmlEngine
+
+	pObject
+
+	Func init P1
+		pObject = QQmlEngine_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQmlEngine_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addImageProvider P1,P2
+		return QQmlEngine_addImageProvider(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addImportPath P1
+		return QQmlEngine_addImportPath(pObject,P1)
+
+	Func addPluginPath P1
+		return QQmlEngine_addPluginPath(pObject,P1)
+
+	Func baseUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlEngine_baseUrl(pObject)
+		return pTempObj
+
+	Func clearComponentCache 
+		return QQmlEngine_clearComponentCache(pObject)
+
+	Func imageProvider P1
+		return QQmlEngine_imageProvider(pObject,P1)
+
+	Func importPathList 
+		pTempObj = new QStringList
+		pTempObj.pObject = QQmlEngine_importPathList(pObject)
+		return pTempObj
+
+	Func importPlugin P1,P2,P3
+		return QQmlEngine_importPlugin(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func incubationController 
+		return QQmlEngine_incubationController(pObject)
+
+	Func networkAccessManager 
+		pTempObj = new QNetworkAccessManager
+		pTempObj.pObject = QQmlEngine_networkAccessManager(pObject)
+		return pTempObj
+
+	Func networkAccessManagerFactory 
+		return QQmlEngine_networkAccessManagerFactory(pObject)
+
+	Func offlineStorageDatabaseFilePath P1
+		return QQmlEngine_offlineStorageDatabaseFilePath(pObject,P1)
+
+	Func offlineStoragePath 
+		return QQmlEngine_offlineStoragePath(pObject)
+
+	Func outputWarningsToStandardError 
+		return QQmlEngine_outputWarningsToStandardError(pObject)
+
+	Func pluginPathList 
+		pTempObj = new QStringList
+		pTempObj.pObject = QQmlEngine_pluginPathList(pObject)
+		return pTempObj
+
+	Func removeImageProvider P1
+		return QQmlEngine_removeImageProvider(pObject,P1)
+
+	Func rootContext 
+		return QQmlEngine_rootContext(pObject)
+
+	Func setBaseUrl P1
+		return QQmlEngine_setBaseUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setImportPathList P1
+		return QQmlEngine_setImportPathList(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIncubationController P1
+		return QQmlEngine_setIncubationController(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNetworkAccessManagerFactory P1
+		return QQmlEngine_setNetworkAccessManagerFactory(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setOfflineStoragePath P1
+		return QQmlEngine_setOfflineStoragePath(pObject,P1)
+
+	Func setOutputWarningsToStandardError P1
+		return QQmlEngine_setOutputWarningsToStandardError(pObject,P1)
+
+	Func setPluginPathList P1
+		return QQmlEngine_setPluginPathList(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func trimComponentCache 
+		return QQmlEngine_trimComponentCache(pObject)
+
+	Func retranslate 
+		return QQmlEngine_retranslate(pObject)
+
+	Func contextForObject P1
+		return QQmlEngine_contextForObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func objectOwnership P1
+		return QQmlEngine_objectOwnership(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContextForObject P1,P2
+		return QQmlEngine_setContextForObject(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setObjectOwnership P1,P2
+		return QQmlEngine_setObjectOwnership(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 Class QTextToSpeech from QObject
 
