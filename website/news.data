@@ -1,4 +1,5 @@
 aNews = [
+  ["October 5, 2019",'<a href="https://www.kutub.info/library/book/22291" target="_blank"> Ring Basics (Arabic Book)</a>'],
   ["October 1, 2019",'<a href="https://www.youtube.com/watch?v=rOwOEFTVvg0" target="_blank"> Movie: Introducing Ring in 1.5 Hour!</a>'],
   ["September 15, 2019",'<a href="doc1.11/whatisnew11.html" target="_blank"> Ring 1.11 Released!</a>'],
   ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib" target="_blank"> RayLib Extension</a>'],
