@@ -9,7 +9,6 @@
 <loadfile> qt_module_printsupport.cf
 <loadfile> qt_module_network.cf
 <loadfile> qt_module_sql.cf
-<loadfile> qt_module_bluetooth.cf
 <loadfile> qt_module_positioning.cf
 <loadfile> qt_module_webkitwidgets.cf
 <loadfile> qt_module_webenginewidgets.cf
@@ -17,6 +16,10 @@
 <loadfile> qt_module_axcontainer.cf
 <loadfile> qt_module_quickwidgets.cf
 <loadfile> qt_module_qml.cf
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
+<loadfile> qt_module_bluetooth.cf
+</filter>
 
 <filter> sysget("RINGQT_QT512") = "1"
 <loadfile> qt_module_speech.cf

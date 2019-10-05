@@ -37,6 +37,8 @@ extern "C" {
 #include "codeeditor.h"
 #include "highlighter.h"
 #include "gtoolbutton.h"
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include "gbluetoothdevicediscoveryagent.h"
 #include "gbluetoothlocaldevice.h"
 #include "gbluetoothserver.h"
@@ -44,6 +46,8 @@ extern "C" {
 #include "gbluetoothsocket.h"
 #include "gbluetoothtransfermanager.h"
 #include "gbluetoothtransferreply.h"
+</filter>
+
 #include "gwindow.h"
 #include "gguiapplication.h"
 #include "gtextbrowser.h"
@@ -218,6 +222,8 @@ extern "C" {
 #include <QMutex>
 #include <QMutexLocker>
 #include <QBuffer>
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include <QBluetoothAddress>
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothDeviceInfo>
@@ -232,6 +238,8 @@ extern "C" {
 #include <QBluetoothTransferReply>
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
+</filter>
+
 #include <QDateTime>
 #include <QScreen>
 #include <QWindow>

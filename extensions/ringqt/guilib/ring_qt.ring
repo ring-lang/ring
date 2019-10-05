@@ -22455,735 +22455,6 @@ Class QSqlField
 		pTempObj.pObject = QSqlField_value(pObject)
 		return pTempObj
 
-Class QBluetoothAddress
-
-	pObject
-
-	Func init 
-		pObject = QBluetoothAddress_new()
-		return self
-
-	Func delete
-		pObject = QBluetoothAddress_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func clear 
-		return QBluetoothAddress_clear(pObject)
-
-	Func isNull 
-		return QBluetoothAddress_isNull(pObject)
-
-	Func toString 
-		return QBluetoothAddress_toString(pObject)
-
-	Func toUInt64 
-		return QBluetoothAddress_toUInt64(pObject)
-
-Class QBluetoothDeviceDiscoveryAgent
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothDeviceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothDeviceDiscoveryAgent_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func discoveredDevices 
-		return QBluetoothDeviceDiscoveryAgent_discoveredDevices(pObject)
-
-	Func error 
-		return QBluetoothDeviceDiscoveryAgent_error(pObject)
-
-	Func errorString 
-		return QBluetoothDeviceDiscoveryAgent_errorString(pObject)
-
-	Func inquiryType 
-		return QBluetoothDeviceDiscoveryAgent_inquiryType(pObject)
-
-	Func isActive 
-		return QBluetoothDeviceDiscoveryAgent_isActive(pObject)
-
-	Func setInquiryType P1
-		return QBluetoothDeviceDiscoveryAgent_setInquiryType(pObject,P1)
-
-	Func start 
-		return QBluetoothDeviceDiscoveryAgent_start(pObject)
-
-	Func stop 
-		return QBluetoothDeviceDiscoveryAgent_stop(pObject)
-
-	Func setcanceledEvent P1
-		return QBluetoothDeviceDiscoveryAgent_setcanceledEvent(pObject,P1)
-
-	Func setdeviceDiscoveredEvent P1
-		return QBluetoothDeviceDiscoveryAgent_setdeviceDiscoveredEvent(pObject,P1)
-
-	Func seterrorEvent P1
-		return QBluetoothDeviceDiscoveryAgent_seterrorEvent(pObject,P1)
-
-	Func setfinishedEvent P1
-		return QBluetoothDeviceDiscoveryAgent_setfinishedEvent(pObject,P1)
-
-	Func getcanceledEvent 
-		return QBluetoothDeviceDiscoveryAgent_getcanceledEvent(pObject)
-
-	Func getdeviceDiscoveredEvent 
-		return QBluetoothDeviceDiscoveryAgent_getdeviceDiscoveredEvent(pObject)
-
-	Func geterrorEvent 
-		return QBluetoothDeviceDiscoveryAgent_geterrorEvent(pObject)
-
-	Func getfinishedEvent 
-		return QBluetoothDeviceDiscoveryAgent_getfinishedEvent(pObject)
-
-Class QBluetoothDeviceInfo
-
-	pObject
-
-	Func init 
-		pObject = QBluetoothDeviceInfo_new()
-		return self
-
-	Func delete
-		pObject = QBluetoothDeviceInfo_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func address 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothDeviceInfo_address(pObject)
-		return pTempObj
-
-	Func isCached 
-		return QBluetoothDeviceInfo_isCached(pObject)
-
-	Func isValid 
-		return QBluetoothDeviceInfo_isValid(pObject)
-
-	Func majorDeviceClass 
-		return QBluetoothDeviceInfo_majorDeviceClass(pObject)
-
-	Func minorDeviceClass 
-		return QBluetoothDeviceInfo_minorDeviceClass(pObject)
-
-	Func name 
-		return QBluetoothDeviceInfo_name(pObject)
-
-	Func rssi 
-		return QBluetoothDeviceInfo_rssi(pObject)
-
-	Func serviceClasses 
-		return QBluetoothDeviceInfo_serviceClasses(pObject)
-
-	Func serviceUuids P1
-		return QBluetoothDeviceInfo_serviceUuids(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func serviceUuidsCompleteness 
-		return QBluetoothDeviceInfo_serviceUuidsCompleteness(pObject)
-
-	Func setCached P1
-		return QBluetoothDeviceInfo_setCached(pObject,P1)
-
-	Func setRssi P1
-		return QBluetoothDeviceInfo_setRssi(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setServiceUuids P1,P2
-		return QBluetoothDeviceInfo_setServiceUuids(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-Class QBluetoothHostInfo
-
-	pObject
-
-	Func init 
-		pObject = QBluetoothHostInfo_new()
-		return self
-
-	Func delete
-		pObject = QBluetoothHostInfo_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func address 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothHostInfo_address(pObject)
-		return pTempObj
-
-	Func name 
-		return QBluetoothHostInfo_name(pObject)
-
-	Func setAddress P1
-		return QBluetoothHostInfo_setAddress(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setName P1
-		return QBluetoothHostInfo_setName(pObject,P1)
-
-Class QBluetoothLocalDevice
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothLocalDevice_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothLocalDevice_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func address 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothLocalDevice_address(pObject)
-		return pTempObj
-
-	Func hostMode 
-		return QBluetoothLocalDevice_hostMode(pObject)
-
-	Func isValid 
-		return QBluetoothLocalDevice_isValid(pObject)
-
-	Func name 
-		return QBluetoothLocalDevice_name(pObject)
-
-	Func pairingStatus P1
-		return QBluetoothLocalDevice_pairingStatus(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func powerOn 
-		return QBluetoothLocalDevice_powerOn(pObject)
-
-	Func requestPairing P1,P2
-		return QBluetoothLocalDevice_requestPairing(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func setHostMode P1
-		return QBluetoothLocalDevice_setHostMode(pObject,P1)
-
-	Func pairingConfirmation P1
-		return QBluetoothLocalDevice_pairingConfirmation(pObject,P1)
-
-	Func allDevices 
-		return QBluetoothLocalDevice_allDevices(pObject)
-
-	Func setdeviceConnectedEvent P1
-		return QBluetoothLocalDevice_setdeviceConnectedEvent(pObject,P1)
-
-	Func setdeviceDisconnectedEvent P1
-		return QBluetoothLocalDevice_setdeviceDisconnectedEvent(pObject,P1)
-
-	Func seterrorEvent P1
-		return QBluetoothLocalDevice_seterrorEvent(pObject,P1)
-
-	Func sethostModeStateChangedEvent P1
-		return QBluetoothLocalDevice_sethostModeStateChangedEvent(pObject,P1)
-
-	Func setpairingDisplayConfirmationEvent P1
-		return QBluetoothLocalDevice_setpairingDisplayConfirmationEvent(pObject,P1)
-
-	Func setpairingDisplayPinCodeEvent P1
-		return QBluetoothLocalDevice_setpairingDisplayPinCodeEvent(pObject,P1)
-
-	Func setpairingFinishedEvent P1
-		return QBluetoothLocalDevice_setpairingFinishedEvent(pObject,P1)
-
-	Func getdeviceConnectedEvent 
-		return QBluetoothLocalDevice_getdeviceConnectedEvent(pObject)
-
-	Func getdeviceDisconnectedEvent 
-		return QBluetoothLocalDevice_getdeviceDisconnectedEvent(pObject)
-
-	Func geterrorEvent 
-		return QBluetoothLocalDevice_geterrorEvent(pObject)
-
-	Func gethostModeStateChangedEvent 
-		return QBluetoothLocalDevice_gethostModeStateChangedEvent(pObject)
-
-	Func getpairingDisplayConfirmationEvent 
-		return QBluetoothLocalDevice_getpairingDisplayConfirmationEvent(pObject)
-
-	Func getpairingDisplayPinCodeEvent 
-		return QBluetoothLocalDevice_getpairingDisplayPinCodeEvent(pObject)
-
-	Func getpairingFinishedEvent 
-		return QBluetoothLocalDevice_getpairingFinishedEvent(pObject)
-
-Class QBluetoothServer from QObject
-
-	pObject
-
-	Func init P1,P2
-		pObject = QBluetoothServer_new(P1,GetObjectPointerFromRingObject(P2))
-		return self
-
-	Func delete
-		pObject = QBluetoothServer_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func close 
-		return QBluetoothServer_close(pObject)
-
-	Func error 
-		return QBluetoothServer_error(pObject)
-
-	Func hasPendingConnections 
-		return QBluetoothServer_hasPendingConnections(pObject)
-
-	Func isListening 
-		return QBluetoothServer_isListening(pObject)
-
-	Func listen P1,P2
-		return QBluetoothServer_listen(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func listen_2 P1,P2
-		pTempObj = new QBluetoothServiceInfo
-		pTempObj.pObject = QBluetoothServer_listen_2(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
-
-	Func maxPendingConnections 
-		return QBluetoothServer_maxPendingConnections(pObject)
-
-	Func nextPendingConnection 
-		pTempObj = new QBluetoothSocket
-		pTempObj.pObject = QBluetoothServer_nextPendingConnection(pObject)
-		return pTempObj
-
-	Func securityFlags 
-		return QBluetoothServer_securityFlags(pObject)
-
-	Func serverAddress 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothServer_serverAddress(pObject)
-		return pTempObj
-
-	Func serverPort 
-		return QBluetoothServer_serverPort(pObject)
-
-	Func serverType 
-		return QBluetoothServer_serverType(pObject)
-
-	Func setMaxPendingConnections P1
-		return QBluetoothServer_setMaxPendingConnections(pObject,P1)
-
-	Func setSecurityFlags P1
-		return QBluetoothServer_setSecurityFlags(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func seterrorEvent P1
-		return QBluetoothServer_seterrorEvent(pObject,P1)
-
-	Func setnewConnectionEvent P1
-		return QBluetoothServer_setnewConnectionEvent(pObject,P1)
-
-	Func geterrorEvent 
-		return QBluetoothServer_geterrorEvent(pObject)
-
-	Func getnewConnectionEvent 
-		return QBluetoothServer_getnewConnectionEvent(pObject)
-
-Class QBluetoothServiceDiscoveryAgent from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothServiceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothServiceDiscoveryAgent_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func discoveredServices 
-		return QBluetoothServiceDiscoveryAgent_discoveredServices(pObject)
-
-	Func error 
-		return QBluetoothServiceDiscoveryAgent_error(pObject)
-
-	Func errorString 
-		return QBluetoothServiceDiscoveryAgent_errorString(pObject)
-
-	Func isActive 
-		return QBluetoothServiceDiscoveryAgent_isActive(pObject)
-
-	Func remoteAddress 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothServiceDiscoveryAgent_remoteAddress(pObject)
-		return pTempObj
-
-	Func setRemoteAddress P1
-		return QBluetoothServiceDiscoveryAgent_setRemoteAddress(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setUuidFilter P1
-		return QBluetoothServiceDiscoveryAgent_setUuidFilter(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setUuidFilter_2 P1
-		return QBluetoothServiceDiscoveryAgent_setUuidFilter_2(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func uuidFilter 
-		return QBluetoothServiceDiscoveryAgent_uuidFilter(pObject)
-
-	Func clear 
-		return QBluetoothServiceDiscoveryAgent_clear(pObject)
-
-	Func start P1
-		return QBluetoothServiceDiscoveryAgent_start(pObject,P1)
-
-	Func stop 
-		return QBluetoothServiceDiscoveryAgent_stop(pObject)
-
-	Func setcanceledEvent P1
-		return QBluetoothServiceDiscoveryAgent_setcanceledEvent(pObject,P1)
-
-	Func seterrorEvent P1
-		return QBluetoothServiceDiscoveryAgent_seterrorEvent(pObject,P1)
-
-	Func setfinishedEvent P1
-		return QBluetoothServiceDiscoveryAgent_setfinishedEvent(pObject,P1)
-
-	Func setserviceDiscoveredEvent P1
-		return QBluetoothServiceDiscoveryAgent_setserviceDiscoveredEvent(pObject,P1)
-
-	Func getcanceledEvent 
-		return QBluetoothServiceDiscoveryAgent_getcanceledEvent(pObject)
-
-	Func geterrorEvent 
-		return QBluetoothServiceDiscoveryAgent_geterrorEvent(pObject)
-
-	Func getfinishedEvent 
-		return QBluetoothServiceDiscoveryAgent_getfinishedEvent(pObject)
-
-	Func getserviceDiscoveredEvent 
-		return QBluetoothServiceDiscoveryAgent_getserviceDiscoveredEvent(pObject)
-
-Class QBluetoothServiceInfo
-
-	pObject
-
-	Func init 
-		pObject = QBluetoothServiceInfo_new()
-		return self
-
-	Func delete
-		pObject = QBluetoothServiceInfo_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func attribute P1
-		pTempObj = new QVariant
-		pTempObj.pObject = QBluetoothServiceInfo_attribute(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func attributes 
-		return QBluetoothServiceInfo_attributes(pObject)
-
-	Func contains P1
-		return QBluetoothServiceInfo_contains(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func device 
-		pTempObj = new QBluetoothDeviceInfo
-		pTempObj.pObject = QBluetoothServiceInfo_device(pObject)
-		return pTempObj
-
-	Func isComplete 
-		return QBluetoothServiceInfo_isComplete(pObject)
-
-	Func isRegistered 
-		return QBluetoothServiceInfo_isRegistered(pObject)
-
-	Func isValid 
-		return QBluetoothServiceInfo_isValid(pObject)
-
-	Func protocolDescriptor P1
-		return QBluetoothServiceInfo_protocolDescriptor(pObject,P1)
-
-	Func protocolServiceMultiplexer 
-		return QBluetoothServiceInfo_protocolServiceMultiplexer(pObject)
-
-	Func registerService P1
-		return QBluetoothServiceInfo_registerService(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func removeAttribute P1
-		return QBluetoothServiceInfo_removeAttribute(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func serverChannel 
-		return QBluetoothServiceInfo_serverChannel(pObject)
-
-	Func serviceAvailability 
-		return QBluetoothServiceInfo_serviceAvailability(pObject)
-
-	Func serviceClassUuids 
-		return QBluetoothServiceInfo_serviceClassUuids(pObject)
-
-	Func serviceDescription 
-		return QBluetoothServiceInfo_serviceDescription(pObject)
-
-	Func serviceName 
-		return QBluetoothServiceInfo_serviceName(pObject)
-
-	Func serviceProvider 
-		return QBluetoothServiceInfo_serviceProvider(pObject)
-
-	Func serviceUuid 
-		pTempObj = new QBluetoothUuid
-		pTempObj.pObject = QBluetoothServiceInfo_serviceUuid(pObject)
-		return pTempObj
-
-	Func setAttribute P1,P2
-		return QBluetoothServiceInfo_setAttribute(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func setAttribute_2 P1,P2
-		return QBluetoothServiceInfo_setAttribute_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func setAttribute_3 P1,P2
-		return QBluetoothServiceInfo_setAttribute_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func setDevice P1
-		return QBluetoothServiceInfo_setDevice(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setServiceAvailability P1
-		return QBluetoothServiceInfo_setServiceAvailability(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setServiceDescription P1
-		return QBluetoothServiceInfo_setServiceDescription(pObject,P1)
-
-	Func setServiceName P1
-		return QBluetoothServiceInfo_setServiceName(pObject,P1)
-
-	Func setServiceProvider P1
-		return QBluetoothServiceInfo_setServiceProvider(pObject,P1)
-
-	Func setServiceUuid P1
-		return QBluetoothServiceInfo_setServiceUuid(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func unregisterService 
-		return QBluetoothServiceInfo_unregisterService(pObject)
-
-Class QBluetoothSocket from QIODevice
-
-	pObject
-
-	Func init P1,P2
-		pObject = QBluetoothSocket_new(P1,GetObjectPointerFromRingObject(P2))
-		return self
-
-	Func delete
-		pObject = QBluetoothSocket_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func abort 
-		return QBluetoothSocket_abort(pObject)
-
-	Func connectToService P1,P2
-		return QBluetoothSocket_connectToService(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func connectToService_2 P1,P2,P3
-		return QBluetoothSocket_connectToService_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
-
-	Func connectToService_3 P1,P2,P3
-		return QBluetoothSocket_connectToService_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
-
-	Func disconnectFromService 
-		return QBluetoothSocket_disconnectFromService(pObject)
-
-	Func error 
-		return QBluetoothSocket_error(pObject)
-
-	Func errorString 
-		return QBluetoothSocket_errorString(pObject)
-
-	Func localAddress 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothSocket_localAddress(pObject)
-		return pTempObj
-
-	Func localName 
-		return QBluetoothSocket_localName(pObject)
-
-	Func localPort 
-		return QBluetoothSocket_localPort(pObject)
-
-	Func peerAddress 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothSocket_peerAddress(pObject)
-		return pTempObj
-
-	Func peerName 
-		return QBluetoothSocket_peerName(pObject)
-
-	Func peerPort 
-		return QBluetoothSocket_peerPort(pObject)
-
-	Func setSocketDescriptor P1,P2,P3,P4
-		return QBluetoothSocket_setSocketDescriptor(pObject,P1,P2,P3,P4)
-
-	Func socketDescriptor 
-		return QBluetoothSocket_socketDescriptor(pObject)
-
-	Func socketType 
-		return QBluetoothSocket_socketType(pObject)
-
-	Func state 
-		return QBluetoothSocket_state(pObject)
-
-	Func setconnectedEvent P1
-		return QBluetoothSocket_setconnectedEvent(pObject,P1)
-
-	Func setdisconnectedEvent P1
-		return QBluetoothSocket_setdisconnectedEvent(pObject,P1)
-
-	Func seterrorEvent P1
-		return QBluetoothSocket_seterrorEvent(pObject,P1)
-
-	Func setstateChangedEvent P1
-		return QBluetoothSocket_setstateChangedEvent(pObject,P1)
-
-	Func getconnectedEvent 
-		return QBluetoothSocket_getconnectedEvent(pObject)
-
-	Func getdisconnectedEvent 
-		return QBluetoothSocket_getdisconnectedEvent(pObject)
-
-	Func geterrorEvent 
-		return QBluetoothSocket_geterrorEvent(pObject)
-
-	Func getstateChangedEvent 
-		return QBluetoothSocket_getstateChangedEvent(pObject)
-
-Class QBluetoothTransferManager from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothTransferManager_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothTransferManager_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func putdata P1,P2
-		pTempObj = new QBluetoothTransferReply
-		pTempObj.pObject = QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-		return pTempObj
-
-	Func setfinishedEvent P1
-		return QBluetoothTransferManager_setfinishedEvent(pObject,P1)
-
-	Func getfinishedEvent 
-		return QBluetoothTransferManager_getfinishedEvent(pObject)
-
-Class QBluetoothTransferReply from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothTransferReply_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothTransferReply_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func manager 
-		pTempObj = new QBluetoothTransferManager
-		pTempObj.pObject = QBluetoothTransferReply_manager(pObject)
-		return pTempObj
-
-	Func request 
-		pTempObj = new QBluetoothTransferRequest
-		pTempObj.pObject = QBluetoothTransferReply_request(pObject)
-		return pTempObj
-
-	Func abort 
-		return QBluetoothTransferReply_abort(pObject)
-
-	Func seterrorEvent P1
-		return QBluetoothTransferReply_seterrorEvent(pObject,P1)
-
-	Func setfinishedEvent P1
-		return QBluetoothTransferReply_setfinishedEvent(pObject,P1)
-
-	Func settransferProgressEvent P1
-		return QBluetoothTransferReply_settransferProgressEvent(pObject,P1)
-
-	Func geterrorEvent 
-		return QBluetoothTransferReply_geterrorEvent(pObject)
-
-	Func getfinishedEvent 
-		return QBluetoothTransferReply_getfinishedEvent(pObject)
-
-	Func gettransferProgressEvent 
-		return QBluetoothTransferReply_gettransferProgressEvent(pObject)
-
-Class QBluetoothTransferRequest
-
-	pObject
-
-	Func init P1
-		pObject = QBluetoothTransferRequest_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QBluetoothTransferRequest_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func address 
-		pTempObj = new QBluetoothAddress
-		pTempObj.pObject = QBluetoothTransferRequest_address(pObject)
-		return pTempObj
-
-	Func attribute P1,P2
-		pTempObj = new QVariant
-		pTempObj.pObject = QBluetoothTransferRequest_attribute(pObject,P1,GetObjectPointerFromRingObject(P2))
-		return pTempObj
-
-	Func setAttribute P1,P2
-		return QBluetoothTransferRequest_setAttribute(pObject,P1,GetObjectPointerFromRingObject(P2))
-
-Class QBluetoothUuid from QUuid
-
-	pObject
-
-	Func init 
-		pObject = QBluetoothUuid_new()
-		return self
-
-	Func delete
-		pObject = QBluetoothUuid_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func minimumSize 
-		return QBluetoothUuid_minimumSize(pObject)
-
-	Func toUInt16 P1
-		return QBluetoothUuid_toUInt16(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func toUInt32 P1
-		return QBluetoothUuid_toUInt32(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func toUInt128 
-		return QBluetoothUuid_toUInt128(pObject)
-
 Class QGeoPositionInfo
 
 	pObject
@@ -24486,6 +23757,735 @@ Class QQmlEngine
 
 	Func setObjectOwnership P1,P2
 		return QQmlEngine_setObjectOwnership(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QBluetoothAddress
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothAddress_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothAddress_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func clear 
+		return QBluetoothAddress_clear(pObject)
+
+	Func isNull 
+		return QBluetoothAddress_isNull(pObject)
+
+	Func toString 
+		return QBluetoothAddress_toString(pObject)
+
+	Func toUInt64 
+		return QBluetoothAddress_toUInt64(pObject)
+
+Class QBluetoothDeviceDiscoveryAgent
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothDeviceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceDiscoveryAgent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func discoveredDevices 
+		return QBluetoothDeviceDiscoveryAgent_discoveredDevices(pObject)
+
+	Func error 
+		return QBluetoothDeviceDiscoveryAgent_error(pObject)
+
+	Func errorString 
+		return QBluetoothDeviceDiscoveryAgent_errorString(pObject)
+
+	Func inquiryType 
+		return QBluetoothDeviceDiscoveryAgent_inquiryType(pObject)
+
+	Func isActive 
+		return QBluetoothDeviceDiscoveryAgent_isActive(pObject)
+
+	Func setInquiryType P1
+		return QBluetoothDeviceDiscoveryAgent_setInquiryType(pObject,P1)
+
+	Func start 
+		return QBluetoothDeviceDiscoveryAgent_start(pObject)
+
+	Func stop 
+		return QBluetoothDeviceDiscoveryAgent_stop(pObject)
+
+	Func setcanceledEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setcanceledEvent(pObject,P1)
+
+	Func setdeviceDiscoveredEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setdeviceDiscoveredEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothDeviceDiscoveryAgent_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setfinishedEvent(pObject,P1)
+
+	Func getcanceledEvent 
+		return QBluetoothDeviceDiscoveryAgent_getcanceledEvent(pObject)
+
+	Func getdeviceDiscoveredEvent 
+		return QBluetoothDeviceDiscoveryAgent_getdeviceDiscoveredEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothDeviceDiscoveryAgent_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothDeviceDiscoveryAgent_getfinishedEvent(pObject)
+
+Class QBluetoothDeviceInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothDeviceInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothDeviceInfo_address(pObject)
+		return pTempObj
+
+	Func isCached 
+		return QBluetoothDeviceInfo_isCached(pObject)
+
+	Func isValid 
+		return QBluetoothDeviceInfo_isValid(pObject)
+
+	Func majorDeviceClass 
+		return QBluetoothDeviceInfo_majorDeviceClass(pObject)
+
+	Func minorDeviceClass 
+		return QBluetoothDeviceInfo_minorDeviceClass(pObject)
+
+	Func name 
+		return QBluetoothDeviceInfo_name(pObject)
+
+	Func rssi 
+		return QBluetoothDeviceInfo_rssi(pObject)
+
+	Func serviceClasses 
+		return QBluetoothDeviceInfo_serviceClasses(pObject)
+
+	Func serviceUuids P1
+		return QBluetoothDeviceInfo_serviceUuids(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func serviceUuidsCompleteness 
+		return QBluetoothDeviceInfo_serviceUuidsCompleteness(pObject)
+
+	Func setCached P1
+		return QBluetoothDeviceInfo_setCached(pObject,P1)
+
+	Func setRssi P1
+		return QBluetoothDeviceInfo_setRssi(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceUuids P1,P2
+		return QBluetoothDeviceInfo_setServiceUuids(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QBluetoothHostInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothHostInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothHostInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothHostInfo_address(pObject)
+		return pTempObj
+
+	Func name 
+		return QBluetoothHostInfo_name(pObject)
+
+	Func setAddress P1
+		return QBluetoothHostInfo_setAddress(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setName P1
+		return QBluetoothHostInfo_setName(pObject,P1)
+
+Class QBluetoothLocalDevice
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothLocalDevice_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothLocalDevice_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothLocalDevice_address(pObject)
+		return pTempObj
+
+	Func hostMode 
+		return QBluetoothLocalDevice_hostMode(pObject)
+
+	Func isValid 
+		return QBluetoothLocalDevice_isValid(pObject)
+
+	Func name 
+		return QBluetoothLocalDevice_name(pObject)
+
+	Func pairingStatus P1
+		return QBluetoothLocalDevice_pairingStatus(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func powerOn 
+		return QBluetoothLocalDevice_powerOn(pObject)
+
+	Func requestPairing P1,P2
+		return QBluetoothLocalDevice_requestPairing(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setHostMode P1
+		return QBluetoothLocalDevice_setHostMode(pObject,P1)
+
+	Func pairingConfirmation P1
+		return QBluetoothLocalDevice_pairingConfirmation(pObject,P1)
+
+	Func allDevices 
+		return QBluetoothLocalDevice_allDevices(pObject)
+
+	Func setdeviceConnectedEvent P1
+		return QBluetoothLocalDevice_setdeviceConnectedEvent(pObject,P1)
+
+	Func setdeviceDisconnectedEvent P1
+		return QBluetoothLocalDevice_setdeviceDisconnectedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothLocalDevice_seterrorEvent(pObject,P1)
+
+	Func sethostModeStateChangedEvent P1
+		return QBluetoothLocalDevice_sethostModeStateChangedEvent(pObject,P1)
+
+	Func setpairingDisplayConfirmationEvent P1
+		return QBluetoothLocalDevice_setpairingDisplayConfirmationEvent(pObject,P1)
+
+	Func setpairingDisplayPinCodeEvent P1
+		return QBluetoothLocalDevice_setpairingDisplayPinCodeEvent(pObject,P1)
+
+	Func setpairingFinishedEvent P1
+		return QBluetoothLocalDevice_setpairingFinishedEvent(pObject,P1)
+
+	Func getdeviceConnectedEvent 
+		return QBluetoothLocalDevice_getdeviceConnectedEvent(pObject)
+
+	Func getdeviceDisconnectedEvent 
+		return QBluetoothLocalDevice_getdeviceDisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothLocalDevice_geterrorEvent(pObject)
+
+	Func gethostModeStateChangedEvent 
+		return QBluetoothLocalDevice_gethostModeStateChangedEvent(pObject)
+
+	Func getpairingDisplayConfirmationEvent 
+		return QBluetoothLocalDevice_getpairingDisplayConfirmationEvent(pObject)
+
+	Func getpairingDisplayPinCodeEvent 
+		return QBluetoothLocalDevice_getpairingDisplayPinCodeEvent(pObject)
+
+	Func getpairingFinishedEvent 
+		return QBluetoothLocalDevice_getpairingFinishedEvent(pObject)
+
+Class QBluetoothServer from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBluetoothServer_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBluetoothServer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func close 
+		return QBluetoothServer_close(pObject)
+
+	Func error 
+		return QBluetoothServer_error(pObject)
+
+	Func hasPendingConnections 
+		return QBluetoothServer_hasPendingConnections(pObject)
+
+	Func isListening 
+		return QBluetoothServer_isListening(pObject)
+
+	Func listen P1,P2
+		return QBluetoothServer_listen(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func listen_2 P1,P2
+		pTempObj = new QBluetoothServiceInfo
+		pTempObj.pObject = QBluetoothServer_listen_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func maxPendingConnections 
+		return QBluetoothServer_maxPendingConnections(pObject)
+
+	Func nextPendingConnection 
+		pTempObj = new QBluetoothSocket
+		pTempObj.pObject = QBluetoothServer_nextPendingConnection(pObject)
+		return pTempObj
+
+	Func securityFlags 
+		return QBluetoothServer_securityFlags(pObject)
+
+	Func serverAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothServer_serverAddress(pObject)
+		return pTempObj
+
+	Func serverPort 
+		return QBluetoothServer_serverPort(pObject)
+
+	Func serverType 
+		return QBluetoothServer_serverType(pObject)
+
+	Func setMaxPendingConnections P1
+		return QBluetoothServer_setMaxPendingConnections(pObject,P1)
+
+	Func setSecurityFlags P1
+		return QBluetoothServer_setSecurityFlags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func seterrorEvent P1
+		return QBluetoothServer_seterrorEvent(pObject,P1)
+
+	Func setnewConnectionEvent P1
+		return QBluetoothServer_setnewConnectionEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QBluetoothServer_geterrorEvent(pObject)
+
+	Func getnewConnectionEvent 
+		return QBluetoothServer_getnewConnectionEvent(pObject)
+
+Class QBluetoothServiceDiscoveryAgent from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothServiceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothServiceDiscoveryAgent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func discoveredServices 
+		return QBluetoothServiceDiscoveryAgent_discoveredServices(pObject)
+
+	Func error 
+		return QBluetoothServiceDiscoveryAgent_error(pObject)
+
+	Func errorString 
+		return QBluetoothServiceDiscoveryAgent_errorString(pObject)
+
+	Func isActive 
+		return QBluetoothServiceDiscoveryAgent_isActive(pObject)
+
+	Func remoteAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothServiceDiscoveryAgent_remoteAddress(pObject)
+		return pTempObj
+
+	Func setRemoteAddress P1
+		return QBluetoothServiceDiscoveryAgent_setRemoteAddress(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUuidFilter P1
+		return QBluetoothServiceDiscoveryAgent_setUuidFilter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUuidFilter_2 P1
+		return QBluetoothServiceDiscoveryAgent_setUuidFilter_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func uuidFilter 
+		return QBluetoothServiceDiscoveryAgent_uuidFilter(pObject)
+
+	Func clear 
+		return QBluetoothServiceDiscoveryAgent_clear(pObject)
+
+	Func start P1
+		return QBluetoothServiceDiscoveryAgent_start(pObject,P1)
+
+	Func stop 
+		return QBluetoothServiceDiscoveryAgent_stop(pObject)
+
+	Func setcanceledEvent P1
+		return QBluetoothServiceDiscoveryAgent_setcanceledEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothServiceDiscoveryAgent_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothServiceDiscoveryAgent_setfinishedEvent(pObject,P1)
+
+	Func setserviceDiscoveredEvent P1
+		return QBluetoothServiceDiscoveryAgent_setserviceDiscoveredEvent(pObject,P1)
+
+	Func getcanceledEvent 
+		return QBluetoothServiceDiscoveryAgent_getcanceledEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothServiceDiscoveryAgent_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothServiceDiscoveryAgent_getfinishedEvent(pObject)
+
+	Func getserviceDiscoveredEvent 
+		return QBluetoothServiceDiscoveryAgent_getserviceDiscoveredEvent(pObject)
+
+Class QBluetoothServiceInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothServiceInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothServiceInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func attribute P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QBluetoothServiceInfo_attribute(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func attributes 
+		return QBluetoothServiceInfo_attributes(pObject)
+
+	Func contains P1
+		return QBluetoothServiceInfo_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func device 
+		pTempObj = new QBluetoothDeviceInfo
+		pTempObj.pObject = QBluetoothServiceInfo_device(pObject)
+		return pTempObj
+
+	Func isComplete 
+		return QBluetoothServiceInfo_isComplete(pObject)
+
+	Func isRegistered 
+		return QBluetoothServiceInfo_isRegistered(pObject)
+
+	Func isValid 
+		return QBluetoothServiceInfo_isValid(pObject)
+
+	Func protocolDescriptor P1
+		return QBluetoothServiceInfo_protocolDescriptor(pObject,P1)
+
+	Func protocolServiceMultiplexer 
+		return QBluetoothServiceInfo_protocolServiceMultiplexer(pObject)
+
+	Func registerService P1
+		return QBluetoothServiceInfo_registerService(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeAttribute P1
+		return QBluetoothServiceInfo_removeAttribute(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func serverChannel 
+		return QBluetoothServiceInfo_serverChannel(pObject)
+
+	Func serviceAvailability 
+		return QBluetoothServiceInfo_serviceAvailability(pObject)
+
+	Func serviceClassUuids 
+		return QBluetoothServiceInfo_serviceClassUuids(pObject)
+
+	Func serviceDescription 
+		return QBluetoothServiceInfo_serviceDescription(pObject)
+
+	Func serviceName 
+		return QBluetoothServiceInfo_serviceName(pObject)
+
+	Func serviceProvider 
+		return QBluetoothServiceInfo_serviceProvider(pObject)
+
+	Func serviceUuid 
+		pTempObj = new QBluetoothUuid
+		pTempObj.pObject = QBluetoothServiceInfo_serviceUuid(pObject)
+		return pTempObj
+
+	Func setAttribute P1,P2
+		return QBluetoothServiceInfo_setAttribute(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setAttribute_2 P1,P2
+		return QBluetoothServiceInfo_setAttribute_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setAttribute_3 P1,P2
+		return QBluetoothServiceInfo_setAttribute_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setDevice P1
+		return QBluetoothServiceInfo_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceAvailability P1
+		return QBluetoothServiceInfo_setServiceAvailability(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceDescription P1
+		return QBluetoothServiceInfo_setServiceDescription(pObject,P1)
+
+	Func setServiceName P1
+		return QBluetoothServiceInfo_setServiceName(pObject,P1)
+
+	Func setServiceProvider P1
+		return QBluetoothServiceInfo_setServiceProvider(pObject,P1)
+
+	Func setServiceUuid P1
+		return QBluetoothServiceInfo_setServiceUuid(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func unregisterService 
+		return QBluetoothServiceInfo_unregisterService(pObject)
+
+Class QBluetoothSocket from QIODevice
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBluetoothSocket_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBluetoothSocket_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func abort 
+		return QBluetoothSocket_abort(pObject)
+
+	Func connectToService P1,P2
+		return QBluetoothSocket_connectToService(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func connectToService_2 P1,P2,P3
+		return QBluetoothSocket_connectToService_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func connectToService_3 P1,P2,P3
+		return QBluetoothSocket_connectToService_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func disconnectFromService 
+		return QBluetoothSocket_disconnectFromService(pObject)
+
+	Func error 
+		return QBluetoothSocket_error(pObject)
+
+	Func errorString 
+		return QBluetoothSocket_errorString(pObject)
+
+	Func localAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothSocket_localAddress(pObject)
+		return pTempObj
+
+	Func localName 
+		return QBluetoothSocket_localName(pObject)
+
+	Func localPort 
+		return QBluetoothSocket_localPort(pObject)
+
+	Func peerAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothSocket_peerAddress(pObject)
+		return pTempObj
+
+	Func peerName 
+		return QBluetoothSocket_peerName(pObject)
+
+	Func peerPort 
+		return QBluetoothSocket_peerPort(pObject)
+
+	Func setSocketDescriptor P1,P2,P3,P4
+		return QBluetoothSocket_setSocketDescriptor(pObject,P1,P2,P3,P4)
+
+	Func socketDescriptor 
+		return QBluetoothSocket_socketDescriptor(pObject)
+
+	Func socketType 
+		return QBluetoothSocket_socketType(pObject)
+
+	Func state 
+		return QBluetoothSocket_state(pObject)
+
+	Func setconnectedEvent P1
+		return QBluetoothSocket_setconnectedEvent(pObject,P1)
+
+	Func setdisconnectedEvent P1
+		return QBluetoothSocket_setdisconnectedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothSocket_seterrorEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QBluetoothSocket_setstateChangedEvent(pObject,P1)
+
+	Func getconnectedEvent 
+		return QBluetoothSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QBluetoothSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothSocket_geterrorEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QBluetoothSocket_getstateChangedEvent(pObject)
+
+Class QBluetoothTransferManager from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferManager_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferManager_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func putdata P1,P2
+		pTempObj = new QBluetoothTransferReply
+		pTempObj.pObject = QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func setfinishedEvent P1
+		return QBluetoothTransferManager_setfinishedEvent(pObject,P1)
+
+	Func getfinishedEvent 
+		return QBluetoothTransferManager_getfinishedEvent(pObject)
+
+Class QBluetoothTransferReply from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferReply_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferReply_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func manager 
+		pTempObj = new QBluetoothTransferManager
+		pTempObj.pObject = QBluetoothTransferReply_manager(pObject)
+		return pTempObj
+
+	Func request 
+		pTempObj = new QBluetoothTransferRequest
+		pTempObj.pObject = QBluetoothTransferReply_request(pObject)
+		return pTempObj
+
+	Func abort 
+		return QBluetoothTransferReply_abort(pObject)
+
+	Func seterrorEvent P1
+		return QBluetoothTransferReply_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothTransferReply_setfinishedEvent(pObject,P1)
+
+	Func settransferProgressEvent P1
+		return QBluetoothTransferReply_settransferProgressEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QBluetoothTransferReply_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothTransferReply_getfinishedEvent(pObject)
+
+	Func gettransferProgressEvent 
+		return QBluetoothTransferReply_gettransferProgressEvent(pObject)
+
+Class QBluetoothTransferRequest
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferRequest_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferRequest_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothTransferRequest_address(pObject)
+		return pTempObj
+
+	Func attribute P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QBluetoothTransferRequest_attribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func setAttribute P1,P2
+		return QBluetoothTransferRequest_setAttribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class QBluetoothUuid from QUuid
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothUuid_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothUuid_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func minimumSize 
+		return QBluetoothUuid_minimumSize(pObject)
+
+	Func toUInt16 P1
+		return QBluetoothUuid_toUInt16(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUInt32 P1
+		return QBluetoothUuid_toUInt32(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUInt128 
+		return QBluetoothUuid_toUInt128(pObject)
 
 Class QTextToSpeech from QObject
 
