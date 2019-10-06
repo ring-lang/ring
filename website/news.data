@@ -1,4 +1,5 @@
 aNews = [
+  ["October 6, 2019",'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank"> Ring 1.11 Documentation (Japanese)</a>'],
   ["October 5, 2019",'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" target="_blank"> Ring Basics (Arabic Book)</a>'],
   ["October 1, 2019",'<a href="https://www.youtube.com/watch?v=rOwOEFTVvg0" target="_blank"> Movie: Introducing Ring in 1.5 Hour!</a>'],
   ["September 15, 2019",'<a href="doc1.11/whatisnew11.html" target="_blank"> Ring 1.11 Released!</a>'],
