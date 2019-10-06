@@ -207,11 +207,11 @@ MyApp = New qapp
                 SendMsg(msg)
             ok
 
-            videowidget = new qVideoWidget(win1)    ### Video Box
-            {
-                setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
-                setstylesheet("background-color: green")
-            }
+            //videowidget = new qVideoWidget(win1)    ### Video Box
+            //{
+            //    setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
+            //    setstylesheet("background-color: green")
+            //}
 
             player = new qMediaPlayer()
             {   ###------------------------
@@ -224,6 +224,7 @@ MyApp = New qapp
                     SendMsg(msg)
                 ok
 
+               videowidget = new qVideoWidget(win1)    ### Video Box
                setVideoOutput(videowidget)
                play()
             }
@@ -618,7 +619,7 @@ Func WhereAreWe()
     label1.setgeometry( BoxLeft, BoxTop, BoxWidth, BoxHeight )
 
     videowidget.setgeometry(BoxLeft +00, BoxTop, BoxWidth, BoxHeight)
-    videowidget.setstylesheet("background-color: green")
+    //videowidget.setstylesheet("background-color: green")
 
 return
 
