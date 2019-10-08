@@ -16893,6 +16893,20 @@ RING_FUNC(ring_GuiIconText)
 	RING_API_RETSTRING(GuiIconText( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_setmodelmaterialtexture) {
+	Model *model;
+	int nMaterial,nMap;
+	Texture2D *texture;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	model = RING_API_GETCPOINTER(1,"Model");
+	nMaterial = (int) RING_API_GETNUMBER(2);
+	nMap = (int) RING_API_GETNUMBER(3);
+	texture = RING_API_GETCPOINTER(4,"Texture2D");
+	model->materials[nMaterial].maps[nMap].texture = *texture ;
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -17340,6 +17354,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("guiloadstyledefault",ring_GuiLoadStyleDefault);
 	ring_vm_funcregister("guiupdatestylecomplete",ring_GuiUpdateStyleComplete);
 	ring_vm_funcregister("guiicontext",ring_GuiIconText);
+	ring_vm_funcregister("setmodelmaterialtexture",ring_setmodelmaterialtexture);
 	ring_vm_funcregister("raylib_new_vector2",ring_raylib_new_vector2);
 	ring_vm_funcregister("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
 	ring_vm_funcregister("raylib_destroy_vector2",ring_raylib_destroy_vector2);
