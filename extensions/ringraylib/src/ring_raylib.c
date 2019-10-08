@@ -11677,7 +11677,7 @@ RING_FUNC(ring_LoadTexture)
 }
 
 
-RING_FUNC(ring_LoadTextureFromImage)
+RING_FUNC(ring_LoadTextureFromImage_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12790,7 +12790,7 @@ RING_FUNC(ring_DrawTextureV)
 }
 
 
-RING_FUNC(ring_DrawTextureEx)
+RING_FUNC(ring_DrawTextureEx_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17077,7 +17077,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("exportimage",ring_ExportImage);
 	ring_vm_funcregister("exportimageascode",ring_ExportImageAsCode);
 	ring_vm_funcregister("loadtexture",ring_LoadTexture);
-	ring_vm_funcregister("loadtexturefromimage",ring_LoadTextureFromImage);
+	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
 	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
 	ring_vm_funcregister("unloadimage",ring_UnloadImage);
@@ -17133,7 +17133,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("settexturewrap",ring_SetTextureWrap);
 	ring_vm_funcregister("drawtexture",ring_DrawTexture);
 	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
-	ring_vm_funcregister("drawtextureex",ring_DrawTextureEx);
+	ring_vm_funcregister("drawtextureex_2",ring_DrawTextureEx_2);
 	ring_vm_funcregister("drawtexturerec_2",ring_DrawTextureRec_2);
 	ring_vm_funcregister("drawtexturequad_2",ring_DrawTextureQuad_2);
 	ring_vm_funcregister("drawtexturepro_2",ring_DrawTexturePro_2);

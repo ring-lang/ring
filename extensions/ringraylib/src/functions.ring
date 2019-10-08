@@ -472,3 +472,11 @@ func DrawRay ray, color
 
 func CheckCollisionRayBox ray, box
 	return CheckCollisionRayBox_2(GPData(ray),GPData(box))
+
+func LoadTextureFromImage p1
+	oTexture = new Texture2D
+	OTexture.setData(LoadTextureFromImage_2(p1))
+	return oTexture
+
+func DrawTextureEx texture, position, rotation, scale, tint
+	return DrawTextureEx_2( GPData(texture) , GPData(position), rotation, scale, tint )
