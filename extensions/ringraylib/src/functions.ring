@@ -232,10 +232,10 @@ func CheckCollisionCircles center1, radius1, center2, radius2
 	return CheckCollisionCircles_2(GPData(center1), radius1, GPData(center2), radius2)
 
 func CheckCollisionCircleRec center, radius, rec
-	return CheckCollisionCircleRec_2(GPData(center), radius, rec)
+	return CheckCollisionCircleRec_2(GPData(center), radius, GPData(rec))
 
 func CheckCollisionPointRec point, rec
-	return CheckCollisionPointRec_2(GPData(point), rec)
+	return CheckCollisionPointRec_2(GPData(point), GPData(rec))
 
 func CheckCollisionPointCircle point, center, radius
 	return CheckCollisionPointCircle_2(GPData(point), GPData(center), radius)
