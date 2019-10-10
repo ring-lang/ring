@@ -486,7 +486,7 @@ Func GenFuncPrototype aList
 		ok
 	next
 	for cFunc in $aStructFuncs
-			cCode += C_TABS_1 + 'ring_vm_funcregister("' + cFunc + '",' +
+			cCode += C_TABS_1 + 'ring_vm_funcregister("' + lower(cFunc) + '",' +
 				  "ring_"+cFunc + ");" + nl
 	next
 	cCode += "}" + nl
