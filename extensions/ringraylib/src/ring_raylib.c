@@ -1632,7 +1632,7 @@ RING_FUNC(ring_raylib_set_image_data)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Image");
-	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void *");
+	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void");
 }
 
 RING_FUNC(ring_raylib_get_image_width)
@@ -3788,7 +3788,7 @@ RING_FUNC(ring_raylib_set_charinfo_data)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"CharInfo");
-	pMyPointer->data = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char *");
+	pMyPointer->data = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char");
 }
 
 RING_FUNC(ring_raylib_new_font)
@@ -4102,7 +4102,7 @@ RING_FUNC(ring_raylib_set_font_chars)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Font");
-	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo *");
+	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo");
 }
 
 RING_FUNC(ring_raylib_new_spritefont)
@@ -4416,7 +4416,7 @@ RING_FUNC(ring_raylib_set_spritefont_chars)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
-	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo *");
+	pMyPointer->chars = (CharInfo *) RING_API_GETCPOINTER(2,"CharInfo");
 }
 
 RING_FUNC(ring_raylib_new_camera3d)
@@ -4976,7 +4976,7 @@ RING_FUNC(ring_raylib_set_mesh_vertices)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->vertices = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->vertices = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_texcoords)
@@ -5010,7 +5010,7 @@ RING_FUNC(ring_raylib_set_mesh_texcoords)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->texcoords = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->texcoords = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_texcoords2)
@@ -5044,7 +5044,7 @@ RING_FUNC(ring_raylib_set_mesh_texcoords2)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->texcoords2 = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->texcoords2 = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_normals)
@@ -5078,7 +5078,7 @@ RING_FUNC(ring_raylib_set_mesh_normals)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->normals = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->normals = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_tangents)
@@ -5112,7 +5112,7 @@ RING_FUNC(ring_raylib_set_mesh_tangents)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->tangents = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->tangents = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_colors)
@@ -5146,7 +5146,7 @@ RING_FUNC(ring_raylib_set_mesh_colors)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->colors = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char *");
+	pMyPointer->colors = (unsigned char *) RING_API_GETCPOINTER(2,"unsigned char");
 }
 
 RING_FUNC(ring_raylib_get_mesh_indices)
@@ -5180,7 +5180,7 @@ RING_FUNC(ring_raylib_set_mesh_indices)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->indices = (unsigned short *) RING_API_GETCPOINTER(2,"unsigned short *");
+	pMyPointer->indices = (unsigned short *) RING_API_GETCPOINTER(2,"unsigned short");
 }
 
 RING_FUNC(ring_raylib_get_mesh_animVertices)
@@ -5214,7 +5214,7 @@ RING_FUNC(ring_raylib_set_mesh_animVertices)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->animVertices = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->animVertices = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_animNormals)
@@ -5248,7 +5248,7 @@ RING_FUNC(ring_raylib_set_mesh_animNormals)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->animNormals = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->animNormals = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_boneIds)
@@ -5282,7 +5282,7 @@ RING_FUNC(ring_raylib_set_mesh_boneIds)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->boneIds = (int *) RING_API_GETCPOINTER(2,"int *");
+	pMyPointer->boneIds = (int *) RING_API_GETCPOINTER(2,"int");
 }
 
 RING_FUNC(ring_raylib_get_mesh_boneWeights)
@@ -5316,7 +5316,7 @@ RING_FUNC(ring_raylib_set_mesh_boneWeights)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
-	pMyPointer->boneWeights = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->boneWeights = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_get_mesh_vaoId)
@@ -5782,7 +5782,7 @@ RING_FUNC(ring_raylib_set_material_params)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Material");
-	pMyPointer->params = (float *) RING_API_GETCPOINTER(2,"float *");
+	pMyPointer->params = (float *) RING_API_GETCPOINTER(2,"float");
 }
 
 RING_FUNC(ring_raylib_new_transform)
@@ -6894,7 +6894,7 @@ RING_FUNC(ring_raylib_set_model_meshes)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Model");
-	pMyPointer->meshes = (Mesh *) RING_API_GETCPOINTER(2,"Mesh *");
+	pMyPointer->meshes = (Mesh *) RING_API_GETCPOINTER(2,"Mesh");
 }
 
 RING_FUNC(ring_raylib_get_model_materialCount)
@@ -6962,7 +6962,7 @@ RING_FUNC(ring_raylib_set_model_materials)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Model");
-	pMyPointer->materials = (Material *) RING_API_GETCPOINTER(2,"Material *");
+	pMyPointer->materials = (Material *) RING_API_GETCPOINTER(2,"Material");
 }
 
 RING_FUNC(ring_raylib_get_model_meshMaterial)
@@ -6996,7 +6996,7 @@ RING_FUNC(ring_raylib_set_model_meshMaterial)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Model");
-	pMyPointer->meshMaterial = (int *) RING_API_GETCPOINTER(2,"int *");
+	pMyPointer->meshMaterial = (int *) RING_API_GETCPOINTER(2,"int");
 }
 
 RING_FUNC(ring_raylib_get_model_boneCount)
@@ -7064,7 +7064,7 @@ RING_FUNC(ring_raylib_set_model_bones)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Model");
-	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo *");
+	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo");
 }
 
 RING_FUNC(ring_raylib_get_model_bindPose)
@@ -7098,7 +7098,7 @@ RING_FUNC(ring_raylib_set_model_bindPose)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Model");
-	pMyPointer->bindPose = (Transform *) RING_API_GETCPOINTER(2,"Transform *");
+	pMyPointer->bindPose = (Transform *) RING_API_GETCPOINTER(2,"Transform");
 }
 
 RING_FUNC(ring_raylib_new_modelanimation)
@@ -7208,7 +7208,7 @@ RING_FUNC(ring_raylib_set_modelanimation_bones)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
-	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo *");
+	pMyPointer->bones = (BoneInfo *) RING_API_GETCPOINTER(2,"BoneInfo");
 }
 
 RING_FUNC(ring_raylib_get_modelanimation_frameCount)
@@ -8260,7 +8260,7 @@ RING_FUNC(ring_raylib_set_wave_data)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
-	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void *");
+	pMyPointer->data = (void *) RING_API_GETCPOINTER(2,"void");
 }
 
 RING_FUNC(ring_raylib_new_sound)
@@ -8336,7 +8336,7 @@ RING_FUNC(ring_raylib_set_sound_audioBuffer)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"Sound");
-	pMyPointer->audioBuffer = (void *) RING_API_GETCPOINTER(2,"void *");
+	pMyPointer->audioBuffer = (void *) RING_API_GETCPOINTER(2,"void");
 }
 
 RING_FUNC(ring_raylib_get_sound_source)
@@ -8616,7 +8616,7 @@ RING_FUNC(ring_raylib_set_audiostream_audioBuffer)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
-	pMyPointer->audioBuffer = (void *) RING_API_GETCPOINTER(2,"void *");
+	pMyPointer->audioBuffer = (void *) RING_API_GETCPOINTER(2,"void");
 }
 
 RING_FUNC(ring_raylib_get_audiostream_format)
@@ -11514,7 +11514,7 @@ RING_FUNC(ring_CheckCollisionPointTriangle_2)
 }
 
 
-RING_FUNC(ring_LoadImage)
+RING_FUNC(ring_LoadImage_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -11528,12 +11528,12 @@ RING_FUNC(ring_LoadImage)
 		Image *pValue ; 
 		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
 		*pValue = LoadImage(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETCPOINTER(pValue,"Image");
 	}
 }
 
 
-RING_FUNC(ring_LoadImageEx)
+RING_FUNC(ring_LoadImageEx_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -11560,7 +11560,7 @@ RING_FUNC(ring_LoadImageEx)
 }
 
 
-RING_FUNC(ring_LoadImagePro)
+RING_FUNC(ring_LoadImagePro_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -11591,7 +11591,7 @@ RING_FUNC(ring_LoadImagePro)
 }
 
 
-RING_FUNC(ring_LoadImageRaw)
+RING_FUNC(ring_LoadImageRaw_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11738,7 +11738,7 @@ RING_FUNC(ring_LoadRenderTexture)
 }
 
 
-RING_FUNC(ring_UnloadImage)
+RING_FUNC(ring_UnloadImage_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -11750,7 +11750,7 @@ RING_FUNC(ring_UnloadImage)
 }
 
 
-RING_FUNC(ring_UnloadTexture)
+RING_FUNC(ring_UnloadTexture_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12003,7 +12003,7 @@ RING_FUNC(ring_ImageCrop_2)
 }
 
 
-RING_FUNC(ring_ImageResize)
+RING_FUNC(ring_ImageResize_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12260,7 +12260,7 @@ RING_FUNC(ring_ImageDrawRectangleLines_2)
 }
 
 
-RING_FUNC(ring_ImageDrawText)
+RING_FUNC(ring_ImageDrawText_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12286,7 +12286,7 @@ RING_FUNC(ring_ImageDrawText)
 }
 
 
-RING_FUNC(ring_ImageDrawTextEx)
+RING_FUNC(ring_ImageDrawTextEx_2)
 {
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12318,7 +12318,7 @@ RING_FUNC(ring_ImageDrawTextEx)
 }
 
 
-RING_FUNC(ring_ImageFlipVertical)
+RING_FUNC(ring_ImageFlipVertical_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12332,7 +12332,7 @@ RING_FUNC(ring_ImageFlipVertical)
 }
 
 
-RING_FUNC(ring_ImageFlipHorizontal)
+RING_FUNC(ring_ImageFlipHorizontal_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12346,7 +12346,7 @@ RING_FUNC(ring_ImageFlipHorizontal)
 }
 
 
-RING_FUNC(ring_ImageRotateCW)
+RING_FUNC(ring_ImageRotateCW_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12360,7 +12360,7 @@ RING_FUNC(ring_ImageRotateCW)
 }
 
 
-RING_FUNC(ring_ImageRotateCCW)
+RING_FUNC(ring_ImageRotateCCW_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12374,7 +12374,7 @@ RING_FUNC(ring_ImageRotateCCW)
 }
 
 
-RING_FUNC(ring_ImageColorTint)
+RING_FUNC(ring_ImageColorTint_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12390,7 +12390,7 @@ RING_FUNC(ring_ImageColorTint)
 }
 
 
-RING_FUNC(ring_ImageColorInvert)
+RING_FUNC(ring_ImageColorInvert_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12404,7 +12404,7 @@ RING_FUNC(ring_ImageColorInvert)
 }
 
 
-RING_FUNC(ring_ImageColorGrayscale)
+RING_FUNC(ring_ImageColorGrayscale_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12418,7 +12418,7 @@ RING_FUNC(ring_ImageColorGrayscale)
 }
 
 
-RING_FUNC(ring_ImageColorContrast)
+RING_FUNC(ring_ImageColorContrast_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12436,7 +12436,7 @@ RING_FUNC(ring_ImageColorContrast)
 }
 
 
-RING_FUNC(ring_ImageColorBrightness)
+RING_FUNC(ring_ImageColorBrightness_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12454,7 +12454,7 @@ RING_FUNC(ring_ImageColorBrightness)
 }
 
 
-RING_FUNC(ring_ImageColorReplace)
+RING_FUNC(ring_ImageColorReplace_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12752,7 +12752,7 @@ RING_FUNC(ring_SetTextureWrap)
 }
 
 
-RING_FUNC(ring_DrawTexture)
+RING_FUNC(ring_DrawTexture_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12915,7 +12915,7 @@ RING_FUNC(ring_GetFontDefault)
 }
 
 
-RING_FUNC(ring_LoadFont)
+RING_FUNC(ring_LoadFont_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -13055,7 +13055,7 @@ RING_FUNC(ring_GenImageFontAtlas)
 }
 
 
-RING_FUNC(ring_UnloadFont)
+RING_FUNC(ring_UnloadFont_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17070,18 +17070,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("checkcollisionpointrec_2",ring_CheckCollisionPointRec_2);
 	ring_vm_funcregister("checkcollisionpointcircle_2",ring_CheckCollisionPointCircle_2);
 	ring_vm_funcregister("checkcollisionpointtriangle_2",ring_CheckCollisionPointTriangle_2);
-	ring_vm_funcregister("loadimage",ring_LoadImage);
-	ring_vm_funcregister("loadimageex",ring_LoadImageEx);
-	ring_vm_funcregister("loadimagepro",ring_LoadImagePro);
-	ring_vm_funcregister("loadimageraw",ring_LoadImageRaw);
+	ring_vm_funcregister("loadimage_2",ring_LoadImage_2);
+	ring_vm_funcregister("loadimageex_2",ring_LoadImageEx_2);
+	ring_vm_funcregister("loadimagepro_2",ring_LoadImagePro_2);
+	ring_vm_funcregister("loadimageraw_2",ring_LoadImageRaw_2);
 	ring_vm_funcregister("exportimage",ring_ExportImage);
 	ring_vm_funcregister("exportimageascode",ring_ExportImageAsCode);
 	ring_vm_funcregister("loadtexture",ring_LoadTexture);
 	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
 	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
-	ring_vm_funcregister("unloadimage",ring_UnloadImage);
-	ring_vm_funcregister("unloadtexture",ring_UnloadTexture);
+	ring_vm_funcregister("unloadimage_2",ring_UnloadImage_2);
+	ring_vm_funcregister("unloadtexture_2",ring_UnloadTexture_2);
 	ring_vm_funcregister("unloadrendertexture",ring_UnloadRenderTexture);
 	ring_vm_funcregister("getimagedata",ring_GetImageData);
 	ring_vm_funcregister("getimagedatanormalized",ring_GetImageDataNormalized);
@@ -17097,7 +17097,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagealphacrop",ring_ImageAlphaCrop);
 	ring_vm_funcregister("imagealphapremultiply",ring_ImageAlphaPremultiply);
 	ring_vm_funcregister("imagecrop_2",ring_ImageCrop_2);
-	ring_vm_funcregister("imageresize",ring_ImageResize);
+	ring_vm_funcregister("imageresize_2",ring_ImageResize_2);
 	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);
 	ring_vm_funcregister("imageresizecanvas",ring_ImageResizeCanvas);
 	ring_vm_funcregister("imagemipmaps",ring_ImageMipmaps);
@@ -17108,18 +17108,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagedraw_2",ring_ImageDraw_2);
 	ring_vm_funcregister("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
 	ring_vm_funcregister("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
-	ring_vm_funcregister("imagedrawtext",ring_ImageDrawText);
-	ring_vm_funcregister("imagedrawtextex",ring_ImageDrawTextEx);
-	ring_vm_funcregister("imageflipvertical",ring_ImageFlipVertical);
-	ring_vm_funcregister("imagefliphorizontal",ring_ImageFlipHorizontal);
-	ring_vm_funcregister("imagerotatecw",ring_ImageRotateCW);
-	ring_vm_funcregister("imagerotateccw",ring_ImageRotateCCW);
-	ring_vm_funcregister("imagecolortint",ring_ImageColorTint);
-	ring_vm_funcregister("imagecolorinvert",ring_ImageColorInvert);
-	ring_vm_funcregister("imagecolorgrayscale",ring_ImageColorGrayscale);
-	ring_vm_funcregister("imagecolorcontrast",ring_ImageColorContrast);
-	ring_vm_funcregister("imagecolorbrightness",ring_ImageColorBrightness);
-	ring_vm_funcregister("imagecolorreplace",ring_ImageColorReplace);
+	ring_vm_funcregister("imagedrawtext_2",ring_ImageDrawText_2);
+	ring_vm_funcregister("imagedrawtextex_2",ring_ImageDrawTextEx_2);
+	ring_vm_funcregister("imageflipvertical_2",ring_ImageFlipVertical_2);
+	ring_vm_funcregister("imagefliphorizontal_2",ring_ImageFlipHorizontal_2);
+	ring_vm_funcregister("imagerotatecw_2",ring_ImageRotateCW_2);
+	ring_vm_funcregister("imagerotateccw_2",ring_ImageRotateCCW_2);
+	ring_vm_funcregister("imagecolortint_2",ring_ImageColorTint_2);
+	ring_vm_funcregister("imagecolorinvert_2",ring_ImageColorInvert_2);
+	ring_vm_funcregister("imagecolorgrayscale_2",ring_ImageColorGrayscale_2);
+	ring_vm_funcregister("imagecolorcontrast_2",ring_ImageColorContrast_2);
+	ring_vm_funcregister("imagecolorbrightness_2",ring_ImageColorBrightness_2);
+	ring_vm_funcregister("imagecolorreplace_2",ring_ImageColorReplace_2);
 	ring_vm_funcregister("genimagecolor",ring_GenImageColor);
 	ring_vm_funcregister("genimagegradientv",ring_GenImageGradientV);
 	ring_vm_funcregister("genimagegradienth",ring_GenImageGradientH);
@@ -17131,7 +17131,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentexturemipmaps",ring_GenTextureMipmaps);
 	ring_vm_funcregister("settexturefilter",ring_SetTextureFilter);
 	ring_vm_funcregister("settexturewrap",ring_SetTextureWrap);
-	ring_vm_funcregister("drawtexture",ring_DrawTexture);
+	ring_vm_funcregister("drawtexture_2",ring_DrawTexture_2);
 	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
 	ring_vm_funcregister("drawtextureex_2",ring_DrawTextureEx_2);
 	ring_vm_funcregister("drawtexturerec_2",ring_DrawTextureRec_2);
@@ -17139,12 +17139,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtexturepro_2",ring_DrawTexturePro_2);
 	ring_vm_funcregister("drawtexturenpatch_2",ring_DrawTextureNPatch_2);
 	ring_vm_funcregister("getfontdefault",ring_GetFontDefault);
-	ring_vm_funcregister("loadfont",ring_LoadFont);
+	ring_vm_funcregister("loadfont_2",ring_LoadFont_2);
 	ring_vm_funcregister("loadfontex",ring_LoadFontEx);
 	ring_vm_funcregister("loadfontfromimage",ring_LoadFontFromImage);
 	ring_vm_funcregister("loadfontdata",ring_LoadFontData);
 	ring_vm_funcregister("genimagefontatlas",ring_GenImageFontAtlas);
-	ring_vm_funcregister("unloadfont",ring_UnloadFont);
+	ring_vm_funcregister("unloadfont_2",ring_UnloadFont_2);
 	ring_vm_funcregister("drawfps",ring_DrawFPS);
 	ring_vm_funcregister("drawtext",ring_DrawText);
 	ring_vm_funcregister("drawtextex",ring_DrawTextEx);
@@ -17514,8 +17514,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_rendertexture2d_depth_mipmaps",ring_raylib_set_rendertexture2d_depth_mipmaps);
 	ring_vm_funcregister("raylib_get_rendertexture2d_depth_format",ring_raylib_get_rendertexture2d_depth_format);
 	ring_vm_funcregister("raylib_set_rendertexture2d_depth_format",ring_raylib_set_rendertexture2d_depth_format);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depthTexture",ring_raylib_get_rendertexture2d_depthTexture);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depthTexture",ring_raylib_set_rendertexture2d_depthTexture);
+	ring_vm_funcregister("raylib_get_rendertexture2d_depthtexture",ring_raylib_get_rendertexture2d_depthTexture);
+	ring_vm_funcregister("raylib_set_rendertexture2d_depthtexture",ring_raylib_set_rendertexture2d_depthTexture);
 	ring_vm_funcregister("raylib_new_rendertexture",ring_raylib_new_rendertexture);
 	ring_vm_funcregister("raylib_new_managed_rendertexture",ring_raylib_new_managed_rendertexture);
 	ring_vm_funcregister("raylib_destroy_rendertexture",ring_raylib_destroy_rendertexture);
@@ -17541,19 +17541,19 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_rendertexture_depth_mipmaps",ring_raylib_set_rendertexture_depth_mipmaps);
 	ring_vm_funcregister("raylib_get_rendertexture_depth_format",ring_raylib_get_rendertexture_depth_format);
 	ring_vm_funcregister("raylib_set_rendertexture_depth_format",ring_raylib_set_rendertexture_depth_format);
-	ring_vm_funcregister("raylib_get_rendertexture_depthTexture",ring_raylib_get_rendertexture_depthTexture);
-	ring_vm_funcregister("raylib_set_rendertexture_depthTexture",ring_raylib_set_rendertexture_depthTexture);
+	ring_vm_funcregister("raylib_get_rendertexture_depthtexture",ring_raylib_get_rendertexture_depthTexture);
+	ring_vm_funcregister("raylib_set_rendertexture_depthtexture",ring_raylib_set_rendertexture_depthTexture);
 	ring_vm_funcregister("raylib_new_npatchinfo",ring_raylib_new_npatchinfo);
 	ring_vm_funcregister("raylib_new_managed_npatchinfo",ring_raylib_new_managed_npatchinfo);
 	ring_vm_funcregister("raylib_destroy_npatchinfo",ring_raylib_destroy_npatchinfo);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_x",ring_raylib_get_npatchinfo_sourceRec_x);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_x",ring_raylib_set_npatchinfo_sourceRec_x);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_y",ring_raylib_get_npatchinfo_sourceRec_y);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_y",ring_raylib_set_npatchinfo_sourceRec_y);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_width",ring_raylib_get_npatchinfo_sourceRec_width);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_width",ring_raylib_set_npatchinfo_sourceRec_width);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourceRec_height",ring_raylib_get_npatchinfo_sourceRec_height);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourceRec_height",ring_raylib_set_npatchinfo_sourceRec_height);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_x",ring_raylib_get_npatchinfo_sourceRec_x);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_x",ring_raylib_set_npatchinfo_sourceRec_x);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_y",ring_raylib_get_npatchinfo_sourceRec_y);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_y",ring_raylib_set_npatchinfo_sourceRec_y);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_width",ring_raylib_get_npatchinfo_sourceRec_width);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_width",ring_raylib_set_npatchinfo_sourceRec_width);
+	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_height",ring_raylib_get_npatchinfo_sourceRec_height);
+	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_height",ring_raylib_set_npatchinfo_sourceRec_height);
 	ring_vm_funcregister("raylib_get_npatchinfo_left",ring_raylib_get_npatchinfo_left);
 	ring_vm_funcregister("raylib_set_npatchinfo_left",ring_raylib_set_npatchinfo_left);
 	ring_vm_funcregister("raylib_get_npatchinfo_top",ring_raylib_get_npatchinfo_top);
@@ -17577,12 +17577,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_charinfo_rec_width",ring_raylib_set_charinfo_rec_width);
 	ring_vm_funcregister("raylib_get_charinfo_rec_height",ring_raylib_get_charinfo_rec_height);
 	ring_vm_funcregister("raylib_set_charinfo_rec_height",ring_raylib_set_charinfo_rec_height);
-	ring_vm_funcregister("raylib_get_charinfo_offsetX",ring_raylib_get_charinfo_offsetX);
-	ring_vm_funcregister("raylib_set_charinfo_offsetX",ring_raylib_set_charinfo_offsetX);
-	ring_vm_funcregister("raylib_get_charinfo_offsetY",ring_raylib_get_charinfo_offsetY);
-	ring_vm_funcregister("raylib_set_charinfo_offsetY",ring_raylib_set_charinfo_offsetY);
-	ring_vm_funcregister("raylib_get_charinfo_advanceX",ring_raylib_get_charinfo_advanceX);
-	ring_vm_funcregister("raylib_set_charinfo_advanceX",ring_raylib_set_charinfo_advanceX);
+	ring_vm_funcregister("raylib_get_charinfo_offsetx",ring_raylib_get_charinfo_offsetX);
+	ring_vm_funcregister("raylib_set_charinfo_offsetx",ring_raylib_set_charinfo_offsetX);
+	ring_vm_funcregister("raylib_get_charinfo_offsety",ring_raylib_get_charinfo_offsetY);
+	ring_vm_funcregister("raylib_set_charinfo_offsety",ring_raylib_set_charinfo_offsetY);
+	ring_vm_funcregister("raylib_get_charinfo_advancex",ring_raylib_get_charinfo_advanceX);
+	ring_vm_funcregister("raylib_set_charinfo_advancex",ring_raylib_set_charinfo_advanceX);
 	ring_vm_funcregister("raylib_get_charinfo_data",ring_raylib_get_charinfo_data);
 	ring_vm_funcregister("raylib_set_charinfo_data",ring_raylib_set_charinfo_data);
 	ring_vm_funcregister("raylib_new_font",ring_raylib_new_font);
@@ -17598,10 +17598,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_font_texture_mipmaps",ring_raylib_set_font_texture_mipmaps);
 	ring_vm_funcregister("raylib_get_font_texture_format",ring_raylib_get_font_texture_format);
 	ring_vm_funcregister("raylib_set_font_texture_format",ring_raylib_set_font_texture_format);
-	ring_vm_funcregister("raylib_get_font_baseSize",ring_raylib_get_font_baseSize);
-	ring_vm_funcregister("raylib_set_font_baseSize",ring_raylib_set_font_baseSize);
-	ring_vm_funcregister("raylib_get_font_charsCount",ring_raylib_get_font_charsCount);
-	ring_vm_funcregister("raylib_set_font_charsCount",ring_raylib_set_font_charsCount);
+	ring_vm_funcregister("raylib_get_font_basesize",ring_raylib_get_font_baseSize);
+	ring_vm_funcregister("raylib_set_font_basesize",ring_raylib_set_font_baseSize);
+	ring_vm_funcregister("raylib_get_font_charscount",ring_raylib_get_font_charsCount);
+	ring_vm_funcregister("raylib_set_font_charscount",ring_raylib_set_font_charsCount);
 	ring_vm_funcregister("raylib_get_font_chars",ring_raylib_get_font_chars);
 	ring_vm_funcregister("raylib_set_font_chars",ring_raylib_set_font_chars);
 	ring_vm_funcregister("raylib_new_spritefont",ring_raylib_new_spritefont);
@@ -17617,10 +17617,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_spritefont_texture_mipmaps",ring_raylib_set_spritefont_texture_mipmaps);
 	ring_vm_funcregister("raylib_get_spritefont_texture_format",ring_raylib_get_spritefont_texture_format);
 	ring_vm_funcregister("raylib_set_spritefont_texture_format",ring_raylib_set_spritefont_texture_format);
-	ring_vm_funcregister("raylib_get_spritefont_baseSize",ring_raylib_get_spritefont_baseSize);
-	ring_vm_funcregister("raylib_set_spritefont_baseSize",ring_raylib_set_spritefont_baseSize);
-	ring_vm_funcregister("raylib_get_spritefont_charsCount",ring_raylib_get_spritefont_charsCount);
-	ring_vm_funcregister("raylib_set_spritefont_charsCount",ring_raylib_set_spritefont_charsCount);
+	ring_vm_funcregister("raylib_get_spritefont_basesize",ring_raylib_get_spritefont_baseSize);
+	ring_vm_funcregister("raylib_set_spritefont_basesize",ring_raylib_set_spritefont_baseSize);
+	ring_vm_funcregister("raylib_get_spritefont_charscount",ring_raylib_get_spritefont_charsCount);
+	ring_vm_funcregister("raylib_set_spritefont_charscount",ring_raylib_set_spritefont_charsCount);
 	ring_vm_funcregister("raylib_get_spritefont_chars",ring_raylib_get_spritefont_chars);
 	ring_vm_funcregister("raylib_set_spritefont_chars",ring_raylib_set_spritefont_chars);
 	ring_vm_funcregister("raylib_new_camera3d",ring_raylib_new_camera3d);
@@ -17651,10 +17651,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_new_mesh",ring_raylib_new_mesh);
 	ring_vm_funcregister("raylib_new_managed_mesh",ring_raylib_new_managed_mesh);
 	ring_vm_funcregister("raylib_destroy_mesh",ring_raylib_destroy_mesh);
-	ring_vm_funcregister("raylib_get_mesh_vertexCount",ring_raylib_get_mesh_vertexCount);
-	ring_vm_funcregister("raylib_set_mesh_vertexCount",ring_raylib_set_mesh_vertexCount);
-	ring_vm_funcregister("raylib_get_mesh_triangleCount",ring_raylib_get_mesh_triangleCount);
-	ring_vm_funcregister("raylib_set_mesh_triangleCount",ring_raylib_set_mesh_triangleCount);
+	ring_vm_funcregister("raylib_get_mesh_vertexcount",ring_raylib_get_mesh_vertexCount);
+	ring_vm_funcregister("raylib_set_mesh_vertexcount",ring_raylib_set_mesh_vertexCount);
+	ring_vm_funcregister("raylib_get_mesh_trianglecount",ring_raylib_get_mesh_triangleCount);
+	ring_vm_funcregister("raylib_set_mesh_trianglecount",ring_raylib_set_mesh_triangleCount);
 	ring_vm_funcregister("raylib_get_mesh_vertices",ring_raylib_get_mesh_vertices);
 	ring_vm_funcregister("raylib_set_mesh_vertices",ring_raylib_set_mesh_vertices);
 	ring_vm_funcregister("raylib_get_mesh_texcoords",ring_raylib_get_mesh_texcoords);
@@ -17669,16 +17669,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_mesh_colors",ring_raylib_set_mesh_colors);
 	ring_vm_funcregister("raylib_get_mesh_indices",ring_raylib_get_mesh_indices);
 	ring_vm_funcregister("raylib_set_mesh_indices",ring_raylib_set_mesh_indices);
-	ring_vm_funcregister("raylib_get_mesh_animVertices",ring_raylib_get_mesh_animVertices);
-	ring_vm_funcregister("raylib_set_mesh_animVertices",ring_raylib_set_mesh_animVertices);
-	ring_vm_funcregister("raylib_get_mesh_animNormals",ring_raylib_get_mesh_animNormals);
-	ring_vm_funcregister("raylib_set_mesh_animNormals",ring_raylib_set_mesh_animNormals);
-	ring_vm_funcregister("raylib_get_mesh_boneIds",ring_raylib_get_mesh_boneIds);
-	ring_vm_funcregister("raylib_set_mesh_boneIds",ring_raylib_set_mesh_boneIds);
-	ring_vm_funcregister("raylib_get_mesh_boneWeights",ring_raylib_get_mesh_boneWeights);
-	ring_vm_funcregister("raylib_set_mesh_boneWeights",ring_raylib_set_mesh_boneWeights);
-	ring_vm_funcregister("raylib_get_mesh_vaoId",ring_raylib_get_mesh_vaoId);
-	ring_vm_funcregister("raylib_set_mesh_vaoId",ring_raylib_set_mesh_vaoId);
+	ring_vm_funcregister("raylib_get_mesh_animvertices",ring_raylib_get_mesh_animVertices);
+	ring_vm_funcregister("raylib_set_mesh_animvertices",ring_raylib_set_mesh_animVertices);
+	ring_vm_funcregister("raylib_get_mesh_animnormals",ring_raylib_get_mesh_animNormals);
+	ring_vm_funcregister("raylib_set_mesh_animnormals",ring_raylib_set_mesh_animNormals);
+	ring_vm_funcregister("raylib_get_mesh_boneids",ring_raylib_get_mesh_boneIds);
+	ring_vm_funcregister("raylib_set_mesh_boneids",ring_raylib_set_mesh_boneIds);
+	ring_vm_funcregister("raylib_get_mesh_boneweights",ring_raylib_get_mesh_boneWeights);
+	ring_vm_funcregister("raylib_set_mesh_boneweights",ring_raylib_set_mesh_boneWeights);
+	ring_vm_funcregister("raylib_get_mesh_vaoid",ring_raylib_get_mesh_vaoId);
+	ring_vm_funcregister("raylib_set_mesh_vaoid",ring_raylib_set_mesh_vaoId);
 	ring_vm_funcregister("raylib_new_shader",ring_raylib_new_shader);
 	ring_vm_funcregister("raylib_new_managed_shader",ring_raylib_new_managed_shader);
 	ring_vm_funcregister("raylib_destroy_shader",ring_raylib_destroy_shader);
@@ -17769,31 +17769,31 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_set_model_transform_m14",ring_raylib_set_model_transform_m14);
 	ring_vm_funcregister("raylib_get_model_transform_m15",ring_raylib_get_model_transform_m15);
 	ring_vm_funcregister("raylib_set_model_transform_m15",ring_raylib_set_model_transform_m15);
-	ring_vm_funcregister("raylib_get_model_meshCount",ring_raylib_get_model_meshCount);
-	ring_vm_funcregister("raylib_set_model_meshCount",ring_raylib_set_model_meshCount);
+	ring_vm_funcregister("raylib_get_model_meshcount",ring_raylib_get_model_meshCount);
+	ring_vm_funcregister("raylib_set_model_meshcount",ring_raylib_set_model_meshCount);
 	ring_vm_funcregister("raylib_get_model_meshes",ring_raylib_get_model_meshes);
 	ring_vm_funcregister("raylib_set_model_meshes",ring_raylib_set_model_meshes);
-	ring_vm_funcregister("raylib_get_model_materialCount",ring_raylib_get_model_materialCount);
-	ring_vm_funcregister("raylib_set_model_materialCount",ring_raylib_set_model_materialCount);
+	ring_vm_funcregister("raylib_get_model_materialcount",ring_raylib_get_model_materialCount);
+	ring_vm_funcregister("raylib_set_model_materialcount",ring_raylib_set_model_materialCount);
 	ring_vm_funcregister("raylib_get_model_materials",ring_raylib_get_model_materials);
 	ring_vm_funcregister("raylib_set_model_materials",ring_raylib_set_model_materials);
-	ring_vm_funcregister("raylib_get_model_meshMaterial",ring_raylib_get_model_meshMaterial);
-	ring_vm_funcregister("raylib_set_model_meshMaterial",ring_raylib_set_model_meshMaterial);
-	ring_vm_funcregister("raylib_get_model_boneCount",ring_raylib_get_model_boneCount);
-	ring_vm_funcregister("raylib_set_model_boneCount",ring_raylib_set_model_boneCount);
+	ring_vm_funcregister("raylib_get_model_meshmaterial",ring_raylib_get_model_meshMaterial);
+	ring_vm_funcregister("raylib_set_model_meshmaterial",ring_raylib_set_model_meshMaterial);
+	ring_vm_funcregister("raylib_get_model_bonecount",ring_raylib_get_model_boneCount);
+	ring_vm_funcregister("raylib_set_model_bonecount",ring_raylib_set_model_boneCount);
 	ring_vm_funcregister("raylib_get_model_bones",ring_raylib_get_model_bones);
 	ring_vm_funcregister("raylib_set_model_bones",ring_raylib_set_model_bones);
-	ring_vm_funcregister("raylib_get_model_bindPose",ring_raylib_get_model_bindPose);
-	ring_vm_funcregister("raylib_set_model_bindPose",ring_raylib_set_model_bindPose);
+	ring_vm_funcregister("raylib_get_model_bindpose",ring_raylib_get_model_bindPose);
+	ring_vm_funcregister("raylib_set_model_bindpose",ring_raylib_set_model_bindPose);
 	ring_vm_funcregister("raylib_new_modelanimation",ring_raylib_new_modelanimation);
 	ring_vm_funcregister("raylib_new_managed_modelanimation",ring_raylib_new_managed_modelanimation);
 	ring_vm_funcregister("raylib_destroy_modelanimation",ring_raylib_destroy_modelanimation);
-	ring_vm_funcregister("raylib_get_modelanimation_boneCount",ring_raylib_get_modelanimation_boneCount);
-	ring_vm_funcregister("raylib_set_modelanimation_boneCount",ring_raylib_set_modelanimation_boneCount);
+	ring_vm_funcregister("raylib_get_modelanimation_bonecount",ring_raylib_get_modelanimation_boneCount);
+	ring_vm_funcregister("raylib_set_modelanimation_bonecount",ring_raylib_set_modelanimation_boneCount);
 	ring_vm_funcregister("raylib_get_modelanimation_bones",ring_raylib_get_modelanimation_bones);
 	ring_vm_funcregister("raylib_set_modelanimation_bones",ring_raylib_set_modelanimation_bones);
-	ring_vm_funcregister("raylib_get_modelanimation_frameCount",ring_raylib_get_modelanimation_frameCount);
-	ring_vm_funcregister("raylib_set_modelanimation_frameCount",ring_raylib_set_modelanimation_frameCount);
+	ring_vm_funcregister("raylib_get_modelanimation_framecount",ring_raylib_get_modelanimation_frameCount);
+	ring_vm_funcregister("raylib_set_modelanimation_framecount",ring_raylib_set_modelanimation_frameCount);
 	ring_vm_funcregister("raylib_new_ray",ring_raylib_new_ray);
 	ring_vm_funcregister("raylib_new_managed_ray",ring_raylib_new_managed_ray);
 	ring_vm_funcregister("raylib_destroy_ray",ring_raylib_destroy_ray);
@@ -17846,12 +17846,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_new_wave",ring_raylib_new_wave);
 	ring_vm_funcregister("raylib_new_managed_wave",ring_raylib_new_managed_wave);
 	ring_vm_funcregister("raylib_destroy_wave",ring_raylib_destroy_wave);
-	ring_vm_funcregister("raylib_get_wave_sampleCount",ring_raylib_get_wave_sampleCount);
-	ring_vm_funcregister("raylib_set_wave_sampleCount",ring_raylib_set_wave_sampleCount);
-	ring_vm_funcregister("raylib_get_wave_sampleRate",ring_raylib_get_wave_sampleRate);
-	ring_vm_funcregister("raylib_set_wave_sampleRate",ring_raylib_set_wave_sampleRate);
-	ring_vm_funcregister("raylib_get_wave_sampleSize",ring_raylib_get_wave_sampleSize);
-	ring_vm_funcregister("raylib_set_wave_sampleSize",ring_raylib_set_wave_sampleSize);
+	ring_vm_funcregister("raylib_get_wave_samplecount",ring_raylib_get_wave_sampleCount);
+	ring_vm_funcregister("raylib_set_wave_samplecount",ring_raylib_set_wave_sampleCount);
+	ring_vm_funcregister("raylib_get_wave_samplerate",ring_raylib_get_wave_sampleRate);
+	ring_vm_funcregister("raylib_set_wave_samplerate",ring_raylib_set_wave_sampleRate);
+	ring_vm_funcregister("raylib_get_wave_samplesize",ring_raylib_get_wave_sampleSize);
+	ring_vm_funcregister("raylib_set_wave_samplesize",ring_raylib_set_wave_sampleSize);
 	ring_vm_funcregister("raylib_get_wave_channels",ring_raylib_get_wave_channels);
 	ring_vm_funcregister("raylib_set_wave_channels",ring_raylib_set_wave_channels);
 	ring_vm_funcregister("raylib_get_wave_data",ring_raylib_get_wave_data);
@@ -17859,8 +17859,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_new_sound",ring_raylib_new_sound);
 	ring_vm_funcregister("raylib_new_managed_sound",ring_raylib_new_managed_sound);
 	ring_vm_funcregister("raylib_destroy_sound",ring_raylib_destroy_sound);
-	ring_vm_funcregister("raylib_get_sound_audioBuffer",ring_raylib_get_sound_audioBuffer);
-	ring_vm_funcregister("raylib_set_sound_audioBuffer",ring_raylib_set_sound_audioBuffer);
+	ring_vm_funcregister("raylib_get_sound_audiobuffer",ring_raylib_get_sound_audioBuffer);
+	ring_vm_funcregister("raylib_set_sound_audiobuffer",ring_raylib_set_sound_audioBuffer);
 	ring_vm_funcregister("raylib_get_sound_source",ring_raylib_get_sound_source);
 	ring_vm_funcregister("raylib_set_sound_source",ring_raylib_set_sound_source);
 	ring_vm_funcregister("raylib_get_sound_buffer",ring_raylib_get_sound_buffer);
@@ -17870,14 +17870,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_new_audiostream",ring_raylib_new_audiostream);
 	ring_vm_funcregister("raylib_new_managed_audiostream",ring_raylib_new_managed_audiostream);
 	ring_vm_funcregister("raylib_destroy_audiostream",ring_raylib_destroy_audiostream);
-	ring_vm_funcregister("raylib_get_audiostream_sampleRate",ring_raylib_get_audiostream_sampleRate);
-	ring_vm_funcregister("raylib_set_audiostream_sampleRate",ring_raylib_set_audiostream_sampleRate);
-	ring_vm_funcregister("raylib_get_audiostream_sampleSize",ring_raylib_get_audiostream_sampleSize);
-	ring_vm_funcregister("raylib_set_audiostream_sampleSize",ring_raylib_set_audiostream_sampleSize);
+	ring_vm_funcregister("raylib_get_audiostream_samplerate",ring_raylib_get_audiostream_sampleRate);
+	ring_vm_funcregister("raylib_set_audiostream_samplerate",ring_raylib_set_audiostream_sampleRate);
+	ring_vm_funcregister("raylib_get_audiostream_samplesize",ring_raylib_get_audiostream_sampleSize);
+	ring_vm_funcregister("raylib_set_audiostream_samplesize",ring_raylib_set_audiostream_sampleSize);
 	ring_vm_funcregister("raylib_get_audiostream_channels",ring_raylib_get_audiostream_channels);
 	ring_vm_funcregister("raylib_set_audiostream_channels",ring_raylib_set_audiostream_channels);
-	ring_vm_funcregister("raylib_get_audiostream_audioBuffer",ring_raylib_get_audiostream_audioBuffer);
-	ring_vm_funcregister("raylib_set_audiostream_audioBuffer",ring_raylib_set_audiostream_audioBuffer);
+	ring_vm_funcregister("raylib_get_audiostream_audiobuffer",ring_raylib_get_audiostream_audioBuffer);
+	ring_vm_funcregister("raylib_set_audiostream_audiobuffer",ring_raylib_set_audiostream_audioBuffer);
 	ring_vm_funcregister("raylib_get_audiostream_format",ring_raylib_get_audiostream_format);
 	ring_vm_funcregister("raylib_set_audiostream_format",ring_raylib_set_audiostream_format);
 	ring_vm_funcregister("raylib_get_audiostream_source",ring_raylib_get_audiostream_source);
@@ -17885,20 +17885,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("raylib_new_vrdeviceinfo",ring_raylib_new_vrdeviceinfo);
 	ring_vm_funcregister("raylib_new_managed_vrdeviceinfo",ring_raylib_new_managed_vrdeviceinfo);
 	ring_vm_funcregister("raylib_destroy_vrdeviceinfo",ring_raylib_destroy_vrdeviceinfo);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_hResolution",ring_raylib_get_vrdeviceinfo_hResolution);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_hResolution",ring_raylib_set_vrdeviceinfo_hResolution);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vResolution",ring_raylib_get_vrdeviceinfo_vResolution);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vResolution",ring_raylib_set_vrdeviceinfo_vResolution);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_hScreenSize",ring_raylib_get_vrdeviceinfo_hScreenSize);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_hScreenSize",ring_raylib_set_vrdeviceinfo_hScreenSize);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vScreenSize",ring_raylib_get_vrdeviceinfo_vScreenSize);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vScreenSize",ring_raylib_set_vrdeviceinfo_vScreenSize);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vScreenCenter",ring_raylib_get_vrdeviceinfo_vScreenCenter);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vScreenCenter",ring_raylib_set_vrdeviceinfo_vScreenCenter);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_eyeToScreenDistance",ring_raylib_get_vrdeviceinfo_eyeToScreenDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_eyeToScreenDistance",ring_raylib_set_vrdeviceinfo_eyeToScreenDistance);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_lensSeparationDistance",ring_raylib_get_vrdeviceinfo_lensSeparationDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_lensSeparationDistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_interpupillaryDistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_interpupillaryDistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_hresolution",ring_raylib_get_vrdeviceinfo_hResolution);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_hresolution",ring_raylib_set_vrdeviceinfo_hResolution);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vresolution",ring_raylib_get_vrdeviceinfo_vResolution);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vresolution",ring_raylib_set_vrdeviceinfo_vResolution);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_hscreensize",ring_raylib_get_vrdeviceinfo_hScreenSize);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_hscreensize",ring_raylib_set_vrdeviceinfo_hScreenSize);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vscreensize",ring_raylib_get_vrdeviceinfo_vScreenSize);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vscreensize",ring_raylib_set_vrdeviceinfo_vScreenSize);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_vscreencenter",ring_raylib_get_vrdeviceinfo_vScreenCenter);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_vscreencenter",ring_raylib_set_vrdeviceinfo_vScreenCenter);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_eyetoscreendistance",ring_raylib_get_vrdeviceinfo_eyeToScreenDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_eyetoscreendistance",ring_raylib_set_vrdeviceinfo_eyeToScreenDistance);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_lensseparationdistance",ring_raylib_get_vrdeviceinfo_lensSeparationDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_lensseparationdistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
+	ring_vm_funcregister("raylib_get_vrdeviceinfo_interpupillarydistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
+	ring_vm_funcregister("raylib_set_vrdeviceinfo_interpupillarydistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
 }

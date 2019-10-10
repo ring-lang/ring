@@ -200,7 +200,7 @@ class Image from RayLibBase
 
 	data width  height mipmaps  format
 
-	oData = raylib_new_managed_Image()
+	oData = raylib_new_Managed_Image()
 
 	func init p1,p2,p3,p4,p5
 		data=p1  width=p2 height=p3 mipmaps=p4 format=p5
@@ -252,7 +252,6 @@ class RenderTexture2D from RayLibBase
 	depthTexture
 
 	oData = raylib_new_managed_RenderTexture2D()
-
 
 	func init p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12 
 
@@ -418,6 +417,44 @@ class SpriteFont from RayLibBase
 		baseSize	= raylib_get_SpriteFont_baseSize(oStruct)
 		charsCount	= raylib_get_SpriteFont_charsCount(oStruct)
 		chars		= raylib_get_SpriteFont_chars(oStruct)
+
+class Font from RayLibBase
+
+	texture = new Texture2D
+	baseSize charsCount chars
+
+	oData = raylib_new_managed_Font()
+
+	func init p1,p2,p3,p4,p5,p6,p7,p8
+		texture.id 	= p1
+		texture.width 	= p2 
+		texture.height	= p3
+		texture.mipmaps = p4 
+		texture.format  = p5
+		baseSize	= p6
+		charsCount	= p7
+		chars		= p8
+
+	func data 
+		raylib_set_Font_texture_id(oData,texture.id)	
+		raylib_set_Font_texture_width(oData,texture.width)	
+		raylib_set_Font_texture_height(oData,texture.height)	
+		raylib_set_Font_texture_mipmaps(oData,texture.mipmaps)	
+		raylib_set_Font_texture_format(oData,texture.format)	
+		raylib_set_Font_baseSize(oData,baseSize)	
+		raylib_set_Font_charsCount(oData,charsCount)	
+		raylib_set_Font_chars(oData,chars)	
+		return oData
+
+	func setdata oStruct 
+		texture.id 	= raylib_get_Font_texture_id(oStruct)
+		texture.width 	= raylib_get_Font_texture_width(oStruct) 
+		texture.height	= raylib_get_Font_texture_height(oStruct)
+		texture.mipmaps = raylib_get_Font_texture_mipmaps(oStruct) 
+		texture.format  = raylib_get_Font_texture_format(oStruct)
+		baseSize	= raylib_get_Font_baseSize(oStruct)
+		charsCount	= raylib_get_Font_charsCount(oStruct)
+		chars		= raylib_get_Font_chars(oStruct)
 
 class Camera3D from RayLibBase
 

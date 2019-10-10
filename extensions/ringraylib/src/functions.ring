@@ -142,6 +142,12 @@ func GPData vData
 	ok
 	return pData
 
+# Update Object Data 
+func UOData vData 
+	if isObject(vData)
+		vData.refresh()
+	ok
+
 func BeginMode2D camera
 	return BeginMode2D_2(GPData(Camera))
 
@@ -280,10 +286,10 @@ func DrawGizmo position
 	return DrawGizmo_2(GPData(position))
 
 func GenMeshHeightmap heightmap, size
-	return GenMeshHeightmap_2(heightmap, GPData(size))
+	return GenMeshHeightmap_2(GPData(heightmap), GPData(size))
 
 func GenMeshCubicmap cubicmap, cubeSize
-	return GenMeshCubicmap_2(cubicmap, GPData(cubeSize))
+	return GenMeshCubicmap_2(GPData(cubicmap), GPData(cubeSize))
 
 func DrawModel model,  position, scale,  tint
 	return DrawModel_2(model, GPData(position), scale,  tint)
@@ -340,16 +346,21 @@ func GetCollisionRec rec1, rec2
 	return GetCollisionRec_2(GPData(rec1), GPData(rec2))
 
 func ImageCrop image, crop
-	return ImageCrop_2(image, GPData(crop))
+	oImage = ImageCrop_2(GPData(image), GPData(crop))
+	UOData(image)
+	return oImage
 
 func ImageDraw dst, src,  srcRec,  dstRec
-	return ImageDraw_2(dst, src,  GPData(srcRec),  GPData(dstRec))
+	ImageDraw_2(GPData(dst), GPData(src),  GPData(srcRec),  GPData(dstRec))
+	UOData(dst)
+	UOData(src)
+	return
 
 func ImageDrawRectangle dst, rec, color
-	return ImageDrawRectangle_2(dst, GPData(rec), color)
+	return ImageDrawRectangle_2(GPData(dst), GPData(rec), GPData(color))
 
 func ImageDrawRectangleLines dst, rec, thick, color
-	return ImageDrawRectangleLines_2(dst, GPData(rec), thick, color)
+	return ImageDrawRectangleLines_2(GPData(dst), GPData(rec), thick, GPData(color))
 
 func DrawTextureRec texture, sourceRec, position, tint
 	return DrawTextureRec_2(texture, GPData(sourceRec), GPData(position), tint)
@@ -475,8 +486,110 @@ func CheckCollisionRayBox ray, box
 
 func LoadTextureFromImage p1
 	oTexture = new Texture2D
-	OTexture.setData(LoadTextureFromImage_2(p1))
+	oTexture.setData(LoadTextureFromImage_2(GPData(p1)))
 	return oTexture
 
 func DrawTextureEx texture, position, rotation, scale, tint
 	return DrawTextureEx_2( GPData(texture) , GPData(position), rotation, scale, tint )
+
+func LoadImage fileName
+	oImage = new Image
+	oImage.setData(LoadImage_2(fileName))
+	return oImage
+
+func LoadImageEx pixels, width, height
+	oImage = new Image 
+	oImage.setData(LoadImageEx_2(pixels, width, height))
+	return oImage
+
+func LoadImagePro data, width, height, format
+	oImage = new Image 
+	oImage.setData(LoadImagePro_2(data, width, height, format))
+	return oImage
+
+func LoadImageRaw(fileName, width, height, format, headerSize)
+	oImage = new Image 
+	oImage.setData(LoadImageRaw_2(fileName, width, height, format, headerSize))
+	return oImage
+
+func ImageFlipVertical image
+	ImageFlipVertical_2(GPData(image))
+	UOData(image)
+	return 
+
+func ImageFlipHorizontal image
+	ImageFlipHorizontal_2(GPData(image))
+	UOData(image)
+	return 
+
+func ImageRotateCW image
+	ImageRotateCW_2(GPData(image))
+	UOData(image)
+	return
+
+func ImageRotateCCW image
+	ImageRotateCCW_2(GPData(image))
+	UOData(image)
+	return
+
+func ImageColorTint image, color
+	ImageColorTint_2(GPData(image), GPData(color))
+	UOData(image)
+	return
+
+func ImageColorInvert image
+	ImageColorInvert_2(GPData(image))
+	UOData(image)
+	return
+
+func ImageColorGrayscale image
+	ImageColorGrayscale_2(GPData(image))
+	UOData(image)
+	return
+
+func ImageColorContrast image, contrast
+	ImageColorContrast_2(GPData(image), contrast)
+	UOData(image)
+	return
+
+func ImageColorBrightness image, brightness
+	ImageColorBrightness_2(GPData(image), brightness)
+	UOData(image)
+	return
+
+func ImageColorReplace image, color, replace
+	ImageColorReplace_2(GPData(image), GPData(color), GPData(replace))
+	UOData(image)
+	return 
+
+func UnloadImage image
+	return UnloadImage_2(GPData(image))
+
+func UnloadTexture texture
+	return UnloadTexture_2(GPData(texture))
+
+func ImageResize image, newWidth, newHeight
+	ImageResize_2(GPData(image), newWidth, newHeight)
+	UOData(image)
+	return 
+
+func DrawTexture texture, posX, posY, tint
+	return DrawTexture_2( GPData(texture),  posX,  posY, GPData(tint) )
+
+func ImageDrawText dst, position, text, fontSize, color
+	ImageDrawText_2(GPData(dst), GPData(position), text, fontSize, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawTextEx dst, position, font, text, fontSize, spacing, color
+	ImageDrawTextEx_2(GPData(dst), GPData(position), GPData(font), text, fontSize, spacing, GPData(color))
+	UOData(dst)
+	return
+
+func LoadFont fileName
+	oFont = new Font 
+	oFont.setData(LoadFont_2(fileName))
+	return oFont
+
+func UnloadFont font
+	return UnloadFont_2(GPData(font))
