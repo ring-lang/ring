@@ -175,10 +175,10 @@ func UpdateCamera camera
 	ok
 	
 func DrawBillboard camera,texture,center,size,tint
-	return DrawBillboard_2(GPData(camera),texture,center,size,tint)
+	return DrawBillboard_2(GPData(camera),GPData(texture),center,size,tint)
 
 func DrawBillboardRec camera,texture,sourceRec,center,size,tint
-	return DrawBillboardRec_2(GPData(camera),texture,sourceRec,center,size,tint)
+	return DrawBillboardRec_2(GPData(camera),GPData(texture),sourceRec,center,size,tint)
 
 func UpdateVrTracking camera
 	return UpdateVrTracking_2(GPData(camera))
@@ -337,7 +337,7 @@ func DrawRectangleRoundedLines rec,  roundness,  segments,  lineThick, color
 	return DrawRectangleRoundedLines_2(GPData(rec),  roundness,  segments,  lineThick, color)
 
 func SetShapesTexture texture, source
-	return SetShapesTexture_2(texture, GPData(source))
+	return SetShapesTexture_2(GPData(texture), GPData(source))
 
 func CheckCollisionRecs rec1,  rec2
 	return CheckCollisionRecs_2(GPData(rec1), GPData(rec2))
@@ -365,16 +365,16 @@ func ImageDrawRectangleLines dst, rec, thick, color
 	return ImageDrawRectangleLines_2(GPData(dst), GPData(rec), thick, GPData(color))
 
 func DrawTextureRec texture, sourceRec, position, tint
-	return DrawTextureRec_2(texture, GPData(sourceRec), GPData(position), tint)
+	return DrawTextureRec_2(GPData(texture), GPData(sourceRec), GPData(position), tint)
 
 func DrawTextureQuad texture,  tiling, offset,  quad,  tint
-	return DrawTextureQuad_2(texture, GPData(tiling), GPData(offset), GPData(quad),  tint)
+	return DrawTextureQuad_2(GPData(texture), GPData(tiling), GPData(offset), GPData(quad),  tint)
 
 func DrawTexturePro texture, sourceRec,  destRec,  origin, rotation, tint
-	return DrawTexturePro_2(texture, GPData(sourceRec),  GPData(destRec), GPData(origin), rotation, tint)
+	return DrawTexturePro_2(GPData(texture), GPData(sourceRec),  GPData(destRec), GPData(origin), rotation, tint)
 
 func DrawTextureNPatch texture,  nPatchInfo, destRec,  origin,  rotation, tint
-	return DrawTextureNPatch_2(texture,  nPatchInfo, GPData(destRec), GPData(origin),  rotation, tint)
+	return DrawTextureNPatch_2(GPData(texture),  nPatchInfo, GPData(destRec), GPData(origin),  rotation, tint)
 
 func DrawTextRec font,  text,  rec,  fontSize,  spacing,  wordWrap,  tint
 	return DrawTextRec_2(font,  text, GPData(rec),  fontSize,  spacing,  wordWrap,  tint)
@@ -407,10 +407,10 @@ func GuiLabelButton bounds, text
 	return GuiLabelButton_2(GPData(bounds), text)
 
 func GuiImageButton bounds,  texture
-	return GuiImageButton_2(GPData(bounds),  texture)
+	return GuiImageButton_2(GPData(bounds),  GPData(texture))
 
 func GuiImageButtonEx bounds, texture, texSource, text
-	return GuiImageButtonEx_2(GPData(bounds), texture, GPData(texSource), text)
+	return GuiImageButtonEx_2(GPData(bounds), GPData(texture), GPData(texSource), text)
 
 func GuiToggle bounds, text, active
 	return GuiToggle_2(GPData(bounds), text, active)
