@@ -175,58 +175,58 @@ func UpdateCamera camera
 	ok
 	
 func DrawBillboard camera,texture,center,size,tint
-	return DrawBillboard_2(GPData(camera),GPData(texture),center,size,tint)
+	return DrawBillboard_2(GPData(camera),GPData(texture),GPData(center),size,tint)
 
 func DrawBillboardRec camera,texture,sourceRec,center,size,tint
-	return DrawBillboardRec_2(GPData(camera),GPData(texture),sourceRec,center,size,tint)
+	return DrawBillboardRec_2(GPData(camera),GPData(texture),GPData(sourceRec),GPData(center),size,GPData(tint))
 
 func UpdateVrTracking camera
 	return UpdateVrTracking_2(GPData(camera))
 
 func DrawPixelV position, color
-	return DrawPixelV_2(GPData(position),color)
+	return DrawPixelV_2(GPData(position),GPData(color))
 
 func DrawLineV startPos, endPos, color
-	return DrawLineV_2(GPData(startPos),GPData(endPos),color)
+	return DrawLineV_2(GPData(startPos),GPData(endPos),GPData(color))
 
 func DrawLineEx startPos, endPos, thick, color
-	return DrawLineEx_2(GPData(startPos),GPData(endPos),thick,color)
+	return DrawLineEx_2(GPData(startPos),GPData(endPos),thick,GPData(color))
 
 func DrawLineBezier startPos, endPos, thick, color
-	return DrawLineBezier_2(GPData(startPos), GPData(endPos), thick, color)
+	return DrawLineBezier_2(GPData(startPos), GPData(endPos), thick, GPData(color))
 
 func DrawLineStrip points, numPoints, color
 	return DrawLineStrip_2(points, numPoints, color)
 
 func DrawCircleSector center,radius,startAngle,endAngle,segments,color
-	return DrawCircleSector_2(GPData(center),radius,startAngle,endAngle,segments,color)
+	return DrawCircleSector_2(GPData(center),radius,startAngle,endAngle,segments,GPData(color))
 
 func DrawCircleSectorLines center,radius,startAngle,endAngle,segments,color
-	return DrawCircleSectorLines_2(GPData(center),radius,startAngle,endAngle,segments,color)
+	return DrawCircleSectorLines_2(GPData(center),radius,startAngle,endAngle,segments,GPData(color))
 
 func DrawCircleV center, radius, color
-	return DrawCircleV_2(GPData(Center), radius, color)
+	return DrawCircleV_2(GPData(Center), radius, GPData(color))
 
 func DrawRing center, innerRadius, outerRadius, startAngle, endAngle, segments, color
-	return DrawRing_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, color)
+	return DrawRing_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, GPData(color))
 
 func DrawRingLines center, innerRadius, outerRadius, startAngle, endAngle, segments, color
-	return DrawRingLines_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, color)
+	return DrawRingLines_2(GPData(center), innerRadius, outerRadius, startAngle, endAngle, segments, GPData(color))
 
 func DrawRectangleV position, size, color
-	return DrawRectangleV_2(GPData(position), GPData(size), color)
+	return DrawRectangleV_2(GPData(position), GPData(size), GPData(color))
 
 func DrawTriangle v1, v2, v3, color
-	return DrawTriangle_2(GPData(v1), GPData(v2), GPData(v3), color)
+	return DrawTriangle_2(GPData(v1), GPData(v2), GPData(v3), GPData(color))
 
 func DrawTriangleLines v1, v2, v3, color
-	return DrawTriangleLines_2(GPData(v1), GPData(v2), GPData(v3), color)
+	return DrawTriangleLines_2(GPData(v1), GPData(v2), GPData(v3), GPData(color))
 
 func DrawTriangleFan points, numPoints, color
-	return DrawTriangleFan_2(points, numPoints, color)
+	return DrawTriangleFan_2(points, numPoints, GPData(color))
 
 func DrawPoly center, sides, radius, rotation, color
-	return DrawPoly_2(GPData(center), sides, radius, rotation, color)
+	return DrawPoly_2(GPData(center), sides, radius, rotation, GPData(color))
 
 func CheckCollisionCircles center1, radius1, center2, radius2
 	return CheckCollisionCircles_2(GPData(center1), radius1, GPData(center2), radius2)
@@ -247,40 +247,40 @@ func ColorFromHSV hsv
 	return ColorFromHSV_2(GPData(hsv))
 
 func DrawLine3D startPos, endPos, color
-	return DrawLine3D_2(GPData(startPos), GPData(endPos), color)
+	return DrawLine3D_2(GPData(startPos), GPData(endPos), GPData(color))
 
 func DrawCircle3D center, radius, rotationAxis, rotationAngle, color
-	return DrawCircle3D_2(GPData(center),radius, GPData(rotationAxis), rotationAngle, color)
+	return DrawCircle3D_2(GPData(center),radius, GPData(rotationAxis), rotationAngle, GPData(color))
 
 func DrawCube position, width,  height, length, color
-	return DrawCube_2(GPData(position), width,  height, length, color)
+	return DrawCube_2(GPData(position), width,  height, length, GPData(color))
 
 func DrawCubeV position, size, color
-	return DrawCubeV_2(GPData(position), GPData(size), color)
+	return DrawCubeV_2(GPData(position), GPData(size), GPData(color))
 
 func DrawCubeWires position, width, height, length, color
-	return DrawCubeWires_2(GPData(position), width, height, length, color)
+	return DrawCubeWires_2(GPData(position), width, height, length, GPData(color))
 
 func DrawCubeWiresV position, size, color
-	return DrawCubeWiresV_2(GPData(position), GPData(size), color)
+	return DrawCubeWiresV_2(GPData(position), GPData(size), GPData(color))
 
 func DrawSphere centerPos, radius, color
-	return DrawSphere_2(GPData(centerPos), radius, color)
+	return DrawSphere_2(GPData(centerPos), radius, GPData(color))
 
 func DrawSphereEx centerPos, radius, rings, slices, color
-	return DrawSphereEx_2(GPData(centerPos), radius, rings, slices, color)
+	return DrawSphereEx_2(GPData(centerPos), radius, rings, slices, GPData(color))
 
 func DrawSphereWires centerPos, radius, rings, slices, color
-	return DrawSphereWires_2(GPData(centerPos), radius, rings, slices, color)
+	return DrawSphereWires_2(GPData(centerPos), radius, rings, slices, GPData(color))
 
 func DrawCylinder position, radiusTop, radiusBottom, height,  slices, color
-	return DrawCylinder_2(GPData(position), radiusTop, radiusBottom, height,  slices, color)
+	return DrawCylinder_2(GPData(position), radiusTop, radiusBottom, height,  slices, GPData(color))
 
 func DrawCylinderWires position, radiusTop, radiusBottom, height, slices, color
-	return DrawCylinderWires_2(GPData(position), radiusTop, radiusBottom, height, slices, color)
+	return DrawCylinderWires_2(GPData(position), radiusTop, radiusBottom, height, slices, GPData(color))
 
 func DrawPlane centerPos, size, color
-	return DrawPlane_2(GPData(centerPos), GPData(size), color)
+	return DrawPlane_2(GPData(centerPos), GPData(size), GPData(color))
 
 func DrawGizmo position
 	return DrawGizmo_2(GPData(position))
@@ -292,49 +292,49 @@ func GenMeshCubicmap cubicmap, cubeSize
 	return GenMeshCubicmap_2(GPData(cubicmap), GPData(cubeSize))
 
 func DrawModel model,  position, scale,  tint
-	return DrawModel_2(model, GPData(position), scale,  tint)
+	return DrawModel_2(GPData(model), GPData(position), scale,  GPData(tint))
 
 func DrawModelEx model,  position, rotationAxis,  rotationAngle, scale,  tint
-	return DrawModelEx_2(model,  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  tint)
+	return DrawModelEx_2(GPData(model),  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  GPData(tint))
 
 func DrawModelWires model, position, scale, tint
-	return DrawModelWires_2(model, GPData(position), scale, tint)
+	return DrawModelWires_2(GPData(model), GPData(position), scale, GPData(tint))
 
 func DrawModelWiresEx model,  position, rotationAxis,  rotationAngle, scale,  tint
-	return DrawModelWiresEx_2(model,  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  tint)
+	return DrawModelWiresEx_2(GPData(model),  GPData(position), GPData(rotationAxis),  rotationAngle, GPData(scale),  GPData(tint))
 
 func CheckCollisionSpheres centerA,  radiusA, centerB,  radiusB
 	return CheckCollisionSpheres_2(GPData(centerA),  radiusA, GPData(centerB),  radiusB)
 
 func CheckCollisionBoxSphere box,  centerSphere,  radiusSphere
-	return CheckCollisionBoxSphere_2(box, GPData(centerSphere),  radiusSphere)
+	return CheckCollisionBoxSphere_2(GPData(box), GPData(centerSphere),  radiusSphere)
 
 func CheckCollisionRaySphere ray,  spherePosition,  sphereRadius
-	return CheckCollisionRaySphere_2(ray,  GPData(spherePosition),  sphereRadius)
+	return CheckCollisionRaySphere_2(GPData(ray),  GPData(spherePosition),  sphereRadius)
 
 func CheckCollisionRaySphereEx ray, spherePosition, sphereRadius, collisionPoint
-	return CheckCollisionRaySphereEx_2(ray, GPData(spherePosition), sphereRadius, GPData(collisionPoint))
+	return CheckCollisionRaySphereEx_2(GPData(ray), GPData(spherePosition), sphereRadius, GPData(collisionPoint))
 
 func GetCollisionRayTriangle ray, p1, p2, p3
-	return GetCollisionRayTriangle_2(ray, GPData(p1), GPData(p2), GPData(p3))
+	return GetCollisionRayTriangle_2(GPData(ray), GPData(p1), GPData(p2), GPData(p3))
 
 func DrawRectangleRec rec, color
-	return DrawRectangleRec_2(GPData(rec), color)
+	return DrawRectangleRec_2(GPData(rec), GPData(color))
 
 func DrawRectanglePro rec, origin, rotation, color
-	return DrawRectanglePro_2(GPData(rec), GPData(origin), rotation, color)
+	return DrawRectanglePro_2(GPData(rec), GPData(origin), rotation, GPData(color))
 
 func DrawRectangleGradientEx rec,  col1,  col2,  col3,  col4
 	return DrawRectangleGradientEx_2(GPData(rec),  col1,  col2,  col3,  col4)
 
 func DrawRectangleLinesEx rec,  lineThick, color
-	return DrawRectangleLinesEx_2(GPData(rec),  lineThick, color)
+	return DrawRectangleLinesEx_2(GPData(rec),  lineThick, GPData(color))
 
 func DrawRectangleRounded rec,  roundness,  segments,  color
-	return DrawRectangleRounded_2(GPData(rec),  roundness,  segments,  color)
+	return DrawRectangleRounded_2(GPData(rec),  roundness,  segments,  GPData(color))
 
 func DrawRectangleRoundedLines rec,  roundness,  segments,  lineThick, color
-	return DrawRectangleRoundedLines_2(GPData(rec),  roundness,  segments,  lineThick, color)
+	return DrawRectangleRoundedLines_2(GPData(rec),  roundness,  segments,  lineThick, GPData(color))
 
 func SetShapesTexture texture, source
 	return SetShapesTexture_2(GPData(texture), GPData(source))
@@ -365,22 +365,22 @@ func ImageDrawRectangleLines dst, rec, thick, color
 	return ImageDrawRectangleLines_2(GPData(dst), GPData(rec), thick, GPData(color))
 
 func DrawTextureRec texture, sourceRec, position, tint
-	return DrawTextureRec_2(GPData(texture), GPData(sourceRec), GPData(position), tint)
+	return DrawTextureRec_2(GPData(texture), GPData(sourceRec), GPData(position), GPData(tint))
 
 func DrawTextureQuad texture,  tiling, offset,  quad,  tint
-	return DrawTextureQuad_2(GPData(texture), GPData(tiling), GPData(offset), GPData(quad),  tint)
+	return DrawTextureQuad_2(GPData(texture), GPData(tiling), GPData(offset), GPData(quad),  GPData(tint))
 
 func DrawTexturePro texture, sourceRec,  destRec,  origin, rotation, tint
-	return DrawTexturePro_2(GPData(texture), GPData(sourceRec),  GPData(destRec), GPData(origin), rotation, tint)
+	return DrawTexturePro_2(GPData(texture), GPData(sourceRec),  GPData(destRec), GPData(origin), rotation, GPData(tint))
 
 func DrawTextureNPatch texture,  nPatchInfo, destRec,  origin,  rotation, tint
-	return DrawTextureNPatch_2(GPData(texture),  nPatchInfo, GPData(destRec), GPData(origin),  rotation, tint)
+	return DrawTextureNPatch_2(GPData(texture),  nPatchInfo, GPData(destRec), GPData(origin),  rotation, GPData(tint))
 
 func DrawTextRec font,  text,  rec,  fontSize,  spacing,  wordWrap,  tint
-	return DrawTextRec_2(font,  text, GPData(rec),  fontSize,  spacing,  wordWrap,  tint)
+	return DrawTextRec_2(GPData(font),  text, GPData(rec),  fontSize,  spacing,  wordWrap,  GPData(tint))
 
 func DrawTextRecEx font, text,  rec, fontSize, spacing, wordWrap, tint, selectStart, selectLength, selectText, selectBack
-	return DrawTextRecEx_2(font, text, GPData(rec), fontSize, spacing, wordWrap, tint, selectStart, selectLength, selectText, selectBack)
+	return DrawTextRecEx_2(GPData(font), text, GPData(rec), fontSize, spacing, wordWrap, GPData(tint), selectStart, selectLength, selectText, selectBack)
 
 func GuiWindowBox bounds, text
 	return GuiWindowBox_2(GPData(bounds), text)
@@ -481,7 +481,7 @@ func GetTouchPosition index
 	return  oVector
 
 func DrawRay ray, color 
-	return DrawRay_2(GPData(ray),color)
+	return DrawRay_2(GPData(ray),GPData(color))
 
 func CheckCollisionRayBox ray, box
 	return CheckCollisionRayBox_2(GPData(ray),GPData(box))
@@ -492,7 +492,7 @@ func LoadTextureFromImage p1
 	return oTexture
 
 func DrawTextureEx texture, position, rotation, scale, tint
-	return DrawTextureEx_2( GPData(texture) , GPData(position), rotation, scale, tint )
+	return DrawTextureEx_2( GPData(texture) , GPData(position), rotation, scale, GPData(tint ))
 
 func LoadImage fileName
 	oImage = new Image
