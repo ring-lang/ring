@@ -600,3 +600,11 @@ func GetMousePosition
 	oVector = new Vector2
 	oVector.setData( GetMousePosition_2()  )
 	return oVector
+
+func LoadTexture fileName
+	oTexture2D = new Texture2D
+	oTexture2D.setData( LoadTexture_2(fileName) )
+	return oTexture2D
+
+func setmodelmaterialtexture oModel,nIndex,nMap,oTexture
+	return setmodelmaterialtexture_2(GPData(oModel),nIndex,nMap,GPData(oTexture))

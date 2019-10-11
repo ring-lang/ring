@@ -222,7 +222,7 @@ Image LoadImagePro@2(void *data, int width, int height, int format)
 Image LoadImageRaw@2(const char *fileName, int width, int height, int format, int headerSize)
 void ExportImage(Image image, const char *fileName)
 void ExportImageAsCode(Image image, const char *fileName)
-Texture2D LoadTexture(const char *fileName)
+Texture2D LoadTexture@2(const char *fileName)
 Texture2D LoadTextureFromImage@2(Image image)
 TextureCubemap LoadTextureCubemap(Image image, int layoutType)
 RenderTexture2D LoadRenderTexture(int width, int height)
@@ -534,7 +534,7 @@ Special Functions - Added in RingRayLib
 </comment>
 
 <code>
-RING_FUNC(ring_setmodelmaterialtexture) {
+RING_FUNC(ring_setmodelmaterialtexture_2) {
 	Model *model;
 	int nMaterial,nMap;
 	Texture2D *texture;
@@ -551,5 +551,5 @@ RING_FUNC(ring_setmodelmaterialtexture) {
 </code>
 
 <register>
-void setmodelmaterialtexture(Model *p1,int p2,int p3,Texture2D *p4)
+void setmodelmaterialtexture_2(Model *p1,int p2,int p3,Texture2D *p4)
 </register>

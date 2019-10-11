@@ -11658,7 +11658,7 @@ RING_FUNC(ring_ExportImageAsCode)
 }
 
 
-RING_FUNC(ring_LoadTexture)
+RING_FUNC(ring_LoadTexture_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16893,7 +16893,7 @@ RING_FUNC(ring_GuiIconText)
 	RING_API_RETSTRING(GuiIconText( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2)));
 }
 
-RING_FUNC(ring_setmodelmaterialtexture) {
+RING_FUNC(ring_setmodelmaterialtexture_2) {
 	Model *model;
 	int nMaterial,nMap;
 	Texture2D *texture;
@@ -17076,7 +17076,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadimageraw_2",ring_LoadImageRaw_2);
 	ring_vm_funcregister("exportimage",ring_ExportImage);
 	ring_vm_funcregister("exportimageascode",ring_ExportImageAsCode);
-	ring_vm_funcregister("loadtexture",ring_LoadTexture);
+	ring_vm_funcregister("loadtexture_2",ring_LoadTexture_2);
 	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
 	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
@@ -17354,7 +17354,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("guiloadstyledefault",ring_GuiLoadStyleDefault);
 	ring_vm_funcregister("guiupdatestylecomplete",ring_GuiUpdateStyleComplete);
 	ring_vm_funcregister("guiicontext",ring_GuiIconText);
-	ring_vm_funcregister("setmodelmaterialtexture",ring_setmodelmaterialtexture);
+	ring_vm_funcregister("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
 	ring_vm_funcregister("raylib_new_vector2",ring_raylib_new_vector2);
 	ring_vm_funcregister("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
 	ring_vm_funcregister("raylib_destroy_vector2",ring_raylib_destroy_vector2);
