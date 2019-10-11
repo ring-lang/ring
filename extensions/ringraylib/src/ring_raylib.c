@@ -10353,7 +10353,7 @@ RING_FUNC(ring_GetMouseY)
 }
 
 
-RING_FUNC(ring_GetMousePosition)
+RING_FUNC(ring_GetMousePosition_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11528,7 +11528,7 @@ RING_FUNC(ring_LoadImage_2)
 		Image *pValue ; 
 		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
 		*pValue = LoadImage(RING_API_GETSTRING(1));
-		RING_API_RETCPOINTER(pValue,"Image");
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
 	}
 }
 
@@ -17009,7 +17009,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ismousebuttonup",ring_IsMouseButtonUp);
 	ring_vm_funcregister("getmousex",ring_GetMouseX);
 	ring_vm_funcregister("getmousey",ring_GetMouseY);
-	ring_vm_funcregister("getmouseposition",ring_GetMousePosition);
+	ring_vm_funcregister("getmouseposition_2",ring_GetMousePosition_2);
 	ring_vm_funcregister("setmouseposition",ring_SetMousePosition);
 	ring_vm_funcregister("setmouseoffset",ring_SetMouseOffset);
 	ring_vm_funcregister("setmousescale",ring_SetMouseScale);

@@ -155,10 +155,10 @@ func BeginMode3D camera
 	return BeginMode3D_2(GPData(Camera))
 
 func GetMouseRay mousePosition,camera
-	return GetMouseRay_2(mousePosition,GPData(Camera))
+	return GetMouseRay_2(GPData(mousePosition),GPData(Camera))
 
 func GetWorldToScreen position,camera
-	return GetWorldToScreen_2(position,GPData(Camera))
+	return GetWorldToScreen_2(GPData(position),GPData(Camera))
 
 func GetCameraMatrix camera
 	return GetCameraMatrix_2(GPData(Camera))
@@ -593,3 +593,8 @@ func LoadFont fileName
 
 func UnloadFont font
 	return UnloadFont_2(GPData(font))
+
+func GetMousePosition
+	oVector = new Vector2
+	oVector.setData( GetMousePosition_2()  )
+	return oVector
