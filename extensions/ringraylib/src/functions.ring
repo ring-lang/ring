@@ -343,9 +343,9 @@ func CheckCollisionRecs rec1,  rec2
 	return CheckCollisionRecs_2(GPData(rec1), GPData(rec2))
 
 func GetCollisionRec rec1, rec2
-	oVector = new Vector2
-	oVector.setData( GetCollisionRec_2(GPData(rec1), GPData(rec2)) )
-	return oVector
+	oRectangle = new Rectangle
+	oRectangle.setData( GetCollisionRec_2(GPData(rec1), GPData(rec2)) )
+	return oRectangle
 
 func ImageCrop image, crop
 	oImage = ImageCrop_2(GPData(image), GPData(crop))
