@@ -41,8 +41,8 @@ SetTargetFPS(10)
 while !WindowShouldClose()
 
 	if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_RIGHT)
-		currentTexture = (currentTexture + 1) % (NUM_TEXTURES + 1)
-		if currentTexture = 0  currentTexture++ ok
+		currentTexture++
+		if currentTexture = NUM_TEXTURES + 1  currentTexture = 1 ok
 	ok
 
 	BeginDrawing()
