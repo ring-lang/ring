@@ -42,7 +42,7 @@ while !WindowShouldClose()
 
 	if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_RIGHT)
 		currentTexture++
-		if currentTexture = NUM_TEXTURES + 1  currentTexture = 1 ok
+		if currentTexture > NUM_TEXTURES  currentTexture = 1 ok
 	ok
 
 	BeginDrawing()
