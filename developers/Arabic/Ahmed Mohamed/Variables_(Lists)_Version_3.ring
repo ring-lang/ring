@@ -1,30 +1,22 @@
 /*
-**	Application 	: Variables (Lists) Version 3
-**	Author 	    	: Ahmed Mohamed
-**	Date	    	: 2018/12/8
+	Application	: Variables (Lists) - Version 2
+	Author		: Ahmed Mohamed
+	Date		: 2019/10/14
 */
 
-#==================================================
 
-# Strings ---> Character, Array Of Characters, ML, Binary, NULL
-# Numbers ---> int, float | double, boolean (True | False)
-# Lists   ---> Array, List, Nested List, MD Array, Hash|Dic
+# Variables Types (Strings, Number, List, Object, C Object)
 
-myList = []
+aList = [
+	
+	:name 		= "Ahmed Mohamed",
+	:jop 		= "Developer",
+	:country 	= "Egypt",
+	:city		= "Alexandria"
+]
 
-add(myList, "One")
+? "Size = " + len(aList)
 
-? myList
-
-myList + "Two"
-
-? myList
-
-
-# + Operator
-# String + String  			---> Merge Strings
-# Number + Number  			---> Sum
-# String + Number  			---> Merge Strings (Convert)
-# Number + String  			---> Sum Numbers   (Convert)
-# List + (String|Number|List) 	---> Add Item	
-
+for aItem in aList 
+	? aItem[1] + " = " + aItem[2] 
+next
