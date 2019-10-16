@@ -1,27 +1,32 @@
 /*
-**	Application 	: Variables (Lists)
-**	Author 	    	: Ahmed Mohamed
-**	Date	    	: 2018/12/8
+	Application	: Variables (Lists)
+	Author		: Ahmed Mohamed
+	Date		: 2019/10/14
 */
 
-#==================================================
 
-# Strings ---> Character, Array Of Characters, ML, Binary, NULL
-# Numbers ---> int, float | double, boolean (True | False)
-# Lists   ---> Array, List, Nested List, MD Array, Hash|Dic
 
-myList = [1,2,3,4,5,6] # Dynamic
+# Variables Types (Strings, Number, List, Object, C Object)
 
-see myList
+aList = [
+	:name 		= "Ahmed Mohamed",
+	:jop 		= "Developer",
+	:country	= "Egypt"
+]
 
-? "Count : " + len(myList)
 
-myList2 = 1:10
+? aList
 
-? myList2
+aList = [
 
-myList3 = ["Ahmed", "Mohamed", 2018]
+	["name" 	, "Ahmed Mohamed"],
+	["jop" 		, "Developer"],
+	["country"	, "Egypt"]
+]
 
-? myList3
 
-? "Count : " + len(myList3)
+? aList
+
+
+
+
