@@ -15332,7 +15332,7 @@ RING_FUNC(ring_SetMasterVolume)
 }
 
 
-RING_FUNC(ring_LoadWave)
+RING_FUNC(ring_LoadWave_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15351,7 +15351,7 @@ RING_FUNC(ring_LoadWave)
 }
 
 
-RING_FUNC(ring_LoadWaveEx)
+RING_FUNC(ring_LoadWaveEx_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -15386,7 +15386,7 @@ RING_FUNC(ring_LoadWaveEx)
 }
 
 
-RING_FUNC(ring_LoadSound)
+RING_FUNC(ring_LoadSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15405,7 +15405,7 @@ RING_FUNC(ring_LoadSound)
 }
 
 
-RING_FUNC(ring_LoadSoundFromWave)
+RING_FUNC(ring_LoadSoundFromWave_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15422,7 +15422,7 @@ RING_FUNC(ring_LoadSoundFromWave)
 }
 
 
-RING_FUNC(ring_UpdateSound)
+RING_FUNC(ring_UpdateSound_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15442,7 +15442,7 @@ RING_FUNC(ring_UpdateSound)
 }
 
 
-RING_FUNC(ring_UnloadWave)
+RING_FUNC(ring_UnloadWave_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15454,7 +15454,7 @@ RING_FUNC(ring_UnloadWave)
 }
 
 
-RING_FUNC(ring_UnloadSound)
+RING_FUNC(ring_UnloadSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15466,7 +15466,7 @@ RING_FUNC(ring_UnloadSound)
 }
 
 
-RING_FUNC(ring_ExportWave)
+RING_FUNC(ring_ExportWave_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -15482,7 +15482,7 @@ RING_FUNC(ring_ExportWave)
 }
 
 
-RING_FUNC(ring_ExportWaveAsCode)
+RING_FUNC(ring_ExportWaveAsCode_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -15498,7 +15498,7 @@ RING_FUNC(ring_ExportWaveAsCode)
 }
 
 
-RING_FUNC(ring_PlaySound)
+RING_FUNC(ring_PlaySound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15510,7 +15510,7 @@ RING_FUNC(ring_PlaySound)
 }
 
 
-RING_FUNC(ring_PauseSound)
+RING_FUNC(ring_PauseSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15522,7 +15522,7 @@ RING_FUNC(ring_PauseSound)
 }
 
 
-RING_FUNC(ring_ResumeSound)
+RING_FUNC(ring_ResumeSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15534,7 +15534,7 @@ RING_FUNC(ring_ResumeSound)
 }
 
 
-RING_FUNC(ring_StopSound)
+RING_FUNC(ring_StopSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15546,7 +15546,7 @@ RING_FUNC(ring_StopSound)
 }
 
 
-RING_FUNC(ring_IsSoundPlaying)
+RING_FUNC(ring_IsSoundPlaying_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15558,7 +15558,7 @@ RING_FUNC(ring_IsSoundPlaying)
 }
 
 
-RING_FUNC(ring_SetSoundVolume)
+RING_FUNC(ring_SetSoundVolume_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -15574,7 +15574,7 @@ RING_FUNC(ring_SetSoundVolume)
 }
 
 
-RING_FUNC(ring_SetSoundPitch)
+RING_FUNC(ring_SetSoundPitch_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -15590,7 +15590,7 @@ RING_FUNC(ring_SetSoundPitch)
 }
 
 
-RING_FUNC(ring_WaveFormat)
+RING_FUNC(ring_WaveFormat_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -15616,7 +15616,7 @@ RING_FUNC(ring_WaveFormat)
 }
 
 
-RING_FUNC(ring_WaveCopy)
+RING_FUNC(ring_WaveCopy_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15633,7 +15633,7 @@ RING_FUNC(ring_WaveCopy)
 }
 
 
-RING_FUNC(ring_WaveCrop)
+RING_FUNC(ring_WaveCrop_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15655,7 +15655,7 @@ RING_FUNC(ring_WaveCrop)
 }
 
 
-RING_FUNC(ring_GetWaveData)
+RING_FUNC(ring_GetWaveData_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17265,26 +17265,26 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("closeaudiodevice",ring_CloseAudioDevice);
 	ring_vm_funcregister("isaudiodeviceready",ring_IsAudioDeviceReady);
 	ring_vm_funcregister("setmastervolume",ring_SetMasterVolume);
-	ring_vm_funcregister("loadwave",ring_LoadWave);
-	ring_vm_funcregister("loadwaveex",ring_LoadWaveEx);
-	ring_vm_funcregister("loadsound",ring_LoadSound);
-	ring_vm_funcregister("loadsoundfromwave",ring_LoadSoundFromWave);
-	ring_vm_funcregister("updatesound",ring_UpdateSound);
-	ring_vm_funcregister("unloadwave",ring_UnloadWave);
-	ring_vm_funcregister("unloadsound",ring_UnloadSound);
-	ring_vm_funcregister("exportwave",ring_ExportWave);
-	ring_vm_funcregister("exportwaveascode",ring_ExportWaveAsCode);
-	ring_vm_funcregister("playsound",ring_PlaySound);
-	ring_vm_funcregister("pausesound",ring_PauseSound);
-	ring_vm_funcregister("resumesound",ring_ResumeSound);
-	ring_vm_funcregister("stopsound",ring_StopSound);
-	ring_vm_funcregister("issoundplaying",ring_IsSoundPlaying);
-	ring_vm_funcregister("setsoundvolume",ring_SetSoundVolume);
-	ring_vm_funcregister("setsoundpitch",ring_SetSoundPitch);
-	ring_vm_funcregister("waveformat",ring_WaveFormat);
-	ring_vm_funcregister("wavecopy",ring_WaveCopy);
-	ring_vm_funcregister("wavecrop",ring_WaveCrop);
-	ring_vm_funcregister("getwavedata",ring_GetWaveData);
+	ring_vm_funcregister("loadwave_2",ring_LoadWave_2);
+	ring_vm_funcregister("loadwaveex_2",ring_LoadWaveEx_2);
+	ring_vm_funcregister("loadsound_2",ring_LoadSound_2);
+	ring_vm_funcregister("loadsoundfromwave_2",ring_LoadSoundFromWave_2);
+	ring_vm_funcregister("updatesound_2",ring_UpdateSound_2);
+	ring_vm_funcregister("unloadwave_2",ring_UnloadWave_2);
+	ring_vm_funcregister("unloadsound_2",ring_UnloadSound_2);
+	ring_vm_funcregister("exportwave_2",ring_ExportWave_2);
+	ring_vm_funcregister("exportwaveascode_2",ring_ExportWaveAsCode_2);
+	ring_vm_funcregister("playsound_2",ring_PlaySound_2);
+	ring_vm_funcregister("pausesound_2",ring_PauseSound_2);
+	ring_vm_funcregister("resumesound_2",ring_ResumeSound_2);
+	ring_vm_funcregister("stopsound_2",ring_StopSound_2);
+	ring_vm_funcregister("issoundplaying_2",ring_IsSoundPlaying_2);
+	ring_vm_funcregister("setsoundvolume_2",ring_SetSoundVolume_2);
+	ring_vm_funcregister("setsoundpitch_2",ring_SetSoundPitch_2);
+	ring_vm_funcregister("waveformat_2",ring_WaveFormat_2);
+	ring_vm_funcregister("wavecopy_2",ring_WaveCopy_2);
+	ring_vm_funcregister("wavecrop_2",ring_WaveCrop_2);
+	ring_vm_funcregister("getwavedata_2",ring_GetWaveData_2);
 	ring_vm_funcregister("loadmusicstream",ring_LoadMusicStream);
 	ring_vm_funcregister("unloadmusicstream",ring_UnloadMusicStream);
 	ring_vm_funcregister("playmusicstream",ring_PlayMusicStream);

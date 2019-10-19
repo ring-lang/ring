@@ -611,3 +611,73 @@ func setmodelmaterialtexture oModel,nIndex,nMap,oTexture
 
 func GetImageData image
 	return GetImageData_2(GPData(image))
+
+func LoadWave fileName
+	oWave = new Wave
+	oWave.setData( LoadWave_2(fileName) )
+	return oWave
+
+func LoadWaveEx data, sampleCount, sampleRate, sampleSize, channels
+	oWave = new Wave
+	oWave.setData( LoadWaveEx_2(data, sampleCount, sampleRate, sampleSize, channels) )
+	return oWave
+
+func LoadSound fileName
+	oSound = new Sound
+	oSound.setData( LoadSound_2(fileName) )
+	return oSound
+
+func LoadSoundFromWave wave
+	oSound = new Sound
+	oSound.setData( LoadSoundFromWave_2(wave) )
+	return oSound
+
+func UpdateSound sound, data, samplesCount
+	return UpdateSound_2(GPData(sound), data, samplesCount)
+
+func UnloadWave wave
+	return UnloadWave_2(GPData(wave))
+
+func UnloadSound sound
+	return UnloadSound_2(GPData(sound))
+
+func ExportWave wave, fileName
+	return ExportWave_2(GPData(wave), fileName)
+
+func ExportWaveAsCode wave, fileName
+	return ExportWaveAsCode_2(GPData(wave), fileName)
+
+func PlaySound sound
+	return PlaySound_2(GPData(Sound))
+
+func PauseSound sound
+	return PauseSound_2(GPData(sound))
+
+func ResumeSound sound
+	return ResumeSound_2(GPData(sound))
+
+func StopSound sound
+	return StopSound_2(GPData(sound))
+
+func IsSoundPlaying sound
+	return IsSoundPlaying_2(GPData(sound))
+
+func SetSoundVolume sound, volume
+	return SetSoundVolume_2(GPData(sound), volume)
+
+func SetSoundPitch sound, pitch
+	return SetSoundPitch_2(GPData(sound), pitch)
+
+func WaveFormat wave, sampleRate, sampleSize, channels
+	return WaveFormat_2(GPData(wave), sampleRate, sampleSize, channels)
+
+func WaveCopy wave
+	oWave = new Wave
+	oWave.setData( WaveCopy_2(GPData(wave)) )
+	return oWave
+
+func WaveCrop wave, initSample, finalSample
+	return WaveCrop_2(GPData(wave), initSample, finalSample)
+
+func GetWaveData wave
+	return GetWaveData_2(GPData(wave))
