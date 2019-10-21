@@ -12,7 +12,7 @@ class RNoteControllerBase from WindowsControllerParent
 	oTFont 			= new qfont("",0,0,0)
 	lSetProjectFilesFont	= True
 
-	cWebsite 		= "http://www.ring-lang.sf.net/doc1.10/index.html"
+	cWebsite 		= "http://www.ring-lang.sf.net/doc1.11/index.html"
 
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
