@@ -209,8 +209,9 @@ Objects Library Source Code
 
 The library source code is very simple, You can check the source code files 
 
-* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/objects.ring
-* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/objectslib/subwindows.ring
+* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring
+* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring
+* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring
 
 .. index:: 
 	pair: Objects Library for RingQt Application; Open_WindowAndLink() Function
