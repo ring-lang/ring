@@ -3,6 +3,7 @@
 #ifndef GBLUETOOTHTRANSFERREPLY_H
 #define GBLUETOOTHTRANSFERREPLY_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QBluetoothTransferReply>
 extern "C" {
 #include "ring.h"
@@ -19,9 +20,9 @@ class GBluetoothTransferReply : public QBluetoothTransferReply
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cfinishedEvent[100];
-    char ctransferProgressEvent[100];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char cfinishedEvent[RINGQT_EVENT_SIZE];
+    char ctransferProgressEvent[RINGQT_EVENT_SIZE];
 
 
     GBluetoothTransferReply(QObject *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GPLAINTEXTEDIT_H
 #define GPLAINTEXTEDIT_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QPlainTextEdit>
 extern "C" {
 #include "ring.h"
@@ -19,15 +20,15 @@ class GPlainTextEdit : public QPlainTextEdit
 
     List *pParaList;
 
-    char cblockCountChangedEvent[100];
-    char ccopyAvailableEvent[100];
-    char ccursorPositionChangedEvent[100];
-    char cmodificationChangedEvent[100];
-    char credoAvailableEvent[100];
-    char cselectionChangedEvent[100];
-    char ctextChangedEvent[100];
-    char cundoAvailableEvent[100];
-    char cupdateRequestEvent[100];
+    char cblockCountChangedEvent[RINGQT_EVENT_SIZE];
+    char ccopyAvailableEvent[RINGQT_EVENT_SIZE];
+    char ccursorPositionChangedEvent[RINGQT_EVENT_SIZE];
+    char cmodificationChangedEvent[RINGQT_EVENT_SIZE];
+    char credoAvailableEvent[RINGQT_EVENT_SIZE];
+    char cselectionChangedEvent[RINGQT_EVENT_SIZE];
+    char ctextChangedEvent[RINGQT_EVENT_SIZE];
+    char cundoAvailableEvent[RINGQT_EVENT_SIZE];
+    char cupdateRequestEvent[RINGQT_EVENT_SIZE];
 
 
     GPlainTextEdit(QWidget *parent,VM *pVM );

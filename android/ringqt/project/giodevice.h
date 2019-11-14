@@ -3,6 +3,7 @@
 #ifndef GIODEVICE_H
 #define GIODEVICE_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QIODevice>
 extern "C" {
 #include "ring.h"
@@ -19,10 +20,10 @@ class GIODevice : public QIODevice
 
     List *pParaList;
 
-    char caboutToCloseEvent[100];
-    char cbytesWrittenEvent[100];
-    char creadChannelFinishedEvent[100];
-    char creadyReadEvent[100];
+    char caboutToCloseEvent[RINGQT_EVENT_SIZE];
+    char cbytesWrittenEvent[RINGQT_EVENT_SIZE];
+    char creadChannelFinishedEvent[RINGQT_EVENT_SIZE];
+    char creadyReadEvent[RINGQT_EVENT_SIZE];
 
 
     GIODevice(QObject *parent,VM *pVM );

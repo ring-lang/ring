@@ -3,6 +3,7 @@
 #ifndef GNETWORKACCESSMANAGER_H
 #define GNETWORKACCESSMANAGER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QNetworkAccessManager>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GNetworkAccessManager : public QNetworkAccessManager
 
     List *pParaList;
 
-    char cfinishedEvent[100];
+    char cfinishedEvent[RINGQT_EVENT_SIZE];
 
 
     GNetworkAccessManager(QObject *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GTREEVIEW_H
 #define GTREEVIEW_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTreeView>
 extern "C" {
 #include "ring.h"
@@ -19,14 +20,14 @@ class GTreeView : public QTreeView
 
     List *pParaList;
 
-    char ccollapsedEvent[100];
-    char cexpandedEvent[100];
-    char cactivatedEvent[100];
-    char cclickedEvent[100];
-    char cdoubleClickedEvent[100];
-    char centeredEvent[100];
-    char cpressedEvent[100];
-    char cviewportEnteredEvent[100];
+    char ccollapsedEvent[RINGQT_EVENT_SIZE];
+    char cexpandedEvent[RINGQT_EVENT_SIZE];
+    char cactivatedEvent[RINGQT_EVENT_SIZE];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char cdoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char centeredEvent[RINGQT_EVENT_SIZE];
+    char cpressedEvent[RINGQT_EVENT_SIZE];
+    char cviewportEnteredEvent[RINGQT_EVENT_SIZE];
 
 
     GTreeView(QWidget *parent,VM *pVM );

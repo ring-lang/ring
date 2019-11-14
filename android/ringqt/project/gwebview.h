@@ -3,6 +3,7 @@
 #ifndef GWEBVIEW_H
 #define GWEBVIEW_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QWebView>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GWebView : public QWebView
 
     List *pParaList;
 
-    char cloadFinishedEvent[100];
-    char cloadProgressEvent[100];
-    char cloadStartedEvent[100];
-    char cselectionChangedEvent[100];
-    char ctitleChangedEvent[100];
-    char curlChangedEvent[100];
+    char cloadFinishedEvent[RINGQT_EVENT_SIZE];
+    char cloadProgressEvent[RINGQT_EVENT_SIZE];
+    char cloadStartedEvent[RINGQT_EVENT_SIZE];
+    char cselectionChangedEvent[RINGQT_EVENT_SIZE];
+    char ctitleChangedEvent[RINGQT_EVENT_SIZE];
+    char curlChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GWebView(QWidget *parent,VM *pVM );

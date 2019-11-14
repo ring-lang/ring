@@ -3,6 +3,7 @@
 #ifndef GVIDEOWIDGET_H
 #define GVIDEOWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QVideoWidget>
 extern "C" {
 #include "ring.h"
@@ -19,11 +20,11 @@ class GVideoWidget : public QVideoWidget
 
     List *pParaList;
 
-    char cbrightnessChangedEvent[100];
-    char ccontrastChangedEvent[100];
-    char cfullScreenChangedEvent[100];
-    char chueChangedEvent[100];
-    char csaturationChangedEvent[100];
+    char cbrightnessChangedEvent[RINGQT_EVENT_SIZE];
+    char ccontrastChangedEvent[RINGQT_EVENT_SIZE];
+    char cfullScreenChangedEvent[RINGQT_EVENT_SIZE];
+    char chueChangedEvent[RINGQT_EVENT_SIZE];
+    char csaturationChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GVideoWidget(QWidget *parent,VM *pVM );

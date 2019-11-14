@@ -3,6 +3,7 @@
 #ifndef GBLUETOOTHTRANSFERMANAGER_H
 #define GBLUETOOTHTRANSFERMANAGER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QBluetoothTransferManager>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GBluetoothTransferManager : public QBluetoothTransferManager
 
     List *pParaList;
 
-    char cfinishedEvent[100];
+    char cfinishedEvent[RINGQT_EVENT_SIZE];
 
 
     GBluetoothTransferManager(QObject *parent,VM *pVM );

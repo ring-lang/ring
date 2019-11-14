@@ -3,6 +3,7 @@
 #ifndef GGEOPOSITIONINFOSOURCE_H
 #define GGEOPOSITIONINFOSOURCE_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QGeoPositionInfoSource>
 extern "C" {
 #include "ring.h"
@@ -19,9 +20,9 @@ class GGeoPositionInfoSource : public QGeoPositionInfoSource
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cpositionUpdatedEvent[100];
-    char cupdateTimeoutEvent[100];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char cpositionUpdatedEvent[RINGQT_EVENT_SIZE];
+    char cupdateTimeoutEvent[RINGQT_EVENT_SIZE];
 
 
     GGeoPositionInfoSource(QObject *parent,VM *pVM );

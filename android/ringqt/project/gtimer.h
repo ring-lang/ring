@@ -3,6 +3,7 @@
 #ifndef GTIMER_H
 #define GTIMER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTimer>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GTimer : public QTimer
 
     List *pParaList;
 
-    char ctimeoutEvent[100];
+    char ctimeoutEvent[RINGQT_EVENT_SIZE];
 
 
     GTimer(QObject *parent,VM *pVM );

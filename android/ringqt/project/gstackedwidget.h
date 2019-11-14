@@ -3,6 +3,7 @@
 #ifndef GSTACKEDWIDGET_H
 #define GSTACKEDWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QStackedWidget>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GStackedWidget : public QStackedWidget
 
     List *pParaList;
 
-    char ccurrentChangedEvent[100];
-    char cwidgetRemovedEvent[100];
+    char ccurrentChangedEvent[RINGQT_EVENT_SIZE];
+    char cwidgetRemovedEvent[RINGQT_EVENT_SIZE];
 
 
     GStackedWidget(QWidget *parent,VM *pVM );

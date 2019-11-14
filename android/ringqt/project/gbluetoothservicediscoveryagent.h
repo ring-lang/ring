@@ -3,6 +3,7 @@
 #ifndef GBLUETOOTHSERVICEDISCOVERYAGENT_H
 #define GBLUETOOTHSERVICEDISCOVERYAGENT_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QBluetoothServiceDiscoveryAgent>
 extern "C" {
 #include "ring.h"
@@ -19,10 +20,10 @@ class GBluetoothServiceDiscoveryAgent : public QBluetoothServiceDiscoveryAgent
 
     List *pParaList;
 
-    char ccanceledEvent[100];
-    char cerrorEvent[100];
-    char cfinishedEvent[100];
-    char cserviceDiscoveredEvent[100];
+    char ccanceledEvent[RINGQT_EVENT_SIZE];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char cfinishedEvent[RINGQT_EVENT_SIZE];
+    char cserviceDiscoveredEvent[RINGQT_EVENT_SIZE];
 
 
     GBluetoothServiceDiscoveryAgent(QObject *parent,VM *pVM );

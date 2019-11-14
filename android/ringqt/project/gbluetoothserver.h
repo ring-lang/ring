@@ -3,6 +3,7 @@
 #ifndef GBLUETOOTHSERVER_H
 #define GBLUETOOTHSERVER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QBluetoothServer>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GBluetoothServer : public QBluetoothServer
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cnewConnectionEvent[100];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char cnewConnectionEvent[RINGQT_EVENT_SIZE];
 
 
     GBluetoothServer(QBluetoothServiceInfo::Protocol x,QObject *parent,VM *pVM );

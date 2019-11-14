@@ -3,6 +3,7 @@
 #ifndef GPROCESS_H
 #define GPROCESS_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QProcess>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GProcess : public QProcess
 
     List *pParaList;
 
-    char creadyReadStandardErrorEvent[100];
-    char creadyReadStandardOutputEvent[100];
+    char creadyReadStandardErrorEvent[RINGQT_EVENT_SIZE];
+    char creadyReadStandardOutputEvent[RINGQT_EVENT_SIZE];
 
 
     GProcess(QObject *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GQUICKWIDGET_H
 #define GQUICKWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QQuickWidget>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GQuickWidget : public QQuickWidget
 
     List *pParaList;
 
-    char csceneGraphErrorEvent[100];
-    char cstatusChangedEvent[100];
+    char csceneGraphErrorEvent[RINGQT_EVENT_SIZE];
+    char cstatusChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GQuickWidget(QWidget *parent,VM *pVM );

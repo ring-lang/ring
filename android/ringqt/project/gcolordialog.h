@@ -3,6 +3,7 @@
 #ifndef GCOLORDIALOG_H
 #define GCOLORDIALOG_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QColorDialog>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GColorDialog : public QColorDialog
 
     List *pParaList;
 
-    char ccolorSelectedEvent[100];
-    char ccurrentColorChangedEvent[100];
+    char ccolorSelectedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentColorChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GColorDialog(QWidget *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GPROGRESSBAR_H
 #define GPROGRESSBAR_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QProgressBar>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GProgressBar : public QProgressBar
 
     List *pParaList;
 
-    char cvalueChangedEvent[100];
+    char cvalueChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GProgressBar(QWidget *parent,VM *pVM );

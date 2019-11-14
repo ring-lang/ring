@@ -3,6 +3,7 @@
 #ifndef GSERIALPORT_H
 #define GSERIALPORT_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QSerialPort>
 extern "C" {
 #include "ring.h"
@@ -19,15 +20,15 @@ class GSerialPort : public QSerialPort
 
     List *pParaList;
 
-    char cbaudRateChangedEvent[100];
-    char cbreakEnabledChangedEvent[100];
-    char cdataBitsChangedEvent[100];
-    char cdataTerminalReadyChangedEvent[100];
-    char cerrorEvent[100];
-    char cflowControlChangedEvent[100];
-    char cparityChangedEvent[100];
-    char crequestToSendChangedEvent[100];
-    char cstopBitsChangedEvent[100];
+    char cbaudRateChangedEvent[RINGQT_EVENT_SIZE];
+    char cbreakEnabledChangedEvent[RINGQT_EVENT_SIZE];
+    char cdataBitsChangedEvent[RINGQT_EVENT_SIZE];
+    char cdataTerminalReadyChangedEvent[RINGQT_EVENT_SIZE];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char cflowControlChangedEvent[RINGQT_EVENT_SIZE];
+    char cparityChangedEvent[RINGQT_EVENT_SIZE];
+    char crequestToSendChangedEvent[RINGQT_EVENT_SIZE];
+    char cstopBitsChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GSerialPort(QObject *parent,VM *pVM );

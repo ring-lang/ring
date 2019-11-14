@@ -3,6 +3,7 @@
 #ifndef GTHREAD_H
 #define GTHREAD_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QThread>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GThread : public QThread
 
     List *pParaList;
 
-    char cStartedEvent[100];
-    char cFinishedEvent[100];
+    char cStartedEvent[RINGQT_EVENT_SIZE];
+    char cFinishedEvent[RINGQT_EVENT_SIZE];
 
 
     GThread(QObject *parent,VM *pVM );

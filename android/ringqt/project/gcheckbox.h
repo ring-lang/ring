@@ -3,6 +3,7 @@
 #ifndef GCHECKBOX_H
 #define GCHECKBOX_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QCheckBox>
 extern "C" {
 #include "ring.h"
@@ -19,11 +20,11 @@ class GCheckBox : public QCheckBox
 
     List *pParaList;
 
-    char cstateChangedEvent[100];
-    char cclickedEvent[100];
-    char cpressedEvent[100];
-    char creleasedEvent[100];
-    char ctoggledEvent[100];
+    char cstateChangedEvent[RINGQT_EVENT_SIZE];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char cpressedEvent[RINGQT_EVENT_SIZE];
+    char creleasedEvent[RINGQT_EVENT_SIZE];
+    char ctoggledEvent[RINGQT_EVENT_SIZE];
 
 
     GCheckBox(QWidget *parent,VM *pVM );

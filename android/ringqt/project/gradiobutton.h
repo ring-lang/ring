@@ -3,6 +3,7 @@
 #ifndef GRADIOBUTTON_H
 #define GRADIOBUTTON_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QRadioButton>
 extern "C" {
 #include "ring.h"
@@ -19,10 +20,10 @@ class GRadioButton : public QRadioButton
 
     List *pParaList;
 
-    char cclickedEvent[100];
-    char cpressedEvent[100];
-    char creleasedEvent[100];
-    char ctoggledEvent[100];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char cpressedEvent[RINGQT_EVENT_SIZE];
+    char creleasedEvent[RINGQT_EVENT_SIZE];
+    char ctoggledEvent[RINGQT_EVENT_SIZE];
 
 
     GRadioButton(QWidget *parent,VM *pVM );

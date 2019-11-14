@@ -3,6 +3,7 @@
 #ifndef GBLUETOOTHLOCALDEVICE_H
 #define GBLUETOOTHLOCALDEVICE_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QBluetoothLocalDevice>
 extern "C" {
 #include "ring.h"
@@ -19,13 +20,13 @@ class GBluetoothLocalDevice : public QBluetoothLocalDevice
 
     List *pParaList;
 
-    char cdeviceConnectedEvent[100];
-    char cdeviceDisconnectedEvent[100];
-    char cerrorEvent[100];
-    char chostModeStateChangedEvent[100];
-    char cpairingDisplayConfirmationEvent[100];
-    char cpairingDisplayPinCodeEvent[100];
-    char cpairingFinishedEvent[100];
+    char cdeviceConnectedEvent[RINGQT_EVENT_SIZE];
+    char cdeviceDisconnectedEvent[RINGQT_EVENT_SIZE];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char chostModeStateChangedEvent[RINGQT_EVENT_SIZE];
+    char cpairingDisplayConfirmationEvent[RINGQT_EVENT_SIZE];
+    char cpairingDisplayPinCodeEvent[RINGQT_EVENT_SIZE];
+    char cpairingFinishedEvent[RINGQT_EVENT_SIZE];
 
 
     GBluetoothLocalDevice(QObject *parent,VM *pVM );

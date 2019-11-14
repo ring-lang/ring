@@ -1,15 +1,15 @@
 
 /* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef GTOOLBUTTON_H
-#define GTOOLBUTTON_H
+#ifndef GFRAMEACTION_H
+#define GFRAMEACTION_H
 #include <QApplication>
 #include "ringqt.h"
-#include <QToolButton>
+#include <Qt3DLogic/QFrameAction>
 extern "C" {
 #include "ring.h"
 }
 
-class GToolButton : public QToolButton
+class GFrameAction : public Qt3DLogic::QFrameAction
 {
 
   Q_OBJECT
@@ -21,27 +21,23 @@ class GToolButton : public QToolButton
     List *pParaList;
 
     char ctriggeredEvent[RINGQT_EVENT_SIZE];
-    char cClickEvent[RINGQT_EVENT_SIZE];
 
 
-    GToolButton(QWidget *parent,VM *pVM );
+    GFrameAction(Qt3DCore::QNode *parent,VM *pVM );
 
-    ~GToolButton();
+    ~GFrameAction();
 
     void geteventparameters(void) ;
 
     void settriggeredEvent(const char *cStr);
-    void setClickEvent(const char *cStr);
 
 
     const char *gettriggeredEvent(void);
-    const char *getClickEvent(void);
 
 
   public slots:
 
     void triggeredSlot();
-    void clickedSlot();
 
 };
 

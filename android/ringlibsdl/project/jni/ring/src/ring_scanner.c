@@ -69,10 +69,16 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		} else {
-			if ( pRingState->nWarning ) {
-				printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
+			/* Be Sure that we are not using the (Load Again) command */
+			if ( ! pRingState->lLoadAgain ) {
+				if ( pRingState->nWarning ) {
+					printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
+				}
+				return 1 ;
 			}
-			return 1 ;
+			else {
+				ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
+			}
 		}
 	}
 	/* Switch To File Folder */

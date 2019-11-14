@@ -3,6 +3,7 @@
 #ifndef GTCPSERVER_H
 #define GTCPSERVER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTcpServer>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GTcpServer : public QTcpServer
 
     List *pParaList;
 
-    char cacceptErrorEvent[100];
-    char cnewConnectionEvent[100];
+    char cacceptErrorEvent[RINGQT_EVENT_SIZE];
+    char cnewConnectionEvent[RINGQT_EVENT_SIZE];
 
 
     GTcpServer(QObject *parent,VM *pVM );

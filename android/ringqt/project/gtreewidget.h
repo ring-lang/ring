@@ -3,6 +3,7 @@
 #ifndef GTREEWIDGET_H
 #define GTREEWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTreeWidget>
 extern "C" {
 #include "ring.h"
@@ -19,24 +20,24 @@ class GTreeWidget : public QTreeWidget
 
     List *pParaList;
 
-    char ccollapsedEvent[100];
-    char cexpandedEvent[100];
-    char cactivatedEvent[100];
-    char cclickedEvent[100];
-    char cdoubleClickedEvent[100];
-    char centeredEvent[100];
-    char cpressedEvent[100];
-    char cviewportEnteredEvent[100];
-    char ccurrentItemChangedEvent[100];
-    char citemActivatedEvent[100];
-    char citemChangedEvent[100];
-    char citemClickedEvent[100];
-    char citemCollapsedEvent[100];
-    char citemDoubleClickedEvent[100];
-    char citemEnteredEvent[100];
-    char citemExpandedEvent[100];
-    char citemPressedEvent[100];
-    char citemSelectionChangedEvent[100];
+    char ccollapsedEvent[RINGQT_EVENT_SIZE];
+    char cexpandedEvent[RINGQT_EVENT_SIZE];
+    char cactivatedEvent[RINGQT_EVENT_SIZE];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char cdoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char centeredEvent[RINGQT_EVENT_SIZE];
+    char cpressedEvent[RINGQT_EVENT_SIZE];
+    char cviewportEnteredEvent[RINGQT_EVENT_SIZE];
+    char ccurrentItemChangedEvent[RINGQT_EVENT_SIZE];
+    char citemActivatedEvent[RINGQT_EVENT_SIZE];
+    char citemChangedEvent[RINGQT_EVENT_SIZE];
+    char citemClickedEvent[RINGQT_EVENT_SIZE];
+    char citemCollapsedEvent[RINGQT_EVENT_SIZE];
+    char citemDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char citemEnteredEvent[RINGQT_EVENT_SIZE];
+    char citemExpandedEvent[RINGQT_EVENT_SIZE];
+    char citemPressedEvent[RINGQT_EVENT_SIZE];
+    char citemSelectionChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GTreeWidget(QWidget *parent,VM *pVM );
