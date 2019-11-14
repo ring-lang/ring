@@ -3,6 +3,7 @@
 #ifndef GTABLEWIDGET_H
 #define GTABLEWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTableWidget>
 extern "C" {
 #include "ring.h"
@@ -19,21 +20,21 @@ class GTableWidget : public QTableWidget
 
     List *pParaList;
 
-    char ccellActivatedEvent[200];
-    char ccellChangedEvent[200];
-    char ccellClickedEvent[200];
-    char ccellDoubleClickedEvent[200];
-    char ccellEnteredEvent[200];
-    char ccellPressedEvent[200];
-    char ccurrentCellChangedEvent[200];
-    char ccurrentItemChangedEvent[200];
-    char citemActivatedEvent[200];
-    char citemChangedEvent[200];
-    char citemClickedEvent[200];
-    char citemDoubleClickedEvent[200];
-    char citemEnteredEvent[200];
-    char citemPressedEvent[200];
-    char citemSelectionChangedEvent[200];
+    char ccellActivatedEvent[RINGQT_EVENT_SIZE];
+    char ccellChangedEvent[RINGQT_EVENT_SIZE];
+    char ccellClickedEvent[RINGQT_EVENT_SIZE];
+    char ccellDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char ccellEnteredEvent[RINGQT_EVENT_SIZE];
+    char ccellPressedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentCellChangedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentItemChangedEvent[RINGQT_EVENT_SIZE];
+    char citemActivatedEvent[RINGQT_EVENT_SIZE];
+    char citemChangedEvent[RINGQT_EVENT_SIZE];
+    char citemClickedEvent[RINGQT_EVENT_SIZE];
+    char citemDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char citemEnteredEvent[RINGQT_EVENT_SIZE];
+    char citemPressedEvent[RINGQT_EVENT_SIZE];
+    char citemSelectionChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GTableWidget(QWidget *parent,VM *pVM );

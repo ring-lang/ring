@@ -3,6 +3,7 @@
 #ifndef GPRINTPREVIEWWIDGET_H
 #define GPRINTPREVIEWWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QPrintPreviewWidget>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GPrintPreviewWidget : public QPrintPreviewWidget
 
     List *pParaList;
 
-    char cpaintRequestedEvent[200];
-    char cpreviewChangedEvent[200];
+    char cpaintRequestedEvent[RINGQT_EVENT_SIZE];
+    char cpreviewChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GPrintPreviewWidget(QPrinter *parent,VM *pVM );

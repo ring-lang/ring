@@ -3,6 +3,7 @@
 #ifndef GTOOLBUTTON_H
 #define GTOOLBUTTON_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QToolButton>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GToolButton : public QToolButton
 
     List *pParaList;
 
-    char ctriggeredEvent[200];
-    char cClickEvent[200];
+    char ctriggeredEvent[RINGQT_EVENT_SIZE];
+    char cClickEvent[RINGQT_EVENT_SIZE];
 
 
     GToolButton(QWidget *parent,VM *pVM );

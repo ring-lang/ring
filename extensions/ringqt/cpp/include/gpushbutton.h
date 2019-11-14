@@ -3,6 +3,7 @@
 #ifndef GPUSHBUTTON_H
 #define GPUSHBUTTON_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QPushButton>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GPushButton : public QPushButton
 
     List *pParaList;
 
-    char cClickEvent[200];
+    char cClickEvent[RINGQT_EVENT_SIZE];
 
 
     GPushButton(QWidget *parent,VM *pVM );

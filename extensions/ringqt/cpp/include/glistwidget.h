@@ -3,6 +3,7 @@
 #ifndef GLISTWIDGET_H
 #define GLISTWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QListWidget>
 extern "C" {
 #include "ring.h"
@@ -19,16 +20,16 @@ class GListWidget : public QListWidget
 
     List *pParaList;
 
-    char ccurrentItemChangedEvent[200];
-    char ccurrentRowChangedEvent[200];
-    char ccurrentTextChangedEvent[200];
-    char citemActivatedEvent[200];
-    char citemChangedEvent[200];
-    char citemClickedEvent[200];
-    char citemDoubleClickedEvent[200];
-    char citemEnteredEvent[200];
-    char citemPressedEvent[200];
-    char citemSelectionChangedEvent[200];
+    char ccurrentItemChangedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentRowChangedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentTextChangedEvent[RINGQT_EVENT_SIZE];
+    char citemActivatedEvent[RINGQT_EVENT_SIZE];
+    char citemChangedEvent[RINGQT_EVENT_SIZE];
+    char citemClickedEvent[RINGQT_EVENT_SIZE];
+    char citemDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char citemEnteredEvent[RINGQT_EVENT_SIZE];
+    char citemPressedEvent[RINGQT_EVENT_SIZE];
+    char citemSelectionChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GListWidget(QWidget *parent,VM *pVM );

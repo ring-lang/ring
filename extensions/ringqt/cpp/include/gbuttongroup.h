@@ -3,6 +3,7 @@
 #ifndef GBUTTONGROUP_H
 #define GBUTTONGROUP_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QButtonGroup>
 extern "C" {
 #include "ring.h"
@@ -19,9 +20,9 @@ class GButtonGroup : public QButtonGroup
 
     List *pParaList;
 
-    char cbuttonClickedEvent[200];
-    char cbuttonPressedEvent[200];
-    char cbuttonReleasedEvent[200];
+    char cbuttonClickedEvent[RINGQT_EVENT_SIZE];
+    char cbuttonPressedEvent[RINGQT_EVENT_SIZE];
+    char cbuttonReleasedEvent[RINGQT_EVENT_SIZE];
 
 
     GButtonGroup(QObject *parent,VM *pVM );

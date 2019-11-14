@@ -3,6 +3,7 @@
 #ifndef GWINDOW_H
 #define GWINDOW_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QWindow>
 extern "C" {
 #include "ring.h"
@@ -19,24 +20,24 @@ class GWindow : public QWindow
 
     List *pParaList;
 
-    char cactiveChangedEvent[200];
-    char ccontentOrientationChangedEvent[200];
-    char cfocusObjectChangedEvent[200];
-    char cheightChangedEvent[200];
-    char cmaximumHeightChangedEvent[200];
-    char cmaximumWidthChangedEvent[200];
-    char cminimumHeightChangedEvent[200];
-    char cminimumWidthChangedEvent[200];
-    char cmodalityChangedEvent[200];
-    char copacityChangedEvent[200];
-    char cscreenChangedEvent[200];
-    char cvisibilityChangedEvent[200];
-    char cvisibleChangedEvent[200];
-    char cwidthChangedEvent[200];
-    char cwindowStateChangedEvent[200];
-    char cwindowTitleChangedEvent[200];
-    char cxChangedEvent[200];
-    char cyChangedEvent[200];
+    char cactiveChangedEvent[RINGQT_EVENT_SIZE];
+    char ccontentOrientationChangedEvent[RINGQT_EVENT_SIZE];
+    char cfocusObjectChangedEvent[RINGQT_EVENT_SIZE];
+    char cheightChangedEvent[RINGQT_EVENT_SIZE];
+    char cmaximumHeightChangedEvent[RINGQT_EVENT_SIZE];
+    char cmaximumWidthChangedEvent[RINGQT_EVENT_SIZE];
+    char cminimumHeightChangedEvent[RINGQT_EVENT_SIZE];
+    char cminimumWidthChangedEvent[RINGQT_EVENT_SIZE];
+    char cmodalityChangedEvent[RINGQT_EVENT_SIZE];
+    char copacityChangedEvent[RINGQT_EVENT_SIZE];
+    char cscreenChangedEvent[RINGQT_EVENT_SIZE];
+    char cvisibilityChangedEvent[RINGQT_EVENT_SIZE];
+    char cvisibleChangedEvent[RINGQT_EVENT_SIZE];
+    char cwidthChangedEvent[RINGQT_EVENT_SIZE];
+    char cwindowStateChangedEvent[RINGQT_EVENT_SIZE];
+    char cwindowTitleChangedEvent[RINGQT_EVENT_SIZE];
+    char cxChangedEvent[RINGQT_EVENT_SIZE];
+    char cyChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GWindow(QScreen *parent,VM *pVM );

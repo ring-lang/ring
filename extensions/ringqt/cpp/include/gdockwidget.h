@@ -3,6 +3,7 @@
 #ifndef GDOCKWIDGET_H
 #define GDOCKWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QDockWidget>
 extern "C" {
 #include "ring.h"
@@ -19,11 +20,11 @@ class GDockWidget : public QDockWidget
 
     List *pParaList;
 
-    char callowedAreasChangedEvent[200];
-    char cdockLocationChangedEvent[200];
-    char cfeaturesChangedEvent[200];
-    char ctopLevelChangedEvent[200];
-    char cvisibilityChangedEvent[200];
+    char callowedAreasChangedEvent[RINGQT_EVENT_SIZE];
+    char cdockLocationChangedEvent[RINGQT_EVENT_SIZE];
+    char cfeaturesChangedEvent[RINGQT_EVENT_SIZE];
+    char ctopLevelChangedEvent[RINGQT_EVENT_SIZE];
+    char cvisibilityChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GDockWidget(QWidget *x,Qt::WindowFlags parent,VM *pVM );

@@ -40,6 +40,7 @@ Func GenHeader aClass
 #ifndef <T_HEADER>
 #define <T_HEADER>
 #include <QApplication>
+#include "ringqt.h"
 #include <<T_REALCLASSNAMEHEADER>>
 extern "C" {
 #include "ring.h"
@@ -112,7 +113,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 	for aEvent in aEvents
 		# Events Attributes
-		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[200];"+nl
+		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[RINGQT_EVENT_SIZE];"+nl
 		# Set Events
 		cSetEvents += cSpace+"void set"+aEvent[:event]+"Event(const char *cStr);"+nl
 		# Get Events

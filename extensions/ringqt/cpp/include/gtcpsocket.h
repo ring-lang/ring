@@ -3,6 +3,7 @@
 #ifndef GTCPSOCKET_H
 #define GTCPSOCKET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTcpSocket>
 extern "C" {
 #include "ring.h"
@@ -19,16 +20,16 @@ class GTcpSocket : public QTcpSocket
 
     List *pParaList;
 
-    char cconnectedEvent[200];
-    char cdisconnectedEvent[200];
-    char cerrorEvent[200];
-    char chostFoundEvent[200];
-    char cproxyAuthenticationRequiredEvent[200];
-    char cstateChangedEvent[200];
-    char caboutToCloseEvent[200];
-    char cbytesWrittenEvent[200];
-    char creadChannelFinishedEvent[200];
-    char creadyReadEvent[200];
+    char cconnectedEvent[RINGQT_EVENT_SIZE];
+    char cdisconnectedEvent[RINGQT_EVENT_SIZE];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char chostFoundEvent[RINGQT_EVENT_SIZE];
+    char cproxyAuthenticationRequiredEvent[RINGQT_EVENT_SIZE];
+    char cstateChangedEvent[RINGQT_EVENT_SIZE];
+    char caboutToCloseEvent[RINGQT_EVENT_SIZE];
+    char cbytesWrittenEvent[RINGQT_EVENT_SIZE];
+    char creadChannelFinishedEvent[RINGQT_EVENT_SIZE];
+    char creadyReadEvent[RINGQT_EVENT_SIZE];
 
 
     GTcpSocket(QObject *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GGUIAPPLICATION_H
 #define GGUIAPPLICATION_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QGuiApplication>
 extern "C" {
 #include "ring.h"
@@ -19,19 +20,19 @@ class GGuiApplication : public QGuiApplication
 
     List *pParaList;
 
-    char capplicationDisplayNameChangedEvent[200];
-    char capplicationStateChangedEvent[200];
-    char ccommitDataRequestEvent[200];
-    char cfocusObjectChangedEvent[200];
-    char cfocusWindowChangedEvent[200];
-    char cfontDatabaseChangedEvent[200];
-    char clastWindowClosedEvent[200];
-    char clayoutDirectionChangedEvent[200];
-    char cpaletteChangedEvent[200];
-    char cprimaryScreenChangedEvent[200];
-    char csaveStateRequestEvent[200];
-    char cscreenAddedEvent[200];
-    char cscreenRemovedEvent[200];
+    char capplicationDisplayNameChangedEvent[RINGQT_EVENT_SIZE];
+    char capplicationStateChangedEvent[RINGQT_EVENT_SIZE];
+    char ccommitDataRequestEvent[RINGQT_EVENT_SIZE];
+    char cfocusObjectChangedEvent[RINGQT_EVENT_SIZE];
+    char cfocusWindowChangedEvent[RINGQT_EVENT_SIZE];
+    char cfontDatabaseChangedEvent[RINGQT_EVENT_SIZE];
+    char clastWindowClosedEvent[RINGQT_EVENT_SIZE];
+    char clayoutDirectionChangedEvent[RINGQT_EVENT_SIZE];
+    char cpaletteChangedEvent[RINGQT_EVENT_SIZE];
+    char cprimaryScreenChangedEvent[RINGQT_EVENT_SIZE];
+    char csaveStateRequestEvent[RINGQT_EVENT_SIZE];
+    char cscreenAddedEvent[RINGQT_EVENT_SIZE];
+    char cscreenRemovedEvent[RINGQT_EVENT_SIZE];
 
 
     GGuiApplication(int argc,char **parent,VM *pVM );

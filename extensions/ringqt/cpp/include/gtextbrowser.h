@@ -3,6 +3,7 @@
 #ifndef GTEXTBROWSER_H
 #define GTEXTBROWSER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTextBrowser>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GTextBrowser : public QTextBrowser
 
     List *pParaList;
 
-    char canchorClickedEvent[200];
-    char cbackwardAvailableEvent[200];
-    char cforwardAvailableEvent[200];
-    char chighlightedEvent[200];
-    char chistoryChangedEvent[200];
-    char csourceChangedEvent[200];
+    char canchorClickedEvent[RINGQT_EVENT_SIZE];
+    char cbackwardAvailableEvent[RINGQT_EVENT_SIZE];
+    char cforwardAvailableEvent[RINGQT_EVENT_SIZE];
+    char chighlightedEvent[RINGQT_EVENT_SIZE];
+    char chistoryChangedEvent[RINGQT_EVENT_SIZE];
+    char csourceChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GTextBrowser(QWidget *parent,VM *pVM );

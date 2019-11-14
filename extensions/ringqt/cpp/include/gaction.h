@@ -3,6 +3,7 @@
 #ifndef GACTION_H
 #define GACTION_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QAction>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GAction : public QAction
 
     List *pParaList;
 
-    char cClickEvent[200];
+    char cClickEvent[RINGQT_EVENT_SIZE];
 
 
     GAction(QWidget *parent,VM *pVM );

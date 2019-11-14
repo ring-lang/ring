@@ -3,6 +3,7 @@
 #ifndef GDIAL_H
 #define GDIAL_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QDial>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GDial : public QDial
 
     List *pParaList;
 
-    char cactionTriggeredEvent[200];
-    char crangeChangedEvent[200];
-    char csliderMovedEvent[200];
-    char csliderPressedEvent[200];
-    char csliderReleasedEvent[200];
-    char cvalueChangedEvent[200];
+    char cactionTriggeredEvent[RINGQT_EVENT_SIZE];
+    char crangeChangedEvent[RINGQT_EVENT_SIZE];
+    char csliderMovedEvent[RINGQT_EVENT_SIZE];
+    char csliderPressedEvent[RINGQT_EVENT_SIZE];
+    char csliderReleasedEvent[RINGQT_EVENT_SIZE];
+    char cvalueChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GDial(QWidget *parent,VM *pVM );

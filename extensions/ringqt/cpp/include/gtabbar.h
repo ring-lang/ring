@@ -3,6 +3,7 @@
 #ifndef GTABBAR_H
 #define GTABBAR_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTabBar>
 extern "C" {
 #include "ring.h"
@@ -19,9 +20,9 @@ class GTabBar : public QTabBar
 
     List *pParaList;
 
-    char ccurrentChangedEvent[200];
-    char ctabCloseRequestedEvent[200];
-    char ctabMovedEvent[200];
+    char ccurrentChangedEvent[RINGQT_EVENT_SIZE];
+    char ctabCloseRequestedEvent[RINGQT_EVENT_SIZE];
+    char ctabMovedEvent[RINGQT_EVENT_SIZE];
 
 
     GTabBar(QWidget *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GPRINTPREVIEWDIALOG_H
 #define GPRINTPREVIEWDIALOG_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QPrintPreviewDialog>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GPrintPreviewDialog : public QPrintPreviewDialog
 
     List *pParaList;
 
-    char cpaintRequestedEvent[200];
+    char cpaintRequestedEvent[RINGQT_EVENT_SIZE];
 
 
     GPrintPreviewDialog(QPrinter *parent,VM *pVM );

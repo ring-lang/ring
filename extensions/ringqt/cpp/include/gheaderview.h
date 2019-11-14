@@ -3,6 +3,7 @@
 #ifndef GHEADERVIEW_H
 #define GHEADERVIEW_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QHeaderView>
 extern "C" {
 #include "ring.h"
@@ -19,16 +20,16 @@ class GHeaderView : public QHeaderView
 
     List *pParaList;
 
-    char cgeometriesChangedEvent[200];
-    char csectionClickedEvent[200];
-    char csectionCountChangedEvent[200];
-    char csectionDoubleClickedEvent[200];
-    char csectionEnteredEvent[200];
-    char csectionHandleDoubleClickedEvent[200];
-    char csectionMovedEvent[200];
-    char csectionPressedEvent[200];
-    char csectionResizedEvent[200];
-    char csortIndicatorChangedEvent[200];
+    char cgeometriesChangedEvent[RINGQT_EVENT_SIZE];
+    char csectionClickedEvent[RINGQT_EVENT_SIZE];
+    char csectionCountChangedEvent[RINGQT_EVENT_SIZE];
+    char csectionDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char csectionEnteredEvent[RINGQT_EVENT_SIZE];
+    char csectionHandleDoubleClickedEvent[RINGQT_EVENT_SIZE];
+    char csectionMovedEvent[RINGQT_EVENT_SIZE];
+    char csectionPressedEvent[RINGQT_EVENT_SIZE];
+    char csectionResizedEvent[RINGQT_EVENT_SIZE];
+    char csortIndicatorChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GHeaderView(Qt::Orientation x, QWidget *parent,VM *pVM );

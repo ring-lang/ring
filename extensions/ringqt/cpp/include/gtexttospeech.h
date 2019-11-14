@@ -3,6 +3,7 @@
 #ifndef GTEXTTOSPEECH_H
 #define GTEXTTOSPEECH_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTextToSpeech>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GTextToSpeech : public QTextToSpeech
 
     List *pParaList;
 
-    char clocaleChangedEvent[200];
-    char cpitchChangedEvent[200];
-    char crateChangedEvent[200];
-    char cstateChangedEvent[200];
-    char cvoiceChangedEvent[200];
-    char cvolumeChangedEvent[200];
+    char clocaleChangedEvent[RINGQT_EVENT_SIZE];
+    char cpitchChangedEvent[RINGQT_EVENT_SIZE];
+    char crateChangedEvent[RINGQT_EVENT_SIZE];
+    char cstateChangedEvent[RINGQT_EVENT_SIZE];
+    char cvoiceChangedEvent[RINGQT_EVENT_SIZE];
+    char cvolumeChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GTextToSpeech(QObject *parent,VM *pVM );

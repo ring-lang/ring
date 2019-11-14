@@ -3,6 +3,7 @@
 #ifndef GSPINBOX_H
 #define GSPINBOX_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QSpinBox>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GSpinBox : public QSpinBox
 
     List *pParaList;
 
-    char cvalueChangedEvent[200];
+    char cvalueChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GSpinBox(QWidget *parent,VM *pVM );

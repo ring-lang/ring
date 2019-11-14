@@ -3,6 +3,7 @@
 #ifndef GABSTRACTSOCKET_H
 #define GABSTRACTSOCKET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QAbstractSocket>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GAbstractSocket : public QAbstractSocket
 
     List *pParaList;
 
-    char cconnectedEvent[200];
-    char cdisconnectedEvent[200];
-    char cerrorEvent[200];
-    char chostFoundEvent[200];
-    char cproxyAuthenticationRequiredEvent[200];
-    char cstateChangedEvent[200];
+    char cconnectedEvent[RINGQT_EVENT_SIZE];
+    char cdisconnectedEvent[RINGQT_EVENT_SIZE];
+    char cerrorEvent[RINGQT_EVENT_SIZE];
+    char chostFoundEvent[RINGQT_EVENT_SIZE];
+    char cproxyAuthenticationRequiredEvent[RINGQT_EVENT_SIZE];
+    char cstateChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM );

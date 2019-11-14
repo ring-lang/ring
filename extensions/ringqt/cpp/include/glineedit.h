@@ -3,6 +3,7 @@
 #ifndef GLINEEDIT_H
 #define GLINEEDIT_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QLineEdit>
 extern "C" {
 #include "ring.h"
@@ -19,12 +20,12 @@ class GLineEdit : public QLineEdit
 
     List *pParaList;
 
-    char cTextChangedEvent[200];
-    char ccursorPositionChangedEvent[200];
-    char ceditingFinishedEvent[200];
-    char creturnPressedEvent[200];
-    char cselectionChangedEvent[200];
-    char ctextEditedEvent[200];
+    char cTextChangedEvent[RINGQT_EVENT_SIZE];
+    char ccursorPositionChangedEvent[RINGQT_EVENT_SIZE];
+    char ceditingFinishedEvent[RINGQT_EVENT_SIZE];
+    char creturnPressedEvent[RINGQT_EVENT_SIZE];
+    char cselectionChangedEvent[RINGQT_EVENT_SIZE];
+    char ctextEditedEvent[RINGQT_EVENT_SIZE];
 
 
     GLineEdit(QWidget *parent,VM *pVM );

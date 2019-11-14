@@ -3,6 +3,7 @@
 #ifndef GOBJECTPICKER_H
 #define GOBJECTPICKER_H
 #include <QApplication>
+#include "ringqt.h"
 #include <Qt3DRender/QObjectPicker>
 extern "C" {
 #include "ring.h"
@@ -19,16 +20,16 @@ class GObjectPicker : public Qt3DRender::QObjectPicker
 
     List *pParaList;
 
-    char cclickedEvent[200];
-    char ccontainsMouseChangedEvent[200];
-    char cdragEnabledChangedEvent[200];
-    char centeredEvent[200];
-    char cexitedEvent[200];
-    char choverEnabledChangedEvent[200];
-    char cmovedEvent[200];
-    char cpressedEvent[200];
-    char cpressedChangedEvent[200];
-    char creleasedEvent[200];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char ccontainsMouseChangedEvent[RINGQT_EVENT_SIZE];
+    char cdragEnabledChangedEvent[RINGQT_EVENT_SIZE];
+    char centeredEvent[RINGQT_EVENT_SIZE];
+    char cexitedEvent[RINGQT_EVENT_SIZE];
+    char choverEnabledChangedEvent[RINGQT_EVENT_SIZE];
+    char cmovedEvent[RINGQT_EVENT_SIZE];
+    char cpressedEvent[RINGQT_EVENT_SIZE];
+    char cpressedChangedEvent[RINGQT_EVENT_SIZE];
+    char creleasedEvent[RINGQT_EVENT_SIZE];
 
 
     GObjectPicker(Qt3DCore::QNode *parent,VM *pVM );

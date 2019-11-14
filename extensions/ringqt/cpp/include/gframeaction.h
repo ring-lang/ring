@@ -3,6 +3,7 @@
 #ifndef GFRAMEACTION_H
 #define GFRAMEACTION_H
 #include <QApplication>
+#include "ringqt.h"
 #include <Qt3DLogic/QFrameAction>
 extern "C" {
 #include "ring.h"
@@ -19,7 +20,7 @@ class GFrameAction : public Qt3DLogic::QFrameAction
 
     List *pParaList;
 
-    char ctriggeredEvent[200];
+    char ctriggeredEvent[RINGQT_EVENT_SIZE];
 
 
     GFrameAction(Qt3DCore::QNode *parent,VM *pVM );

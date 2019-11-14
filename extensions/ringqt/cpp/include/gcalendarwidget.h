@@ -3,6 +3,7 @@
 #ifndef GCALENDARWIDGET_H
 #define GCALENDARWIDGET_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QCalendarWidget>
 extern "C" {
 #include "ring.h"
@@ -19,10 +20,10 @@ class GCalendarWidget : public QCalendarWidget
 
     List *pParaList;
 
-    char cactivatedEvent[200];
-    char cclickedEvent[200];
-    char ccurrentPageChangedEvent[200];
-    char cselectionChangedEvent[200];
+    char cactivatedEvent[RINGQT_EVENT_SIZE];
+    char cclickedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentPageChangedEvent[RINGQT_EVENT_SIZE];
+    char cselectionChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GCalendarWidget(QWidget *parent,VM *pVM );

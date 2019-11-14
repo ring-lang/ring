@@ -3,6 +3,7 @@
 #ifndef GTEXTEDIT_H
 #define GTEXTEDIT_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QTextEdit>
 extern "C" {
 #include "ring.h"
@@ -19,13 +20,13 @@ class GTextEdit : public QTextEdit
 
     List *pParaList;
 
-    char ccopyAvailableEvent[200];
-    char ccurrentCharFormatChangedEvent[200];
-    char ccursorPositionChangedEvent[200];
-    char credoAvailableEvent[200];
-    char cselectionChangedEvent[200];
-    char ctextChangedEvent[200];
-    char cundoAvailableEvent[200];
+    char ccopyAvailableEvent[RINGQT_EVENT_SIZE];
+    char ccurrentCharFormatChangedEvent[RINGQT_EVENT_SIZE];
+    char ccursorPositionChangedEvent[RINGQT_EVENT_SIZE];
+    char credoAvailableEvent[RINGQT_EVENT_SIZE];
+    char cselectionChangedEvent[RINGQT_EVENT_SIZE];
+    char ctextChangedEvent[RINGQT_EVENT_SIZE];
+    char cundoAvailableEvent[RINGQT_EVENT_SIZE];
 
 
     GTextEdit(QWidget *parent,VM *pVM );

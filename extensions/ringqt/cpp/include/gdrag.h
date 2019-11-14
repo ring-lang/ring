@@ -3,6 +3,7 @@
 #ifndef GDRAG_H
 #define GDRAG_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QDrag>
 extern "C" {
 #include "ring.h"
@@ -19,8 +20,8 @@ class GDrag : public QDrag
 
     List *pParaList;
 
-    char cactionChangedEvent[200];
-    char ctargetChangedEvent[200];
+    char cactionChangedEvent[RINGQT_EVENT_SIZE];
+    char ctargetChangedEvent[RINGQT_EVENT_SIZE];
 
 
     GDrag(QObject *parent,VM *pVM );

@@ -3,6 +3,7 @@
 #ifndef GCOMBOBOX_H
 #define GCOMBOBOX_H
 #include <QApplication>
+#include "ringqt.h"
 #include <QComboBox>
 extern "C" {
 #include "ring.h"
@@ -19,10 +20,10 @@ class GComboBox : public QComboBox
 
     List *pParaList;
 
-    char cactivatedEvent[200];
-    char ccurrentIndexChangedEvent[200];
-    char ceditTextChangedEvent[200];
-    char chighlightedEvent[200];
+    char cactivatedEvent[RINGQT_EVENT_SIZE];
+    char ccurrentIndexChangedEvent[RINGQT_EVENT_SIZE];
+    char ceditTextChangedEvent[RINGQT_EVENT_SIZE];
+    char chighlightedEvent[RINGQT_EVENT_SIZE];
 
 
     GComboBox(QWidget *parent,VM *pVM );
