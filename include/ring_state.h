@@ -52,6 +52,8 @@ typedef struct RingState {
 	List *aCustomGlobalScopeStack  ;
 	/* Flag to know if we are running from thread (Useful for the Pool Manager) */
 	char lRunFromThread  ;
+	/* Flag to know if we are using (Load Again) command */
+	char lLoadAgain  ;
 } RingState ;
 /* Functions */
 

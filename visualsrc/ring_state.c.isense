@@ -56,6 +56,8 @@ Type: List *
 aCustomGlobalScopeStack
 Type: char
 lRunFromThread
+Type: char
+lLoadAgain
 END:
 Type: RingState
 struct RingState

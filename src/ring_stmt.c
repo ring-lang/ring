@@ -231,7 +231,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -241,15 +241,22 @@ int ring_parser_stmt ( Parser *pParser )
 	nPerformanceLocations = 0 ;
 	nLoadPackage = 0 ;
 	nLoopOrExitCommand = 0 ;
+	nLoadAgain = 0 ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
 		ring_parser_nexttoken(pParser);
+		/* Load Package Command */
 		if ( ring_parser_iskeyword(pParser,K_PACKAGE) ) {
 			ring_parser_nexttoken(pParser);
 			nLoadPackage = 1 ;
 			pParser->pRingState->nCustomGlobalScopeCounter++ ;
 			ring_list_addint_gc(pParser->pRingState,pParser->pRingState->aCustomGlobalScopeStack,pParser->pRingState->nCustomGlobalScopeCounter);
+		}
+		else if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
+			ring_parser_nexttoken(pParser);
+			nLoadAgain = 1 ;
+			pParser->pRingState->lLoadAgain = 1 ;
 		}
 		if ( ring_parser_isliteral(pParser) ) {
 			/* Check File in the Ring/bin folder */
@@ -330,6 +337,10 @@ int ring_parser_stmt ( Parser *pParser )
 			x = ring_scanner_readfile(pParser->pRingState,cFileName);
 			/* Restore the Current Directory */
 			ring_chdir(cCurrentDir);
+			/* Restore Load Again status */
+			if ( nLoadAgain ) {
+				pParser->pRingState->lLoadAgain = 0 ;
+			}
 			/*
 			**  Generate Code 
 			**  Return NULL 
