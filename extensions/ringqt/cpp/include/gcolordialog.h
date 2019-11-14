@@ -19,8 +19,8 @@ class GColorDialog : public QColorDialog
 
     List *pParaList;
 
-    char ccolorSelectedEvent[100];
-    char ccurrentColorChangedEvent[100];
+    char ccolorSelectedEvent[200];
+    char ccurrentColorChangedEvent[200];
 
 
     GColorDialog(QWidget *parent,VM *pVM );

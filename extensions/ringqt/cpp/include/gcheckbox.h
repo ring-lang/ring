@@ -19,11 +19,11 @@ class GCheckBox : public QCheckBox
 
     List *pParaList;
 
-    char cstateChangedEvent[100];
-    char cclickedEvent[100];
-    char cpressedEvent[100];
-    char creleasedEvent[100];
-    char ctoggledEvent[100];
+    char cstateChangedEvent[200];
+    char cclickedEvent[200];
+    char cpressedEvent[200];
+    char creleasedEvent[200];
+    char ctoggledEvent[200];
 
 
     GCheckBox(QWidget *parent,VM *pVM );

@@ -19,11 +19,11 @@ class GVideoWidget : public QVideoWidget
 
     List *pParaList;
 
-    char cbrightnessChangedEvent[100];
-    char ccontrastChangedEvent[100];
-    char cfullScreenChangedEvent[100];
-    char chueChangedEvent[100];
-    char csaturationChangedEvent[100];
+    char cbrightnessChangedEvent[200];
+    char ccontrastChangedEvent[200];
+    char cfullScreenChangedEvent[200];
+    char chueChangedEvent[200];
+    char csaturationChangedEvent[200];
 
 
     GVideoWidget(QWidget *parent,VM *pVM );

@@ -19,8 +19,8 @@ class GTcpServer : public QTcpServer
 
     List *pParaList;
 
-    char cacceptErrorEvent[100];
-    char cnewConnectionEvent[100];
+    char cacceptErrorEvent[200];
+    char cnewConnectionEvent[200];
 
 
     GTcpServer(QObject *parent,VM *pVM );

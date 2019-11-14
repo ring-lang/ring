@@ -19,12 +19,12 @@ class GTextBrowser : public QTextBrowser
 
     List *pParaList;
 
-    char canchorClickedEvent[100];
-    char cbackwardAvailableEvent[100];
-    char cforwardAvailableEvent[100];
-    char chighlightedEvent[100];
-    char chistoryChangedEvent[100];
-    char csourceChangedEvent[100];
+    char canchorClickedEvent[200];
+    char cbackwardAvailableEvent[200];
+    char cforwardAvailableEvent[200];
+    char chighlightedEvent[200];
+    char chistoryChangedEvent[200];
+    char csourceChangedEvent[200];
 
 
     GTextBrowser(QWidget *parent,VM *pVM );

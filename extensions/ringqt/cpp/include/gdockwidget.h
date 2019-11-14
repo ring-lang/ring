@@ -19,11 +19,11 @@ class GDockWidget : public QDockWidget
 
     List *pParaList;
 
-    char callowedAreasChangedEvent[100];
-    char cdockLocationChangedEvent[100];
-    char cfeaturesChangedEvent[100];
-    char ctopLevelChangedEvent[100];
-    char cvisibilityChangedEvent[100];
+    char callowedAreasChangedEvent[200];
+    char cdockLocationChangedEvent[200];
+    char cfeaturesChangedEvent[200];
+    char ctopLevelChangedEvent[200];
+    char cvisibilityChangedEvent[200];
 
 
     GDockWidget(QWidget *x,Qt::WindowFlags parent,VM *pVM );

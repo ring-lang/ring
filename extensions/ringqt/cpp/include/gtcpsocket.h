@@ -19,16 +19,16 @@ class GTcpSocket : public QTcpSocket
 
     List *pParaList;
 
-    char cconnectedEvent[100];
-    char cdisconnectedEvent[100];
-    char cerrorEvent[100];
-    char chostFoundEvent[100];
-    char cproxyAuthenticationRequiredEvent[100];
-    char cstateChangedEvent[100];
-    char caboutToCloseEvent[100];
-    char cbytesWrittenEvent[100];
-    char creadChannelFinishedEvent[100];
-    char creadyReadEvent[100];
+    char cconnectedEvent[200];
+    char cdisconnectedEvent[200];
+    char cerrorEvent[200];
+    char chostFoundEvent[200];
+    char cproxyAuthenticationRequiredEvent[200];
+    char cstateChangedEvent[200];
+    char caboutToCloseEvent[200];
+    char cbytesWrittenEvent[200];
+    char creadChannelFinishedEvent[200];
+    char creadyReadEvent[200];
 
 
     GTcpSocket(QObject *parent,VM *pVM );

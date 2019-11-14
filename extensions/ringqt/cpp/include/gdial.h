@@ -19,12 +19,12 @@ class GDial : public QDial
 
     List *pParaList;
 
-    char cactionTriggeredEvent[100];
-    char crangeChangedEvent[100];
-    char csliderMovedEvent[100];
-    char csliderPressedEvent[100];
-    char csliderReleasedEvent[100];
-    char cvalueChangedEvent[100];
+    char cactionTriggeredEvent[200];
+    char crangeChangedEvent[200];
+    char csliderMovedEvent[200];
+    char csliderPressedEvent[200];
+    char csliderReleasedEvent[200];
+    char cvalueChangedEvent[200];
 
 
     GDial(QWidget *parent,VM *pVM );

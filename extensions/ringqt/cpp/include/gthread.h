@@ -19,8 +19,8 @@ class GThread : public QThread
 
     List *pParaList;
 
-    char cStartedEvent[100];
-    char cFinishedEvent[100];
+    char cStartedEvent[200];
+    char cFinishedEvent[200];
 
 
     GThread(QObject *parent,VM *pVM );

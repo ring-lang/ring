@@ -19,7 +19,7 @@ class GSpinBox : public QSpinBox
 
     List *pParaList;
 
-    char cvalueChangedEvent[100];
+    char cvalueChangedEvent[200];
 
 
     GSpinBox(QWidget *parent,VM *pVM );

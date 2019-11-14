@@ -19,7 +19,7 @@ class GProgressBar : public QProgressBar
 
     List *pParaList;
 
-    char cvalueChangedEvent[100];
+    char cvalueChangedEvent[200];
 
 
     GProgressBar(QWidget *parent,VM *pVM );

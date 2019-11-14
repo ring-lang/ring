@@ -19,21 +19,21 @@ class GTableWidget : public QTableWidget
 
     List *pParaList;
 
-    char ccellActivatedEvent[100];
-    char ccellChangedEvent[100];
-    char ccellClickedEvent[100];
-    char ccellDoubleClickedEvent[100];
-    char ccellEnteredEvent[100];
-    char ccellPressedEvent[100];
-    char ccurrentCellChangedEvent[100];
-    char ccurrentItemChangedEvent[100];
-    char citemActivatedEvent[100];
-    char citemChangedEvent[100];
-    char citemClickedEvent[100];
-    char citemDoubleClickedEvent[100];
-    char citemEnteredEvent[100];
-    char citemPressedEvent[100];
-    char citemSelectionChangedEvent[100];
+    char ccellActivatedEvent[200];
+    char ccellChangedEvent[200];
+    char ccellClickedEvent[200];
+    char ccellDoubleClickedEvent[200];
+    char ccellEnteredEvent[200];
+    char ccellPressedEvent[200];
+    char ccurrentCellChangedEvent[200];
+    char ccurrentItemChangedEvent[200];
+    char citemActivatedEvent[200];
+    char citemChangedEvent[200];
+    char citemClickedEvent[200];
+    char citemDoubleClickedEvent[200];
+    char citemEnteredEvent[200];
+    char citemPressedEvent[200];
+    char citemSelectionChangedEvent[200];
 
 
     GTableWidget(QWidget *parent,VM *pVM );

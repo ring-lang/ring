@@ -19,8 +19,8 @@ class GPrintPreviewWidget : public QPrintPreviewWidget
 
     List *pParaList;
 
-    char cpaintRequestedEvent[100];
-    char cpreviewChangedEvent[100];
+    char cpaintRequestedEvent[200];
+    char cpreviewChangedEvent[200];
 
 
     GPrintPreviewWidget(QPrinter *parent,VM *pVM );

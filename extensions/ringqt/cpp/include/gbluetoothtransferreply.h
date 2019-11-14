@@ -19,9 +19,9 @@ class GBluetoothTransferReply : public QBluetoothTransferReply
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cfinishedEvent[100];
-    char ctransferProgressEvent[100];
+    char cerrorEvent[200];
+    char cfinishedEvent[200];
+    char ctransferProgressEvent[200];
 
 
     GBluetoothTransferReply(QObject *parent,VM *pVM );

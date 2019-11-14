@@ -19,15 +19,15 @@ class GSerialPort : public QSerialPort
 
     List *pParaList;
 
-    char cbaudRateChangedEvent[100];
-    char cbreakEnabledChangedEvent[100];
-    char cdataBitsChangedEvent[100];
-    char cdataTerminalReadyChangedEvent[100];
-    char cerrorEvent[100];
-    char cflowControlChangedEvent[100];
-    char cparityChangedEvent[100];
-    char crequestToSendChangedEvent[100];
-    char cstopBitsChangedEvent[100];
+    char cbaudRateChangedEvent[200];
+    char cbreakEnabledChangedEvent[200];
+    char cdataBitsChangedEvent[200];
+    char cdataTerminalReadyChangedEvent[200];
+    char cerrorEvent[200];
+    char cflowControlChangedEvent[200];
+    char cparityChangedEvent[200];
+    char crequestToSendChangedEvent[200];
+    char cstopBitsChangedEvent[200];
 
 
     GSerialPort(QObject *parent,VM *pVM );

@@ -19,8 +19,8 @@ class GToolButton : public QToolButton
 
     List *pParaList;
 
-    char ctriggeredEvent[100];
-    char cClickEvent[100];
+    char ctriggeredEvent[200];
+    char cClickEvent[200];
 
 
     GToolButton(QWidget *parent,VM *pVM );

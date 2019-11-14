@@ -19,7 +19,7 @@ class GNetworkAccessManager : public QNetworkAccessManager
 
     List *pParaList;
 
-    char cfinishedEvent[100];
+    char cfinishedEvent[200];
 
 
     GNetworkAccessManager(QObject *parent,VM *pVM );

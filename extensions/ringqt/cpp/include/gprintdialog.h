@@ -19,7 +19,7 @@ class GPrintDialog : public QPrintDialog
 
     List *pParaList;
 
-    char cacceptedEvent[100];
+    char cacceptedEvent[200];
 
 
     GPrintDialog(QPrinter *,QWidget *parent,VM *pVM );

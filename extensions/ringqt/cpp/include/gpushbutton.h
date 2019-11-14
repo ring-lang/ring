@@ -19,7 +19,7 @@ class GPushButton : public QPushButton
 
     List *pParaList;
 
-    char cClickEvent[100];
+    char cClickEvent[200];
 
 
     GPushButton(QWidget *parent,VM *pVM );

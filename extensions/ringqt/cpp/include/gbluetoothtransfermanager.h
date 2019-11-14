@@ -19,7 +19,7 @@ class GBluetoothTransferManager : public QBluetoothTransferManager
 
     List *pParaList;
 
-    char cfinishedEvent[100];
+    char cfinishedEvent[200];
 
 
     GBluetoothTransferManager(QObject *parent,VM *pVM );

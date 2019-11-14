@@ -19,13 +19,13 @@ class GBluetoothLocalDevice : public QBluetoothLocalDevice
 
     List *pParaList;
 
-    char cdeviceConnectedEvent[100];
-    char cdeviceDisconnectedEvent[100];
-    char cerrorEvent[100];
-    char chostModeStateChangedEvent[100];
-    char cpairingDisplayConfirmationEvent[100];
-    char cpairingDisplayPinCodeEvent[100];
-    char cpairingFinishedEvent[100];
+    char cdeviceConnectedEvent[200];
+    char cdeviceDisconnectedEvent[200];
+    char cerrorEvent[200];
+    char chostModeStateChangedEvent[200];
+    char cpairingDisplayConfirmationEvent[200];
+    char cpairingDisplayPinCodeEvent[200];
+    char cpairingFinishedEvent[200];
 
 
     GBluetoothLocalDevice(QObject *parent,VM *pVM );

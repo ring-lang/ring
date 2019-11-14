@@ -19,7 +19,7 @@ class GFrameAction : public Qt3DLogic::QFrameAction
 
     List *pParaList;
 
-    char ctriggeredEvent[100];
+    char ctriggeredEvent[200];
 
 
     GFrameAction(Qt3DCore::QNode *parent,VM *pVM );

@@ -19,8 +19,8 @@ class GQuickWidget : public QQuickWidget
 
     List *pParaList;
 
-    char csceneGraphErrorEvent[100];
-    char cstatusChangedEvent[100];
+    char csceneGraphErrorEvent[200];
+    char cstatusChangedEvent[200];
 
 
     GQuickWidget(QWidget *parent,VM *pVM );

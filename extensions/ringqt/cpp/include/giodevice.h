@@ -19,10 +19,10 @@ class GIODevice : public QIODevice
 
     List *pParaList;
 
-    char caboutToCloseEvent[100];
-    char cbytesWrittenEvent[100];
-    char creadChannelFinishedEvent[100];
-    char creadyReadEvent[100];
+    char caboutToCloseEvent[200];
+    char cbytesWrittenEvent[200];
+    char creadChannelFinishedEvent[200];
+    char creadyReadEvent[200];
 
 
     GIODevice(QObject *parent,VM *pVM );

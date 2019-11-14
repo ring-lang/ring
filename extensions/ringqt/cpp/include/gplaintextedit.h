@@ -19,15 +19,15 @@ class GPlainTextEdit : public QPlainTextEdit
 
     List *pParaList;
 
-    char cblockCountChangedEvent[100];
-    char ccopyAvailableEvent[100];
-    char ccursorPositionChangedEvent[100];
-    char cmodificationChangedEvent[100];
-    char credoAvailableEvent[100];
-    char cselectionChangedEvent[100];
-    char ctextChangedEvent[100];
-    char cundoAvailableEvent[100];
-    char cupdateRequestEvent[100];
+    char cblockCountChangedEvent[200];
+    char ccopyAvailableEvent[200];
+    char ccursorPositionChangedEvent[200];
+    char cmodificationChangedEvent[200];
+    char credoAvailableEvent[200];
+    char cselectionChangedEvent[200];
+    char ctextChangedEvent[200];
+    char cundoAvailableEvent[200];
+    char cupdateRequestEvent[200];
 
 
     GPlainTextEdit(QWidget *parent,VM *pVM );

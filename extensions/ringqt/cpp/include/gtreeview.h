@@ -19,14 +19,14 @@ class GTreeView : public QTreeView
 
     List *pParaList;
 
-    char ccollapsedEvent[100];
-    char cexpandedEvent[100];
-    char cactivatedEvent[100];
-    char cclickedEvent[100];
-    char cdoubleClickedEvent[100];
-    char centeredEvent[100];
-    char cpressedEvent[100];
-    char cviewportEnteredEvent[100];
+    char ccollapsedEvent[200];
+    char cexpandedEvent[200];
+    char cactivatedEvent[200];
+    char cclickedEvent[200];
+    char cdoubleClickedEvent[200];
+    char centeredEvent[200];
+    char cpressedEvent[200];
+    char cviewportEnteredEvent[200];
 
 
     GTreeView(QWidget *parent,VM *pVM );

@@ -19,16 +19,16 @@ class GHeaderView : public QHeaderView
 
     List *pParaList;
 
-    char cgeometriesChangedEvent[100];
-    char csectionClickedEvent[100];
-    char csectionCountChangedEvent[100];
-    char csectionDoubleClickedEvent[100];
-    char csectionEnteredEvent[100];
-    char csectionHandleDoubleClickedEvent[100];
-    char csectionMovedEvent[100];
-    char csectionPressedEvent[100];
-    char csectionResizedEvent[100];
-    char csortIndicatorChangedEvent[100];
+    char cgeometriesChangedEvent[200];
+    char csectionClickedEvent[200];
+    char csectionCountChangedEvent[200];
+    char csectionDoubleClickedEvent[200];
+    char csectionEnteredEvent[200];
+    char csectionHandleDoubleClickedEvent[200];
+    char csectionMovedEvent[200];
+    char csectionPressedEvent[200];
+    char csectionResizedEvent[200];
+    char csortIndicatorChangedEvent[200];
 
 
     GHeaderView(Qt::Orientation x, QWidget *parent,VM *pVM );

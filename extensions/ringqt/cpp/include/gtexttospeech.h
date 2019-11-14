@@ -19,12 +19,12 @@ class GTextToSpeech : public QTextToSpeech
 
     List *pParaList;
 
-    char clocaleChangedEvent[100];
-    char cpitchChangedEvent[100];
-    char crateChangedEvent[100];
-    char cstateChangedEvent[100];
-    char cvoiceChangedEvent[100];
-    char cvolumeChangedEvent[100];
+    char clocaleChangedEvent[200];
+    char cpitchChangedEvent[200];
+    char crateChangedEvent[200];
+    char cstateChangedEvent[200];
+    char cvoiceChangedEvent[200];
+    char cvolumeChangedEvent[200];
 
 
     GTextToSpeech(QObject *parent,VM *pVM );

@@ -19,13 +19,13 @@ class GTextEdit : public QTextEdit
 
     List *pParaList;
 
-    char ccopyAvailableEvent[100];
-    char ccurrentCharFormatChangedEvent[100];
-    char ccursorPositionChangedEvent[100];
-    char credoAvailableEvent[100];
-    char cselectionChangedEvent[100];
-    char ctextChangedEvent[100];
-    char cundoAvailableEvent[100];
+    char ccopyAvailableEvent[200];
+    char ccurrentCharFormatChangedEvent[200];
+    char ccursorPositionChangedEvent[200];
+    char credoAvailableEvent[200];
+    char cselectionChangedEvent[200];
+    char ctextChangedEvent[200];
+    char cundoAvailableEvent[200];
 
 
     GTextEdit(QWidget *parent,VM *pVM );

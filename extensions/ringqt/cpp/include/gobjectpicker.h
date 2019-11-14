@@ -19,16 +19,16 @@ class GObjectPicker : public Qt3DRender::QObjectPicker
 
     List *pParaList;
 
-    char cclickedEvent[100];
-    char ccontainsMouseChangedEvent[100];
-    char cdragEnabledChangedEvent[100];
-    char centeredEvent[100];
-    char cexitedEvent[100];
-    char choverEnabledChangedEvent[100];
-    char cmovedEvent[100];
-    char cpressedEvent[100];
-    char cpressedChangedEvent[100];
-    char creleasedEvent[100];
+    char cclickedEvent[200];
+    char ccontainsMouseChangedEvent[200];
+    char cdragEnabledChangedEvent[200];
+    char centeredEvent[200];
+    char cexitedEvent[200];
+    char choverEnabledChangedEvent[200];
+    char cmovedEvent[200];
+    char cpressedEvent[200];
+    char cpressedChangedEvent[200];
+    char creleasedEvent[200];
 
 
     GObjectPicker(Qt3DCore::QNode *parent,VM *pVM );

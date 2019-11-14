@@ -19,16 +19,16 @@ class GListWidget : public QListWidget
 
     List *pParaList;
 
-    char ccurrentItemChangedEvent[100];
-    char ccurrentRowChangedEvent[100];
-    char ccurrentTextChangedEvent[100];
-    char citemActivatedEvent[100];
-    char citemChangedEvent[100];
-    char citemClickedEvent[100];
-    char citemDoubleClickedEvent[100];
-    char citemEnteredEvent[100];
-    char citemPressedEvent[100];
-    char citemSelectionChangedEvent[100];
+    char ccurrentItemChangedEvent[200];
+    char ccurrentRowChangedEvent[200];
+    char ccurrentTextChangedEvent[200];
+    char citemActivatedEvent[200];
+    char citemChangedEvent[200];
+    char citemClickedEvent[200];
+    char citemDoubleClickedEvent[200];
+    char citemEnteredEvent[200];
+    char citemPressedEvent[200];
+    char citemSelectionChangedEvent[200];
 
 
     GListWidget(QWidget *parent,VM *pVM );

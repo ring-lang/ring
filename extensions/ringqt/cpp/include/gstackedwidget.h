@@ -19,8 +19,8 @@ class GStackedWidget : public QStackedWidget
 
     List *pParaList;
 
-    char ccurrentChangedEvent[100];
-    char cwidgetRemovedEvent[100];
+    char ccurrentChangedEvent[200];
+    char cwidgetRemovedEvent[200];
 
 
     GStackedWidget(QWidget *parent,VM *pVM );

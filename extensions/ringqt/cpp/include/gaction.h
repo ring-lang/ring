@@ -19,7 +19,7 @@ class GAction : public QAction
 
     List *pParaList;
 
-    char cClickEvent[100];
+    char cClickEvent[200];
 
 
     GAction(QWidget *parent,VM *pVM );

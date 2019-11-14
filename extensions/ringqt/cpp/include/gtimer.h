@@ -19,7 +19,7 @@ class GTimer : public QTimer
 
     List *pParaList;
 
-    char ctimeoutEvent[100];
+    char ctimeoutEvent[200];
 
 
     GTimer(QObject *parent,VM *pVM );

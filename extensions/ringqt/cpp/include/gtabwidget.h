@@ -19,8 +19,8 @@ class GTabWidget : public QTabWidget
 
     List *pParaList;
 
-    char ccurrentChangedEvent[100];
-    char ctabCloseRequestedEvent[100];
+    char ccurrentChangedEvent[200];
+    char ctabCloseRequestedEvent[200];
 
 
     GTabWidget(QWidget *parent,VM *pVM );

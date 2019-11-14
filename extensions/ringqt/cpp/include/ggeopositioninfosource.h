@@ -19,9 +19,9 @@ class GGeoPositionInfoSource : public QGeoPositionInfoSource
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cpositionUpdatedEvent[100];
-    char cupdateTimeoutEvent[100];
+    char cerrorEvent[200];
+    char cpositionUpdatedEvent[200];
+    char cupdateTimeoutEvent[200];
 
 
     GGeoPositionInfoSource(QObject *parent,VM *pVM );

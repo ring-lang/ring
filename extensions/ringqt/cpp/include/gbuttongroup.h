@@ -19,9 +19,9 @@ class GButtonGroup : public QButtonGroup
 
     List *pParaList;
 
-    char cbuttonClickedEvent[100];
-    char cbuttonPressedEvent[100];
-    char cbuttonReleasedEvent[100];
+    char cbuttonClickedEvent[200];
+    char cbuttonPressedEvent[200];
+    char cbuttonReleasedEvent[200];
 
 
     GButtonGroup(QObject *parent,VM *pVM );

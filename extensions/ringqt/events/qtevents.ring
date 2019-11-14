@@ -112,7 +112,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 	for aEvent in aEvents
 		# Events Attributes
-		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[100];"+nl
+		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[200];"+nl
 		# Set Events
 		cSetEvents += cSpace+"void set"+aEvent[:event]+"Event(const char *cStr);"+nl
 		# Get Events

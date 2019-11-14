@@ -19,10 +19,10 @@ class GComboBox : public QComboBox
 
     List *pParaList;
 
-    char cactivatedEvent[100];
-    char ccurrentIndexChangedEvent[100];
-    char ceditTextChangedEvent[100];
-    char chighlightedEvent[100];
+    char cactivatedEvent[200];
+    char ccurrentIndexChangedEvent[200];
+    char ceditTextChangedEvent[200];
+    char chighlightedEvent[200];
 
 
     GComboBox(QWidget *parent,VM *pVM );

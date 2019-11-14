@@ -19,8 +19,8 @@ class GDrag : public QDrag
 
     List *pParaList;
 
-    char cactionChangedEvent[100];
-    char ctargetChangedEvent[100];
+    char cactionChangedEvent[200];
+    char ctargetChangedEvent[200];
 
 
     GDrag(QObject *parent,VM *pVM );

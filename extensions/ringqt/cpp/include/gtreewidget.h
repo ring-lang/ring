@@ -19,24 +19,24 @@ class GTreeWidget : public QTreeWidget
 
     List *pParaList;
 
-    char ccollapsedEvent[100];
-    char cexpandedEvent[100];
-    char cactivatedEvent[100];
-    char cclickedEvent[100];
-    char cdoubleClickedEvent[100];
-    char centeredEvent[100];
-    char cpressedEvent[100];
-    char cviewportEnteredEvent[100];
-    char ccurrentItemChangedEvent[100];
-    char citemActivatedEvent[100];
-    char citemChangedEvent[100];
-    char citemClickedEvent[100];
-    char citemCollapsedEvent[100];
-    char citemDoubleClickedEvent[100];
-    char citemEnteredEvent[100];
-    char citemExpandedEvent[100];
-    char citemPressedEvent[100];
-    char citemSelectionChangedEvent[100];
+    char ccollapsedEvent[200];
+    char cexpandedEvent[200];
+    char cactivatedEvent[200];
+    char cclickedEvent[200];
+    char cdoubleClickedEvent[200];
+    char centeredEvent[200];
+    char cpressedEvent[200];
+    char cviewportEnteredEvent[200];
+    char ccurrentItemChangedEvent[200];
+    char citemActivatedEvent[200];
+    char citemChangedEvent[200];
+    char citemClickedEvent[200];
+    char citemCollapsedEvent[200];
+    char citemDoubleClickedEvent[200];
+    char citemEnteredEvent[200];
+    char citemExpandedEvent[200];
+    char citemPressedEvent[200];
+    char citemSelectionChangedEvent[200];
 
 
     GTreeWidget(QWidget *parent,VM *pVM );

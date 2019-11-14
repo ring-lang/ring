@@ -19,12 +19,12 @@ class GLineEdit : public QLineEdit
 
     List *pParaList;
 
-    char cTextChangedEvent[100];
-    char ccursorPositionChangedEvent[100];
-    char ceditingFinishedEvent[100];
-    char creturnPressedEvent[100];
-    char cselectionChangedEvent[100];
-    char ctextEditedEvent[100];
+    char cTextChangedEvent[200];
+    char ccursorPositionChangedEvent[200];
+    char ceditingFinishedEvent[200];
+    char creturnPressedEvent[200];
+    char cselectionChangedEvent[200];
+    char ctextEditedEvent[200];
 
 
     GLineEdit(QWidget *parent,VM *pVM );

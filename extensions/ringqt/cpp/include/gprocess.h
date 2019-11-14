@@ -19,8 +19,8 @@ class GProcess : public QProcess
 
     List *pParaList;
 
-    char creadyReadStandardErrorEvent[100];
-    char creadyReadStandardOutputEvent[100];
+    char creadyReadStandardErrorEvent[200];
+    char creadyReadStandardOutputEvent[200];
 
 
     GProcess(QObject *parent,VM *pVM );

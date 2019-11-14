@@ -19,7 +19,7 @@ class GPrintPreviewDialog : public QPrintPreviewDialog
 
     List *pParaList;
 
-    char cpaintRequestedEvent[100];
+    char cpaintRequestedEvent[200];
 
 
     GPrintPreviewDialog(QPrinter *parent,VM *pVM );

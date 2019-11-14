@@ -19,12 +19,12 @@ class GWebEngineView : public QWebEngineView
 
     List *pParaList;
 
-    char cloadFinishedEvent[100];
-    char cloadProgressEvent[100];
-    char cloadStartedEvent[100];
-    char cselectionChangedEvent[100];
-    char ctitleChangedEvent[100];
-    char curlChangedEvent[100];
+    char cloadFinishedEvent[200];
+    char cloadProgressEvent[200];
+    char cloadStartedEvent[200];
+    char cselectionChangedEvent[200];
+    char ctitleChangedEvent[200];
+    char curlChangedEvent[200];
 
 
     GWebEngineView(QWidget *parent,VM *pVM );

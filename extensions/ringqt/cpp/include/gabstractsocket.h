@@ -19,12 +19,12 @@ class GAbstractSocket : public QAbstractSocket
 
     List *pParaList;
 
-    char cconnectedEvent[100];
-    char cdisconnectedEvent[100];
-    char cerrorEvent[100];
-    char chostFoundEvent[100];
-    char cproxyAuthenticationRequiredEvent[100];
-    char cstateChangedEvent[100];
+    char cconnectedEvent[200];
+    char cdisconnectedEvent[200];
+    char cerrorEvent[200];
+    char chostFoundEvent[200];
+    char cproxyAuthenticationRequiredEvent[200];
+    char cstateChangedEvent[200];
 
 
     GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM );

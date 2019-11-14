@@ -19,19 +19,19 @@ class GGuiApplication : public QGuiApplication
 
     List *pParaList;
 
-    char capplicationDisplayNameChangedEvent[100];
-    char capplicationStateChangedEvent[100];
-    char ccommitDataRequestEvent[100];
-    char cfocusObjectChangedEvent[100];
-    char cfocusWindowChangedEvent[100];
-    char cfontDatabaseChangedEvent[100];
-    char clastWindowClosedEvent[100];
-    char clayoutDirectionChangedEvent[100];
-    char cpaletteChangedEvent[100];
-    char cprimaryScreenChangedEvent[100];
-    char csaveStateRequestEvent[100];
-    char cscreenAddedEvent[100];
-    char cscreenRemovedEvent[100];
+    char capplicationDisplayNameChangedEvent[200];
+    char capplicationStateChangedEvent[200];
+    char ccommitDataRequestEvent[200];
+    char cfocusObjectChangedEvent[200];
+    char cfocusWindowChangedEvent[200];
+    char cfontDatabaseChangedEvent[200];
+    char clastWindowClosedEvent[200];
+    char clayoutDirectionChangedEvent[200];
+    char cpaletteChangedEvent[200];
+    char cprimaryScreenChangedEvent[200];
+    char csaveStateRequestEvent[200];
+    char cscreenAddedEvent[200];
+    char cscreenRemovedEvent[200];
 
 
     GGuiApplication(int argc,char **parent,VM *pVM );

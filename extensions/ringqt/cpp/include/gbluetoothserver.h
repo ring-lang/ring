@@ -19,8 +19,8 @@ class GBluetoothServer : public QBluetoothServer
 
     List *pParaList;
 
-    char cerrorEvent[100];
-    char cnewConnectionEvent[100];
+    char cerrorEvent[200];
+    char cnewConnectionEvent[200];
 
 
     GBluetoothServer(QBluetoothServiceInfo::Protocol x,QObject *parent,VM *pVM );

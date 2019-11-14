@@ -19,10 +19,10 @@ class GBluetoothDeviceDiscoveryAgent : public QBluetoothDeviceDiscoveryAgent
 
     List *pParaList;
 
-    char ccanceledEvent[100];
-    char cdeviceDiscoveredEvent[100];
-    char cerrorEvent[100];
-    char cfinishedEvent[100];
+    char ccanceledEvent[200];
+    char cdeviceDiscoveredEvent[200];
+    char cerrorEvent[200];
+    char cfinishedEvent[200];
 
 
     GBluetoothDeviceDiscoveryAgent(QObject *parent,VM *pVM );

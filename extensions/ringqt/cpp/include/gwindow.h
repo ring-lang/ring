@@ -19,24 +19,24 @@ class GWindow : public QWindow
 
     List *pParaList;
 
-    char cactiveChangedEvent[100];
-    char ccontentOrientationChangedEvent[100];
-    char cfocusObjectChangedEvent[100];
-    char cheightChangedEvent[100];
-    char cmaximumHeightChangedEvent[100];
-    char cmaximumWidthChangedEvent[100];
-    char cminimumHeightChangedEvent[100];
-    char cminimumWidthChangedEvent[100];
-    char cmodalityChangedEvent[100];
-    char copacityChangedEvent[100];
-    char cscreenChangedEvent[100];
-    char cvisibilityChangedEvent[100];
-    char cvisibleChangedEvent[100];
-    char cwidthChangedEvent[100];
-    char cwindowStateChangedEvent[100];
-    char cwindowTitleChangedEvent[100];
-    char cxChangedEvent[100];
-    char cyChangedEvent[100];
+    char cactiveChangedEvent[200];
+    char ccontentOrientationChangedEvent[200];
+    char cfocusObjectChangedEvent[200];
+    char cheightChangedEvent[200];
+    char cmaximumHeightChangedEvent[200];
+    char cmaximumWidthChangedEvent[200];
+    char cminimumHeightChangedEvent[200];
+    char cminimumWidthChangedEvent[200];
+    char cmodalityChangedEvent[200];
+    char copacityChangedEvent[200];
+    char cscreenChangedEvent[200];
+    char cvisibilityChangedEvent[200];
+    char cvisibleChangedEvent[200];
+    char cwidthChangedEvent[200];
+    char cwindowStateChangedEvent[200];
+    char cwindowTitleChangedEvent[200];
+    char cxChangedEvent[200];
+    char cyChangedEvent[200];
 
 
     GWindow(QScreen *parent,VM *pVM );

@@ -19,10 +19,10 @@ class GCalendarWidget : public QCalendarWidget
 
     List *pParaList;
 
-    char cactivatedEvent[100];
-    char cclickedEvent[100];
-    char ccurrentPageChangedEvent[100];
-    char cselectionChangedEvent[100];
+    char cactivatedEvent[200];
+    char cclickedEvent[200];
+    char ccurrentPageChangedEvent[200];
+    char cselectionChangedEvent[200];
 
 
     GCalendarWidget(QWidget *parent,VM *pVM );
