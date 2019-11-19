@@ -1,0 +1,38 @@
+.. index:: 
+	single: What is new in Ring 1.12?; Introduction
+
+=========================
+What is new in Ring 1.12?
+=========================
+
+In this chapter we will learn about the changes and new features in Ring 1.12 release.
+
+.. index:: 
+	pair: What is new in Ring 1.12?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.12 comes with the next features!
+
+* Load Again Command
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Load Again Command
+
+Load Again Command
+==================
+
+Ring 1.12 comes with the Load Again command
+
+.. index:: 
+	pair: What is new in Ring 1.12?; More Improvements
+
+More Improvements
+=================
+
+* New Samples 
+	* ring/samples/other/Hex2UTF8.ring
+
+* RingQt : The size of the events code is changed from 100 characters to 200 characters.
