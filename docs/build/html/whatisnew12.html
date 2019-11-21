@@ -71,6 +71,30 @@
 <div class="section" id="load-again-command">
 <span id="index-3"></span><h2>Load Again Command<a class="headerlink" href="#load-again-command" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.12 comes with the Load Again command</p>
+<p>Using this command we can load the Ring source file which contains constants more than one time.</p>
+<p>This is useful when using Ring source files for translations through global constants.</p>
+<p>Example:</p>
+<p>The next function is part from a project which support Arabic and English languages</p>
+<p>The files english.ring and arabic.ring contains constants for translation</p>
+<p>One of these files is loaded in the start of the program</p>
+<p>Loading the same file again using the (Load) command is not possible</p>
+<p>Because the (Load) command load the same source file only for the first time and ignore next times.</p>
+<p>So we have to use the (Load Again) command.</p>
+<p>Where we can use these files again during the runtime as in the next code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">setLang</span> <span class="n">nLanguage</span>
+        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+        <span class="c"># Change the language</span>
+                <span class="k">switch</span> <span class="n">nLanguage</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/english.ring&quot;</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/arabic.ring&quot;</span>
+                <span class="k">off</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="better-ringraylib">
 <span id="index-4"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>

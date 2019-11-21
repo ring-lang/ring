@@ -39,6 +39,41 @@ Load Again Command
 
 Ring 1.12 comes with the Load Again command
 
+Using this command we can load the Ring source file which contains constants more than one time.
+
+This is useful when using Ring source files for translations through global constants.
+
+Example:
+
+The next function is part from a project which support Arabic and English languages
+
+The files english.ring and arabic.ring contains constants for translation
+
+One of these files is loaded in the start of the program
+
+Loading the same file again using the (Load) command is not possible
+
+Because the (Load) command load the same source file only for the first time and ignore next times.
+
+So we have to use the (Load Again) command.
+
+Where we can use these files again during the runtime as in the next code
+
+.. code-block:: ring
+
+	func setLang nLanguage
+		if C_ENV_DEFAULT_LANG = nLanguage
+			return
+		ok
+		C_ENV_DEFAULT_LANG = nLanguage
+		# Change the language
+			switch nLanguage 
+				on C_TRANSLATION_ENGLISH
+					load again "translation/english.ring"
+				on C_TRANSLATION_ARABIC 
+					load again "translation/arabic.ring"
+			off
+
 .. index:: 
 	pair: What is new in Ring 1.12?; Better RingRayLib
 
