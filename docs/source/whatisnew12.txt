@@ -17,6 +17,7 @@ Ring 1.12 comes with the next features!
 
 * ASCII Table application
 * Load Again Command
+* Better RingRayLib
 * More Improvements
 
 .. index:: 
@@ -39,6 +40,26 @@ Load Again Command
 Ring 1.12 comes with the Load Again command
 
 .. index:: 
+	pair: What is new in Ring 1.12?; Better RingRayLib
+
+Better RingRayLib
+=================
+
+More Samples are added to RingRayLib
+
+	* Sound Loading Playing 
+	* Texture Source 
+	* Music Playing Streaming 
+	* Rectangle scaling 
+	* Colors Palette
+	* Following Eyes
+	* Collision Area
+	* Bezier Lines
+	* Images Generation
+	* Fiften Puzzle Game
+	* Cubic Map
+
+.. index:: 
 	pair: What is new in Ring 1.12?; More Improvements
 
 More Improvements
@@ -46,5 +67,16 @@ More Improvements
 
 * New Samples 
 	* ring/samples/other/Hex2UTF8.ring
-
-* RingQt : The size of the events code is changed from 100 characters to 200 characters.
+	* ring/samples/other/CalmoSoftPrimesTable.ring
+	* ring/samples/other/CalmoSoftTicTacToeGame.ring
+	* ring/samples/other/CalmoSoftSimpleGoGame.ring
+	* ring/samples/other/arabicmysql.ring 
+* VideoMusicPlayer is updated to work as expected after RingQt update to Qt 5.12.3 
+* RingQt : Added QQMLEngine class
+* RingQt : Added files for building RingQt without Bluetooth support. 
+* RingQt : The size of the events code is changed from 100 characters to 200 characters
+* Ring2EXE configuration files are updated for RingQt to correctly distribute RingQt apps
+* Code Generator : Convert function names to lower case when generating the functions for structures
+* OSCopyFolder() function is updated to copy the files in sub folders too
+* fgetpos() function is updated to work as expected
+* IsFunction() function is updated to be not case sensitive
