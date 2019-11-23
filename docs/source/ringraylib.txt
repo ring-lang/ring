@@ -584,18 +584,18 @@ Screen Shot:
 	:alt: RayLib Example
 
 .. index:: 
-	pair: Using RingRayLib; Two Cubics
+	pair: Using RingRayLib; Two Cubes
 
-Two Cubics
-==========	
+Two Cubes
+=========	
 
 .. code-block:: ring 
 
 	load "raylib.ring"
 
-	screenWidth  = 1900
-	screenHeight = 950
-	InitWindow(screenWidth, screenHeight, "raylib [core] example - 3d picking")
+	screenWidth  = 800
+	screenHeight = 450
+	InitWindow(screenWidth, screenHeight, "raylib [core] example - Two Cubes")
 
 	camera = Camera3D(
 		10, 10, 10,
@@ -701,7 +701,7 @@ Two Cubics
 
 Screen Shot:
 
-.. image:: raylib_twocubics.png
+.. image:: raylib_twocubes.png
 	:alt: RayLib Example
 	
 .. index:: 
