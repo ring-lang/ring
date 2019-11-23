@@ -1236,6 +1236,50 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_musicplaying.png" />
 </div>
+<div class="section" id="sound-loading">
+<span id="index-22"></span><h2>Sound Loading<a class="headerlink" href="#sound-loading" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [audio] example - sound loading and playing&quot;</span><span class="p">)</span>
+
+<span class="n">InitAudioDevice</span><span class="p">()</span>
+
+<span class="n">fxWav</span> <span class="o">=</span> <span class="n">LoadSound</span><span class="p">(</span><span class="s">&quot;sound.wav&quot;</span><span class="p">)</span>
+<span class="n">fxOgg</span> <span class="o">=</span> <span class="n">LoadSound</span><span class="p">(</span><span class="s">&quot;tanatana.ogg&quot;</span><span class="p">)</span>
+
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>  <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_ENTER</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>  <span class="k">ok</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press SPACE to PLAY the WAV sound!&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press ENTER to PLAY the OGG sound!&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>
+<span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>
+
+<span class="n">CloseAudioDevice</span><span class="p">()</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_soundloading.png" />
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
@@ -1783,6 +1827,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#colors-palette">Colors Palette</a></li>
 <li><a class="reference internal" href="#rectangle-scaling">Rectangle Scaling</a></li>
 <li><a class="reference internal" href="#music-playing">Music Playing</a></li>
+<li><a class="reference internal" href="#sound-loading">Sound Loading</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
