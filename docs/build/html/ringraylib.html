@@ -1092,9 +1092,79 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_colorspalette.png" />
+<span class="target" id="index-19"></span></div>
+<div class="section" id="rectangle-scaling">
+<span id="index-20"></span><h2>Rectangle Scaling<a class="headerlink" href="#rectangle-scaling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+
+MOUSE_SCALE_MARK_SIZE = 12
+
+screenWidth = 800
+screenHeight = 450
+
+InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - rectangle scaling mouse&quot;)
+
+rec = Rectangle( 100, 100, 200, 80 )
+
+mousePosition = Vector2( 0,0 )
+
+mouseScaleReady = false
+mouseScaleMode = false
+
+SetTargetFPS(60)
+
+while !WindowShouldClose()
+
+        mousePosition = GetMousePosition()
+
+        if (CheckCollisionPointRec(mousePosition, rec) and
+                CheckCollisionPointRec(mousePosition, Rectangle(rec.x + rec.width - MOUSE_SCALE_MARK_SIZE,
+                        rec.y + rec.height - MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE )))
+                mouseScaleReady = true
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) mouseScaleMode = true ok
+        else mouseScaleReady = false ok
+
+        if (mouseScaleMode)
+
+                mouseScaleReady = true
+
+                rec.width = (mousePosition.x - rec.x)
+                rec.height = (mousePosition.y - rec.y)
+
+                if (rec.width &lt; MOUSE_SCALE_MARK_SIZE) rec.width = MOUSE_SCALE_MARK_SIZE ok
+                if (rec.height &lt; MOUSE_SCALE_MARK_SIZE) rec.height = MOUSE_SCALE_MARK_SIZE ok
+
+                if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) mouseScaleMode = false ok
+        ok
+
+        BeginDrawing()
+
+                ClearBackground(RAYWHITE)
+
+                DrawText(&quot;Scale rectangle dragging from bottom-right corner!&quot;, 10, 10, 20, GRAY)
+
+                DrawRectangleRec(rec, Fade(GREEN, 0.5f))
+
+                if (mouseScaleReady)
+
+                        DrawRectangleLinesEx(rec, 1, RED)
+                        DrawTriangle(Vector2( rec.x + rec.width - MOUSE_SCALE_MARK_SIZE, rec.y + rec.height ),
+                                                 Vector2( rec.x + rec.width, rec.y + rec.height ),
+                                                 Vector2( rec.x + rec.width, rec.y + rec.height - MOUSE_SCALE_MARK_SIZE ), RED)
+                ok
+
+        EndDrawing()
+
+end
+
+CloseWindow()
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_rectanglescaling.png" />
 </div>
 <div class="section" id="functions">
-<span id="index-19"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1638,6 +1708,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#collision-area">Collision Area</a></li>
 <li><a class="reference internal" href="#following-eyes">Following Eyes</a></li>
 <li><a class="reference internal" href="#colors-palette">Colors Palette</a></li>
+<li><a class="reference internal" href="#rectangle-scaling">Rectangle Scaling</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
