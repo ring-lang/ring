@@ -548,8 +548,122 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_fullscreen.png" />
 </div>
+<div class="section" id="two-cubics">
+<span id="index-12"></span><h2>Two Cubics<a class="headerlink" href="#two-cubics" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+
+screenWidth  = 1900
+screenHeight = 950
+InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - 3d picking&quot;)
+
+camera = Camera3D(
+        10, 10, 10,
+        0, 0, 0 ,
+        0, 1, 0 ,
+        45,
+        CAMERA_PERSPECTIVE
+)
+
+cubePosition1 = Vector3( 0, 1, 4 )
+cubePosition2 = Vector3( 0, 1, -4 )
+cubeSize = Vector3( 2, 2, 2 )
+
+ray = Ray(0,0,0,0,0,0)
+
+collision1 = false
+collision2 = false
+
+SetCameraMode(camera, CAMERA_FREE)
+
+SetTargetFPS(60)
+
+while !WindowShouldClose()
+
+                UpdateCamera(camera)
+
+                if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
+                        if !collision1
+                                ray = GetMouseRay(GetMousePosition(), camera)
+
+                                collision1 = CheckCollisionRayBox(ray,
+                                        BoundingBox( cubePosition1.x - cubeSize.x/2, cubePosition1.y - cubeSize.y/2,
+                                        cubePosition1.z - cubeSize.z/2,
+                                        cubePosition1.x + cubeSize.x/2, cubePosition1.y + cubeSize.y/2,
+                                        cubePosition1.z + cubeSize.z/2 ) )
+                        else
+                                collision1 = false
+                        ok
+                        if  !collision2
+                                ray = GetMouseRay(GetMousePosition(), camera)
+
+                                collision2 = CheckCollisionRayBox(ray,
+                                        BoundingBox( cubePosition2.x - cubeSize.x/2, cubePosition2.y - cubeSize.y/2,
+                                        cubePosition2.z - cubeSize.z/2,
+                                        cubePosition2.x + cubeSize.x/2, cubePosition2.y + cubeSize.y/2,
+                                        cubePosition2.z + cubeSize.z/2 ) )
+                        else
+                                collision2 = false
+                ok
+        ok
+
+                BeginDrawing()
+
+                        ClearBackground(RAYWHITE)
+
+                        BeginMode3D(camera)
+
+                                 if collision1
+                                        DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, RED)
+                                        DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+
+                                        DrawCubeWires(cubePosition1, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
+                                                                cubeSize.z + 0.2f, GREEN)
+                                        collision1 = true
+                                 else
+                                        DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
+                                        DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+                                        collision1 = false
+                                 ok
+
+                                 if collision2
+                                        DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, RED)
+                                        DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+
+                                        DrawCubeWires(cubePosition2, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
+                                                                        cubeSize.z + 0.2f, GREEN)
+                                        collision2 = true
+                                 else
+                                        DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
+                                        DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+                                        collision2 = false
+                                 ok
+
+
+                                DrawRay(ray, MAROON)
+                                DrawGrid(10, 1)
+
+                        EndMode3D()
+
+                        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10, 20, DARKGRAY)
+
+                        if collision1 or collision2
+                                DrawText(&quot;BOX SELECTED&quot;, (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2,
+                                                        screenHeight * 0.1f, 30, GREEN)
+                        ok
+
+                        DrawFPS(10, 10)
+
+                EndDrawing()
+end
+
+CloseWindow()
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_twocubics.png" />
+</div>
 <div class="section" id="basic-shapes">
-<span id="index-12"></span><h2>Basic Shapes<a class="headerlink" href="#basic-shapes" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Basic Shapes<a class="headerlink" href="#basic-shapes" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -597,7 +711,7 @@ CloseWindow()
 <img alt="RayLib Example" src="_images/raylib_basicshapes.png" />
 </div>
 <div class="section" id="draw-ring">
-<span id="index-13"></span><h2>Draw Ring<a class="headerlink" href="#draw-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Draw Ring<a class="headerlink" href="#draw-ring" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>       <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
@@ -667,7 +781,7 @@ CloseWindow()
 <img alt="RayLib Example" src="_images/raylib_drawring2.png" />
 </div>
 <div class="section" id="functions">
-<span id="index-14"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1204,6 +1318,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#camera-first-person">Camera First Person</a></li>
 <li><a class="reference internal" href="#d-picking">3D Picking</a></li>
 <li><a class="reference internal" href="#full-screen">Full Screen</a></li>
+<li><a class="reference internal" href="#two-cubics">Two Cubics</a></li>
 <li><a class="reference internal" href="#basic-shapes">Basic Shapes</a></li>
 <li><a class="reference internal" href="#draw-ring">Draw Ring</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
