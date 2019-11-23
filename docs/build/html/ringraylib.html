@@ -921,8 +921,87 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_collisionarea.png" />
 </div>
+<div class="section" id="following-eyes">
+<span id="index-17"></span><h2>Following Eyes<a class="headerlink" href="#following-eyes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - following eyes&quot;</span><span class="p">)</span>
+
+<span class="n">scleraLeftPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">scleraRightPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">scleraRadius</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="n">irisLeftPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">irisRadius</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dy</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dxx</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dyy</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="n">irisLeftPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+
+        <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">left</span> <span class="n">eye</span> <span class="n">sclera</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">x</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">y</span>
+
+                <span class="n">angle</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+                <span class="n">dxx</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+                <span class="n">dyy</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+                <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
+                <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
+        <span class="k">ok</span>
+
+        <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">right</span> <span class="n">eye</span> <span class="n">sclera</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">x</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">y</span>
+
+                <span class="n">angle</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+                <span class="n">dxx</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+                <span class="n">dyy</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+                <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
+                <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
+        <span class="k">ok</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">irisRadius</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">irisRadius</span><span class="p">,</span> <span class="n">DARKGREEN</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_followingeyes.png" />
+</div>
 <div class="section" id="functions">
-<span id="index-17"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1464,6 +1543,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#draw-ring">Draw Ring</a></li>
 <li><a class="reference internal" href="#bezier-lines">Bezier Lines</a></li>
 <li><a class="reference internal" href="#collision-area">Collision Area</a></li>
+<li><a class="reference internal" href="#following-eyes">Following Eyes</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
