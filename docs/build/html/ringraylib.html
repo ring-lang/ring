@@ -1163,6 +1163,79 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_rectanglescaling.png" />
 </div>
+<div class="section" id="music-playing">
+<span id="index-21"></span><h2>Music Playing<a class="headerlink" href="#music-playing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [audio] example - music playing (streaming)&quot;</span><span class="p">)</span>
+
+<span class="n">InitAudioDevice</span><span class="p">()</span>
+
+<span class="n">music</span> <span class="o">=</span> <span class="n">LoadMusicStream</span><span class="p">(</span><span class="s">&quot;guitar_noodling.ogg&quot;</span><span class="p">)</span>
+
+<span class="n">PlayMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+
+<span class="n">timePlayed</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pause</span> <span class="o">=</span> <span class="kp">false</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="n">UpdateMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
+                <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="n">PlayMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_P</span><span class="p">)</span>
+                <span class="n">pause</span> <span class="o">=</span> <span class="o">!</span><span class="n">pause</span>
+
+                <span class="k">if</span> <span class="n">pause</span>
+                        <span class="n">PauseMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="k">else</span>
+                        <span class="n">ResumeMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
+
+        <span class="n">timePlayed</span> <span class="o">=</span> <span class="n">GetMusicTimePlayed</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">/</span> <span class="n">GetMusicTimeLength</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">*</span><span class="mi">400</span>
+
+        <span class="k">if</span> <span class="n">timePlayed</span> <span class="o">&gt;</span> <span class="mi">400</span>
+                <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MUSIC SHOULD BE PLAYING!&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+
+                         <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                         <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">timePlayed</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PRESS SPACE  TO RESTART MUSIC&quot;</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PRESS P TO PAUSE/RESUME MUSIC&quot;</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">UnloadMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+
+<span class="n">CloseAudioDevice</span><span class="p">()</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_musicplaying.png" />
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
@@ -1709,6 +1782,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#following-eyes">Following Eyes</a></li>
 <li><a class="reference internal" href="#colors-palette">Colors Palette</a></li>
 <li><a class="reference internal" href="#rectangle-scaling">Rectangle Scaling</a></li>
+<li><a class="reference internal" href="#music-playing">Music Playing</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
