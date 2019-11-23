@@ -1484,6 +1484,152 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_texturesource.png" />
 </div>
+<div class="section" id="geometric-shapes">
+<span id="index-26"></span><h2>Geometric Shapes<a class="headerlink" href="#geometric-shapes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">FOVY_PERSPECTIVE</span>   <span class="o">=</span>  <span class="mf">45.0</span>
+<span class="n">WIDTH_ORTHOGRAPHIC</span> <span class="o">=</span>  <span class="mf">10.0</span>
+
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [models] example - geometric shapes&quot;</span><span class="p">)</span>
+
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span>
+                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                <span class="n">FOVY_PERSPECTIVE</span><span class="p">,</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                        <span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+
+                        <span class="n">camera</span><span class="p">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">WIDTH_ORTHOGRAPHIC</span>
+                        <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
+
+                <span class="k">else</span>
+
+                        <span class="n">camera</span><span class="p">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">FOVY_PERSPECTIVE</span>
+                        <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+
+                        <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+                        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+
+                        <span class="n">DrawSphere</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
+                        <span class="n">DrawSphereWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
+
+                        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+
+                        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PINK</span><span class="p">)</span>
+
+                        <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+                <span class="n">EndMode3D</span><span class="p">()</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press Spacebar to switch camera type&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;ORTHOGRAPHIC&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                <span class="k">else</span>
+                        <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PERSPECTIVE&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                        <span class="k">ok</span>
+                <span class="k">ok</span>
+
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_geometricshapes.png" />
+</div>
+<div class="section" id="cubic-map">
+<span id="index-27"></span><h2>Cubic Map<a class="headerlink" href="#cubic-map" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [models] example - cubesmap loading and drawing&quot;</span><span class="p">)</span>
+
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span>
+                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                 <span class="mf">45.0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
+
+<span class="n">image</span>    <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;cubicmap.png&quot;</span><span class="p">)</span>
+<span class="n">cubicmap</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">mesh</span>     <span class="o">=</span> <span class="n">GenMeshCubicmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">))</span>
+<span class="n">model</span>    <span class="o">=</span> <span class="n">LoadModelFromMesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+
+<span class="n">texture</span>  <span class="o">=</span> <span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;cubicmap_atlas.png&quot;</span><span class="p">)</span>
+
+<span class="n">setmodelmaterialtexture</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">MAP_DIFFUSE</span><span class="p">,</span><span class="n">texture</span><span class="p">)</span>
+
+<span class="n">mapPosition</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span> <span class="o">-</span><span class="mf">16.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span> <span class="p">)</span>
+
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">SetCameraMode</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">CAMERA_ORBITAL</span><span class="p">)</span>
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+                        <span class="n">DrawModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mapPosition</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">EndMode3D</span><span class="p">()</span>
+
+                <span class="n">DrawTextureEx</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                                                <span class="n">cubicmap</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;cubicmap image used to&quot;</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span>  <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;generate map 3d model&quot;</span><span class="p">,</span>  <span class="mi">658</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">)</span>
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
+<span class="n">UnloadModel</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_cubicmap.png" />
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
@@ -2035,6 +2181,8 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#image-drawing">Image Drawing</a></li>
 <li><a class="reference internal" href="#image-generation">Image Generation</a></li>
 <li><a class="reference internal" href="#texture-source">Texture Source</a></li>
+<li><a class="reference internal" href="#geometric-shapes">Geometric Shapes</a></li>
+<li><a class="reference internal" href="#cubic-map">Cubic Map</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
