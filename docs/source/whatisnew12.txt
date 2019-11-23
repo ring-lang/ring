@@ -94,6 +94,11 @@ More Samples are added to RingRayLib
 	* Fiften Puzzle Game
 	* Cubic Map
 
+Screen Shot:
+	
+.. image:: raylib_cubicmap.png
+	:alt: RayLib Example	
+
 .. index:: 
 	pair: What is new in Ring 1.12?; More Improvements
 
