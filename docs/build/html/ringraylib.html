@@ -1423,6 +1423,67 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_imagegeneration.png" />
 </div>
+<div class="section" id="texture-source">
+<span id="index-25"></span><h2>Texture Source<a class="headerlink" href="#texture-source" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">800</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [textures] examples - texture source and destination rectangles&quot;</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Textures</span> <span class="n">MUST</span> <span class="n">be</span> <span class="n">loaded</span> <span class="n">after</span> <span class="n">Window</span> <span class="n">initialization</span> <span class="p">(</span><span class="n">OpenGL</span> <span class="n">context</span> <span class="n">is</span> <span class="n">required</span><span class="p">)</span>
+
+<span class="n">scarfy</span> <span class="o">=</span> <span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;RingLogo.png&quot;</span><span class="p">)</span>        <span class="o">//</span> <span class="n">Texture</span> <span class="n">loading</span>
+
+<span class="n">frameWidth</span> <span class="o">=</span> <span class="n">scarfy</span><span class="p">.</span><span class="n">width</span>
+<span class="n">frameHeight</span> <span class="o">=</span> <span class="n">scarfy</span><span class="p">.</span><span class="n">height</span>
+
+<span class="o">//</span> <span class="n">Source</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">drawing</span><span class="p">)</span>
+<span class="n">sourceRec</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="n">frameHeight</span> <span class="p">)</span>
+
+<span class="o">//</span> <span class="n">Destination</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">screen</span> <span class="n">rectangle</span> <span class="n">where</span> <span class="n">drawing</span> <span class="n">part</span> <span class="n">of</span> <span class="n">texture</span><span class="p">)</span>
+<span class="n">destRec</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameHeight</span><span class="o">*</span><span class="mi">2</span> <span class="p">)</span>
+
+<span class="o">//</span> <span class="n">Origin</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="p">(</span><span class="n">rotation</span><span class="o">/</span><span class="n">scale</span> <span class="n">point</span><span class="p">),</span> <span class="n">it</span><span class="sc">&#39;s relative to destination rectangle size</span>
+<span class="n">origin</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="n">frameHeight</span> <span class="p">)</span>
+
+<span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">+</span><span class="mi">1</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Using</span> <span class="n">DrawTexturePro</span><span class="p">()</span> <span class="n">we</span> <span class="n">can</span> <span class="n">easily</span> <span class="n">rotate</span> <span class="ow">and</span> <span class="n">scale</span> <span class="n">the</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">we</span> <span class="n">draw</span>
+                <span class="o">//</span> <span class="n">sourceRec</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">we</span> <span class="n">use</span> <span class="k">for</span> <span class="n">drawing</span>
+                <span class="o">//</span> <span class="n">destRec</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">rectangle</span> <span class="n">where</span> <span class="n">our</span> <span class="n">texture</span> <span class="n">part</span> <span class="n">will</span> <span class="n">fit</span> <span class="p">(</span><span class="n">scaling</span> <span class="n">it</span> <span class="k">to</span> <span class="n">fit</span><span class="p">)</span>
+                <span class="o">//</span> <span class="n">origin</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">point</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">used</span> <span class="n">as</span> <span class="n">reference</span> <span class="k">for</span> <span class="n">rotation</span> <span class="ow">and</span> <span class="n">scaling</span>
+                <span class="o">//</span> <span class="n">rotation</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">rotation</span> <span class="p">(</span><span class="n">using</span> <span class="n">origin</span> <span class="n">as</span> <span class="n">rotation</span> <span class="n">point</span><span class="p">)</span>
+                <span class="n">DrawTexturePro</span><span class="p">(</span><span class="n">scarfy</span><span class="p">,</span> <span class="n">sourceRec</span><span class="p">,</span> <span class="n">destRec</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+
+                <span class="n">DrawLine</span><span class="p">(</span><span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;(c) Scarfy sprite by Eiden Marsal&quot;</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">scarfy</span><span class="p">)</span>        <span class="o">//</span> <span class="n">Texture</span> <span class="n">unloading</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_texturesource.png" />
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
@@ -1973,6 +2034,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#sound-loading">Sound Loading</a></li>
 <li><a class="reference internal" href="#image-drawing">Image Drawing</a></li>
 <li><a class="reference internal" href="#image-generation">Image Generation</a></li>
+<li><a class="reference internal" href="#texture-source">Texture Source</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
