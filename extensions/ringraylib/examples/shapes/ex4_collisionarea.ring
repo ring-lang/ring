@@ -2,7 +2,6 @@
 # Email   : quiwox@gmail.com
 
 load "raylib.ring"
-load "stdlibcore.ring"    // Required for abs()
 
 screenWidth = 800
 screenHeight = 450
