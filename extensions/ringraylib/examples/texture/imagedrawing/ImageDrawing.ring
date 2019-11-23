@@ -29,8 +29,7 @@ UnloadImage(parrots)
 
 SetTargetFPS(60)
 
-while (!WindowShouldClose())   
-{
+while !WindowShouldClose()
 	BeginDrawing()
 
 		ClearBackground(RAYWHITE)
@@ -42,7 +41,7 @@ while (!WindowShouldClose())
 		DrawText("Source images have been cropped, scaled, flipped and copied one over the other.", 190, 370, 10, DARKGRAY)
 
 	EndDrawing()
-}
+end
 
 UnloadTexture(texture)       
 
