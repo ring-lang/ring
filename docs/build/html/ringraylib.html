@@ -1000,8 +1000,101 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_followingeyes.png" />
 </div>
+<div class="section" id="colors-palette">
+<span id="index-18"></span><h2>Colors Palette<a class="headerlink" href="#colors-palette" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+
+MAX_COLORS_COUNT = 21          // Number of colors available
+
+screenWidth = 800
+screenHeight = 450
+colors = list(MAX_COLORS_COUNT)
+colorNames = list(MAX_COLORS_COUNT)
+colorsRecs = list(MAX_COLORS_COUNT)
+colorState = list(MAX_COLORS_COUNT)
+
+InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - colors palette&quot;)
+
+colors = [
+        DARKGRAY, MAROON, ORANGE, DARKGREEN, DARKBLUE, DARKPURPLE, DARKBROWN,
+        GRAY, RED, GOLD, LIME, BLUE, VIOLET, BROWN, LIGHTGRAY, PINK, YELLOW,
+        GREEN, SKYBLUE, PURPLE, BEIGE ]
+
+colorNames = [
+        &quot;DARKGRAY&quot;, &quot;MAROON&quot;, &quot;ORANGE&quot;, &quot;DARKGREEN&quot;, &quot;DARKBLUE&quot;, &quot;DARKPURPLE&quot;,
+        &quot;DARKBROWN&quot;, &quot;GRAY&quot;, &quot;RED&quot;, &quot;GOLD&quot;, &quot;LIME&quot;, &quot;BLUE&quot;, &quot;VIOLET&quot;, &quot;BROWN&quot;,
+        &quot;LIGHTGRAY&quot;, &quot;PINK&quot;, &quot;YELLOW&quot;, &quot;GREEN&quot;, &quot;SKYBLUE&quot;, &quot;PURPLE&quot;, &quot;BEIGE&quot; ]
+
+for i = 1 to MAX_COLORS_COUNT
+        colorsRecs[i] = new Rectangle(0,0,0,0)
+next
+
+for i = 1 to MAX_COLORS_COUNT
+        colorState[i] = 0
+next
+
+
+// Fills colorsRecs data (for every rectangle)
+for i = 1 to MAX_COLORS_COUNT
+        colorsRecs[i].x = 20 + 100*((i-1)%7) + 10*((i-1)%7)
+        colorsRecs[i].y = 80 + 100*floor((i-1)/7) + 10*floor((i-1)/7)
+        colorsRecs[i].width = 100
+        colorsRecs[i].height = 100
+next
+
+mousePoint = Vector2( 0.0, 0.0 )
+
+SetTargetFPS(60)
+
+// Main game loop
+while !WindowShouldClose()
+
+        mousePoint = GetMousePosition()
+
+        for i = 1 to MAX_COLORS_COUNT
+                if (CheckCollisionPointRec(mousePoint, colorsRecs[i])) colorState[i] = 1
+                else colorState[i] = 0 ok
+        next
+
+        BeginDrawing()
+
+                ClearBackground(RAYWHITE)
+
+                DrawText(&quot;raylib colors palette&quot;, 28, 42, 20, BLACK)
+                DrawText(&quot;press SPACE to see all colors&quot;, GetScreenWidth() - 180,
+                                        GetScreenHeight() - 40, 10, GRAY)
+
+                for i = 1 to MAX_COLORS_COUNT    // Draw all rectangles
+                        if colorState[i]
+                           cstate = 0.6
+                        else
+                           cstate = 1.0
+                        ok
+
+                        DrawRectangleRec(colorsRecs[i], Fade(colors[i], cstate))
+
+                        if (IsKeyDown(KEY_SPACE) || colorState[i])
+                                DrawRectangle(colorsRecs[i].x, colorsRecs[i].y + colorsRecs[i].height - 26,
+                                                        colorsRecs[i].width, 20, BLACK)
+                                DrawRectangleLinesEx(colorsRecs[i], 6, Fade(BLACK, 0.3f))
+                                DrawText(colorNames[i], colorsRecs[i].x +
+                                                colorsRecs[i].width - MeasureText(colorNames[i], 10) - 12,
+                                                 colorsRecs[i].y + colorsRecs[i].height - 20, 10, colors[i])
+                        ok
+                next
+
+        EndDrawing()
+
+end
+
+CloseWindow()
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_colorspalette.png" />
+</div>
 <div class="section" id="functions">
-<span id="index-18"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1544,6 +1637,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#bezier-lines">Bezier Lines</a></li>
 <li><a class="reference internal" href="#collision-area">Collision Area</a></li>
 <li><a class="reference internal" href="#following-eyes">Following Eyes</a></li>
+<li><a class="reference internal" href="#colors-palette">Colors Palette</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
