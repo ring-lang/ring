@@ -780,8 +780,48 @@ CloseWindow()
 <p>Screen Shot (2):</p>
 <img alt="RayLib Example" src="_images/raylib_drawring2.png" />
 </div>
+<div class="section" id="bezier-lines">
+<span id="index-15"></span><h2>Bezier Lines<a class="headerlink" href="#bezier-lines" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">SetConfigFlags</span><span class="p">(</span><span class="n">FLAG_MSAA_4X_HINT</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - cubic-bezier lines&quot;</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">endvec</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span><span class="n">screenHeight</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">))</span>
+                  <span class="n">endvec</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="k">ok</span>
+
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawLineBezier</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">endvec</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_bezierlines.png" />
+</div>
 <div class="section" id="functions">
-<span id="index-15"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1321,6 +1361,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#two-cubes">Two Cubes</a></li>
 <li><a class="reference internal" href="#basic-shapes">Basic Shapes</a></li>
 <li><a class="reference internal" href="#draw-ring">Draw Ring</a></li>
+<li><a class="reference internal" href="#bezier-lines">Bezier Lines</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
