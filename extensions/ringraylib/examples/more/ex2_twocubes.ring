@@ -2,9 +2,9 @@
 
 load "raylib.ring"
 
-screenWidth  = 1900
-screenHeight = 950
-InitWindow(screenWidth, screenHeight, "raylib [core] example - 3d picking")
+screenWidth  = 800
+screenHeight = 450
+InitWindow(screenWidth, screenHeight, "raylib [core] example - Two Cubes")
 
 camera = Camera3D(
 	10, 10, 10,
