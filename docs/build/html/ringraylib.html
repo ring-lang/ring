@@ -1280,6 +1280,66 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_soundloading.png" />
 </div>
+<div class="section" id="image-drawing">
+<span id="index-23"></span><h2>Image Drawing<a class="headerlink" href="#image-drawing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [textures] example - image drawing&quot;</span><span class="p">)</span>
+
+<span class="n">cat</span> <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;cat.png&quot;</span><span class="p">)</span>
+
+<span class="n">ImageCrop</span><span class="p">(</span> <span class="n">cat</span><span class="p">,</span>  <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">380</span> <span class="p">))</span>
+<span class="n">ImageFlipHorizontal</span><span class="p">(</span> <span class="n">cat</span><span class="p">)</span>
+<span class="n">ImageResize</span><span class="p">(</span> <span class="n">cat</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">parrots</span> <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;parrots.png&quot;</span><span class="p">)</span>
+
+<span class="n">ImageDraw</span><span class="p">(</span> <span class="n">parrots</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">height</span> <span class="p">),</span>
+                        <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mf">1.5</span> <span class="p">))</span>
+<span class="n">ImageCrop</span><span class="p">(</span> <span class="n">parrots</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">parrots</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">parrots</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">))</span>
+
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="n">LoadFont</span><span class="p">(</span><span class="s">&quot;custom_jupiter_crash.png&quot;</span><span class="p">)</span>
+
+<span class="n">ImageDrawTextEx</span><span class="p">(</span><span class="n">parrots</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">230</span> <span class="p">),</span> <span class="n">font</span><span class="p">,</span> <span class="s">&quot;PARROTS &amp; CAT&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">.</span><span class="n">baseSize</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+<span class="n">UnloadFont</span><span class="p">(</span><span class="n">font</span><span class="p">);</span>
+
+<span class="n">texture</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">parrots</span><span class="p">)</span>
+
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">parrots</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="n">DrawTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                        <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                        <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;We are drawing only one texture from various images composed!&quot;</span><span class="p">,</span>
+                                        <span class="mi">240</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Source images have been cropped, scaled, flipped and copied one over the other.&quot;</span><span class="p">,</span>
+                                        <span class="mi">190</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_imagedrawing.png" />
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
@@ -1828,6 +1888,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#rectangle-scaling">Rectangle Scaling</a></li>
 <li><a class="reference internal" href="#music-playing">Music Playing</a></li>
 <li><a class="reference internal" href="#sound-loading">Sound Loading</a></li>
+<li><a class="reference internal" href="#image-drawing">Image Drawing</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
