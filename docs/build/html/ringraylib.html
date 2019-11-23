@@ -820,8 +820,109 @@ CloseWindow()
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_bezierlines.png" />
 </div>
+<div class="section" id="collision-area">
+<span id="index-16"></span><h2>Collision Area<a class="headerlink" href="#collision-area" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - collision area&quot;</span><span class="p">)</span>
+
+<span class="o">//</span> <span class="n">Box</span> <span class="n">A</span><span class="p">:</span> <span class="n">Moving</span> <span class="n">box</span>
+<span class="n">boxA</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span> <span class="p">)</span>
+<span class="n">boxASpeedX</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="o">//</span> <span class="n">Box</span> <span class="n">B</span><span class="p">:</span> <span class="n">Mouse</span> <span class="n">moved</span> <span class="n">box</span>
+<span class="n">boxB</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">60</span> <span class="p">)</span>
+
+<span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
+
+<span class="n">boxCollision</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span> <span class="o">//</span> <span class="n">Collision</span> <span class="n">rectangle</span>
+
+<span class="n">screenUpperLimit</span> <span class="o">=</span> <span class="mi">40</span>      <span class="o">//</span> <span class="n">Top</span> <span class="n">menu</span> <span class="n">limits</span>
+
+<span class="n">pause</span> <span class="o">=</span> <span class="kp">false</span>             <span class="o">//</span> <span class="n">Movement</span> <span class="n">pause</span>
+<span class="n">collision</span> <span class="o">=</span> <span class="kp">false</span>         <span class="o">//</span> <span class="n">Collision</span> <span class="n">detection</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="o">//</span> <span class="n">Move</span> <span class="n">box</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paused</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pause</span><span class="p">)</span> <span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">boxASpeedX</span> <span class="k">ok</span>
+
+        <span class="o">//</span> <span class="n">Bounce</span> <span class="n">box</span> <span class="k">on</span> <span class="n">x</span> <span class="n">screen</span> <span class="n">limits</span>
+        <span class="k">if</span> <span class="p">(((</span><span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxA</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">))</span>
+                <span class="n">boxASpeedX</span> <span class="o">=</span> <span class="n">boxASpeedX</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
+
+        <span class="o">//</span> <span class="n">Update</span> <span class="n">player</span><span class="o">-</span><span class="n">controlled</span><span class="o">-</span><span class="n">box</span> <span class="p">(</span><span class="n">box02</span><span class="p">)</span>
+        <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetMouseX</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
+
+        <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">Box</span> <span class="n">B</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">go</span> <span class="n">out</span> <span class="n">of</span> <span class="n">move</span> <span class="n">area</span> <span class="n">limits</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ok</span>
+
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span> <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">screenUpperLimit</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenUpperLimit</span> <span class="k">ok</span>
+
+        <span class="o">//</span> <span class="n">Check</span> <span class="n">boxes</span> <span class="n">collision</span>
+        <span class="n">collision</span> <span class="o">=</span> <span class="n">CheckCollisionRecs</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
+
+        <span class="o">//</span> <span class="k">Get</span> <span class="n">collision</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">only</span> <span class="k">on</span> <span class="n">collision</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span> <span class="k">ok</span>
+
+        <span class="o">//</span> <span class="n">Pause</span> <span class="n">Box</span> <span class="n">A</span> <span class="n">movement</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">))</span> <span class="n">pause</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pause</span> <span class="k">ok</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">collision</span> <span class="o">=</span> <span class="kp">true</span>
+                   <span class="n">color</span> <span class="o">=</span> <span class="n">RED</span>
+                <span class="k">else</span>
+                   <span class="n">color</span> <span class="o">=</span> <span class="n">BLACK</span>
+                <span class="k">ok</span>
+                <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenUpperLimit</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+                <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+
+                <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetMouseX</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">collision</span> <span class="o">=</span> <span class="n">CheckCollisionRecs</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
+                <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxB</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+                <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="o">=</span> <span class="kp">true</span>
+
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">area</span>
+                        <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
+
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">message</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                                <span class="n">screenUpperLimit</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">area</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Collision Area: &quot;</span> <span class="o">+</span> <span class="kt">string</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">height</span><span class="p">),</span>
+                                        <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">screenUpperLimit</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+
+                <span class="k">ok</span>
+
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RayLib Example" src="_images/raylib_collisionarea.png" />
+</div>
 <div class="section" id="functions">
-<span id="index-16"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -1362,6 +1463,7 @@ const char *GuiIconText(int iconId, const char *text)
 <li><a class="reference internal" href="#basic-shapes">Basic Shapes</a></li>
 <li><a class="reference internal" href="#draw-ring">Draw Ring</a></li>
 <li><a class="reference internal" href="#bezier-lines">Bezier Lines</a></li>
+<li><a class="reference internal" href="#collision-area">Collision Area</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
