@@ -526,6 +526,9 @@ aPackagesRegistry = [
 	[ :name = "qt512qmlruntime",
 	  :description = "Qt 5.12 - QML - runtime for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "asciitable",
+	  :description = "ASCIITable package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
