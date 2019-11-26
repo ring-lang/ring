@@ -13,7 +13,6 @@ CodeEditor Class
 ================
 
 
-
 Parameters : QWidget *
 
 
@@ -611,6 +610,8 @@ QApp Class
 ==========
 
 
+C++ Reference : http://doc.qt.io/qt-5/qapplication.html
+
 
 Parent Class : QGuiApplication
 
@@ -732,9 +733,6 @@ Parent Class : QAxBase
 
 QAxWidget2 Class
 ================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qaxwidget2.html
 
 
 Parameters : QString c, QWidget *parent, Qt::WindowFlags f
@@ -1917,9 +1915,6 @@ QCompleter2 Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcompleter2.html
-
-
 Parameters : QAbstractItemModel *model, QObject *parent
 
 
@@ -1931,9 +1926,6 @@ Parent Class : QCompleter
 
 QCompleter3 Class
 =================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qcompleter3.html
 
 
 Parameters : QStringList list, QObject *parent
@@ -2828,9 +2820,6 @@ QFile2 Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qfile2.html
-
-
 Parameters : QString
 
 
@@ -3251,9 +3240,6 @@ QFrame2 Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qframe2.html
-
-
 Parameters : void
 
 
@@ -3265,9 +3251,6 @@ Parent Class : QFrame
 
 QFrame3 Class
 =============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qframe3.html
 
 
 Parameters : QWidget *parent
@@ -4807,9 +4790,6 @@ Parent Class : Qt3DCore::QComponent
 
 QMatrix4x4 Class
 ================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qmatrix4x4.html
 
 
 Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
@@ -6608,9 +6588,6 @@ QPainter2 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qpainter2.html
-
-
 Parameters : QPaintDevice *
 
 
@@ -6821,9 +6798,6 @@ Parameters : const char *
 
 QPixmap2 Class
 ==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qpixmap2.html
 
 
 Parameters : int width, int height
@@ -8392,9 +8366,6 @@ QString2 Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qstring2.html
-
-
 Parameters : void
 
 * QString append( QString  str)
@@ -9547,9 +9518,6 @@ QTextStream2 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtextstream2.html
-
-
 Parameters : QIODevice * device
 
 
@@ -9561,9 +9529,6 @@ Parent Class : QTextStream
 
 QTextStream3 Class
 ==================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qtextstream3.html
 
 
 Parameters : FILE * fileHandle, QIODevice::OpenMode
@@ -9579,9 +9544,6 @@ QTextStream4 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtextstream4.html
-
-
 Parameters : QString *, QIODevice::OpenMode
 
 
@@ -9593,9 +9555,6 @@ Parent Class : QTextStream
 
 QTextStream5 Class
 ==================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qtextstream5.html
 
 
 Parameters : QByteArray *, QIODevice::OpenMode
@@ -10327,9 +10286,6 @@ QVariant2 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qvariant2.html
-
-
 Parent Class : QVariant
 
 
@@ -10341,9 +10297,6 @@ Parameters : int
 
 QVariant3 Class
 ===============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qvariant3.html
 
 
 Parent Class : QVariant
@@ -10359,9 +10312,6 @@ QVariant4 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qvariant4.html
-
-
 Parent Class : QVariant
 
 
@@ -10373,9 +10323,6 @@ Parameters : double
 
 QVariant5 Class
 ===============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qvariant5.html
 
 
 Parent Class : QVariant

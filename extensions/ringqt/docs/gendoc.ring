@@ -26,12 +26,12 @@ aRingQtToQtClasses = [
 
 funcAfterClass = func cClassName {
 	if find(aRingQtClasses,cClassName) = 0
-		cClassName = lower(cClassName)
+		cClassName = lower(trim(cClassName))
 		nPos = find(aRingQtToQtClasses,cClassName,1)
 		if nPos > 0
-			cClassName = aRingQtToQtClasses[nPos][2]
+			cClassName = lower(aRingQtToQtClasses[nPos][2])
 		ok
-		if left(cClassName,1) != "q" return windowsnl() ok
+		if left(cClassName,1) != "q" or isDigit(Right(cClassName,1)) return ok
 		if cClassName = "QWebView"
 			return windowsnl() + "C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html" + windowsnl() + windowsnl()
 		else
