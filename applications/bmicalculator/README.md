@@ -9,6 +9,6 @@ Author : Ahmed Mohamed
 
 # Screen Shot
 
-![bmicalculator](https://raw.githubusercontent.com/ring-lang/ring/master/applications/BMI/BMI.png)
+![bmicalculator](https://raw.githubusercontent.com/ring-lang/ring/master/applications/bmicalculator/BMI.png)
 
 
