@@ -13,8 +13,6 @@ CodeEditor Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/CodeEditor.html
-
 
 Parameters : QWidget *
 
@@ -33,7 +31,7 @@ QAbstractAspect Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractAspect.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractaspect.html
 
 
 Parameters : QObject *
@@ -50,7 +48,7 @@ QAbstractButton Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractButton.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractbutton.html
 
 
 Parameters : QWidget *parent
@@ -92,7 +90,7 @@ QAbstractCameraController Class
 ===============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractCameraController.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractcameracontroller.html
 
 
 Parent Class : QEntity
@@ -115,7 +113,7 @@ QAbstractItemView Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractItemView.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractitemview.html
 
 
 Parameters : QWidget *parent
@@ -192,7 +190,7 @@ QAbstractPrintDialog Class
 ==========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractPrintDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractprintdialog.html
 
 
 Parameters : QPrinter *,QWidget *
@@ -218,7 +216,7 @@ QAbstractScrollArea Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractScrollArea.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractscrollarea.html
 
 
 Parameters : QWidget *parent
@@ -249,7 +247,7 @@ QAbstractSlider Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractSlider.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractslider.html
 
 
 Parameters : QWidget *parent
@@ -289,7 +287,7 @@ QAbstractSocket Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractSocket.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractsocket.html
 
 
 Parameters : void
@@ -352,7 +350,7 @@ QAbstractSpinBox Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAbstractSpinBox.html
+C++ Reference : http://doc.qt.io/qt-5/qabstractspinbox.html
 
 
 Parameters : QWidget *parent
@@ -392,7 +390,7 @@ QAction Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAction.html
+C++ Reference : http://doc.qt.io/qt-5/qaction.html
 
 
 Parameters : QWidget *parent
@@ -613,8 +611,6 @@ QApp Class
 ==========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QApplication.html
-
 
 Parent Class : QGuiApplication
 
@@ -636,7 +632,7 @@ QAspectEngine Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAspectEngine.html
+C++ Reference : http://doc.qt.io/qt-5/qaspectengine.html
 
 
 Parameters : QObject *
@@ -660,7 +656,7 @@ QAxBase Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAxBase.html
+C++ Reference : http://doc.qt.io/qt-5/qaxbase.html
 
 
 Parameters : QWidget *
@@ -704,7 +700,7 @@ QAxObject Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAxObject.html
+C++ Reference : http://doc.qt.io/qt-5/qaxobject.html
 
 
 Parameters : QString
@@ -721,7 +717,7 @@ QAxWidget Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAxWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qaxwidget.html
 
 
 Parameters : QWidget *parent, Qt::WindowFlags f
@@ -738,7 +734,7 @@ QAxWidget2 Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QAxWidget2.html
+C++ Reference : http://doc.qt.io/qt-5/qaxwidget2.html
 
 
 Parameters : QString c, QWidget *parent, Qt::WindowFlags f
@@ -754,7 +750,7 @@ QBitmap Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBitmap.html
+C++ Reference : http://doc.qt.io/qt-5/qbitmap.html
 
 
 Parameters : void
@@ -775,7 +771,7 @@ QBluetoothAddress Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothAddress.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothaddress.html
 
 
 Parameters : void
@@ -792,7 +788,7 @@ QBluetoothDeviceDiscoveryAgent Class
 ====================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothDeviceDiscoveryAgent.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothdevicediscoveryagent.html
 
 
 Parameters : QObject *
@@ -821,7 +817,7 @@ QBluetoothDeviceInfo Class
 ==========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothDeviceInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothdeviceinfo.html
 
 
 Parameters : void
@@ -845,7 +841,7 @@ QBluetoothHostInfo Class
 ========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothHostInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothhostinfo.html
 
 
 Parameters : void
@@ -862,7 +858,7 @@ QBluetoothLocalDevice Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothLocalDevice.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothlocaldevice.html
 
 
 Parameters : QObject *
@@ -899,7 +895,7 @@ QBluetoothServer Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServer.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothserver.html
 
 
 Parameters : QBluetoothServiceInfo::Protocol,QObject *
@@ -933,7 +929,7 @@ QBluetoothServiceDiscoveryAgent Class
 =====================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceDiscoveryAgent.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothservicediscoveryagent.html
 
 
 Parameters : QObject *
@@ -969,7 +965,7 @@ QBluetoothServiceInfo Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothserviceinfo.html
 
 
 Parameters : void
@@ -1010,7 +1006,7 @@ QBluetoothSocket Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothSocket.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothsocket.html
 
 
 Parameters : QBluetoothServiceInfo::Protocol,QObject *
@@ -1051,7 +1047,7 @@ QBluetoothTransferManager Class
 ===============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferManager.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothtransfermanager.html
 
 
 Parameters : QObject *
@@ -1070,7 +1066,7 @@ QBluetoothTransferReply Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferReply.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothtransferreply.html
 
 
 Parameters : QObject *
@@ -1095,7 +1091,7 @@ QBluetoothTransferRequest Class
 ===============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferRequest.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothtransferrequest.html
 
 
 Parameters : QBluetoothAddress
@@ -1111,7 +1107,7 @@ QBluetoothUuid Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothUuid.html
+C++ Reference : http://doc.qt.io/qt-5/qbluetoothuuid.html
 
 
 Parameters : void
@@ -1131,7 +1127,7 @@ QBoxLayout Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBoxLayout.html
+C++ Reference : http://doc.qt.io/qt-5/qboxlayout.html
 
 
 Parameters : QBoxLayout::Direction dir, QWidget *parent
@@ -1166,7 +1162,7 @@ QBrush Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBrush.html
+C++ Reference : http://doc.qt.io/qt-5/qbrush.html
 
 
 Parameters : void
@@ -1194,7 +1190,7 @@ QBuffer Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QBuffer.html
+C++ Reference : http://doc.qt.io/qt-5/qbuffer.html
 
 
 Parameters : QObject *
@@ -1215,7 +1211,7 @@ QButtonGroup Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QButtonGroup.html
+C++ Reference : http://doc.qt.io/qt-5/qbuttongroup.html
 
 
 Parameters : QObject *parent
@@ -1243,7 +1239,7 @@ QByteArray Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QByteArray.html
+C++ Reference : http://doc.qt.io/qt-5/qbytearray.html
 
 
 Parameters : void
@@ -1315,7 +1311,7 @@ QCalendarWidget Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCalendarWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qcalendarwidget.html
 
 
 Parameters : QWidget *
@@ -1378,7 +1374,7 @@ QCamera Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCamera.html
+C++ Reference : http://doc.qt.io/qt-5/qcamera.html
 
 
 Parameters : void
@@ -1419,7 +1415,7 @@ QCameraImageCapture Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCameraImageCapture.html
+C++ Reference : http://doc.qt.io/qt-5/qcameraimagecapture.html
 
 
 Parameters : QMediaObject * mediaObject
@@ -1450,7 +1446,7 @@ QCameraLens Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCameraLens.html
+C++ Reference : http://doc.qt.io/qt-5/qcameralens.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1487,7 +1483,7 @@ QCameraSelector Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCameraSelector.html
+C++ Reference : http://doc.qt.io/qt-5/qcameraselector.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1502,7 +1498,7 @@ QCameraViewfinder Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCameraViewfinder.html
+C++ Reference : http://doc.qt.io/qt-5/qcameraviewfinder.html
 
 
 Parameters : QWidget *
@@ -1518,7 +1514,7 @@ QChar Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QChar.html
+C++ Reference : http://doc.qt.io/qt-5/qchar.html
 
 
 Parameters : int
@@ -1604,7 +1600,7 @@ QCheckBox Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCheckBox.html
+C++ Reference : http://doc.qt.io/qt-5/qcheckbox.html
 
 
 Parameters : QWidget *parent
@@ -1636,7 +1632,7 @@ QChildEvent Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QChildEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qchildevent.html
 
 
 Parameters : QEvent::Type,QObject *
@@ -1656,7 +1652,7 @@ QClipboard Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QClipboard.html
+C++ Reference : http://doc.qt.io/qt-5/qclipboard.html
 
 * void clear(QClipboard::Mode mode)
 * QImage image(QClipboard::Mode mode)
@@ -1680,7 +1676,7 @@ QColor Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QColor.html
+C++ Reference : http://doc.qt.io/qt-5/qcolor.html
 
 
 Parameters : void
@@ -1774,7 +1770,7 @@ QColorDialog Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QColorDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qcolordialog.html
 
 
 Parameters : void
@@ -1803,7 +1799,7 @@ QComboBox Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QComboBox.html
+C++ Reference : http://doc.qt.io/qt-5/qcombobox.html
 
 
 Parameters : QWidget *
@@ -1874,7 +1870,7 @@ QCompleter Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCompleter.html
+C++ Reference : http://doc.qt.io/qt-5/qcompleter.html
 
 
 Parameters : QObject *parent
@@ -1921,7 +1917,7 @@ QCompleter2 Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCompleter2.html
+C++ Reference : http://doc.qt.io/qt-5/qcompleter2.html
 
 
 Parameters : QAbstractItemModel *model, QObject *parent
@@ -1937,7 +1933,7 @@ QCompleter3 Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCompleter3.html
+C++ Reference : http://doc.qt.io/qt-5/qcompleter3.html
 
 
 Parameters : QStringList list, QObject *parent
@@ -1953,7 +1949,7 @@ QConeGeometry Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QConeGeometry.html
+C++ Reference : http://doc.qt.io/qt-5/qconegeometry.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1986,7 +1982,7 @@ QConeMesh Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QConeMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qconemesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2013,7 +2009,7 @@ QCoreApplication Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCoreApplication.html
+C++ Reference : http://doc.qt.io/qt-5/qcoreapplication.html
 
 
 Parent Class : QObject
@@ -2065,7 +2061,7 @@ QCuboidMesh Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCuboidMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qcuboidmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2090,7 +2086,7 @@ QCullFace Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCullFace.html
+C++ Reference : http://doc.qt.io/qt-5/qcullface.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2105,7 +2101,7 @@ QCursor Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCursor.html
+C++ Reference : http://doc.qt.io/qt-5/qcursor.html
 
 
 Parameters : void
@@ -2130,7 +2126,7 @@ QCylinderMesh Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QCylinderMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qcylindermesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2151,7 +2147,7 @@ QDate Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDate.html
+C++ Reference : http://doc.qt.io/qt-5/qdate.html
 
 
 Parameters : void
@@ -2190,7 +2186,7 @@ QDateEdit Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDateEdit.html
+C++ Reference : http://doc.qt.io/qt-5/qdateedit.html
 
 
 Parameters : QWidget *parent
@@ -2206,7 +2202,7 @@ QDateTime Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDateTime.html
+C++ Reference : http://doc.qt.io/qt-5/qdatetime.html
 
 
 Parameters : void
@@ -2251,7 +2247,7 @@ QDateTimeEdit Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDateTimeEdit.html
+C++ Reference : http://doc.qt.io/qt-5/qdatetimeedit.html
 
 
 Parameters : QWidget *parent
@@ -2311,7 +2307,7 @@ QDepthTest Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDepthTest.html
+C++ Reference : http://doc.qt.io/qt-5/qdepthtest.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2326,7 +2322,7 @@ QDesktopServices Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDesktopServices.html
+C++ Reference : http://doc.qt.io/qt-5/qdesktopservices.html
 
 * bool openUrl(QUrl)
 * void setUrlHandler(QString, QObject *receiver, const char *method)
@@ -2339,7 +2335,7 @@ QDesktopWidget Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDesktopWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qdesktopwidget.html
 
 
 Parameters : void
@@ -2362,7 +2358,7 @@ QDial Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDial.html
+C++ Reference : http://doc.qt.io/qt-5/qdial.html
 
 
 Parameters : QWidget *parent
@@ -2399,7 +2395,7 @@ QDialog Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qdialog.html
 
 
 Parameters : QWidget *parent
@@ -2425,7 +2421,7 @@ QDiffuseSpecularMaterial Class
 ==============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDiffuseSpecularMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qdiffusespecularmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2452,7 +2448,7 @@ QDir Class
 ==========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDir.html
+C++ Reference : http://doc.qt.io/qt-5/qdir.html
 
 
 Parameters : void
@@ -2523,7 +2519,7 @@ QDirModel Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDirModel.html
+C++ Reference : http://doc.qt.io/qt-5/qdirmodel.html
 
 
 Parameters : void
@@ -2560,7 +2556,7 @@ QDockWidget Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDockWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qdockwidget.html
 
 
 Parameters : QWidget *parent,Qt::WindowType flag
@@ -2603,7 +2599,7 @@ QDrag Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDrag.html
+C++ Reference : http://doc.qt.io/qt-5/qdrag.html
 
 
 Parameters : QObject *
@@ -2637,7 +2633,7 @@ QDragEnterEvent Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDragEnterEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qdragenterevent.html
 
 
 Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers
@@ -2653,7 +2649,7 @@ QDragLeaveEvent Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDragLeaveEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qdragleaveevent.html
 
 
 Parameters : void
@@ -2669,7 +2665,7 @@ QDragMoveEvent Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDragMoveEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qdragmoveevent.html
 
 
 Parameters : QPoint,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
@@ -2690,7 +2686,7 @@ QDropEvent Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QDropEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qdropevent.html
 
 
 Parameters : QPointF,Qt::DropActions,const QMimeData *,Qt::MouseButtons,Qt::KeyboardModifiers,QEvent::Type
@@ -2717,7 +2713,7 @@ QEffect Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QEffect.html
+C++ Reference : http://doc.qt.io/qt-5/qeffect.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2736,7 +2732,7 @@ QEntity Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QEntity.html
+C++ Reference : http://doc.qt.io/qt-5/qentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2756,7 +2752,7 @@ QEvent Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QEvent.html
+C++ Reference : http://doc.qt.io/qt-5/qevent.html
 
 
 Parameters : QEvent::Type Type
@@ -2775,7 +2771,7 @@ QExtrudedTextMesh Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QExtrudedTextMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qextrudedtextmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2794,7 +2790,7 @@ QFile Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFile.html
+C++ Reference : http://doc.qt.io/qt-5/qfile.html
 
 
 Parameters : void
@@ -2832,7 +2828,7 @@ QFile2 Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFile2.html
+C++ Reference : http://doc.qt.io/qt-5/qfile2.html
 
 
 Parameters : QString
@@ -2848,7 +2844,7 @@ QFileDevice Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFileDevice.html
+C++ Reference : http://doc.qt.io/qt-5/qfiledevice.html
 
 
 Parent Class : QIODevice
@@ -2870,7 +2866,7 @@ QFileDialog Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFileDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qfiledialog.html
 
 
 Parameters : QWidget *parent
@@ -2929,7 +2925,7 @@ QFileInfo Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFileInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qfileinfo.html
 
 
 Parameters : void
@@ -2986,7 +2982,7 @@ QFileSystemModel Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFileSystemModel.html
+C++ Reference : http://doc.qt.io/qt-5/qfilesystemmodel.html
 
 
 Parameters : void
@@ -3043,7 +3039,7 @@ QFirstPersonCameraController Class
 ==================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFirstPersonCameraController.html
+C++ Reference : http://doc.qt.io/qt-5/qfirstpersoncameracontroller.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3059,7 +3055,7 @@ QFont Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFont.html
+C++ Reference : http://doc.qt.io/qt-5/qfont.html
 
 
 Parameters : QString, int, int, bool
@@ -3133,7 +3129,7 @@ QFontDialog Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFontDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qfontdialog.html
 
 
 Parameters : void
@@ -3158,7 +3154,7 @@ QFontMetrics Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFontMetrics.html
+C++ Reference : http://doc.qt.io/qt-5/qfontmetrics.html
 
 
 Parameters : QFont
@@ -3198,7 +3194,7 @@ QForwardRenderer Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QForwardRenderer.html
+C++ Reference : http://doc.qt.io/qt-5/qforwardrenderer.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3225,7 +3221,7 @@ QFrame Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFrame.html
+C++ Reference : http://doc.qt.io/qt-5/qframe.html
 
 
 Parameters : QWidget *parent, Qt::WindowType flag
@@ -3255,7 +3251,7 @@ QFrame2 Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFrame2.html
+C++ Reference : http://doc.qt.io/qt-5/qframe2.html
 
 
 Parameters : void
@@ -3271,7 +3267,7 @@ QFrame3 Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFrame3.html
+C++ Reference : http://doc.qt.io/qt-5/qframe3.html
 
 
 Parameters : QWidget *parent
@@ -3287,7 +3283,7 @@ QFrameAction Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QFrameAction.html
+C++ Reference : http://doc.qt.io/qt-5/qframeaction.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3302,7 +3298,7 @@ QGeoAddress Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoAddress.html
+C++ Reference : http://doc.qt.io/qt-5/qgeoaddress.html
 
 
 Parameters : void
@@ -3336,7 +3332,7 @@ QGeoAreaMonitorInfo Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoAreaMonitorInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qgeoareamonitorinfo.html
 
 
 Parameters : QString
@@ -3361,7 +3357,7 @@ QGeoAreaMonitorSource Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoAreaMonitorSource.html
+C++ Reference : http://doc.qt.io/qt-5/qgeoareamonitorsource.html
 
 
 Parameters : QObject *
@@ -3381,7 +3377,7 @@ QGeoCircle Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoCircle.html
+C++ Reference : http://doc.qt.io/qt-5/qgeocircle.html
 
 
 Parameters : void
@@ -3400,7 +3396,7 @@ QGeoCoordinate Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoCoordinate.html
+C++ Reference : http://doc.qt.io/qt-5/qgeocoordinate.html
 
 
 Parameters : void
@@ -3425,7 +3421,7 @@ QGeoPositionInfo Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoPositionInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qgeopositioninfo.html
 
 
 Parameters : void
@@ -3447,7 +3443,7 @@ QGeoPositionInfoSource Class
 ============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoPositionInfoSource.html
+C++ Reference : http://doc.qt.io/qt-5/qgeopositioninfosource.html
 
 
 Parent Class : QObject
@@ -3472,7 +3468,7 @@ QGeoRectangle Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoRectangle.html
+C++ Reference : http://doc.qt.io/qt-5/qgeorectangle.html
 
 
 Parameters : void
@@ -3507,7 +3503,7 @@ QGeoSatelliteInfo Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoSatelliteInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qgeosatelliteinfo.html
 
 
 Parameters : void
@@ -3530,7 +3526,7 @@ QGeoSatelliteInfoSource Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoSatelliteInfoSource.html
+C++ Reference : http://doc.qt.io/qt-5/qgeosatelliteinfosource.html
 
 * QString sourceName(void)
 * int updateInterval(void)
@@ -3542,7 +3538,7 @@ QGeoShape Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGeoShape.html
+C++ Reference : http://doc.qt.io/qt-5/qgeoshape.html
 
 
 Parameters : void
@@ -3559,7 +3555,7 @@ QGoochMaterial Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGoochMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qgoochmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3586,7 +3582,7 @@ QGradient Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGradient.html
+C++ Reference : http://doc.qt.io/qt-5/qgradient.html
 
 
 Parameters : void
@@ -3607,7 +3603,7 @@ QGraphicsVideoItem Class
 ========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGraphicsVideoItem.html
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsvideoitem.html
 
 
 Parameters : void
@@ -3627,7 +3623,7 @@ QGraphicsView Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGraphicsView.html
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsview.html
 
 
 Parameters : QWidget *
@@ -3722,7 +3718,7 @@ QGridLayout Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGridLayout.html
+C++ Reference : http://doc.qt.io/qt-5/qgridlayout.html
 
 
 Parameters : void
@@ -3761,7 +3757,7 @@ QGuiApplication Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QGuiApplication.html
+C++ Reference : http://doc.qt.io/qt-5/qguiapplication.html
 
 
 Parent Class : QCoreApplication
@@ -3845,7 +3841,7 @@ QHBoxLayout Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QHBoxLayout.html
+C++ Reference : http://doc.qt.io/qt-5/qhboxlayout.html
 
 
 Parameters : void
@@ -3863,7 +3859,7 @@ QHeaderView Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QHeaderView.html
+C++ Reference : http://doc.qt.io/qt-5/qheaderview.html
 
 
 Parameters : Qt::Orientation, QWidget *
@@ -3960,7 +3956,7 @@ QHostAddress Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QHostAddress.html
+C++ Reference : http://doc.qt.io/qt-5/qhostaddress.html
 
 
 Parameters : void
@@ -3982,7 +3978,7 @@ QHostInfo Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QHostInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qhostinfo.html
 
 
 Parameters : void
@@ -4007,7 +4003,7 @@ QIODevice Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QIODevice.html
+C++ Reference : http://doc.qt.io/qt-5/qiodevice.html
 
 
 Parameters : void
@@ -4050,7 +4046,7 @@ QIcon Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QIcon.html
+C++ Reference : http://doc.qt.io/qt-5/qicon.html
 
 
 Parameters : QPixmap
@@ -4063,7 +4059,7 @@ QImage Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QImage.html
+C++ Reference : http://doc.qt.io/qt-5/qimage.html
 
 
 Parameters : void
@@ -4128,7 +4124,7 @@ QInputAspect Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QInputAspect.html
+C++ Reference : http://doc.qt.io/qt-5/qinputaspect.html
 
 
 Parameters : QObject *
@@ -4143,7 +4139,7 @@ QInputDialog Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QInputDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qinputdialog.html
 
 
 Parameters : QWidget *
@@ -4200,7 +4196,7 @@ QJsonArray Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QJsonArray.html
+C++ Reference : http://doc.qt.io/qt-5/qjsonarray.html
 
 
 Parameters : void
@@ -4236,7 +4232,7 @@ QJsonDocument Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QJsonDocument.html
+C++ Reference : http://doc.qt.io/qt-5/qjsondocument.html
 
 
 Parameters : void
@@ -4265,7 +4261,7 @@ QJsonObject Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QJsonObject.html
+C++ Reference : http://doc.qt.io/qt-5/qjsonobject.html
 
 
 Parameters : void
@@ -4290,7 +4286,7 @@ QJsonParseError Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QJsonParseError.html
+C++ Reference : http://doc.qt.io/qt-5/qjsonparseerror.html
 
 
 Parameters : void
@@ -4304,7 +4300,7 @@ QJsonValue Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QJsonValue.html
+C++ Reference : http://doc.qt.io/qt-5/qjsonvalue.html
 
 
 Parameters : void
@@ -4335,7 +4331,7 @@ QKeySequence Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QKeySequence.html
+C++ Reference : http://doc.qt.io/qt-5/qkeysequence.html
 
 
 Parameters : QString
@@ -4348,7 +4344,7 @@ QLCDNumber Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLCDNumber.html
+C++ Reference : http://doc.qt.io/qt-5/qlcdnumber.html
 
 
 Parameters : QWidget *
@@ -4380,7 +4376,7 @@ QLabel Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLabel.html
+C++ Reference : http://doc.qt.io/qt-5/qlabel.html
 
 
 Parameters : QWidget *
@@ -4428,7 +4424,7 @@ QLayout Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLayout.html
+C++ Reference : http://doc.qt.io/qt-5/qlayout.html
 
 
 Parameters : QWidget *
@@ -4467,7 +4463,7 @@ QLineEdit Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLineEdit.html
+C++ Reference : http://doc.qt.io/qt-5/qlineedit.html
 
 
 Parameters : QWidget *
@@ -4553,7 +4549,7 @@ QLinearGradient Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLinearGradient.html
+C++ Reference : http://doc.qt.io/qt-5/qlineargradient.html
 
 
 Parameters : void
@@ -4575,7 +4571,7 @@ QListView Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QListView.html
+C++ Reference : http://doc.qt.io/qt-5/qlistview.html
 
 
 Parameters : QWidget *
@@ -4620,7 +4616,7 @@ QListWidget Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QListWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qlistwidget.html
 
 
 Parameters : QWidget *
@@ -4674,7 +4670,7 @@ QListWidgetItem Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QListWidgetItem.html
+C++ Reference : http://doc.qt.io/qt-5/qlistwidgetitem.html
 
 
 Parameters : void
@@ -4717,7 +4713,7 @@ QLogicAspect Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QLogicAspect.html
+C++ Reference : http://doc.qt.io/qt-5/qlogicaspect.html
 
 
 Parameters : QObject *
@@ -4732,7 +4728,7 @@ QMainWindow Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMainWindow.html
+C++ Reference : http://doc.qt.io/qt-5/qmainwindow.html
 
 
 Parameters : void
@@ -4792,7 +4788,7 @@ QMaterial Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -4813,7 +4809,7 @@ QMatrix4x4 Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMatrix4x4.html
+C++ Reference : http://doc.qt.io/qt-5/qmatrix4x4.html
 
 
 Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
@@ -4866,7 +4862,7 @@ QMdiArea Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMdiArea.html
+C++ Reference : http://doc.qt.io/qt-5/qmdiarea.html
 
 
 Parameters : QWidget *
@@ -4912,7 +4908,7 @@ QMdiSubWindow Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMdiSubWindow.html
+C++ Reference : http://doc.qt.io/qt-5/qmdisubwindow.html
 
 
 Parameters : QWidget *
@@ -4942,7 +4938,7 @@ QMediaObject Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMediaObject.html
+C++ Reference : http://doc.qt.io/qt-5/qmediaobject.html
 
 
 Parameters : void
@@ -4963,7 +4959,7 @@ QMediaPlayer Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMediaPlayer.html
+C++ Reference : http://doc.qt.io/qt-5/qmediaplayer.html
 
 
 Parameters : void
@@ -5001,7 +4997,7 @@ QMediaPlaylist Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMediaPlaylist.html
+C++ Reference : http://doc.qt.io/qt-5/qmediaplaylist.html
 
 
 Parameters : void
@@ -5030,7 +5026,7 @@ QMenu Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMenu.html
+C++ Reference : http://doc.qt.io/qt-5/qmenu.html
 
 
 Parameters : QWidget *
@@ -5074,7 +5070,7 @@ QMenuBar Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMenuBar.html
+C++ Reference : http://doc.qt.io/qt-5/qmenubar.html
 
 
 Parameters : QWidget *
@@ -5103,7 +5099,7 @@ QMesh Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5121,7 +5117,7 @@ QMessageBox Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMessageBox.html
+C++ Reference : http://doc.qt.io/qt-5/qmessagebox.html
 
 
 Parameters : QWidget *parent
@@ -5169,7 +5165,7 @@ QMetalRoughMaterial Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMetalRoughMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qmetalroughmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5194,7 +5190,7 @@ QMimeData Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMimeData.html
+C++ Reference : http://doc.qt.io/qt-5/qmimedata.html
 
 
 Parameters : void
@@ -5231,7 +5227,7 @@ QMorphPhongMaterial Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMorphPhongMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qmorphphongmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5254,7 +5250,7 @@ QMutex Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMutex.html
+C++ Reference : http://doc.qt.io/qt-5/qmutex.html
 
 
 Parameters : QMutex::RecursionMode
@@ -5270,7 +5266,7 @@ QMutexLocker Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QMutexLocker.html
+C++ Reference : http://doc.qt.io/qt-5/qmutexlocker.html
 
 
 Parameters : QMutex *
@@ -5286,7 +5282,7 @@ QNetworkAccessManager Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNetworkAccessManager.html
+C++ Reference : http://doc.qt.io/qt-5/qnetworkaccessmanager.html
 
 
 Parameters : QObject *
@@ -5326,7 +5322,7 @@ QNetworkProxy Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNetworkProxy.html
+C++ Reference : http://doc.qt.io/qt-5/qnetworkproxy.html
 
 
 Parameters : void
@@ -5361,7 +5357,7 @@ QNetworkReply Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNetworkReply.html
+C++ Reference : http://doc.qt.io/qt-5/qnetworkreply.html
 
 
 Parameters : void
@@ -5388,7 +5384,7 @@ QNetworkRequest Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNetworkRequest.html
+C++ Reference : http://doc.qt.io/qt-5/qnetworkrequest.html
 
 
 Parameters : QUrl
@@ -5414,7 +5410,7 @@ QNmeaPositionInfoSource Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNmeaPositionInfoSource.html
+C++ Reference : http://doc.qt.io/qt-5/qnmeapositioninfosource.html
 
 
 Parameters : QNmeaPositionInfoSource::UpdateMode,QObject *
@@ -5433,7 +5429,7 @@ QNode Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QNode.html
+C++ Reference : http://doc.qt.io/qt-5/qnode.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5463,7 +5459,7 @@ QObject Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QObject.html
+C++ Reference : http://doc.qt.io/qt-5/qobject.html
 
 
 Parameters : void
@@ -5504,7 +5500,7 @@ QObjectPicker Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QObjectPicker.html
+C++ Reference : http://doc.qt.io/qt-5/qobjectpicker.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5543,7 +5539,7 @@ QOpenGLBuffer Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLBuffer.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglbuffer.html
 
 
 Parameters : void
@@ -5572,7 +5568,7 @@ QOpenGLContext Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLContext.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglcontext.html
 
 
 Parameters : QObject *
@@ -5618,7 +5614,7 @@ QOpenGLDebugLogger Class
 ========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLDebugLogger.html
+C++ Reference : http://doc.qt.io/qt-5/qopengldebuglogger.html
 
 
 Parameters : QObject *
@@ -5645,7 +5641,7 @@ QOpenGLFramebufferObject Class
 ==============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLFramebufferObject.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglframebufferobject.html
 
 
 Parameters : int,int,GLenum
@@ -5673,7 +5669,7 @@ QOpenGLFunctions Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLFunctions.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglfunctions.html
 
 
 Parameters : void
@@ -5827,7 +5823,7 @@ QOpenGLFunctions_3_2_Core Class
 ===============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLFunctions_3_2_Core.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglfunctions_3_2_core.html
 
 
 Parameters : void
@@ -6086,7 +6082,7 @@ QOpenGLPaintDevice Class
 ========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLPaintDevice.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglpaintdevice.html
 
 
 Parameters : void
@@ -6113,7 +6109,7 @@ QOpenGLShader Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLShader.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglshader.html
 
 
 Parameters : QOpenGLShader::ShaderType,QObject *
@@ -6136,7 +6132,7 @@ QOpenGLShaderProgram Class
 ==========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLShaderProgram.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglshaderprogram.html
 
 
 Parameters : QObject *
@@ -6286,7 +6282,7 @@ QOpenGLTexture Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLTexture.html
+C++ Reference : http://doc.qt.io/qt-5/qopengltexture.html
 
 
 Parameters : QOpenGLTexture::Target
@@ -6361,7 +6357,7 @@ QOpenGLTimerQuery Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLTimerQuery.html
+C++ Reference : http://doc.qt.io/qt-5/qopengltimerquery.html
 
 
 Parameters : QObject *
@@ -6384,7 +6380,7 @@ QOpenGLVersionProfile Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLVersionProfile.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglversionprofile.html
 
 
 Parameters : void
@@ -6404,7 +6400,7 @@ QOpenGLVertexArrayObject Class
 ==============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLVertexArrayObject.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglvertexarrayobject.html
 
 
 Parameters : QObject *
@@ -6423,7 +6419,7 @@ QOpenGLWidget Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOpenGLWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qopenglwidget.html
 
 
 Parameters : QWidget *
@@ -6455,7 +6451,7 @@ QOrbitCameraController Class
 ============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QOrbitCameraController.html
+C++ Reference : http://doc.qt.io/qt-5/qorbitcameracontroller.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6473,7 +6469,7 @@ QPageSetupDialog Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPageSetupDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qpagesetupdialog.html
 
 
 Parameters : QPrinter *,QWidget *
@@ -6491,7 +6487,7 @@ QPaintDevice Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPaintDevice.html
+C++ Reference : http://doc.qt.io/qt-5/qpaintdevice.html
 
 * int colorCount(void)
 * int depth(void)
@@ -6513,7 +6509,7 @@ QPainter Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPainter.html
+C++ Reference : http://doc.qt.io/qt-5/qpainter.html
 
 
 Parameters : void
@@ -6612,7 +6608,7 @@ QPainter2 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPainter2.html
+C++ Reference : http://doc.qt.io/qt-5/qpainter2.html
 
 
 Parameters : QPaintDevice *
@@ -6628,7 +6624,7 @@ QPainterPath Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPainterPath.html
+C++ Reference : http://doc.qt.io/qt-5/qpainterpath.html
 
 
 Parameters : void
@@ -6681,7 +6677,7 @@ QPen Class
 ==========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPen.html
+C++ Reference : http://doc.qt.io/qt-5/qpen.html
 
 
 Parameters : void
@@ -6716,7 +6712,7 @@ QPerVertexColorMaterial Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPerVertexColorMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qpervertexcolormaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6729,7 +6725,7 @@ QPhongMaterial Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPhongMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qphongmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6750,7 +6746,7 @@ QPicture Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPicture.html
+C++ Reference : http://doc.qt.io/qt-5/qpicture.html
 
 
 Parameters : void
@@ -6772,7 +6768,7 @@ QPixmap Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPixmap.html
+C++ Reference : http://doc.qt.io/qt-5/qpixmap.html
 
 
 Parameters : const char *
@@ -6827,7 +6823,7 @@ QPixmap2 Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPixmap2.html
+C++ Reference : http://doc.qt.io/qt-5/qpixmap2.html
 
 
 Parameters : int width, int height
@@ -6843,7 +6839,7 @@ QPlainTextEdit Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPlainTextEdit.html
+C++ Reference : http://doc.qt.io/qt-5/qplaintextedit.html
 
 
 Parameters : QWidget *
@@ -6940,7 +6936,7 @@ QPlaneMesh Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPlaneMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qplanemesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6961,7 +6957,7 @@ QPoint Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPoint.html
+C++ Reference : http://doc.qt.io/qt-5/qpoint.html
 
 
 Parameters : void
@@ -6982,7 +6978,7 @@ QPointF Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPointF.html
+C++ Reference : http://doc.qt.io/qt-5/qpointf.html
 
 
 Parameters : void
@@ -7004,7 +7000,7 @@ QPointLight Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPointLight.html
+C++ Reference : http://doc.qt.io/qt-5/qpointlight.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7025,7 +7021,7 @@ QPrintDialog Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPrintDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qprintdialog.html
 
 
 Parameters : QPrinter *,QWidget *
@@ -7049,7 +7045,7 @@ QPrintPreviewDialog Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewDialog.html
+C++ Reference : http://doc.qt.io/qt-5/qprintpreviewdialog.html
 
 
 Parameters : QPrinter *
@@ -7069,7 +7065,7 @@ QPrintPreviewWidget Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPrintPreviewWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qprintpreviewwidget.html
 
 
 Parameters : QPrinter *
@@ -7111,7 +7107,7 @@ QPrinter Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPrinter.html
+C++ Reference : http://doc.qt.io/qt-5/qprinter.html
 
 
 Parameters : QPrinter::PrinterMode
@@ -7168,7 +7164,7 @@ QPrinterInfo Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPrinterInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qprinterinfo.html
 
 
 Parameters : void
@@ -7188,7 +7184,7 @@ QProcess Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QProcess.html
+C++ Reference : http://doc.qt.io/qt-5/qprocess.html
 
 
 Parameters : QObject *
@@ -7241,7 +7237,7 @@ QProgressBar Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QProgressBar.html
+C++ Reference : http://doc.qt.io/qt-5/qprogressbar.html
 
 
 Parameters : QWidget *parent
@@ -7281,7 +7277,7 @@ QPushButton Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QPushButton.html
+C++ Reference : http://doc.qt.io/qt-5/qpushbutton.html
 
 
 Parameters : QWidget *
@@ -7302,7 +7298,7 @@ QQmlEngine Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QQmlEngine.html
+C++ Reference : http://doc.qt.io/qt-5/qqmlengine.html
 
 
 Parameters : QObject *
@@ -7345,7 +7341,7 @@ QQmlError Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QQmlError.html
+C++ Reference : http://doc.qt.io/qt-5/qqmlerror.html
 
 
 Parameters : void
@@ -7370,7 +7366,7 @@ QQuaternion Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QQuaternion.html
+C++ Reference : http://doc.qt.io/qt-5/qquaternion.html
 
 
 Parameters : float,float,float,float
@@ -7403,7 +7399,7 @@ QQuickView Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QQuickView.html
+C++ Reference : http://doc.qt.io/qt-5/qquickview.html
 
 
 Parameters : void
@@ -7430,7 +7426,7 @@ QQuickWidget Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QQuickWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qquickwidget.html
 
 
 Parameters : QWidget *
@@ -7465,7 +7461,7 @@ QRadioButton Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRadioButton.html
+C++ Reference : http://doc.qt.io/qt-5/qradiobutton.html
 
 
 Parameters : QWidget *parent
@@ -7491,7 +7487,7 @@ QRect Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRect.html
+C++ Reference : http://doc.qt.io/qt-5/qrect.html
 
 
 Parameters : void
@@ -7557,7 +7553,7 @@ QRegion Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRegion.html
+C++ Reference : http://doc.qt.io/qt-5/qregion.html
 
 
 Parameters : void
@@ -7591,7 +7587,7 @@ QRegularExpression Class
 ========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRegularExpression.html
+C++ Reference : http://doc.qt.io/qt-5/qregularexpression.html
 
 
 Parameters : void
@@ -7616,7 +7612,7 @@ QRegularExpressionMatch Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRegularExpressionMatch.html
+C++ Reference : http://doc.qt.io/qt-5/qregularexpressionmatch.html
 
 
 Parameters : void
@@ -7648,7 +7644,7 @@ QRegularExpressionMatchIterator Class
 =====================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRegularExpressionMatchIterator.html
+C++ Reference : http://doc.qt.io/qt-5/qregularexpressionmatchiterator.html
 
 
 Parameters : void
@@ -7669,7 +7665,7 @@ QRenderAspect Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRenderAspect.html
+C++ Reference : http://doc.qt.io/qt-5/qrenderaspect.html
 
 
 Parameters : QObject *
@@ -7682,7 +7678,7 @@ QRenderPass Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QRenderPass.html
+C++ Reference : http://doc.qt.io/qt-5/qrenderpass.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7706,7 +7702,7 @@ QSceneLoader Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSceneLoader.html
+C++ Reference : http://doc.qt.io/qt-5/qsceneloader.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7728,7 +7724,7 @@ QScreen Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QScreen.html
+C++ Reference : http://doc.qt.io/qt-5/qscreen.html
 
 * int angleBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b)
 * QRect availableGeometry(void)
@@ -7768,7 +7764,7 @@ QScrollArea Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QScrollArea.html
+C++ Reference : http://doc.qt.io/qt-5/qscrollarea.html
 
 
 Parameters : QWidget *parent
@@ -7793,7 +7789,7 @@ QScrollBar Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QScrollBar.html
+C++ Reference : http://doc.qt.io/qt-5/qscrollbar.html
 
 
 Parameters : QWidget *parent
@@ -7809,7 +7805,7 @@ QSerialPort Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSerialPort.html
+C++ Reference : http://doc.qt.io/qt-5/qserialport.html
 
 
 Parameters : QObject *
@@ -7869,7 +7865,7 @@ QSerialPortInfo Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSerialPortInfo.html
+C++ Reference : http://doc.qt.io/qt-5/qserialportinfo.html
 
 
 Parameters : void
@@ -7893,7 +7889,7 @@ QSize Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSize.html
+C++ Reference : http://doc.qt.io/qt-5/qsize.html
 
 
 Parameters : int width, int height
@@ -7906,7 +7902,7 @@ QSkyboxEntity Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSkyboxEntity.html
+C++ Reference : http://doc.qt.io/qt-5/qskyboxentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7928,7 +7924,7 @@ QSlider Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSlider.html
+C++ Reference : http://doc.qt.io/qt-5/qslider.html
 
 
 Parameters : QWidget *parent
@@ -7962,7 +7958,7 @@ QSphereMesh Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSphereMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qspheremesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7983,7 +7979,7 @@ QSpinBox Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSpinBox.html
+C++ Reference : http://doc.qt.io/qt-5/qspinbox.html
 
 
 Parameters : QWidget *parent
@@ -8017,7 +8013,7 @@ QSplashScreen Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSplashScreen.html
+C++ Reference : http://doc.qt.io/qt-5/qsplashscreen.html
 
 
 Parameters : QPixmap
@@ -8039,7 +8035,7 @@ QSplitter Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSplitter.html
+C++ Reference : http://doc.qt.io/qt-5/qsplitter.html
 
 
 Parameters : QWidget *parent
@@ -8078,7 +8074,7 @@ QSqlDatabase Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlDatabase.html
+C++ Reference : http://doc.qt.io/qt-5/qsqldatabase.html
 
 
 Parameters : void
@@ -8130,7 +8126,7 @@ QSqlDriver Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlDriver.html
+C++ Reference : http://doc.qt.io/qt-5/qsqldriver.html
 
 
 Parameters : void
@@ -8146,7 +8142,7 @@ QSqlDriverCreatorBase Class
 ===========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlDriverCreatorBase.html
+C++ Reference : http://doc.qt.io/qt-5/qsqldrivercreatorbase.html
 
 
 Parameters : void
@@ -8159,7 +8155,7 @@ QSqlError Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlError.html
+C++ Reference : http://doc.qt.io/qt-5/qsqlerror.html
 
 
 Parameters : QString, QString, QSqlError::ErrorType
@@ -8182,7 +8178,7 @@ QSqlField Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlField.html
+C++ Reference : http://doc.qt.io/qt-5/qsqlfield.html
 
 
 Parameters : QString,QVariant::Type
@@ -8219,7 +8215,7 @@ QSqlIndex Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlIndex.html
+C++ Reference : http://doc.qt.io/qt-5/qsqlindex.html
 
 
 Parameters : QString, QString
@@ -8242,7 +8238,7 @@ QSqlQuery Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlQuery.html
+C++ Reference : http://doc.qt.io/qt-5/qsqlquery.html
 
 
 Parameters : void
@@ -8289,7 +8285,7 @@ QSqlRecord Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSqlRecord.html
+C++ Reference : http://doc.qt.io/qt-5/qsqlrecord.html
 
 
 Parameters : void
@@ -8320,7 +8316,7 @@ QStackedWidget Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QStackedWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qstackedwidget.html
 
 
 Parameters : QWidget *
@@ -8350,7 +8346,7 @@ QStandardPaths Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QStandardPaths.html
+C++ Reference : http://doc.qt.io/qt-5/qstandardpaths.html
 
 
 Parameters : void
@@ -8370,7 +8366,7 @@ QStatusBar Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QStatusBar.html
+C++ Reference : http://doc.qt.io/qt-5/qstatusbar.html
 
 
 Parameters : QWidget *
@@ -8396,7 +8392,7 @@ QString2 Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QString2.html
+C++ Reference : http://doc.qt.io/qt-5/qstring2.html
 
 
 Parameters : void
@@ -8437,7 +8433,7 @@ QStringList Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QStringList.html
+C++ Reference : http://doc.qt.io/qt-5/qstringlist.html
 
 
 Parameters : void
@@ -8491,7 +8487,7 @@ QStringRef Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QStringRef.html
+C++ Reference : http://doc.qt.io/qt-5/qstringref.html
 
 
 Parameters : void
@@ -8553,7 +8549,7 @@ QSurfaceFormat Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSurfaceFormat.html
+C++ Reference : http://doc.qt.io/qt-5/qsurfaceformat.html
 
 
 Parameters : void
@@ -8600,7 +8596,7 @@ QSystemTrayIcon Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QSystemTrayIcon.html
+C++ Reference : http://doc.qt.io/qt-5/qsystemtrayicon.html
 
 
 Parameters : void
@@ -8627,7 +8623,7 @@ QTabBar Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTabBar.html
+C++ Reference : http://doc.qt.io/qt-5/qtabbar.html
 
 
 Parameters : QWidget *
@@ -8696,7 +8692,7 @@ QTabWidget Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTabWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qtabwidget.html
 
 
 Parameters : QWidget *parent
@@ -8755,7 +8751,7 @@ QTableView Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTableView.html
+C++ Reference : http://doc.qt.io/qt-5/qtableview.html
 
 
 Parameters : QWidget *parent
@@ -8812,7 +8808,7 @@ QTableWidget Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTableWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qtablewidget.html
 
 
 Parameters : QWidget *parent
@@ -8901,7 +8897,7 @@ QTableWidgetItem Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTableWidgetItem.html
+C++ Reference : http://doc.qt.io/qt-5/qtablewidgetitem.html
 
 
 Parameters : QString
@@ -8949,7 +8945,7 @@ QTcpServer Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTcpServer.html
+C++ Reference : http://doc.qt.io/qt-5/qtcpserver.html
 
 
 Parameters : QWidget *
@@ -8984,7 +8980,7 @@ QTcpSocket Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTcpSocket.html
+C++ Reference : http://doc.qt.io/qt-5/qtcpsocket.html
 
 
 Parameters : QObject *
@@ -9020,7 +9016,7 @@ QTechnique Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTechnique.html
+C++ Reference : http://doc.qt.io/qt-5/qtechnique.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9043,7 +9039,7 @@ QTest Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTest.html
+C++ Reference : http://doc.qt.io/qt-5/qtest.html
 
 * void qsleep(int)
 
@@ -9054,7 +9050,7 @@ QText2DEntity Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QText2DEntity.html
+C++ Reference : http://doc.qt.io/qt-5/qtext2dentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9080,7 +9076,7 @@ QTextBlock Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextBlock.html
+C++ Reference : http://doc.qt.io/qt-5/qtextblock.html
 
 
 Parameters : void
@@ -9119,7 +9115,7 @@ QTextBrowser Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextBrowser.html
+C++ Reference : http://doc.qt.io/qt-5/qtextbrowser.html
 
 
 Parameters : QWidget *
@@ -9161,7 +9157,7 @@ QTextCharFormat Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextCharFormat.html
+C++ Reference : http://doc.qt.io/qt-5/qtextcharformat.html
 
 
 Parameters : void
@@ -9226,7 +9222,7 @@ QTextCodec Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextCodec.html
+C++ Reference : http://doc.qt.io/qt-5/qtextcodec.html
 
 * QTextCodec *codecForName(const char *name)
 * void setCodecForLocale(QTextCodec *c)
@@ -9238,7 +9234,7 @@ QTextCursor Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextCursor.html
+C++ Reference : http://doc.qt.io/qt-5/qtextcursor.html
 
 
 Parameters : void
@@ -9309,7 +9305,7 @@ QTextDocument Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextDocument.html
+C++ Reference : http://doc.qt.io/qt-5/qtextdocument.html
 
 
 Parameters : void
@@ -9392,7 +9388,7 @@ QTextEdit Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextEdit.html
+C++ Reference : http://doc.qt.io/qt-5/qtextedit.html
 
 
 Parameters : QWidget *
@@ -9499,7 +9495,7 @@ QTextStream Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextStream.html
+C++ Reference : http://doc.qt.io/qt-5/qtextstream.html
 
 
 Parameters : void
@@ -9551,7 +9547,7 @@ QTextStream2 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextStream2.html
+C++ Reference : http://doc.qt.io/qt-5/qtextstream2.html
 
 
 Parameters : QIODevice * device
@@ -9567,7 +9563,7 @@ QTextStream3 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextStream3.html
+C++ Reference : http://doc.qt.io/qt-5/qtextstream3.html
 
 
 Parameters : FILE * fileHandle, QIODevice::OpenMode
@@ -9583,7 +9579,7 @@ QTextStream4 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextStream4.html
+C++ Reference : http://doc.qt.io/qt-5/qtextstream4.html
 
 
 Parameters : QString *, QIODevice::OpenMode
@@ -9599,7 +9595,7 @@ QTextStream5 Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextStream5.html
+C++ Reference : http://doc.qt.io/qt-5/qtextstream5.html
 
 
 Parameters : QByteArray *, QIODevice::OpenMode
@@ -9615,7 +9611,7 @@ QTextToSpeech Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextToSpeech.html
+C++ Reference : http://doc.qt.io/qt-5/qtexttospeech.html
 
 
 Parameters : QObject *
@@ -9661,7 +9657,7 @@ QTextureLoader Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextureLoader.html
+C++ Reference : http://doc.qt.io/qt-5/qtextureloader.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9678,7 +9674,7 @@ QTextureMaterial Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTextureMaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qtexturematerial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9699,7 +9695,7 @@ QThread Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QThread.html
+C++ Reference : http://doc.qt.io/qt-5/qthread.html
 
 
 Parameters : QObject *
@@ -9741,7 +9737,7 @@ QThreadPool Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QThreadPool.html
+C++ Reference : http://doc.qt.io/qt-5/qthreadpool.html
 
 
 Parameters : void
@@ -9769,7 +9765,7 @@ QTime Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTime.html
+C++ Reference : http://doc.qt.io/qt-5/qtime.html
 
 
 Parameters : void
@@ -9801,7 +9797,7 @@ QTimer Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTimer.html
+C++ Reference : http://doc.qt.io/qt-5/qtimer.html
 
 
 Parameters : QObject *parent
@@ -9824,7 +9820,7 @@ QToolBar Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QToolBar.html
+C++ Reference : http://doc.qt.io/qt-5/qtoolbar.html
 
 
 Parameters : QWidget *
@@ -9863,7 +9859,7 @@ QToolButton Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QToolButton.html
+C++ Reference : http://doc.qt.io/qt-5/qtoolbutton.html
 
 
 Parameters : QWidget *
@@ -9896,7 +9892,7 @@ QTorusMesh Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTorusMesh.html
+C++ Reference : http://doc.qt.io/qt-5/qtorusmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9917,7 +9913,7 @@ QTransform Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTransform.html
+C++ Reference : http://doc.qt.io/qt-5/qtransform.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9955,7 +9951,7 @@ QTreeView Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTreeView.html
+C++ Reference : http://doc.qt.io/qt-5/qtreeview.html
 
 
 Parameters : QWidget *
@@ -10044,7 +10040,7 @@ QTreeWidget Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTreeWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qtreewidget.html
 
 
 Parameters : QWidget *
@@ -10131,7 +10127,7 @@ QTreeWidgetItem Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QTreeWidgetItem.html
+C++ Reference : http://doc.qt.io/qt-5/qtreewidgetitem.html
 
 
 Parameters : void
@@ -10197,7 +10193,7 @@ QUrl Class
 ==========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QUrl.html
+C++ Reference : http://doc.qt.io/qt-5/qurl.html
 
 
 Parameters : QString
@@ -10243,7 +10239,7 @@ QUuid Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/QUuid.html
+C++ Reference : http://doc.qt.io/qt-5/quuid.html
 
 
 Parameters : void
@@ -10257,7 +10253,7 @@ QVBoxLayout Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVBoxLayout.html
+C++ Reference : http://doc.qt.io/qt-5/qvboxlayout.html
 
 
 Parameters : void
@@ -10275,7 +10271,7 @@ QVariant Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariant.html
+C++ Reference : http://doc.qt.io/qt-5/qvariant.html
 
 
 Parameters : void
@@ -10331,7 +10327,7 @@ QVariant2 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariant2.html
+C++ Reference : http://doc.qt.io/qt-5/qvariant2.html
 
 
 Parent Class : QVariant
@@ -10347,7 +10343,7 @@ QVariant3 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariant3.html
+C++ Reference : http://doc.qt.io/qt-5/qvariant3.html
 
 
 Parent Class : QVariant
@@ -10363,7 +10359,7 @@ QVariant4 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariant4.html
+C++ Reference : http://doc.qt.io/qt-5/qvariant4.html
 
 
 Parent Class : QVariant
@@ -10379,7 +10375,7 @@ QVariant5 Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariant5.html
+C++ Reference : http://doc.qt.io/qt-5/qvariant5.html
 
 
 Parent Class : QVariant
@@ -10395,7 +10391,7 @@ QVariantDouble Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariantDouble.html
+C++ Reference : http://doc.qt.io/qt-5/qvariantdouble.html
 
 
 Parent Class : QVariant
@@ -10411,7 +10407,7 @@ QVariantFloat Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariantFloat.html
+C++ Reference : http://doc.qt.io/qt-5/qvariantfloat.html
 
 
 Parent Class : QVariant
@@ -10427,7 +10423,7 @@ QVariantInt Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariantInt.html
+C++ Reference : http://doc.qt.io/qt-5/qvariantint.html
 
 
 Parent Class : QVariant
@@ -10443,7 +10439,7 @@ QVariantString Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVariantString.html
+C++ Reference : http://doc.qt.io/qt-5/qvariantstring.html
 
 
 Parent Class : QVariant
@@ -10459,7 +10455,7 @@ QVector2D Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVector2D.html
+C++ Reference : http://doc.qt.io/qt-5/qvector2d.html
 
 
 Parameters : float,float
@@ -10488,7 +10484,7 @@ QVector3D Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVector3D.html
+C++ Reference : http://doc.qt.io/qt-5/qvector3d.html
 
 
 Parameters : float,float,float
@@ -10522,7 +10518,7 @@ QVector4D Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVector4D.html
+C++ Reference : http://doc.qt.io/qt-5/qvector4d.html
 
 
 Parameters : float,float,float,float
@@ -10555,7 +10551,7 @@ QVectorQVoice Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVectorQVoice.html
+C++ Reference : http://doc.qt.io/qt-5/qvectorqvoice.html
 
 
 Parameters : void
@@ -10570,7 +10566,7 @@ QVideoWidget Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVideoWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qvideowidget.html
 
 
 Parameters : QWidget *parent
@@ -10608,7 +10604,7 @@ QVideoWidgetControl Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVideoWidgetControl.html
+C++ Reference : http://doc.qt.io/qt-5/qvideowidgetcontrol.html
 
 
 Parent Class : QMediaControl
@@ -10621,7 +10617,7 @@ QViewport Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QViewport.html
+C++ Reference : http://doc.qt.io/qt-5/qviewport.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -10638,7 +10634,7 @@ QVoice Class
 ============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QVoice.html
+C++ Reference : http://doc.qt.io/qt-5/qvoice.html
 
 
 Parameters : void
@@ -10656,7 +10652,7 @@ QWebEngineView Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QWebEngineView.html
+C++ Reference : http://doc.qt.io/qt-5/qwebengineview.html
 
 
 Parameters : QWidget *parent
@@ -10704,7 +10700,23 @@ QWebView Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 
 
 Parameters : QWidget *parent
@@ -10739,29 +10751,13 @@ Parent Class : QWidget
 * const char *geturlChangedEvent(void)
 
 .. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
-
-.. index::
 	pair: RingQt Classes Reference; QWidget Class
 
 QWidget Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QWidget.html
+C++ Reference : http://doc.qt.io/qt-5/qwidget.html
 
 
 Parameters : void
@@ -10976,7 +10972,7 @@ QWindow Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/QWindow.html
+C++ Reference : http://doc.qt.io/qt-5/qwindow.html
 
 
 Parameters : QScreen *
@@ -11123,7 +11119,7 @@ QXmlStreamAttribute Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamAttribute.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamattribute.html
 
 
 Parameters : void
@@ -11142,7 +11138,7 @@ QXmlStreamAttributes Class
 ==========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamAttributes.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamattributes.html
 
 
 Parameters : void
@@ -11165,7 +11161,7 @@ QXmlStreamEntityDeclaration Class
 =================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamentitydeclaration.html
 
 
 Parameters : void
@@ -11183,7 +11179,7 @@ QXmlStreamEntityResolver Class
 ==============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamentityresolver.html
 
 
 Parameters : void
@@ -11196,7 +11192,7 @@ QXmlStreamNamespaceDeclaration Class
 ====================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamnamespacedeclaration.html
 
 
 Parameters : void
@@ -11211,7 +11207,7 @@ QXmlStreamNotationDeclaration Class
 ===================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamnotationdeclaration.html
 
 
 Parameters : void
@@ -11227,7 +11223,7 @@ QXmlStreamReader Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamReader.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamreader.html
 
 
 Parameters : void
@@ -11294,7 +11290,7 @@ QXmlStreamWriter Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/QXmlStreamWriter.html
+C++ Reference : http://doc.qt.io/qt-5/qxmlstreamwriter.html
 
 
 Parameters : void
@@ -11341,7 +11337,7 @@ Qt3DCamera Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/Qt3DCamera.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcamera.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -11407,7 +11403,7 @@ Qt3DWindow Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/Qt3DWindow.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dwindow.html
 
 
 Parameters : void
