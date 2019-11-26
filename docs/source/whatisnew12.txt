@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.12 comes with the next features!
 
 * ASCII Table application
+* BMI Calculator application
 * Load Again Command
 * Better RingRayLib
 * More Improvements
@@ -30,6 +31,17 @@ Simple application for displaying the ASCII table
 
 .. image:: asciitable.png
 	:alt: ASCII Table
+
+.. index:: 
+	pair: What is new in Ring 1.12?; BMI Calculator application
+
+BMI Calculator application
+==========================
+
+Simple application for calculating the BMI 
+
+.. image:: BMI.png
+	:alt: BMI
 
 .. index:: 
 	pair: What is new in Ring 1.12?; Load Again Command
