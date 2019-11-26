@@ -530,5 +530,9 @@ aPackagesRegistry = [
 	[ :name = "asciitable",
 	  :description = "ASCIITable package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "bimcalculator",
+	  :description = "BIMCalculator package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
