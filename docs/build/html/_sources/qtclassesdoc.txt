@@ -30,7 +30,7 @@ QAbstractAspect Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qabstractaspect.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcore-qabstractaspect.html
 
 
 Parameters : QObject *
@@ -89,7 +89,7 @@ QAbstractCameraController Class
 ===============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qabstractcameracontroller.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qabstractcameracontroller.html
 
 
 Parent Class : QEntity
@@ -633,7 +633,7 @@ QAspectEngine Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qaspectengine.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcore-qaspectengine.html
 
 
 Parameters : QObject *
@@ -1372,7 +1372,7 @@ QCamera Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcamera.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qcamera.html
 
 
 Parameters : void
@@ -1444,7 +1444,7 @@ QCameraLens Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcameralens.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qcameralens.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1481,7 +1481,7 @@ QCameraSelector Class
 =====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcameraselector.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qcameraselector .html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1941,7 +1941,7 @@ QConeGeometry Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qconegeometry.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qconegeometry.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -1974,7 +1974,7 @@ QConeMesh Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qconemesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qconemesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2053,7 +2053,7 @@ QCuboidMesh Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcuboidmesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qcuboidmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2078,7 +2078,7 @@ QCullFace Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcullface.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qcullface.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2118,7 +2118,7 @@ QCylinderMesh Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qcylindermesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qcylindermesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2299,7 +2299,7 @@ QDepthTest Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qdepthtest.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qdepthtest.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2413,7 +2413,7 @@ QDiffuseSpecularMaterial Class
 ==============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qdiffusespecularmaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qdiffusespecularmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2705,7 +2705,7 @@ QEffect Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qeffect.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qeffect.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2724,7 +2724,7 @@ QEntity Class
 =============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qentity.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcore-qentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -2763,7 +2763,7 @@ QExtrudedTextMesh Class
 =======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qextrudedtextmesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qextrudedtextmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3028,7 +3028,7 @@ QFirstPersonCameraController Class
 ==================================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qfirstpersoncameracontroller.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qfirstpersoncameracontroller.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3183,7 +3183,7 @@ QForwardRenderer Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qforwardrenderer.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qforwardrenderer.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3266,7 +3266,7 @@ QFrameAction Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qframeaction.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dlogic-qframeaction.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -3538,7 +3538,7 @@ QGoochMaterial Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qgoochmaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qgoochmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -4107,7 +4107,7 @@ QInputAspect Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qinputaspect.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dinput-qinputaspect.html
 
 
 Parameters : QObject *
@@ -4696,7 +4696,7 @@ QLogicAspect Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qlogicaspect.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dlogic-qlogicaspect.html
 
 
 Parameters : QObject *
@@ -4771,7 +4771,7 @@ QMaterial Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qmaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5079,7 +5079,7 @@ QMesh Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/qmesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5145,7 +5145,7 @@ QMetalRoughMaterial Class
 =========================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qmetalroughmaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qmetalroughmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5409,7 +5409,7 @@ QNode Class
 ===========
 
 
-C++ Reference : http://doc.qt.io/qt-5/qnode.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcore-qnode.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -5480,7 +5480,7 @@ QObjectPicker Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qobjectpicker.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qobjectpicker.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6431,7 +6431,7 @@ QOrbitCameraController Class
 ============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qorbitcameracontroller.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qorbitcameracontroller.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6689,7 +6689,7 @@ QPerVertexColorMaterial Class
 =============================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qpervertexcolormaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qpervertexcolormaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6702,7 +6702,7 @@ QPhongMaterial Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qphongmaterial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qphongmaterial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6910,7 +6910,7 @@ QPlaneMesh Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qplanemesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qplanemesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -6974,7 +6974,7 @@ QPointLight Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qpointlight.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qpointlight.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7639,7 +7639,7 @@ QRenderAspect Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qrenderaspect.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qrenderaspect.html
 
 
 Parameters : QObject *
@@ -7652,7 +7652,7 @@ QRenderPass Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qrenderpass.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qrenderpass.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7676,7 +7676,7 @@ QSceneLoader Class
 ==================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qsceneloader.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qsceneloader.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7876,7 +7876,7 @@ QSkyboxEntity Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qskyboxentity.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qskyboxentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -7932,7 +7932,7 @@ QSphereMesh Class
 =================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qspheremesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qspheremesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -8987,7 +8987,7 @@ QTechnique Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtechnique.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qtechnique.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9021,7 +9021,7 @@ QText2DEntity Class
 ===================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtext2dentity.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qtext2dentity.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9616,7 +9616,7 @@ QTextureLoader Class
 ====================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtextureloader.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qtextureloader.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9633,7 +9633,7 @@ QTextureMaterial Class
 ======================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtexturematerial.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qtexturematerial.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9851,7 +9851,7 @@ QTorusMesh Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtorusmesh.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qtorusmesh.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -9872,7 +9872,7 @@ QTransform Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qtransform.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dcore-qtransform.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -10564,7 +10564,7 @@ QViewport Class
 ===============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qviewport.html
+C++ Reference : http://doc.qt.io/qt-5/qt3drender-qviewport.html
 
 
 Parameters : Qt3DCore::QNode *
@@ -11350,7 +11350,7 @@ Qt3DWindow Class
 ================
 
 
-C++ Reference : http://doc.qt.io/qt-5/qt3dwindow.html
+C++ Reference : http://doc.qt.io/qt-5/qt3dextras-qt3dwindow.html
 
 
 Parameters : void
