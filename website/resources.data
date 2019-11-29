@@ -178,6 +178,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/tesseragame" target="_blank">Tessera Game</a>',
 					'<img src="tesseragame.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
+					'<img src="asciitable.png" width="40%">'
 				]
 			    ]
                  ],
