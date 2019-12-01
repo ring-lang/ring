@@ -123,6 +123,7 @@ More Improvements
 	* ring/samples/other/CalmoSoftTicTacToeGame.ring
 	* ring/samples/other/CalmoSoftSimpleGoGame.ring
 	* ring/samples/other/arabicmysql.ring 
+	* ring/samples/other/CalmoSoftExtraCube.ring
 * VideoMusicPlayer is updated to work as expected after RingQt update to Qt 5.12.3 
 * RingQt : Added QQMLEngine class
 * RingQt : Added files for building RingQt without Bluetooth support 
