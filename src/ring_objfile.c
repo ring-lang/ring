@@ -610,8 +610,9 @@ char ring_objfile_getc ( RingState *pRingState,char **cSource )
 void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 {
 	List *pList2  ;
-	int x,x2  ;
+	int x,x2,x3,nMax  ;
 	char cList[7]  ;
+	char *cString  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
 	if ( nList == 1 ) {
 		fprintf( fCode , "\tpList1 = ring_list_new_gc(pRingState,0) ; \n"  ) ;
@@ -623,7 +624,12 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			if ( ring_list_isstring(pList2,x2) ) {
 				fprintf( fCode , "\tring_list_addstring_gc(pRingState,%s,\"" , cList ) ;
-				fwrite( ring_list_getstring(pList2,x2) , 1 , ring_list_getstringsize(pList2,x2) , fCode );
+				/* Add the string */
+				cString = ring_list_getstring(pList2,x2) ;
+				nMax = ring_list_getstringsize(pList2,x2) ;
+				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
+					fprintf( fCode , "\\x%02x" , (unsigned int) cString[x3] ) ;
+				}
 				fprintf( fCode , "\"); \n"  ) ;
 			}
 			else if ( ring_list_isint(pList2,x2) ) {
