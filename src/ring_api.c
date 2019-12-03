@@ -1393,7 +1393,7 @@ void ring_vmlib_str2hexcstyle ( void *pPointer )
 			return ;
 		}
 		for ( x = 1 ; x <= nMax ; x++ ) {
-			sprintf( cStr , "%x" , (unsigned int) cString[x-1] ) ;
+			sprintf( cStr , "%x" , (unsigned char) cString[x-1] ) ;
 			/* Separator */
 			cString2[(x-1)*5] = ',' ;
 			cString2[(x-1)*5+1] = '0' ;
