@@ -35,7 +35,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 	sprintf( cCodeFileName , "%s.c" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
 	fCode = fopen(cCodeFileName , "w+b" );
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
-	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4 ;\n"  ) ;
+	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
 	/* Write Data */
 	ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1);
 	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
@@ -628,7 +628,7 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 				cString = ring_list_getstring(pList2,x2) ;
 				nMax = ring_list_getstringsize(pList2,x2) ;
 				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
-					fprintf( fCode , "\\x%02x" , (unsigned int) cString[x3] ) ;
+					fprintf( fCode , "\\x%02x" , (unsigned char) cString[x3] ) ;
 				}
 				fprintf( fCode , "\"); \n"  ) ;
 			}

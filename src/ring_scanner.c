@@ -886,7 +886,7 @@ void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char 
 	}
 }
 
-void ring_scanner_runprogram ( RingState *pRingState )
+RING_API void ring_scanner_runprogram ( RingState *pRingState )
 {
 	VM *pVM  ;
 	/* Add return to the end of the program */
