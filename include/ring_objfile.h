@@ -27,6 +27,8 @@ void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeyS
 void ring_objfile_readc ( RingState *pRingState,char **cSource,char *cDest,int nCount ) ;
 
 char ring_objfile_getc ( RingState *pRingState,char **cSource ) ;
+
+void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList ) ;
 /* MACRO */
 /* Object File Source */
 #define RING_OBJFILE_READFROMFILE 1
