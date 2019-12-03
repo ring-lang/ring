@@ -38,7 +38,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4 ;\n"  ) ;
 	/* Write Data */
 	ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1);
-	fprintf( fCode , "\tpRingState->pFunctionsMap = pList1;\n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
 	ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1);
 	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
 	ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1);
