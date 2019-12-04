@@ -31,6 +31,8 @@ nPrintInstruction : 1
 Type: unsigned int
 nGenObj : 1
 Type: unsigned int
+nGenCObj : 1
+Type: unsigned int
 nWarning : 1
 Type: unsigned int
 nDontDeleteTheVM : 1
@@ -56,7 +58,7 @@ Type: List *
 aCustomGlobalScopeStack
 Type: char
 lRunFromThread
-Type: char
+Type: int
 lLoadAgain
 END:
 Type: RingState
@@ -97,7 +99,7 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nGenCObj,nWarn
 Type: char *
 cStr
 ring_state_runfile

@@ -29,7 +29,6 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Close File */
 	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
-	ring_objfile_writeCfile(pRingState);
 }
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
