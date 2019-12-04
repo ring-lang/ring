@@ -20,7 +20,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 
 int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack ) ;
 
-void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
+RING_API void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 
 void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize ) ;
 

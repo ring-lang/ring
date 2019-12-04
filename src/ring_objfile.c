@@ -464,7 +464,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	return 1 ;
 }
 
-void ring_objfile_updateclassespointers ( RingState *pRingState )
+RING_API void ring_objfile_updateclassespointers ( RingState *pRingState )
 {
 	int x,x2,x3,x4,lFound  ;
 	List *pList, *pList2, *pList3  ;
@@ -610,6 +610,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"ringcode.ring\");  \n"  ) ;
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"ringcode.ring\");  \n"  ) ;
 	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
 	fprintf( fCode , "\treturn 0;  \n"  ) ;
