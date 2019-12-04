@@ -592,8 +592,15 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 {
 	FILE *fCode;
 	char cCodeFileName[400]  ;
-	/* Write C file */
-	sprintf( cCodeFileName , "%s.c" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
+	int nSize  ;
+	/*
+	**  Write C file 
+	**  Set the file name 
+	*/
+	sprintf( cCodeFileName , "%s" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
+	nSize = strlen( cCodeFileName ) ;
+	cCodeFileName[nSize-4] = 'c' ;
+	cCodeFileName[nSize-3] = '\0' ;
 	fCode = fopen(cCodeFileName , "w+b" );
 	/* write the main function */
 	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;

@@ -79,6 +79,8 @@ ring_objfile_writeCfile
 fCode
 Type: char
 cCodeFileName[400]
+Type: int
+nSize
 ring_objfile_writelistcode
 Type: List *
 pList2
