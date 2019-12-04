@@ -614,8 +614,8 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
 	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,0);  \n"  ) ;
 	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);  \n"  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"ringcode.ring\");  \n"  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"ringcode.ring\");  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,1)  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,1)  ) ;
 	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
