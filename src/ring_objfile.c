@@ -34,6 +34,25 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Write C file */
 	sprintf( cCodeFileName , "%s.c" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
 	fCode = fopen(cCodeFileName , "w+b" );
+	/* write the main function */
+	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;
+	fprintf( fCode , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
+	fprintf( fCode , "int main( int argc, char *argv[])\n"  ) ;
+	fprintf( fCode , "{\n"  ) ;
+	/* main function code */
+	fprintf( fCode , "\tRingState *pRingState;  \n"  ) ;
+	fprintf( fCode , "\tpRingState = ring_state_new();  \n"  ) ;
+	fprintf( fCode , "\tpRingState->argc = argc;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,0);  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"ringcode.ring\");  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"ringcode.ring\");  \n"  ) ;
+	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
+	fprintf( fCode , "\treturn 0;  \n"  ) ;
+	fprintf( fCode , "}\n\n"  ) ;
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
 	/* Write Data */
