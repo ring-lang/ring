@@ -9,8 +9,6 @@ void ring_objfile_writefile ( RingState *pRingState )
 {
 	FILE *fObj;
 	char cFileName[400]  ;
-	FILE *fCode;
-	char cCodeFileName[400]  ;
 	/* Create File */
 	sprintf( cFileName , "%so" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
 	fObj = fopen(cFileName , "w+b" );
@@ -31,42 +29,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Close File */
 	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
-	/* Write C file */
-	sprintf( cCodeFileName , "%s.c" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
-	fCode = fopen(cCodeFileName , "w+b" );
-	/* write the main function */
-	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;
-	fprintf( fCode , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
-	fprintf( fCode , "int main( int argc, char *argv[])\n"  ) ;
-	fprintf( fCode , "{\n"  ) ;
-	/* main function code */
-	fprintf( fCode , "\tRingState *pRingState;  \n"  ) ;
-	fprintf( fCode , "\tpRingState = ring_state_new();  \n"  ) ;
-	fprintf( fCode , "\tpRingState->argc = argc;  \n"  ) ;
-	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
-	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,0);  \n"  ) ;
-	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);  \n"  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"ringcode.ring\");  \n"  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"ringcode.ring\");  \n"  ) ;
-	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
-	fprintf( fCode , "\treturn 0;  \n"  ) ;
-	fprintf( fCode , "}\n\n"  ) ;
-	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
-	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
-	/* Write Data */
-	ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1);
-	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
-	ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1);
-	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
-	ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1);
-	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
-	ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,1);
-	fprintf( fCode , "\tpRingState->pRingGenCode = pList1;\n"  ) ;
-	fprintf( fCode , "}\n"  ) ;
-	/* Close File */
-	fclose( fCode ) ;
+	ring_objfile_writeCfile(pRingState);
 }
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
@@ -624,6 +587,48 @@ char ring_objfile_getc ( RingState *pRingState,char **cSource )
 	c = cData[0] ;
 	*cSource+=1 ;
 	return c ;
+}
+
+void ring_objfile_writeCfile ( RingState *pRingState )
+{
+	FILE *fCode;
+	char cCodeFileName[400]  ;
+	/* Write C file */
+	sprintf( cCodeFileName , "%s.c" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
+	fCode = fopen(cCodeFileName , "w+b" );
+	/* write the main function */
+	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;
+	fprintf( fCode , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
+	fprintf( fCode , "int main( int argc, char *argv[])\n"  ) ;
+	fprintf( fCode , "{\n"  ) ;
+	/* main function code */
+	fprintf( fCode , "\tRingState *pRingState;  \n"  ) ;
+	fprintf( fCode , "\tpRingState = ring_state_new();  \n"  ) ;
+	fprintf( fCode , "\tpRingState->argc = argc;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,0);  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"ringcode.ring\");  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"ringcode.ring\");  \n"  ) ;
+	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
+	fprintf( fCode , "\treturn 0;  \n"  ) ;
+	fprintf( fCode , "}\n\n"  ) ;
+	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
+	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
+	/* Write Data */
+	ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1);
+	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
+	ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1);
+	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
+	ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1);
+	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
+	ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,1);
+	fprintf( fCode , "\tpRingState->pRingGenCode = pList1;\n"  ) ;
+	fprintf( fCode , "}\n"  ) ;
+	/* Close File */
+	fclose( fCode ) ;
 }
 
 void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )

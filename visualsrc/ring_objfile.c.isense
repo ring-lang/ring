@@ -6,9 +6,6 @@ ring_objfile_writefile
 fObj
 Type: char
 cFileName[400]
-fCode
-Type: char
-cCodeFileName[400]
 ring_objfile_writelist
 Type: List *
 pList2
@@ -78,6 +75,10 @@ Type: char
 c
 Type: char *
 cData
+ring_objfile_writeCfile
+fCode
+Type: char
+cCodeFileName[400]
 ring_objfile_writelistcode
 Type: List *
 pList2

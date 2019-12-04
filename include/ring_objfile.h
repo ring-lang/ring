@@ -28,6 +28,8 @@ void ring_objfile_readc ( RingState *pRingState,char **cSource,char *cDest,int n
 
 char ring_objfile_getc ( RingState *pRingState,char **cSource ) ;
 
+void ring_objfile_writeCfile ( RingState *pRingState ) ;
+
 void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList ) ;
 /* MACRO */
 /* Object File Source */
