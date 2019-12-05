@@ -5,7 +5,7 @@ Author : Bert Mariani
 
 # To run the application
 
-	ring CalmoSoftAsciiTable.ring
+	ring GoGame.ring
 
 # Screen Shot
 
