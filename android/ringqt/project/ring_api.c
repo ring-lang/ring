@@ -1393,7 +1393,7 @@ void ring_vmlib_str2hexcstyle ( void *pPointer )
 			return ;
 		}
 		for ( x = 1 ; x <= nMax ; x++ ) {
-			sprintf( cStr , "%x" , (unsigned int) cString[x-1] ) ;
+			sprintf( cStr , "%x" , (unsigned char) cString[x-1] ) ;
 			/* Separator */
 			cString2[(x-1)*5] = ',' ;
 			cString2[(x-1)*5+1] = '0' ;
@@ -2083,7 +2083,7 @@ void ring_vmlib_state_main ( void *pPointer )
 	argc = 2 ;
 	strcpy(argv[0],"ring");
 	strcpy(argv[1],cStr);
-	ring_execute(cStr,0,1,0,0,0,0,0,0,0,argc,argv);
+	ring_execute(cStr,0,1,0,0,0,0,0,0,0,0,argc,argv);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[0]);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[1]);
 }

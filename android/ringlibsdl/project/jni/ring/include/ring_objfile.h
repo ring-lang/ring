@@ -20,13 +20,17 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 
 int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack ) ;
 
-void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
+RING_API void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 
 void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize ) ;
 
 void ring_objfile_readc ( RingState *pRingState,char **cSource,char *cDest,int nCount ) ;
 
 char ring_objfile_getc ( RingState *pRingState,char **cSource ) ;
+
+void ring_objfile_writeCfile ( RingState *pRingState ) ;
+
+void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList ) ;
 /* MACRO */
 /* Object File Source */
 #define RING_OBJFILE_READFROMFILE 1

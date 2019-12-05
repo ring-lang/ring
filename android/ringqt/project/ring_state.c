@@ -54,6 +54,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nPrintRules = 0 ;
 	pRingState->nPrintInstruction = 0 ;
 	pRingState->nGenObj = 0 ;
+	pRingState->nGenCObj = 0 ;
 	pRingState->nWarning = 0 ;
 	pRingState->argc = 0 ;
 	pRingState->argv = NULL ;
@@ -152,7 +153,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 
 RING_API void ring_state_main ( int argc, char *argv[] )
 {
-	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn  ;
+	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nGenCObj,nWarn  ;
 	char *cStr  ;
 	/* Init Values */
 	nCGI = 0 ;
@@ -166,6 +167,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	cStr = NULL ;
 	nSRC = 0 ;
 	nGenObj = 0 ;
+	nGenCObj = 0 ;
 	nWarn = 0 ;
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
@@ -203,6 +205,9 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			else if ( strcmp(argv[x],"-go") == 0 ) {
 				nGenObj = 1 ;
 			}
+			else if ( strcmp(argv[x],"-geo") == 0 ) {
+				nGenCObj = 1 ;
+			}
 			else if ( strcmp(argv[x],"-w") == 0 ) {
 				nWarn = 1 ;
 				nRingStateDEBUGSEGFAULT = 1 ;
@@ -221,11 +226,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
-		ring_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 		exit(0);
 	}
 	if ( ring_fexists("ring.ringo") && argc == 1 ) {
-		ring_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+		ring_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 		exit(0);
 	}
 	/* Print Version */
@@ -244,11 +249,12 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		puts("-ins      :  Print instruction operation code before execution");
 		puts("-clock    :  Print clock before and after program execution");
 		puts("-go       :  Generate object file");
+		puts("-geo      :  Generate embedded object file (C source code)");
 		puts("-w        :  Display Warnings");
 		ring_print_line();
 		exit(0);
 	}
-	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
+	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 	#if RING_TESTPERFORMANCE
 	if ( nPerformance ) {
 		ring_showtime();
