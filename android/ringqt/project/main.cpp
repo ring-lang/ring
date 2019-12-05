@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORMOBILE_CLEARSCREEN	0
-#define RINGFORMOBILE_WRITERINGOFILE	1
+#define RINGFORMOBILE_WRITERINGOFILE	0
 
 #include <QApplication>
 #include <QWidget>
@@ -124,13 +124,18 @@ int main(int argc, char *argv[])
 
     #else
 
-    	// Run the object file directly from resources	
-    	QFile oObjectFile(":/ringapp.ringo");
-    	oObjectFile.open(QFile::ReadOnly);
-    	QTextStream in(&oObjectFile);
-    	QString cByteCode = in.readAll();
-    	pRingState->nRingInsideRing = 1 ;
-    	ring_state_runobjectstring(pRingState,(char *) cByteCode.toStdString().c_str(),"ringapp.ringo");
+	// Run the object file directly from resources	
+	QFile oObjectFile(":/ringapp.ringo");
+	oObjectFile.open(QFile::ReadOnly);
+        int nFileSize = oObjectFile.size();
+        unsigned char *cCode;
+        cCode = (unsigned char *) malloc(nFileSize+1);
+        memcpy(cCode,oObjectFile.readAll().toStdString().c_str(),nFileSize);
+        cCode[nFileSize] = EOF;
+        pRingState->nRingInsideRing = 1 ;
+        ring_state_runobjectstring(pRingState,(char *) cCode,"ringapp.ringo");
+        free(cCode);
+
 	
     #endif
 
