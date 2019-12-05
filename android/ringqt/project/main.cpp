@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORMOBILE_CLEARSCREEN	0
-#define RINGFORMOBILE_WRITERINGOFILE	0
+#define RINGFORMOBILE_WRITERINGOFILE	1
 
 #include <QApplication>
 #include <QWidget>
@@ -86,9 +86,9 @@ int main(int argc, char *argv[])
 
     QApplication a(argc,argv);
 	
-	#ifdef QT_WEBVIEW_WEBENGINE_BACKEND
-		QtWebEngine::initialize();
-	#endif
+    #ifdef QT_WEBVIEW_WEBENGINE_BACKEND
+	QtWebEngine::initialize();
+    #endif
 	
     #if RINGFORMOBILE_CLEARSCREEN == 1
     	QWidget waiting ;
