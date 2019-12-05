@@ -141,6 +141,7 @@ More Improvements
 * RingQt : Added files for building RingQt without Bluetooth support 
 * RingQt : The size of the events code is changed from 100 characters to 200 characters
 * RingQt : Correct links for Qt documentation in RingQt classes chapter
+* RingQt for Android : Better code for executing the ring object file (ringo)
 * Ring2EXE configuration files are updated for RingQt to correctly distribute RingQt apps
 * Code Generator : Convert function names to lower case when generating the functions for structures
 * OSCopyFolder() function is updated to copy the files in sub folders too
