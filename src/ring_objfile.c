@@ -369,10 +369,10 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						/* Decrypt String */
 						ring_objfile_xorstring(cString,nValue,cKey,10);
 						ring_list_addstring2_gc(pRingState,pList,cString,nValue);
-						ring_state_free(pRingState,cString);
 						#ifdef DEBUG_OBJFILE
 						printf( "Read String %s Size %d \n",cString,nValue ) ;
 						#endif
+						ring_state_free(pRingState,cString);
 						break ;
 					case 'I' :
 						c = ring_objfile_getc(pRingState,&cData);
