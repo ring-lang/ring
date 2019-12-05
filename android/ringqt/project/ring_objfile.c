@@ -199,6 +199,10 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						c = getc(fObj);
 						fscanf( fObj , "[%d]" , &nValue ) ;
 						cString = (char *) ring_state_malloc(pRingState,nValue+1);
+						if ( cString == NULL ) {
+							printf( RING_OOM ) ;
+							exit(0);
+						}
 						fread( cString , 1 , nValue , fObj );
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
@@ -364,6 +368,10 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 							c = ring_objfile_getc(pRingState,&cData);
 						}
 						cString = (char *) ring_state_malloc(pRingState,nValue+1);
+						if ( cString == NULL ) {
+							printf( RING_OOM ) ;
+							exit(0);
+						}
 						ring_objfile_readc(pRingState,&cData,cString,nValue);
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
