@@ -15,11 +15,23 @@ List of changes and new features
 
 Ring 1.12 comes with the next features!
 
+* Go Game
 * ASCII Table application
 * BMI Calculator application
 * Load Again Command
 * Better RingRayLib
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Go Game
+
+Go Game
+=======
+
+An implementation for the Go Game
+
+.. image:: go.png
+	:alt: Go Game
 
 .. index:: 
 	pair: What is new in Ring 1.12?; ASCII Table application
