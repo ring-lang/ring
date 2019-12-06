@@ -186,6 +186,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
 					'<img src="BMI.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
+					'<img src="go.png" width="40%">'
 				]
 			    ]
                  ],
