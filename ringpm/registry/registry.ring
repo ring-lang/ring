@@ -534,5 +534,9 @@ aPackagesRegistry = [
 	[ :name = "bmicalculator",
 	  :description = "BMICalculator package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "gogame",
+	  :description = "GoGame package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
