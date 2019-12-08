@@ -2,6 +2,7 @@ ring_objfile_h
 DEBUG_OBJFILE
 RING_OBJFILE_READFROMFILE
 RING_OBJFILE_READFROMSTRING
+RING_OBJFILE_ITEMSPERFUNCTION
 ring_objfile_writefile
 fObj
 Type: char
@@ -80,12 +81,12 @@ fCode
 Type: char
 cCodeFileName[400]
 Type: int
-nSize
+nSize,nFunctions,x
 ring_objfile_writelistcode
 Type: List *
 pList2
 Type: int
-x,x2,x3,nMax
+x,x2,x3,nMax,nFunction
 Type: char
 cList[7]
 Type: char *

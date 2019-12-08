@@ -600,7 +600,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 {
 	FILE *fCode;
 	char cCodeFileName[400]  ;
-	int nSize  ;
+	int nSize,nFunctions,x  ;
 	/*
 	**  Write C file 
 	**  Set the file name 
@@ -612,7 +612,12 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fCode = fopen(cCodeFileName , "w+b" );
 	/* write the main function */
 	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;
+	/* Declare functions that load the Ring code */
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
+	nFunctions = pRingState->pRingGenCode->nSize / RING_OBJFILE_ITEMSPERFUNCTION ;
+	for ( x = 1 ; x <= nFunctions ; x++ ) {
+		fprintf( fCode , "void loadRingCode%d(RingState *pRingState,List *pList1) ;\n\n",x  ) ;
+	}
 	fprintf( fCode , "int main( int argc, char *argv[])\n"  ) ;
 	fprintf( fCode , "{\n"  ) ;
 	/* main function code */
@@ -649,7 +654,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 {
 	List *pList2  ;
-	int x,x2,x3,nMax  ;
+	int x,x2,x3,nMax,nFunction  ;
 	char cList[7]  ;
 	char *cString  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
@@ -658,6 +663,17 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 	}
 	/* Write List Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		/* Separate Code to different functions */
+		if ( x % RING_OBJFILE_ITEMSPERFUNCTION == 0 ) {
+			nFunction = x/RING_OBJFILE_ITEMSPERFUNCTION ;
+			/* Call the new function */
+			fprintf( fCode , "\tloadRingCode%d(pRingState,pList1);  \n",nFunction  ) ;
+			/* End the current function */
+			fprintf( fCode , "}\n"  ) ;
+			/* Start New Functions */
+			fprintf( fCode , "void loadRingCode%d(RingState *pRingState,List *pList1) {\n",nFunction  ) ;
+			fprintf( fCode , "\tList *pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
+		}
 		pList2 = ring_list_getlist(pList,x);
 		fprintf( fCode , "\tpList%d = ring_list_newlist_gc(pRingState,pList%d);\n" , nList+1,nList ) ;
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
