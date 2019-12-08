@@ -35,4 +35,6 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList ) ;
 /* Object File Source */
 #define RING_OBJFILE_READFROMFILE 1
 #define RING_OBJFILE_READFROMSTRING 2
+/* Embedded Object */
+#define RING_OBJFILE_ITEMSPERFUNCTION 10000
 #endif
