@@ -96,7 +96,10 @@ aAllPackagesInfo = [
 		"visualizesortsample",
 		"sudoku",
 		"texttospeech",
-		"zerolib"
+		"zerolib",
+		"asciitable",
+		"bmicalculator",
+		"gogame"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -161,7 +164,10 @@ aAllPackagesInfo = [
 		"desktopscreenshot",
 		"visualizesortsample",
 		"sudoku",
-		"texttospeech"
+		"texttospeech",
+		"asciitable",
+		"bmicalculator",
+		"gogame"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -207,5 +213,8 @@ aAllPackagesInfo = [
 	],
 	:qt512qmlruntime = 	[
 		"ringqt"
+	],
+	:gogame = 	[
+
 	]
 ]
