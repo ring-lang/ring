@@ -638,6 +638,10 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
 	fprintf( fCode , "\treturn 0;  \n"  ) ;
 	fprintf( fCode , "}\n\n"  ) ;
+	/* Create ringappcode.c */
+	fclose( fCode ) ;
+	fCode = fopen("ringappcode.c" , "w+b" );
+	fprintf( fCode , "#include \"ringappcode.h\" \n\n"  ) ;
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
 	/* Write Data */
@@ -660,6 +664,7 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 	int x,x2,x3,nMax,nFunction  ;
 	char cList[7]  ;
 	char *cString  ;
+	char cFileName[400]  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
 	if ( nList == 1 ) {
 		fprintf( fCode , "\tpList1 = ring_list_new_gc(pRingState,0) ; \n"  ) ;
@@ -673,6 +678,15 @@ void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList )
 			fprintf( fCode , "\tloadRingCode%d(pRingState,pList1);  \n",nFunction  ) ;
 			/* End the current function */
 			fprintf( fCode , "}\n"  ) ;
+			/*
+			**  Start New source file 
+			**  Close the current file 
+			*/
+			fclose( fCode ) ;
+			/* Create another source file */
+			sprintf( cFileName , "ringappcode%d.c" , nFunction ) ;
+			fCode = fopen(cFileName , "w+b" );
+			fprintf( fCode , "#include \"ringappcode.h\" \n\n"  ) ;
 			/* Start New Functions */
 			fprintf( fCode , "void loadRingCode%d(RingState *pRingState,List *pList1) {\n",nFunction  ) ;
 			fprintf( fCode , "\tList *pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
