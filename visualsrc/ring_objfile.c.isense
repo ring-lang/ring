@@ -77,7 +77,7 @@ c
 Type: char *
 cData
 ring_objfile_writeCfile
-fCode
+fCode, *fCode2
 Type: char
 cCodeFileName[400]
 Type: int
