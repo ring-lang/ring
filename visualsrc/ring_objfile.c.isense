@@ -91,3 +91,5 @@ Type: char
 cList[7]
 Type: char *
 cString
+Type: char
+cFileName[400]
