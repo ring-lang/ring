@@ -64,6 +64,12 @@ class game from gamebase
 		ok
 
 		display = gl_create_display(screen_w,screen_h)
+
+		if ISNULL(display)
+			gl_errormsg("Can't create the display window!")
+			gl_exit()
+		ok
+
 		gl_set_window_title(display,title)
 
 		ev = gl_new_glib_event()
