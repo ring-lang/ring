@@ -5,6 +5,8 @@ class RNoteMainWindow
 
 	func CreateMainWindow 
 
+		oDesktop = new qDesktopWidget()
+
 		win1 = new qMainWindow() {
 			setwindowtitle("Ring Notepad")
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
@@ -777,7 +779,7 @@ class RNoteMainWindow
 				setclickedEvent(Method(:ChangeFile))
 				setActivatedEvent(Method(:ChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(400)
+				setminimumwidth(floor(this.oDesktop.width()*0.2))
                 		chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
@@ -875,8 +877,8 @@ class RNoteMainWindow
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
 				setwidget(oTabsAndText)
 				setwindowtitle("Source Code")
-				setminimumwidth(340)                                                     
-                        }
+				setminimumwidth(floor(this.oDesktop.width()*0.17))                                                     
+			}
 		}
 
 	func CreateWebBrowser

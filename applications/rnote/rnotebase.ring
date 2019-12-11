@@ -116,7 +116,7 @@ class RNoteControllerBase from WindowsControllerParent
 		oCompleter=NULL 		# The completer object
 
 	# Main Window 
-		oApp win1 oFilter aBtns tool1 menu1 status1
+		oApp oDesktop win1 oFilter aBtns tool1 menu1 status1
 		tool2 oTxtMainFile
 		Tree1 filestabs TextEdit1 
 		oDockProjectFiles oDockSourceCode oDockWebBrowser 
