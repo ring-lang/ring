@@ -30,11 +30,11 @@ char ring_objfile_getc ( RingState *pRingState,char **cSource ) ;
 
 void ring_objfile_writeCfile ( RingState *pRingState ) ;
 
-void ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate ) ;
+int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate,int nFunction ) ;
 /* MACRO */
 /* Object File Source */
 #define RING_OBJFILE_READFROMFILE 1
 #define RING_OBJFILE_READFROMSTRING 2
 /* Embedded Object */
-#define RING_OBJFILE_ITEMSPERFUNCTION 1000
+#define RING_OBJFILE_ITEMSPERFUNCTION 10000
 #endif

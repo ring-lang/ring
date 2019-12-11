@@ -81,12 +81,12 @@ fCode, *fCode2
 Type: char
 cCodeFileName[400]
 Type: int
-nSize,nFunctions,x
+nSize,nFunctions,x,nFunction
 ring_objfile_writelistcode
 Type: List *
 pList2
 Type: int
-x,x2,x3,nMax,nFunction
+x,x2,x3,nMax
 Type: char
 cList[7]
 Type: char *
