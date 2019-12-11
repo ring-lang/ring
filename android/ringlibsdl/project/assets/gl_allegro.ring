@@ -238,3 +238,6 @@ func gl_draw_filled_triangle x1, y1, x2, y2,x3,y3,color
 
 func gl_draw_point x,y,color
 	al_draw_pixel(x,y,color)
+
+func gl_errormsg cMessage 
+	al_show_native_message_box(NULL,"Game","Error",cMessage,NULL,ALLEGRO_MESSAGEBOX_ERROR)

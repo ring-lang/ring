@@ -331,3 +331,6 @@ func gl_rect p1,p2,p3,p4
 	sdl_set_sdl_rect_w(rect,p3)
 	sdl_set_sdl_rect_h(rect,p4)
 	return rect
+
+func gl_errormsg cMessage 
+	? cMessage
