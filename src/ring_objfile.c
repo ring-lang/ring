@@ -600,7 +600,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 {
 	FILE *fCode, *fCode2;
 	char cCodeFileName[400]  ;
-	int nSize,nFunctions,x,nFunction  ;
+	int nSize,x,nFunction  ;
 	/*
 	**  Write C file 
 	**  Set the file name 
@@ -613,18 +613,6 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	/* write the main function */
 	fprintf( fCode , "#include \"ring.h\" \n\n"  ) ;
 	fprintf( fCode , "#include \"ringappcode.h\" \n\n"  ) ;
-	/* Declare functions that load the Ring code */
-	fCode2 = fopen("ringappcode.h" , "w+b" );
-	fprintf( fCode2 , "#include \"ring.h\" \n\n"  ) ;
-	fprintf( fCode2 , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
-	nFunctions = pRingState->pRingGenCode->nSize / RING_OBJFILE_ITEMSPERFUNCTION ;
-	nFunctions += pRingState->pRingFunctionsMap->nSize / RING_OBJFILE_ITEMSPERFUNCTION ;
-	nFunctions += pRingState->pRingClassesMap->nSize / RING_OBJFILE_ITEMSPERFUNCTION ;
-	nFunctions += pRingState->pRingPackagesMap->nSize / RING_OBJFILE_ITEMSPERFUNCTION ;
-	for ( x = 1 ; x <= nFunctions ; x++ ) {
-		fprintf( fCode2 , "void loadRingCode%d(RingState *pRingState,List *pList1) ;\n\n",x  ) ;
-	}
-	fclose( fCode2 ) ;
 	fprintf( fCode , "int main( int argc, char *argv[])\n"  ) ;
 	fprintf( fCode , "{\n"  ) ;
 	/* main function code */
@@ -649,20 +637,28 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
 	/* Write Data */
-	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1,1,0);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1,1,0,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1,1,nFunction);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1,1,nFunction);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,1,1,nFunction);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION);
 	fprintf( fCode , "\tpRingState->pRingGenCode = pList1;\n"  ) ;
 	fprintf( fCode , "}\n"  ) ;
 	/* Close File */
 	fclose( fCode ) ;
+	/* Declare functions that load the Ring code */
+	fCode2 = fopen("ringappcode.h" , "w+b" );
+	fprintf( fCode2 , "#include \"ring.h\" \n\n"  ) ;
+	fprintf( fCode2 , "void loadRingCode(RingState *pRingState) ;\n\n"  ) ;
+	for ( x = 1 ; x <= nFunction ; x++ ) {
+		fprintf( fCode2 , "void loadRingCode%d(RingState *pRingState,List *pList1) ;\n\n",x  ) ;
+	}
+	fclose( fCode2 ) ;
 }
 
-int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate,int nFunction )
+int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate,int nFunction,int nItemsPerFunction )
 {
 	List *pList2  ;
 	int x,x2,x3,nMax  ;
@@ -676,8 +672,8 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 	/* Write List Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		/* Separate Code to different functions */
-		if ( lSeparate == 1 ) {
-			if ( x % RING_OBJFILE_ITEMSPERFUNCTION == 0 ) {
+		if ( (lSeparate == 1) && (nList == 1) ) {
+			if ( x % nItemsPerFunction == 0 ) {
 				nFunction++ ;
 				/* Call the new function */
 				fprintf( fCode , "\tloadRingCode%d(pRingState,pList1);  \n",nFunction  ) ;
@@ -726,7 +722,7 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 			}
 			else if ( ring_list_islist(pList2,x2) ) {
 				fprintf( fCode , "\tpList%d = ring_list_newlist_gc(pRingState,pList%d);\n" , nList+2,nList+1 ) ;
-				nFunction = ring_objfile_writelistcode(ring_list_getlist(pList2,x2) ,fCode,nList+2,lSeparate,nFunction);
+				nFunction = ring_objfile_writelistcode(ring_list_getlist(pList2,x2) ,fCode,nList+2,lSeparate,nFunction,nItemsPerFunction);
 			}
 		}
 	}
