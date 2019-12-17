@@ -1,16 +1,15 @@
 # Project : CalmoSoft Simple Go Game
-# Date    : 28/10/2019-12:00:00
-# Update  : 15/11/2019-05:05:59
+# Date    : 28/10/2019
+# Update  : 17/13/2019
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
-# Email   : calmosoft@gmail.com
 
 load "stdlib.ring"
 load "guilib.ring"
 
-Size    = 19      ### Played on 19, 13, or 11 interectins
+Size    = 19            ### Start with 19, Played on 19, 13, or 11 intersections
+Size2   = Size * Size   ### Size^2 = Size Squared
 
-PlayerB = 1       ### Whose Turn
-PlayerW = 0
+PlayerC = "B"     ### Whose Turn
 
 start   = 0
 
@@ -20,19 +19,25 @@ colOld  = 0       ### Set after first move
 oldRowMove = 99   ### Flag set on MouseRelease
 oldColMove = 99   ### Flag set on MouseRelease
 
-aSquare  = list(Size * Size)    ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
-aLiberty = list(Size * Size)    ### 0,1,2,3,4,5
+aSquare    = list(Size2)    ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
+aLiberty   = list(Size2)    ### 0,1,2,3,4,5
+aDotSquare = list(Size2)    ### Dots Capture = Free, All-Black-Nbor, All-White-Nbor, Mixed-B-W-Nbor
 
-aCheckNeighbour = [][]          ### 2D
+aCheckNeighbour = [][]      ### 2D List  SQ Visit Liberty
+
 gEscape = 0                     ### gEscape Route = 1 True --- NOT Blocked
 gDelay  = 0.2                   ### Sleep Delay
 
-gBlackStones    =  Ceil(Size * Size / 2) ### 41  Start with 1/2 of Intersections
-gWhiteStones    = Floor(Size * Size / 2) ### 40
+gBlackStones    =  Ceil(Size2 / 2) ### 41  Start with 1/2 of Intersections
+gWhiteStones    = Floor(Size2 / 2) ### 40
 gBlackCaptures  = 0
 gWhiteCaptures  = 0
 gBlackTerritory = 0
 gWhiteTerritory = 0
+
+Dot    = "."
+WColor = "W"
+BColor = "B"
 
 
 //------------------------------------
@@ -204,7 +209,7 @@ Func DrawWidget()
          Radio3 = new qRadioButton(win) { setText("13")  setToggledEvent("RadioBtnToggled()") }
          Radio4 = new qRadioButton(win) { setText("19")  setToggledEvent("RadioBtnToggled()") }
 
-			Radio5 = new qRadioButton(win) { setText("Ter")  setClickedEvent("RadioBtnClicked()") }  ### ===>>> Territoty
+         Radio5 = new qRadioButton(win) { setText("Ter")  setClickedEvent("RadioBtnClicked()") }  ### ===>>> Territoty
 
          NewGame   = new QPushButton(win)
          {
@@ -241,7 +246,7 @@ Func DrawWidget()
          LayoutTitleRow.AddWidget(Radio3)
          LayoutTitleRow.AddWidget(Radio4)
 
-			LayoutTitleRow.AddWidget(Radio5)
+         LayoutTitleRow.AddWidget(Radio5)
 
          LayoutTitleRow.AddWidget(NewGame)
 
@@ -254,10 +259,10 @@ Func DrawWidget()
         ###----------------------------------------------------
         ### Title Top Row , Col = LETTERS    @ A B C D E F G H I
 
-        TitleLet = list(Size +1)        ### Array of qLabel Object
-        Number = 64                     ### 64 = @ A B .. H I
+        TitleLet = list(Size +0)        ### +1 Array of qLabel Object
+        Number = 65                     ### 64 = @ A B .. H I
 
-        for Col = 1 to Size +1
+        for Col = 1 to Size +0
             Letter = hex2str( hex(Number))
             TitleLet[Col] = new qLabel(win)
                             { setFont(new qFont("Calibri",fontSize,100,0))
@@ -272,8 +277,8 @@ Func DrawWidget()
         ### Top Row,  Col = Letters A B..H I
 
         LayoutTitleRow = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
-            TitleLet[1].setText(" ")                    ### Blank out the @
-            for Col = 1 to Size +1                      ### Add +1 because of LeftMost Labels @
+            //TitleLet[1].setText(" ")                  ### Blank out the @
+            for Col = 1 to Size +0                      ### Add +1 because of LeftMost Labels @
                 LayoutTitleRow.AddWidget(TitleLet[Col])
             next
 
@@ -286,6 +291,8 @@ Func DrawWidget()
         TitleNum = list(Size +1)    ### Array of qLabel Object
 
         for Row = 1 to Size
+        //See "VerticalRow: "+ Row +nl
+        
             Number = ""+ Row
             TitleNum[Row] = new qLabel(win)
                             { setFont(new qFont("Calibri",fontSize,100,0))
@@ -299,8 +306,11 @@ Func DrawWidget()
         ###-----------------------------------------------------------------------
         ### QHBoxLayout lays out widgets in a horizontal row, from left to right
         ### Horizontal
+        
+### ERROR if Size increased from Small to Large
 
         for Row = 1 to Size                            ### NOT Size+1
+        //See "LayoutButtonRow: "+ Row +nl
             LayoutButtonRow[Row] = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
 
             LayoutButtonRow[Row].AddWidget(TitleNum[Row])
@@ -342,18 +352,19 @@ Func DrawWidget()
 Func NewGame()
 
    See nl+"******** NewGame *********"+nl+nl
-
+  
    win.Close()                         ### Close the current Layout
 
    RadioBtnToggled()                   ### Set the Size to play
    Button = newlist(Size+1,Size)       ### Set Button List two New Size
 
-   gBlackStones    =  Ceil(Size * Size / 2) ### 41  Start with 1/2 of Intersections
-   gWhiteStones    = Floor(Size * Size / 2) ### 40
+   gBlackStones    =  Ceil(Size2 / 2)  ### 41  Start with 1/2 of Intersections
+   gWhiteStones    = Floor(Size2 / 2)  ### 40
    gBlackCaptures  = 0
    gWhiteCaptures  = 0
    gBlackTerritory = 0
    gWhiteTerritory = 0
+	
 
    DrawWidget()                        ### Draw the New Layout
 
@@ -365,7 +376,7 @@ return
 
 Func RadioBtnToggled()
 
-   see("Radio Toggled: " + Radio1.isChecked() + Radio2.isChecked() + Radio3.isChecked() + nl)
+   see"Radio Toggled: " + Radio1.isChecked() + Radio2.isChecked() + Radio3.isChecked() + Radio4.isChecked() + Radio5.isChecked() +nl
 
    if Radio1.isChecked() Size =  9  ok
    if Radio2.isChecked() Size = 11  ok
@@ -377,13 +388,26 @@ return
 
 Func RadioBtnClicked()
 
-   See nl+ "Radio Clicked: " + Radio5.isChecked()  + " >>>>>>>>>>>>>>>>>>>> " nl+nl
+   See nl+ "Radio Clicked: Territory " + Radio5.isChecked()  + " >>==>>==>>==>>==>>==>>==>>==>>==>>> " +nl
 
-   if Radio5.isChecked()
-		for Dot = 1 to 3
-			CalcTerritory(Dot)
-		next
-	ok
+   if Radio5.isChecked()      
+         See "RadioBtnClicked: CALL  CalcTerritory " +nl+nl
+			
+			###-------------------------------------------------------
+			### Clear residure if Radio-Ter clicked again during game
+			
+			for i = 1 to Size2
+				if ( aSquare[i] = "n" OR
+				     aSquare[i] = "x" OR
+				     aSquare[i] = "y" )
+					  
+					aSquare[i] = DOT
+				ok		
+			next
+			
+			
+         CalcTerritory()
+   ok
 
 return
 
@@ -394,20 +418,20 @@ return
 
 Func pStart()
 
-See "pStart Size: "+ Size +nl
+   //See "pStart Size: "+ Size +nl
 
-   PlayerB  = 1
-   PlayerW  = 0
+   PlayerC  = "B"
+
    start    = 0
 
    aSquare  = []
    aLiberty = []
 
-   aSquare  = list(Size * Size)    ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
-   aLiberty = list(Size * Size)    ### 0,1,2,3,4,5
+   aSquare  = list(Size2)     ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
+   aLiberty = list(Size2)     ### 0,1,2,3,4,5
 
-   for i = 1 to (Size * Size)
-      aSquare[i] = "."  ### Mark Row*Col = "Empty" with "."
+   for i = 1 to (Size2)
+      aSquare[i] = "."        ### Mark Row*Col = "Empty" with "."
    next
 
 
@@ -431,13 +455,13 @@ return
 
 Func pRelease
 
-    relX = myfilter.getx()                  ### Canvas
+    relX = myfilter.getx()                   ### Canvas
     relY = myfilter.gety()
 
     Row = floor( relY / SqHeight ) //-1      ### Mouse Position to Square
     Col = floor( relX / SqHeight  ) //-1
 
-         if Row < 1  Row = 1 ok             ### Stay within boundary size
+         if Row < 1  Row = 1 ok              ### Stay within boundary size
          if Col < 1  Col = 1 ok
          if Row > Size  Row = Size ok
          if Col > Size  Col = Size ok
@@ -445,7 +469,7 @@ Func pRelease
     oldRowMove = 99  ### Flag set on Mouse Move Release. Prevent Illigal Move on Occupied Square
     oldColMove = 99  ### Flag set on Mouse Move Release
 
-    pPlay(Row,Col)                          ### Out New Stone (circle) in Square
+    pPlay(Row,Col)                           ### Out New Stone (circle) in Square
 
 return
 
@@ -461,10 +485,10 @@ Func pMove
     //----------------------------------
     // NEW Mouse Position
 
-    Row = floor( curY / SqHeight ) //-1        ### Mouse Position to Square
+    Row = floor( curY / SqHeight ) //-1         ### Mouse Position to Square
     Col = floor( curX / SqHeight  ) //-1
 
-         if Row < 1  Row = 1 ok               ### Stay within boundary size
+         if Row < 1  Row = 1 ok                 ### Stay within boundary size
          if Col < 1  Col = 1 ok
          if Row > Size  Row = Size ok
          if Col > Size  Col = Size ok
@@ -494,7 +518,7 @@ Func pMove
     //-----------------------------------------
     // CURRENT MOUSE MOVE - Row-Col
 
-    if PlayerB = 1
+    if PlayerC = "B"
         Button[Row][Col] { setIcon(new qIcon(new qPixMap("Black-M.png")))   ### Black Last Play (with white circle)
                            setIconSize(new qSize(SqHeight,SqHeight))
                            setEnabled(true)
@@ -522,11 +546,13 @@ return
 ###=========================================================
 
 ##---------------------
-### Display "Square"  with B W     Dot
-### Display "Liberty" with 1 2 3 4 .
+### Display aSquare  with B W     Dot
+### Display aLiberty with 1 2 3 4 .
 ### Call Display(Square)  or Display(Liberty)
 
-Func Display(Type)
+Func Display(aType)
+
+    //See "Display aType: "+nl   See aType   See nl+nl
 
     See nl + "....... 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9" +nl
     for Row = 1 to Size
@@ -545,12 +571,8 @@ Func Display(Type)
         for Col = 1 to Size
 
             Offset =  RowIndex + Col            ### Offset into aLiberty (0*9+4) = 4 , (1*9+4) = 13
+            See " "+ aType[Offset]
 
-            if Type = "Square"
-               See " "+ aSquare[ Offset ]          ### Dot "."   OffSet ?! sometimes Error on 19
-            elseif Type = "Liberty"
-               See " "+ aLiberty[ Offset ]         ### Dot "."
-            ok
 
         next
         See nl
@@ -573,18 +595,17 @@ Func CalcLiberty()
 
     for Row = 1 to Size
         for Col = 1 to Size
-            CurSq = (Row-1) * Size + Col            ### Offset into aLiberty (0*9+4) = 4 , (1*9+4) = 13
-            libertyCount = "."                      ### Fill with "." Dots
-            aLiberty[CurSq] = libertyCount
+            CurSq = (Row-1) * Size + Col        ### Offset into aLiberty (0*9+4) = 4 , (1*9+4) = 13
+            aLiberty[CurSq] = "."
         next
     next
 
     ###--------------------
     ### Fill aLiberty Array
 
-    for SqNbr = 1 to (Size * Size)
+    for SqNbr = 1 to (Size2)
 
-            aDirSq =  CalcSqrNbr(SqNbr)           ### Returns Square Number -- 1-N, 2-S, 3-W, 4-E and 5-CurSq
+            aDirSq =  CalcSqrNbr(SqNbr)          ### Returns Square Number -- 1-N, 2-S, 3-W, 4-E and 5-CurSq
 
             North = aDirSq[1]
             East  = aDirSq[2]
@@ -610,7 +631,8 @@ Func CalcLiberty()
 
     next
 
-    //Display("Liberty")
+    See "CalcLiberty: CALL Display aLiberty: "+nl
+    Display(aLiberty)
 
 return
 
@@ -639,7 +661,7 @@ Func CalcRowCol(CurSq)
 
     Row = Ceil( CurSq / Size )      ### 21 / 9  = 2.3 => 2 ,  18/9 = 2 ,  17/9 = 1.9 => 1
     Col = CurSq % Size              ### 21 % 9  = 3 ,         17%9 = 8 ,  18%9 = 0 =>9    ,  19%9 = 1
-    if Col = 0  Col = 9  ok
+    if Col = 0  Col = Size  ok
 
 return [Row,Col,CurSq]
 
@@ -652,7 +674,7 @@ Func CalcRC(CurSq)
 
     Row = Ceil( CurSq / Size )      ### 21 / 9  = 2.3 => 2 ,  18/9 = 2 , 17/9 = 1.9 => 1
     Col = CurSq % Size              ### 21 % 9  = 3 ,    17%9 = 8 ,  18%9 = 0 =>9 ,  19%9 = 1
-    if Col = 0  Col = 9  ok
+    if Col = 0  Col = Size  ok
 
     RC = "" +Row +"-"+ Col          ### Return format  "3-4"
 return RC
@@ -660,13 +682,26 @@ return RC
 
 ###========================================================
 ### Find same color neighbours - Return SqNbr as Array 1..4
+###
+###  North  -4 -3 -2 -1  0
+###                          East
+###  West    1  2  3  4  5   6%5=1
+###  5%5=0   6  7  8  9 10  11%5=1
+### 10%5=0  11 12 13 14 15  16%5=1
+### 15%5=0  16 17 18 19 20  21%5=1
+### 20%5=0  21 22 23 24 25  26%5=1
+###
+###  South  26 27 28 28 30
 
 Func FindColorNbor(SqrNbr, Color)
 
-    North = SqrNbr - Size   if  North < 1            OR  aSquare[North] != Color    North = -1  ok
-    East  = SqrNbr +1       if (SqrNbr % Size) = 0   OR  aSquare[East]  != Color    East  = -1  ok
-    South = SqrNbr + Size   if South > Size*Size     OR  aSquare[South] != Color    South = -1  ok
-    West  = SqrNbr -1       if (West % Size)   = 0   OR  aSquare[West]  != Color    West  = -1  ok
+   RC = CalcRC(SqrNbr)
+   //See "FindColorNbr: "+ SqrNbr +" "+ RC +" "+ Color +nl
+
+    North = SqrNbr - Size   if  North  < 1           OR  aSquare[North] != Color    North = -1  ok
+    East  = SqrNbr + 1      if (East   % Size) = 1   OR  aSquare[East]  != Color    East  = -1  ok
+    South = SqrNbr + Size   if  South  > Size2       OR  aSquare[South] != Color    South = -1  ok
+    West  = SqrNbr - 1      if (West   % Size) = 0   OR  aSquare[West]  != Color    West  = -1  ok
 
 return [North,East,South,West, SqrNbr]
 
@@ -687,16 +722,16 @@ return [North,East,South,West, SqrNbr]
 
 Func pPlay(Row,Col)
 
-See nl+"===================="+nl+nl
-See "==>Func-pPlay: "+Row +"-"+ Col +nl
+See nl+"=========================="+nl
+See    "==> "
 
     start = start + 1
-    SqNbr = ((Row-1) * Size) + Col         ### 1..81
+    SqrNbr = ((Row-1) * Size) + Col         ### 1..81
 
      ###-----------------------------------------------------------
      ### NEW STONE with CIRCLE - Add to Board - LastPlay
 
-     if PlayerB = 1
+     if PlayerC = "B"
 
         Button[Row][Col] { setIcon(new qIcon(new qPixMap("Black-L.png")))   ### Black Circle Player-1
                            setIconSize(new qSize(SqHeight,SqHeight))
@@ -704,14 +739,13 @@ See "==>Func-pPlay: "+Row +"-"+ Col +nl
                            blockSignals(true)
                          }
 
-        aSquare[ SqNbr]  = "B"
+        aSquare[ SqrNbr]  = "B"
         lastColor = "B"
         gBlackStones--
 
-        PlayerB = 0
-        PlayerW = 1
+        PlayerC = "W"
 
-        See nl+ "pPlay: "+ Row +"-"+ Col +" "+ lastColor +" - "+ aSquare[ SqNbr]  +" "+  SqNbr +nl
+        See "pPlay: "+ lastColor +" SQ "+  SqrNbr +" "+ Row +"-"+ Col +nl
 
      else
 
@@ -721,14 +755,13 @@ See "==>Func-pPlay: "+Row +"-"+ Col +nl
                            blockSignals(true)
                          }
 
-        aSquare[ SqNbr] = "W"
+        aSquare[ SqrNbr] = "W"
         lastColor = "W"
         gWhiteStones--
 
-        PlayerB = 1
-        PlayerW = 0
+        PlayerC = "B"
 
-        See nl+ "pPlay: "+ Row +"-"+ Col +" "+ lastColor +" => "+ aSquare[ SqNbr] +" "+ SqNbr +nl
+        See "pPlay: "+ lastColor +" SQ "+  SqrNbr +" "+ Row +"-"+ Col +nl
 
      ok
 
@@ -738,7 +771,7 @@ See "==>Func-pPlay: "+Row +"-"+ Col +nl
 
     if start > 1    ### Do NOT do this on FIRST MOVE.
 
-        if PlayerB = 1
+        if PlayerC = "B"
 
             Button[rowOld][colOld] { setIcon(new qIcon(new qPixMap("Black-T.png")))    ### Black Solid
                                      setIconSize(new qSize(SqHeight,SqHeight))
@@ -765,12 +798,19 @@ See "==>Func-pPlay: "+Row +"-"+ Col +nl
     colOld = Col
 
 
-                 //Display("Square")
-    BlockCount = CheckCapture( SqNbr,lastColor )   ### ===>>>   BlockCount 0 means Escape Possible
+    Display(aSquare)
+    
+    See "pPlay CALLS CheckCapture with: SQ "+ SqrNbr +" "+ Row +"-"+ Col +" "+ lastColor +nl 
+    
+    ###---------------------------------------------
+    ### ===>>>   BlockCount 0 means Escape Possible
+    
+    BlockCount = CheckCapture( SqrNbr,lastColor )   
 
-                 See "pPlay BlockCount: "+ BlockCount +nl
+                 See ">=>=>= pPlay: Got Return: BlockCount: "+ BlockCount +" gEscape "+ gEscape +nl
 
                  if BlockCount > 0
+                     See "pPlay: BlockCount: "+ BlockCount +" Remove Captures Stones "+ nl
                      RemoveCapturedStones()
                  ok
 
@@ -793,11 +833,15 @@ return
 
 Func CheckCapture(SqrNbr, lastColor)
 
+    RC  = CalcRC(SqrNbr)
+    RCA = CalcRowCol(SqrNbr)
+    
+See nl+"================================= "+nl
+See    "==> Func-CheckCapture: "+lastColor +" "+ SqrNbr +" RC "+ RC +" RCA "+ RCA[1] +"-"+ RCA[2] +nl+nl
+
+   See "CheckCapture: CALL CalcLiberty "+nl
     gEscape = 0                                 ### gEscape Route 1 True , NOT Blocked
     CalcLiberty()                               ### Liberties 0..4 calculated
-
-	 RC = CalcRowCol(SqrNbr)
-See nl+"==>Func-CheckCapture: "+ SqrNbr +" "+ lastColor +" "+ RC[1] +"-"+ RC[2] +nl
 
     aCheckNeighbour = [][]                      ### Square Nbr White Visited=1
 
@@ -805,7 +849,7 @@ See nl+"==>Func-CheckCapture: "+ SqrNbr +" "+ lastColor +" "+ RC[1] +"-"+ RC[2] 
     ###------------------------------------------------------
     ### Return [North, East, South, West, SqrNbr]  Invalid -1
 
-    aDirSq = CalcSqrNbr(SqrNbr)                ### SqrNbr returned in array
+    aDirSq = CalcSqrNbr(SqrNbr)                 ### SqrNbr returned in array
 
     OppColor = "W"  if lastColor = "W"  OppColor = "B"   ok
 
@@ -819,7 +863,7 @@ See nl+"==>Func-CheckCapture: "+ SqrNbr +" "+ lastColor +" "+ RC[1] +"-"+ RC[2] 
             Add (aCheckNeighbour, [aDirSq[k], OppColor, 1] )    ### This is blocked, Visit=1
 
             RC = CalcRC( aDirSq[k] )            ### Sq to "R-C"
-            See nl+"Blocks "+ OppColor +" "+ aDirSq[k] +" "+ RC +" Liberty: "+ aLiberty[ aDirSq[k] ] +nl+nl
+            See nl+"CheckCapture By: "+lastColor +" Blocks "+ OppColor +" "+ aDirSq[k] +" "+ RC +" Liberty: "+ aLiberty[ aDirSq[k] ] +" >>>>> " +nl+nl
 
             ###---------------------------------
             ### SET gEscape if Nbor has Liberty
@@ -828,15 +872,16 @@ See nl+"==>Func-CheckCapture: "+ SqrNbr +" "+ lastColor +" "+ RC[1] +"-"+ RC[2] 
         ok
     next
 
-	 RC = CalcRC(SqrNbr)
-    See nl+"Check-Capture: BlockedValue: "+ Blocked +" "+ OppColor +" "+ SqrNbr +" "+ RC +nl+nl
-    
+   
     if gEscape = 1 
         Blocked = 0                             ### FindNbor SET gEscape also when Blocked >= 1
-        See nl+"Check-Capture: gEscape ROUTE Exist: BlockedValue: "+Blocked +" "+ SqrNbr +" "+ RC   +nl+nl
-    ok	 
-	 
-
+        See nl+"Check-Capture: ESCAPE ROUTE EXIST: BlockedValue: "+Blocked +" "+ OppColor +" "+ SqrNbr +" "+ RC +" >>>>> " +nl+nl
+    ok    
+    
+    RC = CalcRC(SqrNbr)
+    See nl+"Check-Capture By: "+ lastColor  +" BlockedValue: "+ Blocked +" "+ OppColor +" "+ SqrNbr +" "+ RC +" >>>>> " +nl+nl
+ 
+    
 return Blocked
 
 
@@ -867,14 +912,14 @@ RC = CalcRC(CurSq)  ### Row,Col,SqrNbr
 
             Nbor = Find( aCheckNeighbour, aSqToVisit[k], 1)     ### SqNbr in Col 1
                 RC   = CalcRC(aSqToVisit[k])
-                //See "Nbor Find: "+ Nbor +" Sq: "+ aSqToVisit[k] +" "+ RC +" "+ aSquare[aSqToVisit[k]] +nl
+                //See "FindNbor: Nbor Find: "+ Nbor +" Sq: "+ aSqToVisit[k] +" "+ RC +" "+ aSquare[aSqToVisit[k]] +nl
 
             ###-------------------------
             ### ADD - to List
 
             if Nbor = 0
-                Add (aCheckNeighbour, [aSqToVisit[k], OppColor, 0] )    ### Not Visited
-                //See "Nbor Add.: "+ Nbor +" Sq: "+ aSqToVisit[k] +" "+ RC +" "+ aSquare[aSqToVisit[k]] +nl
+                Add (aCheckNeighbour, [aSqToVisit[k], OppColor, 0] )    ### 0 = Not Visited
+                //See "FindNbor: Nbor Add.: "+ Nbor +" Sq: "+ aSqToVisit[k] +" "+ RC +" "+ aSquare[aSqToVisit[k]] +nl
             ok
 
         ok
@@ -883,20 +928,7 @@ RC = CalcRC(CurSq)  ### Row,Col,SqrNbr
     ###---------------------------------------
     ### Show Nbor LIST
 
-    for i = 1 to len(aCheckNeighbour)
-
-        RC      = CalcRC(aCheckNeighbour[i][1])
-
-        SQ      = aCheckNeighbour[i][1]
-        Color   = aCheckNeighbour[i][2]
-        Visit   = aCheckNeighbour[i][3]
-        Liberty = aLiberty[SQ]
-
-       // See    "Nbor List: "+ i +" Sq: "+ SQ  +" "+ RC +" "+ Color +" V "+ visit +" L "+ Liberty +nl
-    next
-
-    ###----------------------------------------
-
+ 
     for i = 1 to len(aCheckNeighbour)
 
         RC    = CalcRC(aCheckNeighbour[i][1])
@@ -905,32 +937,36 @@ RC = CalcRC(CurSq)  ### Row,Col,SqrNbr
         Color = aCheckNeighbour[i][2]
         Visit = aCheckNeighbour[i][3]
         Liberty = aLiberty[SQ]
-
+  
+        //See "FindNbor: Nbor List: "+ i +" Sq: "+ SQ  +" "+ RC +" "+ Color +" V "+ visit +" L "+ Liberty  +nl
+              
         ###-----------------------
         ### gEscape ROUTE Exists
 
-        if Liberty > 0
-		      gEscape = 1								###  ===>>> ESCAPE FOUND
-            See "FindNbr gEscape ROUTE FOUND: "+ gEscape =" "+ SQ +" "+ RC   +nl
+        if Liberty  > 0
+            gEscape = 1                      ###  ===>>> ESCAPE FOUND
+            See "FindNbr: gEscape ROUTE FOUND Liberty: "+ Liberty +" "+ OppColor +" "+ SQ +" "+ RC +" >>>>> " +nl
 
-            return
+            RETURN                           ###  ===>>>>  RETURN
         ok
 
         ###------------------------
         ### RECURSION Call
 
         if Visit = 0
-            aCheckNeighbour[i][3] = 1               ### Now SET=VISIT for this SQ
+            aCheckNeighbour[i][3] = 1        ### Now SET=VISIT for this SQ
 
-				RC = CalcRC(SQ)
-            //See nl+"Recursion Call: "+SQ +" "+ Color +" "+ RC +nl
-            FindNbor(SQ, OppColor)      ### ===>>> <<<===  RECURSIVE CALL  Does this SQ have Non-Visited nbor
+            RC = CalcRC(SQ)
+            //See nl+"FindNbor: SET VISIT Recursion Call: "+SQ +" "+ Color +" "+ RC +" <<<<<>>>>> " +nl
+            
+            FindNbor(SQ, OppColor)           ### ===>>> <<<===  RECURSIVE CALL  Does this SQ have Non-Visited nbor
 
         ok
 
     next
 
-    See "Recursion Done: Do we ever get Here "+nl
+    RC = CalcRC( CurSq)
+    //See "Recursion ALL Done: Return "+ CurSq +" "+ RC +" "+ OppColor +nl+nl
 
 
 return
@@ -945,8 +981,10 @@ Func RemoveCapturedStones()
         SQ    =  aCheckNeighbour[k][1]
         Color =  aCheckNeighbour[k][2]
         aRC   =  CalcRowCol(SQ)
+         RC   =  CalcRC(SQ)
 
-        aSquare[SQ] = "."               ### Erase W/B from Square
+        aSquare[SQ] = "."                                            ### Erase W/B from Square
+        See "RemoveCapturedStones: "+SQ +" "+ RC +" "+ Color +nl
 
         Row = aRC[1]
         Col = aRC[2]
@@ -959,10 +997,10 @@ Func RemoveCapturedStones()
 
         button[Row][Col] { setIcon(new qIcon(new qPixMap("Empty-T.png")))
                            setIconSize(new qSize(SqHeight,SqHeight))
-                           setStyleSheet(C_ButtonEmptyStyle)        ### Needed to fill Square, image too small
+                           setStyleSheet(C_ButtonEmptyStyle)         ### Needed to fill Square, image too small
 
                            setEnabled(true)
-                           blockSignals(false)                      ### ??? Goes back to Complement Color ??
+                           blockSignals(false)                       ### ??? Goes back to Complement Color ??
                          }
         Sleep(gDelay)
 
@@ -981,178 +1019,356 @@ return
 
 
 
+
 ###=====================================
 ### Pick a Empty Square 1..81
 ### Visit Neighbours
-###		- Touchs Blank AND White  = Escape
-###		- Touches ONLY Black = BlackTerrritory
-###      - Touches ONLY White = WhiteTerritory
-### Flip the Dots to White - Figure out Black capturing
-### Flip the Dots to Blacl - Figure out Wite capturing
+###      - Touchs Blank AND White  = FREE
+###      - Touches ONLY Black      = BlackTerrritory
+###      - Touches ONLY White      = WhiteTerritory
 ###
-### aSquare  = list(Size * Size)    ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
-### aLiberty = list(Size * Size)    ### 0,1,2,3,4,5
-###
-### gEscape = 0                     			### gEscape Route = 1 True --- NOT Blocked
-### aCheckNeighbour = [][]          			### 2D
-### 		   SQ      = aCheckNeighbour[i][1]
+### aCheckNeighbour = [][]         ### 2D
+###         SQ      = aCheckNeighbour[i][1]
 ###         Color   = aCheckNeighbour[i][2]
 ###         Visit   = aCheckNeighbour[i][3]
 ###         Liberty = aLiberty[SQ]
 ###
 
-Func CalcTerritory(Sq)
+Func CalcTerritory()
+    Color = DOT
+    aCheckNeighbour = [][]
+   
+   for i = 1 to Size2                        ### Will be owned by Nobody=n, Black=x, White=w
+       aDotSquare[i] = DOT
+   next
+   
+   See "CalcTer: Display start aDotSquare"+nl
+   Display(aDotSquare)
+   
+for ThisSquare = 1 to  Size2
 
-	aSquareSave = aSquare							### Original B W Dot Save
-	Dot  = "."
-	BlkX = "x"											### Black uses x for territory captured
-	WhtY = "y"
+   aCheckNeighbour = [][]
 
-   WColor = "W"  BColor = "B"  BCap = BlkX		### Do Black Capture first
-	
-for z = 1 to 2	
+   RC = CalcRC(ThisSquare)
+   //See "CalcTer: FindNbor for ThisSquare: "+ThisSquare +" "+ RC +nl
+   
+   if aSquare[ThisSquare] = DOT  AND aDotSquare[ThisSquare] = DOT
+         FindNbor(ThisSquare, DOT)           ### ===>>> 
+   else
+      LOOP                                   ### Skip Black or White
+   ok
 
-	Display("Square")									### Before
-	for k = 1 to ( Size*Size )						### Walk and Flip, Dot to W and W to Dot
-		if aSquare[k] = Dot
-			aSquare[k] = WColor
-		elseif aSquare[k] = WColor
-			aSquare[k] = Dot
-		ok
-	next
-	Display("Square")									### After
-	
-	//-----------------------------
-   // Check Captures
-	
-	for k = 1 to  ( Size*Size )					
+   
+   aCheckNeighbour = Sort(aCheckNeighbour, 1)
+    
+   ###------------------------------------------------------------
+   ### List all the DOT Squares connected to Dot-ThisSquare Nbors
+   
+   for i = 1 to len(aCheckNeighbour)
+        RC    = CalcRC(aCheckNeighbour[i][1])
+        SQ    = aCheckNeighbour[i][1]
+        Color = aCheckNeighbour[i][2]
+        Visit = aCheckNeighbour[i][3]
+        Liberty = aLiberty[SQ]
+        //See "CalcTer: DOT Nbor List: "+ i +" Sq: "+ SQ  +" "+ RC +" "+ Color +" V "+ visit +" L "+ Liberty  +nl
+   next
+   
+   ###---------------------------------------------------------------------
+   ### Are there Neighbours of the DOT squares --- Black or White Nbor, or Mixed
+   
+   SumBlk = 0
+   SumWht = 0
+   
+   for i = 1 to len(aCheckNeighbour)
+      SQ = aCheckNeighbour[i][1]
+      RC = CalcRC(SQ)
+      
+      aBlkWht = DotBlkWhtNbor(SQ)      ### ===>>>  Count number of Blk and Wht Nbors
+      CBlk =  aBlkWht[1]
+      CWht =  aBlkWht[2]
 
-		if aSquare[k] = BColor
-			CheckCapture(k, BColor)
+      //See "CalcTer: CurSq: "+SQ +" "+ RC +" Blk "+ CBlk +" Wht "+ CWht +nl
+      SumBlk = SumBlk + CBlk
+      SumWht = SumWht + CWht
+   next
+   
+   See "CalcTer: DOT-Nbors: Blk "+ SumBlk +" Wht "+ SumWht +nl
+   
+   //----------------------------------------
+   // Who owns the DOT Sq Territory
+   
+   if SumBlk >= 1 AND SumWht >= 1
+      // Nobody's Territory
+      for i = 1 to len(aCheckNeighbour)
+         SQ = aCheckNeighbour[i][1]
+         RC = CalcRC(SQ) 
+         
+         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+            aDotSquare[SQ] = "n"
+         ok
+      next     
+      
+   but SumBlk >= 1 AND SumWht = 0
+      // Black's Territory
 
-			See nl+"CalcTerritoy Sq: "+k +" Returned gEscape: "+ gEscape +nl+nl
-			if gEscape = 1
-				loop							 			### Escape FOUND for this Stone, Try next one
-			else
-				See nl+"NO Escape Found" +nl+nl
-
-				for p = 1 to len(aCheckNeighbour)
-					aSquare[aCheckNeighbour[p][1]] = BCap		### Replace Dot with Black Capture "x"
-				next
-				//Display("Square")
-			ok
-
+      for i = 1 to len(aCheckNeighbour)
+         SQ = aCheckNeighbour[i][1]
+         RC = CalcRC(SQ) 
+         
+         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+            aDotSquare[SQ] = "x"
+         ok
+      next     
+      
+   but SumBlk = 0 AND SumWht >= 1
+      // White's Territory
+      
+      for i = 1 to len(aCheckNeighbour)
+         SQ = aCheckNeighbour[i][1]
+         RC = CalcRC(SQ) 
+      
+         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+            aDotSquare[SQ] = "y"
+         ok
+      next
+      
+   ok
+   
+   ###---------------------------------------------
+   ### Copy the Black and White Stones from aSquare
+   
+   for i = 1 to Size2
+      if aSquare[i] = "B"  OR    aSquare[i] = "W"           
+         aDotSquare[i] = aSquare[i]
       ok
+   next
 
-		RC = CalcRC(k)
-		See "Territory-Done: "+BColor +" "+ k +" "+ RC +nl
-		//Display("Square")
-		
-	next
-	
-	See "Check Territory Finished "+nl
-	
-	//------------------------------
-	//  UN-Flip Dot and White
-	
-		for k = 1 to ( Size*Size )					### UN-Flip, Dot to W and W to Dot
-			if aSquare[k] = WColor
-				aSquare[k] = Dot
-			elseif aSquare[k] = Dot
-				aSquare[k] = WColor
-			ok
-		next
-		//Display("Square")
-	
-	//--------------------------------
-	// Save Capture result for Black
-	
-	if BColor = "B"
-		aSquareBlkCapture = aSQuare		      ### Save BkackCapture
-	ok
-	if BColor = "W"
-		aSquareWhtCapture = aSQuare		      ### Save WhiteCapture 
-	ok
-	
-	//-------------------------------
-	// Restore Orig Board aSquare 
-	// Do next color White
+   //See "CalcTer: Display aDotSquare"+nl
+   //Display(aDotSquare)
+   
 
-   aSquare = aSquareSave                   	### Restore orig, now do White Captures, flip Letters
-   WColor = "B"  BColor = "W"  BCap = WhtY
+next  
+   See nl+"CalcTer: End of aDotSquares to look at "+nl+nl
+   
+   ###--------------------------------------------------------------
+   ### Check for Any Left Over Dots in aDotSquare for Corner Capture
+   
+   FindSingleDots()
 
-next
+   ###---------------------------------
+   ### Draw update Territory Captures
+   
+   aSquare = aDotSquare
+   FillCapturesTerritory()
+	
+	See "CalcTer: Display aDotSquare"+nl
+   Display(aDotSquare)
+   
+return
 
-	//--------------------------------------------------------
-	// Restore Orig Board add the x, and y Captures and Count
+###===========================================================
+### aDotSquare --- Will be owned by Nobody=n, Black=x, White=w
 
-	gBlackTerritory = 0
-	gWhiteTerritory = 0
-	
-	aSquare = aSquareSave							### Restore Orig aSquare
-	for k = 1 to ( Size * Size)					### Add the x and y capture to aSquare
-		if aSquareBlkCapture[k] = BlkX
-			aSquare[k] = BlkX
-			gBlackTerritory++
-		ok
-	
-		if aSquareWhtCapture[k] = WhtY
-			aSquare[k] = WhtY
-			gWhiteTerritory++
-		ok	
-	
-	next
-	TitleTerritory.setText(" Territory: BLK "+ gBlackTerritory +" : "+ gWhiteTerritory +" WHT " )
-	
-	Display("Square")									### Display Final B,x,  W,y
-	
-	//--------------------------------
-	
-	FillCapturesTerritory()
-	
+Func FillDotOwner(Owner)
+
+   aDotToVisit =[]                     ### These are Dot that B or W owns
+   
+   for i = 1 to len(aCheckNeighbour)
+
+      RC    = CalcRC(aCheckNeighbour[i][1])
+      SQ    = aCheckNeighbour[i][1]
+      Color = aCheckNeighbour[i][2]
+      Visit = aCheckNeighbour[i][3]
+      Liberty = aLiberty[SQ]
+      
+      if Liberty = Dot                 ### Libery = 0  need to be inspaected
+         See "FillDotOwner: SQ "+SQ +" "+ RC +" "+ Owner +nl
+         aDotSquare[SQ] = Owner
+      else
+         Add( aDotToVisit, SQ) 
+      ok
+      
+   next  
+
+  
+   for i = 1 to len(aDotToVisit)
+      SQV= aDotToVisit[i]
+      RC = CalcRc(SQV)
+      See "FillDotOwner: aDotToVisit: "+SQV +" "+ RC +nl 
+   next
+   
+   See "FillDotOwner: Display aDotSquare"+nl
+   Display(aDotSquare)
+   
+
+
+return
+
+
+###===========================================================
+### Does any DOT in the Nbor List have a Black or White Nbor
+               
+Func  DotBlkWhtNbor(SqrNbr)
+                    
+   //See "DotBlkWhtNbor:: Check Nbors of "+SqrNbr +" "+ RC +nl
+      
+   FlagBColor = 0
+   FlagWColor = 0               
+
+    North = SqrNbr - Size                 
+    if  North < 1          
+         North = -1  
+    else
+         RC = CalcRC(North)
+         //See "North: "+ North +" "+ RC +" "+ aSquare[North] +nl
+         
+         if  aSquare[North] = BColor
+             FlagBColor++
+         ok
+         if  aSquare[North] = WColor
+             FlagWColor++
+         ok 
+    ok
+    
+       
+    East  = SqrNbr +1          
+    if (East % Size) = 1      
+      East  = -1  
+    else 
+         RC = CalcRC(East)
+         //See "East.: "+ East +" "+ RC +" "+ aSquare[East] +nl
+         
+         if  aSquare[East] = BColor
+             FlagBColor++
+         ok
+         if  aSquare[East] = WColor
+             FlagWColor++
+         ok       
+    ok
+    
+    South = SqrNbr + Size          
+    if South > Size2      
+         South = -1  
+    else 
+         RC = CalcRC(South)
+         //See "South: "+ South +" "+ RC +" "+ aSquare[South] +nl
+         
+         if  aSquare[South] = BColor
+             FlagBColor++
+         ok
+         if  aSquare[South] = WColor
+             FlagWColor++
+         ok             
+    ok
+   
+    West  = SqrNbr -1           
+    if (West % Size) = 0    
+         West  = -1  
+    else 
+         RC = CalcRC(West)
+         //See "West.: "+ West +" "+ RC +" "+ aSquare[West]+nl
+         
+         if  aSquare[West] = BColor
+             FlagBColor++
+         ok
+         if  aSquare[West] = WColor
+             FlagWColor++
+         ok             
+    ok
+      
+   RC = CalcRC(SqrNbr)
+   //See "CalcTer: Nbors of DOT "+SqrNbr +" "+ RC + " FlagB "+ FlagBColor +" FlagW "+  FlagWColor +nl
+
+            
+return [FlagBColor, FlagWColor]
+
+###==================================================================
+### Check if aDotSquare[i] has Single Dots surrounded by Black White
+
+Func FindSingleDots()
+
+   //See "FindSingleDots"+nl
+   
+   for ThisSquare = 1 to Size2                  ### 1..81
+      if aDotSquare[ThisSquare] = Dot           ### Look for Single DOT
+   
+         RC = CalcRC(ThisSquare)
+         //See "FindSingleDots: ThisSquare: "+ThisSquare +" "+ RC  +nl
+         
+         SumBlk = 0
+         SumWht = 0
+         
+         aBlkWht = DotBlkWhtNbor(ThisSquare)    ### ===>>>  Count number of Blk and Wht Nbors
+     
+         CBlk =  aBlkWht[1]
+         CWht =  aBlkWht[2]
+
+         //See "FindSingleDots: ThisSquare: "+ThisSquare +" "+ RC +" Blk "+ CBlk +" Wht "+ CWht +nl
+         SumBlk = SumBlk + CBlk
+         SumWht = SumWht + CWht
+   
+         ###-------------------------------
+         ### Check Nbor Colors
+         
+         if SumBlk >= 1  and SumWht >= 1
+            aDotSquare[ThisSquare]  = "n"
+         ok
+         
+         if SumBlk >= 1  and SumWht  = 0
+            aDotSquare[ThisSquare]  = "x"
+         ok
+
+         if SumBlk  = 0  and SumWht >= 1
+            aDotSquare[ThisSquare]  = "y"
+         ok       
+         
+         //---------------------------------
+         
+      ok
+   next
+
 return
 
 ###==============================================
 ### Draw the Mini-Stones for Captured Territory
-	
+   
 Func FillCapturesTerritory()
 
-   aCapturedT = aSquare							   ### Original B W Dot Save
-	Dot  = "."
-	BlkX = "x"											### Black uses x for territory captured
-	WhtY = "y"
-	
-	for k = 1 to ( Size * Size)					### Add the x and y capture to aSquare
-	
-		RC = CalcRowCol(k)
-		Row = RC[1]
-		Col = RC[2]
-	
-		if aSquare[k] = BlkX
-			
+   
+   for k = 1 to ( Size2)               ### Add the x and y capture to aSquare
+   
+      RC = CalcRowCol(k) 
+      Row = RC[1]
+      Col = RC[2]
+      
+      //See "FillCapturesTerritory: Sq: "+k +" "+ Row +"-"+ Col  +nl
+   
+      if aSquare[k] = "x"
+         
         Button[Row][Col] { setIcon(new qIcon(new qPixMap("Black-C.png")))   ### Black Circle Player-1
                            setIconSize(new qSize(SqHeight,SqHeight))
                            setEnabled(true)
                            blockSignals(false)
                          }
-     ok
+      ok
 
-		if aSquare[k] = WhtY
-		
+      if aSquare[k] = "y"
+      
         Button[Row][Col] { setIcon(new qIcon(new qPixMap("White-C.png")))   ### White Circle Player-2
                            setIconSize(new qSize(SqHeight,SqHeight))
                            setEnabled(true)
                            blockSignals(false)
-                         }	
-		ok
-	
-	next
-	//------------------------------------------
+                         } 
+      ok
+   
+   next
+   //------------------------------------------
 
 
 return
 
-###=====================================
+   
+###===============================        
 
 ###------------------------------------------------------------
 #
