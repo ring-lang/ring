@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
 
-#define RINGFORMOBILE_CLEARSCREEN	0
+#define RINGFORMOBILE_CLEARSCREEN	1
 #define RINGFORMOBILE_WRITERINGOFILE	0
 
 #include <QApplication>
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 	
     #if RINGFORMOBILE_CLEARSCREEN == 1
     	QWidget waiting ;
-    	waiting.setStyleSheet("background-color:white;");
+    	waiting.setStyleSheet("background-color:black;");
     	waiting.show();
     #endif
 
