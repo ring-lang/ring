@@ -136,6 +136,9 @@ More Improvements
 	* ring/samples/other/CalmoSoftSimpleGoGame.ring
 	* ring/samples/other/arabicmysql.ring 
 	* ring/samples/other/CalmoSoftExtraCube.ring
+	* ring/samples/other/DynamicCode/anonfunc.ring
+	* ring/samples/other/DynamicCode/deletethisfile.ring
+	* ring/samples/other/DynamicCode/modifythisfile.ring
 * Ring Notepad - Project Files - set minimum width based on desktop screen width
 * VideoMusicPlayer is updated to work as expected after RingQt update to Qt 5.12.3 
 * Game Engine : display error message when we can't create the game window
