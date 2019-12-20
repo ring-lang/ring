@@ -23,7 +23,7 @@ Requirements
     typically do not include support for creating WinRT apps, to note.
     (The "Community" editions of Visual C++ do, however, support both
     desktop/Win32 and WinRT development).
-  - Visual Studio 2017 can be used, however it is recommented that you install
+  - Visual Studio 2017 can be used, however it is recommended that you install
     the Visual C++ 2015 build tools.  These build tools can be installed
     using VS 2017's installer.  Be sure to also install the workload for
     "Universal Windows Platform development", its optional component, the
@@ -33,7 +33,7 @@ Requirements
     earlier versions of Windows, such as Windows 7, is not always supported
     by Visual Studio, and you may get error(s) when attempting to do so.
   - Visual C++ 2012 can only build apps that target versions 8.0 of Windows,
-    or  Windows Phone.  8.0-targetted apps will run on devices running 8.1
+    or  Windows Phone.  8.0-targeted apps will run on devices running 8.1
     editions of Windows, however they will not be able to take advantage of
     8.1-specific features.
   - Visual C++ 2013 cannot create app projects that target Windows 8.0.
@@ -54,7 +54,7 @@ Requirements
 Status
 ------
 
-Here is a rough list of what works, and what doens't:
+Here is a rough list of what works, and what doesn't:
 
 * What works:
   * compilation via Visual C++ 2012 through 2015
@@ -70,7 +70,10 @@ Here is a rough list of what works, and what doens't:
     SDL_GetPerformanceFrequency(), etc.)
   * file I/O via SDL_RWops
   * mouse input  (unsupported on Windows Phone)
-  * audio, via a modified version of SDL's XAudio2 backend
+  * audio, via SDL's WASAPI backend (if you want to record, your app must 
+    have "Microphone" capabilities enabled in its manifest, and the user must 
+    not have blocked access. Otherwise, capture devices will fail to work,
+    presenting as a device disconnect shortly after opening it.)
   * .DLL file loading.  Libraries *MUST* be packaged inside applications.  Loading
     anything outside of the app is not supported.
   * system path retrieval via SDL's filesystem APIs
@@ -293,7 +296,7 @@ A few files should be included directly in your app's MSVC project, specifically
    included, mouse-position reporting may fail if and when the cursor is
    hidden, due to possible bugs/design-oddities in Windows itself.*
 
-To include these files:
+To include these files for C/C++ projects:
 
 1. right-click on your project (again, in Visual C++'s Solution Explorer), 
    navigate to "Add", then choose "Existing Item...".
@@ -310,11 +313,14 @@ To include these files:
 7. change the setting for "Consume Windows Runtime Extension" to "Yes (/ZW)".
 8. click the OK button.  This will close the dialog.
 
-
 **NOTE: C++/CX compilation is currently required in at least one file of your 
 app's project.  This is to make sure that Visual C++'s linker builds a 'Windows 
 Metadata' file (.winmd) for your app.  Not doing so can lead to build errors.**
 
+For non-C++ projects, you will need to call SDL_WinRTRunApp from your language's
+main function, and generate SDL2-WinRTResources.res manually by using `rc` via
+the Developer Command Prompt and including it as a <Win32Resource> within the
+first <PropertyGroup> block in your Visual Studio project file.
 
 ### 6. Add app code and assets ###
 
