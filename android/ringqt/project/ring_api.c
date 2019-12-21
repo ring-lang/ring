@@ -815,7 +815,7 @@ void ring_vmlib_timelist ( void *pPointer )
 
 void ring_vmlib_adddays ( void *pPointer )
 {
-	const char *cStr  ;
+	const unsigned char *cStr  ;
 	char buffer[25]  ;
 	int x,nDay,nMonth,nYear,nDaysInMonth  ;
 	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
@@ -827,7 +827,7 @@ void ring_vmlib_adddays ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cStr = RING_API_GETSTRING(1);
+	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
 	if ( (RING_API_GETSTRINGSIZE(1) == 10) ) {
 		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
 			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
@@ -884,7 +884,7 @@ void ring_vmlib_adddays ( void *pPointer )
 
 void ring_vmlib_diffdays ( void *pPointer )
 {
-	const char *cStr, *cStr2  ;
+	const unsigned char *cStr, *cStr2  ;
 	struct tm tm_info,tm_info2  ;
 	time_t timer,timer2  ;
 	char buffer[5]  ;
@@ -897,8 +897,8 @@ void ring_vmlib_diffdays ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cStr = RING_API_GETSTRING(1);
-	cStr2 = RING_API_GETSTRING(2);
+	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
+	cStr2 = (const unsigned char *) RING_API_GETSTRING(2) ;
 	if ( (RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10) ) {
 		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
 			tm_info.tm_hour = 0 ;
