@@ -310,10 +310,12 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index )
 		if ( pItemsPrev != NULL ) {
 			pItemsPrev->pNext = pItems->pNext ;
 		}
-		if ( pItems->pNext != NULL ) {
-			pItems->pNext->pPrev = pItemsPrev ;
+		if ( pItems != NULL ) {
+			if ( pItems->pNext != NULL ) {
+				pItems->pNext->pPrev = pItemsPrev ;
+			}
+			ring_items_delete_gc(pState,pItems);
 		}
-		ring_items_delete_gc(pState,pItems);
 		pList->nSize = pList->nSize - 1 ;
 	}
 	/* Refresh The Cache */
