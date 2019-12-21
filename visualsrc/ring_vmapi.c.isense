@@ -192,7 +192,7 @@ tm_info
 Type: List *
 pList
 ring_vmlib_adddays
-Type: const char *
+Type: const unsigned char *
 cStr
 Type: char
 buffer[25]
@@ -201,7 +201,7 @@ x,nDay,nMonth,nYear,nDaysInMonth
 Type: int
 aDaysInMonth[12]
 ring_vmlib_diffdays
-Type: const char *
+Type: const unsigned char *
 cStr, *cStr2
 Type: struct tm
 tm_info,tm_info2
