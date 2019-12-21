@@ -1061,7 +1061,7 @@ void ring_vm_printstack ( VM *pVM )
 {
 	int x,nSP  ;
 	printf( "\n*****************************************\n" ) ;
-	printf( "Stack Size %d \n",pVM->nSP ) ;
+	printf( "Stack Size %u \n",pVM->nSP ) ;
 	nSP = pVM->nSP ;
 	if ( nSP > 0 ) {
 		for ( x = 1 ; x <= nSP ; x++ ) {
