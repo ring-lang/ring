@@ -979,6 +979,8 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	Items *pLastItem  ;
 	Items *pNextItem  ;
 	pVM = (VM *) pPointer ;
+	pNextItem = NULL ;
+	pLastItem = NULL ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -996,11 +998,14 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pLastItem = pVM->pMem->pLast ;
 		pVM->pMem->pLastItemLastAccess = NULL ;
 		pVM->pMem->nNextItemAfterLastAccess = 0 ;
+		/* When we get the item, we will have a value for pVM->pMem->pLastItemLastAccess */
 		ring_list_getitem(pVM->pMem,nScope);
-		pNextItem = pVM->pMem->pLastItemLastAccess->pNext ;
-		pVM->pMem->nSize = nScope ;
-		pVM->pMem->pLast = pVM->pMem->pLastItemLastAccess ;
-		pVM->pMem->pLast->pNext = NULL ;
+		if ( pVM->pMem->pLastItemLastAccess != NULL ) {
+			pNextItem = pVM->pMem->pLastItemLastAccess->pNext ;
+			pVM->pMem->nSize = nScope ;
+			pVM->pMem->pLast = pVM->pMem->pLastItemLastAccess ;
+			pVM->pMem->pLast->pNext = NULL ;
+		}
 		ring_list_adddouble_gc(pVM->pRingState,pVM->aScopeID,pVM->nActiveScopeID);
 		pVM->nEvalInScope++ ;
 		/* Save State */
