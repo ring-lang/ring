@@ -49,14 +49,20 @@ void ring_vm_os_iswindows ( void *pPointer )
 void ring_vm_os_iswindows64 ( void *pPointer )
 {
 	int lSystem64  ;
-	lSystem64 = 0 ;
 	#ifdef _WIN32
-	fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
-	if ( fnCheckWindows64 != NULL ) {
-		fnCheckWindows64(GetCurrentProcess(),&lSystem64);
+	HMODULE pModule  ;
+	lSystem64 = 0 ;
+	pModule = GetModuleHandle(TEXT("kernel32"));
+	if ( pModule != NULL ) {
+		fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(pModule,"IsWow64Process") ;
+		if ( fnCheckWindows64 != NULL ) {
+			fnCheckWindows64(GetCurrentProcess(),&lSystem64);
+			RING_API_RETNUMBER(lSystem64);
+			return ;
+		}
 	}
 	#endif
-	RING_API_RETNUMBER(lSystem64);
+	RING_API_RETNUMBER(0.0);
 }
 
 void ring_vm_os_isunix ( void *pPointer )

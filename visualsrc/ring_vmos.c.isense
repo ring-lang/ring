@@ -8,6 +8,8 @@ ring_vm_os_iswindows
 ring_vm_os_iswindows64
 Type: int
 lSystem64
+Type: HMODULE
+pModule
 ring_vm_os_isunix
 ring_vm_os_ismacosx
 ring_vm_os_islinux
