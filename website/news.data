@@ -1,4 +1,5 @@
 aNews = [
+  ["December 23, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/samples/other/number2words" target="_blank">Tutorial: Number to words </a>'],
   ["December 5, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">The Go Game </a>'],
   ["November 10, 2019",'<a href="https://www.youtube.com/watch?v=BH5dI1H3hMA" target="_blank"> Movie: Using Ring in developing PWCT 2.0</a>'],
   ["October 6, 2019",'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank"> Ring 1.11 Documentation (Japanese)</a>'],
