@@ -139,7 +139,7 @@ ring_vmlib_input
 Type: char *
 cLine
 Type: int
-nSize
+nSize,nOutput
 ring_vmlib_ascii
 Type: int
 x
@@ -178,6 +178,8 @@ cFile
 ring_vmlib_getchar
 Type: char
 cStr[2]
+Type: int
+nOutput
 ring_vmlib_system
 ring_vmlib_random
 Type: int
