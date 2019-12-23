@@ -553,7 +553,7 @@ void ring_vmlib_clock ( void *pPointer )
 void ring_vmlib_input ( void *pPointer )
 {
 	char *cLine  ;
-	int nSize  ;
+	int nSize,nOutput  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -574,7 +574,7 @@ void ring_vmlib_input ( void *pPointer )
 			return ;
 		}
 		/* Get Input From the User and save it in the variable */
-		RING_SETBINARY ;
+		nOutput = RING_SETBINARY ;
 		fread( cLine , sizeof(char) , nSize , stdin );
 		/* Return String */
 		RING_API_RETSTRING2(cLine,nSize);
@@ -694,7 +694,8 @@ void ring_vmlib_filename ( void *pPointer )
 void ring_vmlib_getchar ( void *pPointer )
 {
 	char cStr[2]  ;
-	RING_SETBINARY ;
+	int nOutput  ;
+	nOutput = RING_SETBINARY ;
 	cStr[0] = getchar() ;
 	RING_API_RETSTRING2(cStr,1);
 }
