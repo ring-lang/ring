@@ -102,6 +102,8 @@ Type: double
 nNum1,nNum2
 Type: String *
 cStr1
+Type: int
+nNum3
 ring_vm_bitshr
 Type: double
 nNum1,nNum2
