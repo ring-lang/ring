@@ -263,8 +263,7 @@ void ring_vm_math_sqrt ( void *pPointer )
 
 void ring_vm_math_unsigned ( void *pPointer )
 {
-	unsigned long nNum1,nNum2  ;
-	double nNum3  ;
+	unsigned long nNum1,nNum2,nNum3  ;
 	const char *cStr  ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -331,7 +330,7 @@ void ring_vm_math_unsigned ( void *pPointer )
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
-		RING_API_RETNUMBER(nNum3);
+		RING_API_RETNUMBER((double) nNum3);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
