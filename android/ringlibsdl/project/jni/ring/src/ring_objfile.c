@@ -128,7 +128,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 {
 	FILE *fObj;
 	signed char c  ;
-	int nActiveList,nValue,nBraceEnd  ;
+	int nActiveList,nValue,nBraceEnd,nOutput  ;
 	double dValue  ;
 	char *cString  ;
 	char cKey[11]  ;
@@ -197,7 +197,11 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 				switch ( c ) {
 					case 'S' :
 						c = getc(fObj);
-						fscanf( fObj , "[%d]" , &nValue ) ;
+						nOutput = fscanf( fObj , "[%d]" , &nValue ) ;
+						if ( nOutput == 0 ) {
+							printf( RING_FSCANFERROR ) ;
+							return 0 ;
+						}
 						cString = (char *) ring_state_malloc(pRingState,nValue+1);
 						if ( cString == NULL ) {
 							printf( RING_OOM ) ;
@@ -215,7 +219,11 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						break ;
 					case 'I' :
 						c = getc(fObj);
-						fscanf( fObj , "%d" , &nValue ) ;
+						nOutput = fscanf( fObj , "%d" , &nValue ) ;
+						if ( nOutput == 0 ) {
+							printf( RING_FSCANFERROR ) ;
+							return 0 ;
+						}
 						ring_list_addint_gc(pRingState,pList,nValue);
 						#ifdef DEBUG_OBJFILE
 						printf( "Read Number %d \n  ",nValue ) ;
@@ -223,7 +231,11 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						break ;
 					case 'D' :
 						c = getc(fObj);
-						fscanf( fObj , "%lf" , &dValue ) ;
+						nOutput = fscanf( fObj , "%lf" , &dValue ) ;
+						if ( nOutput == 0 ) {
+							printf( RING_FSCANFERROR ) ;
+							return 0 ;
+						}
 						ring_list_adddouble_gc(pRingState,pList,dValue);
 						#ifdef DEBUG_OBJFILE
 						printf( "Read Double %d  \n",dValue ) ;
@@ -296,7 +308,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
 {
 	signed char c  ;
-	int nActiveList,nValue,nBraceEnd  ;
+	int nActiveList,nValue,nBraceEnd,nOutput  ;
 	double dValue  ;
 	char *cString, *cData  ;
 	char cKey[11]  ;
@@ -361,7 +373,11 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 				switch ( c ) {
 					case 'S' :
 						c = ring_objfile_getc(pRingState,&cData);
-						sscanf(cData,"[%d]",&nValue);
+						nOutput = sscanf(cData,"[%d]",&nValue);
+						if ( nOutput == EOF ) {
+							printf( RING_SSCANFERROR ) ;
+							return 0 ;
+						}
 						/* Pass Letters */
 						c = ' ' ;
 						while ( c != ']' ) {
@@ -384,7 +400,11 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						break ;
 					case 'I' :
 						c = ring_objfile_getc(pRingState,&cData);
-						sscanf(cData,"%d",&nValue);
+						nOutput = sscanf(cData,"%d",&nValue);
+						if ( nOutput == EOF ) {
+							printf( RING_SSCANFERROR ) ;
+							return 0 ;
+						}
 						/* Pass Letters */
 						c = '0' ;
 						while ( isdigit(c) || c=='.' ) {
@@ -398,7 +418,11 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						break ;
 					case 'D' :
 						c = ring_objfile_getc(pRingState,&cData);
-						sscanf(cData,"%lf",&dValue);
+						nOutput = sscanf(cData,"%lf",&dValue);
+						if ( nOutput == EOF ) {
+							printf( RING_SSCANFERROR ) ;
+							return 0 ;
+						}
 						/* Pass Letters */
 						c = '0' ;
 						while ( isdigit(c) || c=='.' ) {
