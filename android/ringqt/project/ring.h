@@ -81,7 +81,7 @@
 #define RING_SETBINARY _setmode(_fileno(stdin), _O_BINARY)
 #endif
 #else
-#define RING_SETBINARY ((void)0)
+#define RING_SETBINARY 0
 #endif
 #include <errno.h>
 /* Include Project Headers */
