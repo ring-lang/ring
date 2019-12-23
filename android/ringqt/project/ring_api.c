@@ -1185,12 +1185,17 @@ void ring_vmlib_hex ( void *pPointer )
 void ring_vmlib_dec ( void *pPointer )
 {
 	unsigned long x  ;
+	int nOutput  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		sscanf(RING_API_GETSTRING(1),"%lx",&x);
+		nOutput = sscanf(RING_API_GETSTRING(1),"%lx",&x);
+		if ( nOutput == EOF ) {
+			RING_API_ERROR(RING_SSCANFERROR);
+			return ;
+		}
 		RING_API_RETNUMBER(x);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1268,7 +1273,7 @@ void ring_vmlib_hex2str ( void *pPointer )
 	char cStr[3]  ;
 	const char *cString  ;
 	char *cString2  ;
-	int x,i,nMax  ;
+	int x,i,nMax,nOutput  ;
 	unsigned int y  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -1291,7 +1296,11 @@ void ring_vmlib_hex2str ( void *pPointer )
 			} else {
 				cStr[1] = '\0' ;
 			}
-			sscanf(cStr,"%x",&y);
+			nOutput = sscanf(cStr,"%x",&y);
+			if ( nOutput == EOF ) {
+				RING_API_ERROR(RING_SSCANFERROR);
+				return ;
+			}
 			cString2[i] = y ;
 			i++ ;
 		}
