@@ -27,7 +27,7 @@ fObj
 Type: signed char
 c
 Type: int
-nActiveList,nValue,nBraceEnd
+nActiveList,nValue,nBraceEnd,nOutput
 Type: double
 dValue
 Type: char *
@@ -42,7 +42,7 @@ ring_objfile_processstring
 Type: signed char
 c
 Type: int
-nActiveList,nValue,nBraceEnd
+nActiveList,nValue,nBraceEnd,nOutput
 Type: double
 dValue
 Type: char *
