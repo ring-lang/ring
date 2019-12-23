@@ -20,7 +20,7 @@ ring_vm_math_pow
 ring_vm_math_sqrt
 ring_vm_math_unsigned
 Type: unsigned long
-nNum1,nNum2
+nNum1,nNum2,nNum3
 Type: double
 nNum3
 Type: const char *
