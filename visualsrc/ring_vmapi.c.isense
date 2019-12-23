@@ -242,6 +242,8 @@ cStr
 ring_vmlib_dec
 Type: unsigned long
 x
+Type: int
+nOutput
 ring_vmlib_number
 Type: double
 x
@@ -265,7 +267,7 @@ cString
 Type: char *
 cString2
 Type: int
-x,i,nMax
+x,i,nMax,nOutput
 Type: unsigned int
 y
 ring_vmlib_str2list
