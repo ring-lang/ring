@@ -47,11 +47,15 @@ Type: String *
 pString
 Type: char
 cStr[100]
+Type: int
+nOutput
 ring_vm_beforeequalitem
 Type: String *
 pString
 Type: char
 cStr[100]
+Type: int
+nOutput
 ring_vm_plusplus
 Type: List *
 pList
