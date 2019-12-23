@@ -275,7 +275,6 @@ void ring_string_test ( void )
 	printf( "Test string to lower \n" ) ;
 	printf( "%s\n",ring_string_tolower(pString) ) ;
 	ring_string_delete(pString);
-	getchar();
 }
 /* Functions without state pointer */
 
