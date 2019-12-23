@@ -6,7 +6,7 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-Size    = 19            ### Start with 19, Played on 19, 13, or 11 intersections
+Size    = 19               ### Start with 19, Played on 19, 13, or 11 intersections
 Size2   = Size * Size   ### Size^2 = Size Squared
 
 PlayerC = "B"     ### Whose Turn
@@ -28,8 +28,8 @@ aCheckNeighbour = [][]      ### 2D List  SQ Visit Liberty
 gEscape = 0                     ### gEscape Route = 1 True --- NOT Blocked
 gDelay  = 0.2                   ### Sleep Delay
 
-gBlackStones    =  Ceil(Size2 / 2) ### 41  Start with 1/2 of Intersections
-gWhiteStones    = Floor(Size2 / 2) ### 40
+gBlackStones    =  Ceil(Size2 / 2)    ### 41  Start with 1/2 of Intersections
+gWhiteStones    = Floor(Size2 / 2)    ### 40
 gBlackCaptures  = 0
 gWhiteCaptures  = 0
 gBlackTerritory = 0
@@ -97,6 +97,9 @@ myfilter        = null
 win             = null
 
 Radio5          = null
+
+###----------------------------
+
 
 ###=====================================================
 ###=====================================================
@@ -307,10 +310,10 @@ Func DrawWidget()
         ### QHBoxLayout lays out widgets in a horizontal row, from left to right
         ### Horizontal
         
-### ERROR if Size increased from Small to Large
+### ERROR if Size Default 9, Then Increased from Small to Large for New Game
 
         for Row = 1 to Size                            ### NOT Size+1
-        //See "LayoutButtonRow: "+ Row +nl
+        //See "LayoutButtonRow: Size: "+ Size +" Size2: "+ Size2 +" Row: "+ Row +nl  ### DEBUG
             LayoutButtonRow[Row] = new QHBoxLayout() { setSpacing(C_Spacing) setContentsMargins(0,0,0,0) }
 
             LayoutButtonRow[Row].AddWidget(TitleNum[Row])
@@ -352,20 +355,19 @@ Func DrawWidget()
 Func NewGame()
 
    See nl+"******** NewGame *********"+nl+nl
-  
+
    win.Close()                         ### Close the current Layout
 
    RadioBtnToggled()                   ### Set the Size to play
-   Button = newlist(Size+1,Size)       ### Set Button List two New Size
+   Button = newlist(Size+1,Size)       ### Set Button List to New Size
 
-   gBlackStones    =  Ceil(Size2 / 2)  ### 41  Start with 1/2 of Intersections
-   gWhiteStones    = Floor(Size2 / 2)  ### 40
+   gBlackStones    =  Ceil(Size2 / 2)    ### 41  Start with 1/2 of Intersections
+   gWhiteStones    = Floor(Size2 / 2)    ### 40
    gBlackCaptures  = 0
    gWhiteCaptures  = 0
    gBlackTerritory = 0
    gWhiteTerritory = 0
-	
-
+    
    DrawWidget()                        ### Draw the New Layout
 
    pStart()
@@ -378,10 +380,10 @@ Func RadioBtnToggled()
 
    see"Radio Toggled: " + Radio1.isChecked() + Radio2.isChecked() + Radio3.isChecked() + Radio4.isChecked() + Radio5.isChecked() +nl
 
-   if Radio1.isChecked() Size =  9  ok
-   if Radio2.isChecked() Size = 11  ok
-   if Radio3.isChecked() Size = 13  ok
-   if Radio4.isChecked() Size = 19  ok
+   if Radio1.isChecked() Size =  9   Size2 = (Size * Size) ok
+   if Radio2.isChecked() Size = 11   Size2 = (Size * Size) ok
+   if Radio3.isChecked() Size = 13   Size2 = (Size * Size) ok
+   if Radio4.isChecked() Size = 19   Size2 = (Size * Size) ok
 return
 
 ###====================================================
@@ -392,20 +394,21 @@ Func RadioBtnClicked()
 
    if Radio5.isChecked()      
          See "RadioBtnClicked: CALL  CalcTerritory " +nl+nl
-			
-			###-------------------------------------------------------
-			### Clear residure if Radio-Ter clicked again during game
-			
-			for i = 1 to Size2
-				if ( aSquare[i] = "n" OR
-				     aSquare[i] = "x" OR
-				     aSquare[i] = "y" )
-					  
-					aSquare[i] = DOT
-				ok		
-			next
-			
-			
+         
+        
+            ###-------------------------------------------------------
+            ### Clear residue if Radio-Ter clicked again during game
+            
+            for i = 1 to Size2
+                if ( aSquare[i] = "n" OR
+                     aSquare[i] = "x" OR
+                     aSquare[i] = "y" )
+                      
+                    aSquare[i] = DOT
+                ok      
+            next
+            
+            
          CalcTerritory()
    ok
 
@@ -546,34 +549,33 @@ return
 ###=========================================================
 
 ##---------------------
-### Display aSquare  with B W     Dot
+### DISPLAY ASQUARE  with B W     Dot
 ### Display aLiberty with 1 2 3 4 .
 ### Call Display(Square)  or Display(Liberty)
 
 Func Display(aType)
 
-    //See "Display aType: "+nl   See aType   See nl+nl
+    //See "Display aType: Size: "+Size +" Size2: "+ Size2  +nl 
 
     See nl + "....... 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9" +nl
     for Row = 1 to Size
 
         RowStart = ((Row-1)*Size) +1            ### Allow up to 19*19 = 361
 
-        if    RowStart <  10     RowStart = "00"+ RowStart
-        elseif RowStart < 100    RowStart =  "0"+ RowStart
+        if    RowStart <  10     RowStart = "00"+  RowStart
+        but   RowStart < 100     RowStart =  "0"+  RowStart
         ok
 
-        if Row < 10   Row = "0"+ Row  ok        ### Add leading 0
-        See " "+ RowStart +" "+ Row
+        if Row < 10   cRow = "0"+ Row  ok       ### Add leading alpha "0"
+        See " "+ RowStart +" "+ cRow
 
         ### Print Dots
+        
         RowIndex = (Row-1) * Size               ### Start of Row
         for Col = 1 to Size
-
             Offset =  RowIndex + Col            ### Offset into aLiberty (0*9+4) = 4 , (1*9+4) = 13
+            
             See " "+ aType[Offset]
-
-
         next
         See nl
 
@@ -593,11 +595,12 @@ Func CalcLiberty()
     ###------------------------------------
     ### Empty ALL Squares -- Fill With Dots
 
-    for Row = 1 to Size
-        for Col = 1 to Size
-            CurSq = (Row-1) * Size + Col        ### Offset into aLiberty (0*9+4) = 4 , (1*9+4) = 13
-            aLiberty[CurSq] = "."
-        next
+    for i = 1 to  Size2
+            aLiberty[i] = "."
+            
+            if  ( aSquare[i] = "n"  OR  aSquare[i] = "x"  OR  aSquare[i] = "y" )
+                aSquare[i] = DOT
+            ok  
     next
 
     ###--------------------
@@ -633,6 +636,8 @@ Func CalcLiberty()
 
     See "CalcLiberty: CALL Display aLiberty: "+nl
     Display(aLiberty)
+    See "CalcLiberty: CALL Display aSquare: "+nl
+    Display(aSquare)
 
 return
 
@@ -725,6 +730,16 @@ Func pPlay(Row,Col)
 See nl+"=========================="+nl
 See    "==> "
 
+    if gBlackStones = 0
+        See "GAME FINISHED: "+nl
+		CalcTerritory()
+		
+		TitleStoneMoves.setStyleSheet("background-color:rgb(255,255,255,255)")
+		  TitleCaptured.setStyleSheet("background-color:rgb(255,255,255,255)")
+		 TitleTerritory.setStyleSheet("background-color:rgb(255,255,255,255)")
+        return
+    ok
+    
     start = start + 1
     SqrNbr = ((Row-1) * Size) + Col         ### 1..81
 
@@ -797,7 +812,7 @@ See    "==> "
     rowOld = Row
     colOld = Col
 
-
+    See "pPlay: Display aSqaure: "+nl
     Display(aSquare)
     
     See "pPlay CALLS CheckCapture with: SQ "+ SqrNbr +" "+ Row +"-"+ Col +" "+ lastColor +nl 
@@ -817,7 +832,7 @@ See    "==> "
 
    TitleStoneMoves.setText(" Stones: BLK "+ gBlackStones +" : "+ gWhiteStones +" WHT ")
    if gWhiteStones = 0
-      TitleStoneMoves.setText("GAME OVER Stones: BLK "+ gBlackStones +" : "+ gWhiteStones +" WHT ")
+      TitleStoneMoves.setText("FINISH: BLK "+ gBlackStones +" : "+ gWhiteStones +" WHT ")
    ok
 
 return
@@ -1038,120 +1053,150 @@ Func CalcTerritory()
     Color = DOT
     aCheckNeighbour = [][]
    
-   for i = 1 to Size2                        ### Will be owned by Nobody=n, Black=x, White=w
+   ###----------------------------
+   ### 2nd CalcTer etc -- Remove the Old Captures 
+   ### CLEAR out Small Blk and Wht captures in GUI  
+   
+    for i = 1 to Size2  
+       if  (   aDotSquare[i] = "x"  OR  aDotSquare[i] = "y" ) AND aSquare[i] = DOT  ### DEBUG Change Size
+                        
+                RC = CalcRowCol(i) 
+                Row = RC[1]
+                Col = RC[2] 
+
+                //See "CalcTer: CLEAR CapTerSq: "+ i + " "+ RC[1] +"-"+ RC[2] +nl
+                    
+                button[Row][Col] { setIcon(new qIcon(new qPixMap("Empty-T.png")))
+                           setIconSize(new qSize(SqHeight,SqHeight))
+                           setStyleSheet(C_ButtonEmptyStyle)         ### Needed to fill Square, image too small
+
+                           setEnabled(true)
+                           blockSignals(false)                       ### ??? Goes back to Complement Color ??
+                         }
+                
+       ok
+    next
+
+
+   ###------------------------------
+   ### Put back from 0 to DOT
+   ### Will be owned by Nobody=n, Black=x, White=w
+   
+   for i = 1 to Size2                    
        aDotSquare[i] = DOT
+       aLiberty[i]   = DOT
    next
    
-   See "CalcTer: Display start aDotSquare"+nl
-   Display(aDotSquare)
+   //--------------------------------------------------
    
-for ThisSquare = 1 to  Size2
+    for ThisSquare = 1 to  Size2
 
-   aCheckNeighbour = [][]
+       aCheckNeighbour = [][]
 
-   RC = CalcRC(ThisSquare)
-   //See "CalcTer: FindNbor for ThisSquare: "+ThisSquare +" "+ RC +nl
-   
-   if aSquare[ThisSquare] = DOT  AND aDotSquare[ThisSquare] = DOT
-         FindNbor(ThisSquare, DOT)           ### ===>>> 
-   else
-      LOOP                                   ### Skip Black or White
-   ok
+       RC = CalcRC(ThisSquare)
+       //See "CalcTer: FindNbor for ThisSquare: "+ThisSquare +" "+ RC +nl
+       
+       if aSquare[ThisSquare] = DOT  AND aDotSquare[ThisSquare] = DOT
+             FindNbor(ThisSquare, DOT)           ### ===>>> 
+       else
+          LOOP                                   ### Skip Black or White
+       ok
 
-   
-   aCheckNeighbour = Sort(aCheckNeighbour, 1)
+       
+       aCheckNeighbour = Sort(aCheckNeighbour, 1)
+        
+       ###------------------------------------------------------------
+       ### List all the DOT Squares connected to Dot-ThisSquare Nbors
+       
+       for i = 1 to len(aCheckNeighbour)
+            RC    = CalcRC(aCheckNeighbour[i][1])
+            SQ    = aCheckNeighbour[i][1]
+            Color = aCheckNeighbour[i][2]
+            Visit = aCheckNeighbour[i][3]
+            Liberty = aLiberty[SQ]
+            //See "CalcTer: DOT Nbor List: "+ i +" Sq: "+ SQ  +" "+ RC +" "+ Color +" V "+ visit +" L "+ Liberty  +nl
+       next
+       
+       ###---------------------------------------------------------------------
+       ### Are there Neighbours of the DOT squares --- Black or White Nbor, or Mixed
+       
+       SumBlk = 0
+       SumWht = 0
+       
+       for i = 1 to len(aCheckNeighbour)
+          SQ = aCheckNeighbour[i][1]
+          RC = CalcRC(SQ)
+          
+          aBlkWht = DotBlkWhtNbor(SQ)      ### ===>>>  Count number of Blk and Wht Nbors
+          CBlk =  aBlkWht[1]
+          CWht =  aBlkWht[2]
+
+          //See "CalcTer: CurSq: "+SQ +" "+ RC +" Blk "+ CBlk +" Wht "+ CWht +nl
+          SumBlk = SumBlk + CBlk
+          SumWht = SumWht + CWht
+       next
+       
+       See "CalcTer: DOT-Nbors: Blk "+ SumBlk +" Wht "+ SumWht +nl
+       
+       //----------------------------------------
+       // Who owns the DOT Sq Territory
+       
+       if SumBlk >= 1 AND SumWht >= 1
+          // Nobody's Territory
+          for i = 1 to len(aCheckNeighbour)
+             SQ = aCheckNeighbour[i][1]
+             RC = CalcRC(SQ) 
+             
+             if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+                aDotSquare[SQ] = "n"
+             ok
+          next     
+          
+       but SumBlk >= 1 AND SumWht = 0
+          // Black's Territory
+
+          for i = 1 to len(aCheckNeighbour)
+             SQ = aCheckNeighbour[i][1]
+             RC = CalcRC(SQ) 
+             
+             if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+                aDotSquare[SQ] = "x"
+             ok
+          next     
+          
+       but SumBlk = 0 AND SumWht >= 1
+          // White's Territory
+          
+          for i = 1 to len(aCheckNeighbour)
+             SQ = aCheckNeighbour[i][1]
+             RC = CalcRC(SQ) 
+          
+             if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
+                aDotSquare[SQ] = "y"
+             ok
+          next
+          
+       ok
+       
+       ###---------------------------------------------
+       ### Copy the Black and White Stones from aSquare
+       
+       for i = 1 to Size2
+          if aSquare[i] = "B"  OR    aSquare[i] = "W"           
+             aDotSquare[i] = aSquare[i]
+          ok
+       next
+
+       //See "CalcTer: Display aDotSquare"+nl
+       //Display(aDotSquare)
+       
+
+    next 
     
-   ###------------------------------------------------------------
-   ### List all the DOT Squares connected to Dot-ThisSquare Nbors
-   
-   for i = 1 to len(aCheckNeighbour)
-        RC    = CalcRC(aCheckNeighbour[i][1])
-        SQ    = aCheckNeighbour[i][1]
-        Color = aCheckNeighbour[i][2]
-        Visit = aCheckNeighbour[i][3]
-        Liberty = aLiberty[SQ]
-        //See "CalcTer: DOT Nbor List: "+ i +" Sq: "+ SQ  +" "+ RC +" "+ Color +" V "+ visit +" L "+ Liberty  +nl
-   next
-   
-   ###---------------------------------------------------------------------
-   ### Are there Neighbours of the DOT squares --- Black or White Nbor, or Mixed
-   
-   SumBlk = 0
-   SumWht = 0
-   
-   for i = 1 to len(aCheckNeighbour)
-      SQ = aCheckNeighbour[i][1]
-      RC = CalcRC(SQ)
-      
-      aBlkWht = DotBlkWhtNbor(SQ)      ### ===>>>  Count number of Blk and Wht Nbors
-      CBlk =  aBlkWht[1]
-      CWht =  aBlkWht[2]
-
-      //See "CalcTer: CurSq: "+SQ +" "+ RC +" Blk "+ CBlk +" Wht "+ CWht +nl
-      SumBlk = SumBlk + CBlk
-      SumWht = SumWht + CWht
-   next
-   
-   See "CalcTer: DOT-Nbors: Blk "+ SumBlk +" Wht "+ SumWht +nl
-   
-   //----------------------------------------
-   // Who owns the DOT Sq Territory
-   
-   if SumBlk >= 1 AND SumWht >= 1
-      // Nobody's Territory
-      for i = 1 to len(aCheckNeighbour)
-         SQ = aCheckNeighbour[i][1]
-         RC = CalcRC(SQ) 
-         
-         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
-            aDotSquare[SQ] = "n"
-         ok
-      next     
-      
-   but SumBlk >= 1 AND SumWht = 0
-      // Black's Territory
-
-      for i = 1 to len(aCheckNeighbour)
-         SQ = aCheckNeighbour[i][1]
-         RC = CalcRC(SQ) 
-         
-         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
-            aDotSquare[SQ] = "x"
-         ok
-      next     
-      
-   but SumBlk = 0 AND SumWht >= 1
-      // White's Territory
-      
-      for i = 1 to len(aCheckNeighbour)
-         SQ = aCheckNeighbour[i][1]
-         RC = CalcRC(SQ) 
-      
-         if !(aDotSquare[SQ] = "x" OR aDotSquare[SQ] = "y")
-            aDotSquare[SQ] = "y"
-         ok
-      next
-      
-   ok
-   
-   ###---------------------------------------------
-   ### Copy the Black and White Stones from aSquare
-   
-   for i = 1 to Size2
-      if aSquare[i] = "B"  OR    aSquare[i] = "W"           
-         aDotSquare[i] = aSquare[i]
-      ok
-   next
-
-   //See "CalcTer: Display aDotSquare"+nl
-   //Display(aDotSquare)
-   
-
-next  
-   See nl+"CalcTer: End of aDotSquares to look at "+nl+nl
+    See nl+"CalcTer: End of aDotSquares to look at "+nl+nl
    
    ###--------------------------------------------------------------
-   ### Check for Any Left Over Dots in aDotSquare for Corner Capture
+   ### Check for SINGLE DOTS ---  Any Left Over Dots in aDotSquare for Corner Capture
    
    FindSingleDots()
 
@@ -1160,11 +1205,25 @@ next
    
    aSquare = aDotSquare
    FillCapturesTerritory()
-	
-	See "CalcTer: Display aDotSquare"+nl
-   Display(aDotSquare)
-   
+    
+    //See "CalcTer: Display aDotSquare"+nl    Display(aDotSquare) 
+      See "CalcTer: Display aSquare"+nl       Display(aSquare)
+    
+    ###------------------------
+    ### Territory update count 
+    
+    gBlackTerritory = 0
+    gWhiteTerritory = 0
+    for i = 1 to Size2
+        if aDotSquare[i] = "x"   gBlackTerritory++ ok
+        if aDotSquare[i] = "y"   gWhiteTerritory++ ok   
+    next
+    TitleTerritory.setText(" Territory: BLK "+ gBlackTerritory +" : "+ gWhiteTerritory +" WHT " )
+    
+    
+    
 return
+
 
 ###===========================================================
 ### aDotSquare --- Will be owned by Nobody=n, Black=x, White=w
