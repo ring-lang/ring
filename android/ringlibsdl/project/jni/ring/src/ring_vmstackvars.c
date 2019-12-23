@@ -376,6 +376,7 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 {
 	String *pString  ;
 	char cStr[100]  ;
+	int nOutput  ;
 	if ( ring_list_isdouble(pVar,RING_VAR_VALUE) ) {
 		if ( pVM->nBeforeEqual == 1 ) {
 			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) + nNum1);
@@ -395,7 +396,8 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 		} else if ( pVM->nBeforeEqual == 8 ) {
 			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) ^ (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 9 ) {
-			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) << (int) nNum1);
+			nOutput = (int) ring_list_getdouble(pVar,RING_VAR_VALUE) << (int) nNum1 ;
+			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (double) nOutput);
 		} else if ( pVM->nBeforeEqual == 10 ) {
 			ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) >> (int) nNum1);
 		}
@@ -413,6 +415,7 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 )
 {
 	String *pString  ;
 	char cStr[100]  ;
+	int nOutput  ;
 	if ( ring_item_isdouble(pItem) ) {
 		if ( pVM->nBeforeEqual == 1 ) {
 			ring_item_setdouble_gc(pVM->pRingState,pItem ,ring_item_getdouble(pItem) + nNum1);
@@ -431,7 +434,8 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 )
 		} else if ( pVM->nBeforeEqual == 8 ) {
 			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) ^ (int) nNum1);
 		} else if ( pVM->nBeforeEqual == 9 ) {
-			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) << (int) nNum1);
+			nOutput = (int) ring_item_getdouble(pItem) << (int) nNum1 ;
+			ring_item_setdouble_gc(pVM->pRingState,pItem ,(double) nOutput);
 		} else if ( pVM->nBeforeEqual == 10 ) {
 			ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) >> (int) nNum1);
 		}
