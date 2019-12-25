@@ -1,4 +1,5 @@
 aNews = [
+  ["December 25, 2019",'<a href="https://www.youtube.com/watch?v=K8Lh03PdcjI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=301" target="_blank"> Over 300 videos about Ring in Hassouna Academy'],
   ["December 23, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/samples/other/number2words" target="_blank">Tutorial: Number to words </a>'],
   ["December 5, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">The Go Game </a>'],
   ["November 10, 2019",'<a href="https://www.youtube.com/watch?v=BH5dI1H3hMA" target="_blank"> Movie: Using Ring in developing PWCT 2.0</a>'],
