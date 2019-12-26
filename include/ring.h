@@ -33,7 +33,6 @@
 #endif
 /* Constants */
 #define RING_TESTUNITS 0
-#define RING_TESTPERFORMANCE 1
 #define RING_SCANNEROUTPUT 0
 #define RING_PARSERSTART 1
 #define RING_PARSERTRACE 1
