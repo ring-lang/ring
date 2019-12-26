@@ -23,10 +23,8 @@ static int nRingStateCGI  ;
 
 static void ring_testallunits ( void ) ;
 #endif
-#if RING_TESTPERFORMANCE
 
 static void ring_showtime ( void ) ;
-#endif
 
 void segfaultaction ( int sig ) ;
 /* API Functions */
@@ -218,11 +216,9 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			}
 		}
 	}
-	#if RING_TESTPERFORMANCE
 	if ( nPerformance ) {
 		ring_showtime();
 	}
-	#endif
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
@@ -255,11 +251,9 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		exit(0);
 	}
 	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
-	#if RING_TESTPERFORMANCE
 	if ( nPerformance ) {
 		ring_showtime();
 	}
-	#endif
 }
 
 RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
@@ -288,7 +282,6 @@ static void ring_testallunits ( void )
 	getchar();
 }
 #endif
-#if RING_TESTPERFORMANCE
 
 static void ring_showtime ( void )
 {
@@ -306,7 +299,6 @@ static void ring_showtime ( void )
 	printf( "Clock : %ld \n", myclock ) ;
 	ring_print_line();
 }
-#endif
 
 void segfaultaction ( int sig )
 {
