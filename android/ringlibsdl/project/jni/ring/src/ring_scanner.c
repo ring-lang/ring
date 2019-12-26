@@ -196,10 +196,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	assert(pScanner != NULL);
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
-	#if RING_DEBUG
-	printf("%c",c);
-	printf( "\n State : %d \n  \n",pScanner->state ) ;
-	#endif
 	switch ( pScanner->state ) {
 		case SCANNER_STATE_GENERAL :
 			/* Check Unicode File */
@@ -339,9 +335,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
 				} else {
 					ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
-					#if RING_DEBUG
-					printf( "\nActive Token = %s",ring_string_get(pScanner->ActiveToken) ) ;
-					#endif
 				}
 			} else {
 				if ( ring_scanner_isoperator(pScanner,ring_string_get(pScanner->ActiveToken)) ) {
@@ -459,9 +452,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	}
 	if ( c == '\n' ) {
 		pScanner->LinesCount++ ;
-		#if RING_DEBUG
-		printf( "Line Number : %d  \n",pScanner->LinesCount ) ;
-		#endif
 	}
 	if ( ( c == ';' || c == '\n' ) && ( pScanner->state == SCANNER_STATE_GENERAL ) ) {
 		if ( (ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) ) {
