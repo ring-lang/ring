@@ -24,9 +24,6 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 	/* Display Errors Count */
 	RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
 	if ( pParser->nErrorsCount == 0 ) {
-		#if RING_PARSERFINAL
-		printf( "\n%s compiling done, no errors.\n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile) ) ;
-		#endif
 		ring_parser_delete(pParser);
 		return 1 ;
 	} else {
