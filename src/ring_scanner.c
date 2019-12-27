@@ -57,6 +57,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 	char cStartup[30]  ;
 	int x,nSize  ;
 	char cFileName2[200]  ;
+	ring_state_log(pRingState,"function ring_scanner_readfile()");
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
 		pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
@@ -859,6 +860,7 @@ const char * ring_scanner_getkeywordtext ( const char *cStr )
 
 void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName )
 {
+	ring_state_log(pRingState,"function ring_scanner_runobjfile()");
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
 	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
@@ -871,6 +873,7 @@ void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName )
 
 void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char *cFileName )
 {
+	ring_state_log(pRingState,"function ring_scanner_runobjstring()");
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
 	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
@@ -884,6 +887,7 @@ void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char 
 RING_API void ring_scanner_runprogram ( RingState *pRingState )
 {
 	VM *pVM  ;
+	ring_state_log(pRingState,"function ring_scanner_runprogram()");
 	/* Add return to the end of the program */
 	ring_scanner_addreturn(pRingState);
 	if ( pRingState->nPrintIC ) {
