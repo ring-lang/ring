@@ -55,6 +55,8 @@ typedef struct RingState {
 	char lRunFromThread  ;
 	/* Flag to know if we are using (Load Again) command */
 	int lLoadAgain  ;
+	/* Log File */
+	FILE *pLogFile;
 } RingState ;
 /* Functions */
 
@@ -81,6 +83,8 @@ RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName ) ;
 
 RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
+
+RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
 #define RING_VERSION "1.12"
