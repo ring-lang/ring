@@ -39,6 +39,7 @@
 #define RING_SHOWIC 0
 #define RING_RUNVM 1
 #define RING_VMSHOWOPCODE 1
+#define RING_LOGFILE 1
 #ifndef NDEBUG
 #define NDEBUG
 #endif

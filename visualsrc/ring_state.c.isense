@@ -60,6 +60,7 @@ Type: char
 lRunFromThread
 Type: int
 lLoadAgain
+pLogFile
 END:
 Type: RingState
 struct RingState
@@ -105,6 +106,7 @@ cStr
 ring_state_runfile
 ring_state_runobjectfile
 ring_state_runobjectstring
+ring_state_log
 ring_testallunits
 ring_showtime
 Type: time_t

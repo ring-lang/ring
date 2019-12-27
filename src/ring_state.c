@@ -70,6 +70,10 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->lRunFromThread = 1 ;
 	pRingState->lLoadAgain = 0 ;
 	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
+	/* Log File */
+	#if RING_LOGFILE
+	pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
+	#endif
 	return pRingState ;
 }
 
@@ -93,6 +97,10 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 		ring_vm_delete(pRingState->pVM);
 	}
 	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
+	/* Log File */
+	#if RING_LOGFILE
+	fclose( pRingState->pLogFile ) ;
+	#endif
 	ring_poolmanager_delete(pRingState);
 	ring_free(pRingState);
 	return NULL ;
@@ -269,6 +277,14 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName )
 {
 	ring_scanner_runobjstring(pRingState,cString,cFileName);
+}
+
+RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
+{
+	/* Log File */
+	#if RING_LOGFILE
+	fprintf( pRingState->pLogFile , "%s\n" , cStr ) ;
+	#endif
 }
 #if RING_TESTUNITS
 

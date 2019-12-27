@@ -842,6 +842,7 @@ RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,i
 	pRingState->nWarning = nWarn ;
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
+	ring_state_log(pRingState,"function ring_execute()");
 	if ( ring_issourcefile(cFileName) ) {
 		ring_scanner_readfile(pRingState,cFileName);
 	}
