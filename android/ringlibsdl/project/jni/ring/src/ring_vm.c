@@ -9,6 +9,7 @@ VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
+	ring_state_log(pRingState,"function: ring_vm_new - start");
 	pVM = (VM *) ring_state_malloc(pRingState,sizeof(VM));
 	if ( pVM == NULL ) {
 		printf( RING_OOM ) ;
@@ -199,6 +200,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
 	pVM->lNoSetterMethod = 0 ;
+	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }
 
