@@ -284,6 +284,7 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 	/* Log File */
 	#if RING_LOGFILE
 	fprintf( pRingState->pLogFile , "%s\n" , cStr ) ;
+	fflush(pRingState->pLogFile);
 	#endif
 }
 #if RING_TESTUNITS

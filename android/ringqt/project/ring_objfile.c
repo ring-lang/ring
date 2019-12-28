@@ -165,7 +165,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	}
 	/* Process File */
 	c = getc(fObj);
-	while ( c != EOF ) {
+	while ( (c == '#') || (c == '{') || (c == '}') || (c == '[')  || (c == '\n') ) {
 		/* Check Char */
 		switch ( c ) {
 			case '#' :
@@ -342,7 +342,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	}
 	/* Process Content */
 	c = ring_objfile_getc(pRingState,&cData);
-	while ( c != EOF ) {
+	while ( (c == '#') || (c == '{') || (c == '}') || (c == '[')  || (c == '\n') ) {
 		/* Check Char */
 		switch ( c ) {
 			case '#' :
@@ -612,13 +612,11 @@ void ring_objfile_readc ( RingState *pRingState,char **cSource,char *cDest,int n
 	int x  ;
 	char *cData  ;
 	cData = *cSource ;
-	ring_state_log(pRingState,"function: ring_objfile_readc() start");
 	for ( x = 0 ; x < nCount ; x++ ) {
 		cDest[x] = cData[x] ;
 	}
 	*cSource += nCount ;
 	cDest[nCount] = '\0' ;
-	ring_state_log(pRingState,"function: ring_objfile_readc() end");
 }
 
 char ring_objfile_getc ( RingState *pRingState,char **cSource )
@@ -626,10 +624,8 @@ char ring_objfile_getc ( RingState *pRingState,char **cSource )
 	char c  ;
 	char *cData  ;
 	cData = *cSource ;
-	ring_state_log(pRingState,"function: ring_objfile_getc() start");
 	c = cData[0] ;
 	*cSource+=1 ;
-	ring_state_log(pRingState,"function: ring_objfile_getc() end");
 	return c ;
 }
 
