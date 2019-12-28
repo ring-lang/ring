@@ -888,7 +888,7 @@ void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char 
 RING_API void ring_scanner_runprogram ( RingState *pRingState )
 {
 	VM *pVM  ;
-	ring_state_log(pRingState,"function ring_scanner_runprogram()");
+	ring_state_log(pRingState,"function ring_scanner_runprogram() start");
 	/* Add return to the end of the program */
 	ring_scanner_addreturn(pRingState);
 	if ( pRingState->nPrintIC ) {
@@ -904,6 +904,7 @@ RING_API void ring_scanner_runprogram ( RingState *pRingState )
 	if ( pRingState->nPrintICFinal ) {
 		ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
 	}
+	ring_state_log(pRingState,"function ring_scanner_runprogram() end");
 }
 
 void ring_scanner_changekeyword ( Scanner *pScanner )
