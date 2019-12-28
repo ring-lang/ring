@@ -129,6 +129,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Call Parser */
 	if ( nCont == 1 ) {
+		ring_state_log(pRingState,cFileName);
 		#if RING_PARSERTRACE
 		if ( pScanner->pRingState->nPrintRules ) {
 			printf( "\n" ) ;

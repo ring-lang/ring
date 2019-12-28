@@ -749,6 +749,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	Scanner *pScanner  ;
 	int aPara[3]  ;
 	ByteCode *pByteCode  ;
+	ring_state_log(pVM->pRingState,"function: ring_vm_eval() start");
 	nSize = strlen( cStr ) ;
 	if ( nSize == 0 ) {
 		return 0 ;
@@ -771,6 +772,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	aPara[2] = ring_list_getsize(pVM->pClassesMap) ;
 	/* Call Parser */
 	if ( nCont == 1 ) {
+		ring_state_log(pVM->pRingState,cStr);
 		pVM->pRingState->lNoLineNumber = 1 ;
 		nRunVM = ring_parser_start(pScanner->Tokens,pVM->pRingState);
 		pVM->pRingState->lNoLineNumber = 0 ;
@@ -844,6 +846,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	ring_scanner_delete(pScanner);
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
+	ring_state_log(pVM->pRingState,"function: ring_vm_eval() end");
 	return nRunVM ;
 }
 
