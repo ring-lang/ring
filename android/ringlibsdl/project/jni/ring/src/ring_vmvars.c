@@ -236,6 +236,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 {
 	List *pList  ;
 	/* This function is called by all of the other functions that create new varaibles */
+	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() start");
 	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
 	/* Determine Type based on Region */
@@ -251,10 +252,13 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	/* Private Flag */
 	ring_list_addint_gc(pVM->pRingState,pList,0);
 	/* Add Pointer to the HashTable */
+	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() before hash");
 	if ( pParent->pHashTable == NULL ) {
 		pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 	}
 	ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
+	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() after hash");
+	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() end");
 	return pList ;
 }
 
