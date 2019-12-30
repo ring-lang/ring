@@ -256,6 +256,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	if ( pParent->pHashTable == NULL ) {
 		pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 	}
+	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() before adding pointer to hashtable");
 	ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
 	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() after hash");
 	ring_state_log(pVM->pRingState,"function: ring_vm_newvar2() end");

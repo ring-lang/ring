@@ -5,6 +5,7 @@
 HashTable * ring_hashtable_new_gc ( void *pRingState )
 {
 	HashTable *pHashTable  ;
+	ring_state_log(pRingState,"function: ring_hashtable_new_gc - start");
 	pHashTable = (HashTable *) ring_state_malloc(pRingState,sizeof(HashTable));
 	if ( pHashTable == NULL ) {
 		printf( RING_OOM ) ;
@@ -13,11 +14,14 @@ HashTable * ring_hashtable_new_gc ( void *pRingState )
 	pHashTable->nItems = 0 ;
 	pHashTable->nLinkedLists = 10 ;
 	pHashTable->nRebuildSize = 7 ;
+	ring_state_log(pRingState,"function: ring_hashtable_new_gc - before calloc()");
 	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
+	ring_state_log(pRingState,"function: ring_hashtable_new_gc - after calloc()");
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
+	ring_state_log(pRingState,"function: ring_hashtable_new_gc - end");
 	return pHashTable ;
 }
 
@@ -74,11 +78,14 @@ void ring_hashtable_newnumber_gc ( void *pRingState,HashTable *pHashTable,const 
 void ring_hashtable_newpointer_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,void *x )
 {
 	HashItem *pItem  ;
+	ring_state_log(pRingState,"function: ring_hashtable_newpointer_gc - start");
 	pItem = ring_hashtable_newitem_gc(pRingState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_POINTER ;
 	pItem->HashValue.pValue = x ;
+	ring_state_log(pRingState,"function: ring_hashtable_newpointer_gc - rebuilding the hashtable");
 	/* Check Rebuilding the HashTable */
 	ring_hashtable_rebuild_gc(pRingState,pHashTable);
+	ring_state_log(pRingState,"function: ring_hashtable_newpointer_gc - end");
 }
 
 HashItem * ring_hashtable_finditem ( HashTable *pHashTable,const char *cKey )
