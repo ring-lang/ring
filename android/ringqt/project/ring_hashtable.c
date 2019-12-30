@@ -2,10 +2,10 @@
 #include "ring.h"
 /* Functions */
 
-HashTable * ring_hashtable_new_gc ( void *pState )
+HashTable * ring_hashtable_new_gc ( void *pRingState )
 {
 	HashTable *pHashTable  ;
-	pHashTable = (HashTable *) ring_state_malloc(pState,sizeof(HashTable));
+	pHashTable = (HashTable *) ring_state_malloc(pRingState,sizeof(HashTable));
 	if ( pHashTable == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -13,7 +13,7 @@ HashTable * ring_hashtable_new_gc ( void *pState )
 	pHashTable->nItems = 0 ;
 	pHashTable->nLinkedLists = 10 ;
 	pHashTable->nRebuildSize = 7 ;
-	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -29,13 +29,13 @@ unsigned int ring_hashtable_hashkey ( HashTable *pHashTable,const char *cKey )
 	return nIndex ;
 }
 
-HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const char *cKey )
+HashItem * ring_hashtable_newitem_gc ( void *pRingState,HashTable *pHashTable,const char *cKey )
 {
 	unsigned int nIndex  ;
 	HashItem *pItem  ;
 	nIndex = ring_hashtable_hashkey(pHashTable,cKey);
 	if ( pHashTable->pArray[nIndex]   == NULL ) {
-		pHashTable->pArray[nIndex] = (HashItem *) ring_state_malloc(pState,sizeof(HashItem));
+		pHashTable->pArray[nIndex] = (HashItem *) ring_state_malloc(pRingState,sizeof(HashItem));
 		pItem = pHashTable->pArray[nIndex] ;
 	}
 	else {
@@ -44,7 +44,7 @@ HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const 
 		while ( pItem->pNext != NULL ) {
 			pItem = pItem->pNext ;
 		}
-		pItem->pNext = (HashItem *) ring_state_malloc(pState,sizeof(HashItem));
+		pItem->pNext = (HashItem *) ring_state_malloc(pRingState,sizeof(HashItem));
 		pItem = pItem->pNext ;
 	}
 	if ( pItem == NULL ) {
@@ -52,7 +52,7 @@ HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const 
 		exit(0);
 	}
 	/* Store Copy from The Key */
-	pItem->cKey = ring_strdup(pState,cKey) ;
+	pItem->cKey = ring_strdup(pRingState,cKey) ;
 	/* Item type will be determined from the caller */
 	pItem->nItemType = RING_HASHITEMTYPE_NOTYPE ;
 	pItem->pNext = NULL ;
@@ -61,24 +61,24 @@ HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const 
 	return pItem ;
 }
 
-void ring_hashtable_newnumber_gc ( void *pState,HashTable *pHashTable,const char *cKey,int x )
+void ring_hashtable_newnumber_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,int x )
 {
 	HashItem *pItem  ;
-	pItem = ring_hashtable_newitem_gc(pState,pHashTable,cKey);
+	pItem = ring_hashtable_newitem_gc(pRingState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_NUMBER ;
 	pItem->HashValue.nIndex = x ;
 	/* Check Rebuilding the HashTable */
-	ring_hashtable_rebuild_gc(pState,pHashTable);
+	ring_hashtable_rebuild_gc(pRingState,pHashTable);
 }
 
-void ring_hashtable_newpointer_gc ( void *pState,HashTable *pHashTable,const char *cKey,void *x )
+void ring_hashtable_newpointer_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,void *x )
 {
 	HashItem *pItem  ;
-	pItem = ring_hashtable_newitem_gc(pState,pHashTable,cKey);
+	pItem = ring_hashtable_newitem_gc(pRingState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_POINTER ;
 	pItem->HashValue.pValue = x ;
 	/* Check Rebuilding the HashTable */
-	ring_hashtable_rebuild_gc(pState,pHashTable);
+	ring_hashtable_rebuild_gc(pRingState,pHashTable);
 }
 
 HashItem * ring_hashtable_finditem ( HashTable *pHashTable,const char *cKey )
@@ -117,7 +117,7 @@ void * ring_hashtable_findpointer ( HashTable *pHashTable,const char *cKey )
 	return NULL ;
 }
 
-void ring_hashtable_deleteitem_gc ( void *pState,HashTable *pHashTable,const char *cKey )
+void ring_hashtable_deleteitem_gc ( void *pRingState,HashTable *pHashTable,const char *cKey )
 {
 	int nIndex  ;
 	HashItem *pItem, *pPrevItem  ;
@@ -133,8 +133,8 @@ void ring_hashtable_deleteitem_gc ( void *pState,HashTable *pHashTable,const cha
 			else {
 				pPrevItem->pNext = pItem->pNext ;
 			}
-			ring_state_free(pState,pItem->cKey);
-			ring_state_free(pState,pItem);
+			ring_state_free(pRingState,pItem->cKey);
+			ring_state_free(pRingState,pItem);
 			return ;
 		}
 		pPrevItem = pItem ;
@@ -142,7 +142,7 @@ void ring_hashtable_deleteitem_gc ( void *pState,HashTable *pHashTable,const cha
 	}
 }
 
-HashTable * ring_hashtable_delete_gc ( void *pState,HashTable *pHashTable )
+HashTable * ring_hashtable_delete_gc ( void *pRingState,HashTable *pHashTable )
 {
 	int x  ;
 	HashItem *pItem,*pItem2  ;
@@ -153,17 +153,17 @@ HashTable * ring_hashtable_delete_gc ( void *pState,HashTable *pHashTable )
 		pItem = pHashTable->pArray[x] ;
 		while ( pItem != NULL ) {
 			pItem2 = pItem->pNext ;
-			ring_state_free(pState,pItem->cKey);
-			ring_state_free(pState,pItem);
+			ring_state_free(pRingState,pItem->cKey);
+			ring_state_free(pRingState,pItem);
 			pItem = pItem2 ;
 		}
 	}
-	ring_state_free(pState,pHashTable->pArray);
-	ring_state_free(pState,pHashTable);
+	ring_state_free(pRingState,pHashTable->pArray);
+	ring_state_free(pRingState,pHashTable);
 	return NULL ;
 }
 
-void ring_hashtable_rebuild_gc ( void *pState,HashTable *pHashTable )
+void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 {
 	HashItem **pArray  ;
 	int nLinkedLists,x  ;
@@ -175,7 +175,7 @@ void ring_hashtable_rebuild_gc ( void *pState,HashTable *pHashTable )
 	nLinkedLists = pHashTable->nLinkedLists ;
 	pHashTable->nRebuildSize *= 10 ;
 	pHashTable->nLinkedLists *= 10 ;
-	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -191,12 +191,12 @@ void ring_hashtable_rebuild_gc ( void *pState,HashTable *pHashTable )
 				ring_hashtable_newpointer(pHashTable,pItem->cKey,pItem->HashValue.pValue);
 			}
 			pItem2 = pItem->pNext ;
-			ring_state_free(pState,pItem->cKey);
-			ring_state_free(pState,pItem);
+			ring_state_free(pRingState,pItem->cKey);
+			ring_state_free(pRingState,pItem);
 			pItem = pItem2 ;
 		}
 	}
-	ring_state_free(pState,pArray);
+	ring_state_free(pRingState,pArray);
 }
 
 void ring_hashtable_print ( HashTable *pHashTable )
