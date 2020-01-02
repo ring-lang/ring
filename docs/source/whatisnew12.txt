@@ -140,8 +140,9 @@ More Improvements
 	* ring/samples/other/DynamicCode/deletethisfile.ring
 	* ring/samples/other/DynamicCode/modifythisfile.ring
 * Ring Notepad - Project Files - set minimum width based on desktop screen width
-* VideoMusicPlayer is updated to work as expected after RingQt update to Qt 5.12.3 
+* VideoMusicPlayer is updated to work as expected after RingQt update
 * Game Engine : display error message when we can't create the game window
+* RingQt : Updated to Qt 5.12.6
 * RingQt : Added QQMLEngine class
 * RingQt : Added files for building RingQt without Bluetooth support 
 * RingQt : The size of the events code is changed from 100 characters to 200 characters
