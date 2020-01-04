@@ -151,6 +151,12 @@ More Improvements
 	* ring/samples/other/DynamicCode/anonfunc.ring
 	* ring/samples/other/DynamicCode/deletethisfile.ring
 	* ring/samples/other/DynamicCode/modifythisfile.ring
+	* ring/samples/other/changesyntax/ArabicDemo.ring
+	* ring/samples/other/changesyntax/EnglishDemo.ring
+	* ring/samples/other/changesyntax/ChangeKeywordsArabic.ring
+	* ring/samples/other/changesyntax/ChangeKeywordsEnglish.ring
+	* ring/samples/other/changesyntax/pascal.ring
+
 * Ring Notepad - Project Files - set minimum width based on desktop screen width
 * VideoMusicPlayer is updated to work as expected after RingQt update
 * FlappyBird3000 - Fast response on Android 
@@ -166,3 +172,4 @@ More Improvements
 * OSCopyFolder() function is updated to copy the files in sub folders too
 * fgetpos() function is updated to work as expected
 * IsFunction() function is updated to be not case sensitive
+* Ring VM - Internal hash function is updated
