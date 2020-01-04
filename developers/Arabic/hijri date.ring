@@ -19,7 +19,7 @@ hijri_month = ["محرم","صفر","ربيع الأول","ربيع الآخر","
 
 # ----------------------------------------------------------------------------
 
-	func Hijri_date(yr, mth, day):
+	func Hijri_date(yr, mth, day)
 
 		        jd1 = intPart((1461 * (yr + 4800 + intPart((mth - 14) / 12.0))) / 4)
 		        jd2 = intPart((367 * (mth - 2 - 12 *  (intPart((mth - 14) /12.0)))) / 12)
