@@ -18,6 +18,7 @@ Ring 1.12 comes with the next features!
 * Go Game
 * ASCII Table application
 * BMI Calculator application
+* Calendar application
 * Load Again Command
 * Better RingRayLib
 * More Improvements
@@ -54,6 +55,17 @@ Simple application for calculating the BMI
 
 .. image:: BMI.png
 	:alt: BMI
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Calendar application
+
+Calendar application
+====================
+
+The Calendar for Year 2020
+
+.. image:: calendar.png
+	:alt: calendar
 
 .. index:: 
 	pair: What is new in Ring 1.12?; Load Again Command
