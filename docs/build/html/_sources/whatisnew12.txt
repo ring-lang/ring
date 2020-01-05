@@ -156,6 +156,7 @@ More Improvements
 	* ring/samples/other/changesyntax/ChangeKeywordsArabic.ring
 	* ring/samples/other/changesyntax/ChangeKeywordsEnglish.ring
 	* ring/samples/other/changesyntax/pascal.ring
+	* ring/samples/other/hijridate.ring
 
 * Ring Notepad - Project Files - set minimum width based on desktop screen width
 * VideoMusicPlayer is updated to work as expected after RingQt update
