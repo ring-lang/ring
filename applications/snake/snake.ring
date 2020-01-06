@@ -4,8 +4,8 @@
 # Game Data 
 
 	# Map Size
-		C_LEVEL_ROWSCOUNT = 30
-		C_LEVEL_COLSCOUNT = 43
+		C_LEVEL_ROWSCOUNT = 20
+		C_LEVEL_COLSCOUNT = 27
 
 	# Map Items
 		C_EMPTY 	= 1
@@ -49,8 +49,8 @@ load "gameengine.ring"
 
 func main          		
 
-	GE_SCREEN_W = 1280
-	GE_SCREEN_H = 900
+	GE_SCREEN_W = 800
+	GE_SCREEN_H = 600
 
 	oGame = New Game      	
 	{
