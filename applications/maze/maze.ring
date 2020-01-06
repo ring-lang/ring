@@ -21,7 +21,9 @@
 	C_DOOR  	= 4
 
 	nKeyClock = clock()
- 		
+ 	
+	lWin 		= False
+	
 load "gameengine.ring"        	
 
 func main          		
@@ -60,6 +62,10 @@ func main
 							aLevel = aLevelCopy     
 							aPlayer = aPlayerCopy
 							UpdateGameMap(oGame)
+							if lWin	
+								lWin = False
+								oGame.Remove(oGame.Find(:YouWin).nIndex)
+							ok
 					on Key_Right
 						if aPlayer[:col] < C_LEVEL_COLSCOUNT
 							nRowDiff = 0   nColDiff = 1
@@ -103,6 +109,7 @@ func MoveObject oGame,nNewRow,nNewCol
 				UpdateGameMap(oGame)
 				aPlayer[:row] = nNewRow
 				aPlayer[:col] = nNewCol
+				lWin = True
 				DisplayYouWin(oGame)
 		off
 	return
@@ -114,6 +121,7 @@ func UpdateGameMap oGame
 func DisplayYouWin oGame 
 	oGame {
           text {
+		name = :YouWin
                 point = 400
                 size = 30
                 nStep = 9
