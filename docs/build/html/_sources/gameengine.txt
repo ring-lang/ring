@@ -151,6 +151,8 @@ Method			Description
 refresh()		Delete objects.
 settitle(cTitle)	Set the window title using a string parameter.
 shutdown()		Close the application.
+find(cName)		Find an object using the object name
+remove(nID)		Remove an object using the object ID
 ================	=================================================================================
 
 The next table present a group of keywords defined by the class.
@@ -181,7 +183,7 @@ x		Number determine the x position of the object.
 y		Number determine the y position of the object.
 width		Number determine the width of the object.
 height		Number determine the height of the object.
-nIndex		Number determine the index of the object in objects list.
+nIndex		Number determine the ID of the object.
 animate		True/False to animate the object or not.
 move		True/False to move the object using the keyboard or not.
 Scaled		True/False to scale the object image or not.
