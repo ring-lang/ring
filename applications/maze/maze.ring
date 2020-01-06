@@ -82,8 +82,8 @@ func main
 						ok
 				off
 				# Move the Camera with the player
-					oSelf.y = max(-((max(aPlayer[:row],3)-3)*30),-30*10)
-					oSelf.x = max(-((max(aPlayer[:col],4)-4)*30),-30*16)
+					oSelf.y = max(-((max(aPlayer[:row],3)-3)*oSelf.BlockWidth),-oSelf.BlockWidth*10)
+					oSelf.x = max(-((max(aPlayer[:col],4)-4)*oSelf.BlockWidth),-oSelf.BlockWidth*16)
 			}
 
 		}
