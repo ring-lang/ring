@@ -26,8 +26,8 @@ load "gameengine.ring"
 
 func main          		
 
-	GE_SCREEN_W = 1280
-	GE_SCREEN_H = 900
+	GE_SCREEN_W = 800
+	GE_SCREEN_H = 600
 
 	oGame = New Game      	
 	{
@@ -81,6 +81,9 @@ func main
 							MoveObject(oGame,aPlayer[:row]+1,aPlayer[:col])
 						ok
 				off
+				# Move the Camera with the player
+					oSelf.y = max(-((max(aPlayer[:row],3)-3)*30),-30*10)
+					oSelf.x = max(-((max(aPlayer[:col],4)-4)*30),-30*16)
 			}
 
 		}
