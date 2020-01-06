@@ -184,6 +184,7 @@ y		Number determine the y position of the object.
 width		Number determine the width of the object.
 height		Number determine the height of the object.
 nIndex		Number determine the ID of the object.
+name		String represent the object name.
 animate		True/False to animate the object or not.
 move		True/False to move the object using the keyboard or not.
 Scaled		True/False to scale the object image or not.
