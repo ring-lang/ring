@@ -161,8 +161,10 @@ More Improvements
 * Ring Notepad - Project Files - set minimum width based on desktop screen width
 * VideoMusicPlayer is updated to work as expected after RingQt update
 * FlappyBird3000 - Fast response on Android 
-* Snake Game : change the default window size (800x600)
-* Maze Game : change the default window size (800x600) and move the camera with the player
+* Snake Game : Change the default window size (800x600)
+* Maze Game : Change the default window size (800x600) 
+* Maze Game : Move the camera with the player
+* Maze Game : Restarting the game will hide the (You Win) message
 * Game Engine : display error message when we can't create the game window
 * RingQt : Updated to Qt 5.12.6
 * RingQt : Added QQMLEngine class
