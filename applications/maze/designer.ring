@@ -8,7 +8,7 @@ func main					# Called by the Game Engine
 
 	load "level.ring"
 
-	GE_SCREEN_W = 1280	GE_SCREEN_H = 900
+	GE_SCREEN_W = 650	GE_SCREEN_H = 460
 
 	oGame = New Game			# Create the Game Object
 	{
@@ -16,8 +16,8 @@ func main					# Called by the Game Engine
 
 		Map {
 
-			blockwidth = 30
-			blockheight = 30
+			blockwidth = 15
+			blockheight = 15
 
 			aMap = aLevel 
 
