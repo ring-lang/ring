@@ -25,6 +25,10 @@ class RNoteOutputWindow
 			oTFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTFont)
 		oProcessEditbox.insertplaintext(cText)
+		oCursor = oProcessEditbox.textcursor()
+		nPos = max(len(oProcessEditbox.toplaintext())-1,0)
+		oCursor.setPosition(nPos,1)
+		oProcessEditbox.setTextCursor(oCursor)
 
 	func SendProcessData
 		if ISNULL(oProcess) return ok
