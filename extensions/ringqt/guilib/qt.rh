@@ -323,3 +323,5 @@ QSizePolicy_Expanding		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag | QSizePo
 QSizePolicy_MinimumExpanding 	= QSizePolicy_GrowFlag | QSizePolicy_ExpandFlag
 QSizePolicy_Ignored		= QSizePolicy_ShrinkFlag | QSizePolicy_GrowFlag | QSizePolicy_IgnoreFlag
 
+QTextCursor_MoveAnchor	= 0
+QTextCursor_KeepAnchor  = 1
