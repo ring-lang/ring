@@ -21,6 +21,9 @@ class RNoteOutputWindow
 	func GetProcessData 
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
+		if isWindows()
+			cText += WindowsNl()
+		ok
 		# Set the font
 			oTFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTFont)
