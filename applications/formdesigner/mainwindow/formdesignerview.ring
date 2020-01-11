@@ -24,6 +24,8 @@ Class FormDesignerView from WindowsViewParent
 
 	oDesignDock
 
+	oDesktop = new QDesktopWidget()
+
 	func CreateMainWindow oModel
 
 		# Create the form
@@ -637,9 +639,9 @@ Class FormDesignerView from WindowsViewParent
 			setWidget(oToolBox)
 			if not isMobile() {
 				if T_LAYOUTDIRECTION {
-					setMiniMumWidth(215)
+					setMiniMumWidth(this.oDesktop.Width()*0.11)
 				else 
-					setMiniMumWidth(195)
+					setMiniMumWidth(this.oDesktop.Width()*0.10)
 				}
 			}
 			setwidgetresizable(True)
@@ -662,11 +664,11 @@ Class FormDesignerView from WindowsViewParent
 				if not isMobile()  {
 					setToolButtonStyle(2)
 					if T_LAYOUTDIRECTION {
-						setminimumwidth(174)
+						setminimumwidth(this.oDesktop.Width()*0.09)
 						setminimumheight(30)
 						setIconSize(new QSize(15,15))
 					else 
-						setminimumwidth(150)
+						setminimumwidth(this.oDesktop.Width()*0.07)
 						setminimumheight(30)
 						setIconSize(new QSize(15,15))
 					}
@@ -881,15 +883,15 @@ Class FormDesignerView from WindowsViewParent
 				setColumnwidth(1,500)
 				setColumnwidth(2,120)
 			else
-				setColumnwidth(0,190)
-				setColumnwidth(2,40)
+				setColumnwidth(0,this.oDesktop.width()*0.09)
+				setColumnwidth(2,this.oDesktop.width()*0.02)
 			}
 			setAlternatingRowColors(true)
 			setitemChangedEvent(this.Method(:UpdateProperties))
 			if T_LAYOUTDIRECTION {
-				setminimumwidth(390)
+				setminimumwidth(this.oDesktop.width()*0.21)
 			else 
-				setminimumwidth(370)
+				setminimumwidth(this.oDesktop.width()*0.22)
 			}
 		}
 
