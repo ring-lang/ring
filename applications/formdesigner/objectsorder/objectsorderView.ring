@@ -21,13 +21,10 @@ class objectsorderView from WindowsViewParent
 		move(20,20)
 		resize(504,461)
 		setWindowTitle("Objects Order")
-		setstylesheet("background-color:;") 
-
 		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint) 
 		LabelObjects = new label(win) {
 			move(13,36)
 			resize(58,26)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -38,7 +35,6 @@ class objectsorderView from WindowsViewParent
 		ListObjects = new listwidget(win) {
 			move(84,35)
 			resize(280,197)
-			setstylesheet("color:black;background-color:white;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -58,7 +54,6 @@ class objectsorderView from WindowsViewParent
 		btnUp = new pushbutton(win) {
 			move(384,36)
 			resize(86,35)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -71,7 +66,6 @@ class objectsorderView from WindowsViewParent
 		BtnDown = new pushbutton(win) {
 			move(386,92)
 			resize(86,35)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -84,7 +78,6 @@ class objectsorderView from WindowsViewParent
 		BtnClose = new pushbutton(win) {
 			move(384,146)
 			resize(86,34)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)

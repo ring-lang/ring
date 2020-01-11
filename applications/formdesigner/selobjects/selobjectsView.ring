@@ -21,13 +21,10 @@ class selobjectsView from WindowsViewParent
 		move(20,20)
 		resize(504,461)
 		setWindowTitle("Select Objects")
-		setstylesheet("background-color:;") 
-
 		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint) 
 		LabelObjects = new label(win) {
 			move(13,36)
 			resize(58,26)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -38,7 +35,6 @@ class selobjectsView from WindowsViewParent
 		ListObjects = new listwidget(win) {
 			move(84,35)
 			resize(280,197)
-			setstylesheet("color:black;background-color:white;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -58,20 +54,17 @@ class selobjectsView from WindowsViewParent
 		BtnSelect = new pushbutton(win) {
 			move(384,40)
 			resize(86,34)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
 			oFont.delete()
 			setText("Select")
 			setClickEvent(Method(:Select))
-			setBtnImage(BtnSelect,"")
-			
+			setBtnImage(BtnSelect,"")			
 		}
 		BtnClose = new pushbutton(win) {
 			move(384,96)
 			resize(86,34)
-			setstylesheet("color:black;background-color:;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
