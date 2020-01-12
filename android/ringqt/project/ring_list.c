@@ -176,6 +176,39 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
 }
+
+RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List *pList )
+{
+	int x  ;
+	List *pNewList2  ;
+	assert(pList != NULL);
+	/*
+	**  This function don't add a new list before copying items 
+	**  if you want to add a list to another one, create new list in the target then copy to it 
+	**  Copy Items 
+	*/
+	if ( ring_list_getsize(pList) == 0 ) {
+		return ;
+	}
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		if ( ring_list_isint(pList,x) ) {
+			ring_list_adddouble_gc(pState,pNewList,(double) ring_list_getint(pList,x));
+		}
+		else if ( ring_list_isdouble(pList,x) ) {
+			ring_list_adddouble_gc(pState,pNewList,ring_list_getdouble(pList,x));
+		}
+		else if ( ring_list_isstring(pList,x) ) {
+			ring_list_addstring2_gc(pState,pNewList,ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
+		}
+		else if ( ring_list_ispointer(pList,x) ) {
+			ring_list_addpointer_gc(pState,pNewList,ring_list_getpointer(pList,x));
+		}
+		else if ( ring_list_islist(pList,x) ) {
+			pNewList2 = ring_list_newlist_gc(pState,pNewList);
+			ring_list_copy_tohighlevel_gc(pState,pNewList2,ring_list_getlist(pList,x));
+		}
+	}
+}
 /* List Items */
 
 RING_API void ring_list_newitem_gc ( void *pState,List *pList )

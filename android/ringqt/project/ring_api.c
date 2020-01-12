@@ -2174,6 +2174,7 @@ void ring_vmlib_state_filetokens ( void *pPointer )
 {
 	RingState *pState  ;
 	char *cFile  ;
+	List *pList  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -2183,6 +2184,9 @@ void ring_vmlib_state_filetokens ( void *pPointer )
 	pState->nOnlyTokens = 1 ;
 	ring_scanner_readfile(pState,cFile);
 	pState->nOnlyTokens = 0 ;
-	RING_API_RETLIST(pState->pRingFileTokens);
+	/* Copy The List */
+	pList = RING_API_NEWLIST ;
+	ring_list_copy_tohighlevel_gc((RingState *) pPointer,pList,pState->pRingFileTokens);
+	RING_API_RETLIST(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
 }
