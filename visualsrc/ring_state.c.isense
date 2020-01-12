@@ -38,6 +38,10 @@ Type: unsigned int
 nDontDeleteTheVM : 1
 Type: unsigned int
 nRingInsideRing : 1
+Type: unsigned int
+nOnlyTokens : 1
+Type: List *
+pRingFileTokens
 Type: int
 argc
 Type: char  **

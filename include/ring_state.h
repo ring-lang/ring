@@ -19,7 +19,7 @@ typedef struct RingState {
 	unsigned int nRun : 1  ;
 	/* PRINTIC is 1 if we need to print byte code before execution */
 	unsigned int nPrintIC : 1  ;
-	/* set to 1 if we need to print the fine byte code after execution */
+	/* set to 1 if we need to print the final byte code after execution */
 	unsigned int nPrintICFinal : 1  ;
 	/* set to 1 if we need to print the tokens */
 	unsigned int nPrintTokens : 1  ;
@@ -36,6 +36,9 @@ typedef struct RingState {
 	unsigned int nDontDeleteTheVM : 1  ;
 	/* Set to 1 to tell the state that we are running Ring from Ring (to avoid exit() on error) */
 	unsigned int nRingInsideRing : 1  ;
+	/* Set to 1 to tell the scanner that we need the tokens only */
+	unsigned int nOnlyTokens : 1  ;
+	List *pRingFileTokens  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;

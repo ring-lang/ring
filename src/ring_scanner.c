@@ -40,7 +40,9 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	assert(pScanner != NULL);
 	pScanner->Keywords = ring_list_delete_gc(pScanner->pRingState,pScanner->Keywords);
 	pScanner->Operators = ring_list_delete_gc(pScanner->pRingState,pScanner->Operators);
-	pScanner->Tokens = ring_list_delete_gc(pScanner->pRingState,pScanner->Tokens);
+	if ( pScanner->Tokens != NULL ) {
+		pScanner->Tokens = ring_list_delete_gc(pScanner->pRingState,pScanner->Tokens);
+	}
 	pScanner->ActiveToken = ring_string_delete_gc(pScanner->pRingState,pScanner->ActiveToken);
 	ring_state_free(pScanner->pRingState,pScanner);
 	return NULL ;
@@ -128,7 +130,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 		ring_scanner_printtokens(pScanner);
 	}
 	/* Call Parser */
-	if ( nCont == 1 ) {
+	if ( (nCont == 1) && (pRingState->nOnlyTokens == 0) ) {
 		ring_state_log(pRingState,cFileName);
 		#if RING_PARSERTRACE
 		if ( pScanner->pRingState->nPrintRules ) {
@@ -149,6 +151,11 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 		#endif
 	} else {
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
+		/* Check if we need the tokens only */
+		if ( pRingState->nOnlyTokens ) {
+			pRingState->pRingFileTokens = pScanner->Tokens ;
+			pScanner->Tokens = NULL ;
+		}
 		ring_scanner_delete(pScanner);
 		return 0 ;
 	}

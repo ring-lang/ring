@@ -74,6 +74,9 @@ RING_API RingState * ring_state_new ( void )
 	#if RING_LOGFILE
 	pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
 	#endif
+	/* Tokens Only */
+	pRingState->nOnlyTokens = 0 ;
+	pRingState->pRingFileTokens = NULL ;
 	return pRingState ;
 }
 
