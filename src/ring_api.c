@@ -2186,7 +2186,7 @@ void ring_vmlib_state_filetokens ( void *pPointer )
 	pState->nOnlyTokens = 0 ;
 	/* Copy The List */
 	pList = RING_API_NEWLIST ;
-	ring_list_copy_tohighlevel_gc((RingState *) pPointer,pList,pState->pRingFileTokens);
+	ring_list_copy_tohighlevel_gc(((VM *) pPointer)->pRingState,pList,pState->pRingFileTokens);
 	RING_API_RETLIST(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
 }
