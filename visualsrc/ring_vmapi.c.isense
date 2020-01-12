@@ -425,6 +425,8 @@ Type: RingState *
 pState
 Type: char *
 cFile
+Type: List *
+pList
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
