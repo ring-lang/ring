@@ -420,6 +420,11 @@ Type: int
 argc
 Type: char *
 argv[2]
+ring_vmlib_state_filetokens
+Type: RingState *
+pState
+Type: char *
+cFile
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA

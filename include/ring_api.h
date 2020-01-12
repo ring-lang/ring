@@ -225,6 +225,8 @@ void ring_vmlib_state_setvar ( void *pPointer ) ;
 void ring_vmlib_state_new ( void *pPointer ) ;
 
 void ring_vmlib_state_mainfile ( void *pPointer ) ;
+
+void ring_vmlib_state_filetokens ( void *pPointer ) ;
 /* Ring See and Give */
 
 void ring_vmlib_see ( void *pPointer ) ;

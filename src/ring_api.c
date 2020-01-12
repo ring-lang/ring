@@ -107,6 +107,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_setvar",ring_vmlib_state_setvar);
 	ring_vm_funcregister("ring_state_new",ring_vmlib_state_new);
 	ring_vm_funcregister("ring_state_mainfile",ring_vmlib_state_mainfile);
+	ring_vm_funcregister("ring_state_filetokens",ring_vmlib_state_filetokens);
 	/*
 	**  Ring See and Give 
 	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
@@ -2167,4 +2168,21 @@ void ring_vmlib_state_mainfile ( void *pPointer )
 	*/
 	pRingState->nDontDeleteTheVM = 1 ;
 	ring_scanner_readfile(pRingState,cStr);
+}
+
+void ring_vmlib_state_filetokens ( void *pPointer )
+{
+	RingState *pState  ;
+	char *cFile  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	cFile = RING_API_GETSTRING(2);
+	pState->nOnlyTokens = 1 ;
+	ring_scanner_readfile(pState,cFile);
+	pState->nOnlyTokens = 0 ;
+	RING_API_RETLIST(pState->pRingFileTokens);
+	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
 }
