@@ -51,4 +51,4 @@ func PrintTokens aList
 	next
 
 func Width cText,nWidth
-	return cText+space(nWidth-len(cText))
+	return cText+copy(" ",nWidth-len(cText))
