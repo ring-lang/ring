@@ -10,12 +10,6 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-ring_vm_savestate_usinglists
-Type: List *
-pThis
-ring_vm_restorestate_usinglists
-Type: List *
-pThis
 ring_vm_savestate2
 Type: List *
 pThis
@@ -28,12 +22,6 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-ring_vm_savestate2_usinglists
-Type: List *
-pThis
-ring_vm_restorestate2_usinglists
-Type: List *
-pThis
 ring_vm_backstate
 Type: int
 nLimit,y
