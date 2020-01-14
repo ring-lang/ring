@@ -215,6 +215,14 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pVM->nInClassRegion = 0 ;
 	pVM->pAssignment = NULL ;
 	pVM->nNOAssignment = 0 ;
+	pVM->pBraceObject = NULL ;
+	pVM->nBeforeEqual = 0 ;
+	pVM->nFuncExecute = 0 ;
+	pVM->nFuncExecute2 = 0 ;
+	pVM->nGetSetProperty = 0 ;
+	pVM->pGetSetObject = NULL ;
+	pVM->nGetSetObjType = 0 ;
+	pVM->lNoSetterMethod = 0 ;
 }
 
 void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )

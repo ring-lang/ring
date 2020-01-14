@@ -51,6 +51,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				}
 				if ( pVM->nFuncExecute > 0 ) {
 					nCont = 1 ;
+					ring_vm_cleansetpropertylist(pVM);
 				}
 				if ( nCont == 1 ) {
 					/* Create the Temp Variable */
