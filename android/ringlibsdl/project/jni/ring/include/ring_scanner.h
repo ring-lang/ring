@@ -128,7 +128,7 @@ void ring_scanner_operators ( Scanner *pScanner ) ;
 
 int ring_scanner_lasttokentype ( Scanner *pScanner ) ;
 
-char * ring_scanner_lasttokenvalue ( Scanner *pScanner ) ;
+const char * ring_scanner_lasttokenvalue ( Scanner *pScanner ) ;
 
 void ring_scanner_floatmark ( Scanner *pScanner,int type ) ;
 
