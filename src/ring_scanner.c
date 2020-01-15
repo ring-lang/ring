@@ -706,7 +706,7 @@ int ring_scanner_lasttokentype ( Scanner *pScanner )
 	return SCANNER_TOKEN_NOTOKEN ;
 }
 
-char * ring_scanner_lasttokenvalue ( Scanner *pScanner )
+const char * ring_scanner_lasttokenvalue ( Scanner *pScanner )
 {
 	int x  ;
 	List *pList  ;
@@ -714,9 +714,9 @@ char * ring_scanner_lasttokenvalue ( Scanner *pScanner )
 	x = ring_list_getsize(pScanner->Tokens);
 	if ( x > 0 ) {
 		pList = ring_list_getlist(pScanner->Tokens,x);
-		return ring_list_getstring(pList,2) ;
+		return (const char *) ring_list_getstring(pList,2) ;
 	}
-	return (char *) "" ;
+	return "" ;
 }
 
 void ring_scanner_floatmark ( Scanner *pScanner,int type )
