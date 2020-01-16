@@ -305,13 +305,6 @@ RING_API Item * ring_list_getitem ( List *pList,int index )
 	return pItem ;
 }
 
-RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index )
-{
-	assert(pList != NULL);
-	pList->pLastItemLastAccess = pItems ;
-	pList->nNextItemAfterLastAccess = index + 1 ;
-}
-
 RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index )
 {
 	int x  ;
