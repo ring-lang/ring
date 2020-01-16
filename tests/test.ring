@@ -62,8 +62,8 @@ func RunTest nIndex,aTest
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
-	if aTest[:Condition] != NULL
-		if ! aTest[:Condition]
+	if isNumber(aTest[:Condition])
+		if not aTest[:Condition]
 			style("IGNORE",:BlackYellow)
 			return 
 		ok
