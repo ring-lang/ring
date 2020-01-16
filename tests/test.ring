@@ -62,9 +62,9 @@ func RunTest nIndex,aTest
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
-	if aTest[:Conditon] != NULL
+	if aTest[:Condition] != NULL
 		if ! aTest[:Condition]
-			style("IGNORE",:YellowBlack)
+			style("IGNORE",:BlackYellow)
 			return 
 		ok
 	ok

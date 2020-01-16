@@ -30,4 +30,8 @@ func style cText,nStyle
 			cc_print(CC_FG_YELLOW | CC_BG_BLACK, cText)
 		on :WhiteRed
 			cc_print(CC_FG_WHITE  | CC_BG_RED, cText)
+		on :BlackYellow
+			cc_print(CC_FG_BLACK | CC_BG_YELLOW, cText)
+
 	off
+
