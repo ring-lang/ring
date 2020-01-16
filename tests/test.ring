@@ -41,7 +41,7 @@ func RunTests()
 		aTest = aTests[x]
 		if isNumber(aTest[:Condition])
 			if not aTest[:Condition]
-				See nl + Width("Test ("+nIndex+") ",11) + " : " + 
+				See nl + Width("Test ("+x+") ",11) + " : " + 
 				Width(aTest[:Name],65)
 				see " --- "
 				style("IGNORE",:BlackYellow)
