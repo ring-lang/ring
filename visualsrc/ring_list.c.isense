@@ -79,7 +79,6 @@ Type: Items *
 pItems
 Type: Item *
 pItem
-ring_list_setactiveitem
 ring_list_deleteitem_gc
 x
 Type: Items *
