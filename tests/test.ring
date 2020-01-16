@@ -72,7 +72,7 @@ func ShowTestResult  nIndex,aTest
 			return 
 		ok
 		see " --- " 
-		if read(cFileNameCorrect) = read(cFileNameCurrent)
+		if substr(read(cFileNameCorrect),windowsnl(),nl) = substr(read(cFileNameCurrent),windowsnl(),nl)
 			style("PASS",:YellowBlack)
 		else 
 			style("FAIL",:WhiteBlue)
