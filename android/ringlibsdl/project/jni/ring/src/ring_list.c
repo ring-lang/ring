@@ -49,21 +49,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
-	Items *pItems,*pItemsNext  ;
-	pItems = pList->pFirst ;
-	pItemsNext = pItems ;
-	/* Delete Items */
-	while ( pItemsNext != NULL ) {
-		pItemsNext = pItems->pNext ;
-		ring_items_delete_gc(pState,pItems);
-		pItems = pItemsNext ;
-	}
-	/* Free Items Array */
-	ring_list_deletearray_gc(pState,pList);
-	/* Free HashTable */
-	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
-	}
+	/* Delete All Items */
+	ring_list_deleteallitems_gc(pState,pList);
 	ring_state_free(pState,pList);
 	pList = NULL ;
 	return pList ;
