@@ -39,6 +39,15 @@ func RunTests()
 	line()
 	for x = 1 to nMax
 		aTest = aTests[x]
+		if isNumber(aTest[:Condition])
+			if not aTest[:Condition]
+				See nl + Width("Test ("+nIndex+") ",11) + " : " + 
+				Width(aTest[:Name],65)
+				see " --- "
+				style("IGNORE",:BlackYellow)
+				loop
+			ok
+		ok
 		RunTest(x,aTest)
 		ShowTestResult(x,aTest)		
 	next
@@ -62,13 +71,6 @@ func RunTest nIndex,aTest
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
-	if isNumber(aTest[:Condition])
-		if not aTest[:Condition]
-			see " --- "
-			style("IGNORE",:BlackYellow)
-			return 
-		ok
-	ok
 	if nTestMode = C_MODE_TESTING
 		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
 		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
