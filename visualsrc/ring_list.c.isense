@@ -46,8 +46,6 @@ x
 Type: Items *
 pItems,*pItemsLast
 ring_list_delete_gc
-Type: Items *
-pItems,*pItemsNext
 ring_list_copy_gc
 Type: int
 x
