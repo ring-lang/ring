@@ -26,6 +26,7 @@ class test
 		myobj = myobj.go("test")
 		myobj = new QSqlDatabase()
 		myobj = myobj.addDatabase("QSQLITE") 
+		myobj.close()
 
 class point x y z
 

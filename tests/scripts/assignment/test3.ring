@@ -13,4 +13,4 @@ class test
 
 	myobj = new QSqlDatabase()
 	myobj = myobj.addDatabase("QSQLITE") 
-	
+	myobj.close()
