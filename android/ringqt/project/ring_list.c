@@ -348,8 +348,8 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index )
 				pItems->pNext->pPrev = pItemsPrev ;
 			}
 			ring_items_delete_gc(pState,pItems);
+			pList->nSize = pList->nSize - 1 ;
 		}
-		pList->nSize = pList->nSize - 1 ;
 	}
 	/* Refresh The Cache */
 	pList->nNextItemAfterLastAccess = 0 ;
