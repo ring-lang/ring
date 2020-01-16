@@ -62,6 +62,12 @@ func RunTest nIndex,aTest
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
+	if aTest[:Conditon] != NULL
+		if ! aTest[:Condition]
+			style("IGNORE",:YellowBlack)
+			return 
+		ok
+	ok
 	if nTestMode = C_MODE_TESTING
 		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
 		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
