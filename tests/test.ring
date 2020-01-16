@@ -64,6 +64,7 @@ func RunTest nIndex,aTest
 func ShowTestResult  nIndex,aTest
 	if isNumber(aTest[:Condition])
 		if not aTest[:Condition]
+			see " --- "
 			style("IGNORE",:BlackYellow)
 			return 
 		ok
