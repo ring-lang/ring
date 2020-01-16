@@ -169,6 +169,7 @@ More Improvements
 * Maze Game : Move the camera with the player
 * Maze Game : Restarting the game will hide the (You Win) message
 * Game Engine : display error message when we can't create the game window
+* Ring Tests : Added File build.sh for building on Linux and macOS
 * RingQt : Updated to Qt 5.12.6
 * RingQt : Added QQMLEngine class
 * RingQt : Added files for building RingQt without Bluetooth support 
