@@ -21,7 +21,7 @@ Ring 1.12 comes with the next features!
 * Calendar application
 * Load Again Command
 * ring_state_filetokens() function
-* Embedded Object File 
+* Embedded Ring Object File 
 * Better RingRayLib
 * More Improvements
 
@@ -203,8 +203,8 @@ Output:
 .. index:: 
 	pair: What is new in Ring 1.12?; Generate Embedded Object File
 
-Generate Embedded Object File
-=============================
+Generate Embedded Ring Object File
+==================================
 
 We can generate embedded object file (C source code) from the source code file (*.ring) 
 using -geo option
