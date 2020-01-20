@@ -92,7 +92,10 @@ also the language provide other options like</p>
 <tr class="row-even"><td>-go</td>
 <td>Generate Object File</td>
 </tr>
-<tr class="row-odd"><td>-w</td>
+<tr class="row-odd"><td>-geo</td>
+<td>Generate embedded object file (C source code)</td>
+</tr>
+<tr class="row-even"><td>-w</td>
 <td>Display Warnings</td>
 </tr>
 </tbody>
@@ -924,6 +927,23 @@ ring source files that you can keep or distribute based on the application (comm
 </pre></div>
 </div>
 </div>
+<div class="section" id="generate-embedded-object-file">
+<span id="index-10"></span><h2>Generate Embedded Object File<a class="headerlink" href="#generate-embedded-object-file" title="Permalink to this headline">¶</a></h2>
+<p>You can generate embedded object file (C source code) from your source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
+using -geo option</p>
+<p>Command:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
+</pre></div>
+</div>
+<p>This command will generate at least three files</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="p">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="p">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>More files could be generated based on the project size</p>
+<p>The generated files will pass the byte code to Ring VM to be executed</p>
+</div>
 </div>
 
 
@@ -944,6 +964,7 @@ ring source files that you can keep or distribute based on the application (comm
 <li><a class="reference internal" href="#printing-instruction-operation-code">Printing Instruction Operation Code</a></li>
 <li><a class="reference internal" href="#performance">Performance</a></li>
 <li><a class="reference internal" href="#generate-object-file">Generate Object File</a></li>
+<li><a class="reference internal" href="#generate-embedded-object-file">Generate Embedded Object File</a></li>
 </ul>
 </li>
 </ul>

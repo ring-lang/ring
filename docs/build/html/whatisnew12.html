@@ -63,6 +63,7 @@
 <li>Calendar application</li>
 <li>Load Again Command</li>
 <li>ring_state_filetokens() function</li>
+<li>Embedded Object File</li>
 <li>Better RingRayLib</li>
 <li>More Improvements</li>
 </ul>
@@ -196,8 +197,25 @@ EndLine
 </pre></div>
 </div>
 </div>
+<div class="section" id="generate-embedded-object-file">
+<span id="index-8"></span><h2>Generate Embedded Object File<a class="headerlink" href="#generate-embedded-object-file" title="Permalink to this headline">¶</a></h2>
+<p>We can generate embedded object file (C source code) from the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
+using -geo option</p>
+<p>Command:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
+</pre></div>
+</div>
+<p>This command will generate at least three files</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="p">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="p">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>More files could be generated based on the project size</p>
+<p>The generated files will pass the byte code to Ring VM to be executed</p>
+</div>
 <div class="section" id="better-ringraylib">
-<span id="index-8"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
 <p>More Samples are added to RingRayLib</p>
 <blockquote>
 <div><ul class="simple">
@@ -218,7 +236,7 @@ EndLine
 <img alt="RayLib Example" src="_images/raylib_cubicmap.png" />
 </div>
 <div class="section" id="more-improvements">
-<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>New Samples</dt>
@@ -289,6 +307,7 @@ EndLine
 <li><a class="reference internal" href="#calendar-application">Calendar application</a></li>
 <li><a class="reference internal" href="#load-again-command">Load Again Command</a></li>
 <li><a class="reference internal" href="#ring-state-filetokens-function">ring_state_filetokens() function</a></li>
+<li><a class="reference internal" href="#generate-embedded-object-file">Generate Embedded Object File</a></li>
 <li><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>

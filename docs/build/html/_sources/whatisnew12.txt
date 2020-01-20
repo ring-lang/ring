@@ -21,6 +21,7 @@ Ring 1.12 comes with the next features!
 * Calendar application
 * Load Again Command
 * ring_state_filetokens() function
+* Embedded Object File 
 * Better RingRayLib
 * More Improvements
 
@@ -198,6 +199,33 @@ Output:
 	Operator    : ?
 	Identifier  : name
 	EndLine
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Generate Embedded Object File
+
+Generate Embedded Object File
+=============================
+
+We can generate embedded object file (C source code) from the source code file (*.ring) 
+using -geo option
+
+Command:
+
+.. code-block:: ring
+
+	ring test.ring -geo
+
+This command will generate at least three files
+
+.. code-block:: ring
+
+	test.c
+	ringappcode.c
+	ringappcode.h
+
+More files could be generated based on the project size
+
+The generated files will pass the byte code to Ring VM to be executed
 
 .. index:: 
 	pair: What is new in Ring 1.12?; Better RingRayLib

@@ -20,6 +20,7 @@ Option		Description
 -ins		Print instruction operation code before execution
 -performance	Print clock before and after program execution
 -go		Generate Object File
+-geo		Generate embedded object file (C source code)
 -w		Display Warnings 
 ============	=======================================================
 
@@ -912,3 +913,30 @@ To run the compiled object file
 
 	ring test.ringo
 
+
+.. index:: 
+	pair: Command Line Options; Generate Embedded Object File
+
+Generate Embedded Object File
+=============================
+
+You can generate embedded object file (C source code) from your source code file (*.ring) 
+using -geo option
+
+Command:
+
+.. code-block:: ring
+
+	ring test.ring -geo
+
+This command will generate at least three files
+
+.. code-block:: ring
+
+	test.c
+	ringappcode.c
+	ringappcode.h
+
+More files could be generated based on the project size
+
+The generated files will pass the byte code to Ring VM to be executed
