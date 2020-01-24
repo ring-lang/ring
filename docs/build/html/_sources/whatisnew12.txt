@@ -19,6 +19,7 @@ Ring 1.12 comes with the next features!
 * ASCII Table application
 * BMI Calculator application
 * Calendar application
+* Julian Dat Calendar application
 * Load Again Command
 * ring_state_filetokens() function
 * Embedded Ring Object File 
@@ -68,6 +69,17 @@ The Calendar for Year 2020
 
 .. image:: calendar.png
 	:alt: calendar
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Julian Day Calendar application
+
+Julian Day Calendar application
+===============================
+
+The Julian Day Calendar application
+
+.. image:: juliancalendar.png
+	:alt: juliandaycalendar
 
 .. index:: 
 	pair: What is new in Ring 1.12?; Load Again Command
