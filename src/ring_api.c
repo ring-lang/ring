@@ -1979,6 +1979,7 @@ void ring_vmlib_nullpointer ( void *pPointer )
 void ring_vmlib_space ( void *pPointer )
 {
 	char *pString  ;
+	unsigned int nStrSize  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1988,12 +1989,14 @@ void ring_vmlib_space ( void *pPointer )
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return ;
 		}
-		pString = (char *) ring_state_calloc(((VM *) pPointer)->pRingState,1,RING_API_GETNUMBER(1));
+		nStrSize = (unsigned int) RING_API_GETNUMBER(1) ;
+		pString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nStrSize);
 		if ( pString == NULL ) {
 			printf( RING_OOM ) ;
 			exit(0);
 		}
-		RING_API_RETSTRING2(pString,RING_API_GETNUMBER(1));
+		memset(pString,' ',nStrSize);
+		RING_API_RETSTRING2(pString,nStrSize);
 		ring_state_free(((VM *) pPointer)->pRingState,pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

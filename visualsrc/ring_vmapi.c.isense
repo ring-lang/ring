@@ -380,6 +380,8 @@ ring_vmlib_nullpointer
 ring_vmlib_space
 Type: char *
 pString
+Type: unsigned int
+nStrSize
 ring_vmlib_ptrcmp
 Type: List *
 pList, *pList2
