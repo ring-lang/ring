@@ -22,13 +22,13 @@ Download
 
 	https://developer.android.com/sdk/index.html
 
-* The Android NDK (Tested using android-ndk-r10c)
+* The Android NDK (Tested using android-ndk-r21)
 
 	http://developer.android.com/tools/sdk/ndk/index.html
 
 * Java SE Development Kit (JDK) v6 or later
 
-	http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html	
+	https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Update the Android SDK
@@ -62,7 +62,7 @@ Install Qt for Android
 
 * You can install Qt for Android from the next link
 
-		https://download.qt.io/archive/qt/5.12/5.12.3/
+		https://download.qt.io/archive/qt/5.12/5.12.6/
 
 * Run Qt Creator, Select Tools > Options > Android to add the 
     Android NDK and SDK paths. 
