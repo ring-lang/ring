@@ -1,0 +1,26 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Analysis</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="Number_to_Words.html">Number to Words</a></p>
+
+<ol>
+<li><a href="Number_to_Words--Preamble.html">Preamble</a></li>
+<li><a href="Number_to_Words--Introduction.html">Introduction</a></li>
+<li><a href="Number_to_Words--Analysis.html">Analysis</a></li>
+<li><a href="Number_to_Words--Step_1.html">Step 1</a></li>
+<li><a href="Number_to_Words--Step_2.html">Step 2</a></li>
+<li><a href="Number_to_Words--Step_3.html">Step 3</a></li>
+<li><a href="Number_to_Words--Step_4.html">Step 4</a></li>
+<li><a href="Number_to_Words--Step_5.html">Step 5</a></li>
+<li><a href="Number_to_Words--Step_6.html">Step 6</a></li>
+<li><a href="Number_to_Words--Recapitulation.html">Recapitulation</a></li>
+<li><a href="Number_to_Words--About.html">About</a></li>
+</ol></div>
+<div class="page"><h1><b><u>Analysis</u></b></h1><br /><br /><br /><a name="h2-1"></a><h2>How do we proceed that?</h2><br /><br />Lets look closer at the number: 1234567, we can break it down into groups of three.<br />The number “1” refers to the group Million.<br />The number “234” is for the group of Thousands.<br />And in the last group, the number “567” has no name for its group.<br />But like the previous groups, it is composed of different elements, the elements (or items) are:<br /><br /><span style="color:#1e90ff;">5 hundred 6 tens 7 ones</span><span style="color:#522719;"><br /><br /></span>So hundreds, tens and the ones.<br /><br />The logic is obvious.<br />We need to divide the entire input (1,234,567) into groups,<br />Assign them the correct group name (Million, Thousand ... etc.) and then break them down (groups of three) into their elements (Hundreds, Tens and Ones).<br />We start at the end (from right to left ... because of the small numbers) and then output everything in reverse order.<br /><br />It is important to first look at the structure of the number. eg: 1234567<br />	<br />		   hto<br />		   |||<br />	1 234 567<br />         |      |<br />         g      g<br />	<br />	o: ones ( 1-19)<br />	t: tens (20-90)<br />	h: "Hundred"<br />	g: Groups (Thousand, Hundred, Tens ...)<br /><br />Let's start from right to left ( &lt;-- ).<br />7, 6 and 5 consists of: seven (Ones) and sixty (Tens) and five (Hundreds).<br />This is the first group (seen from left to right à ) that is to be evaluated and converted.<br /><br />We want to call the numbers 1..19 the Ones.<br />The whole numbers 20..90 the Tens.<br />With that, every number from 1 to 999 can be converted into words.<br />First of all the last two digits - 67 (sixty seven) are in the same group (Ones) as the first digit 5 (five "Hundred").<br /><br />The digits in the group when combined left to right ( --&gt; )show up as: five hundred sixty seven.<br /><br />So once again, in order:<br /><br />        <span style="color:#1e90ff;">1 million<br />    234 thousand<br />    567 (no group name)</span><br /><br />Each of the groups can consist of one, two or three numbers. This is repeated.<br />We'll look at the last three groups: six hundred seventy-eight.<br />The first number, if there is one, is always 1-9 (Hundred).<br />Then there is a group of two, 78, and the first number belongs to the Tens and the last (third) to the Ones.<br />Now the task is practically solved.<br /><br />So we need a procedure that searches the input for groups of 3, assigns them a corresponding name (Million, Thousand, etc.),<br />then breaks down the individual groups of 3, determines the Hundreds and Tens and assembles them with Ones.<br /><br />All right? Now we can proceed further.<br /><br /></div></div>
+</body></html>

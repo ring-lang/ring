@@ -1,0 +1,26 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Step 1</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body><div class="main"><div class="tree">
+<p><strong>Index</strong></p>
+<p><a href="Number_to_Words.html">Number to Words</a></p>
+
+<ol>
+<li><a href="Number_to_Words--Preamble.html">Preamble</a></li>
+<li><a href="Number_to_Words--Introduction.html">Introduction</a></li>
+<li><a href="Number_to_Words--Analysis.html">Analysis</a></li>
+<li><a href="Number_to_Words--Step_1.html">Step 1</a></li>
+<li><a href="Number_to_Words--Step_2.html">Step 2</a></li>
+<li><a href="Number_to_Words--Step_3.html">Step 3</a></li>
+<li><a href="Number_to_Words--Step_4.html">Step 4</a></li>
+<li><a href="Number_to_Words--Step_5.html">Step 5</a></li>
+<li><a href="Number_to_Words--Step_6.html">Step 6</a></li>
+<li><a href="Number_to_Words--Recapitulation.html">Recapitulation</a></li>
+<li><a href="Number_to_Words--About.html">About</a></li>
+</ol></div>
+<div class="page"><h1><b><u>Step 1</u></b></h1><br /><br /><br /><a name="h1-1"></a><h1>1. Digits from 1 to 19</h1><br /><br /><br />We start small.<br />How do we interpret simple numbers (1..19), and convert the Digits into Words ( one .. nineteen)<br />We need a Name List for these Digits.<br />We capture these into an array (or list).<br />We call these "Ones".<br /><br />Units of Ones:<br /><br /><span style="color:#1e90ff;">// units:<br />ones=["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", " ... ", "nineteen"]</span><em><br /></em><br />We make it a little motivational test:<br /><br /><div class="codebox"><div class="codebox"><span style="color:#0088ff;font-weight:400">//&nbsp;***&nbsp;step&nbsp;1</span><br /><span style="color:#0088ff;font-weight:400">//&nbsp;number&nbsp;to&nbsp;words&nbsp;(units:)</span><br /><br />ones=[<span style="color:#3ad900;font-weight:400">"one"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"two"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"three"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"four"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"five"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"six"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"seven"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"eight"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"nine"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"ten"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"eleven"</span>,<br />&nbsp;<span style="color:#3ad900;font-weight:400">"twelve"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"thirteen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"fourteen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"fifteen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"sixteen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"seventeen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"eighteen"</span>,&nbsp;<span style="color:#3ad900;font-weight:400">"nineteen"</span>]<br /><br />n&nbsp;=&nbsp;<span style="color:#3ad900;font-weight:400">"12"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0088ff;font-weight:400">//&nbsp;input&nbsp;as&nbsp;string&nbsp;(the&nbsp;number&nbsp;can&nbsp;be&nbsp;any&nbsp;length)</span><br />?&nbsp;<span style="color:#3ad900;font-weight:400">"input:&nbsp;"</span>+&nbsp;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0088ff;font-weight:400">//&nbsp;for&nbsp;control&nbsp;only</span><br /><br /><span style="color:#ff9d00;font-weight:700">if</span>&nbsp;number(n)&nbsp;&gt;&nbsp;<span style="color:#ff0044;font-weight:400">19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0088ff;font-weight:400">//&nbsp;test&nbsp;input</span><br />&nbsp;?&nbsp;<span style="color:#3ad900;font-weight:400">"Incorrect&nbsp;input!"</span>&nbsp;&nbsp;&nbsp;<span style="color:#0088ff;font-weight:400">//&nbsp;message</span><br /><span style="color:#ff9d00;font-weight:700">else</span><br />&nbsp;?&nbsp;ones[number(n)]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0088ff;font-weight:400">//&nbsp;ones-element&nbsp;nr:&nbsp;12&nbsp;output:&nbsp;twelve</span><br />ok</div></div><br /><br /><br /><br />Good ... The journey of a thousand miles begins with one step. -- Lao Tzu.<br /><br />Let's move on ... The first step towards getting somewhere is to decide you're not going to stay where you are." -- John Pierpont "J.P." Morgan.<br /><br />The program works ... Well served by 1 to 19.<br />Fine ... We are now a step further. Let's move on.<br /></div></div>
+</body></html>
