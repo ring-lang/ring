@@ -7,7 +7,7 @@ Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/EfUaZWkG
 
 # To run the application
 
-	ring CalmoSoftCalendar2020.ring
+	ring CalmoSoftCalendar.ring
 
 # Screen Shot
 
