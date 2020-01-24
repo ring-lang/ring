@@ -19,7 +19,8 @@ Ring 1.12 comes with the next features!
 * ASCII Table application
 * BMI Calculator application
 * Calendar application
-* Julian Dat Calendar application
+* Julian Day Calendar application
+* Tutorial: Number to Words
 * Load Again Command
 * ring_state_filetokens() function
 * Embedded Ring Object File 
@@ -80,6 +81,18 @@ The Julian Day Calendar application
 
 .. image:: juliancalendar.png
 	:alt: juliandaycalendar
+
+
+.. index:: 
+	pair: What is new in Ring 1.12?; Tutorial: Number to Words
+
+Tutorial: Number to Words
+=========================
+
+Folder : ring/samples/other/number2words
+
+.. image:: number2words.png
+	:alt: Number2Words
 
 .. index:: 
 	pair: What is new in Ring 1.12?; Load Again Command
