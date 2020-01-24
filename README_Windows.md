@@ -107,7 +107,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Generate RingQt Source Code and Build
 
-	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.3/
+	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/
 	
 	cd ../extensions/ringqt
 	gencodeqt512.bat
