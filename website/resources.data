@@ -190,6 +190,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
 					'<img src="go.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
+					'<img src="calendar.png" width="40%">'
 				]
 			    ]
                  ],
