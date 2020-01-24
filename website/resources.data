@@ -194,6 +194,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
 					'<img src="calendar.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
+					'<img src="juliandaycalendar.png" width="40%">'
 				]
 			    ]
                  ],
