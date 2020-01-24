@@ -323,6 +323,7 @@ More Improvements
 * OSCopyFolder() function is updated to copy the files in sub folders too
 * fgetpos() function is updated to work as expected
 * IsFunction() function is updated to be not case sensitive
+* Space() function is updated to clear the output string with spaces
 * Ring Compiler : Added file buildclang.bat for building on Windows using Clang compiler
 * Ring VM - Internal hash function is updated
 * Ring VM - Better Code for setting pVM->aSetProperty when creating new objects
