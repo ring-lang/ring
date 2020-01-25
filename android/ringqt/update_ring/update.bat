@@ -9,5 +9,5 @@ cd ..\..\..\extensions\ringqt\
 call gencodeandroid.bat
 copy cpp\src\*.cpp ..\..\android\ringqt\project\
 copy cpp\include\*.h ..\..\android\ringqt\project\
-call gencodeqt512.bat
+call gencodeqt512_nobluetooth.bat
 cd ..\..\android\ringqt\update_ring
