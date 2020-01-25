@@ -99,7 +99,9 @@ aAllPackagesInfo = [
 		"zerolib",
 		"asciitable",
 		"bmicalculator",
-		"gogame"
+		"gogame",
+		"calendar",
+		"juliandaycalendar"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -167,7 +169,9 @@ aAllPackagesInfo = [
 		"texttospeech",
 		"asciitable",
 		"bmicalculator",
-		"gogame"
+		"gogame",
+		"calendar",
+		"juliandaycalendar"
 	],
 	:findinfiles = 	[
 		"ringnotepad"

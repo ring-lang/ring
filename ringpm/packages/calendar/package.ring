@@ -81,5 +81,9 @@ aPackageInfo = [
 	:linuxremove = "",
 	:macosremove = "",
 	:ubunturemove = "",
-	:fedoraremove = ""
+	:fedoraremove = "",
+	:remotefolder = "calendar",
+	:branch = "master",
+	:providerusername = "ringpackages",
+	:providerwebsite = "github.com"
 ]
