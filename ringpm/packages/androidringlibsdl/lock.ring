@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "androidringlibsdl",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.0.1",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "gameengine",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
