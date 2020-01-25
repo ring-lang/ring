@@ -38,7 +38,8 @@
           <li><a href="index.html#">Home</a></li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
             <ul class="dropdown-menu">
-		  <li><a href="download.html">Download Ring 1.11</a></li>
+		  <li><a href="download.html">Download Ring 1.12</a></li>
+		  <li><a href="download111.html">Download Ring 1.11</a></li>
 		  <li><a href="download110.html">Download Ring 1.10</a></li>
 		  <li><a href="download19.html">Download Ring 1.9</a></li>
 		  <li><a href="download18.html">Download Ring 1.8</a></li>
@@ -55,6 +56,7 @@
           <li><a href="index.html#why">Why?</a></li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<span class="caret"></span></a>
             <ul class="dropdown-menu">
+		  <li><a href="doc1.12/index.html" target="_blank">Ring 1.12 Documentation</a></li>
 		  <li><a href="doc1.11/index.html" target="_blank">Ring 1.11 Documentation</a></li>
 		  <li><a href="doc1.10/index.html" target="_blank">Ring 1.10 Documentation</a></li>
 		  <li><a href="doc1.9/index.html" target="_blank">Ring 1.9 Documentation</a></li>
@@ -79,7 +81,7 @@
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.11/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.12/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -124,7 +126,7 @@
 				</div>
 				
 				<div class="col-sm-12 col-md-2">
-					<a href="doc1.11/index.html" target="_blank" class="btn btn-default btn-block" style="">Documents</a>
+					<a href="doc1.12/index.html" target="_blank" class="btn btn-default btn-block" style="">Documents</a>
 				</div>
 				
 				<div class="col-sm-12 col-md-2">

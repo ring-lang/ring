@@ -1,4 +1,5 @@
 aNews = [
+  ["January 25, 2020",'<a href="doc1.12/whatisnew12.html" target="_blank"> Ring 1.12 Released!</a>'],
   ["December 25, 2019",'<a href="https://www.youtube.com/watch?v=K8Lh03PdcjI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=301" target="_blank"> Over 300 videos about Ring in Hassouna Academy'],
   ["December 23, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/samples/other/number2words" target="_blank">Tutorial: Number to words </a>'],
   ["December 5, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">The Go Game </a>'],
