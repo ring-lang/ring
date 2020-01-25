@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "videomusicplayer",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -28,14 +28,21 @@ aLockInfo = [
 		:providerwebsite = ""
 	],
 	[
-		:name = "qt55runtime",
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.1",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "qt512runtime",
 		:branch = "master",
 		:version = "1.0.0",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "qt55qmlruntime",
+		:name = "qt512qmlruntime",
 		:branch = "master",
 		:version = "1.0.0",
 		:providerusername = "ringpackages",
@@ -44,7 +51,7 @@ aLockInfo = [
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.0.2",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
