@@ -627,10 +627,12 @@ Two Cubes
 					ray = GetMouseRay(GetMousePosition(), camera)
 
 					collision1 = CheckCollisionRayBox(ray,
-						BoundingBox( cubePosition1.x - cubeSize.x/2, cubePosition1.y - cubeSize.y/2,
-						cubePosition1.z - cubeSize.z/2,
-						cubePosition1.x + cubeSize.x/2, cubePosition1.y + cubeSize.y/2,
-						cubePosition1.z + cubeSize.z/2 ) )
+					BoundingBox( cubePosition1.x - 
+					cubeSize.x/2, cubePosition1.y - cubeSize.y/2,
+					cubePosition1.z - cubeSize.z/2,
+					cubePosition1.x + cubeSize.x/2,
+					cubePosition1.y + cubeSize.y/2,
+					cubePosition1.z + cubeSize.z/2 ) )
 				else 
 					collision1 = false
 				ok
@@ -638,10 +640,12 @@ Two Cubes
 					ray = GetMouseRay(GetMousePosition(), camera)
 
 					collision2 = CheckCollisionRayBox(ray,
-						BoundingBox( cubePosition2.x - cubeSize.x/2, cubePosition2.y - cubeSize.y/2,
-						cubePosition2.z - cubeSize.z/2,
-						cubePosition2.x + cubeSize.x/2, cubePosition2.y + cubeSize.y/2,
-						cubePosition2.z + cubeSize.z/2 ) )
+					BoundingBox( cubePosition2.x -
+					cubeSize.x/2, cubePosition2.y - cubeSize.y/2,
+					cubePosition2.z - cubeSize.z/2,
+					cubePosition2.x + cubeSize.x/2,
+					cubePosition2.y + cubeSize.y/2,
+					cubePosition2.z + cubeSize.z/2 ) )
 				else 
 					collision2 = false
 			ok
@@ -654,28 +658,38 @@ Two Cubes
 				BeginMode3D(camera)
 
 					 if collision1
-						DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-						DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+						DrawCube(cubePosition1, cubeSize.x,
+						cubeSize.y, cubeSize.z, RED)
+						DrawCubeWires(cubePosition1, cubeSize.x,
+						cubeSize.y, cubeSize.z, MAROON)
 
-						DrawCubeWires(cubePosition1, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
-									cubeSize.z + 0.2f, GREEN)
+						DrawCubeWires(cubePosition1, cubeSize.x +
+						0.2f, cubeSize.y + 0.2f,
+						cubeSize.z + 0.2f, GREEN)
 						collision1 = true
 					 else
-						DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-						DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+						DrawCube(cubePosition1, cubeSize.x,
+						cubeSize.y, cubeSize.z, GRAY)
+						DrawCubeWires(cubePosition1, cubeSize.x,
+						cubeSize.y, cubeSize.z, DARKGRAY)
 						collision1 = false
 					 ok
 
 					 if collision2
-						DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-						DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+						DrawCube(cubePosition2, cubeSize.x,
+						cubeSize.y, cubeSize.z, RED)
+						DrawCubeWires(cubePosition2, cubeSize.x,
+						cubeSize.y, cubeSize.z, MAROON)
 
-						DrawCubeWires(cubePosition2, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
-										cubeSize.z + 0.2f, GREEN)
+						DrawCubeWires(cubePosition2, cubeSize.x +
+						0.2f, cubeSize.y + 0.2f,
+						cubeSize.z + 0.2f, GREEN)
 						collision2 = true
 					 else
-						DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-						DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+						DrawCube(cubePosition2, cubeSize.x,
+						cubeSize.y, cubeSize.z, GRAY)
+						DrawCubeWires(cubePosition2, cubeSize.x,
+						cubeSize.y, cubeSize.z, DARKGRAY)
 						collision2 = false
 					 ok
 
@@ -685,11 +699,13 @@ Two Cubes
 
 				EndMode3D()
 
-				DrawText("Try selecting the box with mouse!", 240, 10, 20, DARKGRAY)
+				DrawText("Try selecting the box with mouse!", 240, 10,
+						20, DARKGRAY)
 
 				if collision1 or collision2  
-					DrawText("BOX SELECTED", (screenWidth - MeasureText("BOX SELECTED", 30)) / 2,
-								screenHeight * 0.1f, 30, GREEN) 
+					DrawText("BOX SELECTED", 
+					(screenWidth - MeasureText("BOX SELECTED", 30)) / 2,
+					screenHeight * 0.1f, 30, GREEN) 
 				ok
 
 				DrawFPS(10, 10)
@@ -746,8 +762,8 @@ Basic Shapes
 		DrawLine(18, 42, screenWidth - 18, 42, BLACK)
 		DrawCircleLines(screenWidth/4, 340, 80, DARKBLUE)
 		DrawTriangleLines(Vector2(screenWidth/4*3, 160),
-						  Vector2(screenWidth/4*3 - 20, 230),
-						  Vector2(screenWidth/4*3 + 20, 230), DARKBLUE)
+				Vector2(screenWidth/4*3 - 20, 230),
+				Vector2(screenWidth/4*3 + 20, 230), DARKBLUE)
 		EndDrawing()
 
 	end
@@ -819,8 +835,11 @@ Draw Ring
 		drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ), 
 				"Draw CircleLines", drawCircleLines)
 
-		if segments >= 4 	DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
-		else			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)	ok
+		if segments >= 4 	
+			DrawText("MODE: MANUAL", 600, 270, 10, MAROON)
+		else		
+			DrawText("MODE: AUTO", 600, 270, 10, DARKGRAY)	
+		ok
 		
 		DrawFPS(10, 10)
 
@@ -872,9 +891,10 @@ Bezier Lines
 
 		BeginDrawing()
 
-			ClearBackground(RAYWHITE)
-			DrawText("USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS", 15, 20, 20, GRAY)
-			DrawLineBezier(start, endvec, 2.0, RED)
+		ClearBackground(RAYWHITE)
+		DrawText("USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS",
+				 15, 20, 20, GRAY)
+		DrawLineBezier(start, endvec, 2.0, RED)
 
 		EndDrawing()
 
@@ -934,10 +954,12 @@ Collision Area
 		boxB.y = GetMouseY() - boxB.height/2
 
 		// Make sure Box B does not go out of move area limits
-		if ((boxB.x + boxB.width) >= GetScreenWidth()) boxB.x = GetScreenWidth() - boxB.width 
+		if ((boxB.x + boxB.width) >= GetScreenWidth()) 
+			boxB.x = GetScreenWidth() - boxB.width 
 		else (boxB.x <= 0) boxB.x = 0 ok
 
-		if ((boxB.y + boxB.height) >= GetScreenHeight()) boxB.y = GetScreenHeight() - boxB.height
+		if ((boxB.y + boxB.height) >= GetScreenHeight()) 
+			boxB.y = GetScreenHeight() - boxB.height
 		else (boxB.y <= screenUpperLimit) boxB.y = screenUpperLimit ok
 
 		// Check boxes collision
@@ -973,12 +995,15 @@ Collision Area
 				DrawRectangleRec(boxCollision, LIME)
 
 				// Draw collision message
-				DrawText("COLLISION!", GetScreenWidth()/2 - MeasureText("COLLISION!", 20)/2,
-							screenUpperLimit/2 - 10, 20, BLACK)
+				DrawText("COLLISION!", GetScreenWidth()/2 -
+						 MeasureText("COLLISION!", 20)/2,
+						screenUpperLimit/2 - 10, 20, BLACK)
 
 				// Draw collision area
-				DrawText("Collision Area: " + string(boxCollision.width*boxCollision.height),
-						GetScreenWidth()/2 - 100, screenUpperLimit + 10, 20, BLACK)
+				DrawText("Collision Area: " + 
+					string(boxCollision.width*boxCollision.height),
+					GetScreenWidth()/2 - 100, 
+					screenUpperLimit + 10, 20, BLACK)
 
 			ok
 
@@ -1029,7 +1054,8 @@ Following Eyes
 		irisRightPosition = GetMousePosition()
 
 		// Check not inside the left eye sclera
-		if !CheckCollisionPointCircle(irisLeftPosition, scleraLeftPosition, scleraRadius - 20)
+		if !CheckCollisionPointCircle(irisLeftPosition,
+			scleraLeftPosition, scleraRadius - 20)
 			dx = irisLeftPosition.x - scleraLeftPosition.x
 			dy = irisLeftPosition.y - scleraLeftPosition.y
 
@@ -1043,7 +1069,8 @@ Following Eyes
 		ok
 
 		// Check not inside the right eye sclera
-		if !CheckCollisionPointCircle(irisRightPosition, scleraRightPosition, scleraRadius - 20)
+		if !CheckCollisionPointCircle(irisRightPosition,
+			 scleraRightPosition, scleraRadius - 20)
 			dx = irisRightPosition.x - scleraRightPosition.x
 			dy = irisRightPosition.y - scleraRightPosition.y
 
@@ -1139,7 +1166,8 @@ Colors Palette
 		mousePoint = GetMousePosition()
 
 		for i = 1 to MAX_COLORS_COUNT 
-			if (CheckCollisionPointRec(mousePoint, colorsRecs[i])) colorState[i] = 1
+			if (CheckCollisionPointRec(mousePoint,
+				 colorsRecs[i])) colorState[i] = 1
 			else colorState[i] = 0 ok
 		next
 
@@ -1148,8 +1176,9 @@ Colors Palette
 			ClearBackground(RAYWHITE)
 
 			DrawText("raylib colors palette", 28, 42, 20, BLACK)
-			DrawText("press SPACE to see all colors", GetScreenWidth() - 180,
-						GetScreenHeight() - 40, 10, GRAY)
+			DrawText("press SPACE to see all colors",
+					 GetScreenWidth() - 180,
+					 GetScreenHeight() - 40, 10, GRAY)
 
 			for i = 1 to MAX_COLORS_COUNT    // Draw all rectangles
 				if colorState[i]
@@ -1161,12 +1190,15 @@ Colors Palette
 				DrawRectangleRec(colorsRecs[i], Fade(colors[i], cstate))
 
 				if (IsKeyDown(KEY_SPACE) || colorState[i])
-					DrawRectangle(colorsRecs[i].x, colorsRecs[i].y + colorsRecs[i].height - 26,
-								colorsRecs[i].width, 20, BLACK)
-					DrawRectangleLinesEx(colorsRecs[i], 6, Fade(BLACK, 0.3f))
+					DrawRectangle(colorsRecs[i].x,
+					colorsRecs[i].y + colorsRecs[i].height - 26,
+					colorsRecs[i].width, 20, BLACK)
+					DrawRectangleLinesEx(colorsRecs[i], 6,
+					Fade(BLACK, 0.3f))
 					DrawText(colorNames[i], colorsRecs[i].x + 
-							colorsRecs[i].width - MeasureText(colorNames[i], 10) - 12,
-							 colorsRecs[i].y + colorsRecs[i].height - 20, 10, colors[i])
+					colorsRecs[i].width - MeasureText(colorNames[i],
+					10) - 12, colorsRecs[i].y +
+					colorsRecs[i].height - 20, 10, colors[i])
 				ok
 			next
 
@@ -1200,7 +1232,8 @@ Rectangle Scaling
 	screenWidth = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [shapes] example - rectangle scaling mouse")
+	InitWindow(screenWidth, screenHeight,
+			 "raylib [shapes] example - rectangle scaling mouse")
 
 	rec = Rectangle( 100, 100, 200, 80 )
 
@@ -1216,10 +1249,13 @@ Rectangle Scaling
 		mousePosition = GetMousePosition()
 
 		if (CheckCollisionPointRec(mousePosition, rec) and
-			CheckCollisionPointRec(mousePosition, Rectangle(rec.x + rec.width - MOUSE_SCALE_MARK_SIZE,
-				rec.y + rec.height - MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE )))
+			CheckCollisionPointRec(mousePosition,
+			 Rectangle(rec.x + rec.width - MOUSE_SCALE_MARK_SIZE,
+				rec.y + rec.height - MOUSE_SCALE_MARK_SIZE,
+				 MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE )))
 			mouseScaleReady = true
-			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) mouseScaleMode = true ok
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) 
+				mouseScaleMode = true ok
 		else mouseScaleReady = false ok
 
 		if (mouseScaleMode)
@@ -1229,26 +1265,32 @@ Rectangle Scaling
 			rec.width = (mousePosition.x - rec.x)
 			rec.height = (mousePosition.y - rec.y)
 
-			if (rec.width < MOUSE_SCALE_MARK_SIZE) rec.width = MOUSE_SCALE_MARK_SIZE ok
-			if (rec.height < MOUSE_SCALE_MARK_SIZE) rec.height = MOUSE_SCALE_MARK_SIZE ok
+			if (rec.width < MOUSE_SCALE_MARK_SIZE) 
+				rec.width = MOUSE_SCALE_MARK_SIZE ok
+			if (rec.height < MOUSE_SCALE_MARK_SIZE) 
+				rec.height = MOUSE_SCALE_MARK_SIZE ok
 
-			if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) mouseScaleMode = false ok
+			if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) 
+				mouseScaleMode = false ok
 		ok
 
 		BeginDrawing()
 
 			ClearBackground(RAYWHITE)
 
-			DrawText("Scale rectangle dragging from bottom-right corner!", 10, 10, 20, GRAY)
+			DrawText("Scale rectangle dragging from bottom-right corner!",
+					 10, 10, 20, GRAY)
 
 			DrawRectangleRec(rec, Fade(GREEN, 0.5f))
 
 			if (mouseScaleReady)
 		   
 				DrawRectangleLinesEx(rec, 1, RED)
-				DrawTriangle(Vector2( rec.x + rec.width - MOUSE_SCALE_MARK_SIZE, rec.y + rec.height ),
-							 Vector2( rec.x + rec.width, rec.y + rec.height ),
-							 Vector2( rec.x + rec.width, rec.y + rec.height - MOUSE_SCALE_MARK_SIZE ), RED)
+				DrawTriangle(Vector2( rec.x + rec.width -
+				MOUSE_SCALE_MARK_SIZE, rec.y + rec.height ),
+				Vector2( rec.x + rec.width, rec.y + rec.height ),
+				Vector2( rec.x + rec.width, rec.y + rec.height -
+					 MOUSE_SCALE_MARK_SIZE ), RED)
 			ok
 
 		EndDrawing()
@@ -1276,7 +1318,8 @@ Music Playing
 	screenWidth = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [audio] example - music playing (streaming)")
+	InitWindow(screenWidth, screenHeight,
+		 "raylib [audio] example - music playing (streaming)")
 
 	InitAudioDevice()               
 
@@ -1356,7 +1399,8 @@ Sound Loading
 	screenWidth = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [audio] example - sound loading and playing")
+	InitWindow(screenWidth, screenHeight,
+			"raylib [audio] example - sound loading and playing")
 
 	InitAudioDevice()       
 
@@ -1408,7 +1452,8 @@ Image Drawing
 	screenWidth  = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [textures] example - image drawing")
+	InitWindow(screenWidth, screenHeight,
+			 "raylib [textures] example - image drawing")
 
 	cat = LoadImage("cat.png")                              
 
@@ -1426,7 +1471,8 @@ Image Drawing
 
 	font = LoadFont("custom_jupiter_crash.png")
 
-	ImageDrawTextEx(parrots, Vector2( 300, 230 ), font, "PARROTS & CAT", font.baseSize, -2, WHITE)
+	ImageDrawTextEx(parrots, Vector2( 300, 230 ), font,
+			 "PARROTS & CAT", font.baseSize, -2, WHITE)
 	UnloadFont(font);                              
 
 	texture = LoadTextureFromImage(parrots)        
@@ -1438,17 +1484,19 @@ Image Drawing
 	while !WindowShouldClose()
 		BeginDrawing()
 
-			ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-			DrawTexture(texture, screenWidth/2 - texture.width/2,
-						screenHeight/2 - texture.height/2 - 40, WHITE)
-			DrawRectangleLines(screenWidth/2 - texture.width/2,
-						screenHeight/2 - texture.height/2 - 40, texture.width, texture.height, DARKGRAY)
+		DrawTexture(texture, screenWidth/2 - texture.width/2,
+			screenHeight/2 - texture.height/2 - 40, WHITE)
+		DrawRectangleLines(screenWidth/2 - texture.width/2,
+			screenHeight/2 - texture.height/2 - 40,
+			 texture.width, texture.height, DARKGRAY)
 
-			DrawText("We are drawing only one texture from various images composed!",
-						240, 350, 10, DARKGRAY)
-			DrawText("Source images have been cropped, scaled, flipped and copied one over the other.",
-						190, 370, 10, DARKGRAY)
+		DrawText("We are drawing only one texture from various images composed!",
+					240, 350, 10, DARKGRAY)
+		DrawText("Source images have been cropped, scaled,"+
+				" flipped and copied one over the other.",
+					190, 370, 10, DARKGRAY)
 
 		EndDrawing()
 	end
@@ -1479,12 +1527,15 @@ Image Generation
 	screenWidth  = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [textures] example - procedural images generation")
+	InitWindow(screenWidth, screenHeight,
+		 "raylib [textures] example - procedural images generation")
 
 	verticalGradient   = GenImageGradientV(screenWidth, screenHeight, RED, BLUE)
 	horizontalGradient = GenImageGradientH(screenWidth, screenHeight, RED, BLUE)
-	radialGradient     = GenImageGradientRadial(screenWidth, screenHeight, 0.0, WHITE, BLACK)
-	checked            = GenImageChecked(screenWidth, screenHeight, 32, 32, RED, BLUE)
+	radialGradient     = GenImageGradientRadial(screenWidth,
+				 screenHeight, 0.0, WHITE, BLACK)
+	checked            = GenImageChecked(screenWidth, screenHeight,
+				 32, 32, RED, BLUE)
 	whiteNoise         = GenImageWhiteNoise(screenWidth, screenHeight, 0.5)
 	perlinNoise        = GenImagePerlinNoise(screenWidth, screenHeight, 50, 50, 4.0)
 	cellular           = GenImageCellular(screenWidth, screenHeight, 32)
@@ -1526,7 +1577,8 @@ Image Generation
 
 			DrawRectangle(30, 400, 325, 30, Fade(SKYBLUE, 0.5))
 			DrawRectangleLines(30, 400, 325, 30, Fade(WHITE, 0.5))
-			DrawText("MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES", 40, 410, 10, WHITE)
+			DrawText("MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES",
+				 40, 410, 10, WHITE)
 
 			switch(currentTexture)
 				on 1  DrawText("VERTICAL GRADIENT", 560, 10, 20, RAYWHITE)  
@@ -1568,9 +1620,11 @@ Texture Source
 	screenWidth = 800
 	screenHeight = 800
 
-	InitWindow(screenWidth, screenHeight, "raylib [textures] examples - texture source and destination rectangles")
+	InitWindow(screenWidth, screenHeight,
+		"raylib [textures] examples - texture source and destination rectangles")
 
-	// NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
+	// NOTE: Textures MUST be loaded after Window initialization 
+	// (OpenGL context is required)
 
 	scarfy = LoadTexture("RingLogo.png")        // Texture loading
 
@@ -1583,7 +1637,8 @@ Texture Source
 	// Destination rectangle (screen rectangle where drawing part of texture)
 	destRec = Rectangle( screenWidth/2, screenHeight/2, frameWidth*2, frameHeight*2 )
 
-	// Origin of the texture (rotation/scale point), it's relative to destination rectangle size
+	// Origin of the texture (rotation/scale point)
+	// it's relative to destination rectangle size
 	origin = Vector2( frameWidth, frameHeight )
 
 	rotation = 0
@@ -1598,17 +1653,14 @@ Texture Source
 
 			ClearBackground(RAYWHITE)
 
-			// NOTE: Using DrawTexturePro() we can easily rotate and scale the part of the texture we draw
-			// sourceRec defines the part of the texture we use for drawing
-			// destRec defines the rectangle where our texture part will fit (scaling it to fit)
-			// origin defines the point of the texture used as reference for rotation and scaling
-			// rotation defines the texture rotation (using origin as rotation point)
-			DrawTexturePro(scarfy, sourceRec, destRec, origin, rotation, WHITE)
+			DrawTexturePro(scarfy, sourceRec, destRec,
+					 origin, rotation, WHITE)
 
 			DrawLine(destRec.x, 0, destRec.x, screenHeight, GRAY)
 			DrawLine(0, destRec.y, screenWidth, destRec.y, GRAY)
 
-			DrawText("(c) Scarfy sprite by Eiden Marsal", screenWidth - 200, screenHeight - 20, 10, GRAY)
+			DrawText("(c) Scarfy sprite by Eiden Marsal",
+				 screenWidth - 200, screenHeight - 20, 10, GRAY)
 
 		EndDrawing()
 
@@ -1641,7 +1693,8 @@ Geometric Shapes
 	screenWidth  = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [models] example - geometric shapes")
+	InitWindow(screenWidth, screenHeight,
+		 "raylib [models] example - geometric shapes")
 
 	camera = Camera3D(  0.0, 10.0, 10.0,
 					0.0, 0.0, 0.0,
@@ -1669,39 +1722,40 @@ Geometric Shapes
 
 		BeginDrawing()
 
-			ClearBackground(RAYWHITE)
+		ClearBackground(RAYWHITE)
 
-			BeginMode3D(camera)
+		BeginMode3D(camera)
 
-				DrawCube(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, RED)
-				DrawCubeWires(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, GOLD)
-				DrawCubeWires(Vector3(-4.0, 0.0, -2.0), 3.0, 6.0, 2.0, MAROON)
+		DrawCube(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, RED)
+		DrawCubeWires(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, GOLD)
+		DrawCubeWires(Vector3(-4.0, 0.0, -2.0), 3.0, 6.0, 2.0, MAROON)
 
-				DrawSphere(Vector3(-1.0, 0.0, -2.0), 1.0, GREEN)
-				DrawSphereWires(Vector3( 1.0, 0.0,  2.0), 2.0, 16, 16, LIME)
+		DrawSphere(Vector3(-1.0, 0.0, -2.0), 1.0, GREEN)
+		DrawSphereWires(Vector3( 1.0, 0.0,  2.0), 2.0, 16, 16, LIME)
 
-				DrawCylinder(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, SKYBLUE)
-				DrawCylinderWires(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, DARKBLUE)
-				DrawCylinderWires(Vector3(4.5, -1.0, 2.0), 1.0, 1.0, 2.0, 6, BROWN)
+		DrawCylinder(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, SKYBLUE)
+		DrawCylinderWires(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, DARKBLUE)
+		DrawCylinderWires(Vector3(4.5, -1.0, 2.0), 1.0, 1.0, 2.0, 6, BROWN)
 
-				DrawCylinder(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, GOLD)
-				DrawCylinderWires(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, PINK)
+		DrawCylinder(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, GOLD)
+		DrawCylinderWires(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, PINK)
 
-				DrawGrid(10, 1.0)
+		DrawGrid(10, 1.0)
 
-			EndMode3D()
+		EndMode3D()
 
-			DrawText("Press Spacebar to switch camera type", 10, GetScreenHeight() - 30, 20, DARKGRAY)
+		DrawText("Press Spacebar to switch camera type", 10,
+				 GetScreenHeight() - 30, 20, DARKGRAY)
 
-			if camera.type = CAMERA_ORTHOGRAPHIC
-				DrawText("ORTHOGRAPHIC", 10, 40, 20, BLACK)
-			else 
-				if camera.type = CAMERA_PERSPECTIVE 
-					DrawText("PERSPECTIVE", 10, 40, 20, BLACK)
-				ok
+		if camera.type = CAMERA_ORTHOGRAPHIC
+			DrawText("ORTHOGRAPHIC", 10, 40, 20, BLACK)
+		else 
+			if camera.type = CAMERA_PERSPECTIVE 
+				DrawText("PERSPECTIVE", 10, 40, 20, BLACK)
 			ok
+		ok
 
-			DrawFPS(10, 10)
+		DrawFPS(10, 10)
 
 		EndDrawing()
 		
@@ -1727,7 +1781,8 @@ Cubic Map
 	screenWidth  = 800
 	screenHeight = 450
 
-	InitWindow(screenWidth, screenHeight, "raylib [models] example - cubesmap loading and drawing")
+	InitWindow(screenWidth, screenHeight,
+		 "raylib [models] example - cubesmap loading and drawing")
 
 	camera = Camera3D( 16.0, 14.0, 16.0,
 					 0.0, 0.0, 0.0,
@@ -1761,10 +1816,12 @@ Cubic Map
 				DrawModel(model, mapPosition, 1.0, WHITE)
 			EndMode3D()
 
-			DrawTextureEx(cubicmap, Vector2( screenWidth - cubicmap.width*4 - 20, 20 ),
+			DrawTextureEx(cubicmap, Vector2( screenWidth -
+					 cubicmap.width*4 - 20, 20 ),
 							0.0, 4.0, WHITE)
-			DrawRectangleLines(screenWidth - cubicmap.width*4 - 20, 20, cubicmap.width*4,
-							cubicmap.height*4, GREEN)
+			DrawRectangleLines(screenWidth - cubicmap.width*4 -
+					 20, 20, cubicmap.width*4,
+					cubicmap.height*4, GREEN)
 
 			DrawText("cubicmap image used to", 658,  90, 10, GRAY)
 			DrawText("generate map 3d model",  658, 104, 10, GRAY)

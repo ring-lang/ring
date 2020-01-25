@@ -586,10 +586,12 @@ while !WindowShouldClose()
                                 ray = GetMouseRay(GetMousePosition(), camera)
 
                                 collision1 = CheckCollisionRayBox(ray,
-                                        BoundingBox( cubePosition1.x - cubeSize.x/2, cubePosition1.y - cubeSize.y/2,
-                                        cubePosition1.z - cubeSize.z/2,
-                                        cubePosition1.x + cubeSize.x/2, cubePosition1.y + cubeSize.y/2,
-                                        cubePosition1.z + cubeSize.z/2 ) )
+                                BoundingBox( cubePosition1.x -
+                                cubeSize.x/2, cubePosition1.y - cubeSize.y/2,
+                                cubePosition1.z - cubeSize.z/2,
+                                cubePosition1.x + cubeSize.x/2,
+                                cubePosition1.y + cubeSize.y/2,
+                                cubePosition1.z + cubeSize.z/2 ) )
                         else
                                 collision1 = false
                         ok
@@ -597,10 +599,12 @@ while !WindowShouldClose()
                                 ray = GetMouseRay(GetMousePosition(), camera)
 
                                 collision2 = CheckCollisionRayBox(ray,
-                                        BoundingBox( cubePosition2.x - cubeSize.x/2, cubePosition2.y - cubeSize.y/2,
-                                        cubePosition2.z - cubeSize.z/2,
-                                        cubePosition2.x + cubeSize.x/2, cubePosition2.y + cubeSize.y/2,
-                                        cubePosition2.z + cubeSize.z/2 ) )
+                                BoundingBox( cubePosition2.x -
+                                cubeSize.x/2, cubePosition2.y - cubeSize.y/2,
+                                cubePosition2.z - cubeSize.z/2,
+                                cubePosition2.x + cubeSize.x/2,
+                                cubePosition2.y + cubeSize.y/2,
+                                cubePosition2.z + cubeSize.z/2 ) )
                         else
                                 collision2 = false
                 ok
@@ -613,28 +617,38 @@ while !WindowShouldClose()
                         BeginMode3D(camera)
 
                                  if collision1
-                                        DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-                                        DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+                                        DrawCube(cubePosition1, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, RED)
+                                        DrawCubeWires(cubePosition1, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, MAROON)
 
-                                        DrawCubeWires(cubePosition1, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
-                                                                cubeSize.z + 0.2f, GREEN)
+                                        DrawCubeWires(cubePosition1, cubeSize.x +
+                                        0.2f, cubeSize.y + 0.2f,
+                                        cubeSize.z + 0.2f, GREEN)
                                         collision1 = true
                                  else
-                                        DrawCube(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-                                        DrawCubeWires(cubePosition1, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+                                        DrawCube(cubePosition1, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, GRAY)
+                                        DrawCubeWires(cubePosition1, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, DARKGRAY)
                                         collision1 = false
                                  ok
 
                                  if collision2
-                                        DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, RED)
-                                        DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, MAROON)
+                                        DrawCube(cubePosition2, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, RED)
+                                        DrawCubeWires(cubePosition2, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, MAROON)
 
-                                        DrawCubeWires(cubePosition2, cubeSize.x + 0.2f, cubeSize.y + 0.2f,
-                                                                        cubeSize.z + 0.2f, GREEN)
+                                        DrawCubeWires(cubePosition2, cubeSize.x +
+                                        0.2f, cubeSize.y + 0.2f,
+                                        cubeSize.z + 0.2f, GREEN)
                                         collision2 = true
                                  else
-                                        DrawCube(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, GRAY)
-                                        DrawCubeWires(cubePosition2, cubeSize.x, cubeSize.y, cubeSize.z, DARKGRAY)
+                                        DrawCube(cubePosition2, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, GRAY)
+                                        DrawCubeWires(cubePosition2, cubeSize.x,
+                                        cubeSize.y, cubeSize.z, DARKGRAY)
                                         collision2 = false
                                  ok
 
@@ -644,11 +658,13 @@ while !WindowShouldClose()
 
                         EndMode3D()
 
-                        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10, 20, DARKGRAY)
+                        DrawText(&quot;Try selecting the box with mouse!&quot;, 240, 10,
+                                        20, DARKGRAY)
 
                         if collision1 or collision2
-                                DrawText(&quot;BOX SELECTED&quot;, (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2,
-                                                        screenHeight * 0.1f, 30, GREEN)
+                                DrawText(&quot;BOX SELECTED&quot;,
+                                (screenWidth - MeasureText(&quot;BOX SELECTED&quot;, 30)) / 2,
+                                screenHeight * 0.1f, 30, GREEN)
                         ok
 
                         DrawFPS(10, 10)
@@ -698,8 +714,8 @@ CloseWindow()
         <span class="n">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
         <span class="n">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
         <span class="n">DrawTriangleLines</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
-                                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
-                                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+                        <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
+                        <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
 
 <span class="k">end</span>
@@ -764,8 +780,11 @@ CloseWindow()
         <span class="n">drawCircleLines</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
                         <span class="s">&quot;Draw CircleLines&quot;</span><span class="p">,</span> <span class="n">drawCircleLines</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">segments</span> <span class="o">&gt;=</span> <span class="mi">4</span>        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: MANUAL&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
-        <span class="k">else</span>                    <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: AUTO&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>  <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">segments</span> <span class="o">&gt;=</span> <span class="mi">4</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: MANUAL&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+        <span class="k">else</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: AUTO&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="k">ok</span>
 
         <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
@@ -806,9 +825,10 @@ CloseWindow()
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
-                <span class="n">DrawLineBezier</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">endvec</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS&quot;</span><span class="p">,</span>
+                         <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+        <span class="n">DrawLineBezier</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">endvec</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
@@ -861,10 +881,12 @@ CloseWindow()
         <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
 
         <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">Box</span> <span class="n">B</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">go</span> <span class="n">out</span> <span class="n">of</span> <span class="n">move</span> <span class="n">area</span> <span class="n">limits</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span>
         <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ok</span>
 
-        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span> <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span>
         <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">screenUpperLimit</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenUpperLimit</span> <span class="k">ok</span>
 
         <span class="o">//</span> <span class="n">Check</span> <span class="n">boxes</span> <span class="n">collision</span>
@@ -900,12 +922,15 @@ CloseWindow()
                         <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
 
                         <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">message</span>
-                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
-                                                <span class="n">screenUpperLimit</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span>
+                                         <span class="n">MeasureText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                        <span class="n">screenUpperLimit</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
                         <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">area</span>
-                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Collision Area: &quot;</span> <span class="o">+</span> <span class="kt">string</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">height</span><span class="p">),</span>
-                                        <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">screenUpperLimit</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Collision Area: &quot;</span> <span class="o">+</span>
+                                <span class="kt">string</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">height</span><span class="p">),</span>
+                                <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="n">screenUpperLimit</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
                 <span class="k">ok</span>
 
@@ -949,7 +974,8 @@ CloseWindow()
         <span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
         <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">left</span> <span class="n">eye</span> <span class="n">sclera</span>
-        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span>
+                <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
                 <span class="n">dx</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">x</span>
                 <span class="n">dy</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">y</span>
 
@@ -963,7 +989,8 @@ CloseWindow()
         <span class="k">ok</span>
 
         <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">right</span> <span class="n">eye</span> <span class="n">sclera</span>
-        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span>
+                 <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
                 <span class="n">dx</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">x</span>
                 <span class="n">dy</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">y</span>
 
@@ -1052,7 +1079,8 @@ while !WindowShouldClose()
         mousePoint = GetMousePosition()
 
         for i = 1 to MAX_COLORS_COUNT
-                if (CheckCollisionPointRec(mousePoint, colorsRecs[i])) colorState[i] = 1
+                if (CheckCollisionPointRec(mousePoint,
+                         colorsRecs[i])) colorState[i] = 1
                 else colorState[i] = 0 ok
         next
 
@@ -1061,8 +1089,9 @@ while !WindowShouldClose()
                 ClearBackground(RAYWHITE)
 
                 DrawText(&quot;raylib colors palette&quot;, 28, 42, 20, BLACK)
-                DrawText(&quot;press SPACE to see all colors&quot;, GetScreenWidth() - 180,
-                                        GetScreenHeight() - 40, 10, GRAY)
+                DrawText(&quot;press SPACE to see all colors&quot;,
+                                 GetScreenWidth() - 180,
+                                 GetScreenHeight() - 40, 10, GRAY)
 
                 for i = 1 to MAX_COLORS_COUNT    // Draw all rectangles
                         if colorState[i]
@@ -1074,12 +1103,15 @@ while !WindowShouldClose()
                         DrawRectangleRec(colorsRecs[i], Fade(colors[i], cstate))
 
                         if (IsKeyDown(KEY_SPACE) || colorState[i])
-                                DrawRectangle(colorsRecs[i].x, colorsRecs[i].y + colorsRecs[i].height - 26,
-                                                        colorsRecs[i].width, 20, BLACK)
-                                DrawRectangleLinesEx(colorsRecs[i], 6, Fade(BLACK, 0.3f))
+                                DrawRectangle(colorsRecs[i].x,
+                                colorsRecs[i].y + colorsRecs[i].height - 26,
+                                colorsRecs[i].width, 20, BLACK)
+                                DrawRectangleLinesEx(colorsRecs[i], 6,
+                                Fade(BLACK, 0.3f))
                                 DrawText(colorNames[i], colorsRecs[i].x +
-                                                colorsRecs[i].width - MeasureText(colorNames[i], 10) - 12,
-                                                 colorsRecs[i].y + colorsRecs[i].height - 20, 10, colors[i])
+                                colorsRecs[i].width - MeasureText(colorNames[i],
+                                10) - 12, colorsRecs[i].y +
+                                colorsRecs[i].height - 20, 10, colors[i])
                         ok
                 next
 
@@ -1102,7 +1134,8 @@ MOUSE_SCALE_MARK_SIZE = 12
 screenWidth = 800
 screenHeight = 450
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - rectangle scaling mouse&quot;)
+InitWindow(screenWidth, screenHeight,
+                 &quot;raylib [shapes] example - rectangle scaling mouse&quot;)
 
 rec = Rectangle( 100, 100, 200, 80 )
 
@@ -1118,10 +1151,13 @@ while !WindowShouldClose()
         mousePosition = GetMousePosition()
 
         if (CheckCollisionPointRec(mousePosition, rec) and
-                CheckCollisionPointRec(mousePosition, Rectangle(rec.x + rec.width - MOUSE_SCALE_MARK_SIZE,
-                        rec.y + rec.height - MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE )))
+                CheckCollisionPointRec(mousePosition,
+                 Rectangle(rec.x + rec.width - MOUSE_SCALE_MARK_SIZE,
+                        rec.y + rec.height - MOUSE_SCALE_MARK_SIZE,
+                         MOUSE_SCALE_MARK_SIZE, MOUSE_SCALE_MARK_SIZE )))
                 mouseScaleReady = true
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) mouseScaleMode = true ok
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                        mouseScaleMode = true ok
         else mouseScaleReady = false ok
 
         if (mouseScaleMode)
@@ -1131,26 +1167,32 @@ while !WindowShouldClose()
                 rec.width = (mousePosition.x - rec.x)
                 rec.height = (mousePosition.y - rec.y)
 
-                if (rec.width &lt; MOUSE_SCALE_MARK_SIZE) rec.width = MOUSE_SCALE_MARK_SIZE ok
-                if (rec.height &lt; MOUSE_SCALE_MARK_SIZE) rec.height = MOUSE_SCALE_MARK_SIZE ok
+                if (rec.width &lt; MOUSE_SCALE_MARK_SIZE)
+                        rec.width = MOUSE_SCALE_MARK_SIZE ok
+                if (rec.height &lt; MOUSE_SCALE_MARK_SIZE)
+                        rec.height = MOUSE_SCALE_MARK_SIZE ok
 
-                if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) mouseScaleMode = false ok
+                if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+                        mouseScaleMode = false ok
         ok
 
         BeginDrawing()
 
                 ClearBackground(RAYWHITE)
 
-                DrawText(&quot;Scale rectangle dragging from bottom-right corner!&quot;, 10, 10, 20, GRAY)
+                DrawText(&quot;Scale rectangle dragging from bottom-right corner!&quot;,
+                                 10, 10, 20, GRAY)
 
                 DrawRectangleRec(rec, Fade(GREEN, 0.5f))
 
                 if (mouseScaleReady)
 
                         DrawRectangleLinesEx(rec, 1, RED)
-                        DrawTriangle(Vector2( rec.x + rec.width - MOUSE_SCALE_MARK_SIZE, rec.y + rec.height ),
-                                                 Vector2( rec.x + rec.width, rec.y + rec.height ),
-                                                 Vector2( rec.x + rec.width, rec.y + rec.height - MOUSE_SCALE_MARK_SIZE ), RED)
+                        DrawTriangle(Vector2( rec.x + rec.width -
+                        MOUSE_SCALE_MARK_SIZE, rec.y + rec.height ),
+                        Vector2( rec.x + rec.width, rec.y + rec.height ),
+                        Vector2( rec.x + rec.width, rec.y + rec.height -
+                                 MOUSE_SCALE_MARK_SIZE ), RED)
                 ok
 
         EndDrawing()
@@ -1170,7 +1212,8 @@ CloseWindow()
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [audio] example - music playing (streaming)&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [audio] example - music playing (streaming)&quot;</span><span class="p">)</span>
 
 <span class="n">InitAudioDevice</span><span class="p">()</span>
 
@@ -1243,7 +1286,8 @@ CloseWindow()
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [audio] example - sound loading and playing&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                <span class="s">&quot;raylib [audio] example - sound loading and playing&quot;</span><span class="p">)</span>
 
 <span class="n">InitAudioDevice</span><span class="p">()</span>
 
@@ -1287,7 +1331,8 @@ CloseWindow()
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [textures] example - image drawing&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                 <span class="s">&quot;raylib [textures] example - image drawing&quot;</span><span class="p">)</span>
 
 <span class="n">cat</span> <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;cat.png&quot;</span><span class="p">)</span>
 
@@ -1305,7 +1350,8 @@ CloseWindow()
 
 <span class="n">font</span> <span class="o">=</span> <span class="n">LoadFont</span><span class="p">(</span><span class="s">&quot;custom_jupiter_crash.png&quot;</span><span class="p">)</span>
 
-<span class="n">ImageDrawTextEx</span><span class="p">(</span><span class="n">parrots</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">230</span> <span class="p">),</span> <span class="n">font</span><span class="p">,</span> <span class="s">&quot;PARROTS &amp; CAT&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">.</span><span class="n">baseSize</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+<span class="n">ImageDrawTextEx</span><span class="p">(</span><span class="n">parrots</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">230</span> <span class="p">),</span> <span class="n">font</span><span class="p">,</span>
+                 <span class="s">&quot;PARROTS &amp; CAT&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">.</span><span class="n">baseSize</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 <span class="n">UnloadFont</span><span class="p">(</span><span class="n">font</span><span class="p">);</span>
 
 <span class="n">texture</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">parrots</span><span class="p">)</span>
@@ -1317,17 +1363,19 @@ CloseWindow()
 <span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                <span class="n">DrawTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
-                                        <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
-                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
-                                        <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;We are drawing only one texture from various images composed!&quot;</span><span class="p">,</span>
-                                        <span class="mi">240</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Source images have been cropped, scaled, flipped and copied one over the other.&quot;</span><span class="p">,</span>
-                                        <span class="mi">190</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;We are drawing only one texture from various images composed!&quot;</span><span class="p">,</span>
+                                <span class="mi">240</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Source images have been cropped, scaled,&quot;</span><span class="o">+</span>
+                        <span class="s">&quot; flipped and copied one over the other.&quot;</span><span class="p">,</span>
+                                <span class="mi">190</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 <span class="k">end</span>
@@ -1350,12 +1398,15 @@ CloseWindow()
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [textures] example - procedural images generation&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [textures] example - procedural images generation&quot;</span><span class="p">)</span>
 
 <span class="n">verticalGradient</span>   <span class="o">=</span> <span class="n">GenImageGradientV</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
 <span class="n">horizontalGradient</span> <span class="o">=</span> <span class="n">GenImageGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
-<span class="n">radialGradient</span>     <span class="o">=</span> <span class="n">GenImageGradientRadial</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-<span class="n">checked</span>            <span class="o">=</span> <span class="n">GenImageChecked</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+<span class="n">radialGradient</span>     <span class="o">=</span> <span class="n">GenImageGradientRadial</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span>
+                         <span class="n">screenHeight</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+<span class="n">checked</span>            <span class="o">=</span> <span class="n">GenImageChecked</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                         <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
 <span class="n">whiteNoise</span>         <span class="o">=</span> <span class="n">GenImageWhiteNoise</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">perlinNoise</span>        <span class="o">=</span> <span class="n">GenImagePerlinNoise</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
 <span class="n">cellular</span>           <span class="o">=</span> <span class="n">GenImageCellular</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
@@ -1397,7 +1448,8 @@ CloseWindow()
 
                 <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">SKYBLUE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
                 <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">WHITE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES&quot;</span><span class="p">,</span>
+                         <span class="mi">40</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
                 <span class="k">switch</span><span class="p">(</span><span class="n">currentTexture</span><span class="p">)</span>
                         <span class="k">on</span> <span class="mi">1</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;VERTICAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
@@ -1430,9 +1482,11 @@ CloseWindow()
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">800</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [textures] examples - texture source and destination rectangles&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+        <span class="s">&quot;raylib [textures] examples - texture source and destination rectangles&quot;</span><span class="p">)</span>
 
-<span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Textures</span> <span class="n">MUST</span> <span class="n">be</span> <span class="n">loaded</span> <span class="n">after</span> <span class="n">Window</span> <span class="n">initialization</span> <span class="p">(</span><span class="n">OpenGL</span> <span class="n">context</span> <span class="n">is</span> <span class="n">required</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Textures</span> <span class="n">MUST</span> <span class="n">be</span> <span class="n">loaded</span> <span class="n">after</span> <span class="n">Window</span> <span class="n">initialization</span>
+<span class="o">//</span> <span class="p">(</span><span class="n">OpenGL</span> <span class="n">context</span> <span class="n">is</span> <span class="n">required</span><span class="p">)</span>
 
 <span class="n">scarfy</span> <span class="o">=</span> <span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;RingLogo.png&quot;</span><span class="p">)</span>        <span class="o">//</span> <span class="n">Texture</span> <span class="n">loading</span>
 
@@ -1445,7 +1499,8 @@ CloseWindow()
 <span class="o">//</span> <span class="n">Destination</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">screen</span> <span class="n">rectangle</span> <span class="n">where</span> <span class="n">drawing</span> <span class="n">part</span> <span class="n">of</span> <span class="n">texture</span><span class="p">)</span>
 <span class="n">destRec</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameHeight</span><span class="o">*</span><span class="mi">2</span> <span class="p">)</span>
 
-<span class="o">//</span> <span class="n">Origin</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="p">(</span><span class="n">rotation</span><span class="o">/</span><span class="n">scale</span> <span class="n">point</span><span class="p">),</span> <span class="n">it</span><span class="sc">&#39;s relative to destination rectangle size</span>
+<span class="o">//</span> <span class="n">Origin</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="p">(</span><span class="n">rotation</span><span class="o">/</span><span class="n">scale</span> <span class="n">point</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">it</span><span class="sc">&#39;s relative to destination rectangle size</span>
 <span class="n">origin</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="n">frameHeight</span> <span class="p">)</span>
 
 <span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1460,17 +1515,14 @@ CloseWindow()
 
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                <span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Using</span> <span class="n">DrawTexturePro</span><span class="p">()</span> <span class="n">we</span> <span class="n">can</span> <span class="n">easily</span> <span class="n">rotate</span> <span class="ow">and</span> <span class="n">scale</span> <span class="n">the</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">we</span> <span class="n">draw</span>
-                <span class="o">//</span> <span class="n">sourceRec</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">we</span> <span class="n">use</span> <span class="k">for</span> <span class="n">drawing</span>
-                <span class="o">//</span> <span class="n">destRec</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">rectangle</span> <span class="n">where</span> <span class="n">our</span> <span class="n">texture</span> <span class="n">part</span> <span class="n">will</span> <span class="n">fit</span> <span class="p">(</span><span class="n">scaling</span> <span class="n">it</span> <span class="k">to</span> <span class="n">fit</span><span class="p">)</span>
-                <span class="o">//</span> <span class="n">origin</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">point</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">used</span> <span class="n">as</span> <span class="n">reference</span> <span class="k">for</span> <span class="n">rotation</span> <span class="ow">and</span> <span class="n">scaling</span>
-                <span class="o">//</span> <span class="n">rotation</span> <span class="n">defines</span> <span class="n">the</span> <span class="n">texture</span> <span class="n">rotation</span> <span class="p">(</span><span class="n">using</span> <span class="n">origin</span> <span class="n">as</span> <span class="n">rotation</span> <span class="n">point</span><span class="p">)</span>
-                <span class="n">DrawTexturePro</span><span class="p">(</span><span class="n">scarfy</span><span class="p">,</span> <span class="n">sourceRec</span><span class="p">,</span> <span class="n">destRec</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">DrawTexturePro</span><span class="p">(</span><span class="n">scarfy</span><span class="p">,</span> <span class="n">sourceRec</span><span class="p">,</span> <span class="n">destRec</span><span class="p">,</span>
+                                 <span class="n">origin</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
                 <span class="n">DrawLine</span><span class="p">(</span><span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
                 <span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;(c) Scarfy sprite by Eiden Marsal&quot;</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;(c) Scarfy sprite by Eiden Marsal&quot;</span><span class="p">,</span>
+                         <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
@@ -1494,7 +1546,8 @@ CloseWindow()
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [models] example - geometric shapes&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [models] example - geometric shapes&quot;</span><span class="p">)</span>
 
 <span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span>
                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
@@ -1522,39 +1575,40 @@ CloseWindow()
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+        <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                        <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
-                        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
-                        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+        <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
-                        <span class="n">DrawSphere</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
-                        <span class="n">DrawSphereWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
+        <span class="n">DrawSphere</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
+        <span class="n">DrawSphereWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
 
-                        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
-                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
-                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
 
-                        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
-                        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PINK</span><span class="p">)</span>
+        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PINK</span><span class="p">)</span>
 
-                        <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
-                <span class="n">EndMode3D</span><span class="p">()</span>
+        <span class="n">EndMode3D</span><span class="p">()</span>
 
-                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press Spacebar to switch camera type&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press Spacebar to switch camera type&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
+                         <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
-                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;ORTHOGRAPHIC&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-                <span class="k">else</span>
-                        <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
-                                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PERSPECTIVE&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-                        <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;ORTHOGRAPHIC&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+        <span class="k">else</span>
+                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PERSPECTIVE&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
                 <span class="k">ok</span>
+        <span class="k">ok</span>
 
-                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
@@ -1573,7 +1627,8 @@ CloseWindow()
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [models] example - cubesmap loading and drawing&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [models] example - cubesmap loading and drawing&quot;</span><span class="p">)</span>
 
 <span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span>
                                  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
@@ -1607,10 +1662,12 @@ CloseWindow()
                         <span class="n">DrawModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mapPosition</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
                 <span class="n">EndMode3D</span><span class="p">()</span>
 
-                <span class="n">DrawTextureEx</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                <span class="n">DrawTextureEx</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">screenWidth</span> <span class="o">-</span>
+                                 <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
                                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
-                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
-                                                <span class="n">cubicmap</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span>
+                                 <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                                <span class="n">cubicmap</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
 
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;cubicmap image used to&quot;</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span>  <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;generate map 3d model&quot;</span><span class="p">,</span>  <span class="mi">658</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
