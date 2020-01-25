@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -84,6 +84,7 @@ aPackageInfo = [
 		"ringlibs/gameengine/lesson15.ring",
 		"ringlibs/gameengine/lesson16.ring",
 		"ringlibs/gameengine/lesson17.ring",
+		"ringlibs/gameengine/lesson18.ring",
 		"ringlibs/gameengine/lesson2.ring",
 		"ringlibs/gameengine/lesson3.ring",
 		"ringlibs/gameengine/lesson4.ring",
