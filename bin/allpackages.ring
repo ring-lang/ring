@@ -216,5 +216,8 @@ aAllPackagesInfo = [
 	],
 	:gogame = 	[
 
+	],
+	:ringvisualsrc = 	[
+
 	]
 ]
