@@ -50,6 +50,7 @@ aPackageInfo = [
 		"include/ring_vmos.h",
 		"include/ring_vmrefmeta.h",
 		"src/buildbccstatic.bat",
+		"src/buildclang.bat",
 		"src/buildclang.sh",
 		"src/buildclangstatic.sh",
 		"src/buildgcc.sh",
