@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.5",
+	:version = "1.0.6",
 	:ringversion = "1.11",
 	:versions = 	[
 		[
-			:version = "1.0.5",
+			:version = "1.0.6",
 			:branch = "master"
 		]
 	],
@@ -32,13 +32,15 @@ aPackageInfo = [
 		"applications/go/Black-L.png",
 		"applications/go/Black-M.png",
 		"applications/go/Black-T.png",
+		"applications/go/Black-C.png",
 		"applications/go/Empty-T.png",
 		"applications/go/go.png",
 		"applications/go/GoGame.ring",
 		"applications/go/README.md",
 		"applications/go/White-L.png",
 		"applications/go/White-M.png",
-		"applications/go/White-T.png"
+		"applications/go/White-T.png",
+		"applications/go/White-C.png"
 	],
 	:windowsfiles = 	[
 
