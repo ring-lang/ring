@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORMOBILE_CLEARSCREEN	1
 #define RINGFORMOBILE_WRITERINGOFILE	0
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 	// Run the object file directly from resources	
 	QFile oObjectFile(":/ringapp.ringo");
 	oObjectFile.open(QFile::ReadOnly);
-        int nFileSize = oObjectFile.size();
+	unsigned int nFileSize = (unsigned int) oObjectFile.size();
         unsigned char *cCode;
         cCode = (unsigned char *) malloc(nFileSize+1);
         memcpy(cCode,oObjectFile.readAll().toStdString().c_str(),nFileSize);
