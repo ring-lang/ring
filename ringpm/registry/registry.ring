@@ -542,5 +542,9 @@ aPackagesRegistry = [
 	[ :name = "calendar",
 	  :description = "Calendar package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "juliandaycalendar",
+	  :description = "Julian Day Calendar package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
