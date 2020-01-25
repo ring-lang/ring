@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 
-#define RINGFORMOBILE_CLEARSCREEN	1
+#define RINGFORMOBILE_CLEARSCREEN	0
 #define RINGFORMOBILE_WRITERINGOFILE	0
 
 #include <QApplication>
