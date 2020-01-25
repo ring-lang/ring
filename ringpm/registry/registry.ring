@@ -538,5 +538,9 @@ aPackagesRegistry = [
 	[ :name = "gogame",
 	  :description = "GoGame package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "calendar",
+	  :description = "Calendar package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
