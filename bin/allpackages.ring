@@ -219,5 +219,8 @@ aAllPackagesInfo = [
 	],
 	:ringvisualsrc = 	[
 
+	],
+	:calendar = 	[
+
 	]
 ]
