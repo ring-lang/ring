@@ -206,6 +206,18 @@ RING_FUNC(ring_new_pqconninfooption)
 	RING_API_RETCPOINTER(pMyPointer,"PQconninfoOption");
 }
 
+RING_FUNC(ring_new_managed_pqconninfooption)
+{
+	PQconninfoOption *pMyPointer ;
+	pMyPointer = (PQconninfoOption *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQconninfoOption)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"PQconninfoOption",ring_state_free);
+}
+
 RING_FUNC(ring_destroy_pqconninfooption)
 {
 	PQconninfoOption *pMyPointer ;
@@ -255,7 +267,7 @@ RING_FUNC(ring_set_pqconninfooption_keyword)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->keyword = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->keyword = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_envvar)
@@ -289,7 +301,7 @@ RING_FUNC(ring_set_pqconninfooption_envvar)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->envvar = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->envvar = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_compiled)
@@ -323,7 +335,7 @@ RING_FUNC(ring_set_pqconninfooption_compiled)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->compiled = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->compiled = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_val)
@@ -357,7 +369,7 @@ RING_FUNC(ring_set_pqconninfooption_val)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->val = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->val = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_label)
@@ -391,7 +403,7 @@ RING_FUNC(ring_set_pqconninfooption_label)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->label = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->label = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_dispchar)
@@ -425,7 +437,7 @@ RING_FUNC(ring_set_pqconninfooption_dispchar)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQconninfoOption");
-	pMyPointer->dispchar = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->dispchar = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqconninfooption_dispsize)
@@ -472,6 +484,18 @@ RING_FUNC(ring_new_pqprintopt)
 		return ;
 	}
 	RING_API_RETCPOINTER(pMyPointer,"PQprintOpt");
+}
+
+RING_FUNC(ring_new_managed_pqprintopt)
+{
+	PQprintOpt *pMyPointer ;
+	pMyPointer = (PQprintOpt *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQprintOpt)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"PQprintOpt",ring_state_free);
 }
 
 RING_FUNC(ring_destroy_pqprintopt)
@@ -727,7 +751,7 @@ RING_FUNC(ring_set_pqprintopt_fieldSep)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
-	pMyPointer->fieldSep = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->fieldSep = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqprintopt_tableOpt)
@@ -761,7 +785,7 @@ RING_FUNC(ring_set_pqprintopt_tableOpt)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
-	pMyPointer->tableOpt = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->tableOpt = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqprintopt_caption)
@@ -795,7 +819,7 @@ RING_FUNC(ring_set_pqprintopt_caption)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
-	pMyPointer->caption = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->caption = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_get_pqprintopt_fieldName)
@@ -829,7 +853,7 @@ RING_FUNC(ring_set_pqprintopt_fieldName)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQprintOpt");
-	pMyPointer->fieldName = (char *) RING_API_GETCPOINTER(2,"char *");
+	pMyPointer->fieldName = (char *) RING_API_GETCPOINTER(2,"char");
 }
 
 RING_FUNC(ring_new_pqargblock)
@@ -842,6 +866,18 @@ RING_FUNC(ring_new_pqargblock)
 		return ;
 	}
 	RING_API_RETCPOINTER(pMyPointer,"PQArgBlock");
+}
+
+RING_FUNC(ring_new_managed_pqargblock)
+{
+	PQArgBlock *pMyPointer ;
+	pMyPointer = (PQArgBlock *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(PQArgBlock)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"PQArgBlock",ring_state_free);
 }
 
 RING_FUNC(ring_destroy_pqargblock)
@@ -995,7 +1031,7 @@ RING_FUNC(ring_set_pqargblock_u_ptr)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"PQArgBlock");
-	pMyPointer->u.ptr = (int *) RING_API_GETCPOINTER(2,"int *");
+	pMyPointer->u.ptr = (int *) RING_API_GETCPOINTER(2,"int");
 }
 
 
@@ -3493,6 +3529,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_pg_diag_source_line",ring_get_pg_diag_source_line);
 	ring_vm_funcregister("get_pg_diag_source_function",ring_get_pg_diag_source_function);
 	ring_vm_funcregister("new_pqconninfooption",ring_new_pqconninfooption);
+	ring_vm_funcregister("new_managed_pqconninfooption",ring_new_managed_pqconninfooption);
 	ring_vm_funcregister("destroy_pqconninfooption",ring_destroy_pqconninfooption);
 	ring_vm_funcregister("get_pqconninfooption_keyword",ring_get_pqconninfooption_keyword);
 	ring_vm_funcregister("set_pqconninfooption_keyword",ring_set_pqconninfooption_keyword);
@@ -3509,6 +3546,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_pqconninfooption_dispsize",ring_get_pqconninfooption_dispsize);
 	ring_vm_funcregister("set_pqconninfooption_dispsize",ring_set_pqconninfooption_dispsize);
 	ring_vm_funcregister("new_pqprintopt",ring_new_pqprintopt);
+	ring_vm_funcregister("new_managed_pqprintopt",ring_new_managed_pqprintopt);
 	ring_vm_funcregister("destroy_pqprintopt",ring_destroy_pqprintopt);
 	ring_vm_funcregister("get_pqprintopt_header",ring_get_pqprintopt_header);
 	ring_vm_funcregister("set_pqprintopt_header",ring_set_pqprintopt_header);
@@ -3522,15 +3560,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_pqprintopt_expanded",ring_set_pqprintopt_expanded);
 	ring_vm_funcregister("get_pqprintopt_pager",ring_get_pqprintopt_pager);
 	ring_vm_funcregister("set_pqprintopt_pager",ring_set_pqprintopt_pager);
-	ring_vm_funcregister("get_pqprintopt_fieldSep",ring_get_pqprintopt_fieldSep);
-	ring_vm_funcregister("set_pqprintopt_fieldSep",ring_set_pqprintopt_fieldSep);
-	ring_vm_funcregister("get_pqprintopt_tableOpt",ring_get_pqprintopt_tableOpt);
-	ring_vm_funcregister("set_pqprintopt_tableOpt",ring_set_pqprintopt_tableOpt);
+	ring_vm_funcregister("get_pqprintopt_fieldsep",ring_get_pqprintopt_fieldSep);
+	ring_vm_funcregister("set_pqprintopt_fieldsep",ring_set_pqprintopt_fieldSep);
+	ring_vm_funcregister("get_pqprintopt_tableopt",ring_get_pqprintopt_tableOpt);
+	ring_vm_funcregister("set_pqprintopt_tableopt",ring_set_pqprintopt_tableOpt);
 	ring_vm_funcregister("get_pqprintopt_caption",ring_get_pqprintopt_caption);
 	ring_vm_funcregister("set_pqprintopt_caption",ring_set_pqprintopt_caption);
-	ring_vm_funcregister("get_pqprintopt_fieldName",ring_get_pqprintopt_fieldName);
-	ring_vm_funcregister("set_pqprintopt_fieldName",ring_set_pqprintopt_fieldName);
+	ring_vm_funcregister("get_pqprintopt_fieldname",ring_get_pqprintopt_fieldName);
+	ring_vm_funcregister("set_pqprintopt_fieldname",ring_set_pqprintopt_fieldName);
 	ring_vm_funcregister("new_pqargblock",ring_new_pqargblock);
+	ring_vm_funcregister("new_managed_pqargblock",ring_new_managed_pqargblock);
 	ring_vm_funcregister("destroy_pqargblock",ring_destroy_pqargblock);
 	ring_vm_funcregister("get_pqargblock_len",ring_get_pqargblock_len);
 	ring_vm_funcregister("set_pqargblock_len",ring_set_pqargblock_len);

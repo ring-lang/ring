@@ -19,6 +19,18 @@ RING_FUNC(ring_new_curllist)
 	RING_API_RETCPOINTER(pMyPointer,"CURLLIST");
 }
 
+RING_FUNC(ring_new_managed_curllist)
+{
+	CURLLIST *pMyPointer ;
+	pMyPointer = (CURLLIST *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(CURLLIST)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"CURLLIST",ring_state_free);
+}
+
 RING_FUNC(ring_destroy_curllist)
 {
 	CURLLIST *pMyPointer ;
@@ -2210,6 +2222,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_easy_escape",ring_curl_easy_escape);
 	ring_vm_funcregister("curl_easy_unescape",ring_curl_easy_unescape);
 	ring_vm_funcregister("new_curllist",ring_new_curllist);
+	ring_vm_funcregister("new_managed_curllist",ring_new_managed_curllist);
 	ring_vm_funcregister("destroy_curllist",ring_destroy_curllist);
 	ring_vm_funcregister("get_curl_global_all",ring_get_curl_global_all);
 	ring_vm_funcregister("get_curl_global_ssl",ring_get_curl_global_ssl);
