@@ -1,0 +1,58 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "TextEdit1" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 15 , : y = 21  , 
+		 :width =  354 , :height = 133 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "btnShowText" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 17 , : y = 176  , 
+		 :width =  351 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Show Text",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnShowText_Click"
+		]
+	],
+	[ :name = "btnSetText" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 16 , : y = 229  , 
+		 :width =  351 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Set Text",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSetText_Click"
+		]
+	]
+]
+# End Form Designer File

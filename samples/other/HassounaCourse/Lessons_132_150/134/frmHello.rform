@@ -1,0 +1,79 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 9 , : y = 21  , 
+		 :width =  403 , :height = 375 , 
+		 :title =  "Say Hello" , 
+		 :backcolor =  "#00aaff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 11 , : y = 21  , 
+		 :width =  119 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Name:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtName" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 95 , : y = 23  , 
+		 :width =  280 , :height = 34 , 
+		 :textcolor =  "#55007f" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 11 , : y = 88  , 
+		 :width =  373 , :height = 43 , 
+		 :textcolor =  "#00007f" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Say Hello",
+		 :BtnImage =  "",
+		 :setClickEvent =  "sayHello"
+		]
+	],
+	[ :name = "lblMsg" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 9 , : y = 164  , 
+		 :width =  376 , :height = 48 , 
+		 :textcolor =  "#00007f" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  0
+		]
+	],
+	[ :name = "btnCenter" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 78 , : y = 288  , 
+		 :width =  229 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Center Now",
+		 :BtnImage =  "",
+		 :setClickEvent =  "myCenter"
+		]
+	]
+]
+# End Form Designer File

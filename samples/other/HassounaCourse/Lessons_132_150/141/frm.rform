@@ -1,0 +1,77 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "btnShow" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 69 , : y = 39  , 
+		 :width =  251 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Show Normal",
+		 :BtnImage =  "",
+		 :setClickEvent =  "myShow"
+		]
+	],
+	[ :name = "btnMax" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 69 , : y = 95  , 
+		 :width =  251 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Maximize",
+		 :BtnImage =  "",
+		 :setClickEvent =  "max"
+		]
+	],
+	[ :name = "btnMin" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 68 , : y = 151  , 
+		 :width =  251 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Minimize",
+		 :BtnImage =  "",
+		 :setClickEvent =  "min"
+		]
+	],
+	[ :name = "btnFull" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 68 , : y = 207  , 
+		 :width =  251 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Full Screen",
+		 :BtnImage =  "",
+		 :setClickEvent =  "full"
+		]
+	],
+	[ :name = "btnCenter" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 68 , : y = 294  , 
+		 :width =  251 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Center",
+		 :BtnImage =  "",
+		 :setClickEvent =  "center"
+		]
+	]
+]
+# End Form Designer File

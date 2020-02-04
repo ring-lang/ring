@@ -1,0 +1,11 @@
+﻿ListWidget Tool
+
+الطريقة الأولي لتعبئة العناصر
+Cairo
+Giza
+Alex
+Aswan
+Sohag
+
+الطريقة الثانية لتعبئة العناصر
+Cairo,Giza,Alex,Aswan,Sohag

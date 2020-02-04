@@ -1,0 +1,29 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "btnMsgBox" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 32 , : y = 108  , 
+		 :width =  329 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Show Message",
+		 :BtnImage =  "",
+		 :setClickEvent =  "showmsg"
+		]
+	]
+]
+# End Form Designer File
