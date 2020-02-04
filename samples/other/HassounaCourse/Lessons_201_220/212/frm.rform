@@ -1,0 +1,51 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  896 , :height = 504 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 48 , : y = 36  , 
+		 :width =  242 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button1",
+		 :BtnImage =  "",
+		 :setClickEvent =  "f1"
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 318 , : y = 37  , 
+		 :width =  245 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button2",
+		 :BtnImage =  "",
+		 :setClickEvent =  "f2"
+		]
+	],
+	[ :name = "Statusbar1" , :id = 4 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 28 , : y = 414  , 
+		 :width =  118 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Message =  ""
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,56 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  856 , :height = 503 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "txt" , :id = 2 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 155 , : y = 27  , 
+		 :width =  544 , :height = 68 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "lbl" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 155 , : y = 126  , 
+		 :width =  544 , :height = 64 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  1
+		]
+	],
+	[ :name = "btn" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 155 , : y = 228  , 
+		 :width =  544 , :height = 69 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Chcek",
+		 :BtnImage =  "",
+		 :setClickEvent =  "test"
+		]
+	]
+]
+# End Form Designer File

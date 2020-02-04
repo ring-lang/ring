@@ -1,0 +1,39 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  928 , :height = 523 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "HyperLink1" , :id = 2 , :classname = "formdesigner_qhyperlink" , :data = [
+		 :x = 23 , : y = 20  , 
+		 :width =  862 , :height = 90 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :Link =  "http://www.ring-lang.net",
+		 :Text =  "Ring Language Website"
+		]
+	],
+	[ :name = "HyperLink2" , :id = 3 , :classname = "formdesigner_qhyperlink" , :data = [
+		 :x = 27 , : y = 126  , 
+		 :width =  880 , :height = 97 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :Link =  "https://www.hassouna-academy.com",
+		 :Text =  "Hassouna Academy"
+		]
+	]
+]
+# End Form Designer File
