@@ -1,0 +1,17 @@
+
+//تجهيز الاتصال
+con = mysql_init()
+
+//اتصال
+mysql_connect( con , host , user , pass )
+
+//لتنفيذ الجملة
+mysql_query( con , stmt )
+
+//لعرض الخطأ ان وجد
+mysql_error( con )
+
+//لغلق الاتصال
+mysql_close( con )
+
+

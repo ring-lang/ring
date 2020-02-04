@@ -1,0 +1,307 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 12 , : y = 7  , 
+		 :width =  965 , :height = 688 , 
+		 :title =  "Employee Form" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 26 , : y = 5  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Employee ID:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtEmpNO" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 242 , : y = 9  , 
+		 :width =  440 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label3" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 27 , : y = 63  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Employee Name:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtEmpName" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 243 , : y = 67  , 
+		 :width =  440 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label5" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 27 , : y = 120  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Address:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtAddress" , :id = 7 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 243 , : y = 124  , 
+		 :width =  440 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label7" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 27 , : y = 178  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Salary:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtSalary" , :id = 9 , :classname = "formdesigner_qspinbox" , :data = [
+		 :x = 244 , : y = 180  , 
+		 :width =  439 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :minimum =  "2500",
+		 :maximum =  "10000",
+		 :range =  "",
+		 :value =  "",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "Label10" , :id = 10 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 27 , : y = 233  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Department:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "cbxDept" , :id = 11 , :classname = "formdesigner_qcombobox" , :data = [
+		 :x = 244 , : y = 238  , 
+		 :width =  439 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentIndex =  "",
+		 :setactivatedEvent =  "",
+		 :setcurrentIndexChangedEvent =  "",
+		 :seteditTextChangedEvent =  "",
+		 :sethighlightedEvent =  ""
+		]
+	],
+	[ :name = "tbl" , :id = 12 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 10 , : y = 367  , 
+		 :width =  916 , :height = 283 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "0",
+		 :HorizontalHeaders =  "",
+		 :ColumnsWidth =  "",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  0,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "show_result_count",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  "select_data"
+		]
+	],
+	[ :name = "txtSearch" , :id = 13 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 11 , : y = 314  , 
+		 :width =  350 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "search_emp2",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "btnAdd" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 705 , : y = 64  , 
+		 :width =  103 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Add",
+		 :BtnImage =  "",
+		 :setClickEvent =  "add_emp"
+		]
+	],
+	[ :name = "btnEdit" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 705 , : y = 126  , 
+		 :width =  103 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Edit",
+		 :BtnImage =  "",
+		 :setClickEvent =  "edit_emp"
+		]
+	],
+	[ :name = "btnDel" , :id = 16 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 705 , : y = 188  , 
+		 :width =  103 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Delete",
+		 :BtnImage =  "",
+		 :setClickEvent =  "del_emp"
+		]
+	],
+	[ :name = "btnFind" , :id = 17 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 824 , : y = 64  , 
+		 :width =  103 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Find",
+		 :BtnImage =  "",
+		 :setClickEvent =  "find_emp"
+		]
+	],
+	[ :name = "btnAll" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 824 , : y = 126  , 
+		 :width =  103 , :height = 52 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "All",
+		 :BtnImage =  "",
+		 :setClickEvent =  "fill_data"
+		]
+	],
+	[ :name = "btnClear" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 824 , : y = 188  , 
+		 :width =  103 , :height = 51 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Clear",
+		 :BtnImage =  "",
+		 :setClickEvent =  "clear_data"
+		]
+	],
+	[ :name = "btnSearch" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 371 , : y = 315  , 
+		 :width =  141 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Search",
+		 :BtnImage =  "",
+		 :setClickEvent =  "search_emp"
+		]
+	],
+	[ :name = "cbxAutoSearch" , :id = 21 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 530 , : y = 322  , 
+		 :width =  191 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Auto Search",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "lblCount" , :id = 22 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 724 , : y = 315  , 
+		 :width =  267 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Result: 0",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File
