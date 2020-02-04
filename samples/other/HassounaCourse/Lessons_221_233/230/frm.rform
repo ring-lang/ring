@@ -1,0 +1,71 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 13 , : y = 8  , 
+		 :width =  959 , :height = 565 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "#ffffaf" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "imgRocket" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 73 , : y = 370  , 
+		 :width =  71 , :height = 156 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "rocket.png"
+		]
+	],
+	[ :name = "btnStart" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 547 , : y = 429  , 
+		 :width =  149 , :height = 66 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Start",
+		 :BtnImage =  "",
+		 :setClickEvent =  "startMove"
+		]
+	],
+	[ :name = "Timer1" , :id = 7 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 784 , : y = 417  , 
+		 :width =  98 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "50",
+		 :Timeout =  "MoveUp"
+		]
+	],
+	[ :name = "imgRocket2" , :id = 8 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 241 , : y = 370  , 
+		 :width =  71 , :height = 156 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "rocket2.png"
+		]
+	],
+	[ :name = "lblWin" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 417 , : y = 77  , 
+		 :width =  519 , :height = 94 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,36,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "? Win",
+		 :textalign =  1
+		]
+	]
+]
+# End Form Designer File

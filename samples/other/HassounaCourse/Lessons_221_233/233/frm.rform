@@ -1,0 +1,48 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 5 , : y = 4  , 
+		 :width =  979 , :height = 568 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "img" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 5 , : y = 3  , 
+		 :width =  961 , :height = 526 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "img1.png"
+		]
+	],
+	[ :name = "img2" , :id = 3 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 391 , : y = 238  , 
+		 :width =  253 , :height = 145 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "img2.png"
+		]
+	],
+	[ :name = "Timer1" , :id = 4 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 666 , : y = 296  , 
+		 :width =  113 , :height = 64 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "10",
+		 :Timeout =  "MoveNow"
+		]
+	]
+]
+# End Form Designer File

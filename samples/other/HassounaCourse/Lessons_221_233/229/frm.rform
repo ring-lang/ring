@@ -1,0 +1,87 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 13 , : y = 8  , 
+		 :width =  959 , :height = 565 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "#ffffaf" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "imgRocket" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 73 , : y = 370  , 
+		 :width =  71 , :height = 156 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "rocket.png"
+		]
+	],
+	[ :name = "btnStart" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 287 , : y = 425  , 
+		 :width =  149 , :height = 66 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Start",
+		 :BtnImage =  "",
+		 :setClickEvent =  "startMove"
+		]
+	],
+	[ :name = "btnStop" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 494 , : y = 425  , 
+		 :width =  147 , :height = 66 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Stop",
+		 :BtnImage =  "",
+		 :setClickEvent =  "stopMove"
+		]
+	],
+	[ :name = "Spinbox1" , :id = 5 , :classname = "formdesigner_qspinbox" , :data = [
+		 :x = 397 , : y = 341  , 
+		 :width =  246 , :height = 60 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "1,1000",
+		 :value =  "100",
+		 :setvalueChangedEvent =  "SetSpeed"
+		]
+	],
+	[ :name = "Label1" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 288 , : y = 347  , 
+		 :width =  105 , :height = 46 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Speed:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Timer1" , :id = 7 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 683 , : y = 416  , 
+		 :width =  102 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "100",
+		 :Timeout =  "MoveUp"
+		]
+	]
+]
+# End Form Designer File

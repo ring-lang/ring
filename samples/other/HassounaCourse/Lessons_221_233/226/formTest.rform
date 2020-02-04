@@ -1,0 +1,41 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  944 , :height = 525 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "#bd3eb7" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 24 , : y = 410  , 
+		 :width =  146 , :height = 63 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Large Clock",
+		 :BtnImage =  "",
+		 :setClickEvent =  "test"
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 184 , : y = 409  , 
+		 :width =  146 , :height = 63 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Middle Clock",
+		 :BtnImage =  "",
+		 :setClickEvent =  "test2"
+		]
+	]
+]
+# End Form Designer File

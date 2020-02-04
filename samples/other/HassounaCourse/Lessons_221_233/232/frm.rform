@@ -1,0 +1,70 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 5 , : y = 4  , 
+		 :width =  1002 , :height = 578 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "imgSea" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 4 , : y = 353  , 
+		 :width =  983 , :height = 195 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "sea.png"
+		]
+	],
+	[ :name = "imgRock" , :id = 3 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 779 , : y = 202  , 
+		 :width =  205 , :height = 210 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "rock.png"
+		]
+	],
+	[ :name = "imgShip" , :id = 4 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 5 , : y = 236  , 
+		 :width =  170 , :height = 164 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "ship.png"
+		]
+	],
+	[ :name = "Button1" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 881 , : y = 20  , 
+		 :width =  85 , :height = 75 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Go",
+		 :BtnImage =  "",
+		 :setClickEvent =  "myGo"
+		]
+	],
+	[ :name = "Timer1" , :id = 6 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 360 , : y = 97  , 
+		 :width =  52 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "10",
+		 :Timeout =  "MoveToRight"
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,92 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  796 , :height = 443 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "#00aaff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 238 , : y = 313  , 
+		 :width =  348 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Show Date && Time",
+		 :BtnImage =  "",
+		 :setClickEvent =  "showDT"
+		]
+	],
+	[ :name = "Frame1" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 0 , : y = 0  , 
+		 :width =  472 , :height = 180 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "LCD_H" , :id = 4 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 40 , : y = 18  , 
+		 :width =  107 , :height = 140 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,22,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :display =  0
+		]
+	],
+	[ :name = "LCD_M" , :id = 5 , :classname = "formdesigner_qlcdnumber" , :data = [
+		 :x = 208 , : y = 18  , 
+		 :width =  107 , :height = 140 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,22,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :display =  0
+		]
+	],
+	[ :name = "lblSecond" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 153 , : y = 18  , 
+		 :width =  49 , :height = 136 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,48,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  ":",
+		 :textalign =  1
+		]
+	],
+	[ :name = "lblA" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 332 , : y = 18  , 
+		 :width =  118 , :height = 136 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,48,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "AM",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Timer1" , :id = 8 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 44 , : y = 309  , 
+		 :width =  98 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "500",
+		 :Timeout =  "showDT"
+		]
+	]
+]
+# End Form Designer File
