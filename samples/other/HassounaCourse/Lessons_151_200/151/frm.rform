@@ -1,0 +1,118 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  599 , :height = 537 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "ListWidget1" , :id = 2 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 40 , : y = 22  , 
+		 :width =  237 , :height = 254 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "Cairo,Giza,Alex,Aswan,Sohag",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "btnGetSelected" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 321 , : y = 24  , 
+		 :width =  242 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Get Selected",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnGetSelected_Click"
+		]
+	],
+	[ :name = "LineEdit1" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 320 , : y = 72  , 
+		 :width =  49 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "1",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "btnSetSelected" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 374 , : y = 71  , 
+		 :width =  189 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Selected",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSetSelected_Click"
+		]
+	],
+	[ :name = "LineEdit2" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 319 , : y = 125  , 
+		 :width =  243 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Item",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "btnAdd" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 320 , : y = 171  , 
+		 :width =  115 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Add",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnAdd_Click"
+		]
+	],
+	[ :name = "btnInsert" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 448 , : y = 171  , 
+		 :width =  115 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Insert",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnInsert_Click"
+		]
+	]
+]
+# End Form Designer File

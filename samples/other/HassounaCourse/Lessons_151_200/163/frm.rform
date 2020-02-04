@@ -1,0 +1,51 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 21 , : y = 14  , 
+		 :width =  973 , :height = 556 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 12 , : y = 18  , 
+		 :width =  945 , :height = 443 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#d5fcff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 13 , : y = 482  , 
+		 :width =  469 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Ahmed",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btn1"
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 490 , : y = 482  , 
+		 :width =  469 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Egypt",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btn2"
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,29 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 18 , : y = 15  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "btnSaveScreenshot" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 54 , : y = 43  , 
+		 :width =  304 , :height = 57 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Save Screenshot",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSaveScreenshot_Click"
+		]
+	]
+]
+# End Form Designer File

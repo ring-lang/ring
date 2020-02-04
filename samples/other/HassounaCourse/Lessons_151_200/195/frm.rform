@@ -1,0 +1,55 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 18 , : y = 14  , 
+		 :width =  1263 , :height = 569 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "WebView1" , :id = 2 , :classname = "formdesigner_qwebview" , :data = [
+		 :x = 1 , : y = 10  , 
+		 :width =  1249 , :height = 481 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :URL =  "",
+		 :setloadProgressEvent  =  "",
+		 :setloadStartedEvent  =  "",
+		 :setselectionChangedEvent  =  "",
+		 :seturlChangedEvent  =  ""
+		]
+	],
+	[ :name = "btnOpenWebsite" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1 , : y = 498  , 
+		 :width =  249 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Open Website",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnOpenWebsite_Click"
+		]
+	],
+	[ :name = "btnOpenGoogle" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 259 , : y = 498  , 
+		 :width =  249 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Open Google",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnOpenGoogle_Click"
+		]
+	]
+]
+# End Form Designer File

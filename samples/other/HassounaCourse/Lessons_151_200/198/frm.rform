@@ -1,0 +1,89 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 21 , : y = 16  , 
+		 :width =  957 , :height = 553 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "VideoWidget1" , :id = 2 , :classname = "formdesigner_qvideowidget" , :data = [
+		 :x = 10 , : y = 18  , 
+		 :width =  749 , :height = 439 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Videofile =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 775 , : y = 26  , 
+		 :width =  167 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Set Video",
+		 :BtnImage =  "",
+		 :setClickEvent =  "setVideo"
+		]
+	],
+	[ :name = "Button2" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 775 , : y = 81  , 
+		 :width =  167 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Play",
+		 :BtnImage =  "",
+		 :setClickEvent =  "play"
+		]
+	],
+	[ :name = "Button3" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 775 , : y = 135  , 
+		 :width =  167 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Pause",
+		 :BtnImage =  "",
+		 :setClickEvent =  "pause"
+		]
+	],
+	[ :name = "Button4" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 774 , : y = 192  , 
+		 :width =  167 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "stop",
+		 :BtnImage =  "",
+		 :setClickEvent =  "stop"
+		]
+	],
+	[ :name = "Dial1" , :id = 7 , :classname = "formdesigner_qdial" , :data = [
+		 :x = 773 , : y = 257  , 
+		 :width =  165 , :height = 116 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "0,100",
+		 :value =  "100",
+		 :setvalueChangedEvent =  "setVol"
+		]
+	]
+]
+# End Form Designer File

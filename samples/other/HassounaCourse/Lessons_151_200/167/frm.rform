@@ -1,0 +1,39 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -105 , : y = 18  , 
+		 :width =  974 , :height = 547 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 6 , : y = 14  , 
+		 :width =  529 , :height = 436 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "egypt.jpg"
+		]
+	],
+	[ :name = "btnSave" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 605 , : y = 184  , 
+		 :width =  319 , :height = 68 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Save",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSave_Click"
+		]
+	]
+]
+# End Form Designer File

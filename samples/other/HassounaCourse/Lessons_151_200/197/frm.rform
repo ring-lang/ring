@@ -1,0 +1,66 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 28 , : y = 18  , 
+		 :width =  669 , :height = 545 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Dial1" , :id = 2 , :classname = "formdesigner_qdial" , :data = [
+		 :x = 75 , : y = 28  , 
+		 :width =  505 , :height = 318 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "0,100",
+		 :value =  "",
+		 :setvalueChangedEvent =  "ValChange"
+		]
+	],
+	[ :name = "btnUp" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 254 , : y = 353  , 
+		 :width =  59 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "+",
+		 :BtnImage =  "",
+		 :setClickEvent =  "up"
+		]
+	],
+	[ :name = "btnDown" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 329 , : y = 353  , 
+		 :width =  59 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "-",
+		 :BtnImage =  "",
+		 :setClickEvent =  "down"
+		]
+	],
+	[ :name = "lbl" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 143 , : y = 436  , 
+		 :width =  351 , :height = 67 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "0",
+		 :textalign =  1
+		]
+	]
+]
+# End Form Designer File

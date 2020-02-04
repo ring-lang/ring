@@ -1,0 +1,59 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  889 , :height = 518 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "TreeWidget1" , :id = 2 , :classname = "formdesigner_qtreewidget" , :data = [
+		 :x = 217 , : y = 18  , 
+		 :width =  394 , :height = 371 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :columncount =  "0",
+		 :headerlabels =  "",
+		 :HeaderHidden =  0,
+		 :setcollapsedEvent =  "",
+		 :setexpandedEvent =  "",
+		 :setactivatedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setdoubleClickedEvent =  "",
+		 :setenteredEvent =  "",
+		 :setpressedEvent =  "",
+		 :setviewportEnteredEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemCollapsedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemExpandedEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "btnFillTree" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 218 , : y = 415  , 
+		 :width =  395 , :height = 49 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Fill Tree",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnFillTree_Click"
+		]
+	]
+]
+# End Form Designer File

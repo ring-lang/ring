@@ -1,0 +1,396 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  979 , :height = 564 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "LineEdit1" , :id = 2 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 14 , : y = 23  , 
+		 :width =  161 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit2" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 198 , : y = 33  , 
+		 :width =  102 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit3" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 346 , : y = 34  , 
+		 :width =  125 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 494 , : y = 39  , 
+		 :width =  134 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button1",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "CheckBox1" , :id = 6 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 14 , : y = 101  , 
+		 :width =  81 , :height = 51 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "CheckBox1",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "CheckBox2" , :id = 7 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 168 , : y = 119  , 
+		 :width =  95 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "CheckBox2",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "CheckBox3" , :id = 8 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 309 , : y = 117  , 
+		 :width =  68 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "CheckBox3",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 427 , : y = 115  , 
+		 :width =  111 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button2",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "RadioButton1" , :id = 10 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 20 , : y = 198  , 
+		 :width =  101 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton1",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton2" , :id = 11 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 158 , : y = 202  , 
+		 :width =  81 , :height = 25 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton2",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton3" , :id = 12 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 299 , : y = 187  , 
+		 :width =  89 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton3",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "Button3" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 421 , : y = 189  , 
+		 :width =  111 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button3",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Dial1" , :id = 14 , :classname = "formdesigner_qdial" , :data = [
+		 :x = 17 , : y = 263  , 
+		 :width =  90 , :height = 59 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "Button4" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 147 , : y = 273  , 
+		 :width =  130 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button4",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "RadioButton4" , :id = 16 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 19 , : y = 362  , 
+		 :width =  83 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton4",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton5" , :id = 17 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 130 , : y = 370  , 
+		 :width =  100 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton5",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton6" , :id = 18 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 283 , : y = 355  , 
+		 :width =  104 , :height = 32 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "RadioButton6",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "Button5" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 432 , : y = 356  , 
+		 :width =  121 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button5",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "CheckBox4" , :id = 20 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 20 , : y = 450  , 
+		 :width =  102 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "CheckBox4",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "Slider1" , :id = 21 , :classname = "formdesigner_qslider" , :data = [
+		 :x = 152 , : y = 452  , 
+		 :width =  154 , :height = 32 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "",
+		 :setactionTriggeredEvent =  "",
+		 :setrangeChangedEvent =  "",
+		 :setsliderMovedEvent =  "",
+		 :setsliderPressedEvent =  "",
+		 :setsliderReleasedEvent =  "",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "Combobox1" , :id = 22 , :classname = "formdesigner_qcombobox" , :data = [
+		 :x = 338 , : y = 455  , 
+		 :width =  171 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "Item1,Item2,Item3",
+		 :cCurrentIndex =  "",
+		 :setactivatedEvent =  "",
+		 :setcurrentIndexChangedEvent =  "",
+		 :seteditTextChangedEvent =  "",
+		 :sethighlightedEvent =  ""
+		]
+	],
+	[ :name = "Button6" , :id = 23 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 547 , : y = 456  , 
+		 :width =  155 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Button6",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Toolbar1" , :id = 24 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 649 , : y = 45  , 
+		 :width =  79 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "LineEdit1,LineEdit2,LineEdit3,Button1"
+		]
+	],
+	[ :name = "Toolbar2" , :id = 25 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 555 , : y = 127  , 
+		 :width =  94 , :height = 23 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "CheckBox1,CheckBox2,CheckBox3,Button2"
+		]
+	],
+	[ :name = "Toolbar3" , :id = 26 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 541 , : y = 201  , 
+		 :width =  100 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "RadioButton1,RadioButton2,RadioButton3,Button3"
+		]
+	],
+	[ :name = "Toolbar4" , :id = 27 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 296 , : y = 287  , 
+		 :width =  85 , :height = 21 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "Dial1,Button4"
+		]
+	],
+	[ :name = "Toolbar5" , :id = 28 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 567 , : y = 368  , 
+		 :width =  95 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "RadioButton4,RadioButton5,RadioButton6,Button5"
+		]
+	],
+	[ :name = "Toolbar6" , :id = 29 , :classname = "formdesigner_qtoolbar" , :data = [
+		 :x = 720 , : y = 467  , 
+		 :width =  91 , :height = 31 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Title =  "",
+		 :ToolbarObjects =  "CheckBox4,Slider1,Combobox1,Button6"
+		]
+	]
+]
+# End Form Designer File

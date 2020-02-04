@@ -1,0 +1,55 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 23 , : y = 14  , 
+		 :width =  959 , :height = 551 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 13 , : y = 17  , 
+		 :width =  916 , :height = 402 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  ""
+		]
+	],
+	[ :name = "txtPath" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 13 , : y = 447  , 
+		 :width =  743 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "btnSelect" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 768 , : y = 445  , 
+		 :width =  165 , :height = 42 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Select",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSelect_Click"
+		]
+	]
+]
+# End Form Designer File

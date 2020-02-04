@@ -1,0 +1,56 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 19 , : y = 19  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Combobox1" , :id = 2 , :classname = "formdesigner_qcombobox" , :data = [
+		 :x = 42 , : y = 21  , 
+		 :width =  316 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentIndex =  "",
+		 :setactivatedEvent =  "",
+		 :setcurrentIndexChangedEvent =  "",
+		 :seteditTextChangedEvent =  "",
+		 :sethighlightedEvent =  ""
+		]
+	],
+	[ :name = "btnAddItems" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 43 , : y = 93  , 
+		 :width =  315 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Add Items",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnAddItems_Click"
+		]
+	],
+	[ :name = "btnRemove" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 43 , : y = 157  , 
+		 :width =  315 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Remove Item",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnRemove_Click"
+		]
+	]
+]
+# End Form Designer File

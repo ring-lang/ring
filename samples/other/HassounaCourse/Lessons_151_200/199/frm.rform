@@ -1,0 +1,65 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 19 , : y = 14  , 
+		 :width =  964 , :height = 545 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 388 , : y = 103  , 
+		 :width =  177 , :height = 46 , 
+		 :textcolor =  "#ffff7f" , 
+		 :backcolor =  "#0000ff" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Button1",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 388 , : y = 189  , 
+		 :width =  177 , :height = 46 , 
+		 :textcolor =  "#ffff7f" , 
+		 :backcolor =  "#0000ff" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Button2",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 388 , : y = 275  , 
+		 :width =  177 , :height = 46 , 
+		 :textcolor =  "#ffff7f" , 
+		 :backcolor =  "#0000ff" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Button3",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 388 , : y = 361  , 
+		 :width =  177 , :height = 46 , 
+		 :textcolor =  "#ffff7f" , 
+		 :backcolor =  "#0000ff" , 
+		 :font =  "MS Shell Dlg 2,12,-1,5,75,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Button4",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<title>My Calculator</title>
+		
+		<style type="text/css">
+    input[type=text], input[type=number], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+	font-weight:bold; font-size:18px; color:blue;
+    }
+
+    button , input[type=button] {
+        width: 100%;
+        background-color: #ab4caf;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+	font-weight:bold; font-size:18px;
+    }
+
+    button:hover , input[type=button]:hover {
+        background-color: #a0459c;
+    }
+
+    div {
+        width:400px;
+        border-radius: 5px;
+        background-color: #e2c8f5;
+        padding: 20px;
+    }
+			
+		</style>
+		
+	</head>
+	<link rel="shortcut icon" href="calc.ico">
+	<body>
+<div>
+		<table style="width:100%">
+		
+			<tr>
+				<td colspan="2" align="center">
+					<p style="font-weight:bold;font-size:24px;">My Calculator</p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label class="lbln">Number 1:</label>
+				</td>
+				<td>
+					<input type="number" id="txtNum1" class="txtn" type="text" />
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label class="lbln">Number 2:</label>
+				</td>
+				<td>
+					<input type="number" id="txtNum2" class="txtn" type="text" />
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					
+					<table>
+						<tr>
+							<td>
+								<input class="btn" type="button" value="+" onclick="calc('a');" />
+							</td>
+							<td>
+								<input class="btn" type="button" value="-" onclick="calc('s');" />
+							</td>
+							<td>
+								<input class="btn" type="button" value="x" onclick="calc('m')" />
+							</td>
+							<td>
+								<input class="btn" type="button" value="/" onclick="calc('d')" />
+							</td>
+							<td>
+								<input class="btn" type="button" value="MOD" onclick="calc('mod')" />
+							</td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<label id="lblR" style="font-size:30pt; font-weight:bold; " >0</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="left">
+					<input class="btn" onclick="window.close();" style="background:PaleVioletRed; width:80px;" type="button" value="Exit" />
+				</td>
+			</tr>
+			
+		</table>
+</div>
+	</body>
+	
+	<script type="text/javascript">
+		
+		function calc(ope){
+			
+			if( ope == 'a' )
+				window.lblR.innerHTML = eval(window.txtNum1.value) + eval(window.txtNum2.value);
+			if( ope == 's' )
+				window.lblR.innerHTML = eval(window.txtNum1.value) - eval(window.txtNum2.value);
+			if( ope == 'm' )
+				window.lblR.innerHTML = eval(window.txtNum1.value) * eval(window.txtNum2.value);				
+			if( ope == 'd' )
+				window.lblR.innerHTML = eval(window.txtNum1.value) / eval(window.txtNum2.value);				
+			if( ope == 'mod' )
+				window.lblR.innerHTML = eval(window.txtNum1.value) % eval(window.txtNum2.value);				
+				
+		}
+	</script>
+	
+</html>

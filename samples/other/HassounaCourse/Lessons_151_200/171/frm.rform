@@ -1,0 +1,51 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 22 , : y = 18  , 
+		 :width =  974 , :height = 547 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 16 , : y = 11  , 
+		 :width =  764 , :height = 485 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  ""
+		]
+	],
+	[ :name = "btnSave" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 791 , : y = 207  , 
+		 :width =  171 , :height = 68 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Save",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSave_Click"
+		]
+	],
+	[ :name = "btnTakeScreenshot" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 789 , : y = 120  , 
+		 :width =  173 , :height = 68 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Print Screen",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnTakeScreenshot_Click"
+		]
+	]
+]
+# End Form Designer File

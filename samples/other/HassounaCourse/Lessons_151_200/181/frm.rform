@@ -1,0 +1,44 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  790 , :height = 473 , 
+		 :title =  "Form1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "dt1" , :id = 2 , :classname = "formdesigner_qdatetimeedit" , :data = [
+		 :x = 209 , : y = 17  , 
+		 :width =  377 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  
+		]
+	],
+	[ :name = "dt2" , :id = 3 , :classname = "formdesigner_qdatetimeedit" , :data = [
+		 :x = 210 , : y = 78  , 
+		 :width =  377 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  
+		]
+	],
+	[ :name = "dt3" , :id = 4 , :classname = "formdesigner_qdatetimeedit" , :data = [
+		 :x = 210 , : y = 143  , 
+		 :width =  377 , :height = 50 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  
+		]
+	]
+]
+# End Form Designer File

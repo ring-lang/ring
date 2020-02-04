@@ -1,0 +1,77 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 18 , : y = 15  , 
+		 :width =  542 , :height = 400 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "myIcon.ico" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "btnSaveScreenshot" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 54 , : y = 43  , 
+		 :width =  304 , :height = 57 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Save Screenshot",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnSaveScreenshot_Click"
+		]
+	],
+	[ :name = "CheckBox1" , :id = 3 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 43 , : y = 153  , 
+		 :width =  242 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "CheckBox1",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "LineEdit1" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 51 , : y = 256  , 
+		 :width =  244 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "TextEdit1" , :id = 5 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 280 , : y = 147  , 
+		 :width =  180 , :height = 92 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	]
+]
+# End Form Designer File

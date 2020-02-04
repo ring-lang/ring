@@ -1,0 +1,125 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 34 , : y = 33  , 
+		 :width =  957 , :height = 532 , 
+		 :title =  "Form 1" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "cbxJava" , :id = 2 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 39 , : y = 23  , 
+		 :width =  112 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Java",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "cbxJava_Clicked",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "cbxCSharp" , :id = 3 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 144 , : y = 24  , 
+		 :width =  71 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "C#",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "cbxCSharp_Clicked",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "cbxRing" , :id = 4 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 230 , : y = 24  , 
+		 :width =  112 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Ring",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "cbxRing_Clicked",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "cbxVB" , :id = 5 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 320 , : y = 25  , 
+		 :width =  74 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "VB",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "cbxVB_Clicked",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "cbxPython" , :id = 6 , :classname = "formdesigner_qcheckbox" , :data = [
+		 :x = 419 , : y = 24  , 
+		 :width =  112 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Python",
+		 :setstateChangedEvent =  "",
+		 :setclickedEvent =  "cbxPython_Clicked",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "btnGetSelected" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 41 , : y = 96  , 
+		 :width =  173 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Get Selected",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnGetSelected_Click"
+		]
+	],
+	[ :name = "lwHistory" , :id = 8 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 546 , : y = 29  , 
+		 :width =  389 , :height = 453 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File
