@@ -193,9 +193,7 @@ Using the ring_state_filetokens() function we can get all the tokens in the ring
 			on C_IDENTIFIER 
 				? Width("Identifier",C_WIDTH)  + ": " + aToken[2]
 			on C_ENDLINE 
-				? "EndLine"
-			other
-				
+				? "EndLine"	
 			off
 		next
 
