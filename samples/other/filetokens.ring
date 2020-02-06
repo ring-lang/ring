@@ -45,8 +45,6 @@ func PrintTokens aList
 			? Width("Identifier",C_WIDTH)  + ": " + aToken[2]
 		on C_ENDLINE 
 			? "EndLine"
-		other
-			
 		off
 	next
 
