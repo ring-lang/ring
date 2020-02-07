@@ -126,48 +126,31 @@ int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 int ring_parser_isoperator ( Parser *pParser,const char *cStr )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType == SCANNER_TOKEN_OPERATOR ) {
-		if ( strcmp( pParser->TokenText,cStr) == 0 ) {
-			return 1 ;
-		}
-	}
-	return 0 ;
+	return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->TokenText,cStr) == 0 ) ;
 }
 
 int ring_parser_isliteral ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType ==SCANNER_TOKEN_LITERAL ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType == SCANNER_TOKEN_LITERAL) ;
 }
 
 int ring_parser_isnumber ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType ==SCANNER_TOKEN_NUMBER ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType ==SCANNER_TOKEN_NUMBER) ;
 }
 
 int ring_parser_isidentifier ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType ==SCANNER_TOKEN_IDENTIFIER ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType ==SCANNER_TOKEN_IDENTIFIER) ;
 }
 
 int ring_parser_isendline ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType ==SCANNER_TOKEN_ENDLINE ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType == SCANNER_TOKEN_ENDLINE) ;
 }
 
 int ring_parser_settoken ( Parser *pParser,int x )
@@ -184,19 +167,13 @@ int ring_parser_settoken ( Parser *pParser,int x )
 int ring_parser_isanykeyword ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	if ( pParser->TokenType == SCANNER_TOKEN_KEYWORD ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType == SCANNER_TOKEN_KEYWORD) ;
 }
 
 int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 {
 	assert(pParser != NULL);
-	if ( (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && ( pParser->nTokenIndex == (int) nType ) ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && ( pParser->nTokenIndex == (int) nType ) ;
 }
 /* Display Errors */
 
