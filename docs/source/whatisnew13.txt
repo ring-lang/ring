@@ -1,0 +1,29 @@
+.. index:: 
+	single: What is new in Ring 1.13?; Introduction
+
+=========================
+What is new in Ring 1.13?
+=========================
+
+In this chapter we will learn about the changes and new features in Ring 1.13 release.
+
+.. index:: 
+	pair: What is new in Ring 1.13?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.13 comes with the next features!
+
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; More Improvements
+
+More Improvements
+=================
+
+* New Samples
+	* ring/samples/other/changeisnull.ring
+
+* Ring Compiler - ring_parser.c - Better Code
