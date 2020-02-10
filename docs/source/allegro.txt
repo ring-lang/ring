@@ -216,7 +216,7 @@ Then we see an image displayed on the screen
 	:alt: Displaying an image on the screen
 
 Finally we have one rectangle, and we see it moving all of the time on
-the screen but we can control it using the Mouse and/or the Keyborad 
+the screen but we can control it using the Mouse and/or the Keyboard 
 
 .. image:: ringalleg_shot4.jpg
 	:alt: Animation and Getting Input from keyboard and the mouse to move the object
