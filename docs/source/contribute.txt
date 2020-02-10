@@ -9,6 +9,8 @@ Ring is a free-open source project, Everyone is welcome to contribute to Ring.
 
 Project Home : https://github.com/ring-lang/ring
 
+To editing on web browser without Git client, when login GitHub then click pencil icon in target file. Then, sends pull request.
+
 You can help in many parts in the project
 
 * Documentation
