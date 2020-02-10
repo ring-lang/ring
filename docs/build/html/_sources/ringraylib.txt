@@ -1215,9 +1215,6 @@ Screen Shot:
 	:alt: RayLib Example
 	
 .. index:: 
-	pair: Using RingRayLib; Functions
-
-.. index:: 
 	pair: Using RingRayLib; Rectangle Scaling 
 
 Rectangle Scaling 
@@ -1842,6 +1839,10 @@ Screen Shot:
 .. image:: raylib_cubicmap.png
 	:alt: RayLib Example	
 	
+
+.. index:: 
+	pair: Using RingRayLib; Functions
+
 Functions
 =========
 
