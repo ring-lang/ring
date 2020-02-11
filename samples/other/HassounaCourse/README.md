@@ -5,9 +5,9 @@ In this folder we have the samples created during Hassouna Course
 
 Author: Ahmed Hassouna
 
-ULR: https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
+URL (YouTube): https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
 
-The next tables contains some examples from the course
+The next tables contains some samples from the course
 
 <table>
 	<tr>
