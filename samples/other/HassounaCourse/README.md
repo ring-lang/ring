@@ -178,4 +178,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex192.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			13
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/193/frmController.ring"> OptionGroup </a>
+		</td>
+		<td>
+			Get the selected item in OptionGroup
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex193.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
