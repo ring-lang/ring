@@ -253,13 +253,27 @@ The next tables contains some samples from the course
 			18
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_201_220/213/frmController.ring"> Numbers </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_201_220/213/frmController.ring"> LCD Numbers </a>
 		</td>
 		<td>
 			Displaying Numbers
 		</td>
 		<td>
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex213.png" width="450" height="200">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			19
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_201_220/218/frmController.ring"> Tabs </a>
+		</td>
+		<td>
+			Using many tabs
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex218.png" width="450" height="200">
 		</td>
 	</tr>
 </table>
