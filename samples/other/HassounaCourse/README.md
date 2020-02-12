@@ -43,7 +43,7 @@ The next tables contains some samples from the course
 			3
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_132_150/147/frmController.ring"> Window State </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_132_150/147/frmController.ring"> TextEdit </a>
 		</td>
 		<td>
 			 Set/Get TextEdit value
