@@ -25,5 +25,6 @@ More Improvements
 
 * New Samples
 	* ring/samples/other/changeisnull.ring
+	* ring/samples/other/ArrayPathDest/solveArrayPathDest.ring
 
 * Ring Compiler - ring_parser.c - Better Code
