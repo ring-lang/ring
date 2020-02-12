@@ -150,4 +150,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex183.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			11
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/189/frmController.ring"> TableWidget </a>
+		</td>
+		<td>
+			 Using the TableWidget control
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex189.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
