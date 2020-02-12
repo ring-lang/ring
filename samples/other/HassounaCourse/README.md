@@ -346,4 +346,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex297.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			25
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_234_300/298-300/mynotes.ring"> Notes </a>
+		</td>
+		<td>
+			Simple database example (SQLite)
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex300.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
