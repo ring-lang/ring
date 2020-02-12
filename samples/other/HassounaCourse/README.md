@@ -108,4 +108,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex172.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			8
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/177/frmController.ring"> ProgressBar </a>
+		</td>
+		<td>
+			 Set/Get ProgressBar value
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex177.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
