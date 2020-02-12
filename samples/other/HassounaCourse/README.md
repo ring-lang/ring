@@ -136,4 +136,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex179.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			10
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/183/frmController.ring"> Date & Time </a>
+		</td>
+		<td>
+			 Set/Get the date value
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex183.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
