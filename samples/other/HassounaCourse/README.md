@@ -295,7 +295,7 @@ The next tables contains some samples from the course
 			21
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/231/frmController.ring"> Timer </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/231/frmController.ring"> Rocket Race </a>
 		</td>
 		<td>
 			Timer & Animations (Sample 1)
@@ -309,7 +309,7 @@ The next tables contains some samples from the course
 			22
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/232/frmController.ring"> Timer </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/232/frmController.ring"> Moving the Ship </a>
 		</td>
 		<td>
 			Timer & Animations (Sample 2)
@@ -323,7 +323,7 @@ The next tables contains some samples from the course
 			23
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/233/frmController.ring"> Timer </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/233/frmController.ring"> Flowers </a>
 		</td>
 		<td>
 			Timer & Animations (Sample 3)
