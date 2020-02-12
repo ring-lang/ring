@@ -234,4 +234,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex200.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			17
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_201_220/201/frmController.ring"> Color Dialog </a>
+		</td>
+		<td>
+			Select the background color
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex201.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
