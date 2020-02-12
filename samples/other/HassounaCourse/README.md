@@ -220,4 +220,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex197.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			16
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/200/frmController.ring"> Toolbar </a>
+		</td>
+		<td>
+			Using the Toolbar control
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex200.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
