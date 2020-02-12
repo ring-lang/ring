@@ -290,4 +290,47 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex223.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			21
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/231/frmController.ring"> Timer </a>
+		</td>
+		<td>
+			Timer & Animations (Sample 1)
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex231.png" width="450" height="200">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			22
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/232/frmController.ring"> Timer </a>
+		</td>
+		<td>
+			Timer & Animations (Sample 2)
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex232.png" width="450" height="200">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			23
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_221_233/233/frmController.ring"> Timer </a>
+		</td>
+		<td>
+			Timer & Animations (Sample 3)
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex233.png" width="450" height="200">
+		</td>
+	</tr>
+
 </table>
