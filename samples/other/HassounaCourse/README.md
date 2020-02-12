@@ -52,4 +52,18 @@ The next tables contains some samples from the course
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex147.png" width="450" height="200">
 		</td>
 	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/other/HassounaCourse/Lessons_151_200/159/frmController.ring"> ListWidget </a>
+		</td>
+		<td>
+			 ListWidget Control
+		</td>
+		<td>
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/other/HassounaCourse/shots/ex159.png" width="450" height="200">
+		</td>
+	</tr>
 </table>
