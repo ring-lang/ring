@@ -13,6 +13,6 @@ Supported Editors
 
 (5) Sublime Text 2
 
-(7) Visual Studio 
+(6) Visual Studio 
 
-(8) Visual Studio Code (VSCode)
+(7) Visual Studio Code (VSCode)
