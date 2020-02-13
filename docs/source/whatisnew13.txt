@@ -15,8 +15,29 @@ List of changes and new features
 
 Ring 1.13 comes with the next features!
 
+* Hassouna Course Samples
 * Ring support in SpaceVim
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Hassouna Course Samples
+
+Hassouna Course Samples
+=======================
+
+URL (YouTube): https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
+
+The course samples are added to ring/samples/other/HassounaCourse folder
+
+The Rockets sample
+
+.. image:: hassouna3.png
+	:alt: Sample from Hassouna Course 
+
+The Ship sample
+
+.. image:: hassouna2.png
+	:alt: Sample from Hassouna Course 
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Ring support in SpaceVim
