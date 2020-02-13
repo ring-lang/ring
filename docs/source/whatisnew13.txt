@@ -15,7 +15,21 @@ List of changes and new features
 
 Ring 1.13 comes with the next features!
 
+* Ring support in SpaceVim
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Ring support in SpaceVim
+
+Ring support in SpaceVim
+========================
+
+URL: https://github.com/SpaceVim/SpaceVim
+
+Screen Shot:
+
+.. image:: ringinvim.png
+	:alt: Ring in SpaceVim
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
