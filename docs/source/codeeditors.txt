@@ -14,6 +14,7 @@ In the Ring/Editor folder you will find extensions for the next editors
 * Visual Studio IDE
 * Emacs
 * Visual Studio Code (VSCode)
+* SpaceVim
 
 .. index:: 
 	pair: Using Other Code Editors; Using Notepad++
@@ -149,3 +150,15 @@ Screen Shot:
 .. image:: ringinvscode.png
 	:alt: Ring in Visual Studio Code
 
+.. index:: 
+	pair: Using Other Code Editors; SpaceVim
+
+SpaceVim
+========
+
+URL: https://github.com/SpaceVim/SpaceVim
+
+Screen Shot:
+
+.. image:: ringinvim.png
+	:alt: Ring in SpaceVim
