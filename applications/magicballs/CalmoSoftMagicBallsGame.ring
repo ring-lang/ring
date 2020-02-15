@@ -17,11 +17,14 @@ dstXY = 1
 
 aSquare = list(size*size)
 
-emptyCell = "empty.jpg"
-balls = ["blue.jpg", "green.jpg", "orange.jpg", "red.jpg", "violet.jpg","yellow.jpg",
-         "blueonblack.jpg", "greenonblack.jpg", "orangeonblack.jpg",
-         "redonblack.jpg", "violetonblack.jpg", "yellowonblack.jpg", "empty.jpg"]
-whiteBallWH = new Qpixmap("blue.jpg")
+emptyCell = "images/empty.jpg"
+balls = ["images/blue.jpg", "images/green.jpg", "images/orange.jpg",
+	 "images/red.jpg", "violet.jpg","images/yellow.jpg",
+         "images/blueonblack.jpg", "images/greenonblack.jpg",
+	 "images/orangeonblack.jpg", "images/redonblack.jpg", "images/violetonblack.jpg",
+	 "images/yellowonblack.jpg", "images/empty.jpg"]
+C_EMPTY = "images/empty.jpg"
+whiteBallWH = new Qpixmap("images/blue.jpg")
 
 hv = 0         // source ball
 btn = 0        // target empty cell
@@ -70,7 +73,7 @@ app = new qApp
 
 func UserLeftClick(btn)                    // for click on a button
      ind = find(balls, cellType[btn])      //find color
-     if (ind > 0) and (cellType[btn] != "empty.jpg")
+     if (ind > 0) and (cellType[btn] != C_EMPTY)
 	hv = btn                           // store index of source ball to hv
         if ind < colorNr + 1               // if color is basic
            cellType[hv] = balls[ind+colorNr]
@@ -78,7 +81,7 @@ func UserLeftClick(btn)                    // for click on a button
         return
      else
         if (hv != 0)
-              if cellType[hv] = "empty.jpg"
+              if cellType[hv] = C_EMPTY
                  start = 0
               else
                  start = 1
@@ -96,7 +99,7 @@ func UserLeftClick(btn)                    // for click on a button
               aSquare[btn] = 1
               aSquare[hv] = 0
               cellType[btn] = cellType[hv]
-              cellType[hv] = "empty.jpg"
+              cellType[hv] = C_EMPTY
               if start = 1 
                  newCells()      // place new three balls on table
               ok
@@ -116,7 +119,7 @@ func newCells()
          cellStyle = random(5) + 1
          app.processevents()
          sleep(0.5)
-         if cellType[rnd] = "empty.jpg"
+         if cellType[rnd] = C_EMPTY
             button[rnd] { seticon(new qicon(new qpixmap(balls[cellStyle])))
                           setIconSize(new qSize(65,65)) }
             cellType[rnd] = balls[cellStyle]
@@ -136,7 +139,7 @@ func pBegin()
 	 Button[btn] { seticon(new qicon(new qpixmap(emptyCell)))
                        setIconSize(new qSize(65,65))
                      }
-         cellType[btn] = "empty.jpg"
+         cellType[btn] = C_EMPTY
          aSquare[btn] = 0
      next
 
@@ -161,7 +164,7 @@ func deleteCells()
              else
                 cellType2 = balls[inds-colorNr]
              ok
-             bool1 = (cellType[btn] != "empty.jpg")
+             bool1 = (cellType[btn] != C_EMPTY)
              bool2 = (cellType[btn+1] = cellType1) or (cellType[btn+1] = cellType2)    
              bool3 = (cellType[btn+2] = cellType1) or (cellType[btn+2] = cellType2)
              bool4 = (cellType[btn+3] = cellType1) or (cellType[btn+3] = cellType2)
@@ -185,7 +188,7 @@ func deleteCells()
              else
                 cellType2 = balls[inds-colorNr]
              ok
-             bool1 = (cellType[btn] != "empty.jpg")
+             bool1 = (cellType[btn] != C_EMPTY)
              bool2 = (cellType[btn+size] = cellType1) or (cellType[btn+size] = cellType2)
              bool3 = (cellType[btn+size*2] = cellType1) or (cellType[btn+size*2] = cellType2) 
              bool4 = (cellType[btn+size*3] = cellType1) or (cellType[btn+size*3] = cellType2)
@@ -208,7 +211,7 @@ func deleteCells()
              else
                 cellType2 = balls[inds-colorNr]
              ok
-             bool1 = (cellType[btn] != "empty.jpg")
+             bool1 = (cellType[btn] != C_EMPTY)
              bool2 = (cellType[btn+9] = cellType1) or (cellType[btn+9] = cellType2)
              bool3 = (cellType[btn+18] = cellType1) or (cellType[btn+18] = cellType2)
              bool4 = (cellType[btn+27] = cellType1) or (cellType[btn+27] = cellType2)
@@ -231,7 +234,7 @@ func deleteCells()
              else
                 cellType2 = balls[inds-colorNr]
              ok
-             bool1 = (cellType[btn] != "empty.jpg")
+             bool1 = (cellType[btn] != C_EMPTY)
              bool2 = (cellType[btn+11] = cellType1) or (cellType[btn+11] = cellType2)
              bool3 = (cellType[btn+22] = cellType1) or (cellType[btn+22] = cellType2) 
              bool4 = (cellType[btn+33] = cellType1) or (cellType[btn+33] = cellType2)
@@ -270,7 +273,7 @@ func msgBox(cText)
 
 func gameOver()
      for btn = 1 to size*size
-             if cellType[btn] != "empty.jpg"
+             if cellType[btn] != C_EMPTY
                 gover = 1
              else
                 gover = 0
