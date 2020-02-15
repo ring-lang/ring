@@ -17,13 +17,14 @@ dstXY = 1
 
 aSquare = list(size*size)
 
-emptyCell = "images/empty.jpg"
 balls = ["images/blue.jpg", "images/green.jpg", "images/orange.jpg",
 	 "images/red.jpg", "violet.jpg","images/yellow.jpg",
          "images/blueonblack.jpg", "images/greenonblack.jpg",
 	 "images/orangeonblack.jpg", "images/redonblack.jpg", "images/violetonblack.jpg",
 	 "images/yellowonblack.jpg", "images/empty.jpg"]
+
 C_EMPTY = "images/empty.jpg"
+
 whiteBallWH = new Qpixmap("images/blue.jpg")
 
 hv = 0         // source ball
@@ -52,7 +53,7 @@ app = new qApp
                          }
 
             for btn = 1 to size*size
-                Button[btn] = new QPushButton(win) { setIcon(new qIcon(new Qpixmap(emptyCell)))
+                Button[btn] = new QPushButton(win) { setIcon(new qIcon(new Qpixmap(C_EMPTY)))
                                   setIconSize(new qSize(bWidth,bHeight))
                                   col = btn%size
                                   if col = 0
@@ -92,7 +93,7 @@ func UserLeftClick(btn)                    // for click on a button
 
 	      Button[btn] { seticon(new qicon(new qpixmap(cellType[hv])))
                             setIconSize(new qSize(65,65)) } 
-              Button[hv] { seticon(new qicon(new qpixmap(emptyCell)))
+              Button[hv] { seticon(new qicon(new qpixmap(C_EMPTY)))
                            setIconSize(new qSize(65,65)) }
               app.processevents()
               sleep(0.5)
@@ -136,7 +137,7 @@ func newGame()
 
 func pBegin()
      for btn = 1 to size*size
-	 Button[btn] { seticon(new qicon(new qpixmap(emptyCell)))
+	 Button[btn] { seticon(new qicon(new qpixmap(C_EMPTY)))
                        setIconSize(new qSize(65,65))
                      }
          cellType[btn] = C_EMPTY
@@ -172,7 +173,7 @@ func deleteCells()
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1 
                 for p = 0 to 4
-                    Button[btn+p] { seticon(new qicon(new qpixmap(emptyCell)))
+                    Button[btn+p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                     setIconSize(new qSize(65,65))
                                   }
                 next
@@ -196,7 +197,7 @@ func deleteCells()
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
                 for p = 0 to 4
-                    Button[btn+size*p] { seticon(new qicon(new qpixmap(emptyCell)))
+                    Button[btn+size*p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                          setIconSize(new qSize(65,65))
                                        }
                 next
@@ -219,7 +220,7 @@ func deleteCells()
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
                 for p = 0 to 4
-                    Button[btn+p*9] { seticon(new qicon(new qpixmap(emptyCell)))
+                    Button[btn+p*9] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                       setIconSize(new qSize(65,65))
                                     }
                 next
@@ -242,7 +243,7 @@ func deleteCells()
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
                 for p = 0 to 4
-                    Button[btn+p*11] { seticon(new qicon(new qpixmap(emptyCell)))
+                    Button[btn+p*11] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                        setIconSize(new qSize(65,65))
                                      }
                 next
