@@ -18,7 +18,7 @@ dstXY = 1
 aSquare = list(size*size)
 
 balls = ["images/blue.jpg", "images/green.jpg", "images/orange.jpg",
-	 "images/red.jpg", "violet.jpg","images/yellow.jpg",
+	 "images/red.jpg", "images/violet.jpg","images/yellow.jpg",
          "images/blueonblack.jpg", "images/greenonblack.jpg",
 	 "images/orangeonblack.jpg", "images/redonblack.jpg", "images/violetonblack.jpg",
 	 "images/yellowonblack.jpg", "images/empty.jpg"]
