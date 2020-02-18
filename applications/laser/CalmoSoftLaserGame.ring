@@ -83,10 +83,8 @@ app = new qApp
                     cellStatus[Row][Col] = 0					
 		next
             next
-
             show()
             pBegin()
-            loadCells()
    }
    exec()
 }
