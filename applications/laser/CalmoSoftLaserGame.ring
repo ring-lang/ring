@@ -27,11 +27,12 @@ cellRighttoUp = "RighttoUp.jpg"
 cellUptoLeft = "UptoLeft.jpg"
 cellUptoRight = "UptoRight.jpg"
 
-dirCmB = null
 nRow = 0
 nCol = 1
 bool = 1
 bool1 = 0
+cmbn = 0
+cmbm = 0
 
 Button = newlist(size,size)
 
@@ -41,6 +42,8 @@ app = new qApp
 	    setWindowTitle('CalmoSoft Laser Game')
 	    move(550,150)
 	    reSize(600,650)
+
+            dirCmB = new qcombobox(win)
 
 	    btnFire = new QPushButton(win)	
 		      { setgeometry(60,620,40,20)
@@ -83,14 +86,45 @@ app = new qApp
                     cellStatus[Row][Col] = 0					
 		next
             next
+
+            myfilter = new qAllEvents(DirCmb)
+                       { setContextMenuEvent( "deleteCmb()") 
+                       }
+            installeventfilter(myfilter)
+
             show()
             pBegin()
    }
    exec()
 }
+
+//=================================
+
+func deleteCmb()
+     DirCmB.delete()
+
+//=================================      
+
+func deleteCells()
+     for Row = 1 to size
+         for Col = 1 to size
+             if not(cellStatus[Row][Col] = 1 or cellStatus[Row][Col] = 2)
+	        Button[Row][Col] { seticon(new qicon(new qpixmap(emptyCell)))
+                                   setIconSize(new qSize(50,50))
+                                 }
+                cellStatus[Row][Col] = 0
+             ok			
+	 next
+     next
+     button[1][size] { seticon(new qicon(new qpixmap(startCell))) }
+     button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
+     cellStatus[size][1] = "up"
+
 //=================================
 
 func fire()
+     DirCmB.delete()
+     loadCells()
      nRow = size
      nCol = 1
      start = 0
@@ -389,6 +423,7 @@ func moveUp()
 //=================================
 
 func newGame()
+     DirCmB.delete()
      start = 1
      pbegin()
      saveCells()
@@ -396,6 +431,7 @@ func newGame()
 //=================================
 
 func pselect(Row,Col)
+     DirCmB.delete()
      if (cellStatus[Row][Col] = 1) or (cellStatus[Row][Col] = 2)
      DirCmB = new qcombobox(win) {
     	      move((Col-1)*60,(Row-1)*60)
@@ -413,6 +449,8 @@ func pselect(Row,Col)
               sethighlightedEvent("")
               show() }
      ok
+
+//=================================
 
 func changeStatus(Row, Col)
 
@@ -511,7 +549,7 @@ func changeStatus(Row, Col)
         ok        
      ok
 
-     DirCmB.delete() 
+     DirCmB.delete()
 
      //See nl+nl+"changeStatus "+ ShowCellStatus()
 
@@ -631,7 +669,6 @@ func loadCells()
      button[1][size] { seticon(new qicon(new qpixmap(startCell))) }
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
-
      //See nl+nl+"loadCells " ShowCellStatus()
 
 //===============================
