@@ -6,7 +6,7 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-start = 0
+start = 1
 size = 10
 nrCell = 50
 cellStatus = newlist(size,size)
@@ -95,6 +95,7 @@ app = new qApp
 func fire()
      nRow = size
      nCol = 1
+     start = 0
      //See nl+nl+"fire " ShowCellStatus()
      while bool = 1
            bool1 = 0
@@ -373,6 +374,7 @@ func moveUp()
 //=================================
 
 func newGame()
+     start = 1
      pbegin()
 
 //=================================
@@ -501,7 +503,7 @@ func pBegin()
 
      bool = 1
      bool1 = 0
-     start = 0
+     start = 1
 
      for Row = 1 to size
          for Col = 1 to size
@@ -546,17 +548,22 @@ func pExit()
 //=================================
 
 func saveCells()
-     fp = fopen("CellStatus.txt","w")
-     for n = 1 to size
-         for m = 1 to size
-             if n = size and m = 1
-                aString = string(n) + "," + string(m) + "," + cellStatus[n][m] + windowsnl()
-             else
-                aString = string(n) + "," + string(m) + "," + string(cellStatus[n][m]) + windowsnl()
-             ok
-             fwrite(fp,aString)
-         next
-     next
+
+     if start = 1
+        See nl+nl+"saveCells "    ShowCellStatus()   See nl+nl  
+        fp = fopen("CellStatus.txt","w")
+        for n = 1 to size
+            for m = 1 to size
+		See "saveCells: n-m: "+ n +"-"+ m +" = "+ cellStatus[n][m] +nl
+		if n = size and m = 1
+                   aString = string(n) + "," + string(m) + "," + cellStatus[n][m] + windowsnl()
+                else
+                   aString = string(n) + "," + string(m) + "," + string(cellStatus[n][m]) + windowsnl()
+                ok
+                fwrite(fp,aString)
+            next
+        next
+     ok
 
 //=================================
 
