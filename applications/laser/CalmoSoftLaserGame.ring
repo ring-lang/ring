@@ -1,5 +1,5 @@
 # Project : CalmoSoft Laser Game
-# Date    : 19/01/2020
+# Date    : 20/01/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -139,14 +139,14 @@ func moveStart()
         button[size-1][1] { seticon(new qicon(new qpixmap(cellUptoLeft)))
                             setIconSize(new qSize(50,50))
                           }
-        cellStatus[size-1][1] = "left"
+        cellStatus[size-1][1] = 3
      ok
 
      if cellStatus[size-1][1] = 1
         button[size-1][1] { seticon(new qicon(new qpixmap(cellUptoRight)))
                             setIconSize(new qSize(50,50))
                           }
-        cellStatus[size-1][1] = "right"
+        cellStatus[size-1][1] = 3
         nRow = size - 1
         moveRight()
      ok
@@ -159,6 +159,7 @@ func changeLefttoDown()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellLefttoDown)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveDown()
 
 //=================================
@@ -170,6 +171,7 @@ func changeDowntoRight()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellDowntoRight)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveRight()
 
 //=================================
@@ -181,14 +183,18 @@ func changeRighttoUp()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellRighttoUp)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
+     if nRow > 1
      if cellStatus[nRow-1][nCol] = 2
         button[nRow-1][nCol] { seticon(new qicon(new qpixmap(cellUptoLeft)))
                                setIconSize(new qSize(50,50))
                              }
+        cellStatus[nRow-1][nCol] = 3
         nRow = nRow - 1
         moveLeft()
      else
         moveUp()
+     ok
      ok
 
 //=================================
@@ -199,6 +205,7 @@ func changeDowntoLeft()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellDowntoLeft)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveLeft()
 
 //=================================
@@ -209,6 +216,7 @@ func changeRighttoDown()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellRighttoDown)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveDown()
 
 //=================================
@@ -219,6 +227,7 @@ func changeUptoRight()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellUptoRight)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      if nCol < size   
         moveRight()
      ok
@@ -231,6 +240,7 @@ func changeUptoLeft()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellUptoLeft)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveLeft()
 
 //=================================
@@ -241,18 +251,20 @@ func changeLefttoUp()
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellLefttoUp)))
                           setIconSize(new qSize(50,50))
                         }
+     cellStatus[nRow][nCol] = 3
      moveUp()  
 
 //=================================
 
 func moveRight()
-         while not(cellStatus[nRow][nCol+1] = 1 or cellStatus[nRow][nCol+1] = 2)
+         if nCol < size
+         while not(cellStatus[nRow][nCol+1] = 1 or cellStatus[nRow][nCol+1] = 2 or cellStatus[nRow][nCol+1] = 3)
                 app.processevents()
                 sleep(0.3)
                 button[nRow][nCol+1] { seticon(new qicon(new qpixmap(lineHor)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow][nCol+1] = "right"
+                cellStatus[nRow][nCol+1] = 3
                 nCol = nCol + 1
                 if nCol = size 
                    bool1 = 0  
@@ -273,17 +285,19 @@ func moveRight()
                ok
             ok
          ok
+         ok
 
 //=================================
 
 func moveLeft()
-         while not(cellStatus[nRow][nCol-1] = 1 or cellStatus[nRow][nCol-1] = 2)
+         if nCol > 1
+         while not(cellStatus[nRow][nCol-1] = 1 or cellStatus[nRow][nCol-1] = 2 or cellStatus[nRow][nCol-1] = 3)
                 app.processevents()
                 sleep(0.3)
                 button[nRow][nCol-1] { seticon(new qicon(new qpixmap(lineHor)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow][nCol-1] = "left"
+                cellStatus[nRow][nCol-1] = 3
                 nCol = nCol - 1
                 if nCol = 1 
                    bool1 = 0   
@@ -304,17 +318,19 @@ func moveLeft()
                ok
             ok
          ok
+         ok
 
 //=================================
 
 func moveDown()
-         while not(cellStatus[nRow+1][nCol] = 1 or cellStatus[nRow+1][nCol] = 2)
+         if nRow < size
+         while not(cellStatus[nRow+1][nCol] = 1 or cellStatus[nRow+1][nCol] = 2 or cellStatus[nRow+1][nCol] = 3)
                 app.processevents()
                 sleep(0.3)
                 button[nRow+1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow+1][nCol] = "down"
+                cellStatus[nRow+1][nCol] = 3
                 nRow = nRow + 1
                 if nRow = size
                    bool1 = 0  
@@ -335,25 +351,25 @@ func moveDown()
                ok
             ok
          ok
+         ok
 
 //=================================
 
 func moveUp()
-         while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2)
+         if nRow > 1
+         while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2 or cellStatus[nRow-1][nCol] = 3)
                 app.processevents()
                 sleep(0.3)
                 button[nRow-1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow-1][nCol] = "up"
+                cellStatus[nRow-1][nCol] = 3
                 nRow = nRow - 1
                 if nRow = 1
                    bool1 = 0  
                    exit
                 ok
          end
-         //nRow = nRow + 1
-         //if nRow < size + 1
          nRow = nRow - 1
          if nRow > 0
             // ShowCellStatus()
@@ -368,12 +384,14 @@ func moveUp()
                ok
             ok
          ok
+         ok
 
 //=================================
 
 func newGame()
      start = 1
      pbegin()
+     saveCells()
 
 //=================================
 
