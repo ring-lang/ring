@@ -35,6 +35,7 @@ cmbn = 0
 cmbm = 0
 
 Button = newlist(size,size)
+dirCells = newlist(size,size)
 
 app = new qApp 
 {
@@ -93,7 +94,7 @@ app = new qApp
             next
 
             myfilter = new qAllEvents(DirCmb)
-                       { setContextMenuEvent( "deleteCmb()") 
+                       { setMouseButtonDblClickEvent( "deleteCmb()") 
                        }
             installeventfilter(myfilter)
 
@@ -114,17 +115,40 @@ func deleteCmb()
 func deleteCells()
      for Row = 1 to size
          for Col = 1 to size
-             if not(cellStatus[Row][Col] = 1 or cellStatus[Row][Col] = 2)
+             if dirCells[Row][Col] = 1 
+	        Button[Row][Col] { seticon(new qicon(new qpixmap(leftCell)))
+                                   setIconSize(new qSize(50,50))
+                                 }
+                cellStatus[Row][Col] = 1
+             ok	
+             if dirCells[Row][Col] = 2 
+	        Button[Row][Col] { seticon(new qicon(new qpixmap(rightCell)))
+                                   setIconSize(new qSize(50,50))
+                                 }
+                cellStatus[Row][Col] = 2
+             ok			
+	 next
+     next
+
+
+     for Row = 1 to size
+         for Col = 1 to size
+             if not(dirCells[Row][Col] = 1 or dirCells[Row][Col] = 2)
 	        Button[Row][Col] { seticon(new qicon(new qpixmap(emptyCell)))
                                    setIconSize(new qSize(50,50))
                                  }
                 cellStatus[Row][Col] = 0
-             ok			
+                //dirCells[Row][Col] = 0
+             ok	
 	 next
      next
+
+
      button[1][size] { seticon(new qicon(new qpixmap(startCell))) }
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
+
+     bool1 = 1
 
 //=================================
 
@@ -137,12 +161,13 @@ func fireLoop()
 //=================================
 
 func fire()
+     deleteCells()
      DirCmB.delete()
-     loadCells()
      nRow = size
      nCol = 1
      start = 0
      //See nl+nl+"fire " ShowCellStatus()
+     bool = 1
      while bool = 1
            bool1 = 0
            moveStart()
@@ -152,7 +177,6 @@ func fire()
 //=================================
 
 func moveStart()
-
      if (cellStatus[nRow][nCol] = "up") and (cellStatus[nRow-1][nCol] = 0) 
          while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2) and nRow > 1
                 app.processevents()
@@ -180,7 +204,7 @@ func moveStart()
                   changeRighttoDown()
                ok 
             ok
-         ok     
+         ok
      ok
 
      if cellStatus[size-1][1] = 2
@@ -313,6 +337,7 @@ func moveRight()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow][nCol+1] = "lineHor"
+                dirCells[nRow][nCol+1] = "lineHor"
                 nCol = nCol + 1
                 if nCol = size 
                    bool1 = 0  
@@ -346,6 +371,7 @@ func moveLeft()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow][nCol-1] = "lineHor"
+                dirCells[nRow][nCol-1] = "lineHor"
                 nCol = nCol - 1
                 if nCol = 1 
                    bool1 = 0   
@@ -380,6 +406,7 @@ func moveDown()
                                       setIconSize(new qSize(50,50))
                                     }
                cellStatus[nRow+1][nCol] = "lineVer"
+               dirCells[nRow+1][nCol] = "lineVer"
                nRow = nRow + 1
                if nRow = size
                   bool1 = 0  
@@ -414,6 +441,7 @@ func moveUp()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow-1][nCol] = "lineVer"
+                dirCells[nRow-1][nCol] = "lineVer"
                 nRow = nRow - 1
                 if nRow = 1
                    bool1 = 0  
@@ -442,7 +470,7 @@ func newGame()
      DirCmB.delete()
      start = 1
      pbegin()
-     saveCells()
+     //saveCells()
 
 //=================================
 
@@ -481,12 +509,16 @@ func changeStatus(Row, Col)
            if cellStatus[Row][Col] = 1
               button[Row][Col-1] { seticon(new qicon(new qpixmap(leftCell))) }
               cellStatus[Row][Col-1] = 1
+              dirCells[Row][Col-1] = 1
            ok
            if cellStatus[Row][Col] = 2
               button[Row][Col-1] { seticon(new qicon(new qpixmap(rightCell))) }
               cellStatus[Row][Col-1] = 2
+              dirCells[Row][Col-1] = 2
+
            ok
            cellStatus[Row][Col] = 0
+           dirCells[Row][Col] = 0
         ok        
      ok
 
@@ -501,12 +533,15 @@ func changeStatus(Row, Col)
            if cellStatus[Row][Col] = 1
               button[Row][Col+1] { seticon(new qicon(new qpixmap(leftCell))) }
               cellStatus[Row][Col+1] = 1
+              dirCells[Row][Col+1] = 1
            ok
            if cellStatus[Row][Col] = 2
               button[Row][Col+1] { seticon(new qicon(new qpixmap(rightCell))) }
               cellStatus[Row][Col+1] = 2
+              dirCells[Row][Col+1] = 2
            ok
            cellStatus[Row][Col] = 0
+           dirCells[Row][Col] = 0
         ok        
      ok
 
@@ -521,12 +556,15 @@ func changeStatus(Row, Col)
            if cellStatus[Row][Col] = 1
               button[Row-1][Col] { seticon(new qicon(new qpixmap(leftCell))) }
               cellStatus[Row-1][Col] = 1
+              dirCells[Row-1][Col] = 1
            ok
            if cellStatus[Row][Col] = 2
               button[Row-1][Col] { seticon(new qicon(new qpixmap(rightCell))) }
               cellStatus[Row-1][Col] = 2
+              dirCells[Row-1][Col] = 2
            ok
            cellStatus[Row][Col] = 0
+           dirCells[Row][Col] = 0
         ok        
      ok
 
@@ -541,12 +579,15 @@ func changeStatus(Row, Col)
            if cellStatus[Row][Col] = 1
               button[Row+1][Col] { seticon(new qicon(new qpixmap(leftCell))) }
               cellStatus[Row+1][Col] = 1
+              dirCells[Row+1][Col] = 1
            ok
            if cellStatus[Row][Col] = 2
               button[Row+1][Col] { seticon(new qicon(new qpixmap(rightCell))) }
               cellStatus[Row+1][Col] = 2
+              dirCells[Row+1][Col] = 2
            ok
            cellStatus[Row][Col] = 0
+           dirCells[Row][Col] = 0
         ok        
      ok
 
@@ -555,6 +596,7 @@ func changeStatus(Row, Col)
         if cellStatus[Row][Col] = 2
            button[Row][Col] { seticon(new qicon(new qpixmap(leftCell))) }
            cellStatus[Row][Col] = 1
+           dirCells[Row][Col] = 1
         ok        
      ok
 
@@ -562,11 +604,13 @@ func changeStatus(Row, Col)
         if cellStatus[Row][Col] = 1
            button[Row][Col] { seticon(new qicon(new qpixmap(rightCell))) }
            cellStatus[Row][Col] = 2
+           dirCells[Row][Col] = 2
         ok        
      ok
 
-     saveCells()
      DirCmB.delete()
+     //saveCells()
+     //loadCells()
 
      //See nl+nl+"changeStatus "+ ShowCellStatus()
 
@@ -584,6 +628,7 @@ func pBegin()
                                 setIconSize(new qSize(50,50))
                               }
              cellStatus[Row][Col] = 0
+             dirCells[Row][Col] = 0
 					
 	 next
      next
@@ -598,17 +643,22 @@ func pBegin()
                                                  setIconSize(new qSize(50,50))
                                                }
                         cellStatus[rowRnd][colRnd] = 1
+                        dirCells[rowRnd][colRnd] = 1
                    case 2
                         button[rowRnd][colRnd] { seticon(new qicon(new qpixmap(rightCell)))
                                                  setIconSize(new qSize(50,50))
                                                }
                         cellStatus[rowRnd][colRnd] = 2
+                        dirCells[rowRnd][colRnd] = 2
             }
      next
 
      button[1][size] { seticon(new qicon(new qpixmap(startCell))) }
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
+
+     saveCells()
+     loadCells()
 
      //See nl+nl+"pBegin " ShowCellStatus()
 
