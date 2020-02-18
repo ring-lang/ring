@@ -1,38 +1,37 @@
 # Project : CalmoSoft Laser Game
-# Date    : 16/01/2020
-# Author  : Gal Zsolt (~ CalmoSoft ~)
+# Date    : 19/01/2020
+# Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
 load "guilib.ring"
 
-start  = 0
-size   = 10
+start = 0
+size = 10
 nrCell = 50
+cellStatus = newlist(size,size)
+emptyCell = "empty.jpg"
+leftCell = "left.jpg"
+rightCell = "right.jpg"
+startCell = "start.jpg"
+lineVer = "linever.jpg"
+lineHor = "linehor.jpg"
+linePlus = "plus.jpg"
 
-cellStatus =  newlist(size,size)
-emptyCell  = "empty.jpg"
-leftCell   = "left.jpg"
-rightCell  = "right.jpg"
-startCell  = "start.jpg"
-lineVer    = "linever.jpg"
-lineHor    = "linehor.jpg"
-linePlus   = "plus.jpg"
-
-cellDowntoLeft  = "DowntoLeft.jpg"
+cellDowntoLeft = "DowntoLeft.jpg"
 cellDowntoRight = "DowntoRight.jpg"
-cellLefttoDown  = "LefttoDown.jpg"
-cellLefttoUp    = "LefttoUp.jpg"
+cellLefttoDown = "LefttoDown.jpg"
+cellLefttoUp = "LefttoUp.jpg"
 cellRighttoDown = "RighttoDown.jpg"
-cellRighttoUp   = "RighttoUp.jpg"
-cellUptoLeft    = "UptoLeft.jpg"
-cellUptoRight   = "UptoRight.jpg"
+cellRighttoUp = "RighttoUp.jpg"
+cellUptoLeft = "UptoLeft.jpg"
+cellUptoRight = "UptoRight.jpg"
 
 dirCmB = null
-nRow   = 0
-nCol   = 1
-bool   = 1
-bool1  = 0
+nRow = 0
+nCol = 1
+bool = 1
+bool1 = 0
 
 Button = newlist(size,size)
 
@@ -91,20 +90,23 @@ app = new qApp
    }
    exec()
 }
+//=================================
 
 func fire()
      nRow = size
      nCol = 1
+     //See nl+nl+"fire " ShowCellStatus()
      while bool = 1
-	   bool1 = 0
-	   moveStart()
-	   bool = bool1
+           bool1 = 0
+           moveStart()
+           bool = bool1
      end
+
+//=================================
 
 func moveStart()
 
      if (cellStatus[nRow][nCol] = "up") and (cellStatus[nRow-1][nCol] = 0) 
-	  
          while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2) and nRow > 1
                 app.processevents()
                 sleep(0.3)
@@ -114,18 +116,23 @@ func moveStart()
                 cellStatus[nRow-1][nCol] = "up"
                 nRow = nRow - 1
                 if nRow = 1
+                   bool1 = 0
                    exit
                 ok
                 bool1 = 1
          end
-         nRow = nRow - 1
-         if nRow > 0
-            if cellStatus[nRow][nCol] = 1
-               changeUptoRight()
+         if nRow > 1
+            nRow = nRow - 1
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 1
+                  changeUptoRight()
+               ok
             ok
-            if cellStatus[nRow][nCol] = 2
-               changeRighttoDown()
-            ok 
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 2
+                  changeRighttoDown()
+               ok 
+            ok
          ok     
      ok
 
@@ -145,6 +152,19 @@ func moveStart()
         moveRight()
      ok
 
+//================================= !!!
+
+func changeLefttoDown()
+     app.processevents()
+     sleep(0.3)
+     button[nRow][nCol] { seticon(new qicon(new qpixmap(cellLefttoDown)))
+                          setIconSize(new qSize(50,50))
+                        }
+     moveDown()
+
+//=================================
+
+
 func changeDowntoRight()
      app.processevents()
      sleep(0.3)
@@ -152,6 +172,8 @@ func changeDowntoRight()
                           setIconSize(new qSize(50,50))
                         }
      moveRight()
+
+//=================================
 
 func changeRighttoUp()
 
@@ -166,9 +188,11 @@ func changeRighttoUp()
                              }
         nRow = nRow - 1
         moveLeft()
+     else
+        moveUp()
      ok
-     moveUp()
 
+//=================================
 
 func changeDowntoLeft()
      app.processevents()
@@ -178,6 +202,8 @@ func changeDowntoLeft()
                         }
      moveLeft()
 
+//=================================
+
 func changeRighttoDown()
      app.processevents()
      sleep(0.3)
@@ -185,6 +211,8 @@ func changeRighttoDown()
                           setIconSize(new qSize(50,50))
                         }
      moveDown()
+
+//=================================
 
 func changeUptoRight()
      app.processevents()
@@ -196,6 +224,8 @@ func changeUptoRight()
         moveRight()
      ok
 
+//=================================
+
 func changeUptoLeft()
      app.processevents()
      sleep(0.3)
@@ -204,14 +234,17 @@ func changeUptoLeft()
                         }
      moveLeft()
 
+//=================================
+
 func changeLefttoUp()
      app.processevents()
      sleep(0.3)
      button[nRow][nCol] { seticon(new qicon(new qpixmap(cellLefttoUp)))
                           setIconSize(new qSize(50,50))
                         }
-     moveUp()   
+     moveUp()  
 
+//=================================
 
 func moveRight()
          while not(cellStatus[nRow][nCol+1] = 1 or cellStatus[nRow][nCol+1] = 2)
@@ -220,26 +253,29 @@ func moveRight()
                 button[nRow][nCol+1] { seticon(new qicon(new qpixmap(lineHor)))
                                        setIconSize(new qSize(50,50))
                                      }
-												 
                 cellStatus[nRow][nCol+1] = "right"
                 nCol = nCol + 1
-                if nCol = size   
-		   ShowCellStatus()  
-	           exit
+                if nCol = size 
+                   bool1 = 0  
+                   exit
                 ok
          end
-			
-         if nCol < size
-            nCol = nCol + 1
+         nCol = nCol + 1
+         if nCol < size + 1
+            // ShowCellStatus()
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 1
+                  changeRighttoUp()
+               ok
+            ok
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 2
+                  changeRighttoDown()
+               ok
+            ok
          ok
 
-         if cellStatus[nRow][nCol] = 1
-            changeRighttoUp()
-         ok
-			
-         if cellStatus[nRow][nCol] = 2
-            changeRighttoDown()
-         ok
+//=================================
 
 func moveLeft()
          while not(cellStatus[nRow][nCol-1] = 1 or cellStatus[nRow][nCol-1] = 2)
@@ -250,20 +286,27 @@ func moveLeft()
                                      }
                 cellStatus[nRow][nCol-1] = "left"
                 nCol = nCol - 1
-                if nCol = 1  
-		   ShowCellStatus()
-		exit
+                if nCol = 1 
+                   bool1 = 0   
+                   exit
                 ok
          end
-         if nCol > 1 
-            nCol = nCol - 1
+         nCol = nCol - 1
+         if nCol > 0 
+            // ShowCellStatus()
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 1
+                  changeLefttoDown()  
+               ok
+            ok
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 2
+                  changeLefttoUp()
+               ok
+            ok
          ok
-         if cellStatus[nRow][nCol] = 1
-            changeUptoRight()  
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeLefttoUp()
-         ok
+
+//=================================
 
 func moveDown()
          while not(cellStatus[nRow+1][nCol] = 1 or cellStatus[nRow+1][nCol] = 2)
@@ -275,21 +318,26 @@ func moveDown()
                 cellStatus[nRow+1][nCol] = "down"
                 nRow = nRow + 1
                 if nRow = size
-		   ShowCellStatus()
-		   exit
+                   bool1 = 0  
+                   exit
                 ok
          end
-         if nRow < size
-            nRow = nRow + 1
+         nRow = nRow + 1
+         if nRow < size + 1
+            // ShowCellStatus()
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 1
+                  changeDowntoLeft()
+               ok
+            ok
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 2
+                   changeDowntoRight()             
+               ok
+            ok
          ok
 
-         if cellStatus[nRow][nCol] = 1
-            changeDowntoLeft()
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeDowntoRight()             
-         ok
-
+//=================================
 
 func moveUp()
          while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2)
@@ -301,22 +349,33 @@ func moveUp()
                 cellStatus[nRow-1][nCol] = "up"
                 nRow = nRow - 1
                 if nRow = 1
-		   ShowCellStatus()
-		   exit
+                   bool1 = 0  
+                   exit
                 ok
          end
-         nRow = nRow + 1
-         if cellStatus[nRow][nCol] = 1
-            changeUptoRight()
-          ok
-         if cellStatus[nRow][nCol] = 2
-            changeUptoLeft()
+         //nRow = nRow + 1
+         //if nRow < size + 1
+         nRow = nRow - 1
+         if nRow > 0
+            // ShowCellStatus()
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 1
+                  changeUptoRight()
+               ok
+            ok
+            if nRow > 0 and nRow < size + 1 and nCol > 0 and nCol < size + 1
+               if cellStatus[nRow][nCol] = 2
+                  changeUptoLeft()
+               ok
+            ok
          ok
-			
-//=========================================
+
+//=================================
 
 func newGame()
      pbegin()
+
+//=================================
 
 func pselect(Row,Col)
      DirCmB = new qcombobox(win) {
@@ -434,6 +493,10 @@ func changeStatus(Row, Col)
 
      DirCmB.delete() 
 
+     //See nl+nl+"changeStatus "+ ShowCellStatus()
+
+//=================================
+
 func pBegin()
 
      bool = 1
@@ -472,9 +535,15 @@ func pBegin()
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
 
+     //See nl+nl+"pBegin " ShowCellStatus()
+
+//=================================
+
 func pExit()
      win.close()
      app.quit()
+
+//=================================
 
 func saveCells()
      fp = fopen("CellStatus.txt","w")
@@ -488,6 +557,8 @@ func saveCells()
              fwrite(fp,aString)
          next
      next
+
+//=================================
 
 func loadCells()
 
@@ -536,26 +607,36 @@ func loadCells()
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
 
+     //See nl+nl+"loadCells " ShowCellStatus()
+
 //===============================
 // Use 1st letter of Cell Status
 
 Func ShowCellStatus()
-     See nl+nl+"ShowCellStatus"+nl
-     See "     __1__ 2___3___4___5___6___7___8___9___0__ "+nl
-	
-     See "  1 | "
+
+     See nl+nl+"ShowCellStatus"+ nl
+     See "    _1_2_3_4_5_6_7_8_9_0__ "+ nl
+   
+     See "  1|"
      for Row = 1 to size
-	 for Col = 1 to size
-	     value = ""+ cellStatus[Row][Col]			
-             See " "+ Upper(value[1]) +" |"
-	 next 		
-	 NextRow = Row+1
-	 if NextRow = 11
-            return
-         ok
-	 if NextRow = 10
-            NextRow = 0 
-         ok
-         See nl +"  "+ NextRow +"|"
-      next
-      return
+       for Col = 1 to size
+           value = ""+ cellStatus[Row][Col]     
+           if value[1] = "0" value[1] = " "  ok
+           
+                See " "+ Upper(value[1]) +""
+       next       
+       
+       NextRow = Row+1
+       if NextRow = 11
+               return
+            ok
+       if NextRow = 10
+               NextRow = 0 
+            ok
+            See nl +"  "+ NextRow +"|"
+       
+     next
+      
+return
+
+//--------------------------------
