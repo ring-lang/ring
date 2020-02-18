@@ -1,5 +1,5 @@
 # Project : CalmoSoft Laser Game
-# Date    : 21/01/2020
+# Date    : 22/01/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -31,11 +31,13 @@ nRow = 0
 nCol = 1
 bool = 1
 bool1 = 0
-cmbn = 0
-cmbm = 0
 
 Button = newlist(size,size)
 dirCells = newlist(size,size)
+status = newlist(size,size)
+checkStat = 0
+checkStatus1 = [cellDowntoLeft, cellLefttoDown, cellRighttoUp, cellUptoRight]
+checkStatus2 = [cellDowntoRight, cellLefttoUp, cellRighttoDown, cellUptoLeft]
 
 app = new qApp 
 {
@@ -120,12 +122,14 @@ func deleteCells()
                                    setIconSize(new qSize(50,50))
                                  }
                 cellStatus[Row][Col] = 1
+                status[Row][Col] = leftCell
              ok	
              if dirCells[Row][Col] = 2 
 	        Button[Row][Col] { seticon(new qicon(new qpixmap(rightCell)))
                                    setIconSize(new qSize(50,50))
                                  }
                 cellStatus[Row][Col] = 2
+                status[Row][Col] = rightCell
              ok			
 	 next
      next
@@ -138,7 +142,7 @@ func deleteCells()
                                    setIconSize(new qSize(50,50))
                                  }
                 cellStatus[Row][Col] = 0
-                //dirCells[Row][Col] = 0
+                status[Row][Col] = emptyCell
              ok	
 	 next
      next
@@ -232,6 +236,7 @@ func changeLefttoDown()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellLefttoDown
      moveDown()
 
 //=================================
@@ -244,6 +249,7 @@ func changeDowntoRight()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellDowntoRight
      moveRight()
 
 //=================================
@@ -256,12 +262,14 @@ func changeRighttoUp()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellRighttoUp
      if nRow > 1
      if cellStatus[nRow-1][nCol] = 2
         button[nRow-1][nCol] { seticon(new qicon(new qpixmap(cellUptoLeft)))
                                setIconSize(new qSize(50,50))
                              }
         cellStatus[nRow-1][nCol] = 3
+        status[nRow-1][nCol] = cellUptoLeft
         nRow = nRow - 1
         moveLeft()
      else
@@ -278,6 +286,7 @@ func changeDowntoLeft()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellDowntoLeft
      moveLeft()
 
 //=================================
@@ -289,6 +298,7 @@ func changeRighttoDown()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellRighttoDown
      moveDown()
 
 //=================================
@@ -300,6 +310,7 @@ func changeUptoRight()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellUptoRight
      if nCol < size   
         moveRight()
      ok
@@ -313,6 +324,7 @@ func changeUptoLeft()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellUptoLeft
      moveLeft()
 
 //=================================
@@ -324,6 +336,7 @@ func changeLefttoUp()
                           setIconSize(new qSize(50,50))
                         }
      cellStatus[nRow][nCol] = 3
+     status[nRow][nCol] = cellLefttoUp
      moveUp()  
 
 //=================================
@@ -337,7 +350,8 @@ func moveRight()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow][nCol+1] = "lineHor"
-                dirCells[nRow][nCol+1] = "lineHor"
+                dirCells[nRow][nCol+1] = lineHor
+                status[nRow][nCol+1] = lineHor 
                 nCol = nCol + 1
                 if nCol = size 
                    bool1 = 0  
@@ -371,7 +385,8 @@ func moveLeft()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow][nCol-1] = "lineHor"
-                dirCells[nRow][nCol-1] = "lineHor"
+                dirCells[nRow][nCol-1] = lineHor
+                status[nRow][nCol-1] = lineHor
                 nCol = nCol - 1
                 if nCol = 1 
                    bool1 = 0   
@@ -399,20 +414,19 @@ func moveLeft()
 func moveDown()
          if nRow < size
          while not(cellStatus[nRow+1][nCol] = 1 or cellStatus[nRow+1][nCol] = 2 or cellStatus[nRow+1][nCol] = 3)
-               //see "nRow = " + nRow + " nCol = " + nCol + nl
                app.processevents()
                sleep(0.3)
                button[nRow+1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
                                       setIconSize(new qSize(50,50))
                                     }
                cellStatus[nRow+1][nCol] = "lineVer"
-               dirCells[nRow+1][nCol] = "lineVer"
+               dirCells[nRow+1][nCol] = lineVer
+               status[nRow+1][nCol] = lineVer
                nRow = nRow + 1
                if nRow = size
                   bool1 = 0  
                   exit
                ok
-               //see "nRow = " + nRow + " nCol = " + nCol + nl
          end
          nRow = nRow + 1
          if nRow < size + 1
@@ -441,7 +455,8 @@ func moveUp()
                                        setIconSize(new qSize(50,50))
                                      }
                 cellStatus[nRow-1][nCol] = "lineVer"
-                dirCells[nRow-1][nCol] = "lineVer"
+                dirCells[nRow-1][nCol] = lineVer
+                status[nRow-1][nCol] = lineVer
                 nRow = nRow - 1
                 if nRow = 1
                    bool1 = 0  
@@ -476,7 +491,7 @@ func newGame()
 
 func pselect(Row,Col)
      DirCmB.delete()
-     if (cellStatus[Row][Col] = 1) or (cellStatus[Row][Col] = 2)
+     if cellStatus[Row][Col] != 0
      DirCmB = new qcombobox(win) {
     	      move((Col-1)*60,(Row-1)*60)
               resize(60,20)
@@ -504,7 +519,7 @@ func changeStatus(Row, Col)
         bool3 = (cellStatus[Row][Col-1] = "up")
         bool4 = (cellStatus[Row][Col-1] = "down")
         bool = not(bool1 or bool2 or bool3 or bool4)
-        if (Col > 1) and (cellStatus[Row][Col-1] = 0) and bool
+        if (Col > 1) and (cellStatus[Row][Col-1] = 0) and bool 
            button[Row][Col] { seticon(new qicon(new qpixmap(emptyCell))) }
            if cellStatus[Row][Col] = 1
               button[Row][Col-1] { seticon(new qicon(new qpixmap(leftCell))) }
@@ -517,9 +532,25 @@ func changeStatus(Row, Col)
               dirCells[Row][Col-1] = 2
 
            ok
+
+           check1 = find(checkStatus1,status[Row][Col])
+           if check1 > 0
+              checkStat = 1
+           ok
+           check2 = find(checkStatus2,status[Row][Col])
+           if check2 > 0
+              checkStat = 2
+           ok
+           if status[Row][Col] != emptyCell
+              button[Row][Col-1] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
+              cellStatus[Row][Col-1] = checkStat
+              dirCells[Row][Col-1] = checkStat
+           ok
+
+
            cellStatus[Row][Col] = 0
            dirCells[Row][Col] = 0
-        ok        
+        ok  
      ok
 
      if DirCmB.currentindex() = 1
@@ -540,6 +571,22 @@ func changeStatus(Row, Col)
               cellStatus[Row][Col+1] = 2
               dirCells[Row][Col+1] = 2
            ok
+
+           check1 = find(checkStatus1,status[Row][Col])
+           if check1 > 0
+              checkStat = 1
+           ok
+           check2 = find(checkStatus2,status[Row][Col])
+           if check2 > 0
+              checkStat = 2
+           ok
+           if status[Row][Col] != emptyCell
+              button[Row][Col+1] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
+              cellStatus[Row][Col+1] = checkStat
+              dirCells[Row][Col+1] = checkStat
+           ok
+
+
            cellStatus[Row][Col] = 0
            dirCells[Row][Col] = 0
         ok        
@@ -563,6 +610,21 @@ func changeStatus(Row, Col)
               cellStatus[Row-1][Col] = 2
               dirCells[Row-1][Col] = 2
            ok
+
+           check1 = find(checkStatus1,status[Row][Col])
+           if check1 > 0
+              checkStat = 1
+           ok
+           check2 = find(checkStatus2,status[Row][Col])
+           if check2 > 0
+              checkStat = 2
+           ok
+           if status[Row][Col] != emptyCell
+              button[Row-1][Col] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
+              cellStatus[Row-1][Col] = checkStat
+              dirCells[Row-1][Col] = checkStat
+           ok
+
            cellStatus[Row][Col] = 0
            dirCells[Row][Col] = 0
         ok        
@@ -586,6 +648,21 @@ func changeStatus(Row, Col)
               cellStatus[Row+1][Col] = 2
               dirCells[Row+1][Col] = 2
            ok
+
+           check1 = find(checkStatus1,status[Row][Col])
+           if check1 > 0
+              checkStat = 1
+           ok
+           check2 = find(checkStatus2,status[Row][Col])
+           if check2 > 0
+              checkStat = 2
+           ok
+           if status[Row][Col] != emptyCell
+              button[Row+1][Col] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
+              cellStatus[Row+1][Col] = checkStat
+              dirCells[Row+1][Col] = checkStat
+           ok
+
            cellStatus[Row][Col] = 0
            dirCells[Row][Col] = 0
         ok        
@@ -597,7 +674,20 @@ func changeStatus(Row, Col)
            button[Row][Col] { seticon(new qicon(new qpixmap(leftCell))) }
            cellStatus[Row][Col] = 1
            dirCells[Row][Col] = 1
-        ok        
+        ok  
+        check1 = find(checkStatus1,status[Row][Col])
+        if check1 > 0
+           checkStat = 1
+        ok
+        check2 = find(checkStatus2,status[Row][Col])
+        if check2 > 0
+           checkStat = 2
+        ok
+        if status[Row][Col] != emptyCell and checkStat = 2
+           button[Row][Col] { seticon(new qicon(new qpixmap(leftCell))) }
+           cellStatus[Row][Col] = 1
+           dirCells[Row][Col] = 1
+         ok      
      ok
 
      if DirCmB.currentindex() = 5
@@ -605,13 +695,26 @@ func changeStatus(Row, Col)
            button[Row][Col] { seticon(new qicon(new qpixmap(rightCell))) }
            cellStatus[Row][Col] = 2
            dirCells[Row][Col] = 2
-        ok        
+        ok   
+        check1 = find(checkStatus1,status[Row][Col])
+        if check1 > 0
+           checkStat = 1
+        ok
+        check2 = find(checkStatus2,status[Row][Col])
+        if check2 > 0
+           checkStat = 2
+        ok
+        if status[Row][Col] != emptyCell and checkStat = 1
+           button[Row][Col] { seticon(new qicon(new qpixmap(rightCell))) }
+           cellStatus[Row][Col] = 2
+           dirCells[Row][Col] = 2
+         ok     
      ok
 
      DirCmB.delete()
-     //saveCells()
-     //loadCells()
-
+     deleteCells()
+     saveCells()
+ 
      //See nl+nl+"changeStatus "+ ShowCellStatus()
 
 //=================================
@@ -629,6 +732,7 @@ func pBegin()
                               }
              cellStatus[Row][Col] = 0
              dirCells[Row][Col] = 0
+             status[Row][Col] = 0
 					
 	 next
      next
@@ -644,12 +748,14 @@ func pBegin()
                                                }
                         cellStatus[rowRnd][colRnd] = 1
                         dirCells[rowRnd][colRnd] = 1
+                        status[rowRnd][colRnd] = leftCell
                    case 2
                         button[rowRnd][colRnd] { seticon(new qicon(new qpixmap(rightCell)))
                                                  setIconSize(new qSize(50,50))
                                                }
                         cellStatus[rowRnd][colRnd] = 2
                         dirCells[rowRnd][colRnd] = 2
+                        status[rowRnd][colRnd] = rightCell
             }
      next
 
