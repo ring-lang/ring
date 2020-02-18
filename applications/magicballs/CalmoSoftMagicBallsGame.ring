@@ -1,6 +1,6 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 15/02/2020
-# Author  : Gal Zsolt (~ CalmoSoft ~)
+# Date    : 17/02/2020
+# Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
@@ -24,8 +24,7 @@ balls = ["images/blue.jpg", "images/green.jpg", "images/orange.jpg",
 	 "images/yellowonblack.jpg", "images/empty.jpg"]
 
 C_EMPTY = "images/empty.jpg"
-
-whiteBallWH = new Qpixmap("images/blue.jpg")
+whiteBallWH = new Qpixmap("blue.jpg")
 
 hv = 0         // source ball
 btn = 0        // target empty cell
@@ -34,6 +33,7 @@ bHeight = whiteBallWH.height()
 
 Button = list(size*size)    // list for balls
 cellType = list(size*size)  // Type (color) of ball
+cellbool = 0
 
 //=================================
 
@@ -101,11 +101,11 @@ func UserLeftClick(btn)                    // for click on a button
               aSquare[hv] = 0
               cellType[btn] = cellType[hv]
               cellType[hv] = C_EMPTY
-              if start = 1 
+              deleteCells()      // When you line up 5 balls of the same color horizontally,
+                                 // vertically or diagonally, the line disappears
+              if (start = 1) and (cellbool = 0)
                  newCells()      // place new three balls on table
               ok
-              deleteCells()      // When you line up 5 balls of the same color horizontally,
-                                 //v ertically or diagonally, the line disappears
               else
                  msgBox("Invalid move!")
               ok
@@ -136,6 +136,7 @@ func newGame()
 //=================================
 
 func pBegin()
+
      for btn = 1 to size*size
 	 Button[btn] { seticon(new qicon(new qpixmap(C_EMPTY)))
                        setIconSize(new qSize(65,65))
@@ -145,18 +146,19 @@ func pBegin()
      next
 
      for n = 1 to nrCell
-         btn = random(size*size-1) + 1
+         btn2 = random(size*size-1) + 1
          cellStyle = random(5) + 1
-         button[btn] { seticon(new qicon(new qpixmap(balls[cellStyle])))
+         button[btn2] { seticon(new qicon(new qpixmap(balls[cellStyle])))
                        setIconSize(new qSize(65,65)) }
-         cellType[btn] = balls[cellStyle]
-         aSquare[btn] = 1
+         cellType[btn2] = balls[cellStyle]
+         aSquare[btn2] = 1
      next
 
 //=================================
 
 func deleteCells()
      bool = 0
+     cellbool = 0
      for btn = 1 to size*size-4                          // detect 5 balls horitontally
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
@@ -172,6 +174,7 @@ func deleteCells()
              bool5 = (cellType[btn+4] = cellType1) or (cellType[btn+4] = cellType2)
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1 
+                cellbool = 1
                 for p = 0 to 4
                     Button[btn+p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                     setIconSize(new qSize(65,65))
@@ -196,6 +199,7 @@ func deleteCells()
              bool5 = (cellType[btn+size*4] = cellType1) or (cellType[btn+size*4] = cellType2)
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
+                cellbool = 1
                 for p = 0 to 4
                     Button[btn+size*p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                          setIconSize(new qSize(65,65))
@@ -219,6 +223,7 @@ func deleteCells()
              bool5 = (cellType[btn+36] = cellType1) or (cellType[btn+36] = cellType2)
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
+                cellbool = 1
                 for p = 0 to 4
                     Button[btn+p*9] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                       setIconSize(new qSize(65,65))
@@ -242,6 +247,7 @@ func deleteCells()
              bool5 = (cellType[btn+44] = cellType1) or (cellType[btn+44] = cellType2)
              bool = bool1 and bool2 and bool3 and bool4 and bool5
              if bool = 1
+                cellbool = 1
                 for p = 0 to 4
                     Button[btn+p*11] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                        setIconSize(new qSize(65,65))
@@ -344,30 +350,34 @@ return
 
 Func VisitSquare(xy)
 
+     col = xy%size
+     if col = 0
+        col = size 
+     ok
+     row = ceil(xy/size)
+
 // NORTH
-   if ((xy-10) % Rows != 0) and (xy > size)
-       if aSquare[xy-10] = 1  || aSquare[xy-10] = 'v'     
+   if ((row-1) % size != 0)
+       if aSquare[xy-size] = 1 or aSquare[xy-size] = 'v'     
           
        else 
-         aSquare[xy-10] = 'v'
-         VisitSquare(xy-10)
+         aSquare[xy-size] = 'v'
+         VisitSquare(xy-size)
        ok
    ok
          
 //SOUTH
-   if (xy+10) % Rows != 1 and xy < (size-1)*size
-       if aSquare[xy+10] = 1  || aSquare[xy+10] = 'v'  
-            
+   if (row+1) % size != 1 and xy < (size-1)*size
+       if aSquare[xy+size] = 1 or aSquare[xy+size] = 'v'             
        else 
-         aSquare[xy+10] = 'v'
-         VisitSquare(xy+10)
+         aSquare[xy+size] = 'v'
+         VisitSquare(xy+size)
        ok
    ok
                 
 // EAST 
-   if (xy-1) > 0   
-      if aSquare[xy-1] = 1   || aSquare[xy-1] = 'v'       
-              
+   if (col-1) > 0  and xy > 1
+      if aSquare[xy-1] = 1 or aSquare[xy-1] = 'v'               
        else 
          aSquare[xy-1] = 'v'              
          VisitSquare(xy-1)
@@ -375,9 +385,8 @@ Func VisitSquare(xy)
    ok
          
    //WEST
-   if (xy+1) <= Cols 
-       if aSquare[xy+1] = 1   || aSquare[xy+1] = 'v'     
-           
+   if (col+1) <= size*size and xy < size*size
+       if aSquare[xy+1] = 1 or aSquare[xy+1] = 'v'           
        else 
          aSquare[xy+1] = 'v'             
          VisitSquare(xy+1)
