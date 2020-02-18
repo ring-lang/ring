@@ -1,5 +1,5 @@
 # Project : CalmoSoft Laser Game
-# Date    : 16/01/2020
+# Date    : 18/01/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -112,19 +112,36 @@ func moveStart()
                 cellStatus[nRow-1][nCol] = "up"
                 nRow = nRow - 1
                 if nRow = 1
+                   bool1 = 0
                    exit
                 ok
                 bool1 = 1
          end
-         nRow = nRow - 1
-         if nRow > 0
-         if cellStatus[nRow][nCol] = 1
-            changeUptoRight()
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeRighttoDown()
-         ok 
+         if nRow > 1
+            nRow = nRow - 1
+            if cellStatus[nRow][nCol] = 1
+               changeUptoRight()
+            ok
+            if cellStatus[nRow][nCol] = 2
+               changeRighttoDown()
+            ok 
          ok     
+     ok
+
+     if cellStatus[size-1][1] = 2
+        button[size-1][1] { seticon(new qicon(new qpixmap(cellUptoLeft)))
+                            setIconSize(new qSize(50,50))
+                          }
+        cellStatus[size-1][1] = "left"
+     ok
+
+     if cellStatus[size-1][1] = 1
+        button[size-1][1] { seticon(new qicon(new qpixmap(cellUptoRight)))
+                            setIconSize(new qSize(50,50))
+                          }
+        cellStatus[size-1][1] = "right"
+        nRow = size - 1
+        moveRight()
      ok
 
 func changeDowntoRight()
@@ -148,9 +165,9 @@ func changeRighttoUp()
                              }
         nRow = nRow - 1
         moveLeft()
+     else
+        moveUp()
      ok
-     moveUp()
-
 
 func changeDowntoLeft()
      app.processevents()
@@ -204,19 +221,19 @@ func moveRight()
                                      }
                 cellStatus[nRow][nCol+1] = "right"
                 nCol = nCol + 1
-                if nCol = size   
+                if nCol = size 
+                   bool1 = 0  
                    exit
                 ok
          end
          if nCol < size
             nCol = nCol + 1
-         ok
-
-         if cellStatus[nRow][nCol] = 1
-            changeRighttoUp()
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeRighttoDown()
+            if cellStatus[nRow][nCol] = 1
+               changeRighttoUp()
+            ok
+            if cellStatus[nRow][nCol] = 2
+               changeRighttoDown()
+            ok
          ok
 
 func moveLeft()
@@ -228,18 +245,19 @@ func moveLeft()
                                      }
                 cellStatus[nRow][nCol-1] = "left"
                 nCol = nCol - 1
-                if nCol = 1  
+                if nCol = 1 
+                   bool1 = 0   
                    exit
                 ok
          end
          if nCol > 1 
             nCol = nCol - 1
-         ok
-         if cellStatus[nRow][nCol] = 1
-            changeUptoRight()  
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeLefttoUp()
+            if cellStatus[nRow][nCol] = 1
+               changeUptoRight()  
+            ok
+            if cellStatus[nRow][nCol] = 2
+               changeLefttoUp()
+            ok
          ok
 
 func moveDown()
@@ -252,20 +270,19 @@ func moveDown()
                 cellStatus[nRow+1][nCol] = "down"
                 nRow = nRow + 1
                 if nRow = size
+                   bool1 = 0  
                    exit
                 ok
          end
          if nRow < size
             nRow = nRow + 1
+            if cellStatus[nRow][nCol] = 1
+               changeDowntoLeft()
+            ok
+            if cellStatus[nRow][nCol] = 2
+               changeDowntoRight()             
+            ok
          ok
-
-         if cellStatus[nRow][nCol] = 1
-            changeDowntoLeft()
-         ok
-         if cellStatus[nRow][nCol] = 2
-            changeDowntoRight()             
-         ok
-
 
 func moveUp()
          while not(cellStatus[nRow-1][nCol] = 1 or cellStatus[nRow-1][nCol] = 2)
@@ -277,15 +294,18 @@ func moveUp()
                 cellStatus[nRow-1][nCol] = "up"
                 nRow = nRow - 1
                 if nRow = 1
+                   bool1 = 0  
                    exit
                 ok
          end
-         nRow = nRow + 1
-         if cellStatus[nRow][nCol] = 1
-            changeUptoRight()
-          ok
-         if cellStatus[nRow][nCol] = 2
-            changeUptoLeft()
+         if nRow < size
+            nRow = nRow + 1
+            if cellStatus[nRow][nCol] = 1
+               changeUptoRight()
+            ok
+            if cellStatus[nRow][nCol] = 2
+               changeUptoLeft()
+            ok
          ok
 
 func newGame()
