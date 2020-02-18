@@ -1,5 +1,5 @@
 # Project : CalmoSoft Laser Game
-# Date    : 20/01/2020
+# Date    : 21/01/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -74,7 +74,12 @@ app = new qApp
                              show()		
                            }
 
-
+	    btnLoop = new QPushButton(win)	
+		      { setgeometry(390,620,170,20)
+                        settext("Test with Infinite Loop")
+                        setclickevent("fireLoop()")
+                        show()		
+                      }
 
             for Row = 1 to size
          	for Col = 1 to size
@@ -94,6 +99,7 @@ app = new qApp
 
             show()
             pBegin()
+            loadCells()
    }
    exec()
 }
@@ -119,6 +125,14 @@ func deleteCells()
      button[1][size] { seticon(new qicon(new qpixmap(startCell))) }
      button[size][1] { seticon(new qicon(new qpixmap(lineVer))) }
      cellStatus[size][1] = "up"
+
+//=================================
+
+func fireLoop()
+     while true
+           newGame()
+           fire()
+     end
 
 //=================================
 
@@ -298,7 +312,7 @@ func moveRight()
                 button[nRow][nCol+1] { seticon(new qicon(new qpixmap(lineHor)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow][nCol+1] = 3
+                cellStatus[nRow][nCol+1] = "lineHor"
                 nCol = nCol + 1
                 if nCol = size 
                    bool1 = 0  
@@ -331,7 +345,7 @@ func moveLeft()
                 button[nRow][nCol-1] { seticon(new qicon(new qpixmap(lineHor)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow][nCol-1] = 3
+                cellStatus[nRow][nCol-1] = "lineHor"
                 nCol = nCol - 1
                 if nCol = 1 
                    bool1 = 0   
@@ -359,17 +373,19 @@ func moveLeft()
 func moveDown()
          if nRow < size
          while not(cellStatus[nRow+1][nCol] = 1 or cellStatus[nRow+1][nCol] = 2 or cellStatus[nRow+1][nCol] = 3)
-                app.processevents()
-                sleep(0.3)
-                button[nRow+1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
-                                       setIconSize(new qSize(50,50))
-                                     }
-                cellStatus[nRow+1][nCol] = 3
-                nRow = nRow + 1
-                if nRow = size
-                   bool1 = 0  
-                   exit
-                ok
+               //see "nRow = " + nRow + " nCol = " + nCol + nl
+               app.processevents()
+               sleep(0.3)
+               button[nRow+1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
+                                      setIconSize(new qSize(50,50))
+                                    }
+               cellStatus[nRow+1][nCol] = "lineVer"
+               nRow = nRow + 1
+               if nRow = size
+                  bool1 = 0  
+                  exit
+               ok
+               //see "nRow = " + nRow + " nCol = " + nCol + nl
          end
          nRow = nRow + 1
          if nRow < size + 1
@@ -397,7 +413,7 @@ func moveUp()
                 button[nRow-1][nCol] { seticon(new qicon(new qpixmap(lineVer)))
                                        setIconSize(new qSize(50,50))
                                      }
-                cellStatus[nRow-1][nCol] = 3
+                cellStatus[nRow-1][nCol] = "lineVer"
                 nRow = nRow - 1
                 if nRow = 1
                    bool1 = 0  
@@ -549,6 +565,7 @@ func changeStatus(Row, Col)
         ok        
      ok
 
+     saveCells()
      DirCmB.delete()
 
      //See nl+nl+"changeStatus "+ ShowCellStatus()
@@ -606,11 +623,11 @@ func pExit()
 func saveCells()
 
      if start = 1
-        See nl+nl+"saveCells "    ShowCellStatus()   See nl+nl  
+        // see nl+nl+"saveCells "    ShowCellStatus()   See nl+nl  
         fp = fopen("CellStatus.txt","w")
         for n = 1 to size
             for m = 1 to size
-		See "saveCells: n-m: "+ n +"-"+ m +" = "+ cellStatus[n][m] +nl
+		// see "saveCells: n-m: "+ n +"-"+ m +" = "+ cellStatus[n][m] +nl
 		if n = size and m = 1
                    aString = string(n) + "," + string(m) + "," + cellStatus[n][m] + windowsnl()
                 else
@@ -676,7 +693,7 @@ func loadCells()
 
 Func ShowCellStatus()
 
-     See nl+nl+"ShowCellStatus"+ nl
+     // see nl+nl+"ShowCellStatus"+ nl
      See "    _1_2_3_4_5_6_7_8_9_0__ "+ nl
    
      See "  1|"
