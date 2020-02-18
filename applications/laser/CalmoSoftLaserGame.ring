@@ -96,9 +96,9 @@ func fire()
      nRow = size
      nCol = 1
      while bool = 1
-				  bool1 = 0
-				  moveStart()
-				  bool = bool1
+	   bool1 = 0
+	   moveStart()
+	   bool = bool1
      end
 
 func moveStart()
@@ -224,10 +224,8 @@ func moveRight()
                 cellStatus[nRow][nCol+1] = "right"
                 nCol = nCol + 1
                 if nCol = size   
-					 
-							ShowCellStatus()  
-							
-                   exit
+		   ShowCellStatus()  
+	           exit
                 ok
          end
 			
@@ -253,10 +251,8 @@ func moveLeft()
                 cellStatus[nRow][nCol-1] = "left"
                 nCol = nCol - 1
                 if nCol = 1  
-					 
-							ShowCellStatus()
-							
-                   exit
+		   ShowCellStatus()
+		exit
                 ok
          end
          if nCol > 1 
@@ -279,10 +275,8 @@ func moveDown()
                 cellStatus[nRow+1][nCol] = "down"
                 nRow = nRow + 1
                 if nRow = size
-					 
-							ShowCellStatus()
-							
-                   exit
+		   ShowCellStatus()
+		   exit
                 ok
          end
          if nRow < size
@@ -307,10 +301,8 @@ func moveUp()
                 cellStatus[nRow-1][nCol] = "up"
                 nRow = nRow - 1
                 if nRow = 1
-						
-							ShowCellStatus()
-							
-                   exit
+		   ShowCellStatus()
+		   exit
                 ok
          end
          nRow = nRow + 1
@@ -548,24 +540,22 @@ func loadCells()
 // Use 1st letter of Cell Status
 
 Func ShowCellStatus()
-
-	See nl+nl+"ShowCellStatus"+nl
-	See "     __1__ 2___3___4___5___6___7___8___9___0__ "+nl
+     See nl+nl+"ShowCellStatus"+nl
+     See "     __1__ 2___3___4___5___6___7___8___9___0__ "+nl
 	
-	See "  1 | "
-	for Row = 1 to size
-		for Col = 1 to size
-			value = ""+ cellStatus[Row][Col]
-			
-			See " "+ Upper(value[1]) +" |"
-		next
-		
-		NextRow = Row+1
-		if NextRow = 11  return       ok
-		if NextRow = 10  NextRow = 0  ok
-		
-		See nl +"  "+ NextRow +" | "
-		
-	next	
-
-return
+     See "  1 | "
+     for Row = 1 to size
+	 for Col = 1 to size
+	     value = ""+ cellStatus[Row][Col]			
+             See " "+ Upper(value[1]) +" |"
+	 next 		
+	 NextRow = Row+1
+	 if NextRow = 11
+            return
+         ok
+	 if NextRow = 10
+            NextRow = 0 
+         ok
+         See nl +"  "+ NextRow +"|"
+      next
+      return
