@@ -396,6 +396,7 @@ func newGame()
 //=================================
 
 func pselect(Row,Col)
+     if (cellStatus[Row][Col] = 1) or (cellStatus[Row][Col] = 2)
      DirCmB = new qcombobox(win) {
     	      move((Col-1)*60,(Row-1)*60)
               resize(60,20)
@@ -411,6 +412,7 @@ func pselect(Row,Col)
               seteditTextChangedEvent("")
               sethighlightedEvent("")
               show() }
+     ok
 
 func changeStatus(Row, Col)
 
