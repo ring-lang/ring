@@ -532,7 +532,7 @@ func changeStatus(Row, Col)
               dirCells[Row][Col-1] = 2
 
            ok
-
+           checkStat = 0
            check1 = find(checkStatus1,status[Row][Col])
            if check1 > 0
               checkStat = 1
@@ -541,7 +541,7 @@ func changeStatus(Row, Col)
            if check2 > 0
               checkStat = 2
            ok
-           if status[Row][Col] != emptyCell
+           if status[Row][Col] != emptyCell and checkStat != 0
               button[Row][Col-1] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
               cellStatus[Row][Col-1] = checkStat
               dirCells[Row][Col-1] = checkStat
@@ -571,7 +571,7 @@ func changeStatus(Row, Col)
               cellStatus[Row][Col+1] = 2
               dirCells[Row][Col+1] = 2
            ok
-
+           checkStat = 0
            check1 = find(checkStatus1,status[Row][Col])
            if check1 > 0
               checkStat = 1
@@ -580,7 +580,7 @@ func changeStatus(Row, Col)
            if check2 > 0
               checkStat = 2
            ok
-           if status[Row][Col] != emptyCell
+           if status[Row][Col] != emptyCell and checkStat != 0
               button[Row][Col+1] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
               cellStatus[Row][Col+1] = checkStat
               dirCells[Row][Col+1] = checkStat
@@ -610,7 +610,7 @@ func changeStatus(Row, Col)
               cellStatus[Row-1][Col] = 2
               dirCells[Row-1][Col] = 2
            ok
-
+           checkStat = 0
            check1 = find(checkStatus1,status[Row][Col])
            if check1 > 0
               checkStat = 1
@@ -619,7 +619,7 @@ func changeStatus(Row, Col)
            if check2 > 0
               checkStat = 2
            ok
-           if status[Row][Col] != emptyCell
+           if status[Row][Col] != emptyCell and checkStat != 0
               button[Row-1][Col] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
               cellStatus[Row-1][Col] = checkStat
               dirCells[Row-1][Col] = checkStat
@@ -648,7 +648,7 @@ func changeStatus(Row, Col)
               cellStatus[Row+1][Col] = 2
               dirCells[Row+1][Col] = 2
            ok
-
+           checkStat = 0
            check1 = find(checkStatus1,status[Row][Col])
            if check1 > 0
               checkStat = 1
@@ -657,7 +657,7 @@ func changeStatus(Row, Col)
            if check2 > 0
               checkStat = 2
            ok
-           if status[Row][Col] != emptyCell
+           if status[Row][Col] != emptyCell and checkStat != 0
               button[Row+1][Col] { seticon(new qicon(new qpixmap(status[Row][Col]))) }
               cellStatus[Row+1][Col] = checkStat
               dirCells[Row+1][Col] = checkStat
@@ -674,7 +674,8 @@ func changeStatus(Row, Col)
            button[Row][Col] { seticon(new qicon(new qpixmap(leftCell))) }
            cellStatus[Row][Col] = 1
            dirCells[Row][Col] = 1
-        ok  
+        ok
+        checkStat = 0  
         check1 = find(checkStatus1,status[Row][Col])
         if check1 > 0
            checkStat = 1
@@ -695,7 +696,8 @@ func changeStatus(Row, Col)
            button[Row][Col] { seticon(new qicon(new qpixmap(rightCell))) }
            cellStatus[Row][Col] = 2
            dirCells[Row][Col] = 2
-        ok   
+        ok 
+        checkStat = 0  
         check1 = find(checkStatus1,status[Row][Col])
         if check1 > 0
            checkStat = 1
@@ -704,7 +706,7 @@ func changeStatus(Row, Col)
         if check2 > 0
            checkStat = 2
         ok
-        if status[Row][Col] != emptyCell and checkStat = 1
+        if status[Row][Col] != emptyCell and checkStat != 0
            button[Row][Col] { seticon(new qicon(new qpixmap(rightCell))) }
            cellStatus[Row][Col] = 2
            dirCells[Row][Col] = 2
