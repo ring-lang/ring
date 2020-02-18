@@ -10,8 +10,6 @@ start = 0
 size = 10
 nrCell = 50
 cellStatus = newlist(size,size)
-cellDir = newlist(size,size)
-calledFrom = "main"
 emptyCell = "empty.jpg"
 leftCell = "left.jpg"
 rightCell = "right.jpg"
@@ -30,22 +28,10 @@ cellUptoLeft = "UptoLeft.jpg"
 cellUptoRight = "UptoRight.jpg"
 
 dirCmB = null
-Row = 0
-Col = 0
 nRow = 0
 nCol = 1
 bool = 1
 bool1 = 0
-bool2 = 0
-bool3 = 0
-bool4 = 0
-bool5 = 0
-bool6 = 0
-bool7 = 0
-bool8 = 0
-bool9 = 0
-bool10 = 0
-bool11 = 0
 
 Button = newlist(size,size)
 
@@ -464,7 +450,7 @@ func pExit()
      app.quit()
 
 func saveCells()
-     fp = fopen("C:\Ring\calmosoft\lasergame\CellStatus.txt","w")
+     fp = fopen("CellStatus.txt","w")
      for n = 1 to size
          for m = 1 to size
              if n = size and m = 1
@@ -478,7 +464,7 @@ func saveCells()
 
 func loadCells()
 
-     fp = fopen("C:\Ring\calmosoft\lasergame\CellStatus.txt","r")
+     fp = fopen("CellStatus.txt","r")
      aString = ""
      bString = ""
      while isstring(aString)
