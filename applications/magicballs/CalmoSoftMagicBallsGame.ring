@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 17/02/2020
+# Date    : 19/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -33,7 +33,12 @@ bHeight = whiteBallWH.height()
 
 Button = list(size*size)    // list for balls
 cellType = list(size*size)  // Type (color) of ball
-cellbool = 0
+newCell = list(size*size)
+bool = 0
+bool01 = 0
+bool02 = 0
+bool03 = 0
+bool04 = 0
 
 //=================================
 
@@ -73,6 +78,7 @@ app = new qApp
 //=================================
 
 func UserLeftClick(btn)                    // for click on a button
+     bool = 0
      ind = find(balls, cellType[btn])      //find color
      if (ind > 0) and (cellType[btn] != C_EMPTY)
 	hv = btn                           // store index of source ball to hv
@@ -90,22 +96,26 @@ func UserLeftClick(btn)                    // for click on a button
               pDelVisit()
               pathTF = pathSrcDest(aSquare,hv,btn)
               if pathTF = 1
-
-	      Button[btn] { seticon(new qicon(new qpixmap(cellType[hv])))
-                            setIconSize(new qSize(65,65)) } 
-              Button[hv] { seticon(new qicon(new qpixmap(C_EMPTY)))
-                           setIconSize(new qSize(65,65)) }
-              app.processevents()
-              sleep(0.5)
-              aSquare[btn] = 1
-              aSquare[hv] = 0
-              cellType[btn] = cellType[hv]
-              cellType[hv] = C_EMPTY
-              deleteCells()      // When you line up 5 balls of the same color horizontally,
-                                 // vertically or diagonally, the line disappears
-              if (start = 1) and (cellbool = 0)
-                 newCells()      // place new three balls on table
-              ok
+	         Button[btn] { seticon(new qicon(new qpixmap(cellType[hv])))
+                               setIconSize(new qSize(65,65)) } 
+                 Button[hv] { seticon(new qicon(new qpixmap(C_EMPTY)))
+                              setIconSize(new qSize(65,65)) }
+                 app.processevents()
+                 sleep(0.3)
+                 aSquare[btn] = 1
+                 aSquare[hv] = 0
+                 cellType[btn] = cellType[hv]
+                 cellType[hv] = C_EMPTY
+                 deleteCells()      // When you line up 5 balls of the same color horizontally,
+                                    // vertically or diagonally, the line disappears
+                 bool = (bool01 = 1 or bool02 = 1 or bool03 = 1 or bool04 = 1)
+                 if bool = 1
+                    newGame()
+                    return
+                 ok
+                 if (start = 1)
+                    newCells()      // place new three balls on table
+                 ok
               else
                  msgBox("Invalid move!")
               ok
@@ -115,18 +125,22 @@ func UserLeftClick(btn)                    // for click on a button
 //=================================
 
 func newCells()
-     for n = 1 to nrCell
-         rnd = random(size*size-1) + 1
-         cellStyle = random(5) + 1
-         app.processevents()
-         sleep(0.5)
-         if cellType[rnd] = C_EMPTY
-            button[rnd] { seticon(new qicon(new qpixmap(balls[cellStyle])))
-                          setIconSize(new qSize(65,65)) }
-            cellType[rnd] = balls[cellStyle]
-            aSquare[rnd] = 1
-         ok 
-     next
+     n = 0
+     while n < nrCell 
+           rnd = random(size*size-1) + 1
+           cellStyle = random(5) + 1
+           app.processevents()
+           sleep(0.3)
+           ind = find(newCell,rnd)
+           if cellType[rnd] = C_EMPTY and ind < 1
+              n = n + 1
+              button[rnd] { seticon(new qicon(new qpixmap(balls[cellStyle])))
+                            setIconSize(new qSize(65,65)) }
+              cellType[rnd] = balls[cellStyle]
+              aSquare[rnd] = 1
+              add(newCell,rnd)
+           ok 
+     end
 
 //=================================
 
@@ -145,20 +159,17 @@ func pBegin()
          aSquare[btn] = 0
      next
 
-     for n = 1 to nrCell
-         btn2 = random(size*size-1) + 1
-         cellStyle = random(5) + 1
-         button[btn2] { seticon(new qicon(new qpixmap(balls[cellStyle])))
-                       setIconSize(new qSize(65,65)) }
-         cellType[btn2] = balls[cellStyle]
-         aSquare[btn2] = 1
-     next
+     newCells()
 
 //=================================
 
 func deleteCells()
-     bool = 0
-     cellbool = 0
+     //bool = 0
+     bool01 = 0
+     bool02 = 0
+     bool03 = 0
+     bool04 = 0
+     start = 1
      for btn = 1 to size*size-4                          // detect 5 balls horitontally
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
@@ -172,15 +183,15 @@ func deleteCells()
              bool3 = (cellType[btn+2] = cellType1) or (cellType[btn+2] = cellType2)
              bool4 = (cellType[btn+3] = cellType1) or (cellType[btn+3] = cellType2)
              bool5 = (cellType[btn+4] = cellType1) or (cellType[btn+4] = cellType2)
-             bool = bool1 and bool2 and bool3 and bool4 and bool5
-             if bool = 1 
-                cellbool = 1
+             bool01 = bool1 and bool2 and bool3 and bool4 and bool5
+             if bool01 = 1 
                 for p = 0 to 4
                     Button[btn+p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                     setIconSize(new qSize(65,65))
                                   }
                 next
                 exit
+                //newGame()
              ok
      next
 
@@ -197,15 +208,16 @@ func deleteCells()
              bool3 = (cellType[btn+size*2] = cellType1) or (cellType[btn+size*2] = cellType2) 
              bool4 = (cellType[btn+size*3] = cellType1) or (cellType[btn+size*3] = cellType2)
              bool5 = (cellType[btn+size*4] = cellType1) or (cellType[btn+size*4] = cellType2)
-             bool = bool1 and bool2 and bool3 and bool4 and bool5
-             if bool = 1
-                cellbool = 1
+             bool02 = bool1 and bool2 and bool3 and bool4 and bool5
+             if bool02 = 1
                 for p = 0 to 4
                     Button[btn+size*p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                          setIconSize(new qSize(65,65))
                                        }
                 next
-             ok
+                exit
+                //newGame()   
+              ok
      next
 
      for btn = 1 to size*size-36                         // detect 5 balls diagonally (to top l eftcorner)
@@ -221,14 +233,15 @@ func deleteCells()
              bool3 = (cellType[btn+18] = cellType1) or (cellType[btn+18] = cellType2)
              bool4 = (cellType[btn+27] = cellType1) or (cellType[btn+27] = cellType2)
              bool5 = (cellType[btn+36] = cellType1) or (cellType[btn+36] = cellType2)
-             bool = bool1 and bool2 and bool3 and bool4 and bool5
-             if bool = 1
-                cellbool = 1
+             bool03 = bool1 and bool2 and bool3 and bool4 and bool5
+             if bool03 = 1
                 for p = 0 to 4
                     Button[btn+p*9] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                       setIconSize(new qSize(65,65))
                                     }
                 next
+                exit
+                //newGame()
              ok
      next
 
@@ -245,14 +258,15 @@ func deleteCells()
              bool3 = (cellType[btn+22] = cellType1) or (cellType[btn+22] = cellType2) 
              bool4 = (cellType[btn+33] = cellType1) or (cellType[btn+33] = cellType2)
              bool5 = (cellType[btn+44] = cellType1) or (cellType[btn+44] = cellType2)
-             bool = bool1 and bool2 and bool3 and bool4 and bool5
-             if bool = 1
-                cellbool = 1
+             bool04 = bool1 and bool2 and bool3 and bool4 and bool5
+             if bool04 = 1
                 for p = 0 to 4
                     Button[btn+p*11] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                        setIconSize(new qSize(65,65))
                                      }
                 next
+                exit
+                //newGame()
              ok
      next
 
