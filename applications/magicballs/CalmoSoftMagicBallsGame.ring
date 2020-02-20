@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 19/02/2020
+# Date    : 20/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -12,10 +12,12 @@ colorNr = 6       // number of basic colors
 
 Rows = 1
 Cols = 1
-srcXY = 1
-dstXY = 1
+srcX = 1
+srcY = 1
+dstX = 1
+dstY = 1
 
-aSquare = list(size*size)
+aSquare = newlist(size,size)
 
 balls = ["images/blue.jpg", "images/green.jpg", "images/orange.jpg",
 	 "images/red.jpg", "images/violet.jpg","images/yellow.jpg",
@@ -94,22 +96,33 @@ func UserLeftClick(btn)                    // for click on a button
                  start = 1
               ok
               pDelVisit()
-              pathTF = pathSrcDest(aSquare,hv,btn)
-              if pathTF = 1
+              y = hv%size
+              if y = 0
+                 y = size 
+              ok
+              x = ceil(hv/size)
+              t = btn%size
+              if t = 0
+                 t = size 
+              ok
+              s = ceil(btn/size)
+              pathTF = pathSrcDest(aSquare,x,y,s,t)
+              if pathTF = 1 
 	         Button[btn] { seticon(new qicon(new qpixmap(cellType[hv])))
                                setIconSize(new qSize(65,65)) } 
                  Button[hv] { seticon(new qicon(new qpixmap(C_EMPTY)))
                               setIconSize(new qSize(65,65)) }
                  app.processevents()
                  sleep(0.3)
-                 aSquare[btn] = 1
-                 aSquare[hv] = 0
+                 aSquare[s][t] = 1
+                 aSquare[x][y] = 0
                  cellType[btn] = cellType[hv]
                  cellType[hv] = C_EMPTY
                  deleteCells()      // When you line up 5 balls of the same color horizontally,
                                     // vertically or diagonally, the line disappears
                  bool = (bool01 = 1 or bool02 = 1 or bool03 = 1 or bool04 = 1)
                  if bool = 1
+                    msgBox("You win!")
                     newGame()
                     return
                  ok
@@ -126,6 +139,7 @@ func UserLeftClick(btn)                    // for click on a button
 
 func newCells()
      n = 0
+     newCell = []
      while n < nrCell 
            rnd = random(size*size-1) + 1
            cellStyle = random(5) + 1
@@ -137,7 +151,12 @@ func newCells()
               button[rnd] { seticon(new qicon(new qpixmap(balls[cellStyle])))
                             setIconSize(new qSize(65,65)) }
               cellType[rnd] = balls[cellStyle]
-              aSquare[rnd] = 1
+              col = rnd%size
+              if col = 0
+                 col = size 
+              ok
+              row = ceil(rnd/size)
+              aSquare[row][col] = 1
               add(newCell,rnd)
            ok 
      end
@@ -156,7 +175,12 @@ func pBegin()
                        setIconSize(new qSize(65,65))
                      }
          cellType[btn] = C_EMPTY
-         aSquare[btn] = 0
+         col = btn%size
+         if col = 0
+            col = size 
+         ok
+         row = ceil(btn/size)
+         aSquare[row][col] = 0
      next
 
      newCells()
@@ -164,7 +188,6 @@ func pBegin()
 //=================================
 
 func deleteCells()
-     //bool = 0
      bool01 = 0
      bool02 = 0
      bool03 = 0
@@ -191,7 +214,6 @@ func deleteCells()
                                   }
                 next
                 exit
-                //newGame()
              ok
      next
 
@@ -216,7 +238,6 @@ func deleteCells()
                                        }
                 next
                 exit
-                //newGame()   
               ok
      next
 
@@ -241,7 +262,6 @@ func deleteCells()
                                     }
                 next
                 exit
-                //newGame()
              ok
      next
 
@@ -266,7 +286,6 @@ func deleteCells()
                                      }
                 next
                 exit
-                //newGame()
              ok
      next
 
@@ -310,8 +329,13 @@ func gameOver()
 func pDelVisit()
 
      for btn = 1 to size*size
-         if aSquare[btn] = 'v'
-            aSquare[btn] = 0
+         col = btn%size
+         if col = 0
+            col = size 
+         ok
+         row = ceil(btn/size)
+         if aSquare[row][col] = 'v'
+            aSquare[row][col] = 0
          ok
      next
 //=================================
@@ -322,17 +346,17 @@ func pDelVisit()
 //
 // Path 6-5 to 2-10 ng , 6-5 to 1-4 ok , 6-5 to 10-6 ng ,  6-5 to 10-1 ok
 
-Func pathSrcDest(aSquare,xy,st)
+Func pathSrcDest(aSquare, x,y,s,t)
 
     //-------------------------------------
     // Find size of 2D Array => Rows x Cols
     Rows = len(aSquare)       // Size: 10     Rows
-    Cols = len(aSquare)    // Size[1]: 10  Row-1 Cols
+    Cols = len(aSquare[1])    // Size[1]: 10  Row-1 Cols
 
-    srcXY = xy  //srcY = y
-    dstXY = st  //dstY = t 
+    srcX = x  srcY = y
+    dstX = s  dstY = t 
 
-    VisitSquare(srcXY)
+    VisitSquare(srcX,srcY)
     //DisplaySquare()          // SHOW  aSquare with "v" visited results
 
     pathTF = CheckResult()
@@ -343,12 +367,10 @@ return pathTF
 //===============================
 
 Func DisplaySquare()
-    ind = 0
     See nl
-    for i = 1 to size
-        for j = 1 to size
-            ind = ind + 1
-            See " " + aSquare[ind]
+    for i = 1 to Rows
+        for j = 1 to Cols
+            See " "+ aSquare[i][j]
         next
         See nl
     next
@@ -362,48 +384,45 @@ return
 //  EastSide   +1  Mod =>    1
 //  WestSide   -1  Mod =>    0
 
-Func VisitSquare(xy)
-
-     col = xy%size
-     if col = 0
-        col = size 
-     ok
-     row = ceil(xy/size)
+Func VisitSquare(x,y)
 
 // NORTH
-   if ((row-1) % size != 0)
-       if aSquare[xy-size] = 1 or aSquare[xy-size] = 'v'     
+   if (x-1) % Rows != 0   
+       if aSquare[x-1][y] = 1  || aSquare[x-1][y] = 'v'     
           
        else 
-         aSquare[xy-size] = 'v'
-         VisitSquare(xy-size)
+         aSquare[x-1][y] = 'v'
+         VisitSquare(x-1,y)
        ok
    ok
          
 //SOUTH
-   if (row+1) % size != 1 and xy < (size-1)*size
-       if aSquare[xy+size] = 1 or aSquare[xy+size] = 'v'             
+   if (x+1) % Rows != 1 
+       if aSquare[x+1][y] = 1  || aSquare[x+1][y] = 'v'  
+            
        else 
-         aSquare[xy+size] = 'v'
-         VisitSquare(xy+size)
+         aSquare[x+1][y] = 'v'
+         VisitSquare(x+1,y)
        ok
    ok
                 
 // EAST 
-   if (col-1) > 0  and xy > 1
-      if aSquare[xy-1] = 1 or aSquare[xy-1] = 'v'               
+   if (y-1) > 0   
+      if aSquare[x][y-1] = 1   || aSquare[x][y-1] = 'v'       
+              
        else 
-         aSquare[xy-1] = 'v'              
-         VisitSquare(xy-1)
+         aSquare[x][y-1] = 'v'              
+         VisitSquare(x,y-1)
        ok  
    ok
          
    //WEST
-   if (col+1) <= size*size and xy < size*size
-       if aSquare[xy+1] = 1 or aSquare[xy+1] = 'v'           
+   if (y+1) <= Cols 
+       if aSquare[x][y+1] = 1   || aSquare[x][y+1] = 'v'     
+           
        else 
-         aSquare[xy+1] = 'v'             
-         VisitSquare(xy+1)
+         aSquare[x][y+1] = 'v'             
+         VisitSquare(x,y+1)
        ok                
    ok 
 
@@ -415,7 +434,7 @@ return
 
 Func CheckResult()
    
-    if aSquare[dstXY] = 'v'
+    if aSquare[dstX][dstY] = 'v'
         //See "CheckResult: Path Open.: "+ srcX +"-"+ srcY  +" To: "+ dstX +"-"+ dstY +" Value: "+ aSquare[dstX][dstY] +" TRUE" +nl
         return TRUE
     else
@@ -426,4 +445,3 @@ Func CheckResult()
 return 
 
 //===========================================
-
