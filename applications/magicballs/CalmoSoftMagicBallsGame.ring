@@ -95,7 +95,7 @@ func UserLeftClick(btn)                    // for click on a button
               else
                  start = 1
               ok
-              pDelVisit()
+              //pDelVisit()
               y = hv%size
               if y = 0
                  y = size 
@@ -120,10 +120,11 @@ func UserLeftClick(btn)                    // for click on a button
                  cellType[hv] = C_EMPTY
                  deleteCells()      // When you line up 5 balls of the same color horizontally,
                                     // vertically or diagonally, the line disappears
+                 pDelVisit()   
                  bool = (bool01 = 1 or bool02 = 1 or bool03 = 1 or bool04 = 1)
                  if bool = 1
                     msgBox("You win!")
-                    newGame()
+                    newCells()
                     return
                  ok
                  if (start = 1)
@@ -212,7 +213,15 @@ func deleteCells()
                     Button[btn+p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                     setIconSize(new qSize(65,65))
                                   }
+                    cellType[btn+p] = C_EMPTY
+                    col = btn%size
+                    if col = 0
+                       col = size 
+                    ok
+                    row = ceil(btn/size)
+                    aSquare[row][col+p] = 'v'
                 next
+                pDelVisit()
                 exit
              ok
      next
@@ -236,7 +245,15 @@ func deleteCells()
                     Button[btn+size*p] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                          setIconSize(new qSize(65,65))
                                        }
+                    cellType[btn+size*p] = C_EMPTY
+                    col = btn%size
+                    if col = 0
+                       col = size 
+                    ok
+                    row = ceil(btn/size)
+                    aSquare[row+p][col] = 'v'
                 next
+                pDelVisit()
                 exit
               ok
      next
@@ -260,7 +277,15 @@ func deleteCells()
                     Button[btn+p*9] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                       setIconSize(new qSize(65,65))
                                     }
+                    cellType[btn+p*9] = C_EMPTY
+                    col = btn%size
+                    if col = 0
+                       col = size 
+                    ok
+                    row = ceil(btn/size)
+                    aSquare[row+p][col-p] = 'v'
                 next
+                pDelVisit()
                 exit
              ok
      next
@@ -284,7 +309,15 @@ func deleteCells()
                     Button[btn+p*11] { seticon(new qicon(new qpixmap(C_EMPTY)))
                                        setIconSize(new qSize(65,65))
                                      }
+                    cellType[btn+p*11] = C_EMPTY
+                    col = btn%size
+                    if col = 0
+                       col = size 
+                    ok
+                    row = ceil(btn/size)
+                    aSquare[row+p][col+p] = 'v'
                 next
+                pDelVisit()
                 exit
              ok
      next
