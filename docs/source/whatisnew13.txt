@@ -62,4 +62,5 @@ More Improvements
 	* ring/samples/other/changeisnull.ring
 	* ring/samples/other/ArrayPathDest/solveArrayPathDest.ring
 
+* Type Hints library - Better Code
 * Ring Compiler - ring_parser.c - Better Code
