@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 20/02/2020
+# Date    : 21/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -113,7 +113,7 @@ func UserLeftClick(btn)                    // for click on a button
                  Button[hv] { seticon(new qicon(new qpixmap(C_EMPTY)))
                               setIconSize(new qSize(65,65)) }
                  app.processevents()
-                 sleep(0.3)
+                 sleep(0.1)
                  aSquare[s][t] = 1
                  aSquare[x][y] = 0
                  cellType[btn] = cellType[hv]
@@ -124,11 +124,11 @@ func UserLeftClick(btn)                    // for click on a button
                  bool = (bool01 = 1 or bool02 = 1 or bool03 = 1 or bool04 = 1)
                  if bool = 1
                     msgBox("You win!")
-                    newCells()
+                    newCells(5)
                     return
                  ok
                  if (start = 1)
-                    newCells()      // place new three balls on table
+                    newCells(3)      // place new three balls on table
                  ok
               else
                  msgBox("Invalid move!")
@@ -138,28 +138,30 @@ func UserLeftClick(btn)                    // for click on a button
 
 //=================================
 
-func newCells()
-     n = 0
-     newCell = []
-     while n < nrCell 
-           rnd = random(size*size-1) + 1
+func newCells(nrCell)
+     aList = []   
+     for i = 1 to size*size
+         if cellType[i] = C_EMPTY   
+            Add(aList,i)
+         ok
+     next  
+     cnt = 0
+     while cnt < nrCell
            cellStyle = random(5) + 1
-           app.processevents()
-           sleep(0.3)
-           ind = find(newCell,rnd)
-           if cellType[rnd] = C_EMPTY and ind < 1
-              n = n + 1
-              button[rnd] { seticon(new qicon(new qpixmap(balls[cellStyle])))
-                            setIconSize(new qSize(65,65)) }
-              cellType[rnd] = balls[cellStyle]
-              col = rnd%size
-              if col = 0
-                 col = size 
+           pickSquare = random(len(aList))
+           ind1 = find(aList,pickSquare)
+           if ind1 > 0
+              del(aList,ind1)
+              ind2 = find(aList,pickSquare)
+              if ind2 < 1
+                 add(aList,ind1)
+                 pickValue  = aList[pickSquare]
+                 button[pickValue] { seticon(new qicon(new qpixmap(balls[cellStyle])))
+                                     setIconSize(new qSize(65,65)) }
+                 cellType[pickValue] = balls[cellStyle] 
+                 cnt = cnt + 1
               ok
-              row = ceil(rnd/size)
-              aSquare[row][col] = 1
-              add(newCell,rnd)
-           ok 
+           ok
      end
 
 //=================================
@@ -184,7 +186,7 @@ func pBegin()
          aSquare[row][col] = 0
      next
 
-     newCells()
+     newCells(3)
 
 //=================================
 
@@ -222,6 +224,22 @@ func deleteCells()
                     aSquare[row][col+p] = 'v'
                 next
                 pDelVisit()
+                for bt = btn+5 to size*size
+                    if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
+                       Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
+                                    setIconSize(new qSize(65,65))
+                                  }
+                       cellType[bt] = C_EMPTY
+                       col = bt%size
+                       if col = 0
+                          col = size 
+                       ok
+                       row = ceil(bt/size)
+                       aSquare[row][col] = 'v'
+                     else
+                       exit
+                     ok
+                next
                 exit
              ok
      next
@@ -254,6 +272,22 @@ func deleteCells()
                     aSquare[row+p][col] = 'v'
                 next
                 pDelVisit()
+                for bt = btn+size*5 to size*size step 10
+                    if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
+                       Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
+                                    setIconSize(new qSize(65,65))
+                                  }
+                       cellType[bt] = C_EMPTY
+                       col = bt%size
+                       if col = 0
+                          col = size 
+                       ok
+                       row = ceil(bt/size)
+                       aSquare[row][col] = 'v'
+                     else
+                       exit
+                     ok
+                next
                 exit
               ok
      next
@@ -286,6 +320,22 @@ func deleteCells()
                     aSquare[row+p][col-p] = 'v'
                 next
                 pDelVisit()
+                for bt = btn+(size-1)*5 to size*size step 9
+                    if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
+                       Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
+                                    setIconSize(new qSize(65,65))
+                                  }
+                       cellType[bt] = C_EMPTY
+                       col = bt%size
+                       if col = 0
+                          col = size 
+                       ok
+                       row = ceil(bt/size)
+                       aSquare[row][col] = 'v'
+                     else
+                       exit
+                     ok
+                next
                 exit
              ok
      next
@@ -318,6 +368,22 @@ func deleteCells()
                     aSquare[row+p][col+p] = 'v'
                 next
                 pDelVisit()
+                for bt = btn+(size+1)*5 to size*size step 11
+                    if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
+                       Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
+                                    setIconSize(new qSize(65,65))
+                                  }
+                       cellType[bt] = C_EMPTY
+                       col = bt%size
+                       if col = 0
+                          col = size 
+                       ok
+                       row = ceil(bt/size)
+                       aSquare[row][col] = 'v'
+                     else
+                       exit
+                     ok
+                next
                 exit
              ok
      next
