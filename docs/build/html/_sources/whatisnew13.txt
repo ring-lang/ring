@@ -63,4 +63,6 @@ More Improvements
 	* ring/samples/other/ArrayPathDest/solveArrayPathDest.ring
 
 * Type Hints library - Better Code
+* Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
+* Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
