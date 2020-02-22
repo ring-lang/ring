@@ -203,6 +203,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	String *pString  ;
 	int nTokenIndex  ;
 	assert(pScanner != NULL);
+	/* Set Variables */
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
 	switch ( pScanner->state ) {
@@ -428,6 +429,16 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				#endif
 				ring_scanner_changekeyword(pScanner);
 				ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+			}
+			else if ( c == '#' || ring_scanner_isoperator(pScanner,cStr) ) {
+				pScanner->state = SCANNER_STATE_GENERAL ;
+				ring_scanner_changekeyword(pScanner);
+				ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+				/* Read the character again (Don't ignore the operator) */
+				ring_scanner_readchar(pScanner,c);
+			}
+			else if ( (c == ' ') || (c == '\t') ) {
+				ring_scanner_readtwoparameters(pScanner,cStr);
 			} else {
 				ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
 			}
@@ -441,6 +452,9 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				#endif
 				ring_scanner_changeoperator(pScanner);
 				ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+			}
+			else if ( (c == ' ') || (c == '\t') ) {
+				ring_scanner_readtwoparameters(pScanner,cStr);
 			} else {
 				ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
 			}
@@ -1050,4 +1064,42 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	}
 	RING_CLOSEFILE(fp);
 	ring_scanner_readchar(pScanner,'\n');
+}
+
+void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )
+{
+	int x,nSize,nSpaces  ;
+	char *cString  ;
+	/* Set Variables */
+	x = 0 ;
+	nSize = 0 ;
+	nSpaces = 0 ;
+	cString = ring_string_get(pScanner->ActiveToken) ;
+	nSize = strlen(cString) ;
+	if ( nSize > 0 ) {
+		if ( (cString[nSize-1] != ' ') && (cString[nSize-1] != '\t') ) {
+			nSpaces = 0 ;
+			for ( x = 0 ; x < nSize ; x++ ) {
+				if ( (cString[x] == ' ') || (cString[x] == '\t') ) {
+					nSpaces++ ;
+				}
+			}
+			if ( nSpaces == 0 ) {
+				ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
+			}
+			else {
+				/* Consider it the end of the instruction */
+				if ( pScanner->state == SCANNER_STATE_CHANGEKEYWORD ) {
+					pScanner->state = SCANNER_STATE_GENERAL ;
+					ring_scanner_changekeyword(pScanner);
+					ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+				}
+				else if ( pScanner->state == SCANNER_STATE_CHANGEOPERATOR ) {
+					pScanner->state = SCANNER_STATE_GENERAL ;
+					ring_scanner_changeoperator(pScanner);
+					ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+				}
+			}
+		}
+	}
 }
