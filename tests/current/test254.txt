@@ -1,7 +1,5 @@
 Handle Error!
-Message :Error (R3) : Calling Function without definition !: test
-x: 10
-y: 20
-z: 30
-Done
-mmm...
+Message :Error (R24) : Using uninitialized variable : test
+add attribute
+done
+10

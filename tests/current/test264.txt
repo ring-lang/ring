@@ -1,7 +1,1 @@
-welcome
-
-eval Line (1) Syntax error
-eval errors count : 1 
-
-Line 6 Error in eval! 
-In eval() in file general/test81.ring 
+20

@@ -1,1 +1,3 @@
-Error (S1) : In Line 2 , Literal not closed, expected " in the end
+x: 10.12
+y: 20.12
+

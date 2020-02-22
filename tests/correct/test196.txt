@@ -1,2 +1,2 @@
-base
-child
+test2
+para : 10

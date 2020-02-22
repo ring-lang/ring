@@ -1,5 +1,2 @@
-10
-6
-10
-NULL
-10
+char
+char
