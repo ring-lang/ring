@@ -106,6 +106,7 @@ func UserLeftClick(btn)                    // for click on a button
                  t = size 
               ok
               s = ceil(btn/size)
+              pDelVisit()
               pathTF = pathSrcDest(aSquare,x,y,s,t)
               if pathTF = 1 
 	         Button[btn] { seticon(new qicon(new qpixmap(cellType[hv])))
@@ -120,7 +121,6 @@ func UserLeftClick(btn)                    // for click on a button
                  cellType[hv] = C_EMPTY
                  deleteCells()      // When you line up 5 balls of the same color horizontally,
                                     // vertically or diagonally, the line disappears
-                 pDelVisit()   
                  bool = (bool01 = 1 or bool02 = 1 or bool03 = 1 or bool04 = 1)
                  if bool = 1
                     msgBox("You win!")
@@ -197,6 +197,7 @@ func deleteCells()
      bool04 = 0
      start = 1
      for btn = 1 to size*size-4                          // detect 5 balls horitontally
+             pDelVisit()
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
              if inds < colorNr + 1
@@ -223,7 +224,6 @@ func deleteCells()
                     row = ceil(btn/size)
                     aSquare[row][col+p] = 'v'
                 next
-                pDelVisit()
                 for bt = btn+5 to size*size
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
                        Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
@@ -245,6 +245,7 @@ func deleteCells()
      next
 
      for btn = 1 to size*size-40                         // detect 5 balls vertically
+             pDelVisit()
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
              if inds < colorNr + 1
@@ -271,7 +272,6 @@ func deleteCells()
                     row = ceil(btn/size)
                     aSquare[row+p][col] = 'v'
                 next
-                pDelVisit()
                 for bt = btn+size*5 to size*size step 10
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
                        Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
@@ -293,6 +293,7 @@ func deleteCells()
      next
 
      for btn = 1 to size*size-36                         // detect 5 balls diagonally (to top l eftcorner)
+             pDelVisit()
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
              if inds < colorNr + 1
@@ -319,7 +320,6 @@ func deleteCells()
                     row = ceil(btn/size)
                     aSquare[row+p][col-p] = 'v'
                 next
-                pDelVisit()
                 for bt = btn+(size-1)*5 to size*size step 9
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
                        Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
@@ -341,6 +341,7 @@ func deleteCells()
      next
 
      for btn = 1 to size*size-44                         // detect 5 balls diagonally (to top right corner)
+             pDelVisit()
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
              if inds < colorNr + 1
@@ -367,7 +368,6 @@ func deleteCells()
                     row = ceil(btn/size)
                     aSquare[row+p][col+p] = 'v'
                 next
-                pDelVisit()
                 for bt = btn+(size+1)*5 to size*size step 11
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
                        Button[bt] { seticon(new qicon(new qpixmap(C_EMPTY)))
