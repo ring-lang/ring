@@ -244,3 +244,8 @@ Type: char
 cFileName2[200]
 Type: unsigned int
 x
+ring_scanner_readtwoparameters
+Type: int
+x,nSize,nSpaces
+Type: char *
+cString
