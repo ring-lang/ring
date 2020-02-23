@@ -580,7 +580,9 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 	/* This function determine if the TOKEN is a Keyword or Identifier or Number */
 	assert(pScanner != NULL);
 	/* Not Case Sensitive */
-	ring_string_tolower(pScanner->ActiveToken);
+	if ( pScanner->pRingState->lNotCaseSensitive ) {
+		ring_string_tolower(pScanner->ActiveToken);
+	}
 	nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),ring_string_get(pScanner->ActiveToken));
 	if ( nResult > 0 ) {
 		#if RING_SCANNEROUTPUT

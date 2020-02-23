@@ -77,6 +77,7 @@ RING_API RingState * ring_state_new ( void )
 	/* Tokens Only */
 	pRingState->nOnlyTokens = 0 ;
 	pRingState->pRingFileTokens = NULL ;
+	pRingState->lNotCaseSensitive = 1 ;
 	return pRingState ;
 }
 

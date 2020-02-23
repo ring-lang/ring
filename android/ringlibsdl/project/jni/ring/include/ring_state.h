@@ -60,6 +60,8 @@ typedef struct RingState {
 	int lLoadAgain  ;
 	/* Log File */
 	FILE *pLogFile;
+	/* Flag (Not Case Sensitive) */
+	int lNotCaseSensitive  ;
 } RingState ;
 /* Functions */
 
