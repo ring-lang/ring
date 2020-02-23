@@ -65,6 +65,8 @@ lRunFromThread
 Type: int
 lLoadAgain
 pLogFile
+Type: int
+lNotCaseSensitive
 END:
 Type: RingState
 struct RingState
