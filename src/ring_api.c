@@ -2178,14 +2178,24 @@ void ring_vmlib_state_filetokens ( void *pPointer )
 	RingState *pState  ;
 	char *cFile  ;
 	List *pList  ;
-	if ( RING_API_PARACOUNT != 2 ) {
+	int lCase  ;
+	if ( RING_API_PARACOUNT < 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	pState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
 	cFile = RING_API_GETSTRING(2);
+	/* Check the (Not Case Sensitive) feature */
+	lCase = 1 ;
+	if ( RING_API_PARACOUNT == 3 ) {
+		if ( RING_API_ISNUMBER(3) ) {
+			lCase = (int) RING_API_GETNUMBER(3) ;
+		}
+	}
 	pState->nOnlyTokens = 1 ;
+	pState->lNotCaseSensitive = lCase ;
 	ring_scanner_readfile(pState,cFile);
+	pState->lNotCaseSensitive = 1 ;
 	pState->nOnlyTokens = 0 ;
 	/* Copy The List */
 	pList = RING_API_NEWLIST ;
