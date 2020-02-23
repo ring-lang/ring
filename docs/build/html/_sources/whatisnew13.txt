@@ -67,3 +67,4 @@ More Improvements
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
 * Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
+* Ring VM - ring_state_filetokens() - optional parameter for the (Not Case Sensitive) feature.
