@@ -62,6 +62,7 @@ More Improvements
 	* ring/samples/other/changeisnull.ring
 	* ring/samples/other/ArrayPathDest/solveArrayPathDest.ring
 	* ring/samples/other/MultipleArrayItemsFind.ring
+	* ring/samples/other/MultipleArrayItemsInsert.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Type Hints library - Better Code
