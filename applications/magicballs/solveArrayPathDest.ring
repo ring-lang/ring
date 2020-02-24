@@ -42,7 +42,7 @@ mySquareX = [[0,1,0,0,1,0,0,0,0,1],  // 1    0 ... 11
 //
 // Path 6-5 to 2-10 ng , 6-5 to 1-4 ok , 6-5 to 10-6 ng ,  6-5 to 10-1 ok
 
-Func pathSrcDest(aSquare, x,y,s,t)
+Func pathSrcDest(aSquare,x,y,s,t)
 
     mySquare = aSquare         // Working Copy 
     
@@ -54,22 +54,22 @@ Func pathSrcDest(aSquare, x,y,s,t)
     srcX = x  srcY = y
     dstX = s  dstY = t 
     
-        See "CALLED Square: "+nl
+        /*See "CALLED Square: "+nl
         See "mySquare: Rows-Cols: "+ Rows +"-"+ Cols +" Src: "+ SrcX +"-"+ SrcY +" Dst: "+ DstX +"-"+ DstY  +nl
-        DisplaySquare( )        // Called Sqaure
+        DisplaySquare( )        // Called Sqaure*/
 
     VisitSquare(srcX,srcY)
     pathTF = CheckResult()
         
-    mySquare[srcX][srcY] = 'S'  // Insert Start
-    mySquare[dstX][dstY] = 'G'  // Insert Goal
+    //mySquare[srcX][srcY] = 'S'  // Insert Start
+    //mySquare[dstX][dstY] = 'G'  // Insert Goal
     
-        See "UPDATED Square: PathTF: "+ pathTF +" Src: "+ SrcX +"-"+ SrcY +" Dst: "+ DstX +"-"+ DstY   +nl
-        DisplaySquare()             // SHOW  Updated mySquare with "v" visited results
+        /*See "UPDATED Square: PathTF: " + pathTF + " Src:  "+ SrcX + "-" + SrcY + " Dst:  "+ DstX + "-" + DstY +nl
+        DisplaySquare()             // SHOW  Updated mySquare with "v" visited results*/ 
 
 
   
-return pathTF                       // Return TRUE / FALSE 
+     return pathTF                       // Return TRUE / FALSE 
 
   
 //===============================
@@ -96,8 +96,7 @@ Func VisitSquare(x,y)
 
 // NORTH
    if (x-1) % Rows != 0   
-       if mySquare[x-1][y] = 1  || mySquare[x-1][y] = 'v'     
-          
+       if mySquare[x-1][y] = 1 or mySquare[x-1][y] = 'v'          
        else 
          mySquare[x-1][y] = 'v'
          VisitSquare(x-1,y)
@@ -106,8 +105,7 @@ Func VisitSquare(x,y)
          
 //SOUTH
    if (x+1) % Rows != 1 
-       if mySquare[x+1][y] = 1  || mySquare[x+1][y] = 'v'  
-            
+       if mySquare[x+1][y] = 1 or mySquare[x+1][y] = 'v'            
        else 
          mySquare[x+1][y] = 'v'
          VisitSquare(x+1,y)
@@ -116,8 +114,7 @@ Func VisitSquare(x,y)
                 
 // EAST 
    if (y-1) > 0   
-      if mySquare[x][y-1] = 1   || mySquare[x][y-1] = 'v'       
-              
+      if mySquare[x][y-1] = 1 or mySquare[x][y-1] = 'v'              
        else 
          mySquare[x][y-1] = 'v'              
          VisitSquare(x,y-1)
@@ -126,15 +123,14 @@ Func VisitSquare(x,y)
          
    //WEST
    if (y+1) <= Cols 
-       if mySquare[x][y+1] = 1   || mySquare[x][y+1] = 'v'     
-           
+       if mySquare[x][y+1] = 1 or mySquare[x][y+1] = 'v'           
        else 
          mySquare[x][y+1] = 'v'             
          VisitSquare(x,y+1)
        ok                
    ok 
 
-   //See "Exit - VisitSquare: xy "+x+"-"+y +nl   // Show Recursive calls
+   //See "Exit - VisitSquare: xy " +  x +"-"  +y +nl   // Show Recursive calls
                                 
 return  
 
@@ -143,11 +139,11 @@ return
 Func CheckResult()
    
     if mySquare[dstX][dstY] = 'v'
-        //See "CheckResult: Path Open.: "+ srcX +"-"+ srcY  +" To: "+ dstX +"-"+ dstY +" Value: "+ mySquare[dstX][dstY] +" TRUE" +nl
-        return TRUE
+        //See "CheckResult: Path Open.: " + srcX + "-" + srcY  + " To: "  + dstX +"-" + dstY + " Value: " + mySquare[dstX][dstY] + " TRUE" + nl
+        return 1
     else
-        //See "CheckResult: Path Block: "+ srcX +"-"+ srcY  +" To: "+ dstX +"-"+ dstY +" Value: "+ mySquare[dstX][dstY] +" FALSE" +nl
-        return FALSE
+        //See "CheckResult: Path Block: " + srcX +"-" + srcY + " To: " + dstX +"-" + dstY + " Value: " + mySquare[dstX][dstY] + " FALSE" + nl
+        return 0 
     ok
 
 return 
