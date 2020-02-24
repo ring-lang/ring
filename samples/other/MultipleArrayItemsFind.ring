@@ -1,4 +1,4 @@
-# Project : CalmoSoft Multiply Array Items Find
+# Project : CalmoSoft Multiple Array Items Find
 # Date    : 24/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
@@ -9,9 +9,9 @@ see "aList = "
 showArray(aList)
 see nl
 
-MultiplyArrayItemsFind(aList)
+MultipleArrayItemsFind(aList)
 
-func MultiplyArrayItemsFind(bList)
+func MultipleArrayItemsFind(bList)
      item = 3
      cList = []
      nr = 0
