@@ -27,7 +27,10 @@ class RNoteOutputWindow
 		# Set the font
 			oTFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTFont)
-		oProcessEditbox.insertplaintext(cText)
+		cCurrentText = oProcessEditbox.toplaintext()
+		C_OUTPUTBUFFERSIZE = 1024*1024 # 1 MB
+		cText = right(cCurrentText,min(C_OUTPUTBUFFERSIZE-len(cText),len(cCurrentText)) ) + cText
+		oProcessEditbox.setplaintext(cText)
 		oCursor = oProcessEditbox.textcursor()
 		nPos = max(len(oProcessEditbox.toplaintext())-1,0)
 		oCursor.setPosition(nPos,QTextCursor_KeepAnchor)
