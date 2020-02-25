@@ -21,12 +21,10 @@ class RNoteOutputWindow
 	func GetProcessData 
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
-		if isWindows()
-			cText += WindowsNl()
-		ok
 		# Set the font
 			oTFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTFont)
+		if isWindows() cText = substr(cText,WindowsNL(),nl) ok
 		cCurrentText = oProcessEditbox.toplaintext()
 		C_OUTPUTBUFFERSIZE = 1024*1024 # 1 MB
 		cText = right(cCurrentText,min(C_OUTPUTBUFFERSIZE-len(cText),len(cCurrentText)) ) + cText
