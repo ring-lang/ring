@@ -1,5 +1,5 @@
 # Project : CalmoSoft Multiple Array Items Insert
-# Date    : 24/02/2020
+# Date    : 26/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -9,15 +9,20 @@ insertList = [4,6,7]
 see "aList = "
 showArray(aList)
 see nl
+see "insertlist = "
+showArray(insertList)
+see nl
 
-MultipleArrayItemsInsert(aList)
+updatedList = MultipleArrayItemsInsert(aList,insertList)
 
-func MultipleArrayItemsInsert(aList)
+see "updatedList = "
+showArray(updatedList)
+
+func MultipleArrayItemsInsert(aList,insertList)
      for n = 1 to len(insertList)
          add(aList,insertList[n])
      next
-     see "insert = "
-     showArray(aList)
+     return aList
 
 func showArray(array)
      txt = ""
