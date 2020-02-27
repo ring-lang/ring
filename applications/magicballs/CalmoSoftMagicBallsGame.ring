@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 23/02/2020
+# Date    : 26/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -29,17 +29,21 @@ whiteBallWH = new Qpixmap("blue.jpg")
 
 hv = 0         // source ball
 btn = 0        // target empty cell
+bt = 0
 bWidth  = whiteBallWH.width()    
 bHeight = whiteBallWH.height()   
 
 Button = list(size*size)    // list for balls
 cellType = list(size*size)  // Type (color) of ball
-newCell = list(size*size)
+aList = list(size*size)
 bool = 0
 bool01 = 0
 bool02 = 0
 bool03 = 0
 bool04 = 0
+score = 0
+plusScore = 0
+scoreText = "Score: "
 
 //=================================
 
@@ -57,6 +61,13 @@ app = new qApp
                            setclickevent("newGame()")
                            show()		
                          }
+
+	    btnScore = new QPushButton(win)	
+		       { setgeometry(240,620,70,20)
+                         settext("Score: 0")
+                         show()		
+                       }
+
 
             for btn = 1 to size*size
                 Button[btn] = new QPushButton(win) { setIcon(new qIcon(new Qpixmap(C_EMPTY)))
@@ -142,7 +153,8 @@ func UserLeftClick(btn)                    // for click on a button
                  msgBox("Invalid move!")
               ok
         ok
-     ok
+      ok
+      gameOver()
 
 //=================================
 
@@ -152,7 +164,14 @@ func newCells(nrCell)
          if cellType[i] = C_EMPTY   
             Add(aList,i)
          ok
-     next  
+     next 
+     /*nrOver = len(aList)
+     see "nrOver = " + nrOver + nl
+     if nrOver < 4
+        msgBox("Game Over!")
+        newGame()
+     ok*/
+     //gameOver()
      cnt = 0
      while cnt < nrCell
            cellStyle = random(5) + 1
@@ -168,9 +187,13 @@ func newCells(nrCell)
                                      setIconSize(new qSize(65,65)) }
                  cellType[pickValue] = balls[cellStyle] 
                  cnt = cnt + 1
-              ok
+              ok             
            ok
      end
+     if nrCell = 5
+        score = score + nrCell + plusScore
+        btnScore.settext(scoreText + string(score)) 
+     ok
 
 //=================================
 
@@ -180,6 +203,10 @@ func newGame()
 //=================================
 
 func pBegin()
+
+     score = 0
+     plusScore = 0
+     btnScore.settext(scoreText + string(score)) 
 
      for btn = 1 to size*size
 	 Button[btn] { seticon(new qicon(new qpixmap(C_EMPTY)))
@@ -204,6 +231,7 @@ func deleteCells()
      bool03 = 0
      bool04 = 0
      start = 1
+     plusScore = 0
      for btn = 1 to size*size-4                          // detect 5 balls horitontally
              cellType1 = cellType[btn]
              inds = find(balls,cellType[btn])
@@ -229,7 +257,6 @@ func deleteCells()
                        col = size 
                     ok
                     row = ceil(btn/size)
-                    //cellVisit[row][col+p] = 'v'
                 next
                 for bt = btn+5 to size*size
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
@@ -242,7 +269,7 @@ func deleteCells()
                           col = size 
                        ok
                        row = ceil(bt/size)
-                       //cellVisit[row][col] = 'v'
+                       plusScore = plusScore + 1
                      else
                        exit
                      ok
@@ -276,7 +303,6 @@ func deleteCells()
                        col = size 
                     ok
                     row = ceil(btn/size)
-                    //cellVisit[row+p][col] = 'v'
                 next
                 for bt = btn+size*5 to size*size step 10
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
@@ -289,7 +315,7 @@ func deleteCells()
                           col = size 
                        ok
                        row = ceil(bt/size)
-                       //cellVisit[row][col] = 'v'
+                       plusScore = plusScore + 1
                      else
                        exit
                      ok
@@ -323,7 +349,6 @@ func deleteCells()
                        col = size 
                     ok
                     row = ceil(btn/size)
-                    //cellVisit[row+p][col-p] = 'v'
                 next
                 for bt = btn+(size-1)*5 to size*size step 9
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
@@ -336,7 +361,7 @@ func deleteCells()
                           col = size 
                        ok
                        row = ceil(bt/size)
-                       //cellVisit[row][col] = 'v'
+                       plusScore = plusScore + 1
                      else
                        exit
                      ok
@@ -370,7 +395,6 @@ func deleteCells()
                        col = size 
                     ok
                     row = ceil(btn/size)
-                    //cellVisit[row+p][col+p] = 'v'
                 next
                 for bt = btn+(size+1)*5 to size*size step 11
                     if (cellType[bt] = cellType1) or (cellType[bt] = cellType2)
@@ -383,7 +407,7 @@ func deleteCells()
                           col = size 
                        ok
                        row = ceil(bt/size)
-                       //cellVisit[row][col] = 'v'
+                       plusScore = plusScore + 1
                      else
                        exit
                      ok
@@ -415,16 +439,18 @@ func msgBox(cText)
 //=================================
 
 func gameOver()
-     for btn = 1 to size*size
-             if cellType[btn] != C_EMPTY
-                gover = 1
-             else
-                gover = 0
-                exit 
-             ok
-     next
-     if gover = 1
+     aList = []   
+     for i = 1 to size*size
+         if cellType[i] = C_EMPTY   
+            Add(aList,i)
+         ok
+     next 
+     nrOver = len(aList)
+     if nrOver < 7
         msgBox("Game Over!")
+        newGame()
+     else
+        see "ok" + nl
      ok
 
 //=================================
