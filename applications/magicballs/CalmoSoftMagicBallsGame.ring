@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 26/02/2020
+# Date    : 27/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -165,17 +165,10 @@ func newCells(nrCell)
             Add(aList,i)
          ok
      next 
-     /*nrOver = len(aList)
-     see "nrOver = " + nrOver + nl
-     if nrOver < 4
-        msgBox("Game Over!")
-        newGame()
-     ok*/
-     //gameOver()
      cnt = 0
      while cnt < nrCell
            cellStyle = random(5) + 1
-           pickSquare = random(len(aList))
+           pickSquare = random(len(aList)-1)+1
            ind1 = find(aList,pickSquare)
            if ind1 > 0
               del(aList,ind1)
@@ -449,8 +442,6 @@ func gameOver()
      if nrOver < 7
         msgBox("Game Over!")
         newGame()
-     else
-        see "ok" + nl
      ok
 
 //=================================
@@ -463,7 +454,6 @@ func pDelVisit()
             col = size 
          ok
          row = ceil(btn/size)
-         //if cellVisit[row][col] = 'v' or cellVisit[row][col] = 1
          if cellVisit[row][col] = 1
             cellVisit[row][col] = 0
          ok
