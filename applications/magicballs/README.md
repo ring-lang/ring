@@ -1,5 +1,5 @@
-Magic Balls Game (Under Development)
-====================================
+Magic Balls Game
+================
 
 Author: Gal Zsolt
 
