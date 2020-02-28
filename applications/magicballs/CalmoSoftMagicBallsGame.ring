@@ -1,5 +1,5 @@
 # Project : CalmoSoft Magic Balls Game
-# Date    : 27/02/2020
+# Date    : 28/02/2020
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
@@ -89,6 +89,21 @@ app = new qApp
 
 //=================================
 
+func gameOver()
+     eList = []     
+     for i = 1 to size*size
+         if cellType[i] = C_EMPTY   
+            Add(eList,i)
+         ok
+     next 
+     nrOver = len(eList)
+     if nrOver < 7
+        msgBox("Game Over!")
+        newGame()
+     ok
+
+//=================================
+
 func UserLeftClick(btn)                    // for click on a button
 
      bool = 0
@@ -147,6 +162,7 @@ func UserLeftClick(btn)                    // for click on a button
                     return
                  ok
                  if (start = 1)
+                    //gameOver()
                     newCells(3)      // place new three balls on table
                  ok
               else
@@ -154,7 +170,6 @@ func UserLeftClick(btn)                    // for click on a button
               ok
         ok
       ok
-      gameOver()
 
 //=================================
 
@@ -180,6 +195,7 @@ func newCells(nrCell)
                                      setIconSize(new qSize(65,65)) }
                  cellType[pickValue] = balls[cellStyle] 
                  cnt = cnt + 1
+                 gameOver()
               ok             
            ok
      end
@@ -428,35 +444,5 @@ func msgBox(cText)
             ok			
           }
           return
-
-//=================================
-
-func gameOver()
-     aList = []   
-     for i = 1 to size*size
-         if cellType[i] = C_EMPTY   
-            Add(aList,i)
-         ok
-     next 
-     nrOver = len(aList)
-     if nrOver < 7
-        msgBox("Game Over!")
-        newGame()
-     ok
-
-//=================================
-
-func pDelVisit()
-
-     for btn = 1 to size*size
-         col = btn%size
-         if col = 0
-            col = size 
-         ok
-         row = ceil(btn/size)
-         if cellVisit[row][col] = 1
-            cellVisit[row][col] = 0
-         ok
-     next
 
 //=================================
