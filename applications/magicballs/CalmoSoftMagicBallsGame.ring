@@ -162,7 +162,6 @@ func UserLeftClick(btn)                    // for click on a button
                     return
                  ok
                  if (start = 1)
-                    //gameOver()
                     newCells(3)      // place new three balls on table
                  ok
               else
@@ -190,6 +189,7 @@ func newCells(nrCell)
               ind2 = find(aList,pickSquare)
               if ind2 < 1
                  add(aList,ind1)
+                 aList = sort(aList)
                  pickValue  = aList[pickSquare]
                  button[pickValue] { seticon(new qicon(new qpixmap(balls[cellStyle])))
                                      setIconSize(new qSize(65,65)) }
