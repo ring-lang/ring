@@ -1028,16 +1028,17 @@ class RNoteMainWindow
 
 	func EditFullScreen
 		if lEditboxFullScreen 
-			oDockSourceCode.show()
+			oDockSourceCode { show() raise() }
 			textedit1.setParent(oTabsAndText)
 			oLayoutTabsText.AddWidget(textedit1)
-			textedit1.show()
-			textedit1.setfocus(7)
+			textedit1 { show() setfocus(7) }
 		else 
-			textedit1.setParent(NULL)
 			oDockSourceCode.hide()
-			textedit1.showfullscreen()
-			textedit1.setfocus(7)
+			textedit1 { 
+				setParent(NULL)
+				showfullscreen()
+				setfocus(7)
+			}
 		ok
 		lEditboxFullScreen = ! lEditboxFullScreen 
 
