@@ -139,3 +139,9 @@ class RNoteControllerBase from WindowsControllerParent
 
 	# Settings 
 		cSettingsFile 	= cCurrentDir + "ringnotepad.ini"
+
+	# Editbox FullScreen Mode 
+		lEditboxFullScreen = False 
+		oFilterTextEdit 
+		oTabsAndText
+		oLayoutTabsText

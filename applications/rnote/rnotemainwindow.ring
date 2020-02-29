@@ -399,6 +399,14 @@ class RNoteMainWindow
 						}
 						addaction(oAction)
 						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method(:EditFullScreen))
+							setbtnimage(self,"image/source.png")
+							setShortcut(new QKeySequence("Ctrl+Shift+1"))
+							settext("Source Code (Full Screen)")
+						}
+						addaction(oAction)
+						addseparator()
 						subStyle = addmenu("Style")
 						subStyle {
 							setbtnimage(self,"image/colors.png")
@@ -846,6 +854,10 @@ class RNoteMainWindow
 				setTextChangedEvent(Method(:TextChanged))
 				setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
 				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
+				this.oFilterTextEdit = new qAllEvents(this.win1)
+				this.oFilterTextEdit.setkeypressevent(Method(:TextEditKeyPress))
+				installEventFilter(this.oFilterTextEdit)
+
 			}
 			this.AutoComplete()
 			this.oACTimer = new qtimer(this.win1) {
@@ -865,17 +877,17 @@ class RNoteMainWindow
 					this.aStyleColors[:SyntaxFunctionCallsColor]
 				)
 			}
-			oTabsAndText = new qWidget() {
-				oLayoutTabsText = new qVBoxlayout() {
+			this.oTabsAndText = new qWidget() {
+				this.oLayoutTabsText = new qVBoxlayout() {
 					AddWidget(this.filestabs)
 					AddWidget(this.textedit1)
 					setContentsMargins(0,0,0,0)
 					setspacing(0)
 				}
-				setLayout(oLayoutTabsText)
+				setLayout(this.oLayoutTabsText)
 			}
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
-				setwidget(oTabsAndText)
+				setwidget(this.oTabsAndText)
 				setwindowtitle("Source Code")
 				setminimumwidth(floor(this.oDesktop.width()*0.17))                                                     
 			}
@@ -1014,3 +1026,23 @@ class RNoteMainWindow
 	func RingNotepadXButton
 		SaveSettings() 
 
+	func EditFullScreen
+		if lEditboxFullScreen 
+			textedit1.setParent(oTabsAndText)
+			oLayoutTabsText.AddWidget(textedit1)
+			textedit1.show()
+			textedit1.setfocus(7)
+		else 
+			textedit1.setParent(NULL)
+			textedit1.showfullscreen()
+			textedit1.setfocus(7)
+		ok
+		lEditboxFullScreen = ! lEditboxFullScreen 
+
+	func TextEditKeyPress
+		nKeyCode = this.oFilterTextEdit.getkeycode()
+		if nKeyCode = 33	# CTRL+SHIFT+1
+			EditFullScreen()
+			return
+		ok
+		this.oFilterTextEdit.setEventoutput(False)
