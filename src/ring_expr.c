@@ -1081,11 +1081,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			x3 = pParser->nBraceFlag ;
 			pParser->nAssignmentFlag = 1 ;
 			pParser->nBraceFlag = 0 ;
-			while ( ring_parser_stmt(pParser) ) {
-				if ( pParser->ActiveToken == pParser->TokensCount ) {
-					break ;
-				}
-			}
+			RING_PARSER_ACCEPTSTATEMENTS ;
 			pParser->nAssignmentFlag = x ;
 			pParser->nNewObject = x2 ;
 			pParser->nBraceFlag = x3 ;
@@ -1259,11 +1255,7 @@ int ring_parser_mixer ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		nStatus = pParser->nAssignmentFlag ;
 		pParser->nAssignmentFlag = 1 ;
-		while ( ring_parser_stmt(pParser) ) {
-			if ( pParser->ActiveToken == pParser->TokensCount ) {
-				break ;
-			}
-		}
+		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nAssignmentFlag = nStatus ;
 		if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 			pParser->nBraceFlag-- ;
