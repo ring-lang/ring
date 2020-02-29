@@ -1041,7 +1041,8 @@ class RNoteMainWindow
 
 	func TextEditKeyPress
 		nKeyCode = this.oFilterTextEdit.getkeycode()
-		if nKeyCode = 33	# CTRL+SHIFT+1
+		# Check CTRL+SHIFT+1
+		if nKeyCode = 33 or (lEditboxFullScreen and nKeyCode = Qt_Key_Escape) 
 			EditFullScreen()
 			return
 		ok
