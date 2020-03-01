@@ -202,6 +202,8 @@ void ring_vmlib_nullpointer ( void *pPointer ) ;
 void ring_vmlib_space ( void *pPointer ) ;
 
 void ring_vmlib_ptrcmp ( void *pPointer ) ;
+
+void ring_vmlib_pointer2string ( void *pPointer ) ;
 /* Ring State */
 
 void ring_vmlib_state_init ( void *pPointer ) ;

@@ -95,6 +95,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
 	ring_vm_funcregister("space",ring_vmlib_space);
 	ring_vm_funcregister("ptrcmp",ring_vmlib_ptrcmp);
+	ring_vm_funcregister("pointer2string",ring_vmlib_pointer2string);
 	/* Ring State */
 	ring_vm_funcregister("ring_state_init",ring_vmlib_state_init);
 	ring_vm_funcregister("ring_state_runcode",ring_vmlib_state_runcode);
@@ -2017,6 +2018,18 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vmlib_pointer2string ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	RING_API_RETSTRING2(((char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((int) RING_API_GETNUMBER(2)),(int) RING_API_GETNUMBER(3));
 }
 /* Ring State */
 
