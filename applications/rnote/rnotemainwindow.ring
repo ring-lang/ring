@@ -411,96 +411,112 @@ class RNoteMainWindow
 						subStyle {
 							setbtnimage(self,"image/colors.png")
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+W"))
 								setclickEvent(Method("SetStyleColor(0)"))
 								settext("Windows")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+2"))
 								setclickEvent(Method("SetStyleColor(1)"))
 								settext("Fusion : White")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+3"))
 								setclickEvent(Method("SetStyleColor(2)"))
 								settext("Fusion : Blue")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+4"))
 								setclickEvent(Method("SetStyleColor(3)"))
 								settext("Fusion : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+5"))
 								setclickEvent(Method("SetStyleColor(4)"))
 								settext("Modern")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+6"))
 								setclickEvent(Method("SetStyleColor(5)"))
 								settext("Modern : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+7"))
 								setclickEvent(Method("SetStyleColor(6)"))
 								settext("Modern : Black 2")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+8"))
 								setclickEvent(Method("SetStyleColor(7)"))
 								settext("Notepad : White")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+9"))
 								setclickEvent(Method("SetStyleColor(8)"))
 								settext("Notepad : Purple")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+A"))
 								setclickEvent(Method("SetStyleColor(9)"))
 								settext("Notepad : DarkBlue")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F7"))
 								setclickEvent(Method("SetStyleColor(10)"))
 								settext("Notepad : Black")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F8"))
 								setclickEvent(Method("SetStyleColor(11)"))
 								settext("Art")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F9"))
 								setclickEvent(Method("SetStyleColor(12)"))
 								settext("Art 2")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F10"))
 								setclickEvent(Method("SetStyleColor(13)"))
 								settext("Art 3")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F11"))
 								setclickEvent(Method("SetStyleColor(14)"))
 								settext("Image")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+Shift+F12"))
 								setclickEvent(Method("SetStyleColor(15)"))
 								settext("Image 2")
 							}
