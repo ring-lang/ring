@@ -2022,6 +2022,7 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 
 void ring_vmlib_pointer2string ( void *pPointer )
 {
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -2029,7 +2030,7 @@ void ring_vmlib_pointer2string ( void *pPointer )
 	if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-	RING_API_RETSTRING2(((char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((int) RING_API_GETNUMBER(2)),(int) RING_API_GETNUMBER(3));
+	RING_API_RETSTRING2(((unsigned char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((int) RING_API_GETNUMBER(2)),(int) RING_API_GETNUMBER(3));
 }
 /* Ring State */
 
