@@ -11,3 +11,4 @@ This folder contains libraries for Ring written in the Ring programming language
 * Type Hints : A library for adding type hints to functions.
 * Big Number Library : Support arithmetic operations on huge numbers.
 * Fox Ring Library : Contains functions similar to Visual FoxPro. 
+* Zero Library : Create lists and strings where the index starts from zero.
