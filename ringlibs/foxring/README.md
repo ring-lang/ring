@@ -1,6 +1,5 @@
-=======
-FoxRing
-=======
+FoxRing Library
+===============
 
 As a FoxPro developer, I started writing a class with some of the functions I used in FoxPro.
 
