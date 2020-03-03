@@ -1,8 +1,5 @@
-======================================================
 The WebLib Library for the Ring programming langauge 
-CGI-Library (written in Ring)
-http://ring-lang.net/
-======================================================
+====================================================
 
 To learn see the chapter 
 	Web Development (CGI Library) 
