@@ -96,7 +96,7 @@ ballColors = [ "images/red.png",
 emptyColor = "images/empty.png"
 
 RandomColorCount = [0,0,0,0,0,0]    // How many of each color generated
-ScoreColorCount  = [0,0,0,0,0]    // How many of each color in a row,col,diag detectrd
+ScoreColorCount  = [0,0,0,0,0]      // How many of each color in a row,col,diag detectrd
 
 ###=====================================================
 
@@ -172,43 +172,51 @@ app = new qApp
 Func UserLeftMouse(Row,Col)
 
     //-------------------------
-    // Ball Pick - Source
-    
+    // SOURCE -- BALL Pick - 
+
     if SrcDest = 'S'
         SrcX = Row  SrcY = Col
-        if aBalls[Row][Col] > 0
-            // Good Ball
+            
+        if aBalls[Row][Col] > 0                                          ### GOOD Source is Ball
             Button[SrcX][SrcY] { setStyleSheet(C_ButtonPickStyle) }      ### Yellow From-Square
             SrcDest = 'D'                                                ### Reset to Next Pick to Destination
-        else
-            // BAD
-            SrcX  = 0  SrcY  = 0 
             return
-        ok
-          
+        ok     
+
+        if aBalls[Row][Col] = 0                                          ### BAD Source is Empty Sq
+            SrcDest = 'S'                                                ### Reset to Next Pick to Source
+            return
+        ok   
+        
     ok
     
     //----------------------------------
-    // Empty Square Pick - Destination
+    // DESTINATION -- EMPTY Square Pick - 
     
     if SrcDest = 'D'
         DestX = Row  DestY = Col
-        if aBalls[Row][Col] = 0
-            // Good Empty
-            SrcDest = 'S'                                              ### Reset to Next Pick to Source
-        else
-            // BAD
-            DestX = 0  DestY = 0
-            return
+        
+        if aBalls[Row][Col] = 0                                          ### GOOD Dest is Empty Sq
+            Button[SrcX][SrcY] { setStyleSheet(C_ButtonPickStyle) }      ### Yellow From-Square
+            SrcDest = 'S'                                                ### Reset to Next Pick to Source
         ok
+        
+        if aBalls[Row][Col] >= 1                                         ### BAD Dest is Ball       
+            Button[SrcX][SrcY]   { setStyleSheet(C_ButtonEmptyStyle) }   ### Changed Pick   
+            Button[DestX][DestY] { setStyleSheet(C_ButtonPickStyle) }    ### Yellow New Source 
+            SrcX = DestX  SrcY = DestY                                   ### Change Dest to Src 
+            
+            SrcDest = 'D'                                                ### Look for New Destinaltion
+            return
+        ok          
     ok
-    
+ 
     //--------------------------
     // Check if Valid Move
 
     myBalls01 = BallsToZeroOne(aBalls)
-    pathTF = pathSrcDest( myBalls01, SrcX, SrcY, DestX, DestY)
-
+    pathTF    = pathSrcDest( myBalls01, SrcX, SrcY, DestX, DestY)
+    
     if pathTF = False
         Button[SrcX][SrcY]   { setStyleSheet(C_ButtonInvalidStyle) } 
         Button[DestX][DestY] { setStyleSheet(C_ButtonInvalidStyle) } 
@@ -285,10 +293,12 @@ Func PLAY()
       
       
       // Display the Board
-      Total = ScoreColorCount[1] + ScoreColorCount[2] + ScoreColorCount[3] + ScoreColorCount[4]
+      Total    = ScoreColorCount[1] + ScoreColorCount[2] + ScoreColorCount[3] + ScoreColorCount[4]
+      TotalRdm = RandomColorCount[1]+ RandomColorCount[2]+ RandomColorCount[3]+ RandomColorCount[4]+ RandomColorCount[5]+ RandomColorCount[6]
+                      
       
-      win.setWindowTitle("Magic Balls: InLine: "+ inLineCount +"   COLORS: R: "+ RandomColorCount[1]+" Y: "+ RandomColorCount[2]+" O: "+ RandomColorCount[3]+" G: "+ RandomColorCount[4]+" BL: "+ RandomColorCount[5]+" BK: "+ RandomColorCount[6]+" "+
-                                     "   SCORES: Row: "+ ScoreColorCount[1]+" Col: "+  ScoreColorCount[2]+" DiagD: "+  ScoreColorCount[3]+" DiagU: "+  ScoreColorCount[4]+" Total: "+ Total   
+      win.setWindowTitle("Magic Balls: InLine: "+ inLineCount +"   COLORS: R: "+ RandomColorCount[1]+" Y: "+ RandomColorCount[2]+" O: "+ RandomColorCount[3]+" G: "+ RandomColorCount[4]+" BL: "+ RandomColorCount[5]+" BK: "+ RandomColorCount[6]+"  ALL: "+ TotalRdm +"  "+
+                                     "   SCORES: Row: "+ ScoreColorCount[1]+" Col: "+  ScoreColorCount[2]+" DiagD: "+  ScoreColorCount[3]+" DiagU: "+  ScoreColorCount[4]+"  TOTAL: "+ Total   
                         ) 
       
       app.processEvents()   // Update Button Display
