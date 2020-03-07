@@ -54,18 +54,18 @@ Func pathSrcDest(aSquare,x,y,s,t)
     srcX = x  srcY = y
     dstX = s  dstY = t 
     
-        /*See "CALLED Square: "+nl
-        See "mySquare: Rows-Cols: "+ Rows +"-"+ Cols +" Src: "+ SrcX +"-"+ SrcY +" Dst: "+ DstX +"-"+ DstY  +nl
-        DisplaySquare( )        // Called Sqaure*/
+        //See "CALLED Square: "+nl
+        //See "mySquare: Rows-Cols: "+ Rows +"-"+ Cols +" Src: "+ SrcX +"-"+ SrcY +" Dst: "+ DstX +"-"+ DstY  +nl
+        //DisplaySquareVisit( )        // Called Square
 
     VisitSquare(srcX,srcY)
     pathTF = CheckResult()
         
-    //mySquare[srcX][srcY] = 'S'  // Insert Start
-    //mySquare[dstX][dstY] = 'G'  // Insert Goal
+    mySquare[srcX][srcY] = 'S'  // Insert Start
+    mySquare[dstX][dstY] = 'G'  // Insert Goal
     
-        /*See "UPDATED Square: PathTF: " + pathTF + " Src:  "+ SrcX + "-" + SrcY + " Dst:  "+ DstX + "-" + DstY +nl
-        DisplaySquare()             // SHOW  Updated mySquare with "v" visited results*/ 
+        //See "UPDATED Square: PathTF: " + pathTF + " Src:  "+ SrcX + "-" + SrcY + " Dst:  "+ DstX + "-" + DstY +nl
+        //DisplaySquareVisit()             // SHOW  Updated mySquare with "v" visited results
 
 
   
@@ -74,7 +74,7 @@ Func pathSrcDest(aSquare,x,y,s,t)
   
 //===============================
 
-Func DisplaySquare()
+Func DisplaySquareVisit()
     See nl
     for i = 1 to Rows
         for j = 1 to Cols
