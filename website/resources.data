@@ -393,6 +393,12 @@
 				]
 			]
 	     ],
+         ["Posts from the 'Ringorialand' blog",[
+				[
+					'<a href="https://medium.com/ringorialand/a-gamified-foundation-for-mastering-programming-part-1-5-1fbea1a83446" target="_blank">A Gamified Foundation For Mastering Programming — Part 1/5</a>'
+				]
+			]
+	     ],
          ["Posts from the 'Watany Dev' blog",[
 				[
 					'<a href="http://watanydev.blogspot.com.eg/2016/02/tutorial-how-to-configure-xampp-to.html" target="_blank">Tutorial: How to configure Xampp / Apache to serve Ring language files</a>'
