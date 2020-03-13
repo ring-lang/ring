@@ -1,21 +1,25 @@
-Ring Syntax highlighter for notepad++
+Ring Syntax highlighter for Notepad++
+=====================================
+
 Author : Abdulrahman
+
 URL : https://github.com/AbdelrahmanGIT/Ring_for_NotePad_plus_plus
---------------
-This is a simple ring language syntax highlighter for notepad++
-if you don't know what ring languge is refer to : http://ring-lang.net/
 
-Screenshot
-======
+Screen shot
+===========
+
 ![Ring syntax highlighter in action](http://i.imgur.com/DqZyyXg.png)
-Feauters
-======
-- Automatically activates on files with the `.ring` extension
-- Folding for `if but else ok` statments and `{ }`
 
+Features
+========
+
+- Automatically activates on files with the `.ring` extension
+
+- Folding for `if but else ok` statments and `{ }`
 
 Instructions
 ============
+
 1. Clone this repository or download `Ring.xml` in the `syntax` folder
 2. Open Notepad++
 3. Open the "Language" menu
@@ -27,7 +31,8 @@ Instructions
 9. Enjoy :)
 
 Run integration
-===
+===============
+
 1. Open notepad++ if it's not already opend
 2. Open the "Run" menu
 3. Choose `Run...`
