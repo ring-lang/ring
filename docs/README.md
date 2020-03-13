@@ -1,4 +1,9 @@
-In this folder we have the Ring programming language documentation (Created using Sphinx).
+Ring programming language - Docs folder
+=======================================
+
+In this folder we have the Ring programming language documentation 
+
+The documentation is created using Sphinx (A popular tool written in Python)
 
 (1) Install Python 2.7
 
