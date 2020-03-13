@@ -1,4 +1,5 @@
-# Emacs-support-for-Ring-programming-language
+Emacs support for Ring programming language
+===========================================
 
 This is Ring highlight syntax support for Emacs editor
 
