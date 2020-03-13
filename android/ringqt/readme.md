@@ -4,18 +4,16 @@ Ring For Mobile App Development (Android, iOS and Windows Phone) using Qt
 (1) Download Requirements
 	http://doc.qt.io/qt-5/androidgs.html
 	* The Android SDK Tools
-		https://developer.android.com/studio/index.html
-	* The Android NDK 
-		https://developer.android.com/ndk/index.html
-	* Apache Ant v1.8 or later 
-		http://ant.apache.org/bindownload.cgi
+		https://developer.android.com/sdk/index.html
+	* The Android NDK (Tested using android-ndk-r21) 
+		http://developer.android.com/tools/sdk/ndk/index.html
 	* Java SE Development Kit (JDK) v6 or later
-		http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+		https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 (2) Update the Android SDK to get the API and tools packages required for development
 
 (3) Install Qt for Android
-		https://download.qt.io/archive/qt/5.5/5.5.1/
+		https://download.qt.io/archive/qt/5.12/5.12.6/
 
 (4) Run Qt Creator, Select Tools > Options > Android to add the 
     Android NDK and SDK paths. 
