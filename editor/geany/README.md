@@ -1,6 +1,9 @@
-# Geany-support-for-Ring-programming-language
-# Author : Magdy Ragab
-# URL : https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language
+Geany support for Ring programming language
+===========================================
+
+Author : Magdy Ragab
+
+URL : https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language
 
 This is Ring highlight syntax support for Geany editor
 
