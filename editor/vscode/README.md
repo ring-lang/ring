@@ -1,11 +1,14 @@
-# VSCode Extension for the Ring programming language
+VSCode Extension for the Ring programming language
+==================================================
 
 Support the Ring programming language in Visual Studio Code
 
-# How to Install
+How to Install
+==============
 
 Copy the Ring folder to : C:\Users\YourUserName\\.vscode\extensions\ folder
 
-# Screen Shot
+Screen Shot
+===========
 
 ![Ring](https://github.com/ring-lang/ring/blob/master/editor/vscode/ringinvscode.png)
