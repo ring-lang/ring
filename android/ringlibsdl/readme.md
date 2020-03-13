@@ -34,7 +34,7 @@ You will find the Flappy Bird 3000 Game ready for building.
 
 The execution starts from the start.ring file
 
-	load "game2.ring"
+	load "flappybird3000.ring"
 
 
 (5) Building the project
