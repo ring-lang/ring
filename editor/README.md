@@ -1,5 +1,7 @@
-In this folder we will add extensions for different editors
-to support the Ring programming language
+Ring programming language - Editor folder
+=========================================
+
+In this folder we have extensions for different code editors
 
 Supported Editors
 
