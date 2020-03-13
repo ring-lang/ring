@@ -1,7 +1,5 @@
-========================================
 Sublime Text 2 Syntax Coloring for Ring
-http://ring-lang.net
-========================================
+=======================================
 
 In the folder Sublime_Text_2 you will find the next three files
 1 - ring.json-tmlanguage
