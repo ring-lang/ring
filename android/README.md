@@ -1,6 +1,7 @@
-# Ring Programming Language - Android Folder
+Ring Programming Language - Android Folder
+==========================================
 
-In this folder we will store 
+In this folder we have
 
 (1) RingLibSDL for Android (2D Games)
 
