@@ -15,9 +15,21 @@ List of changes and new features
 
 Ring 1.13 comes with the next features!
 
+* Magic Balls Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Magic Balls Game
+
+Magic Balls Game
+================
+
+An implementation for the Magic Balls Game
+
+.. image:: magicballs.png
+	:alt: Magic Balls Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
