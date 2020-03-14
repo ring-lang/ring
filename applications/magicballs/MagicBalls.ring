@@ -71,8 +71,7 @@ C_ButtonDestStyle   = 'border-radius:1px; color:black; background-color: rgb(204
 
 ###------------------------------------------------
  
-moveX = 400  moveY = 100
-sizeX = 800  SizeY = 800
+sizeX = 600  SizeY = 600
         
 oPicColor = new QPixmap("images\red.png")
 bWidth    = sizeX / Size                    // oPicColor.width()    ### 80 
@@ -107,8 +106,7 @@ app = new qApp
     win = new qWidget() 
     {
         setWindowTitle('Magic Balls: ')
-
-          move(moveX, moveY)
+	setWinIcon(win,"images\red.png")
         reSize(sizeX, sizeY)
         winheight = win.height()
         fontSize = 8 + (winheight / 100)
