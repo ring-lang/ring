@@ -101,7 +101,8 @@ aAllPackagesInfo = [
 		"bmicalculator",
 		"gogame",
 		"calendar",
-		"juliandaycalendar"
+		"juliandaycalendar",
+		"magicballs"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -171,7 +172,8 @@ aAllPackagesInfo = [
 		"bmicalculator",
 		"gogame",
 		"calendar",
-		"juliandaycalendar"
+		"juliandaycalendar",
+		"magicballs"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
