@@ -162,7 +162,7 @@ void ring_vm_mul ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= 15 ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= 15 ) ) {
+	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
 		return ;
 	}
@@ -217,7 +217,7 @@ void ring_vm_div ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= 15 ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= 15 ) ) {
+	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
 		return ;
 	}
@@ -272,7 +272,7 @@ void ring_vm_mod ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= 15 ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= 15 ) ) {
+	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
 		return ;
 	}
@@ -995,7 +995,7 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 {
 	double nResult  ;
-	if ( strlen(cStr) <= 15 ) {
+	if ( strlen(cStr) <= RING_VM_MAXDIGITSINSTRINGTONUMBER ) {
 		nResult = atof(cStr);
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
