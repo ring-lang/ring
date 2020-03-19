@@ -285,15 +285,6 @@
 				]
 			]
 	      ],
-	      ["Posts from the 'Geeks Board' blog",[
-				[
-					'<a href="https://geeksboard.wordpress.com/2016/01/31/helloworld-with-ring-in-linux/" target="_blank">HelloWorld with Ring in Linux</a>'
-				],
-				[
-					'<a href="https://geeksboard.wordpress.com/2016/02/01/deep-into-ring/" target="_blank">Deep into Ring (full-fill your list with even numbers)</a>'
-				]
-			]
-	      ],
 	      ["Posts from the 'Thinking in the Ring programming language' blog",[
 				[
 					'<a href="https://ringlang.wordpress.com/2016/01/29/printing-new-lines-and-other-characters-in-the-ring-programming-language/" target="_blank">Printing New Lines and other characters</a>'
