@@ -402,13 +402,7 @@
 				]
 			]
 	     ],
-         ["Posts from the 'Watany Dev' blog",[
-				[
-					'<a href="http://watanydev.blogspot.com.eg/2016/02/tutorial-how-to-configure-xampp-to.html" target="_blank">Tutorial: How to configure Xampp / Apache to serve Ring language files</a>'
-				]
-			]
-	     ],
-		 ["English Tutorials (YouTube) by Roshan Ali",[
+	     ["English Tutorials (YouTube) by Roshan Ali",[
 				[
 					'<a href="https://www.youtube.com/watch?v=qQm5L-S92hk" target="_blank">Ring: Hello World (Download and Installation: Lesson One)</a>'
 				],
