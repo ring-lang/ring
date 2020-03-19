@@ -413,14 +413,8 @@
 					'<a href="https://www.youtube.com/watch?v=LO3lEAZOiTk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=3" target="_blank">Ring Programing: Lesson 3 - Classes and Objects</a>'
 				]
 			]
-	     ],		 			
-		  ["Tutorials (YouTube) by Muhammad Aslam Khan",[
-				[
-					'<a href="https://www.youtube.com/watch?v=zjQ6OW_uFnc" target="_blank">How to install Ring Programming Language and run hello world</a>'
-				]
-			]
-	     ],
-			["English Tutorials (YouTube)",[
+	     ],	
+	     ["English Tutorials (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank">The Ring programming language</a>'					
 				],
