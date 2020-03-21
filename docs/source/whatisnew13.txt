@@ -29,7 +29,14 @@ Laser Game
 
 An implementation for the Laser Game
 
+Simple Level
+
 .. image:: lasergame.png
+	:alt: Laser Game
+
+Advanced Level
+
+.. image:: lasergame2.png
 	:alt: Laser Game
 
 .. index:: 
