@@ -102,7 +102,8 @@ aAllPackagesInfo = [
 		"gogame",
 		"calendar",
 		"juliandaycalendar",
-		"magicballs"
+		"magicballs",
+		"laser"
 	],
 	:weblibtools = 	[
 		"weblib"
@@ -173,7 +174,8 @@ aAllPackagesInfo = [
 		"gogame",
 		"calendar",
 		"juliandaycalendar",
-		"magicballs"
+		"magicballs",
+		"laser"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
