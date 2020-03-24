@@ -198,6 +198,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
 					'<img src="juliandaycalendar.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
+					'<img src="magicballs.png" width="40%">'
 				]
 			    ]
                  ],
