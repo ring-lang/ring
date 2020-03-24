@@ -202,6 +202,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
 					'<img src="magicballs.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
+					'<img src="lasergame2.png" width="40%">'
 				]
 			    ]
                  ],
