@@ -11,8 +11,8 @@ load "guilib.ring"
 
 aSq    = [[ '0','0','0','0','0','0','0','0','0' ],  // 
           [ '0','0','0','/','0','0','0','0','0' ],  // 
-          [ '0','0','0','0','0','0','T','0','0' ],  //  /3-4   T3-7
-          [ '0','0','0','0','0','0','0','0','0' ],  //
+          [ '/','\','0','0','0','0','T','0','0' ],  //  /3-4   T3-7
+          [ '\','/','0','0','0','0','0','0','0' ],  //
           [ '0','0','0','\','0','0','\','0','0' ],  //  \5-4   \5-7
           [ '0','0','0','0','0','0','0','0','0' ],  //
           [ '0','0','G','0','0','0','/','0','0' ],  //  G7-3   /7-7
@@ -22,7 +22,7 @@ aSq    = [[ '0','0','0','0','0','0','0','0','0' ],  //
 Dir       = 'E'  // N E S W
 gunRow    = 7  gunCol    = 3
 targetRow = 3  targetCol = 7
-
+semaphore = 0                 ### Traffic Light  1=Running  0=Stopped 
 
 //-----------------------------------
           
@@ -37,7 +37,8 @@ RandomCur   = 10
 LaserSqCount = 1
 
 TitleMirrors       = null
-TitletLaserSquares = null
+TitleLaserSquares  = null
+TitleSemaphore     = null
 
 SrcDest = 'S'               // S-D  Source/Destination Pick
 SrcX    = 0  SrcY  = 0      // Filled when User Picks a Ball
@@ -101,7 +102,7 @@ app = new qApp
     win = new qWidget() 
     {
         setWindowTitle('Mirror Laser: ')
-	setWinIcon(self,"images/LaserGun.png")
+        setWinIcon(self,"images/LaserGun.png")
         reSize(sizeX, sizeY)
         winheight = win.height()
         fontSize  = 8 + (winheight / 200)
@@ -119,7 +120,7 @@ app = new qApp
                 setText(" Mirrors: "+ (RandomCur -2) )
             }   
 
-            TitletLaserSquares = new qLineEdit(win) 
+            TitleLaserSquares = new qLineEdit(win) 
             {
                 setFont(new qFont("Calibri",fontsize,100,0))
                 setAlignment( Qt_AlignVCenter)
@@ -127,7 +128,14 @@ app = new qApp
                 setText(" LaserSquares: "+ LaserSqCount)
             }       
        
-                          
+            TitleSemaphore = new qLineEdit(win) 
+            {
+                setFont(new qFont("Calibri",fontsize,100,0))
+                setAlignment( Qt_AlignVCenter)
+                setAlignment( Qt_AlignVCenter)
+                setText(" State: Start: "+ semaphore)
+            }       
+         
             NewGame  = new QPushButton(win) 
             {
                 //setStyleSheet("background-color:rgb(255,204,229)")
@@ -156,7 +164,8 @@ app = new qApp
             }
                         
             LayoutTitleRow.AddWidget(TitleMirrors)
-            LayoutTitleRow.AddWidget(TitletLaserSquares)            
+            LayoutTitleRow.AddWidget(TitleLaserSquares)
+            LayoutTitleRow.AddWidget(TitleSemaphore)
             LayoutTitleRow.AddWidget(NewGame)       
                            
             LayoutButtonMain.AddLayout(LayoutTitleRow)            
@@ -176,7 +185,7 @@ app = new qApp
                     Button[Row][Col] = new QPushButton(win) ### Create PUSH BUTTONS
                     {
                         setStyleSheet(C_ButtonEmptyStyle)
-                  setIcon(new qIcon(new qPixMap(MirrorBlack) ) )                    
+                        setIcon(new qIcon(new qPixMap(MirrorBlack) ) )                    
                         setIconSize(new qSize( bWidth, bHeight)) 
                         setClickEvent("UserLeftMouse(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
                         setSizePolicy(1,1)
@@ -206,7 +215,14 @@ app = new qApp
 ###=================================================
 
 Func NewGameStart()
+
+   if semaphore = 1        ### Traffic Light  1=Running  0=Stop
+      return               ### No New Game, Until current Game Over
+   ok
        
+   semaphore = 1           ### Traffic Light  1=Running  0=Stop
+   TitleSemaphore.setText(" State: Running: "+ semaphore)
+   
    RandomPlacement()
    Play()
 
@@ -222,8 +238,8 @@ Func PLAY()
     size  = len(aSq)
    size2 = size * size
    
-   
-   See "Play: Start"+ nl
+   See ">==============<" +nl
+   See "PLAY: Start"+ nl
    DisplaySquare(aSq) See nl
    MapSqToImage()
    app.processevents()
@@ -232,46 +248,53 @@ Func PLAY()
    Col = gunCol
    Dir = 'E'
    
-   for i = 1 to (size2 + size2)   // 81 +81 max
+   for i = 1 to (size2 * 2)   // 81 +9 max
    
        //---------------------------------------------
        // Start from Gun, Move 1 Square in Direction
        
        if Row = 0 OR Col = 0
-         See "Play: Call MoveDir: Error: "+i + " "+ Row +"-"+ Col +nl
+         See "Play: Call MoveDir: "+i + " "+ Row +"-"+ Col +" Call: "+ outRow +"-"+ outCol+nl
          return
        ok
        
       aRC = MoveDir( Row, Col)                    
       Row = aRC[1]
       Col = aRC[2]
-      
-      //-------------
-      // Out of Bounds
-      if Row = 0
-         See nl+"Out of Bounds: "+i +" "+ outRow +"-"+ outCol +nl  // old Row and col
-         See "Play: Exit"+ nl
-         DisplaySquare(aSq) See nl
-         exit     
-      ok
-
+  
       //--------------
       // Hit Target  
       if Row = targetRow AND Col = targetCol
+         semaphore = 0        ### Traffic Light  1=Running  0=Stop
+         TitleSemaphore.setText(" State: Hit Target: "+ semaphore)
+         
          Button[targetRow][targetCol] { setIcon(new qIcon(new qPixMap(TargetBlack) ) )  } 
          
          See nl+"TARGET HIT: "+i +" "+ Row +"-"+ Col +nl
          See "Play: Target"+ nl
+         
          DisplaySquare(aSq) See nl
+         exit
+      
+      
+      //-------------
+      // Out of Bounds
+      but Row = 0
+         semaphore = 0        ### Traffic Light  1=Running  0=Stop
+         TitleSemaphore.setText(" State: OutBounds: "+ semaphore) 
          
-         //RandomPlacement()
+         See nl+"OUT Bounds HIT.: "+i +" "+ outRow +"-"+ outCol +nl  // old Row and col
+         See "Play: Out of Bounds"+ nl
          
-         return
-      ok
+         DisplaySquare(aSq) See nl
+         exit     
 
       //--------------
       // Hit GUN  
-      if Row = gunRow AND Col = gunCol
+      but Row = gunRow AND Col = gunCol
+         semaphore = 0        ### Traffic Light  1=Running  0=Stop 
+         TitleSemaphore.setText(" State: Hit Gun: "+ semaphore)   
+         
          Button[gunRow][gunCol]   { setStyleSheet(C_ButtonInvalidStyle) } 
          app.processEvents()
          Sleep(SleepRed)
@@ -279,20 +302,23 @@ Func PLAY()
          
          See nl+"GUN HIT: "+i +" "+ Row +"-"+ Col +nl
          See "Play: GUN"+ nl
-         DisplaySquare(aSq) See nl
-         return
+         
+         DisplaySquare(aSq) See nl  
+         exit
       ok
 
-      
+
+
+      TitleLaserSquares.setText(" LaserSquares: "+ i)
+  
       Sleep(sleepDelay) 
       MapSqToImage()
       app.processevents()
       
    next
    
-   See "Play: End"+ nl
-   DisplaySquare(aSq) See nl
-
+   See "PLAY: End"+ nl +"<==============>" +nl +nl
+   semaphore = 0        ### Traffic Light  1=Start  0=Stop
 
 return         
 
@@ -302,8 +328,6 @@ return
 
 Func MapSqToImage()
 
-   LaserSqCount = 0
-   
    //-------------------------
    
    size = len(aSq)
@@ -360,7 +384,7 @@ Func MapSqToImage()
       ok
       
       //-------------------------
-        // MIRROR-4-WAY  4B-X  4F-Z
+      // MIRROR-4-WAY  4B-X  4F-Z
 
       if aSq[i][j] = 'Z'   # /
          Button[i][j] { 
@@ -377,7 +401,7 @@ Func MapSqToImage()
 
 
       //-----------------------------------------------------
-        // MIRROR-2-WAY 2UL-d/  2DR-/p  2UR-\b  2DL-q\  
+      // MIRROR-2-WAY 2UL-d/  2DR-/p  2UR-\b  2DL-q\  
       
       if aSq[i][j] = 'd'  # d/
          Button[i][j] { 
@@ -411,13 +435,13 @@ Func MapSqToImage()
          
 
       //-------------------------------------------
-        // LINES Horz -  Vert |   H->V = +   V+H = +
+      // LINES Horz -  Vert |   H->V = +   V+H = +
 
       if aSq[i][j] = '-'
          Button[i][j] { 
          setIcon(new qIcon(new qPixMap(LineH) ) )  
          setIconSize(new qSize( bWidth, bHeight))  
-            LaserSqCount++
+
          }
       ok 
 
@@ -425,7 +449,7 @@ Func MapSqToImage()
          Button[i][j] { 
          setIcon(new qIcon(new qPixMap(LineV) ) )  
          setIconSize(new qSize( bWidth, bHeight)) 
-            LaserSqCount++
+
          }
       ok 
 
@@ -433,7 +457,7 @@ Func MapSqToImage()
          Button[i][j] { 
          setIcon(new qIcon(new qPixMap(LineX) ) )  
          setIconSize(new qSize( bWidth, bHeight)) 
-            LaserSqCount++
+
          }
       ok       
       
@@ -442,8 +466,6 @@ Func MapSqToImage()
       next
    next
 
-
-   TitletLaserSquares.setText(" LaserSquares: "+ LaserSqCount)
    
 return
    
@@ -457,22 +479,18 @@ Func MoveDir( Row, Col)
    outRow  = Row
    outCol  = Col
 
-    //------------------------
+   //------------------------
    // Check Direction
    
-   if  Dir = 'N'   // Row -1
-      Row = Row -1
-   but Dir = 'S'   // Row +1
-      Row = Row +1
-      
-   but Dir = 'E'   // Col +1
-      Col = Col +1
-   but Dir = 'W'   // Col -1
-      Col = Col -1      
+   if  Dir = 'N'     Row = Row -1   // ^
+   but Dir = 'S'     Row = Row +1   // v   
+   but Dir = 'E'     Col = Col +1   // >
+   but Dir = 'W'     Col = Col -1   // <   
    ok
 
-    //----------------------
-    // Check out of Bounds
+   //----------------------
+   // Check out of Bounds
+    
    FlagBounds = 0
    
    if Row < 1        Row = 1        FlagBounds = 1 ok    // To far North   
@@ -481,7 +499,7 @@ Func MoveDir( Row, Col)
    if Col > sizeRow  Col = sizeRow  FlagBounds = 1 ok    // To far East
       
    if FlagBounds = 1 
-      See "MoveDir: Bounds: "+ Row +"-"+ Col +nl
+      See "MoveDir: OutBounds: "+ Row +"-"+ Col +" Call: "+ outRow +"-"+ outCol +nl
       
       Button[Row][Col]   { setStyleSheet(C_ButtonInvalidStyle) } 
       app.processEvents()
@@ -510,7 +528,7 @@ Func CheckMirror(Row,Col)
 
    Tilt = aSq[Row][Col]
    
-    //===========
+   //===========
    
    //------------------------------
    // EMPTY SQ  -- Add  Horz -  or Vert |  Line
@@ -518,16 +536,12 @@ Func CheckMirror(Row,Col)
    if Tilt = '0'   
        // Horizontal Line
       if Dir = 'E' OR Dir = 'W'     
-         aSq[Row][Col] = '-'  
-         
-         #See "Tilt: 0: H-..: "+ Row +"-"+ Col +nl
+         aSq[Row][Col] = '-'         
       ok
       
       // Vertical Line
       if Dir = 'N' OR Dir = 'S'     
-         aSq[Row][Col] = '|'     
-         
-         #See "Tilt: 0: V|..: "+ Row +"-"+ Col +" Dir: "+ Dir +nl    
+         aSq[Row][Col] = '|'        
       ok
       
       return 0
@@ -537,16 +551,12 @@ Func CheckMirror(Row,Col)
    // LINE already Horz or Vert -- Add Cross +
    
    if Tilt = '-' AND ( Dir = 'N' OR Dir = 'S' )  
-         aSq[Row][Col] = '+'
-         
-         #See "Tilt: -: H+..: "+ Row +"-"+ Col +" Dir: "+ Dir +nl 
+      aSq[Row][Col] = '+' 
       return 0
    ok 
    
    if Tilt = '|' AND ( Dir = 'E' OR Dir = 'W' )  
-         aSq[Row][Col] = '+'
-         
-         #See "Tilt: |: V+...: "+ Row +"-"+ Col +" Dir: "+ Dir +nl   
+      aSq[Row][Col] = '+' 
       return 0
    ok 
    
@@ -565,8 +575,6 @@ Func CheckMirror(Row,Col)
                
          if  Dir = 'W'  Dir =  'N'           // clkwise
          but Dir = 'S'  Dir =  'E'    ok     // couterclk
-         
-         #See "Tilt: \b Up: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
       
         // \q  Down NE
         
@@ -576,7 +584,6 @@ Func CheckMirror(Row,Col)
          if  Dir = 'N'  Dir =  'W'           // couterclk
          but Dir = 'E'  Dir =  'S'    ok     // clkwise
 
-           #See "Tilt: \q Dn: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
       ok
    ok 
    
@@ -592,10 +599,8 @@ Func CheckMirror(Row,Col)
          
          if  Dir = 'E'  Dir =  'N'            // couterclk
          but Dir = 'S'  Dir =  'W'    ok      // clkwise
+
          
-         #See "Tilt: /: Up: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-      
-      
       // /p Down  NW
       
       but Dir = 'N' OR Dir = 'W' 
@@ -604,14 +609,13 @@ Func CheckMirror(Row,Col)
          if  Dir = 'N'  Dir =  'E'             // clkwise
          but Dir = 'W'  Dir =  'S'    ok       // couterclk
          
-         #See "Tilt: /p Dn: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
       ok
    ok
 
     //===========
 
    //------------------------------------------
-    // TWO Mirror Backward Dn -----q\ q\ q\ q\ q\
+   // TWO Mirror Backward Dn -----q\ q\ q\ q\ q\
    // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = 'q'  
@@ -627,10 +631,7 @@ Func CheckMirror(Row,Col)
          
          but Dir = 'N'  Dir =  'W'             // path aready taken
          but Dir = 'E'  Dir =  'S'    ok       // path aready taken
-         
-         #See "Tilt2 q\: Up: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-      
-      
+
    ok
    
    //-----------------------------------------
@@ -649,9 +650,6 @@ Func CheckMirror(Row,Col)
 
          but  Dir = 'S'  Dir =  'E'                // path aready taken
          but Dir = 'W'  Dir =  'N'    ok           // path aready taken
-         
-         #See "Tilt2 \b: Dn: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-      
 
     ok
     
@@ -673,10 +671,7 @@ Func CheckMirror(Row,Col)
          but Dir = 'N'  Dir =  'E'                  // clkwise
          
           but Dir = 'E'  Dir =  'N'                  // path aready taken
-         but Dir = 'S'  Dir =  'W'    ok            // path aready taken
-         
-         #See "Tilt2 d/: Dn..: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-      
+         but Dir = 'S'  Dir =  'W'    ok            // path aready taken   
       
    ok 
 
@@ -697,9 +692,6 @@ Func CheckMirror(Row,Col)
          but Dir = 'N'  Dir =  'E'                  // path aready taken
          but Dir = 'W'  Dir =  'S'    ok            // path aready taken
          
-         #See "Tilt2 /p: Up: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-      
-         
    ok 
    
    //-----------------------  
@@ -707,7 +699,7 @@ Func CheckMirror(Row,Col)
     //===========
 
    //-----------------------------------------
-    // Mirror X Backward ----- X X X X X 
+   // Mirror X Backward ----- X X X X X 
    // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = 'X'   
@@ -720,10 +712,7 @@ Func CheckMirror(Row,Col)
          but Dir = 'N'  Dir =  'W'                  // conterclk
          but Dir = 'S'  Dir =  'E'                  // couterclk
          but Dir = 'W'  Dir =  'N'    ok            // clkwise
-         
-         #See "Tilt4 \X: UD..: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-
-      
+          
    ok 
 
    //-----------------------------------------
@@ -740,17 +729,12 @@ Func CheckMirror(Row,Col)
          but Dir = 'N'  Dir =  'E'                  // clkwise
          but Dir = 'W'  Dir =  'S'    ok            // couterclk
 
-         #See "Tilt4 Z/: UD: "+ Row +"-"+ Col +" Dir: "+ Dir  +nl
-            
    ok 
    
-   //-----------------------  
+    //-----------------------  
 
     //===========
    
-
-   
-
 return  
 
 
@@ -763,6 +747,13 @@ return
 
 Func UserLeftMouse(Row,Col)
 
+    if  semaphore = 1         ### Traffic Light  1=Running  0=Stop
+        SrcDest = 'S'
+        TitleSemaphore.setText(" State: Running: "+ semaphore)
+      
+      return                  ### No change allowed until Game Over
+   ok
+       
     //-------------------------
     // SOURCE -- BALL Pick - 
 
@@ -808,7 +799,7 @@ Func UserLeftMouse(Row,Col)
     //--------------------------
     // Check if Valid Move
 
-   #See "aSq: Src: "+SrcX +"-"+ SrcY +" = "+  aSq[SrcX][SrcY] +" Dest: "+ DestX +"-"+ DestY +" = "+ aSq[DestX][DestY]
+    #See "aSq: Src: "+SrcX +"-"+ SrcY +" = "+  aSq[SrcX][SrcY] +" Dest: "+ DestX +"-"+ DestY +" = "+ aSq[DestX][DestY]
    
    
     aSq[DestX][DestY] =  aSq[SrcX][SrcY]        // Move Contents to Dest
@@ -819,8 +810,12 @@ Func UserLeftMouse(Row,Col)
     Button[SrcX][SrcY]   { setStyleSheet(C_ButtonEmptyStyle) }   ### Changed Pick
     SrcX  = 0  SrcY  = 0   DestX = 0  DestY = 0 
 
+    semaphore = 1                               ### Traffic Light  1=Running  0=Stop
+    TitleSemaphore.setText(" State: Running: "+ semaphore)
    
     Play()
+
+
     
 return
 
@@ -941,7 +936,7 @@ Func RandomPlacement()
          ok
             
          aMirrors[Row][Col] = 'G'
-      but playRandomMirror = 2
+      but playRandomMirror  = 2
          aMirrors[Row][Col] = 'T'
       
       but playRandomMirror % 2 = 0
