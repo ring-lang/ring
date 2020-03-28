@@ -109,6 +109,3 @@ func msgBox(cText)
 
 func pExit()
      win.close()
-     qApp.quit()
-
-
