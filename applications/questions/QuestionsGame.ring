@@ -10,51 +10,72 @@ load "questions.ring"
 numQuestion = len(Questions)
 numAnswer = len(Questions[1][2])
 btnAnswer = list(numAnswer)
+LayoutButtonRow = list(numAnswer)
 randQuestion = 0
+C_Spacing = 1
+fontsize = 15
 
 New qApp {
+
+        stylefusionblack()
 
         win = new qWidget() {
 
                 setwindowtitle("Questions Game")
-                setGeometry(100,100,600,400)
-                move(540,140)
 
  		labelQuestion = new QLabel(win) {
-				setGeometry(50,50,50,20)
+				setGeometry(600,350,100,20)
+                                setFont(new qFont("Verdana",fontsize,50,0))
 				settext("Question:")
 			        }
 
- 		labelAnswer = new QLabel(win) {
-			      setGeometry(50,100,50,20)
-			      settext("Answers:")
-			      }
+		labelNewQuestion = new QLabel(win) {
+			         setgeometry(800,350,400,20)
+                                 setFont(new qFont("Verdana",fontsize,50,0))
+			         }
 
-		labelYourAnswer = new QLabel(win) {
-			          setGeometry(50,200,80,20)
-			          settext("Your Answer:")
-			          }
-   
 		btnNewQuestion = new qpushbutton(win) {
-			        setgeometry(150,50,200,20)
-			        }
-
-		btnQuestion = new qpushbutton(win) {
-			    setgeometry(370,50,100,20)
+			    setgeometry(1200,350,180,30)
+                            setFont(new qFont("Verdana",fontsize,50,0))
 			    setText("New question")
 			    setClickEvent("pNewQuestion()")
 			    }
 
-		btnYourAnswer = new qpushbutton(win) {
-			        setgeometry(150,200,200,20)
-			        }
+ 		labelAnswer = new QLabel(win) {
+			      setGeometry(600,400,450,20)
+                              setFont(new qFont("Verdana",fontsize,50,0))
+			      settext("Answers:")
+			      }
 
                 for n = 1 to numAnswer
 		    btnAnswer[n] = new qpushbutton(win) {
-			           setgeometry(150,100+(n-1)*20,200,20)
+			           setgeometry(800,400+(n-1)*30,200,30)
+                                   setFont(new qFont("Verdana",fontsize,50,0))
 			           setclickevent("pCheckAnswer(" + string(n) + ")")
 			           }
                 next
+
+		labelYourAnswer = new QLabel(win) {
+			          setGeometry(600,550,130,20)
+                                  setFont(new qFont("Verdana",fontsize,50,0))
+			          settext("Your Answer:")
+			          }
+   
+
+		btnYourAnswer = new QLabel(win) {
+			        setgeometry(800,550,200,30)
+                                setFont(new qFont("Verdana",fontsize,50,0))
+			        }
+
+		btnExit = new QPushButton(win) {
+			  setgeometry(1200,400,180,30)
+			  setFont(new qFont("Verdana",fontSize,50,0))
+                          setClickEvent("pExit()")
+			  settext("Exit")
+			  }
+
+                ShowFullScreen()
+                pNewQuestion()
                 show()
         }
 
@@ -64,9 +85,8 @@ New qApp {
 func pNewQuestion()
      btnYourAnswer.settext("")
      randQuestion = random(len(Questions)-1) + 1
-     btnNewQuestion.settext(Questions[randQuestion][1])
+     labelNewQuestion.settext(Questions[randQuestion][1])
      tempAnswer = Questions[randQuestion][2]
-     see tempAnswer
      for n = 1 to numAnswer
          btnAnswer[n].settext(tempAnswer[n])
      next 
@@ -86,5 +106,9 @@ func msgBox(cText)
           setstandardbuttons(QMessageBox_OK) 
           result = exec() 
      }
+
+func pExit()
+     win.close()
+     qApp.quit()
 
 
