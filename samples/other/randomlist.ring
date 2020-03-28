@@ -4,10 +4,10 @@ func main
 	? aList2
 
 func RandomList aInput
-    aOutput = []
-    while len(aInput) > 0
-       nIndex = max(random(len(aInput)) , 1)
-       aOutput + aInput[nIndex]
-       del(aInput,nIndex)
-    end
-   return aOutput
+	aOutput = []
+	while len(aInput) > 0
+		nIndex = max(random(len(aInput)) , 1)
+		aOutput + aInput[nIndex]
+		del(aInput,nIndex)
+	end
+	return aOutput
