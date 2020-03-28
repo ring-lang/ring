@@ -95,6 +95,7 @@ More Improvements
 	* ring/samples/other/MultipleArrayItemsFind.ring
 	* ring/samples/other/MultipleArrayItemsInsert.ring
 	* ring/samples/other/fib.ring
+	* ring/samples/other/randomlist.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
