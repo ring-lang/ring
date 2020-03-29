@@ -100,6 +100,7 @@ More Improvements
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
 * Ring Notepad - Keyboard shortcuts for different styles
+* Form Designer - ToolBox - Larger width in Windows style  
 * Type Hints library - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
