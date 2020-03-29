@@ -639,9 +639,9 @@ Class FormDesignerView from WindowsViewParent
 			setWidget(oToolBox)
 			if not isMobile() {
 				if T_LAYOUTDIRECTION {
-					setMiniMumWidth(this.oDesktop.Width()*0.11)
+					setMiniMumWidth(this.oDesktop.Width()*0.12)
 				else 
-					setMiniMumWidth(this.oDesktop.Width()*0.10)
+					setMiniMumWidth(this.oDesktop.Width()*0.11)
 				}
 			}
 			setwidgetresizable(True)
