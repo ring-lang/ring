@@ -129,7 +129,7 @@ New qApp {
         exec()
 }
 
-func NewQuestion()
+func NewQuestion
 	nrQuestion++
 	btnYourAnswer.settext("")
 	if nrQuestion = numQuestion + 1
@@ -157,7 +157,7 @@ func IncreaseScore
 	score++
 	labelShowScore.settext(string(score))
 
-func RandomList(aInput)
+func RandomList aInput
 	aOutput = []
 	while len(aInput) > 0   
 		nIndex = 0
@@ -169,5 +169,5 @@ func RandomList(aInput)
 	end
 	return aOutput
 
-func CloseApp()
+func CloseApp
 	win.close()
