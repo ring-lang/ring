@@ -1,5 +1,5 @@
 # Project : CalmoSoft Questions Game
-# Date    : 28/03/2020-10:49:26
+# Date    : 29/03/2020-10:43:36
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : calmosoft@gmail.com
 
@@ -12,7 +12,9 @@ numAnswer = len(Questions[1][2])
 btnAnswer = list(numAnswer)
 nrQuestion = 0
 score = 0
+keypress = 1
 randQuestion = 0
+goodFlag = 0
 C_Spacing = 1
 fontsize = 15
 
@@ -42,22 +44,16 @@ New qApp {
  		labelQuestion = new QLabel(win) {
 			setFont(new qFont("Verdana",fontsize,50,0))
 			settext("Question:")
+			setMaximumWidth(200)
 	        }
 
 		labelNewQuestion = new QLabel(win) {
 			setFont(new qFont("Verdana",fontsize,50,0))
 		}
 
-		btnNewQuestion = new qpushbutton(win) {
-			setFont(new qFont("Verdana",fontsize,50,0))
-			setText("New question")
-			setClickEvent("NewQuestion()")
-		}
-
                 LayoutButtonRow1 {
 			AddWidget(labelQuestion)
 			AddWidget(labelNewQuestion)
-			AddWidget(btnNewQuestion)
 		}
 
  		labelAnswer = new QLabel(win) {
@@ -93,12 +89,12 @@ New qApp {
 		}
 
 		labelScore = new QLabel(win) {
-		             setFont(new qFont("Verdana",fontsize,50,0))
-		   	     settext("Your Score:")
+			setFont(new qFont("Verdana",fontsize,50,0))
+			settext("Your Score:")
 		}   
 
 		labelShowScore = new QLabel(win) {
-		                 setFont(new qFont("Verdana",fontsize,50,0))
+			setFont(new qFont("Verdana",fontsize,50,0))
 		}   
 
                 LayoutButtonRow3 {
@@ -126,43 +122,50 @@ New qApp {
 }
 
 func NewQuestion()
-        score = 0
-        nrQuestion = nrQuestion + 1
-        labelShowScore.settext("")
-        Questions = RandomList(Questions)
-	btnYourAnswer.settext("")
-        if nrQuestion = numQuestion + 1
-           nrQuestion = 1
-        ok
-        if nrQuestion < numQuestion + 1
-	   labelNewQuestion.settext(Questions[nrQuestion][1])
-	   tempAnswer = Questions[nrQuestion][2]
-	   for n = 1 to numAnswer
-	       btnAnswer[n].settext(tempAnswer[n])
-	   next
-        ok
+	goodFlag = 0
+	while keypress = 1
+		nrQuestion = nrQuestion + 1
+		Questions = RandomList(Questions)
+		btnYourAnswer.settext("")
+		if nrQuestion = numQuestion + 1
+			nrQuestion = 1
+		ok
+		if nrQuestion < numQuestion + 1
+			labelNewQuestion.settext(Questions[nrQuestion][1])
+			tempAnswer = Questions[nrQuestion][2]
+			for n = 1 to numAnswer
+				btnAnswer[n].settext(tempAnswer[n])
+			next
+		ok
+		keypress = 0
+	end
 
 func CheckAnswer(nr)
-        score = score + 1
-        labelShowScore.settext(string(score))
 	btnYourAnswer.settext(btnAnswer[nr].text())
 	if Questions[nrQuestion][3] = nr
+		score = score + 1
+		goodFlag = 1
+		labelShowScore.settext(string(score))
 		msgBox("Good Answer!")
 	else
 		msgBox("Bad Answer! Try again")
 	ok
+	if goodFlag = 1
+		keypress = 1
+		NewQuestion()
+	ok
 
 func RandomList(aInput)
-     aOutput = []
-     while len(aInput) > 0   
-           nIndex = 0
-           while nIndex = 0
-                 nIndex = random( len( aInput) ) 
-           end
-           aOutput + aInput[nIndex]
-           del(aInput,nIndex)
-     end
-     return aOutput
+	aOutput = []
+	while len(aInput) > 0   
+		nIndex = 0
+		while nIndex = 0
+			nIndex = random( len( aInput) ) 
+		end
+		aOutput + aInput[nIndex]
+		del(aInput,nIndex)
+	end
+	return aOutput
 
 func msgBox(cText)	  
 	mb = new qMessageBox(win) {
