@@ -54,7 +54,7 @@ New qApp {
  		labelQuestion = new QLabel(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Question:")
-			setMaximumWidth(C_DESKTOPWIDTH*0.15)
+			setMaximumWidth(C_DESKTOPWIDTH*0.25)
 	        }
 
 		labelNewQuestion = new QLabel(win) {
