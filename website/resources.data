@@ -206,6 +206,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
 					'<img src="lasergame2.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
+					'<img src="questionsgame.png" width="40%">'
 				]
 			    ]
                  ],
