@@ -10,6 +10,8 @@ load "questions.ring"
 numQuestion = len(Questions)
 numAnswer = len(Questions[1][2])
 btnAnswer = list(numAnswer)
+nrQuestion = 0
+score = 0
 randQuestion = 0
 C_Spacing = 1
 fontsize = 15
@@ -90,9 +92,20 @@ New qApp {
 			setFont(new qFont("Verdana",fontsize,50,0))
 		}
 
+		labelScore = new QLabel(win) {
+		             setFont(new qFont("Verdana",fontsize,50,0))
+		   	     settext("Your Score:")
+		}   
+
+		labelShowScore = new QLabel(win) {
+		                 setFont(new qFont("Verdana",fontsize,50,0))
+		}   
+
                 LayoutButtonRow3 {
 			AddWidget(labelYourAnswer)
 			AddWidget(btnYourAnswer)
+			AddWidget(labelScore)
+			AddWidget(labelShowScore)
 		}
 
                 LayoutButtonMain {
@@ -113,21 +126,43 @@ New qApp {
 }
 
 func NewQuestion()
+        score = 0
+        nrQuestion = nrQuestion + 1
+        labelShowScore.settext("")
+        Questions = RandomList(Questions)
 	btnYourAnswer.settext("")
-	randQuestion = random(len(Questions)-1) + 1
-	labelNewQuestion.settext(Questions[randQuestion][1])
-	tempAnswer = Questions[randQuestion][2]
-	for n = 1 to numAnswer
-		btnAnswer[n].settext(tempAnswer[n])
-	next 
+        if nrQuestion = numQuestion + 1
+           nrQuestion = 1
+        ok
+        if nrQuestion < numQuestion + 1
+	   labelNewQuestion.settext(Questions[nrQuestion][1])
+	   tempAnswer = Questions[nrQuestion][2]
+	   for n = 1 to numAnswer
+	       btnAnswer[n].settext(tempAnswer[n])
+	   next
+        ok
 
 func CheckAnswer(nr)
+        score = score + 1
+        labelShowScore.settext(string(score))
 	btnYourAnswer.settext(btnAnswer[nr].text())
-	if Questions[randQuestion][3] = nr
+	if Questions[nrQuestion][3] = nr
 		msgBox("Good Answer!")
 	else
 		msgBox("Bad Answer! Try again")
 	ok
+
+func RandomList(aInput)
+     aOutput = []
+     while len(aInput) > 0   
+           nIndex = 0
+           while nIndex = 0
+                 nIndex = random( len( aInput) ) 
+           end
+           aOutput + aInput[nIndex]
+           del(aInput,nIndex)
+     end
+     return aOutput
 
 func msgBox(cText)	  
 	mb = new qMessageBox(win) {
