@@ -28,6 +28,10 @@ New qApp {
 
         stylefusionblack()
 
+	oDesktop = new QDesktopWidget() {
+		C_DESKTOPWIDTH = Width()
+	}
+
         win = new qWidget() {
 
                 setwindowtitle("Questions Game")
@@ -50,7 +54,7 @@ New qApp {
  		labelQuestion = new QLabel(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Question:")
-			setMaximumWidth(200)
+			setMaximumWidth(C_DESKTOPWIDTH*0.15)
 	        }
 
 		labelNewQuestion = new QLabel(win) {
