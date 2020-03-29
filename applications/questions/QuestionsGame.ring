@@ -95,6 +95,7 @@ New qApp {
 
 		labelShowScore = new QLabel(win) {
 			setFont(new qFont("Verdana",fontsize,50,0))
+			setText("0")
 		}   
 
                 LayoutButtonRow3 {
@@ -143,12 +144,12 @@ func NewQuestion()
 func CheckAnswer(nr)
 	btnYourAnswer.settext(btnAnswer[nr].text())
 	if Questions[nrQuestion][3] = nr
-		score = score + 1
+		score++
 		goodFlag = 1
 		labelShowScore.settext(string(score))
-		msgBox("Good Answer!")
+		msgInfo("Questions Game","Good Answer!")
 	else
-		msgBox("Bad Answer! Try again")
+		msgInfo("Questions Game","Bad Answer! Try again")
 	ok
 	if goodFlag = 1
 		keypress = 1
@@ -166,14 +167,6 @@ func RandomList(aInput)
 		del(aInput,nIndex)
 	end
 	return aOutput
-
-func msgBox(cText)	  
-	mb = new qMessageBox(win) {
-		setWindowTitle('Questions Game')
-		setText(cText)
-		setstandardbuttons(QMessageBox_OK) 
-		result = exec() 
-	}
 
 func CloseApp()
 	win.close()
