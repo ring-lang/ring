@@ -61,13 +61,15 @@ Questions Game
 An implementation for the Questions Game
 
 .. image:: questionsgame.png
-	:width: 500pt
-	:height: 300pt
+	:width: 550pt
+	:height: 350pt
 	:alt: Questions Game
 
 A screen shot for the game on Mobile devices like Android
 
 .. image:: questions_mobile.png
+	:width: 550pt
+	:height: 350pt
 	:alt: Questions Game
 
 .. index:: 
