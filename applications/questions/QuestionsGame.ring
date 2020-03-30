@@ -24,7 +24,7 @@ load "questions.ring"
 	nrQuestion 	= 0
 	score 		= 0
 
-New qApp {
+oApp = New QApp {
 
         stylefusionblack()
 
@@ -143,11 +143,11 @@ func CheckAnswer nr
 	if Questions[nrQuestion][C_CORRECTANSWER] = nr
 		btnAnswer[nr].setStyleSheet("color:white;background-color:green;")
 		IncreaseScore()
-		MsgInfo("Questions Game","Good Answer!")
+		oApp.ProcessEvents()
+		sleep(1)
 		NewQuestion()
 	else
 		btnAnswer[nr].setStyleSheet("color:black;background-color:pink;")
-		MsgInfo("Questions Game","Bad Answer! Try again")
 	ok
 
 func IncreaseScore
