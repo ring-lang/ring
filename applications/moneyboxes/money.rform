@@ -1,0 +1,400 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 0 , : y = -105  , 
+		 :width =  800 , :height = 600 , 
+		 :title =  "The Money Game" , 
+		 :backcolor =  "#505050" , 
+		 :windowflags =  "Qt_SplashScreen | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ]"  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 44 , : y = 74  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "1",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(1)')"
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 109 , : y = 74  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "2",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(2)')"
+		]
+	],
+	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 174 , : y = 74  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "3",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(3)')"
+		]
+	],
+	[ :name = "Button4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 239 , : y = 74  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "4",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(4)')"
+		]
+	],
+	[ :name = "Button5" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 44 , : y = 129  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "5",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(5)')"
+		]
+	],
+	[ :name = "Button6" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 109 , : y = 129  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "6",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(6)')"
+		]
+	],
+	[ :name = "Button7" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 174 , : y = 129  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "7",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(7)')"
+		]
+	],
+	[ :name = "Button8" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 239 , : y = 129  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "8",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(8)')"
+		]
+	],
+	[ :name = "Button9" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 44 , : y = 184  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "9",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(9)')"
+		]
+	],
+	[ :name = "Button10" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 109 , : y = 184  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "10",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(10)')"
+		]
+	],
+	[ :name = "Button11" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 174 , : y = 184  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "11",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(11)')"
+		]
+	],
+	[ :name = "Button12" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 239 , : y = 184  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "12",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(12)')"
+		]
+	],
+	[ :name = "Button13" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 44 , : y = 239  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "13",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(13)')"
+		]
+	],
+	[ :name = "Button14" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 109 , : y = 239  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "14",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(14)')"
+		]
+	],
+	[ :name = "Button15" , :id = 16 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 174 , : y = 239  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "15",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(15)')"
+		]
+	],
+	[ :name = "Button16" , :id = 17 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 239 , : y = 239  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "16",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(16)')"
+		]
+	],
+	[ :name = "Button17" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 44 , : y = 294  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "17",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(17)')"
+		]
+	],
+	[ :name = "Button18" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 109 , : y = 294  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "18",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(18)')"
+		]
+	],
+	[ :name = "Button19" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 174 , : y = 294  , 
+		 :width =  55 , :height = 45 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "19",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Method('moneycase(19)')"
+		]
+	],
+	[ :name = "VideoWidget1" , :id = 21 , :classname = "formdesigner_qvideowidget" , :data = [
+		 :x = 344 , : y = 74  , 
+		 :width =  407 , :height = 266 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "black" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Videofile =  "video/start.avi"
+		]
+	],
+	[ :name = "Button20" , :id = 22 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 426 , : y = 514  , 
+		 :width =  242 , :height = 46 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseApp"
+		]
+	],
+	[ :name = "Label1" , :id = 23 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 84 , : y = 16  , 
+		 :width =  168 , :height = 42 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,22,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Money Boxes",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label23" , :id = 24 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 29 , : y = 385  , 
+		 :width =  148 , :height = 42 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Required Money : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label24" , :id = 25 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 39 , : y = 449  , 
+		 :width =  138 , :height = 42 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Boxes To Open : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtMoney" , :id = 26 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 194 , : y = 385  , 
+		 :width =  108 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "100",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "txtPackages" , :id = 27 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 194 , : y = 451  , 
+		 :width =  108 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "1",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label27" , :id = 28 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 109 , : y = 513  , 
+		 :width =  68 , :height = 42 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Status : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtStatus" , :id = 29 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 193 , : y = 515  , 
+		 :width =  108 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Playing!",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button29" , :id = 30 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 426 , : y = 451  , 
+		 :width =  242 , :height = 46 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "New Game",
+		 :BtnImage =  "",
+		 :setClickEvent =  "NewGame"
+		]
+	],
+	[ :name = "Label30" , :id = 31 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 438 , : y = 388  , 
+		 :width =  148 , :height = 42 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Your Money : ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtAmount" , :id = 32 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 574 , : y = 388  , 
+		 :width =  78 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "100",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	]
+]
+# End Form Designer File
