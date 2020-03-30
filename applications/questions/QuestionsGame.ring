@@ -28,10 +28,6 @@ New qApp {
 
         stylefusionblack()
 
-	oDesktop = new QDesktopWidget() {
-		C_DESKTOPWIDTH = Width()
-	}
-
         win = new qWidget() {
 
                 setwindowtitle("Questions Game")
@@ -51,19 +47,13 @@ New qApp {
 		}
 
 
- 		labelQuestion = new QLabel(win) {
+		labelQuestion = new QLabel(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Question:")
-			setMaximumWidth(C_DESKTOPWIDTH*0.25)
-	        }
-
-		labelNewQuestion = new QLabel(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+			setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
 		}
 
                 LayoutButtonRow1 {
 			AddWidget(labelQuestion)
-			AddWidget(labelNewQuestion)
 		}
 
  		labelAnswer = new QLabel(win) {
@@ -140,7 +130,7 @@ func NewQuestion
 		nrQuestion = 1
 	ok
 	if nrQuestion < numQuestion + 1
-		labelNewQuestion.settext(Questions[nrQuestion][C_QUESTION])
+		labelQuestion.settext("Question: " + Questions[nrQuestion][C_QUESTION])
 		tempAnswer = Questions[nrQuestion][C_ANSWERS]
 		for n = 1 to numAnswer
 			btnAnswer[n].settext(tempAnswer[n])
