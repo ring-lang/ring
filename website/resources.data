@@ -210,6 +210,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
 					'<img src="questionsgame.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
+					'<img src="moneyboxes.png" width="40%">'
 				]
 			    ]
                  ],
