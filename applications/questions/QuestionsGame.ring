@@ -134,16 +134,19 @@ func NewQuestion
 		tempAnswer = Questions[nrQuestion][C_ANSWERS]
 		for n = 1 to numAnswer
 			btnAnswer[n].settext(tempAnswer[n])
+			btnAnswer[n].setStyleSheet("")
 		next
 	ok
 
 func CheckAnswer nr
 	btnYourAnswer.settext(btnAnswer[nr].text())
 	if Questions[nrQuestion][C_CORRECTANSWER] = nr
+		btnAnswer[nr].setStyleSheet("color:white;background-color:green;")
 		IncreaseScore()
 		MsgInfo("Questions Game","Good Answer!")
 		NewQuestion()
 	else
+		btnAnswer[nr].setStyleSheet("color:black;background-color:pink;")
 		MsgInfo("Questions Game","Bad Answer! Try again")
 	ok
 
