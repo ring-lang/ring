@@ -21,6 +21,6 @@ Usage
 Documentation
 =============
 
-See the RingPM Chapter in Ring 1.10 documentation
+See the RingPM Chapter in Ring documentation
 
-URL : http://ring-lang.net/doc1.10/ringpm.html
+URL : http://ring-lang.net/doc1.12/ringpm.html
