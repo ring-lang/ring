@@ -8,9 +8,7 @@ aObjectsList = [
 		 :windowflags =  "Qt_SplashScreen | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [] ]"  ,
+		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
 		]
