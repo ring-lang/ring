@@ -212,6 +212,10 @@
 					'<img src="questionsgame.png" width="40%">'
 				],
 				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneycase" target="_blank">MoneyCase Game</a>',
+					'<img src="moneycase.png" width="40%">'
+				],
+				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
 					'<img src="moneyboxes.png" width="40%">'
 				]
