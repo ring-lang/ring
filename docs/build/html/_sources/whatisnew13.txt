@@ -18,6 +18,7 @@ Ring 1.13 comes with the next features!
 * Laser Game
 * Magic Balls Game
 * Questions Game
+* MoneyCase Game
 * MoneyBoxes Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
@@ -73,7 +74,18 @@ A screen shot for the game on Mobile devices like Android
 	:height: 350pt
 	:alt: Questions Game
 
+.. index:: 
+	pair: What is new in Ring 1.13?; MoneyCase Game
 
+Money Case Game
+================
+
+Collect only the required amount of money!
+
+.. image:: moneycase.png
+	:width: 550pt
+	:height: 350pt
+	:alt: Money Case Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; MoneyBoxes Game
