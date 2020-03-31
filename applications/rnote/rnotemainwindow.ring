@@ -392,7 +392,7 @@ class RNoteMainWindow
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							setShortcut(new QKeySequence("CTRL+SHIFT+f"))
+							setShortcut(new QKeySequence("CTRL+SHIFT+F"))
 							setbtnimage(self,"image/formdesigner.png")
 							setclickEvent(Method(:FormDesignerWindowStatus))
 							settext("Form Designer Window")
@@ -402,7 +402,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method(:EditFullScreen))
 							setbtnimage(self,"image/source.png")
-							setShortcut(new QKeySequence("Ctrl+Shift+1"))
+							setShortcut(new QKeySequence("Ctrl+Shift+F1"))
 							settext("Source Code (Full Screen)")
 						}
 						addaction(oAction)
@@ -1060,8 +1060,8 @@ class RNoteMainWindow
 
 	func TextEditKeyPress
 		nKeyCode = this.oFilterTextEdit.getkeycode()
-		# Check CTRL+SHIFT+1
-		if nKeyCode = 33 or (lEditboxFullScreen and nKeyCode = Qt_Key_Escape) 
+		# Check CTRL+SHIFT+F1
+		if lEditboxFullScreen and nKeyCode = Qt_Key_Escape
 			EditFullScreen()
 			return
 		ok
