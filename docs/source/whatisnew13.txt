@@ -17,9 +17,9 @@ Ring 1.13 comes with the next features!
 
 * Laser Game
 * Magic Balls Game
+* MoneyBoxes Game
 * Questions Game
 * MoneyCase Game
-* MoneyBoxes Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * More Improvements
@@ -53,6 +53,16 @@ An implementation for the Magic Balls Game
 .. image:: magicballs.png
 	:alt: Magic Balls Game
 
+.. index:: 
+	pair: What is new in Ring 1.13?; MoneyBoxes Game
+
+Money Boxes Game
+================
+
+See if you can collect the required amount of money by opening boxes!
+
+.. image:: moneyboxes.png
+	:alt: Money Boxes Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Questions Game
@@ -86,17 +96,6 @@ Collect only the required amount of money!
 	:width: 550pt
 	:height: 350pt
 	:alt: Money Case Game
-
-.. index:: 
-	pair: What is new in Ring 1.13?; MoneyBoxes Game
-
-Money Boxes Game
-================
-
-See if you can collect the required amount of money by opening boxes!
-
-.. image:: moneyboxes.png
-	:alt: Money Boxes Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
