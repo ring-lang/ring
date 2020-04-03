@@ -11,26 +11,27 @@ move = 0
 nextMove = newlist(2,2)
 width = 60
 height = 60
+swapGems = ""
 C_Spacing = 1
 
 Button = newlist(size,size)
 ButtonColor = newlist(size,size)
 delGems = [][]
 
-C_EMPTY = "images/empty.jpg"
 C_BLUE = "images/blue.jpg"
 C_GREEN = "images/green.jpg"
 C_ORANGE = "images/orange.jpg"
 C_RED = "images/red.jpg"
 C_VIOLET = "images/violet.jpg"
 C_WHITE = "images/white.jpg"
-C_Empty = 'border-radius:6px;color:black; background-color: white'
+C_EMPTY = "images/empty.jpg"
 
-StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE]
+StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE,C_EMPTY]
 
 app = new qApp 
 {
       win = new qWidget() {
+            app.StyleFusionBlack()
 	    setWindowTitle('CalmoSoft Bejeweled Game')
 	    reSize(580,580)
 	    winheight = win.height()
@@ -42,7 +43,7 @@ app = new qApp
                                        x = 50+(Row-1)*width
                                        y = 50+(Col-1)*height
                                        setgeometry(x,y,width,height)
-                                       rndStyle = random(len(StyleList)-1) + 1
+                                       rndStyle = random(len(StyleList)-2) + 1
                                        ButtonColor[Row][Col] = rndStyle
                                        seticon(new qicon(new qpixmap(StyleList[rndStyle])))
                                        setIconSize(new qSize(70,70))
@@ -68,8 +69,8 @@ func deleteHorizontalSameColorGems()
                  else
                     if len(delGems) > 2
                        showGems()
+                       delGems = [][]
                     ok
-                    delGems = [][]
                  ok
              next
          next
@@ -88,8 +89,8 @@ func deleteVerticalSameColorGems()
                  else
                     if len(delGems) > 2
                        showGems()
+                       delGems = [][]
                     ok
-                    delGems = [][]
                  ok
              next
          next
@@ -98,32 +99,38 @@ func deleteVerticalSameColorGems()
 func showGems()
      for n = 1 to len(delGems)
          Button[delGems[n][1]][delGems[n][2]] { seticon(new qicon(new qpixmap(C_EMPTY)))
-                                                setIconSize(new qSize(100,100)) }
+                                                setIconSize(new qSize(50,50)) }
+         ButtonColor[delGems[n][1]][delGems[n][2]] = len(StyleList)
      next 
 
 func pMoveGems()
      if (nextMove[1][1] = nextMove[2][1]) and (nextMove[1][2]-1 = nextMove[2][2])
-        pMoveLeft(nextMove[1][2],nextMove[1][1])
+        swapGems = "Left"
+        pSwapGems(nextMove[1][2],nextMove[1][1])
         deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1] = nextMove[2][1]) and (nextMove[1][2]+1 = nextMove[2][2])
-        pMoveRight(nextMove[1][2],nextMove[1][1])
+        swapGems = "Right"
+        pSwapGems(nextMove[1][2],nextMove[1][1])
         deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1]-1 = nextMove[2][1]) and (nextMove[1][2] = nextMove[2][2])
-        pMoveUp(nextMove[1][2],nextMove[1][1])
+        swapGems = "Up"
+        pSwapGems(nextMove[1][2],nextMove[1][1])
         deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1]+1 = nextMove[2][1]) and (nextMove[1][2] = nextMove[2][2])
-        pMoveDown(nextMove[1][2],nextMove[1][1])
+        swapGems = "Down"
+        pSwapGems(nextMove[1][2],nextMove[1][1])
         deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
 
-func pMoveLeft(Row,Col)
+func pSwapGems(Row,Col)
+     if swapGems = "Left"
      color1 = ButtonColor[Row][Col]
      color2 = ButtonColor[Row-1][Col]
      ButtonColor[Row][Col] = color2
@@ -132,8 +139,8 @@ func pMoveLeft(Row,Col)
                         setIconSize(new qSize(70,70)) }
      Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                           setIconSize(new qSize(70,70)) }
-
-func pMoveRight(Row,Col)
+     ok
+     if swapGems = "Right"
      color1 = ButtonColor[Row][Col]
      color2 = ButtonColor[Row+1][Col]
      ButtonColor[Row][Col] = color2
@@ -142,8 +149,9 @@ func pMoveRight(Row,Col)
                         setIconSize(new qSize(70,70)) }
      Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                           setIconSize(new qSize(70,70)) }
+     ok
 
-func pMoveUp(Row,Col)
+     if swapGems = "Up"
      color1 = ButtonColor[Row][Col]
      color2 = ButtonColor[Row][Col-1]
      ButtonColor[Row][Col] = color2
@@ -152,8 +160,9 @@ func pMoveUp(Row,Col)
                         setIconSize(new qSize(70,70)) }
      Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                           setIconSize(new qSize(70,70)) }
+     ok
 
-func pMoveDown(Row,Col)
+     if swapGems = "Down"
      color1 = ButtonColor[Row][Col]
      color2 = ButtonColor[Row][Col+1]
      ButtonColor[Row][Col] = color2
@@ -162,6 +171,7 @@ func pMoveDown(Row,Col)
                         setIconSize(new qSize(70,70)) }
      Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                           setIconSize(new qSize(70,70)) }
+     ok
  
 func pButtonPress(Row,Col)
      move = move + 1
