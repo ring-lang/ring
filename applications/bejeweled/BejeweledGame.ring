@@ -15,27 +15,25 @@ C_Spacing = 1
 
 Button = newlist(size,size)
 ButtonColor = newlist(size,size)
-cmbMove = newlist(size,size)
+delGems = newlist(size,size)
 LayoutButtonRow = list(size)
 
-C_Empty = 'border-radius:6px;color:black; background-color: white'
-C_RedStyle   = 'border-radius:6px;color:black; background-color: yellow'
-C_VioletStyle   = 'border-radius:6px;color:black; background-color: violet'
-C_GreenStyle   = 'border-radius:6px;color:black; background-color: green'
-C_RedStyle   = 'border-radius:6px;color:black; background-color: red'
-C_Bluetyle   = 'border-radius:6px;color:black; background-color: blue'
-C_OrangeStyle   = 'border-radius:6px;color:black; background-color: orange'
-C_BlackStyle   = 'border-radius:6px;color:black; background-color: black'
+C_BLUE = "images/blue.jpg"
+C_GREEN = "images/green.jpg"
+C_ORANGE = "images/orange.jpg"
+C_RED = "images/red.jpg"
+C_VIOLET = "images/violet.jpg"
+C_WHITE = "images/white.jpg"
 
-StyleList = [C_RedStyle,C_VioletStyle,C_GreenStyle,
-             C_RedStyle,C_Bluetyle,C_OrangeStyle,C_BlackStyle]
+StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE]
 
 app = new qApp 
 {
+      //stylefusionBlack()
       win = new qWidget() {
 	    setWindowTitle('CalmoSoft Bejeweled Game')
 	    move(600,200)
-	    reSize(600,600)
+	    reSize(580,580)
 	    winheight = win.height()
 	    fontSize = 8 + (winheight / 100)
 
@@ -47,12 +45,12 @@ app = new qApp
                                        setgeometry(x,y,width,height)
                                        rndStyle = random(len(StyleList)-1) + 1
                                        ButtonColor[Row][Col] = rndStyle
-				       setStyleSheet(StyleList[rndStyle])
+                                       seticon(new qicon(new qpixmap(StyleList[rndStyle])))
+                                       setIconSize(new qSize(70,70))
                                        setclickevent("pButtonPress(" + string(Row) + "," + string(Col) + ")")
                                        setSizePolicy(1,1) }				       
 		next
             next
-
             show()
    }
    exec()
@@ -78,9 +76,11 @@ func pMoveLeft(Row,Col)
      ButtonColor[Row][Col] = color2
      ButtonColor[Row-1][Col] = color1
      sleep(0.5)
-     Button[Row][Col].setStyleSheet(StyleList[color2])
+     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                        setIconSize(new qSize(70,70)) }
      sleep(0.5)
-     Button[Row-1][Col].setStyleSheet(StyleList[color1])
+     Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                          setIconSize(new qSize(70,70)) }
 
 func pMoveRight(Row,Col)
      color1 = ButtonColor[Row][Col]
@@ -88,9 +88,11 @@ func pMoveRight(Row,Col)
      ButtonColor[Row][Col] = color2
      ButtonColor[Row+1][Col] = color1
      sleep(0.5)
-     Button[Row][Col].setStyleSheet(StyleList[color2])
+     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                        setIconSize(new qSize(70,70)) }
      sleep(0.5)
-     Button[Row+1][Col].setStyleSheet(StyleList[color1])
+     Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                          setIconSize(new qSize(70,70)) }
 
 func pMoveUp(Row,Col)
      color1 = ButtonColor[Row][Col]
@@ -98,9 +100,11 @@ func pMoveUp(Row,Col)
      ButtonColor[Row][Col] = color2
      ButtonColor[Row][Col-1] = color1
      sleep(0.5)
-     Button[Row][Col].setStyleSheet(StyleList[color2])
+     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                        setIconSize(new qSize(70,70)) }
      sleep(0.5)
-     Button[Row][Col-1].setStyleSheet(StyleList[color1])
+     Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                          setIconSize(new qSize(70,70)) }
 
 func pMoveDown(Row,Col)
      color1 = ButtonColor[Row][Col]
@@ -108,9 +112,11 @@ func pMoveDown(Row,Col)
      ButtonColor[Row][Col] = color2
      ButtonColor[Row][Col+1] = color1
      sleep(0.5)
-     Button[Row][Col].setStyleSheet(StyleList[color2])
+     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                        setIconSize(new qSize(70,70)) }
      sleep(0.5)
-     Button[Row][Col+1].setStyleSheet(StyleList[color1])
+     Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                          setIconSize(new qSize(70,70)) }
  
 func pButtonPress(Row,Col)
      move = move + 1
