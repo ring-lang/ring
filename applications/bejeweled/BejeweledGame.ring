@@ -10,6 +10,9 @@ size = 8
 move = 0
 width = 60
 height = 60
+checkGems1 = 0
+checkGems2 = 0
+
 swapGems = ""
 C_Spacing = 1
 
@@ -18,16 +21,16 @@ ButtonColor = newlist(size,size)
 nextMove = newlist(2,2)
 delGems = [][]
 
-C_BLUE = "images/blue.jpg"
-C_GREEN = "images/green.jpg"
-C_ORANGE = "images/orange.jpg"
-C_RED = "images/red.jpg"
-C_VIOLET = "images/violet.jpg"
-C_WHITE = "images/white.jpg"
-C_YELLOW = "images/yellow.jpg"
-C_EMPTY = "images/empty.jpg"
+C_BLUE = "images/blue.png"
+C_GREEN = "images/green.png"
+C_ORANGE = "images/orange.png"
+C_RED = "images/red.png"
+C_VIOLET = "images/violet.png"
+C_BLACK = "images/black.png"
+C_YELLOW = "images/yellow.png"
+C_EMPTY = "images/empty.png"
 
-StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE,C_YELLOW,C_EMPTY]
+StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_BLACK,C_YELLOW,C_EMPTY]
 
 app = new qApp 
 {
@@ -44,10 +47,7 @@ app = new qApp
                                        x = 50+(Row-1)*width
                                        y = 50+(Col-1)*height
                                        setgeometry(x,y,width,height)
-                                       rndStyle = random(len(StyleList)-2) + 1
-                                       ButtonColor[Row][Col] = rndStyle
-                                       seticon(new qicon(new qpixmap(StyleList[rndStyle])))
-                                       setIconSize(new qSize(70,70))
+                                       createGems()
                                        setclickevent("pButtonPress(" + string(Row) + "," + string(Col) + ")")
                                        setSizePolicy(1,1) }				       
 		next
@@ -56,6 +56,50 @@ app = new qApp
    }
    exec()
 }
+
+func createGems()
+     while True
+     for Row = 1 to size
+         for Col = 1 to size
+     rndStyle = random(len(StyleList)-2) + 1
+     ButtonColor[Row][Col] = rndStyle
+     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[rndStyle])))
+                        setIconSize(new qSize(70,70)) }
+     next
+     next
+     checkHorizontalSameColorGems()
+     checkVerticalSameColorGems()
+     if (checkGems1 = 0) and (checkGems2 = 0)
+        exit
+     ok
+     end
+
+func checkHorizontalSameColorGems()
+     checkGems1 = 0
+     for Row = 1 to size - 2
+         for Col = 1 to size
+             for m = Col to size
+                 if (ButtonColor[Row][m] = ButtonColor[Row+1][m]) and
+                    (ButtonColor[Row][m] = ButtonColor[Row+2][m])
+                    checkGems1 = 1
+                 ok
+             next
+         next
+     next
+
+func checkVerticalSameColorGems()
+     checkGems2 = 0
+     for Row = 1 to size
+         for Col = 1 to size
+             for m = Col to size-2
+                 if (ButtonColor[Row][m] = ButtonColor[Row][m+1]) and
+                    (ButtonColor[Row][m] = ButtonColor[Row][m+2])
+                    checkGems2 = 1
+                 ok
+             next
+         next
+     next
+
 
 func deleteHorizontalSameColorGems()
      delGems = [][]
