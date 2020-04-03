@@ -8,7 +8,6 @@ load "guilib.ring"
 
 size = 8
 move = 0
-nextMove = newlist(2,2)
 width = 60
 height = 60
 swapGems = ""
@@ -16,6 +15,7 @@ C_Spacing = 1
 
 Button = newlist(size,size)
 ButtonColor = newlist(size,size)
+nextMove = newlist(2,2)
 delGems = [][]
 
 C_BLUE = "images/blue.jpg"
@@ -24,9 +24,10 @@ C_ORANGE = "images/orange.jpg"
 C_RED = "images/red.jpg"
 C_VIOLET = "images/violet.jpg"
 C_WHITE = "images/white.jpg"
+C_YELLOW = "images/yellow.jpg"
 C_EMPTY = "images/empty.jpg"
 
-StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE,C_EMPTY]
+StyleList = [C_BLUE,C_GREEN,C_ORANGE,C_RED,C_VIOLET,C_WHITE,C_YELLOW,C_EMPTY]
 
 app = new qApp 
 {
