@@ -57,6 +57,21 @@ app = new qApp
    exec()
 }
 
+func pMoveGemsDown()
+     for n = 1 to len(delGems)
+         Row = delGems[n][1]
+         for Col = delGems[1][2]  to 2 step -1
+             color1 = ButtonColor[Row][Col]
+             color2 = ButtonColor[Row][Col-1]
+             Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                                setIconSize(new qSize(70,70)) }
+             Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                                  setIconSize(new qSize(70,70)) }
+             ButtonColor[Row][Col] = color2
+             ButtonColor[Row][Col-1] = color1
+         next      
+     next   
+
 func createGems()
      while True
      for Row = 1 to size
@@ -114,13 +129,14 @@ func deleteHorizontalSameColorGems()
                  else
                     if len(delGems) > 2
                        showGems()
+                       pMoveGemsDown()
                        delGems = [][]
                     ok
                  ok
              next
          next
      next
-
+     
 func deleteVerticalSameColorGems()
      delGems = [][]
      for Row = 1 to size
@@ -144,7 +160,7 @@ func deleteVerticalSameColorGems()
 func showGems()
      for n = 1 to len(delGems)
          Button[delGems[n][1]][delGems[n][2]] { seticon(new qicon(new qpixmap(C_EMPTY)))
-                                                setIconSize(new qSize(50,50)) }
+                                                setIconSize(new qSize(70,70)) }
          ButtonColor[delGems[n][1]][delGems[n][2]] = len(StyleList)
      next 
 
