@@ -77,19 +77,10 @@ app = new qApp
    exec()
 }
 
-func pExit()
-     win.close()
-     app.quit()
-
-func newGame()
-     createGems()
-     score = 0
-     labelNumScore.settext("")
-
-func pMoveEmptyGemsUpHorizontal()
+func pMoveEmptyGemsUp()
      for n = 1 to len(delGems)
          Row = delGems[n][1]
-         for Col = delGems[1][2]  to 2 step -1
+         for Col = delGems[1][2] to 2 step -1
              color1 = ButtonColor[Row][Col]
              color2 = ButtonColor[Row][Col-1]
              Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
@@ -99,7 +90,17 @@ func pMoveEmptyGemsUpHorizontal()
              ButtonColor[Row][Col] = color2
              ButtonColor[Row][Col-1] = color1
          next      
-     next   
+     next 
+     createFirstRowGems()
+
+func createFirstRowGems()
+     Row = 1
+     for Col = delGems[1][1] to delGems[1][1] + 2
+         color1 = random(len(StyleList) - 2) + 1
+         Button[Col][Row] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                            setIconSize(new qSize(70,70)) }
+         ButtonColor[Col][Row] = color1
+     next  
 
 func createGems()
      while True
@@ -144,7 +145,6 @@ func checkVerticalSameColorGems()
          next
      next
 
-
 func deleteHorizontalSameColorGems()
      delGems = [][]
      for Row = 1 to size - 2
@@ -160,7 +160,7 @@ func deleteHorizontalSameColorGems()
                  else
                     if len(delGems) > 2
                        showGems()
-                       pMoveEmptyGemsUpHorizontal()
+                       pMoveEmptyGemsUp()
                        delGems = [][]
                     ok
                  ok
@@ -168,28 +168,6 @@ func deleteHorizontalSameColorGems()
          next
      next
      
-func deleteVerticalSameColorGems()
-     delGems = [][]
-     for Row = 1 to size
-         for Col = 1 to size
-             for m = Col to size-2
-                 if (ButtonColor[Row][m] = ButtonColor[Row][m+1]) and 
-                    (ButtonColor[Row][m] = ButtonColor[Row][m+2]) and (ButtonColor[Row][m] != len(StyleList))
-                    add(delGems,[Row,m])
-                    add(delGems,[Row,m+1])
-                    add(delGems,[Row,m+2])
-                    score = score + 1
-                    labelNumScore.settext(string(score))
-                 else
-                    if len(delGems) > 2
-                       showGems()
-                       delGems = [][]
-                     ok
-                 ok
-             next
-         next
-     next
-
 func showGems()
      for n = 1 to len(delGems)
          Button[delGems[n][1]][delGems[n][2]] { seticon(new qicon(new qpixmap(C_EMPTY)))
@@ -201,70 +179,84 @@ func pMoveGems()
      if (nextMove[1][1] = nextMove[2][1]) and (nextMove[1][2]-1 = nextMove[2][2])
         swapGems = "Left"
         pSwapGems(nextMove[1][2],nextMove[1][1])
-        deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1] = nextMove[2][1]) and (nextMove[1][2]+1 = nextMove[2][2])
         swapGems = "Right"
         pSwapGems(nextMove[1][2],nextMove[1][1])
-        deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1]-1 = nextMove[2][1]) and (nextMove[1][2] = nextMove[2][2])
         swapGems = "Up"
         pSwapGems(nextMove[1][2],nextMove[1][1])
-        deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
      if (nextMove[1][1]+1 = nextMove[2][1]) and (nextMove[1][2] = nextMove[2][2])
         swapGems = "Down"
         pSwapGems(nextMove[1][2],nextMove[1][1])
-        deleteVerticalSameColorGems()
         deleteHorizontalSameColorGems()
      ok
 
 func pSwapGems(Row,Col)
-     if swapGems = "Left"
      color1 = ButtonColor[Row][Col]
-     color2 = ButtonColor[Row-1][Col]
-     ButtonColor[Row][Col] = color2
-     ButtonColor[Row-1][Col] = color1
-     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
-                        setIconSize(new qSize(70,70)) }
-     Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
-                          setIconSize(new qSize(70,70)) }
+     if (Row > 1) 
+         color2 = ButtonColor[Row-1][Col]
      ok
-     if swapGems = "Right"
-     color1 = ButtonColor[Row][Col]
-     color2 = ButtonColor[Row+1][Col]
-     ButtonColor[Row][Col] = color2
-     ButtonColor[Row+1][Col] = color1
-     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
-                        setIconSize(new qSize(70,70)) }
-     Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
-                          setIconSize(new qSize(70,70)) }
+     if (Row < size)
+         color3 = ButtonColor[Row+1][Col]
      ok
-
-     if swapGems = "Up"
-     color1 = ButtonColor[Row][Col]
-     color2 = ButtonColor[Row][Col-1]
-     ButtonColor[Row][Col] = color2
-     ButtonColor[Row][Col-1] = color1
-     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
-                        setIconSize(new qSize(70,70)) }
-     Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
-                          setIconSize(new qSize(70,70)) }
+     if (swapGems = "Left") and (color1 != color3) and (Row > 1)
+        ButtonColor[Row][Col] = color2
+        ButtonColor[Row-1][Col] = color1
+        Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                           setIconSize(new qSize(70,70)) }
+        Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                             setIconSize(new qSize(70,70)) }
      ok
-
-     if swapGems = "Down"
      color1 = ButtonColor[Row][Col]
-     color2 = ButtonColor[Row][Col+1]
-     ButtonColor[Row][Col] = color2
-     ButtonColor[Row][Col+1] = color1
-     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
-                        setIconSize(new qSize(70,70)) }
-     Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
-                          setIconSize(new qSize(70,70)) }
+     if (Row < size)
+         color2 = ButtonColor[Row+1][Col]
+     ok
+     if (Row > 1) 
+         color3 = ButtonColor[Row-1][Col]
+     ok
+     if (swapGems = "Right") and (color1 != color3) and (Row < size)
+        ButtonColor[Row][Col] = color2
+        ButtonColor[Row+1][Col] = color1
+        Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                           setIconSize(new qSize(70,70)) }
+        Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                             setIconSize(new qSize(70,70)) }
+     ok
+     color1 = ButtonColor[Row][Col]
+     if (Col > 1) 
+         color2 = ButtonColor[Row][Col-1]
+     ok
+     if (Col < size)
+         color3 = ButtonColor[Row][Col+1]
+     ok
+     if (swapGems = "Up") and (color1 != color3) and (Col > 1)
+        ButtonColor[Row][Col] = color2
+        ButtonColor[Row][Col-1] = color1
+        Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                           setIconSize(new qSize(70,70)) }
+        Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                             setIconSize(new qSize(70,70)) }
+     ok
+     color1 = ButtonColor[Row][Col]
+     if (Col < size)
+         color2 = ButtonColor[Row][Col+1]
+     ok
+     if (Col > 1)
+         color3 = ButtonColor[Row][Col-1]
+     ok
+     if (swapGems = "Down") and (color1 != color3) and (Col < size)
+         ButtonColor[Row][Col] = color2
+         ButtonColor[Row][Col+1] = color1
+         Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[color2])))
+                            setIconSize(new qSize(70,70)) }
+         Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
+                              setIconSize(new qSize(70,70)) }
      ok
  
 func pButtonPress(Row,Col)
@@ -277,3 +269,12 @@ func pButtonPress(Row,Col)
      if move = 2
         move = 0
      ok
+
+func pExit()
+     win.close()
+     app.quit()
+
+func newGame()
+     createGems()
+     score = 0
+     labelNumScore.settext("")
