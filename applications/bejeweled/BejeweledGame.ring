@@ -1,5 +1,5 @@
 # Project : CalmoSoft Bejeweled Game
-# Date    : 03/04/2020-08:31:18
+# Date    : 05/04/2020-11:25:57
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -10,10 +10,12 @@ size = 8
 move = 0
 width = 60
 height = 60
+score = 0
 checkGems1 = 0
 checkGems2 = 0
 
 swapGems = ""
+C_FONTSIZE = 15
 C_Spacing = 1
 
 Button = newlist(size,size)
@@ -37,7 +39,7 @@ app = new qApp
       win = new qWidget() {
             app.StyleFusionBlack()
 	    setWindowTitle('CalmoSoft Bejeweled Game')
-	    reSize(580,580)
+	    reSize(580,640)
 	    winheight = win.height()
 	    fontSize = 8 + (winheight / 100)
 
@@ -47,17 +49,44 @@ app = new qApp
                                        x = 50+(Row-1)*width
                                        y = 50+(Col-1)*height
                                        setgeometry(x,y,width,height)
-                                       createGems()
                                        setclickevent("pButtonPress(" + string(Row) + "," + string(Col) + ")")
                                        setSizePolicy(1,1) }				       
 		next
             next
+
+	    labelScore = new QLabel(win) { setgeometry(50,570,70,20)
+			 setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                         settext("Score: ") }
+
+	    labelNumScore = new QLabel(win) { setgeometry(120,570,50,20)
+			        setFont(new qFont("Verdana",C_FONTSIZE,50,0)) }
+
+	    btnNewGame = new QPushButton(win) { setgeometry(200,570,140,20)
+			     setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                             settext("New Game")
+                             setclickevent("newGame()") }
+
+	    btnExit = new QPushButton(win) { setgeometry(400,570,80,20)
+			  setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                          settext("Exit")
+                          setclickevent("pExit()") }
+
             show()
+            newGame()
    }
    exec()
 }
 
-func pMoveGemsDown()
+func pExit()
+     win.close()
+     app.quit()
+
+func newGame()
+     createGems()
+     score = 0
+     labelNumScore.settext("")
+
+func pMoveEmptyGemsUpHorizontal()
      for n = 1 to len(delGems)
          Row = delGems[n][1]
          for Col = delGems[1][2]  to 2 step -1
@@ -74,19 +103,19 @@ func pMoveGemsDown()
 
 func createGems()
      while True
-     for Row = 1 to size
-         for Col = 1 to size
-     rndStyle = random(len(StyleList)-2) + 1
-     ButtonColor[Row][Col] = rndStyle
-     Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[rndStyle])))
-                        setIconSize(new qSize(70,70)) }
-     next
-     next
-     checkHorizontalSameColorGems()
-     checkVerticalSameColorGems()
-     if (checkGems1 = 0) and (checkGems2 = 0)
-        exit
-     ok
+           for Row = 1 to size
+               for Col = 1 to size
+                   rndStyle = random(len(StyleList)-2) + 1
+                   ButtonColor[Row][Col] = rndStyle
+                   Button[Row][Col] { seticon(new qicon(new qpixmap(StyleList[rndStyle])))
+                                      setIconSize(new qSize(70,70)) }
+               next
+           next
+           checkHorizontalSameColorGems()
+           checkVerticalSameColorGems()
+           if (checkGems1 = 0) and (checkGems2 = 0)
+              exit
+           ok
      end
 
 func checkHorizontalSameColorGems()
@@ -122,14 +151,16 @@ func deleteHorizontalSameColorGems()
          for Col = 1 to size
              for m = Col to size
                  if (ButtonColor[Row][m] = ButtonColor[Row+1][m]) and
-                    (ButtonColor[Row][m] = ButtonColor[Row+2][m])
+                    (ButtonColor[Row][m] = ButtonColor[Row+2][m]) and (ButtonColor[Row][m] != len(StyleList))
                     add(delGems,[Row,m])
                     add(delGems,[Row+1,m])
                     add(delGems,[Row+2,m])
+                    score = score + 1
+                    labelNumScore.settext(string(score))
                  else
                     if len(delGems) > 2
                        showGems()
-                       pMoveGemsDown()
+                       pMoveEmptyGemsUpHorizontal()
                        delGems = [][]
                     ok
                  ok
@@ -142,16 +173,18 @@ func deleteVerticalSameColorGems()
      for Row = 1 to size
          for Col = 1 to size
              for m = Col to size-2
-                 if (ButtonColor[Row][m] = ButtonColor[Row][m+1]) and
-                    (ButtonColor[Row][m] = ButtonColor[Row][m+2])
+                 if (ButtonColor[Row][m] = ButtonColor[Row][m+1]) and 
+                    (ButtonColor[Row][m] = ButtonColor[Row][m+2]) and (ButtonColor[Row][m] != len(StyleList))
                     add(delGems,[Row,m])
                     add(delGems,[Row,m+1])
                     add(delGems,[Row,m+2])
+                    score = score + 1
+                    labelNumScore.settext(string(score))
                  else
                     if len(delGems) > 2
                        showGems()
                        delGems = [][]
-                    ok
+                     ok
                  ok
              next
          next
@@ -244,8 +277,3 @@ func pButtonPress(Row,Col)
      if move = 2
         move = 0
      ok
-     
-func pExit()
-	win.close()
-	app.quit()	
-
