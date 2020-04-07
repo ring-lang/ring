@@ -1,5 +1,5 @@
 # Project : CalmoSoft Bejeweled Game
-# Date    : 05/04/2020-11:25:57
+# Date    : 06/04/2020-15:47:38
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
@@ -216,6 +216,8 @@ if (swapGems = "Left")
                            setIconSize(new qSize(70,70)) }
         Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
+     else
+        msgBox("Invalid Move!")
      ok
 ok
 
@@ -236,6 +238,8 @@ if (swapGems = "Right")
                            setIconSize(new qSize(70,70)) }
         Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
+     else
+        msgBox("Invalid Move!")
      ok
 ok
 
@@ -256,6 +260,8 @@ if (swapGems = "Up")
                            setIconSize(new qSize(70,70)) }
         Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
+     else
+        msgBox("Invalid Move!")
      ok
 ok
 
@@ -276,6 +282,8 @@ if (swapGems = "Down")
                             setIconSize(new qSize(70,70)) }
          Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                               setIconSize(new qSize(70,70)) }
+     else
+        msgBox("Invalid Move!")
      ok
 ok
  
@@ -298,3 +306,11 @@ func newGame()
      createGems()
      score = 0
      labelNumScore.settext("")
+
+func msgBox(cText)	  
+     mb = new qMessageBox(win) {
+	  setWindowTitle('CalmoSoft Bejeweled Game')
+	  setText(cText)
+          setstandardbuttons(QMessageBox_OK) 
+          result = exec() 
+     }
