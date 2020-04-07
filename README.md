@@ -24,7 +24,7 @@ To learn more about the programming language, visit [ring-lang.net](http://ring-
 
 # Screen Shots
 
-![Ring](https://raw.githubusercontent.com/ring-lang/ring/master/graphics/newringshots.gif)
+![Ring](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/newringshots.gif)
 
 # Building from source code
 
