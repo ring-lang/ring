@@ -198,12 +198,16 @@ func pMoveGems()
      ok
 
 func pSwapGems(Row,Col)
+
+if (swapGems = "Left")
      color1 = ButtonColor[Row][Col]
      if (Row > 1) 
          color2 = ButtonColor[Row-1][Col]
      ok
      if (Row < size)
          color3 = ButtonColor[Row+1][Col]
+     else
+         color3 = color2
      ok
      if (swapGems = "Left") and (color1 != color3) and (Row > 1)
         ButtonColor[Row][Col] = color2
@@ -213,12 +217,17 @@ func pSwapGems(Row,Col)
         Button[Row-1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
      ok
+ok
+
+if (swapGems = "Right")
      color1 = ButtonColor[Row][Col]
      if (Row < size)
          color2 = ButtonColor[Row+1][Col]
      ok
      if (Row > 1) 
          color3 = ButtonColor[Row-1][Col]
+     else
+         color3 = color2
      ok
      if (swapGems = "Right") and (color1 != color3) and (Row < size)
         ButtonColor[Row][Col] = color2
@@ -228,12 +237,17 @@ func pSwapGems(Row,Col)
         Button[Row+1][Col] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
      ok
+ok
+
+if (swapGems = "Up")
      color1 = ButtonColor[Row][Col]
      if (Col > 1) 
          color2 = ButtonColor[Row][Col-1]
      ok
      if (Col < size)
          color3 = ButtonColor[Row][Col+1]
+     else
+         color3 = color2
      ok
      if (swapGems = "Up") and (color1 != color3) and (Col > 1)
         ButtonColor[Row][Col] = color2
@@ -243,12 +257,17 @@ func pSwapGems(Row,Col)
         Button[Row][Col-1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                              setIconSize(new qSize(70,70)) }
      ok
+ok
+
+if (swapGems = "Down")
      color1 = ButtonColor[Row][Col]
      if (Col < size)
          color2 = ButtonColor[Row][Col+1]
      ok
      if (Col > 1)
          color3 = ButtonColor[Row][Col-1]
+     else
+         color3 = color2
      ok
      if (swapGems = "Down") and (color1 != color3) and (Col < size)
          ButtonColor[Row][Col] = color2
@@ -258,6 +277,7 @@ func pSwapGems(Row,Col)
          Button[Row][Col+1] { seticon(new qicon(new qpixmap(StyleList[color1])))
                               setIconSize(new qSize(70,70)) }
      ok
+ok
  
 func pButtonPress(Row,Col)
      move = move + 1
