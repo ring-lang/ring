@@ -1,22 +1,22 @@
 ﻿aTeam = [
 				  [
-					'Mahmoud Samir Fayed<br/>(The Creator of Ring)<br/>msfclipper@yahoo.com',
+					'Mahmoud Samir Fayed<br/>(The Creator of Ring)',
 					'<img src="fayed.jpg" width="150" height="170">'
 				  ],
 				  [
-					'Bert Mariani<br/>Software Developer (Applications Master)<br/>bert.mariani@gmail.com',
+					'Bert Mariani<br/>Software Developer (Applications Master)',
 					'<img src="UmbertoMariani.png" width="150" height="170">'
 				  ],
 				  [
-					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)<br/>calmosoft@gmail.com',
+					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
 					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
 				  [
-                    			'José Rosado<br/>Software Developer<br/>jar.megaware@gmail.com',
+                    			'José Rosado<br/>Software Developer',
 					'<img src="jose.jpg" width="150" height="170">'
                   		  ],				 
 				  [
-                    			'Marino Esteban<br/>Software Developer<br/>marinoest@gmail.com',
+                    			'Marino Esteban<br/>Software Developer',
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ]
 ]
@@ -65,403 +65,334 @@ aManyThanks = [
 aTeam2 = [
 				  [
 					'Mohammed Fayed',
-					'ms_fayed@hotmail.com',
 					'Domain'								
 				  ],
 				  [
 					'Magdy Ragab',
-					'developer.eye1@gmail.com',
 					'Tester'				
 				  ],
 				  [
 					'Ahmed Omar',
-					'ahmad3omar@gmail.com',
 					'Tester'				
 				  ],
 				  [
 					'Rashad Kamsheh',
-					'rashadse@hotmail.com',
 					'English Revision'
 				  ],
 				  [
                     			'Nehemiah Jacob',
-                    			'nehemiah.jacob@gmail.com',
                     			'Web Framework'               
                   		  ],
                   		  [
 					'Muhammed Amr Elsayed',
-					'dev.mohamedamr@gmail.com',
 					'Tester'					
 		  		  ],
 		  		  [
                     			'Abubakr Ahmed Fayez',
-                    			'th3wolfpro@gmail.com',
                     			'Marketing'                    			
                   		  ],				  				  
 				  [
 					'Mohammed Ali Haggag',
-					'Mhaggag7@gmail.com',
 					'Graphic Designer'
 					
 				  ],			
 				  [
 					'Ahmad Fayed',
-					'ahmad_s_f@hotmail.com',
 					'Graphic Designer'
 					
 				  ],				  
 				  [
 					'Muhammad Wael',
-					'mohamed.wael96@hotmail.com',
 					'Graphic Designer'
 					
 				  ],
 				  [
 					'Sameh Salem',
-					'samehsalem451@yahoo.com',
 					'Graphic Designer'
 					
 				  ],
 				  [
 					'Mahmoud Hamdy',
-					'Mahmoud-El-Deeb@hotmail.com',
 					'Graphic Designer'
 					
 				  ],
 				  [
 					'Islam Fawzi',
-					'eslamdes@gmail.com',
 					'Graphic Designer'
 					
 				  ],
 				  [
 					'Ashraf Nagy',
-					'ashrafnagy1995@gmail.com',
 					'Graphic Designer'
 					
 				  ],
 				  [
 					'Mohamed Elzainy',
-					'jack200180@gmail.com',
 					'Web Designer'
 					
 				  ],
 				  [
 					'Ebrahim ELgeded',
-					'ebrahim.elgeded301@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Amir Makram',
-					'amir.m.twfeek@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Radwan Mohamed',
-					'radwanmohamed334@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Dachir Hicham',
-					'dachirhicham@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ahmed Ibrahim',
-					'kimoonline2012@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Hesham Ahmed',
-					'heshamahmed.c18@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Alaa Ben Fatma',
-					'prog.icesword@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Osama Ali',
-					'osama.a.mohamed94@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
-					'Mohamed Abu Al-Ainin ',
-					'mohamed.abuelanin@gmail.com',
+					'Mohamed Abu Al-Ainin',
 					'Tester'
 					
 				  ],
 				  [
-					'Muhammad Mahmoud Attia  ',
-					'muhammad.mattia@gmail.com',
+					'Muhammad Mahmoud Attia',
 					'Tester'
 					
 				  ],
 				  [
 					'Mohammad Kamel Emam',
-					'super.developer2007@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ahmed Shendy',
-					'dev.ahmed.shendy@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ragab Mustafa',
-					'ragab.eng@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ahmed Ramzy',
-					'ahmedramzyha@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Khaled ABID',
-					'eternel0422@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Abobakar Ahmad Jallo',
-					'abou1427@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'El-tayeb Kamal Karrar',
-					'el.tayeb.karrar1@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Mahmoud mohamed omar',
-					'mahmoudelkhashab26@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Chetouani Mohammed Amine',
-					'chetouani.mohammed.amine@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Mahmoud elkhashab',
-					'mahmoudelkhashab26@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ayyad Shenouda ayyad',
-					'ayyaadshenoda15@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Mohamed Mamdouh Ahmed',
-					'mo7amedcomp@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Abdeltwab mohamd',
-					'pabdeltwabelhussin@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Hesham Watany',
-					'hesham.watany@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ahmad Elbadri',
-					'elbadriahmad@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Sinan Q. Salih',
-					'saneeno.sn@gmail.com',
 					'Tester'
 					
 				  ],				  
 				  [
 					'Mohammed Aljazaeri',
-					'pr.mohd90@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Belal Mohammed',
-					'belal.mohammed.acu@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Ahmed Refaie',
-					'beyondsky1986@gmail.com',
 					'Tester'
 					
 				  ],				  
 				  [
 					'Mohamad Hamad',
-					'mohamad.hamad84@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Sam Goran',
-					'spy.condor@gmail.com',
 					'Tester'
 					
 				  ],
 				  [
 					'Montasir Mohamed Badreldin',
-					'montasir41@yandex.ru',
 					'Tester'
 					
 				  ],
 				  [
 					'Sofy Abbas',
-					'sofyebnabbas@gmail.com',
 					'Video Tutorials'
 					
 				  ],
 				  [
 					'Ali Aliraqi',
-					'wwssr11wwss11@gmail.com',
 					'Video Tutorials'
 					
 				  ],
 				  [
 					'Mohamed Elkehlawy Mahmoud',
-					'mohamedelkehlawy@gmail.com',
 					'Arabic Tutorials'
 					
 				  ],
 				  [
 					'Reem Basheer',
-					'reem.busines@gmail.com',
 					'Arabic Tutorials'
 					
 				  ],
                   [
                     'Yasmin Alwaan',
-                    'Eng_Yasmin@live.com',
                     'Arabic Tutorials'
                     
                   ],
 	          [
                     'Mostafa Gaber',
-                    'mostnour@gmail.com',
                     'Tester'
                     
                   ],
                   [
                     'Abdelraouf Mohamed',
-                    'abdelraouf.mohamed31@gmail.com',
                     'Tester/Samples'
                     
                   ],
                   [
                     'Abdelrahman Fawzy Omar',
-                    'h.a.m.a.n.y.1995f@gmail.com',
                     'Tester/Samples'                    
                   ],
-				  [
+		  [
                     'Ramy Elganzorey',
-                    'ramy_mix@live.com',
                     'Video Tutorials'
                     
                   ],
-				  [
+		  [
                     'Kovács Attila',
-                    'befektabc@gmail.com',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Robert Philippe',
-                    'rphilippe777@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohammed Tantawy',
-                    'mohammedtantawy82@gmail.com ',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Mahmood Bakr El-Sedeek',
-                    'maxmedo2020@gmail.com',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Aziza Elhassi',
-                    'azizakhel@gmail.com',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Ahmed Ali Halawa',
-                    'ahmed.halawa.555@gmail.com',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Mahmoud Adel Abd-Elsalam Elbaz',
-                    'm.adel901m@gmail.com',
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Ayad ameen hama',
-                    'aywan.ayad11@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmad Hamdy Ali',
-                    'ahmady09@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Alaa Abdelsamie',
-                    'mis.alaa.abdelsamie@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Heba Elakhder',
-                    'goodtree212122@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mahmoud Ezat Mohamed EL-Sidek',
-                    'mahmoudezat111@gmail.com',
-                    'Tester'
-                    
+                    'Tester'                    
                   ],
 				  [
                     'Shery Rajp',
@@ -471,535 +402,446 @@ aTeam2 = [
                   ],
 				  [
                     'Ahmed Isam',
-                    'ahmedzeco25@hotmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Tarek Kouskous	',
-                    'dhtarek@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Asmaa Mohamed Elgezawy',
-                    'asma.elgezawy@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Abdelrahman Abdelhameed',
-                    'abdelrahmanabdelhameed3@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Muhammed Khalid',
-                    'ahmedmikkawe2020@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Ait Brahim',
-                    'mohcmpu@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Abdallah Ebrahim Abdallah Muhammed',
-                    'abdalla.mezo@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Amera Hassan',
-                    'hamera55@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Elgendy',
-                    'ahmedelgendy409@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Alsharawy',
-                    'ahmedalsharawy2016@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Islam Fady',
-                    'islamfady40@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Sayed Ragab Mohammed',
-                    'sayed.ragb1@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Andro Nady',
-                    'andro.nady2015@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Sami Mohammed Gonimy',
-                    'mahrmlolo@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Gamal elsayed shabaan negm elden',
-                    'gamalnigmeldin@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mostafa Abd Elazeem',
-                    'mostafa.abdo.ch12@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'mohammed hani elsayed',
-                    'lovemody1995@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Gamal Ahmed Shehata',
-                    'gamal9@live.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Abd El-tawab Sayed',
-                    'mohamed.a.eltawab101@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Saied Mohamed Ahmed',
-                    'bensa3ed.m@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Magdy',
-                    'm.magdy555@hotmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Ali Abd El-Hakeem Mohamed',
-                    'mohamed.scholar6996@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Hany',
-                    'ahmedhanyahya2016@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Esraa Omar abdelhameed',
-                    'esraaomar128@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mahmoud Hamdii Elhamrawy',
-                    'mahmoudhamdii2010@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Peter Tawfik',
-                    'petertawfik14@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Shadi Abo Oun',
-                    'Micro.shadi@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Muhammad Habib	',
-                    'muhammad.habib.dev@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Gamal',
-                    'm.g.t.m.prog@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Mirghani Ali',
-                    'Mohammed2571994@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed abdelbary',
-                    'comodo2010@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Elzemrany',
-                    'ahmedelzemrany93@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'mahmoud mahran',
-                    'msmahran77@hotmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mhd Khir Hammadeh',
-                    'newmhdkh88@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Atef Hakim',
-                    'atefhakim@gmail.com',
                     'Tester'
                     
                   ],				  
 				  [
                     'Mamoud kotb abd diab',
-                    'mahmoudhekaya20@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'osama Kamel Abd El-hamed',
-                    'osamakamel906@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed Ibrahim',
-                    'mohamed0500@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Abaza',
-                    'ahmed.a.abaza@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'djouamaa hocine',
-                    'djouamaah@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Maher khayyal',
-                    'maheronknight@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Fayez Elkenawy',
-                    'fayezelkenawy@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Ali',
-                    'ahmedhamam50@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Essam Abdelrahman',
-                    'essam.khaled.mohamed@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'AbdElrahman Mohamed Salah',
-                    'abdomohamed00001@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Hamza Elmouhtadi',
-                    'Hamzaelmouhtadi@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Thana Mohamed',
-                    'thanamohamed915@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Heba Elnabawy elsersy',
-                    'heba.sersy@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Abdallah Massad',
-                    'abdullah.mussad.92@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Yasser Ezzat Ragab',
-                    'yezzat2020@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamd Mahmoud Elsaid Elarousi',
-                    'moh.elarousi@gmail.com ',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Salem',
-                    'ahmedkhozayam@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ameen Ahmed',
-                    'ameenahmed386@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mai mokhtar mostafa',
-                    'Mayebed@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Khaled Hammad',
-                    'askcode@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Osama Reda Elnabwy',
-                    'oelnabwy@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Mohamed magdy ahmed',
-                    'mmagdy436@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Asmaa  Abdelghny Ali',
-                    'asmaa.a.ghny@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ramez Sabry Nageb',
-                    'Ramez_202@hotmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Lobna ahmed',
-                    'lobnaahmedheshmatt@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ehab Mosaad Mohamed',
-                    'ehab192012@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Abdo Kamr',
-                    'abdokamr88@yahoo.com',
                     'Tester'
                     
                   ],
 				  [
                     'Abdelrahman Mostafa',
-                    'abdomost777@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Moumen osama alisawe',
-                    'muisawe@gmail.com',
                     'Tester'
                     
                   ],
   				  [
                     'Atya Adel Atya',
-                    'atyaadel992@gmail.com',
                     'Tester'
                     
                   ],
   				  [
                     'Walid Mohammed Kamal',
-                    'walideata@gmail.com',
                     'Tester'
                     
                   ],
   				  [
                     'Mohamed Azzam',
-                    'azzammohamed923@gmail.com',
                     'Tester'
                     
                   ],
   				  [
                     'Eslam Shehata',
-                    'eslamshehata476@gmail.com',
                     'Tester'
                     
                   ],
   				  [
                     'Asmaa Ebrahym',
-                    'asmaaebrahymazyz@gmail.com',
                     'Tester'
                     
                   ],
    				  [
                     'Islam Hamdy',
-                    'eng.islam.hamdy1992@gmail.com',
                     'Tester'
                     
                   ],
    				  [
                     'Sharaf Eldin Mohamed',
-                    'sharaf.7abibi@gmail.com',
                     'Tester'
                     
                   ],				  
 				  [
                     'Mahmoud Mabrouk	',
-                    'mahmoud27271@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Njlaa Ahmad Emam',
-                    'njlaa.emam@hotmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Hashem Alaya',
-                    'hashemjuve@yahoo.com',
                     'Tester'
                     
                   ],
   				  [
                     'Usama Mohammed Kabel',
-                    'eng.usamakabel@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Ahmed Elsayed Mohamed',
-                    'Elsayeda825@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Yaser Ba Matraf',
-                    'yasser.bama733@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Shimoo Ali',
-                    'ashima00100@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'John Storm (SienSystem)',
-                    'siensystem@gmail.com',
                     'Tester/Samples'
                     
                   ],
 				  [
                     'Hassan Ahmed',
-                    'hsn@outlook.hu',
                     'Tester/Extensions'
                     
                   ],
 				  [
                     'Jamie Cooper',
-                    'jalonsolov@gmail.com',
                     'English Revision'
                     
                   ],
 				  [
                     'Muhammad Goni',
-                    'muhammadgoni51@gmail.com',
                     'Ring2EXE Tester'
                     
                   ],
   				  [
                     'L Godioleskky',
-                    'Igodio2@gmail.com',
                     'Tester'
                     
                   ],
    				  [
                     'Mawko Pavel',
-                    'mawkopavel@gmail.com',
                     'Tester'
                     
                   ],
    				  [
                     'Chris Bruner',
-                    'cwbruner@gmail.com',
                     'Tester'
                     
                   ],
 				  [
                     'Peter Xiong',
-                    '554047943@qq.com',
                     'Tester'
                     
                   ],
 				  [
                     'JustGo',
-                    'random19515@gmail.com',
                     'Pong Game'
                     
                   ],
   				  [
                     'Liezebra',
-                    'liezebra@gmail.com',
                     'Tester'
                     
                   ],
   	          [
                     'Asta',
-                    'asta3311@gmail.com',
                     'OOP Tester'
                     
                   ]
