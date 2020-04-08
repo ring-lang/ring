@@ -1,32 +1,22 @@
 ﻿aTeam = [
 				  [
-					'Mahmoud Samir Fayed',
-					'msfclipper@yahoo.com',
-					'The Creator of Ring',
+					'Mahmoud Samir Fayed<br/>(The Creator of Ring)<br/>msfclipper@yahoo.com',
 					'<img src="fayed.jpg" width="150" height="170">'
 				  ],
 				  [
-					'Bert Mariani',
-					'bert.mariani@gmail.com',
-					'Software Developer (Applications Master)',					
+					'Bert Mariani<br/>Software Developer (Applications Master)<br/>bert.mariani@gmail.com',
 					'<img src="UmbertoMariani.png" width="150" height="170">'
 				  ],
 				  [
-					'Gal Zsolt (CalmoSoft)',
-					'calmosoft@gmail.com',
-					'Software Developer (Samples Master)',
+					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)<br/>calmosoft@gmail.com',
 					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
 				  [
-                    			'José Rosado',
-                    			'jar.megaware@gmail.com',
-                    			'Software Developer',                    			
+                    			'José Rosado<br/>Software Developer<br/>jar.megaware@gmail.com',
 					'<img src="jose.jpg" width="150" height="170">'
                   		  ],				 
 				  [
-                    			'Marino Esteban',
-                    			'marinoest@gmail.com',
-                    			'Software Developer',                    			
+                    			'Marino Esteban<br/>Software Developer<br/>marinoest@gmail.com',
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ]
 ]
