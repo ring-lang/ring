@@ -16,8 +16,8 @@
 				<% if len(aGroup[2][1]) = 2  %>
 					<thead>
 				  		<tr>
-							<th width="80%">Description  </th>
-							<th width="20%">Photo </th>
+							<th width="70%">Description  </th>
+							<th width="30%">Photo </th>
 				  		</tr>
 					</thead>
 				<% ok %>
