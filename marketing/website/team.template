@@ -7,10 +7,8 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th width="25%">Name</th>
-					<th width="25%">Email</th>
-					<th width="35%">Role</th>
-					<th></th>
+					<th width="85%">Name</th>
+					<th width="15%"></th>
 				  </tr>
 				</thead>
 				<tbody>
@@ -37,7 +35,7 @@
 				<thead>
 				  <tr>
 					<th width="85%">Name</th>
-					<th></th>
+					<th width="15%"></th>
 				  </tr>
 
 				</thead>
