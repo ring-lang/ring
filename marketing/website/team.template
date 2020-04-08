@@ -64,9 +64,8 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Role</th>
+					<th width="85%">Name</th>
+					<th width="15%">Role</th>
 				  </tr>
 
 				</thead>
