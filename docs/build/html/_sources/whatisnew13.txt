@@ -144,6 +144,7 @@ More Improvements
 	* ring/samples/other/fib.ring
 	* ring/samples/other/randomlist.ring
 	* ring/samples/other/debuginfo.ring
+	* ring/samples/other/PegSolitaire/peg-soli.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
