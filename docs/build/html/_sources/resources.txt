@@ -63,7 +63,7 @@ URL : https://www.youtube.com/watch?v=uSv5rJp6snw&list=PLgc0fyJgivssosIJu4kJGk5a
 
 * Arabic Tutorials by Mahmoud Fayed (Facebook (Live) + YouTube)
 
-URL : https://github.com/ring-lang/ring/blob/master/developers/Arabic/README.md
+URL : https://github.com/ring-lang/ring/blob/master/marketing/course/Arabic/README.md
 
 Contact the Authors
 ===================
