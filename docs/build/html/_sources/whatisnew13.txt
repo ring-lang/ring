@@ -20,6 +20,7 @@ Ring 1.13 comes with the next features!
 * MoneyBoxes Game
 * Questions Game
 * MoneyCase Game
+* Rock Paper Scissors Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * More Improvements
@@ -96,6 +97,19 @@ Collect only the required amount of money!
 	:width: 550pt
 	:height: 350pt
 	:alt: Money Case Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Rock Paper Scissors Game
+
+Rock Paper Scissors Game
+========================
+
+An implementation for the Rock Paper Scissors Game
+
+.. image:: rockgame.png
+	:width: 550pt
+	:height: 400pt
+	:alt: Rock Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
