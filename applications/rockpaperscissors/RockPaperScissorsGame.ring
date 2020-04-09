@@ -27,18 +27,23 @@ Button 		= list(len(ChoseList))
 app = new QApp 
 {
 
+	StyleFusion()
+
 	win = new QWidget() {
 
 		setWindowTitle('Stone Paper Scissors Game')
 		setWinIcon(self,C_ROCK)
-		reSize(900,820)
+		setStyleSheet("background-color:cyan;")
+		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint)
+		reSize(900,600)
 		winheight 	= height()
 		fontSize	= 8 + (winheight / 100)
 
 		for Col = 1 to len(ChoseList)
 			Button[Col] = new QPushButton(win) {
-				y = 150+(Col-1)*height
-				setgeometry(y,50,width,height)
+				x = 150+(Col-1)*height
+				setgeometry(x,35,width,height)
+				setStyleSheet("background-color:white;")
 				seticon(new qicon(new qpixmap(ChoseList[Col])))
 				setIconSize(new qSize(200,200))
 				setclickevent("pButtonPress(" + string(Col) + ")")
@@ -47,71 +52,68 @@ app = new QApp
 		next
 
 		labelMyChose = new QLabel(win) { 
-			setgeometry(width,300,150,20)
+			setgeometry(200,250,150,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("My Chose:") 
 		}
 
 		labelCompChose = new QLabel(win) { 
-			setgeometry(width+380,300,150,20)
+			setgeometry(580,250,150,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Comp Chose:") 
 		}
 
-		labelScore = new QLabel(win) { 
-			setgeometry(width+150,600,70,20)
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Score:") 
-		}
-
 		labelScoreEnd = new QLabel(win) { 
-			setgeometry(width+220,600,170,20)
+			setgeometry(0,510,win.width(),30)
+			setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Computer Win!") 
+			settext("") 
 		}
 
 		btnMyChose = new QPushButton(win) { 
-			setgeometry(150,350,width,height) 
+			setgeometry(150,300,width,height) 
+			setStyleSheet("background-color:white;")
 		}
 
 		btnCompChose = new QPushButton(win) { 
-			setgeometry(550,350,width,height) 
+			setgeometry(550,300,width,height) 
+			setStyleSheet("background-color:white;")
 		}
 
 		btnNewGame = new QPushButton(win) {
-			setgeometry(170,670,150,40)
+			setgeometry(170,550,150,40)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			setclickevent("pNewGame()")
 			settext("New Game") 
 		}
 
 		btnExit = new QPushButton(win) { 
-			setgeometry(580,670,150,40)
+			setgeometry(580,550,150,40)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			setclickevent("pExit()")
 			settext("Exit") 
 		}
 
 		labelMyScore = new QLabel(win) { 
-			setgeometry(170,750,100,20)
+			setgeometry(170,0,100,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("My Score: ") 
 		}
 
 		labelMyScoreSum = new QLabel(win) { 
-			setgeometry(300,750,100,20)
+			setgeometry(300,0,100,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("") 
 		}
 
 		labelCompScore = new QLabel(win) {
-			setgeometry(580,750,130,20)
+			setgeometry(580,0,130,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Comp Score: ") 
 		}
 
 		labelCompScoreSum = new QLabel(win) { 
-			setgeometry(730,750,100,20)
+			setgeometry(730,0,100,30)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("") 
 		}
