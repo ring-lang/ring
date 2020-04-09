@@ -32,7 +32,7 @@ app = new QApp
 		setWindowTitle('Stone Paper Scissors Game')
 		setWinIcon(self,C_ROCK)
 		reSize(900,820)
-		winheight = win.height()
+		winheight = height()
 		fontSize = 8 + (winheight / 100)
 
 		for Col = 1 to len(ChoseList)
