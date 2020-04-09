@@ -33,6 +33,10 @@ aManyThanks = [
 					'Majdi Sobain',
 					'<img src="majdi.jpg" width="150" height="170">'
 				  ],
+		  		  [
+                    			'Mansour Ayouni',
+		    			'<img src="mansour.jpg" width="150" height="170">'
+                  		  ],
 				  [
 					'Hebat Alla Ismail',
 					'<img src="heba.jpg" width="150" height="170">'
@@ -49,10 +53,6 @@ aManyThanks = [
 					'Nouran M. Radwan',
 					'<img src="nouran.png" width="150" height="170">'
 				  ],				  
-		  		  [
-                    			'Mansour AYOUNI',
-		    			'<img src="mansour.jpg" width="150" height="170">'
-                  		  ],
 				  [
                     			'Heba Omran',
 					'<img src="hebaomran.png" width="150" height="170">'
@@ -67,30 +67,6 @@ aTeam2 = [
 					'Mohammed Fayed',
 					'Domain'								
 				  ],
-				  [
-					'Magdy Ragab',
-					'Tester'				
-				  ],
-				  [
-					'Ahmed Omar',
-					'Tester'				
-				  ],
-				  [
-					'Rashad Kamsheh',
-					'English Revision'
-				  ],
-				  [
-                    			'Nehemiah Jacob',
-                    			'Web Framework'               
-                  		  ],
-                  		  [
-					'Muhammed Amr Elsayed',
-					'Tester'					
-		  		  ],
-		  		  [
-                    			'Abubakr Ahmed Fayez',
-                    			'Marketing'                    			
-                  		  ],				  				  
 				  [
 					'Mohammed Ali Haggag',
 					'Graphic Designer'
@@ -127,8 +103,32 @@ aTeam2 = [
 					
 				  ],
 				  [
+					'Magdy Ragab',
+					'Tester'				
+				  ],
+				  [
+					'Ahmed Omar',
+					'Tester'				
+				  ],
+				  [
+					'Rashad Kamsheh',
+					'Tester'
+				  ],
+				  [
+                    			'Nehemiah Jacob',
+                    			'Tester'               
+                  		  ],
+                  		  [
+					'Muhammed Amr Elsayed',
+					'Tester'					
+		  		  ],
+		  		  [
+                    			'Abubakr Ahmed Fayez',
+                    			'Tester'                    			
+                  		  ],				  				  
+				  [
 					'Mohamed Elzainy',
-					'Web Designer'
+					'Tester'
 					
 				  ],
 				  [
@@ -293,27 +293,27 @@ aTeam2 = [
 				  ],
 				  [
 					'Sofy Abbas',
-					'Video Tutorials'
+					'Tester'
 					
 				  ],
 				  [
 					'Ali Aliraqi',
-					'Video Tutorials'
+					'Tester'
 					
 				  ],
 				  [
 					'Mohamed Elkehlawy Mahmoud',
-					'Arabic Tutorials'
+					'Tester'
 					
 				  ],
 				  [
 					'Reem Basheer',
-					'Arabic Tutorials'
+					'Tester'
 					
 				  ],
                   [
                     'Yasmin Alwaan',
-                    'Arabic Tutorials'
+                    'Tester'
                     
                   ],
 	          [
@@ -323,16 +323,16 @@ aTeam2 = [
                   ],
                   [
                     'Abdelraouf Mohamed',
-                    'Tester/Samples'
+                    'Tester'
                     
                   ],
                   [
                     'Abdelrahman Fawzy Omar',
-                    'Tester/Samples'                    
+                    'Tester'                    
                   ],
 		  [
                     'Ramy Elganzorey',
-                    'Video Tutorials'
+                    'Tester'
                     
                   ],
 		  [
@@ -791,22 +791,22 @@ aTeam2 = [
                   ],
 				  [
                     'John Storm (SienSystem)',
-                    'Tester/Samples'
+                    'Tester'
                     
                   ],
 				  [
                     'Hassan Ahmed',
-                    'Tester/Extensions'
+                    'Tester'
                     
                   ],
 				  [
                     'Jamie Cooper',
-                    'English Revision'
+                    'Tester'
                     
                   ],
 				  [
                     'Muhammad Goni',
-                    'Ring2EXE Tester'
+                    'Tester'
                     
                   ],
   				  [
@@ -827,21 +827,6 @@ aTeam2 = [
 				  [
                     'Peter Xiong',
                     'Tester'
-                    
-                  ],
-				  [
-                    'JustGo',
-                    'Pong Game'
-                    
-                  ],
-  				  [
-                    'Liezebra',
-                    'Tester'
-                    
-                  ],
-  	          [
-                    'Asta',
-                    'OOP Tester'
                     
                   ]
 ]
