@@ -1,3 +1,0 @@
-
-C:\ring\myring>echo off 
-Acun package nest installe !

@@ -1,3 +1,0 @@
-
-C:\ring\myring>echo off 
-Nom du Package: Premier package

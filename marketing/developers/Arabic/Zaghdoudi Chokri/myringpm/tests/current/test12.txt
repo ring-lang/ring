@@ -1,0 +1,4 @@
+
+C:\ring\myring>echo off 
+Supression du package: thirdpackage
+Suppression terminee!

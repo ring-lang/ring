@@ -1,0 +1,52 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 16 , : y = 78  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Premiére Application" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "btnCmd" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 81 , : y = 144  , 
+		 :width =  180 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "DireBonjoure",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SayHello"
+		]
+	],
+	[ :name = "btnExit" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 86 , : y = 198  , 
+		 :width =  180 , :height = 29 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Quitter",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseApp"
+		]
+	],
+	[ :name = "Layout1" , :id = 4 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 61 , : y = 277  , 
+		 :width =  235 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "btnCmd,btnExit"
+		]
+	]
+]
+# End Form Designer File

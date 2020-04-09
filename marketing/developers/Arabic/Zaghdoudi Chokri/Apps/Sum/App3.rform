@@ -1,0 +1,111 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 32 , : y = 97  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Troisiéme Application(Addition nombres)" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "lblNbr" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 22 , : y = 29  , 
+		 :width =  85 , :height = 24 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Entrer Nombre 1: ",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtNbr" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 117 , : y = 34  , 
+		 :width =  101 , :height = 18 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "cmdAdd" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 228 , : y = 29  , 
+		 :width =  101 , :height = 22 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Ajouter",
+		 :BtnImage =  "",
+		 :setClickEvent =  "AddNbr"
+		]
+	],
+	[ :name = "ListNbr" , :id = 5 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 21 , : y = 61  , 
+		 :width =  313 , :height = 81 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "cmdSum" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 149 , : y = 155  , 
+		 :width =  66 , :height = 26 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Calculer",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SumNbr"
+		]
+	],
+	[ :name = "lblTotale" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 18 , : y = 215  , 
+		 :width =  324 , :height = 80 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Layout1" , :id = 8 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 187 , : y = 8  , 
+		 :width =  129 , :height = 18 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "lblNbr,txtNbr,cmdAdd,ListNbr,cmdSum,lblTotale"
+		]
+	]
+]
+# End Form Designer File

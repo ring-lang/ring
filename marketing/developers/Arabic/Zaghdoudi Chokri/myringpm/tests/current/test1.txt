@@ -1,0 +1,10 @@
+
+C:\ring\myring>echo off 
+==============================
+Ring Package Manager (RingPM)
+2109 - Zaghdoudi Chokri
+==============================
+Usage  : ringpm  <command>
+Command: install <packagename>
+Command: remove  <packagename>
+Command: list

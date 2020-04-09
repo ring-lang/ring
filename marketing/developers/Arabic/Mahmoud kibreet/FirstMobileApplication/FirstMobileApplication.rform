@@ -1,0 +1,52 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 14 , : y = 64  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "First App for mobile" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 101 , : y = 123  , 
+		 :width =  182 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Say Hello",
+		 :BtnImage =  "",
+		 :setClickEvent =  "sayhello"
+		]
+	],
+	[ :name = "Button2" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 103 , : y = 185  , 
+		 :width =  182 , :height = 45 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Exit",
+		 :BtnImage =  "",
+		 :setClickEvent =  "closeapp"
+		]
+	],
+	[ :name = "Layout1" , :id = 4 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 96 , : y = 288  , 
+		 :width =  99 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Button1,Button2"
+		]
+	]
+]
+# End Form Designer File

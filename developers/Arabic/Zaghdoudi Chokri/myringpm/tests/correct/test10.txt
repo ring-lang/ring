@@ -1,4 +1,0 @@
-
-C:\ring\myring>echo off 
-Supression du package: secondpackage
-Suppression terminee!

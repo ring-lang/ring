@@ -1,0 +1,26 @@
+
+C:\ring\myring>echo off 
+Installation du package: thirdpackage
+Nom du Package         : Troisieme package
+Description            : Notre troisieme package utilise RingPM
+Developpeur            : Zaghdoudi chokri
+Version                : 1.0.0
+Licence                : MIT License
+Telechargement du fichier: test.ring
+Operation terminee!
+Installation du package: secondpackage
+Nom du Package         : Deuxieme package
+Description            : Notre deuxieme package utilise RingPM
+Developpeur            : Zaghdoudi chokri
+Version                : 1.0.0
+Licence                : MIT License
+Telechargement du fichier: test.ring
+Operation terminee!
+Installation du package: firstpackage
+Nom du Package         : Premier package
+Description            : Notre premier package utilise RingPM
+Developpeur            : Zaghdoudi chokri
+Version                : 1.0.0
+Licence                : MIT License
+Telechargement du fichier: test.ring
+Operation terminee!

@@ -1,0 +1,111 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 2 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 27 , : y = 24  , 
+		 :width =  400 , :height = 448 , 
+		 :title =  "Sum Number" , 
+		 :backcolor =  "#09b568" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 22 , : y = 13  , 
+		 :width =  164 , :height = 25 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Enter Number:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtNumber" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 14 , : y = 63  , 
+		 :width =  354 , :height = 38 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "btnAdd" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 9 , : y = 125  , 
+		 :width =  363 , :height = 39 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "#1028ff" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Add",
+		 :BtnImage =  "",
+		 :setClickEvent =  "AddNumber"
+		]
+	],
+	[ :name = "ListNumbers" , :id = 6 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 8 , : y = 177  , 
+		 :width =  364 , :height = 104 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "btnSum" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 8 , : y = 291  , 
+		 :width =  370 , :height = 39 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "#aa0000" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Sum",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SumNumbers"
+		]
+	],
+	[ :name = "lblSum" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 9 , : y = 342  , 
+		 :width =  367 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Layout1" , :id = 9 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 243 , : y = 10  , 
+		 :width =  126 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Label1,txtNumber,btnAdd,ListNumbers,btnSum,lblSum"
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,27 @@
+/*
+	Application : Ring Lessons
+	Author      : Salwa Abdrabu
+*/
+
+# Functional Programming Paradigm
+test(func {
+	? "Anonymouse Function"
+})
+
+test2()
+
+cFunc = "test2"
+call cFunc()
+
+myFunc = func{
+	? "Hello from mtFunc"
+}
+call myFunc()
+
+//===========================================
+func test f1
+	? "Hello"
+	call f1()
+
+func test2
+	? "Hello From test2"

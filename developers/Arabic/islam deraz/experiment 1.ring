@@ -1,1 +1,0 @@
-see "Let's Start"

@@ -1,0 +1,78 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 100 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Welcome" , 
+		 :backcolor =  "#55ffff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 23 , : y = 47  , 
+		 :width =  273 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Enter your name?",
+		 :textalign =  1
+		]
+	],
+	[ :name = "txtName" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 23 , : y = 102  , 
+		 :width =  273 , :height = 43 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#0000ff" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 23 , : y = 169  , 
+		 :width =  273 , :height = 47 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffff7f" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Say Hello",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SayHello"
+		]
+	],
+	[ :name = "lblMsg" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 23 , : y = 248  , 
+		 :width =  273 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Layout1" , :id = 6 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 23 , : y = 331  , 
+		 :width =  273 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Label1,txtName,Button1,lblMsg"
+		]
+	]
+]
+# End Form Designer File
