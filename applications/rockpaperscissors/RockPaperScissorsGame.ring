@@ -46,7 +46,7 @@ app = new QApp
 				setStyleSheet("background-color:white;")
 				seticon(new qicon(new qpixmap(ChoseList[Col])))
 				setIconSize(new qSize(200,200))
-				setclickevent("pButtonPress(" + string(Col) + ")")
+				setclickevent("ButtonPress(" + string(Col) + ")")
 				setSizePolicy(1,1) 
 			}				       
 		next
@@ -83,14 +83,14 @@ app = new QApp
 		btnNewGame = new QPushButton(win) {
 			setgeometry(170,550,150,40)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			setclickevent("pNewGame()")
+			setclickevent("NewGame()")
 			settext("New Game") 
 		}
 
 		btnExit = new QPushButton(win) { 
 			setgeometry(580,550,150,40)
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			setclickevent("pExit()")
+			setclickevent("Close()")
 			settext("Exit") 
 		}
 
@@ -126,7 +126,7 @@ app = new QApp
 
 }
 
-func pButtonPress Col
+func ButtonPress Col
 
 	if nextPlayer = 1
 		myChose = Col
@@ -147,10 +147,10 @@ func compChose
 		setIconSize(new qSize(width,height)) 
 	}
 	nextPlayer = 1
-	pResult()
+	Result()
     
 
-func pResult
+func Result
 
 	if (myChose = compChose)
 		labelScoreEnd.settext("Draw!")
@@ -186,7 +186,7 @@ func pResult
 		labelMyScoreSum.settext(string(myScore))
 	ok
 
-func pNewGame
+func NewGame
 
 	nextPlayer 	= 1
 	myScore 	= 0
@@ -207,7 +207,7 @@ func pNewGame
 	labelCompScoreSum.settext("0")
 
      
-func pExit
+func Close
 
 	win.close()
 	app.quit()	
