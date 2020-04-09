@@ -27,15 +27,6 @@
 			<a href="#lessons"    > الدروس التعليمية 	</a> <br/>
 		</td>
 	</tr>
-	<tr>
-		<td>
-			4
-		</td>
-		<td>
-			<a href="#morelessons"    > دروس إضافية	</a> <br/>
-		</td>
-	</tr>
-
 </table>
 
 <h1 id="description"> مقدمة عن اللغة </h1> 
