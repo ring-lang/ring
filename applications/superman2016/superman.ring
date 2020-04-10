@@ -17,6 +17,7 @@ func main
 
 	oGame {
 		title = "Super Man 2016"
+		icon  = "images/superman.jpg"
 		sprite
 		{
 			file = "images/superman.jpg"
