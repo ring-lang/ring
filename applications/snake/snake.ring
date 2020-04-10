@@ -56,6 +56,7 @@ func main
 	{
 
 		title = "Snake"
+		icon  = "images/door.jpg"
 
 		Map {
 
