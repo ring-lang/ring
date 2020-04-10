@@ -17,6 +17,7 @@ func main
 
 	oGame {
 		title = "Stars Fighter!"
+		icon = "images/player.png"
 		sprite
 		{
 			file = "images/menu1.jpg"
