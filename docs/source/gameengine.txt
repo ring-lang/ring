@@ -139,6 +139,7 @@ Attributes		Description
  FPS		Number determines how many times the draw() method will be called per second.
  FixedFPS	Number determines how many times the animate() method will be called per second.
  Title		String determines the window title of the game. 
+ Icon		String determines the window icon (file name)
  aObjects	List contains all objects in the game
  shutdown	True/False value to end the game loop
 ============	=================================================================================
