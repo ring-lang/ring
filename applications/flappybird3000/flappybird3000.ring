@@ -27,6 +27,7 @@ func main
 		FPS = GAME_FPS
 		FixedFPS = GAME_FixedFPS
 		title = "Flappy Bird 3000"
+		icon  = "images/fbbirddown.png"
 		sprite
 		{
 			file = "images/fbback.png"
