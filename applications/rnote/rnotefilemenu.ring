@@ -19,6 +19,8 @@ class RNoteFileMenu
 		}
 
 	func OneExtension cName
+		cFolder = JustFilePath(cName)
+		cName = JustFileName(cName)
 		# Check removing .ring if we have another extension
 			nPos = substr(cName,".")
 			if nPos > 0 and nPos < len(cName)-4
@@ -28,6 +30,7 @@ class RNoteFileMenu
 					cName += ".ring"
 				ok
 			ok
+		cName = cFolder + cName
 		return cName
 
 	func Open
