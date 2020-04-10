@@ -71,6 +71,7 @@ func main
 	{
 
 		title = "Sokoban"
+		icon  = "images/player.jpg"
 
 		Map {
 
