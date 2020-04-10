@@ -168,6 +168,9 @@ More Improvements
 * StarsFighter game - set the window icon
 * FlappyBird3000 game - set the window icon
 * SuperMan2016 game - set the window icon
+* Sokoban game - set the window icon
+* Snake game - set the window icon
+* Maze game - set the window icon
 * Game Engine - game class - icon property (set the window icon)
 * Type Hints library - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
