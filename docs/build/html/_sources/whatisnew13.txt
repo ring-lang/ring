@@ -171,6 +171,7 @@ More Improvements
 * Sokoban game - set the window icon
 * Snake game - set the window icon
 * Maze game - set the window icon
+* TicTacToe3D game - set the window icon
 * Game Engine - game class - icon property (set the window icon)
 * Type Hints library - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
