@@ -35,6 +35,7 @@ func main
 	{
 
 		title = "Maze"
+		icon  = "images/wall.jpg"
 
 		Map {
 

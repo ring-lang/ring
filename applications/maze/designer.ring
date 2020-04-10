@@ -12,7 +12,9 @@ func main					# Called by the Game Engine
 
 	oGame = New Game			# Create the Game Object
 	{
+
 		title = "Maze - Level Designer"
+		icon  = "images/wall.jpg"
 
 		Map {
 
