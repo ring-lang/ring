@@ -86,6 +86,9 @@ func gl_destroy_font pObject
 func gl_set_window_title display,title
 	al_set_window_title(display,title)
 
+func gl_set_window_icon display,icon
+	al_set_display_icon(display,gl_load_bitmap(icon))
+
 func gl_create_display screen_w,screen_h
 	return al_create_display(screen_w,screen_h)
 

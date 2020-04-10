@@ -32,6 +32,10 @@ class game from gamebase
 		title = cTitle
 		gl_set_window_title(display,title)
 
+	func seticon cIcon
+		icon = cIcon
+		gl_set_window_icon(display,icon)
+
 	func bracestart
 		nBracesCount++
 

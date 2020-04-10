@@ -105,6 +105,8 @@ func gl_destroy_font pObject
 func gl_set_window_title display,title
 	SDL_SetWindowTitle(display,title)
 
+func gl_set_window_icon display,icon
+
 func gl_create_display screen_w,screen_h
 	SDL_win = SDL_CreateWindow("", 100, 100, screen_w,screen_h, SDL_WINDOW_SHOWN)
 	SDL_ren = SDL_CreateRenderer(SDL_win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
