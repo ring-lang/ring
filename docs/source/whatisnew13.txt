@@ -165,7 +165,9 @@ More Improvements
 * Ring Notepad - Keyboard shortcuts for different styles
 * Ring Notepad - Support saving files in folders contains the dot character
 * Form Designer - ToolBox - Larger width in Windows style  
-* Stars Fighter game - window icon
+* StarsFighter game - set the window icon
+* FlappyBird3000 game - set the window icon
+* SuperMan2016 game - set the window icon
 * Game Engine - game class - icon property (set the window icon)
 * Type Hints library - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
