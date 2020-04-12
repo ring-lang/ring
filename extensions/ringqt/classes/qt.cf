@@ -1,27 +1,77 @@
 <loadfile> qt_settings.cf
 
+<filter> sysget("RINGQT_NOCORE") = ""
 <loadfile> qt_module_core.cf
+</filter>
+
+<filter> sysget("RINGQT_NOGUI") = ""
 <loadfile> qt_module_gui.cf
+</filter>
+
+<filter> sysget("RINGQT_NOWIDGETS") = ""
 <loadfile> qt_module_widgets.cf
+</filter>
+
+<filter> sysget("RINGQT_NOTESTLIB") = ""
 <loadfile> qt_module_testlib.cf
+</filter>
+
+<filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 <loadfile> qt_module_multimedia.cf
+</filter>
+
+<filter> sysget("RINGQT_NOMULTIMEDIAWIDGETS") = ""
 <loadfile> qt_module_multimediawidgets.cf
+</filter>
+
+<filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
 <loadfile> qt_module_printsupport.cf
+</filter>
+
+<filter> sysget("RINGQT_NONETWORK") = ""
 <loadfile> qt_module_network.cf
+</filter>
+
+<filter> sysget("RINGQT_NOSQL") = ""
 <loadfile> qt_module_sql.cf
+</filter>
+
+<filter> sysget("RINGQT_NOPOSITIONING") = ""
 <loadfile> qt_module_positioning.cf
+</filter>
+
+<filter> sysget("RINGQT_NOWEBKITWIDGETS") = ""
 <loadfile> qt_module_webkitwidgets.cf
+</filter>
+
+<filter> sysget("RINGQT_NOWEBENGINEWIDGETS") = ""
 <loadfile> qt_module_webenginewidgets.cf
+</filter>
+
+<filter> sysget("RINGQT_NOSERIALPORT") = ""
 <loadfile> qt_module_serialport.cf
+</filter>
+
+<filter> sysget("RINGQT_NOAXCONTAINER") = ""
 <loadfile> qt_module_axcontainer.cf
+</filter>
+
+<filter> sysget("RINGQT_NOQUICKWIDGETS") = ""
 <loadfile> qt_module_quickwidgets.cf
+</filter>
+
+<filter> sysget("RINGQT_NOQML") = ""
 <loadfile> qt_module_qml.cf
+</filter>
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
 <loadfile> qt_module_bluetooth.cf
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1"
+<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOSPEECH") = ""
 <loadfile> qt_module_speech.cf
+</filter>
+
+<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOQT3D") = ""
 <loadfile> qt_module_qt3d.cf
 </filter>
