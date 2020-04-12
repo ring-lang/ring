@@ -18,19 +18,16 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-#include "gnetworkaccessmanager.h"
+
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
 #include "gvideowidget.h"
 #include "gtimer.h"
-#include "gtcpserver.h"
 #include "giodevice.h"
-#include "gabstractsocket.h"
-#include "gtcpsocket.h"
 #include "gcolordialog.h"
 #include "gallevents.h"
-#include "gthread.h"
+
 #include "gplaintextedit.h"
 #include "gheaderview.h"
 #include "gprocess.h"
@@ -38,25 +35,12 @@ extern "C" {
 #include "highlighter.h"
 #include "gtoolbutton.h"
 
-<filter> sysget("RINGQT_NOBLUETOOTH") = ""
-#include "gbluetoothdevicediscoveryagent.h"
-#include "gbluetoothlocaldevice.h"
-#include "gbluetoothserver.h"
-#include "gbluetoothservicediscoveryagent.h"
-#include "gbluetoothsocket.h"
-#include "gbluetoothtransfermanager.h"
-#include "gbluetoothtransferreply.h"
-</filter>
-
 #include "gwindow.h"
 #include "gguiapplication.h"
 #include "gtextbrowser.h"
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
-#include "openglwidget.h"
-</filter>
 
 #include <QApplication>
 #include <QObject>
@@ -122,12 +106,6 @@ extern "C" {
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
-#include <QAbstractSocket>
-#include <QTcpSocket>
-#include <QTcpServer>
-#include <QNetworkProxy>
-#include <QHostAddress>
-#include <QHostInfo>
 #include <QList>
 #include <QFileInfo>
 #include <QDirModel>
@@ -147,23 +125,12 @@ extern "C" {
 #include <QRect>
 #include <QTextDocument>
 #include <QTime>
-#include <QTest>
+
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
 #include <QDate>
 #include <QTextCodec>
-#include <QtSql>
-#include <QSqlDatabase>
-#include <QSqlDriver>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QSqlIndex>
-#include <QSqlRecord>
-#include <QSqlField>
-#include <QSqlDriverCreatorBase>
-#include <QNetworkRequest>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
+
 #include <QPainterPath>
 #include <QImage>
 #include <QBitmap>
@@ -177,8 +144,7 @@ extern "C" {
 #include <QXmlStreamEntityDeclaration>
 #include <QXmlStreamAttributes>
 #include <QXmlStreamAttribute>
-#include <QThread>
-#include <QThreadPool>
+
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
@@ -219,26 +185,7 @@ extern "C" {
 #include <QDesktopServices>
 #include <QToolButton>
 #include <QStringRef>
-#include <QMutex>
-#include <QMutexLocker>
 #include <QBuffer>
-
-<filter> sysget("RINGQT_NOBLUETOOTH") = ""
-#include <QBluetoothAddress>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothDeviceInfo>
-#include <QBluetoothUuid>
-#include <QBluetoothHostInfo>
-#include <QBluetoothLocalDevice>
-#include <QBluetoothServer>
-#include <QBluetoothServiceDiscoveryAgent>
-#include <QBluetoothServiceInfo>
-#include <QBluetoothSocket>
-#include <QBluetoothTransferManager>
-#include <QBluetoothTransferReply>
-#include <QBluetoothTransferRequest>
-#include <QBluetoothUuid>
-</filter>
 
 #include <QDateTime>
 #include <QScreen>
@@ -271,6 +218,73 @@ extern "C" {
 #include <QChar>
 #include <QChildEvent>
 
+#include <QGraphicsView>
+
+#include <QTextStream>
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+</filter>
+
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+#include "openglwidget.h"
+</filter>
+
+
+<filter> sysget("RINGQT_NOSQL") = ""
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
+</filter>
+
+<filter> sysget("RINGQT_NONETWORK") = ""
+#include "gnetworkaccessmanager.h"
+#include "gtcpserver.h"
+#include "gabstractsocket.h"
+#include "gtcpsocket.h"
+#include <QAbstractSocket>
+#include <QTcpSocket>
+#include <QTcpServer>
+#include <QNetworkProxy>
+#include <QHostAddress>
+#include <QHostInfo>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+</filter>
+
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothServer>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothServiceInfo>
+#include <QBluetoothSocket>
+#include <QBluetoothTransferManager>
+#include <QBluetoothTransferReply>
+#include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
+</filter>
+
+<filter> sysget("RINGQT_NOPOSITIONING") = ""
 #include <QGeoPositionInfo>
 #include <QGeoCoordinate>
 #include <QGeoAddress>
@@ -284,7 +298,13 @@ extern "C" {
 #include <QGeoSatelliteInfo>
 #include <QGeoSatelliteInfoSource>
 #include <QNmeaPositionInfoSource>
+</filter>
 
+<filter> sysget("RINGQT_NOTESTLIB") = ""
+#include <QTest>
+</filter>
+
+<filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
 #include <QPrinterInfo>
 #include <QPrintPreviewWidget>
 #include "gprintpreviewwidget.h"
@@ -294,11 +314,17 @@ extern "C" {
 #include <QAbstractPrintDialog>
 #include <QPrintDialog>
 #include "gprintdialog.h"
+</filter>
 
-#include <QTextStream>
+<filter> sysget("RINGQT_NOTHREAD") = ""
+#include "gthread.h"
+#include <QThread>
+#include <QThreadPool>
+#include <QMutex>
+#include <QMutexLocker>
+</filter>
 
-
-<filter> (iswindows() or ismacosx())
+<filter> (iswindows() or ismacosx()) and sysget("RINGQT_NOQML") = ""
 #include <QQuickWidget>
 #include <QQmlError>
 #include "gquickwidget.h"
@@ -306,7 +332,7 @@ extern "C" {
 #include <QQmlEngine>
 </filter>
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOOPENGL") = "")
 
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
@@ -323,9 +349,10 @@ extern "C" {
 #include <QOpenGLShaderProgram>
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
+
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOSERIALPORT") = ""
 
 #include "gserialport.h"
 #include <QSerialPort>
@@ -333,13 +360,13 @@ extern "C" {
 
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "")
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "" and sysget("RINGQT_NOWEBKITWIDGETS") = "")
 #include "gwebview.h"
 #include <QWebSettings>
 #include <QWebView>
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1" and sysget("RINGQT_NOWEBENGINEWIDGETS") = "")
 #include "gwebengineview.h"
 #include <QWebEngineSettings>
 #include <QWebEngineView>
@@ -348,7 +375,7 @@ extern "C" {
 </filter>
 
 
-<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOAXCONTAINER") = "")
 
 #include <QAxBase>
 #include <QAxObject>
@@ -356,11 +383,13 @@ extern "C" {
 
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1"
+<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOSPEECH") = ""
 #include <QTextToSpeech>
 #include "gtexttospeech.h"
 #include <QVoice>
+</filter>
 
+<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOQT3D") = ""
 #include <Qt3DCore/QAbstractAspect>
 #include <Qt3DCore/QNode>
 #include <Qt3DCore/QNodeCommand>
@@ -412,8 +441,6 @@ extern "C" {
 #include <QDepthTest>
 #include <QViewport>
 </filter>
-
-#include <QGraphicsView>
 
 </code>
 
