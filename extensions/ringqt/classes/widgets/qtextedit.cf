@@ -31,7 +31,11 @@ QVariant loadResource(int, QUrl)
 void mergeCurrentCharFormat(QTextCharFormat)
 void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
 bool overwriteMode(void) 
+
+<filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
 void print(QPrinter * printer)  
+</filter>
+
 void setAcceptRichText(bool accept)
 void setCurrentCharFormat(QTextCharFormat)
 void setCursorWidth(int width)

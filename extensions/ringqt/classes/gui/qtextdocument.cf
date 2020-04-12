@@ -44,7 +44,11 @@ QTextObject *object(int objectIndex)
 QTextObject *objectForFormat(QTextFormat f)
 int pageCount(void)
 QSizeF pageSize(void)
+
+<filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
 void print(QPrinter *printer)
+</filter>
+
 void redo(QTextCursor *cursor)
 QVariant resource(int type, QUrl name)
 int revision(void)
