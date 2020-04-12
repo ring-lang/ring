@@ -22,7 +22,6 @@ extern "C" {
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
-#include "gvideowidget.h"
 #include "gtimer.h"
 #include "giodevice.h"
 #include "gcolordialog.h"
@@ -30,7 +29,6 @@ extern "C" {
 
 #include "gplaintextedit.h"
 #include "gheaderview.h"
-#include "gprocess.h"
 #include "codeeditor.h"
 #include "highlighter.h"
 #include "gtoolbutton.h"
@@ -88,10 +86,6 @@ extern "C" {
 #include <QCheckBox>
 #include <QRadioButton>
 #include <QButtonGroup>
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
-#include <QVideoWidget>
-#include <QPrinter>
 #include <QAction>
 #include <QEvent>
 #include <QMessageBox>
@@ -101,7 +95,6 @@ extern "C" {
 #include <QPicture>
 #include <QPen>
 #include <QColor>
-#include <QPrinter>
 #include <QFont>
 #include <QBrush>
 #include <QByteArray>
@@ -134,7 +127,7 @@ extern "C" {
 #include <QPainterPath>
 #include <QImage>
 #include <QBitmap>
-#include <QMediaContent>
+
 #include <QTableView>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
@@ -157,11 +150,6 @@ extern "C" {
 #include <QPlainTextEdit>
 #include <QGridLayout>
 #include <QTextCharFormat>
-#include <QCameraViewfinder>
-#include <QGraphicsVideoItem>
-#include <QVideoWidgetControl>
-#include <QCamera>
-#include <QCameraImageCapture>
 #include <QFontMetrics>
 #include <QList>
 #include <QSplashScreen>
@@ -176,7 +164,6 @@ extern "C" {
 #include <QSplitter>
 #include <QCompleter>
 #include <QString>
-#include <QProcess>
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QCursor>
@@ -217,10 +204,23 @@ extern "C" {
 #include <QClipboard>
 #include <QChar>
 #include <QChildEvent>
-
 #include <QGraphicsView>
-
 #include <QTextStream>
+#include <QBitArray>
+#include <QEasingCurve>
+
+<filter> sysget("RINGQT_NOMULTIMEDIA") = ""
+#include "gvideowidget.h"
+#include <QMediaContent>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QVideoWidget>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
+#include <QVideoWidgetControl>
+#include <QCamera>
+#include <QCameraImageCapture>
+</filter>
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include "gbluetoothdevicediscoveryagent.h"
@@ -233,7 +233,7 @@ extern "C" {
 </filter>
 
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOOPENGL") = "")
 #include "openglwidget.h"
 </filter>
 
@@ -305,6 +305,7 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
+#include <QPrinter>
 #include <QPrinterInfo>
 #include <QPrintPreviewWidget>
 #include "gprintpreviewwidget.h"
@@ -317,6 +318,8 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NOTHREAD") = ""
+#include <QProcess>
+#include "gprocess.h"
 #include "gthread.h"
 #include <QThread>
 #include <QThreadPool>
