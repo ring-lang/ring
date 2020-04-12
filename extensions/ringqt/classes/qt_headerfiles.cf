@@ -4,8 +4,116 @@ extern "C" {
 	#include "ring.h"
 }
 
-#include "gpushbutton.h"
+<filter> sysget("RINGQT_NOCORE") = ""
+#include "gtimer.h"
+#include "giodevice.h"
+#include "gprocess.h"
+#include "gthread.h"
+#include <QApplication>
+#include <QObject>
+#include <QSize>
+#include <QDir>
+#include <QVariant>
+#include <QUrl>
+#include <QEvent>
+#include <QTimer>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QXmlStreamNotationDeclaration>
+#include <QXmlStreamNamespaceDeclaration>
+#include <QXmlStreamEntityResolver>
+#include <QXmlStreamEntityDeclaration>
+#include <QXmlStreamAttributes>
+#include <QXmlStreamAttribute>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
+#include <QJsonValue>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QProcess>
+#include <QThread>
+#include <QThreadPool>
+#include <QMutex>
+#include <QMutexLocker>
+#include <QBitArray>
+#include <QEasingCurve>
+#include <QByteArray>
+#include <QIODevice>
+#include <QList>
+#include <QFileInfo>
+#include <QStringList>
+#include <QRect>
+#include <QTime>
+#include <QDate>
+#include <QTextCodec>
+#include <iterator>
+#include <QTextCharFormat>
+#include <QFontMetrics>
+#include <QList>
+#include <QPointF>
+#include <QPoint>
+#include <QString>
+#include <QUuid>
+#include <QStringRef>
+#include <QBuffer>
+#include <QDateTime>
+#include <QFile>
+#include <QFileDevice>
+#include <QStandardPaths>
+#include <QMimeData>
+#include <QChar>
+#include <QChildEvent>
+#include <QTextStream>
+</filter>
+
+<filter> sysget("RINGQT_NOGUI") = ""
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gdrag.h"
+#include <QPixmap>
+#include <QIcon>
+#include <QVector2D>
+#include <QVector3D>
+#include <QVector4D>
+#include <QQuaternion>
+#include <QMatrix4x4>
+#include <QPainter>
+#include <QPicture>
+#include <QPen>
+#include <QColor>
+#include <QFont>
+#include <QBrush>
+#include <QTextCursor>
+#include <QTextBlock>
+#include <QTextDocumentFragment>
+#include <QKeySequence>
+#include <QTextDocument>
+#include <QPainterPath>
+#include <QImage>
+#include <QBitmap>
+#include <QLinearGradient>
+#include <QGradient>
+#include <QCursor>
+#include <QDesktopServices>
+#include <QScreen>
+#include <QWindow>
+#include <QGuiApplication>
+#include <QRegion>
+#include <QDrag>
+#include <QDropEvent>
+#include <QDragMoveEvent>
+#include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QClipboard>
+</filter>
+
+<filter> sysget("RINGQT_NOWIDGETS") = ""
+#include "gallevents.h"
 #include "gaction.h"
+#include "gpushbutton.h"
 #include "glineedit.h"
 #include "gtextedit.h"
 #include "glistwidget.h"
@@ -18,35 +126,22 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
-#include "gtimer.h"
-#include "giodevice.h"
 #include "gcolordialog.h"
-#include "gallevents.h"
-
 #include "gplaintextedit.h"
 #include "gheaderview.h"
 #include "codeeditor.h"
 #include "highlighter.h"
 #include "gtoolbutton.h"
-
-#include "gwindow.h"
-#include "gguiapplication.h"
 #include "gtextbrowser.h"
 #include "gdockwidget.h"
 #include "gstackedwidget.h"
 #include "gcalendarwidget.h"
-
-#include <QApplication>
-#include <QObject>
+#include "gtabbar.h"
 #include <QWidget>
 #include <QLabel>
-#include <QPixmap>
-#include <QIcon>
-#include <QSize>
 #include <QPushButton>
 #include <QMainWindow>
 #include <QVBoxLayout>
@@ -55,167 +150,69 @@ extern "C" {
 #include <QTextEdit>
 #include <QListWidget>
 #include <QTreeView>
-#include <QDir>
-#include <QFileSystemModel>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QComboBox>
-#include <QVariant>
-#include <QMenuBar>
-#include <QMenu>
-#include <QToolBar>
-#include <QMainWindow>
-#include <QStatusBar>
 #include <QDockWidget>
 #include <QTabWidget>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QProgressBar>
+#include <QSpinBox>
+#include <QSlider>
+#include <QFileSystemModel>
+#include <QMenuBar>
+#include <QMainWindow>
+#include <QMenu>
+#include <QToolBar>
+#include <QStatusBar>
 #include <QSizePolicy>
 #include <QFrame>
 #include <QAbstractScrollArea>
 #include <QAbstractItemView>
-#include <QProgressBar>
-#include <QSpinBox>
-#include <QSlider>
 #include <QAbstractSlider>
 #include <QDateEdit>
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-#include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QAction>
-#include <QEvent>
 #include <QMessageBox>
-#include <QTimer>
 #include <QFileDialog>
-#include <QPainter>
-#include <QPicture>
-#include <QPen>
-#include <QColor>
-#include <QFont>
-#include <QBrush>
-#include <QByteArray>
-#include <QIODevice>
-#include <QList>
-#include <QFileInfo>
 #include <QDirModel>
 #include <QModelIndex>
 #include <QFontDialog>
 #include <QDialog>
-#include <QTextCursor>
-#include <QTextBlock>
-#include <QTextDocumentFragment>
 #include <QColorDialog>
 #include <QHeaderView>
-#include <QStringList>
-#include <QKeySequence>
 #include <QLCDNumber>
 #include <QInputDialog>
 #include <QDesktopWidget>
-#include <QRect>
-#include <QTextDocument>
-#include <QTime>
-
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
-#include <QDate>
-#include <QTextCodec>
-
-#include <QPainterPath>
-#include <QImage>
-#include <QBitmap>
-
 #include <QTableView>
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
-#include <QXmlStreamNotationDeclaration>
-#include <QXmlStreamNamespaceDeclaration>
-#include <QXmlStreamEntityResolver>
-#include <QXmlStreamEntityDeclaration>
-#include <QXmlStreamAttributes>
-#include <QXmlStreamAttribute>
-
-#include <QRegularExpression>
-#include <QRegularExpressionMatch>
-#include <QRegularExpressionMatchIterator>
-#include <QJsonValue>
-#include <QJsonParseError>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <iterator>
 #include <QPlainTextEdit>
 #include <QGridLayout>
-#include <QTextCharFormat>
-#include <QFontMetrics>
-#include <QList>
 #include <QSplashScreen>
 #include <QBoxLayout>
 #include <QLayout>
-#include <QLinearGradient>
-#include <QGradient>
-#include <QPointF>
-#include <QPoint>
 #include <QStyleFactory>
 #include <QScrollArea>
 #include <QSplitter>
 #include <QCompleter>
-#include <QString>
 #include <QMdiArea>
 #include <QMdiSubWindow>
-#include <QCursor>
 #include <QListView>
-#include <QUuid>
-#include <QDesktopServices>
 #include <QToolButton>
-#include <QStringRef>
-#include <QBuffer>
-
-#include <QDateTime>
-#include <QScreen>
-#include <QWindow>
-#include <QGuiApplication>
 #include <QTextBrowser>
-#include <QRegion>
 #include <QStackedWidget>
 #include <QCalendarWidget>
-#include <QVector2D>
-#include <QVector3D>
-#include <QVector4D>
-#include <QQuaternion>
-#include <QMatrix4x4>
-
 #include <QTabBar>
-#include "gtabbar.h"
-#include <QFile>
-#include <QFileDevice>
-#include <QStandardPaths>
-
-#include <QDrag>
-#include "gdrag.h"
-#include <QMimeData>
-#include <QDropEvent>
-#include <QDragMoveEvent>
-#include <QDragEnterEvent>
-#include <QDragLeaveEvent>
-#include <QClipboard>
-#include <QChar>
-#include <QChildEvent>
 #include <QGraphicsView>
-#include <QTextStream>
-#include <QBitArray>
-#include <QEasingCurve>
+</filter>
 
-#include <QProcess>
-#include "gprocess.h"
-#include "gthread.h"
-#include <QThread>
-#include <QThreadPool>
-#include <QMutex>
-#include <QMutexLocker>
 
 <filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 #include "gvideowidget.h"
@@ -287,6 +284,7 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NOPOSITIONING") = ""
+#include "ggeopositioninfosource.h"
 #include <QGeoPositionInfo>
 #include <QGeoCoordinate>
 #include <QGeoAddress>
@@ -294,7 +292,6 @@ extern "C" {
 #include <QGeoAreaMonitorSource>
 #include <QGeoCircle>
 #include <QGeoPositionInfoSource>
-#include "ggeopositioninfosource.h"
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QGeoSatelliteInfo>
@@ -307,23 +304,23 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
+#include "gprintpreviewwidget.h"
+#include "gprintpreviewdialog.h"
+#include "gprintdialog.h"
 #include <QPrinter>
 #include <QPrinterInfo>
 #include <QPrintPreviewWidget>
-#include "gprintpreviewwidget.h"
 #include <QPrintPreviewDialog>
-#include "gprintpreviewdialog.h"
 #include <QPageSetupDialog>
 #include <QAbstractPrintDialog>
 #include <QPrintDialog>
-#include "gprintdialog.h"
 </filter>
 
 
 <filter> (iswindows() or ismacosx()) and sysget("RINGQT_NOQML") = ""
+#include "gquickwidget.h"
 #include <QQuickWidget>
 #include <QQmlError>
-#include "gquickwidget.h"
 #include <QQuickView>
 #include <QQmlEngine>
 </filter>
@@ -345,15 +342,12 @@ extern "C" {
 #include <QOpenGLShaderProgram>
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
-
 </filter>
 
 <filter> (sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOSERIALPORT") = ""
-
 #include "gserialport.h"
 #include <QSerialPort>
 #include <QSerialPortInfo>
-
 </filter>
 
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "" and sysget("RINGQT_NOWEBKITWIDGETS") = "")
@@ -372,20 +366,20 @@ extern "C" {
 
 
 <filter> (iswindows() and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOAXCONTAINER") = "")
-
 #include <QAxBase>
 #include <QAxObject>
 #include <QAxWidget>
-
 </filter>
 
 <filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOSPEECH") = ""
-#include <QTextToSpeech>
 #include "gtexttospeech.h"
+#include <QTextToSpeech>
 #include <QVoice>
 </filter>
 
 <filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOQT3D") = ""
+#include "gobjectpicker.h"
+#include "gframeaction.h"
 #include <Qt3DCore/QAbstractAspect>
 #include <Qt3DCore/QNode>
 #include <Qt3DCore/QNodeCommand>
@@ -418,9 +412,7 @@ extern "C" {
 #include <Qt3DRender/QTexture>
 #include <Qt3DExtras/QTextureMaterial>
 #include <Qt3DRender/QObjectPicker>
-#include "gobjectpicker.h"
 #include <Qt3DLogic/QFrameAction>
-#include "gframeaction.h"
 #include <Qt3DLogic/QLogicAspect>
 #include <Qt3DExtras/QExtrudedTextMesh>
 #include <Qt3DExtras/QText2DEntity>
