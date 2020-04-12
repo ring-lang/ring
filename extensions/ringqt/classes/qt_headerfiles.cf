@@ -209,6 +209,14 @@ extern "C" {
 #include <QBitArray>
 #include <QEasingCurve>
 
+#include <QProcess>
+#include "gprocess.h"
+#include "gthread.h"
+#include <QThread>
+#include <QThreadPool>
+#include <QMutex>
+#include <QMutexLocker>
+
 <filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 #include "gvideowidget.h"
 #include <QMediaContent>
@@ -231,12 +239,6 @@ extern "C" {
 #include "gbluetoothtransfermanager.h"
 #include "gbluetoothtransferreply.h"
 </filter>
-
-
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOOPENGL") = "")
-#include "openglwidget.h"
-</filter>
-
 
 <filter> sysget("RINGQT_NOSQL") = ""
 #include <QtSql>
@@ -317,15 +319,6 @@ extern "C" {
 #include "gprintdialog.h"
 </filter>
 
-<filter> sysget("RINGQT_NOTHREAD") = ""
-#include <QProcess>
-#include "gprocess.h"
-#include "gthread.h"
-#include <QThread>
-#include <QThreadPool>
-#include <QMutex>
-#include <QMutexLocker>
-</filter>
 
 <filter> (iswindows() or ismacosx()) and sysget("RINGQT_NOQML") = ""
 #include <QQuickWidget>
@@ -335,8 +328,8 @@ extern "C" {
 #include <QQmlEngine>
 </filter>
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOOPENGL") = "")
-
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+#include "openglwidget.h"
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>
 #include <QSurfaceFormat>
