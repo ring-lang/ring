@@ -168,11 +168,13 @@ More Improvements
 * Game Engine - Game Class - Icon property (set the window icon)
 * Set the window icon for many games developed using the Ring game engine
 * Type Hints library - Better Code
+* StdLib - IsMainSourceFile() function - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
 * Ring Compiler - ring_stmt.c - Better Code
 * Ring Compiler - ring_expr.c - Better Code
 * Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
+* Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - optional parameter for the (Not Case Sensitive) feature.
