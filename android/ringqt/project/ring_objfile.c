@@ -26,6 +26,9 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Write Code */
 	fprintf( fObj , "# Program Code\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingGenCode,fObj);
+	/* Write Files List */
+	fprintf( fObj , "# Files List\n"  ) ;
+	ring_objfile_writelist(pRingState->pRingFilesList,fObj);
 	/* Close File */
 	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
@@ -34,14 +37,22 @@ void ring_objfile_writefile ( RingState *pRingState )
 void ring_objfile_writelist ( List *pList,FILE *fObj )
 {
 	List *pList2  ;
-	int x,x2  ;
+	int x,x2,lCont  ;
 	char *cString  ;
 	char cKey[11]  ;
 	strcpy(cKey,"ringstring");
 	fprintf( fObj , "{\n"  ) ;
 	/* Write List Items */
+	lCont = 1 ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		pList2 = ring_list_getlist(pList,x);
+		if ( ring_list_islist(pList,x) ) {
+			pList2 = ring_list_getlist(pList,x);
+		}
+		else {
+			/* For the Files List */
+			pList2 = pList ;
+			lCont = 0 ;
+		}
 		fprintf( fObj , "[T]\n"  ) ;
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			if ( ring_list_isstring(pList2,x2) ) {
@@ -69,6 +80,9 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 			}
 		}
 		fprintf( fObj , "[E]\n"  ) ;
+		if ( lCont == 0 ) {
+			break ;
+		}
 	}
 	fprintf( fObj , "}\n"  ) ;
 }
@@ -87,22 +101,23 @@ int ring_objfile_readstring ( RingState *pRingState,char *cString )
 
 int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSource )
 {
-	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack  ;
+	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack  ;
 	ring_state_log(pRingState,"function: ring_objfile_readfromsource() start");
 	/* Create Lists */
 	pListFunctions = ring_list_new_gc(pRingState,0);
 	pListClasses = ring_list_new_gc(pRingState,0);
 	pListPackages = ring_list_new_gc(pRingState,0);
 	pListCode = ring_list_new_gc(pRingState,0);
+	pListFiles = ring_list_new_gc(pRingState,0);
 	pListStack = ring_list_new_gc(pRingState,0);
 	/* Process Content (File or String) */
 	if ( nSource == RING_OBJFILE_READFROMFILE ) {
-		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
+		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListFiles, pListStack) ) {
 			return 0 ;
 		}
 	}
 	else if ( nSource ==RING_OBJFILE_READFROMSTRING ) {
-		if ( ! ring_objfile_processstring(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
+		if ( ! ring_objfile_processstring(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListFiles, pListStack) ) {
 			return 0 ;
 		}
 	}
@@ -128,7 +143,7 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	return 1 ;
 }
 
-int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
+int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode, List *pListFiles,List  *pListStack )
 {
 	FILE *fObj;
 	signed char c  ;
@@ -194,6 +209,9 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						break ;
 					case 4 :
 						pList = pListCode ;
+						break ;
+					case 5 :
+						pList = pListFiles ;
 						break ;
 				}
 				break ;
@@ -310,7 +328,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	return 1 ;
 }
 
-int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
+int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode, List *pListFiles,List  *pListStack )
 {
 	signed char c  ;
 	int nActiveList,nValue,nBraceEnd,nOutput  ;
@@ -371,6 +389,9 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						break ;
 					case 4 :
 						pList = pListCode ;
+						break ;
+					case 5 :
+						pList = pListFiles ;
 						break ;
 				}
 				break ;
