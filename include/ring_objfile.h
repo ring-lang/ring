@@ -16,9 +16,9 @@ int ring_objfile_readstring ( RingState *pRingState,char *cString ) ;
 
 int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourceType ) ;
 
-int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack ) ;
+int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List *pListFiles,List  *pListStack ) ;
 
-int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack ) ;
+int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List *pListFiles,List  *pListStack ) ;
 
 RING_API void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 
