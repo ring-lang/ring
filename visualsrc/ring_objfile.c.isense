@@ -12,7 +12,7 @@ ring_objfile_writelist
 Type: List *
 pList2
 Type: int
-x,x2
+x,x2,lCont
 Type: char *
 cString
 Type: char
@@ -21,7 +21,7 @@ ring_objfile_readfile
 ring_objfile_readstring
 ring_objfile_readfromsource
 Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
 ring_objfile_processfile
 fObj
 Type: signed char
