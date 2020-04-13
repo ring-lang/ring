@@ -136,9 +136,13 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	**  Update the Files List 
 	**  Delete the old list (Contains only one file - the *.ringo file name) 
 	*/
-	ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
-	/* Add all source code files (*.ring files) in the project */
-	pRingState->pRingFilesList = pListFiles ;
+	ring_list_deleteallitems_gc(pRingState,pRingState->pRingFilesList);
+	/*
+	**  Add all source code files (*.ring files) in the project 
+	**  The List contains sub list - i.e. looks like  [  [ files ] ] - but we need [ files ] only 
+	**  So we get the first item using ring_list_getlist() function 
+	*/
+	ring_list_copy_gc(pRingState,pRingState->pRingFilesList,ring_list_getlist(pListFiles,1));
 	#ifdef DEBUG_OBJFILE
 	puts("Update Done! ");
 	puts("New Code List ");
