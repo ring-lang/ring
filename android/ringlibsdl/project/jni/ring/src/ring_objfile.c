@@ -132,6 +132,13 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	pRingState->pRingClassesMap = pListClasses ;
 	pRingState->pRingPackagesMap = pListPackages ;
 	pRingState->pRingGenCode = pListCode ;
+	/*
+	**  Update the Files List 
+	**  Delete the old list (Contains only one file - the *.ringo file name) 
+	*/
+	ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
+	/* Add all source code files (*.ring files) in the project */
+	pRingState->pRingFilesList = pListFiles ;
 	#ifdef DEBUG_OBJFILE
 	puts("Update Done! ");
 	puts("New Code List ");
