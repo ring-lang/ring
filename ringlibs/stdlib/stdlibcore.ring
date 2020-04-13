@@ -723,22 +723,7 @@ Func Readline fp
 	output		: True/False 
 */      
 Func IsMainSourceFile
-	if len(sysargv) >= 2
-		if PrevFileName() = substr(sysargv[2],"ringo","ring")
-			return true
-		else 
-			if len(ringvm_fileslist()) >= 1
-				if Prevfilename() = ringvm_fileslist()[1]
-					return True
-				ok
-			ok
-		ok
-	else    # We are using Ring2EXE and we have executable code 
-		if Prevfilename() = substr(ringvm_fileslist()[1],"ringo","ring")
-			return true 
-		ok
-	ok
-	return false
+	return Prevfilename() = ringvm_fileslist()[1]
 
 /*
 	Function Name	: Substring
