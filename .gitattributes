@@ -1,8 +1,8 @@
 docs/* linguist-documentation
-website/* linguist-documentation
+marketing/website/* linguist-documentation
 editor/* linguist-documentation
 android/* linguist-documentation
-libdepwin/* linguist-documentation
+extensions/libdepwin/* linguist-documentation
 *.h linguist-language=C
 *.html linguist-language=Ring
 *.rhtml linguist-language=Ring
