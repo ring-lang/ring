@@ -7,6 +7,9 @@ The folder CodeGen contains a tool (Written in Ring)
 to generate C/C++ code that wraps C/C++ functions/classes
 to be used from Ring code
 
+The folder LibDepWin contains the libraries required to 
+build Ring extensions on Microsoft Windows
+
 The folder RingBeep contains a simple example to learn how to create an extension using the Code Generator
 
 The folder RingMouseEvent Another simple example to learn how to create an extension
