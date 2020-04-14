@@ -178,3 +178,4 @@ More Improvements
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - optional parameter for the (Not Case Sensitive) feature.
+* The ring/libdepwin folder is moved to ring/extensions/libdepwin
