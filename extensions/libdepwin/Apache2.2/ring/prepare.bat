@@ -1,1 +1,1 @@
-%cd%/../../../bin/ring.exe prepare.ring
+%cd%/../../../../bin/ring.exe prepare.ring
