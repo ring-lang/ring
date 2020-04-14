@@ -18,7 +18,7 @@ class ServerPrepare
 
 	cExeFolder  	 = substr(exefolder(),"\","/")
 	cRingFolder 	 = substr(cExeFolder,"/bin","")
-	cServerPath 	 = cRingFolder+"libdepwin/Apache2.2"
+	cServerPath 	 = cRingFolder+"extensions/libdepwin/Apache2.2"
 	cApplicationPath = cRingFolder+"ringlibs/weblib"
 	cPortNumber	 = "8080"
 
@@ -60,7 +60,7 @@ class ServerPrepare
 
 	func UseFolderHtdocs lFlag
 		if lFlag
-			setApplicationPath(cRingFolder+"libdepwin/Apache2.2/htdocs")
+			setApplicationPath(cRingFolder+"extensions/libdepwin/Apache2.2/htdocs")
 		ok
 
 	func setPortNumber nPort
