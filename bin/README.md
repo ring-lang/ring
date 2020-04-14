@@ -1,8 +1,8 @@
 Ring programming language - Bin folder
 ======================================
 
-In this folder we store the binary files (Executable files).
+In this folder 
 
-Don't commit the binary files.
+(1) We will store the executable files (Don't commit the binary files)
 
-Also we have *.ring files for loading the standard libraries!
+(2) We have *.ring files for loading the standard libraries!
