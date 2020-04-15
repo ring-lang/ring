@@ -1,5 +1,5 @@
 # Project : CalmoSoft Matching Game
-# Date    : 10/04/2020-08:16:58
+# Date    : 12/04/2020-17:04:48
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : calmosoft@gmail.com
 
@@ -49,28 +49,44 @@ randCapital = RandomList(randCountry)
 oApp = New QApp {
 
        win = new qWidget() {
-                 resize(700,900)
+                 resize(1250,900)
                  setwindowtitle("Matching Game")
 
-       for x = 1 to len(Countries)
-           Button1[x] = new qPushButton(win) {
-                        setgeometry(100,100+(x-1)*40,200,40)
-                        setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                        settext(SortCountries[x])
-           } 
-       next
+      Table1 = new qtablewidget(win) {
 
-       for x = 1 to len(Capitals)
-           Button2[x] = new qPushButton(win) {
-                        setgeometry(400,100+(x-1)*40,200,40)
-                        setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                        settext(SortCapitals[x])
-           } 
-       next
+               setgeometry(100,100,450,220)
+               setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+               setcolumncount(1) 
+               setrowcount(len(MatchingList))
+               setcolumnwidth(0,450)
+
+               for x = 1 to len(Countries)
+                   item1 = new qtablewidgetitem(SortCountries[x])
+                   Table1.setitem(x-2,1,item1)
+               next
+
+              show()
+
+     }
+
+     Table2 = new qtablewidget(win) {
+
+              setgeometry(700,100,450,220)
+              setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+              setcolumncount(1) 
+              setrowcount(len(MatchingList))
+              setcolumnwidth(0,450)
+
+              for x = 1 to len(Capitals)
+                  item2 = new qtablewidgetitem(SortCapitals[x])
+                  Table2.setitem(x-2,1,item2)
+              next
+              show()
+     }
 
        for x = 1 to limit
            Button3[x] = new qPushButton(win) {
-                        setgeometry(100,390+x*40,200,40)
+                        setgeometry(100,390+x*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                         setclickevent("countryClick(" + string(x) + ")")
                         settext(Countries[rndCountry[x]])
@@ -79,7 +95,7 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button4[x] = new qPushButton(win) {
-                        setgeometry(400,390+x*40,200,40)
+                        setgeometry(700,390+x*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                         setclickevent("capitalClick(" + string(x) + ")")
                         settext(Capitals[randCapital[x]])
@@ -88,7 +104,7 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button5[x] = new qPushButton(win) {
-                        setgeometry(100,650+(x-1)*40,200,40)
+                        setgeometry(100,650+(x-1)*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
            } 
        next
@@ -96,7 +112,7 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button6[x] = new qPushButton(win) {
-                        setgeometry(400,650+(x-1)*40,200,40)
+                        setgeometry(700,650+(x-1)*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
            } 
        next
@@ -108,44 +124,43 @@ oApp = New QApp {
      }
 
      labelCapitals = new QLabel(win) {
-                         setgeometry(400,60,120,20)
+                         setgeometry(700,60,120,20)
                          setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                          settext("Capitals:")
      }
 
      labelSort = new QLabel(win) {
-                     setgeometry(200,380,650,20 )
+                     setgeometry(470,380,650,20 )
                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                      settext("Countries and Capitals to sort:")
      }
 
      labelUserSort = new QLabel(win) {
-                         setgeometry(300,600,450,20)
+                         setgeometry(570,600,450,20)
                          setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                          settext("Your Sort:")
      }
 
      buttonCheckSort = new QPushButton(win) {
-                           setgeometry(100,820,150,30)
+                           setgeometry(230,820,150,30)
                            setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                            settext("Check Sort")
                            setClickEvent("checkSort()")
      }
 
-     buttonExit = new QPushButton(win) {
-                      setgeometry(450,820,150,30)
-                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                      settext("Exit")
-                      setClickEvent("pQuit()")
-     }
-
      buttonNewGame = new QPushButton(win) {
-                     setgeometry(275,820,150,30)
+                     setgeometry(550,820,150,30)
                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                      settext("New Game")
                      setClickEvent("newGame()")
      }
 
+     buttonExit = new QPushButton(win) {
+                      setgeometry(850,820,150,30)
+                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                      settext("Exit")
+                      setClickEvent("pQuit()")
+     }
 
      show()
      }
@@ -154,13 +169,44 @@ oApp = New QApp {
 
 func newGame()
 
+     numCountry = 0
+     numcapital = 0
+
+     for n = 1 to lenMatching
+         Countries[n] = MatchingList[n][1]
+         Capitals[n] = MatchingList[n][2]
+     next
+
+     SortCountries = sort(Countries)
+     SortCapitals = sort(Capitals)
+
+     randCountry = []
+
+     rnd1 = 1:lenMatching
+     rndCountry = RandomList(rnd1)
+     for n = 1 to limit
+         add(randCountry,rndCountry[n])
+     next
+  
+     randCapital = RandomList(randCountry)
+
+     for x = 1 to limit
+         Button5[x].settext("")
+     next
+     for x = 1 to limit
+         Button6[x].settext("")
+     next
+
        for x = 1 to limit
-           Button5[x].settext("")
+           Button3[x].setclickevent("countryClick(" + string(x) + ")")
+           Button3[x].settext(Countries[rndCountry[x]])
+           Button3[x].setenabled(true)
        next
 
-
        for x = 1 to limit
-           Button6[x].settext("")
+           Button4[x].setclickevent("capitalClick(" + string(x) + ")")
+           Button4[x].settext(Capitals[randCapital[x]])
+           Button4[x].setenabled(true)
        next
 
 func pQuit()
@@ -183,6 +229,7 @@ func countryClick(nr1)
         country = Countries[rndCountry[nr1]]
         Button5[numCountry].settext(country)
         add(userCountry,country)
+        Button3[nr1].setenabled(false)
      else
         return
      ok
@@ -193,6 +240,7 @@ func capitalClick(nr2)
         capital = Capitals[randCapital[nr2]]
         Button6[numCapital].settext(capital)
         add(userCapital,capital)
+        Button4[nr2].setenabled(false)
      else
         return
      ok
