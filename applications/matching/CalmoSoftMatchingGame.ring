@@ -247,13 +247,11 @@ func capitalClick(nr2)
 
 func checkSort()
      flag = 1
-     if (numCountry != limit) or (numCapital != limit)
-         MsgBox("Bad Sort!") 
-         return       
-     ok
      for n = 1 to limit
-         num = find(Countries, userCountry[n])
-         if Capitals[num] = userCapital[n]
+         Button5[n] { temp5 = text() }
+         Button6[n] { temp6 = text() }
+         num = find(Countries, temp5)
+         if (num > 0) and (temp6 = Capitals[num])
             flag = 1
          else
             flag = 0
