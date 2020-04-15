@@ -20,7 +20,7 @@ The language is portable (Windows, Linux, macOS, Android, etc.) and can be used 
 Console, GUI, Web, Games and Mobile applications. 
 The language is designed to be Simple, Small, Flexible and Fast. 
 
-To learn more about the programming language, visit [ring-lang.net](http://ring-lang.sf.net/#why)
+To learn more about the programming language, visit [ring-lang.net](http://ring-lang.sf.net)
 
 # Screen Shots
 
