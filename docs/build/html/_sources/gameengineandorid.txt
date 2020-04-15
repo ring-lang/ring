@@ -56,7 +56,7 @@ Download Requirements and Update the Android SDK
 Project Folder
 ==============
 
-Open the project folder : ring/android/ringlibsdl/project
+Open the project folder : ring/extensions/android/ringlibsdl/project
 
 .. image:: ringlibsdlandroid_shot1.png
 	:alt: RingLibSDL for Android
@@ -80,7 +80,7 @@ The execution starts from the start.ring file
 Building the project
 ====================
 
-Move to the ring/android/ringlibsdl/project folder 
+Move to the ring/extensions/android/ringlibsdl/project folder 
 
 We can build using the next command (We need to do this for one time only).
 
