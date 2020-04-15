@@ -10,6 +10,8 @@ to be used from Ring code
 The folder LibDepWin contains the libraries required to 
 build Ring extensions on Microsoft Windows
 
+The folder android contains Ring extensions for the Android platform
+
 The folder RingBeep contains a simple example to learn how to create an extension using the Code Generator
 
 The folder RingMouseEvent Another simple example to learn how to create an extension
