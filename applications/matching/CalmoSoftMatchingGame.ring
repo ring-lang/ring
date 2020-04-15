@@ -8,8 +8,6 @@ load "guilib.ring"
 load "matchinglist.ring"
 
 limit = 3
-row1 = -2
-row2 = -2
 numCountry = 0
 numcapital = 0
 lenMatching = len(MatchingList)
@@ -58,7 +56,8 @@ oApp = New QApp {
                setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                setcolumncount(1) 
                setrowcount(len(MatchingList))
-               setcolumnwidth(0,450)
+               setcolumnwidth(0,450) 
+               Table1.horizontalHeader().hide() 
 
                for x = 1 to len(Countries)
                    item1 = new qtablewidgetitem(SortCountries[x])
@@ -76,6 +75,8 @@ oApp = New QApp {
               setcolumncount(1) 
               setrowcount(len(MatchingList))
               setcolumnwidth(0,450)
+              Table2.horizontalHeader().hide()
+              Table2.verticalHeader().hide()
 
               for x = 1 to len(Capitals)
                   item2 = new qtablewidgetitem(SortCapitals[x])
