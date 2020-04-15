@@ -613,7 +613,7 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 	OSCreateOpenFolder(:mobile)
 	OSCreateOpenFolder(:qtproject)
 	msg("Copy RingQt for Mobile project files...")
-	OSCopyFile(exefolder() + "../android/ringqt/project/*.*" )
+	OSCopyFile(exefolder() + "../extensions/android/ringqt/project/*.*" )
 	OSDeleteFile("project.pro.user")
 	msg("Prepare the Ring Object (*.ringo) file...")
 	OSDeleteFile("ringapp.ring")
@@ -633,9 +633,9 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 	ok
 	msg("Copy Android folder for setting the application icon...")
 	if isWindows()
-		OSCopyFolder(exefolder() + "..\android\ringqt\project\","android" )
+		OSCopyFolder(exefolder() + "..\extensions\android\ringqt\project\","android" )
 	else
-		OSCopyFolder(exefolder() + "../android/ringqt/project/","android" )
+		OSCopyFolder(exefolder() + "../extensions/android/ringqt/project/","android" )
 	ok
 
 
