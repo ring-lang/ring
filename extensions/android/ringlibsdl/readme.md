@@ -26,7 +26,7 @@ Ring For Mobile Games Development using RingLibSDL
 
 		For Example : B:\mahmoud\Tools\Java-Android\adt-bundle-windows-x86-20140702\sdk
 
-(4) Open the project folder : ring/android/ringlibsdl/project
+(4) Open the project folder : ring/extensions/android/ringlibsdl/project
 
 You can add the source code (*.ring) and Images/Sound Files to the assets folder.
 
@@ -39,7 +39,7 @@ The execution starts from the start.ring file
 
 (5) Building the project
 
-Move to the ring/android/ringlibsdl/project folder 
+Move to the ring/extensions/android/ringlibsdl/project folder 
 
 We can build using the next command (We need to do this for one time only).
 
