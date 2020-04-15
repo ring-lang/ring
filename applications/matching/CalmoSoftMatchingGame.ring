@@ -45,49 +45,17 @@ next
 randCapital = RandomList(randCountry)
 
 oApp = New QApp {
+                 
+       StyleFusionBlack()
 
        win = new qWidget() {
+
                  resize(1250,900)
                  setwindowtitle("Matching Game")
 
-      Table1 = new qtablewidget(win) {
-
-               setgeometry(100,100,450,220)
-               setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-               setcolumncount(1) 
-               setrowcount(len(MatchingList))
-               setcolumnwidth(0,450) 
-               Table1.horizontalHeader().hide() 
-
-               for x = 1 to len(Countries)
-                   item1 = new qtablewidgetitem(SortCountries[x])
-                   Table1.setitem(x-2,1,item1)
-               next
-
-              show()
-
-     }
-
-     Table2 = new qtablewidget(win) {
-
-              setgeometry(700,100,450,220)
-              setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-              setcolumncount(1) 
-              setrowcount(len(MatchingList))
-              setcolumnwidth(0,450)
-              Table2.horizontalHeader().hide()
-              Table2.verticalHeader().hide()
-
-              for x = 1 to len(Capitals)
-                  item2 = new qtablewidgetitem(SortCapitals[x])
-                  Table2.setitem(x-2,1,item2)
-              next
-              show()
-     }
-
        for x = 1 to limit
            Button3[x] = new qPushButton(win) {
-                        setgeometry(100,390+x*40,450,40)
+                        setgeometry(100,150+x*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                         setclickevent("countryClick(" + string(x) + ")")
                         settext(Countries[rndCountry[x]])
@@ -96,7 +64,7 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button4[x] = new qPushButton(win) {
-                        setgeometry(700,390+x*40,450,40)
+                        setgeometry(700,150+x*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                         setclickevent("capitalClick(" + string(x) + ")")
                         settext(Capitals[randCapital[x]])
@@ -105,7 +73,7 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button5[x] = new qPushButton(win) {
-                        setgeometry(100,650+(x-1)*40,450,40)
+                        setgeometry(100,500+(x-1)*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
            } 
        next
@@ -113,51 +81,39 @@ oApp = New QApp {
 
        for x = 1 to limit
            Button6[x] = new qPushButton(win) {
-                        setgeometry(700,650+(x-1)*40,450,40)
+                        setgeometry(700,500+(x-1)*40,450,40)
                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
            } 
        next
 
-     labelCountries = new QLabel(win) {
-                          setgeometry(100,60,120,20)
-                          setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                          settext("Countries:")
-     }
-
-     labelCapitals = new QLabel(win) {
-                         setgeometry(700,60,120,20)
-                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                         settext("Capitals:")
-     }
-
      labelSort = new QLabel(win) {
-                     setgeometry(470,380,650,20 )
+                     setgeometry(470,80,650,20 )
                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                      settext("Countries and Capitals to sort:")
      }
 
      labelUserSort = new QLabel(win) {
-                         setgeometry(570,600,450,20)
+                         setgeometry(570,400,450,20)
                          setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                          settext("Your Sort:")
      }
 
      buttonCheckSort = new QPushButton(win) {
-                           setgeometry(230,820,150,30)
+                           setgeometry(230,720,150,30)
                            setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                            settext("Check Sort")
                            setClickEvent("checkSort()")
      }
 
      buttonNewGame = new QPushButton(win) {
-                     setgeometry(550,820,150,30)
+                     setgeometry(550,720,150,30)
                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                      settext("New Game")
                      setClickEvent("newGame()")
      }
 
      buttonExit = new QPushButton(win) {
-                      setgeometry(850,820,150,30)
+                      setgeometry(850,720,150,30)
                       setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                       settext("Exit")
                       setClickEvent("pQuit()")
