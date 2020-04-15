@@ -72,6 +72,7 @@ oApp = New QApp {
        LayoutButtonRow9 = new QHBoxLayout()
        LayoutButtonRow10 = new QVBoxLayout()
        LayoutButtonRow11 = new QHBoxLayout()
+       LayoutButtonRow12 = new QHBoxLayout()
 
        for x = 1 to limit
            Button1[x] = new qPushButton(win) {
@@ -134,11 +135,18 @@ oApp = New QApp {
                       setClickEvent("pQuit()")
      }
 
+     ButtonCear = new qPushButton(win) {
+                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                      settext("Clear")
+                      setClickEvent("pClear()")
+     }
+
      LayoutButtonRow1.AddWidget(labelSort)
      LayoutButtonRow8.AddWidget(labelUserSort)
      LayoutButtonRow11.AddWidget(labelEmpty)
 
      LayoutButtonRow9.AddWidget(buttonCheckSort)
+     LayoutButtonRow9.AddWidget(ButtonCear)
      LayoutButtonRow9.AddWidget(buttonNewGame)
      LayoutButtonRow9.AddWidget(buttonExit)
 
@@ -188,8 +196,6 @@ func newGame()
 
      for x = 1 to limit
          Button3[x].settext("")
-     next
-     for x = 1 to limit
          Button4[x].settext("")
          Button1[x].setclickevent("countryClick(" + string(x) + ")")
          Button1[x].settext(Countries[rndCountry[x]])
@@ -253,6 +259,16 @@ func checkSort()
      else
         MsgBox("Bad Sort!")
      ok
+
+func pClear()
+     numCountry = 0
+     numCapital = 0
+     for n = 1 to limit
+         Button3[n].settext("")
+         Button4[n].settext("")
+         Button1[n].setenabled(true)
+         Button2[n].setenabled(true)
+     next
 
 Func MsgBox(cText) 
      mb = new qMessageBox(win) 
