@@ -123,13 +123,13 @@ oApp = New QApp {
 
      buttonCheckSort = new QPushButton(win) {
                            setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                           settext("Check Sort")
+                           settext("Check")
                            setClickEvent("checkSort()")
      }
 
      buttonNewGame = new QPushButton(win) {
                      setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-                     settext("New Game")
+                     settext("New")
                      setClickEvent("newGame()")
      }
 
@@ -217,8 +217,8 @@ func newGame()
      next
 
      for n = 1 to limit
-         Button3[n].setstylesheet("background-color: gray;")
-         Button4[n].setstylesheet("background-color: gray;")
+         Button3[n].setstylesheet("background-color: ;")
+         Button4[n].setstylesheet("background-color: ;")
      next
 
 func pQuit()
@@ -292,8 +292,8 @@ func pClear()
          Button2[n].setenabled(true)
      next
      for n = 1 to limit
-         Button3[n].setstylesheet("background-color: gray;")
-         Button4[n].setstylesheet("background-color: gray;")
+         Button3[n].setstylesheet("background-color:;")
+         Button4[n].setstylesheet("background-color:;")
      next
    
 func pSolve()
