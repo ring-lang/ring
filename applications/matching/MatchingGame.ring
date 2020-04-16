@@ -55,7 +55,7 @@ oApp = New QApp {
 
                  resize(800,600)
                  setwindowtitle("Matching Game")
-                 setWinIcon(self,"match.png")
+                 setWinIcon(self,"images/match.png")
 
        LayoutButtonMain = new QVBoxLayout() {
                               setSpacing(C_SPACING)
