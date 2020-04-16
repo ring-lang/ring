@@ -294,7 +294,9 @@ func solve
 	for n = 1 to limit 
 		temp1	= Button1[n].text()
 		Button3[n].settext(temp1)
+		Button3[n].setstylesheet("background-color:orange;")
 		num	= find(Countries, temp1)
 		temp2	= Capitals[num]
-		Button4[n].settext(temp2) 
+		Button4[n].settext(temp2)
+		Button4[n].setstylesheet("background-color:orange;") 
 	next
