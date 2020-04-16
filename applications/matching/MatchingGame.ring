@@ -26,6 +26,9 @@ Button4 = list(limit)
 userCountry = []
 userCapital = []
 
+C_StylePink= ' background-color: Pink; border-radius: 8px; '
+C_StyleGreen  = ' background-color: Green; border-radius: 8px; '
+
 for n = 1 to lenMatching
     Countries[n] = MatchingList[n][1]
     Capitals[n] = MatchingList[n][2]
@@ -52,6 +55,7 @@ oApp = New QApp {
 
                  resize(800,600)
                  setwindowtitle("Matching Game")
+                 setWinIcon(self,"match.png")
 
        LayoutButtonMain = new QVBoxLayout() {
                               setSpacing(C_SPACING)
@@ -141,11 +145,18 @@ oApp = New QApp {
                       setClickEvent("pClear()")
      }
 
+     ButtonSolve = new qPushButton(win) {
+                       setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                       settext("Solve")
+                       setClickEvent("pSolve()")
+     }
+
      LayoutButtonRow1.AddWidget(labelSort)
      LayoutButtonRow8.AddWidget(labelUserSort)
      LayoutButtonRow11.AddWidget(labelEmpty)
 
      LayoutButtonRow9.AddWidget(buttonCheckSort)
+     LayoutButtonRow9.AddWidget(ButtonSolve)
      LayoutButtonRow9.AddWidget(ButtonCear)
      LayoutButtonRow9.AddWidget(buttonNewGame)
      LayoutButtonRow9.AddWidget(buttonExit)
@@ -205,6 +216,11 @@ func newGame()
          Button2[x].setenabled(true)
      next
 
+     for n = 1 to limit
+         Button3[n].setstylesheet("background-color: gray;")
+         Button4[n].setstylesheet("background-color: gray;")
+     next
+
 func pQuit()
      win.close()
 
@@ -255,9 +271,15 @@ func checkSort()
          ok
      next
      if flag = 1
-        MsgBox("Good Sort!")
+        for n = 1 to limit
+            Button3[n].setstylesheet("background-color: green;")
+            Button4[n].setstylesheet("background-color: green;")
+        next
      else
-        MsgBox("Bad Sort!")
+        for n = 1 to limit
+            Button3[n].setstylesheet("background-color: pink;")
+            Button4[n].setstylesheet("background-color: pink;")
+        next
      ok
 
 func pClear()
@@ -269,15 +291,18 @@ func pClear()
          Button1[n].setenabled(true)
          Button2[n].setenabled(true)
      next
+     for n = 1 to limit
+         Button3[n].setstylesheet("background-color: gray;")
+         Button4[n].setstylesheet("background-color: gray;")
+     next
 
-Func MsgBox(cText) 
-     mb = new qMessageBox(win) 
-	  {
-	      setWindowTitle('Matching Game')
-	      setText(cText)
-              setStandardButtons(QMessageBox_OK)
-              result = exec() 
-          }
-          return
-    
-
+func pSolve()
+     if (numCountry != limit) or (numCapital != limit)
+         return 
+     ok
+     for n = 1 to limit 
+         temp3 = Button3[n].text()
+         num = find(Countries, temp3)
+         temp5 = Capitals[num]
+         Button4[n].settext(temp5) 
+     next
