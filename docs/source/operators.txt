@@ -5,7 +5,7 @@
 Operators
 =========
 
-In this chapter we will introduce the operators provided by the Ring programming langauge.
+In this chapter we will introduce the operators provided by the Ring programming language.
 
 .. index:: 
 	pair: Operators; Arithmetic Operators
