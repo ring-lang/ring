@@ -222,6 +222,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank">Rock Paper Scissors Game</a>',
 					'<img src="rockgame.png" width="100%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
+					'<img src="matchinggame.png" width="100%">'
 				]
 			    ]
                  ],
