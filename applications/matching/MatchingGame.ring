@@ -277,8 +277,8 @@ func checkSort()
         next
      else
         for n = 1 to limit
-            Button3[n].setstylesheet("background-color: pink;")
-            Button4[n].setstylesheet("background-color: pink;")
+            Button3[n].setstylesheet("background-color: red;")
+            Button4[n].setstylesheet("background-color: red;")
         next
      ok
 
@@ -295,7 +295,7 @@ func pClear()
          Button3[n].setstylesheet("background-color: gray;")
          Button4[n].setstylesheet("background-color: gray;")
      next
-
+   
 func pSolve()
      if (numCountry != limit) or (numCapital != limit)
          return 
