@@ -297,12 +297,10 @@ func pClear()
      next
    
 func pSolve()
-     if (numCountry != limit) or (numCapital != limit)
-         return 
-     ok
      for n = 1 to limit 
-         temp3 = Button3[n].text()
-         num = find(Countries, temp3)
-         temp5 = Capitals[num]
-         Button4[n].settext(temp5) 
+         temp1 = Button1[n].text()
+         Button3[n].settext(temp1)
+         num = find(Countries, temp1)
+         temp2 = Capitals[num]
+         Button4[n].settext(temp2) 
      next
