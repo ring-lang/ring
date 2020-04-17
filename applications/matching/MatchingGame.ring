@@ -40,21 +40,21 @@ SortCapitals	= sort(Capitals)
 randCountry	= []
 
 rnd1		= 1:lenMatching
-rndCountry	= RandomList(rnd1)
+rndCountry	= randomList(rnd1)
 for n = 1 to limit
     randCountry + rndCountry[n]
 next
   
-randCapital	= RandomList(randCountry)
+randCapital	= randomList(randCountry)
 
-oApp = New QApp {
+oApp = new QApp {
                  
-	StyleFusionBlack()
+	styleFusionBlack()
 
-	win = new qWidget() {
+	win = new QWidget() {
 
 		resize(800,600)
-		setwindowtitle("Matching Game")
+		setWindowTitle("Matching Game")
 		setWinIcon(self,"images/match.png")
 
 		LayoutButtonMain = new QVBoxLayout() {
@@ -80,101 +80,110 @@ oApp = New QApp {
 
 		for x = 1 to limit
 
-			Button1[x] = new qPushButton(win) {
-				setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-				setclickevent("countryClick(" + string(x) + ")")
-				settext(Countries[rndCountry[x]])
+			Button1[x] = new QPushButton(win) {
+				setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+				setClickEvent("countryClick(" + string(x) + ")")
+				setText(Countries[rndCountry[x]])
 			} 
-			LayoutButtonCol2.addwidget(Button1[x])
+			LayoutButtonCol2.addWidget(Button1[x])
 
-			Button2[x] = new qPushButton(win) {
-				setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-				setclickevent("capitalClick(" + string(x) + ")")
-				settext(Capitals[randCapital[x]])
+			Button2[x] = new QPushButton(win) {
+				setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+				setClickEvent("capitalClick(" + string(x) + ")")
+				setText(Capitals[randCapital[x]])
 			} 
-			LayoutButtonCol3.addwidget(Button2[x])
+			LayoutButtonCol3.addWidget(Button2[x])
 
-			Button3[x] = new qPushButton(win) {
-				setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+			Button3[x] = new QPushButton(win) {
+				setFont(new QFont("Verdana",C_FONTSIZE,50,0))
 			} 
-			LayoutButtonCol5.addwidget(Button3[x])
+			LayoutButtonCol5.addWidget(Button3[x])
 
-			Button4[x] = new qPushButton(win) {
-				setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+			Button4[x] = new QPushButton(win) {
+				setFont(new QFont("Verdana",C_FONTSIZE,50,0))
 			}
-			LayoutButtonCol6.addwidget(Button4[x]) 
+			LayoutButtonCol6.addWidget(Button4[x]) 
 
 		next
 
 
 		labelSort = new QLabel(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Countries and Capitals to sort:")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Countries and Capitals to sort:")
 		}
 
 		labelUserSort = new QLabel(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Your Sort:")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Your Sort:")
 		}
 
 		labelEmpty = new QLabel(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("")
 		}
 
 		buttonCheckSort = new QPushButton(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Check")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Check")
 			setClickEvent("checkSort()")
 		}
 
 		buttonNewGame = new QPushButton(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("New")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("New")
 			setClickEvent("newGame()")
 		}
 
 		buttonExit = new QPushButton(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Exit")
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Exit")
 			setClickEvent("CloseGame()")
 		}
 
-		ButtonCear = new qPushButton(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Clear")
+		ButtonCear = new QPushButton(win) {
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Clear")
 			setClickEvent("Clear()")
 		}
 
-		ButtonSolve = new qPushButton(win) {
-			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			settext("Solve")
+		ButtonSolve = new QPushButton(win) {
+			setFont(new QFont("Verdana",C_FONTSIZE,50,0))
+			setText("Solve")
 			setClickEvent("Solve()")
 		}
 
-		LayoutButtonRow1.AddWidget(labelSort)
-		LayoutButtonRow8.AddWidget(labelUserSort)
-		LayoutButtonRow11.AddWidget(labelEmpty)
+		LayoutButtonRow1.addWidget(labelSort)
+		LayoutButtonRow8.addWidget(labelUserSort)
+		LayoutButtonRow11.addWidget(labelEmpty)
 
-		LayoutButtonRow9.AddWidget(buttonCheckSort)
-		LayoutButtonRow9.AddWidget(ButtonSolve)
-		LayoutButtonRow9.AddWidget(ButtonCear)
-		LayoutButtonRow9.AddWidget(buttonNewGame)
-		LayoutButtonRow9.AddWidget(buttonExit)
+		LayoutButtonRow9 { 
+			addWidget(buttonCheckSort)
+			addWidget(ButtonSolve)
+			addWidget(ButtonCear)
+			addWidget(buttonNewGame)
+			addWidget(buttonExit)
+		}
 
-		LayoutButtonRow4.AddLayout(LayoutButtonCol2)
-		LayoutButtonRow4.AddLayout(LayoutButtonCol3)
-		LayoutButtonRow7.AddLayout(LayoutButtonCol5)
-		LayoutButtonRow7.AddLayout(LayoutButtonCol6)
-		LayoutButtonRow10.AddLayout(LayoutButtonRow9)
+		LayoutButtonRow4 {
+			addLayout(LayoutButtonCol2)
+			addLayout(LayoutButtonCol3)
+		}
 
-		LayoutButtonMain.AddLayout(LayoutButtonRow1)
-		LayoutButtonMain.AddLayout(LayoutButtonRow4)
-		LayoutButtonMain.AddLayout(LayoutButtonRow8)
+		LayoutButtonRow7 { 
+			addLayout(LayoutButtonCol5)
+			addLayout(LayoutButtonCol6)
+		}
 
-		LayoutButtonMain.AddLayout(LayoutButtonRow7)
-		LayoutButtonMain.AddLayout(LayoutButtonRow11)
-		LayoutButtonMain.AddLayout(LayoutButtonRow10)
+		LayoutButtonRow10.addLayout(LayoutButtonRow9)
+
+		LayoutButtonMain { 
+			addLayout(LayoutButtonRow1)
+			addLayout(LayoutButtonRow4)
+			addLayout(LayoutButtonRow8)
+			addLayout(LayoutButtonRow7)
+			addLayout(LayoutButtonRow11)
+			addLayout(LayoutButtonRow10)
+		}
 
 		setLayout(LayoutButtonMain)
 
@@ -201,30 +210,40 @@ func newGame
 	randCountry	= []
 
 	rnd1	= 1:lenMatching
-	rndCountry = RandomList(rnd1)
+	rndCountry = randomList(rnd1)
 	for n = 1 to limit
 		randCountry + rndCountry[n]
 	next
   
-	randCapital = RandomList(randCountry)
+	randCapital = randomList(randCountry)
 
 	for x = 1 to limit
-		Button3[x].settext("")
-		Button4[x].settext("")
-		Button1[x].setclickevent("countryClick(" + string(x) + ")")
-		Button1[x].settext(Countries[rndCountry[x]])
-		Button1[x].setenabled(true)
-		Button2[x].setclickevent("capitalClick(" + string(x) + ")")
-		Button2[x].settext(Capitals[randCapital[x]])
-		Button2[x].setenabled(true)
-		Button3[x].setstylesheet("background-color: ;")
-		Button4[x].setstylesheet("background-color: ;")
+		Button1[x] { 
+			setClickEvent("countryClick(" + string(x) + ")")
+			setText(Countries[rndCountry[x]])
+			setEnabled(true)
+		}
+		Button2[x] { 
+			setClickEvent("capitalClick(" + string(x) + ")")
+			setText(Capitals[randCapital[x]])
+			setEnabled(true)
+		}
+		Button3[x] { 
+			setStyleSheet("background-color: ;")
+			setText("")
+		}
+		Button4[x] { 
+			setText("")
+			setStyleSheet("background-color: ;")
+		}
 	next
 
 func closeGame
+
 	win.close()
 
 func randomList aInput
+
 	aOutput = []
 	while len(aInput) > 1
 		nIndex = random(len(aInput)-1)
@@ -236,24 +255,27 @@ func randomList aInput
 	return aOutput
 
 func countryClick nr1
+
 	numCountry++
 	if numCountry <= limit
 		country = Countries[rndCountry[nr1]]
-		Button3[numCountry].settext(country)
+		Button3[numCountry].setText(country)
 		userCountry + country
-		Button1[nr1].setenabled(false)
+		Button1[nr1].setEnabled(false)
 	ok
 
 func capitalClick nr2
+
 	numCapital++
 	if numCapital <= limit
 		capital = Capitals[randCapital[nr2]]
-		Button4[numCapital].settext(capital)
+		Button4[numCapital].setText(capital)
 		userCapital + capital
-		Button2[nr2].setenabled(false)
+		Button2[nr2].setEnabled(false)
 	ok
 
 func checkSort
+
 	flag = 1
 	for n = 1 to limit
 		Button3[n] { temp5 = text() }
@@ -268,35 +290,37 @@ func checkSort
 	next
 	if flag = 1
 		for n = 1 to limit
-			Button3[n].setstylesheet("background-color: green;")
-			Button4[n].setstylesheet("background-color: green;")
+			Button3[n].setStyleSheet("background-color: green;")
+			Button4[n].setStyleSheet("background-color: green;")
 		next
 	else
 		for n = 1 to limit
-			Button3[n].setstylesheet("background-color: red;")
-			Button4[n].setstylesheet("background-color: red;")
+			Button3[n].setStyleSheet("background-color: red;")
+			Button4[n].setStyleSheet("background-color: red;")
 		next
 	ok
 
 func clear
+
 	numCountry = 0
 	numCapital = 0
 	for n = 1 to limit
-		Button3[n].settext("")
-		Button4[n].settext("")
-		Button1[n].setenabled(true)
-		Button2[n].setenabled(true)
-		Button3[n].setstylesheet("background-color:;")
-		Button4[n].setstylesheet("background-color:;")
+		Button3[n].setText("")
+		Button4[n].setText("")
+		Button1[n].setEnabled(true)
+		Button2[n].setEnabled(true)
+		Button3[n].setStyleSheet("background-color:;")
+		Button4[n].setStyleSheet("background-color:;")
 	next
    
 func solve
+
 	for n = 1 to limit 
 		temp1	= Button1[n].text()
-		Button3[n].settext(temp1)
-		Button3[n].setstylesheet("background-color:orange;")
+		Button3[n].setText(temp1)
+		Button3[n].setStyleSheet("background-color:orange;")
 		num	= find(Countries, temp1)
 		temp2	= Capitals[num]
-		Button4[n].settext(temp2)
-		Button4[n].setstylesheet("background-color:orange;") 
+		Button4[n].setText(temp2)
+		Button4[n].setStyleSheet("background-color:orange;") 
 	next
