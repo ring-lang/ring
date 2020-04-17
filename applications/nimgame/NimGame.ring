@@ -257,35 +257,38 @@ func pcMove()
          if match1 > 0
             rnd = random(match1-1)+1
             for m = 1 to rnd
-               deleteRow1()
+                sleep(0.5)
+                deleteRow1()
             next
             exit
          ok
 
-        if match2 > 0
-           rnd = random(match2-1)+1
-           for m = 1 to rnd
-               deleteRow2()
-           next
-           exit
-        ok
-
-        if match3 > 0
-            rnd = random(match3-1)+1
+         if match2 > 0
+            rnd = random(match2-1)+1
             for m = 1 to rnd
-               deleteRow3()
+                sleep(0.5)
+                deleteRow2()
             next
-            exit 
+            exit
          ok
 
-        if match4 > 0
-            rnd = random(match4-1)+1
-            for m = 1 to rnd
-               deleteRow4()
-            next
-            exit 
-         ok
+         if match3 > 0
+             rnd = random(match3-1)+1
+             for m = 1 to rnd
+                 sleep(0.5)
+                deleteRow3()
+             next
+             exit 
+          ok
 
+          if match4 > 0
+             rnd = random(match4-1)+1
+             for m = 1 to rnd
+                 sleep(0.5)
+                deleteRow4()
+             next
+             exit 
+          ok
      next
      pcMove = 0
 
