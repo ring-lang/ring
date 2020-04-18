@@ -61,6 +61,8 @@ SOURCES +=   \
     cpp/src/gtexttospeech.cpp \
     cpp/src/gobjectpicker.cpp \
     cpp/src/gframeaction.cpp \
+    cpp/src/gabstractaxis.cpp \
+    cpp/src/gabstractbarseries.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -112,7 +114,9 @@ HEADERS  += \
     cpp/include/gprintdialog.h \
     cpp/include/gtexttospeech.h \
     cpp/include/gobjectpicker.h \
-    cpp/include/gframeaction.h    
+    cpp/include/gframeaction.h \
+    cpp/include/gabstractaxis.h \
+    cpp/include/gabstractbarseries.h 
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

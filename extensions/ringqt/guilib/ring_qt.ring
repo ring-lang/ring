@@ -25900,6 +25900,523 @@ Class QFrameAction
 	Func gettriggeredEvent 
 		return QFrameAction_gettriggeredEvent(pObject)
 
+Class AbstractAxis
+
+	pObject
+
+	Func init 
+		pObject = AbstractAxis_new()
+		return self
+
+	Func delete
+		pObject = AbstractAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func alignment 
+		return AbstractAxis_alignment(pObject)
+
+	Func gridLineColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_gridLineColor(pObject)
+		return pTempObj
+
+	Func gridLinePen 
+		pTempObj = new QPen
+		pTempObj.pObject = AbstractAxis_gridLinePen(pObject)
+		return pTempObj
+
+	Func hide 
+		return AbstractAxis_hide(pObject)
+
+	Func isGridLineVisible 
+		return AbstractAxis_isGridLineVisible(pObject)
+
+	Func isLineVisible 
+		return AbstractAxis_isLineVisible(pObject)
+
+	Func isMinorGridLineVisible 
+		return AbstractAxis_isMinorGridLineVisible(pObject)
+
+	Func isReverse 
+		return AbstractAxis_isReverse(pObject)
+
+	Func isTitleVisible 
+		return AbstractAxis_isTitleVisible(pObject)
+
+	Func isVisible 
+		return AbstractAxis_isVisible(pObject)
+
+	Func labelsAngle 
+		return AbstractAxis_labelsAngle(pObject)
+
+	Func labelsBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = AbstractAxis_labelsBrush(pObject)
+		return pTempObj
+
+	Func labelsColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_labelsColor(pObject)
+		return pTempObj
+
+	Func labelsFont 
+		pTempObj = new QFont
+		pTempObj.pObject = AbstractAxis_labelsFont(pObject)
+		return pTempObj
+
+	Func labelsVisible 
+		return AbstractAxis_labelsVisible(pObject)
+
+	Func linePen 
+		pTempObj = new QPen
+		pTempObj.pObject = AbstractAxis_linePen(pObject)
+		return pTempObj
+
+	Func linePenColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_linePenColor(pObject)
+		return pTempObj
+
+	Func minorGridLineColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_minorGridLineColor(pObject)
+		return pTempObj
+
+	Func minorGridLinePen 
+		pTempObj = new QPen
+		pTempObj.pObject = AbstractAxis_minorGridLinePen(pObject)
+		return pTempObj
+
+	Func orientation 
+		return AbstractAxis_orientation(pObject)
+
+	Func setGridLineColor P1
+		return AbstractAxis_setGridLineColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGridLinePen P1
+		return AbstractAxis_setGridLinePen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGridLineVisible P1
+		return AbstractAxis_setGridLineVisible(pObject,P1)
+
+	Func setLabelsAngle P1
+		return AbstractAxis_setLabelsAngle(pObject,P1)
+
+	Func setLabelsBrush P1
+		return AbstractAxis_setLabelsBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelsColor P1
+		return AbstractAxis_setLabelsColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelsFont P1
+		return AbstractAxis_setLabelsFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelsVisible P1
+		return AbstractAxis_setLabelsVisible(pObject,P1)
+
+	Func setLinePen P1
+		return AbstractAxis_setLinePen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLinePenColor P1
+		return AbstractAxis_setLinePenColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLineVisible P1
+		return AbstractAxis_setLineVisible(pObject,P1)
+
+	Func setMax P1
+		return AbstractAxis_setMax(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMin P1
+		return AbstractAxis_setMin(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinorGridLineColor P1
+		return AbstractAxis_setMinorGridLineColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinorGridLinePen P1
+		return AbstractAxis_setMinorGridLinePen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinorGridLineVisible P1
+		return AbstractAxis_setMinorGridLineVisible(pObject,P1)
+
+	Func setRange P1,P2
+		return AbstractAxis_setRange(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setReverse P1
+		return AbstractAxis_setReverse(pObject,P1)
+
+	Func setShadesBorderColor P1
+		return AbstractAxis_setShadesBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShadesBrush P1
+		return AbstractAxis_setShadesBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShadesColor P1
+		return AbstractAxis_setShadesColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShadesPen P1
+		return AbstractAxis_setShadesPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShadesVisible P1
+		return AbstractAxis_setShadesVisible(pObject,P1)
+
+	Func setTitleBrush P1
+		return AbstractAxis_setTitleBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTitleFont P1
+		return AbstractAxis_setTitleFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTitleText P1
+		return AbstractAxis_setTitleText(pObject,P1)
+
+	Func setTitleVisible P1
+		return AbstractAxis_setTitleVisible(pObject,P1)
+
+	Func setVisible P1
+		return AbstractAxis_setVisible(pObject,P1)
+
+	Func shadesBorderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_shadesBorderColor(pObject)
+		return pTempObj
+
+	Func shadesBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = AbstractAxis_shadesBrush(pObject)
+		return pTempObj
+
+	Func shadesColor 
+		pTempObj = new QColor
+		pTempObj.pObject = AbstractAxis_shadesColor(pObject)
+		return pTempObj
+
+	Func shadesPen 
+		pTempObj = new QPen
+		pTempObj.pObject = AbstractAxis_shadesPen(pObject)
+		return pTempObj
+
+	Func shadesVisible 
+		return AbstractAxis_shadesVisible(pObject)
+
+	Func show 
+		return AbstractAxis_show(pObject)
+
+	Func titleBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = AbstractAxis_titleBrush(pObject)
+		return pTempObj
+
+	Func titleFont 
+		pTempObj = new QFont
+		pTempObj.pObject = AbstractAxis_titleFont(pObject)
+		return pTempObj
+
+	Func titleText 
+		return AbstractAxis_titleText(pObject)
+
+	Func setcolorChangedEvent P1
+		return AbstractAxis_setcolorChangedEvent(pObject,P1)
+
+	Func setgridLineColorChangedEvent P1
+		return AbstractAxis_setgridLineColorChangedEvent(pObject,P1)
+
+	Func setgridLinePenChangedEvent P1
+		return AbstractAxis_setgridLinePenChangedEvent(pObject,P1)
+
+	Func setgridVisibleChangedEvent P1
+		return AbstractAxis_setgridVisibleChangedEvent(pObject,P1)
+
+	Func setlabelsAngleChangedEvent P1
+		return AbstractAxis_setlabelsAngleChangedEvent(pObject,P1)
+
+	Func setlabelsBrushChangedEvent P1
+		return AbstractAxis_setlabelsBrushChangedEvent(pObject,P1)
+
+	Func setlabelsColorChangedEvent P1
+		return AbstractAxis_setlabelsColorChangedEvent(pObject,P1)
+
+	Func setlabelsEditableChangedEvent P1
+		return AbstractAxis_setlabelsEditableChangedEvent(pObject,P1)
+
+	Func setlabelsFontChangedEvent P1
+		return AbstractAxis_setlabelsFontChangedEvent(pObject,P1)
+
+	Func setlabelsVisibleChangedEvent P1
+		return AbstractAxis_setlabelsVisibleChangedEvent(pObject,P1)
+
+	Func setlinePenChangedEvent P1
+		return AbstractAxis_setlinePenChangedEvent(pObject,P1)
+
+	Func setlineVisibleChangedEvent P1
+		return AbstractAxis_setlineVisibleChangedEvent(pObject,P1)
+
+	Func setminorGridLineColorChangedEvent P1
+		return AbstractAxis_setminorGridLineColorChangedEvent(pObject,P1)
+
+	Func setminorGridLinePenChangedEvent P1
+		return AbstractAxis_setminorGridLinePenChangedEvent(pObject,P1)
+
+	Func setminorGridVisibleChangedEvent P1
+		return AbstractAxis_setminorGridVisibleChangedEvent(pObject,P1)
+
+	Func setreverseChangedEvent P1
+		return AbstractAxis_setreverseChangedEvent(pObject,P1)
+
+	Func setshadesBorderColorChangedEvent P1
+		return AbstractAxis_setshadesBorderColorChangedEvent(pObject,P1)
+
+	Func setshadesBrushChangedEvent P1
+		return AbstractAxis_setshadesBrushChangedEvent(pObject,P1)
+
+	Func setshadesColorChangedEvent P1
+		return AbstractAxis_setshadesColorChangedEvent(pObject,P1)
+
+	Func setshadesPenChangedEvent P1
+		return AbstractAxis_setshadesPenChangedEvent(pObject,P1)
+
+	Func setshadesVisibleChangedEvent P1
+		return AbstractAxis_setshadesVisibleChangedEvent(pObject,P1)
+
+	Func settitleBrushChangedEvent P1
+		return AbstractAxis_settitleBrushChangedEvent(pObject,P1)
+
+	Func settitleFontChangedEvent P1
+		return AbstractAxis_settitleFontChangedEvent(pObject,P1)
+
+	Func settitleTextChangedEvent P1
+		return AbstractAxis_settitleTextChangedEvent(pObject,P1)
+
+	Func settitleVisibleChangedEvent P1
+		return AbstractAxis_settitleVisibleChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return AbstractAxis_setvisibleChangedEvent(pObject,P1)
+
+	Func getcolorChangedEvent 
+		return AbstractAxis_getcolorChangedEvent(pObject)
+
+	Func getgridLineColorChangedEvent 
+		return AbstractAxis_getgridLineColorChangedEvent(pObject)
+
+	Func getgridLinePenChangedEvent 
+		return AbstractAxis_getgridLinePenChangedEvent(pObject)
+
+	Func getgridVisibleChangedEvent 
+		return AbstractAxis_getgridVisibleChangedEvent(pObject)
+
+	Func getlabelsAngleChangedEvent 
+		return AbstractAxis_getlabelsAngleChangedEvent(pObject)
+
+	Func getlabelsBrushChangedEvent 
+		return AbstractAxis_getlabelsBrushChangedEvent(pObject)
+
+	Func getlabelsColorChangedEvent 
+		return AbstractAxis_getlabelsColorChangedEvent(pObject)
+
+	Func getlabelsEditableChangedEvent 
+		return AbstractAxis_getlabelsEditableChangedEvent(pObject)
+
+	Func getlabelsFontChangedEvent 
+		return AbstractAxis_getlabelsFontChangedEvent(pObject)
+
+	Func getlabelsVisibleChangedEvent 
+		return AbstractAxis_getlabelsVisibleChangedEvent(pObject)
+
+	Func getlinePenChangedEvent 
+		return AbstractAxis_getlinePenChangedEvent(pObject)
+
+	Func getlineVisibleChangedEvent 
+		return AbstractAxis_getlineVisibleChangedEvent(pObject)
+
+	Func getminorGridLineColorChangedEvent 
+		return AbstractAxis_getminorGridLineColorChangedEvent(pObject)
+
+	Func getminorGridLinePenChangedEvent 
+		return AbstractAxis_getminorGridLinePenChangedEvent(pObject)
+
+	Func getminorGridVisibleChangedEvent 
+		return AbstractAxis_getminorGridVisibleChangedEvent(pObject)
+
+	Func getreverseChangedEvent 
+		return AbstractAxis_getreverseChangedEvent(pObject)
+
+	Func getshadesBorderColorChangedEvent 
+		return AbstractAxis_getshadesBorderColorChangedEvent(pObject)
+
+	Func getshadesBrushChangedEvent 
+		return AbstractAxis_getshadesBrushChangedEvent(pObject)
+
+	Func getshadesColorChangedEvent 
+		return AbstractAxis_getshadesColorChangedEvent(pObject)
+
+	Func getshadesPenChangedEvent 
+		return AbstractAxis_getshadesPenChangedEvent(pObject)
+
+	Func getshadesVisibleChangedEvent 
+		return AbstractAxis_getshadesVisibleChangedEvent(pObject)
+
+	Func gettitleBrushChangedEvent 
+		return AbstractAxis_gettitleBrushChangedEvent(pObject)
+
+	Func gettitleFontChangedEvent 
+		return AbstractAxis_gettitleFontChangedEvent(pObject)
+
+	Func gettitleTextChangedEvent 
+		return AbstractAxis_gettitleTextChangedEvent(pObject)
+
+	Func gettitleVisibleChangedEvent 
+		return AbstractAxis_gettitleVisibleChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return AbstractAxis_getvisibleChangedEvent(pObject)
+
+Class AbstractBarSeries from AbstractSeries
+
+	pObject
+
+	Func init 
+		pObject = AbstractBarSeries_new()
+		return self
+
+	Func delete
+		pObject = AbstractBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return AbstractBarSeries_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func barWidth 
+		return AbstractBarSeries_barWidth(pObject)
+
+	Func clear 
+		return AbstractBarSeries_clear(pObject)
+
+	Func count 
+		return AbstractBarSeries_count(pObject)
+
+	Func insert P1,P2
+		return AbstractBarSeries_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func isLabelsVisible 
+		return AbstractBarSeries_isLabelsVisible(pObject)
+
+	Func labelsAngle 
+		return AbstractBarSeries_labelsAngle(pObject)
+
+	Func labelsFormat 
+		return AbstractBarSeries_labelsFormat(pObject)
+
+	Func labelsPosition 
+		return AbstractBarSeries_labelsPosition(pObject)
+
+	Func labelsPrecision 
+		return AbstractBarSeries_labelsPrecision(pObject)
+
+	Func remove P1
+		return AbstractBarSeries_remove(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBarWidth P1
+		return AbstractBarSeries_setBarWidth(pObject,P1)
+
+	Func setLabelsAngle P1
+		return AbstractBarSeries_setLabelsAngle(pObject,P1)
+
+	Func setLabelsFormat P1
+		return AbstractBarSeries_setLabelsFormat(pObject,P1)
+
+	Func setLabelsPosition P1
+		return AbstractBarSeries_setLabelsPosition(pObject,P1)
+
+	Func setLabelsPrecision P1
+		return AbstractBarSeries_setLabelsPrecision(pObject,P1)
+
+	Func setLabelsVisible P1
+		return AbstractBarSeries_setLabelsVisible(pObject,P1)
+
+	Func take P1
+		return AbstractBarSeries_take(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setbarsetsAddedEvent P1
+		return AbstractBarSeries_setbarsetsAddedEvent(pObject,P1)
+
+	Func setbarsetsRemovedEvent P1
+		return AbstractBarSeries_setbarsetsRemovedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return AbstractBarSeries_setclickedEvent(pObject,P1)
+
+	Func setcountChangedEvent P1
+		return AbstractBarSeries_setcountChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return AbstractBarSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return AbstractBarSeries_sethoveredEvent(pObject,P1)
+
+	Func setlabelsAngleChangedEvent P1
+		return AbstractBarSeries_setlabelsAngleChangedEvent(pObject,P1)
+
+	Func setlabelsFormatChangedEvent P1
+		return AbstractBarSeries_setlabelsFormatChangedEvent(pObject,P1)
+
+	Func setlabelsPositionChangedEvent P1
+		return AbstractBarSeries_setlabelsPositionChangedEvent(pObject,P1)
+
+	Func setlabelsPrecisionChangedEvent P1
+		return AbstractBarSeries_setlabelsPrecisionChangedEvent(pObject,P1)
+
+	Func setlabelsVisibleChangedEvent P1
+		return AbstractBarSeries_setlabelsVisibleChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return AbstractBarSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return AbstractBarSeries_setreleasedEvent(pObject,P1)
+
+	Func getbarsetsAddedEvent 
+		return AbstractBarSeries_getbarsetsAddedEvent(pObject)
+
+	Func getbarsetsRemovedEvent 
+		return AbstractBarSeries_getbarsetsRemovedEvent(pObject)
+
+	Func getclickedEvent 
+		return AbstractBarSeries_getclickedEvent(pObject)
+
+	Func getcountChangedEvent 
+		return AbstractBarSeries_getcountChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return AbstractBarSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return AbstractBarSeries_gethoveredEvent(pObject)
+
+	Func getlabelsAngleChangedEvent 
+		return AbstractBarSeries_getlabelsAngleChangedEvent(pObject)
+
+	Func getlabelsFormatChangedEvent 
+		return AbstractBarSeries_getlabelsFormatChangedEvent(pObject)
+
+	Func getlabelsPositionChangedEvent 
+		return AbstractBarSeries_getlabelsPositionChangedEvent(pObject)
+
+	Func getlabelsPrecisionChangedEvent 
+		return AbstractBarSeries_getlabelsPrecisionChangedEvent(pObject)
+
+	Func getlabelsVisibleChangedEvent 
+		return AbstractBarSeries_getlabelsVisibleChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return AbstractBarSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return AbstractBarSeries_getreleasedEvent(pObject)
+
 Class QSize
 
 	pObject
