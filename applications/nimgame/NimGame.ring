@@ -163,7 +163,7 @@ func deleteRow1()
         move1 = 0
         ok
 
-        if pcMove = 0 and move1 = 0
+        if pcMove = 0 
         Button1[match1] { seticon(new qicon(new qpixmap(C_PROGRAMMER)))                        
                           setIconSize(new qSize(55,55))
                           setenabled(false) }
