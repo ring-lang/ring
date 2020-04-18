@@ -431,14 +431,9 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NOCHARTS") = ""
-#include <QtCharts>
-using namespace QtCharts;
-
-<comment>
+#include "gabstractbarseries.h"
 #include "gabstractaxis.h"
-#include <QAbstractAxis>
-</comment>
-
+#include <QtCharts>
 </filter>
 
 </code>

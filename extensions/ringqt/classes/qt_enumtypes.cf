@@ -382,4 +382,5 @@ aEnumTypes + "Qt3DRender::QDepthTest::DepthFunction"
 aEnumTypes + "QQmlEngine::ObjectOwnership"
 aEnumTypes + "QAbstractAxis::AxisType"
 aEnumTypes + "QAbstractAxis::AxisTypes"
+aEnumTypes + "QAbstractBarSeries::LabelsPosition"
 </runcode>

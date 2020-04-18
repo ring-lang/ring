@@ -2,6 +2,5 @@
 				Module (Charts)
 </comment>
 
-<comment>
 <loadfile> charts/qabstractaxis.cf
-</comment>
+<loadfile> charts/qabstractbarseries.cf
