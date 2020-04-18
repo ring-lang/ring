@@ -45,6 +45,7 @@ app = new qApp
       win = new qWidget() {
             app.StyleFusionBlack()
 	    setWindowTitle('CalmoSoft Nim Game')
+	    setWinIcon(self,"images/nim.jpg")
 	    reSize(800,600)
 
             for Col = 1 to limit1
@@ -257,7 +258,6 @@ func pcMove()
          if match1 > 0
             rnd = random(match1-1)+1
             for m = 1 to rnd
-                sleep(0.5)
                 deleteRow1()
             next
             exit
@@ -266,7 +266,6 @@ func pcMove()
          if match2 > 0
             rnd = random(match2-1)+1
             for m = 1 to rnd
-                sleep(0.5)
                 deleteRow2()
             next
             exit
@@ -275,8 +274,7 @@ func pcMove()
          if match3 > 0
              rnd = random(match3-1)+1
              for m = 1 to rnd
-                 sleep(0.5)
-                deleteRow3()
+                 deleteRow3()
              next
              exit 
           ok
@@ -284,8 +282,7 @@ func pcMove()
           if match4 > 0
              rnd = random(match4-1)+1
              for m = 1 to rnd
-                 sleep(0.5)
-                deleteRow4()
+                 deleteRow4()
              next
              exit 
           ok
