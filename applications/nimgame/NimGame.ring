@@ -46,7 +46,8 @@ app = new qApp
             app.StyleFusionBlack()
 	    setWindowTitle('CalmoSoft Nim Game')
 	    setWinIcon(self,"images/nim.jpg")
-	    reSize(800,600)
+	    setWindowFlags(Qt_SplashScreen | Qt_CustomizeWindowHint) 
+	    reSize(620,460)
 
             for Col = 1 to limit1
 		Button1[Col] = new QPushButton(win) {
@@ -370,3 +371,4 @@ func msgBox(cText)
 
 func pQuit()
      win.close()
+     app.Quit()
