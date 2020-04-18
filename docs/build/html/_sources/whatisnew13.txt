@@ -22,6 +22,7 @@ Ring 1.13 comes with the next features!
 * MoneyCase Game
 * Rock Paper Scissors Game
 * Matching Game
+* Nim Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * More Improvements
@@ -125,6 +126,18 @@ An implementation for the Matching Game
 	:height: 400pt
 	:alt: Rock Game
 
+.. index:: 
+	pair: What is new in Ring 1.13?; Nim Game
+
+Nim Game
+========
+
+An implementation for the Nim Game
+
+.. image:: nimgame.png
+	:width: 550pt
+	:height: 400pt
+	:alt: Rock Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
