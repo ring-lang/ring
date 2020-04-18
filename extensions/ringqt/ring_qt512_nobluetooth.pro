@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport opengl positioning webenginewidgets texttospeech 3dcore 3dextras 3drender 3dlogic
+QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport opengl positioning webenginewidgets texttospeech 3dcore 3dextras 3drender 3dlogic charts
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -112,9 +112,7 @@ HEADERS  += \
     cpp/include/gprintdialog.h \
     cpp/include/gtexttospeech.h \
     cpp/include/gobjectpicker.h \
-    cpp/include/gframeaction.h
-
-    
+    cpp/include/gframeaction.h    
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

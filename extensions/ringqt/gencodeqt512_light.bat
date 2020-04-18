@@ -21,6 +21,7 @@ set RINGQT_NOSPEECH=1
 set RINGQT_NOQT3D=1
 set RINGQT_NOWEBKIT=1
 set RINGQT_NOBLUETOOTH=1
+set RINGQT_NOCHARTS=1
 
 ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp guilib\ring_qt.ring
 cd events
