@@ -226,6 +226,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
 					'<img src="matchinggame.png" width="100%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/nimgame" target="_blank">Nim Game</a>',
+					'<img src="nimgame.png" width="100%">'
 				]
 			    ]
                  ],
