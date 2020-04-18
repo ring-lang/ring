@@ -1,5 +1,5 @@
 <class>
-name: QAbstractAxis
+name: AbstractAxis
 para: void
 abstract
 codename: GAbstractAxis
@@ -19,7 +19,9 @@ bool isVisible(void)
 int labelsAngle(void)
 QBrush labelsBrush(void)
 QColor labelsColor(void)
+<comment>
 bool labelsEditable(void)
+</comment>
 QFont labelsFont(void)
 bool labelsVisible(void)
 QPen linePen(void)
@@ -33,7 +35,9 @@ void setGridLineVisible(bool visible)
 void setLabelsAngle(int angle)
 void setLabelsBrush(QBrush brush)
 void setLabelsColor(QColor color)
+<comment>
 void setLabelsEditable(bool editable)
+</comment>
 void setLabelsFont(QFont font)
 void setLabelsVisible(bool visible)
 void setLinePen(QPen pen)
