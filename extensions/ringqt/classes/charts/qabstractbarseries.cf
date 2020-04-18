@@ -1,0 +1,59 @@
+<class>
+name: AbstractBarSeries
+para: void
+parent: AbstractSeries
+codename: GAbstractBarSeries
+abstract
+passvmpointer
+</class>
+
+bool append(QBarSet *set)
+<comment>
+bool append@2(QList<QBarSet *> sets)
+QList<QBarSet *> barSets(void)
+</comment>
+qreal barWidth(void)
+void clear(void)
+int count(void)
+bool insert(int index, QBarSet *set)
+bool isLabelsVisible(void)
+qreal labelsAngle(void)
+QString labelsFormat(void)
+QAbstractBarSeries::LabelsPosition labelsPosition(void)
+int labelsPrecision(void)
+bool remove(QBarSet *set)
+void setBarWidth(qreal width)
+void setLabelsAngle(qreal angle)
+void setLabelsFormat(QString format)
+void setLabelsPosition(QAbstractBarSeries::LabelsPosition position)
+void setLabelsPrecision(int precision)
+void setLabelsVisible(bool visible)
+bool take(QBarSet *set)
+
+void setbarsetsAddedEvent(const char *)
+void setbarsetsRemovedEvent(const char *)
+void setclickedEvent(const char *)
+void setcountChangedEvent(const char *)
+void setdoubleClickedEvent(const char *)
+void sethoveredEvent(const char *)
+void setlabelsAngleChangedEvent(const char *)
+void setlabelsFormatChangedEvent(const char *)
+void setlabelsPositionChangedEvent(const char *)
+void setlabelsPrecisionChangedEvent(const char *)
+void setlabelsVisibleChangedEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+
+const char *getbarsetsAddedEvent(void)
+const char *getbarsetsRemovedEvent(void)
+const char *getclickedEvent(void)
+const char *getcountChangedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *gethoveredEvent(void)
+const char *getlabelsAngleChangedEvent(void)
+const char *getlabelsFormatChangedEvent(void)
+const char *getlabelsPositionChangedEvent(void)
+const char *getlabelsPrecisionChangedEvent(void)
+const char *getlabelsVisibleChangedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
