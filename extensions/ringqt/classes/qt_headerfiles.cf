@@ -430,5 +430,16 @@ extern "C" {
 #include <QViewport>
 </filter>
 
+<filter> sysget("RINGQT_NOCHARTS") = ""
+#include <QtCharts>
+using namespace QtCharts;
+
+<comment>
+#include "gabstractaxis.h"
+#include <QAbstractAxis>
+</comment>
+
+</filter>
+
 </code>
 

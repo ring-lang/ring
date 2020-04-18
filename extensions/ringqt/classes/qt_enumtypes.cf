@@ -380,4 +380,6 @@ aEnumTypes + "QRenderAspect::RenderType"
 aEnumTypes + "Qt3DRender::QCullFace::CullingMode"
 aEnumTypes + "Qt3DRender::QDepthTest::DepthFunction"
 aEnumTypes + "QQmlEngine::ObjectOwnership"
+aEnumTypes + "QAbstractAxis::AxisType"
+aEnumTypes + "QAbstractAxis::AxisTypes"
 </runcode>
