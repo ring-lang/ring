@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml positioning
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml positioning texttospeech 3dcore 3dextras 3drender 3dlogic charts
 
 qtHaveModule(webengine) {
 	QT += webengine
@@ -71,8 +71,13 @@ SOURCES +=   \
     gdrag.cpp \
     ggeopositioninfosource.cpp \
     gprintpreviewwidget.cpp \
-	gprintpreviewdialog.cpp \
-	gprintdialog.cpp \
+    gprintpreviewdialog.cpp \
+    gprintdialog.cpp \
+    gtexttospeech.cpp \
+    gobjectpicker.cpp \
+    gframeaction.cpp \
+    gabstractaxis.cpp \
+    gabstractbarseries.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -128,8 +133,13 @@ HEADERS  += \
     gdrag.h \
     ggeopositioninfosource.h \
     gprintpreviewwidget.h \
-	gprintpreviewdialog.h \
-	gprintdialog.h
+    gprintpreviewdialog.h \
+    gprintdialog.h \
+    gtexttospeech.h \
+    gobjectpicker.h \
+    gframeaction.h \
+    gabstractaxis.h \
+    gabstractbarseries.h 
 
 CONFIG += warn_off
 
