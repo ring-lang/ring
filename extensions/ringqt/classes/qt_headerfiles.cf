@@ -433,6 +433,7 @@ extern "C" {
 <filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOCHARTS") = ""
 #include "gabstractbarseries.h"
 #include "gabstractaxis.h"
+#include "gabstractseries.h"
 #include <QtCharts>
 </filter>
 
