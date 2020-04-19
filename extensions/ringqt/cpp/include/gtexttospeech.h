@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTEXTTOSPEECH_H
 #define GTEXTTOSPEECH_H
 #include <QApplication>

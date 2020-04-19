@@ -430,7 +430,7 @@ extern "C" {
 #include <QViewport>
 </filter>
 
-<filter> sysget("RINGQT_NOCHARTS") = ""
+<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOCHARTS") = ""
 #include "gabstractbarseries.h"
 #include "gabstractaxis.h"
 #include <QtCharts>
