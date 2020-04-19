@@ -1,0 +1,33 @@
+<class>
+name: QAbstractSeries
+para: void
+parent: QObject
+codename: GAbstractSeries
+abstract
+passvmpointer
+</class>
+
+bool attachAxis(QAbstractAxis *axis)
+QList<QAbstractAxis *> attachedAxes(void)
+QChart *chart(void)
+bool detachAxis(QAbstractAxis *axis)
+void hide(void)
+bool isVisible(void)
+QString name(void)
+qreal opacity(void)
+void setName(QString name)
+void setOpacity(qreal opacity)
+void setUseOpenGL(bool enable)
+void setVisible(bool visible)
+void show(void)
+bool useOpenGL(void)
+
+void setnameChangedEvent(const char *)
+void setopacityChangedEvent(const char *)
+void setuseOpenGLChangedEvent(const char *)
+void setvisibleChangedEvent(const char *)
+
+const char *getnameChangedEvent(void)
+const char *getopacityChangedEvent(void)
+const char *getuseOpenGLChangedEvent(void)
+const char *getvisibleChangedEvent(void)
