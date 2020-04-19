@@ -63,6 +63,7 @@ SOURCES +=   \
     cpp/src/gframeaction.cpp \
     cpp/src/gabstractaxis.cpp \
     cpp/src/gabstractbarseries.cpp \
+    cpp/src/gabstractseries.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -116,7 +117,8 @@ HEADERS  += \
     cpp/include/gobjectpicker.h \
     cpp/include/gframeaction.h \
     cpp/include/gabstractaxis.h \
-    cpp/include/gabstractbarseries.h 
+    cpp/include/gabstractbarseries.h \
+    cpp/include/gabstractseries.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
