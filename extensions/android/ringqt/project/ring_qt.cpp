@@ -343,6 +343,7 @@ extern "C" {
 
 #include "gabstractbarseries.h"
 #include "gabstractaxis.h"
+#include "gabstractseries.h"
 #include <QtCharts>
 
 extern "C" {
@@ -639,6 +640,7 @@ extern "C" {
 	void ring_QLogicAspect_freefunc(void *pState,void *pPointer);
 	void ring_AbstractAxis_freefunc(void *pState,void *pPointer);
 	void ring_AbstractBarSeries_freefunc(void *pState,void *pPointer);
+	void ring_QAbstractSeries_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -123109,6 +123111,425 @@ RING_FUNC(ring_AbstractBarSeries_getreleasedEvent)
 	RING_API_RETSTRING(pObject->getreleasedEvent());
 }
 
+
+RING_FUNC(ring_QAbstractSeries_attachAxis)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->attachAxis((QAbstractAxis *) RING_API_GETCPOINTER(2,"QAbstractAxis")));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_attachedAxes)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	{
+		QList<QAbstractAxis *> *pValue ; 
+		pValue = (QList<QAbstractAxis *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QAbstractAxis *>)) ;
+		*pValue = pObject->attachedAxes();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QAbstractAxis *>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QAbstractSeries_chart)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETCPOINTER(pObject->chart(),"QChart");
+}
+
+
+RING_FUNC(ring_QAbstractSeries_detachAxis)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->detachAxis((QAbstractAxis *) RING_API_GETCPOINTER(2,"QAbstractAxis")));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_hide)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	pObject->hide();
+}
+
+
+RING_FUNC(ring_QAbstractSeries_isVisible)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETNUMBER(pObject->isVisible());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_name)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_opacity)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETNUMBER(pObject->opacity());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setName)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setOpacity)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOpacity( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setUseOpenGL)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setUseOpenGL( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setVisible)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_show)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	pObject->show();
+}
+
+
+RING_FUNC(ring_QAbstractSeries_useOpenGL)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETNUMBER(pObject->useOpenGL());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setnameChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setnameChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setopacityChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setopacityChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setuseOpenGLChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setuseOpenGLChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_setvisibleChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvisibleChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAbstractSeries_getnameChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETSTRING(pObject->getnameChangedEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_getopacityChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETSTRING(pObject->getopacityChangedEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_getuseOpenGLChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETSTRING(pObject->getuseOpenGLChangedEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSeries_getvisibleChangedEvent)
+{
+	GAbstractSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSeries *) RING_API_GETCPOINTER(1,"QAbstractSeries");
+	RING_API_RETSTRING(pObject->getvisibleChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -138792,6 +139213,28 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("abstractbarseries_getlabelsvisiblechangedevent",ring_AbstractBarSeries_getlabelsVisibleChangedEvent);
 	ring_vm_funcregister("abstractbarseries_getpressedevent",ring_AbstractBarSeries_getpressedEvent);
 	ring_vm_funcregister("abstractbarseries_getreleasedevent",ring_AbstractBarSeries_getreleasedEvent);
+	ring_vm_funcregister("qabstractseries_attachaxis",ring_QAbstractSeries_attachAxis);
+	ring_vm_funcregister("qabstractseries_attachedaxes",ring_QAbstractSeries_attachedAxes);
+	ring_vm_funcregister("qabstractseries_chart",ring_QAbstractSeries_chart);
+	ring_vm_funcregister("qabstractseries_detachaxis",ring_QAbstractSeries_detachAxis);
+	ring_vm_funcregister("qabstractseries_hide",ring_QAbstractSeries_hide);
+	ring_vm_funcregister("qabstractseries_isvisible",ring_QAbstractSeries_isVisible);
+	ring_vm_funcregister("qabstractseries_name",ring_QAbstractSeries_name);
+	ring_vm_funcregister("qabstractseries_opacity",ring_QAbstractSeries_opacity);
+	ring_vm_funcregister("qabstractseries_setname",ring_QAbstractSeries_setName);
+	ring_vm_funcregister("qabstractseries_setopacity",ring_QAbstractSeries_setOpacity);
+	ring_vm_funcregister("qabstractseries_setuseopengl",ring_QAbstractSeries_setUseOpenGL);
+	ring_vm_funcregister("qabstractseries_setvisible",ring_QAbstractSeries_setVisible);
+	ring_vm_funcregister("qabstractseries_show",ring_QAbstractSeries_show);
+	ring_vm_funcregister("qabstractseries_useopengl",ring_QAbstractSeries_useOpenGL);
+	ring_vm_funcregister("qabstractseries_setnamechangedevent",ring_QAbstractSeries_setnameChangedEvent);
+	ring_vm_funcregister("qabstractseries_setopacitychangedevent",ring_QAbstractSeries_setopacityChangedEvent);
+	ring_vm_funcregister("qabstractseries_setuseopenglchangedevent",ring_QAbstractSeries_setuseOpenGLChangedEvent);
+	ring_vm_funcregister("qabstractseries_setvisiblechangedevent",ring_QAbstractSeries_setvisibleChangedEvent);
+	ring_vm_funcregister("qabstractseries_getnamechangedevent",ring_QAbstractSeries_getnameChangedEvent);
+	ring_vm_funcregister("qabstractseries_getopacitychangedevent",ring_QAbstractSeries_getopacityChangedEvent);
+	ring_vm_funcregister("qabstractseries_getuseopenglchangedevent",ring_QAbstractSeries_getuseOpenGLChangedEvent);
+	ring_vm_funcregister("qabstractseries_getvisiblechangedevent",ring_QAbstractSeries_getvisibleChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);

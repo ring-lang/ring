@@ -78,6 +78,7 @@ SOURCES +=   \
     gframeaction.cpp \
     gabstractaxis.cpp \
     gabstractbarseries.cpp \
+    gabstractseries.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -139,7 +140,8 @@ HEADERS  += \
     gobjectpicker.h \
     gframeaction.h \
     gabstractaxis.h \
-    gabstractbarseries.h 
+    gabstractbarseries.h \
+    gabstractseries.h
 
 CONFIG += warn_off
 
