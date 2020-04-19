@@ -12,3 +12,9 @@ Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/3VgQtkVh
 # Screen Shot
 
 ![matchinggame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/matching/images/matchinggame.png)
+
+# Android 
+
+The game works on Mobile devices like Android
+
+![matchinggame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/matching/images/matching_mobile.png)
