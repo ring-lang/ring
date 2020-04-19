@@ -26417,6 +26417,86 @@ Class AbstractBarSeries from AbstractSeries
 	Func getreleasedEvent 
 		return AbstractBarSeries_getreleasedEvent(pObject)
 
+Class QAbstractSeries from QObject
+
+	pObject
+
+	Func init 
+		pObject = QAbstractSeries_new()
+		return self
+
+	Func delete
+		pObject = QAbstractSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func attachAxis P1
+		return QAbstractSeries_attachAxis(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func attachedAxes 
+		return QAbstractSeries_attachedAxes(pObject)
+
+	Func chart 
+		return QAbstractSeries_chart(pObject)
+
+	Func detachAxis P1
+		return QAbstractSeries_detachAxis(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func hide 
+		return QAbstractSeries_hide(pObject)
+
+	Func isVisible 
+		return QAbstractSeries_isVisible(pObject)
+
+	Func name 
+		return QAbstractSeries_name(pObject)
+
+	Func opacity 
+		return QAbstractSeries_opacity(pObject)
+
+	Func setName P1
+		return QAbstractSeries_setName(pObject,P1)
+
+	Func setOpacity P1
+		return QAbstractSeries_setOpacity(pObject,P1)
+
+	Func setUseOpenGL P1
+		return QAbstractSeries_setUseOpenGL(pObject,P1)
+
+	Func setVisible P1
+		return QAbstractSeries_setVisible(pObject,P1)
+
+	Func show 
+		return QAbstractSeries_show(pObject)
+
+	Func useOpenGL 
+		return QAbstractSeries_useOpenGL(pObject)
+
+	Func setnameChangedEvent P1
+		return QAbstractSeries_setnameChangedEvent(pObject,P1)
+
+	Func setopacityChangedEvent P1
+		return QAbstractSeries_setopacityChangedEvent(pObject,P1)
+
+	Func setuseOpenGLChangedEvent P1
+		return QAbstractSeries_setuseOpenGLChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QAbstractSeries_setvisibleChangedEvent(pObject,P1)
+
+	Func getnameChangedEvent 
+		return QAbstractSeries_getnameChangedEvent(pObject)
+
+	Func getopacityChangedEvent 
+		return QAbstractSeries_getopacityChangedEvent(pObject)
+
+	Func getuseOpenGLChangedEvent 
+		return QAbstractSeries_getuseOpenGLChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QAbstractSeries_getvisibleChangedEvent(pObject)
+
 Class QSize
 
 	pObject
