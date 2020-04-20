@@ -25,6 +25,7 @@ Ring 1.13 comes with the next features!
 * Nim Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
+* Better RingQt
 * More Improvements
 
 .. index:: 
@@ -171,6 +172,20 @@ Screen Shot:
 
 .. image:: ringinvim.png
 	:alt: Ring in SpaceVim
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better RingQt
+
+Better RingQt
+=============
+
+(1) The next classes are added to RingQt 
+
+* QAbstractAxis
+* QAbstractBarSeries
+* QAbstractSeries
+* QAreaSeries
+
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
