@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -586 , : y = 0  , 
-		 :width =  1324 , :height = 910 , 
+		 :x = -739 , : y = 0  , 
+		 :width =  1264 , :height = 738 , 
 		 :title =  "Gold Magic 800 Level Editor" , 
 		 :backcolor =  "#e4ff6c" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
@@ -25,7 +25,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1131 , : y = 430  , 
+		 :x = 1071 , : y = 430  , 
 		 :width =  174 , :height = 43 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -37,7 +37,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ListWidget1" , :id = 4 , :classname = "formdesigner_qlistwidget" , :data = [
-		 :x = 1134 , : y = 195  , 
+		 :x = 1074 , : y = 195  , 
 		 :width =  174 , :height = 223 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "white" , 
@@ -59,7 +59,7 @@ aObjectsList = [
 	],
 	[ :name = "TableWidget1" , :id = 5 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 20 , : y = 77  , 
-		 :width =  1105 , :height = 795 , 
+		 :width =  1030 , :height = 625 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
@@ -90,7 +90,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button5" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1131 , : y = 483  , 
+		 :x = 1071 , : y = 483  , 
 		 :width =  174 , :height = 43 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -102,7 +102,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button6" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1131 , : y = 536  , 
+		 :x = 1071 , : y = 536  , 
 		 :width =  174 , :height = 43 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -125,7 +125,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button8" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1131 , : y = 589  , 
+		 :x = 1071 , : y = 589  , 
 		 :width =  174 , :height = 43 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -137,7 +137,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button10" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1131 , : y = 642  , 
+		 :x = 1071 , : y = 642  , 
 		 :width =  174 , :height = 43 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -149,7 +149,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label3" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 1140 , : y = 80  , 
+		 :x = 1090 , : y = 80  , 
 		 :width =  134 , :height = 27 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -160,7 +160,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "LabelGMCount" , :id = 12 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 1142 , : y = 128  , 
+		 :x = 1092 , : y = 128  , 
 		 :width =  123 , :height = 40 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 

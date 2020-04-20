@@ -47,8 +47,8 @@ class editorController from windowsControllerParent
 		for y = 1 to C_ROWS
 			for x = 1 to C_COLS
 				aButton[y][x] = new qPushButton(oView.win) {
-					move(x*50-8,y*37+65)
-					resize(50,37)
+					move(x*50-11,y*30+66)
+					resize(50,30)
 					setClickEvent(Method("CellClick("+y+","+x+")"))
 				}				
 			next 	

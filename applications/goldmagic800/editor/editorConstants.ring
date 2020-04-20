@@ -2,13 +2,13 @@
 # 2018, Etqan Company
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
-C_ROWS   = 20
-C_COLS   = 20
+C_ROWS   	= 20
+C_COLS   	= 20
 
-C_PLAYER = 1
-C_GROUND = 2
-C_WALL	 = 3
-C_DOOR   = 4
+C_PLAYER 	= 1
+C_GROUND 	= 2
+C_WALL	 	= 3
+C_DOOR   	= 4
 C_GOLDGROUND 	= 5
 C_DOOR2	 	= 6
 C_GOLDCUBE 	= 7
