@@ -26497,6 +26497,176 @@ Class QAbstractSeries from QObject
 	Func getvisibleChangedEvent 
 		return QAbstractSeries_getvisibleChangedEvent(pObject)
 
+Class QAreaSeries from QAbstractSeries
+
+	pObject
+
+	Func init P1
+		pObject = QAreaSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAreaSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QAreaSeries_borderColor(pObject)
+		return pTempObj
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QAreaSeries_brush(pObject)
+		return pTempObj
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QAreaSeries_color(pObject)
+		return pTempObj
+
+	Func lowerSeries 
+		return QAreaSeries_lowerSeries(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QAreaSeries_pen(pObject)
+		return pTempObj
+
+	Func pointLabelsClipping 
+		return QAreaSeries_pointLabelsClipping(pObject)
+
+	Func pointLabelsColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QAreaSeries_pointLabelsColor(pObject)
+		return pTempObj
+
+	Func pointLabelsFont 
+		pTempObj = new QFont
+		pTempObj.pObject = QAreaSeries_pointLabelsFont(pObject)
+		return pTempObj
+
+	Func pointLabelsFormat 
+		return QAreaSeries_pointLabelsFormat(pObject)
+
+	Func pointLabelsVisible 
+		return QAreaSeries_pointLabelsVisible(pObject)
+
+	Func pointsVisible 
+		return QAreaSeries_pointsVisible(pObject)
+
+	Func setBorderColor P1
+		return QAreaSeries_setBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBrush P1
+		return QAreaSeries_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setColor P1
+		return QAreaSeries_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLowerSeries P1
+		return QAreaSeries_setLowerSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QAreaSeries_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsClipping P1
+		return QAreaSeries_setPointLabelsClipping(pObject,P1)
+
+	Func setPointLabelsColor P1
+		return QAreaSeries_setPointLabelsColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsFont P1
+		return QAreaSeries_setPointLabelsFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsFormat P1
+		return QAreaSeries_setPointLabelsFormat(pObject,P1)
+
+	Func setPointLabelsVisible P1
+		return QAreaSeries_setPointLabelsVisible(pObject,P1)
+
+	Func setPointsVisible P1
+		return QAreaSeries_setPointsVisible(pObject,P1)
+
+	Func setUpperSeries P1
+		return QAreaSeries_setUpperSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func upperSeries 
+		return QAreaSeries_upperSeries(pObject)
+
+	Func setborderColorChangedEvent P1
+		return QAreaSeries_setborderColorChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QAreaSeries_setclickedEvent(pObject,P1)
+
+	Func setcolorChangedEvent P1
+		return QAreaSeries_setcolorChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QAreaSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QAreaSeries_sethoveredEvent(pObject,P1)
+
+	Func setpointLabelsClippingChangedEvent P1
+		return QAreaSeries_setpointLabelsClippingChangedEvent(pObject,P1)
+
+	Func setpointLabelsColorChangedEvent P1
+		return QAreaSeries_setpointLabelsColorChangedEvent(pObject,P1)
+
+	Func setpointLabelsFontChangedEvent P1
+		return QAreaSeries_setpointLabelsFontChangedEvent(pObject,P1)
+
+	Func setpointLabelsFormatChangedEvent P1
+		return QAreaSeries_setpointLabelsFormatChangedEvent(pObject,P1)
+
+	Func setpointLabelsVisibilityChangedEvent P1
+		return QAreaSeries_setpointLabelsVisibilityChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QAreaSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QAreaSeries_setreleasedEvent(pObject,P1)
+
+	Func getborderColorChangedEvent 
+		return QAreaSeries_getborderColorChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QAreaSeries_getclickedEvent(pObject)
+
+	Func getcolorChangedEvent 
+		return QAreaSeries_getcolorChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QAreaSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QAreaSeries_gethoveredEvent(pObject)
+
+	Func getpointLabelsClippingChangedEvent 
+		return QAreaSeries_getpointLabelsClippingChangedEvent(pObject)
+
+	Func getpointLabelsColorChangedEvent 
+		return QAreaSeries_getpointLabelsColorChangedEvent(pObject)
+
+	Func getpointLabelsFontChangedEvent 
+		return QAreaSeries_getpointLabelsFontChangedEvent(pObject)
+
+	Func getpointLabelsFormatChangedEvent 
+		return QAreaSeries_getpointLabelsFormatChangedEvent(pObject)
+
+	Func getpointLabelsVisibilityChangedEvent 
+		return QAreaSeries_getpointLabelsVisibilityChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QAreaSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QAreaSeries_getreleasedEvent(pObject)
+
 Class QSize
 
 	pObject
