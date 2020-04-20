@@ -1,3 +1,36 @@
+2.0.5:
+Sam Lantinga - Wed Jun 19 07:30:51 PDT 2019
+ * Updated external libraries libpng-1.6.32, libwebp-1.0.2
+Sam Lantinga - Tue Jun 11 00:17:01 PDT 2019
+ * Fixed a number of security issues:
+   TALOS-2019-0820
+   TALOS-2019-0821
+   TALOS-2019-0841
+   TALOS-2019-0842
+   TALOS-2019-0843
+   TALOS-2019-0844
+Sathyanarayanan Gunasekaran, Brian Palmer, Charlie Birks, Amadeus - Mon Jun 10 16:48:20 PDT 2019
+ * Ported SDL_image to emscripten
+
+2.0.4:
+Michał Janiszewski - Fri Sept 28 22:00:26 PST 2018
+ * Fixed memory issues in the XCF loader
+Ryan Gordon - Wed Sept 26 14:58:31 PST 2018
+ * Fixed a number of security issues, including TALOS-2018-0645
+
+2.0.3:
+Ryan Gordon - Sun Jan 28 21:28:16 PST 2018
+ * Fixed a number of security issues:
+   TALOS-2017-0488
+   TALOS-2017-0489
+   TALOS-2017-0490
+   TALOS-2017-0491
+   TALOS-2017-0497
+   TALOS-2017-0498
+   TALOS-2017-0499
+Sam Lantinga - Sun Jan 28 21:24:10 PST 2018
+ * Added a dependency on SDL 2.0.8
+
 2.0.2:
 Sam Lantinga - Sat Oct 21 23:42:28 PDT 2017
  * Added simple SVG image support based on Nano SVG
