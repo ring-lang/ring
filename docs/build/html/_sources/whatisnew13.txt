@@ -213,6 +213,7 @@ More Improvements
 * Set the window icon for many games developed using the Ring game engine
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
+* RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
