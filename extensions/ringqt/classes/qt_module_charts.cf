@@ -6,3 +6,4 @@
 <loadfile> charts/qabstractbarseries.cf
 <loadfile> charts/qabstractseries.cf
 <loadfile> charts/qareaseries.cf
+<loadfile> charts/qbarcategoryaxis.cf
