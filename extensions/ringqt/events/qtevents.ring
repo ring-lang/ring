@@ -96,7 +96,11 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	cCode = substr(cCode,"<T_CLASSNAMEMETHOD2>", cSpace+"~"+aClass[:name])
 	cCode = substr(cCode,"<T_GETEVENTPARAMETERS>", cSpace+"void geteventparameters(void) ;")
 	cCode = substr(cCode,"<T_REALCLASSNAME>", aClass[:realname])
-	cCode = substr(cCode,"<T_REALCLASSNAMEHEADER>", substr(aClass[:realname],"::","/"))
+	if aClass[:headerfile] = ""
+		cCode = substr(cCode,"<T_REALCLASSNAMEHEADER>", substr(aClass[:realname],"::","/"))
+	else 
+		cCode = substr(cCode,"<T_REALCLASSNAMEHEADER>", aClass[:headerfile])
+	ok
 
 	if aClass[:initpara] != NULL
 		cCode = substr(cCode,"<T_INITPARA>", aClass[:initpara])
