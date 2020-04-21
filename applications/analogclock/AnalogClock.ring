@@ -48,6 +48,7 @@ New qapp
    win =  new qwidget()
     {
         setwindowtitle("Analog Clock : Draw using QPixMap : Translate : Rotate : Scale :")
+	setWinIcon(self,"HermleClock.jpg")
 	setwindowflags(Qt_WindowStaysOnTopHint)
         setgeometry(100, 100, 500, 500)
 

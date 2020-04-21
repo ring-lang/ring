@@ -60,6 +60,7 @@ New qapp
    win =  new qwidget()
     {
         setwindowtitle("Analog Clock")
+	setWinIcon(self,"HermleClock.jpg")
 	setwindowflags(Qt_WindowStaysOnTopHint)
         setgeometry(WinLeft, WinTop, WinWidth, WinHeight)
 
