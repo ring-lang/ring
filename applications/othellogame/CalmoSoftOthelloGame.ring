@@ -53,9 +53,10 @@ app = new qApp
 {
     win = new qWidget() {
         setWindowTitle('Othello Game')
+	setWinIcon(self,"white.jpg")
         setStyleSheet('background-color:White')
 
-          move(500,100)
+        move(500,100)
         reSize(800,800)
         winheight = win.height()
         fontSize = 8 + (winheight / 100)
