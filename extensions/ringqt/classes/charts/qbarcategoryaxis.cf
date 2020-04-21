@@ -1,0 +1,36 @@
+<class>
+name: QBarCategoryAxis
+para: QObject *
+parent: QAbstractAxis
+codename: GBarCategoryAxis
+passvmpointer
+</class>
+
+
+void append(QStringList categories)
+void append@2(QString category)
+QString at(int index)
+QStringList categories(void)
+void clear(void)
+int count(void)
+void insert(int index, QString category)
+QString max(void)
+QString min(void)
+void remove(QString category)
+void replace(QString oldCategory, QString newCategory)
+void setCategories(QStringList categories)
+void setMax(QString max)
+void setMin(QString min)
+void setRange(QString minCategory, QString maxCategory)
+
+void setcategoriesChangedEvent(const char *)
+void setcountChangedEvent(const char *)
+void setmaxChangedEvent(const char *)
+void setminChangedEvent(const char *)
+void setrangeChangedEvent(const char *)
+
+const char *getcategoriesChangedEvent(void)
+const char *getcountChangedEvent(void)
+const char *getmaxChangedEvent(void)
+const char *getminChangedEvent(void)
+const char *getrangeChangedEvent(void)
