@@ -435,6 +435,7 @@ extern "C" {
 #include "gabstractaxis.h"
 #include "gabstractseries.h"
 #include "gareaseries.h"
+#include "gbarcategoryaxis.h"
 #include <QtCharts>
 </filter>
 
