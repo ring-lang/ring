@@ -26667,6 +26667,97 @@ Class QAreaSeries from QAbstractSeries
 	Func getreleasedEvent 
 		return QAreaSeries_getreleasedEvent(pObject)
 
+Class QBarCategoryAxis from QAbstractAxis
+
+	pObject
+
+	Func init P1
+		pObject = QBarCategoryAxis_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBarCategoryAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QBarCategoryAxis_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_2 P1
+		return QBarCategoryAxis_append_2(pObject,P1)
+
+	Func at P1
+		return QBarCategoryAxis_at(pObject,P1)
+
+	Func categories 
+		pTempObj = new QStringList
+		pTempObj.pObject = QBarCategoryAxis_categories(pObject)
+		return pTempObj
+
+	Func clear 
+		return QBarCategoryAxis_clear(pObject)
+
+	Func count 
+		return QBarCategoryAxis_count(pObject)
+
+	Func insert P1,P2
+		return QBarCategoryAxis_insert(pObject,P1,P2)
+
+	Func max 
+		return QBarCategoryAxis_max(pObject)
+
+	Func min 
+		return QBarCategoryAxis_min(pObject)
+
+	Func remove P1
+		return QBarCategoryAxis_remove(pObject,P1)
+
+	Func replace P1,P2
+		return QBarCategoryAxis_replace(pObject,P1,P2)
+
+	Func setCategories P1
+		return QBarCategoryAxis_setCategories(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMax P1
+		return QBarCategoryAxis_setMax(pObject,P1)
+
+	Func setMin P1
+		return QBarCategoryAxis_setMin(pObject,P1)
+
+	Func setRange P1,P2
+		return QBarCategoryAxis_setRange(pObject,P1,P2)
+
+	Func setcategoriesChangedEvent P1
+		return QBarCategoryAxis_setcategoriesChangedEvent(pObject,P1)
+
+	Func setcountChangedEvent P1
+		return QBarCategoryAxis_setcountChangedEvent(pObject,P1)
+
+	Func setmaxChangedEvent P1
+		return QBarCategoryAxis_setmaxChangedEvent(pObject,P1)
+
+	Func setminChangedEvent P1
+		return QBarCategoryAxis_setminChangedEvent(pObject,P1)
+
+	Func setrangeChangedEvent P1
+		return QBarCategoryAxis_setrangeChangedEvent(pObject,P1)
+
+	Func getcategoriesChangedEvent 
+		return QBarCategoryAxis_getcategoriesChangedEvent(pObject)
+
+	Func getcountChangedEvent 
+		return QBarCategoryAxis_getcountChangedEvent(pObject)
+
+	Func getmaxChangedEvent 
+		return QBarCategoryAxis_getmaxChangedEvent(pObject)
+
+	Func getminChangedEvent 
+		return QBarCategoryAxis_getminChangedEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QBarCategoryAxis_getrangeChangedEvent(pObject)
+
 Class QSize
 
 	pObject
