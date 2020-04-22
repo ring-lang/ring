@@ -26758,6 +26758,23 @@ Class QBarCategoryAxis from QAbstractAxis
 	Func getrangeChangedEvent 
 		return QBarCategoryAxis_getrangeChangedEvent(pObject)
 
+Class QBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QBarSeries_type(pObject)
+
 Class QSize
 
 	pObject
