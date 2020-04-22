@@ -645,6 +645,7 @@ extern "C" {
 	void ring_QAbstractSeries_freefunc(void *pState,void *pPointer);
 	void ring_QAreaSeries_freefunc(void *pState,void *pPointer);
 	void ring_QBarCategoryAxis_freefunc(void *pState,void *pPointer);
+	void ring_QBarSeries_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -124962,6 +124963,23 @@ RING_FUNC(ring_QBarCategoryAxis_getrangeChangedEvent)
 	RING_API_RETSTRING(pObject->getrangeChangedEvent());
 }
 
+
+RING_FUNC(ring_QBarSeries_type)
+{
+	QBarSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBarSeries *) RING_API_GETCPOINTER(1,"QBarSeries");
+	RING_API_RETNUMBER(pObject->type());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -128615,6 +128633,21 @@ RING_FUNC(ring_QBarCategoryAxis_new)
 	}
 	GBarCategoryAxis *pObject = new GBarCategoryAxis((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QBarCategoryAxis");
+}
+
+RING_FUNC(ring_QBarSeries_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QBarSeries *pObject = new QBarSeries((QObject *) RING_API_GETCPOINTER(1,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QBarSeries");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -132918,6 +132951,23 @@ RING_FUNC(ring_QBarCategoryAxis_delete)
 	}
 }
 
+RING_FUNC(ring_QBarSeries_delete)
+{
+	QBarSeries *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QBarSeries *) RING_API_GETCPOINTER(1,"QBarSeries");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -134686,6 +134736,13 @@ void ring_QBarCategoryAxis_freefunc(void *pState,void *pPointer)
 {
 	GBarCategoryAxis *pObject ; 
 	pObject = (GBarCategoryAxis *) pPointer;
+	delete pObject ;
+}
+
+void ring_QBarSeries_freefunc(void *pState,void *pPointer)
+{
+	QBarSeries *pObject ; 
+	pObject = (QBarSeries *) pPointer;
 	delete pObject ;
 }
 
@@ -140818,6 +140875,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarcategoryaxis_getmaxchangedevent",ring_QBarCategoryAxis_getmaxChangedEvent);
 	ring_vm_funcregister("qbarcategoryaxis_getminchangedevent",ring_QBarCategoryAxis_getminChangedEvent);
 	ring_vm_funcregister("qbarcategoryaxis_getrangechangedevent",ring_QBarCategoryAxis_getrangeChangedEvent);
+	ring_vm_funcregister("qbarseries_type",ring_QBarSeries_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -141071,6 +141129,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlogicaspect_new",ring_QLogicAspect_new);
 	ring_vm_funcregister("qareaseries_new",ring_QAreaSeries_new);
 	ring_vm_funcregister("qbarcategoryaxis_new",ring_QBarCategoryAxis_new);
+	ring_vm_funcregister("qbarseries_new",ring_QBarSeries_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -141324,4 +141383,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlogicaspect_delete",ring_QLogicAspect_delete);
 	ring_vm_funcregister("qareaseries_delete",ring_QAreaSeries_delete);
 	ring_vm_funcregister("qbarcategoryaxis_delete",ring_QBarCategoryAxis_delete);
+	ring_vm_funcregister("qbarseries_delete",ring_QBarSeries_delete);
 }
