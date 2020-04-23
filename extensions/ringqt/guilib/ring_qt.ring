@@ -26980,6 +26980,15 @@ Class QAreaLegendMarker from QLegendMarker
 	Func type 
 		return QAreaLegendMarker_type()
 
+Class QBarLegendMarker from QLegendMarker
+	Func barset 
+		pTempObj = new QBarSet
+		pTempObj.pObject = QBarLegendMarker_barset()
+		return pTempObj
+
+	Func series 
+		return QBarLegendMarker_series()
+
 Class QSize
 
 	pObject
