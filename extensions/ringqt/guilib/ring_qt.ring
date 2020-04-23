@@ -26775,6 +26775,202 @@ Class QBarSeries from QAbstractBarSeries
 	Func type 
 		return QBarSeries_type(pObject)
 
+Class QBarSet from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBarSet_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBarSet_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QBarSet_append(pObject,P1)
+
+	Func append_2 P1
+		return QBarSet_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func at P1
+		return QBarSet_at(pObject,P1)
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QBarSet_borderColor(pObject)
+		return pTempObj
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QBarSet_brush(pObject)
+		return pTempObj
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QBarSet_color(pObject)
+		return pTempObj
+
+	Func count 
+		return QBarSet_count(pObject)
+
+	Func insert P1,P2
+		return QBarSet_insert(pObject,P1,P2)
+
+	Func label 
+		return QBarSet_label(pObject)
+
+	Func labelBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QBarSet_labelBrush(pObject)
+		return pTempObj
+
+	Func labelColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QBarSet_labelColor(pObject)
+		return pTempObj
+
+	Func labelFont 
+		pTempObj = new QFont
+		pTempObj.pObject = QBarSet_labelFont(pObject)
+		return pTempObj
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QBarSet_pen(pObject)
+		return pTempObj
+
+	Func remove P1,P2
+		return QBarSet_remove(pObject,P1,P2)
+
+	Func replace P1,P2
+		return QBarSet_replace(pObject,P1,P2)
+
+	Func setBorderColor P1
+		return QBarSet_setBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBrush P1
+		return QBarSet_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setColor P1
+		return QBarSet_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabel P1
+		return QBarSet_setLabel(pObject,P1)
+
+	Func setLabelBrush P1
+		return QBarSet_setLabelBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelColor P1
+		return QBarSet_setLabelColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelFont P1
+		return QBarSet_setLabelFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QBarSet_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sum 
+		return QBarSet_sum(pObject)
+
+	Func setborderColorChangedEvent P1
+		return QBarSet_setborderColorChangedEvent(pObject,P1)
+
+	Func setbrushChangedEvent P1
+		return QBarSet_setbrushChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QBarSet_setclickedEvent(pObject,P1)
+
+	Func setcolorChangedEvent P1
+		return QBarSet_setcolorChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QBarSet_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QBarSet_sethoveredEvent(pObject,P1)
+
+	Func setlabelBrushChangedEvent P1
+		return QBarSet_setlabelBrushChangedEvent(pObject,P1)
+
+	Func setlabelChangedEvent P1
+		return QBarSet_setlabelChangedEvent(pObject,P1)
+
+	Func setlabelColorChangedEvent P1
+		return QBarSet_setlabelColorChangedEvent(pObject,P1)
+
+	Func setlabelFontChangedEvent P1
+		return QBarSet_setlabelFontChangedEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QBarSet_setpenChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QBarSet_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QBarSet_setreleasedEvent(pObject,P1)
+
+	Func setvalueChangedEvent P1
+		return QBarSet_setvalueChangedEvent(pObject,P1)
+
+	Func setvaluesAddedEvent P1
+		return QBarSet_setvaluesAddedEvent(pObject,P1)
+
+	Func setvaluesRemovedEvent P1
+		return QBarSet_setvaluesRemovedEvent(pObject,P1)
+
+	Func getborderColorChangedEvent 
+		return QBarSet_getborderColorChangedEvent(pObject)
+
+	Func getbrushChangedEvent 
+		return QBarSet_getbrushChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QBarSet_getclickedEvent(pObject)
+
+	Func getcolorChangedEvent 
+		return QBarSet_getcolorChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QBarSet_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QBarSet_gethoveredEvent(pObject)
+
+	Func getlabelBrushChangedEvent 
+		return QBarSet_getlabelBrushChangedEvent(pObject)
+
+	Func getlabelChangedEvent 
+		return QBarSet_getlabelChangedEvent(pObject)
+
+	Func getlabelColorChangedEvent 
+		return QBarSet_getlabelColorChangedEvent(pObject)
+
+	Func getlabelFontChangedEvent 
+		return QBarSet_getlabelFontChangedEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QBarSet_getpenChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QBarSet_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QBarSet_getreleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QBarSet_getvalueChangedEvent(pObject)
+
+	Func getvaluesAddedEvent 
+		return QBarSet_getvaluesAddedEvent(pObject)
+
+	Func getvaluesRemovedEvent 
+		return QBarSet_getvaluesRemovedEvent(pObject)
+
 Class QSize
 
 	pObject
