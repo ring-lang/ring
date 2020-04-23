@@ -437,8 +437,8 @@ extern "C" {
 #include "gareaseries.h"
 #include "gbarcategoryaxis.h"
 #include "gbarset.h"
+#include "gboxplotseries.h"
 #include <QtCharts>
 </filter>
 
 </code>
-

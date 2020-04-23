@@ -12,3 +12,4 @@
 <loadfile> charts/qarealegendmarker.cf
 <loadfile> charts/qbarlegendmarker.cf
 <loadfile> charts/qboxplotlegendmarker.cf
+<loadfile> charts/qboxplotseries.cf

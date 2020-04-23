@@ -1,0 +1,52 @@
+<class>
+name: QBoxPlotSeries
+para: QObject *
+parent: QAbstractSeries
+codename: GBoxPlotSeries
+passvmpointer
+</class>
+
+
+bool append(QBoxSet *set)
+bool append@2(QList<QBoxSet *> sets)
+bool boxOutlineVisible(void)
+QList<QBoxSet *> boxSets(void)
+qreal boxWidth(void)
+QBrush brush(void)
+void clear(void)
+int count(void)
+bool insert(int index, QBoxSet *set)
+QPen pen(void)
+bool remove(QBoxSet *set)
+void setBoxOutlineVisible(bool visible)
+void setBoxWidth(qreal width)
+void setBrush(QBrush brush)
+void setPen(QPen pen)
+bool take(QBoxSet *set)
+QAbstractSeries::SeriesType type(void)
+
+void setboxOutlineVisibilityChangedEvent(const char *)
+void setboxWidthChangedEvent(const char *)
+void setboxsetsAddedEvent(const char *)
+void setboxsetsRemovedEvent(const char *)
+void setbrushChangedEvent(const char *)
+void setclickedEvent(const char *)
+void setcountChangedEvent(const char *)
+void setdoubleClickedEvent(const char *)
+void sethoveredEvent(const char *)
+void setpenChangedEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+
+const char *getboxOutlineVisibilityChangedEvent(void)
+const char *getboxWidthChangedEvent(void)
+const char *getboxsetsAddedEvent(void)
+const char *getboxsetsRemovedEvent(void)
+const char *getbrushChangedEvent(void)
+const char *getclickedEvent(void)
+const char *getcountChangedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *gethoveredEvent(void)
+const char *getpenChangedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
