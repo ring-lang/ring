@@ -648,6 +648,7 @@ extern "C" {
 	void ring_QBarCategoryAxis_freefunc(void *pState,void *pPointer);
 	void ring_QBarSeries_freefunc(void *pState,void *pPointer);
 	void ring_QBarSet_freefunc(void *pState,void *pPointer);
+	void ring_QAreaLegendMarker_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -126085,6 +126086,45 @@ RING_FUNC(ring_QBarSet_getvaluesRemovedEvent)
 	RING_API_RETSTRING(pObject->getvaluesRemovedEvent());
 }
 
+
+RING_FUNC(ring_QAreaLegendMarker_series)
+{
+	QAreaLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAreaLegendMarker *) RING_API_GETCPOINTER(1,"QAreaLegendMarker");
+	RING_API_RETCPOINTER(pObject->series(),"QAreaSeries");
+}
+
+
+RING_FUNC(ring_QAreaLegendMarker_type)
+{
+	QAreaLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QAreaLegendMarker *) RING_API_GETCPOINTER(1,"QAreaLegendMarker");
+	{
+		QLegendMarker::LegendMarkerType *pValue ; 
+		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
+		*pValue = pObject->type();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -142080,6 +142120,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarset_getvaluechangedevent",ring_QBarSet_getvalueChangedEvent);
 	ring_vm_funcregister("qbarset_getvaluesaddedevent",ring_QBarSet_getvaluesAddedEvent);
 	ring_vm_funcregister("qbarset_getvaluesremovedevent",ring_QBarSet_getvaluesRemovedEvent);
+	ring_vm_funcregister("qarealegendmarker_series",ring_QAreaLegendMarker_series);
+	ring_vm_funcregister("qarealegendmarker_type",ring_QAreaLegendMarker_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
