@@ -650,6 +650,7 @@ extern "C" {
 	void ring_QBarSet_freefunc(void *pState,void *pPointer);
 	void ring_QAreaLegendMarker_freefunc(void *pState,void *pPointer);
 	void ring_QBarLegendMarker_freefunc(void *pState,void *pPointer);
+	void ring_QBoxPlotLegendMarker_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -126160,6 +126161,45 @@ RING_FUNC(ring_QBarLegendMarker_series)
 	RING_API_RETCPOINTER(pObject->series(),"QAbstractBarSeries");
 }
 
+
+RING_FUNC(ring_QBoxPlotLegendMarker_series)
+{
+	QBoxPlotLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBoxPlotLegendMarker *) RING_API_GETCPOINTER(1,"QBoxPlotLegendMarker");
+	RING_API_RETCPOINTER(pObject->series(),"QBoxPlotSeries");
+}
+
+
+RING_FUNC(ring_QBoxPlotLegendMarker_type)
+{
+	QBoxPlotLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBoxPlotLegendMarker *) RING_API_GETCPOINTER(1,"QBoxPlotLegendMarker");
+	{
+		QLegendMarker::LegendMarkerType *pValue ; 
+		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
+		*pValue = pObject->type();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -142159,6 +142199,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qarealegendmarker_type",ring_QAreaLegendMarker_type);
 	ring_vm_funcregister("qbarlegendmarker_barset",ring_QBarLegendMarker_barset);
 	ring_vm_funcregister("qbarlegendmarker_series",ring_QBarLegendMarker_series);
+	ring_vm_funcregister("qboxplotlegendmarker_series",ring_QBoxPlotLegendMarker_series);
+	ring_vm_funcregister("qboxplotlegendmarker_type",ring_QBoxPlotLegendMarker_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
