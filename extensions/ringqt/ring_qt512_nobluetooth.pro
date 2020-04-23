@@ -67,6 +67,7 @@ SOURCES +=   \
     cpp/src/gareaseries.cpp \
     cpp/src/gbarcategoryaxis.cpp \
     cpp/src/gbarset.cpp \
+    cpp/src/gboxplotseries.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -124,7 +125,8 @@ HEADERS  += \
     cpp/include/gabstractseries.h \
     cpp/include/gareaseries.h \
     cpp/include/gbarcategoryaxis.h \
-    cpp/include/gbarset.h
+    cpp/include/gbarset.h \
+    cpp/include/gboxplotseries.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

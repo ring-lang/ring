@@ -26991,10 +26991,153 @@ Class QBarLegendMarker from QLegendMarker
 
 Class QBoxPlotLegendMarker from QLegendMarker
 	Func series 
-		return QBoxPlotLegendMarker_series()
+		pTempObj = new QBoxPlotSeries
+		pTempObj.pObject = QBoxPlotLegendMarker_series()
+		return pTempObj
 
 	Func type 
 		return QBoxPlotLegendMarker_type()
+
+Class QBoxPlotSeries from QAbstractSeries
+
+	pObject
+
+	Func init P1
+		pObject = QBoxPlotSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBoxPlotSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QBoxPlotSeries_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_2 P1
+		return QBoxPlotSeries_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func boxOutlineVisible 
+		return QBoxPlotSeries_boxOutlineVisible(pObject)
+
+	Func boxSets 
+		return QBoxPlotSeries_boxSets(pObject)
+
+	Func boxWidth 
+		return QBoxPlotSeries_boxWidth(pObject)
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QBoxPlotSeries_brush(pObject)
+		return pTempObj
+
+	Func clear 
+		return QBoxPlotSeries_clear(pObject)
+
+	Func count 
+		return QBoxPlotSeries_count(pObject)
+
+	Func insert P1,P2
+		return QBoxPlotSeries_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QBoxPlotSeries_pen(pObject)
+		return pTempObj
+
+	Func remove P1
+		return QBoxPlotSeries_remove(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBoxOutlineVisible P1
+		return QBoxPlotSeries_setBoxOutlineVisible(pObject,P1)
+
+	Func setBoxWidth P1
+		return QBoxPlotSeries_setBoxWidth(pObject,P1)
+
+	Func setBrush P1
+		return QBoxPlotSeries_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QBoxPlotSeries_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func take P1
+		return QBoxPlotSeries_take(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func type 
+		return QBoxPlotSeries_type(pObject)
+
+	Func setboxOutlineVisibilityChangedEvent P1
+		return QBoxPlotSeries_setboxOutlineVisibilityChangedEvent(pObject,P1)
+
+	Func setboxWidthChangedEvent P1
+		return QBoxPlotSeries_setboxWidthChangedEvent(pObject,P1)
+
+	Func setboxsetsAddedEvent P1
+		return QBoxPlotSeries_setboxsetsAddedEvent(pObject,P1)
+
+	Func setboxsetsRemovedEvent P1
+		return QBoxPlotSeries_setboxsetsRemovedEvent(pObject,P1)
+
+	Func setbrushChangedEvent P1
+		return QBoxPlotSeries_setbrushChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QBoxPlotSeries_setclickedEvent(pObject,P1)
+
+	Func setcountChangedEvent P1
+		return QBoxPlotSeries_setcountChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QBoxPlotSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QBoxPlotSeries_sethoveredEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QBoxPlotSeries_setpenChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QBoxPlotSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QBoxPlotSeries_setreleasedEvent(pObject,P1)
+
+	Func getboxOutlineVisibilityChangedEvent 
+		return QBoxPlotSeries_getboxOutlineVisibilityChangedEvent(pObject)
+
+	Func getboxWidthChangedEvent 
+		return QBoxPlotSeries_getboxWidthChangedEvent(pObject)
+
+	Func getboxsetsAddedEvent 
+		return QBoxPlotSeries_getboxsetsAddedEvent(pObject)
+
+	Func getboxsetsRemovedEvent 
+		return QBoxPlotSeries_getboxsetsRemovedEvent(pObject)
+
+	Func getbrushChangedEvent 
+		return QBoxPlotSeries_getbrushChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QBoxPlotSeries_getclickedEvent(pObject)
+
+	Func getcountChangedEvent 
+		return QBoxPlotSeries_getcountChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QBoxPlotSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QBoxPlotSeries_gethoveredEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QBoxPlotSeries_getpenChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QBoxPlotSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QBoxPlotSeries_getreleasedEvent(pObject)
 
 Class QSize
 
