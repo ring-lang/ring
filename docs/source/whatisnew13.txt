@@ -187,6 +187,7 @@ Better RingQt
 * QAreaSeries
 * QBarCategoryAxis
 * QBarSeries
+* QBarSet
 
 
 .. index:: 
