@@ -82,6 +82,7 @@ SOURCES +=   \
     gareaseries.cpp \
     gbarcategoryaxis.cpp \
     gbarset.cpp \
+    gboxplotseries.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -147,6 +148,7 @@ HEADERS  += \
     gabstractseries.h \
     gareaseries.h \
     gbarcategoryaxis.h \
+    gboxplotseries.h \
     gbarset.h
 
 CONFIG += warn_off
