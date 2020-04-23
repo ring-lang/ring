@@ -187,6 +187,7 @@ Better RingQt
 * QAreaLegendMarker
 * QAreaSeries
 * QBarCategoryAxis
+* QBarLegendMarker
 * QBarSeries
 * QBarSet
 
