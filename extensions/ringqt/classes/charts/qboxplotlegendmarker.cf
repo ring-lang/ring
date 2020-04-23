@@ -1,0 +1,9 @@
+<class>
+name: QBoxPlotLegendMarker
+parent: QLegendMarker
+nonew
+</class>
+
+
+QBoxPlotSeries * series(void)
+QLegendMarker::LegendMarkerType type(void)

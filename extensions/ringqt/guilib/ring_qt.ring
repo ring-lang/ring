@@ -26989,6 +26989,13 @@ Class QBarLegendMarker from QLegendMarker
 	Func series 
 		return QBarLegendMarker_series()
 
+Class QBoxPlotLegendMarker from QLegendMarker
+	Func series 
+		return QBoxPlotLegendMarker_series()
+
+	Func type 
+		return QBoxPlotLegendMarker_type()
+
 Class QSize
 
 	pObject
