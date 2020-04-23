@@ -9,3 +9,4 @@
 <loadfile> charts/qbarcategoryaxis.cf
 <loadfile> charts/qbarseries.cf
 <loadfile> charts/qbarset.cf
+<loadfile> charts/qarealegendmarker.cf

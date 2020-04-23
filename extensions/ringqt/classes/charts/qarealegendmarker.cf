@@ -1,0 +1,9 @@
+<class>
+name: QAreaLegendMarker
+parent: QLegendMarker
+nonew
+</class>
+
+
+QAreaSeries * series(void)
+QLegendMarker::LegendMarkerType type(void)
