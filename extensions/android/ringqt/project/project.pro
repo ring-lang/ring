@@ -81,6 +81,7 @@ SOURCES +=   \
     gabstractseries.cpp \
     gareaseries.cpp \
     gbarcategoryaxis.cpp \
+    gbarset.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -145,7 +146,8 @@ HEADERS  += \
     gabstractbarseries.h \
     gabstractseries.h \
     gareaseries.h \
-    gbarcategoryaxis.h
+    gbarcategoryaxis.h \
+    gbarset.h
 
 CONFIG += warn_off
 
