@@ -26971,6 +26971,15 @@ Class QBarSet from QObject
 	Func getvaluesRemovedEvent 
 		return QBarSet_getvaluesRemovedEvent(pObject)
 
+Class QAreaLegendMarker from QLegendMarker
+	Func series 
+		pTempObj = new QAreaSeries
+		pTempObj.pObject = QAreaLegendMarker_series()
+		return pTempObj
+
+	Func type 
+		return QAreaLegendMarker_type()
+
 Class QSize
 
 	pObject
