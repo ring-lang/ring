@@ -655,6 +655,7 @@ extern "C" {
 	void ring_QBoxPlotLegendMarker_freefunc(void *pState,void *pPointer);
 	void ring_QBoxPlotSeries_freefunc(void *pState,void *pPointer);
 	void ring_QBoxSet_freefunc(void *pState,void *pPointer);
+	void ring_QCandlestickLegendMarker_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -127618,6 +127619,45 @@ RING_FUNC(ring_QBoxSet_getvaluesChangedEvent)
 	RING_API_RETSTRING(pObject->getvaluesChangedEvent());
 }
 
+
+RING_FUNC(ring_QCandlestickLegendMarker_series)
+{
+	QCandlestickLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCandlestickLegendMarker *) RING_API_GETCPOINTER(1,"QCandlestickLegendMarker");
+	RING_API_RETCPOINTER(pObject->series(),"QCandlestickSeries");
+}
+
+
+RING_FUNC(ring_QCandlestickLegendMarker_type)
+{
+	QCandlestickLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCandlestickLegendMarker *) RING_API_GETCPOINTER(1,"QCandlestickLegendMarker");
+	{
+		QLegendMarker::LegendMarkerType *pValue ; 
+		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
+		*pValue = pObject->type();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -143774,6 +143814,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qboxset_getreleasedevent",ring_QBoxSet_getreleasedEvent);
 	ring_vm_funcregister("qboxset_getvaluechangedevent",ring_QBoxSet_getvalueChangedEvent);
 	ring_vm_funcregister("qboxset_getvalueschangedevent",ring_QBoxSet_getvaluesChangedEvent);
+	ring_vm_funcregister("qcandlesticklegendmarker_series",ring_QCandlestickLegendMarker_series);
+	ring_vm_funcregister("qcandlesticklegendmarker_type",ring_QCandlestickLegendMarker_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
