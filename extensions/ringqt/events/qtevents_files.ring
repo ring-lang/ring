@@ -17,7 +17,6 @@ load "qdial.ring"
 load "qcheckbox.ring"
 load "qradiobutton.ring"
 load "qbuttongroup.ring"
-load "qvideowidget.ring"
 load "qtimer.ring"
 load "qcolordialog.ring"
 load "qplaintextedit.ring"
@@ -28,6 +27,8 @@ load "qdockwidget.ring"
 load "qstackedwidget.ring"
 load "qcalenderwidget.ring"
 load "qtabbar.ring"
+#-------------------------------------------------------------------------#
+load "multimediawidgets/qvideowidget.ring"
 #-------------------------------------------------------------------------#
 load "quick/qquickwidget.ring"
 #-------------------------------------------------------------------------#
