@@ -1,0 +1,42 @@
+<class>
+name: QBoxSet
+para: QString,QObject *
+parent: QObject
+codename: GBoxSet
+passvmpointer
+</class>
+
+void append(qreal value)
+void append@2(QList<qreal> values)
+qreal at(int index)
+QBrush brush(void)
+void clear(void)
+int count(void)
+QString label(void)
+QPen pen(void)
+void setBrush(QBrush brush)
+void setLabel(QString label)
+void setPen(QPen pen)
+void setValue(int index, qreal value)
+
+void setbrushChangedEvent(const char *)
+void setclearedEvent(const char *)
+void setclickedEvent(const char *)
+void setdoubleClickedEvent(const char *)
+void sethoveredEvent(const char *)
+void setpenChangedEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+void setvalueChangedEvent(const char *)
+void setvaluesChangedEvent(const char *)
+
+const char *getbrushChangedEvent(void)
+const char *getclearedEvent(void)
+const char *getclickedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *gethoveredEvent(void)
+const char *getpenChangedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *getvalueChangedEvent(void)
+const char *getvaluesChangedEvent(void)

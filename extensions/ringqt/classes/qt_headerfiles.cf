@@ -438,6 +438,7 @@ extern "C" {
 #include "gbarcategoryaxis.h"
 #include "gbarset.h"
 #include "gboxplotseries.h"
+#include "gboxset.h"
 #include <QtCharts>
 </filter>
 
