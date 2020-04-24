@@ -192,6 +192,7 @@ Better RingQt
 * QBarSet
 * QBoxPlotLegendMarker
 * QBoxPlotSeries
+* QBoxSet
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
