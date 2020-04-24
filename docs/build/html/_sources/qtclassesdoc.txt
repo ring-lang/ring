@@ -7,6 +7,179 @@ RingQt Classes Reference
 
 
 .. index::
+	pair: RingQt Classes Reference; AbstractAxis Class
+
+AbstractAxis Class
+==================
+
+
+Parameters : void
+
+* Qt::Alignment alignment(void)
+* QColor gridLineColor(void)
+* QPen gridLinePen(void)
+* void hide(void)
+* bool isGridLineVisible(void)
+* bool isLineVisible(void)
+* bool isMinorGridLineVisible(void)
+* bool isReverse(void)
+* bool isTitleVisible(void)
+* bool isVisible(void)
+* int labelsAngle(void)
+* QBrush labelsBrush(void)
+* QColor labelsColor(void)
+* bool labelsVisible(void)
+* QPen linePen(void)
+* QColor linePenColor(void)
+* QColor minorGridLineColor(void)
+* QPen minorGridLinePen(void)
+* Qt::Orientation orientation(void)
+* void setGridLineColor(QColor color)
+* void setGridLinePen(QPen pen)
+* void setGridLineVisible(bool visible)
+* void setLabelsAngle(int angle)
+* void setLabelsBrush(QBrush brush)
+* void setLabelsColor(QColor color)
+* void setLabelsVisible(bool visible)
+* void setLinePen(QPen pen)
+* void setLinePenColor(QColor color)
+* void setLineVisible(bool visible)
+* void setMax(QVariant max)
+* void setMin(QVariant min)
+* void setMinorGridLineColor(QColor color)
+* void setMinorGridLinePen(QPen pen)
+* void setMinorGridLineVisible(bool visible)
+* void setRange(QVariant min, QVariant max)
+* void setReverse(bool reverse)
+* void setShadesBorderColor(QColor color)
+* void setShadesBrush(QBrush brush)
+* void setShadesColor(QColor color)
+* void setShadesPen(QPen pen)
+* void setShadesVisible(bool visible)
+* void setTitleBrush(QBrush brush)
+* void setTitleFont(QFont font)
+* void setTitleText(QString title)
+* void setTitleVisible(bool visible)
+* void setVisible(bool visible)
+* QColor shadesBorderColor(void)
+* QBrush shadesBrush(void)
+* QColor shadesColor(void)
+* QPen shadesPen(void)
+* bool shadesVisible(void)
+* void show(void)
+* QBrush titleBrush(void)
+* QFont titleFont(void)
+* QString titleText(void)
+* void setcolorChangedEvent(const char *)
+* void setgridLineColorChangedEvent(const char *)
+* void setgridLinePenChangedEvent(const char *)
+* void setgridVisibleChangedEvent(const char *)
+* void setlabelsAngleChangedEvent(const char *)
+* void setlabelsBrushChangedEvent(const char *)
+* void setlabelsColorChangedEvent(const char *)
+* void setlabelsEditableChangedEvent(const char *)
+* void setlabelsFontChangedEvent(const char *)
+* void setlabelsVisibleChangedEvent(const char *)
+* void setlinePenChangedEvent(const char *)
+* void setlineVisibleChangedEvent(const char *)
+* void setminorGridLineColorChangedEvent(const char *)
+* void setminorGridLinePenChangedEvent(const char *)
+* void setminorGridVisibleChangedEvent(const char *)
+* void setreverseChangedEvent(const char *)
+* void setshadesBorderColorChangedEvent(const char *)
+* void setshadesBrushChangedEvent(const char *)
+* void setshadesColorChangedEvent(const char *)
+* void setshadesPenChangedEvent(const char *)
+* void setshadesVisibleChangedEvent(const char *)
+* void settitleBrushChangedEvent(const char *)
+* void settitleFontChangedEvent(const char *)
+* void settitleTextChangedEvent(const char *)
+* void settitleVisibleChangedEvent(const char *)
+* void setvisibleChangedEvent(const char *)
+* const char *getcolorChangedEvent(void)
+* const char *getgridLineColorChangedEvent(void)
+* const char *getgridLinePenChangedEvent(void)
+* const char *getgridVisibleChangedEvent(void)
+* const char *getlabelsAngleChangedEvent(void)
+* const char *getlabelsBrushChangedEvent(void)
+* const char *getlabelsColorChangedEvent(void)
+* const char *getlabelsEditableChangedEvent(void)
+* const char *getlabelsFontChangedEvent(void)
+* const char *getlabelsVisibleChangedEvent(void)
+* const char *getlinePenChangedEvent(void)
+* const char *getlineVisibleChangedEvent(void)
+* const char *getminorGridLineColorChangedEvent(void)
+* const char *getminorGridLinePenChangedEvent(void)
+* const char *getminorGridVisibleChangedEvent(void)
+* const char *getreverseChangedEvent(void)
+* const char *getshadesBorderColorChangedEvent(void)
+* const char *getshadesBrushChangedEvent(void)
+* const char *getshadesColorChangedEvent(void)
+* const char *getshadesPenChangedEvent(void)
+* const char *getshadesVisibleChangedEvent(void)
+* const char *gettitleBrushChangedEvent(void)
+* const char *gettitleFontChangedEvent(void)
+* const char *gettitleTextChangedEvent(void)
+* const char *gettitleVisibleChangedEvent(void)
+* const char *getvisibleChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; AbstractBarSeries Class
+
+AbstractBarSeries Class
+=======================
+
+
+Parameters : void
+
+
+Parent Class : AbstractSeries
+
+* bool append(QBarSet *set)
+* void clear(void)
+* int count(void)
+* bool insert(int index, QBarSet *set)
+* bool isLabelsVisible(void)
+* qreal labelsAngle(void)
+* QString labelsFormat(void)
+* QAbstractBarSeries::LabelsPosition labelsPosition(void)
+* int labelsPrecision(void)
+* bool remove(QBarSet *set)
+* void setBarWidth(qreal width)
+* void setLabelsAngle(qreal angle)
+* void setLabelsFormat(QString format)
+* void setLabelsPosition(QAbstractBarSeries::LabelsPosition position)
+* void setLabelsPrecision(int precision)
+* void setLabelsVisible(bool visible)
+* bool take(QBarSet *set)
+* void setbarsetsAddedEvent(const char *)
+* void setbarsetsRemovedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcountChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setlabelsAngleChangedEvent(const char *)
+* void setlabelsFormatChangedEvent(const char *)
+* void setlabelsPositionChangedEvent(const char *)
+* void setlabelsPrecisionChangedEvent(const char *)
+* void setlabelsVisibleChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* const char *getbarsetsAddedEvent(void)
+* const char *getbarsetsRemovedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcountChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getlabelsAngleChangedEvent(void)
+* const char *getlabelsFormatChangedEvent(void)
+* const char *getlabelsPositionChangedEvent(void)
+* const char *getlabelsPrecisionChangedEvent(void)
+* const char *getlabelsVisibleChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; CodeEditor Class
 
 CodeEditor Class
@@ -238,6 +411,44 @@ Parent Class : QFrame
 * QScrollBar *verticalScrollBar(void)
 * int verticalScrollBarPolicy(void)
 * QWidget *viewport(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractSeries Class
+
+QAbstractSeries Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qabstractseries.html
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* bool attachAxis(QAbstractAxis *axis)
+* QList<QAbstractAxis *> attachedAxes(void)
+* QChart *chart(void)
+* bool detachAxis(QAbstractAxis *axis)
+* void hide(void)
+* bool isVisible(void)
+* QString name(void)
+* qreal opacity(void)
+* void setName(QString name)
+* void setOpacity(qreal opacity)
+* void setUseOpenGL(bool enable)
+* void setVisible(bool visible)
+* void show(void)
+* bool useOpenGL(void)
+* void setnameChangedEvent(const char *)
+* void setopacityChangedEvent(const char *)
+* void setuseOpenGLChangedEvent(const char *)
+* void setvisibleChangedEvent(const char *)
+* const char *getnameChangedEvent(void)
+* const char *getopacityChangedEvent(void)
+* const char *getuseOpenGLChangedEvent(void)
+* const char *getvisibleChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAbstractSlider Class
@@ -627,6 +838,85 @@ Parent Class : QGuiApplication
 * Qt::KeyboardModifiers keyboardModifiers(void)
 
 .. index::
+	pair: RingQt Classes Reference; QAreaLegendMarker Class
+
+QAreaLegendMarker Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qarealegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QAreaSeries * series(void)
+* QLegendMarker::LegendMarkerType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAreaSeries Class
+
+QAreaSeries Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qareaseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractSeries
+
+* QColor borderColor(void)
+* QBrush brush(void)
+* QColor color(void)
+* QLineSeries * lowerSeries(void)
+* QPen pen(void)
+* bool pointLabelsClipping(void)
+* QColor pointLabelsColor(void)
+* QFont pointLabelsFont(void)
+* QString pointLabelsFormat(void)
+* bool pointLabelsVisible(void)
+* bool pointsVisible(void)
+* void setBorderColor(QColor color)
+* void setBrush(QBrush brush)
+* void setColor(QColor color)
+* void setLowerSeries(QLineSeries *series)
+* void setPen(QPen pen)
+* void setPointLabelsClipping(bool enabled)
+* void setPointLabelsColor(QColor color)
+* void setPointLabelsFont(QFont font)
+* void setPointLabelsFormat(QString format)
+* void setPointLabelsVisible(bool visible)
+* void setPointsVisible(bool visible)
+* void setUpperSeries(QLineSeries *series)
+* QLineSeries * upperSeries(void)
+* void setborderColorChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcolorChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setpointLabelsClippingChangedEvent(const char *)
+* void setpointLabelsColorChangedEvent(const char *)
+* void setpointLabelsFontChangedEvent(const char *)
+* void setpointLabelsFormatChangedEvent(const char *)
+* void setpointLabelsVisibilityChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* const char *getborderColorChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcolorChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getpointLabelsClippingChangedEvent(void)
+* const char *getpointLabelsColorChangedEvent(void)
+* const char *getpointLabelsFontChangedEvent(void)
+* const char *getpointLabelsFormatChangedEvent(void)
+* const char *getpointLabelsVisibilityChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QAspectEngine Class
 
 QAspectEngine Class
@@ -740,6 +1030,151 @@ Parameters : QString c, QWidget *parent, Qt::WindowFlags f
 
 Parent Class : QAxWidget
 
+
+.. index::
+	pair: RingQt Classes Reference; QBarCategoryAxis Class
+
+QBarCategoryAxis Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qbarcategoryaxis.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractAxis
+
+* void append(QStringList categories)
+* void append_2(QString category)
+* QString at(int index)
+* QStringList categories(void)
+* void clear(void)
+* int count(void)
+* void insert(int index, QString category)
+* QString max(void)
+* QString min(void)
+* void remove(QString category)
+* void replace(QString oldCategory, QString newCategory)
+* void setCategories(QStringList categories)
+* void setMax(QString max)
+* void setMin(QString min)
+* void setRange(QString minCategory, QString maxCategory)
+* void setcategoriesChangedEvent(const char *)
+* void setcountChangedEvent(const char *)
+* void setmaxChangedEvent(const char *)
+* void setminChangedEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* const char *getcategoriesChangedEvent(void)
+* const char *getcountChangedEvent(void)
+* const char *getmaxChangedEvent(void)
+* const char *getminChangedEvent(void)
+* const char *getrangeChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBarLegendMarker Class
+
+QBarLegendMarker Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qbarlegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QBarSet * barset(void)
+* QAbstractBarSeries * series(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBarSeries Class
+
+QBarSeries Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBarSet Class
+
+QBarSet Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qbarset.html
+
+
+Parameters : QString,QObject *
+
+
+Parent Class : QObject
+
+* void append(qreal value)
+* void append_2(QList<qreal> values)
+* qreal at(int index)
+* QColor borderColor(void)
+* QBrush brush(void)
+* QColor color(void)
+* int count(void)
+* void insert(int index, qreal value)
+* QString label(void)
+* QBrush labelBrush(void)
+* QColor labelColor(void)
+* QFont labelFont(void)
+* QPen pen(void)
+* void remove(int index, int count)
+* void replace(int index, qreal value)
+* void setBorderColor(QColor color)
+* void setBrush(QBrush brush)
+* void setColor(QColor color)
+* void setLabel(QString label)
+* void setLabelBrush(QBrush brush)
+* void setLabelColor(QColor color)
+* void setLabelFont(QFont font)
+* void setPen(QPen pen)
+* qreal sum(void)
+* void setborderColorChangedEvent(const char *)
+* void setbrushChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcolorChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setlabelBrushChangedEvent(const char *)
+* void setlabelChangedEvent(const char *)
+* void setlabelColorChangedEvent(const char *)
+* void setlabelFontChangedEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void setvalueChangedEvent(const char *)
+* void setvaluesAddedEvent(const char *)
+* void setvaluesRemovedEvent(const char *)
+* const char *getborderColorChangedEvent(void)
+* const char *getbrushChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcolorChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getlabelBrushChangedEvent(void)
+* const char *getlabelChangedEvent(void)
+* const char *getlabelColorChangedEvent(void)
+* const char *getlabelFontChangedEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+* const char *getvalueChangedEvent(void)
+* const char *getvaluesAddedEvent(void)
+* const char *getvaluesRemovedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QBitmap Class
@@ -1154,6 +1589,126 @@ Parent Class : QLayout
 * int  stretch(int index)
 
 .. index::
+	pair: RingQt Classes Reference; QBoxPlotLegendMarker Class
+
+QBoxPlotLegendMarker Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qboxplotlegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QBoxPlotSeries * series(void)
+* QLegendMarker::LegendMarkerType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBoxPlotSeries Class
+
+QBoxPlotSeries Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qboxplotseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractSeries
+
+* bool append(QBoxSet *set)
+* bool append_2(QList<QBoxSet *> sets)
+* bool boxOutlineVisible(void)
+* QList<QBoxSet *> boxSets(void)
+* qreal boxWidth(void)
+* QBrush brush(void)
+* void clear(void)
+* int count(void)
+* bool insert(int index, QBoxSet *set)
+* QPen pen(void)
+* bool remove(QBoxSet *set)
+* void setBoxOutlineVisible(bool visible)
+* void setBoxWidth(qreal width)
+* void setBrush(QBrush brush)
+* void setPen(QPen pen)
+* bool take(QBoxSet *set)
+* QAbstractSeries::SeriesType type(void)
+* void setboxOutlineVisibilityChangedEvent(const char *)
+* void setboxWidthChangedEvent(const char *)
+* void setboxsetsAddedEvent(const char *)
+* void setboxsetsRemovedEvent(const char *)
+* void setbrushChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcountChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* const char *getboxOutlineVisibilityChangedEvent(void)
+* const char *getboxWidthChangedEvent(void)
+* const char *getboxsetsAddedEvent(void)
+* const char *getboxsetsRemovedEvent(void)
+* const char *getbrushChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcountChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBoxSet Class
+
+QBoxSet Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qboxset.html
+
+
+Parameters : QString,QObject *
+
+
+Parent Class : QObject
+
+* void append(qreal value)
+* void append_2(QList<qreal> values)
+* qreal at(int index)
+* QBrush brush(void)
+* void clear(void)
+* int count(void)
+* QString label(void)
+* QPen pen(void)
+* void setBrush(QBrush brush)
+* void setLabel(QString label)
+* void setPen(QPen pen)
+* void setValue(int index, qreal value)
+* void setbrushChangedEvent(const char *)
+* void setclearedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void setvalueChangedEvent(const char *)
+* void setvaluesChangedEvent(const char *)
+* const char *getbrushChangedEvent(void)
+* const char *getclearedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+* const char *getvalueChangedEvent(void)
+* const char *getvaluesChangedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QBrush Class
 
 QBrush Class
@@ -1505,6 +2060,20 @@ Parameters : QWidget *
 Parent Class : QVideoWidget
 
 
+.. index::
+	pair: RingQt Classes Reference; QCandlestickLegendMarker Class
+
+QCandlestickLegendMarker Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qcandlesticklegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QCandlestickSeries * series(void)
+* QLegendMarker::LegendMarkerType type(void)
 .. index::
 	pair: RingQt Classes Reference; QChar Class
 
@@ -4703,6 +5272,7 @@ Parameters : QObject *
 
 
 Parent Class : Qt3DCore::QAbstractAspect
+
 
 .. index::
 	pair: RingQt Classes Reference; QMainWindow Class
