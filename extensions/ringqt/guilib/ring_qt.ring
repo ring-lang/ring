@@ -27253,6 +27253,13 @@ Class QBoxSet from QObject
 	Func getvaluesChangedEvent 
 		return QBoxSet_getvaluesChangedEvent(pObject)
 
+Class QCandlestickLegendMarker from QLegendMarker
+	Func series 
+		return QCandlestickLegendMarker_series()
+
+	Func type 
+		return QCandlestickLegendMarker_type()
+
 Class QSize
 
 	pObject
