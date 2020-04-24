@@ -1,4 +1,3 @@
-aClasses = []
 #-------------------------------------------------------------------------#
 load "core/qobject.ring"
 load "core/qiodevice.ring"
@@ -77,4 +76,5 @@ load "charts/qbarcategoryaxis.ring"
 load "charts/qbarset.ring"
 load "charts/qboxplotseries.ring"
 load "charts/qboxset.ring"
+load "charts/qcandlestickmodelmapper.ring"
 #-------------------------------------------------------------------------#

@@ -2,6 +2,8 @@
 # To execute : ring qtevents.ring
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
+aClasses = []
+
 load "qtevents_files.ring"
 
 if isWindows()
