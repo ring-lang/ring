@@ -28,7 +28,8 @@ load "qdockwidget.ring"
 load "qstackedwidget.ring"
 load "qcalenderwidget.ring"
 load "qtabbar.ring"
-load "qquickwidget.ring"
+#-------------------------------------------------------------------------#
+load "quick/qquickwidget.ring"
 #-------------------------------------------------------------------------#
 load "core/qobject.ring"
 load "core/qiodevice.ring"
