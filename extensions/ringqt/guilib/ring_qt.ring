@@ -27139,6 +27139,120 @@ Class QBoxPlotSeries from QAbstractSeries
 	Func getreleasedEvent 
 		return QBoxPlotSeries_getreleasedEvent(pObject)
 
+Class QBoxSet from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBoxSet_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBoxSet_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QBoxSet_append(pObject,P1)
+
+	Func append_2 P1
+		return QBoxSet_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func at P1
+		return QBoxSet_at(pObject,P1)
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QBoxSet_brush(pObject)
+		return pTempObj
+
+	Func clear 
+		return QBoxSet_clear(pObject)
+
+	Func count 
+		return QBoxSet_count(pObject)
+
+	Func label 
+		return QBoxSet_label(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QBoxSet_pen(pObject)
+		return pTempObj
+
+	Func setBrush P1
+		return QBoxSet_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabel P1
+		return QBoxSet_setLabel(pObject,P1)
+
+	Func setPen P1
+		return QBoxSet_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setValue P1,P2
+		return QBoxSet_setValue(pObject,P1,P2)
+
+	Func setbrushChangedEvent P1
+		return QBoxSet_setbrushChangedEvent(pObject,P1)
+
+	Func setclearedEvent P1
+		return QBoxSet_setclearedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QBoxSet_setclickedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QBoxSet_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QBoxSet_sethoveredEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QBoxSet_setpenChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QBoxSet_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QBoxSet_setreleasedEvent(pObject,P1)
+
+	Func setvalueChangedEvent P1
+		return QBoxSet_setvalueChangedEvent(pObject,P1)
+
+	Func setvaluesChangedEvent P1
+		return QBoxSet_setvaluesChangedEvent(pObject,P1)
+
+	Func getbrushChangedEvent 
+		return QBoxSet_getbrushChangedEvent(pObject)
+
+	Func getclearedEvent 
+		return QBoxSet_getclearedEvent(pObject)
+
+	Func getclickedEvent 
+		return QBoxSet_getclickedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QBoxSet_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QBoxSet_gethoveredEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QBoxSet_getpenChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QBoxSet_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QBoxSet_getreleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QBoxSet_getvalueChangedEvent(pObject)
+
+	Func getvaluesChangedEvent 
+		return QBoxSet_getvaluesChangedEvent(pObject)
+
 Class QSize
 
 	pObject
