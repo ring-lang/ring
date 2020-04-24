@@ -1,0 +1,20 @@
+<class>
+name: QCandlestickModelMapper
+para: QObject *
+parent: QObject
+codename: GCandlestickModelMapper
+abstract
+</class>
+
+
+QAbstractItemModel * model(void)
+Qt::Orientation orientation(void)
+QCandlestickSeries * series(void)
+void setModel(QAbstractItemModel *model)
+void setSeries(QCandlestickSeries *series)
+
+void setmodelReplacedEvent(const char *)
+void setseriesReplacedEvent(const char *)
+
+const char *getmodelReplacedEvent(void)
+const char *getseriesReplacedEvent(void)

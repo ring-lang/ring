@@ -439,6 +439,7 @@ extern "C" {
 #include "gbarset.h"
 #include "gboxplotseries.h"
 #include "gboxset.h"
+#include "gcandlestickmodelmapper.h"
 #include <QtCharts>
 </filter>
 
