@@ -47,8 +47,9 @@ load "qprintpreviewwidget.ring"
 load "qprintpreviewdialog.ring"
 load "qprintdialog.ring"
 load "qtexttospeech.ring"
-load "qobjectpicker.ring"
-load "qframeaction.ring"
+#-------------------------------------------------------------------------#
+load "qt3d/qobjectpicker.ring"
+load "qt3d/qframeaction.ring"
 #-------------------------------------------------------------------------#
 load "bluetooth/qbluetoothdevicediscoveryagent.ring"
 load "bluetooth/qbluetoothlocaldevice.ring"
