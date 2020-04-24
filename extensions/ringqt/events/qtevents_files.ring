@@ -46,7 +46,8 @@ load "qgeopositioninfosource.ring"
 load "qprintpreviewwidget.ring"
 load "qprintpreviewdialog.ring"
 load "qprintdialog.ring"
-load "qtexttospeech.ring"
+#-------------------------------------------------------------------------#
+load "speech/qtexttospeech.ring"
 #-------------------------------------------------------------------------#
 load "qt3d/qobjectpicker.ring"
 load "qt3d/qframeaction.ring"
