@@ -348,6 +348,7 @@ extern "C" {
 #include "gbarcategoryaxis.h"
 #include "gbarset.h"
 #include "gboxplotseries.h"
+#include "gboxset.h"
 #include <QtCharts>
 
 extern "C" {
@@ -653,6 +654,7 @@ extern "C" {
 	void ring_QBarLegendMarker_freefunc(void *pState,void *pPointer);
 	void ring_QBoxPlotLegendMarker_freefunc(void *pState,void *pPointer);
 	void ring_QBoxPlotSeries_freefunc(void *pState,void *pPointer);
+	void ring_QBoxSet_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -126996,6 +126998,626 @@ RING_FUNC(ring_QBoxPlotSeries_getreleasedEvent)
 	RING_API_RETSTRING(pObject->getreleasedEvent());
 }
 
+
+RING_FUNC(ring_QBoxSet_append)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->append( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_append_2)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	pObject->append(* (QList<qreal>  *) RING_API_GETCPOINTER(2,"QList<qreal>"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<qreal>"));
+}
+
+
+RING_FUNC(ring_QBoxSet_at)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->at( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QBoxSet_brush)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->brush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QBoxSet_clear)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QBoxSet_count)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QBoxSet_label)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->label().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QBoxSet_pen)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->pen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QBoxSet_setBrush)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	pObject->setBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QBoxSet_setLabel)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabel(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setPen)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	pObject->setPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QBoxSet_setValue)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setValue( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QBoxSet_setbrushChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbrushChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setclearedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclearedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setclickedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setdoubleClickedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdoubleClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_sethoveredEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethoveredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setpenChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpenChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setpressedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpressedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setreleasedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setreleasedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setvalueChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvalueChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_setvaluesChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvaluesChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QBoxSet_getbrushChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getbrushChangedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getclearedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getclearedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getclickedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getdoubleClickedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getdoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_gethoveredEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->gethoveredEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getpenChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getpenChangedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getpressedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getreleasedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getreleasedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getvalueChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getvalueChangedEvent());
+}
+
+
+RING_FUNC(ring_QBoxSet_getvaluesChangedEvent)
+{
+	GBoxSet *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"QBoxSet");
+	RING_API_RETSTRING(pObject->getvaluesChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -130698,6 +131320,25 @@ RING_FUNC(ring_QBoxPlotSeries_new)
 	}
 	GBoxPlotSeries *pObject = new GBoxPlotSeries((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QBoxPlotSeries");
+}
+
+RING_FUNC(ring_QBoxSet_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GBoxSet *pObject = new GBoxSet(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QBoxSet");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -135052,6 +135693,23 @@ RING_FUNC(ring_QBoxPlotSeries_delete)
 	}
 }
 
+RING_FUNC(ring_QBoxSet_delete)
+{
+	GBoxSet *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GBoxSet *) RING_API_GETCPOINTER(1,"GBoxSet");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -136841,6 +137499,13 @@ void ring_QBoxPlotSeries_freefunc(void *pState,void *pPointer)
 {
 	GBoxPlotSeries *pObject ; 
 	pObject = (GBoxPlotSeries *) pPointer;
+	delete pObject ;
+}
+
+void ring_QBoxSet_freefunc(void *pState,void *pPointer)
+{
+	GBoxSet *pObject ; 
+	pObject = (GBoxSet *) pPointer;
 	delete pObject ;
 }
 
@@ -143077,6 +143742,38 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qboxplotseries_getpenchangedevent",ring_QBoxPlotSeries_getpenChangedEvent);
 	ring_vm_funcregister("qboxplotseries_getpressedevent",ring_QBoxPlotSeries_getpressedEvent);
 	ring_vm_funcregister("qboxplotseries_getreleasedevent",ring_QBoxPlotSeries_getreleasedEvent);
+	ring_vm_funcregister("qboxset_append",ring_QBoxSet_append);
+	ring_vm_funcregister("qboxset_append_2",ring_QBoxSet_append_2);
+	ring_vm_funcregister("qboxset_at",ring_QBoxSet_at);
+	ring_vm_funcregister("qboxset_brush",ring_QBoxSet_brush);
+	ring_vm_funcregister("qboxset_clear",ring_QBoxSet_clear);
+	ring_vm_funcregister("qboxset_count",ring_QBoxSet_count);
+	ring_vm_funcregister("qboxset_label",ring_QBoxSet_label);
+	ring_vm_funcregister("qboxset_pen",ring_QBoxSet_pen);
+	ring_vm_funcregister("qboxset_setbrush",ring_QBoxSet_setBrush);
+	ring_vm_funcregister("qboxset_setlabel",ring_QBoxSet_setLabel);
+	ring_vm_funcregister("qboxset_setpen",ring_QBoxSet_setPen);
+	ring_vm_funcregister("qboxset_setvalue",ring_QBoxSet_setValue);
+	ring_vm_funcregister("qboxset_setbrushchangedevent",ring_QBoxSet_setbrushChangedEvent);
+	ring_vm_funcregister("qboxset_setclearedevent",ring_QBoxSet_setclearedEvent);
+	ring_vm_funcregister("qboxset_setclickedevent",ring_QBoxSet_setclickedEvent);
+	ring_vm_funcregister("qboxset_setdoubleclickedevent",ring_QBoxSet_setdoubleClickedEvent);
+	ring_vm_funcregister("qboxset_sethoveredevent",ring_QBoxSet_sethoveredEvent);
+	ring_vm_funcregister("qboxset_setpenchangedevent",ring_QBoxSet_setpenChangedEvent);
+	ring_vm_funcregister("qboxset_setpressedevent",ring_QBoxSet_setpressedEvent);
+	ring_vm_funcregister("qboxset_setreleasedevent",ring_QBoxSet_setreleasedEvent);
+	ring_vm_funcregister("qboxset_setvaluechangedevent",ring_QBoxSet_setvalueChangedEvent);
+	ring_vm_funcregister("qboxset_setvalueschangedevent",ring_QBoxSet_setvaluesChangedEvent);
+	ring_vm_funcregister("qboxset_getbrushchangedevent",ring_QBoxSet_getbrushChangedEvent);
+	ring_vm_funcregister("qboxset_getclearedevent",ring_QBoxSet_getclearedEvent);
+	ring_vm_funcregister("qboxset_getclickedevent",ring_QBoxSet_getclickedEvent);
+	ring_vm_funcregister("qboxset_getdoubleclickedevent",ring_QBoxSet_getdoubleClickedEvent);
+	ring_vm_funcregister("qboxset_gethoveredevent",ring_QBoxSet_gethoveredEvent);
+	ring_vm_funcregister("qboxset_getpenchangedevent",ring_QBoxSet_getpenChangedEvent);
+	ring_vm_funcregister("qboxset_getpressedevent",ring_QBoxSet_getpressedEvent);
+	ring_vm_funcregister("qboxset_getreleasedevent",ring_QBoxSet_getreleasedEvent);
+	ring_vm_funcregister("qboxset_getvaluechangedevent",ring_QBoxSet_getvalueChangedEvent);
+	ring_vm_funcregister("qboxset_getvalueschangedevent",ring_QBoxSet_getvaluesChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -143333,6 +144030,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarseries_new",ring_QBarSeries_new);
 	ring_vm_funcregister("qbarset_new",ring_QBarSet_new);
 	ring_vm_funcregister("qboxplotseries_new",ring_QBoxPlotSeries_new);
+	ring_vm_funcregister("qboxset_new",ring_QBoxSet_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -143589,4 +144287,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarseries_delete",ring_QBarSeries_delete);
 	ring_vm_funcregister("qbarset_delete",ring_QBarSet_delete);
 	ring_vm_funcregister("qboxplotseries_delete",ring_QBoxPlotSeries_delete);
+	ring_vm_funcregister("qboxset_delete",ring_QBoxSet_delete);
 }
