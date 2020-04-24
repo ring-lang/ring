@@ -194,6 +194,7 @@ Better RingQt
 * QBoxPlotSeries
 * QBoxSet
 * QCandlestickLegendMarker
+* QCandlestickModelMapper
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements

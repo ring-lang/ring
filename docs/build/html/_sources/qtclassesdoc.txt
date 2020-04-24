@@ -2074,6 +2074,31 @@ Parent Class : QLegendMarker
 
 * QCandlestickSeries * series(void)
 * QLegendMarker::LegendMarkerType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCandlestickModelMapper Class
+
+QCandlestickModelMapper Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qcandlestickmodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QAbstractItemModel * model(void)
+* Qt::Orientation orientation(void)
+* QCandlestickSeries * series(void)
+* void setModel(QAbstractItemModel *model)
+* void setSeries(QCandlestickSeries *series)
+* void setmodelReplacedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* const char *getmodelReplacedEvent(void)
+* const char *getseriesReplacedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QChar Class
 
@@ -11223,22 +11248,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -11266,6 +11275,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
