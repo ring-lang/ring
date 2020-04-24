@@ -43,9 +43,10 @@ load "qtabbar.ring"
 load "qquickwidget.ring"
 load "qdrag.ring"
 load "qgeopositioninfosource.ring"
-load "qprintpreviewwidget.ring"
-load "qprintpreviewdialog.ring"
-load "qprintdialog.ring"
+#-------------------------------------------------------------------------#
+load "printsupport/qprintpreviewwidget.ring"
+load "printsupport/qprintpreviewdialog.ring"
+load "printsupport/qprintdialog.ring"
 #-------------------------------------------------------------------------#
 load "speech/qtexttospeech.ring"
 #-------------------------------------------------------------------------#
