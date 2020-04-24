@@ -69,6 +69,7 @@ SOURCES +=   \
     cpp/src/gbarset.cpp \
     cpp/src/gboxplotseries.cpp \
     cpp/src/gboxset.cpp \
+    cpp/src/gcandlestickmodelmapper.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -128,7 +129,8 @@ HEADERS  += \
     cpp/include/gbarcategoryaxis.h \
     cpp/include/gbarset.h \
     cpp/include/gboxplotseries.h \
-    cpp/include/gboxset.h
+    cpp/include/gboxset.h \
+    cpp/include/gcandlestickmodelmapper.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

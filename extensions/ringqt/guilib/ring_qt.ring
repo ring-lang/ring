@@ -27260,6 +27260,47 @@ Class QCandlestickLegendMarker from QLegendMarker
 	Func type 
 		return QCandlestickLegendMarker_type()
 
+Class QCandlestickModelMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QCandlestickModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCandlestickModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func model 
+		return QCandlestickModelMapper_model(pObject)
+
+	Func orientation 
+		return QCandlestickModelMapper_orientation(pObject)
+
+	Func series 
+		return QCandlestickModelMapper_series(pObject)
+
+	Func setModel P1
+		return QCandlestickModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSeries P1
+		return QCandlestickModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setmodelReplacedEvent P1
+		return QCandlestickModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QCandlestickModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func getmodelReplacedEvent 
+		return QCandlestickModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QCandlestickModelMapper_getseriesReplacedEvent(pObject)
+
 Class QSize
 
 	pObject
