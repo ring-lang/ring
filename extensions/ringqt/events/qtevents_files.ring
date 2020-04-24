@@ -39,7 +39,8 @@ load "qcalenderwidget.ring"
 load "qtabbar.ring"
 load "qquickwidget.ring"
 load "qdrag.ring"
-load "qgeopositioninfosource.ring"
+#-------------------------------------------------------------------------#
+load "positioning/qgeopositioninfosource.ring"
 #-------------------------------------------------------------------------#
 load "serialport/qserialport.ring"
 #-------------------------------------------------------------------------#
