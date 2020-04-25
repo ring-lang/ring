@@ -37,7 +37,8 @@ func Open_Window cClass
 		cCode += "import System.GUI" + nl
 	}
 	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
-		  $RingQt_ObjName + ".start()"
+		"if isMethod(" + $RingQt_ObjName + ",:start)" + nl +
+		  $RingQt_ObjName + ".start()" + nl + "ok"
 	eval(cCode)	
 	if cRingQt_ObjName != NULL {
 		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
