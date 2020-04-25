@@ -7,4 +7,9 @@ func open_object cObject
 func last_object
 	return last_window()
 
+func CreateObject cClass,oParent
+	open_object(cClass)
+	last_object().init(oParent)
+	return last_object()
+
 class ObjectControllerParent from WindowsControllerBase
