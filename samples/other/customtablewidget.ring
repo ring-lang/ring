@@ -12,9 +12,9 @@ app = new QApp {
 
 func CreateTable oParent
 	# We use open_window() to be able to use the Method() function for events
-		open_Window(:CustomTable)
-		last_window().init(oParent)
-	return last_window()
+		open_object(:CustomTable)
+		last_object().init(oParent)
+	return last_object()
 
 class CustomTable from QTableWidget 
 
