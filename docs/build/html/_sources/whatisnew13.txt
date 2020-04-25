@@ -215,6 +215,7 @@ More Improvements
 	* ring/samples/other/evalinscope/global.ring
 	* ring/samples/other/evalinscope/enum.ring
 	* ring/samples/other/customtablewidget.ring
+	* ring/samples/other/customtablewidget2.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
