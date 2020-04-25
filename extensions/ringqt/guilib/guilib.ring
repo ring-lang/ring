@@ -9,8 +9,9 @@
 # Load the main library 
 	load "qt.rh"
 	load "ring_qt.ring"
-# Load the Objects Library 
-	load "objectslib/objects.ring"
-	load "objectslib/subwindows.ring"
+# Load the General Objects Library 
+	load "objectslib.ring"
+	# Load the Objects Library - Custom classes for the GUILib 
+		load "objectslib/subwindows.ring"
 # Load the modern library (Better functions and classes)	
 	load "modernlib/modernlib.ring"
