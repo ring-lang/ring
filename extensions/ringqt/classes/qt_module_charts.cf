@@ -16,3 +16,4 @@
 <loadfile> charts/qboxset.cf
 <loadfile> charts/qcandlesticklegendmarker.cf
 <loadfile> charts/qcandlestickmodelmapper.cf
+<loadfile> charts/qcandlestickseries.cf
