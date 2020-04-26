@@ -27255,7 +27255,9 @@ Class QBoxSet from QObject
 
 Class QCandlestickLegendMarker from QLegendMarker
 	Func series 
-		return QCandlestickLegendMarker_series()
+		pTempObj = new QCandlestickSeries
+		pTempObj.pObject = QCandlestickLegendMarker_series()
+		return pTempObj
 
 	Func type 
 		return QCandlestickLegendMarker_type()
@@ -27281,7 +27283,9 @@ Class QCandlestickModelMapper from QObject
 		return QCandlestickModelMapper_orientation(pObject)
 
 	Func series 
-		return QCandlestickModelMapper_series(pObject)
+		pTempObj = new QCandlestickSeries
+		pTempObj.pObject = QCandlestickModelMapper_series(pObject)
+		return pTempObj
 
 	Func setModel P1
 		return QCandlestickModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
@@ -27300,6 +27304,223 @@ Class QCandlestickModelMapper from QObject
 
 	Func getseriesReplacedEvent 
 		return QCandlestickModelMapper_getseriesReplacedEvent(pObject)
+
+Class QCandlestickSeries from QAbstractSeries
+
+	pObject
+
+	Func init P1
+		pObject = QCandlestickSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCandlestickSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QCandlestickSeries_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_2 P1
+		return QCandlestickSeries_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func bodyOutlineVisible 
+		return QCandlestickSeries_bodyOutlineVisible(pObject)
+
+	Func bodyWidth 
+		return QCandlestickSeries_bodyWidth(pObject)
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QCandlestickSeries_brush(pObject)
+		return pTempObj
+
+	Func capsVisible 
+		return QCandlestickSeries_capsVisible(pObject)
+
+	Func capsWidth 
+		return QCandlestickSeries_capsWidth(pObject)
+
+	Func clear 
+		return QCandlestickSeries_clear(pObject)
+
+	Func count 
+		return QCandlestickSeries_count(pObject)
+
+	Func decreasingColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QCandlestickSeries_decreasingColor(pObject)
+		return pTempObj
+
+	Func increasingColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QCandlestickSeries_increasingColor(pObject)
+		return pTempObj
+
+	Func insert P1,P2
+		return QCandlestickSeries_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func maximumColumnWidth 
+		return QCandlestickSeries_maximumColumnWidth(pObject)
+
+	Func minimumColumnWidth 
+		return QCandlestickSeries_minimumColumnWidth(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QCandlestickSeries_pen(pObject)
+		return pTempObj
+
+	Func remove P1
+		return QCandlestickSeries_remove(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func remove_2 P1
+		return QCandlestickSeries_remove_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBodyOutlineVisible P1
+		return QCandlestickSeries_setBodyOutlineVisible(pObject,P1)
+
+	Func setBodyWidth P1
+		return QCandlestickSeries_setBodyWidth(pObject,P1)
+
+	Func setBrush P1
+		return QCandlestickSeries_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCapsVisible P1
+		return QCandlestickSeries_setCapsVisible(pObject,P1)
+
+	Func setCapsWidth P1
+		return QCandlestickSeries_setCapsWidth(pObject,P1)
+
+	Func setDecreasingColor P1
+		return QCandlestickSeries_setDecreasingColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIncreasingColor P1
+		return QCandlestickSeries_setIncreasingColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumColumnWidth P1
+		return QCandlestickSeries_setMaximumColumnWidth(pObject,P1)
+
+	Func setMinimumColumnWidth P1
+		return QCandlestickSeries_setMinimumColumnWidth(pObject,P1)
+
+	Func setPen P1
+		return QCandlestickSeries_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sets 
+		return QCandlestickSeries_sets(pObject)
+
+	Func take P1
+		return QCandlestickSeries_take(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setbodyOutlineVisibilityChangedEvent P1
+		return QCandlestickSeries_setbodyOutlineVisibilityChangedEvent(pObject,P1)
+
+	Func setbodyWidthChangedEvent P1
+		return QCandlestickSeries_setbodyWidthChangedEvent(pObject,P1)
+
+	Func setbrushChangedEvent P1
+		return QCandlestickSeries_setbrushChangedEvent(pObject,P1)
+
+	Func setcandlestickSetsAddedEvent P1
+		return QCandlestickSeries_setcandlestickSetsAddedEvent(pObject,P1)
+
+	Func setcandlestickSetsRemovedEvent P1
+		return QCandlestickSeries_setcandlestickSetsRemovedEvent(pObject,P1)
+
+	Func setcapsVisibilityChangedEvent P1
+		return QCandlestickSeries_setcapsVisibilityChangedEvent(pObject,P1)
+
+	Func setcapsWidthChangedEvent P1
+		return QCandlestickSeries_setcapsWidthChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QCandlestickSeries_setclickedEvent(pObject,P1)
+
+	Func setcountChangedEvent P1
+		return QCandlestickSeries_setcountChangedEvent(pObject,P1)
+
+	Func setdecreasingColorChangedEvent P1
+		return QCandlestickSeries_setdecreasingColorChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QCandlestickSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QCandlestickSeries_sethoveredEvent(pObject,P1)
+
+	Func setincreasingColorChangedEvent P1
+		return QCandlestickSeries_setincreasingColorChangedEvent(pObject,P1)
+
+	Func setmaximumColumnWidthChangedEvent P1
+		return QCandlestickSeries_setmaximumColumnWidthChangedEvent(pObject,P1)
+
+	Func setminimumColumnWidthChangedEvent P1
+		return QCandlestickSeries_setminimumColumnWidthChangedEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QCandlestickSeries_setpenChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QCandlestickSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QCandlestickSeries_setreleasedEvent(pObject,P1)
+
+	Func getbodyOutlineVisibilityChangedEvent 
+		return QCandlestickSeries_getbodyOutlineVisibilityChangedEvent(pObject)
+
+	Func getbodyWidthChangedEvent 
+		return QCandlestickSeries_getbodyWidthChangedEvent(pObject)
+
+	Func getbrushChangedEvent 
+		return QCandlestickSeries_getbrushChangedEvent(pObject)
+
+	Func getcandlestickSetsAddedEvent 
+		return QCandlestickSeries_getcandlestickSetsAddedEvent(pObject)
+
+	Func getcandlestickSetsRemovedEvent 
+		return QCandlestickSeries_getcandlestickSetsRemovedEvent(pObject)
+
+	Func getcapsVisibilityChangedEvent 
+		return QCandlestickSeries_getcapsVisibilityChangedEvent(pObject)
+
+	Func getcapsWidthChangedEvent 
+		return QCandlestickSeries_getcapsWidthChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QCandlestickSeries_getclickedEvent(pObject)
+
+	Func getcountChangedEvent 
+		return QCandlestickSeries_getcountChangedEvent(pObject)
+
+	Func getdecreasingColorChangedEvent 
+		return QCandlestickSeries_getdecreasingColorChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QCandlestickSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QCandlestickSeries_gethoveredEvent(pObject)
+
+	Func getincreasingColorChangedEvent 
+		return QCandlestickSeries_getincreasingColorChangedEvent(pObject)
+
+	Func getmaximumColumnWidthChangedEvent 
+		return QCandlestickSeries_getmaximumColumnWidthChangedEvent(pObject)
+
+	Func getminimumColumnWidthChangedEvent 
+		return QCandlestickSeries_getminimumColumnWidthChangedEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QCandlestickSeries_getpenChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QCandlestickSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QCandlestickSeries_getreleasedEvent(pObject)
 
 Class QSize
 
