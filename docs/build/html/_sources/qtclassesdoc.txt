@@ -2180,6 +2180,60 @@ Parent Class : QAbstractSeries
 * const char *getpenChangedEvent(void)
 * const char *getpressedEvent(void)
 * const char *getreleasedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCandlestickSet Class
+
+QCandlestickSet Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qcandlestickset.html
+
+
+Parameters : qreal,QObject *
+
+
+Parent Class : QObject
+
+* QBrush brush(void)
+* qreal close(void)
+* qreal high(void)
+* qreal low(void)
+* qreal open(void)
+* QPen pen(void)
+* void setBrush(QBrush brush)
+* void setClose(qreal close)
+* void setHigh(qreal high)
+* void setLow(qreal low)
+* void setOpen(qreal open)
+* void setPen(QPen pen)
+* void setTimestamp(qreal timestamp)
+* qreal timestamp(void)
+* void setbrushChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcloseChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethighChangedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setlowChangedEvent(const char *)
+* void setopenChangedEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void settimestampChangedEvent(const char *)
+* const char *getbrushChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcloseChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethighChangedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getlowChangedEvent(void)
+* const char *getopenChangedEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+* const char *gettimestampChangedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QChar Class
 
