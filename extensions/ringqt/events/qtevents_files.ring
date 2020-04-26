@@ -77,4 +77,5 @@ load "charts/qbarset.ring"
 load "charts/qboxplotseries.ring"
 load "charts/qboxset.ring"
 load "charts/qcandlestickmodelmapper.ring"
+load "charts/qcandlestickseries.ring"
 #-------------------------------------------------------------------------#
