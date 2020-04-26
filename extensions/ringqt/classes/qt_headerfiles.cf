@@ -441,6 +441,7 @@ extern "C" {
 #include "gboxset.h"
 #include "gcandlestickmodelmapper.h"
 #include "gcandlestickseries.h"
+#include "gcandlestickset.h"
 #include <QtCharts>
 </filter>
 
