@@ -1,3 +1,10 @@
+#===========================================================================================#
+# Sample : Custom QTableWidget that uses Method() to define custom events
+# This sample is written to work in Ring 1.12
+# We have a better version (Requires Ring 1.13) 
+# URL : https://github.com/ring-lang/ring/blob/master/samples/other/customtablewidget2.ring
+#===========================================================================================#
+
 load "guilib.ring"
 
 app = new QApp {
