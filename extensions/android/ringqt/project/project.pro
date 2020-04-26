@@ -85,6 +85,7 @@ SOURCES +=   \
     gboxplotseries.cpp \
     gboxset.cpp \
     gcandlestickmodelmapper.cpp \
+    gcandlestickseries.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -153,7 +154,8 @@ HEADERS  += \
     gboxplotseries.h \
     gbarset.h \
     gboxset.h \
-    gcandlestickmodelmapper.h
+    gcandlestickmodelmapper.h \
+    gcandlestickseries.h
 
 CONFIG += warn_off
 

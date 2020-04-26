@@ -350,6 +350,7 @@ extern "C" {
 #include "gboxplotseries.h"
 #include "gboxset.h"
 #include "gcandlestickmodelmapper.h"
+#include "gcandlestickseries.h"
 #include <QtCharts>
 
 extern "C" {
@@ -658,6 +659,7 @@ extern "C" {
 	void ring_QBoxSet_freefunc(void *pState,void *pPointer);
 	void ring_QCandlestickLegendMarker_freefunc(void *pState,void *pPointer);
 	void ring_QCandlestickModelMapper_freefunc(void *pState,void *pPointer);
+	void ring_QCandlestickSeries_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -127829,6 +127831,1264 @@ RING_FUNC(ring_QCandlestickModelMapper_getseriesReplacedEvent)
 	RING_API_RETSTRING(pObject->getseriesReplacedEvent());
 }
 
+
+RING_FUNC(ring_QCandlestickSeries_append)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->append((QCandlestickSet *) RING_API_GETCPOINTER(2,"QCandlestickSet")));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_append_2)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->append(* (QList<QCandlestickSet *>  *) RING_API_GETCPOINTER(2,"QList<QCandlestickSet *>")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<QCandlestickSet >"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_bodyOutlineVisible)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->bodyOutlineVisible());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_bodyWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->bodyWidth());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_brush)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->brush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_capsVisible)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->capsVisible());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_capsWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->capsWidth());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_clear)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_count)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_decreasingColor)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	{
+		QColor *pValue ; 
+		pValue = new QColor() ;
+		*pValue = pObject->decreasingColor();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QColor",ring_QColor_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_increasingColor)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	{
+		QColor *pValue ; 
+		pValue = new QColor() ;
+		*pValue = pObject->increasingColor();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QColor",ring_QColor_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_insert)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->insert( (int ) RING_API_GETNUMBER(2),(QCandlestickSet *) RING_API_GETCPOINTER(3,"QCandlestickSet")));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_maximumColumnWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->maximumColumnWidth());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_minimumColumnWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->minimumColumnWidth());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_pen)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->pen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_remove)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->remove((QCandlestickSet *) RING_API_GETCPOINTER(2,"QCandlestickSet")));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_remove_2)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETNUMBER(pObject->remove(* (QList<QCandlestickSet *>  *) RING_API_GETCPOINTER(2,"QList<QCandlestickSet *>")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<QCandlestickSet >"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setBodyOutlineVisible)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBodyOutlineVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setBodyWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBodyWidth( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setBrush)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	pObject->setBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setCapsVisible)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCapsVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setCapsWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCapsWidth( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setDecreasingColor)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	pObject->setDecreasingColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setIncreasingColor)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	pObject->setIncreasingColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setMaximumColumnWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMaximumColumnWidth( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setMinimumColumnWidth)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMinimumColumnWidth( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setPen)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	pObject->setPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_sets)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	{
+		QList<QCandlestickSet *> *pValue ; 
+		pValue = (QList<QCandlestickSet *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QCandlestickSet *>)) ;
+		*pValue = pObject->sets();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QCandlestickSet *>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_take)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->take((QCandlestickSet *) RING_API_GETCPOINTER(2,"QCandlestickSet")));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setbodyOutlineVisibilityChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbodyOutlineVisibilityChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setbodyWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbodyWidthChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setbrushChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbrushChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setcandlestickSetsAddedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcandlestickSetsAddedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setcandlestickSetsRemovedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcandlestickSetsRemovedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setcapsVisibilityChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcapsVisibilityChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setcapsWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcapsWidthChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setclickedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setcountChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setdecreasingColorChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdecreasingColorChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setdoubleClickedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdoubleClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_sethoveredEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethoveredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setincreasingColorChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setincreasingColorChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setmaximumColumnWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmaximumColumnWidthChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setminimumColumnWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setminimumColumnWidthChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setpenChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpenChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setpressedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpressedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_setreleasedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setreleasedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getbodyOutlineVisibilityChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getbodyOutlineVisibilityChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getbodyWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getbodyWidthChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getbrushChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getbrushChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getcandlestickSetsAddedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getcandlestickSetsAddedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getcandlestickSetsRemovedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getcandlestickSetsRemovedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getcapsVisibilityChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getcapsVisibilityChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getcapsWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getcapsWidthChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getclickedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getcountChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getcountChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getdecreasingColorChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getdecreasingColorChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getdoubleClickedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getdoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_gethoveredEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->gethoveredEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getincreasingColorChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getincreasingColorChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getmaximumColumnWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getmaximumColumnWidthChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getminimumColumnWidthChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getminimumColumnWidthChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getpenChangedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getpenChangedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getpressedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QCandlestickSeries_getreleasedEvent)
+{
+	GCandlestickSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"QCandlestickSeries");
+	RING_API_RETSTRING(pObject->getreleasedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -131550,6 +132810,21 @@ RING_FUNC(ring_QBoxSet_new)
 	}
 	GBoxSet *pObject = new GBoxSet(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QBoxSet");
+}
+
+RING_FUNC(ring_QCandlestickSeries_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GCandlestickSeries *pObject = new GCandlestickSeries((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QCandlestickSeries");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -135921,6 +137196,23 @@ RING_FUNC(ring_QBoxSet_delete)
 	}
 }
 
+RING_FUNC(ring_QCandlestickSeries_delete)
+{
+	GCandlestickSeries *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GCandlestickSeries *) RING_API_GETCPOINTER(1,"GCandlestickSeries");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -137717,6 +139009,13 @@ void ring_QBoxSet_freefunc(void *pState,void *pPointer)
 {
 	GBoxSet *pObject ; 
 	pObject = (GBoxSet *) pPointer;
+	delete pObject ;
+}
+
+void ring_QCandlestickSeries_freefunc(void *pState,void *pPointer)
+{
+	GCandlestickSeries *pObject ; 
+	pObject = (GCandlestickSeries *) pPointer;
 	delete pObject ;
 }
 
@@ -143996,6 +145295,71 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickmodelmapper_setseriesreplacedevent",ring_QCandlestickModelMapper_setseriesReplacedEvent);
 	ring_vm_funcregister("qcandlestickmodelmapper_getmodelreplacedevent",ring_QCandlestickModelMapper_getmodelReplacedEvent);
 	ring_vm_funcregister("qcandlestickmodelmapper_getseriesreplacedevent",ring_QCandlestickModelMapper_getseriesReplacedEvent);
+	ring_vm_funcregister("qcandlestickseries_append",ring_QCandlestickSeries_append);
+	ring_vm_funcregister("qcandlestickseries_append_2",ring_QCandlestickSeries_append_2);
+	ring_vm_funcregister("qcandlestickseries_bodyoutlinevisible",ring_QCandlestickSeries_bodyOutlineVisible);
+	ring_vm_funcregister("qcandlestickseries_bodywidth",ring_QCandlestickSeries_bodyWidth);
+	ring_vm_funcregister("qcandlestickseries_brush",ring_QCandlestickSeries_brush);
+	ring_vm_funcregister("qcandlestickseries_capsvisible",ring_QCandlestickSeries_capsVisible);
+	ring_vm_funcregister("qcandlestickseries_capswidth",ring_QCandlestickSeries_capsWidth);
+	ring_vm_funcregister("qcandlestickseries_clear",ring_QCandlestickSeries_clear);
+	ring_vm_funcregister("qcandlestickseries_count",ring_QCandlestickSeries_count);
+	ring_vm_funcregister("qcandlestickseries_decreasingcolor",ring_QCandlestickSeries_decreasingColor);
+	ring_vm_funcregister("qcandlestickseries_increasingcolor",ring_QCandlestickSeries_increasingColor);
+	ring_vm_funcregister("qcandlestickseries_insert",ring_QCandlestickSeries_insert);
+	ring_vm_funcregister("qcandlestickseries_maximumcolumnwidth",ring_QCandlestickSeries_maximumColumnWidth);
+	ring_vm_funcregister("qcandlestickseries_minimumcolumnwidth",ring_QCandlestickSeries_minimumColumnWidth);
+	ring_vm_funcregister("qcandlestickseries_pen",ring_QCandlestickSeries_pen);
+	ring_vm_funcregister("qcandlestickseries_remove",ring_QCandlestickSeries_remove);
+	ring_vm_funcregister("qcandlestickseries_remove_2",ring_QCandlestickSeries_remove_2);
+	ring_vm_funcregister("qcandlestickseries_setbodyoutlinevisible",ring_QCandlestickSeries_setBodyOutlineVisible);
+	ring_vm_funcregister("qcandlestickseries_setbodywidth",ring_QCandlestickSeries_setBodyWidth);
+	ring_vm_funcregister("qcandlestickseries_setbrush",ring_QCandlestickSeries_setBrush);
+	ring_vm_funcregister("qcandlestickseries_setcapsvisible",ring_QCandlestickSeries_setCapsVisible);
+	ring_vm_funcregister("qcandlestickseries_setcapswidth",ring_QCandlestickSeries_setCapsWidth);
+	ring_vm_funcregister("qcandlestickseries_setdecreasingcolor",ring_QCandlestickSeries_setDecreasingColor);
+	ring_vm_funcregister("qcandlestickseries_setincreasingcolor",ring_QCandlestickSeries_setIncreasingColor);
+	ring_vm_funcregister("qcandlestickseries_setmaximumcolumnwidth",ring_QCandlestickSeries_setMaximumColumnWidth);
+	ring_vm_funcregister("qcandlestickseries_setminimumcolumnwidth",ring_QCandlestickSeries_setMinimumColumnWidth);
+	ring_vm_funcregister("qcandlestickseries_setpen",ring_QCandlestickSeries_setPen);
+	ring_vm_funcregister("qcandlestickseries_sets",ring_QCandlestickSeries_sets);
+	ring_vm_funcregister("qcandlestickseries_take",ring_QCandlestickSeries_take);
+	ring_vm_funcregister("qcandlestickseries_setbodyoutlinevisibilitychangedevent",ring_QCandlestickSeries_setbodyOutlineVisibilityChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setbodywidthchangedevent",ring_QCandlestickSeries_setbodyWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setbrushchangedevent",ring_QCandlestickSeries_setbrushChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setcandlesticksetsaddedevent",ring_QCandlestickSeries_setcandlestickSetsAddedEvent);
+	ring_vm_funcregister("qcandlestickseries_setcandlesticksetsremovedevent",ring_QCandlestickSeries_setcandlestickSetsRemovedEvent);
+	ring_vm_funcregister("qcandlestickseries_setcapsvisibilitychangedevent",ring_QCandlestickSeries_setcapsVisibilityChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setcapswidthchangedevent",ring_QCandlestickSeries_setcapsWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setclickedevent",ring_QCandlestickSeries_setclickedEvent);
+	ring_vm_funcregister("qcandlestickseries_setcountchangedevent",ring_QCandlestickSeries_setcountChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setdecreasingcolorchangedevent",ring_QCandlestickSeries_setdecreasingColorChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setdoubleclickedevent",ring_QCandlestickSeries_setdoubleClickedEvent);
+	ring_vm_funcregister("qcandlestickseries_sethoveredevent",ring_QCandlestickSeries_sethoveredEvent);
+	ring_vm_funcregister("qcandlestickseries_setincreasingcolorchangedevent",ring_QCandlestickSeries_setincreasingColorChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setmaximumcolumnwidthchangedevent",ring_QCandlestickSeries_setmaximumColumnWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setminimumcolumnwidthchangedevent",ring_QCandlestickSeries_setminimumColumnWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setpenchangedevent",ring_QCandlestickSeries_setpenChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_setpressedevent",ring_QCandlestickSeries_setpressedEvent);
+	ring_vm_funcregister("qcandlestickseries_setreleasedevent",ring_QCandlestickSeries_setreleasedEvent);
+	ring_vm_funcregister("qcandlestickseries_getbodyoutlinevisibilitychangedevent",ring_QCandlestickSeries_getbodyOutlineVisibilityChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getbodywidthchangedevent",ring_QCandlestickSeries_getbodyWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getbrushchangedevent",ring_QCandlestickSeries_getbrushChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getcandlesticksetsaddedevent",ring_QCandlestickSeries_getcandlestickSetsAddedEvent);
+	ring_vm_funcregister("qcandlestickseries_getcandlesticksetsremovedevent",ring_QCandlestickSeries_getcandlestickSetsRemovedEvent);
+	ring_vm_funcregister("qcandlestickseries_getcapsvisibilitychangedevent",ring_QCandlestickSeries_getcapsVisibilityChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getcapswidthchangedevent",ring_QCandlestickSeries_getcapsWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getclickedevent",ring_QCandlestickSeries_getclickedEvent);
+	ring_vm_funcregister("qcandlestickseries_getcountchangedevent",ring_QCandlestickSeries_getcountChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getdecreasingcolorchangedevent",ring_QCandlestickSeries_getdecreasingColorChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getdoubleclickedevent",ring_QCandlestickSeries_getdoubleClickedEvent);
+	ring_vm_funcregister("qcandlestickseries_gethoveredevent",ring_QCandlestickSeries_gethoveredEvent);
+	ring_vm_funcregister("qcandlestickseries_getincreasingcolorchangedevent",ring_QCandlestickSeries_getincreasingColorChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getmaximumcolumnwidthchangedevent",ring_QCandlestickSeries_getmaximumColumnWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getminimumcolumnwidthchangedevent",ring_QCandlestickSeries_getminimumColumnWidthChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getpenchangedevent",ring_QCandlestickSeries_getpenChangedEvent);
+	ring_vm_funcregister("qcandlestickseries_getpressedevent",ring_QCandlestickSeries_getpressedEvent);
+	ring_vm_funcregister("qcandlestickseries_getreleasedevent",ring_QCandlestickSeries_getreleasedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -144253,6 +145617,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarset_new",ring_QBarSet_new);
 	ring_vm_funcregister("qboxplotseries_new",ring_QBoxPlotSeries_new);
 	ring_vm_funcregister("qboxset_new",ring_QBoxSet_new);
+	ring_vm_funcregister("qcandlestickseries_new",ring_QCandlestickSeries_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -144510,4 +145875,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbarset_delete",ring_QBarSet_delete);
 	ring_vm_funcregister("qboxplotseries_delete",ring_QBoxPlotSeries_delete);
 	ring_vm_funcregister("qboxset_delete",ring_QBoxSet_delete);
+	ring_vm_funcregister("qcandlestickseries_delete",ring_QCandlestickSeries_delete);
 }
