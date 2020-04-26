@@ -71,6 +71,7 @@ SOURCES +=   \
     cpp/src/gboxset.cpp \
     cpp/src/gcandlestickmodelmapper.cpp \
     cpp/src/gcandlestickseries.cpp \
+    cpp/src/gcandlestickset.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -132,7 +133,8 @@ HEADERS  += \
     cpp/include/gboxplotseries.h \
     cpp/include/gboxset.h \
     cpp/include/gcandlestickmodelmapper.h \
-    cpp/include/gcandlestickseries.h
+    cpp/include/gcandlestickseries.h \
+    cpp/include/gcandlestickset.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

@@ -27522,6 +27522,138 @@ Class QCandlestickSeries from QAbstractSeries
 	Func getreleasedEvent 
 		return QCandlestickSeries_getreleasedEvent(pObject)
 
+Class QCandlestickSet from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QCandlestickSet_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QCandlestickSet_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QCandlestickSet_brush(pObject)
+		return pTempObj
+
+	Func close 
+		return QCandlestickSet_close(pObject)
+
+	Func high 
+		return QCandlestickSet_high(pObject)
+
+	Func low 
+		return QCandlestickSet_low(pObject)
+
+	Func open 
+		return QCandlestickSet_open(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QCandlestickSet_pen(pObject)
+		return pTempObj
+
+	Func setBrush P1
+		return QCandlestickSet_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setClose P1
+		return QCandlestickSet_setClose(pObject,P1)
+
+	Func setHigh P1
+		return QCandlestickSet_setHigh(pObject,P1)
+
+	Func setLow P1
+		return QCandlestickSet_setLow(pObject,P1)
+
+	Func setOpen P1
+		return QCandlestickSet_setOpen(pObject,P1)
+
+	Func setPen P1
+		return QCandlestickSet_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTimestamp P1
+		return QCandlestickSet_setTimestamp(pObject,P1)
+
+	Func timestamp 
+		return QCandlestickSet_timestamp(pObject)
+
+	Func setbrushChangedEvent P1
+		return QCandlestickSet_setbrushChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QCandlestickSet_setclickedEvent(pObject,P1)
+
+	Func setcloseChangedEvent P1
+		return QCandlestickSet_setcloseChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QCandlestickSet_setdoubleClickedEvent(pObject,P1)
+
+	Func sethighChangedEvent P1
+		return QCandlestickSet_sethighChangedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QCandlestickSet_sethoveredEvent(pObject,P1)
+
+	Func setlowChangedEvent P1
+		return QCandlestickSet_setlowChangedEvent(pObject,P1)
+
+	Func setopenChangedEvent P1
+		return QCandlestickSet_setopenChangedEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QCandlestickSet_setpenChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QCandlestickSet_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QCandlestickSet_setreleasedEvent(pObject,P1)
+
+	Func settimestampChangedEvent P1
+		return QCandlestickSet_settimestampChangedEvent(pObject,P1)
+
+	Func getbrushChangedEvent 
+		return QCandlestickSet_getbrushChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QCandlestickSet_getclickedEvent(pObject)
+
+	Func getcloseChangedEvent 
+		return QCandlestickSet_getcloseChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QCandlestickSet_getdoubleClickedEvent(pObject)
+
+	Func gethighChangedEvent 
+		return QCandlestickSet_gethighChangedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QCandlestickSet_gethoveredEvent(pObject)
+
+	Func getlowChangedEvent 
+		return QCandlestickSet_getlowChangedEvent(pObject)
+
+	Func getopenChangedEvent 
+		return QCandlestickSet_getopenChangedEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QCandlestickSet_getpenChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QCandlestickSet_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QCandlestickSet_getreleasedEvent(pObject)
+
+	Func gettimestampChangedEvent 
+		return QCandlestickSet_gettimestampChangedEvent(pObject)
+
 Class QSize
 
 	pObject
