@@ -77,6 +77,7 @@ SOURCES +=   \
     cpp/src/gdatetimeaxis.cpp \
     cpp/src/ghbarmodelmapper.cpp \
     cpp/src/ghboxplotmodelmapper.cpp \
+    cpp/src/ghcandlestickmodelmapper.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -144,7 +145,8 @@ HEADERS  += \
     cpp/include/gchart.h \
     cpp/include/gdatetimeaxis.h \
     cpp/include/ghbarmodelmapper.h \
-    cpp/include/ghboxplotmodelmapper.h 
+    cpp/include/ghboxplotmodelmapper.h \
+    cpp/include/ghcandlestickmodelmapper.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

@@ -28198,6 +28198,104 @@ Class QHBoxPlotModelMapper from QObject
 	Func getseriesReplacedEvent 
 		return QHBoxPlotModelMapper_getseriesReplacedEvent(pObject)
 
+Class QHCandlestickModelMapper from QCandlestickModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QHCandlestickModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHCandlestickModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func closeColumn 
+		return QHCandlestickModelMapper_closeColumn(pObject)
+
+	Func firstSetRow 
+		return QHCandlestickModelMapper_firstSetRow(pObject)
+
+	Func highColumn 
+		return QHCandlestickModelMapper_highColumn(pObject)
+
+	Func lastSetRow 
+		return QHCandlestickModelMapper_lastSetRow(pObject)
+
+	Func lowColumn 
+		return QHCandlestickModelMapper_lowColumn(pObject)
+
+	Func openColumn 
+		return QHCandlestickModelMapper_openColumn(pObject)
+
+	Func setCloseColumn P1
+		return QHCandlestickModelMapper_setCloseColumn(pObject,P1)
+
+	Func setFirstSetRow P1
+		return QHCandlestickModelMapper_setFirstSetRow(pObject,P1)
+
+	Func setHighColumn P1
+		return QHCandlestickModelMapper_setHighColumn(pObject,P1)
+
+	Func setLastSetRow P1
+		return QHCandlestickModelMapper_setLastSetRow(pObject,P1)
+
+	Func setLowColumn P1
+		return QHCandlestickModelMapper_setLowColumn(pObject,P1)
+
+	Func setOpenColumn P1
+		return QHCandlestickModelMapper_setOpenColumn(pObject,P1)
+
+	Func setTimestampColumn P1
+		return QHCandlestickModelMapper_setTimestampColumn(pObject,P1)
+
+	Func timestampColumn 
+		return QHCandlestickModelMapper_timestampColumn(pObject)
+
+	Func setcloseColumnChangedEvent P1
+		return QHCandlestickModelMapper_setcloseColumnChangedEvent(pObject,P1)
+
+	Func setfirstSetRowChangedEvent P1
+		return QHCandlestickModelMapper_setfirstSetRowChangedEvent(pObject,P1)
+
+	Func sethighColumnChangedEvent P1
+		return QHCandlestickModelMapper_sethighColumnChangedEvent(pObject,P1)
+
+	Func setlastSetRowChangedEvent P1
+		return QHCandlestickModelMapper_setlastSetRowChangedEvent(pObject,P1)
+
+	Func setlowColumnChangedEvent P1
+		return QHCandlestickModelMapper_setlowColumnChangedEvent(pObject,P1)
+
+	Func setopenColumnChangedEvent P1
+		return QHCandlestickModelMapper_setopenColumnChangedEvent(pObject,P1)
+
+	Func settimestampColumnChangedEvent P1
+		return QHCandlestickModelMapper_settimestampColumnChangedEvent(pObject,P1)
+
+	Func getcloseColumnChangedEvent 
+		return QHCandlestickModelMapper_getcloseColumnChangedEvent(pObject)
+
+	Func getfirstSetRowChangedEvent 
+		return QHCandlestickModelMapper_getfirstSetRowChangedEvent(pObject)
+
+	Func gethighColumnChangedEvent 
+		return QHCandlestickModelMapper_gethighColumnChangedEvent(pObject)
+
+	Func getlastSetRowChangedEvent 
+		return QHCandlestickModelMapper_getlastSetRowChangedEvent(pObject)
+
+	Func getlowColumnChangedEvent 
+		return QHCandlestickModelMapper_getlowColumnChangedEvent(pObject)
+
+	Func getopenColumnChangedEvent 
+		return QHCandlestickModelMapper_getopenColumnChangedEvent(pObject)
+
+	Func gettimestampColumnChangedEvent 
+		return QHCandlestickModelMapper_gettimestampColumnChangedEvent(pObject)
+
 Class QSize
 
 	pObject
