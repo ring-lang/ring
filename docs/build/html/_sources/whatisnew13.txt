@@ -203,6 +203,7 @@ Better RingQt
 * QDateTimeAxis
 * QHBarModelMapper
 * QHBoxPlotModelMapper
+* QHCandlestickModelMapper
 	
 
 .. index:: 
