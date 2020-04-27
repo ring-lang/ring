@@ -353,6 +353,7 @@ extern "C" {
 #include "gcandlestickseries.h"
 #include "gcandlestickset.h"
 #include "gcategoryaxis.h"
+#include "gchart.h"
 #include <QtCharts>
 
 extern "C" {
@@ -664,6 +665,7 @@ extern "C" {
 	void ring_QCandlestickSeries_freefunc(void *pState,void *pPointer);
 	void ring_QCandlestickSet_freefunc(void *pState,void *pPointer);
 	void ring_QCategoryAxis_freefunc(void *pState,void *pPointer);
+	void ring_QChart_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -130108,6 +130110,1191 @@ RING_FUNC(ring_QCategoryAxis_getlabelsPositionChangedEvent)
 	RING_API_RETSTRING(pObject->getlabelsPositionChangedEvent());
 }
 
+
+RING_FUNC(ring_QChart_addAxis)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addAxis((QAbstractAxis *) RING_API_GETCPOINTER(2,"QAbstractAxis"), (Qt::Alignment )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QChart_addSeries)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addSeries((QAbstractSeries *) RING_API_GETCPOINTER(2,"QAbstractSeries"));
+}
+
+
+RING_FUNC(ring_QChart_animationDuration)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->animationDuration());
+}
+
+
+RING_FUNC(ring_QChart_animationEasingCurve)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QEasingCurve *pValue ; 
+		pValue = (QEasingCurve *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QEasingCurve)) ;
+		*pValue = pObject->animationEasingCurve();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QEasingCurve",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_animationOptions)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->animationOptions());
+}
+
+
+RING_FUNC(ring_QChart_axes)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QList<QAbstractAxis *> *pValue ; 
+		pValue = (QList<QAbstractAxis *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QAbstractAxis *>)) ;
+		*pValue = pObject->axes(* (Qt::Orientations  *) RING_API_GETCPOINTER(2,"Qt::Orientations"),(QAbstractSeries *) RING_API_GETCPOINTER(3,"QAbstractSeries"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::Orientations"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QAbstractAxis *>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_backgroundBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->backgroundBrush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_backgroundPen)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->backgroundPen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_backgroundRoundness)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->backgroundRoundness());
+}
+
+
+RING_FUNC(ring_QChart_chartType)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->chartType());
+}
+
+
+RING_FUNC(ring_QChart_createDefaultAxes)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->createDefaultAxes();
+}
+
+
+RING_FUNC(ring_QChart_isBackgroundVisible)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->isBackgroundVisible());
+}
+
+
+RING_FUNC(ring_QChart_isDropShadowEnabled)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->isDropShadowEnabled());
+}
+
+
+RING_FUNC(ring_QChart_isPlotAreaBackgroundVisible)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->isPlotAreaBackgroundVisible());
+}
+
+
+RING_FUNC(ring_QChart_isZoomed)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->isZoomed());
+}
+
+
+RING_FUNC(ring_QChart_legend)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETCPOINTER(pObject->legend(),"QLegend");
+}
+
+
+RING_FUNC(ring_QChart_locale)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QLocale *pValue ; 
+		pValue = (QLocale *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLocale)) ;
+		*pValue = pObject->locale();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLocale",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_localizeNumbers)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->localizeNumbers());
+}
+
+
+RING_FUNC(ring_QChart_mapToPosition)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->mapToPosition(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"),(QAbstractSeries *) RING_API_GETCPOINTER(3,"QAbstractSeries"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_mapToValue)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->mapToValue(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"),(QAbstractSeries *) RING_API_GETCPOINTER(3,"QAbstractSeries"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_margins)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QMargins *pValue ; 
+		pValue = (QMargins *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMargins)) ;
+		*pValue = pObject->margins();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QMargins",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_plotArea)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QRectF *pValue ; 
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
+		*pValue = pObject->plotArea();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QRectF",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_plotAreaBackgroundBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->plotAreaBackgroundBrush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_plotAreaBackgroundPen)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->plotAreaBackgroundPen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_removeAllSeries)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->removeAllSeries();
+}
+
+
+RING_FUNC(ring_QChart_removeAxis)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeAxis((QAbstractAxis *) RING_API_GETCPOINTER(2,"QAbstractAxis"));
+}
+
+
+RING_FUNC(ring_QChart_removeSeries)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeSeries((QAbstractSeries *) RING_API_GETCPOINTER(2,"QAbstractSeries"));
+}
+
+
+RING_FUNC(ring_QChart_scroll)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->scroll( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QChart_series)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QList<QAbstractSeries *> *pValue ; 
+		pValue = (QList<QAbstractSeries *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QAbstractSeries *>)) ;
+		*pValue = pObject->series();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QAbstractSeries *>",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_QChart_setAnimationDuration)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAnimationDuration( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setAnimationEasingCurve)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setAnimationEasingCurve(* (QEasingCurve  *) RING_API_GETCPOINTER(2,"QEasingCurve"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QEasingCurve"));
+}
+
+
+RING_FUNC(ring_QChart_setAnimationOptions)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAnimationOptions( (QChart::AnimationOptions )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setBackgroundBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setBackgroundBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QChart_setBackgroundPen)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setBackgroundPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QChart_setBackgroundRoundness)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBackgroundRoundness( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setBackgroundVisible)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBackgroundVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setDropShadowEnabled)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDropShadowEnabled( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setLocale)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setLocale(* (QLocale  *) RING_API_GETCPOINTER(2,"QLocale"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLocale"));
+}
+
+
+RING_FUNC(ring_QChart_setLocalizeNumbers)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLocalizeNumbers( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setMargins)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setMargins(* (QMargins  *) RING_API_GETCPOINTER(2,"QMargins"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMargins"));
+}
+
+
+RING_FUNC(ring_QChart_setPlotArea)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setPlotArea(* (QRectF  *) RING_API_GETCPOINTER(2,"QRectF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRectF"));
+}
+
+
+RING_FUNC(ring_QChart_setPlotAreaBackgroundBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setPlotAreaBackgroundBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QChart_setPlotAreaBackgroundPen)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setPlotAreaBackgroundPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QChart_setPlotAreaBackgroundVisible)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPlotAreaBackgroundVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setTheme)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setTheme( (QChart::ChartTheme )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_setTitle)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setTitle(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QChart_setTitleBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setTitleBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QChart_setTitleFont)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->setTitleFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
+}
+
+
+RING_FUNC(ring_QChart_theme)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETNUMBER(pObject->theme());
+}
+
+
+RING_FUNC(ring_QChart_title)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETSTRING(pObject->title().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QChart_titleBrush)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->titleBrush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_titleFont)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->titleFont();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QChart_zoom)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->zoom( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QChart_zoomIn)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->zoomIn();
+}
+
+
+RING_FUNC(ring_QChart_zoomIn_2)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->zoomIn(* (QRectF  *) RING_API_GETCPOINTER(2,"QRectF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRectF"));
+}
+
+
+RING_FUNC(ring_QChart_zoomOut)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->zoomOut();
+}
+
+
+RING_FUNC(ring_QChart_zoomReset)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	pObject->zoomReset();
+}
+
+
+RING_FUNC(ring_QChart_setplotAreaChangedEvent)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setplotAreaChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QChart_getplotAreaChangedEvent)
+{
+	GChart *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GChart *) RING_API_GETCPOINTER(1,"QChart");
+	RING_API_RETSTRING(pObject->getplotAreaChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -133878,6 +135065,25 @@ RING_FUNC(ring_QCategoryAxis_new)
 	}
 	GCategoryAxis *pObject = new GCategoryAxis((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QCategoryAxis");
+}
+
+RING_FUNC(ring_QChart_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GChart *pObject = new GChart((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"), (Qt::WindowFlags)  (int) RING_API_GETNUMBER(2), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QChart");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -138300,6 +139506,23 @@ RING_FUNC(ring_QCategoryAxis_delete)
 	}
 }
 
+RING_FUNC(ring_QChart_delete)
+{
+	GChart *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GChart *) RING_API_GETCPOINTER(1,"GChart");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -140117,6 +141340,13 @@ void ring_QCategoryAxis_freefunc(void *pState,void *pPointer)
 {
 	GCategoryAxis *pObject ; 
 	pObject = (GCategoryAxis *) pPointer;
+	delete pObject ;
+}
+
+void ring_QChart_freefunc(void *pState,void *pPointer)
+{
+	GChart *pObject ; 
+	pObject = (GChart *) pPointer;
 	delete pObject ;
 }
 
@@ -146513,6 +147743,65 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcategoryaxis_setlabelspositionchangedevent",ring_QCategoryAxis_setlabelsPositionChangedEvent);
 	ring_vm_funcregister("qcategoryaxis_getcategorieschangedevent",ring_QCategoryAxis_getcategoriesChangedEvent);
 	ring_vm_funcregister("qcategoryaxis_getlabelspositionchangedevent",ring_QCategoryAxis_getlabelsPositionChangedEvent);
+	ring_vm_funcregister("qchart_addaxis",ring_QChart_addAxis);
+	ring_vm_funcregister("qchart_addseries",ring_QChart_addSeries);
+	ring_vm_funcregister("qchart_animationduration",ring_QChart_animationDuration);
+	ring_vm_funcregister("qchart_animationeasingcurve",ring_QChart_animationEasingCurve);
+	ring_vm_funcregister("qchart_animationoptions",ring_QChart_animationOptions);
+	ring_vm_funcregister("qchart_axes",ring_QChart_axes);
+	ring_vm_funcregister("qchart_backgroundbrush",ring_QChart_backgroundBrush);
+	ring_vm_funcregister("qchart_backgroundpen",ring_QChart_backgroundPen);
+	ring_vm_funcregister("qchart_backgroundroundness",ring_QChart_backgroundRoundness);
+	ring_vm_funcregister("qchart_charttype",ring_QChart_chartType);
+	ring_vm_funcregister("qchart_createdefaultaxes",ring_QChart_createDefaultAxes);
+	ring_vm_funcregister("qchart_isbackgroundvisible",ring_QChart_isBackgroundVisible);
+	ring_vm_funcregister("qchart_isdropshadowenabled",ring_QChart_isDropShadowEnabled);
+	ring_vm_funcregister("qchart_isplotareabackgroundvisible",ring_QChart_isPlotAreaBackgroundVisible);
+	ring_vm_funcregister("qchart_iszoomed",ring_QChart_isZoomed);
+	ring_vm_funcregister("qchart_legend",ring_QChart_legend);
+	ring_vm_funcregister("qchart_locale",ring_QChart_locale);
+	ring_vm_funcregister("qchart_localizenumbers",ring_QChart_localizeNumbers);
+	ring_vm_funcregister("qchart_maptoposition",ring_QChart_mapToPosition);
+	ring_vm_funcregister("qchart_maptovalue",ring_QChart_mapToValue);
+	ring_vm_funcregister("qchart_margins",ring_QChart_margins);
+	ring_vm_funcregister("qchart_plotarea",ring_QChart_plotArea);
+	ring_vm_funcregister("qchart_plotareabackgroundbrush",ring_QChart_plotAreaBackgroundBrush);
+	ring_vm_funcregister("qchart_plotareabackgroundpen",ring_QChart_plotAreaBackgroundPen);
+	ring_vm_funcregister("qchart_removeallseries",ring_QChart_removeAllSeries);
+	ring_vm_funcregister("qchart_removeaxis",ring_QChart_removeAxis);
+	ring_vm_funcregister("qchart_removeseries",ring_QChart_removeSeries);
+	ring_vm_funcregister("qchart_scroll",ring_QChart_scroll);
+	ring_vm_funcregister("qchart_series",ring_QChart_series);
+	ring_vm_funcregister("qchart_setanimationduration",ring_QChart_setAnimationDuration);
+	ring_vm_funcregister("qchart_setanimationeasingcurve",ring_QChart_setAnimationEasingCurve);
+	ring_vm_funcregister("qchart_setanimationoptions",ring_QChart_setAnimationOptions);
+	ring_vm_funcregister("qchart_setbackgroundbrush",ring_QChart_setBackgroundBrush);
+	ring_vm_funcregister("qchart_setbackgroundpen",ring_QChart_setBackgroundPen);
+	ring_vm_funcregister("qchart_setbackgroundroundness",ring_QChart_setBackgroundRoundness);
+	ring_vm_funcregister("qchart_setbackgroundvisible",ring_QChart_setBackgroundVisible);
+	ring_vm_funcregister("qchart_setdropshadowenabled",ring_QChart_setDropShadowEnabled);
+	ring_vm_funcregister("qchart_setlocale",ring_QChart_setLocale);
+	ring_vm_funcregister("qchart_setlocalizenumbers",ring_QChart_setLocalizeNumbers);
+	ring_vm_funcregister("qchart_setmargins",ring_QChart_setMargins);
+	ring_vm_funcregister("qchart_setplotarea",ring_QChart_setPlotArea);
+	ring_vm_funcregister("qchart_setplotareabackgroundbrush",ring_QChart_setPlotAreaBackgroundBrush);
+	ring_vm_funcregister("qchart_setplotareabackgroundpen",ring_QChart_setPlotAreaBackgroundPen);
+	ring_vm_funcregister("qchart_setplotareabackgroundvisible",ring_QChart_setPlotAreaBackgroundVisible);
+	ring_vm_funcregister("qchart_settheme",ring_QChart_setTheme);
+	ring_vm_funcregister("qchart_settitle",ring_QChart_setTitle);
+	ring_vm_funcregister("qchart_settitlebrush",ring_QChart_setTitleBrush);
+	ring_vm_funcregister("qchart_settitlefont",ring_QChart_setTitleFont);
+	ring_vm_funcregister("qchart_theme",ring_QChart_theme);
+	ring_vm_funcregister("qchart_title",ring_QChart_title);
+	ring_vm_funcregister("qchart_titlebrush",ring_QChart_titleBrush);
+	ring_vm_funcregister("qchart_titlefont",ring_QChart_titleFont);
+	ring_vm_funcregister("qchart_zoom",ring_QChart_zoom);
+	ring_vm_funcregister("qchart_zoomin",ring_QChart_zoomIn);
+	ring_vm_funcregister("qchart_zoomin_2",ring_QChart_zoomIn_2);
+	ring_vm_funcregister("qchart_zoomout",ring_QChart_zoomOut);
+	ring_vm_funcregister("qchart_zoomreset",ring_QChart_zoomReset);
+	ring_vm_funcregister("qchart_setplotareachangedevent",ring_QChart_setplotAreaChangedEvent);
+	ring_vm_funcregister("qchart_getplotareachangedevent",ring_QChart_getplotAreaChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -146773,6 +148062,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickseries_new",ring_QCandlestickSeries_new);
 	ring_vm_funcregister("qcandlestickset_new",ring_QCandlestickSet_new);
 	ring_vm_funcregister("qcategoryaxis_new",ring_QCategoryAxis_new);
+	ring_vm_funcregister("qchart_new",ring_QChart_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -147033,4 +148323,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickseries_delete",ring_QCandlestickSeries_delete);
 	ring_vm_funcregister("qcandlestickset_delete",ring_QCandlestickSet_delete);
 	ring_vm_funcregister("qcategoryaxis_delete",ring_QCategoryAxis_delete);
+	ring_vm_funcregister("qchart_delete",ring_QChart_delete);
 }

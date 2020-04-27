@@ -88,6 +88,7 @@ SOURCES +=   \
     gcandlestickseries.cpp \
     gcandlestickset.cpp \
     gcategoryaxis.cpp \
+    gchart.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -159,7 +160,8 @@ HEADERS  += \
     gcandlestickmodelmapper.h \
     gcandlestickseries.h \
     gcandlestickset.h \
-    gcategoryaxis.h
+    gcategoryaxis.h \
+    gchart.h
 
 CONFIG += warn_off
 
