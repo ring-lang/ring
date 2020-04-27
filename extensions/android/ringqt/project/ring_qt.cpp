@@ -356,6 +356,7 @@ extern "C" {
 #include "gchart.h"
 #include "gdatetimeaxis.h"
 #include "ghbarmodelmapper.h"
+#include "ghboxplotmodelmapper.h"
 #include <QtCharts>
 
 extern "C" {
@@ -671,6 +672,7 @@ extern "C" {
 	void ring_QChartView_freefunc(void *pState,void *pPointer);
 	void ring_QDateTimeAxis_freefunc(void *pState,void *pPointer);
 	void ring_QHBarModelMapper_freefunc(void *pState,void *pPointer);
+	void ring_QHBoxPlotModelMapper_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -132201,6 +132203,462 @@ RING_FUNC(ring_QHBarModelMapper_getseriesReplacedEvent)
 	RING_API_RETSTRING(pObject->getseriesReplacedEvent());
 }
 
+
+RING_FUNC(ring_QHBoxPlotModelMapper_columnCount)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETNUMBER(pObject->columnCount());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_firstBoxSetRow)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETNUMBER(pObject->firstBoxSetRow());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_firstColumn)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETNUMBER(pObject->firstColumn());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_lastBoxSetRow)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETNUMBER(pObject->lastBoxSetRow());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_model)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETCPOINTER(pObject->model(),"QAbstractItemModel");
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_series)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETCPOINTER(pObject->series(),"QBoxPlotSeries");
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setColumnCount)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setFirstBoxSetRow)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFirstBoxSetRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setFirstColumn)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFirstColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setLastBoxSetRow)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLastBoxSetRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setModel)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModel((QAbstractItemModel *) RING_API_GETCPOINTER(2,"QAbstractItemModel"));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setSeries)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSeries((QBoxPlotSeries *) RING_API_GETCPOINTER(2,"QBoxPlotSeries"));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setcolumnCountChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcolumnCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setfirstBoxSetRowChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfirstBoxSetRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setfirstColumnChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfirstColumnChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setlastBoxSetRowChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlastBoxSetRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setmodelReplacedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmodelReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_setseriesReplacedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setseriesReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getcolumnCountChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getcolumnCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getfirstBoxSetRowChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getfirstBoxSetRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getfirstColumnChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getfirstColumnChangedEvent());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getlastBoxSetRowChangedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getlastBoxSetRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getmodelReplacedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getmodelReplacedEvent());
+}
+
+
+RING_FUNC(ring_QHBoxPlotModelMapper_getseriesReplacedEvent)
+{
+	GHBoxPlotModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"QHBoxPlotModelMapper");
+	RING_API_RETSTRING(pObject->getseriesReplacedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -136035,6 +136493,21 @@ RING_FUNC(ring_QHBarModelMapper_new)
 	}
 	GHBarModelMapper *pObject = new GHBarModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHBarModelMapper");
+}
+
+RING_FUNC(ring_QHBoxPlotModelMapper_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GHBoxPlotModelMapper *pObject = new GHBoxPlotModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QHBoxPlotModelMapper");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -140525,6 +140998,23 @@ RING_FUNC(ring_QHBarModelMapper_delete)
 	}
 }
 
+RING_FUNC(ring_QHBoxPlotModelMapper_delete)
+{
+	GHBoxPlotModelMapper *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GHBoxPlotModelMapper *) RING_API_GETCPOINTER(1,"GHBoxPlotModelMapper");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -142370,6 +142860,13 @@ void ring_QHBarModelMapper_freefunc(void *pState,void *pPointer)
 {
 	GHBarModelMapper *pObject ; 
 	pObject = (GHBarModelMapper *) pPointer;
+	delete pObject ;
+}
+
+void ring_QHBoxPlotModelMapper_freefunc(void *pState,void *pPointer)
+{
+	GHBoxPlotModelMapper *pObject ; 
+	pObject = (GHBoxPlotModelMapper *) pPointer;
 	delete pObject ;
 }
 
@@ -148872,6 +149369,30 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhbarmodelmapper_getlastbarsetrowchangedevent",ring_QHBarModelMapper_getlastBarSetRowChangedEvent);
 	ring_vm_funcregister("qhbarmodelmapper_getmodelreplacedevent",ring_QHBarModelMapper_getmodelReplacedEvent);
 	ring_vm_funcregister("qhbarmodelmapper_getseriesreplacedevent",ring_QHBarModelMapper_getseriesReplacedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_columncount",ring_QHBoxPlotModelMapper_columnCount);
+	ring_vm_funcregister("qhboxplotmodelmapper_firstboxsetrow",ring_QHBoxPlotModelMapper_firstBoxSetRow);
+	ring_vm_funcregister("qhboxplotmodelmapper_firstcolumn",ring_QHBoxPlotModelMapper_firstColumn);
+	ring_vm_funcregister("qhboxplotmodelmapper_lastboxsetrow",ring_QHBoxPlotModelMapper_lastBoxSetRow);
+	ring_vm_funcregister("qhboxplotmodelmapper_model",ring_QHBoxPlotModelMapper_model);
+	ring_vm_funcregister("qhboxplotmodelmapper_series",ring_QHBoxPlotModelMapper_series);
+	ring_vm_funcregister("qhboxplotmodelmapper_setcolumncount",ring_QHBoxPlotModelMapper_setColumnCount);
+	ring_vm_funcregister("qhboxplotmodelmapper_setfirstboxsetrow",ring_QHBoxPlotModelMapper_setFirstBoxSetRow);
+	ring_vm_funcregister("qhboxplotmodelmapper_setfirstcolumn",ring_QHBoxPlotModelMapper_setFirstColumn);
+	ring_vm_funcregister("qhboxplotmodelmapper_setlastboxsetrow",ring_QHBoxPlotModelMapper_setLastBoxSetRow);
+	ring_vm_funcregister("qhboxplotmodelmapper_setmodel",ring_QHBoxPlotModelMapper_setModel);
+	ring_vm_funcregister("qhboxplotmodelmapper_setseries",ring_QHBoxPlotModelMapper_setSeries);
+	ring_vm_funcregister("qhboxplotmodelmapper_setcolumncountchangedevent",ring_QHBoxPlotModelMapper_setcolumnCountChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_setfirstboxsetrowchangedevent",ring_QHBoxPlotModelMapper_setfirstBoxSetRowChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_setfirstcolumnchangedevent",ring_QHBoxPlotModelMapper_setfirstColumnChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_setlastboxsetrowchangedevent",ring_QHBoxPlotModelMapper_setlastBoxSetRowChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_setmodelreplacedevent",ring_QHBoxPlotModelMapper_setmodelReplacedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_setseriesreplacedevent",ring_QHBoxPlotModelMapper_setseriesReplacedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getcolumncountchangedevent",ring_QHBoxPlotModelMapper_getcolumnCountChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getfirstboxsetrowchangedevent",ring_QHBoxPlotModelMapper_getfirstBoxSetRowChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getfirstcolumnchangedevent",ring_QHBoxPlotModelMapper_getfirstColumnChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getlastboxsetrowchangedevent",ring_QHBoxPlotModelMapper_getlastBoxSetRowChangedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getmodelreplacedevent",ring_QHBoxPlotModelMapper_getmodelReplacedEvent);
+	ring_vm_funcregister("qhboxplotmodelmapper_getseriesreplacedevent",ring_QHBoxPlotModelMapper_getseriesReplacedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -149136,6 +149657,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchartview_new",ring_QChartView_new);
 	ring_vm_funcregister("qdatetimeaxis_new",ring_QDateTimeAxis_new);
 	ring_vm_funcregister("qhbarmodelmapper_new",ring_QHBarModelMapper_new);
+	ring_vm_funcregister("qhboxplotmodelmapper_new",ring_QHBoxPlotModelMapper_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -149400,4 +149922,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchartview_delete",ring_QChartView_delete);
 	ring_vm_funcregister("qdatetimeaxis_delete",ring_QDateTimeAxis_delete);
 	ring_vm_funcregister("qhbarmodelmapper_delete",ring_QHBarModelMapper_delete);
+	ring_vm_funcregister("qhboxplotmodelmapper_delete",ring_QHBoxPlotModelMapper_delete);
 }
