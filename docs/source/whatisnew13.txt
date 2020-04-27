@@ -200,6 +200,7 @@ Better RingQt
 * QCategoryAxis
 * QChart
 * QChartView
+* QDateTimeAxis
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
