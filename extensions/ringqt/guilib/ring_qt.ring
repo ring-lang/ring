@@ -27949,6 +27949,81 @@ Class QChartView from QGraphicsView
 	Func setRubberBand P1
 		return QChartView_setRubberBand(pObject,P1)
 
+Class QDateTimeAxis from QAbstractAxis
+
+	pObject
+
+	Func init P1
+		pObject = QDateTimeAxis_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDateTimeAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func format 
+		return QDateTimeAxis_format(pObject)
+
+	Func max 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeAxis_max(pObject)
+		return pTempObj
+
+	Func min 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeAxis_min(pObject)
+		return pTempObj
+
+	Func setFormat P1
+		return QDateTimeAxis_setFormat(pObject,P1)
+
+	Func setMax P1
+		return QDateTimeAxis_setMax(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMin P1
+		return QDateTimeAxis_setMin(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRange P1,P2
+		return QDateTimeAxis_setRange(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setTickCount P1
+		return QDateTimeAxis_setTickCount(pObject,P1)
+
+	Func tickCount 
+		return QDateTimeAxis_tickCount(pObject)
+
+	Func setformatChangedEvent P1
+		return QDateTimeAxis_setformatChangedEvent(pObject,P1)
+
+	Func setmaxChangedEvent P1
+		return QDateTimeAxis_setmaxChangedEvent(pObject,P1)
+
+	Func setminChangedEvent P1
+		return QDateTimeAxis_setminChangedEvent(pObject,P1)
+
+	Func setrangeChangedEvent P1
+		return QDateTimeAxis_setrangeChangedEvent(pObject,P1)
+
+	Func settickCountChangedEvent P1
+		return QDateTimeAxis_settickCountChangedEvent(pObject,P1)
+
+	Func getformatChangedEvent 
+		return QDateTimeAxis_getformatChangedEvent(pObject)
+
+	Func getmaxChangedEvent 
+		return QDateTimeAxis_getmaxChangedEvent(pObject)
+
+	Func getminChangedEvent 
+		return QDateTimeAxis_getminChangedEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QDateTimeAxis_getrangeChangedEvent(pObject)
+
+	Func gettickCountChangedEvent 
+		return QDateTimeAxis_gettickCountChangedEvent(pObject)
+
 Class QSize
 
 	pObject
