@@ -2425,6 +2425,26 @@ Parent Class : QGraphicsWidget
 * void zoomReset(void)
 * void setplotAreaChangedEvent(const char *)
 * const char *getplotAreaChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QChartView Class
+
+QChartView Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qchartview.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QGraphicsView
+
+* QChart * chart(void)
+* QChartView::RubberBands rubberBand(void)
+* void setChart(QChart *chart)
+* void setRubberBand(QChartView::RubberBands rubberBand)
 .. index::
 	pair: RingQt Classes Reference; QCheckBox Class
 
