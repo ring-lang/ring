@@ -666,6 +666,7 @@ extern "C" {
 	void ring_QCandlestickSet_freefunc(void *pState,void *pPointer);
 	void ring_QCategoryAxis_freefunc(void *pState,void *pPointer);
 	void ring_QChart_freefunc(void *pState,void *pPointer);
+	void ring_QChartView_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -131295,6 +131296,82 @@ RING_FUNC(ring_QChart_getplotAreaChangedEvent)
 	RING_API_RETSTRING(pObject->getplotAreaChangedEvent());
 }
 
+
+RING_FUNC(ring_QChartView_chart)
+{
+	QChartView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChartView *) RING_API_GETCPOINTER(1,"QChartView");
+	RING_API_RETCPOINTER(pObject->chart(),"QChart");
+}
+
+
+RING_FUNC(ring_QChartView_rubberBand)
+{
+	QChartView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChartView *) RING_API_GETCPOINTER(1,"QChartView");
+	RING_API_RETNUMBER(pObject->rubberBand());
+}
+
+
+RING_FUNC(ring_QChartView_setChart)
+{
+	QChartView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChartView *) RING_API_GETCPOINTER(1,"QChartView");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setChart((QChart *) RING_API_GETCPOINTER(2,"QChart"));
+}
+
+
+RING_FUNC(ring_QChartView_setRubberBand)
+{
+	QChartView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QChartView *) RING_API_GETCPOINTER(1,"QChartView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRubberBand( (QChartView::RubberBands )  (int) RING_API_GETNUMBER(2));
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -135084,6 +135161,21 @@ RING_FUNC(ring_QChart_new)
 	}
 	GChart *pObject = new GChart((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"), (Qt::WindowFlags)  (int) RING_API_GETNUMBER(2), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QChart");
+}
+
+RING_FUNC(ring_QChartView_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QChartView *pObject = new QChartView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QChartView");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -139523,6 +139615,23 @@ RING_FUNC(ring_QChart_delete)
 	}
 }
 
+RING_FUNC(ring_QChartView_delete)
+{
+	QChartView *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QChartView *) RING_API_GETCPOINTER(1,"QChartView");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -141347,6 +141456,13 @@ void ring_QChart_freefunc(void *pState,void *pPointer)
 {
 	GChart *pObject ; 
 	pObject = (GChart *) pPointer;
+	delete pObject ;
+}
+
+void ring_QChartView_freefunc(void *pState,void *pPointer)
+{
+	QChartView *pObject ; 
+	pObject = (QChartView *) pPointer;
 	delete pObject ;
 }
 
@@ -147802,6 +147918,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchart_zoomreset",ring_QChart_zoomReset);
 	ring_vm_funcregister("qchart_setplotareachangedevent",ring_QChart_setplotAreaChangedEvent);
 	ring_vm_funcregister("qchart_getplotareachangedevent",ring_QChart_getplotAreaChangedEvent);
+	ring_vm_funcregister("qchartview_chart",ring_QChartView_chart);
+	ring_vm_funcregister("qchartview_rubberband",ring_QChartView_rubberBand);
+	ring_vm_funcregister("qchartview_setchart",ring_QChartView_setChart);
+	ring_vm_funcregister("qchartview_setrubberband",ring_QChartView_setRubberBand);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -148063,6 +148183,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickset_new",ring_QCandlestickSet_new);
 	ring_vm_funcregister("qcategoryaxis_new",ring_QCategoryAxis_new);
 	ring_vm_funcregister("qchart_new",ring_QChart_new);
+	ring_vm_funcregister("qchartview_new",ring_QChartView_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -148324,4 +148445,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickset_delete",ring_QCandlestickSet_delete);
 	ring_vm_funcregister("qcategoryaxis_delete",ring_QCategoryAxis_delete);
 	ring_vm_funcregister("qchart_delete",ring_QChart_delete);
+	ring_vm_funcregister("qchartview_delete",ring_QChartView_delete);
 }
