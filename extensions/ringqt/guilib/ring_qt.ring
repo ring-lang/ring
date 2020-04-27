@@ -28110,6 +28110,94 @@ Class QHBarModelMapper from QObject
 	Func getseriesReplacedEvent 
 		return QHBarModelMapper_getseriesReplacedEvent(pObject)
 
+Class QHBoxPlotModelMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QHBoxPlotModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHBoxPlotModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func columnCount 
+		return QHBoxPlotModelMapper_columnCount(pObject)
+
+	Func firstBoxSetRow 
+		return QHBoxPlotModelMapper_firstBoxSetRow(pObject)
+
+	Func firstColumn 
+		return QHBoxPlotModelMapper_firstColumn(pObject)
+
+	Func lastBoxSetRow 
+		return QHBoxPlotModelMapper_lastBoxSetRow(pObject)
+
+	Func model 
+		return QHBoxPlotModelMapper_model(pObject)
+
+	Func series 
+		pTempObj = new QBoxPlotSeries
+		pTempObj.pObject = QHBoxPlotModelMapper_series(pObject)
+		return pTempObj
+
+	Func setColumnCount P1
+		return QHBoxPlotModelMapper_setColumnCount(pObject,P1)
+
+	Func setFirstBoxSetRow P1
+		return QHBoxPlotModelMapper_setFirstBoxSetRow(pObject,P1)
+
+	Func setFirstColumn P1
+		return QHBoxPlotModelMapper_setFirstColumn(pObject,P1)
+
+	Func setLastBoxSetRow P1
+		return QHBoxPlotModelMapper_setLastBoxSetRow(pObject,P1)
+
+	Func setModel P1
+		return QHBoxPlotModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSeries P1
+		return QHBoxPlotModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setcolumnCountChangedEvent P1
+		return QHBoxPlotModelMapper_setcolumnCountChangedEvent(pObject,P1)
+
+	Func setfirstBoxSetRowChangedEvent P1
+		return QHBoxPlotModelMapper_setfirstBoxSetRowChangedEvent(pObject,P1)
+
+	Func setfirstColumnChangedEvent P1
+		return QHBoxPlotModelMapper_setfirstColumnChangedEvent(pObject,P1)
+
+	Func setlastBoxSetRowChangedEvent P1
+		return QHBoxPlotModelMapper_setlastBoxSetRowChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QHBoxPlotModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QHBoxPlotModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func getcolumnCountChangedEvent 
+		return QHBoxPlotModelMapper_getcolumnCountChangedEvent(pObject)
+
+	Func getfirstBoxSetRowChangedEvent 
+		return QHBoxPlotModelMapper_getfirstBoxSetRowChangedEvent(pObject)
+
+	Func getfirstColumnChangedEvent 
+		return QHBoxPlotModelMapper_getfirstColumnChangedEvent(pObject)
+
+	Func getlastBoxSetRowChangedEvent 
+		return QHBoxPlotModelMapper_getlastBoxSetRowChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QHBoxPlotModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QHBoxPlotModelMapper_getseriesReplacedEvent(pObject)
+
 Class QSize
 
 	pObject
