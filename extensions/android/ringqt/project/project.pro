@@ -92,6 +92,7 @@ SOURCES +=   \
     gdatetimeaxis.cpp \
     ghbarmodelmapper.cpp \
     ghboxplotmodelmapper.cpp \
+    ghcandlestickmodelmapper.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -167,7 +168,8 @@ HEADERS  += \
     gdatetimeaxis.h \
     gchart.h \
     ghbarmodelmapper.h \
-    ghboxplotmodelmapper.h 
+    ghboxplotmodelmapper.h \
+    ghcandlestickmodelmapper.h
 
 CONFIG += warn_off
 
