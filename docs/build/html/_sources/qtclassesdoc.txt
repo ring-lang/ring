@@ -2445,6 +2445,7 @@ Parent Class : QGraphicsView
 * QChartView::RubberBands rubberBand(void)
 * void setChart(QChart *chart)
 * void setRubberBand(QChartView::RubberBands rubberBand)
+
 .. index::
 	pair: RingQt Classes Reference; QCheckBox Class
 
@@ -3086,6 +3087,40 @@ Parameters : void
 * QDateTime fromString_2(QString string, QString format)
 * QDateTime fromTime_t(uint seconds)
 
+.. index::
+	pair: RingQt Classes Reference; QDateTimeAxis Class
+
+QDateTimeAxis Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qdatetimeaxis.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractAxis
+
+* QString format(void)
+* QDateTime max(void)
+* QDateTime min(void)
+* void setFormat(QString format)
+* void setMax(QDateTime max)
+* void setMin(QDateTime min)
+* void setRange(QDateTime min, QDateTime max)
+* void setTickCount(int count)
+* int tickCount(void)
+* void setformatChangedEvent(const char *)
+* void setmaxChangedEvent(const char *)
+* void setminChangedEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* void settickCountChangedEvent(const char *)
+* const char *getformatChangedEvent(void)
+* const char *getmaxChangedEvent(void)
+* const char *getminChangedEvent(void)
+* const char *getrangeChangedEvent(void)
+* const char *gettickCountChangedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QDateTimeEdit Class
 
