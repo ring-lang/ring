@@ -24,3 +24,4 @@
 <loadfile> charts/qdatetimeaxis.cf
 <loadfile> charts/qhbarmodelmapper.cf
 <loadfile> charts/qhboxplotmodelmapper.cf
+<loadfile> charts/qhcandlestickmodelmapper.cf
