@@ -4746,6 +4746,7 @@ Parent Class : QObject
 * const char *getlastBarSetRowChangedEvent(void)
 * const char *getmodelReplacedEvent(void)
 * const char *getseriesReplacedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QHBoxLayout Class
 
@@ -4764,6 +4765,45 @@ Parent Class : QBoxLayout
 * void addWidget(QWidget *)
 * void addLayout(QLayout *)
 
+.. index::
+	pair: RingQt Classes Reference; QHBoxPlotModelMapper Class
+
+QHBoxPlotModelMapper Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhboxplotmodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* int columnCount(void)
+* int firstBoxSetRow(void)
+* int firstColumn(void)
+* int lastBoxSetRow(void)
+* QAbstractItemModel * model(void)
+* QBoxPlotSeries * series(void)
+* void setColumnCount(int rowCount)
+* void setFirstBoxSetRow(int firstBoxSetRow)
+* void setFirstColumn(int firstColumn)
+* void setLastBoxSetRow(int lastBoxSetRow)
+* void setModel(QAbstractItemModel *model)
+* void setSeries(QBoxPlotSeries *series)
+* void setcolumnCountChangedEvent(const char *)
+* void setfirstBoxSetRowChangedEvent(const char *)
+* void setfirstColumnChangedEvent(const char *)
+* void setlastBoxSetRowChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* const char *getcolumnCountChangedEvent(void)
+* const char *getfirstBoxSetRowChangedEvent(void)
+* const char *getfirstColumnChangedEvent(void)
+* const char *getlastBoxSetRowChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getseriesReplacedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QHeaderView Class
 
@@ -11583,22 +11623,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -11626,6 +11650,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
