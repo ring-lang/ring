@@ -22,3 +22,4 @@
 <loadfile> charts/qchart.cf
 <loadfile> charts/qchartview.cf
 <loadfile> charts/qdatetimeaxis.cf
+<loadfile> charts/qhbarmodelmapper.cf

@@ -1,0 +1,35 @@
+<class>
+name: QHBarModelMapper
+para: QObject *
+parent: QObject
+codename: GHBarModelMapper
+passvmpointer
+</class>
+
+
+int columnCount(void)
+int firstBarSetRow(void)
+int firstColumn(void)
+int lastBarSetRow(void)
+QAbstractItemModel * model(void)
+QAbstractBarSeries * series(void)
+void setColumnCount(int columnCount)
+void setFirstBarSetRow(int firstBarSetRow)
+void setFirstColumn(int firstColumn)
+void setLastBarSetRow(int lastBarSetRow)
+void setModel(QAbstractItemModel *model)
+void setSeries(QAbstractBarSeries *series)
+
+void setcolumnCountChangedEvent(const char *)
+void setfirstBarSetRowChangedEvent(const char *)
+void setfirstColumnChangedEvent(const char *)
+void setlastBarSetRowChangedEvent(const char *)
+void setmodelReplacedEvent(const char *)
+void setseriesReplacedEvent(const char *)
+
+const char *getcolumnCountChangedEvent(void)
+const char *getfirstBarSetRowChangedEvent(void)
+const char *getfirstColumnChangedEvent(void)
+const char *getlastBarSetRowChangedEvent(void)
+const char *getmodelReplacedEvent(void)
+const char *getseriesReplacedEvent(void)

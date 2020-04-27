@@ -445,6 +445,7 @@ extern "C" {
 #include "gcategoryaxis.h"
 #include "gchart.h"
 #include "gdatetimeaxis.h"
+#include "ghbarmodelmapper.h"
 #include <QtCharts>
 </filter>
 
