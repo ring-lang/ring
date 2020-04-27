@@ -74,6 +74,7 @@ SOURCES +=   \
     cpp/src/gcandlestickset.cpp \
     cpp/src/gcategoryaxis.cpp \
     cpp/src/gchart.cpp \
+    cpp/src/gdatetimeaxis.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -138,7 +139,8 @@ HEADERS  += \
     cpp/include/gcandlestickseries.h \
     cpp/include/gcandlestickset.h \
     cpp/include/gcategoryaxis.h \
-    cpp/include/gchart.h
+    cpp/include/gchart.h \
+    cpp/include/gdatetimeaxis.h 
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
