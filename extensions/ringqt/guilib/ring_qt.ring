@@ -27654,6 +27654,64 @@ Class QCandlestickSet from QObject
 	Func gettimestampChangedEvent 
 		return QCandlestickSet_gettimestampChangedEvent(pObject)
 
+Class QCategoryAxis from QValueAxis
+
+	pObject
+
+	Func init P1
+		pObject = QCategoryAxis_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCategoryAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1,P2
+		return QCategoryAxis_append(pObject,P1,P2)
+
+	Func categoriesLabels 
+		pTempObj = new QStringList
+		pTempObj.pObject = QCategoryAxis_categoriesLabels(pObject)
+		return pTempObj
+
+	Func count 
+		return QCategoryAxis_count(pObject)
+
+	Func endValue P1
+		return QCategoryAxis_endValue(pObject,P1)
+
+	Func labelsPosition 
+		return QCategoryAxis_labelsPosition(pObject)
+
+	Func remove P1
+		return QCategoryAxis_remove(pObject,P1)
+
+	Func replaceLabel P1,P2
+		return QCategoryAxis_replaceLabel(pObject,P1,P2)
+
+	Func setLabelsPosition P1
+		return QCategoryAxis_setLabelsPosition(pObject,P1)
+
+	Func setStartValue P1
+		return QCategoryAxis_setStartValue(pObject,P1)
+
+	Func startValue P1
+		return QCategoryAxis_startValue(pObject,P1)
+
+	Func setcategoriesChangedEvent P1
+		return QCategoryAxis_setcategoriesChangedEvent(pObject,P1)
+
+	Func setlabelsPositionChangedEvent P1
+		return QCategoryAxis_setlabelsPositionChangedEvent(pObject,P1)
+
+	Func getcategoriesChangedEvent 
+		return QCategoryAxis_getcategoriesChangedEvent(pObject)
+
+	Func getlabelsPositionChangedEvent 
+		return QCategoryAxis_getlabelsPositionChangedEvent(pObject)
+
 Class QSize
 
 	pObject
