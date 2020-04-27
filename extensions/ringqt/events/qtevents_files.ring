@@ -81,4 +81,5 @@ load "charts/qcandlestickseries.ring"
 load "charts/qcandlestickset.ring"
 load "charts/qcategoryaxis.ring"
 load "charts/qchart.ring"
+load "charts/qdatetimeaxis.ring"
 #-------------------------------------------------------------------------#
