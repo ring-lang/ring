@@ -352,6 +352,7 @@ extern "C" {
 #include "gcandlestickmodelmapper.h"
 #include "gcandlestickseries.h"
 #include "gcandlestickset.h"
+#include "gcategoryaxis.h"
 #include <QtCharts>
 
 extern "C" {
@@ -662,6 +663,7 @@ extern "C" {
 	void ring_QCandlestickModelMapper_freefunc(void *pState,void *pPointer);
 	void ring_QCandlestickSeries_freefunc(void *pState,void *pPointer);
 	void ring_QCandlestickSet_freefunc(void *pState,void *pPointer);
+	void ring_QCategoryAxis_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -129819,6 +129821,293 @@ RING_FUNC(ring_QCandlestickSet_gettimestampChangedEvent)
 	RING_API_RETSTRING(pObject->gettimestampChangedEvent());
 }
 
+
+RING_FUNC(ring_QCategoryAxis_append)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->append(RING_API_GETSTRING(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_categoriesLabels)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->categoriesLabels();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QCategoryAxis_count)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QCategoryAxis_endValue)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->endValue(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_labelsPosition)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	RING_API_RETNUMBER(pObject->labelsPosition());
+}
+
+
+RING_FUNC(ring_QCategoryAxis_remove)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->remove(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_replaceLabel)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->replaceLabel(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_setLabelsPosition)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabelsPosition( (QCategoryAxis::AxisLabelsPosition )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_setStartValue)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setStartValue( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_startValue)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->startValue(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_setcategoriesChangedEvent)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcategoriesChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_setlabelsPositionChangedEvent)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlabelsPositionChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCategoryAxis_getcategoriesChangedEvent)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	RING_API_RETSTRING(pObject->getcategoriesChangedEvent());
+}
+
+
+RING_FUNC(ring_QCategoryAxis_getlabelsPositionChangedEvent)
+{
+	GCategoryAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"QCategoryAxis");
+	RING_API_RETSTRING(pObject->getlabelsPositionChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -133574,6 +133863,21 @@ RING_FUNC(ring_QCandlestickSet_new)
 	}
 	GCandlestickSet *pObject = new GCandlestickSet( (qreal) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QCandlestickSet");
+}
+
+RING_FUNC(ring_QCategoryAxis_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GCategoryAxis *pObject = new GCategoryAxis((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QCategoryAxis");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -137979,6 +138283,23 @@ RING_FUNC(ring_QCandlestickSet_delete)
 	}
 }
 
+RING_FUNC(ring_QCategoryAxis_delete)
+{
+	GCategoryAxis *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GCategoryAxis *) RING_API_GETCPOINTER(1,"GCategoryAxis");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -139789,6 +140110,13 @@ void ring_QCandlestickSet_freefunc(void *pState,void *pPointer)
 {
 	GCandlestickSet *pObject ; 
 	pObject = (GCandlestickSet *) pPointer;
+	delete pObject ;
+}
+
+void ring_QCategoryAxis_freefunc(void *pState,void *pPointer)
+{
+	GCategoryAxis *pObject ; 
+	pObject = (GCategoryAxis *) pPointer;
 	delete pObject ;
 }
 
@@ -146171,6 +146499,20 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcandlestickset_getpressedevent",ring_QCandlestickSet_getpressedEvent);
 	ring_vm_funcregister("qcandlestickset_getreleasedevent",ring_QCandlestickSet_getreleasedEvent);
 	ring_vm_funcregister("qcandlestickset_gettimestampchangedevent",ring_QCandlestickSet_gettimestampChangedEvent);
+	ring_vm_funcregister("qcategoryaxis_append",ring_QCategoryAxis_append);
+	ring_vm_funcregister("qcategoryaxis_categorieslabels",ring_QCategoryAxis_categoriesLabels);
+	ring_vm_funcregister("qcategoryaxis_count",ring_QCategoryAxis_count);
+	ring_vm_funcregister("qcategoryaxis_endvalue",ring_QCategoryAxis_endValue);
+	ring_vm_funcregister("qcategoryaxis_labelsposition",ring_QCategoryAxis_labelsPosition);
+	ring_vm_funcregister("qcategoryaxis_remove",ring_QCategoryAxis_remove);
+	ring_vm_funcregister("qcategoryaxis_replacelabel",ring_QCategoryAxis_replaceLabel);
+	ring_vm_funcregister("qcategoryaxis_setlabelsposition",ring_QCategoryAxis_setLabelsPosition);
+	ring_vm_funcregister("qcategoryaxis_setstartvalue",ring_QCategoryAxis_setStartValue);
+	ring_vm_funcregister("qcategoryaxis_startvalue",ring_QCategoryAxis_startValue);
+	ring_vm_funcregister("qcategoryaxis_setcategorieschangedevent",ring_QCategoryAxis_setcategoriesChangedEvent);
+	ring_vm_funcregister("qcategoryaxis_setlabelspositionchangedevent",ring_QCategoryAxis_setlabelsPositionChangedEvent);
+	ring_vm_funcregister("qcategoryaxis_getcategorieschangedevent",ring_QCategoryAxis_getcategoriesChangedEvent);
+	ring_vm_funcregister("qcategoryaxis_getlabelspositionchangedevent",ring_QCategoryAxis_getlabelsPositionChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -146430,6 +146772,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qboxset_new",ring_QBoxSet_new);
 	ring_vm_funcregister("qcandlestickseries_new",ring_QCandlestickSeries_new);
 	ring_vm_funcregister("qcandlestickset_new",ring_QCandlestickSet_new);
+	ring_vm_funcregister("qcategoryaxis_new",ring_QCategoryAxis_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -146689,4 +147032,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qboxset_delete",ring_QBoxSet_delete);
 	ring_vm_funcregister("qcandlestickseries_delete",ring_QCandlestickSeries_delete);
 	ring_vm_funcregister("qcandlestickset_delete",ring_QCandlestickSet_delete);
+	ring_vm_funcregister("qcategoryaxis_delete",ring_QCategoryAxis_delete);
 }
