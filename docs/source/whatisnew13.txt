@@ -199,6 +199,7 @@ Better RingQt
 * QCandlestickSet
 * QCategoryAxis
 * QChart
+* QChartView
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
