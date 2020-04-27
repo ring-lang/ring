@@ -90,6 +90,7 @@ SOURCES +=   \
     gcategoryaxis.cpp \
     gchart.cpp \
     gdatetimeaxis.cpp \
+    ghbarmodelmapper.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -163,7 +164,8 @@ HEADERS  += \
     gcandlestickset.h \
     gcategoryaxis.h \
     gdatetimeaxis.h \
-    gchart.h
+    gchart.h \
+    ghbarmodelmapper.h
 
 CONFIG += warn_off
 
