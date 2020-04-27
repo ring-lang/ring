@@ -89,6 +89,7 @@ SOURCES +=   \
     gcandlestickset.cpp \
     gcategoryaxis.cpp \
     gchart.cpp \
+    gdatetimeaxis.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -161,6 +162,7 @@ HEADERS  += \
     gcandlestickseries.h \
     gcandlestickset.h \
     gcategoryaxis.h \
+    gdatetimeaxis.h \
     gchart.h
 
 CONFIG += warn_off

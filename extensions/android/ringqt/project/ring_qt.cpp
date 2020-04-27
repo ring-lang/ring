@@ -354,6 +354,7 @@ extern "C" {
 #include "gcandlestickset.h"
 #include "gcategoryaxis.h"
 #include "gchart.h"
+#include "gdatetimeaxis.h"
 #include <QtCharts>
 
 extern "C" {
@@ -667,6 +668,7 @@ extern "C" {
 	void ring_QCategoryAxis_freefunc(void *pState,void *pPointer);
 	void ring_QChart_freefunc(void *pState,void *pPointer);
 	void ring_QChartView_freefunc(void *pState,void *pPointer);
+	void ring_QDateTimeAxis_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -131372,6 +131374,375 @@ RING_FUNC(ring_QChartView_setRubberBand)
 	pObject->setRubberBand( (QChartView::RubberBands )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_QDateTimeAxis_format)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->format().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_max)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->max();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QDateTime",ring_QDateTime_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_min)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->min();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QDateTime",ring_QDateTime_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setFormat)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFormat(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setMax)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	pObject->setMax(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setMin)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	pObject->setMin(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setRange)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	pObject->setRange(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime"),* (QDateTime  *) RING_API_GETCPOINTER(3,"QDateTime"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setTickCount)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setTickCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_tickCount)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETNUMBER(pObject->tickCount());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setformatChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setformatChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setmaxChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmaxChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setminChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setminChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_setrangeChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setrangeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_settickCountChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settickCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_getformatChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->getformatChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_getmaxChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->getmaxChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_getminChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->getminChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_getrangeChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->getrangeChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeAxis_gettickCountChangedEvent)
+{
+	GDateTimeAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"QDateTimeAxis");
+	RING_API_RETSTRING(pObject->gettickCountChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -135176,6 +135547,21 @@ RING_FUNC(ring_QChartView_new)
 	}
 	QChartView *pObject = new QChartView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QChartView");
+}
+
+RING_FUNC(ring_QDateTimeAxis_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GDateTimeAxis *pObject = new GDateTimeAxis((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QDateTimeAxis");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -139632,6 +140018,23 @@ RING_FUNC(ring_QChartView_delete)
 	}
 }
 
+RING_FUNC(ring_QDateTimeAxis_delete)
+{
+	GDateTimeAxis *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GDateTimeAxis *) RING_API_GETCPOINTER(1,"GDateTimeAxis");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -141463,6 +141866,13 @@ void ring_QChartView_freefunc(void *pState,void *pPointer)
 {
 	QChartView *pObject ; 
 	pObject = (QChartView *) pPointer;
+	delete pObject ;
+}
+
+void ring_QDateTimeAxis_freefunc(void *pState,void *pPointer)
+{
+	GDateTimeAxis *pObject ; 
+	pObject = (GDateTimeAxis *) pPointer;
 	delete pObject ;
 }
 
@@ -147922,6 +148332,25 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qchartview_rubberband",ring_QChartView_rubberBand);
 	ring_vm_funcregister("qchartview_setchart",ring_QChartView_setChart);
 	ring_vm_funcregister("qchartview_setrubberband",ring_QChartView_setRubberBand);
+	ring_vm_funcregister("qdatetimeaxis_format",ring_QDateTimeAxis_format);
+	ring_vm_funcregister("qdatetimeaxis_max",ring_QDateTimeAxis_max);
+	ring_vm_funcregister("qdatetimeaxis_min",ring_QDateTimeAxis_min);
+	ring_vm_funcregister("qdatetimeaxis_setformat",ring_QDateTimeAxis_setFormat);
+	ring_vm_funcregister("qdatetimeaxis_setmax",ring_QDateTimeAxis_setMax);
+	ring_vm_funcregister("qdatetimeaxis_setmin",ring_QDateTimeAxis_setMin);
+	ring_vm_funcregister("qdatetimeaxis_setrange",ring_QDateTimeAxis_setRange);
+	ring_vm_funcregister("qdatetimeaxis_settickcount",ring_QDateTimeAxis_setTickCount);
+	ring_vm_funcregister("qdatetimeaxis_tickcount",ring_QDateTimeAxis_tickCount);
+	ring_vm_funcregister("qdatetimeaxis_setformatchangedevent",ring_QDateTimeAxis_setformatChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_setmaxchangedevent",ring_QDateTimeAxis_setmaxChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_setminchangedevent",ring_QDateTimeAxis_setminChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_setrangechangedevent",ring_QDateTimeAxis_setrangeChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_settickcountchangedevent",ring_QDateTimeAxis_settickCountChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_getformatchangedevent",ring_QDateTimeAxis_getformatChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_getmaxchangedevent",ring_QDateTimeAxis_getmaxChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_getminchangedevent",ring_QDateTimeAxis_getminChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_getrangechangedevent",ring_QDateTimeAxis_getrangeChangedEvent);
+	ring_vm_funcregister("qdatetimeaxis_gettickcountchangedevent",ring_QDateTimeAxis_gettickCountChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -148184,6 +148613,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcategoryaxis_new",ring_QCategoryAxis_new);
 	ring_vm_funcregister("qchart_new",ring_QChart_new);
 	ring_vm_funcregister("qchartview_new",ring_QChartView_new);
+	ring_vm_funcregister("qdatetimeaxis_new",ring_QDateTimeAxis_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -148446,4 +148876,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcategoryaxis_delete",ring_QCategoryAxis_delete);
 	ring_vm_funcregister("qchart_delete",ring_QChart_delete);
 	ring_vm_funcregister("qchartview_delete",ring_QChartView_delete);
+	ring_vm_funcregister("qdatetimeaxis_delete",ring_QDateTimeAxis_delete);
 }
