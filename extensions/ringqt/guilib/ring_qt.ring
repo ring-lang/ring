@@ -26438,7 +26438,9 @@ Class QAbstractSeries from QObject
 		return QAbstractSeries_attachedAxes(pObject)
 
 	Func chart 
-		return QAbstractSeries_chart(pObject)
+		pTempObj = new QChart
+		pTempObj.pObject = QAbstractSeries_chart(pObject)
+		return pTempObj
 
 	Func detachAxis P1
 		return QAbstractSeries_detachAxis(pObject,GetObjectPointerFromRingObject(P1))
@@ -27711,6 +27713,213 @@ Class QCategoryAxis from QValueAxis
 
 	Func getlabelsPositionChangedEvent 
 		return QCategoryAxis_getlabelsPositionChangedEvent(pObject)
+
+Class QChart from QGraphicsWidget
+
+	pObject
+
+	Func init P1,P2
+		pObject = QChart_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QChart_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addAxis P1,P2
+		return QChart_addAxis(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func addSeries P1
+		return QChart_addSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func animationDuration 
+		return QChart_animationDuration(pObject)
+
+	Func animationEasingCurve 
+		return QChart_animationEasingCurve(pObject)
+
+	Func animationOptions 
+		return QChart_animationOptions(pObject)
+
+	Func axes P1,P2
+		return QChart_axes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func backgroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QChart_backgroundBrush(pObject)
+		return pTempObj
+
+	Func backgroundPen 
+		pTempObj = new QPen
+		pTempObj.pObject = QChart_backgroundPen(pObject)
+		return pTempObj
+
+	Func backgroundRoundness 
+		return QChart_backgroundRoundness(pObject)
+
+	Func chartType 
+		return QChart_chartType(pObject)
+
+	Func createDefaultAxes 
+		return QChart_createDefaultAxes(pObject)
+
+	Func isBackgroundVisible 
+		return QChart_isBackgroundVisible(pObject)
+
+	Func isDropShadowEnabled 
+		return QChart_isDropShadowEnabled(pObject)
+
+	Func isPlotAreaBackgroundVisible 
+		return QChart_isPlotAreaBackgroundVisible(pObject)
+
+	Func isZoomed 
+		return QChart_isZoomed(pObject)
+
+	Func legend 
+		return QChart_legend(pObject)
+
+	Func locale 
+		return QChart_locale(pObject)
+
+	Func localizeNumbers 
+		return QChart_localizeNumbers(pObject)
+
+	Func mapToPosition P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QChart_mapToPosition(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func mapToValue P1,P2
+		pTempObj = new QPointF
+		pTempObj.pObject = QChart_mapToValue(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func margins 
+		return QChart_margins(pObject)
+
+	Func plotArea 
+		return QChart_plotArea(pObject)
+
+	Func plotAreaBackgroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QChart_plotAreaBackgroundBrush(pObject)
+		return pTempObj
+
+	Func plotAreaBackgroundPen 
+		pTempObj = new QPen
+		pTempObj.pObject = QChart_plotAreaBackgroundPen(pObject)
+		return pTempObj
+
+	Func removeAllSeries 
+		return QChart_removeAllSeries(pObject)
+
+	Func removeAxis P1
+		return QChart_removeAxis(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeSeries P1
+		return QChart_removeSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func scroll P1,P2
+		return QChart_scroll(pObject,P1,P2)
+
+	Func series 
+		return QChart_series(pObject)
+
+	Func setAnimationDuration P1
+		return QChart_setAnimationDuration(pObject,P1)
+
+	Func setAnimationEasingCurve P1
+		return QChart_setAnimationEasingCurve(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAnimationOptions P1
+		return QChart_setAnimationOptions(pObject,P1)
+
+	Func setBackgroundBrush P1
+		return QChart_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBackgroundPen P1
+		return QChart_setBackgroundPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBackgroundRoundness P1
+		return QChart_setBackgroundRoundness(pObject,P1)
+
+	Func setBackgroundVisible P1
+		return QChart_setBackgroundVisible(pObject,P1)
+
+	Func setDropShadowEnabled P1
+		return QChart_setDropShadowEnabled(pObject,P1)
+
+	Func setLocale P1
+		return QChart_setLocale(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLocalizeNumbers P1
+		return QChart_setLocalizeNumbers(pObject,P1)
+
+	Func setMargins P1
+		return QChart_setMargins(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPlotArea P1
+		return QChart_setPlotArea(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPlotAreaBackgroundBrush P1
+		return QChart_setPlotAreaBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPlotAreaBackgroundPen P1
+		return QChart_setPlotAreaBackgroundPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPlotAreaBackgroundVisible P1
+		return QChart_setPlotAreaBackgroundVisible(pObject,P1)
+
+	Func setTheme P1
+		return QChart_setTheme(pObject,P1)
+
+	Func setTitle P1
+		return QChart_setTitle(pObject,P1)
+
+	Func setTitleBrush P1
+		return QChart_setTitleBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTitleFont P1
+		return QChart_setTitleFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func theme 
+		return QChart_theme(pObject)
+
+	Func title 
+		return QChart_title(pObject)
+
+	Func titleBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QChart_titleBrush(pObject)
+		return pTempObj
+
+	Func titleFont 
+		pTempObj = new QFont
+		pTempObj.pObject = QChart_titleFont(pObject)
+		return pTempObj
+
+	Func zoom P1
+		return QChart_zoom(pObject,P1)
+
+	Func zoomIn 
+		return QChart_zoomIn(pObject)
+
+	Func zoomIn_2 P1
+		return QChart_zoomIn_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func zoomOut 
+		return QChart_zoomOut(pObject)
+
+	Func zoomReset 
+		return QChart_zoomReset(pObject)
+
+	Func setplotAreaChangedEvent P1
+		return QChart_setplotAreaChangedEvent(pObject,P1)
+
+	Func getplotAreaChangedEvent 
+		return QChart_getplotAreaChangedEvent(pObject)
 
 Class QSize
 

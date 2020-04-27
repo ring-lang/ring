@@ -80,6 +80,7 @@ SOURCES +=   \
     cpp/src/gcandlestickseries.cpp \
     cpp/src/gcandlestickset.cpp \
     cpp/src/gcategoryaxis.cpp \
+    cpp/src/gchart.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -150,7 +151,8 @@ HEADERS  += \
     cpp/include/gcandlestickmodelmapper.h \
     cpp/include/gcandlestickseries.h \
     cpp/include/gcandlestickset.h \
-    cpp/include/gcategoryaxis.h
+    cpp/include/gcategoryaxis.h \
+    cpp/include/gchart.h
     
 
 INCLUDEPATH += ../../include
