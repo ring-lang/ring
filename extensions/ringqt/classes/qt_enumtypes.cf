@@ -390,4 +390,6 @@ aEnumTypes + "QChart::AnimationOption"
 aEnumTypes + "QChart::AnimationOptions"
 aEnumTypes + "QChart::ChartTheme"
 aEnumTypes + "QChart::ChartType"
+aEnumTypes + "QChartView::RubberBand"
+aEnumTypes + "QChartView::RubberBands"
 </runcode>

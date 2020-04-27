@@ -1,0 +1,11 @@
+<class>
+name: QChartView
+para: QWidget *
+parent: QGraphicsView
+</class>
+
+
+QChart * chart(void)
+QChartView::RubberBands rubberBand(void)
+void setChart(QChart *chart)
+void setRubberBand(QChartView::RubberBands rubberBand)

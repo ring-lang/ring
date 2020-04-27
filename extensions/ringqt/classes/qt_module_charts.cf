@@ -20,3 +20,4 @@
 <loadfile> charts/qcandlestickset.cf
 <loadfile> charts/qcategoryaxis.cf
 <loadfile> charts/qchart.cf
+<loadfile> charts/qchartview.cf
