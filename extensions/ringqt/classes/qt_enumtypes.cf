@@ -385,4 +385,5 @@ aEnumTypes + "QAbstractAxis::AxisTypes"
 aEnumTypes + "QAbstractBarSeries::LabelsPosition"
 aEnumTypes + "QAbstractSeries::SeriesType"
 aEnumTypes + "QBoxSet::ValuePositions"
+aEnumTypes + "QCategoryAxis::AxisLabelsPosition"
 </runcode>

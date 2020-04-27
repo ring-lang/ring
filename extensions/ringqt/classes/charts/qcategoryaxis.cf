@@ -1,0 +1,25 @@
+<class>
+name: QCategoryAxis
+para: QObject *
+parent: QValueAxis
+codename: GCategoryAxis
+passvmpointer
+</class>
+
+
+void append(QString categoryLabel, qreal categoryEndValue)
+QStringList categoriesLabels(void)
+int count(void)
+qreal endValue(QString categoryLabel)
+QCategoryAxis::AxisLabelsPosition labelsPosition(void)
+void remove(QString categoryLabel)
+void replaceLabel(QString oldLabel, QString newLabel)
+void setLabelsPosition(QCategoryAxis::AxisLabelsPosition position)
+void setStartValue(qreal min)
+qreal startValue(QString categoryLabel)
+
+void setcategoriesChangedEvent(const char *)
+void setlabelsPositionChangedEvent(const char *)
+
+const char *getcategoriesChangedEvent(void)
+const char *getlabelsPositionChangedEvent(void)

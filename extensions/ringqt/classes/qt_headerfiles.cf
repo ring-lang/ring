@@ -442,6 +442,7 @@ extern "C" {
 #include "gcandlestickmodelmapper.h"
 #include "gcandlestickseries.h"
 #include "gcandlestickset.h"
+#include "gcategoryaxis.h"
 #include <QtCharts>
 </filter>
 
