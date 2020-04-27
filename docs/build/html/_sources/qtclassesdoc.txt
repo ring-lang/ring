@@ -2234,6 +2234,36 @@ Parent Class : QObject
 * const char *getpressedEvent(void)
 * const char *getreleasedEvent(void)
 * const char *gettimestampChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCategoryAxis Class
+
+QCategoryAxis Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qcategoryaxis.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QValueAxis
+
+* void append(QString categoryLabel, qreal categoryEndValue)
+* QStringList categoriesLabels(void)
+* int count(void)
+* qreal endValue(QString categoryLabel)
+* QCategoryAxis::AxisLabelsPosition labelsPosition(void)
+* void remove(QString categoryLabel)
+* void replaceLabel(QString oldLabel, QString newLabel)
+* void setLabelsPosition(QCategoryAxis::AxisLabelsPosition position)
+* void setStartValue(qreal min)
+* qreal startValue(QString categoryLabel)
+* void setcategoriesChangedEvent(const char *)
+* void setlabelsPositionChangedEvent(const char *)
+* const char *getcategoriesChangedEvent(void)
+* const char *getlabelsPositionChangedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QChar Class
 
@@ -11383,6 +11413,22 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -11410,22 +11456,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
