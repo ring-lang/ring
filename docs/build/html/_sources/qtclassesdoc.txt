@@ -2264,6 +2264,7 @@ Parent Class : QValueAxis
 * void setlabelsPositionChangedEvent(const char *)
 * const char *getcategoriesChangedEvent(void)
 * const char *getlabelsPositionChangedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QChar Class
 
@@ -2350,6 +2351,80 @@ Parameters : int
 * uint toUpper_2(uint ucs4)
 * QChar::UnicodeVersion unicodeVersion_2(uint ucs4)
 
+.. index::
+	pair: RingQt Classes Reference; QChart Class
+
+QChart Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qchart.html
+
+
+Parameters : QGraphicsItem *,Qt::WindowFlags
+
+
+Parent Class : QGraphicsWidget
+
+* void addAxis(QAbstractAxis *axis, Qt::Alignment alignment)
+* void addSeries(QAbstractSeries *series)
+* int animationDuration(void)
+* QEasingCurve animationEasingCurve(void)
+* QChart::AnimationOptions animationOptions(void)
+* QList<QAbstractAxis *> axes(Qt::Orientations orientation, QAbstractSeries *series)
+* QBrush backgroundBrush(void)
+* QPen backgroundPen(void)
+* qreal backgroundRoundness(void)
+* QChart::ChartType chartType(void)
+* void createDefaultAxes(void)
+* bool isBackgroundVisible(void)
+* bool isDropShadowEnabled(void)
+* bool isPlotAreaBackgroundVisible(void)
+* bool isZoomed(void)
+* QLegend * legend(void)
+* QLocale locale(void)
+* bool localizeNumbers(void)
+* QPointF mapToPosition(QPointF value, QAbstractSeries *series)
+* QPointF mapToValue(QPointF position, QAbstractSeries *series)
+* QMargins margins(void)
+* QRectF plotArea(void)
+* QBrush plotAreaBackgroundBrush(void)
+* QPen plotAreaBackgroundPen(void)
+* void removeAllSeries(void)
+* void removeAxis(QAbstractAxis *axis)
+* void removeSeries(QAbstractSeries *series)
+* void scroll(qreal dx, qreal dy)
+* QList<QAbstractSeries *> series(void)
+* void setAnimationDuration(int msecs)
+* void setAnimationEasingCurve(QEasingCurve curve)
+* void setAnimationOptions(QChart::AnimationOptions options)
+* void setBackgroundBrush(QBrush brush)
+* void setBackgroundPen(QPen pen)
+* void setBackgroundRoundness(qreal diameter)
+* void setBackgroundVisible(bool visible)
+* void setDropShadowEnabled(bool enabled)
+* void setLocale(QLocale locale)
+* void setLocalizeNumbers(bool localize)
+* void setMargins(QMargins margins)
+* void setPlotArea(QRectF rect)
+* void setPlotAreaBackgroundBrush(QBrush brush)
+* void setPlotAreaBackgroundPen(QPen pen)
+* void setPlotAreaBackgroundVisible(bool visible)
+* void setTheme(QChart::ChartTheme theme)
+* void setTitle(QString title)
+* void setTitleBrush(QBrush brush)
+* void setTitleFont(QFont font)
+* QChart::ChartTheme theme(void)
+* QString title(void)
+* QBrush titleBrush(void)
+* QFont titleFont(void)
+* void zoom(qreal factor)
+* void zoomIn(void)
+* void zoomIn_2(QRectF rect)
+* void zoomOut(void)
+* void zoomReset(void)
+* void setplotAreaChangedEvent(const char *)
+* const char *getplotAreaChangedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QCheckBox Class
 
@@ -11413,22 +11488,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -11456,6 +11515,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
