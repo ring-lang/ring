@@ -83,4 +83,5 @@ load "charts/qcategoryaxis.ring"
 load "charts/qchart.ring"
 load "charts/qdatetimeaxis.ring"
 load "charts/qhbarmodelmapper.ring"
+load "charts/qhboxplotmodelmapper.ring"
 #-------------------------------------------------------------------------#
