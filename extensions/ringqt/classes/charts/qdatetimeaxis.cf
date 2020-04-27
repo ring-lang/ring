@@ -1,0 +1,30 @@
+<class>
+name: QDateTimeAxis
+para: QObject *
+parent: QAbstractAxis
+codename: GDateTimeAxis
+passvmpointer
+</class>
+
+
+QString format(void)
+QDateTime max(void)
+QDateTime min(void)
+void setFormat(QString format)
+void setMax(QDateTime max)
+void setMin(QDateTime min)
+void setRange(QDateTime min, QDateTime max)
+void setTickCount(int count)
+int tickCount(void)
+
+void setformatChangedEvent(const char *)
+void setmaxChangedEvent(const char *)
+void setminChangedEvent(const char *)
+void setrangeChangedEvent(const char *)
+void settickCountChangedEvent(const char *)
+
+const char *getformatChangedEvent(void)
+const char *getmaxChangedEvent(void)
+const char *getminChangedEvent(void)
+const char *getrangeChangedEvent(void)
+const char *gettickCountChangedEvent(void)

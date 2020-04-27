@@ -444,6 +444,7 @@ extern "C" {
 #include "gcandlestickset.h"
 #include "gcategoryaxis.h"
 #include "gchart.h"
+#include "gdatetimeaxis.h"
 #include <QtCharts>
 </filter>
 

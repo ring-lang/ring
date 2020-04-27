@@ -21,3 +21,4 @@
 <loadfile> charts/qcategoryaxis.cf
 <loadfile> charts/qchart.cf
 <loadfile> charts/qchartview.cf
+<loadfile> charts/qdatetimeaxis.cf
