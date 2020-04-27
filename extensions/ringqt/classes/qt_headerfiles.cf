@@ -443,6 +443,7 @@ extern "C" {
 #include "gcandlestickseries.h"
 #include "gcandlestickset.h"
 #include "gcategoryaxis.h"
+#include "gchart.h"
 #include <QtCharts>
 </filter>
 

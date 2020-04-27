@@ -19,3 +19,4 @@
 <loadfile> charts/qcandlestickseries.cf
 <loadfile> charts/qcandlestickset.cf
 <loadfile> charts/qcategoryaxis.cf
+<loadfile> charts/qchart.cf

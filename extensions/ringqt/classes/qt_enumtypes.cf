@@ -386,4 +386,8 @@ aEnumTypes + "QAbstractBarSeries::LabelsPosition"
 aEnumTypes + "QAbstractSeries::SeriesType"
 aEnumTypes + "QBoxSet::ValuePositions"
 aEnumTypes + "QCategoryAxis::AxisLabelsPosition"
+aEnumTypes + "QChart::AnimationOption"
+aEnumTypes + "QChart::AnimationOptions"
+aEnumTypes + "QChart::ChartTheme"
+aEnumTypes + "QChart::ChartType"
 </runcode>
