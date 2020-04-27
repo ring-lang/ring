@@ -28024,6 +28024,92 @@ Class QDateTimeAxis from QAbstractAxis
 	Func gettickCountChangedEvent 
 		return QDateTimeAxis_gettickCountChangedEvent(pObject)
 
+Class QHBarModelMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QHBarModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHBarModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func columnCount 
+		return QHBarModelMapper_columnCount(pObject)
+
+	Func firstBarSetRow 
+		return QHBarModelMapper_firstBarSetRow(pObject)
+
+	Func firstColumn 
+		return QHBarModelMapper_firstColumn(pObject)
+
+	Func lastBarSetRow 
+		return QHBarModelMapper_lastBarSetRow(pObject)
+
+	Func model 
+		return QHBarModelMapper_model(pObject)
+
+	Func series 
+		return QHBarModelMapper_series(pObject)
+
+	Func setColumnCount P1
+		return QHBarModelMapper_setColumnCount(pObject,P1)
+
+	Func setFirstBarSetRow P1
+		return QHBarModelMapper_setFirstBarSetRow(pObject,P1)
+
+	Func setFirstColumn P1
+		return QHBarModelMapper_setFirstColumn(pObject,P1)
+
+	Func setLastBarSetRow P1
+		return QHBarModelMapper_setLastBarSetRow(pObject,P1)
+
+	Func setModel P1
+		return QHBarModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSeries P1
+		return QHBarModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setcolumnCountChangedEvent P1
+		return QHBarModelMapper_setcolumnCountChangedEvent(pObject,P1)
+
+	Func setfirstBarSetRowChangedEvent P1
+		return QHBarModelMapper_setfirstBarSetRowChangedEvent(pObject,P1)
+
+	Func setfirstColumnChangedEvent P1
+		return QHBarModelMapper_setfirstColumnChangedEvent(pObject,P1)
+
+	Func setlastBarSetRowChangedEvent P1
+		return QHBarModelMapper_setlastBarSetRowChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QHBarModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QHBarModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func getcolumnCountChangedEvent 
+		return QHBarModelMapper_getcolumnCountChangedEvent(pObject)
+
+	Func getfirstBarSetRowChangedEvent 
+		return QHBarModelMapper_getfirstBarSetRowChangedEvent(pObject)
+
+	Func getfirstColumnChangedEvent 
+		return QHBarModelMapper_getfirstColumnChangedEvent(pObject)
+
+	Func getlastBarSetRowChangedEvent 
+		return QHBarModelMapper_getlastBarSetRowChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QHBarModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QHBarModelMapper_getseriesReplacedEvent(pObject)
+
 Class QSize
 
 	pObject
