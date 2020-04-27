@@ -27921,6 +27921,34 @@ Class QChart from QGraphicsWidget
 	Func getplotAreaChangedEvent 
 		return QChart_getplotAreaChangedEvent(pObject)
 
+Class QChartView from QGraphicsView
+
+	pObject
+
+	Func init P1
+		pObject = QChartView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QChartView_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func chart 
+		pTempObj = new QChart
+		pTempObj.pObject = QChartView_chart(pObject)
+		return pTempObj
+
+	Func rubberBand 
+		return QChartView_rubberBand(pObject)
+
+	Func setChart P1
+		return QChartView_setChart(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRubberBand P1
+		return QChartView_setRubberBand(pObject,P1)
+
 Class QSize
 
 	pObject
