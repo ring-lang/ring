@@ -99,6 +99,11 @@ func FunctionsTEChangedAction
 
 func ConvertBtnAction
 	oView{
+		# Prepare parameters 
+			classNameLE.setText(this.TrimAll(classNameLE.text()))
+			classParentLE.setText(this.TrimAll(classParentLE.text()))
+			# Add space after class parameters
+				classParaLE.setText(this.TrimAll(classParaLE.text()) + " ")
 		QtcfOutputTE.setText("")
 		QtEventsOutputTE.setText("")
 		cStr1 = ""
