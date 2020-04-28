@@ -115,6 +115,19 @@ func ConvertBtnAction
 		this.pSignalsProcess(aList2)
 	}
 
+func ClearBtnAction
+	oView {
+		classNameLE.setText("")
+		classParentLE.setText("")
+		classParaLE.setText("")
+		classCodeNameLE.setText("")
+		enumsFlagsTE.setText("")
+		functionsTE.setText("")
+		signalsTE.setText("")
+		qtcfOutputTE.setText("")
+		qteventsOutputTE.settext("")
+	}
+
 func TrimAll str 
 	return substr(substr(substr(str,char(9), ""), nl, ""), " ", "")
 

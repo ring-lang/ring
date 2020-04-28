@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 14 , : y = 14  , 
+		 :x = 14 , : y = -196  , 
 		 :width =  1263 , :height = 716 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -361,6 +361,18 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :text =  "By: Majdi Sobain",
 		 :textalign =  0
+		]
+	],
+	[ :name = "ConvertBtn27" , :id = 28 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 295 , : y = 630  , 
+		 :width =  255 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Clear",
+		 :BtnImage =  "",
+		 :setClickEvent =  "ClearBtnAction"
 		]
 	]
 ]
