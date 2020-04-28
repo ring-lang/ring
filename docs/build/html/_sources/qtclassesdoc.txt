@@ -4848,6 +4848,86 @@ Parent Class : QCandlestickModelMapper
 * const char *getlowColumnChangedEvent(void)
 * const char *getopenColumnChangedEvent(void)
 * const char *gettimestampColumnChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHPieModelMapper Class
+
+QHPieModelMapper Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhpiemodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QPieModelMapper
+
+* int columnCount(void)
+* int firstColumn(void)
+* int labelsRow(void)
+* QAbstractItemModel * model(void)
+* QPieSeries * series(void)
+* void setColumnCount(int columnCount)
+* void setFirstColumn(int firstColumn)
+* void setLabelsRow(int labelsRow)
+* void setModel(QAbstractItemModel *model)
+* void setSeries(QPieSeries *series)
+* void setValuesRow(int valuesRow)
+* int valuesRow(void)
+* void setcolumnCountChangedEvent(const char *)
+* void setfirstColumnChangedEvent(const char *)
+* void setlabelsRowChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* void setvaluesRowChangedEvent(const char *)
+* const char *getcolumnCountChangedEvent(void)
+* const char *getfirstColumnChangedEvent(void)
+* const char *getlabelsRowChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getseriesReplacedEvent(void)
+* const char *getvaluesRowChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHXYModelMapper Class
+
+QHXYModelMapper Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhxymodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QXYModelMapper
+
+* int columnCount(void)
+* int firstColumn(void)
+* QAbstractItemModel * model(void)
+* QXYSeries * series(void)
+* void setColumnCount(int columnCount)
+* void setFirstColumn(int firstColumn)
+* void setModel(QAbstractItemModel *model)
+* void setSeries(QXYSeries *series)
+* void setXRow(int xRow)
+* void setYRow(int yRow)
+* int xRow(void)
+* int yRow(void)
+* void setcolumnCountChangedEvent(const char *)
+* void setfirstColumnChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* void setxRowChangedEvent(const char *)
+* void setyRowChangedEvent(const char *)
+* const char *getcolumnCountChangedEvent(void)
+* const char *getfirstColumnChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getseriesReplacedEvent(void)
+* const char *getxRowChangedEvent(void)
+* const char *getyRowChangedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QHeaderView Class
 

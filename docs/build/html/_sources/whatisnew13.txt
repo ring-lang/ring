@@ -204,6 +204,8 @@ Better RingQt
 * QHBarModelMapper
 * QHBoxPlotModelMapper
 * QHCandlestickModelMapper
+* QHPieModelMapper
+* QHXYModelMapper
 	
 
 .. index:: 
