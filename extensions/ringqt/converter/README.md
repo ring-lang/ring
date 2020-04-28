@@ -4,11 +4,11 @@ This is a nice tool that helps in implementation of new Qt classes into RingQt b
 
 This tool has been made to reduce pain for those who are new to the Ring Extension Code Generator and Qt framework specifications. So that, this tool will do most of the work, simply by some mouse clicks and basic understanding of Ring and RingQt building process.
 
-**Note:** This tool is a development continuation of ["qtclass2ringcodegen"](https://github.com/ring-lang/ring/tree/master/samples/tools/qtclass2ringcodegen) and ["setevents2getevents"](https://github.com/ring-lang/ring/tree/master/samples/tools/setevents2getevents) tools.
+**Note:** This tool is a development continuation of ["QtClass2RingCodeGen"] and ["SetEvents2GetEvents"]
 
 ## Features
 
-1. Give all required code for ringqt code generator in one place.
+1. Give all required code for RingQt code generator in one place.
 
 2. Auto creation of class codename.
 
@@ -18,11 +18,12 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 5. Smart implementation of enums and flags to avoid duplication.
 
-6. Auto creation of function standard substitution if there's a conflict with ring keyword.
+6. Auto creation of function standard substitution if there's a conflict with Ring keyword.
 
-7. Delete unnecessary functions automatically(initialization and delete functions, and operators functions).
+7. Delete unnecessary functions automatically (initialization and delete functions, and operators functions).
 
 ## How to Use
+
 1. **Be sure that the class you want to be added is not already present in RingQt**.
 
 2. Open QtClassConverter application.
