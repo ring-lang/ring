@@ -93,6 +93,8 @@ SOURCES +=   \
     ghbarmodelmapper.cpp \
     ghboxplotmodelmapper.cpp \
     ghcandlestickmodelmapper.cpp \
+    ghpiemodelmapper.cpp \
+    ghxymodelmapper.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -169,7 +171,9 @@ HEADERS  += \
     gchart.h \
     ghbarmodelmapper.h \
     ghboxplotmodelmapper.h \
-    ghcandlestickmodelmapper.h
+    ghcandlestickmodelmapper.h \
+    ghpiemodelmapper.h \
+    ghxymodelmapper.h
 
 CONFIG += warn_off
 

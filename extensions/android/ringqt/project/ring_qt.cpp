@@ -358,6 +358,8 @@ extern "C" {
 #include "ghbarmodelmapper.h"
 #include "ghboxplotmodelmapper.h"
 #include "ghcandlestickmodelmapper.h"
+#include "ghpiemodelmapper.h"
+#include "ghxymodelmapper.h"
 #include <QtCharts>
 
 extern "C" {
@@ -675,6 +677,8 @@ extern "C" {
 	void ring_QHBarModelMapper_freefunc(void *pState,void *pPointer);
 	void ring_QHBoxPlotModelMapper_freefunc(void *pState,void *pPointer);
 	void ring_QHCandlestickModelMapper_freefunc(void *pState,void *pPointer);
+	void ring_QHPieModelMapper_freefunc(void *pState,void *pPointer);
+	void ring_QHXYModelMapper_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -133193,6 +133197,918 @@ RING_FUNC(ring_QHCandlestickModelMapper_gettimestampColumnChangedEvent)
 	RING_API_RETSTRING(pObject->gettimestampColumnChangedEvent());
 }
 
+
+RING_FUNC(ring_QHPieModelMapper_columnCount)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETNUMBER(pObject->columnCount());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_firstColumn)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETNUMBER(pObject->firstColumn());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_labelsRow)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETNUMBER(pObject->labelsRow());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_model)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETCPOINTER(pObject->model(),"QAbstractItemModel");
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_series)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETCPOINTER(pObject->series(),"QPieSeries");
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setColumnCount)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setFirstColumn)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFirstColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setLabelsRow)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabelsRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setModel)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModel((QAbstractItemModel *) RING_API_GETCPOINTER(2,"QAbstractItemModel"));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setSeries)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSeries((QPieSeries *) RING_API_GETCPOINTER(2,"QPieSeries"));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setValuesRow)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setValuesRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_valuesRow)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETNUMBER(pObject->valuesRow());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setcolumnCountChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcolumnCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setfirstColumnChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfirstColumnChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setlabelsRowChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlabelsRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setmodelReplacedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmodelReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setseriesReplacedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setseriesReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_setvaluesRowChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvaluesRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getcolumnCountChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getcolumnCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getfirstColumnChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getfirstColumnChangedEvent());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getlabelsRowChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getlabelsRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getmodelReplacedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getmodelReplacedEvent());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getseriesReplacedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getseriesReplacedEvent());
+}
+
+
+RING_FUNC(ring_QHPieModelMapper_getvaluesRowChangedEvent)
+{
+	GHPieModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"QHPieModelMapper");
+	RING_API_RETSTRING(pObject->getvaluesRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_columnCount)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETNUMBER(pObject->columnCount());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_firstColumn)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETNUMBER(pObject->firstColumn());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_model)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETCPOINTER(pObject->model(),"QAbstractItemModel");
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_series)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETCPOINTER(pObject->series(),"QXYSeries");
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setColumnCount)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setFirstColumn)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFirstColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setModel)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModel((QAbstractItemModel *) RING_API_GETCPOINTER(2,"QAbstractItemModel"));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setSeries)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSeries((QXYSeries *) RING_API_GETCPOINTER(2,"QXYSeries"));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setXRow)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setXRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setYRow)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setYRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_xRow)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETNUMBER(pObject->xRow());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_yRow)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETNUMBER(pObject->yRow());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setcolumnCountChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcolumnCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setfirstColumnChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfirstColumnChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setmodelReplacedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmodelReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setseriesReplacedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setseriesReplacedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setxRowChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setxRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_setyRowChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setyRowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getcolumnCountChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getcolumnCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getfirstColumnChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getfirstColumnChangedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getmodelReplacedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getmodelReplacedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getseriesReplacedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getseriesReplacedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getxRowChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getxRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QHXYModelMapper_getyRowChangedEvent)
+{
+	GHXYModelMapper *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"QHXYModelMapper");
+	RING_API_RETSTRING(pObject->getyRowChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -137057,6 +137973,36 @@ RING_FUNC(ring_QHCandlestickModelMapper_new)
 	}
 	GHCandlestickModelMapper *pObject = new GHCandlestickModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHCandlestickModelMapper");
+}
+
+RING_FUNC(ring_QHPieModelMapper_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GHPieModelMapper *pObject = new GHPieModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QHPieModelMapper");
+}
+
+RING_FUNC(ring_QHXYModelMapper_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GHXYModelMapper *pObject = new GHXYModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QHXYModelMapper");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -141581,6 +142527,40 @@ RING_FUNC(ring_QHCandlestickModelMapper_delete)
 	}
 }
 
+RING_FUNC(ring_QHPieModelMapper_delete)
+{
+	GHPieModelMapper *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GHPieModelMapper *) RING_API_GETCPOINTER(1,"GHPieModelMapper");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_QHXYModelMapper_delete)
+{
+	GHXYModelMapper *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GHXYModelMapper *) RING_API_GETCPOINTER(1,"GHXYModelMapper");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -143440,6 +144420,20 @@ void ring_QHCandlestickModelMapper_freefunc(void *pState,void *pPointer)
 {
 	GHCandlestickModelMapper *pObject ; 
 	pObject = (GHCandlestickModelMapper *) pPointer;
+	delete pObject ;
+}
+
+void ring_QHPieModelMapper_freefunc(void *pState,void *pPointer)
+{
+	GHPieModelMapper *pObject ; 
+	pObject = (GHPieModelMapper *) pPointer;
+	delete pObject ;
+}
+
+void ring_QHXYModelMapper_freefunc(void *pState,void *pPointer)
+{
+	GHXYModelMapper *pObject ; 
+	pObject = (GHXYModelMapper *) pPointer;
 	delete pObject ;
 }
 
@@ -149994,6 +150988,54 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhcandlestickmodelmapper_getlowcolumnchangedevent",ring_QHCandlestickModelMapper_getlowColumnChangedEvent);
 	ring_vm_funcregister("qhcandlestickmodelmapper_getopencolumnchangedevent",ring_QHCandlestickModelMapper_getopenColumnChangedEvent);
 	ring_vm_funcregister("qhcandlestickmodelmapper_gettimestampcolumnchangedevent",ring_QHCandlestickModelMapper_gettimestampColumnChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_columncount",ring_QHPieModelMapper_columnCount);
+	ring_vm_funcregister("qhpiemodelmapper_firstcolumn",ring_QHPieModelMapper_firstColumn);
+	ring_vm_funcregister("qhpiemodelmapper_labelsrow",ring_QHPieModelMapper_labelsRow);
+	ring_vm_funcregister("qhpiemodelmapper_model",ring_QHPieModelMapper_model);
+	ring_vm_funcregister("qhpiemodelmapper_series",ring_QHPieModelMapper_series);
+	ring_vm_funcregister("qhpiemodelmapper_setcolumncount",ring_QHPieModelMapper_setColumnCount);
+	ring_vm_funcregister("qhpiemodelmapper_setfirstcolumn",ring_QHPieModelMapper_setFirstColumn);
+	ring_vm_funcregister("qhpiemodelmapper_setlabelsrow",ring_QHPieModelMapper_setLabelsRow);
+	ring_vm_funcregister("qhpiemodelmapper_setmodel",ring_QHPieModelMapper_setModel);
+	ring_vm_funcregister("qhpiemodelmapper_setseries",ring_QHPieModelMapper_setSeries);
+	ring_vm_funcregister("qhpiemodelmapper_setvaluesrow",ring_QHPieModelMapper_setValuesRow);
+	ring_vm_funcregister("qhpiemodelmapper_valuesrow",ring_QHPieModelMapper_valuesRow);
+	ring_vm_funcregister("qhpiemodelmapper_setcolumncountchangedevent",ring_QHPieModelMapper_setcolumnCountChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_setfirstcolumnchangedevent",ring_QHPieModelMapper_setfirstColumnChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_setlabelsrowchangedevent",ring_QHPieModelMapper_setlabelsRowChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_setmodelreplacedevent",ring_QHPieModelMapper_setmodelReplacedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_setseriesreplacedevent",ring_QHPieModelMapper_setseriesReplacedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_setvaluesrowchangedevent",ring_QHPieModelMapper_setvaluesRowChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getcolumncountchangedevent",ring_QHPieModelMapper_getcolumnCountChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getfirstcolumnchangedevent",ring_QHPieModelMapper_getfirstColumnChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getlabelsrowchangedevent",ring_QHPieModelMapper_getlabelsRowChangedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getmodelreplacedevent",ring_QHPieModelMapper_getmodelReplacedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getseriesreplacedevent",ring_QHPieModelMapper_getseriesReplacedEvent);
+	ring_vm_funcregister("qhpiemodelmapper_getvaluesrowchangedevent",ring_QHPieModelMapper_getvaluesRowChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_columncount",ring_QHXYModelMapper_columnCount);
+	ring_vm_funcregister("qhxymodelmapper_firstcolumn",ring_QHXYModelMapper_firstColumn);
+	ring_vm_funcregister("qhxymodelmapper_model",ring_QHXYModelMapper_model);
+	ring_vm_funcregister("qhxymodelmapper_series",ring_QHXYModelMapper_series);
+	ring_vm_funcregister("qhxymodelmapper_setcolumncount",ring_QHXYModelMapper_setColumnCount);
+	ring_vm_funcregister("qhxymodelmapper_setfirstcolumn",ring_QHXYModelMapper_setFirstColumn);
+	ring_vm_funcregister("qhxymodelmapper_setmodel",ring_QHXYModelMapper_setModel);
+	ring_vm_funcregister("qhxymodelmapper_setseries",ring_QHXYModelMapper_setSeries);
+	ring_vm_funcregister("qhxymodelmapper_setxrow",ring_QHXYModelMapper_setXRow);
+	ring_vm_funcregister("qhxymodelmapper_setyrow",ring_QHXYModelMapper_setYRow);
+	ring_vm_funcregister("qhxymodelmapper_xrow",ring_QHXYModelMapper_xRow);
+	ring_vm_funcregister("qhxymodelmapper_yrow",ring_QHXYModelMapper_yRow);
+	ring_vm_funcregister("qhxymodelmapper_setcolumncountchangedevent",ring_QHXYModelMapper_setcolumnCountChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_setfirstcolumnchangedevent",ring_QHXYModelMapper_setfirstColumnChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_setmodelreplacedevent",ring_QHXYModelMapper_setmodelReplacedEvent);
+	ring_vm_funcregister("qhxymodelmapper_setseriesreplacedevent",ring_QHXYModelMapper_setseriesReplacedEvent);
+	ring_vm_funcregister("qhxymodelmapper_setxrowchangedevent",ring_QHXYModelMapper_setxRowChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_setyrowchangedevent",ring_QHXYModelMapper_setyRowChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getcolumncountchangedevent",ring_QHXYModelMapper_getcolumnCountChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getfirstcolumnchangedevent",ring_QHXYModelMapper_getfirstColumnChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getmodelreplacedevent",ring_QHXYModelMapper_getmodelReplacedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getseriesreplacedevent",ring_QHXYModelMapper_getseriesReplacedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getxrowchangedevent",ring_QHXYModelMapper_getxRowChangedEvent);
+	ring_vm_funcregister("qhxymodelmapper_getyrowchangedevent",ring_QHXYModelMapper_getyRowChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -150260,6 +151302,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhbarmodelmapper_new",ring_QHBarModelMapper_new);
 	ring_vm_funcregister("qhboxplotmodelmapper_new",ring_QHBoxPlotModelMapper_new);
 	ring_vm_funcregister("qhcandlestickmodelmapper_new",ring_QHCandlestickModelMapper_new);
+	ring_vm_funcregister("qhpiemodelmapper_new",ring_QHPieModelMapper_new);
+	ring_vm_funcregister("qhxymodelmapper_new",ring_QHXYModelMapper_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -150526,4 +151570,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhbarmodelmapper_delete",ring_QHBarModelMapper_delete);
 	ring_vm_funcregister("qhboxplotmodelmapper_delete",ring_QHBoxPlotModelMapper_delete);
 	ring_vm_funcregister("qhcandlestickmodelmapper_delete",ring_QHCandlestickModelMapper_delete);
+	ring_vm_funcregister("qhpiemodelmapper_delete",ring_QHPieModelMapper_delete);
+	ring_vm_funcregister("qhxymodelmapper_delete",ring_QHXYModelMapper_delete);
 }
