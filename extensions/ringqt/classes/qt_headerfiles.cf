@@ -448,6 +448,8 @@ extern "C" {
 #include "ghbarmodelmapper.h"
 #include "ghboxplotmodelmapper.h"
 #include "ghcandlestickmodelmapper.h"
+#include "ghpiemodelmapper.h"
+#include "ghxymodelmapper.h"
 #include <QtCharts>
 </filter>
 

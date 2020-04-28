@@ -28296,6 +28296,178 @@ Class QHCandlestickModelMapper from QCandlestickModelMapper
 	Func gettimestampColumnChangedEvent 
 		return QHCandlestickModelMapper_gettimestampColumnChangedEvent(pObject)
 
+Class QHPieModelMapper from QPieModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QHPieModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHPieModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func columnCount 
+		return QHPieModelMapper_columnCount(pObject)
+
+	Func firstColumn 
+		return QHPieModelMapper_firstColumn(pObject)
+
+	Func labelsRow 
+		return QHPieModelMapper_labelsRow(pObject)
+
+	Func model 
+		return QHPieModelMapper_model(pObject)
+
+	Func series 
+		return QHPieModelMapper_series(pObject)
+
+	Func setColumnCount P1
+		return QHPieModelMapper_setColumnCount(pObject,P1)
+
+	Func setFirstColumn P1
+		return QHPieModelMapper_setFirstColumn(pObject,P1)
+
+	Func setLabelsRow P1
+		return QHPieModelMapper_setLabelsRow(pObject,P1)
+
+	Func setModel P1
+		return QHPieModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSeries P1
+		return QHPieModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setValuesRow P1
+		return QHPieModelMapper_setValuesRow(pObject,P1)
+
+	Func valuesRow 
+		return QHPieModelMapper_valuesRow(pObject)
+
+	Func setcolumnCountChangedEvent P1
+		return QHPieModelMapper_setcolumnCountChangedEvent(pObject,P1)
+
+	Func setfirstColumnChangedEvent P1
+		return QHPieModelMapper_setfirstColumnChangedEvent(pObject,P1)
+
+	Func setlabelsRowChangedEvent P1
+		return QHPieModelMapper_setlabelsRowChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QHPieModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QHPieModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func setvaluesRowChangedEvent P1
+		return QHPieModelMapper_setvaluesRowChangedEvent(pObject,P1)
+
+	Func getcolumnCountChangedEvent 
+		return QHPieModelMapper_getcolumnCountChangedEvent(pObject)
+
+	Func getfirstColumnChangedEvent 
+		return QHPieModelMapper_getfirstColumnChangedEvent(pObject)
+
+	Func getlabelsRowChangedEvent 
+		return QHPieModelMapper_getlabelsRowChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QHPieModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QHPieModelMapper_getseriesReplacedEvent(pObject)
+
+	Func getvaluesRowChangedEvent 
+		return QHPieModelMapper_getvaluesRowChangedEvent(pObject)
+
+Class QHXYModelMapper from QXYModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QHXYModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHXYModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func columnCount 
+		return QHXYModelMapper_columnCount(pObject)
+
+	Func firstColumn 
+		return QHXYModelMapper_firstColumn(pObject)
+
+	Func model 
+		return QHXYModelMapper_model(pObject)
+
+	Func series 
+		return QHXYModelMapper_series(pObject)
+
+	Func setColumnCount P1
+		return QHXYModelMapper_setColumnCount(pObject,P1)
+
+	Func setFirstColumn P1
+		return QHXYModelMapper_setFirstColumn(pObject,P1)
+
+	Func setModel P1
+		return QHXYModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSeries P1
+		return QHXYModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setXRow P1
+		return QHXYModelMapper_setXRow(pObject,P1)
+
+	Func setYRow P1
+		return QHXYModelMapper_setYRow(pObject,P1)
+
+	Func xRow 
+		return QHXYModelMapper_xRow(pObject)
+
+	Func yRow 
+		return QHXYModelMapper_yRow(pObject)
+
+	Func setcolumnCountChangedEvent P1
+		return QHXYModelMapper_setcolumnCountChangedEvent(pObject,P1)
+
+	Func setfirstColumnChangedEvent P1
+		return QHXYModelMapper_setfirstColumnChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QHXYModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QHXYModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func setxRowChangedEvent P1
+		return QHXYModelMapper_setxRowChangedEvent(pObject,P1)
+
+	Func setyRowChangedEvent P1
+		return QHXYModelMapper_setyRowChangedEvent(pObject,P1)
+
+	Func getcolumnCountChangedEvent 
+		return QHXYModelMapper_getcolumnCountChangedEvent(pObject)
+
+	Func getfirstColumnChangedEvent 
+		return QHXYModelMapper_getfirstColumnChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QHXYModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QHXYModelMapper_getseriesReplacedEvent(pObject)
+
+	Func getxRowChangedEvent 
+		return QHXYModelMapper_getxRowChangedEvent(pObject)
+
+	Func getyRowChangedEvent 
+		return QHXYModelMapper_getyRowChangedEvent(pObject)
+
 Class QSize
 
 	pObject

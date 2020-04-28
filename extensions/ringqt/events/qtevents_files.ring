@@ -85,4 +85,6 @@ load "charts/qdatetimeaxis.ring"
 load "charts/qhbarmodelmapper.ring"
 load "charts/qhboxplotmodelmapper.ring"
 load "charts/qhcandlestickmodelmapper.ring"
+load "charts/qhpiemodelmapper.ring"
+load "charts/qhxymodelmapper.ring"
 #-------------------------------------------------------------------------#

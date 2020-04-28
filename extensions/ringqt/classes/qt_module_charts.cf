@@ -25,3 +25,5 @@
 <loadfile> charts/qhbarmodelmapper.cf
 <loadfile> charts/qhboxplotmodelmapper.cf
 <loadfile> charts/qhcandlestickmodelmapper.cf
+<loadfile> charts/qhpiemodelmapper.cf
+<loadfile> charts/qhxymodelmapper.cf
