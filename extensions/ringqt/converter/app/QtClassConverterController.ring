@@ -26,8 +26,10 @@ func PrepareMainWindow
 		RBNormal.setChecked(True)
 		ClassCodeNameLE.setEnabled(False)
 		QtEventsOutputTE.SetEnabled(False)
+		QtcfHeaderOutputTE.SetEnabled(False)
 		QtcfOutputTE.SetEnabled(False)
 		QtEventsOutputTE.setAcceptRichText(False)
+		QtcfHeaderOutputTE.setAcceptRichText(False)
 		QtcfOutputTE.setAcceptRichText(False)
 		SignalsTE.setAcceptRichText(False)
 		EnumsFlagsTE.setAcceptRichText(False)
@@ -62,11 +64,13 @@ func SignalsTEChangedAction
 			PassVMPointerCB.SetEnabled(False)
 			PassVMPointerCB.SetChecked(False)
 			if this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL and this.TrimAll(FunctionsTE.toPlaintext()) = NULL
+				QtcfHeaderOutputTE.SetEnabled(False)
 				QtcfOutputTE.SetEnabled(False)
 			ok
 		else
 			ClassCodeNameLE.SetEnabled(True)
 			QtEventsOutputTE.SetEnabled(True)
+			QtcfHeaderOutputTE.SetEnabled(True)
 			QtcfOutputTE.SetEnabled(True)
 			PassVMPointerCB.SetEnabled(True)
 			PassVMPointerCB.SetChecked(True)
@@ -91,8 +95,10 @@ func ClassNameLEChangedAction
 func FunctionsTEChangedAction
 	oView {
 		if this.TrimAll(FunctionsTE.toPlaintext()) = NULL And this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL 
+			QtcfHeaderOutputTE.SetEnabled(False)
 			QtcfOutputTE.SetEnabled(False)
 		else
+			QtcfHeaderOutputTE.SetEnabled(True)
 			QtcfOutputTE.SetEnabled(True)
 		ok
 	}
@@ -104,6 +110,7 @@ func ConvertBtnAction
 			classParentLE.setText(this.TrimAll(classParentLE.text()))
 			# Add space after class parameters
 				classParaLE.setText(this.TrimAll(classParaLE.text()) + " ")
+		QtcfHeaderOutputTE.setText("")
 		QtcfOutputTE.setText("")
 		QtEventsOutputTE.setText("")
 		cStr1 = ""
@@ -129,6 +136,7 @@ func ClearBtnAction
 		enumsFlagsTE.setText("")
 		functionsTE.setText("")
 		signalsTE.setText("")
+		qtcfHeaderOutputTE.setText("")
 		qtcfOutputTE.setText("")
 		qteventsOutputTE.settext("")
 	}
@@ -156,10 +164,10 @@ func pFunctionsProcess aList
 	if oView.ClassCodeNameLE.IsEnabled()
 		cOutput = cOutput + nl + '#include "' + lower(oView.ClassCodeNameLE.text()) + '.h"'
 	ok
-	cOutput = cOutput + nl + nl + copy("-", 35) + nl
+	
+	oView.QtcfHeaderOutputTE.setText(cOutput)
 
-	cOutput = cOutput + nl + "<class>"
-	cOutput = cOutput + nl + "name: " + cClassName
+	cOutput = "<class>" + nl + "name: " + cClassName
 
 	if (oView.RBNormal.ischecked() Or oView.RBAbstract.ischecked()) and TrimAll(oView.ClassParaLE.text()) != NULL
 		cClassPara = oView.ClassParaLE.text()
