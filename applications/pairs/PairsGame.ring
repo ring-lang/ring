@@ -6,68 +6,71 @@
 load "stdlib.ring"
 load "guilib.ring"
 
-size1 = 6
-size2 = 6
-width = 50
-height = 50
+size1		= 6
+size2		= 6
+width		= 50
+height		= 50
 
-xWidth  = 600
-yHeight = 600   
+xWidth		= 600
+yHeight		= 600   
 
-C_SPACING   = 1
-C_FONTSIZE = 15
+C_SPACING	= 1
+C_FONTSIZE	= 15
 
-Pair1 = 0
-Pair2 = 0
-PairOld = 0
-row1 = 0
-row2 = 0
-col1 = 0
-col2 = 0
-click = 0
-score = 0
-time1 = 0
-time2 = 0
-move = 0
+Pair1 		= 0
+Pair2		= 0
+PairOld		= 0
+row1		= 0
+row2		= 0
+col1		= 0
+col2		= 0
+click		= 0
+score		= 0
+time1		= 0
+time2		= 0
+move		= 0
 
-C_EMPTY = "images/empty.png"
-C_COVER = "images/cover.png"
-C_P1 = "images/p1.png"
-C_P2 = "images/p2.png"
-C_P3 = "images/p3.png"
-C_P4 = "images/p4.png"
-C_P5 = "images/p5.png"
-C_P6 = "images/p6.png"
-C_P7 = "images/p7.png"
-C_P8 = "images/p8.png"
-C_P9 = "images/p9.png"
-C_P10 = "images/p10.png"
-C_P11 = "images/p11.png"
-C_P12 = "images/p12.png"
-C_P13 = "images/p13.png"
-C_P14 = "images/p14.png"
-C_P15 = "images/p15.png"
-C_P16 = "images/p16.png"
-C_P17 = "images/p17.png"
-C_P18 = "images/p18.png"
+C_EMPTY		= "images/empty.png"
+C_COVER		= "images/cover.png"
+C_P1		= "images/p1.png"
+C_P2		= "images/p2.png"
+C_P3		= "images/p3.png"
+C_P4		= "images/p4.png"
+C_P5		= "images/p5.png"
+C_P6		= "images/p6.png"
+C_P7		= "images/p7.png"
+C_P8		= "images/p8.png"
+C_P9		= "images/p9.png"
+C_P10		= "images/p10.png"
+C_P11		= "images/p11.png"
+C_P12		= "images/p12.png"
+C_P13		= "images/p13.png"
+C_P14		= "images/p14.png"
+C_P15		= "images/p15.png"
+C_P16		= "images/p16.png"
+C_P17		= "images/p17.png"
+C_P18		= "images/p18.png"
 
-PLIST = [C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
-         C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18,
-         C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
-         C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18]
-limit = len(PLIST)
+PLIST		= [
+			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
+			C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18,
+			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
+			C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18
+		  ]
 
-Pairs = newlist(size1,size2)
-Pairs2 = newlist(size1,size2)
-Button = newlist(size1,size2)
-PairsXY = newlist(limit,2)
-Pairs6 = list(limit)
-PairsList = list(limit)
-PairsRand = []
-Tiles = list(size2+1)
-TilesRow = list(size1)
+limit		= len(PLIST)
 
-LayoutButtonRow2 = list(size1)
+Pairs		= newlist(size1,size2)
+Pairs2		= newlist(size1,size2)
+Button		= newlist(size1,size2)
+PairsXY		= newlist(limit,2)
+Pairs6		= list(limit)
+PairsList	= list(limit)
+PairsRand	= []
+Tiles		= list(size2+1)
+TilesRow	= list(size1)
+
+LayoutButtonRow2= list(size1)
 
 app = new qApp 
 {
