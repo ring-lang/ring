@@ -143,7 +143,7 @@ app = new qApp {
 			for Col = 1 to size2
 				Button[Row][Col] = new QPushButton(win) {
 					setSizePolicy(1,1)
-					setclickevent("pPairsClick(" + string(Row) + "," + string(Col) + ")")
+					setclickevent("pairsClick(" + string(Row) + "," + string(Col) + ")")
 					seticon(new qicon(new qpixmap(C_COVER)))  
 					setIconSize(new qSize(100,75))	                    
 					setMaximumWidth(100)
@@ -157,13 +157,13 @@ app = new qApp {
 		buttonNewGame = new QPushButton(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("New")
-			setClickEvent("pNewGame()") 
+			setClickEvent("newGame()") 
 		}
 
 		buttonExit = new QPushButton(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Exit")
-			setClickEvent("pQuit()") 
+			setClickEvent("closeGame()") 
 		}
 
 		labelScore = new QLabel(win) {
@@ -201,11 +201,11 @@ app = new qApp {
 		TimerMan = new qTimer(win) {
 			time1 = clock()
 			setInterval(1000)
-			setTimeoutEvent("pTimerMan()")  ### ==>> Func
+			setTimeoutEvent("timerMan()")  ### ==>> Func
 			start()
 		}
 		
-		pRandomPairs()
+		randomPairs()
 		show()
 
 	}
@@ -218,7 +218,7 @@ app = new qApp {
 # Game Logic
 #===================================================================================#
 
-func pTimerMan
+func timerMan
 
 	nowTime    = ceil( (clock() - time1) / 1000 )
 	nowMinute  = floor( nowTime / 60 )
@@ -232,7 +232,7 @@ func pTimerMan
 	labelShowTime.setText(nowMinSec)      
 
 
-func pNewGame
+func newGame
 
 	labelShowTime.setText("0:00")
 	time1 = clock()
@@ -240,9 +240,9 @@ func pNewGame
 	move = 0
 	labelShowMove.settext("0")
 	PairsXY = newlist(limit,2)
-	pRandomPairs()
+	randomPairs()
 
-func pRandomPairs
+func randomPairs
 
 	PLIST	= [
 			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
@@ -282,7 +282,7 @@ func pRandomPairs
 	next
 	Pairs2 = Pairs
 
-func pPairsClick Row,Col
+func pairsClick Row,Col
 
 	click++
 	if click = 1
@@ -407,7 +407,7 @@ func randomList aInput
 	aOutput + aInput[1]
 	return aOutput
 
-func pQuit
+func closeGame
 	win.close()
 
 #===================================================================================#
