@@ -1,7 +1,7 @@
 Pairs Game
 ==========
 
-Author : Gal Zsolt 
+Author : Gal Zsolt, Bert Mariani
 
 Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/Mx4PSVsKfHU
 
