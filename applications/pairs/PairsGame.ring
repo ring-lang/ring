@@ -218,167 +218,196 @@ app = new qApp {
 # Game Logic
 #===================================================================================#
 
-func pTimerMan()
-     nowTime    = ceil( (clock() - time1) / 1000 )
-     nowMinute  = floor( nowTime / 60 )
-     nowSeconds = nowTime % 60
+func pTimerMan
+
+	nowTime    = ceil( (clock() - time1) / 1000 )
+	nowMinute  = floor( nowTime / 60 )
+	nowSeconds = nowTime % 60
         
-     if nowSeconds < 10  
-        nowSeconds = "0"+ nowSeconds
-     ok
-     nowMinSec  = ""+ nowMinute +":"+ nowSeconds        
-     labelShowTime.setText(nowMinSec)      
-     return
+	if nowSeconds < 10  
+		nowSeconds = "0"+ nowSeconds
+	ok
 
-func pNewGame()
-     labelShowTime.setText("0:00")
-     time1 = clock()
-     TimerMan.start()
-     move = 0
-     labelShowMove.settext("0")
-     PairsXY = newlist(limit,2)
+	nowMinSec  = ""+ nowMinute +":"+ nowSeconds        
+	labelShowTime.setText(nowMinSec)      
 
-     pRandomPairs()
 
-func pRandomPairs()
+func pNewGame
 
-     PLIST = [C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
-              C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18,
-              C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
-              C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18]
-     PairsList = randomList(PLIST)
-     randList = 1:len(PairsList)
-     randList = randomList(randList)
- 
-     for n = 1 to size1
-         for m = 1 to size2
-             ind = (n-1)*6 + m
-             PairsXY[ind][1] = n
-             PairsXY[ind][2] = m
-         next
-     next
+	labelShowTime.setText("0:00")
+	time1 = clock()
+	TimerMan.start()
+	move = 0
+	labelShowMove.settext("0")
+	PairsXY = newlist(limit,2)
+	pRandomPairs()
 
-     for nr = 1 to limit
-         rand1 = random(len(randList)-1)+1
-         if len(randList) = 1
-            rand1 = 1
-         ok
-         rand2 = randList[rand1]
-         pairsNew = PairsList[nr]
-         row = pairsXY[rand1][1]
-         col = pairsXY[rand1][2]
-         Pairs[row][col] = pairsNew
-         Button[row][col].setenabled(true)
-         /*Button[Row][Col]{ seticon(new qicon(new qpixmap(pairsNew)))
-                          setIconSize(new qSize(100,100)) show() }*/
-         Button[row][col] { seticon(new qicon(new qpixmap(C_COVER)))                        
-                            setIconSize(new qSize(100,100)) }
-         del(PairsXY,rand1)
-         del(randList,rand1)
-     next
-     Pairs2 = Pairs
+func pRandomPairs
 
-func pPairsClick(Row,Col)
-     click = click + 1
-     if click = 1
-        Pair1 = Pairs[Row][Col]    
-        row1 = Row
-        col1 = Col
-        Button[Row][Col]{ seticon(new qicon(new qpixmap(Pair1)))
-                          setIconSize(new qSize(100,100)) show() }
-        if (row2 > 0) and (col2 > 0) and (Pair2 != PairOld)
-            Button[row2][col2]{ seticon(new qicon(new qpixmap(C_COVER)))
-                                setIconSize(new qSize(100,100)) show() } 
-        ok   
-        return
-     else
-        Pair2 = Pairs[Row][Col]
-        row2 = Row
-        col2 = Col
-        Button[Row][Col]{ seticon(new qicon(new qpixmap(Pair2)))
-                          setIconSize(new qSize(100,100)) show() }
-        app.processevents()
-        sleep(0.5)
-        Button[Row][Col]{ seticon(new qicon(new qpixmap(C_COVER)))
-                          setIconSize(new qSize(100,100)) show() }
-     ok
-     if (Pair1 = Pair2) and (click = 2) and not(row1=row2 and col1=col2)
-         PairOld = Pair1
-         Button[row1][col1]{ seticon(new qicon(new qpixmap(Pair1)))
-                             setIconSize(new qSize(100,100)) show() }
-         Button[row2][col2]{ seticon(new qicon(new qpixmap(Pair2)))
-                             setIconSize(new qSize(100,100)) show() }
-         app.processevents()
-         sleep(0.5)
-         Button[row1][col1]{ seticon(new qicon(new qpixmap(C_EMPTY)))
-                             setIconSize(new qSize(100,100)) show() }
-         Button[row2][col2]{ seticon(new qicon(new qpixmap(C_EMPTY)))
-                             setIconSize(new qSize(100,100)) show() }
-         Button[row1][col1].setenabled(false)
-         Button[row2][col2].setenabled(false)
-         Pairs[row1][col1] = C_EMPTY
-         Pairs[row2][col2] = C_EMPTY
-         gameOver()
-     else
-         Button[row1][col1]{ seticon(new qicon(new qpixmap(C_COVER)))
-                             setIconSize(new qSize(100,100)) show() }
-     ok
-     if (row1=row2) and (col1=col2)
-         Button[row1][col1]{ seticon(new qicon(new qpixmap(Pair1)))
-                             setIconSize(new qSize(100,100)) show() }
-     ok
-     if click = 2
-        click = 0
-        move = move + 1
-        labelShowMove.settext(string(move))
-     ok
+	PLIST	= [
+			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
+			C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18,
+			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,
+			C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18
+		  ]
+	PairsList	= randomList(PLIST)
+	randList	= 1:len(PairsList)
+	randList	= randomList(randList)
 
-func gameOver()
-     check = 0
-     for row = 1 to size1
-         for col = 1 to size2
-             if Pairs[row][col] != C_EMPTY
-                check = 0
-                exit 2
-             else
-                check = 1
-             ok
-         next
-     next
-     if check = 1
-        TimerMan.stop()
-        score = score + 1
-        labelNumScore.settext(string(score))
-        for Row = 1 to size1
-            for Col = 1 to size2
-                pairsOld = Pairs2[Row][Col]
-                Button[Row][Col].setenabled(true)
-                Button[Row][Col]{ seticon(new qicon(new qpixmap(pairsOld)))
-                                  setIconSize(new qSize(100,100)) show() }
-            next
-        next
-     ok
+	for n = 1 to size1
+		for m = 1 to size2
+			ind = (n-1)*6 + m
+			PairsXY[ind][1] = n
+			PairsXY[ind][2] = m
+		next
+	next
 
-func randomList(aInput)
-     aOutput = []
-     while len(aInput) > 1
-      nIndex = random(len(aInput)-1)
-      nIndex++
-      aOutput + aInput[nIndex]
-      del(aInput,nIndex)
-     end
-     aOutput + aInput[1]
-     return aOutput
+	for nr = 1 to limit
+		rand1 = random(len(randList)-1)+1
+		if len(randList) = 1
+			rand1 = 1
+		ok
+		rand2 = randList[rand1]
+		pairsNew = PairsList[nr]
+		row = pairsXY[rand1][1]
+		col = pairsXY[rand1][2]
+		Pairs[row][col] = pairsNew
+		Button[row][col].setenabled(true)
+		Button[row][col] {
+			seticon(new qicon(new qpixmap(C_COVER)))                        
+			setIconSize(new qSize(100,100)) 
+		}
+		del(PairsXY,rand1)
+		del(randList,rand1)
+	next
+	Pairs2 = Pairs
 
-func msgBox(cText)     
-     mb = new qMessageBox(win) {
-     setWindowTitle('CalmoSoft Pairs Game')
-     setText(cText)
-          setstandardbuttons(QMessageBox_OK) 
-          result = exec() 
-     }
+func pPairsClick Row,Col
 
-func pQuit()
-     win.close()
+	click++
+	if click = 1
+		Pair1 = Pairs[Row][Col]    
+		row1 = Row
+		col1 = Col
+		Button[Row][Col]{
+			seticon(new qicon(new qpixmap(Pair1)))
+			setIconSize(new qSize(100,100)) show() 
+		}
+		if (row2 > 0) and (col2 > 0) and (Pair2 != PairOld)
+			Button[row2][col2] {
+				seticon(new qicon(new qpixmap(C_COVER)))
+				setIconSize(new qSize(100,100)) 
+				show()
+			} 
+		ok   
+		return
+	else
+		Pair2 = Pairs[Row][Col]
+		row2 = Row
+		col2 = Col
+		Button[Row][Col] { 
+			seticon(new qicon(new qpixmap(Pair2)))
+			setIconSize(new qSize(100,100))
+			show() 
+		}
+		app.processevents()
+		sleep(0.5)
+		Button[Row][Col] {
+			seticon(new qicon(new qpixmap(C_COVER)))
+			setIconSize(new qSize(100,100))
+			show()
+		}
+	ok
+	if (Pair1 = Pair2) and (click = 2) and not(row1=row2 and col1=col2)
+		PairOld = Pair1
+		Button[row1][col1] { 
+			seticon(new qicon(new qpixmap(Pair1)))
+			setIconSize(new qSize(100,100))
+			show()
+		}
+		Button[row2][col2] {
+			seticon(new qicon(new qpixmap(Pair2)))
+			setIconSize(new qSize(100,100)) 
+			show() 
+		}
+		app.processevents()
+		sleep(0.5)
+		Button[row1][col1] {
+			seticon(new qicon(new qpixmap(C_EMPTY)))
+			setIconSize(new qSize(100,100))
+			show()
+		}
+		Button[row2][col2] { 
+			seticon(new qicon(new qpixmap(C_EMPTY)))
+			setIconSize(new qSize(100,100))
+			show() 
+		}
+		Button[row1][col1].setenabled(false)
+		Button[row2][col2].setenabled(false)
+		Pairs[row1][col1] = C_EMPTY
+		Pairs[row2][col2] = C_EMPTY
+		gameOver()
+	else
+		Button[row1][col1] {
+			seticon(new qicon(new qpixmap(C_COVER)))
+			setIconSize(new qSize(100,100)) 
+			show() 
+		}
+	ok
+	if (row1=row2) and (col1=col2)
+		Button[row1][col1] { 
+			seticon(new qicon(new qpixmap(Pair1)))
+			setIconSize(new qSize(100,100)) 
+			show() 
+		}
+	ok
+	if click = 2
+		click = 0
+		move++
+		labelShowMove.settext(string(move))
+	ok
+
+func gameOver
+	check = 0
+	for row = 1 to size1
+		for col = 1 to size2
+			if Pairs[row][col] != C_EMPTY
+				check = 0
+				exit 2
+			else
+				check = 1
+			ok
+		next
+	next
+	if check = 1
+		TimerMan.stop()
+		score++
+		labelNumScore.settext(string(score))
+		for Row = 1 to size1
+			for Col = 1 to size2
+				pairsOld = Pairs2[Row][Col]
+				Button[Row][Col] { 
+					setenabled(true)
+					seticon(new qicon(new qpixmap(pairsOld)))
+					setIconSize(new qSize(100,100)) 
+					show() 
+				}
+			next
+		next
+	ok
+
+func randomList aInput
+	aOutput = []
+	while len(aInput) > 1
+		nIndex = random(len(aInput)-1)
+		nIndex++
+		aOutput + aInput[nIndex]
+		del(aInput,nIndex)
+	end
+	aOutput + aInput[1]
+	return aOutput
+
+func pQuit
+	win.close()
 
 #===================================================================================#
