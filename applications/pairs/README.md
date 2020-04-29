@@ -9,6 +9,8 @@ Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/Mx4PSVsK
 
 	ring PairsGame.ring
 
-# Screen Shot
+# Screen Shots
 
 ![nimgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame.png)
+
+![nimgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame2.png)
