@@ -1,4 +1,5 @@
 aNews = [
+  ["April 30, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/pairs" target="_blank"> The Pairs Game </a>'],
   ["April 16, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank"> The Matching Game </a>'],
   ["April 9, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank"> The RockPaperScissors Game </a>'],
   ["March 31, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank"> The MoneyBoxes Game </a>'],
