@@ -106,10 +106,9 @@ func FunctionsTEChangedAction
 func ConvertBtnAction
 	oView{
 		# Prepare parameters 
-			classNameLE.setText(this.TrimAll(classNameLE.text()))
-			classParentLE.setText(this.TrimAll(classParentLE.text()))
-			# Add space after class parameters
-				classParaLE.setText(this.TrimAll(classParaLE.text()) + " ")
+			classNameLE.setText(Trim(classNameLE.text()))
+			classParentLE.setText(Trim(classParentLE.text()))
+			classParaLE.setText(Trim(classParaLE.text()))
 		QtcfHeaderOutputTE.setText("")
 		QtcfOutputTE.setText("")
 		QtEventsOutputTE.setText("")
@@ -388,7 +387,11 @@ Func pSignalsProcess aList
 			next
 			cClassPara = substr(list2str(cClassPara), NL, ",")
 		ok
-		cOutput = substr(cOutput, "<classparas>", NL + char(9) + char(9) + char(9) + ':initpara = "' + cClassPara + '",')
+		cOutput = substr(cOutput, "<classparas>", NL + char(9) + char(9)  +
+				 ':headerfile = "",' + NL + char(9) + char(9)  +
+				 ':initpara = "' + cClassPara + ' ",' + NL + char(9) + char(9) +
+				 ':initparaparent = "",' 
+			  )
 	else
 		cOutput = substr(cOutput, "<classparas>", "")
 	ok
