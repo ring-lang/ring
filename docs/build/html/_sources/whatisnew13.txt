@@ -137,8 +137,11 @@ Paris Game
 An implementation for the Pairs Game
 
 .. image:: pairsgame.png
-	:width: 500pt
-	:height: 400pt
+	:alt: Pairs Game
+
+Another screen shot
+
+.. image:: pairsgame2.png
 	:alt: Pairs Game
 
 .. index:: 
