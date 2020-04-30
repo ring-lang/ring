@@ -100,8 +100,8 @@
 					'<img src="fifteen3d.png" width="100%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/QtClassConverter" target="_blank">Qt Class Converter</a>',
-					'<img src="qtclassconverter.png" width="100%">'
+					'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
+					'<img src="qtconverter.png" width="100%">'
 				],
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/findinfiles" target="_blank">Find in files</a>',
