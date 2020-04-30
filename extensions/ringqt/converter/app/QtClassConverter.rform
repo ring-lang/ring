@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -699 , : y = -158  , 
+		 :x = 0 , : y = -158  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -266,7 +266,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label18" , :id = 20 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 111 , : y = 472  , 
+		 :x = 111 , : y = 462  , 
 		 :width =  67 , :height = 28 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -277,19 +277,19 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label9" , :id = 21 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 617 , : y = 178  , 
-		 :width =  240 , :height = 19 , 
+		 :x = 567 , : y = 178  , 
+		 :width =  300 , :height = 19 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
-		 :text =  "Output compatible with qt.cf file :",
+		 :text =  "Output compatible with qt.cf file : (Header File)",
 		 :textalign =  0
 		]
 	],
 	[ :name = "QtcfOutputTE" , :id = 22 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 295 , : y = 290  , 
-		 :width =  713 , :height = 110 , 
+		 :x = 295 , : y = 320  , 
+		 :width =  713 , :height = 130 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
@@ -305,7 +305,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label22" , :id = 23 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 597 , : y = 414  , 
+		 :x = 597 , : y = 464  , 
 		 :width =  310 , :height = 20 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -316,8 +316,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "QtEventsOutputTE" , :id = 24 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 295 , : y = 445  , 
-		 :width =  713 , :height = 170 , 
+		 :x = 295 , : y = 495  , 
+		 :width =  713 , :height = 120 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
@@ -356,8 +356,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "SignalsTE" , :id = 27 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 26 , : y = 506  , 
-		 :width =  254 , :height = 109 , 
+		 :x = 26 , : y = 496  , 
+		 :width =  254 , :height = 119 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
@@ -430,7 +430,7 @@ aObjectsList = [
 	],
 	[ :name = "StatusDeveloperName" , :id = 33 , :classname = "formdesigner_qstatusbar" , :data = [
 		 :x = 1118 , : y = 585  , 
-		 :width =  108 , :height = 13 , 
+		 :width =  108 , :height = 15 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -448,6 +448,17 @@ aObjectsList = [
 		 :text =  "Load (Test Data)",
 		 :BtnImage =  "",
 		 :setClickEvent =  "LoadTestDataBtnAction"
+		]
+	],
+	[ :name = "Label34" , :id = 36 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 557 , : y = 285  , 
+		 :width =  300 , :height = 19 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Output compatible with qt.cf file : (Class Methods)",
+		 :textalign =  0
 		]
 	]
 ]
