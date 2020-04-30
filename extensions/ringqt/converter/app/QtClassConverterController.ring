@@ -592,6 +592,10 @@ func openModuleFile
 			"Write the folder name after the module name" + nl )
 	ok
 
+func openEventsFile
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/events/qtevents_files.ring")
 
 
 func RunProcess cProgram,cArg

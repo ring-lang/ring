@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -670 , : y = -96  , 
+		 :x = -359 , : y = -96  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -490,7 +490,7 @@ aObjectsList = [
 		 :setundoAvailableEvent =  ""
 		]
 	],
-	[ :name = "Button5" , :id = 38 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ButtonOpenEnumFile" , :id = 38 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 980 , : y = 175  , 
 		 :width =  28 , :height = 30 , 
 		 :textcolor =  "black" , 
@@ -502,9 +502,9 @@ aObjectsList = [
 		 :setClickEvent =  "OpenEnumFile"
 		]
 	],
-	[ :name = "Button38" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ButtonOpenHeaderFile" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 608 , : y = 175  , 
-		 :width =  28 , :height = 30 , 
+		 :width =  24 , :height = 30 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -541,7 +541,7 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "Button41" , :id = 42 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ButtonOpenModuleFile" , :id = 42 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 980 , : y = 288  , 
 		 :width =  28 , :height = 30 , 
 		 :textcolor =  "black" , 
@@ -551,6 +551,18 @@ aObjectsList = [
 		 :text =  ":::",
 		 :BtnImage =  "",
 		 :setClickEvent =  "OpenModuleFile"
+		]
+	],
+	[ :name = "ButtonOpenEvents" , :id = 43 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 980 , : y = 458  , 
+		 :width =  28 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  ":::",
+		 :BtnImage =  "",
+		 :setClickEvent =  "OpenEventsFile"
 		]
 	]
 ]
