@@ -524,3 +524,5 @@ func LoadTestDataBtnAction
 	}
 
 
+func closeApplication
+	oView.win.close() 
