@@ -17,7 +17,7 @@
 	size1		= 6
 	size2		= 6
 	width		= 50
-	height	= 50
+	height		= 50
 	
 	xWidth		= 600
 	yHeight		= 600   
@@ -25,9 +25,9 @@
 	C_SPACING	= 1
 	C_FONTSIZE	= 15
 	
-	Pair1 	= 0
+	Pair1		= 0
 	Pair2		= 0
-	PairOld	= 0
+	PairOld		= 0
 	row1		= 0
 	row2		= 0
 	col1		= 0
@@ -38,8 +38,8 @@
 	time2		= 0
 	move		= 0
 	
-	C_EMPTY	= "images/empty.png"
-	C_COVER	= "images/cover.png"
+	C_EMPTY		= "images/empty.png"
+	C_COVER		= "images/cover.png"
 	C_P1		= "images/p1.png"
 	C_P2		= "images/p2.png"
 	C_P3		= "images/p3.png"
