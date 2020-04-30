@@ -568,12 +568,14 @@ func LoadTestDataBtnAction
 
 func openEnumFile
 
+	oView.qtcfEnumOutputTE { selectall() copy() }
 	RunProcess("notepad.exe",exefolder()+
 		   "../extensions/ringqt/classes/qt_enumtypes.cf")
 
 
 func openHeaderFile
 
+	oView.qtcfHeaderOutputTE { selectall() copy() }
 	RunProcess("notepad.exe",exefolder()+
 		   "../extensions/ringqt/classes/qt_headerfiles.cf")
 
