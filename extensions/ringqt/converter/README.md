@@ -1,5 +1,7 @@
 # Qt Class Converter for RingQt code generator
 
+![01](images/qtconverter.png)
+
 This is a nice tool that helps in implementation of new Qt classes into RingQt by converting Qt class functions prototype for easier and quicker implementation and building.
 
 This tool has been made to reduce pain for those who are new to the Ring Extension Code Generator and Qt framework specifications. So that, this tool will do most of the work, simply by some mouse clicks and basic understanding of Ring and RingQt building process.
@@ -93,4 +95,4 @@ To get a quick idea about the required input for the application
 	
 	* This will open qtevents_files.ring to add the new events file
 
-10. CLick "Open *.pro Files" to add the new class files to the project file
+10. Click "Open *.pro Files" to add the new class files to the project file
