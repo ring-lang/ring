@@ -84,10 +84,8 @@ func SignalsTEChangedAction
 func ClassNameLEChangedAction
 	oView{
 		if this.TrimAll(ClassNameLE.text()) = NULL
-			ClassParaL.setText("")
 			ClassCodeNameLE.setText("")
 		else
-			ClassParaL.setText("Parameters of first :  " + ClassNameLE.text() + "() Function")
 			if len(ClassNameLE.text()) > 2
 				ClassCodeNameLE.setText("G" + right(ClassNameLE.text(), len(ClassNameLE.text())-1) )
 			else
