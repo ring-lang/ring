@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 0 , : y = 0  , 
+		 :x = -325 , : y = -158  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -210,14 +210,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label6" , :id = 17 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 101 , : y = 173  , 
-		 :width =  117 , :height = 31 , 
+		 :x = 27 , : y = 175  , 
+		 :width =  254 , :height = 25 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Enums \ Flags ",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "EnumsFlagsTE" , :id = 18 , :classname = "formdesigner_qtextedit" , :data = [
@@ -238,14 +238,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label16" , :id = 19 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 62 , : y = 283  , 
-		 :width =  177 , :height = 31 , 
+		 :x = 26 , : y = 283  , 
+		 :width =  254 , :height = 31 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Public Functions \ Slots ",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "FunctionsTE" , :id = 20 , :classname = "formdesigner_qtextedit" , :data = [
@@ -266,25 +266,25 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label18" , :id = 21 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 111 , : y = 462  , 
-		 :width =  67 , :height = 28 , 
+		 :x = 26 , : y = 462  , 
+		 :width =  254 , :height = 28 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Signals ",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "Label9" , :id = 22 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 307 , : y = 185  , 
-		 :width =  280 , :height = 19 , 
+		 :x = 295 , : y = 175  , 
+		 :width =  342 , :height = 25 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Output compatible with qt.cf file : (Header File)",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "QtcfOutputTE" , :id = 23 , :classname = "formdesigner_qtextedit" , :data = [
@@ -305,14 +305,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label22" , :id = 24 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 597 , : y = 464  , 
-		 :width =  310 , :height = 20 , 
+		 :x = 295 , : y = 462  , 
+		 :width =  713 , :height = 28 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Output compatible with qtevents.ring file",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "QtEventsOutputTE" , :id = 25 , :classname = "formdesigner_qtextedit" , :data = [
@@ -451,14 +451,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label34" , :id = 35 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 557 , : y = 285  , 
-		 :width =  300 , :height = 19 , 
+		 :x = 295 , : y = 283  , 
+		 :width =  713 , :height = 31 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Output compatible with qt.cf file : (Class Methods)",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "ConvertBtn35" , :id = 36 , :classname = "formdesigner_qpushbutton" , :data = [
@@ -474,14 +474,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label36" , :id = 37 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 689 , : y = 185  , 
-		 :width =  280 , :height = 19 , 
+		 :x = 665 , : y = 175  , 
+		 :width =  343 , :height = 25 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Output compatible with qt.cf file : (Enum File)",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "QtcfEnumOutputTE" , :id = 38 , :classname = "formdesigner_qtextedit" , :data = [
