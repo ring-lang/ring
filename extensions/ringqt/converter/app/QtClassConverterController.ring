@@ -1,5 +1,6 @@
 # Application  : Qt Class Converter
 # Author       : Majdi Sobain <MajdiSobain@gmail.com>
+#	       : Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Form/Window Controller - Source Code File
 
@@ -488,6 +489,7 @@ Func pSignalsProcess aList
 func LoadTestDataBtnAction
 	oView {
 		moduleNameLE.setText("QtCharts")
+		folderNameLE.setText("charts")
 		classNameLE.setText("QChart")
 		classParentLE.setText("QGraphicsWidget")
 		classParaLE.setText("QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = Qt::WindowFlags()")

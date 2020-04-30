@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -544 , : y = 0  , 
+		 :x = -670 , : y = 0  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -35,8 +35,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame1" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1013 , : y = 6  , 
-		 :width =  224 , :height = 95 , 
+		 :x = 1013 , : y = 9  , 
+		 :width =  224 , :height = 192 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -391,18 +391,18 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Lablel29" , :id = 30 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 1052 , : y = 22  , 
-		 :width =  152 , :height = 21 , 
+		 :x = 1033 , : y = 32  , 
+		 :width =  184 , :height = 21 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Module Name (Optional)",
-		 :textalign =  0
+		 :textalign =  1
 		]
 	],
 	[ :name = "ModuleNameLE" , :id = 31 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 1036 , : y = 54  , 
+		 :x = 1033 , : y = 64  , 
 		 :width =  184 , :height = 32 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -424,7 +424,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
-		 :Message =  "By: Majdi Sobain"
+		 :Message =  "By: Majdi Sobain & Mahmoud Fayed"
 		]
 	],
 	[ :name = "ConvertBtn33" , :id = 33 , :classname = "formdesigner_qpushbutton" , :data = [
@@ -512,6 +512,33 @@ aObjectsList = [
 		 :text =  ":::",
 		 :BtnImage =  "",
 		 :setClickEvent =  "OpenHeaderFile"
+		]
+	],
+	[ :name = "Lablel39" , :id = 40 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 1033 , : y = 109  , 
+		 :width =  184 , :height = 21 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Folder Name (Optional)",
+		 :textalign =  1
+		]
+	],
+	[ :name = "FolderNameLE" , :id = 41 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 1033 , : y = 141  , 
+		 :width =  184 , :height = 32 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
 		]
 	]
 ]

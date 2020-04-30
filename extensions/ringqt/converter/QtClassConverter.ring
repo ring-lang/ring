@@ -1,5 +1,6 @@
-# Application  : Qt Class Converter
-# Author       : Majdi Sobain <MajdiSobain@gmail.com>
+# Application	: Qt Class Converter
+# Author	: Majdi Sobain <MajdiSobain@gmail.com>
+#		: Mahmoud Fayed <msfclipper@yahoo.com>
 
 load "app\QtClassConverterController.ring"
 
