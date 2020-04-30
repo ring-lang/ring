@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -544 , : y = 0  , 
+		 :x = -629 , : y = 0  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -14,14 +14,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Lablel1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 28 , : y = 14  , 
-		 :width =  92 , :height = 22 , 
+		 :x = 27 , : y = 14  , 
+		 :width =  144 , :height = 22 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Qt Class Name",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "Frame32" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
@@ -45,14 +45,14 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label2" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 690 , : y = 54  , 
+		 :x = 688 , : y = 54  , 
 		 :width =  114 , :height = 35 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Class Code Name",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "ClassNameLE" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
@@ -146,13 +146,13 @@ aObjectsList = [
 	],
 	[ :name = "Lablel10" , :id = 12 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 688 , : y = 14  , 
-		 :width =  92 , :height = 35 , 
+		 :width =  114 , :height = 35 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Qt Class Parent",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "ClassParentLE" , :id = 13 , :classname = "formdesigner_qlineedit" , :data = [
@@ -179,7 +179,7 @@ aObjectsList = [
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "Init Method Parameters",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "ClassParaLE" , :id = 15 , :classname = "formdesigner_qlineedit" , :data = [
