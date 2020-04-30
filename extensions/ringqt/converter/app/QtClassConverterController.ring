@@ -159,7 +159,14 @@ func pFunctionsProcess aList
 		ok
 	next
 
-	cOutput = "#include <" + cClassName + ">" 
+	# Support using the Module name 
+		cModuleName = TrimAll(oView.ModuleNameLE.text())
+		if cModuleName != NULL
+			cOutput = "#include <" + cModuleName + ">" 
+		else 
+			cOutput = "#include <" + cClassName + ">" 
+		ok
+
 	if oView.ClassCodeNameLE.IsEnabled()
 		cOutput = cOutput + nl + '#include "' + lower(oView.ClassCodeNameLE.text()) + '.h"'
 	ok
@@ -354,6 +361,13 @@ Func pSignalsProcess aList
 	cClassName = TrimAll(oView.ClassCodeNameLE.text())
 	cClassRealName = TrimAll(oView.ClassNameLE.text())
 
+	# Support using the Module name 
+		cModuleName = TrimAll(oView.ModuleNameLE.text())
+		if cModuleName != NULL
+			cClassRealName = cModuleName + "::" + cClassRealName
+		ok
+
+
 	for itr = len(aList) to 1 step -1
 		if TrimAll(left(aList[itr], substr(aList[itr], "(")-1)) = NULL
 			del(aList, itr)
@@ -388,7 +402,7 @@ Func pSignalsProcess aList
 			cClassPara = substr(list2str(cClassPara), NL, ",")
 		ok
 		cOutput = substr(cOutput, "<classparas>", NL + char(9) + char(9)  +
-				 ':headerfile = "",' + NL + char(9) + char(9)  +
+				 ':headerfile = "' + cModuleName + '",' + NL + char(9) + char(9)  +
 				 ':initpara = "' + cClassPara + ' ",' + NL + char(9) + char(9) +
 				 ':initparaparent = "",' 
 			  )
@@ -446,10 +460,11 @@ Func pSignalsProcess aList
 
 func LoadTestDataBtnAction
 	oView {
+		moduleNameLE.setText("QtCharts")
 		classNameLE.setText("QChart")
 		classParentLE.setText("QGraphicsWidget")
 		classParaLE.setText("QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = Qt::WindowFlags()")
-		classCodeNameLE.setText("")
+		classCodeNameLE.setText("GChart")
 		enumsFlagsTE.setText(SubStr("
 			enum 	AnimationOption { NoAnimation, GridAxisAnimations, SeriesAnimations, AllAnimations }
 			flags 	AnimationOptions
