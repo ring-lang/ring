@@ -70,3 +70,27 @@ To get a quick idea about the required input for the application
 
 	* ring/extensions/ringqt/classes/charts/qchart.cf  (For the class methods)
 	* ring/extensions/ringqt/events/charts/qchart.ring (For the class events)
+
+5. **The next steps could be automated by the tool in the future - But we keep these manual steps for better control** 
+
+6. Click ":::" button - After (Header File)
+
+	* This will copy the #include commands to the Clipboard
+	* Then will open qt_headerfiles.cf
+	* So we can add the header files (if it's not added before)
+
+7. Click ":::" button - After (Enum File)
+
+	* The will copy the code that update the aEnumTypes list to the Clipboard
+	* Then will open qt_enumtypes.cf
+	* So we can add the new code to the file 
+
+8. Click ":::" button - After (Class Methods)
+
+	* This will open qt_module_charts.cf to add the new class to the module file
+
+9. Click ":::" button - After (qtevents.ring)
+	
+	* This will open qtevents_files.ring to add the new events file
+
+10. CLick "Open *.pro Files" to add the new class files to the project file
