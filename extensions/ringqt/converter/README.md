@@ -54,7 +54,19 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 16. Click on "Open *.pro Files" to add the new files to the project
 
-17. Build the extension.
+17. Build the extension (And You Are Done  :smiley:)
 
-18. And You Are Done  :smiley:
+## Getting Started
 
+To get a quick idea about the required input for the application
+
+1. Open QtClassConverter application.
+
+2. Click "Load (Test Data)" - this will set the required input for the QChart class as an example
+
+3. Click "Convert" To see the required output
+
+4. Click "Write Class Files" to write the next files
+
+	ring/extensions/ringqt/classes/charts/qchart.cf		For the class methods
+	ring/extensions/ringqt/events/charts/qchart.ring	For the class events
