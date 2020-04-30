@@ -25,7 +25,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame32" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1013 , : y = 211  , 
+		 :x = 1014 , : y = 213  , 
 		 :width =  224 , :height = 402 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -333,7 +333,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn" , :id = 26 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1032 , : y = 287  , 
+		 :x = 1033 , : y = 295  , 
 		 :width =  185 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -362,7 +362,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn27" , :id = 28 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1032 , : y = 401  , 
+		 :x = 1033 , : y = 429  , 
 		 :width =  185 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -428,7 +428,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn33" , :id = 33 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1032 , : y = 230  , 
+		 :x = 1033 , : y = 228  , 
 		 :width =  185 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -451,7 +451,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn35" , :id = 35 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1032 , : y = 545  , 
+		 :x = 1033 , : y = 563  , 
 		 :width =  185 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -566,7 +566,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ConvertBtn43" , :id = 44 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1032 , : y = 344  , 
+		 :x = 1033 , : y = 362  , 
 		 :width =  185 , :height = 37 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -575,6 +575,18 @@ aObjectsList = [
 		 :text =  "Write Class Files",
 		 :BtnImage =  "",
 		 :setClickEvent =  "WriteClassFiles"
+		]
+	],
+	[ :name = "ConvertBtn44" , :id = 45 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1033 , : y = 496  , 
+		 :width =  185 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Open *.pro Files",
+		 :BtnImage =  "",
+		 :setClickEvent =  "OpenProFiles"
 		]
 	]
 ]

@@ -625,6 +625,17 @@ func openEventsFile
 	RunProcess("notepad.exe",exefolder()+
 		   "../extensions/ringqt/events/qtevents_files.ring")
 
+func openProFiles
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/android/ringqt/project/project.pro")
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/ring_qt512.pro")
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/ring_qt512_nobluetooth.pro")
+
 
 func RunProcess cProgram,cArg
 	aPara = split(cArg,",")
