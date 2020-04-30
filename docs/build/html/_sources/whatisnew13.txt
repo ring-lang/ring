@@ -224,6 +224,16 @@ Better RingQt
 * QHPieModelMapper
 * QHXYModelMapper
 	
+(2) Better QtConverter application
+
+This application is used for preparing Qt classes for the Ring Code Generator 
+
+Then using the Ring Code Generator we generate RingQt classes
+
+The application user interface is updated for better productivity!
+
+.. image:: qtconverter.png
+	:alt: QtConverter
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements
