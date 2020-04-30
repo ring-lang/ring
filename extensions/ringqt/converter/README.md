@@ -4,15 +4,13 @@ This is a nice tool that helps in implementation of new Qt classes into RingQt b
 
 This tool has been made to reduce pain for those who are new to the Ring Extension Code Generator and Qt framework specifications. So that, this tool will do most of the work, simply by some mouse clicks and basic understanding of Ring and RingQt building process.
 
-**Note:** This tool is a development continuation of ["QtClass2RingCodeGen"] and ["SetEvents2GetEvents"]
-
 ## Features
 
-1. Give all required code for RingQt code generator in one place.
+1. Give all required code for RingQt code generator
 
 2. Auto creation of class codename.
 
-3. Complete "qtevents.ring" class list creation.
+3. Complete "qtevents.ring" list creation.
 
 4. Auto apply numerical additions for the functions of the same name (overriding functions).
 
@@ -32,35 +30,15 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 4. Copy the class name from documentation page then paste it into "Class name" textbox in the application.
 
-![01](images/01.jpg)
-
-
 5. Copy class parent from documentation page, which could be found on the right side of "Inherits" word in the first table in the page, and paste it in the "Class parent" textbox of the application.
-
-![02](images/02.jpg)
-
 
 6. Copy parameters of the initialization function if present (the function that has the same name of the class), and paste it in the "Init method parameters" textbox. If there are more than one initialization function, just copy the parameters of the first one.
 
-![03](images/03.jpg)
-
-
 7. Copy enums and flags from documentation page and paste them into the "Enums \ Flags" textbox in the application.
-
-![04](images/04.jpg)
-
 
 8. Copy all public functions and slots from documentation page and paste them in the "Public Functions and Slots" textbox.
 
-![05](images/05.jpg)
-
-![06](images/06.jpg)
-
-
 9. Copy all signals from documentation page and paste them in the "Signals" textbox.
-
-![07](images/07.jpg)
-
 
 10. You can check "Pass VM Pointer" checkbox if you have some signals because it's almost always used if they are present.
 
@@ -70,13 +48,13 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 13. Click "Convert" button to get output.
 
-14. In the output textbox on the right side above. The first part above the line has to be copied and appended to included files list in "ringqt/classes/qt_headerfiles.cf" file. The output below line should be copied and append to a separate cf file in ringqt/classes folder. This cf file must be loaded from another cf file like ringqt/classes/qt_module_widgets.cf
+14. Click "Write Class Files"
 
-15. The next output textbox on the right side below, should be copied and appended to a new ring file in the "ringqt/events" folder. This new file must be loaded from the file ringqt/events/qtevents_files.ring 
+15. Click on each ":::" button to open the required file and add the required information
 
-16. Run the "gencode.bat" or "gencode.sh" to generate "ringqt" extension code with your new class included.
+16. Click on "Open *.pro Files" to add the new files to the project
 
-17. Build the extension. In case you want to build using "buildmingw32.bat" file you have to add filenames of new generated class "classcodename.cpp" and "classcodename.h" files into "ring_qt.pro" file (these files will only be generated if there's "codename" attribute in class definition). And be careful at adding ".cpp" filename that should be added before "ring_qt.cpp" line.
+17. Build the extension.
 
 18. And You Are Done  :smiley:
 
