@@ -401,10 +401,31 @@ Func pSignalsProcess aList
 			next
 			cClassPara = substr(list2str(cClassPara), NL, ",")
 		ok
+
+		# Process class parameters for events 
+			cInitParaParent = ""
+			cNewClassPara = ""
+			nCount = 0
+			for cLetter in cClassPara 
+				if cLetter = ","
+					nCount++
+					if nCount = 1
+						cNewExpr = "x,"
+					else 
+						cNewExpr = "x" + nCount + ","
+					ok
+					cNewClassPara   += cNewExpr
+					cInitParaParent += cNewExpr
+				else 
+					cNewClassPara += cLetter
+				ok
+			next 
+			cClassPara = cNewClassPara
+
 		cOutput = substr(cOutput, "<classparas>", NL + char(9) + char(9)  +
 				 ':headerfile = "' + cModuleName + '",' + NL + char(9) + char(9)  +
 				 ':initpara = "' + cClassPara + ' ",' + NL + char(9) + char(9) +
-				 ':initparaparent = "",' 
+				 ':initparaparent = "'+ cInitParaParent  +'",' 
 			  )
 	else
 		cOutput = substr(cOutput, "<classparas>", "")
