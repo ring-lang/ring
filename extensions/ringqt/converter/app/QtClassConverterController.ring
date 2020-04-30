@@ -566,6 +566,32 @@ func LoadTestDataBtnAction
 		qteventsOutputTE.settext("")
 	}
 
+func openEnumFile
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/classes/qt_enumtypes.cf")
+
+
+func openHeaderFile
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/classes/qt_headerfiles.cf")
+
+
+func RunProcess cProgram,cArg
+	aPara = split(cArg,",")
+	oStringList = new qStringlist() {
+		for cPara in aPara 
+			append(cPara)
+		next
+	}
+	oProcess = new qprocess(NULL) {
+		setprogram( cProgram)
+		setarguments(ostringlist)
+		start_3(  QIODevice_ReadWrite )
+	}
+	return oProcess
 
 func closeApplication
 	oView.win.close() 
+
