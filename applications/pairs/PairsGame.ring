@@ -247,7 +247,7 @@ func randomPairs
 			C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18
 		  ]
 	PairsList = randomList(PLIST)
-	randList	 = 1:len(PairsList)
+	randList  = 1:len(PairsList)
 	randList  = randomList(randList)
 
 	for n = 1 to size1
@@ -260,25 +260,18 @@ func randomPairs
 
 	for nr = 1 to limit
 		rand1 = random(len(randList)-1)+1
-
 		if len(randList) = 1
 			rand1 = 1
 		ok
-
 		rand2 = randList[rand1]
 		pairsNew = PairsList[nr]
-
 		row = pairsXY[rand1][1]
 		col = pairsXY[rand1][2]
-
 		Pairs[row][col] = pairsNew
-
 		Button[row][col].setenabled(true)
-		Button[row][col] { seticon(new qicon(new qpixmap(C_COVER)))   setIconSize(new qSize(100,100)) }
-
+		Button[row][col] { seticon(new qicon(new qpixmap(C_COVER))) setIconSize(new qSize(100,100)) }
 		del(PairsXY,rand1)
 		del(randList,rand1)
-
 	next
 	Pairs2 = Pairs
 
@@ -289,51 +282,40 @@ func pairsClick Row,Col
 		Pair1 = Pairs[Row][Col]    
 		row1 = Row
 		col1 = Col
-		Button[Row][Col]{	seticon(new qicon(new qpixmap(Pair1)))	setIconSize(new qSize(100,100))  }
-		
-      if (row2 > 0) and (col2 > 0) and (Pair2 != PairOld)
-			Button[row2][col2] {	seticon(new qicon(new qpixmap(C_COVER))) 	setIconSize(new qSize(100,100)) 	 } 
+		Button[Row][Col] { seticon(new qicon(new qpixmap(Pair1))) setIconSize(new qSize(100,100)) }
+		if (row2 > 0) and (col2 > 0) and (Pair2 != PairOld)
+			Button[row2][col2] { seticon(new qicon(new qpixmap(C_COVER))) setIconSize(new qSize(100,100)) } 
 		ok   
-
 		return
 	else
 		Pair2 = Pairs[Row][Col]
 		row2 = Row
 		col2 = Col
-
-		Button[Row][Col] { seticon(new qicon(new qpixmap(Pair2)))	setIconSize(new qSize(100,100))	 }
-
+		Button[Row][Col] { seticon(new qicon(new qpixmap(Pair2))) setIconSize(new qSize(100,100)) }
 		app.processevents()
-   	sleep(0.5)
-
-		Button[Row][Col] { seticon(new qicon(new qpixmap(C_COVER))) 	setIconSize(new qSize(100,100)) 	 }
+		sleep(0.5)
+		Button[Row][Col] { seticon(new qicon(new qpixmap(C_COVER))) setIconSize(new qSize(100,100)) }
 	ok
 
 	if (Pair1 = Pair2) and (click = 2) and not(row1=row2 and col1=col2)
 		PairOld = Pair1
-
-		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1)))	setIconSize(new qSize(100,100))	 }
-		Button[row2][col2] {	seticon(new qicon(new qpixmap(Pair2)))	setIconSize(new qSize(100,100)) 	 }
-
+		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1))) setIconSize(new qSize(100,100)) }
+		Button[row2][col2] { seticon(new qicon(new qpixmap(Pair2))) setIconSize(new qSize(100,100)) }
 		app.processevents()
 		sleep(0.5)
-
-		Button[row1][col1] {	seticon(new qicon(new qpixmap(C_EMPTY))) 	setIconSize(new qSize(100,100)) 	 }
-		Button[row2][col2] { seticon(new qicon(new qpixmap(C_EMPTY)))	setIconSize(new qSize(100,100))	 }
-		
-      Button[row1][col1].setenabled(false)
+		Button[row1][col1] { seticon(new qicon(new qpixmap(C_EMPTY))) setIconSize(new qSize(100,100)) }
+		Button[row2][col2] { seticon(new qicon(new qpixmap(C_EMPTY))) setIconSize(new qSize(100,100)) }
+		Button[row1][col1].setenabled(false)
 		Button[row2][col2].setenabled(false)
-
 		Pairs[row1][col1] = C_EMPTY
 		Pairs[row2][col2] = C_EMPTY
-
 		gameOver()
 	else
-		Button[row1][col1] {	seticon(new qicon(new qpixmap(C_COVER)))	setIconSize(new qSize(100,100)) 	 }
+		Button[row1][col1] { seticon(new qicon(new qpixmap(C_COVER))) setIconSize(new qSize(100,100)) }
 	ok
 
 	if (row1=row2) and (col1=col2)
-		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1)))	setIconSize(new qSize(100,100)) 	 }
+		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1))) setIconSize(new qSize(100,100)) }
 	ok
 
 	if click = 2
@@ -343,6 +325,7 @@ func pairsClick Row,Col
 	ok
 
 func gameOver
+
 	check = 0
 	for row = 1 to size1
 		for col = 1 to size2
@@ -354,34 +337,33 @@ func gameOver
 			ok
 		next
 	next
+
 	if check = 1
 		TimerMan.stop()
 		score++
 		labelNumScore.settext(string(score))
-
 		for Row = 1 to size1
 			for Col = 1 to size2
 				pairsOld = Pairs2[Row][Col]
-
-				Button[Row][Col] { setenabled(true)	seticon(new qicon(new qpixmap(pairsOld)))	setIconSize(new qSize(100,100)) }
+				Button[Row][Col] { setenabled(true) seticon(new qicon(new qpixmap(pairsOld))) setIconSize(new qSize(100,100)) }
 			next
 		next
 	ok
 
 func randomList aInput
-	aOutput = []
 
+	aOutput = []
 	while len(aInput) > 1
 		nIndex = random(len(aInput)-1)
 		nIndex++
 		aOutput + aInput[nIndex]
 		del(aInput,nIndex)
 	end
-
 	aOutput + aInput[1]
 	return aOutput
 
 func closeGame
+
 	win.close()
 
 #===================================================================================#
