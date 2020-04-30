@@ -276,11 +276,10 @@ func pFunctionsProcess aList
 	next
 
 	if len(aEnum)
-		cEnumOutput = "<runcode>"
+		cEnumOutput = ""
 		for cEnum in aEnum
-			cEnumOutput = cEnumOutput + nl + ' aEnumTypes + "' + cEnum + '"' 
+			cEnumOutput += ' aEnumTypes + "' + cEnum + '"' + nl
 		next
-		cEnumOutput = cEnumOutput + nl + "</runcode>"
 		oView.QtcfEnumOutputTE.setText(cEnumOutput)
 	ok
 
