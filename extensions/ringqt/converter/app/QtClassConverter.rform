@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -359 , : y = -96  , 
+		 :x = 0 , : y = -158  , 
 		 :width =  1263 , :height = 653 , 
 		 :title =  "Qt Class Converter for RingQt Code Generator" , 
 		 :backcolor =  "" , 
@@ -463,8 +463,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label36" , :id = 36 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 665 , : y = 175  , 
-		 :width =  343 , :height = 25 , 
+		 :x = 668 , : y = 175  , 
+		 :width =  340 , :height = 25 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
@@ -503,8 +503,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ButtonOpenHeaderFile" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 608 , : y = 175  , 
-		 :width =  24 , :height = 30 , 
+		 :x = 609 , : y = 174  , 
+		 :width =  28 , :height = 30 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -563,6 +563,18 @@ aObjectsList = [
 		 :text =  ":::",
 		 :BtnImage =  "",
 		 :setClickEvent =  "OpenEventsFile"
+		]
+	],
+	[ :name = "ConvertBtn43" , :id = 44 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1032 , : y = 410  , 
+		 :width =  185 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Write Class Files",
+		 :BtnImage =  "",
+		 :setClickEvent =  "WriteClassFiles"
 		]
 	]
 ]

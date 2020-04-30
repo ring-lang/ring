@@ -568,6 +568,34 @@ func LoadTestDataBtnAction
 		qteventsOutputTE.settext("")
 	}
 
+func WriteClassFiles
+
+	cFolder = TrimAll(oView.folderNameLE.text())
+	if cFolder = NULL 
+		msginfo("Sorry","Write the folder name after the module name")
+		return 
+	ok
+
+	cClassName = TrimAll(oView.classNameLE.text())
+	if cClassName = NULL 
+		msginfo("Sorry","Write the class name")
+		return 
+	ok
+
+	cClassFile = exefolder()+
+		   "../extensions/ringqt/classes/" + cFolder + "/" + 
+		   lower(cClassName) + ".cf"
+
+	cEventsFile = exefolder()+
+		   "../extensions/ringqt/events/" + cFolder + "/" + 
+		   lower(cClassName) + ".ring"
+
+	write(cClassFile,oView.QtcfOutputTE.toplaintext())
+	write(cEventsFile,oView.QteventsOutputTE.toplaintext())
+
+	msginfo("Writing Files","Opeartion done!")
+
+
 func openEnumFile
 
 	oView.qtcfEnumOutputTE { selectall() copy() }
@@ -589,7 +617,7 @@ func openModuleFile
 		RunProcess("notepad.exe",cFile)
 	else
 		msginfo("Sorry","Can't open the module file : " + cFile + nl +
-			"Write the folder name after the module name" + nl )
+			"Write the folder name after the module name")
 	ok
 
 func openEventsFile

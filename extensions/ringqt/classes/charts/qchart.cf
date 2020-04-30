@@ -6,7 +6,6 @@ codename: GChart
 passvmpointer
 </class>
 
-
 void addAxis(QAbstractAxis *axis, Qt::Alignment alignment)
 void addSeries(QAbstractSeries *series)
 int animationDuration(void)
@@ -22,7 +21,7 @@ bool isBackgroundVisible(void)
 bool isDropShadowEnabled(void)
 bool isPlotAreaBackgroundVisible(void)
 bool isZoomed(void)
-QLegend * legend(void)
+QLegend *legend(void)
 QLocale locale(void)
 bool localizeNumbers(void)
 QPointF mapToPosition(QPointF value, QAbstractSeries *series)
