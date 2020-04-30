@@ -444,5 +444,83 @@ Func pSignalsProcess aList
 		QtcfOutputTE.setText(QtcfOutputTE.toPlainText() + nl + nl + cSetEvents + nl + cGetEvents)
 	}
 
+func LoadTestDataBtnAction
+	oView {
+		classNameLE.setText("QChart")
+		classParentLE.setText("QGraphicsWidget")
+		classParaLE.setText("QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = Qt::WindowFlags()")
+		classCodeNameLE.setText("")
+		enumsFlagsTE.setText(SubStr("
+			enum 	AnimationOption { NoAnimation, GridAxisAnimations, SeriesAnimations, AllAnimations }
+			flags 	AnimationOptions
+			enum 	ChartTheme { ChartThemeLight, ChartThemeBlueCerulean, ChartThemeDark, ChartThemeBrownSand, ..., ChartThemeQt }
+			enum 	ChartType { ChartTypeUndefined, ChartTypeCartesian, ChartTypePolar }
+		",Tab,NULL))
+		functionsTE.setText(SubStr("
+			void 	addAxis(QAbstractAxis *axis, Qt::Alignment alignment)
+			void 	addSeries(QAbstractSeries *series)
+			int 	animationDuration() const
+			QEasingCurve 	animationEasingCurve() const
+			QChart::AnimationOptions 	animationOptions() const
+			QList<QAbstractAxis *> 	axes(Qt::Orientations orientation = Qt::Horizontal|Qt::Vertical, QAbstractSeries *series = nullptr) const
+			QBrush 	backgroundBrush() const
+			QPen 	backgroundPen() const
+			qreal 	backgroundRoundness() const
+			QChart::ChartType 	chartType() const
+			void 	createDefaultAxes()
+			bool 	isBackgroundVisible() const
+			bool 	isDropShadowEnabled() const
+			bool 	isPlotAreaBackgroundVisible() const
+			bool 	isZoomed()
+			QLegend *	legend() const
+			QLocale 	locale() const
+			bool 	localizeNumbers() const
+			QPointF 	mapToPosition(const QPointF &value, QAbstractSeries *series = nullptr)
+			QPointF 	mapToValue(const QPointF &position, QAbstractSeries *series = nullptr)
+			QMargins 	margins() const
+			QRectF 	plotArea() const
+			QBrush 	plotAreaBackgroundBrush() const
+			QPen 	plotAreaBackgroundPen() const
+			void 	removeAllSeries()
+			void 	removeAxis(QAbstractAxis *axis)
+			void 	removeSeries(QAbstractSeries *series)
+			void 	scroll(qreal dx, qreal dy)
+			QList<QAbstractSeries *> 	series() const
+			void 	setAnimationDuration(int msecs)
+			void 	setAnimationEasingCurve(const QEasingCurve &curve)
+			void 	setAnimationOptions(QChart::AnimationOptions options)
+			void 	setBackgroundBrush(const QBrush &brush)
+			void 	setBackgroundPen(const QPen &pen)
+			void 	setBackgroundRoundness(qreal diameter)
+			void 	setBackgroundVisible(bool visible = true)
+			void 	setDropShadowEnabled(bool enabled = true)
+			void 	setLocale(const QLocale &locale)
+			void 	setLocalizeNumbers(bool localize)
+			void 	setMargins(const QMargins &margins)
+			void 	setPlotArea(const QRectF &rect)
+			void 	setPlotAreaBackgroundBrush(const QBrush &brush)
+			void 	setPlotAreaBackgroundPen(const QPen &pen)
+			void 	setPlotAreaBackgroundVisible(bool visible = true)
+			void 	setTheme(QChart::ChartTheme theme)
+			void 	setTitle(const QString &title)
+			void 	setTitleBrush(const QBrush &brush)
+			void 	setTitleFont(const QFont &font)
+			QChart::ChartTheme 	theme() const
+			QString 	title() const
+			QBrush 	titleBrush() const
+			QFont 	titleFont() const
+			void 	zoom(qreal factor)
+			void 	zoomIn()
+			void 	zoomIn(const QRectF &rect)
+			void 	zoomOut()
+			void 	zoomReset()
+		",Tab,NULL))
+		signalsTE.setText(SubStr("
+			void 	plotAreaChanged(const QRectF &plotArea)
+		",Tab,NULL))
+		qtcfHeaderOutputTE.setText("")
+		qtcfOutputTE.setText("")
+		qteventsOutputTE.settext("")
+	}
 
 
