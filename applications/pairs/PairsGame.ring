@@ -345,7 +345,11 @@ func gameOver
 		for Row = 1 to size1
 			for Col = 1 to size2
 				pairsOld = Pairs2[Row][Col]
-				Button[Row][Col] { setenabled(true) seticon(new qicon(new qpixmap(pairsOld))) setIconSize(new qSize(100,100)) }
+				Button[Row][Col] { 
+					setenabled(true) 
+					seticon(new qicon(new qpixmap(pairsOld))) 
+					setIconSize(new qSize(100,100)) 
+				}
 			next
 		next
 	ok
