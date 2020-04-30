@@ -581,6 +581,18 @@ func openHeaderFile
 	RunProcess("notepad.exe",exefolder()+
 		   "../extensions/ringqt/classes/qt_headerfiles.cf")
 
+func openModuleFile
+
+	cFile = exefolder()+"../extensions/ringqt/classes/qt_module_"+
+		oView.folderNameLE.text()+".cf"
+	if fexists(cFile)
+		RunProcess("notepad.exe",cFile)
+	else
+		msginfo("Sorry","Can't open the module file : " + cFile + nl +
+			"Write the folder name after the module name" + nl )
+	ok
+
+
 
 func RunProcess cProgram,cArg
 	aPara = split(cArg,",")
