@@ -68,5 +68,5 @@ To get a quick idea about the required input for the application
 
 4. Click "Write Class Files" to write the next files
 
-	ring/extensions/ringqt/classes/charts/qchart.cf		For the class methods
-	ring/extensions/ringqt/events/charts/qchart.ring	For the class events
+	* ring/extensions/ringqt/classes/charts/qchart.cf  (For the class methods)
+	* ring/extensions/ringqt/events/charts/qchart.ring (For the class events)
