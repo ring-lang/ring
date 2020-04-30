@@ -22,42 +22,6 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 7. Delete unnecessary functions automatically (initialization and delete functions, and operators functions).
 
-## How to Use
-
-1. **Be sure that the class you want to be added is not already present in RingQt**.
-
-2. Open QtClassConverter application.
-
-3. Search for Qt Class that is needed to be added, and open its documentation page.
-
-4. Copy the class name from documentation page then paste it into "Class name" textbox in the application.
-
-5. Copy class parent from documentation page, which could be found on the right side of "Inherits" word in the first table in the page, and paste it in the "Class parent" textbox of the application.
-
-6. Copy parameters of the initialization function if present (the function that has the same name of the class), and paste it in the "Init method parameters" textbox. If there are more than one initialization function, just copy the parameters of the first one.
-
-7. Copy enums and flags from documentation page and paste them into the "Enums \ Flags" textbox in the application.
-
-8. Copy all public functions and slots from documentation page and paste them in the "Public Functions and Slots" textbox.
-
-9. Copy all signals from documentation page and paste them in the "Signals" textbox.
-
-10. You can check "Pass VM Pointer" checkbox if you have some signals because it's almost always used if they are present.
-
-11. If the class that you want to convert does not need to be initialized, just check "No New" type from the class types above.
-
-12. If the class that you want to convert is abstract class check "Abstract" type from the class type selection. To know whether the class is abstract or not you can easily figure it out if the class name contain "abstract" word, or you can discover that from reading the detailed description of the class.
-
-13. Click "Convert" button to get output.
-
-14. Click "Write Class Files"
-
-15. Click on each ":::" button to open the required file and add the required information
-
-16. Click on "Open *.pro Files" to add the new files to the project
-
-17. Build the extension (And You Are Done  :smiley:)
-
 ## Getting Started
 
 To get a quick idea about the required input for the application
@@ -96,3 +60,39 @@ To get a quick idea about the required input for the application
 	* This will open qtevents_files.ring to add the new events file
 
 10. Click "Open *.pro Files" to add the new class files to the project file
+
+## How to Use
+
+1. **Be sure that the class you want to be added is not already present in RingQt**.
+
+2. Open QtClassConverter application.
+
+3. Search for Qt Class that is needed to be added, and open its documentation page.
+
+4. Copy the class name from documentation page then paste it into "Class name" textbox in the application.
+
+5. Copy class parent from documentation page, which could be found on the right side of "Inherits" word in the first table in the page, and paste it in the "Class parent" textbox of the application.
+
+6. Copy parameters of the initialization function if present (the function that has the same name of the class), and paste it in the "Init method parameters" textbox. If there are more than one initialization function, just copy the parameters of the first one.
+
+7. Copy enums and flags from documentation page and paste them into the "Enums \ Flags" textbox in the application.
+
+8. Copy all public functions and slots from documentation page and paste them in the "Public Functions and Slots" textbox.
+
+9. Copy all signals from documentation page and paste them in the "Signals" textbox.
+
+10. You can check "Pass VM Pointer" checkbox if you have some signals because it's almost always used if they are present.
+
+11. If the class that you want to convert does not need to be initialized, just check "No New" type from the class types above.
+
+12. If the class that you want to convert is abstract class check "Abstract" type from the class type selection. To know whether the class is abstract or not you can easily figure it out if the class name contain "abstract" word, or you can discover that from reading the detailed description of the class.
+
+13. Click "Convert" button to get output.
+
+14. Click "Write Class Files"
+
+15. Click on each ":::" button to open the required file and add the required information
+
+16. Click on "Open *.pro Files" to add the new files to the project
+
+17. Build the extension (And You Are Done  :smiley:)
