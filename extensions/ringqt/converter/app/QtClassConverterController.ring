@@ -27,9 +27,11 @@ func PrepareMainWindow
 		ClassCodeNameLE.setEnabled(False)
 		QtEventsOutputTE.SetEnabled(False)
 		QtcfHeaderOutputTE.SetEnabled(False)
+		QtcfEnumOutputTE.SetEnabled(False)
 		QtcfOutputTE.SetEnabled(False)
 		QtEventsOutputTE.setAcceptRichText(False)
 		QtcfHeaderOutputTE.setAcceptRichText(False)
+		QtcfEnumOutputTE.setAcceptRichText(False)
 		QtcfOutputTE.setAcceptRichText(False)
 		SignalsTE.setAcceptRichText(False)
 		EnumsFlagsTE.setAcceptRichText(False)
@@ -65,12 +67,14 @@ func SignalsTEChangedAction
 			PassVMPointerCB.SetChecked(False)
 			if this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL and this.TrimAll(FunctionsTE.toPlaintext()) = NULL
 				QtcfHeaderOutputTE.SetEnabled(False)
+				QtcfEnumOutputTE.SetEnabled(False)
 				QtcfOutputTE.SetEnabled(False)
 			ok
 		else
 			ClassCodeNameLE.SetEnabled(True)
 			QtEventsOutputTE.SetEnabled(True)
 			QtcfHeaderOutputTE.SetEnabled(True)
+			QtcfEnumOutputTE.SetEnabled(True)
 			QtcfOutputTE.SetEnabled(True)
 			PassVMPointerCB.SetEnabled(True)
 			PassVMPointerCB.SetChecked(True)
@@ -96,9 +100,11 @@ func FunctionsTEChangedAction
 	oView {
 		if this.TrimAll(FunctionsTE.toPlaintext()) = NULL And this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL 
 			QtcfHeaderOutputTE.SetEnabled(False)
+			QtcfEnumOutputTE.SetEnabled(False)
 			QtcfOutputTE.SetEnabled(False)
 		else
 			QtcfHeaderOutputTE.SetEnabled(True)
+			QtcfEnumOutputTE.SetEnabled(True)
 			QtcfOutputTE.SetEnabled(True)
 		ok
 	}
@@ -110,6 +116,7 @@ func ConvertBtnAction
 			classParentLE.setText(Trim(classParentLE.text()))
 			classParaLE.setText(Trim(classParaLE.text()))
 		QtcfHeaderOutputTE.setText("")
+		QtcfEnumOutputTE.setText("")
 		QtcfOutputTE.setText("")
 		QtEventsOutputTE.setText("")
 		cStr1 = ""
@@ -136,6 +143,7 @@ func ClearBtnAction
 		functionsTE.setText("")
 		signalsTE.setText("")
 		qtcfHeaderOutputTE.setText("")
+		qtcfEnumOutputTE.setText("")
 		qtcfOutputTE.setText("")
 		qteventsOutputTE.settext("")
 	}
@@ -219,7 +227,7 @@ func pFunctionsProcess aList
 		cOutput = cOutput + nl + "passvmpointer"
 	ok
 
-	cOutput = cOutput + nl + "</class>" + nl + nl
+	cOutput = cOutput + nl + "</class>" 
 
 	for cLine in aList
 		cLine = trim(cLine)
@@ -268,11 +276,12 @@ func pFunctionsProcess aList
 	next
 
 	if len(aEnum)
-		cOutput = cOutput + nl + "<runcode>"
+		cEnumOutput = "<runcode>"
 		for cEnum in aEnum
-			cOutput = cOutput + nl + ' aEnumTypes + "' + cEnum + '"' 
+			cEnumOutput = cEnumOutput + nl + ' aEnumTypes + "' + cEnum + '"' 
 		next
-		cOutput = cOutput + nl + "</runcode>"
+		cEnumOutput = cEnumOutput + nl + "</runcode>"
+		oView.QtcfEnumOutputTE.setText(cEnumOutput)
 	ok
 
 	for i = 1 to Len(aFunctions)
@@ -555,6 +564,7 @@ func LoadTestDataBtnAction
 			void 	plotAreaChanged(const QRectF &plotArea)
 		",Tab,NULL))
 		qtcfHeaderOutputTE.setText("")
+		qtcfEnumOutputTE.setText("")
 		qtcfOutputTE.setText("")
 		qteventsOutputTE.settext("")
 	}
