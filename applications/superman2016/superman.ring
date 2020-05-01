@@ -441,19 +441,14 @@ func showfire oGame,nX,nY
 			y = nY
 			framewidth = 40
 			height = 42
-			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
 				oSelf {
-					nStep--
-					if nStep = 0
-						nStep = 3
-						if frame < 13
-							frame++
-						else
-							frame=1
-							oGame.remove(oself.nIndex)
-						ok
+					if frame < 13
+						frame++
+					else
+						frame=1
+						oGame.remove(oself.nIndex)
 					ok
 				}
 			}
