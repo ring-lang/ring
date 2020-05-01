@@ -1,16 +1,20 @@
 load "guilib.ring"
 
-new qApp {
-	w = new qMainWIndow() {
+new QApp {
+	oDesktop = new QDesktopWidget()
+	w = new QWidget() {
 		setWindowTitle("Using QML")  
 		oQuick = new qQuickWidget(w) {
-			setSource(new qURL("qrc:///hello.qml") )
-			show()
+			setSource(new QUrl(AppFile("hello.qml")) )
 			QQuickWidget_SizeRootObjectToView = 1
 			setResizeMode(QQuickWidget_SizeRootObjectToView)
-			setGeometry(0,0,1300,1300)
-		}		
-		show()
+			show()
+		}	
+		oLayout = new QVBoxlayout() {
+			AddWidget(oQuick)
+		}
+		setLayout(oLayout)	
+		showMaximized()
 	}
 	exec()
 }
