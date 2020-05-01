@@ -912,7 +912,6 @@ class RNoteMainWindow
 	func CreateWebBrowser
 		win1 {
 			this.oWebBrowser = new qWidget() {
-				setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
 				setWindowFlags(Qt_SubWindow)
 				oWBLabel = new qLabel(this.win1) {
 					setText("Website: ")
