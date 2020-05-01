@@ -264,6 +264,7 @@ More Improvements
 * Form Designer - ToolBox - Larger width in Windows style  
 * Form Designer - ToolBar - New icon for the (Select Objects) button
 * Gold Magic 800 - Level Editor - Decrease the window size 
+* Super Man 2016 - Increase speed of (Game Over) message animation
 * Game Engine - Game Class - Icon property (set the window icon)
 * Set the window icon for many games developed using the Ring game engine
 * Type Hints library - Better Code
