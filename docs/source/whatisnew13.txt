@@ -260,7 +260,9 @@ More Improvements
 * Ring Notepad - View Menu - Source Code (Full Screen)
 * Ring Notepad - Keyboard shortcuts for different styles
 * Ring Notepad - Support saving files in folders contains the dot character
+* Ring Notepad - Browser Window - Set colors based on the current style
 * Form Designer - ToolBox - Larger width in Windows style  
+* Form Designer - ToolBar - New icon for the (Select Objects) button
 * Gold Magic 800 - Level Editor - Decrease the window size 
 * Game Engine - Game Class - Icon property (set the window icon)
 * Set the window icon for many games developed using the Ring game engine
